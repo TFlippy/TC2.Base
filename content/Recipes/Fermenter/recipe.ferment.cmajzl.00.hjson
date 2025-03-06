@@ -26,7 +26,7 @@
 					name: "<TODO>"
 					
 					type: undefined
-					flags: wip
+					flags: wip, incomplete
 					
 					requirements:
 					[
@@ -38,6 +38,7 @@
 							falloff: 0.691
 							loss: 0.063
 							group: 0
+							flags: none
 						}
 						{
 							type: resource
@@ -47,17 +48,24 @@
 							falloff: 0.881
 							loss: 0.075
 							group: 0
+							flags: none
 						}
 						{
 							type: work
 							work: fermenting
 							amount: 120.000
+							amount_min: 100.000
 							difficulty: 4
-							snapping: 25.000
-							group: 0
+							snapping: 15.000
+							falloff: 0.845
+							group: 1
 							flags: conditional
 						}
 					]
+					
+					start_delay: 0.500
+					advance_delay: 0.500
+					complete_delay: 0.500
 					
 					filter_tools:
 					{
@@ -73,6 +81,18 @@
 						include: warm, stationary, contaminated, polluted, smelly, ugly, scary
 						exclude: cold, disinfected, sterile, toxic
 					}
+				}
+			]
+			
+			products:
+			[
+				{
+					type: resource
+					material: vinegar
+					amount: 8.300
+					amount_extra: 3.900
+					group: 0
+					flags: primary
 				}
 			]
 		}
@@ -93,7 +113,7 @@
 					name: "<TODO>"
 					
 					type: undefined
-					flags: wip
+					flags: wip, incomplete
 					
 					requirements:
 					[
@@ -105,9 +125,24 @@
 							falloff: 0.881
 							loss: 0.075
 							group: 0
-							flags: prerequisite
+							flags: none
 						}
 					]
+				}
+			]
+			
+			requirements:
+			[
+				{
+					type: work
+					work: mashing
+					amount: 75.000
+					amount_min: 50.000
+					difficulty: 0
+					snapping: 15.000
+					falloff: 0.842
+					group: 0
+					flags: conditional
 				}
 			]
 		}
@@ -125,7 +160,7 @@
 	]
 	
 	type: fermenter
-	flags: production, wip, auto_complete, converted
+	flags: production, ignore_tools, wip, auto_complete, converted
 	tags: simple, medium, organic, agriculture, fermenting, processing, messy
 	infrastructure: none
 	
@@ -160,6 +195,9 @@
 	min: 1
 	max: 25
 	step: 1
+	
+	h_sound_begin: effect.bubbles.muffled.00
+	h_sound_complete: effect.flush.slimy.00
 	
 	version: 1
 }

@@ -12,7 +12,7 @@
 		{
 			name: "Base Formula"
 			
-			type: processing
+			type: ingredients
 			flags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
@@ -90,6 +90,15 @@
 							flags: byproduct, secondary
 						}
 					]
+					
+					filter_tools:
+					{
+						include: bucket, spatula
+					}
+					filter_environment:
+					{
+						include: stationary, quiet
+					}
 				}
 				{
 					name: "Dr.Braun's Cream"
@@ -194,6 +203,11 @@
 							flags: waste
 						}
 					]
+					
+					filter_tools:
+					{
+						include: bucket, spatula
+					}
 				}
 			]
 		}
@@ -316,7 +330,7 @@
 							material: sawdust
 							amount: 8.000
 							snapping: 0.500
-							loss: 0.086
+							loss: 0.078
 							group: 0
 							flags: prerequisite
 						}
@@ -404,6 +418,11 @@
 							flags: conditional
 						}
 					]
+					
+					filter_tools:
+					{
+						include: spatula
+					}
 				}
 				{
 					name: "Benzene"
@@ -435,6 +454,19 @@
 							flags: conditional
 						}
 					]
+					
+					filter_tools:
+					{
+						include: shovel, spatula
+					}
+					filter_machinery:
+					{
+						include: blender, mixer
+					}
+					filter_infrastructure:
+					{
+						include: liquid_container
+					}
 				}
 			]
 		}

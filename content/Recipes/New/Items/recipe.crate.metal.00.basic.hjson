@@ -31,7 +31,7 @@
 							material: steel.frames
 							amount: 6.98666
 							snapping: 0.500
-							loss: 0.035
+							loss: 0.027
 							group: 0
 							flags: prerequisite
 						}
@@ -40,7 +40,7 @@
 							material: machine_parts
 							amount: 2.794664
 							snapping: 0.500
-							loss: 0.035
+							loss: 0.027
 							group: 0
 							flags: prerequisite
 						}
@@ -57,23 +57,13 @@
 						}
 					]
 					
-					products: []
-					
 					filter_tools:
 					{
 						require: screwdriver
 						include: screwdriver, wrench, spanner, pliers, towel
 					}
-					filter_infrastructure:
-					{
-						include: table, chair, vise, rack
-					}
 				}
 			]
-			
-			requirements: []
-			
-			products: []
 		}
 		{
 			name: "Sheathing"
@@ -106,14 +96,8 @@
 							flags: prerequisite
 						}
 					]
-					
-					products: []
 				}
 			]
-			
-			requirements: []
-			
-			products: []
 		}
 		{
 			name: "Assembly"
@@ -139,7 +123,7 @@
 						{
 							type: resource
 							material: glue
-							amount: 3.736729
+							amount: 3.126493
 							snapping: 0.500
 							falloff: 0.950
 							group: 0
@@ -157,16 +141,9 @@
 						}
 					]
 					
-					products: []
-					
 					filter_tools:
 					{
 						include: paintbrush, file
-					}
-					filter_infrastructure:
-					{
-						require: table
-						include: chair, vise, rack
 					}
 					filter_environment:
 					{
@@ -184,15 +161,11 @@
 					snapping: 0.100
 					loss: 0.122
 					group: 0
-					flags: locked
+					flags: prerequisite, locked
 				}
 			]
-			
-			products: []
 		}
 	]
-	
-	requirements: []
 	
 	products:
 	[
@@ -205,13 +178,10 @@
 		}
 	]
 	
-	requirements_old: []
-	
-	products_old: []
-	
 	type: workshop
 	flags: no_amount_multiplier, blueprintable, item
 	tags: workbench, manual, simple, assembling, metalworking, carpentry, construction
+	infrastructure: none
 	
 	icon:
 	{
@@ -220,6 +190,7 @@
 	icon_offset: [0.000, 5.000]
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	button_name: "Craft"
 	rank: -5.000
 	
@@ -227,5 +198,5 @@
 	max: 1
 	step: 1
 	
-	version: 0
+	version: 1
 }

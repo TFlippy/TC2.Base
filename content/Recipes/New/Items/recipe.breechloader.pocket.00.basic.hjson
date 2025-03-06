@@ -272,6 +272,7 @@
 					amount: 0.120
 					snapping: 0.100
 					group: 0
+					flags: prerequisite
 				}
 			]
 		}
