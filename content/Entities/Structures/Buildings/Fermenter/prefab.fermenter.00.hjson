@@ -98,8 +98,8 @@ crafter:
 	spawn_offset: [-0.125, -1.000]
 
 	@inventory4:
-	{	
-		type: input_output
+	{
+		type: workshop
 		flags: standalone, allow_ducts, no_auto_pickup
 		stack_size_multiplier: 2.000
 		

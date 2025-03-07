@@ -1425,7 +1425,7 @@ namespace TC2.Base.Components
 						Placement.Type.Rectangle => AABB.Centered(pos, placement.size),
 						Placement.Type.Circle => AABB.Circle(pos, placement.radius),
 						//Placement.Type.Line => AABB.LineSnapped(pos_a, pos_b, placement.size.X).Snap(0.125f),
-						Placement.Type.Line => AABB.Line(pos_a, pos_b, placement.size.X).SnapCeil(0.125f), //.SnapCentered(0.125f),
+						Placement.Type.Line => AABB.Line(pos_a, pos_b, placement.size.X), //.SnapCentered(0.125f),
 						Placement.Type.Simple => AABB.Centered(pos_final, placement.size),
 						_ => AABB.Centered(pos, placement.size)
 					};

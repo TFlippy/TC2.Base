@@ -38,7 +38,6 @@
 							falloff: 0.691
 							loss: 0.063
 							group: 0
-							flags: none
 						}
 						{
 							type: resource
@@ -48,7 +47,6 @@
 							falloff: 0.881
 							loss: 0.075
 							group: 0
-							flags: none
 						}
 						{
 							type: work
@@ -125,9 +123,11 @@
 							falloff: 0.881
 							loss: 0.075
 							group: 0
-							flags: none
 						}
 					]
+					
+					advance_delay: 0.500
+					complete_delay: 0.500
 				}
 			]
 			
@@ -138,7 +138,7 @@
 					work: mashing
 					amount: 75.000
 					amount_min: 50.000
-					difficulty: 0
+					difficulty: 8
 					snapping: 15.000
 					falloff: 0.842
 					group: 0

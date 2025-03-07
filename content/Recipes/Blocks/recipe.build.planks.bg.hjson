@@ -62,7 +62,7 @@
 		sound: wood_place_0
 		
 		snapping_flags: snap_to_surface, align_to_surface, use_raw_collider
-		snapping_radius: 0.500
+		snapping_radius: 0.125
 		
 		mappings_replace:
 		{
