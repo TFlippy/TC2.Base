@@ -31,8 +31,14 @@ animated.renderer:
 	sprite:
 	{
 		texture: atlas.construction.00
+		mask: atlas.construction.00.mask
 	}
 	z: -300.000
+}
+
+faction.colorable:
+{
+
 }
 
 faction:
