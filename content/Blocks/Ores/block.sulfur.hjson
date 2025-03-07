@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.62.0"
 	name: "Native Sulfur"
 	desc:
 		'''
@@ -8,26 +8,26 @@
 	
 	material_type: chalk
 	tile_flags: non_empty
-	flags: raw, ore, uncommon, mineral
+	flags: raw, ore, rare, native
 	
-	max_health: 14000.000
-	
+	max_health: 9700.000
 	smoothing: 0.180
-	mass: 1.000
-	friction: 0.780
-	elasticity: 0.050
 	stability: 0.500
 	strength_tensile: 0.000
 	strength_compressive: 0.000
+	
+	mass: 1.000
+	friction: 0.780
+	elasticity: 0.050
 	collision_layer: none
 	collision_mask: none
 	
 	texture: terrain.sulfur
 	pattern: pattern.stone
-	
 	texture_scale: 1.100
 	texture_overshoot: -0.250
 	texture_offset: 0.000
+	
 	color_preview: "0xffffd6ac"
 	color_fill: "0xff140e08"
 	
@@ -45,7 +45,6 @@
 		{
 			color: "0xffcdcd24"
 			tile_flags: solid, non_empty, ground, no_replace
-			meta: 0
 		}
 	]
 }

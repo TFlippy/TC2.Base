@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.62.0"
 	name: "Krakatite"
 	desc:
 		'''
@@ -11,24 +11,24 @@
 	tile_flags: non_empty
 	flags: raw, ore, common, mineral
 	
-	max_health: 18000.000
-	
+	max_health: 22000.000
 	smoothing: 0.130
-	mass: 3.000
-	friction: 0.500
-	elasticity: 0.360
 	stability: 6.140
 	strength_tensile: 4.800
 	strength_compressive: 21.000
+	
+	mass: 3.000
+	friction: 0.500
+	elasticity: 0.360
 	collision_layer: none
 	collision_mask: none
 	
 	texture: terrain.rock.krakatite
 	pattern: pattern.stone
-	
 	texture_scale: 1.500
 	texture_overshoot: -0.650
 	texture_offset: 0.000
+	
 	color_preview: "0xff80775f"
 	color_fill: "0xff140e08"
 	
@@ -46,7 +46,6 @@
 		{
 			color: "0xff917d54"
 			tile_flags: solid, non_empty, become_background_on_break, ground, no_replace
-			meta: 0
 		}
 	]
 }

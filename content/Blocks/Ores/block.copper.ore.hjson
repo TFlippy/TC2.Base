@@ -8,26 +8,26 @@
 	
 	material_type: stone_metallic
 	tile_flags: non_empty
-	flags: raw, ore, uncommon, mineral, native
+	flags: raw, ore, uncommon, native
 	
 	max_health: 30000.000
-	
 	smoothing: 0.150
-	mass: 2.700
-	friction: 0.900
-	elasticity: 0.300
 	stability: 5.140
 	strength_tensile: 4.800
 	strength_compressive: 21.000
+	
+	mass: 2.700
+	friction: 0.900
+	elasticity: 0.300
 	collision_layer: none
 	collision_mask: none
 	
 	texture: terrain.copper.ore
 	pattern: pattern.stone
-	
 	texture_scale: 1.040
 	texture_overshoot: -0.600
 	texture_offset: 0.250
+	
 	color_preview: "0xffff3a00"
 	color_fill: "0xff140e08"
 	

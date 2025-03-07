@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.62.0"
 	name: "Grass"
 	desc:
 		'''
@@ -10,24 +10,24 @@
 	tile_flags: non_empty
 	flags: raw
 	
-	max_health: 3200.000
-	
+	max_health: 5800.000
 	smoothing: 0.200
-	mass: 5.000
-	friction: 0.900
-	elasticity: 0.310
 	stability: 0.500
 	strength_tensile: 0.000
 	strength_compressive: 0.000
+	
+	mass: 5.000
+	friction: 0.900
+	elasticity: 0.310
 	collision_layer: none
 	collision_mask: none
 	
 	texture: terrain.grass.00
 	pattern: pattern.soil
-	
 	texture_scale: 1.892
-	texture_overshoot: -1.350
+	texture_overshoot: -1.450
 	texture_offset: 0.100
+	
 	color_preview: "0x00000000"
 	color_fill: "0xff140e08"
 	
@@ -45,7 +45,6 @@
 		{
 			color: "0xff596917"
 			tile_flags: solid, non_empty, ground, no_replace
-			meta: 0
 		}
 	]
 }

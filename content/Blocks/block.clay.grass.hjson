@@ -1,50 +1,43 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.62.0"
 	name: "Clay (Grassy)"
 	desc:
 		'''
-		Grey, grassy clay, perfect for bricks.
+		Gray, grassy clay, perfect for bricks.
 		'''
-	
-	icon:
-	{
-		texture: "missing"
-	}
 	
 	material_type: clay
 	tile_flags: non_empty
 	flags: raw
 	
-	max_health: 6400.000
-	
+	max_health: 5400.000
 	smoothing: 0.200
-	mass: 5.000
-	friction: 0.800
-	elasticity: 0.190
 	stability: 0.800
 	strength_tensile: 0.000
 	strength_compressive: 0.000
+	
+	mass: 5.000
+	friction: 0.550
+	elasticity: 0.190
 	collision_layer: none
 	collision_mask: none
 	
-	texture: "terrain.clay.grass"
-	pattern: "pattern.soil"
-	
+	texture: terrain.clay.grass
+	pattern: pattern.soil
 	texture_scale: 1.800
 	texture_overshoot: -0.750
 	texture_offset: 0.000
+	
 	color_preview: "0xff90a435"
 	color_fill: "0xff140e08"
 	
 	resources:
 	[
 		{
-			material: "clay"
+			material: clay
 			quantity: 0.700
 		}
-		{
-		
-		}
+		null
 	]
 	
 	mappings:
@@ -52,7 +45,6 @@
 		{
 			color: "0xff90a435"
 			tile_flags: solid, non_empty, ground, no_replace
-			meta: 0
 		}
 	]
 }

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.62.0"
 	name: "Native Iron"
 	desc:
 		'''
@@ -8,26 +8,26 @@
 	
 	material_type: metal_solid
 	tile_flags: non_empty
-	flags: raw, ore, rare, mineral
+	flags: raw, ore, uncommon, magnetic, native
 	
 	max_health: 68000.000
-	
 	smoothing: 0.110
-	mass: 3.000
-	friction: 0.500
-	elasticity: 0.400
 	stability: 4.500
 	strength_tensile: 0.000
 	strength_compressive: 0.000
+	
+	mass: 3.000
+	friction: 0.500
+	elasticity: 0.400
 	collision_layer: none
 	collision_mask: none
 	
 	texture: terrain.iron.ore
 	pattern: pattern.stone
-	
 	texture_scale: 1.400
 	texture_overshoot: -0.750
 	texture_offset: 0.000
+	
 	color_preview: "0xff8a8e82"
 	color_fill: "0xff140e08"
 	
@@ -45,7 +45,6 @@
 		{
 			color: "0xff555751"
 			tile_flags: solid, non_empty, ground, no_replace
-			meta: 0
 		}
 	]
 }

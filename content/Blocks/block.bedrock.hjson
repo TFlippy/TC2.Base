@@ -3,7 +3,7 @@
 	name: "Bedrock"
 	desc:
 		'''
-		An absurdly durable rock, unbreakable with any known tool.
+		Absurdly durable rock, possibly even indestructible.
 		'''
 	
 	material_type: stone_dense

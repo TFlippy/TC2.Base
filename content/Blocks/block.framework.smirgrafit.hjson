@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.62.0"
 	name: "Framework (Smirgrafit)"
 	desc:
 		'''
@@ -10,24 +10,24 @@
 	tile_flags: non_empty
 	flags: artificial
 	
-	max_health: 21000.000
-	
+	max_health: 22000.000
 	smoothing: 0.170
-	mass: 9.400
-	friction: 0.950
-	elasticity: 0.470
 	stability: 6.000
 	strength_tensile: 19.000
 	strength_compressive: 8.000
+	
+	mass: 9.400
+	friction: 0.950
+	elasticity: 0.470
 	collision_layer: none
 	collision_mask: essence
 	
 	texture: terrain.framework.smirgrafit
 	pattern: pattern.framework
-	
 	texture_scale: 1.370
 	texture_overshoot: -0.030
 	texture_offset: -0.670
+	
 	color_preview: "0x00000000"
 	color_fill: "0xff140e08"
 	
@@ -48,12 +48,10 @@
 		{
 			color: "0xff988c8a"
 			tile_flags: solid, non_empty
-			meta: 0
 		}
 		{
 			color: "0xff35302d"
 			tile_flags: non_empty
-			meta: 0
 		}
 	]
 }

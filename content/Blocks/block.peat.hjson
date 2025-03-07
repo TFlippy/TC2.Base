@@ -1,47 +1,39 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.62.0"
 	name: "Peat"
-	desc: ""
-	
-	icon:
-	{
-		texture: "missing"
-	}
 	
 	material_type: peat
 	tile_flags: non_empty
 	flags: raw, common
 	
-	max_health: 5700.000
-	
+	max_health: 7700.000
 	smoothing: 0.170
-	mass: 1.000
-	friction: 0.200
-	elasticity: 0.150
 	stability: 0.500
 	strength_tensile: 0.000
 	strength_compressive: 0.000
+	
+	mass: 1.000
+	friction: 0.200
+	elasticity: 0.150
 	collision_layer: none
 	collision_mask: none
 	
-	texture: "terrain.peat"
-	pattern: "pattern.stone"
-	
+	texture: terrain.peat
+	pattern: pattern.stone
 	texture_scale: 2.100
 	texture_overshoot: -0.700
 	texture_offset: 0.000
+	
 	color_preview: "0x00000000"
 	color_fill: "0xff140e08"
 	
 	resources:
 	[
 		{
-			material: "peat"
+			material: peat
 			quantity: 1.200
 		}
-		{
-		
-		}
+		null
 	]
 	
 	mappings:
@@ -49,7 +41,6 @@
 		{
 			color: "0xff352c1d"
 			tile_flags: solid, non_empty, ground, no_replace
-			meta: 0
 		}
 	]
 }

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.62.0"
 	name: "Soil"
 	desc:
 		'''
@@ -11,23 +11,23 @@
 	flags: raw
 	
 	max_health: 5800.000
-	
 	smoothing: 0.200
-	mass: 1.900
-	friction: 0.800
-	elasticity: 0.340
 	stability: 0.700
 	strength_tensile: 0.200
 	strength_compressive: 11.000
+	
+	mass: 1.900
+	friction: 0.800
+	elasticity: 0.340
 	collision_layer: none
 	collision_mask: none
 	
 	texture: terrain.soil
 	pattern: pattern.soil
-	
 	texture_scale: 1.563
-	texture_overshoot: -0.910
+	texture_overshoot: -1.410
 	texture_offset: 0.044
+	
 	color_preview: "0x00000000"
 	color_fill: "0xff140e08"
 	
@@ -45,7 +45,6 @@
 		{
 			color: "0xff965635"
 			tile_flags: solid, non_empty, ground
-			meta: 0
 		}
 	]
 }

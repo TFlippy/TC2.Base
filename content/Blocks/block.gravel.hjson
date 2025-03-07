@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.62.0"
 	name: "Gravel"
 	desc:
 		'''
@@ -10,24 +10,24 @@
 	tile_flags: non_empty
 	flags: raw
 	
-	max_health: 4800.000
-	
+	max_health: 5600.000
 	smoothing: 0.200
-	mass: 0.350
-	friction: 0.990
-	elasticity: 0.130
 	stability: 0.080
 	strength_tensile: 0.100
 	strength_compressive: 4.000
+	
+	mass: 0.350
+	friction: 0.990
+	elasticity: 0.130
 	collision_layer: none
 	collision_mask: none
 	
 	texture: terrain.gravel
 	pattern: pattern.soil
-	
 	texture_scale: 1.5837
 	texture_overshoot: -0.641
 	texture_offset: -0.0469
+	
 	color_preview: "0xff80775f"
 	color_fill: "0xff140e08"
 	
@@ -45,7 +45,6 @@
 		{
 			color: "0xff926e5c"
 			tile_flags: solid, non_empty, ground
-			meta: 0
 		}
 	]
 }

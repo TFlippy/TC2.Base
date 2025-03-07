@@ -1,50 +1,43 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.62.0"
 	name: "Clay Bricks"
 	desc:
 		'''
 		Clay bricks of varying sizes.
 		'''
 	
-	icon:
-	{
-		texture: "missing"
-	}
-	
 	material_type: brick
 	tile_flags: non_empty
 	flags: artificial
 	
-	max_health: 22000.000
-	
+	max_health: 23000.000
 	smoothing: 0.110
-	mass: 5.000
-	friction: 0.900
-	elasticity: 0.290
 	stability: 0.500
 	strength_tensile: 0.000
 	strength_compressive: 0.000
+	
+	mass: 5.000
+	friction: 0.900
+	elasticity: 0.290
 	collision_layer: none
 	collision_mask: none
 	
-	texture: "terrain.brick.clay"
-	pattern: "pattern.brick.clay"
-	
+	texture: terrain.brick.clay
+	pattern: pattern.brick.clay
 	texture_scale: 1.500
 	texture_overshoot: -0.300
 	texture_offset: 0.000
+	
 	color_preview: "0x00000000"
 	color_fill: "0xff140e08"
 	
 	resources:
 	[
 		{
-			material: "brick.clay"
+			material: brick.clay
 			quantity: 0.100
 		}
-		{
-		
-		}
+		null
 	]
 	
 	mappings:
@@ -52,12 +45,10 @@
 		{
 			color: "0xffb55f4c"
 			tile_flags: solid, non_empty, become_background_on_break
-			meta: 0
 		}
 		{
 			color: "0xff55342d"
 			tile_flags: non_empty
-			meta: 0
 		}
 	]
 }

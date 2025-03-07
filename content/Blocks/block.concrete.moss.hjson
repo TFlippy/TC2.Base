@@ -1,50 +1,43 @@
 ﻿{
-	$version: "0.1.60.4"
+	$version: "0.1.62.0"
 	name: "Concrete (Mossy)"
 	desc:
 		'''
 		Mossy cast concrete.
 		'''
 	
-	icon:
-	{
-		texture: "missing"
-	}
-	
 	material_type: concrete
 	tile_flags: non_empty
 	flags: artificial
 	
-	max_health: 50000.000
-	
+	max_health: 57000.000
 	smoothing: 0.180
-	mass: 2.700
-	friction: 0.850
-	elasticity: 0.490
 	stability: 1.440
 	strength_tensile: 1.920
 	strength_compressive: 9.760
+	
+	mass: 2.700
+	friction: 0.850
+	elasticity: 0.490
 	collision_layer: none
 	collision_mask: none
 	
-	texture: "terrain.concrete.moss"
-	pattern: "pattern.concrete"
-	
+	texture: terrain.concrete.moss
+	pattern: pattern.concrete
 	texture_scale: 1.070
 	texture_overshoot: -0.400
 	texture_offset: 0.000
+	
 	color_preview: "0xff80775f"
 	color_fill: "0xff140e08"
 	
 	resources:
 	[
 		{
-			material: "scrap.concrete"
+			material: scrap.concrete
 			quantity: 1.000
 		}
-		{
-		
-		}
+		null
 	]
 	
 	mappings:
@@ -52,12 +45,10 @@
 		{
 			color: "0xff465133"
 			tile_flags: solid, non_empty, become_background_on_break
-			meta: 0
 		}
 		{
 			color: "0xff30322a"
 			tile_flags: non_empty
-			meta: 0
 		}
 	]
 }

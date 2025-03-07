@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.62.0"
 	name: "Stone Bricks"
 	desc:
 		'''
@@ -16,24 +16,24 @@
 	tile_flags: non_empty
 	flags: artificial
 	
-	max_health: 27500.000
-	
+	max_health: 22500.000
 	smoothing: 0.160
-	mass: 1.400
-	friction: 0.900
-	elasticity: 0.600
 	stability: 0.500
 	strength_tensile: 1.100
 	strength_compressive: 8.000
+	
+	mass: 1.400
+	friction: 0.900
+	elasticity: 0.600
 	collision_layer: none
 	collision_mask: none
 	
 	texture: terrain.brick.stone
 	pattern: pattern.brick.stone
-	
 	texture_scale: 1.500
 	texture_overshoot: -0.300
 	texture_offset: 0.000
+	
 	color_preview: "0xff80775f"
 	color_fill: "0xff140e08"
 	
@@ -51,12 +51,10 @@
 		{
 			color: "0xff413c3a"
 			tile_flags: solid, non_empty, become_background_on_break
-			meta: 0
 		}
 		{
 			color: "0xff272625"
 			tile_flags: non_empty
-			meta: 0
 		}
 	]
 }

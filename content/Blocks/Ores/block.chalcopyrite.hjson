@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.62.0"
 	name: "Chalcopyrite"
 	desc:
 		'''
@@ -8,26 +8,26 @@
 	
 	material_type: stone_metallic
 	tile_flags: non_empty
-	flags: raw, ore, common, mineral
+	flags: raw, ore, common, mineral, magnetic
 	
 	max_health: 31000.000
-	
 	smoothing: 0.130
-	mass: 3.000
-	friction: 0.900
-	elasticity: 0.470
 	stability: 4.140
 	strength_tensile: 4.800
 	strength_compressive: 21.000
+	
+	mass: 3.000
+	friction: 0.900
+	elasticity: 0.470
 	collision_layer: none
 	collision_mask: none
 	
 	texture: terrain.chalcopyrite
 	pattern: pattern.stone
-	
 	texture_scale: 1.400
 	texture_overshoot: -0.750
 	texture_offset: 0.000
+	
 	color_preview: "0xff80775f"
 	color_fill: "0xff140e08"
 	
@@ -45,7 +45,6 @@
 		{
 			color: "0xff6a5a43"
 			tile_flags: solid, non_empty, ground, no_replace
-			meta: 0
 		}
 	]
 }
