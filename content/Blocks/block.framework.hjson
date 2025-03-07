@@ -1,33 +1,33 @@
 ﻿{
-	$version: "0.1.60.7"
-	name: "Framework (Empty)"
+	$version: "0.1.62.0"
+	name: "Formwork (Empty)"
 	desc:
 		'''
-		TODO: Desc
+		Reinforced steel formwork, acting as a base to be filled with other construction materials.
 		'''
 	
 	material_type: metal_frame
 	tile_flags: non_empty
 	flags: artificial
 	
-	max_health: 19500.000
-	
+	max_health: 27500.000
 	smoothing: 0.200
-	mass: 0.080
-	friction: 0.550
-	elasticity: 0.570
 	stability: 8.000
 	strength_tensile: 21.000
 	strength_compressive: 11.000
+	
+	mass: 0.080
+	friction: 0.920
+	elasticity: 0.570
 	collision_layer: none
 	collision_mask: none
 	
 	texture: terrain.framework
 	pattern: pattern.framework
-	
 	texture_scale: 1.370
 	texture_overshoot: -0.030
 	texture_offset: -0.670
+	
 	color_preview: "0x00000000"
 	color_fill: "0xff140e08"
 	
@@ -35,7 +35,7 @@
 	[
 		{
 			material: steel.frames
-			quantity: 0.050
+			quantity: 0.0250
 		}
 		null
 	]
@@ -45,12 +45,10 @@
 		{
 			color: "0xff808379"
 			tile_flags: solid, non_empty
-			meta: 0
 		}
 		{
 			color: "0xff50514e"
 			tile_flags: non_empty
-			meta: 0
 		}
 	]
 }

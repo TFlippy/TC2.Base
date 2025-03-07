@@ -52,7 +52,7 @@
 	placement:
 	{
 		type: rectangle
-		flags: none
+		flags: align_background
 		
 		size: [1.500, 1.500]
 		

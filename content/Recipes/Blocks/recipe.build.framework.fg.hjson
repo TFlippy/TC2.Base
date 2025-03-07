@@ -12,7 +12,7 @@
 		{
 			type: resource
 			material: steel.frames
-			amount: 0.100
+			amount: 0.050
 			group: 0
 		}
 	]

@@ -56,7 +56,8 @@
 		min_claim: 1.000
 		max_range: 4.500
 		
-		length_max: 8.000
+		length_min: 0.250
+		length_max: 2.000
 		
 		rotation_step: 0.1964
 		

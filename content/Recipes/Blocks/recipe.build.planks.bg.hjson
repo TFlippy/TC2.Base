@@ -46,7 +46,7 @@
 	placement:
 	{
 		type: line
-		flags: continuous, no_snapping
+		flags: continuous, no_snapping, align_background
 		
 		size: [0.750, 0.750]
 		

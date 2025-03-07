@@ -52,7 +52,7 @@
 	placement:
 	{
 		type: rectangle
-		flags: continuous
+		flags: continuous, align_background
 		
 		size: [1.250, 0.750]
 		snap: [0.375, 0.375]

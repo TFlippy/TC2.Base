@@ -12,7 +12,7 @@
 		{
 			type: resource
 			material: steel.frames
-			amount: 0.050
+			amount: 0.025
 			group: 0
 		}
 	]
@@ -46,7 +46,7 @@
 	placement:
 	{
 		type: line
-		flags: continuous
+		flags: continuous, align_background
 		
 		size: [1.250, 1.250]
 		snap: [0.625, 0.625]

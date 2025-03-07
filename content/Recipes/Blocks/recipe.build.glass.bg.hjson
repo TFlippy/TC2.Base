@@ -7,8 +7,6 @@
 		'''
 	tips: []
 	
-	stages: []
-	
 	requirements:
 	[
 		{
@@ -32,6 +30,7 @@
 	type: architecture
 	flags: none
 	tags: none
+	infrastructure: none
 	
 	icon:
 	{
@@ -41,12 +40,13 @@
 	}
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	rank: -78.000
 	
 	placement:
 	{
 		type: rectangle
-		flags: continuous
+		flags: continuous, align_background
 		
 		size: [1.000, 1.000]
 		
@@ -55,6 +55,7 @@
 		min_claim: 1.000
 		
 		sound: metal_place_01
+		
 		snapping_flags: snap_to_surface, align_to_surface, add_size_to_snap_radius, add_size_to_snap_offset, use_raw_collider
 		
 		mappings_replace:
@@ -62,4 +63,6 @@
 		
 		}
 	}
+	
+	version: 0
 }

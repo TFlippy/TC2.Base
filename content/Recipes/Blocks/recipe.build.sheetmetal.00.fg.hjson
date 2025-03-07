@@ -51,10 +51,11 @@
 		size: [0.250, 0.250]
 		
 		cooldown: 0.500
-		min_support: 0.020
+		min_support: 0.010
 		min_claim: 1.000
 		
-		length_max: 6.000
+		length_min: 1.000
+		length_max: 3.000
 		
 		rotation_step: 0.0983
 		

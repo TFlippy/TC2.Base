@@ -52,7 +52,7 @@
 	placement:
 	{
 		type: rectangle
-		flags: no_snapping
+		flags: no_snapping, align_background
 		
 		size: [1.000, 1.000]
 		snap: [0.375, 0.375]

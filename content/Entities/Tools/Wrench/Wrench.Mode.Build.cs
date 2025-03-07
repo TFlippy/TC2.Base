@@ -1532,8 +1532,9 @@ namespace TC2.Base.Components
 												if (placement.flags.HasAny(Placement.Flags.Align_Background))
 												{
 													var offset_top_left = ((pos_a + (placement.size * 0.50f)) * App.pixels_per_unit).Floor();
-													offset_top_left.X %= placement.size.X;
-													offset_top_left.Y %= placement.size.Y;
+
+													offset_top_left.X %= (placement.size.X * App.pixels_per_unit);
+													offset_top_left.Y %= (placement.size.Y * App.pixels_per_unit);
 
 													var tile_offset_x = ((uint)offset_top_left.X) & 0xf; // (((uint)(16 - offset_top_left.X)) & 0xf);
 													var tile_offset_y = ((uint)offset_top_left.Y) & 0xf; // (((uint)(16 - offset_top_left.Y)) & 0xf);
