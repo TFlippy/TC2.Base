@@ -56,9 +56,10 @@
 		min_claim: 1.000
 		max_range: 4.500
 		
-		length_min: 0.500
 		length_max: 8.000
 		length_step: 0.250
+		
+		rotation_step: 0.1964
 		
 		sound: wood_place_0
 		

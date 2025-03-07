@@ -609,7 +609,7 @@ namespace TC2.Base.Components
 																	if (pos_a_raw.HasValue) GUI.DrawCross(region.WorldToCanvas(pos_b_centered), color: GUI.font_color_default.WithAlpha(180), radius: region.GetWorldToCanvasScale() * 2.00f);
 
 																	//if (pos_a_raw.HasValue) App.WriteLine($"{pos}; {pos_a}; {pos_b}");
-																	terrain.IterateSquareLine(world_position_a: pos_a, world_position_b: pos_b, thickness: placement.size.X, argument: ref args,
+																	terrain.IterateLine(world_position_a: pos_a, world_position_b: pos_b, thickness: placement.size.X, argument: ref args,
 																		func: placement.flags.HasAny(Placement.Flags.Replace) ? DrawTileFuncReplace : DrawTileFunc,
 																		iteration_flags: Terrain.IterationFlags.Iterate_Empty);
 
@@ -1376,10 +1376,13 @@ namespace TC2.Base.Components
 							var dir_rad_snapped = flags.HasAny(Wrench.Mode.Build.Flags.Snap) ? Maths.Snap(dir_rad, placement.rotation_step) : dir_rad;
 							var dir_snapped = Maths.RadToDir(dir_rad_snapped);
 
-							pos_b = pos_a - (dir_snapped * dir_len);
+							//if (dir_len >= snap.X)
+							{
+								pos_b = pos_a - (dir_snapped * dir_len);
 
-							pos_a += dir_snapped * placement.size * 0.50f;
-							pos_b -= dir_snapped * placement.size * 0.50f;
+								pos_a += dir_snapped * placement.size * 0.50f;
+								pos_b -= dir_snapped * placement.size * 0.50f;
+							}
 
 							pos_a = pos_a.Snap(0.125f);
 							pos_b = pos_b.Snap(0.125f);
@@ -1421,7 +1424,8 @@ namespace TC2.Base.Components
 					{
 						Placement.Type.Rectangle => AABB.Centered(pos, placement.size),
 						Placement.Type.Circle => AABB.Circle(pos, placement.radius),
-						Placement.Type.Line => AABB.Line(pos_a, pos_b, placement.size.X),
+						//Placement.Type.Line => AABB.LineSnapped(pos_a, pos_b, placement.size.X).Snap(0.125f),
+						Placement.Type.Line => AABB.Line(pos_a, pos_b, placement.size.X).SnapCeil(0.125f), //.SnapCentered(0.125f),
 						Placement.Type.Simple => AABB.Centered(pos_final, placement.size),
 						_ => AABB.Centered(pos, placement.size)
 					};
@@ -1564,7 +1568,7 @@ namespace TC2.Base.Components
 													case Placement.Type.Line:
 													{
 														//App.WriteLine($"{pos}; {pos_a}; {pos_b}");
-														terrain.IterateSquareLine(world_position_a: pos_a, world_position_b: pos_b, thickness: placement.size.X, argument: ref args,
+														terrain.IterateLine(world_position_a: pos_a, world_position_b: pos_b, thickness: placement.size.X, argument: ref args,
 															func: placement.flags.HasAny(Placement.Flags.Replace) ? SetTileFuncReplace : SetTileFunc,
 															dirty_flags: Chunk.DirtyFlags.Sync | Chunk.DirtyFlags.Neighbours | Chunk.DirtyFlags.Collider,
 															iteration_flags: Terrain.IterationFlags.Create_If_Empty);
@@ -1932,7 +1936,7 @@ namespace TC2.Base.Components
 
 						case Placement.Type.Line:
 						{
-							terrain.IterateSquareLine(world_position_a: pos_a ?? pos, world_position_b: pos_b ?? pos, thickness: placement.size.X, argument: ref args,
+							terrain.IterateLine(world_position_a: pos_a ?? pos, world_position_b: pos_b ?? pos, thickness: placement.size.X, argument: ref args,
 								func: placement.flags.HasAny(Placement.Flags.Replace) ? CountTileFuncReplace : CountTileFunc,
 								iteration_flags: Terrain.IterationFlags.Iterate_Empty);
 						}
@@ -2161,7 +2165,7 @@ namespace TC2.Base.Components
 							{
 								var dir = ((pos_b ?? pos) - (pos_a ?? pos)).GetNormalized(out var len);
 
-								terrain.IterateSquareLine(world_position_a: (pos_a ?? pos) - (dir * 0.125f), world_position_b: (pos_b ?? pos) + (dir * 0.125f),
+								terrain.IterateLine(world_position_a: (pos_a ?? pos) - (dir * 0.125f), world_position_b: (pos_b ?? pos) + (dir * 0.125f),
 									thickness: placement.size.X + 1, argument: ref args,
 									func: placement.flags.HasAny(Placement.Flags.Replace) ? CalculateSupportFuncReplace : CalculateSupportFunc,
 									iteration_flags: Terrain.IterationFlags.Iterate_Empty);
