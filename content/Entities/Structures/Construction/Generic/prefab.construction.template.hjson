@@ -38,7 +38,7 @@ animated.renderer:
 
 faction.colorable:
 {
-
+	intensity_a: 0.800
 }
 
 faction:

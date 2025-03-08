@@ -37,6 +37,7 @@
 	type: architecture
 	flags: blueprintable
 	tags: large, construction
+	infrastructure: none
 	
 	icon:
 	{
@@ -44,7 +45,8 @@
 	}
 	
 	color_frame: "0xffaeb59a"
-	rank: -1501.000
+	color_button: "0xff9dd80f"
+	rank: -5100.000
 	frame_size: [64.000, 48.000]
 	
 	dismantle_work: 7.000

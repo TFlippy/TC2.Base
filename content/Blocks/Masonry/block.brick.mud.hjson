@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.62.0"
 	name: "Mud Bricks"
 	desc:
 		'''
@@ -11,23 +11,23 @@
 	flags: artificial
 	
 	max_health: 9500.000
-	
-	smoothing: 0.110
-	mass: 5.000
-	friction: 0.900
-	elasticity: 0.450
+	smoothing: 0.125
 	stability: 0.500
 	strength_tensile: 0.000
 	strength_compressive: 0.000
+	
+	mass: 5.000
+	friction: 0.900
+	elasticity: 0.450
 	collision_layer: none
 	collision_mask: none
 	
 	texture: terrain.brick.mud
 	pattern: pattern.brick.mud
-	
 	texture_scale: 1.500
 	texture_overshoot: -0.300
 	texture_offset: 0.000
+	
 	color_preview: "0x00000000"
 	color_fill: "0xff140e08"
 	
@@ -45,12 +45,10 @@
 		{
 			color: "0xff6f5f53"
 			tile_flags: solid, non_empty, become_background_on_break
-			meta: 0
 		}
 		{
 			color: "0xff2f251d"
 			tile_flags: non_empty
-			meta: 0
 		}
 	]
 }

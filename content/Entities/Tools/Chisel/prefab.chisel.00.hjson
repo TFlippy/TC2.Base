@@ -64,7 +64,8 @@ transform:
 
 chisel:
 {
-	flags: none
+	power: 100.000
+	size: 0.125
 }
 
 packable:

@@ -30,7 +30,7 @@
 				ref var region = ref rpc.GetRegion();
 				ref var terrain = ref region.GetTerrain();
 
-				var rect = Terrain.GetGridRect(this.world_position, new Vector2(0.125f));
+				var rect = Terrain.GetGridRect(this.world_position, new Vector2(data.size));
 
 				//var size = new Vector2(1.00f);
 				//var size_half = size * 0.50f;
@@ -52,7 +52,7 @@
 
 				//GUI.DrawChunkRect(ref region, w_pos_new);
 
-				terrain.Hit(rpc.entity, rpc.entity, rect: rect, world_position: this.world_position, direction: this.direction, damage: 100000, yield: 0.00f, mask: TileFlags.Non_Empty, no_loot_pickup: true);
+				terrain.Hit(rpc.entity, rpc.entity, rect: rect, world_position: this.world_position, direction: this.direction, damage: data.power * 100.00f, yield: 0.00f, mask: TileFlags.Non_Empty, no_loot_pickup: true);
 				//region.DrawDebugRect(rect, Color32BGRA.Magenta);
 
 				//{

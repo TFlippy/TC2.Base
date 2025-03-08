@@ -394,7 +394,7 @@ namespace TC2.Base.Components
 														}
 
 														if (overlap_result.entity.IsValid()) GUI.DrawEntityOutline(overlap_result.entity, color: GUI.col_button_yellow.WithAlpha(100), ignore_shape_radius: is_raw_collider && placement.snapping_flags.HasNone(Placement.SnappingFlags.Use_Collider_Radius), fill: false, smooth_corners: !is_raw_collider);
-														GUI.DrawCross(region.WorldToCanvas(pos_raw.Snap(0.125f)).Round(), color: GUI.font_color_green.WithAlpha(150), radius: (region.GetWorldToCanvasScale() * 0.500f).Ceil(), thickness: (0.125f * region.GetWorldToCanvasScale()).Ceil());
+														//GUI.DrawCross(region.WorldToCanvas(pos_raw.Snap(0.125f)).Round(), color: GUI.font_color_green.WithAlpha(150), radius: (region.GetWorldToCanvasScale() * 0.500f).Ceil(), thickness: (0.125f * region.GetWorldToCanvasScale()).Ceil());
 														//GUI.DrawLine(region.WorldToCanvas(pos_raw.Snap(0.125f)).Round(), region.WorldToCanvas((pos_raw + normal_tmp).Snap(0.125f)).Round(), color: Color32BGRA.Yellow);
 
 														var is_at_base = placement.type == Placement.Type.Line && pos_a_raw.HasValue && pos_raw.IsInDistance(pos_a_raw.Value, snapping_radius * 2.00f);
@@ -517,6 +517,7 @@ namespace TC2.Base.Components
 
 												var color_dummy_bg = color_dummy.WithAlphaMult(0.10f);
 												var color_dummy_fg = color_dummy.WithAlphaMult(0.30f);
+												var color_dummy_bb = color_dummy.WithAlphaMult(0.90f);
 
 												var color_gray_bg = color_gray.WithAlphaMult(0.10f);
 												var color_gray_fg = color_gray.WithAlphaMult(0.60f);
@@ -526,6 +527,7 @@ namespace TC2.Base.Components
 
 												var color_error_bg = color_error.WithAlphaMult(0.10f);
 												var color_error_fg = color_error.WithAlphaMult(0.30f);
+												var color_error_bb = color_error.WithAlphaMult(0.75f);
 
 												var color_yellow_bg = color_yellow.WithAlphaMult(0.10f);
 												var color_yellow_fg = color_yellow.WithAlphaMult(0.30f);
@@ -561,6 +563,7 @@ namespace TC2.Base.Components
 															{
 																color_dummy_fg = color_error_fg;
 																color_dummy_bg = color_error_bg;
+																color_dummy_bb = color_error_bb;
 
 																//GUI.DrawOverlapBB(ref region, bb, Physics.Layer.Solid | Physics.Layer.Building);
 															}
@@ -669,6 +672,7 @@ namespace TC2.Base.Components
 															{
 																color_dummy_fg = color_error_fg;
 																color_dummy_bg = color_error_bg;
+																color_dummy_bb = color_error_bb;
 
 																//GUI.DrawOverlapBB(ref region, bb, Physics.Layer.Solid | Physics.Layer.Building);
 															}
@@ -781,7 +785,7 @@ namespace TC2.Base.Components
 																				func: DrawFoundationFunc,
 																				iteration_flags: Terrain.IterationFlags.Iterate_Empty);
 
-																			GUI.DrawQuad(region.WorldToCanvas(quad_world), color_dummy_fg);
+																			GUI.DrawQuad(region.WorldToCanvas(quad_world), color_dummy_bb);
 																			//GUI.DrawRect(quad_canvas_aabb, GUI.font_color_yellow);
 																		}
 
@@ -808,12 +812,12 @@ namespace TC2.Base.Components
 																				func: DrawFoundationFunc,
 																				iteration_flags: Terrain.IterationFlags.Iterate_Empty);
 
-																			GUI.DrawQuad(region.WorldToCanvas(quad_world), color_dummy_fg.WithAlphaMult(0.50f));
+																			GUI.DrawQuad(region.WorldToCanvas(quad_world), color_dummy_bb.WithAlphaMult(0.50f));
 																			//GUI.DrawRect(quad_canvas_aabb, GUI.font_color_yellow);
 																		}
 																		else
 																		{
-																			GUI.DrawQuad(region.WorldToCanvas(bb.RotateByRad(transform.rotation)), color_dummy_fg.WithAlphaMult(0.50f));
+																			GUI.DrawQuad(region.WorldToCanvas(bb.RotateByRad(transform.rotation)), color_dummy_bb.WithAlphaMult(0.50f));
 																		}
 
 
