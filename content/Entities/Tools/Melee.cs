@@ -33,6 +33,7 @@ namespace TC2.Base.Components
 			Sync_Hit_Event = 1 << 2,
 			No_Material_Filter = 1 << 3,
 			Invert_RMB_Material_Filter = 1 << 4,
+			Use_Aim_Direction = 1 << 5,
 		}
 
 		[IEvent.Data]
@@ -962,10 +963,8 @@ namespace TC2.Base.Components
 		[Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, 
 		[Source.Owned] in Body.Data body, [Source.Parent, Optional] in Faction.Data faction)
 		{
-			var key = melee.flags.HasAny(Melee.Flags.Use_RMB) ? Mouse.Key.Right : Mouse.Key.Left;
-
 #if SERVER
-			if (control.mouse.GetKey(key) && info.WorldTime >= melee_state.next_hit && melee_state.flags.TryAddFlag(Melee.State.Flags.Hitting))
+			if (control.mouse.GetKey(melee.flags.HasAny(Melee.Flags.Use_RMB) ? Mouse.Key.Right : Mouse.Key.Left) && info.WorldTime >= melee_state.next_hit && melee_state.flags.TryAddFlag(Melee.State.Flags.Hitting))
 			{
 				melee_state.last_hit_dir = (control.mouse.position - transform.position).GetNormalized();
 				melee_state.Sync(entity, true);

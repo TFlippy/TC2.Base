@@ -41,8 +41,9 @@ resource:
 
 holdable:
 {
-	force_multiplier: 1.000
-	torque_multiplier: 0.700
+	force_multiplier: 2.000
+	torque_multiplier: 1.200
+	stress_multiplier: 0.250
 	radius: 0.000
 	flags: disable_parent_facing, disable_rotation, disable_control
 }

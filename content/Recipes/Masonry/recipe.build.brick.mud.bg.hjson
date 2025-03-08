@@ -15,12 +15,6 @@
 			amount: 0.100
 			group: 0
 		}
-		{
-			type: resource
-			material: mud
-			amount: 0.034
-			group: 0
-		}
 	]
 	
 	products:

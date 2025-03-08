@@ -22,7 +22,7 @@ body:
 		
 		material: rubble
 		
-		layer: entity, building, ignore_melee
+		layer: entity, building, ignore_melee, storage
 	}
 }
 
@@ -47,8 +47,9 @@ transform:
 
 interactable:
 {
-	flags: no_tab
-	window_size: [280.000, 236.000]
+	flags: no_tab, centered_inventory
+	window_size: [192.000, 192.000]
+	window_size_misc: [72.000, 0.000]
 }
 
 nameable:
@@ -90,24 +91,53 @@ harvestable:
 
 shipment:
 {
-	flags: keep_items, allow_withdraw, allow_deposit
+	flags: keep_items, allow_withdraw, allow_deposit, use_misc
 }
 
 loot.container:
 {
 	rolls: 4
-	rolls_extra: 0
+	rolls_extra: 2
 
 	// rarity_min: 1.500
 	// rarity_max: 4.000
 
 	tables:
 	[
-		"safe"
-		"construction.00"
-		"junk.00"
-		"oven"
+		drugs.00
+		drugs.00
+		drugs.00
+		guns.survival.00
 	]
+}
+
+storage:
+{
+	@loot.container:
+	{
+		rolls: 7
+		rolls_extra: 6
+		rarity_min: 0.000
+		rarity_max: 6.000
+		amount_multiplier: 1.000
+
+		tables:
+		[
+			junk.00
+			construction.00
+			bricks.00
+			munitions.00
+		]
+	}
+
+	@inventory16:
+	{
+		type: storage
+		flags: public, no_auto_pickup
+		stack_size_multiplier: 4.000
+		
+		offset: [0.000, 0.000]
+	}
 }
 
 // spawn:

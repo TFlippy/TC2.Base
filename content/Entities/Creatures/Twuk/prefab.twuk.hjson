@@ -12,17 +12,19 @@ body:
 
 	@shape.circle:
 	{
+		offset: [0.000, 0.250]
+		
 		mass: 40.000
-		radius: 0.500
+		radius: 0.750
 		friction: 0.500
 		elasticity: 0.350
-
+		
 		material: flesh
+		miss_chance: 0.078
+		
 		layer: entity, solid, creature, organic, flammable
 		mask: world, vehicle
 		exclude: dead, held
-
-		miss_chance: 0.080
 	}
 }
 
@@ -50,7 +52,7 @@ regen:
 armor:
 {
 	toughness: 89.000
-	protection: 0.750
+	protection: 0.550
 	coverage: 0.930
 	knockback_modifier: 0.830
 	stun_modifier: 0.880
@@ -73,7 +75,7 @@ animated.renderer:
 damage.effects:
 {
 	offset: 1
-	frame_count: 4
+	frame_count: 3
 	threshold_wreck: 0.200
 }
 
@@ -312,7 +314,7 @@ faction:
 				mask: world, vehicle, creature
 				exclude: barbed, dead, held
 
-				miss_chance: 0.290
+				miss_chance: 0.120
 			}
 		}
 		
@@ -389,7 +391,9 @@ faction:
 
 		damage.effects:
 		{
-
+			offset: 1
+			frame_count: 3
+			threshold_wreck: 0.200
 		}
 		
 		runner:
@@ -731,7 +735,9 @@ faction:
 
 		damage.effects:
 		{
-
+			offset: 1
+			frame_count: 3
+			threshold_wreck: 0.200
 		}
 			
 		transform:

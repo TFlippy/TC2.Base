@@ -813,7 +813,7 @@ namespace TC2.Base.Components
 																				iteration_flags: Terrain.IterationFlags.Iterate_Empty);
 
 																			GUI.DrawQuad(region.WorldToCanvas(quad_world), color_dummy_bb.WithAlphaMult(0.50f));
-																			//GUI.DrawRect(quad_canvas_aabb, GUI.font_color_yellow);
+																			GUI.DrawRect(quad_canvas_aabb, GUI.font_color_yellow);
 																		}
 																		else
 																		{

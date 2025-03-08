@@ -15,16 +15,23 @@
 	}
 	
 	type: stone_metallic
-	flags: magnetic, granular, metal, raw, solid, primary
+	flags: hard, magnetic, granular, metal, mineral, raw, solid, impure, primary
 	display_flags: none
 	hints: none
+	
 	mass_per_unit: 1.780
 	quantity_max: 500.000
-	spawn_quantity_threshold: 3.000
-	form_type: chunk
+	spawn_quantity_threshold: 1.000
+	snapping: 0.100
+	
+	form_type: raw
 	prefab: resource.magnetite
+	h_substance: "null"
 	
 	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
 	
 	colliders: []
 }

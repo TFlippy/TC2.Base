@@ -1,33 +1,33 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.62.0"
 	name: "Mossy Stone"
 	desc:
 		'''
-		Crumbly mossy stone covered with moss.
+		Moss-covered mossy stone.
 		'''
 	
 	material_type: stone
 	tile_flags: non_empty
 	flags: raw, mineral
 	
-	max_health: 15000.000
-	
+	max_health: 25000.000
 	smoothing: 0.150
-	mass: 3.160
-	friction: 0.800
-	elasticity: 0.510
 	stability: 5.940
 	strength_tensile: 5.200
 	strength_compressive: 17.000
+	
+	mass: 3.160
+	friction: 0.800
+	elasticity: 0.510
 	collision_layer: none
 	collision_mask: none
 	
 	texture: terrain.stone.moss
 	pattern: pattern.stone.moss
-	
 	texture_scale: 1.980
 	texture_overshoot: -0.750
 	texture_offset: 0.000
+	
 	color_preview: "0xff80775f"
 	color_fill: "0xff140e08"
 	
@@ -35,7 +35,7 @@
 	[
 		{
 			material: gravel
-			quantity: 0.500
+			quantity: 0.600
 		}
 		null
 	]
@@ -45,7 +45,6 @@
 		{
 			color: "0xff686a4c"
 			tile_flags: solid, non_empty, ground, no_replace
-			meta: 0
 		}
 	]
 }
