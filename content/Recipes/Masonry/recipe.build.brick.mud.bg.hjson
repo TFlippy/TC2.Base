@@ -51,11 +51,11 @@
 	
 	placement:
 	{
-		type: rectangle
-		flags: no_snapping, align_background
+		type: circle
+		flags: align_background
 		
 		size: [1.000, 1.000]
-		snap: [0.375, 0.375]
+		radius: 0.500
 		
 		cooldown: 0.300
 		min_support: 0.050
