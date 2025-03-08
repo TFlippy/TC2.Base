@@ -194,6 +194,75 @@ namespace TC2.Base.Components
 				}
 				break;
 
+				case Damage.Type.Handsaw:
+				{
+					return material_type switch
+					{
+						Material.Type.Tree => true,
+						Material.Type.Wood => true,
+						Material.Type.Stone => false,
+						Material.Type.Gravel => false,
+						Material.Type.Flesh => true,
+						Material.Type.Glass => true,
+						Material.Type.Liquid => false,
+						Material.Type.Metal => false,
+						Material.Type.Soil => false,
+						Material.Type.Powder => false,
+						Material.Type.Foliage => true,
+						Material.Type.Fabric => false,
+						Material.Type.Rubber => true,
+						Material.Type.Mushroom => true,
+						Material.Type.Insect => true,
+						Material.Type.Paper => false,
+						Material.Type.Leather => false,
+						Material.Type.Wire => true,
+						Material.Type.Bone => true,
+						Material.Type.Bramble => true,
+						Material.Type.Chitin => true,
+						Material.Type.Rubble => false,
+						Material.Type.Scrap => false,
+						Material.Type.Wreck => true,
+						Material.Type.Tool => false,
+						Material.Type.Stone_Porous => false,
+						Material.Type.Stone_Slab => false,
+						Material.Type.Stone_Dense => false,
+						Material.Type.Stone_Metallic => false,
+						Material.Type.Concrete => false,
+						Material.Type.Metal_Pole => true,
+						Material.Type.Metal_Sheet => false,
+						Material.Type.Metal_Frame => true,
+						Material.Type.Metal_Solid => false,
+						Material.Type.Clay => false,
+						Material.Type.Brick => false,
+						Material.Type.Essence => false,
+						Material.Type.Gas => false,
+						Material.Type.Machine => false,
+						Material.Type.Coin => false,
+						Material.Type.Coal => false,
+						Material.Type.Cermet => false,
+						Material.Type.Sand => false,
+						Material.Type.Resin => false,
+						Material.Type.Slime => false,
+						Material.Type.Tar => false,
+						Material.Type.Chalk => false,
+						Material.Type.Asphalt => false,
+						Material.Type.Mud => false,
+						Material.Type.Peat => false,
+						Material.Type.Wax => true,
+						Material.Type.Wood_Powder => false,
+						Material.Type.Components => false,
+						Material.Type.Device => false,
+						Material.Type.Egg => false,
+						Material.Type.Fur => false,
+						Material.Type.Ammo => false,
+						Material.Type.Building_Wood => false,
+						Material.Type.Building_Masonry => false,
+						Material.Type.Building_Reinforced => false,
+						_ => false
+					};
+				}
+				break;
+
 				case Damage.Type.Slash:
 				case Damage.Type.Stab:
 				{
@@ -749,7 +818,7 @@ namespace TC2.Base.Components
 				{
 					//if (!entity.IsValid())
 					{
-						GUI.DrawTerrainOutline(ref region, this.pos_hit, radius, Color32BGRA.Yellow.WithAlphaMult(0.75f));
+						GUI.DrawTerrainOutline(ref region, this.pos_hit, radius * 3, Color32BGRA.Yellow.WithAlphaMult(0.75f));
 					}
 
 					//GUI.DrawArc(region.WorldToCanvas(this.transform.LocalToWorld(this.melee.hit_offset)), -1, 1, color: this.color.WithAlpha(100), radius: c_radius, layer: GUI.Layer.Background);
@@ -772,7 +841,7 @@ namespace TC2.Base.Components
 				var parent = body.GetParent();
 
 				var pos = transform.LocalToWorld(melee.hit_offset);
-				var dir = default(Vector2);
+				//var dir = default(Vector2);
 
 				//switch (melee.attack_type)
 				//{
@@ -789,9 +858,26 @@ namespace TC2.Base.Components
 				//	}
 				//	break;
 				//}
-				dir = (control.mouse.position - transform.position).GetNormalized();
 
-				var pos_target = Maths.ClampRadius(control.mouse.position, pos, melee.max_distance);
+				Vector2 dir;
+				Vector2 pos_target; // = control.mouse.position;
+
+				if (melee.flags.HasAny(Melee.Flags.Use_Aim_Direction))
+				{
+					dir = transform.Right;
+					pos_target = pos + (dir * melee.max_distance);
+				}
+				else
+				{
+					dir = (control.mouse.position - transform.position).GetNormalized();
+					pos_target = Maths.ClampRadius(control.mouse.position, pos, melee.max_distance);
+
+					//melee.flags.HasAny(Melee.Flags.Use_Aim_Direction) ?
+					//pos + (dir * melee.max_distance) :
+					//Maths.ClampRadius(control.mouse.position, pos, melee.max_distance); //  pos + (dir * len);
+				}
+
+				//var pos_target = Maths.ClampRadius(control.mouse.position, pos, melee.max_distance);
 				var len = Vector2.Distance(pos, pos_target);
 
 				//var override_has_material_filter = default(bool?);
@@ -960,21 +1046,30 @@ namespace TC2.Base.Components
 		[ISystem.Update.E(ISystem.Mode.Single, ISystem.Scope.Region), HasRelation(Source.Modifier.Owned, Relation.Type.Stored, false)]
 		public static void Update(ISystem.Info info, Entity entity, ref Region.Data region, ref XorRandom random,
 		[Source.Owned] in Melee.Data melee, [Source.Owned] ref Melee.State melee_state,
-		[Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, 
+		[Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control,
 		[Source.Owned] in Body.Data body, [Source.Parent, Optional] in Faction.Data faction)
 		{
+			var time = info.WorldTime;
+
 #if SERVER
-			if (control.mouse.GetKey(melee.flags.HasAny(Melee.Flags.Use_RMB) ? Mouse.Key.Right : Mouse.Key.Left) && info.WorldTime >= melee_state.next_hit && melee_state.flags.TryAddFlag(Melee.State.Flags.Hitting))
+			if (control.mouse.GetKey(melee.flags.HasAny(Melee.Flags.Use_RMB) ? Mouse.Key.Right : Mouse.Key.Left) && time >= melee_state.next_hit && melee_state.flags.TryAddFlag(Melee.State.Flags.Hitting))
 			{
-				melee_state.last_hit_dir = (control.mouse.position - transform.position).GetNormalized();
+				if (melee.flags.HasAny(Melee.Flags.Use_Aim_Direction))
+				{
+					melee_state.last_hit_dir = transform.Right;
+				}
+				else
+				{
+					melee_state.last_hit_dir = (control.mouse.position - transform.position).GetNormalized();
+				}
 				melee_state.Sync(entity, true);
 			}
 #endif
 
 			if (melee_state.flags.TryRemoveFlag(Melee.State.Flags.Hitting))
 			{
-				melee_state.last_hit = info.WorldTime;
-				melee_state.next_hit = info.WorldTime + melee.cooldown;
+				melee_state.last_hit = time;
+				melee_state.next_hit = time + melee.cooldown;
 
 				var pos = transform.LocalToWorld(melee.hit_offset);
 				//var dir = default(Vector2);
@@ -997,7 +1092,10 @@ namespace TC2.Base.Components
 				//dir = (control.mouse.position - transform.position).GetNormalized();
 
 				var dir = melee_state.last_hit_dir;
-				var pos_target = Maths.ClampRadius(control.mouse.position, pos, melee.max_distance); //  pos + (dir * len);
+				var pos_target = melee.flags.HasAny(Melee.Flags.Use_Aim_Direction) ? 
+					pos + (dir * melee.max_distance) : 
+					Maths.ClampRadius(control.mouse.position, pos, melee.max_distance); //  pos + (dir * len);
+
 				var len = Vector2.Distance(pos, pos_target);
 
 #if CLIENT
