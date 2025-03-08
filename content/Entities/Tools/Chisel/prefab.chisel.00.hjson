@@ -1,0 +1,73 @@
+$name: "Carving Hammer"
+$desc: 
+	'''
+
+	'''
+$tags: []
+
+body:
+{
+	@shape.line:
+	{
+		a: [-0.125, -0.375]
+		b: [-0.125, 0.250]
+		offset: [0.000, 0.000]
+		
+		mass: 2.000
+		radius: 0.325
+		friction: 0.830
+		elasticity: 0.600
+		
+		material: metal_solid
+		miss_chance: 0.000
+		
+		layer: entity, solid, item, ignore_melee, ignore_bullet
+		mask: world
+		exclude: none
+	}
+}
+
+health:
+{
+	max: 4500.000
+}
+
+control:
+{
+
+}
+
+aimable:
+{
+
+}
+
+holdable:
+{
+	offset: [-0.125, 0.250]
+	flags: storable
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: chisel.00
+	}
+	scale: [0.875, 0.875]
+}
+
+transform:
+{
+
+}
+
+chisel:
+{
+	flags: none
+}
+
+packable:
+{
+
+}
