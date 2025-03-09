@@ -11,23 +11,23 @@
 	flags: raw, ore, common, mineral
 	
 	max_health: 82000.000
-	
 	smoothing: 0.134
-	mass: 7.360
-	friction: 0.650
-	elasticity: 0.790
 	stability: 9.660
 	strength_tensile: 8.500
 	strength_compressive: 15.800
+	
+	mass: 2.160
+	friction: 0.650
+	elasticity: 0.790
 	collision_layer: none
 	collision_mask: none
 	
 	texture: terrain.rock.hortspargl
 	pattern: pattern.stone
-	
 	texture_scale: 1.490
 	texture_overshoot: -0.250
 	texture_offset: 0.000
+	
 	color_preview: "0xff615e59"
 	color_fill: "0xff140e08"
 	

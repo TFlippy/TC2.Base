@@ -11,13 +11,13 @@
 	tile_flags: non_empty
 	flags: raw, ore, common, mineral
 	
-	max_health: 22000.000
+	max_health: 32000.000
 	smoothing: 0.130
 	stability: 6.140
 	strength_tensile: 4.800
 	strength_compressive: 21.000
 	
-	mass: 3.000
+	mass: 1.600
 	friction: 0.500
 	elasticity: 0.360
 	collision_layer: none

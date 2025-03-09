@@ -1,9 +1,9 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.62.0"
 	name: "Brezolyt"
 	desc:
 		'''
-		TODO: Desc
+		Fairly soft sedimentary carbonate rock.
 		'''
 	
 	material_type: stone
@@ -11,23 +11,23 @@
 	flags: raw, ore, common, mineral
 	
 	max_health: 21800.000
-	
 	smoothing: 0.160
-	mass: 3.700
-	friction: 0.840
-	elasticity: 0.580
 	stability: 4.040
 	strength_tensile: 6.500
 	strength_compressive: 8.100
+	
+	mass: 1.100
+	friction: 0.840
+	elasticity: 0.580
 	collision_layer: none
 	collision_mask: none
 	
 	texture: terrain.rock.brezolyt
 	pattern: pattern.stone
-	
 	texture_scale: 1.610
 	texture_overshoot: -0.650
 	texture_offset: -0.300
+	
 	color_preview: "0xff82796a"
 	color_fill: "0xff140e08"
 	
@@ -45,7 +45,6 @@
 		{
 			color: "0xff82796a"
 			tile_flags: solid, non_empty, become_background_on_break, ground, no_replace
-			meta: 0
 		}
 	]
 }

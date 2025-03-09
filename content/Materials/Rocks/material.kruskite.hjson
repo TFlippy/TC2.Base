@@ -19,13 +19,19 @@
 	flags: granular, metal, raw, solid, primary
 	display_flags: none
 	hints: none
-	mass_per_unit: 0.880
+	
+	mass_per_unit: 0.714
 	quantity_max: 500.000
 	spawn_quantity_threshold: 3.000
+	
 	form_type: chunk
 	prefab: resource.kruskite
+	h_substance: "null"
 	
 	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
 	
 	colliders: []
 }

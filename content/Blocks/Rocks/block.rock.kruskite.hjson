@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.2"
+	$version: "0.1.62.0"
 	name: "Kruskite"
 	desc:
 		'''
@@ -12,23 +12,23 @@
 	flags: raw, ore, common, mineral
 	
 	max_health: 15000.000
-	
 	smoothing: 0.140
-	mass: 2.100
-	friction: 0.900
-	elasticity: 0.200
 	stability: 4.140
 	strength_tensile: 4.800
 	strength_compressive: 21.000
+	
+	mass: 0.800
+	friction: 0.900
+	elasticity: 0.200
 	collision_layer: none
 	collision_mask: none
 	
 	texture: terrain.rock.kruskite
 	pattern: pattern.stone
-	
 	texture_scale: 1.300
 	texture_overshoot: -0.750
 	texture_offset: 0.000
+	
 	color_preview: "0xff80775f"
 	color_fill: "0xff140e08"
 	
@@ -46,7 +46,6 @@
 		{
 			color: "0xff80775f"
 			tile_flags: solid, non_empty, become_background_on_break, ground, no_replace
-			meta: 0
 		}
 	]
 }

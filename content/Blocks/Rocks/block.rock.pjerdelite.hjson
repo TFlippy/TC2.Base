@@ -1,9 +1,10 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.0"
 	name: "Pjerdelite"
 	desc:
 		'''
-		TODO: Desc
+		Extremely hard metamorphic rock found deeper underground.
+		Consists mostly of smirglum.
 		'''
 	
 	material_type: stone_metallic
@@ -11,23 +12,23 @@
 	flags: raw, ore, common, mineral
 	
 	max_health: 108500.000
-	
 	smoothing: 0.160
-	mass: 11.000
-	friction: 0.700
-	elasticity: 0.560
 	stability: 8.940
 	strength_tensile: 4.800
 	strength_compressive: 21.000
+	
+	mass: 3.770
+	friction: 0.700
+	elasticity: 0.560
 	collision_layer: none
 	collision_mask: none
 	
 	texture: terrain.rock.pjerdelite
 	pattern: pattern.stone
-	
 	texture_scale: 1.400
 	texture_overshoot: -0.650
 	texture_offset: 0.000
+	
 	color_preview: "0xff80775f"
 	color_fill: "0xff140e08"
 	

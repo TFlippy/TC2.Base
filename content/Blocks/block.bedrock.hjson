@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.0"
 	name: "Bedrock"
 	desc:
 		'''
@@ -11,23 +11,23 @@
 	flags: raw, mineral
 	
 	max_health: 18446740000000000000.000
-	
 	smoothing: 0.250
-	mass: 5.700
-	friction: 0.850
-	elasticity: 0.410
 	stability: 7.400
 	strength_tensile: 7.000
 	strength_compressive: 100.000
+	
+	mass: 12.000
+	friction: 0.850
+	elasticity: 0.410
 	collision_layer: none
 	collision_mask: essence
 	
 	texture: terrain.bedrock
 	pattern: pattern.stone
-	
 	texture_scale: 1.710
 	texture_overshoot: 0.000
 	texture_offset: 0.000
+	
 	color_preview: "0x00000000"
 	color_fill: "0xff140e08"
 	
