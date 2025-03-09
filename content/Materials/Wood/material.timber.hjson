@@ -16,17 +16,22 @@
 	}
 	
 	type: tree
-	flags: hard, long, organic, large, raw, fuel, flammable, solid, impure, primary
+	flags: hard, long, organic, large, raw, fuel, flammable, flexible, solid, impure, primary
 	display_flags: sprite_stack_linear
 	hints: none
+	
 	mass_per_unit: 8.437
 	quantity_max: 100.000
 	spawn_quantity_threshold: 0.200
+	
 	form_type: raw
 	prefab: resource.timber
 	h_substance: wood
 	
 	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
 	
 	colliders:
 	[
@@ -78,16 +83,16 @@
 		handsaw:
 		{
 			h_material: wood
-			spawn_flags: merge, pickup
+			spawn_flags: merge, show_notification
 			product_flags: primary
-			ratio: 0.330
+			ratio: 0.420
 			ratio_extra: 0.230
 			
-			h_material_waste: woodchips
-			spawn_flags_waste: merge, pickup
-			product_flags_waste: residue
-			ratio_waste: 0.150
-			ratio_waste_extra: 0.100
+			h_material_waste: sawdust
+			spawn_flags_waste: merge
+			product_flags_waste: waste, residue
+			ratio_waste: 0.110
+			ratio_waste_extra: 0.070
 			
 			yield: 0.760
 			yield_extra: 0.110

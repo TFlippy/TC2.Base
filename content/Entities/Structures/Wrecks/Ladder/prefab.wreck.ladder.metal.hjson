@@ -23,14 +23,15 @@ body:
 		rigidity_dynamic: 0.000
 
 		material: metal_frame
-		layer: entity, climbable, no_overlapped_placement, ignore_melee, furniture
-		mask: world
+		layer: entity, climbable, no_overlapped_placement, ignore_melee, ignore_bullet, building
+		mask: world, support, building
+		exclude: door, construction
 	}
 }
 
 health:
 {
-	max: 8200.000
+	max: 7600.000
 }
 
 animated.renderer:

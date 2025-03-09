@@ -721,7 +721,7 @@ commandable:
 		error_bias: 0.000
 		max_bias: 8.000
 		stiffness: 1100.000
-		damping: 50.000
+		damping: 100.000
 		axis_force: 10000.000
 		spring_max_bias: 4.000
 		max_distance: 0.200

@@ -55,3 +55,8 @@ despawn:
 	threshold_delete: 0.050
 	threshold_despawning: 1.000
 }
+
+health:
+{
+	max: 6000.000
+}

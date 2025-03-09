@@ -16,7 +16,7 @@ namespace TC2.Base.Components
 			Splittable = 1 << 3,
 		}
 
-		[IComponent.Data(Net.SendType.Unreliable, region_only: true, sync_table_capacity: 256)]
+		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region, sync_table_capacity: 256)]
 		public struct Data(): IComponent
 		{
 			//public IMaterial.Handle h_material;
@@ -25,6 +25,7 @@ namespace TC2.Base.Components
 			//public IMaterial.Conversion.Type conversion_type;
 			//public IMaterial.Conversion.Flags conversion_flags;
 			public Resource.SpawnFlags spawn_flags;
+			public Resource.SpawnFlags spawn_flags_rem;
 			public float merge_radius = 4.00f;
 			//public Material.Type material_type;
 
@@ -41,8 +42,8 @@ namespace TC2.Base.Components
 			//var yield = data.yield;
 			//if (yield >= 0.01f)
 			{
-				var damage = ev.damage_integrity;
-				var amount_multiplier = damage * health.GetMaxHealth().RcpFast01();
+				//var damage = ev.damage_integrity;
+				//var amount_multiplier = damage * health.GetMaxHealth().RcpFast01();
 
 				//var ent_attacker = data.ent_attacker;
 				var ent_owner = ev.ent_owner;
@@ -56,10 +57,14 @@ namespace TC2.Base.Components
 					var has_no_offset = breakable.flags.HasAny(Breakable.Flags.No_Offset) | conv.spawn_flags.HasAny(Resource.SpawnFlags.No_Offset);
 					var has_no_mass_conversion = breakable.flags.HasAny(Breakable.Flags.No_Mass_Conversion) | conv.flags.HasAny(IMaterial.Conversion.Flags.No_Mass_Conversion);
 
+					var yield = Maths.ClampMin(conv.yield * ev.yield, 0.00f);
+					var damage =  ev.damage_integrity * yield;
+					var amount_multiplier = damage * health.GetMaxHealthInvFast();
+
 					var amount = Maths.Min(resource.quantity, MathF.Ceiling(resource.quantity * amount_multiplier));
 					var amount_rem = amount;
 
-					var yield = Maths.Clamp01(conv.yield * ev.yield);
+					//var yield = Maths.Clamp01(conv.yield * ev.yield);
 
 					//ref var material_conv = ref conv.h_material.GetData();
 					//if (material_conv.IsNotNull())
@@ -87,34 +92,40 @@ namespace TC2.Base.Components
 					//resource.quantity -= amount_converted;
 					//var amount_converted_corrected = amount_converted * (material.mass_per_unit / material_conv.mass_per_unit);
 
-					ref var material_conv = ref conv.h_material.GetData();
-					if (material_conv.IsNotNull())
+					if (amount_converted >= Resource.epsilon)
 					{
-						var spawn_flags_conv = spawn_flags | conv.spawn_flags;
-						Resource.Spawn(region: ref region,
-						material: conv.h_material,
-						world_position: has_no_offset ? body.GetPosition() : ev.world_position,
-						amount: has_no_mass_conversion ? amount_converted : Resource.GetConvertedQuantity(resource.material, conv.h_material, amount_converted),
-						max_distance: breakable.merge_radius * conv.merge_radius_mult,
-						flags: spawn_flags_conv,
-						ent_owner: ent_owner,
-						angular_velocity: body.GetAngularVelocity(),
-						velocity: has_no_offset ? body.GetVelocity() : body.GetVelocity() + (random.NextUnitVector2Range(0, 4) * conv.velocity_mult));
+						ref var material_conv = ref conv.h_material.GetData();
+						if (material_conv.IsNotNull())
+						{
+							var spawn_flags_conv = spawn_flags | conv.spawn_flags;
+							Resource.Spawn(region: ref region,
+							material: conv.h_material,
+							world_position: has_no_offset ? body.GetPosition() : ev.world_position,
+							amount: has_no_mass_conversion ? amount_converted : Resource.GetConvertedQuantity(resource.material, conv.h_material, amount_converted),
+							max_distance: breakable.merge_radius * conv.merge_radius_mult,
+							flags: spawn_flags_conv,
+							ent_owner: ent_owner,
+							angular_velocity: body.GetAngularVelocity(),
+							velocity: has_no_offset ? body.GetVelocity() : body.GetVelocity() + (random.NextUnitVector2Range(0, 4) * conv.velocity_mult));
+						}
 					}
 
-					ref var material_waste = ref conv.h_material_waste.GetData();
-					if (material_waste.IsNotNull())
+					if (amount_wasted >= Resource.epsilon)
 					{
-						var spawn_flags_conv = spawn_flags | conv.spawn_flags_waste;
-						Resource.Spawn(region: ref region,
-						material: conv.h_material_waste,
-						world_position: has_no_offset ? body.GetPosition() : ev.world_position,
-						amount: has_no_mass_conversion ? amount_wasted : Resource.GetConvertedQuantity(resource.material, conv.h_material_waste, amount_wasted),
-						max_distance: breakable.merge_radius * conv.merge_radius_mult,
-						flags: spawn_flags_conv,
-						ent_owner: ent_owner,
-						angular_velocity: body.GetAngularVelocity(),
-						velocity: has_no_offset ? body.GetVelocity() : body.GetVelocity() + (random.NextUnitVector2Range(0, 4) * conv.velocity_mult));
+						ref var material_waste = ref conv.h_material_waste.GetData();
+						if (material_waste.IsNotNull())
+						{
+							var spawn_flags_conv = spawn_flags | conv.spawn_flags_waste;
+							Resource.Spawn(region: ref region,
+							material: conv.h_material_waste,
+							world_position: has_no_offset ? body.GetPosition() : ev.world_position,
+							amount: has_no_mass_conversion ? amount_wasted : Resource.GetConvertedQuantity(resource.material, conv.h_material_waste, amount_wasted),
+							max_distance: breakable.merge_radius * conv.merge_radius_mult,
+							flags: spawn_flags_conv,
+							ent_owner: ent_owner,
+							angular_velocity: body.GetAngularVelocity(),
+							velocity: has_no_offset ? body.GetVelocity() : body.GetVelocity() + (random.NextUnitVector2Range(0, 4) * conv.velocity_mult));
+						}
 					}
 					//var amount_taken = amount - amount_rem;
 					//}
@@ -124,7 +135,8 @@ namespace TC2.Base.Components
 						Sound.Play(ref region, conv.h_sound, ev.world_position, volume: conv.sound_volume * random.NextFloatExtra(0.90f, 0.20f), pitch: conv.sound_pitch * random.NextFloatExtra(0.95f, 0.10f));
 					}
 
-					amount_rem *= yield;
+					//var yield = Maths.Clamp01(conv.yield * ev.yield);
+					//amount_rem *= yield;
 
 					var amount_taken = amount - amount_rem;
 					resource.quantity -= amount_taken;
