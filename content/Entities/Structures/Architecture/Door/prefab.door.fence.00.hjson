@@ -1,7 +1,7 @@
 $name: "Door (Chain-Link)"
 $desc:
 	'''
-	Chain-link fence, but it's actually a flimsy door.
+	Standard chain-link fence, but it's actually a standard flimsy door.
 	Low-caliber projectiles may pass through, larger ones probably won't.
 	'''
 $tags: []

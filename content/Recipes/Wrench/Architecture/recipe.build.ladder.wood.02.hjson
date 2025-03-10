@@ -1,9 +1,9 @@
 ﻿{
 	$version: "0.1.62.0"
-	name: "Ladder (Wood)"
+	name: "Ladder (Shoddy)"
 	desc:
 		'''
-		Basic wooden ladder.
+		A very sketchy ladder.
 		'''
 	tips: []
 	
@@ -11,7 +11,7 @@
 	[
 		{
 			type: resource
-			material: wood
+			material: scrap.wood
 			amount: 1.500
 			snapping: 0.500
 			falloff: 0.880
@@ -23,7 +23,7 @@
 	[
 		{
 			type: prefab
-			prefab: ladder.wood
+			prefab: ladder.wood.02
 			amount: 1.000
 			group: 0
 		}
@@ -34,9 +34,13 @@
 	tags: construction
 	infrastructure: none
 	
+	h_company: common
+	
 	icon:
 	{
-		texture: ladder.wood.icon
+		texture: icons.ladder.00
+		size: [16, 32]
+		frame: [2, 0]
 	}
 	
 	color_frame: "0xffaeb59a"
@@ -49,20 +53,20 @@
 	placement:
 	{
 		type: line
-		flags: allow_placement_over_buildings, no_solid_support
+		flags: allow_placement_over_buildings, no_snapping, no_solid_support
 		
 		size: [0.625, 0.625]
 		
 		cooldown: 0.500
-		min_support: 0.350
+		min_support: 0.500
 		min_clearance: 0.920
 		min_claim: 1.000
 		
 		length_min: 0.625
 		length_max: 6.875
-		length_step: 0.625
+		length_step: 0.250
 		
-		sound: building_place
+		sound: wood.impact.hard.01
 		
 		snapping_filter:
 		{

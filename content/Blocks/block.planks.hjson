@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.62.0"
 	name: "Planks"
 	desc:
 		'''
@@ -8,26 +8,26 @@
 	
 	material_type: wood
 	tile_flags: non_empty
-	flags: artificial
+	flags: artificial, construction
 	
 	max_health: 6500.000
-	
 	smoothing: 0.178
-	mass: 0.190
-	friction: 0.900
-	elasticity: 0.340
 	stability: 1.160
 	strength_tensile: 11.000
 	strength_compressive: 1.200
+	
+	mass: 0.190
+	friction: 0.900
+	elasticity: 0.340
 	collision_layer: none
 	collision_mask: none
 	
 	texture: terrain.planks
 	pattern: pattern.planks
-	
 	texture_scale: 1.021
 	texture_overshoot: -0.575
 	texture_offset: 0.015
+	
 	color_preview: "0x00000000"
 	color_fill: "0xff140e08"
 	
@@ -35,7 +35,7 @@
 	[
 		{
 			material: scrap.wood
-			quantity: 0.056
+			quantity: 0.326
 		}
 		null
 	]
@@ -45,12 +45,10 @@
 		{
 			color: "0xffbc7049"
 			tile_flags: solid, non_empty, become_background_on_break
-			meta: 0
 		}
 		{
 			color: "0xff633e2b"
 			tile_flags: non_empty
-			meta: 0
 		}
 	]
 }

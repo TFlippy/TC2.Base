@@ -36,7 +36,9 @@
 	
 	icon:
 	{
-		texture: ladder.wood.icon
+		texture: icons.ladder.00
+		size: [16, 32]
+		frame: [0, 0]
 	}
 	
 	color_frame: "0xffaeb59a"

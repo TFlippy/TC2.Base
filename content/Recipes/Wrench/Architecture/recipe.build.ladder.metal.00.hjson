@@ -37,7 +37,9 @@
 	
 	icon:
 	{
-		texture: ladder.metal.icon
+		texture: icons.ladder.00
+		size: [16, 32]
+		frame: [0, 1]
 	}
 	
 	color_frame: "0xffaeb59a"

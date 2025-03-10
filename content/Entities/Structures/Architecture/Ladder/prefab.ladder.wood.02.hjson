@@ -1,44 +1,45 @@
-$name: "Ladder (Wood)"
+$name: "Ladder (Shoddy)"
 $desc:
 	'''
-	A wooden ladder.
-	Can be climbed.
+	A very sketchy ladder.
+	Shouldn't be climbed.
 	'''
 $tags: []
 
 body:
 {
 	type: static
-	
+
 	@shape.line:
 	{
 		a: [0.000, -2.500]
 		b: [0.000, 2.500]
 		offset: [0.000, 0.000]
+		
 		mass: 1.000
-		radius: 0.900
-		friction: 0.500
+		radius: 0.5875
+		friction: 0.950
 		elasticity: 0.500
-		rigidity_static: 0.000
-		rigidity_dynamic: 0.000
-
+		
 		material: wood
-		layer: entity, climbable, no_overlapped_placement, ignore_melee, ignore_bullet, flammable, building
-		mask: world, support, building
+		miss_chance: 0.000
+		
+		layer: entity, building, climbable, flammable, no_overlapped_placement
+		mask: world, building, support
 		exclude: door, construction
 	}
 }
 
 health:
 {
-	max: 3500.000
+	max: 500.000
 }
 
 animated.renderer:
 {
 	sprite:
 	{
-		texture: "ladder.wood"
+		texture: "ladder.wood.02"
 	}
 	z: -290.000
 }
