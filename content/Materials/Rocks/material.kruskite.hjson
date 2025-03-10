@@ -8,6 +8,8 @@
 		Commonly found bearing various sulfide minerals, in some cases as well native sulfur, silver and gold.
 		'''
 	
+	tips: []
+	
 	icon:
 	{
 		texture: resource.kruskite
@@ -22,7 +24,7 @@
 	
 	mass_per_unit: 0.714
 	quantity_max: 500.000
-	spawn_quantity_threshold: 3.000
+	spawn_quantity_threshold: 1.000
 	
 	form_type: chunk
 	prefab: resource.kruskite

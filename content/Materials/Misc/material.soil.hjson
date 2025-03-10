@@ -7,6 +7,8 @@
 		Regular soil, fairly fertile.
 		'''
 	
+	tips: []
+	
 	icon:
 	{
 		texture: resource.soil
@@ -40,8 +42,8 @@
 		wet:
 		{
 			h_material: mud
-			spawn_flags: merge, no_offset
-			product_flags: none
+			spawn_flags: merge, pickup, no_offset, show_notification
+			product_flags: byproduct
 			ratio: 0.300
 			ratio_extra: 0.500
 			
@@ -58,7 +60,7 @@
 			sound_volume: 0.260
 			sound_pitch: 0.440
 			
-			chance: 0.800
+			chance: 1.000
 			type: undefined
 			flags: no_mass_conversion
 			merge_radius_mult: 1.000

@@ -7,6 +7,8 @@
 		Funny clay that can be fired into bricks.
 		'''
 	
+	tips: []
+	
 	icon:
 	{
 		texture: resource.clay
@@ -18,13 +20,19 @@
 	flags: soft, malleable, sticky, raw, solid
 	display_flags: none
 	hints: none
+	
 	mass_per_unit: 0.570
 	quantity_max: 500.000
-	spawn_quantity_threshold: 3.000
+	spawn_quantity_threshold: 2.000
+	
 	form_type: raw
 	prefab: resource.clay
+	h_substance: "null"
 	
 	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
 	
 	colliders: []
 	

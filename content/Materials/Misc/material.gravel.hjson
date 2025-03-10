@@ -7,6 +7,8 @@
 		Wars were fought over gravel.
 		'''
 	
+	tips: []
+	
 	icon:
 	{
 		texture: resource.gravel
@@ -18,13 +20,19 @@
 	flags: granular, raw, gravel, solid
 	display_flags: none
 	hints: none
+	
 	mass_per_unit: 0.910
 	quantity_max: 500.000
-	spawn_quantity_threshold: 3.000
+	spawn_quantity_threshold: 2.000
+	
 	form_type: gravel
 	prefab: resource.gravel
+	h_substance: "null"
 	
 	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
 	
 	colliders: []
 }

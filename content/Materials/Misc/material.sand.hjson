@@ -7,6 +7,8 @@
 		Pile of sand - fit for glass production.
 		'''
 	
+	tips: []
+	
 	icon:
 	{
 		texture: resource.sand
@@ -18,14 +20,19 @@
 	flags: granular, mineral, raw, powder, solid
 	display_flags: none
 	hints: none
+	
 	mass_per_unit: 1.220
 	quantity_max: 500.000
-	spawn_quantity_threshold: 3.000
+	spawn_quantity_threshold: 2.000
+	
 	form_type: powder
 	prefab: resource.sand
 	h_substance: sand
 	
 	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
 	
 	colliders: []
 }

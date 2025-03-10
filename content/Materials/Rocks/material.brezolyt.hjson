@@ -7,6 +7,8 @@
 		TODO: Desc
 		'''
 	
+	tips: []
+	
 	icon:
 	{
 		texture: resource.brezolyt
@@ -21,7 +23,7 @@
 	
 	mass_per_unit: 0.866
 	quantity_max: 500.000
-	spawn_quantity_threshold: 3.000
+	spawn_quantity_threshold: 2.000
 	
 	form_type: chunk
 	prefab: resource.brezolyt

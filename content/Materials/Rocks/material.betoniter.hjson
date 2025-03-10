@@ -8,6 +8,8 @@
 		Often found together with various alkaline minerals, can be used as a cement substitute when crushed into a fine powder.
 		'''
 	
+	tips: []
+	
 	icon:
 	{
 		texture: resource.betoniter
@@ -19,13 +21,19 @@
 	flags: hard, granular, mineral, alkaline, heavy, raw, gravel, solid, primary
 	display_flags: none
 	hints: none
+	
 	mass_per_unit: 1.450
 	quantity_max: 500.000
-	spawn_quantity_threshold: 3.000
+	spawn_quantity_threshold: 1.000
+	
 	form_type: chunk
 	prefab: resource.betoniter
+	h_substance: "null"
 	
 	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
 	
 	colliders: []
 	

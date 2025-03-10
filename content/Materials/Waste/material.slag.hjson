@@ -7,6 +7,8 @@
 		A mixture of various metals and waste from smelting.
 		'''
 	
+	tips: []
+	
 	icon:
 	{
 		texture: resource.slag
@@ -19,14 +21,19 @@
 	flags: hard, granular, raw, powder, waste, solid
 	display_flags: none
 	hints: none
+	
 	mass_per_unit: 0.830
 	quantity_max: 500.000
-	spawn_quantity_threshold: 3.500
+	spawn_quantity_threshold: 1.000
+	
 	form_type: chunk
 	prefab: resource.slag
 	h_substance: slag
 	
 	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
 	
 	colliders:
 	[

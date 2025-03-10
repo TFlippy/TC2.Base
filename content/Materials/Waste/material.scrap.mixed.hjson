@@ -9,6 +9,8 @@
 		Contains probably everything in the world.
 		'''
 	
+	tips: []
+	
 	icon:
 	{
 		texture: resource.scrap.mixed
@@ -20,13 +22,19 @@
 	flags: scrap, magnetic, granular, metal, small, waste, solid, processed, impure
 	display_flags: none
 	hints: materials, junk, construction, cheap
+	
 	mass_per_unit: 1.380
 	quantity_max: 500.000
-	spawn_quantity_threshold: 3.000
+	spawn_quantity_threshold: 2.000
+	
 	form_type: scrap
 	prefab: resource.scrap.mixed
+	h_substance: "null"
 	
 	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
 	
 	colliders: []
 	

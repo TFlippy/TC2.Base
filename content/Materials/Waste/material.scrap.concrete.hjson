@@ -7,6 +7,8 @@
 		TODO: Desc
 		'''
 	
+	tips: []
+	
 	icon:
 	{
 		texture: resource.scrap.concrete
@@ -18,13 +20,19 @@
 	flags: scrap, hard, granular, large, heavy, gravel, waste, solid, impure
 	display_flags: sprite_stack_linear
 	hints: materials, junk, construction, cheap
+	
 	mass_per_unit: 1.410
 	quantity_max: 500.000
-	spawn_quantity_threshold: 3.000
+	spawn_quantity_threshold: 2.000
+	
 	form_type: scrap
 	prefab: resource.scrap.concrete
+	h_substance: "null"
 	
 	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
 	
 	colliders: []
 	

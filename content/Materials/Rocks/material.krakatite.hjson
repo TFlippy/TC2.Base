@@ -8,6 +8,8 @@
 		Very rich in various organic compounds, sometimes bearing veins of niter and coal.
 		'''
 	
+	tips: []
+	
 	icon:
 	{
 		texture: resource.krakatite
@@ -19,13 +21,19 @@
 	flags: hard, sticky, granular, toxic, mineral, corrosive, raw, flammable, volatile, solid, contaminated, smelly, primary
 	display_flags: none
 	hints: none
+	
 	mass_per_unit: 1.330
 	quantity_max: 500.000
-	spawn_quantity_threshold: 3.000
+	spawn_quantity_threshold: 1.500
+	
 	form_type: chunk
 	prefab: resource.krakatite
+	h_substance: "null"
 	
 	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
 	
 	colliders: []
 }
