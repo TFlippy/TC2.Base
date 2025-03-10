@@ -37,7 +37,7 @@
 							snapping: 0.500
 							loss: 0.024
 							group: 0
-							flags: no_residue, prerequisite
+							flags: none
 						}
 						{
 							type: resource
@@ -45,7 +45,7 @@
 							amount: 0.100
 							snapping: 0.010
 							group: 0
-							flags: no_residue, prerequisite
+							flags: none
 						}
 						{
 							type: work

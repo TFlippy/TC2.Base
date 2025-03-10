@@ -38,7 +38,6 @@
 							snapping: 0.500
 							loss: 0.024
 							group: 0
-							flags: no_residue, prerequisite
 						}
 						{
 							type: resource
@@ -47,7 +46,6 @@
 							snapping: 0.500
 							loss: 0.008
 							group: 0
-							flags: no_residue, prerequisite
 						}
 						{
 							type: work
@@ -63,9 +61,6 @@
 					]
 					
 					purity_mult: 0.956
-					quality_mult: 0.774
-					failure_mult: 1.169
-					loss_mult: 1.191
 					
 					filter_tools:
 					{

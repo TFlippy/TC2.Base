@@ -19,7 +19,7 @@
 			options:
 			[
 				{
-					name: "Forged"
+					name: "Forged (Rod)"
 					
 					type: undefined
 					flags: wip, incomplete
@@ -28,8 +28,54 @@
 					[
 						{
 							type: resource
-							material: steel.frames
-							amount: 2.13038
+							material: steel.rod
+							amount: 0.916116
+							snapping: 0.500
+							loss: 0.071
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: temperature
+							amount: 1315.200
+							amount_min: 822.000
+							amount_max: 1578.240
+							group: 0
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: work
+							work: smithing
+							amount: 650.000
+							difficulty: 8
+							snapping: 25.000
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: hammer, tongs
+						include: bucket
+					}
+					filter_infrastructure:
+					{
+						require: anvil, forge, table
+					}
+				}
+				{
+					name: "Forged (Rod)"
+					
+					type: undefined
+					flags: wip, incomplete
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.rod
+							amount: 0.916116
 							snapping: 0.500
 							loss: 0.071
 							group: 0
@@ -92,7 +138,7 @@
 							material: wood
 							amount: 0.207828
 							snapping: 1.000
-							loss: 0.090
+							loss: 0.075
 							group: 0
 							flags: prerequisite
 						}
@@ -193,7 +239,7 @@
 							amount: 1.860
 							snapping: 0.010
 							falloff: 0.970
-							loss: 0.035
+							loss: 0.024
 							group: 0
 							flags: no_residue, prerequisite
 						}

@@ -157,7 +157,7 @@ threat:
 
 flyer:
 {
-	max_speed: 45.000
+	max_speed: 25.000
 	force: 175.000
 	brake_modifier: 0.070
 	sound_speed_modifier: 0.025

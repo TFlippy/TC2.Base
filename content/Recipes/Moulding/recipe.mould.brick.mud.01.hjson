@@ -37,7 +37,7 @@
 							amount: 0.660
 							snapping: 0.500
 							group: 0
-							flags: no_residue, prerequisite
+							flags: none
 						}
 						{
 							type: resource
@@ -45,7 +45,7 @@
 							amount: 0.340
 							snapping: 0.500
 							group: 0
-							flags: no_residue, prerequisite
+							flags: none
 						}
 						{
 							type: resource
@@ -53,7 +53,7 @@
 							amount: 1.000
 							snapping: 0.250
 							group: 0
-							flags: no_residue, prerequisite
+							flags: none
 						}
 						{
 							type: work
@@ -74,7 +74,7 @@
 							difficulty: 5
 							snapping: 5.000
 							falloff: 0.922
-							group: 1
+							group: 2
 							flags: conditional
 						}
 					]

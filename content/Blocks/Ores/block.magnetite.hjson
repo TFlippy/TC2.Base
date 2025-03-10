@@ -16,7 +16,7 @@
 	strength_tensile: 4.800
 	strength_compressive: 21.000
 	
-	mass: 3.600
+	mass: 2.200
 	friction: 0.800
 	elasticity: 0.200
 	collision_layer: none
@@ -35,7 +35,7 @@
 	[
 		{
 			material: magnetite
-			quantity: 1.769663
+			quantity: 1.044944
 		}
 		null
 	]

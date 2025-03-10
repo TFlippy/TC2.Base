@@ -116,11 +116,18 @@ workshop:
 	orders_capacity: 1
 }
 
+shipment:
+{	
+	flags: keep_items, allow_deposit, use_misc, no_empty_deposit
+	layout: square
+}
+
 interactable:
 {
 	flags: none
 	priority: 2.000
 	window_size: [576.000, 472.000]
+	window_size_misc: [120.000, 0.000]
 }
 
 animated.renderer|"work":

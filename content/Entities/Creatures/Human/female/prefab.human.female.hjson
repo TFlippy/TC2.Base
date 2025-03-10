@@ -758,7 +758,7 @@ commandable:
 
 		cooldown: 0.250
 		max_distance: 1.400
-		aoe: 0.300
+		aoe: 0.400
 		damage_type: punch
 		hit_mask: destructible, world
 		knockback: 1.400
