@@ -89,7 +89,7 @@ npc:
 	avoid_distance: [0.000, 5.000]
 	idle_distance: [2.000, 2.000]
 	
-	wander_radius: 32.000
+	wander_radius: 48.000
 	wander_interval: 1.000
 	wander_interval_extra: 2.500
 	
@@ -127,12 +127,12 @@ ai.movement:
 ai.behavior:
 {
 	movement_flags: wander
-	combat_flags: attack_visible, attack_when_hit, flee, chase, charge
+	combat_flags: attack_visible, attack_when_hit, chase, charge
 }
 
 ai.search:
 {
-	radius: 16.000
+	radius: 20.000
 }
 
 pathfinding:

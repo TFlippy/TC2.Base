@@ -1,0 +1,82 @@
+﻿{
+	$version: "0.1.62.0"
+	name: "Ladder (Wood)"
+	desc:
+		'''
+		Basic wooden ladder.
+		'''
+	tips: []
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: wood
+			amount: 1.500
+			snapping: 0.500
+			falloff: 0.880
+			group: 0
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: ladder.wood
+			amount: 1.000
+			group: 0
+		}
+	]
+	
+	type: architecture
+	flags: none
+	tags: construction
+	infrastructure: none
+	
+	icon:
+	{
+		texture: ladder.wood.icon
+	}
+	
+	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
+	rank: -4614.500
+	
+	dismantle_work: 1.000
+	dismantle_yield: 0.800
+	
+	placement:
+	{
+		type: line
+		flags: allow_placement_over_buildings, no_solid_support
+		
+		size: [0.625, 0.625]
+		
+		cooldown: 0.500
+		min_support: 0.350
+		min_clearance: 0.920
+		min_claim: 1.000
+		
+		length_min: 0.625
+		length_max: 6.875
+		length_step: 0.625
+		
+		sound: building_place
+		
+		snapping_filter:
+		{
+			exclude: building, construction, no_overlapped_placement, dynamic
+		}
+		snapping_flags: snap_to_surface, align_to_surface, use_collider_radius, add_size_to_snap_radius
+		snapping_radius: 0.250
+		snapping_depth: 0.750
+		
+		mappings_replace:
+		{
+		
+		}
+	}
+	
+	version: 0
+}

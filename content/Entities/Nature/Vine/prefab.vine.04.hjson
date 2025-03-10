@@ -35,7 +35,7 @@ health:
 foliage.renderer:
 {
 	offset: [0.000, 3.000]
-	z: 150.000
+	z: -150.000
 	
 	sprite:
 	{

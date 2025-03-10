@@ -4,8 +4,13 @@
 	name_short: "Mud"
 	description:
 		'''
-		TODO: Desc
+		Sticky lump of mud.
 		'''
+	
+	tips:
+	[
+		"- Produced by submerging soil in water"
+	]
 	
 	icon:
 	{
@@ -18,13 +23,19 @@
 	flags: soft, malleable, sticky, raw, solid
 	display_flags: none
 	hints: none
+	
 	mass_per_unit: 0.670
 	quantity_max: 500.000
 	spawn_quantity_threshold: 2.000
+	
 	form_type: raw
 	prefab: resource.mud
+	h_substance: "null"
 	
 	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
 	
 	colliders: []
 }

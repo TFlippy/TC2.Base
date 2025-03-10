@@ -71,7 +71,7 @@ storage:
 			exclude: gas
 		}
 		
-		offset: [0.000, 0.000]
+		offset: [-0.625, 0.000]
 	}
 }
 

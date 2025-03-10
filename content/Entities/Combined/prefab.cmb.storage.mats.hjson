@@ -9,7 +9,7 @@
 	
 	storage:
 	{
-		@inventory16:
+		@inventory32:
 		{
 			stack_size_multiplier: 100.000
 			type: storage

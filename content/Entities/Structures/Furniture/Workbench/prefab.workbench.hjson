@@ -140,6 +140,8 @@ workshop:
 		type: workshop
 		flags: standalone, public, vertical
 	}
+
+	offset: [0.250, 0.000]
 }
 
 laboratory:

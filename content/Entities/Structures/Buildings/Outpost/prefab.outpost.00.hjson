@@ -98,6 +98,8 @@ storage:
 		{
 			exclude: gas, large
 		}
+
+		offset: [0.000, 0.750]
 	}
 }
 
@@ -138,6 +140,8 @@ armory:
 			include: granular, small
 			exclude: gas, large
 		}
+
+		offset: [0.000, -1.250]
 	}
 }
 
