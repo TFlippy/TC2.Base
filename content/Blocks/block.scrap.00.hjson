@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.62.0"
 	name: "Scrap"
 	desc:
 		'''
@@ -11,23 +11,23 @@
 	flags: artificial
 	
 	max_health: 12500.000
-	
 	smoothing: 0.160
-	mass: 1.700
-	friction: 0.950
-	elasticity: 0.100
 	stability: 0.180
 	strength_tensile: 0.100
 	strength_compressive: 7.000
+	
+	mass: 1.700
+	friction: 0.950
+	elasticity: 0.100
 	collision_layer: none
 	collision_mask: none
 	
 	texture: terrain.scrap.00
 	pattern: pattern.scrap
-	
 	texture_scale: 1.632
 	texture_overshoot: -0.750
 	texture_offset: 0.000
+	
 	color_preview: "0x00000000"
 	color_fill: "0xff140e08"
 	
@@ -35,7 +35,7 @@
 	[
 		{
 			material: scrap.mixed
-			quantity: 0.310
+			quantity: 1.012899
 		}
 		null
 	]
@@ -45,12 +45,10 @@
 		{
 			color: "0xff8e3b22"
 			tile_flags: solid, non_empty, no_replace
-			meta: 0
 		}
 		{
 			color: "0xff4a2114"
 			tile_flags: non_empty, no_replace
-			meta: 0
 		}
 	]
 }

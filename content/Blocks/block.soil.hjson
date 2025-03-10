@@ -16,7 +16,7 @@
 	strength_tensile: 0.200
 	strength_compressive: 11.000
 	
-	mass: 1.900
+	mass: 1.000
 	friction: 0.800
 	elasticity: 0.340
 	collision_layer: none
@@ -35,7 +35,7 @@
 	[
 		{
 			material: soil
-			quantity: 0.700
+			quantity: 1.352778
 		}
 		null
 	]

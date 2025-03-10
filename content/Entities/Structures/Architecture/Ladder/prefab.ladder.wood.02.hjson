@@ -24,7 +24,7 @@ body:
 		material: wood
 		miss_chance: 0.000
 		
-		layer: entity, building, climbable, flammable, no_overlapped_placement
+		layer: entity, building, climbable, flammable, no_overlapped_placement, ignore_bullet
 		mask: world, building, support
 		exclude: door, construction
 	}

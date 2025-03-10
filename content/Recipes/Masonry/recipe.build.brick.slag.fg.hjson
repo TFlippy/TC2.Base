@@ -43,7 +43,7 @@
 	{
 		texture: block_icons
 		size: [16, 16]
-		frame: [2, 0]
+		frame: [21, 0]
 	}
 	
 	color_frame: "0xffaeb59a"

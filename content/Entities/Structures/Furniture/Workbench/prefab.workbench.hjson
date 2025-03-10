@@ -28,7 +28,7 @@ body:
 		
 		layer: entity, solid, furniture, flammable, ignore_melee, background, storage
 
-		miss_chance: 0.850
+		miss_chance: 0.890
 	}
 }
 
@@ -138,7 +138,7 @@ workshop:
 	{
 		stack_size_multiplier: 1.000
 		type: workshop
-		flags: standalone, public, vertical
+		flags: standalone, public, vertical, no_auto_pickup
 	}
 
 	offset: [0.250, 0.000]
@@ -147,7 +147,7 @@ workshop:
 laboratory:
 {
 	blueprints_capacity: 1
-	augments_capacity: 9
+	augments_capacity: 8
 	filter_tags:
 	{
 		require: manual

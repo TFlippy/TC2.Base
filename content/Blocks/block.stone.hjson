@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.62.0"
 	name: "[OBSOLETE] Stone"
 	desc:
 		'''
@@ -11,23 +11,23 @@
 	flags: raw, mineral
 	
 	max_health: 30000.000
-	
 	smoothing: 0.150
-	mass: 3.800
-	friction: 0.900
-	elasticity: 0.470
 	stability: 6.140
 	strength_tensile: 4.800
 	strength_compressive: 21.000
+	
+	mass: 1.900
+	friction: 0.900
+	elasticity: 0.470
 	collision_layer: none
 	collision_mask: none
 	
 	texture: terrain.stone
 	pattern: pattern.stone
-	
 	texture_scale: 1.466
 	texture_overshoot: -0.889
 	texture_offset: -0.089
+	
 	color_preview: "0xff80775f"
 	color_fill: "0xff140e08"
 	
@@ -35,7 +35,7 @@
 	[
 		{
 			material: gravel
-			quantity: 0.500
+			quantity: 1.664835
 		}
 		null
 	]
@@ -45,12 +45,10 @@
 		{
 			color: "0xff52443c"
 			tile_flags: solid, non_empty, ground, no_replace
-			meta: 0
 		}
 		{
 			color: "0xff332c29"
 			tile_flags: solid, non_empty, ground, no_replace
-			meta: 0
 		}
 	]
 }

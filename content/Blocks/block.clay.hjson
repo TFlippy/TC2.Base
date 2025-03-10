@@ -16,7 +16,7 @@
 	strength_tensile: 0.000
 	strength_compressive: 0.000
 	
-	mass: 5.000
+	mass: 1.200
 	friction: 0.470
 	elasticity: 0.290
 	collision_layer: none
@@ -35,7 +35,7 @@
 	[
 		{
 			material: clay
-			quantity: 0.780
+			quantity: 2.060702
 		}
 		null
 	]

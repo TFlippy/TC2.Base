@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.62.0"
 	name: "Sand"
 	desc:
 		'''
@@ -11,23 +11,23 @@
 	flags: raw
 	
 	max_health: 4000.000
-	
 	smoothing: 0.230
-	mass: 0.800
-	friction: 0.971
-	elasticity: 0.030
 	stability: 0.020
 	strength_tensile: 0.001
 	strength_compressive: 0.020
+	
+	mass: 1.100
+	friction: 1.171
+	elasticity: 0.030
 	collision_layer: none
 	collision_mask: none
 	
 	texture: terrain.sand
 	pattern: pattern.soil
-	
 	texture_scale: 1.500
 	texture_overshoot: -0.500
 	texture_offset: 0.000
+	
 	color_preview: "0xff80775f"
 	color_fill: "0xff140e08"
 	
@@ -35,7 +35,7 @@
 	[
 		{
 			material: sand
-			quantity: 1.100
+			quantity: 0.890
 		}
 		null
 	]
@@ -45,7 +45,6 @@
 		{
 			color: "0xffc69971"
 			tile_flags: solid, non_empty, ground, no_replace
-			meta: 0
 		}
 	]
 }

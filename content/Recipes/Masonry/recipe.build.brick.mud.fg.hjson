@@ -3,9 +3,12 @@
 	name: "Mud Bricks"
 	desc:
 		'''
-		TODO: Desc
+		Crude dried mud bricks.
 		'''
-	tips: []
+	tips:
+	[
+		"- Cheap"
+	]
 	
 	requirements:
 	[

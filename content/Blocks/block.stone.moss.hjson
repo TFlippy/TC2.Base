@@ -16,7 +16,7 @@
 	strength_tensile: 5.200
 	strength_compressive: 17.000
 	
-	mass: 3.160
+	mass: 1.960
 	friction: 0.800
 	elasticity: 0.510
 	collision_layer: none
@@ -35,7 +35,7 @@
 	[
 		{
 			material: gravel
-			quantity: 0.600
+			quantity: 1.545055
 		}
 		null
 	]
