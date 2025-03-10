@@ -406,7 +406,7 @@
 	
 	type: workshop
 	flags: blueprintable, packable, item
-	tags: workbench, workshop, manual, simple, medium, tool, blacksmithing, woodworking, assembling, metalworking, construction
+	tags: workbench, workshop, manual, simple, medium, tool, woodworking, assembling, metalworking, construction
 	infrastructure: table, workbench
 	
 	icon:
@@ -416,6 +416,7 @@
 	icon_offset: [-5.000, 0.000]
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	button_name: "Craft"
 	rank: 18.000
 	frame_size: [32.000, 32.000]

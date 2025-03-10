@@ -7,6 +7,8 @@
 		Raw unprocessed wood.
 		'''
 	
+	tips: []
+	
 	icon:
 	{
 		texture: resource.timber
@@ -16,7 +18,7 @@
 	}
 	
 	type: tree
-	flags: hard, long, organic, large, raw, fuel, flammable, flexible, solid, impure, primary
+	flags: hard, long, organic, raw, fuel, flammable, flexible, solid, impure, primary
 	display_flags: sprite_stack_linear
 	hints: none
 	

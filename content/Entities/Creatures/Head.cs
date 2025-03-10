@@ -22,7 +22,7 @@ namespace TC2.Base.Components
 			{
 				None = 0,
 
-
+				Underwater_Breathing = 1 << 0
 			}
 
 			[Editor.Picker.Position(true, true)]
@@ -51,7 +51,8 @@ namespace TC2.Base.Components
 				Is_Breathing = 1 << 0,
 				Is_Underwater = 1 << 1,
 				Is_Suffocating = 1 << 2,
-				Is_Holding_Breath = 1 << 3,
+				Is_Drowning = 1 << 3,
+				Is_Holding_Breath = 1 << 4,
 			}
 
 			public Head.State.Flags flags;
@@ -120,7 +121,7 @@ namespace TC2.Base.Components
 				head_state.flags.SetFlag(Head.State.Flags.Is_Underwater, is_underwater);
 			}
 
-			head_state.flags.SetFlag(Head.State.Flags.Is_Holding_Breath, head_state.flags.HasAny(Head.State.Flags.Is_Underwater));
+			head_state.flags.SetFlag(Head.State.Flags.Is_Holding_Breath, head_state.flags.HasAny(Head.State.Flags.Is_Underwater) && head.flags.HasNone(Head.Data.Flags.Underwater_Breathing));
 			if (time >= head_state.t_next_breath && head_state.flags.HasNone(Head.State.Flags.Is_Holding_Breath))
 			{
 				if (head_state.t_next_breath == 0.00f) head_state.air_stored = head.air_capacity;
@@ -131,6 +132,8 @@ namespace TC2.Base.Components
 			}
 
 			head_state.air_current_norm = Maths.Avg(head_state.air_current_norm, Maths.Normalize01Fast(head_state.air_stored, head.air_capacity));
+			head_state.flags.SetFlag(Head.State.Flags.Is_Suffocating, head_state.air_current_norm < 0.80f);
+			head_state.flags.SetFlag(Head.State.Flags.Is_Drowning, head_state.flags.HasAll(Head.State.Flags.Is_Suffocating | Head.State.Flags.Is_Underwater));
 			organic_override.consciousness *= head_state.air_current_norm;
 		}
 
@@ -177,6 +180,17 @@ namespace TC2.Base.Components
 			//#if SERVER
 			//			WorldNotification.Push(ref region, "* Dies *", 0xffff0000, transform.position, lifetime: 1.00f);
 			//#endif
+		}
+
+		[ISystem.Update.E(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned)]
+		public static void OnUpdateAI(ISystem.Info info, Entity entity, ref Region.Data region, ref XorRandom random,
+		[Source.Owned] in Head.Data head, [Source.Owned] ref Head.State head_state,
+		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Body.Data body,
+		[Source.Any, Original] ref NPC.Data npc_original,
+		[Source.Owned, Override] in Organic.Data organic, [Source.Owned] ref Organic.State organic_state)
+		{
+			npc_original.self_hints.SetFlag(NPC.SelfHints.Is_Suffocating, head_state.flags.HasAny(Head.State.Flags.Is_Suffocating));
+			npc_original.self_hints.SetFlag(NPC.SelfHints.Is_Drowning, head_state.flags.HasAny(Head.State.Flags.Is_Drowning));
 		}
 
 #if SERVER

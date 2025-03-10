@@ -32,7 +32,7 @@
 							amount: 1.000
 							snapping: 1.000
 							falloff: 1.000
-							loss: 0.133
+							loss: 0.129
 							group: 0
 							flags: prerequisite
 						}
@@ -152,7 +152,7 @@
 							amount: 2.130
 							snapping: 0.010
 							falloff: 0.970
-							loss: 0.027
+							loss: 0.024
 							group: 0
 							flags: no_residue, prerequisite
 						}
@@ -228,7 +228,7 @@
 	
 	type: workshop
 	flags: blueprintable, item
-	tags: workbench, workshop, manual, simple, medium, tool, blacksmithing, woodworking, metalworking, construction
+	tags: workbench, workshop, manual, simple, medium, tool, metalworking, construction
 	infrastructure: table, workbench
 	
 	icon:
@@ -237,6 +237,7 @@
 	}
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	button_name: "Craft"
 	rank: 12.000
 	

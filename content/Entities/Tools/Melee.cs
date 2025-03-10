@@ -135,6 +135,7 @@ namespace TC2.Base.Components
 			public Physics.Layer hit_mask;
 			public Physics.Layer hit_require;
 			public Physics.Layer hit_exclude;
+			public Physics.Layer hit_ignore; // TODO: shithack
 		}
 
 		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region)]
@@ -638,6 +639,8 @@ namespace TC2.Base.Components
 				layers_exclude.RemoveFlag(Physics.Layer.Ignore_Melee);
 			}
 
+			layers_exclude.AddFlag(melee.hit_ignore);
+
 			Span<LinecastResult> results = FixedArray.CreateSpan16NoInit<LinecastResult>(out var buffer); // LinecastResult[16];
 			if (region.TryLinecastAll(pos, pos_target, melee.thickness, ref results, mask: melee.hit_mask, require: melee.hit_require, exclude: layers_exclude))
 			{
@@ -676,7 +679,6 @@ namespace TC2.Base.Components
 				{
 					dist_max = len;
 				}
-
 
 				if (len <= dist_max + melee.thickness)
 				{

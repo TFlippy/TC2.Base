@@ -92,7 +92,7 @@
 							material: wood
 							amount: 0.207828
 							snapping: 1.000
-							loss: 0.094
+							loss: 0.090
 							group: 0
 							flags: prerequisite
 						}
@@ -193,7 +193,7 @@
 							amount: 1.860
 							snapping: 0.010
 							falloff: 0.970
-							loss: 0.039
+							loss: 0.035
 							group: 0
 							flags: no_residue, prerequisite
 						}
@@ -269,7 +269,7 @@
 	
 	type: workshop
 	flags: blueprintable, item, wip
-	tags: workbench, manual, tool, blacksmithing, assembling, metalworking
+	tags: workbench, workshop, manual, simple, medium, tool, metalworking
 	infrastructure: table, workbench
 	
 	icon:
@@ -278,6 +278,7 @@
 	}
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	button_name: "Craft"
 	rank: 13.000
 	

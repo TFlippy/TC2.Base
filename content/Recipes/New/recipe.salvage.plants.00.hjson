@@ -71,30 +71,6 @@
 					]
 				}
 			]
-			
-			products:
-			[
-				{
-					type: resource
-					material: leather
-					amount: 0.413
-					amount_extra: 3.452
-					group: 0
-					flags: byproduct, secondary
-				}
-			]
-		}
-	]
-	
-	requirements:
-	[
-		{
-			type: resource
-			material: scrap.mixed
-			amount: 10.000
-			snapping: 1.000
-			group: 0
-			flags: primary, prerequisite
 		}
 	]
 
@@ -107,9 +83,9 @@
 	
 	icon:
 	{
-		texture: resource.cloth
+		texture: resource.plants
 		size: [16, 16]
-		frame: [2, 0]
+		frame: [3, 0]
 	}
 	icon_offset: [-4.000, 3.000]
 	

@@ -138,7 +138,7 @@
 	]
 	
 	type: workshop
-	flags: wip
+	flags: disabled, wip
 	tags: workbench, workshop, manual, simple, raw, woodworking, forestry, processing, messy
 	infrastructure: none
 	
@@ -169,6 +169,7 @@
 	icon_c_offset: [-7.000, -8.000]
 	
 	color_frame: "0xff818b48"
+	color_button: "0xff9dd80f"
 	rank: -3.000
 	
 	min: 1

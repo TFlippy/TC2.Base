@@ -268,30 +268,10 @@
 		}
 	]
 	
-	test:
-	{
-		a: 0.000
-		b: 0
-	}
-	test2:
-	{
-		a: 0.000
-		Item2: 0
-		Item3: [0.000, 0.000]
-		fufu: false
-		weee: [0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000, 0.000]
-	}
-	test4:
-	{
-		x: 0.000
-		y: 0.000
-		z: 0.000
-		w: 0.000
-	}
-	
 	type: workshop
 	flags: blueprintable, item, wip
-	tags: workbench, manual, blacksmithing, metalworking
+	tags: workbench, workshop, manual, simple, medium, weapon, tool, metalworking
+	infrastructure: none
 	
 	icon:
 	{
@@ -299,6 +279,7 @@
 	}
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	button_name: "Craft"
 	rank: 17.000
 	

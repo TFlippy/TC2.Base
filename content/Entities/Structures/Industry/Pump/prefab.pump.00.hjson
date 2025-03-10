@@ -49,7 +49,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "pump"
+		texture: "pump.00"
 	}
 	z: -400.000
 }
@@ -66,8 +66,9 @@ building:
 
 interactable:
 {
-	flags: no_tab
-	window_size: [96.000, 144.000]
+	flags: no_tab, centered_inventory
+	window_size: [192.000, 224.000]
+	window_size_misc: [88.000, 0.000]
 }
 
 pump:
@@ -80,17 +81,16 @@ pump:
 	{
 		sprite:
 		{
-			texture: "pump.slider"
+			texture: "pump.00.slider"
 		}
 		z: -401.000
 	}
 	
-	@inventory4:
+	@inventory1:
 	{
-		name: "Output"
-		stack_size_multiplier: 2.000
+		stack_size_multiplier: 4.000
 		type: output
-		flags: allow_ducts, ignore_mass
+		flags: allow_ducts, ignore_mass, public, standalone
 	}
 }
 
@@ -121,10 +121,18 @@ axle:
 
 sound.emitter:
 {
-	file: "pump_loop"
+	file: "pump.loop.00"
 	flags: start_muted
 	volume: 1.000
 	pitch: 1.000
 	size: 0.750
 	size_max_modifier: 0.700
+}
+
+module.slots:
+{
+	slot_type: motor
+	offset: [0.750, 0.125]
+	z: -50.000
+	rotation: 3.1416
 }
