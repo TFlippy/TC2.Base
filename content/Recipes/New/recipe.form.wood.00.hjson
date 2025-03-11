@@ -56,7 +56,8 @@
 						}
 					]
 					
-					products: []
+					quality: 1.000
+					precision: 1.000
 					
 					filter_tools:
 					{
@@ -64,14 +65,8 @@
 					}
 				}
 			]
-			
-			requirements: []
-			
-			products: []
 		}
 	]
-	
-	requirements: []
 	
 	products:
 	[
@@ -123,8 +118,9 @@
 	]
 	
 	type: workshop
-	flags: construction, item, wip, converted
-	tags: workbench, manual, simple, furniture, woodworking, carpentry, construction
+	flags: item, wip, converted
+	tags: workbench, manual, simple, medium, furniture, woodworking, carpentry, construction
+	infrastructure: surface, workbench
 	
 	icon:
 	{
@@ -132,6 +128,7 @@
 	}
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	rank: 0.000
 	
 	min: 1

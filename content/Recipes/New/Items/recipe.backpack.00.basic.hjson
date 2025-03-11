@@ -31,7 +31,7 @@
 							material: cloth
 							amount: 2.925413
 							snapping: 0.500
-							loss: 0.078
+							loss: 0.075
 							group: 0
 							flags: prerequisite
 						}
@@ -61,7 +61,7 @@
 							amount: 0.850
 							snapping: 0.500
 							falloff: 0.910
-							loss: 0.078
+							loss: 0.075
 							group: 1
 							flags: no_residue, prerequisite
 						}
@@ -186,7 +186,7 @@
 	type: workshop
 	flags: blueprintable, item, wip
 	tags: workbench, manual, simple, tailoring
-	infrastructure: table
+	infrastructure: table, chair, surface
 	
 	icon:
 	{
@@ -195,6 +195,7 @@
 	}
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	button_name: "Craft"
 	rank: 0.000
 	

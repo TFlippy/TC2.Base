@@ -99,10 +99,6 @@
 					}
 				}
 			]
-			
-			requirements: []
-			
-			products: []
 		}
 	]
 	
@@ -113,7 +109,7 @@
 			material: brezolyt
 			amount: 25.000
 			snapping: 1.000
-			loss: 0.090
+			loss: 0.086
 			group: 0
 			flags: no_residue, primary, prerequisite
 		}
@@ -204,6 +200,7 @@
 	type: workshop
 	flags: wip, converted
 	tags: workbench, manual, simple, blending, processing, messy
+	infrastructure: surface, hard_surface, workbench
 	
 	icon:
 	{
@@ -231,6 +228,7 @@
 	icon_c_offset: [-14.000, -11.000]
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	rank: -160.700
 	
 	min: 1

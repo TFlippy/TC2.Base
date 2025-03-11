@@ -162,7 +162,7 @@
 	type: workshop
 	flags: dismantling, wip, converted
 	tags: workbench, workshop, manual, simple, small, magitronics, engineering, salvaging
-	infrastructure: none
+	infrastructure: surface
 	
 	icon:
 	{

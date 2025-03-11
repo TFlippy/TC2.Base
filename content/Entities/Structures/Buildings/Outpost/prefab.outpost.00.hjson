@@ -88,7 +88,7 @@ claimable:
 
 storage:
 {
-	@inventory8:
+	@inventory16:
 	{
 		type: storage
 		flags: standalone, ignore_mass, public, faction
@@ -206,24 +206,22 @@ personnel:
 
 shop:
 {
-	name: "Outpost"
-	
 	tags_filter:
 	{
-		include: workbench, munitions, tailoring, engineering, salvaging, medical, research, social, science
-		exclude: passive, advanced, large, huge, weapon, vehicle, furniture, raw, blacksmithing, machining, stoneworking, forestry, smelting, drying, fermenting, melting, heating, casting, messy, overworld
+		include: workbench, manual, munitions, tailoring, engineering, salvaging, medical, research, social, science
+		exclude: passive, advanced, large, huge, raw, machining, smelting, fermenting, melting, heating, casting, overworld
 	}
 	
-	tools: pencil, paper, ruler, hammer, screwdriver, magnifying_glass, bucket, towel, spatula, knife, needle, pins
+	tools: pencil, paper, ruler, hammer, screwdriver, magnifying_glass, bucket, towel, knife, needle, pins, scissors
+	infrastructure: dishes, table, chair, bed, surface
 	machinery: none
-	infrastructure: table, chair, bed
-	environment: indoor, office, stationary, cozy, flammable
-	recipe_type: workshop
+	environment: office, stationary, cozy, flammable, kitchen
 	
-	flags: none
 	menu_columns: 4
+	recipe_type: workshop
+	flags: none
 	
-	offset_spawn: [0.000, 0.000]
+	name: "Outpost"
 }
 
 workshop:

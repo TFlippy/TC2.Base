@@ -122,7 +122,7 @@
 	type: workshop
 	flags: item, wip, converted
 	tags: workbench, workshop, manual, simple, metalworking, processing, messy
-	infrastructure: none
+	infrastructure: workbench
 	
 	h_company: common
 	

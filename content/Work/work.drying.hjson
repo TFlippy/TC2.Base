@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.62.0"
-	name: "Drying"
-	name_short: "Drying"
+	name: "Air-Drying"
+	name_short: "Air-Drying"
 	desc:
 		'''
 		TODO: Desc
@@ -21,7 +21,7 @@
 	color: "0xffaeb59a"
 	
 	tools_required: none
-	tools_optional: towel
+	tools_optional: none
 	
 	machinery_required: none
 	machinery_optional: none
@@ -36,8 +36,6 @@
 	
 	character_traits:
 	{
-		include: slave, insane, illiterate, sedentary, evil, fanatic, dumb
-		weight: 1.000
 	}
 	
 	skills_min:

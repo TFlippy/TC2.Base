@@ -3,7 +3,7 @@
 	name: "Simple Clay Bricks"
 	desc:
 		'''
-		Clay mixed with water shaped into brick-shaped clay bricks. Simple, but takes a while to dry.
+		Clay mixed with water shaped into brick-shaped clay bricks. Simple, but needs to be dried.
 		'''
 	tips: []
 	
@@ -15,7 +15,7 @@
 			type: processing
 			flags: wip, auto_generated
 			// Damage type used for discarding leftover resources.
-			discard_damage_type: sledgehammer
+			discard_damage_type: punch
 			
 			ratio: 1.000
 			mass_base: 0.62181
@@ -27,6 +27,7 @@
 					
 					type: undefined
 					flags: wip, auto_generated
+					color: "0xff5f6463"
 					
 					requirements:
 					[
@@ -37,7 +38,7 @@
 							snapping: 0.500
 							loss: 0.024
 							group: 0
-							flags: none
+							flags: primary
 						}
 						{
 							type: resource
@@ -45,7 +46,6 @@
 							amount: 0.100
 							snapping: 0.010
 							group: 0
-							flags: none
 						}
 						{
 							type: work
@@ -89,17 +89,17 @@
 					
 					type: undefined
 					flags: wip, auto_generated
-					color: "0xff6c4c3d"
+					color: "0xff5f6463"
 					
 					requirements:
 					[
 						{
 							type: work
 							work: drying
-							amount: 480.000
+							amount: 130.000
 							difficulty: 5
 							group: 0
-							flags: no_scaling, no_residue, conditional
+							flags: no_scaling, conditional
 						}
 					]
 					
@@ -128,7 +128,7 @@
 			flags: byproduct, primary
 		}
 	]
-
+	
 	type: workshop
 	flags: wip, converted
 	tags: manual, passive, crude, simple, drying, messy

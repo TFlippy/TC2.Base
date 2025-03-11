@@ -46,6 +46,7 @@
 	type: workshop
 	flags: blueprintable, disabled, wip
 	tags: workbench, manual, crude, weapon, munitions, woodworking, assembling, carpentry, explosive, dangerous
+	infrastructure: workbench
 	
 	icon:
 	{
@@ -53,6 +54,7 @@
 	}
 	
 	color_frame: "0xffcf392b"
+	color_button: "0xff9dd80f"
 	rank: 0.000
 	
 	min: 1

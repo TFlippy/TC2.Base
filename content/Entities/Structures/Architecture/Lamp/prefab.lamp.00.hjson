@@ -13,9 +13,9 @@ body:
 		radius: 0.600
 		friction: 0.500
 		elasticity: 0.500
-		material: device
+		material: chalk
 		layer: entity, no_overlapped_placement, ignore_melee, background, furniture
-		mask: world, support, no_overlapped_placement
+		mask: world, support, no_overlapped_placement, essence
 	}
 }
 
@@ -51,3 +51,13 @@ lamp:
 		texture: "light.circle.00"
 	}
 }
+
+// essence.container:
+// {
+// 	h_essence: heat
+// 	available: 4.000
+// 	rate: 1.000
+// 	stability: 0.900
+// 	health_threshold: 0.800
+// 	emit_type: stressor
+// }

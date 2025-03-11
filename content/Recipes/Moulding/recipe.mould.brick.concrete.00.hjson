@@ -15,7 +15,7 @@
 			type: processing
 			flags: wip, auto_generated
 			// Damage type used for discarding leftover resources.
-			discard_damage_type: sledgehammer
+			discard_damage_type: shovel
 			
 			ratio: 1.000
 			mass_base: 1.740
@@ -27,6 +27,7 @@
 					
 					type: undefined
 					flags: wip, auto_generated
+					color: "0xff675f5d"
 					
 					requirements:
 					[
@@ -37,7 +38,7 @@
 							snapping: 1.000
 							loss: 0.012
 							group: 0
-							flags: no_residue, prerequisite
+							flags: no_residue
 						}
 						{
 							type: resource
@@ -45,7 +46,7 @@
 							amount: 0.220
 							snapping: 0.100
 							group: 0
-							flags: no_residue, prerequisite
+							flags: no_residue
 						}
 						{
 							type: resource
@@ -54,7 +55,7 @@
 							snapping: 1.000
 							loss: 0.012
 							group: 0
-							flags: no_residue, prerequisite
+							flags: no_residue
 						}
 						{
 							type: resource
@@ -63,7 +64,7 @@
 							snapping: 0.250
 							loss: 0.012
 							group: 0
-							flags: no_residue, prerequisite
+							flags: no_residue
 						}
 						{
 							type: work
@@ -114,7 +115,7 @@
 					
 					type: undefined
 					flags: wip, auto_generated
-					color: "0xff6c4c3d"
+					color: "0xff675f5d"
 					
 					requirements:
 					[

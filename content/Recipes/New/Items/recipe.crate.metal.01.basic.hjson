@@ -31,7 +31,7 @@
 							material: steel.frames
 							amount: 7.984754
 							snapping: 0.500
-							loss: 0.027
+							loss: 0.024
 							group: 0
 							flags: prerequisite
 						}
@@ -40,7 +40,7 @@
 							material: machine_parts
 							amount: 3.193901
 							snapping: 0.500
-							loss: 0.027
+							loss: 0.024
 							group: 0
 							flags: prerequisite
 						}
@@ -161,7 +161,6 @@
 					snapping: 0.100
 					loss: 0.122
 					group: 0
-					flags: prerequisite, locked
 				}
 			]
 		}
@@ -181,7 +180,7 @@
 	type: workshop
 	flags: no_amount_multiplier, blueprintable, item
 	tags: workbench, manual, simple, assembling, metalworking, carpentry, construction
-	infrastructure: none
+	infrastructure: workbench
 	
 	icon:
 	{

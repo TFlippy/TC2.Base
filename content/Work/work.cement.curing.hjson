@@ -1,6 +1,6 @@
 ﻿{
-	$version: "0.1.61.4"
-	name: "Curing (Cement)"
+	$version: "0.1.62.0"
+	name: "Curing (Concrete)"
 	name_short: "Curing"
 	desc:
 		'''
@@ -26,8 +26,8 @@
 	machinery_required: none
 	machinery_optional: none
 	
-	equipment_required: none
-	equipment_optional: none
+	infrastructure_required: none
+	infrastructure_optional: none
 	
 	skills_min:
 	{

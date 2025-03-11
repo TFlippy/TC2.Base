@@ -161,7 +161,6 @@
 					snapping: 0.100
 					loss: 0.122
 					group: 0
-					flags: prerequisite, locked
 				}
 			]
 		}
@@ -181,7 +180,7 @@
 	type: workshop
 	flags: no_amount_multiplier, blueprintable, item
 	tags: workbench, manual, simple, assembling, metalworking, carpentry, construction
-	infrastructure: none
+	infrastructure: workbench
 	
 	icon:
 	{

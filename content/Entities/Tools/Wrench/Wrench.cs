@@ -662,6 +662,7 @@ namespace TC2.Base.Components
 			public Transform.Data transform;
 			public Wrench.Data wrench;
 
+			[Shitcode]
 			public void Draw()
 			{
 				//var window_size = new Vector2(422, 500);
@@ -673,10 +674,12 @@ namespace TC2.Base.Components
 				using (var widget = Sidebar.Widget.New(identifier: "wrench", name: "Wrench", icon: sprite_wrench, 
 				size: new Vector2(454, 442), //size_min: new Vector2(454 - 96, 256),
 				lockable: false, order: 2.00f,
-				flags: Sidebar.Widget.Flags.Force_Open | Sidebar.Widget.Flags.Has_Window | Sidebar.Widget.Flags.Show_As_Selected | Sidebar.Widget.Flags.Align_Right | Sidebar.Widget.Flags.Enabled/* | Sidebar.Widget.Flags.Resizable*/))
+				flags: Sidebar.Widget.Flags.Force_Open | Sidebar.Widget.Flags.Has_Window | Sidebar.Widget.Flags.Show_As_Selected | Sidebar.Widget.Flags.Align_Right | Sidebar.Widget.Flags.Fade | Sidebar.Widget.Flags.Enabled/* | Sidebar.Widget.Flags.Resizable*/))
 				{
 					if (widget.state_flags.HasAny(Sidebar.Widget.StateFlags.Show))
 					{
+						Editor.SkipGUI();
+
 						//this.StoreCurrentWindowTypeID();
 						//if (window.show)
 						//{

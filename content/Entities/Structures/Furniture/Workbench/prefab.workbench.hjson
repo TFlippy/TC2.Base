@@ -119,9 +119,9 @@ shop:
 	}
 	
 	tools: hammer, cutters, saw, hand_drill, screwdriver, wrench, bucket, axe, file, chisel, knife, sandpaper
-	infrastructure: table, rack, workbench
+	infrastructure: table, rack, surface, workbench
 	machinery: none
-	environment: mobile, sturdy, flammable
+	environment: mobile, dirty, sturdy, flammable
 	
 	menu_columns: 4
 	recipe_type: workshop

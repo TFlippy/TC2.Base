@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.62.0"
-	name: "Crumbly Mud Bricks"
+	name: "Dirty Mud Bricks"
 	desc:
 		'''
 		TODO: Desc
@@ -23,7 +23,7 @@
 			options:
 			[
 				{
-					name: "Basic"
+					name: "Muddy"
 					
 					type: undefined
 					flags: wip, auto_generated
@@ -33,6 +33,15 @@
 					[
 						{
 							type: resource
+							material: soil
+							amount: 0.370571
+							snapping: 0.500
+							loss: 0.008
+							group: 0
+							flags: primary
+						}
+						{
+							type: resource
 							material: mud
 							amount: 0.566671
 							snapping: 0.500
@@ -40,36 +49,69 @@
 							group: 0
 						}
 						{
-							type: resource
-							material: soil
-							amount: 0.370571
-							snapping: 0.500
-							loss: 0.008
-							group: 0
-						}
-						{
 							type: work
 							work: mashing
-							amount: 25.000
+							amount: 18.000
 							amount_min: 25.000
-							difficulty: 7
+							difficulty: 8
 							snapping: 5.000
 							falloff: 0.956
 							group: 1
 							flags: conditional
 						}
 					]
+				}
+				{
+					name: "Drenched"
 					
-					purity_mult: 0.956
+					type: undefined
+					flags: wip, auto_generated
+					color: "0xff4b2a19"
 					
-					filter_tools:
-					{
-						include: towel
-					}
-					filter_environment:
-					{
-						exclude: wet
-					}
+					requirements:
+					[
+						{
+							type: resource
+							material: soil
+							amount: 0.9326
+							snapping: 0.500
+							loss: 0.012
+							ratio: 1.000
+							group: 0
+							flags: primary
+						}
+						{
+							type: resource
+							material: water
+							amount: 0.170
+							snapping: 0.100
+							falloff: 0.949
+							loss: 0.008
+							group: 0
+						}
+						{
+							type: work
+							work: soaking
+							amount: 25.000
+							amount_min: 60.000
+							difficulty: 4
+							snapping: 5.000
+							falloff: 0.695
+							group: 1
+							flags: conditional
+						}
+						{
+							type: work
+							work: mashing
+							amount: 13.000
+							amount_min: 15.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.946
+							group: 2
+							flags: conditional
+						}
+					]
 				}
 			]
 		}
@@ -98,7 +140,7 @@
 						{
 							type: work
 							work: drying
-							amount: 140.000
+							amount: 200.000
 							difficulty: 3
 							snapping: 25.000
 							group: 0

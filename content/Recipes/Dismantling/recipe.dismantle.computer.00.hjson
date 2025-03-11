@@ -90,7 +90,7 @@
 		{
 			type: resource
 			material: computer
-			amount: 1.000
+			amount: 141.500
 			snapping: 1.000
 			group: 0
 			flags: primary, prerequisite
@@ -154,7 +154,7 @@
 	type: workshop
 	flags: item, dismantling, wip, converted
 	tags: workbench, workshop, manual, simple, complex, magitronics, machinery, engineering, salvaging
-	infrastructure: none
+	infrastructure: table, chair
 	
 	icon:
 	{

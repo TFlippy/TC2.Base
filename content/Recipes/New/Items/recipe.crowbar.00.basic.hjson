@@ -46,8 +46,6 @@
 						}
 					]
 					
-					products: []
-					
 					filter_tools:
 					{
 						require: hammer
@@ -98,8 +96,6 @@
 						}
 					]
 					
-					products: []
-					
 					filter_tools:
 					{
 						require: hammer, tongs
@@ -117,10 +113,6 @@
 					}
 				}
 			]
-			
-			requirements: []
-			
-			products: []
 		}
 		{
 			name: "Notches"
@@ -155,8 +147,6 @@
 						}
 					]
 					
-					products: []
-					
 					filter_tools:
 					{
 						require: file
@@ -171,8 +161,6 @@
 					}
 				}
 			]
-			
-			requirements: []
 			
 			products:
 			[
@@ -219,8 +207,6 @@
 						}
 					]
 					
-					products: []
-					
 					filter_tools:
 					{
 						require: knife
@@ -244,12 +230,8 @@
 					flags: prerequisite
 				}
 			]
-			
-			products: []
 		}
 	]
-	
-	requirements: []
 	
 	products:
 	[
@@ -262,13 +244,10 @@
 		}
 	]
 	
-	requirements_old: []
-	
-	products_old: []
-	
 	type: workshop
 	flags: blueprintable, packable, item, wip
 	tags: workbench, manual, tool, metalworking
+	infrastructure: table
 	
 	icon:
 	{
@@ -276,6 +255,7 @@
 	}
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	button_name: "Craft"
 	rank: 0.000
 	

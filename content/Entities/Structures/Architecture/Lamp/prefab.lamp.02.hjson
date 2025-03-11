@@ -15,11 +15,11 @@ body:
 		friction: 0.500
 		elasticity: 0.500
 		
-		material: device
+		material: chalk
 		miss_chance: 0.000
 		
 		layer: entity, background, furniture, no_overlapped_placement, ignore_melee
-		mask: world, support, no_overlapped_placement
+		mask: world, support, no_overlapped_placement, essence
 		exclude: none
 	}
 }

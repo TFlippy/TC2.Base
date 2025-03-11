@@ -245,7 +245,7 @@
 	type: workshop
 	flags: wip, converted
 	tags: workbench, manual, simple, essence, woodworking, science, biology, messy, dangerous
-	infrastructure: table
+	infrastructure: table, shaping_mould
 	
 	icon:
 	{

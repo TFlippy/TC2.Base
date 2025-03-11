@@ -3,7 +3,7 @@
 	name: "Holistic Mud Bricks"
 	desc:
 		'''
-		Thoroughly-kneaded mud bricks with enhanced plasticity and faster drying time.
+		Thoroughly-kneaded mud bricks with enhanced plasticity.
 		'''
 	tips: []
 	
@@ -37,7 +37,7 @@
 							amount: 0.660
 							snapping: 0.500
 							group: 0
-							flags: none
+							flags: primary
 						}
 						{
 							type: resource
@@ -45,7 +45,6 @@
 							amount: 0.340
 							snapping: 0.500
 							group: 0
-							flags: none
 						}
 						{
 							type: resource
@@ -53,14 +52,13 @@
 							amount: 1.000
 							snapping: 0.250
 							group: 0
-							flags: none
 						}
 						{
 							type: work
 							work: kneading
 							amount: 30.000
 							amount_min: 35.000
-							difficulty: 8
+							difficulty: 4
 							snapping: 5.000
 							falloff: 0.750
 							group: 1
@@ -115,7 +113,7 @@
 						{
 							type: work
 							work: drying
-							amount: 200.000
+							amount: 120.000
 							difficulty: 3
 							group: 0
 							flags: no_scaling, no_residue, conditional

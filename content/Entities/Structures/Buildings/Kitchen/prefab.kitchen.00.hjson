@@ -59,8 +59,6 @@ interactable:
 
 shop:
 {
-	name: "Kitchen"
-	
 	tags_filter:
 	{
 		require: workbench
@@ -68,14 +66,15 @@ shop:
 	}
 	
 	tools: hammer, cutters, saw, pliers, cleaver, tweezers, bucket, towel, spatula, tongs, knife
-	machinery: heater, stove
-	infrastructure: tap, cauldron, oven, pressure_cooker, dishes, bottle, barrel, table, chair, rack
-	environment: workshop, stationary, cozy
-	recipe_type: workshop
+	infrastructure: oven, pressure_cooker, dishes, bottle, table, chair, rack, shaping_mould, surface, hard_surface, liquid_container, workbench
+	machinery: heater
+	environment: workshop, stationary, cozy, kitchen
 	
-	flags: none
 	menu_columns: 4
-	blueprints_capacity: 8
+	recipe_type: workshop
+	flags: none
+	
+	name: "Kitchen"
 }
 
 workshop:

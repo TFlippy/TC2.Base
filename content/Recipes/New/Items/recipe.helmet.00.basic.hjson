@@ -64,8 +64,6 @@
 						}
 					]
 					
-					products: []
-					
 					filter_tools:
 					{
 						require: hammer, tongs
@@ -77,14 +75,8 @@
 					}
 				}
 			]
-			
-			requirements: []
-			
-			products: []
 		}
 	]
-	
-	requirements: []
 	
 	products:
 	[
@@ -145,6 +137,7 @@
 	type: workshop
 	flags: blueprintable, item, wip, converted
 	tags: workbench, manual, small, blacksmithing, tailoring, metalworking, construction
+	infrastructure: table, surface, workbench
 	
 	icon:
 	{
@@ -153,6 +146,7 @@
 	}
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	rank: 0.000
 	
 	min: 1

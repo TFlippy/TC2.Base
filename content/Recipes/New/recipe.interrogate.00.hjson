@@ -50,7 +50,7 @@
 	]
 	
 	type: workshop
-	flags: no_amount_multiplier, wip
+	flags: no_amount_multiplier, hidden, disabled, wip
 	tags: social
 	infrastructure: none
 	

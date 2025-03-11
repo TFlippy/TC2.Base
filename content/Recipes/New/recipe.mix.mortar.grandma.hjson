@@ -35,7 +35,7 @@
 							material: eggs
 							amount: 6.000
 							snapping: 0.500
-							loss: 0.137
+							loss: 0.133
 							group: 0
 							flags: no_residue, prerequisite
 						}
@@ -206,7 +206,7 @@
 	type: workshop
 	flags: wip, converted
 	tags: workbench, manual, dumb, crude, simple, cooking, biology, blending, messy
-	infrastructure: none
+	infrastructure: dishes, table, surface
 	
 	h_company: common
 	

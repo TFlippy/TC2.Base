@@ -91,8 +91,6 @@
 						}
 					]
 					
-					products: []
-					
 					filter_tools:
 					{
 						require: hammer, cutters, tongs, needle, pins
@@ -110,14 +108,8 @@
 					}
 				}
 			]
-			
-			requirements: []
-			
-			products: []
 		}
 	]
-	
-	requirements: []
 	
 	products:
 	[
@@ -191,6 +183,7 @@
 	type: workshop
 	flags: blueprintable, item, wip, converted
 	tags: workbench, manual, blacksmithing, tailoring, metalworking, construction
+	infrastructure: table, surface, workbench
 	
 	icon:
 	{
@@ -199,6 +192,7 @@
 	}
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	rank: 0.000
 	
 	min: 1

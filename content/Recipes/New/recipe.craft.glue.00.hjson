@@ -330,7 +330,7 @@
 							material: sawdust
 							amount: 8.000
 							snapping: 0.500
-							loss: 0.078
+							loss: 0.075
 							group: 0
 							flags: prerequisite
 						}
@@ -475,7 +475,7 @@
 	type: workshop
 	flags: item, production, wip, auto_complete
 	tags: workbench, manual, dumb, crude, simple, small, blending, messy
-	infrastructure: none
+	infrastructure: dishes, table, chair
 	
 	h_company: common
 	

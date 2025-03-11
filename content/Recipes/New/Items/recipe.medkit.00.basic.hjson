@@ -70,8 +70,6 @@
 						}
 					]
 					
-					products: []
-					
 					filter_tools:
 					{
 						require: cutters, screwdriver, wrench, needle, pins
@@ -88,14 +86,8 @@
 					}
 				}
 			]
-			
-			requirements: []
-			
-			products: []
 		}
 	]
-	
-	requirements: []
 	
 	products:
 	[
@@ -160,6 +152,7 @@
 	type: workshop
 	flags: blueprintable, item, wip, converted
 	tags: workbench, workshop, manual, simple, small, tool, assembling, tailoring, chemistry, medical, science, biology, construction
+	infrastructure: table, chair, surface
 	
 	icon:
 	{
@@ -167,6 +160,7 @@
 	}
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	rank: 0.000
 	
 	min: 1

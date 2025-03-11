@@ -39,8 +39,6 @@
 							flags: primary, prerequisite
 						}
 					]
-					
-					loss_mult: 0.000
 				}
 			]
 		}

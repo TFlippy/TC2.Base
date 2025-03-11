@@ -107,7 +107,7 @@
 	type: workshop
 	flags: wip, converted
 	tags: workbench, manual, dumb, crude, simple, metalworking
-	infrastructure: none
+	infrastructure: hard_surface
 	
 	h_company: common
 	

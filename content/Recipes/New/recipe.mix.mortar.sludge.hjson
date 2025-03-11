@@ -53,7 +53,7 @@
 							material: ash
 							amount: 5.000
 							snapping: 1.000
-							loss: 0.031
+							loss: 0.027
 							group: 0
 							flags: no_residue, prerequisite
 						}
@@ -177,7 +177,7 @@
 	type: workshop
 	flags: wip, converted
 	tags: workbench, manual, dumb, crude, simple, blending, messy, dangerous
-	infrastructure: none
+	infrastructure: surface
 	
 	h_company: common
 	

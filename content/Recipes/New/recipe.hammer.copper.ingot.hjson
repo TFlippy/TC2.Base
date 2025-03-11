@@ -37,7 +37,6 @@
 							snapping: 1.000
 							loss: 0.169
 							group: 0
-							flags: prerequisite, locked
 						}
 						{
 							type: work
@@ -85,7 +84,6 @@
 			snapping: 1.000
 			loss: 0.169
 			group: 0
-			flags: prerequisite, locked
 		}
 		{
 			type: work
@@ -114,7 +112,7 @@
 	type: workshop
 	flags: item, wip, converted
 	tags: workbench, manual, dumb, crude, simple, metalworking, processing
-	infrastructure: none
+	infrastructure: hard_surface
 	
 	h_company: common
 	

@@ -88,8 +88,6 @@
 						}
 					]
 					
-					products: []
-					
 					filter_tools:
 					{
 						require: hammer, screwdriver, wrench
@@ -106,14 +104,8 @@
 					}
 				}
 			]
-			
-			requirements: []
-			
-			products: []
 		}
 	]
-	
-	requirements: []
 	
 	products:
 	[
@@ -196,6 +188,7 @@
 	type: workshop
 	flags: blueprintable, item, wip, converted
 	tags: workbench, manual, small, weapon, munitions, assembling, metalworking, engineering, military, construction, explosive, dangerous
+	infrastructure: table, chair, surface
 	
 	icon:
 	{
@@ -211,11 +204,13 @@
 	icon_extra_offset: [-5.000, -6.000]
 	
 	color_frame: "0xffcf392b"
+	color_button: "0xff9dd80f"
 	rank: 0.000
 	
 	min: 1
 	max: 20
 	step: 1
+	
 	advance_delay: 1.500
 	
 	version: 1

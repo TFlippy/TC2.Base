@@ -55,8 +55,6 @@
 						}
 					]
 					
-					products: []
-					
 					filter_tools:
 					{
 						require: hammer, saw
@@ -72,14 +70,8 @@
 					}
 				}
 			]
-			
-			requirements: []
-			
-			products: []
 		}
 	]
-	
-	requirements: []
 	
 	products:
 	[
@@ -140,6 +132,7 @@
 	type: workshop
 	flags: no_amount_multiplier, blueprintable, item, wip, converted
 	tags: workbench, workshop, manual, simple, furniture, woodworking, carpentry, construction
+	infrastructure: workbench
 	
 	icon:
 	{
@@ -148,6 +141,7 @@
 	icon_offset: [1.000, 0.000]
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	rank: -4.000
 	
 	min: 1
