@@ -10,7 +10,7 @@
 	tile_flags: non_empty
 	flags: raw, ore, uncommon, magnetic, native
 	
-	max_health: 88000.000
+	max_health: 88000.010
 	smoothing: 0.110
 	stability: 4.500
 	strength_tensile: 0.000
@@ -35,7 +35,7 @@
 	[
 		{
 			material: iron
-			quantity: 0.0489
+			quantity: 0.2689
 		}
 		{
 			material: iron.gravel

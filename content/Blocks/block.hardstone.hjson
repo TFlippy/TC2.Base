@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.3"
+	$version: "0.1.62.0"
 	name: "[OBSOLETE] Hardstone"
 	desc:
 		'''
@@ -11,23 +11,23 @@
 	flags: raw, mineral
 	
 	max_health: 100000.000
-	
 	smoothing: 0.120
-	mass: 4.000
-	friction: 0.750
-	elasticity: 0.390
 	stability: 7.140
 	strength_tensile: 4.800
 	strength_compressive: 21.000
+	
+	mass: 4.000
+	friction: 0.750
+	elasticity: 0.390
 	collision_layer: none
 	collision_mask: none
 	
 	texture: terrain.hardstone
 	pattern: pattern.stone
-	
 	texture_scale: 1.750
 	texture_overshoot: -0.500
 	texture_offset: 0.000
+	
 	color_preview: "0xff80775f"
 	color_fill: "0xff140e08"
 	
@@ -35,7 +35,7 @@
 	[
 		{
 			material: gravel
-			quantity: 2.000
+			quantity: 3.692308
 		}
 		null
 	]
@@ -45,7 +45,6 @@
 		{
 			color: "0xff3d322b"
 			tile_flags: solid, non_empty, ground, no_replace
-			meta: 0
 		}
 	]
 }

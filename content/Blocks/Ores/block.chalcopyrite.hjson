@@ -8,7 +8,7 @@
 	
 	material_type: stone_metallic
 	tile_flags: non_empty
-	flags: raw, ore, common, mineral, magnetic
+	flags: raw, ore, common, mineral
 	
 	max_health: 31000.000
 	smoothing: 0.130
@@ -35,7 +35,7 @@
 	[
 		{
 			material: chalcopyrite
-			quantity: 1.636364
+			quantity: 2.1064
 		}
 		null
 	]

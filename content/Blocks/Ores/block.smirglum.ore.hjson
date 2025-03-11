@@ -33,7 +33,10 @@
 	
 	resources:
 	[
-		null
+		{
+			material: smirglum.gravel
+			quantity: 2.31579
+		}
 		null
 	]
 	
