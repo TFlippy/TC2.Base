@@ -1709,11 +1709,11 @@ namespace TC2.Base.Components
 															//construction.stage = Construction.Stage.Materials;
 															//construction.quantity = quantity;
 
-															ref var order = ref ent.GetOrAddPair<Construction.Data, Crafting.Order>(sync: true, ignore_mask: true, sync_if_added: true);
-															if (order.IsNotNull())
-															{
-																//order = new(); // order_tmp;
-															}
+															//ref var order = ref ent.GetOrAddPair<Construction.Data, Crafting.Order>(sync: true, ignore_mask: true, sync_if_added: true);
+															//if (order.IsNotNull())
+															//{
+															//	//order = new(); // order_tmp;
+															//}
 														}
 
 														ref var shipment = ref ent.GetOrAddComponent<Shipment.Data>(sync: true, ignore_mask: true);

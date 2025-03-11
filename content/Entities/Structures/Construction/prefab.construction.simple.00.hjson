@@ -1,0 +1,16 @@
+$tags: []
+
+transform:
+{
+	
+}
+
+crafting.order:
+{
+
+}
+
+shipment:
+{
+	flags: keep_items, allow_deposit, no_empty_deposit
+}

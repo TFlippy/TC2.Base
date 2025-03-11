@@ -63,7 +63,7 @@
 	type: workshop
 	flags: blueprintable, disabled, wip
 	tags: workbench, workshop, manual, complex, weapon, gun, assembling, metalworking, engineering, military, construction
-	infrastructure: table, workbench
+	infrastructure: table, vise, workbench
 	
 	icon:
 	{
