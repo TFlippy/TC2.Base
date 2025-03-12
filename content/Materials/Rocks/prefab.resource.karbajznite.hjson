@@ -21,7 +21,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.magnetite"
+		texture: "resource.karbajznite"
 		count: 4
 		size: [16, 16]
 		frame: [3, 0]
@@ -36,7 +36,7 @@ transform:
 
 resource:
 {
-	material: "magnetite"
+	material: "karbajznite"
 }
 
 holdable:

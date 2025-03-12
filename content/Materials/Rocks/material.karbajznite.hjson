@@ -1,15 +1,17 @@
 ﻿{
 	$version: "0.1.62.0"
-	name: "Magnetite"
-	name_short: "Magnetite"
+	name: "Karbajznite"
+	name_short: "Karbajznite"
 	description:
 		'''
-		High-quality iron ore.
+		TODO: Desc
 		'''
+	
+	tips: []
 	
 	icon:
 	{
-		texture: resource.magnetite
+		texture: resource.karbajznite
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -25,7 +27,7 @@
 	snapping: 0.100
 	
 	form_type: raw
-	prefab: resource.magnetite
+	prefab: resource.karbajznite
 	h_substance: "null"
 	
 	color_icon: "0xffffffff"

@@ -1,31 +1,31 @@
 ﻿{
 	$version: "0.1.62.0"
-	name: "Magnetite"
+	name: "Karbajznite"
 	desc:
 		'''
-		Common mineral, very rich in iron.
+		TODO: Desc
 		'''
 	
 	material_type: stone_metallic
 	tile_flags: non_empty
-	flags: raw, ore, common, mineral
+	flags: raw, ore, common, mineral, magnetic
 	
 	max_health: 46000.000
-	smoothing: 0.130
+	smoothing: 0.180
 	stability: 6.140
 	strength_tensile: 4.800
 	strength_compressive: 21.000
 	
 	mass: 2.200
-	friction: 0.800
-	elasticity: 0.200
+	friction: 0.740
+	elasticity: 0.430
 	collision_layer: none
 	collision_mask: none
 	
-	texture: terrain.magnetite
+	texture: terrain.karbajznite
 	pattern: pattern.stone
-	texture_scale: 1.400
-	texture_overshoot: -0.750
+	texture_scale: 1.390
+	texture_overshoot: -0.622
 	texture_offset: 0.000
 	
 	color_preview: "0xff80775f"
@@ -34,7 +34,7 @@
 	resources:
 	[
 		{
-			material: magnetite
+			material: karbajznite
 			quantity: 1.562978
 		}
 		null
