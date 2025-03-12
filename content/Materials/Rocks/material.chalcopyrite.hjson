@@ -4,9 +4,10 @@
 	name_short: "Chalcopyrite"
 	description:
 		'''
-		Mixed copper-iron ore.
-		Contains high amounts of sulfur.
+		Common sulfide mineral containing copper and iron.
 		'''
+	
+	tips: []
 	
 	icon:
 	{
@@ -16,7 +17,7 @@
 	}
 	
 	type: stone_dense
-	flags: hard, magnetic, granular, metal, mineral, raw, solid, impure, primary
+	flags: hard, granular, metal, mineral, raw, ore, gravel, solid, impure, primary
 	display_flags: none
 	hints: none
 	
@@ -24,7 +25,7 @@
 	quantity_max: 500.000
 	spawn_quantity_threshold: 1.000
 	
-	form_type: chunk
+	form_type: raw
 	prefab: resource.chalcopyrite
 	h_substance: "null"
 	
