@@ -143,6 +143,15 @@
 	max: 100
 	step: 1
 	
+	construction:
+	{
+		
+		requirements:
+		[
+			null
+		]
+	}
+	
 	h_sound_complete: effect.use.machine.00
 	
 	version: 1

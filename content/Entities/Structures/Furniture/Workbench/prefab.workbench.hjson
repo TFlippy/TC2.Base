@@ -96,7 +96,7 @@ norotate:
 {
 	bias: 0.000
 	speed: 2.000
-	multiplier: 4.000
+	multiplier: 3.000
 	mass_multiplier: 5.000
 	flags: no_share
 }

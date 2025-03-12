@@ -150,7 +150,7 @@ interactable:
 				elasticity: 0.500
 				radius: 0.000
 				material: metal_solid
-				layer: entity, solid
+				layer: entity, solid, door, building
 				mask: world, solid
 			}
 		}

@@ -11,7 +11,7 @@
 	flags: raw, ore, common, mineral
 	
 	max_health: 21800.000
-	smoothing: 0.160
+	smoothing: 0.170
 	stability: 4.040
 	strength_tensile: 6.500
 	strength_compressive: 8.100

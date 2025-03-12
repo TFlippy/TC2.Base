@@ -61,14 +61,15 @@ shop:
 {
 	tags_filter:
 	{
-		require: workbench
-		include: cooking
+		require: manual
+		include: food, organic, agriculture, cooking, chemistry, medical, research, gathering, biology, blending, forestry, processing
+		exclude: advanced, medium, large, huge, gun, vehicle, blacksmithing, machining, metalworking
 	}
 	
 	tools: hammer, cutters, saw, pliers, cleaver, tweezers, bucket, towel, spatula, tongs, knife
-	infrastructure: oven, pressure_cooker, dishes, bottle, table, chair, rack, shaping_mould, surface, hard_surface, liquid_container, workbench
+	infrastructure: oven, dishes, bottle, table, chair, rack, surface, hard_surface, liquid_container
 	machinery: heater
-	environment: workshop, stationary, cozy, kitchen
+	environment: workshop, stationary, cozy, sturdy, kitchen, small
 	
 	menu_columns: 4
 	recipe_type: workshop
