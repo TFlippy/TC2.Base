@@ -100,7 +100,7 @@ namespace TC2.Base.Components
 							var spawn_flags_conv = spawn_flags | conv.spawn_flags;
 							Resource.Spawn(region: ref region,
 							material: conv.h_material,
-							world_position: has_no_offset ? body.GetPosition() : ev.world_position,
+							world_position: has_no_offset ? transform.position : ev.world_position,
 							amount: has_no_mass_conversion ? amount_converted : Resource.GetConvertedQuantity(resource.material, conv.h_material, amount_converted),
 							max_distance: breakable.merge_radius * conv.merge_radius_mult,
 							flags: spawn_flags_conv,
@@ -118,7 +118,7 @@ namespace TC2.Base.Components
 							var spawn_flags_conv = spawn_flags | conv.spawn_flags_waste;
 							Resource.Spawn(region: ref region,
 							material: conv.h_material_waste,
-							world_position: has_no_offset ? body.GetPosition() : ev.world_position,
+							world_position: has_no_offset ? transform.position : ev.world_position,
 							amount: has_no_mass_conversion ? amount_wasted : Resource.GetConvertedQuantity(resource.material, conv.h_material_waste, amount_wasted),
 							max_distance: breakable.merge_radius * conv.merge_radius_mult,
 							flags: spawn_flags_conv,
@@ -173,7 +173,7 @@ namespace TC2.Base.Components
 				resource.Modified(entity, sync: true);
 				Resource.Spawn(region: ref region,
 				material: resource.material,
-				world_position: body.GetPosition() + ((body.Up + ev.normal) * 0.50f),
+				world_position: transform.position + ((body.Up + ev.normal) * 0.50f),
 				amount: split_amount,
 				max_distance: 0.00f,
 				flags: Resource.SpawnFlags.No_Offset,

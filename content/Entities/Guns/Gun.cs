@@ -934,10 +934,8 @@
 
 					if (!inventory_magazine.resource.IsValid())
 					{
-						var count = h_inventory.Length;
 						var inventory_span = h_inventory.GetReadOnlySpan();
-
-						for (var i = 0; i < count; i++)
+						for (var i = 0; i < inventory_span.Length; i++)
 						{
 							var resource = inventory_span[i];
 
@@ -958,7 +956,7 @@
 						}
 					}
 
-					if (inventory_magazine.resource != 0) // If magazine knows that ammo it wants to use, withdraw it from parent inventory
+					if (inventory_magazine.resource != 0) // If magazine knows what ammo it wants to use, withdraw it from parent inventory
 					{
 #if SERVER
 						gun_state.hints.RemoveFlag(Gun.Hints.Cycled);
@@ -968,7 +966,7 @@
 
 						var done_reloading = true;
 
-						if (h_inventory.Withdraw(ref inventory_magazine.resource, ref amount, unlimited: Constants.Requirements.unlimited_ammo))
+						if (h_inventory.Withdraw(resource: ref inventory_magazine.resource, amount: ref amount, unlimited: Constants.Requirements.unlimited_ammo))
 						{
 							done_reloading = false; // Successfully withdrawn, therefore there's still some ammo left to load
 							inventory_magazine.flags.AddFlag(Inventory.Flags.Dirty);

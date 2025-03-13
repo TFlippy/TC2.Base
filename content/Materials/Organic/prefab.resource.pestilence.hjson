@@ -61,6 +61,8 @@ rotting:
 		volume: 0.400
 		pitch: 1.000
 		priority: 0.100
+		size: 0.375
+		size_max_modifier: 0.500
 	}
 }
 

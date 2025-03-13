@@ -220,7 +220,7 @@
 							amount: 250.000
 							difficulty: 5
 							snapping: 5.000
-							falloff: 0.970
+							falloff: 0.939
 							group: 0
 							flags: conditional
 						}

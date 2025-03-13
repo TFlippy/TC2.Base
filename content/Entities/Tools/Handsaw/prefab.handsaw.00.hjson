@@ -76,7 +76,7 @@ melee:
 	category: misc
 	flags: no_handle, use_aim_direction
 	hit_mask: tree, destructible
-	hit_exclude: world, building, resource, water, fire, gas, powder, liquid, held, stored
+	hit_exclude: world, building, water, fire, gas, powder, liquid, held, stored
 	hit_ignore: water, fire, gas, powder, liquid, stored
 }
 

@@ -126,7 +126,7 @@ namespace TC2.Base.Components
 
 		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned), HasRelation(Source.Modifier.Shared, Relation.Type.Seat, false)]
 		public static void UpdatePuncher(ISystem.Info info, Entity entity, Entity ent_body,
-		[Source.Owned] in Arm.Data arm, [Source.Owned, Override] ref Puncher.Data puncher, [Source.Owned] ref Puncher.State puncher_state, [Source.Shared] in Meth.Effect meth)
+		[Source.Owned] in Arm.Data arm, [Source.Owned, Override] ref Puncher.Data puncher, [Source.Shared] in Meth.Effect meth)
 		{
 			var modifier = meth.modifier_current;
 			puncher.cooldown *= Maths.Lerp01(1.00f, 0.50f, modifier * 2.50f);
