@@ -53,8 +53,6 @@
 						}
 					]
 					
-					products: []
-					
 					filter_tools:
 					{
 						require: hammer, tongs
@@ -66,10 +64,6 @@
 					}
 				}
 			]
-			
-			requirements: []
-			
-			products: []
 		}
 		{
 			name: "Grip"
@@ -112,8 +106,6 @@
 						}
 					]
 					
-					products: []
-					
 					filter_tools:
 					{
 						require: file, knife
@@ -141,7 +133,7 @@
 							material: wood.rod
 							amount: 0.366311
 							snapping: 1.000
-							loss: 0.027
+							loss: 0.024
 							group: 0
 							flags: prerequisite
 						}
@@ -156,8 +148,6 @@
 							flags: conditional
 						}
 					]
-					
-					products: []
 					
 					filter_tools:
 					{
@@ -174,10 +164,6 @@
 					}
 				}
 			]
-			
-			requirements: []
-			
-			products: []
 		}
 		{
 			name: "Assembly"
@@ -205,7 +191,7 @@
 							material: glue
 							amount: 1.840
 							snapping: 0.500
-							loss: 0.933
+							loss: 0.929
 							group: 0
 							flags: prerequisite
 						}
@@ -220,8 +206,6 @@
 							flags: conditional
 						}
 					]
-					
-					products: []
 					
 					filter_tools:
 					{
@@ -238,14 +222,8 @@
 					}
 				}
 			]
-			
-			requirements: []
-			
-			products: []
 		}
 	]
-	
-	requirements: []
 	
 	products:
 	[
@@ -261,6 +239,7 @@
 	type: workshop
 	flags: blueprintable, item
 	tags: workbench, manual, weapon, blacksmithing, metalworking
+	infrastructure: surface, workbench
 	
 	icon:
 	{
@@ -268,10 +247,13 @@
 	}
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	button_name: "Craft"
 	rank: 21.000
 	
 	min: 1
 	max: 5
 	step: 1
+	
+	version: 0
 }

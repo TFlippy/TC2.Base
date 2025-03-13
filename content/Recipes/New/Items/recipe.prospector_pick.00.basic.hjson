@@ -55,8 +55,6 @@
 						}
 					]
 					
-					products: []
-					
 					filter_tools:
 					{
 						require: hammer, tongs
@@ -68,10 +66,6 @@
 					}
 				}
 			]
-			
-			requirements: []
-			
-			products: []
 		}
 		{
 			name: "Handle"
@@ -99,7 +93,7 @@
 							material: wood
 							amount: 0.233807
 							snapping: 1.000
-							loss: 0.098
+							loss: 0.090
 							group: 0
 							flags: prerequisite
 						}
@@ -113,8 +107,6 @@
 							flags: conditional
 						}
 					]
-					
-					products: []
 					
 					filter_tools:
 					{
@@ -143,7 +135,7 @@
 							material: wood.rod
 							amount: 0.8242
 							snapping: 1.000
-							loss: 0.027
+							loss: 0.024
 							group: 0
 							flags: prerequisite
 						}
@@ -158,8 +150,6 @@
 							flags: conditional
 						}
 					]
-					
-					products: []
 					
 					filter_tools:
 					{
@@ -176,10 +166,6 @@
 					}
 				}
 			]
-			
-			requirements: []
-			
-			products: []
 		}
 		{
 			name: "Assembly"
@@ -208,7 +194,7 @@
 							amount: 2.090164
 							snapping: 0.010
 							falloff: 0.970
-							loss: 0.043
+							loss: 0.035
 							group: 0
 							flags: no_residue, prerequisite
 						}
@@ -223,8 +209,6 @@
 							flags: conditional
 						}
 					]
-					
-					products: []
 					
 					filter_tools:
 					{
@@ -260,8 +244,6 @@
 						}
 					]
 					
-					products: []
-					
 					filter_tools:
 					{
 						require: hammer
@@ -272,14 +254,8 @@
 					}
 				}
 			]
-			
-			requirements: []
-			
-			products: []
 		}
 	]
-	
-	requirements: []
 	
 	products:
 	[
@@ -293,8 +269,9 @@
 	]
 	
 	type: workshop
-	flags: blueprintable, wip, item
+	flags: blueprintable, item, wip
 	tags: workbench, manual, tool, blacksmithing, assembling, metalworking
+	infrastructure: surface, workbench
 	
 	icon:
 	{
@@ -302,10 +279,13 @@
 	}
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	button_name: "Craft"
 	rank: 16.000
 	
 	min: 1
 	max: 5
 	step: 1
+	
+	version: 0
 }

@@ -193,22 +193,23 @@ namespace TC2.Base.Components
 
 	public static partial class Lootable
 	{
-		[Serializable]
-		public partial struct Item
+		public partial struct Item()
 		{
+			[Flags]
+			public enum Flags: byte
+			{
+				None = 0,
+			}
+
 			public IMaterial.Handle material;
+			public Chance chance = Chance.Max;
+			public Lootable.Item.Flags flags;
 
 			public float min;
 			public float max;
 		}
 
-		[Flags]
-		public enum Flags: uint
-		{
-			None = 0,
-		}
-
-		[IComponent.Data(Net.SendType.Unreliable, region_only: true, sync_table_capacity: 512)]
+		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region, sync_table_capacity: 512)]
 		public partial struct Data(): IComponent
 		{
 			public float merge_radius = 2.50f;
@@ -220,7 +221,9 @@ namespace TC2.Base.Components
 
 #if SERVER
 		[ISystem.RemoveLast(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void OnRemove(ref Region.Data region, ISystem.Info info, Entity entity, ref XorRandom random, [Source.Owned] ref Lootable.Data lootable, [Source.Owned] in Health.Data health, [Source.Owned] in Transform.Data transform, [Source.Owned] in Body.Data body)
+		public static void OnRemove(ref Region.Data region, ISystem.Info info, Entity entity, ref XorRandom random, 
+		[Source.Owned] ref Lootable.Data lootable, [Source.Owned] in Health.Data health, 
+		[Source.Owned] in Transform.Data transform, [Source.Owned] in Body.Data body)
 		{
 			//App.WriteLine("drop loot");
 			var yield = Constants.Harvestable.global_yield_modifier * Constants.Materials.global_yield_modifier;

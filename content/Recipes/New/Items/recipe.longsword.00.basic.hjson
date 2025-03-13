@@ -31,7 +31,7 @@
 							material: wood
 							amount: 0.367014
 							snapping: 0.500
-							loss: 0.133
+							loss: 0.129
 							group: 0
 							flags: prerequisite
 						}
@@ -71,8 +71,6 @@
 						}
 					]
 					
-					products: []
-					
 					filter_tools:
 					{
 						require: hammer, saw, file, tongs, knife
@@ -94,14 +92,8 @@
 					}
 				}
 			]
-			
-			requirements: []
-			
-			products: []
 		}
 	]
-	
-	requirements: []
 	
 	products:
 	[
@@ -160,6 +152,7 @@
 	type: workshop
 	flags: blueprintable, item, wip, converted
 	tags: workbench, workshop, manual, simple, medium, weapon, blacksmithing, metalworking, construction
+	infrastructure: surface, workbench
 	
 	icon:
 	{
@@ -167,6 +160,7 @@
 	}
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	rank: 22.000
 	frame_size: [32.000, 32.000]
 	

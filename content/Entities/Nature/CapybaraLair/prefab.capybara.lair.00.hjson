@@ -76,8 +76,8 @@ spawner:
 	group_size_extra: 0
 	interval: 40.000
 	interval_extra: 200.000
-	interval_count_modifier: 30.000
-	ai_stance: passive
+	interval_count_modifier: 60.000
+	ai_stance: friendly
 	ai_type: idle
 	flags: none
 	max_count: 3

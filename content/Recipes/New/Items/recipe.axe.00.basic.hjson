@@ -271,7 +271,7 @@
 	type: workshop
 	flags: blueprintable, item, wip
 	tags: workbench, workshop, manual, simple, medium, weapon, tool, metalworking
-	infrastructure: none
+	infrastructure: surface, workbench
 	
 	icon:
 	{

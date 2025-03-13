@@ -956,7 +956,7 @@
 						}
 					}
 
-					if (inventory_magazine.resource != 0) // If magazine knows what ammo it wants to use, withdraw it from parent inventory
+					if (inventory_magazine.resource) // If magazine knows what ammo it wants to use, withdraw it from parent inventory
 					{
 #if SERVER
 						gun_state.hints.RemoveFlag(Gun.Hints.Cycled);
@@ -1520,7 +1520,7 @@
 		[Source.Owned, Pair.Component<Gun.Data>] ref Inventory1.Data inventory_magazine)
 		{
 			gun_state.hints.SetFlag(Gun.Hints.Loaded, inventory_magazine.resource.IsValid());
-			gun_state.hints.SetFlag(Gun.Hints.Supressive_Fire, gun.max_ammo >= 10.00f && (gun.cycle_interval <= 0.10f || (gun.cycle_interval <= 0.20f && gun.flags.HasAny(Gun.Flags.Automatic))));
+			gun_state.hints.SetFlag(Gun.Hints.Supressive_Fire, gun.max_ammo >= 20.00f && (gun.cycle_interval > 0.09f && (gun.cycle_interval <= 0.15f || (gun.cycle_interval <= 0.40f && gun.flags.HasAny(Gun.Flags.Automatic)))));
 			gun_state.hints.SetFlag(Gun.Hints.Close_Range, gun.type == Gun.Type.Shotgun || (gun.heuristic_range <= 15.00f && gun.reload_interval <= 0.50f));
 			gun_state.hints.SetFlag(Gun.Hints.Long_Range, gun.heuristic_range > 15.00f && gun.jitter_multiplier <= 0.05f);
 
