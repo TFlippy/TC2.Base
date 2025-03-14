@@ -216,14 +216,14 @@ namespace TC2.Base.Components
 			public float spawn_radius = 1.50f;
 
 			[Save.TrimEmpty]
-			public FixedArray8<Lootable.Item> items;
+			public FixedArray4<Lootable.Item> items;
 		}
 
 #if SERVER
 		[ISystem.RemoveLast(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void OnRemove(ref Region.Data region, ISystem.Info info, Entity entity, ref XorRandom random, 
-		[Source.Owned] ref Lootable.Data lootable, [Source.Owned] in Health.Data health, 
-		[Source.Owned] in Transform.Data transform, [Source.Owned] in Body.Data body)
+		public static void OnRemove(ref Region.Data region, ref XorRandom random, 
+		[Source.Owned] ref Lootable.Data lootable, 
+		[Source.Owned] in Health.Data health, [Source.Owned] in Body.Data body)
 		{
 			//App.WriteLine("drop loot");
 			var yield = Constants.Harvestable.global_yield_modifier * Constants.Materials.global_yield_modifier;
@@ -235,7 +235,7 @@ namespace TC2.Base.Components
 				for (var i = 0; i < items.Length; i++)
 				{
 					ref var item = ref items[i];
-					if (item.material)
+					if (item.material && random.NextBool(item.chance))
 					{
 						var amount = random.NextFloatRange(item.min, item.max) * yield;
 						if (amount >= Resource.epsilon)

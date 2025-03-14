@@ -34,7 +34,7 @@
 		}
 	]
 	
-	type: industry
+	type: architecture
 	flags: no_amount_multiplier, blueprintable
 	tags: construction
 	infrastructure: none
@@ -44,11 +44,12 @@
 		texture: workbench
 		size: [32, 24]
 	}
+	icon_offset: [11.000, -1.000]
 	
 	color_frame: "0xffaeb59a"
 	color_button: "0xff9dd80f"
-	rank: -558.000
-	frame_size: [96.000, 96.000]
+	rank: -1540.000
+	frame_size: [96.000, 48.000]
 	
 	dismantle_work: 5.000
 	dismantle_yield: 0.800

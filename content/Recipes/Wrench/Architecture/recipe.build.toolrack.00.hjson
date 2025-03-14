@@ -7,9 +7,17 @@
 	[
 		{
 			type: resource
-			material: steel.frames
-			amount: 2.000
+			material: wood
+			amount: 4.000
 			group: 0
+			flags: compact
+		}
+		{
+			type: resource
+			material: steel.frames
+			amount: 2.500
+			group: 0
+			flags: compact
 		}
 	]
 	
@@ -36,7 +44,7 @@
 	
 	color_frame: "0xffaeb59a"
 	color_button: "0xff9dd80f"
-	rank: -427.000
+	rank: -5090.000
 	
 	dismantle_work: 3.000
 	dismantle_yield: 0.800
@@ -46,22 +54,38 @@
 		type: simple
 		flags: allow_mirror_x, allow_placement_over_buildings
 		
-		size: [0.500, 1.000]
-		offset: [0.000, -0.375]
+		size: [2.750, 1.750]
+		
+		rect_clearance: [-1.375, -0.875, 1.375, 0.875]
+		tileflags_clearance: solid
 		
 		cooldown: 1.000
-		min_support: 0.500
-		min_clearance: 0.200
+		min_support: 0.400
+		min_clearance: 0.800
 		min_claim: 1.000
-				
+		
+		rotation_max: 0.2946
+		rotation_step: 0.0982
+		
 		sound: building_place
+		
+		physics_filter:
+		{
+			include: building
+		}
 		
 		snapping_filter:
 		{
+			include: world, door
 			exclude: construction, dynamic
 		}
-		snapping_flags: use_collider_radius, use_raw_collider
+		snapping_flags: snap_to_surface, use_collider_radius, add_size_to_snap_offset, use_raw_collider
 		snapping_radius: 0.500
+		
+		mappings_replace:
+		{
+		
+		}
 	}
 	
 	version: 0

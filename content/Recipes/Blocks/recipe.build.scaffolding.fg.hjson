@@ -61,8 +61,7 @@
 		
 		rotation_step: 0.19635
 		
-		sound: metal.place.00
-		
+		sound: metal.place.00		
 		snapping_flags: snap_to_surface, align_to_surface, use_collider_radius, add_size_to_snap_radius, add_size_to_snap_offset, use_raw_collider, inset_terrain
 		
 		mappings_replace:

@@ -8,7 +8,7 @@
 		{
 			type: resource
 			material: wood
-			amount: 18.000
+			amount: 14.000
 			snapping: 0.500
 			group: 0
 		}
@@ -43,7 +43,7 @@
 	
 	color_frame: "0xffaeb59a"
 	color_button: "0xff9dd80f"
-	rank: -5084.500
+	rank: -5090.500
 	
 	dismantle_work: 5.000
 	dismantle_yield: 0.800

@@ -12,7 +12,7 @@ body:
 	@shape.box:
 	{
 		size: [1.500, 1.250]
-		mass: 40.000
+		mass: 31.000
 		radius: 0.250
 		material: wood
 		layer: entity, solid, storage, furniture, flammable, ignore_melee, no_overlapped_placement
@@ -24,7 +24,7 @@ body:
 
 health:
 {
-	max: 6300.000
+	max: 8300.000
 }
 
 animated.renderer:
