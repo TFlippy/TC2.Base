@@ -17,23 +17,23 @@
 	flags: artificial
 	
 	max_health: 79500.000
-	
 	smoothing: 0.160
-	mass: 1.400
-	friction: 0.900
-	elasticity: 0.600
 	stability: 0.500
 	strength_tensile: 1.100
 	strength_compressive: 8.000
+	
+	mass: 1.400
+	friction: 0.900
+	elasticity: 0.600
 	collision_layer: none
 	collision_mask: none
 	
 	texture: terrain.slab.hortspargl
 	pattern: pattern.slab.hortspargl
-	
-	texture_scale: 1.278
-	texture_overshoot: 0.000
+	texture_scale: 1.218
+	texture_overshoot: -0.500
 	texture_offset: 0.000
+	
 	color_preview: "0xff80775f"
 	color_fill: "0xff140e08"
 	

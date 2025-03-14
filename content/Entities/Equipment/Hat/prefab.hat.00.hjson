@@ -47,7 +47,7 @@ equipment:
 	type: head
 	flags: none
 	offset: [0.000, 0.000]
-	z: 6.000
+	z: 10.000
 	frame_equipped_male: 1
 	frame_equipped_female: 1
 	frame_default: 0

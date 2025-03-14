@@ -12,12 +12,18 @@ body:
 		a: [-0.200, 0.000]
 		b: [0.200, 0.000]
 		offset: [0.000, 0.000]
+		
 		mass: 0.200
-		friction: 0.800
-		elasticity: 0.700
+		radius: 0.275
+		friction: 0.760
+		elasticity: 0.190
+		
 		material: paper
+		miss_chance: 0.000
+		
 		layer: entity, solid, flammable
 		mask: world
+		exclude: none
 	}
 }
 

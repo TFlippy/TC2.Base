@@ -40,7 +40,7 @@ interactable:
 
 health:
 {
-	max: 22500.000
+	max: 26500.000
 }
 
 faction.colorable:
@@ -236,4 +236,16 @@ crafter:
 	infrastructure: table, chair, bed
 	environment: indoor, workshop, office, stationary
 	temperature_max: 493.150
+}
+
+laboratory:
+{
+	blueprints_capacity: 2
+	augments_capacity: 8
+	filter_tags:
+	{
+		require: manual
+		include: workbench, simple, gathering
+		exclude: passive, large, vehicle, blacksmithing, machining, casting, smelting, fermenting
+	}
 }

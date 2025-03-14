@@ -47,7 +47,7 @@ equipment:
 {
 	type: head
 
-	z: 6.000
+	z: 10.000
 
 	frame_default: 0
 	frame_equipped_male: 1

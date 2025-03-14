@@ -143,15 +143,3 @@ workshop:
 
 	offset: [0.250, 0.000]
 }
-
-laboratory:
-{
-	blueprints_capacity: 1
-	augments_capacity: 8
-	filter_tags:
-	{
-		require: manual
-		include: workbench, simple, gathering
-		exclude: passive, large, vehicle, blacksmithing, machining, casting, smelting, fermenting
-	}
-}

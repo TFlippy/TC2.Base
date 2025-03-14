@@ -59,13 +59,13 @@ gun:
 	velocity_multiplier: 240.000
 	jitter_multiplier: 6.500
 	recoil_multiplier: 2.400
-	velocity_max: 250.000
-	reload_interval: 2.500
+	velocity_max: 350.000
+	reload_interval: 2.100
 	cycle_interval: 0.500
 	stability: 6950.000
 	failure_rate: 0.011
 	
-	ammo_filter: ammo_mg, ammo_sg, ammo_ac, ammo_musket
+	ammo_filter: ammo_mg, ammo_sg, ammo_ac, ammo_kn, ammo_musket
 	ammo_per_shot: 1.000
 	max_ammo: 1.000
 	barrel_count: 1
