@@ -1,0 +1,273 @@
+$name: "Smithy"
+$desc:
+	'''
+	Basic metalworking workshop equipped with a simple forge and anvil.
+	'''
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.box:
+	{
+		size: [3.250, 2.750]
+		offset: [0.000, -0.125]
+		
+		mass: 535.000
+		radius: 0.500
+		
+		material: building_masonry
+		
+		layer: entity, building, support, ignore_melee, ignore_bullet
+		mask: world, building
+	}
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: smithy.00
+		mask: smithy.00.mask
+	}
+	z: -300.000
+}
+
+interactable:
+{
+	flags: no_tab
+	priority: 1.000
+	window_size: [740.000, 600.000]
+	window_size_misc: [216.000, 0.000]
+}
+
+health:
+{
+	max: 40000.000
+}
+
+faction.colorable:
+{
+	intensity_a: 0.600
+}
+
+faction:
+{
+
+}
+
+transform:
+{
+
+}
+
+building:
+{
+
+}
+
+nameable:
+{
+	tags: lame, homely, industrial, tool, factory
+	type: location
+	flags: randomize
+	max_length: 16
+}
+
+address:
+{
+	
+}
+
+entrance.linkable:
+{
+
+}
+
+claimable:
+{
+	flags: enable_wololo
+}
+
+laboratory:
+{
+	blueprints_capacity: 3
+	filter_tags:
+	{
+		require: metalworking
+		include: smelting, metalworking, casting
+	}
+}
+
+shop:
+{
+	tags_filter:
+	{
+		require: manual
+		include: workbench, workshop, blacksmithing, metalworking, salvaging
+		exclude: laboratory, passive, advanced, huge, machining, social, forestry, overworld
+	}
+	
+	tools: ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, pliers, bucket, axe, file, chisel, towel, tongs, pick, crowbar, knife, sandpaper
+	environment: indoor, warm, workshop, stationary, dirty, contaminated, smelly, cozy, scary, noisy, reinforced, durable, sturdy
+	infrastructure: oven, anvil, forge, barrel, table, vise, rack, crucible, casting_mould, workbench
+	machinery: grinder, heater, burner
+	
+	menu_columns: 6
+	recipe_type: workshop
+	flags: none
+	
+	offset_spawn: [0.000, 0.000]
+	
+	name: "Smithy"
+}
+
+workshop:
+{
+	orders_capacity: 5
+
+	@inventory16:
+	{
+		type: workshop
+		flags: standalone, allow_ducts, ignore_mass, public, faction
+		stack_size_multiplier: 2.000
+		
+		offset: [0.000, 0.000]
+	}
+}
+
+personnel:
+{
+	flags: store_characters
+	slots:
+	[
+
+	]
+	characters_capacity: 2
+}
+
+crafter:
+{
+	tools: pencil, paper, ruler, hammer, saw, screwdriver, wrench, pliers, bucket, file, tongs, knife
+	machinery: heater, burner, stove
+	infrastructure: oven, anvil, forge, barrel, table, chair, vise, rack, crucible
+	environment: workshop, stationary, dirty, noisy
+	temperature_max: 893.150
+
+	@inventory8:
+	{
+		type: waste
+		flags: standalone, allow_ducts, ignore_mass, vertical
+		stack_size_multiplier: 4.000
+		
+		offset: [0.000, 0.000]
+	}
+}
+
+// spawn:
+// {
+// 	flags: faction
+// }
+
+// dormitory:
+// {
+// 	species: human
+// 	flags: no_kit_selection, no_kit_requirements, region_only
+// 	characters_capacity: 3
+// 	characters_initial_count: 1
+// 	repopulate_interval: 300.000
+// 	repopulate_interval_extra: 600.000
+// 	repopulate_num: 1
+// 	repopulate_num_extra: 2
+// 	repopulate_max: 1
+// 	move_radius: 12.000
+// 	asset_flags: recycle
+// 	character_flags_filter:
+// 	{
+// 		require: engineer
+// 		include: construction, educated, artisan, professional, laborer, technician, engineer, middle_class, upper_middle_class
+// 		exclude: slave, unskilled, medical, farmer, illiterate, lower_class, lower_middle_class
+// 		weight: 1.000
+// 	}
+// }
+
+essence.container:
+{
+	stability: 0.950
+	health_threshold: 0.100
+	glow_modifier: 1.800
+	emit_type: stressor
+	flags: show_gui, allow_edit_rate
+
+	@inventory1:
+	{
+		type: essence
+		flags: ignore_mass
+		stack_size_multiplier: 0.100
+		
+		filter:
+		{
+			require: small, pellet, solid
+			include: none
+			exclude: none
+		}
+
+		offset: [1.875, -0.375]
+	}
+
+	@sound.emitter:
+	{
+		flags: start_muted
+		volume: 0.500
+		pitch: 1.730
+		size: 0.350
+		size_max_modifier: 0.700
+		spread: 80.000
+	}
+
+	@light:
+	{
+		offset: [-2.125, 1.125]
+		scale: [13.000, 7.000]
+		texture: light.circle.00
+	}
+}
+
+heat:
+{
+	temperature_medium: 750.000
+	temperature_high: 1000.000
+	temperature_breakdown: 1750.000
+	cool_rate: 13.000
+	heat_capacity_extra: 80.000
+	heat_capacity_mult: 3.000
+	heat_damage_mult: 0.200
+	flags: exclude_body_mass, no_smoke, no_gui
+	offset: [-2.125, 0.250]
+	smoke_offset: [-2.250, -2.375]
+	size: [0.250, 0.250]
+
+	@light:
+	{
+		offset: [-2.125, 0.250]
+		scale: [3.000, 6.000]
+		intensity: 2.500
+		texture: light.box.02
+	}
+		
+	@sound.emitter:
+	{
+		flags: start_muted
+		file: "overheat_loop"
+		volume: 1.000
+		pitch: 1.000
+	}
+}
+
+fillable:
+{
+	flags: use_misc, reusable
+	volume_capacity: 0.004
+	capacity: 1.000
+}

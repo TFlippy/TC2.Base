@@ -1,0 +1,374 @@
+﻿{
+	$version: "0.1.62.0"
+	name: "Smithy"
+	tips:
+	[
+		"Forge uses E-TH Pellets for heating"
+	]
+	
+	stages:
+	[
+		{
+			name: "Foundation"
+			
+			type: foundation
+			flags: wip
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: shovel
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Gravel"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: gravel
+							amount: 500.000
+							snapping: 1.000
+							group: 0
+						}
+						{
+							type: work
+							work: filling.gravel
+							amount: 500.000
+							difficulty: 6
+							snapping: 5.000
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						include: bucket, shovel
+					}
+				}
+				{
+					name: "Rubble"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: scrap.rubble
+							amount: 250.000
+							snapping: 1.000
+							group: 0
+						}
+						{
+							type: work
+							work: filling.rubble
+							amount: 250.000
+							difficulty: 7
+							snapping: 5.000
+							group: 0
+							flags: conditional
+						}
+						{
+							type: resource
+							material: soil
+							amount: 100.000
+							snapping: 1.000
+							group: 1
+						}
+						{
+							type: work
+							work: filling.soil
+							amount: 150.000
+							difficulty: 4
+							snapping: 5.000
+							group: 1
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						include: bucket, shovel
+					}
+				}
+				{
+					name: "Concrete Composite"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: scrap.concrete
+							amount: 175.000
+							snapping: 1.000
+							group: 0
+						}
+						{
+							type: work
+							work: filling.rubble
+							amount: 200.000
+							difficulty: 7
+							snapping: 5.000
+							group: 0
+							flags: conditional
+						}
+						{
+							type: resource
+							material: cement
+							amount: 35.000
+							snapping: 1.000
+							group: 1
+						}
+						{
+							type: resource
+							material: sand
+							amount: 50.000
+							snapping: 1.000
+							group: 1
+						}
+						{
+							type: work
+							work: filling.sand
+							amount: 175.000
+							difficulty: 3
+							snapping: 5.000
+							group: 1
+							flags: conditional
+						}
+						{
+							type: resource
+							material: water
+							amount: 15.000
+							snapping: 1.000
+							group: 2
+						}
+						{
+							type: work
+							work: pouring
+							amount: 150.000
+							difficulty: 3
+							snapping: 5.000
+							group: 2
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						include: bucket, shovel, spatula
+					}
+				}
+				{
+					name: "Compacted Soil"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: soil
+							amount: 750.000
+							snapping: 1.000
+							group: 0
+						}
+						{
+							type: work
+							work: filling.soil
+							amount: 500.000
+							difficulty: 4
+							snapping: 5.000
+							group: 0
+							flags: conditional
+						}
+						{
+							type: work
+							work: compaction.soil
+							amount: 350.000
+							difficulty: 5
+							snapping: 5.000
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						include: bucket, shovel
+					}
+				}
+			]
+		}
+		{
+			name: "Furniture"
+			
+			type: infrastructure
+			flags: wip
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: axe
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Standard"
+					
+					type: undefined
+					flags: wip
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.frames
+							amount: 8.000
+							snapping: 0.500
+							loss: 0.075
+							group: 0
+						}
+						{
+							type: resource
+							material: steel.plate
+							amount: 25.000
+							snapping: 0.500
+							loss: 0.122
+							group: 0
+						}
+						{
+							type: resource
+							material: wood
+							amount: 20.000
+							snapping: 5.000
+							loss: 0.075
+							group: 0
+						}
+						{
+							type: work
+							work: carpentry
+							amount: 400.000
+							difficulty: 6
+							snapping: 5.000
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: hammer, saw
+					}
+				}
+			]
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: smithy.00
+			amount: 1.000
+			group: 0
+			flags: primary, hidden
+		}
+	]
+	
+	type: buildings
+	flags: no_amount_multiplier, blueprintable, construction, ignore_tools, ignore_equipment, ignore_machinery, ignore_environment, auto_complete
+	tags: large, construction
+	infrastructure: none
+	
+	icon:
+	{
+		texture: smithy.00
+		size: [40, 40]
+	}
+	
+	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
+	button_name: "Build"
+	rank: 0.000
+	
+	min: 1
+	max: 1
+	step: 1
+	
+	dismantle_work: 25.000
+	dismantle_yield: 0.800
+	
+	placement:
+	{
+		type: simple
+		flags: allow_mirror_x
+		
+		size: [5.000, 5.000]
+		offset: [0.000, -1.500]
+		
+		rect_foundation: [-2.500, 0.000, 2.500, 1.000]
+		tileflags_foundation: solid
+		
+		rect_clearance: [-2.125, -3.500, 2.125, 0.000]
+		tileflags_clearance: solid
+		
+		cooldown: 1.000
+		min_support: 0.750
+		min_clearance: 1.000
+		min_claim: 1.000
+		
+		rotation_max: 0.200
+		
+		sound: building_place
+		
+		snapping_filter:
+		{
+			include: world
+			exclude: construction, dynamic
+		}
+		snapping_flags: snap_to_surface, use_raw_collider, no_end_snap
+		snapping_radius: 0.500
+		
+		mappings_replace:
+		{
+		
+		}
+	}
+	
+	construction:
+	{
+		prefab: construction.5x5
+		
+		requirements:
+		[
+			{
+				type: resource
+				material: wood
+				amount: 16.000
+				group: 0
+			}
+			{
+				type: resource
+				material: brick.concrete
+				amount: 50.000
+				group: 0
+			}
+		]
+	}
+	
+	h_sound_finalize: building_construct
+	
+	version: 1
+}
