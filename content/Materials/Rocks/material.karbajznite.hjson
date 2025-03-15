@@ -4,7 +4,8 @@
 	name_short: "Karbajznite"
 	description:
 		'''
-		TODO: Desc
+		Common naturally-occurring iron-nickel mineral. 
+		Can be readily forged or machined into smaller items.
 		'''
 	
 	tips: []
@@ -17,7 +18,7 @@
 	}
 	
 	type: stone_metallic
-	flags: hard, magnetic, granular, metal, mineral, raw, solid, impure, primary
+	flags: hard, magnetic, granular, metal, mineral, raw, solid, primary
 	display_flags: none
 	hints: none
 	

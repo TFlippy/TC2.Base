@@ -1,0 +1,124 @@
+$tags: []
+
+body:
+{
+	buoyancy: 0.010
+
+	@shape.line:
+	{
+		a: [-0.375, 0.125]
+		b: [0.375, 0.125]
+		
+		offset: [0.000, 0.375]
+		radius: 0.450
+		friction: 0.880
+		elasticity: 0.440
+		rigidity_dynamic: 0.800
+		
+		material: metal_solid
+		layer: entity, solid, resource, conductive, heatable, magnetic, bulk
+		mask: world, bulk
+		exclude: held, stored
+	}
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "resource.nickel"
+		count: 4
+		size: [16, 16]
+	}
+	z: -68.900
+}
+
+transform:
+{
+
+}
+
+resource:
+{
+	material: "nickel"
+}
+
+holdable:
+{
+	force_multiplier: 0.250
+	torque_multiplier: 0.400
+	stress_multiplier: 0.500
+	offset: [0.000, 0.750]
+	radius: 0.000
+	hints: materials, dumb, crappy, slow
+	flags: disable_parent_facing, disable_rotation, disable_control
+}
+
+health:
+{
+	max: 50000.000
+}
+
+breakable:
+{
+	flags: no_damage
+}
+
+heat:
+{
+	temperature_medium: 414.4965
+	temperature_high: 2317.969
+	temperature_operating: 788.3445
+	temperature_melt: 1357.770
+	temperature_breakdown: 2835.000
+	cool_rate: 2.000
+	smoke_speed_mult: 0.750
+	flags: meltable, formless
+	fire_flags: no_self_damage, always_contact_ignite
+	offset: [0.000, 0.500]
+	smoke_offset: [0.125, 0.250]
+	size: [2.000, 1.000]
+
+	@light:
+	{
+		offset: [0.125, 0.500]
+		scale: [50.000, 40.000]
+		intensity: 1.000
+		texture: light.circle.00
+	}
+
+	@sound.emitter:
+	{
+		file: burner.loop.00
+		flags: start_muted
+		volume: 1.000
+		pitch: 0.880
+		size: 1.000
+		size_max_modifier: 0.900
+		priority: 0.100
+		offset: [0.000, 0.500]
+	}
+}
+
+norotate:
+{
+	bias: 0.000
+	speed: 3.500
+	multiplier: 3.500
+	mass_multiplier: 1.500
+	flags: no_share
+}
+
+despawn:
+{
+	flags: no_despawn
+
+	sleep_count_max: 74
+	interval: 9.000
+	interval_extra: 14.000
+	threshold_delete: 0.010
+	threshold_despawning: 0.200
+
+	amount_ratio: 0.000
+	amount_ratio_extra: 0.000
+}
