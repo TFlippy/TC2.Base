@@ -50,12 +50,12 @@
 		flags: allow_mirror_x, allow_placement_over_buildings, require_terrain
 		
 		size: [0.500, 3.000]
-		offset: [0.000, -1.500]
+		offset: [0.000, -1.375]
 		
-		rect_foundation: [-0.250, 0.125, 0.250, 0.625]
+		rect_foundation: [-0.250, 0.250, 0.250, 0.750]
 		tileflags_foundation: solid
 		
-		rect_clearance: [-0.250, -3.000, 0.250, 0.125]
+		rect_clearance: [-0.250, -2.875, 0.250, 0.250]
 		tileflags_clearance: solid
 		
 		cooldown: 0.750
