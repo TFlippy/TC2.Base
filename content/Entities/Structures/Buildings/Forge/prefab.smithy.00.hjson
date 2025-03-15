@@ -105,20 +105,20 @@ shop:
 	tags_filter:
 	{
 		require: manual
-		include: workbench, workshop, blacksmithing, metalworking, salvaging
-		exclude: laboratory, passive, advanced, huge, machining, social, forestry, overworld
+		include: workbench, workshop, blacksmithing, metalworking, stoneworking, salvaging, heating
+		exclude: advanced, large, huge, social, forestry, smelting, fermenting, casting, moulding, overworld
 	}
 	
-	tools: ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, pliers, bucket, axe, file, chisel, towel, tongs, pick, crowbar, knife, sandpaper
-	environment: indoor, warm, workshop, stationary, dirty, contaminated, smelly, cozy, scary, noisy, reinforced, durable, sturdy
-	infrastructure: oven, anvil, forge, barrel, table, vise, rack, workbench
-	machinery: grinder, heater, burner
+	tools: hammer, saw, hand_drill, screwdriver, wrench, pliers, bucket, axe, file, chisel, towel, tongs, pick, crowbar, knife, sandpaper
+	infrastructure: oven, anvil, forge, dishes, table, rack, surface, hard_surface, workbench
+	machinery: heater, burner
+	environment: workshop, stationary, dirty, polluted, ugly, scary, fireproof, durable, sturdy
 	
 	menu_columns: 4
 	recipe_type: workshop
 	flags: none
 	
-	offset_spawn: [0.000, 0.000]
+	offset_spawn: [1.000, 0.250]
 	
 	name: "Smithy"
 }

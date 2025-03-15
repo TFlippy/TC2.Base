@@ -64,7 +64,7 @@
 	type: workshop
 	flags: blueprintable, disabled, wip
 	tags: workbench, workshop, manual, medium, weapon, gun, blacksmithing, assembling, metalworking, engineering, military, construction
-	infrastructure: anvil, vise, hard_surface, workbench
+	infrastructure: anvil, surface, hard_surface, workbench
 	
 	icon:
 	{
