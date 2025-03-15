@@ -31,16 +31,16 @@
 							material: steel.ingot
 							amount: 0.450
 							snapping: 1.000
-							loss: 0.086
+							loss: 0.082
 							group: 0
-							flags: prerequisite, locked
+							flags: prerequisite
 						}
 						{
 							type: resource
 							material: steel.frames
 							amount: 0.741103
 							snapping: 0.500
-							loss: 0.031
+							loss: 0.027
 							group: 0
 							flags: prerequisite
 						}
@@ -100,7 +100,7 @@
 							material: wood.rod
 							amount: 0.978694
 							snapping: 1.000
-							loss: 0.090
+							loss: 0.086
 							group: 0
 							flags: prerequisite
 						}
@@ -298,6 +298,7 @@
 	}
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	button_name: "Craft"
 	rank: -1.500
 	

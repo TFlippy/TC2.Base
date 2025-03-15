@@ -31,7 +31,7 @@
 							material: steel.ingot
 							amount: 2.500
 							snapping: 1.000
-							loss: 0.125
+							loss: 0.122
 							group: 0
 							flags: prerequisite
 						}
@@ -40,7 +40,7 @@
 							material: steel.frames
 							amount: 2.000
 							snapping: 0.500
-							loss: 0.125
+							loss: 0.122
 							group: 0
 							flags: prerequisite
 						}
@@ -115,7 +115,7 @@
 							material: wood
 							amount: 0.514063
 							snapping: 1.000
-							loss: 0.094
+							loss: 0.090
 							group: 0
 							flags: prerequisite
 						}
@@ -215,7 +215,7 @@
 					amount: 2.000
 					snapping: 2.000
 					group: 0
-					flags: no_residue, prerequisite, locked
+					flags: prerequisite
 				}
 			]
 		}
@@ -313,6 +313,7 @@
 	}
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	button_name: "Craft"
 	rank: -1.900
 	

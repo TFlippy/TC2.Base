@@ -38,7 +38,7 @@
 							amount: 0.200
 							snapping: 0.500
 							group: 0
-							flags: prerequisite, locked
+							flags: prerequisite
 						}
 						{
 							type: resource
@@ -116,7 +116,6 @@
 			material: pellet.heat
 			amount: 0.200
 			group: 0
-			flags: prerequisite, locked
 		}
 		{
 			type: resource
@@ -173,6 +172,7 @@
 	}
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	rank: -130.000
 	
 	min: 5

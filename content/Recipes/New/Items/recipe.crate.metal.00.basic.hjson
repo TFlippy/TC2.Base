@@ -57,6 +57,9 @@
 						}
 					]
 					
+					quality: 1.000
+					precision: 1.000
+					
 					filter_tools:
 					{
 						require: screwdriver
@@ -96,6 +99,9 @@
 							flags: prerequisite
 						}
 					]
+					
+					quality: 1.000
+					precision: 1.000
 				}
 			]
 		}
@@ -141,6 +147,9 @@
 						}
 					]
 					
+					quality: 1.000
+					precision: 1.000
+					
 					filter_tools:
 					{
 						include: paintbrush, file
@@ -161,6 +170,7 @@
 					snapping: 0.100
 					loss: 0.122
 					group: 0
+					flags: prerequisite
 				}
 			]
 		}

@@ -161,6 +161,7 @@
 					snapping: 0.100
 					loss: 0.122
 					group: 0
+					flags: prerequisite
 				}
 			]
 		}

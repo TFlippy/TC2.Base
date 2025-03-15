@@ -31,7 +31,7 @@
 							material: steel.rod
 							amount: 0.309151
 							snapping: 1.000
-							loss: 0.027
+							loss: 0.024
 							group: 0
 							flags: prerequisite
 						}
@@ -40,7 +40,7 @@
 							material: steel.frames
 							amount: 0.22821
 							snapping: 0.500
-							loss: 0.027
+							loss: 0.024
 							group: 0
 							flags: prerequisite
 						}
@@ -100,7 +100,7 @@
 							material: wood.rod
 							amount: 0.489347
 							snapping: 1.000
-							loss: 0.094
+							loss: 0.090
 							group: 0
 							flags: prerequisite
 						}
@@ -200,7 +200,7 @@
 					amount: 0.500
 					snapping: 0.500
 					group: 0
-					flags: no_residue, prerequisite, locked
+					flags: prerequisite
 				}
 			]
 		}
@@ -300,6 +300,7 @@
 	}
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	button_name: "Craft"
 	rank: -1.400
 	
