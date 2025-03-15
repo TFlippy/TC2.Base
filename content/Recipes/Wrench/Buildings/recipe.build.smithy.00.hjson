@@ -266,11 +266,6 @@
 							flags: conditional
 						}
 					]
-					
-					filter_tools:
-					{
-						require: hammer, saw
-					}
 				}
 			]
 		}

@@ -19,7 +19,7 @@ body:
 		
 		material: building_masonry
 		
-		layer: entity, building, support, ignore_melee, ignore_bullet
+		layer: entity, building, support, storage, ignore_melee, ignore_bullet, flammable
 		mask: world, building
 	}
 }
@@ -37,9 +37,9 @@ animated.renderer:
 interactable:
 {
 	flags: no_tab
-	priority: 1.000
-	window_size: [740.000, 600.000]
-	window_size_misc: [216.000, 0.000]
+	priority: 2.000
+	window_size: [696.000, 580.000]
+	window_size_misc: [120.000, 0.000]
 }
 
 health:
@@ -96,7 +96,7 @@ laboratory:
 	filter_tags:
 	{
 		require: metalworking
-		include: smelting, metalworking, casting
+		include: metalworking
 	}
 }
 
@@ -111,10 +111,10 @@ shop:
 	
 	tools: ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, pliers, bucket, axe, file, chisel, towel, tongs, pick, crowbar, knife, sandpaper
 	environment: indoor, warm, workshop, stationary, dirty, contaminated, smelly, cozy, scary, noisy, reinforced, durable, sturdy
-	infrastructure: oven, anvil, forge, barrel, table, vise, rack, crucible, casting_mould, workbench
+	infrastructure: oven, anvil, forge, barrel, table, vise, rack, workbench
 	machinery: grinder, heater, burner
 	
-	menu_columns: 6
+	menu_columns: 4
 	recipe_type: workshop
 	flags: none
 	
@@ -125,15 +125,15 @@ shop:
 
 workshop:
 {
-	orders_capacity: 5
+	orders_capacity: 3
 
-	@inventory16:
-	{
+	@inventory8:
+	{	
 		type: workshop
-		flags: standalone, allow_ducts, ignore_mass, public, faction
-		stack_size_multiplier: 2.000
+		flags: standalone, allow_ducts, ignore_mass, public, faction, vertical
+		stack_size_multiplier: 4.000
 		
-		offset: [0.000, 0.000]
+		offset: [-0.625, -0.250]
 	}
 }
 
@@ -153,15 +153,15 @@ crafter:
 	machinery: heater, burner, stove
 	infrastructure: oven, anvil, forge, barrel, table, chair, vise, rack, crucible
 	environment: workshop, stationary, dirty, noisy
-	temperature_max: 893.150
+	temperature_max: 1193.150
 
-	@inventory8:
-	{
+	@inventory4:
+	{	
 		type: waste
-		flags: standalone, allow_ducts, ignore_mass, vertical
-		stack_size_multiplier: 4.000
+		flags: standalone, allow_ducts, ignore_mass
+		stack_size_multiplier: 2.000
 		
-		offset: [0.000, 0.000]
+		offset: [1.125, 0.250]
 	}
 }
 
@@ -194,7 +194,7 @@ crafter:
 
 essence.container:
 {
-	stability: 0.950
+	stability: 0.910
 	health_threshold: 0.100
 	glow_modifier: 1.800
 	emit_type: stressor
@@ -213,7 +213,7 @@ essence.container:
 			exclude: none
 		}
 
-		offset: [1.875, -0.375]
+		offset: [-0.375, 1.000]
 	}
 
 	@sound.emitter:
@@ -228,46 +228,48 @@ essence.container:
 
 	@light:
 	{
-		offset: [-2.125, 1.125]
-		scale: [13.000, 7.000]
+		offset: [-0.375, 0.625]
+		scale: [11.000, 5.000]
 		texture: light.circle.00
 	}
 }
 
 heat:
 {
-	temperature_medium: 750.000
-	temperature_high: 1000.000
-	temperature_breakdown: 1750.000
-	cool_rate: 13.000
-	heat_capacity_extra: 80.000
-	heat_capacity_mult: 3.000
+	temperature_medium: 600.000
+	temperature_high: 1150.000
+	temperature_ignite: 1415.000
+	temperature_operating: 1193.150
+	temperature_breakdown: 1650.000
+	cool_rate: 15.000
+	heat_capacity_extra: 900.000
+	heat_capacity_mult: 6.000
 	heat_damage_mult: 0.200
-	flags: exclude_body_mass, no_smoke, no_gui
-	offset: [-2.125, 0.250]
-	smoke_offset: [-2.250, -2.375]
-	size: [0.250, 0.250]
+	smoke_size_mult: 0.700
+	smoke_speed_mult: 0.010
+	smoke_rise_mult: 0.100
+	flags: exclude_body_mass, no_gui
+	fire_flags: none
+	offset: [-0.875, -0.250]
+	smoke_offset: [-0.875, -0.250]
+	size: [0.875, 0.500]
 
 	@light:
 	{
-		offset: [-2.125, 0.250]
-		scale: [3.000, 6.000]
-		intensity: 2.500
-		texture: light.box.02
+		offset: [-0.875, -0.125]
+		scale: [28.000, 26.000]
+		intensity: 1.000
+		texture: light.circle.03
 	}
 		
 	@sound.emitter:
 	{
+		file: furnace_loop
 		flags: start_muted
-		file: "overheat_loop"
-		volume: 1.000
-		pitch: 1.000
+		volume: 1.100
+		pitch: 1.100
+		size_max_modifier: 0.850
+		priority: 0.550
+		offset: [-0.625, -0.125]
 	}
-}
-
-fillable:
-{
-	flags: use_misc, reusable
-	volume_capacity: 0.004
-	capacity: 1.000
 }

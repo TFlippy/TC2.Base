@@ -15,9 +15,9 @@
 	}
 	
 	flags: none
-	tags: manual, machine, automated, tools, dangerous, simple, industrial, wip
-	cooldown: 0.600
-	multiplier: 1.200
+	tags: manual, machine, automated, tools, simple, construction, wip
+	cooldown: 1.200
+	multiplier: 0.850
 	color: "0xff719240"
 	
 	tools_required: saw
@@ -26,8 +26,8 @@
 	machinery_required: none
 	machinery_optional: lathe, planer
 	
-	equipment_required: none
-	equipment_optional: table, chair
+	infrastructure_required: surface
+	infrastructure_optional: workbench
 	
 	character_traits:
 	{
@@ -50,11 +50,11 @@
 	}
 	
 	sound_volume: 0.500
-	sound_pitch: 1.000
+	sound_pitch: 0.900
 	sound_size: 0.500
-	sound_dist: 1.000
+	sound_dist: 0.600
 	
-	sounds: []
+	sounds: ["effect.spring.erupt.00", "effect.spring.erupt.01", "tree_impact_00", "effect.spring.erupt.01", "structural.wood.break.01"]
 	sounds_manual: []
 	sounds_machine: []
 	sounds_passive: []
