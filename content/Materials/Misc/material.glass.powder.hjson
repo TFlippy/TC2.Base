@@ -7,6 +7,8 @@
 		This is not meth.
 		'''
 	
+	tips: []
+	
 	icon:
 	{
 		texture: resource.glass.powder
@@ -18,15 +20,20 @@
 	flags: granular, powder, waste, solid, processed
 	display_flags: none
 	hints: materials, dangerous, junk, small, crappy
+	
 	purity: 0.927
 	mass_per_unit: 0.200
 	quantity_max: 1000.000
-	spawn_quantity_threshold: 4.000
+	spawn_quantity_threshold: 1.300
+	
 	form_type: powder
 	prefab: resource.glass.powder
 	h_substance: glass
 	
 	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
 	
 	colliders: []
 }

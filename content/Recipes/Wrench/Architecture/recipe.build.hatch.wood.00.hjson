@@ -55,16 +55,24 @@
 	placement:
 	{
 		type: simple
-		flags: allow_placement_over_buildings, require_terrain, terrain_is_support
+		flags: allow_placement_over_buildings, require_terrain
 		
 		size: [2.500, 0.750]
+		offset: [0.000, -0.125]
+		
+		rect_foundation: [-1.500, 0.000, 1.500, 0.250]
+		tileflags_foundation: solid
+		
+		rect_clearance: [-1.125, -1.500, 1.125, 0.500]
+		tileflags_clearance: solid
 		
 		cooldown: 0.500
-		min_support: 0.300
-		min_clearance: 0.700
+		min_support: 0.200
+		min_clearance: 0.950
 		min_claim: 1.000
 		
-		rotation_max: 6.283
+		rotation_max: 6.283186
+		rotation_step: 0.1964
 		
 		sound: building_place
 		
@@ -79,7 +87,7 @@
 			include: climbable
 			exclude: construction, dynamic
 		}
-		snapping_flags: snap_to_surface, align_to_surface, align_parallel, use_raw_collider
+		snapping_flags: snap_to_surface, align_parallel, use_raw_collider
 		
 		mappings_replace:
 		{

@@ -371,7 +371,7 @@ namespace TC2.Base.Components
 
 														var is_raw_collider = snapping_flags.HasAny(Placement.SnappingFlags.Use_Raw_Collider) || overlap_result.layer.HasAny(Physics.Layer.World) || shape_radius <= 0.00f;
 														var is_inside = overlap_result.distance < -shape_radius;
-														
+
 														//var normal_tmp = is_raw_collider ? overlap_result.normal_raw : (overlap_result.world_position - overlap_result.world_position_raw).GetNormalized();
 														Vector2 normal_tmp;
 														if (is_raw_collider)
@@ -543,7 +543,6 @@ namespace TC2.Base.Components
 														if (block.IsNotNull())
 														{
 															var tile_flags = block.tile_flags | product.tile_flags;
-
 															ref var terrain = ref region.GetTerrain();
 
 															Wrench.Mode.Build.EvaluateBlock(region: ref region, placement: in placement, errors: ref errors, skip_support: ref skip_support, placed_block_count: out var placed_block_count, bb: bb, block: product.block, tile_flags: tile_flags, pos: pos, pos_a: pos_a, pos_b: pos_b);
@@ -559,6 +558,8 @@ namespace TC2.Base.Components
 															//if (!Crafting.Evaluate(ent_wrench, ent_parent, this_transform.position, ref recipe.requirements, inventory: inventory, amount_multiplier: amount_multiplier, h_faction: h_faction)) errors |= Errors.RequirementsNotMet;
 															if (!context.Evaluate(requirements: recipe.requirements.AsSpan(), amount_multiplier: amount_multiplier)) errors |= Errors.RequirementsNotMet;
 
+															var bb_canvas = region.WorldToCanvas(bb);
+
 															if (errors != Wrench.Mode.Build.Errors.None)
 															{
 																color_dummy_fg = color_error_fg;
@@ -571,7 +572,7 @@ namespace TC2.Base.Components
 															var pixel_size = new Vector2(App.pixels_per_unit_inv) * region.GetWorldToCanvasScale();
 
 															//GUI.DrawCross(region.WorldToCanvas(pos_a), radius: 16, layer: GUI.Layer.Background, color: color_dummy_fg);
-															GUI.DrawRect(region.WorldToCanvas(bb), layer: GUI.Layer.Background, color: color_dummy_fg);
+															GUI.DrawRect(bb_canvas, layer: GUI.Layer.Background, color: color_dummy_fg);
 
 															var pos_a_centered = pos_a;
 															var pos_b_centered = pos_b;
@@ -584,9 +585,19 @@ namespace TC2.Base.Components
 
 																pos_a_centered = pos_a_centered.Snap(0.125f);
 																pos_b_centered = pos_b_centered.Snap(0.125f);
+
+																GUI.DrawCross(region.WorldToCanvas(pos_a_centered), color: GUI.font_color_default.WithAlpha(180), radius: region.GetWorldToCanvasScale() * 4.00f);
+															}
+															else
+															{
+																GUI.DrawCross(bb_canvas.tl, color: GUI.font_color_default.WithAlpha(100), radius: region.GetWorldToCanvasScale() * 4.00f);
+																GUI.DrawCross(bb_canvas.tr, color: GUI.font_color_default.WithAlpha(100), radius: region.GetWorldToCanvasScale() * 4.00f);
+																GUI.DrawCross(bb_canvas.bl, color: GUI.font_color_default.WithAlpha(100), radius: region.GetWorldToCanvasScale() * 4.00f);
+																GUI.DrawCross(bb_canvas.br, color: GUI.font_color_default.WithAlpha(100), radius: region.GetWorldToCanvasScale() * 4.00f);
+
 															}
 
-															GUI.DrawCross(region.WorldToCanvas(pos_a_centered), color: GUI.font_color_default.WithAlpha(180), radius: region.GetWorldToCanvasScale() * 4.00f);
+															//GUI.DrawCross(region.WorldToCanvas(pos_a_centered), color: GUI.font_color_default.WithAlpha(180), radius: region.GetWorldToCanvasScale() * 4.00f);
 
 															var args = new DrawTileArgs(offset: region.WorldToCanvas(bb.a), pixel_size: pixel_size, color: color_dummy_fg, tile_flags: block.tile_flags | product.tile_flags, block: product.block, max_health: block.max_health, mappings_replace: placement.mappings_replace);
 															switch (placement.type)

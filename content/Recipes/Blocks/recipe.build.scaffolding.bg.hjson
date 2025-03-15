@@ -62,8 +62,8 @@
 		
 		sound: metal.place.00
 		
-		snapping_flags: snap_to_surface, align_to_surface, use_raw_collider, inset_terrain
-		snapping_radius: 0.500
+		snapping_flags: snap_to_surface, align_to_surface, add_size_to_snap_offset, use_raw_collider, inset_terrain
+		snapping_radius: 0.125
 		
 		mappings_replace:
 		{
