@@ -45,6 +45,41 @@
 					]
 				}
 				{
+					name: "Compacted Soil"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: soil
+							amount: 750.000
+							snapping: 1.000
+							group: 0
+						}
+						{
+							type: work
+							work: filling.soil
+							amount: 500.000
+							difficulty: 4
+							snapping: 5.000
+							group: 0
+							flags: conditional
+						}
+						{
+							type: work
+							work: compaction.soil
+							amount: 350.000
+							difficulty: 5
+							snapping: 5.000
+							group: 0
+							flags: conditional
+						}
+					]
+				}
+				{
 					name: "Rubble"
 					
 					type: undefined
@@ -151,41 +186,6 @@
 						}
 					]
 				}
-				{
-					name: "Compacted Soil"
-					
-					type: undefined
-					flags: none
-					
-					requirements:
-					[
-						{
-							type: resource
-							material: soil
-							amount: 750.000
-							snapping: 1.000
-							group: 0
-						}
-						{
-							type: work
-							work: filling.soil
-							amount: 500.000
-							difficulty: 4
-							snapping: 5.000
-							group: 0
-							flags: conditional
-						}
-						{
-							type: work
-							work: compaction.soil
-							amount: 350.000
-							difficulty: 5
-							snapping: 5.000
-							group: 0
-							flags: conditional
-						}
-					]
-				}
 			]
 		}
 		{
@@ -222,7 +222,7 @@
 							material: steel.plate
 							amount: 25.000
 							snapping: 0.500
-							loss: 0.129
+							loss: 0.122
 							group: 0
 						}
 						{
@@ -260,7 +260,7 @@
 	]
 	
 	type: buildings
-	flags: no_amount_multiplier, blueprintable, construction, wip, auto_complete
+	flags: no_amount_multiplier, blueprintable, construction, ignore_tools, ignore_equipment, ignore_machinery, ignore_environment, wip, auto_complete
 	tags: large, construction
 	infrastructure: none
 	

@@ -59,6 +59,46 @@
 					}
 				}
 				{
+					name: "Compacted Soil"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: soil
+							amount: 750.000
+							snapping: 1.000
+							group: 0
+						}
+						{
+							type: work
+							work: filling.soil
+							amount: 500.000
+							difficulty: 4
+							snapping: 5.000
+							group: 0
+							flags: conditional
+						}
+						{
+							type: work
+							work: compaction.soil
+							amount: 350.000
+							difficulty: 5
+							snapping: 5.000
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						include: bucket, shovel
+					}
+				}
+				{
 					name: "Rubble"
 					
 					type: undefined
@@ -173,46 +213,6 @@
 					filter_tools:
 					{
 						include: bucket, shovel, spatula
-					}
-				}
-				{
-					name: "Compacted Soil"
-					
-					type: undefined
-					flags: none
-					
-					requirements:
-					[
-						{
-							type: resource
-							material: soil
-							amount: 750.000
-							snapping: 1.000
-							group: 0
-						}
-						{
-							type: work
-							work: filling.soil
-							amount: 500.000
-							difficulty: 4
-							snapping: 5.000
-							group: 0
-							flags: conditional
-						}
-						{
-							type: work
-							work: compaction.soil
-							amount: 350.000
-							difficulty: 5
-							snapping: 5.000
-							group: 0
-							flags: conditional
-						}
-					]
-					
-					filter_tools:
-					{
-						include: bucket, shovel
 					}
 				}
 			]
