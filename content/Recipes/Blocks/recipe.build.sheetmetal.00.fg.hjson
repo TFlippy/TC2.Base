@@ -54,13 +54,16 @@
 		min_support: 0.010
 		min_claim: 1.000
 		
-		length_min: 1.000
+		length_min: 0.250
 		length_max: 3.000
 		
 		rotation_step: 0.0983
 		
 		sound: metal.place.00
+		
 		snapping_flags: snap_to_surface, align_to_surface, use_collider_radius, add_size_to_snap_radius, add_size_to_snap_offset, use_raw_collider, inset_terrain
+		snapping_radius: 0.250
+		snapping_depth: -0.125
 		
 		mappings_replace:
 		{

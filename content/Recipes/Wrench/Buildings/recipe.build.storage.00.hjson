@@ -261,7 +261,7 @@
 	
 	type: buildings
 	flags: no_amount_multiplier, blueprintable, construction, wip, auto_complete
-	tags: huge, construction
+	tags: large, construction
 	infrastructure: none
 	
 	icon:

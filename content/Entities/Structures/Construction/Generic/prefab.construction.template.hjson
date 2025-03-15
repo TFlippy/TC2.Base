@@ -3,7 +3,7 @@ $tags: []
 body:
 {
 	type: static
-	
+
 	@shape.box:
 	{
 		offset: [0.000, -0.125]
@@ -13,11 +13,12 @@ body:
 		friction: 0.750
 		elasticity: 0.250
 		
-		material: wood
+		material: building_wood
 		miss_chance: 0.600
 		
-		layer: entity, building, construction, flammable, ignore_melee, ignore_bullet, background, no_overlapped_placement
+		layer: entity, background, building, construction, flammable, no_overlapped_placement, ignore_melee, ignore_bullet
 		mask: world, building, construction
+		exclude: none
 	}
 }
 
@@ -38,7 +39,7 @@ animated.renderer:
 
 faction.colorable:
 {
-	intensity_a: 0.800
+	intensity_a: 0.600
 }
 
 faction:
@@ -48,7 +49,7 @@ faction:
 
 claimable:
 {
-	flags: allow_owner_unclaim, enable_wololo
+	flags: allow_enemy_unclaim, allow_owner_unclaim
 }
 
 transform:

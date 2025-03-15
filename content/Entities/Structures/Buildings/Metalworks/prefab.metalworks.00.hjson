@@ -1,7 +1,7 @@
 $name: "Metalworks"
 $desc:
 	'''
-	Large workshop specialized for small-scale mineral and metal processing, as well as blacksmithing and metal forming.
+	Large workshop specialized for medium-scale mineral and metal processing, as well as blacksmithing and metal forming.
 	'''
 $tags: []
 
@@ -14,7 +14,7 @@ body:
 		size: [6.250, 3.750]
 		offset: [0.000, -0.125]
 		
-		mass: 920.000
+		mass: 1220.000
 		radius: 0.500
 		
 		material: building_reinforced
