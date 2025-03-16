@@ -80,7 +80,7 @@
 			prefab: crate.wood.00
 			amount: 1.000
 			group: 0
-			flags: primary
+			flags: primary, compact
 		}
 	]
 	

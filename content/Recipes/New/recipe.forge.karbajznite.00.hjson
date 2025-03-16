@@ -1,0 +1,120 @@
+﻿{
+	$version: "0.1.62.0"
+	name: "Karbajznite Reforging"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	tips: []
+	
+	stages:
+	[
+		{
+			name: "Method"
+			
+			type: workpiece
+			flags: wip, auto_generated
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 1.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Simple"
+					
+					type: undefined
+					flags: wip, auto_generated
+					
+					requirements:
+					[
+						{
+							type: temperature
+							amount: 1315.200
+							amount_min: 822.000
+							amount_max: 1578.240
+							group: 0
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: work
+							work: smithing
+							amount: 500.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.970
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: steel.ingot
+							amount: 1.000
+							group: 1
+							flags: primary, compact, use_temperature
+						}
+					]
+					
+					filter_tools:
+					{
+						require: hammer
+					}
+					filter_infrastructure:
+					{
+						require: table
+					}
+				}
+			]
+			
+			requirements:
+			[
+				{
+					type: resource
+					material: karbajznite
+					amount: 8.000
+					snapping: 0.100
+					loss: 0.110
+					group: 0
+					flags: primary, prerequisite
+				}
+			]
+		}
+	]
+	
+	type: workshop
+	flags: wip, converted
+	tags: manual, simple, raw, blacksmithing, metalworking, heating, processing
+	infrastructure: anvil, forge, hard_surface
+	
+	icon:
+	{
+		texture: resource.steel.ingot
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	icon_offset: [-2.000, -1.000]
+	
+	icon_extra:
+	{
+		texture: resource.steel.plate
+		size: [16, 16]
+		frame: [1, 0]
+	}
+	icon_extra_offset: [-2.000, -7.000]
+	
+	color_frame: "0xff818b48"
+	color_button: "0xff9dd80f"
+	rank: -15.000
+	
+	min: 1
+	max: 8
+	step: 1
+	
+	version: 1
+}

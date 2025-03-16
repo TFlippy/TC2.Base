@@ -38,7 +38,7 @@ interactable:
 {
 	flags: no_tab
 	priority: 2.000
-	window_size: [696.000, 580.000]
+	window_size: [728.000, 580.000]
 	window_size_misc: [120.000, 0.000]
 }
 
@@ -114,7 +114,7 @@ shop:
 	machinery: heater, burner
 	environment: workshop, stationary, dirty, polluted, ugly, scary, fireproof, durable, sturdy
 	
-	menu_columns: 4
+	menu_columns: 5
 	recipe_type: workshop
 	flags: none
 	

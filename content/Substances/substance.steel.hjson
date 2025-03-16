@@ -1,15 +1,16 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.0"
 	name: "Steel"
 	description:
 		'''
 		TODO: Desc
 		'''
+	
 	cas_number: "7439-89-6"
 	type: alloy
 	atomic_number: 0
 	flags: none
-	tags: metallic, metal, solid
+	tags: impure, metallic, metal, solid
 	
 	icon:
 	{
