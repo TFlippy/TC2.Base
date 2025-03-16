@@ -47,10 +47,8 @@
 						}
 					]
 					
-					filter_tools:
-					{
-						include: bucket, shovel
-					}
+					quality: 1.000
+					precision: 1.000
 				}
 				{
 					name: "Compacted Soil"
@@ -87,10 +85,8 @@
 						}
 					]
 					
-					filter_tools:
-					{
-						include: bucket, shovel
-					}
+					quality: 1.000
+					precision: 1.000
 				}
 				{
 					name: "Rubble"
@@ -134,10 +130,8 @@
 						}
 					]
 					
-					filter_tools:
-					{
-						include: bucket, shovel
-					}
+					quality: 1.000
+					precision: 1.000
 				}
 				{
 					name: "Concrete Composite"
@@ -204,10 +198,8 @@
 						}
 					]
 					
-					filter_tools:
-					{
-						include: bucket, shovel, spatula
-					}
+					quality: 1.000
+					precision: 1.000
 				}
 			]
 		}
@@ -266,6 +258,9 @@
 							flags: conditional
 						}
 					]
+					
+					quality: 1.000
+					precision: 1.000
 				}
 			]
 		}

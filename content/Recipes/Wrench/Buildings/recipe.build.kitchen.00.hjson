@@ -44,10 +44,8 @@
 						}
 					]
 					
-					filter_tools:
-					{
-						include: bucket, shovel
-					}
+					quality: 1.000
+					precision: 1.000
 				}
 				{
 					name: "Compacted Soil"
@@ -84,10 +82,8 @@
 						}
 					]
 					
-					filter_tools:
-					{
-						include: bucket, shovel
-					}
+					quality: 1.000
+					precision: 1.000
 				}
 				{
 					name: "Rubble"
@@ -131,10 +127,8 @@
 						}
 					]
 					
-					filter_tools:
-					{
-						include: bucket, shovel
-					}
+					quality: 1.000
+					precision: 1.000
 				}
 				{
 					name: "Concrete Composite"
@@ -201,10 +195,8 @@
 						}
 					]
 					
-					filter_tools:
-					{
-						include: bucket, shovel, spatula
-					}
+					quality: 1.000
+					precision: 1.000
 				}
 			]
 		}
@@ -264,10 +256,8 @@
 						}
 					]
 					
-					filter_tools:
-					{
-						require: hammer, saw
-					}
+					quality: 1.000
+					precision: 1.000
 				}
 			]
 		}
@@ -285,7 +275,7 @@
 	]
 	
 	type: buildings
-	flags: no_amount_multiplier, blueprintable, construction, item, ignore_tools, ignore_equipment, ignore_machinery, ignore_environment, wip, auto_complete
+	flags: no_amount_multiplier, blueprintable, construction, ignore_tools, ignore_equipment, ignore_machinery, ignore_environment, wip, auto_complete
 	tags: huge, cooking, carpentry, construction
 	infrastructure: none
 	

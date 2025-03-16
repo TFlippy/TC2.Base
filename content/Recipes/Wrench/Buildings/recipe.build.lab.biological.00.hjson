@@ -43,6 +43,9 @@
 							flags: conditional
 						}
 					]
+					
+					quality: 1.000
+					precision: 1.000
 				}
 				{
 					name: "Compacted Soil"
@@ -78,6 +81,9 @@
 							flags: conditional
 						}
 					]
+					
+					quality: 1.000
+					precision: 1.000
 				}
 				{
 					name: "Rubble"
@@ -120,6 +126,9 @@
 							flags: conditional
 						}
 					]
+					
+					quality: 1.000
+					precision: 1.000
 				}
 				{
 					name: "Concrete Composite"
@@ -185,6 +194,9 @@
 							flags: conditional
 						}
 					]
+					
+					quality: 1.000
+					precision: 1.000
 				}
 			]
 		}
@@ -222,7 +234,7 @@
 							material: steel.plate
 							amount: 25.000
 							snapping: 0.500
-							loss: 0.125
+							loss: 0.122
 							group: 0
 						}
 						{
@@ -243,6 +255,9 @@
 							flags: conditional
 						}
 					]
+					
+					quality: 1.000
+					precision: 1.000
 				}
 			]
 		}
@@ -293,6 +308,9 @@
 							flags: conditional
 						}
 					]
+					
+					quality: 1.000
+					precision: 1.000
 				}
 			]
 		}
@@ -393,5 +411,5 @@
 	
 	h_sound_finalize: building_construct
 	
-	version: 0
+	version: 1
 }

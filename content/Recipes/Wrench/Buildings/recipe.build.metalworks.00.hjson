@@ -44,10 +44,8 @@
 						}
 					]
 					
-					filter_tools:
-					{
-						include: bucket, shovel
-					}
+					quality: 1.000
+					precision: 1.000
 				}
 				{
 					name: "Compacted Soil"
@@ -84,10 +82,8 @@
 						}
 					]
 					
-					filter_tools:
-					{
-						include: bucket, shovel
-					}
+					quality: 1.000
+					precision: 1.000
 				}
 				{
 					name: "Rubble"
@@ -131,10 +127,8 @@
 						}
 					]
 					
-					filter_tools:
-					{
-						include: bucket, shovel
-					}
+					quality: 1.000
+					precision: 1.000
 				}
 				{
 					name: "Concrete Composite"
@@ -201,10 +195,8 @@
 						}
 					]
 					
-					filter_tools:
-					{
-						include: bucket, shovel, spatula
-					}
+					quality: 1.000
+					precision: 1.000
 				}
 			]
 		}
@@ -264,10 +256,8 @@
 						}
 					]
 					
-					filter_tools:
-					{
-						require: hammer, saw
-					}
+					quality: 1.000
+					precision: 1.000
 				}
 			]
 		}
@@ -319,19 +309,8 @@
 						}
 					]
 					
-					filter_tools:
-					{
-						require: ruler, hammer, saw, hand_drill, screwdriver
-						include: pencil, ruler, hammer, saw, hand_drill, screwdriver, tweezers, axe, file, chisel, knife
-					}
-					filter_machinery:
-					{
-						include: lathe
-					}
-					filter_infrastructure:
-					{
-						include: table, chair, vise
-					}
+					quality: 1.000
+					precision: 1.000
 				}
 			]
 		}
@@ -349,7 +328,7 @@
 	]
 	
 	type: buildings
-	flags: no_amount_multiplier, blueprintable, construction, item, ignore_tools, ignore_equipment, ignore_machinery, ignore_environment, auto_complete
+	flags: no_amount_multiplier, blueprintable, construction, ignore_tools, ignore_equipment, ignore_machinery, ignore_environment, auto_complete
 	tags: huge, construction
 	infrastructure: none
 	
