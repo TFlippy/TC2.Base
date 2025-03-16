@@ -134,6 +134,7 @@ claimer:
 		spawn:
 		{
 			flags: faction, public
+			spawn_offset: [-1.750, 0.000]
 		}
 	
 		spawner:

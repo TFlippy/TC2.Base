@@ -22,7 +22,7 @@
 	hints: none
 	
 	mass_per_unit: 1.122
-	volume_per_stack: 0.4577
+	volume_per_stack: 0.9142
 	quantity_max: 500.000
 	spawn_quantity_threshold: 2.000
 	

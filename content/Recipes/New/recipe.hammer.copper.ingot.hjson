@@ -37,6 +37,7 @@
 							snapping: 1.000
 							loss: 0.169
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: work
@@ -51,13 +52,12 @@
 						}
 					]
 					
+					quality: 1.000
+					precision: 1.000
+					
 					filter_tools:
 					{
 						require: hammer
-					}
-					filter_infrastructure:
-					{
-						require: table
 					}
 				}
 			]
