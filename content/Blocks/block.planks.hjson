@@ -24,9 +24,9 @@
 	
 	texture: terrain.planks
 	pattern: pattern.planks
-	texture_scale: 1.021
-	texture_overshoot: -0.575
-	texture_offset: 0.015
+	texture_scale: 1.000
+	texture_overshoot: -0.375
+	texture_offset: 0.000
 	
 	color_preview: "0x00000000"
 	color_fill: "0xff140e08"
