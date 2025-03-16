@@ -33,14 +33,14 @@
 							type: resource
 							material: gravel
 							amount: 440.000
-							loss: 0.039
+							loss: 0.035
 							group: 0
 							flags: compact, primary
 						}
 						{
 							type: work
 							work: filling.gravel
-							amount: 725.000
+							amount: 475.000
 							difficulty: 9
 							group: 0
 							flags: conditional
@@ -69,7 +69,7 @@
 						{
 							type: work
 							work: filling.soil
-							amount: 475.000
+							amount: 325.000
 							difficulty: 5
 							group: 0
 							flags: conditional
@@ -77,7 +77,7 @@
 						{
 							type: work
 							work: compaction.soil
-							amount: 200.000
+							amount: 150.000
 							difficulty: 3
 							group: 1
 							flags: conditional
@@ -98,32 +98,32 @@
 						{
 							type: resource
 							material: scrap.rubble
-							amount: 250.000
-							snapping: 1.000
+							amount: 280.000
+							loss: 0.020
 							group: 0
+							flags: compact, primary
 						}
 						{
 							type: work
 							work: filling.rubble
-							amount: 250.000
-							difficulty: 7
-							snapping: 5.000
+							amount: 325.000
+							difficulty: 12
 							group: 0
 							flags: conditional
 						}
 						{
 							type: resource
 							material: soil
-							amount: 100.000
-							snapping: 1.000
+							amount: 80.000
+							loss: 0.059
 							group: 1
+							flags: compact, primary
 						}
 						{
 							type: work
 							work: filling.soil
-							amount: 150.000
+							amount: 60.000
 							difficulty: 4
-							snapping: 5.000
 							group: 1
 							flags: conditional
 						}
@@ -136,7 +136,7 @@
 					name: "Concrete Composite"
 					
 					type: undefined
-					flags: none
+					flags: disabled
 					
 					requirements:
 					[

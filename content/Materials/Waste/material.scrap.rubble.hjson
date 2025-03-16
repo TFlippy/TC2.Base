@@ -4,7 +4,7 @@
 	name_short: "Rubble"
 	description:
 		'''
-		Masonry's final form. 
+		Masonry's ultimate form. 
 		'''
 	
 	tips: []
@@ -22,6 +22,7 @@
 	hints: materials, junk, construction, cheap
 	
 	mass_per_unit: 1.610
+	volume_per_stack: 1.1433
 	quantity_max: 500.000
 	spawn_quantity_threshold: 2.000
 	

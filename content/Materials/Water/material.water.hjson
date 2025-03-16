@@ -11,6 +11,8 @@
 		Then you die of dysentery.
 		'''
 	
+	tips: []
+	
 	icon:
 	{
 		texture: resource.water
@@ -25,6 +27,8 @@
 	
 	purity: 0.992
 	mass_per_unit: 1.000
+	volume_per_unit: 0.001
+	volume_per_stack: 0.200
 	quantity_max: 200.000
 	snapping: 0.100
 	

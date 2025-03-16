@@ -29,16 +29,16 @@
 						{
 							type: resource
 							material: gravel
-							amount: 500.000
-							snapping: 1.000
+							amount: 740.000
+							loss: 0.035
 							group: 0
+							flags: compact, primary
 						}
 						{
 							type: work
 							work: filling.gravel
-							amount: 500.000
-							difficulty: 6
-							snapping: 5.000
+							amount: 825.000
+							difficulty: 9
 							group: 0
 							flags: conditional
 						}
@@ -58,26 +58,25 @@
 						{
 							type: resource
 							material: soil
-							amount: 750.000
-							snapping: 1.000
+							amount: 640.000
+							loss: 0.067
 							group: 0
+							flags: compact, primary
 						}
 						{
 							type: work
 							work: filling.soil
-							amount: 500.000
-							difficulty: 4
-							snapping: 5.000
+							amount: 575.000
+							difficulty: 5
 							group: 0
 							flags: conditional
 						}
 						{
 							type: work
 							work: compaction.soil
-							amount: 350.000
-							difficulty: 5
-							snapping: 5.000
-							group: 0
+							amount: 270.000
+							difficulty: 3
+							group: 1
 							flags: conditional
 						}
 					]
@@ -96,32 +95,32 @@
 						{
 							type: resource
 							material: scrap.rubble
-							amount: 250.000
-							snapping: 1.000
+							amount: 480.000
+							loss: 0.020
 							group: 0
+							flags: compact, primary
 						}
 						{
 							type: work
 							work: filling.rubble
-							amount: 250.000
-							difficulty: 7
-							snapping: 5.000
+							amount: 550.000
+							difficulty: 12
 							group: 0
 							flags: conditional
 						}
 						{
 							type: resource
 							material: soil
-							amount: 100.000
-							snapping: 1.000
+							amount: 140.000
+							loss: 0.059
 							group: 1
+							flags: compact, primary
 						}
 						{
 							type: work
 							work: filling.soil
-							amount: 150.000
+							amount: 120.000
 							difficulty: 4
-							snapping: 5.000
 							group: 1
 							flags: conditional
 						}
@@ -134,7 +133,7 @@
 					name: "Concrete Composite"
 					
 					type: undefined
-					flags: none
+					flags: disabled
 					
 					requirements:
 					[
