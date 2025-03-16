@@ -349,7 +349,7 @@
 	]
 	
 	type: buildings
-	flags: no_amount_multiplier, blueprintable, construction, ignore_tools, ignore_equipment, ignore_machinery, ignore_environment, wip, auto_complete
+	flags: no_amount_multiplier, blueprintable, construction, building, ignore_tools, ignore_equipment, ignore_machinery, ignore_environment, wip, auto_complete
 	tags: huge, woodworking, metalworking, stoneworking, engineering, carpentry, construction
 	infrastructure: none
 	

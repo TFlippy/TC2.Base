@@ -290,7 +290,7 @@
 	]
 	
 	type: buildings
-	flags: no_amount_multiplier, blueprintable, construction, item, ignore_tools, ignore_equipment, ignore_machinery, ignore_environment, auto_complete
+	flags: no_amount_multiplier, blueprintable, construction, building, item, ignore_tools, ignore_equipment, ignore_machinery, ignore_environment, auto_complete
 	tags: huge, construction
 	infrastructure: none
 	

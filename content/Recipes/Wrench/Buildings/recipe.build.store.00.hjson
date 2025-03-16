@@ -226,7 +226,7 @@
 							material: steel.plate
 							amount: 25.000
 							snapping: 0.500
-							loss: 0.125
+							loss: 0.122
 							group: 0
 						}
 						{
@@ -264,7 +264,7 @@
 	]
 	
 	type: buildings
-	flags: no_amount_multiplier, blueprintable, disabled, construction, ignore_tools, ignore_equipment, ignore_machinery, ignore_environment, wip, auto_complete
+	flags: no_amount_multiplier, blueprintable, disabled, construction, building, ignore_tools, ignore_equipment, ignore_machinery, ignore_environment, wip, auto_complete
 	tags: huge, construction
 	infrastructure: none
 	
