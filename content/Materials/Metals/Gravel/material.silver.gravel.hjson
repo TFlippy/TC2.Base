@@ -8,6 +8,8 @@
 		Yield: 35% to 50%
 		'''
 	
+	tips: []
+	
 	icon:
 	{
 		texture: resource.silver.gravel
@@ -19,14 +21,17 @@
 	flags: granular, metal, raw, gravel, solid
 	display_flags: none
 	hints: none
-	mass_per_unit: 0.266
+	
+	mass_per_unit: 1.330
 	quantity_max: 500.000
 	spawn_quantity_threshold: 1.000
+	
 	form_type: gravel
 	prefab: resource.silver.gravel
 	h_substance: silver
 	
 	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
 	color_dust: "0xfff4fbf8"
 	color_gib: "0xfff4fbf8"
 	

@@ -8,6 +8,8 @@
 		Yield: 60% to 100%
 		'''
 	
+	tips: []
+	
 	icon:
 	{
 		texture: resource.copper.gravel
@@ -19,14 +21,17 @@
 	flags: granular, metal, raw, gravel, solid
 	display_flags: none
 	hints: none
-	mass_per_unit: 0.230
+	
+	mass_per_unit: 1.150
 	quantity_max: 500.000
 	spawn_quantity_threshold: 1.000
+	
 	form_type: gravel
 	prefab: resource.copper.gravel
 	h_substance: copper
 	
 	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
 	color_dust: "0xffdf873d"
 	color_gib: "0xffdf873d"
 	

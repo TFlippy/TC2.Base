@@ -8,6 +8,8 @@
 		Yield: 30% to 40%
 		'''
 	
+	tips: []
+	
 	icon:
 	{
 		texture: resource.gold.gravel
@@ -19,14 +21,17 @@
 	flags: granular, metal, raw, gravel, solid
 	display_flags: none
 	hints: none
-	mass_per_unit: 0.500
+	
+	mass_per_unit: 2.500
 	quantity_max: 500.000
 	spawn_quantity_threshold: 1.000
+	
 	form_type: gravel
 	prefab: resource.gold.gravel
 	h_substance: gold
 	
 	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
 	color_dust: "0xffffd470"
 	color_gib: "0xffffd470"
 	
