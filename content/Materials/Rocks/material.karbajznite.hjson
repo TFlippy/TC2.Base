@@ -4,7 +4,8 @@
 	name_short: "Karbajznite"
 	description:
 		'''
-		Common naturally-occurring iron-nickel mineral. 
+		Iron-nickel mineral commonly used as a steel substitute.
+
 		Can be readily forged or machined into smaller items.
 		'''
 	
@@ -37,4 +38,26 @@
 	color_gib: "0xffffffff"
 	
 	colliders: []
+	
+	residues:
+	{
+		hammering:
+		{
+			h_material: steel
+			h_substance: "null"
+			flags: none
+			flags_product: waste
+			
+			yield: [0.414, 0.325]
+		}
+		drilling:
+		{
+			h_material: steel.powder
+			h_substance: "null"
+			flags: none
+			flags_product: residue
+			
+			yield: [0.251, 0.299]
+		}
+	}
 }

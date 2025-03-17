@@ -8,7 +8,7 @@
 	
 	material_type: stone_metallic
 	tile_flags: non_empty
-	flags: raw, ore, common, mineral, magnetic
+	flags: raw, common, mineral, magnetic
 	
 	max_health: 46000.000
 	smoothing: 0.180
@@ -17,8 +17,8 @@
 	strength_compressive: 21.000
 	
 	mass: 2.200
-	friction: 0.740
-	elasticity: 0.430
+	friction: 0.640
+	elasticity: 0.630
 	collision_layer: none
 	collision_mask: none
 	
@@ -35,7 +35,7 @@
 	[
 		{
 			material: karbajznite
-			quantity: 1.562978
+			quantity: 2.262978
 		}
 		null
 	]

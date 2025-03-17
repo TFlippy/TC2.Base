@@ -33,7 +33,7 @@
 							type: resource
 							material: gravel
 							amount: 440.000
-							loss: 0.035
+							loss: 0.024
 							group: 0
 							flags: compact, primary
 						}
@@ -203,12 +203,68 @@
 			]
 		}
 		{
-			name: "Furniture"
+			name: "Anvil"
 			
 			type: infrastructure
 			flags: wip
 			// Damage type used for discarding leftover resources.
-			discard_damage_type: axe
+			discard_damage_type: sledgehammer
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Karbajznite"
+					
+					type: undefined
+					flags: wip
+					discard_damage_type_override: drill
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: karbajznite
+							amount: 80.000
+							snapping: 0.100
+							loss: 0.522
+							group: 0
+							flags: primary
+						}
+						{
+							type: work
+							work: hammering
+							amount: 650.000
+							difficulty: 14
+							snapping: 5.000
+							group: 1
+							flags: conditional
+						}
+						{
+							type: work
+							work: filing
+							amount: 220.000
+							difficulty: 10
+							snapping: 5.000
+							group: 1
+							flags: conditional
+						}
+					]
+					
+					quality: 1.000
+					precision: 1.000
+				}
+			]
+		}
+		{
+			name: "Forge"
+			
+			type: infrastructure
+			flags: wip
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: handsaw
 			
 			ratio: 0.000
 			mass_base: 0.000
@@ -225,35 +281,56 @@
 					[
 						{
 							type: resource
-							material: steel.frames
-							amount: 8.000
-							snapping: 0.500
-							loss: 0.075
-							group: 0
-						}
-						{
-							type: resource
-							material: steel.plate
-							amount: 25.000
-							snapping: 0.500
-							loss: 0.122
-							group: 0
-						}
-						{
-							type: resource
-							material: wood
+							material: brick.concrete
 							amount: 20.000
-							snapping: 5.000
+							snapping: 1.000
 							loss: 0.075
 							group: 0
+							flags: compact
+						}
+						{
+							type: resource
+							material: steel.frames
+							amount: 7.500
+							snapping: 0.100
+							loss: 0.075
+							group: 0
+							flags: compact
 						}
 						{
 							type: work
-							work: carpentry
+							work: masonry
 							amount: 400.000
 							difficulty: 6
 							snapping: 5.000
 							group: 0
+							flags: conditional
+						}
+						{
+							type: resource
+							material: steel.plate
+							amount: 6.000
+							snapping: 0.200
+							loss: 0.075
+							group: 1
+							flags: compact
+						}
+						{
+							type: resource
+							material: machine_parts
+							amount: 10.000
+							snapping: 1.000
+							loss: 0.106
+							group: 1
+							flags: compact
+						}
+						{
+							type: work
+							work: assembling
+							amount: 150.000
+							difficulty: 9
+							snapping: 5.000
+							group: 1
 							flags: conditional
 						}
 					]

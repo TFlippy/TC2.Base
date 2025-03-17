@@ -16,8 +16,8 @@
 	
 	flags: none
 	tags: manual, simple, construction
-	cooldown: 1.000
-	multiplier: 1.500
+	cooldown: 1.100
+	multiplier: 0.850
 	color: "0xffffa200"
 	
 	tools_required: none
@@ -26,8 +26,8 @@
 	machinery_required: none
 	machinery_optional: none
 	
-	equipment_required: none
-	equipment_optional: none
+	infrastructure_required: none
+	infrastructure_optional: none
 	
 	character_traits:
 	{
@@ -52,7 +52,7 @@
 	sound_size: 0.500
 	sound_dist: 0.850
 	
-	sounds: []
+	sounds: ["soil_hit_sharp_00", "soil_hit_sharp_01"]
 	sounds_manual: []
 	sounds_machine: []
 	sounds_passive: []

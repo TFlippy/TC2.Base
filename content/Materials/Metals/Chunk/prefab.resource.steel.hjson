@@ -107,7 +107,7 @@ norotate:
 	speed: 3.500
 	multiplier: 3.500
 	mass_multiplier: 1.500
-	flags: no_share
+	attached_multiplier: 0.250
 }
 
 despawn:
