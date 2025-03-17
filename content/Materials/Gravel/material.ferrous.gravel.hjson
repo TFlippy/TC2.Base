@@ -1,16 +1,15 @@
 ﻿{
 	$version: "0.1.62.0"
-	name: "Iron Gravel"
-	name_short: "Irn. Gravel"
+	name: "Ferrous Gravel"
+	name_short: "Ferr. Gravel"
 	description:
 		'''
-		High-purity iron gravel.
-		Yield: 80% to 100%
+		Coarse metal gravel made up of undeterminable amounts of iron, nickel and who knows what else.
 		'''
 	
 	icon:
 	{
-		texture: resource.iron.gravel
+		texture: resource.ferrous.gravel
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -23,8 +22,7 @@
 	quantity_max: 500.000
 	spawn_quantity_threshold: 1.000
 	form_type: gravel
-	prefab: resource.iron.gravel
-	h_substance: iron
+	prefab: resource.ferrous.gravel
 	
 	color_icon: "0xffffffff"
 	color_dust: "0xff62605e"

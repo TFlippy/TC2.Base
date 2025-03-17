@@ -1,16 +1,16 @@
 ﻿{
 	$version: "0.1.61.4"
-	name: "Iron Slab"
-	name_short: "Irn. Slab"
+	name: "Nickel Slab"
+	name_short: "Ni. Slab"
 	description:
 		'''
-		Standard 120x60x20 cm iron slab.
+		Standard 120x60x20 cm nickel slab.
 		Used in large-scale metal processing.
 		'''
 	
 	icon:
 	{
-		texture: resource.iron.slab
+		texture: resource.nickel.slab
 		size: [32, 16]
 		frame: [3, 0]
 	}
@@ -28,8 +28,8 @@
 	volume_per_unit: 0.144
 	quantity_max: 4.000
 	form_type: slab
-	prefab: resource.iron.slab
-	h_substance: iron
+	prefab: resource.nickel.slab
+	h_substance: nickel
 	
 	color_dust: "0xff62605e"
 	color_gib: "0xff62605e"

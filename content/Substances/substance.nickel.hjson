@@ -1,0 +1,97 @@
+﻿{
+	$version: "0.1.61.4"
+	name: "Nickel (WIP)"
+	description:
+		'''
+		TODO: Desc
+		'''
+	
+	formula: "Ni"
+	cas_number: "7440-02-0"
+	type: element
+	atomic_number: 28
+	flags: none
+	tags: pure, metallic, metal, solid
+	
+	icon:
+	{
+		texture: ui_icons_widget
+		size: [16, 16]
+		frame: [14, 1]
+	}
+	
+	color_icon: "0xff62605e"
+	color_gui: "0xff62605e"
+	color_dust: "0xff62605e"
+	color_gib: "0xff62605e"
+	color_smoke: "0xff62605e"
+	
+	color_liquid: [0.000, 0.000, 0.000, 0.000]
+	color_molten: [0.436, 0.328, 0.302, 1.000]
+	color_flame: [1.000, 0.521, 0.220, 0.882]
+	color_spark: [0.000, 0.000, 0.000, 0.000]
+	
+	// kg/mol (use atomic mass for elements)
+	molar_mass: 0.055845
+	// kg/m³ (STP)
+	density: 7874.000
+	// kg/m³ (STP)
+	density_liquid: 6980.000
+	// kg/m³
+	density_solid: 7874.000
+	
+	// K (STP)
+	melting_point: 1811.000
+	// K (STP)
+	boiling_point: 3134.000
+	
+	// K
+	critical_point_temperature: 0.000
+	// K
+	triple_point_temperature: 0.000
+	
+	// bar
+	critical_point_pressure: 0.000
+	// bar
+	triple_point_pressure: 0.000
+	
+	// K
+	forging_temperature_lower: 905.5001
+	// K
+	forging_temperature_upper: 1629.900
+	// K
+	sintering_temperature_lower: 734.505
+	// K
+	sintering_temperature_upper: 1472.752
+	
+	// K
+	autoignition_temperature: 1461.000
+	
+	// kJ/mol
+	heat_of_fusion: 13.800
+	// kJ/mol
+	heat_of_vaporization: 347.000
+	// kJ/(mol*K)
+	molar_heat_capacity: 0.025074
+	
+	// kJ/kg
+	specific_heat_of_fusion: 247.1125
+	// kJ/kg
+	specific_heat_of_vaporization: 6213.627
+	// kJ/(kg*K)
+	specific_heat_capacity: 0.449
+	
+	// kW/(m*K)
+	thermal_conductivity: 0.079
+	
+	form_to_material:
+	{
+		powder: iron.powder
+		ingot: iron.ingot
+		chunk: iron
+		gravel: iron.gravel
+		raw: iron
+		scrap: scrap.ferrous
+		slab: iron.slab
+	}
+}

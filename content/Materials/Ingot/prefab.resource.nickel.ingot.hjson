@@ -2,21 +2,25 @@ $tags: []
 
 body:
 {
-	buoyancy: 0.020
+	buoyancy: 0.050
 
-	@shape.line:
+	@shape.polygon:
 	{
-		a: [-0.900, 0.000]
-		b: [0.900, 0.000]
-		radius: 0.850
-		friction: 0.850
-		elasticity: 0.350
-		
+		points:
+		[
+			[-0.875, -0.875]
+			[0.875, -0.875]
+			[0.875, 0.875]
+			[-0.875, 0.875]
+		]
+
+		mass: 1.000
+		radius: 0.125
+		friction: 0.650
+		elasticity: 0.300
 		material: metal_solid
-		
-		layer: entity, solid, resource, bulk, conductive, heatable, ignore_melee
-		mask: world, bulk
-		exclude: held
+		layer: entity, solid, resource, ignore_melee, ignore_bullet, conductive, heatable, magnetic
+		mask: world
 	}
 }
 
@@ -24,11 +28,11 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.iron.slab"
-		count: 4
-		size: [32, 16]
+		texture: "resource.nickel.ingot"
+		count: 8
+		size: [16, 16]
 	}
-	z: -80.000
+	z: -77.300
 }
 
 transform:
@@ -38,21 +42,20 @@ transform:
 
 resource:
 {
-	material: "iron.slab"
+	material: "nickel.ingot"
 }
 
 holdable:
 {
-	force_multiplier: 1.500
-	torque_multiplier: 3.000
+	offset: [0.000, 0.500]
 	radius: 0.000
-	offset: [0.000, 0.450]
-	flags: disable_parent_facing, disable_rotation
+	hints: materials, construction
+	flags: disable_parent_facing, disable_rotation, disable_control, full_rotate
 }
 
-health:
+norotate:
 {
-	max: 62000.000
+
 }
 
 breakable:
@@ -64,37 +67,34 @@ heat:
 {
 	temperature_medium: 448.4887
 	temperature_high: 2670.950
-	temperature_ignite: 1461.000
+	temperature_ignite: 1561.000
 	temperature_operating: 1103.628
 	temperature_melt: 1811.000
 	temperature_breakdown: 3134.000
-	cool_rate: 6.500
-	cool_rate_mult: 1.900
-	heat_damage_mult: 0.200
-	heat_capacity_mult: 0.750
+	cool_rate: 2.500
 	smoke_speed_mult: 0.750
 	flags: meltable
 	fire_flags: no_self_damage, always_contact_ignite
 	offset: [0.000, 0.125]
 	smoke_offset: [0.000, 0.125]
-	size: [5.000, 2.000]
+	size: [2.000, 2.000]
 
 	@light:
 	{
 		offset: [-0.125, 0.125]
-		scale: [95.000, 65.000]
+		scale: [48.000, 48.000]
 		intensity: 1.000
-		texture: light.circle.04
+		texture: light.circle.00
 	}
 
 	@sound.emitter:
 	{
 		file: overheat_loop
 		flags: start_muted
-		volume: 1.000
+		volume: 1.100
 		pitch: 0.680
-		size: 2.500
-		size_max_modifier: 0.650
+		size: 3.500
+		size_max_modifier: 0.850
 		priority: 0.100
 		offset: [-0.250, 0.250]
 	}
@@ -104,7 +104,7 @@ despawn:
 {
 	sleep_count_max: 74
 	flags: no_despawn
-
+	
 	interval: 7.000
 	interval_extra: 14.000
 	threshold_delete: 0.000

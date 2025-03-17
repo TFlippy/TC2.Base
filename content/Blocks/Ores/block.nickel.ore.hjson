@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.62.0"
-	name: "Native Iron"
+	name: "Native Nickel"
 	desc:
 		'''
 		TODO: Desc
@@ -10,19 +10,19 @@
 	tile_flags: non_empty
 	flags: raw, ore, uncommon, magnetic, native
 	
-	max_health: 88000.010
+	max_health: 98000.010
 	smoothing: 0.110
 	stability: 4.500
 	strength_tensile: 0.000
 	strength_compressive: 0.000
 	
-	mass: 3.000
+	mass: 4.000
 	friction: 0.500
 	elasticity: 0.400
 	collision_layer: none
 	collision_mask: none
 	
-	texture: terrain.iron.ore
+	texture: terrain.nickel.ore
 	pattern: pattern.stone
 	texture_scale: 1.400
 	texture_overshoot: -0.750
@@ -34,11 +34,11 @@
 	resources:
 	[
 		{
-			material: iron
+			material: nickel
 			quantity: 0.2689
 		}
 		{
-			material: iron.gravel
+			material: nickel.gravel
 			quantity: 2.877
 		}
 	]

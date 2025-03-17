@@ -9,7 +9,7 @@ body:
 		radius: 0.750
 		friction: 0.950
 		elasticity: 0.050
-		material: gravel
+		material: powder
 		layer: entity, solid, resource, ignore_melee, ignore_bullet
 		mask: world
 	}
@@ -19,10 +19,11 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.iron.gravel"
+		texture: "resource.ferronickel.powder"
 		count: 4
 		size: [16, 16]
 	}
+	z: -68.500
 }
 
 transform:
@@ -32,13 +33,11 @@ transform:
 
 resource:
 {
-	material: "iron.gravel"
+	material: "ferronickel.powder"
 }
 
 holdable:
 {
-	force_multiplier: 1.800
-	torque_multiplier: 0.700
 	offset: [0.000, 0.750]
 }
 

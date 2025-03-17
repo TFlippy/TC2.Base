@@ -4,8 +4,7 @@
 	name_short: "Gd. Gravel"
 	description:
 		'''
-		Low-purity gold gravel.
-		Yield: 30% to 40%
+		Standard gold gravel.
 		'''
 	
 	tips: []

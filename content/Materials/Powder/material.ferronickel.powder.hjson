@@ -1,15 +1,15 @@
 ﻿{
 	$version: "0.1.62.0"
-	name: "Iron Powder"
-	name_short: "Irn. Powder"
+	name: "Ferronickel Powder"
+	name_short: "FeNi. Powder"
 	description:
 		'''
-		Standard fine-grained iron powder.
+		Standard fine-grained ferronickel powder.
 		'''
 	
 	icon:
 	{
-		texture: resource.iron.powder
+		texture: resource.ferronickel.powder
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -25,9 +25,8 @@
 	quantity_max: 1000.000
 	spawn_quantity_threshold: 0.500
 	form_type: powder
-	prefab: resource.iron.powder
-	h_substance: iron
-	
+	prefab: resource.ferronickel.powder
+
 	color_icon: "0xffffffff"
 	color_dust: "0xff62605e"
 	color_gib: "0xff62605e"

@@ -1,11 +1,10 @@
 ﻿{
 	$version: "0.1.62.0"
 	name: "Copper (Gravel)"
-	name_short: "Cop Gravel"
+	name_short: "Cop. Gravel"
 	description:
 		'''
-		Medium-purity copper gravel.
-		Yield: 60% to 100%
+		Standard copper gravel.
 		'''
 	
 	tips: []

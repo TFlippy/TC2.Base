@@ -4,7 +4,7 @@
 	name_short: "St. Slab"
 	description:
 		'''
-		Standard 120x60x20 cm steel slab.
+		Standard 120x60x20 cm ferronickel steel slab.
 		Used in large-scale metal processing.
 		'''
 	
@@ -143,7 +143,7 @@
 		}
 		grinding:
 		{
-			h_material: iron.powder
+			h_material: ferronickel.powder
 			h_substance: "null"
 			flags: none
 			flags_product: none

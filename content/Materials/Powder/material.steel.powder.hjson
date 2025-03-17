@@ -4,7 +4,7 @@
 	name_short: "St. Powder"
 	description:
 		'''
-		Standard fine-grained steel powder-swarf.
+		Standard fine-grained ferronickel steel powderswarf.
 		'''
 	
 	icon:
@@ -75,7 +75,7 @@
 	{
 		heating:
 		{
-			h_material: iron.powder
+			h_material: ferronickel.powder
 			h_substance: "null"
 			flags: none
 			flags_product: residue
@@ -84,7 +84,7 @@
 		}
 		melting:
 		{
-			h_material: iron.powder
+			h_material: ferronickel.powder
 			h_substance: "null"
 			flags: none
 			flags_product: residue

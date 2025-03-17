@@ -1,15 +1,15 @@
 ﻿{
 	$version: "0.1.61.4"
-	name: "Iron Ingot"
-	name_short: "Irn. Ingot"
+	name: "Nickel Ingot"
+	name_short: "Nic. Ingot"
 	description:
 		'''
-		Standard 20x10x8 cm iron ingot.
+		Standard 20x10x8 cm nickel ingot.
 		'''
 	
 	icon:
 	{
-		texture: resource.iron.ingot
+		texture: resource.nickel.ingot
 		size: [16, 16]
 		frame: [7, 0]
 	}
@@ -27,8 +27,8 @@
 	volume_per_unit: 0.0016
 	quantity_max: 100.000
 	form_type: ingot
-	prefab: resource.iron.ingot
-	h_substance: iron
+	prefab: resource.nickel.ingot
+	h_substance: nickel
 	
 	color_dust: "0xff62605e"
 	color_gib: "0xff62605e"
@@ -128,43 +128,4 @@
 			]
 		}
 	]
-	
-	commodity:
-	{
-		availability: 1.000
-		rarity: 1.000
-		scalability: 1.000
-		reusability: 1.000
-		longevity: 1.000
-		complexity: 1.000
-		tech: 1.000
-		liquidity: 1.000
-		demand: 1.000
-		
-		flags: marketable
-		categories: metals, raw, industrial
-		
-		industries_produce: mining, low_tech, metallurgy, scrap, slaves, labor, kobolds, penal
-		industries_consume: mining, manufacturing, low_tech, high_tech, metallurgy, kobolds, railway, furniture
-		industries_buy: none
-		industries_sell: none
-		
-		buildings_produce: foundry, scrapyard, metalworks
-		buildings_consume: docks, prison, foundry, metalworks
-		buildings_buy: none
-		buildings_sell: none
-		
-		categories_produce: industrial, wasteland, advanced, developing, excavated, polluted
-		categories_consume: industrial, wasteland, frontier, advanced, developing, modern, mechanized
-		categories_buy: none
-		categories_sell: none
-		
-		market_price: 4.600
-		market_price_min: 0.000
-		market_price_max: 0.000
-		
-		quantity_retail: 0.000
-		quantity_wholesale: 0.000
-		quantity_industry: 0.000
-	}
 }

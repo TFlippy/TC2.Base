@@ -129,7 +129,7 @@
 		}
 		grinding:
 		{
-			h_material: iron.powder
+			h_material: ferronickel.powder
 			h_substance: "null"
 			flags: none
 			flags_product: none
