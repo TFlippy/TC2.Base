@@ -1,7 +1,7 @@
 $name: "Smithy"
 $desc:
 	'''
-	Basic metalworking workshop equipped with a simple forge and anvil.
+	Basic metalworking workshop equipped with a small pellet-powered forge and a simple anvil.
 	'''
 $tags: []
 
@@ -92,7 +92,7 @@ claimable:
 
 laboratory:
 {
-	blueprints_capacity: 3
+	blueprints_capacity: 2
 	filter_tags:
 	{
 		require: metalworking

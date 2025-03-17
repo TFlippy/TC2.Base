@@ -35,7 +35,8 @@
 							type: resource
 							material: gravel
 							amount: 1060.000
-							loss: 0.039
+							snapping: 0.500
+							loss: 0.024
 							group: 0
 							flags: compact, primary
 						}
@@ -44,15 +45,14 @@
 							work: filling.gravel
 							amount: 1175.000
 							difficulty: 9
+							snapping: 25.000
 							group: 0
 							flags: conditional
 						}
 					]
 					
-					filter_tools:
-					{
-						include: bucket, shovel
-					}
+					quality: 1.000
+					precision: 1.000
 				}
 				{
 					name: "Compacted Soil"
@@ -66,6 +66,7 @@
 							type: resource
 							material: soil
 							amount: 920.000
+							snapping: 0.500
 							loss: 0.067
 							group: 0
 							flags: compact, primary
@@ -75,6 +76,7 @@
 							work: filling.soil
 							amount: 825.000
 							difficulty: 5
+							snapping: 25.000
 							group: 0
 							flags: conditional
 						}
@@ -83,15 +85,14 @@
 							work: compaction.soil
 							amount: 390.000
 							difficulty: 3
+							snapping: 25.000
 							group: 1
 							flags: conditional
 						}
 					]
 					
-					filter_tools:
-					{
-						include: bucket, shovel
-					}
+					quality: 1.000
+					precision: 1.000
 				}
 				{
 					name: "Rubble"
@@ -105,6 +106,7 @@
 							type: resource
 							material: scrap.rubble
 							amount: 660.000
+							snapping: 0.200
 							loss: 0.020
 							group: 0
 							flags: compact, primary
@@ -114,6 +116,7 @@
 							work: filling.rubble
 							amount: 800.000
 							difficulty: 12
+							snapping: 25.000
 							group: 0
 							flags: conditional
 						}
@@ -121,6 +124,7 @@
 							type: resource
 							material: soil
 							amount: 200.000
+							snapping: 0.500
 							loss: 0.059
 							group: 1
 							flags: compact, primary
@@ -130,15 +134,14 @@
 							work: filling.soil
 							amount: 160.000
 							difficulty: 4
+							snapping: 25.000
 							group: 1
 							flags: conditional
 						}
 					]
 					
-					filter_tools:
-					{
-						include: bucket, shovel
-					}
+					quality: 1.000
+					precision: 1.000
 				}
 				{
 					name: "Concrete Composite"
@@ -205,10 +208,8 @@
 						}
 					]
 					
-					filter_tools:
-					{
-						include: bucket, shovel, spatula
-					}
+					quality: 1.000
+					precision: 1.000
 				}
 			]
 		}
@@ -268,10 +269,8 @@
 						}
 					]
 					
-					filter_tools:
-					{
-						require: hammer, saw
-					}
+					quality: 1.000
+					precision: 1.000
 				}
 			]
 		}
@@ -289,7 +288,7 @@
 	]
 	
 	type: buildings
-	flags: no_amount_multiplier, blueprintable, construction, building, item, ignore_tools, ignore_equipment, ignore_machinery, ignore_environment, auto_complete
+	flags: no_amount_multiplier, blueprintable, construction, building, ignore_tools, ignore_equipment, ignore_machinery, ignore_environment, auto_complete
 	tags: huge, construction
 	infrastructure: none
 	
@@ -357,14 +356,18 @@
 			{
 				type: resource
 				material: wood
-				amount: 20.000
+				amount: 21.000
+				loss: 0.110
 				group: 0
+				flags: compact, no_scaling, prerequisite
 			}
 			{
 				type: resource
 				material: brick.concrete
 				amount: 60.000
+				loss: 0.024
 				group: 0
+				flags: compact, no_scaling, prerequisite
 			}
 		]
 	}

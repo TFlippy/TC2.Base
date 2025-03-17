@@ -14,7 +14,7 @@ body:
 		size: [6.250, 3.750]
 		offset: [0.000, -0.125]
 		
-		mass: 1220.000
+		mass: 2750.000
 		radius: 0.500
 		
 		material: building_reinforced
@@ -44,7 +44,7 @@ interactable:
 
 health:
 {
-	max: 88000.000
+	max: 128000.000
 }
 
 faction.colorable:
@@ -236,7 +236,7 @@ essence.container:
 	{
 		type: essence
 		flags: ignore_mass
-		stack_size_multiplier: 0.100
+		stack_size_multiplier: 0.200
 		
 		filter:
 		{
@@ -269,13 +269,13 @@ essence.container:
 heat:
 {
 	temperature_medium: 750.000
-	temperature_high: 1000.000
+	temperature_high: 1400.000
 	temperature_breakdown: 1750.000
 	cool_rate: 13.000
-	heat_capacity_extra: 80.000
-	heat_capacity_mult: 3.000
-	heat_damage_mult: 0.200
-	flags: exclude_body_mass, no_smoke, no_gui
+	heat_capacity_extra: 2000.000
+	heat_capacity_mult: 6.000
+	heat_damage_mult: 0.100
+	flags: exclude_body_mass, no_gui
 	offset: [-2.125, 0.250]
 	smoke_offset: [-2.250, -2.375]
 	size: [0.250, 0.250]

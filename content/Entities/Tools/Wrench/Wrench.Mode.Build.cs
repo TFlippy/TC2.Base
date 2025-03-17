@@ -256,9 +256,9 @@ namespace TC2.Base.Components
 													{
 														var h_recipe_selected_tmp = h_recipe_selected;
 														if (GUI.DrawRecipeButton(context: ref context, rect: cell.group.GetOuterRect(), h_recipe: h_recipe, h_recipe_selected: ref h_recipe_selected_tmp,
-														evaluation_flags: Crafting.EvaluateFlags.None,
+														evaluation_flags: Crafting.EvaluateFlags.Ignore_Work | Crafting.EvaluateFlags.Prerequisite,
 														flags_add: GUI.DrawRecipeFlags.None,
-														flags_rem: GUI.DrawRecipeFlags.Send_RPC | GUI.DrawRecipeFlags.Products | GUI.DrawRecipeFlags.Highlight | GUI.DrawRecipeFlags.Button | GUI.DrawRecipeFlags.Counter))
+														flags_rem: GUI.DrawRecipeFlags.Send_RPC | GUI.DrawRecipeFlags.Modal | GUI.DrawRecipeFlags.Scrollbox | GUI.DrawRecipeFlags.Products | GUI.DrawRecipeFlags.Highlight | GUI.DrawRecipeFlags.Button | GUI.DrawRecipeFlags.Counter))
 														{
 															var rpc = new Wrench.Mode.Build.ConfigureRPC
 															{
@@ -594,7 +594,6 @@ namespace TC2.Base.Components
 																GUI.DrawCross(bb_canvas.tr, color: GUI.font_color_default.WithAlpha(100), radius: region.GetWorldToCanvasScale() * 4.00f);
 																GUI.DrawCross(bb_canvas.bl, color: GUI.font_color_default.WithAlpha(100), radius: region.GetWorldToCanvasScale() * 4.00f);
 																GUI.DrawCross(bb_canvas.br, color: GUI.font_color_default.WithAlpha(100), radius: region.GetWorldToCanvasScale() * 4.00f);
-
 															}
 
 															//GUI.DrawCross(region.WorldToCanvas(pos_a_centered), color: GUI.font_color_default.WithAlpha(180), radius: region.GetWorldToCanvasScale() * 4.00f);
@@ -626,8 +625,6 @@ namespace TC2.Base.Components
 																	terrain.IterateLine(world_position_a: pos_a, world_position_b: pos_b, thickness: placement.size.X, argument: ref args,
 																		func: placement.flags.HasAny(Placement.Flags.Replace) ? DrawTileFuncReplace : DrawTileFunc,
 																		iteration_flags: Terrain.IterationFlags.Iterate_Empty);
-
-
 																}
 																break;
 															}
@@ -850,14 +847,20 @@ namespace TC2.Base.Components
 
 												if (!GUI.IsHovered)
 												{
+													ref var construction = ref recipe.construction.GetRefOrNull();
+
 													GUI.Title(recipe.name);
+													//if (construction.IsNotNull())
+													//{
+													//	//GUI.SameLine(4);
+													//	//GUI.Title("(construction)"u8);
+													//}
 
 													GUI.Separator();
 
-													ref var construction = ref recipe.construction.GetRefOrNull();
 													if (construction.IsNotNull())
 													{
-														GUI.DrawRequirements(ref context, construction.requirements, Crafting.EvaluateFlags.None, amount_multiplier: amount_multiplier);
+														GUI.DrawRequirements(ref context, construction.requirements, Crafting.EvaluateFlags.Prerequisite, amount_multiplier: amount_multiplier);
 
 														GUI.NewLine(6);
 														GUI.Separator();
@@ -866,7 +869,7 @@ namespace TC2.Base.Components
 													}
 													else
 													{
-														GUI.DrawRequirements(ref context, recipe.requirements, Crafting.EvaluateFlags.None, amount_multiplier: amount_multiplier, highlight: true);
+														GUI.DrawRequirements(ref context, recipe.requirements, Crafting.EvaluateFlags.Prerequisite, amount_multiplier: amount_multiplier, highlight: true);
 													}
 
 													GUI.NewLine(4);
