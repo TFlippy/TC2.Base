@@ -43,7 +43,7 @@
 	{
 		hammering:
 		{
-			h_material: steel
+			h_material: ferrous.gravel
 			h_substance: "null"
 			flags: none
 			flags_product: waste
@@ -52,7 +52,7 @@
 		}
 		drilling:
 		{
-			h_material: steel.powder
+			h_material: ferronickel.powder
 			h_substance: "null"
 			flags: none
 			flags_product: residue

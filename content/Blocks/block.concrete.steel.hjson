@@ -3,7 +3,7 @@
 	name: "Concrete (Steel-Reinforced)"
 	desc:
 		'''
-		Durable cast concrete, reinforced with steel.
+		Durable cast concrete, reinforced with nickelsteel.
 		'''
 	
 	material_type: concrete

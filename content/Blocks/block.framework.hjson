@@ -3,7 +3,7 @@
 	name: "Formwork (Empty)"
 	desc:
 		'''
-		Reinforced steel formwork, acting as a base to be filled with other construction materials.
+		Reinforced nickelsteel formwork, acting as a base to be filled with other construction materials.
 		'''
 	
 	material_type: metal_frame
