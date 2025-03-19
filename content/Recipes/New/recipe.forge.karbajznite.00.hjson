@@ -10,7 +10,7 @@
 	stages:
 	[
 		{
-			name: "Method"
+			name: "Forging"
 			
 			type: workpiece
 			flags: none
@@ -23,10 +23,10 @@
 			options:
 			[
 				{
-					name: "Simple"
+					name: "Ingot"
 					
 					type: undefined
-					flags: wip, auto_generated
+					flags: none
 					
 					requirements:
 					[
@@ -35,37 +35,38 @@
 							material: karbajznite
 							amount: 8.000
 							snapping: 0.100
-							loss: 0.090
+							loss: 0.075
 							group: 0
 							flags: primary, prerequisite
 						}
 						{
 							type: temperature
-							amount: 833.500
-							amount_min: 593.000
-							amount_max: 988.240
+							amount: 925.800
+							amount_min: 839.000
+							amount_max: 1073.240
+							falloff: 4.000
 							group: 1
 							flags: no_scaling, always_evaluate
 						}
 						{
 							type: work
 							work: heating
-							amount: 350.000
-							amount_min: 200.000
-							difficulty: 9
+							amount: 200.000
+							amount_min: 75.000
+							difficulty: 5
 							snapping: 5.000
-							falloff: 0.892
+							falloff: 0.674
 							group: 1
-							flags: conditional
+							flags: always_evaluate, conditional
 						}
 						{
 							type: work
 							work: smithing
-							amount: 500.000
+							amount: 350.000
 							amount_min: 150.000
-							difficulty: 5
+							difficulty: 7
 							snapping: 5.000
-							falloff: 0.893
+							falloff: 0.865
 							group: 1
 							flags: conditional
 						}
@@ -79,6 +80,65 @@
 							amount: 1.000
 							group: 0
 							flags: primary, compact, use_temperature
+						}
+					]
+					
+					quality: 1.000
+					precision: 1.000
+					
+					filter_tools:
+					{
+						require: hammer, tongs
+						include: pliers
+					}
+					filter_environment:
+					{
+						include: workshop, stationary, fireproof, sturdy
+						exclude: fragile
+					}
+				}
+			]
+		}
+		{
+			name: "Cooling"
+			
+			type: refining
+			flags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: fracture
+			
+			ratio: 1.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Ambient"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: temperature
+							amount: 293.500
+							amount_min: 276.000
+							amount_max: 338.000
+							falloff: 1.000
+							group: 0
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: work
+							work: cooling
+							amount: 150.000
+							amount_min: 110.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.619
+							group: 0
+							flags: always_evaluate, conditional
 						}
 					]
 					
