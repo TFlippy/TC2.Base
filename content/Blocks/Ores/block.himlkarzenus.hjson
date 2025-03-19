@@ -6,7 +6,7 @@
 		TODO: Desc
 		'''
 	
-	material_type: coal
+	material_type: cermet
 	tile_flags: non_empty
 	flags: raw, ore, uncommon, mineral
 	
@@ -35,9 +35,12 @@
 	[
 		{
 			material: himlkarzenus
-			quantity: 1.260
+			quantity: 0.410
 		}
-		null
+		{
+			material: arsine
+			quantity: 1.180
+		}
 	]
 	
 	mappings:

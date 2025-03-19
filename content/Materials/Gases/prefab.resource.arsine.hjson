@@ -6,23 +6,23 @@ body:
 
 	@shape.circle:
 	{
-		radius: 1.600
+		radius: 1.300
 		friction: 0.980
-		elasticity: 0.080
-		rigidity_static: 0.800
+		elasticity: 0.120
+		rigidity_static: 0.500
 		rigidity_dynamic: 0.500
 		
 		material: gas
 		miss_chance: 0.560
 		
-		layer: entity, solid, resource, gas, ignore_melee, ignore_hover
+		layer: entity, solid, resource, gas, ignore_melee, ignore_hover, flammable
 		mask: world, gas
 		exclude: decoration, background, barbed
 	}
 
-	gravity: 1.100
+	gravity: 1.050
 	damping: 0.801
-	mass_multiplier: 375.000
+	mass_multiplier: 275.000
 	fall_damage_multiplier: 0.000
 }
 
@@ -33,18 +33,17 @@ transform:
 
 gas:
 {
-	radius: 4.000
-	size: 1.600
+	size: 1.850
 	lifetime: 3.000
 	speed: 0.200
 	interval: 0.380
-	color_a: "0x92e4ff04"
-	color_b: "0x00bd7220"
+	color_a: "0x2cd433ff"
+	color_b: "0x26594693"
 }
 
 resource:
 {
-	material: "phosgene"
+	material: "arsine"
 }
 
 despawn:

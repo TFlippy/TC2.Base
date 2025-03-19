@@ -9,7 +9,7 @@ body:
 		radius: 0.750
 		friction: 0.650
 		elasticity: 0.500
-		material: coal
+		material: cermet
 		layer: entity, solid, resource, ignore_melee, ignore_bullet
 		mask: world
 	}
@@ -49,7 +49,7 @@ norotate:
 
 health:
 {
-	max: 5000.000
+	max: 8000.000
 }
 
 breakable:

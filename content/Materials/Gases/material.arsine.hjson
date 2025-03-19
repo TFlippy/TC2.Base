@@ -1,0 +1,42 @@
+﻿{
+	$version: "0.1.62.0"
+	name: "Arsine"
+	name_short: "Arsine"
+	description:
+		'''
+		TODO: Desc
+		'''
+	
+	tips: []
+	
+	icon:
+	{
+		texture: ui_icons_widget
+		count: 1
+		size: [16, 16]
+		frame: [14, 2]
+	}
+	
+	type: gas
+	flags: gas, explosive, toxic, chemical, raw, flammable, volatile, smelly, primary
+	display_flags: none
+	hints: none
+	
+	purity: 0.886
+	mass_per_unit: 0.010
+	quantity_max: 1000.000
+	spawn_quantity_threshold: 0.100
+	snapping: 0.100
+	
+	form_type: gas
+	prefab: resource.arsine
+	h_substance: arsine
+	
+	color_icon: "0xa2eb95ff"
+	color_item: "0xffffffff"
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
+	color_smoke: [0.922, 0.584, 1.000, 0.445]
+	
+	colliders: []
+}
