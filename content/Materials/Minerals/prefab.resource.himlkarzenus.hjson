@@ -49,7 +49,7 @@ norotate:
 
 health:
 {
-	max: 8000.000
+	max: 14000.000
 }
 
 breakable:
@@ -59,8 +59,16 @@ breakable:
 
 despawn:
 {
-	sleep_count_max: 11
-	interval: 25.000
+	h_material_product: arsine
+	product_ratio: 0.0679
+	amount_ratio: 0.005
+	amount_ratio_extra: 0.0132
+	
 	threshold_delete: 0.020
-	threshold_despawning: 0.100
+	threshold_despawning: 0.450
+	
+	interval: 7.000
+	interval_extra: 21.000
+	
+	sleep_count_max: 0
 }

@@ -5,7 +5,7 @@
 	description:
 		'''
 		Stunningly beautiful crystalline mineral with a charming garlicky fragrance.
-		
+
 		Makes you drop dead.
 		'''
 	
@@ -38,4 +38,68 @@
 	color_gib: "0xfff7488e"
 	
 	colliders: []
+	
+	// Conversions into other materials.
+	conversions:
+	{
+		heat:
+		{
+			h_material: arsenic
+			spawn_flags: merge
+			product_flags: residue, byproduct, use_temperature
+			ratio: 0.680
+			ratio_extra: 0.230
+			
+			h_material_waste: arsine
+			spawn_flags_waste: merge
+			product_flags_waste: pollutant, byproduct, spawn, use_temperature
+			ratio_waste: 0.950
+			ratio_waste_extra: 0.040
+			
+			yield: 0.780
+			yield_extra: 0.160
+			
+			h_sound: missing
+			sound_volume: 0.500
+			sound_pitch: 1.000
+			
+			chance: 1.000
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.000
+			velocity_mult: 1.710
+		}
+		fire:
+		{
+			h_material: arsenic
+			spawn_flags: merge
+			product_flags: residue, byproduct, use_temperature
+			ratio: 0.680
+			ratio_extra: 0.230
+			
+			h_material_waste: arsine
+			spawn_flags_waste: merge
+			product_flags_waste: pollutant, byproduct, spawn, use_temperature
+			ratio_waste: 0.950
+			ratio_waste_extra: 0.040
+			
+			yield: 0.780
+			yield_extra: 0.160
+			
+			h_sound: missing
+			sound_volume: 0.500
+			sound_pitch: 1.000
+			
+			chance: 1.000
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.000
+			velocity_mult: 1.710
+		}
+	}
+	
+	residues:
+	{
+	
+	}
 }

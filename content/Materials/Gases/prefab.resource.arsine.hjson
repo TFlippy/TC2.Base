@@ -6,11 +6,11 @@ body:
 
 	@shape.circle:
 	{
-		radius: 1.500
-		friction: 0.410
+		radius: 1.250
+		friction: 0.210
 		elasticity: 0.520
 		rigidity_static: 0.700
-		rigidity_dynamic: 0.500
+		rigidity_dynamic: 0.200
 		
 		material: gas
 		miss_chance: 0.160
@@ -71,7 +71,7 @@ explosive:
 	volume: 1.200
 	pitch: 0.500
 	health_threshold: 0.999
-	flags: explode_when_primed
+	flags: any_damage, explode_when_primed
 }
 
 despawn:
