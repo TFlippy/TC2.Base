@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.62.0"
-	name: "Karbajznite"
+	name: "Niklajzner"
 	desc:
 		'''
 		TODO: Desc
@@ -22,7 +22,7 @@
 	collision_layer: none
 	collision_mask: none
 	
-	texture: terrain.karbajznite
+	texture: terrain.niklajzner
 	pattern: pattern.stone
 	texture_scale: 1.390
 	texture_overshoot: -0.622
@@ -34,7 +34,7 @@
 	resources:
 	[
 		{
-			material: karbajznite
+			material: niklajzner
 			quantity: 2.262978
 		}
 		null

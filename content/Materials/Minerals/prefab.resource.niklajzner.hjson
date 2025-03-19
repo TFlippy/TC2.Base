@@ -21,7 +21,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.karbajznite"
+		texture: "resource.niklajzner"
 		count: 4
 		size: [16, 16]
 		frame: [3, 0]
@@ -36,7 +36,7 @@ transform:
 
 resource:
 {
-	material: "karbajznite"
+	material: "niklajzner"
 }
 
 holdable:

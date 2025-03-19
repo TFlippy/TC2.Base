@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.62.0"
-	name: "Karbajznite"
-	name_short: "Karbajznite"
+	name: "Niklajzner"
+	name_short: "Niklajz."
 	description:
 		'''
 		Iron-nickel mineral commonly used as a steel substitute.
@@ -13,7 +13,7 @@
 	
 	icon:
 	{
-		texture: resource.karbajznite
+		texture: resource.niklajzner
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -29,7 +29,7 @@
 	snapping: 0.100
 	
 	form_type: raw
-	prefab: resource.karbajznite
+	prefab: resource.niklajzner
 	h_substance: "null"
 	
 	color_icon: "0xffffffff"

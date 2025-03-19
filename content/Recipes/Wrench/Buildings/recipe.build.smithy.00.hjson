@@ -225,7 +225,7 @@
 			options:
 			[
 				{
-					name: "Karbajznite"
+					name: "Niklajzner"
 					
 					type: undefined
 					flags: wip
@@ -235,7 +235,7 @@
 					[
 						{
 							type: resource
-							material: karbajznite
+							material: niklajzner
 							amount: 80.000
 							snapping: 0.100
 							loss: 0.522

@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.62.0"
-	name: "Basic Karbajznite Reforging"
+	name: "Basic Niklajzner Reforging"
 	desc:
 		'''
 		TODO: Desc
@@ -105,7 +105,7 @@
 			[
 				{
 					type: resource
-					material: karbajznite
+					material: niklajzner
 					amount: 10.000
 					snapping: 1.000
 					loss: 0.165
@@ -198,7 +198,7 @@
 	
 	icon_c:
 	{
-		texture: resource.karbajznite
+		texture: resource.niklajzner
 		size: [16, 16]
 		frame: [3, 0]
 	}
