@@ -16,7 +16,7 @@
 	
 	flags: none
 	tags: manual, simple, construction
-	cooldown: 1.100
+	cooldown: 1.150
 	multiplier: 0.850
 	color: "0xffffa200"
 	
@@ -48,7 +48,7 @@
 	}
 	
 	sound_volume: 0.500
-	sound_pitch: 1.200
+	sound_pitch: 0.900
 	sound_size: 0.500
 	sound_dist: 0.850
 	

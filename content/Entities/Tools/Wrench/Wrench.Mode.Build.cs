@@ -849,27 +849,48 @@ namespace TC2.Base.Components
 												{
 													ref var construction = ref recipe.construction.GetRefOrNull();
 
-													GUI.Title(recipe.name);
-													//if (construction.IsNotNull())
-													//{
-													//	//GUI.SameLine(4);
-													//	//GUI.Title("(construction)"u8);
-													//}
+													//GUI.Title(recipe.name);
+													using (var group_title = GUI.Group.New(size: new(GUI.RmX, 20)))
+													{
+														GUI.TitleCentered(recipe.name, pivot: new(0.00f, 0.50f));
+														//if (placement.type == Placement.Type.Simple && product.type == Crafting.Product.Type.Prefab)
+														//{
+														//	//GUI.TextShadedCentered("hello", pivot: new(1.00f, 0.50f));
+														//	GUI.TextShadedCentered(product.GetMassRaw().Sum(), format: "0.00' kg'", pivot: new(1.00f, 0.50f), color: GUI.font_color_default, box_shadow: true, size: 12);
+														//}
 
-													GUI.Separator();
+														//if (construction.IsNotNull())
+														//{
+														//	//GUI.SameLine(4);
+														//	//GUI.Title("(construction)"u8);
+														//}
+													}
+
+													GUI.SeparatorThick();
 
 													if (construction.IsNotNull())
 													{
-														GUI.DrawRequirements(ref context, construction.requirements, Crafting.EvaluateFlags.Prerequisite, amount_multiplier: amount_multiplier);
+														GUI.DrawRequirements(context: ref context,
+															requirements: construction.requirements,
+															evaluation_flags: Crafting.EvaluateFlags.Prerequisite,
+															amount_multiplier: amount_multiplier);
 
-														GUI.NewLine(6);
-														GUI.Separator();
+														//GUI.NewLine(6);
+														//GUI.Separator();
 
-														GUI.DrawRequirements(ref context, recipe.requirements, Crafting.EvaluateFlags.Display_Only, amount_multiplier: amount_multiplier, highlight: true);
+														GUI.DrawRequirements(context: ref context,
+															requirements: recipe.requirements,
+															evaluation_flags: Crafting.EvaluateFlags.Display_Only,
+															amount_multiplier: amount_multiplier,
+															highlight: true);
 													}
 													else
 													{
-														GUI.DrawRequirements(ref context, recipe.requirements, Crafting.EvaluateFlags.Prerequisite, amount_multiplier: amount_multiplier, highlight: true);
+														GUI.DrawRequirements(context: ref context,
+															requirements: recipe.requirements,
+															evaluation_flags: Crafting.EvaluateFlags.Prerequisite,
+															amount_multiplier: amount_multiplier,
+															highlight: true);
 													}
 
 													GUI.NewLine(4);

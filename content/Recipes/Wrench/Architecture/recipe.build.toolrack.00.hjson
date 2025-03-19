@@ -32,7 +32,7 @@
 	]
 	
 	type: architecture
-	flags: none
+	flags: no_amount_multiplier, blueprintable
 	tags: construction
 	infrastructure: none
 	
@@ -54,14 +54,17 @@
 		type: simple
 		flags: allow_mirror_x, allow_placement_over_buildings
 		
-		size: [2.750, 1.750]
+		size: [3.000, 1.375]
+		
+		rect_foundation: [-1.125, -0.250, 1.125, 0.250]
+		tileflags_foundation: non_empty
 		
 		rect_clearance: [-1.375, -0.875, 1.375, 0.875]
 		tileflags_clearance: solid
 		
 		cooldown: 1.000
 		min_support: 0.400
-		min_clearance: 0.800
+		min_clearance: 0.900
 		min_claim: 1.000
 		
 		rotation_max: 0.2946
@@ -80,7 +83,7 @@
 			exclude: construction, dynamic
 		}
 		snapping_flags: snap_to_surface, use_collider_radius, add_size_to_snap_offset, use_raw_collider
-		snapping_radius: 0.500
+		snapping_radius: 0.625
 		
 		mappings_replace:
 		{

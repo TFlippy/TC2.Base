@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.0"
 	name: "Filing"
 	name_short: "Filing"
 	desc:
@@ -16,8 +16,8 @@
 	
 	flags: none
 	tags: manual, tools, simple, construction
-	cooldown: 0.970
-	multiplier: 1.150
+	cooldown: 0.950
+	multiplier: 0.960
 	color: "0xffffa200"
 	
 	tools_required: file
@@ -26,8 +26,8 @@
 	machinery_required: none
 	machinery_optional: none
 	
-	equipment_required: none
-	equipment_optional: table, chair, vise
+	infrastructure_required: none
+	infrastructure_optional: none
 	
 	filter_environment:
 	{
@@ -54,12 +54,12 @@
 		strength: 0.100
 	}
 	
-	sound_volume: 0.600
-	sound_pitch: 0.820
-	sound_size: 0.420
-	sound_dist: 0.570
+	sound_volume: 0.700
+	sound_pitch: 1.360
+	sound_size: 0.600
+	sound_dist: 0.650
 	
-	sounds: ["work_mix_00", "work_mix_01"]
+	sounds: ["clutch.angry.00", "clutch.angry.01", "clutch.angry.02"]
 	sounds_manual: []
 	sounds_machine: []
 	sounds_passive: []

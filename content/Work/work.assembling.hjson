@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.0"
 	name: "Assembling"
 	name_short: "Assembling"
 	desc:
@@ -24,10 +24,10 @@
 	tools_optional: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, stapler, towel, tongs, pick, crowbar, knife
 	
 	machinery_required: none
-	machinery_optional: heater
+	machinery_optional: none
 	
-	equipment_required: table
-	equipment_optional: anvil, table, chair, vise
+	infrastructure_required: none
+	infrastructure_optional: none
 	
 	character_traits:
 	{
@@ -47,12 +47,12 @@
 		dexterity: 0.500
 	}
 	
-	sound_volume: 0.500
+	sound_volume: 0.650
 	sound_pitch: 1.000
-	sound_size: 0.500
-	sound_dist: 1.000
+	sound_size: 0.800
+	sound_dist: 0.800
 	
-	sounds: ["work_assembly_00", "work_assembly_01", "work_assembly_02", "work_assembly_03", "work_assembly_04"]
+	sounds: ["work_assembly_00", "work_assembly_01", "effect.spring.machine.01", "wrench.dismantle.00", "wrench.dismantle.00", "wrench.dismantle.00", "effect.spring.erupt.00", "effect.clang.metal.00", "work_assembly_02", "work_assembly_03", "effect.use.machine.00", "effect.spring.machine.00", "work_assembly_04"]
 	sounds_manual: []
 	sounds_machine: []
 	sounds_passive: []
