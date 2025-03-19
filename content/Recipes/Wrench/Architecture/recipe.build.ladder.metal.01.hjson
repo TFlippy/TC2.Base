@@ -15,6 +15,7 @@
 			material: steel.ingot
 			amount: 1.500
 			group: 0
+			flags: prerequisite
 		}
 	]
 	
@@ -31,13 +32,10 @@
 	type: architecture
 	flags: disabled, wip
 	tags: construction
-	
-	icon:
-	{
-		texture: ladder.metal.icon
-	}
+	infrastructure: none
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	rank: 74.000
 	
 	dismantle_work: 5.000
@@ -74,5 +72,5 @@
 		}
 	}
 	
-	version: 0
+	version: 1
 }

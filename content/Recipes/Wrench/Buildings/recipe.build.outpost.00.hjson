@@ -39,7 +39,7 @@
 							type: resource
 							material: gravel
 							amount: 440.000
-							loss: 0.035
+							loss: 0.027
 							group: 0
 							flags: compact, primary
 						}
@@ -48,6 +48,7 @@
 							work: filling.gravel
 							amount: 475.000
 							difficulty: 9
+							snapping: 25.000
 							group: 0
 							flags: conditional
 						}
@@ -77,6 +78,7 @@
 							work: filling.soil
 							amount: 325.000
 							difficulty: 5
+							snapping: 25.000
 							group: 0
 							flags: conditional
 						}
@@ -85,6 +87,7 @@
 							work: compaction.soil
 							amount: 150.000
 							difficulty: 3
+							snapping: 25.000
 							group: 1
 							flags: conditional
 						}
@@ -114,6 +117,7 @@
 							work: filling.rubble
 							amount: 325.000
 							difficulty: 12
+							snapping: 25.000
 							group: 0
 							flags: conditional
 						}
@@ -130,6 +134,7 @@
 							work: filling.soil
 							amount: 60.000
 							difficulty: 4
+							snapping: 25.000
 							group: 1
 							flags: conditional
 						}
@@ -353,12 +358,14 @@
 				material: wood
 				amount: 16.000
 				group: 0
+				flags: prerequisite
 			}
 			{
 				type: resource
 				material: brick.concrete
 				amount: 50.000
 				group: 0
+				flags: prerequisite
 			}
 		]
 	}

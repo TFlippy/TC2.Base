@@ -14,6 +14,7 @@
 			material: steel.plate
 			amount: 0.025
 			group: 0
+			flags: prerequisite
 		}
 	]
 	
@@ -69,5 +70,5 @@
 		}
 	}
 	
-	version: 0
+	version: 1
 }

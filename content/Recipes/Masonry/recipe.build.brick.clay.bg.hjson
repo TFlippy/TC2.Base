@@ -14,12 +14,14 @@
 			material: brick.clay
 			amount: 0.100
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: resource
 			material: mortar
 			amount: 0.005
 			group: 0
+			flags: prerequisite
 		}
 	]
 	
@@ -76,5 +78,5 @@
 		}
 	}
 	
-	version: 0
+	version: 1
 }

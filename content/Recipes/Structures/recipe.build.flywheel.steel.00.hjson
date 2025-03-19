@@ -14,6 +14,7 @@
 			material: steel.ingot
 			amount: 250.000
 			group: 0
+			flags: prerequisite
 		}
 	]
 	
@@ -30,6 +31,7 @@
 	type: machinery
 	flags: disabled, wip
 	tags: construction
+	infrastructure: none
 	
 	icon:
 	{
@@ -38,6 +40,7 @@
 	}
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	rank: 20.000
 	
 	dismantle_work: 30.000
@@ -64,5 +67,5 @@
 		}
 	}
 	
-	version: 0
+	version: 1
 }

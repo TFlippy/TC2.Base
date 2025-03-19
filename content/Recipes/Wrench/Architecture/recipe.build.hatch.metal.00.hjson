@@ -14,12 +14,14 @@
 			material: steel.plate
 			amount: 10.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: resource
 			material: steel.frames
 			amount: 12.000
 			group: 0
+			flags: prerequisite
 		}
 	]
 	
@@ -94,5 +96,5 @@
 		}
 	}
 	
-	version: 0
+	version: 1
 }

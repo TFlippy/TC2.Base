@@ -10,6 +10,7 @@
 			material: steel.frames
 			amount: 14.000
 			group: 0
+			flags: prerequisite
 		}
 	]
 	
@@ -79,5 +80,5 @@
 		}
 	}
 	
-	version: 0
+	version: 1
 }

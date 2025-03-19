@@ -14,12 +14,14 @@
 			material: "null"
 			amount: 0.250
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: resource
 			material: mortar
 			amount: 0.030
 			group: 0
+			flags: prerequisite
 		}
 	]
 	
@@ -69,5 +71,5 @@
 		}
 	}
 	
-	version: 0
+	version: 1
 }

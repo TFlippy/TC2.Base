@@ -47,6 +47,9 @@
 							flags: conditional
 						}
 					]
+					
+					quality: 1.000
+					precision: 1.000
 				}
 				{
 					name: "Compacted Soil"
@@ -82,6 +85,9 @@
 							flags: conditional
 						}
 					]
+					
+					quality: 1.000
+					precision: 1.000
 				}
 				{
 					name: "Rubble"
@@ -124,6 +130,9 @@
 							flags: conditional
 						}
 					]
+					
+					quality: 1.000
+					precision: 1.000
 				}
 				{
 					name: "Concrete Composite"
@@ -189,6 +198,9 @@
 							flags: conditional
 						}
 					]
+					
+					quality: 1.000
+					precision: 1.000
 				}
 			]
 		}
@@ -247,6 +259,9 @@
 							flags: conditional
 						}
 					]
+					
+					quality: 1.000
+					precision: 1.000
 				}
 			]
 		}
@@ -328,11 +343,12 @@
 				material: wood
 				amount: 5.000
 				group: 0
+				flags: prerequisite
 			}
 		]
 	}
 	
 	h_sound_finalize: building_construct
 	
-	version: 0
+	version: 1
 }

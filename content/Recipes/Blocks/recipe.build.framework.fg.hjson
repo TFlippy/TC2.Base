@@ -14,6 +14,7 @@
 			material: steel.frames
 			amount: 0.050
 			group: 0
+			flags: prerequisite
 		}
 	]
 	
@@ -74,5 +75,5 @@
 		}
 	}
 	
-	version: 0
+	version: 1
 }

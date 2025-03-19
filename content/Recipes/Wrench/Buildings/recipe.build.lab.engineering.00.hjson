@@ -31,7 +31,7 @@
 							material: gravel
 							amount: 1060.000
 							snapping: 0.500
-							loss: 0.035
+							loss: 0.031
 							group: 0
 							flags: compact, primary
 						}
@@ -413,7 +413,7 @@
 				type: resource
 				material: brick.concrete
 				amount: 60.000
-				loss: 0.027
+				loss: 0.024
 				group: 0
 				flags: compact, no_scaling, prerequisite
 			}

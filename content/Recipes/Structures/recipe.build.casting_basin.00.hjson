@@ -10,24 +10,28 @@
 			material: brick.concrete
 			amount: 80.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: resource
 			material: gravel
 			amount: 230.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: resource
 			material: sand
 			amount: 150.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: resource
 			material: steel.frames
 			amount: 12.000
 			group: 0
+			flags: prerequisite
 		}
 	]
 	
@@ -44,6 +48,7 @@
 	type: industry
 	flags: no_amount_multiplier, blueprintable, wip
 	tags: construction
+	infrastructure: none
 	
 	icon:
 	{
@@ -52,6 +57,7 @@
 	}
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	rank: -555.000
 	frame_size: [96.000, 96.000]
 	
@@ -96,5 +102,5 @@
 		}
 	}
 	
-	version: 0
+	version: 1
 }

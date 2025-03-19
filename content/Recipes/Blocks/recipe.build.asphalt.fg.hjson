@@ -7,8 +7,6 @@
 		'''
 	tips: []
 	
-	stages: []
-	
 	requirements:
 	[
 		{
@@ -16,12 +14,14 @@
 			material: gravel
 			amount: 0.600
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: resource
 			material: tar
 			amount: 0.200
 			group: 0
+			flags: prerequisite
 		}
 	]
 	
@@ -38,6 +38,7 @@
 	type: architecture
 	flags: disabled, wip
 	tags: none
+	infrastructure: none
 	
 	icon:
 	{
@@ -47,12 +48,14 @@
 	}
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	rank: 4.000
 	
 	placement:
 	{
 		type: circle
 		flags: continuous, no_snapping
+		
 		radius: 0.750
 		
 		cooldown: 0.250
@@ -60,6 +63,7 @@
 		min_claim: 1.000
 		
 		sound: stone_place_0
+		
 		snapping_flags: snap_to_surface, align_to_surface, add_size_to_snap_radius, add_size_to_snap_offset, use_raw_collider
 		
 		mappings_replace:
@@ -67,4 +71,6 @@
 		
 		}
 	}
+	
+	version: 1
 }

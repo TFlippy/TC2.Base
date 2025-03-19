@@ -399,12 +399,14 @@
 				material: wood
 				amount: 60.000
 				group: 0
+				flags: prerequisite
 			}
 			{
 				type: resource
 				material: brick.concrete
 				amount: 50.000
 				group: 0
+				flags: prerequisite
 			}
 		]
 	}

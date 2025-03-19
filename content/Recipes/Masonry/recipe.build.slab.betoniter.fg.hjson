@@ -14,12 +14,14 @@
 			material: betoniter
 			amount: 0.600
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: resource
 			material: mortar
 			amount: 0.010
 			group: 0
+			flags: prerequisite
 		}
 	]
 	
@@ -71,5 +73,5 @@
 		}
 	}
 	
-	version: 0
+	version: 1
 }
