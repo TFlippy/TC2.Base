@@ -13,7 +13,7 @@
 			name: "Method"
 			
 			type: workpiece
-			flags: wip, auto_generated
+			flags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
 			
@@ -31,21 +31,42 @@
 					requirements:
 					[
 						{
-							type: temperature
-							amount: 1315.200
-							amount_min: 822.000
-							amount_max: 1578.240
+							type: resource
+							material: karbajznite
+							amount: 8.000
+							snapping: 0.100
+							loss: 0.090
 							group: 0
+							flags: primary, prerequisite
+						}
+						{
+							type: temperature
+							amount: 833.500
+							amount_min: 593.000
+							amount_max: 988.240
+							group: 1
 							flags: no_scaling, always_evaluate
+						}
+						{
+							type: work
+							work: heating
+							amount: 350.000
+							amount_min: 200.000
+							difficulty: 9
+							snapping: 5.000
+							falloff: 0.892
+							group: 1
+							flags: conditional
 						}
 						{
 							type: work
 							work: smithing
 							amount: 500.000
-							difficulty: 6
+							amount_min: 150.000
+							difficulty: 5
 							snapping: 5.000
-							falloff: 0.970
-							group: 0
+							falloff: 0.893
+							group: 1
 							flags: conditional
 						}
 					]
@@ -56,7 +77,7 @@
 							type: resource
 							material: steel.ingot
 							amount: 1.000
-							group: 1
+							group: 0
 							flags: primary, compact, use_temperature
 						}
 					]
@@ -76,24 +97,11 @@
 					}
 				}
 			]
-			
-			requirements:
-			[
-				{
-					type: resource
-					material: karbajznite
-					amount: 8.000
-					snapping: 0.100
-					loss: 0.110
-					group: 0
-					flags: primary, prerequisite
-				}
-			]
 		}
 	]
 	
 	type: workshop
-	flags: wip, converted
+	flags: item, production
 	tags: manual, simple, raw, blacksmithing, metalworking, heating, processing
 	infrastructure: anvil, forge, hard_surface
 	
@@ -101,19 +109,26 @@
 	{
 		texture: resource.steel.ingot
 		size: [16, 16]
-		frame: [2, 0]
 	}
-	icon_offset: [-2.000, -1.000]
+	icon_offset: [-9.000, 2.000]
 	
 	icon_extra:
 	{
-		texture: resource.steel.plate
+		texture: ui_icons_widget
 		size: [16, 16]
-		frame: [1, 0]
+		frame: [2, 3]
 	}
-	icon_extra_offset: [-2.000, -7.000]
+	icon_extra_offset: [0.000, -18.000]
 	
-	color_frame: "0xff818b48"
+	icon_c:
+	{
+		texture: resource.karbajznite
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	icon_c_offset: [-3.000, -6.000]
+	
+	color_frame: "0xffff851e"
 	color_button: "0xff9dd80f"
 	rank: -15.000
 	
