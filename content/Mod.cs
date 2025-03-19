@@ -21,24 +21,24 @@ namespace TC2.Base
 			//HitEffects.Init();
 #endif
 
-			IMaterial.Database.AddAssetPostProcessor(static (definition, ref data) =>
-			{
-				if (data.flags.HasAny(Material.Flags.Essence))
-				{
-					var identifier = definition.identifier;
+			//IMaterial.Database.AddAssetPostProcessor(static (definition, ref data) =>
+			//{
+			//	if (data.flags.HasAny(Material.Flags.Essence))
+			//	{
+			//		var identifier = definition.identifier;
 
-					var suffix = identifier.SliceAfterLast('.', out _);
-					if (!suffix.IsEmpty)
-					{
-						var h_essence = new IEssence.Handle(suffix);
-						if (h_essence.IsValid())
-						{
-							Essence.material_to_essence[definition.GetHandle()] = h_essence;
-							Essence.essence_to_material[h_essence] = definition.GetHandle();
-						}
-					}
-				}
-			});
+			//		var suffix = identifier.SliceAfterLast('.', out _);
+			//		if (!suffix.IsEmpty)
+			//		{
+			//			var h_essence = new IEssence.Handle(suffix);
+			//			if (h_essence.IsValid())
+			//			{
+			//				Essence.material_to_essence[definition.GetHandle()] = h_essence;
+			//				Essence.essence_to_material[h_essence] = definition.GetHandle();
+			//			}
+			//		}
+			//	}
+			//});
 		}
 
 		protected override void OnInitialize(ModContext context)

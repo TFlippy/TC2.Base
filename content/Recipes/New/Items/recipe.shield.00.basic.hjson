@@ -55,14 +55,18 @@
 						}
 					]
 					
+					quality: 1.000
+					precision: 1.000
+					
 					filter_tools:
 					{
 						require: hammer, tongs
-						include: bucket
+						include: pliers
 					}
-					filter_infrastructure:
+					filter_environment:
 					{
-						require: anvil, forge, table
+						include: workshop, stationary, fireproof, sturdy
+						exclude: fragile
 					}
 				}
 			]
@@ -102,7 +106,7 @@
 							material: machine_parts
 							amount: 1.074754
 							snapping: 0.100
-							loss: 0.176
+							loss: 0.173
 							group: 1
 							flags: prerequisite
 						}
@@ -117,6 +121,9 @@
 						}
 					]
 					
+					quality: 1.000
+					precision: 1.000
+					
 					filter_tools:
 					{
 						require: hammer, screwdriver, wrench
@@ -125,11 +132,6 @@
 					filter_machinery:
 					{
 						include: heater, bender
-					}
-					filter_infrastructure:
-					{
-						require: table
-						include: anvil, table, chair, vise
 					}
 				}
 			]
@@ -141,8 +143,9 @@
 					material: steel.frames
 					amount: 0.137838
 					snapping: 0.100
-					loss: 0.125
+					loss: 0.122
 					group: 0
+					flags: prerequisite
 				}
 			]
 		}
@@ -171,6 +174,7 @@
 	}
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	button_name: "Craft"
 	rank: 0.000
 	
@@ -178,5 +182,5 @@
 	max: 5
 	step: 1
 	
-	version: 0
+	version: 1
 }

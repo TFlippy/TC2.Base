@@ -1,0 +1,41 @@
+﻿{
+	$version: "0.1.61.4"
+	name: "Order"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	flags: none
+	type_tmp: order
+	
+	color_emit: [1.043, 0.506, 0.372, 0.860]
+	
+	emit_force: -750.000
+	emit_power_thermal: 4.960
+	emit_power_kinetic: -6.790
+	emit_power_radiant: 0.650
+	emit_power_electric: -28.350
+	emit_power_magnetic: 18.760
+	
+	sound_emit_loop: essence.emit.cognition.loop.00
+	sound_drain_loop: essence.drain.loop.00
+	
+	sound_emit_pulser_loop: essence.emit.generic.loop.13
+	sound_emit_stressor_loop: arcane_attractor.loop.00
+	sound_emit_impactor_loop: shaft.loop.overload.00
+	sound_emit_cycler_loop: mount.turn.loop.02
+	sound_emit_oscillator_loop: essence.emit.generic.loop.08
+	sound_emit_ambient_loop: wheel.metal_loop_03
+	sound_emit_projector_loop: missing
+	
+	sound_collapse: essence.collapse.order.01
+	sound_zap: essence.collapse.order.00
+	sound_blast: essence.blast.00
+	sound_impulse: effect.stupid.00
+	sound_impact: snap
+	sound_shatter: missing
+	
+	h_prefab_node: essence_node.order
+	h_material_pellet: pellet.order
+}

@@ -10,6 +10,24 @@ namespace TC2.Base.Components
 			None = 0,
 		}
 
+		[FixedAddressValueType] public static FixedArray256<IEssence.Handle> material_to_essence;
+		[FixedAddressValueType] public static FixedArray256<IMaterial.Handle> essence_to_material;
+
+		static void IAsset2<IEssence, IEssence.Data>.OnRefresh(IEssence.Definition definition)
+		{
+			ref var data = ref definition.GetData();
+
+			var identifier = definition.identifier;
+			var h_essence = definition.GetHandle();
+
+			var identifier_material = $"pellet.{identifier}";
+			if (Assert.Check(IMaterial.Handle.TryParse(identifier_material, out var h_material), Assert.Level.Warn))
+			{
+				essence_to_material[(byte)h_essence.id] = h_material;
+				material_to_essence[(byte)h_material.id] = h_essence;
+			}
+		}
+
 		public struct Data(): IName, IDescription
 		{
 			[Save.Force] public string name;
@@ -693,6 +711,7 @@ namespace TC2.Base.Components
 		public delegate void GetAllNodesQuery(ISystem.Info info, Entity entity, 
 			[Source.Owned] ref EssenceNode.Data essence_node, [Source.Owned] in Transform.Data transform, [Source.Owned] ref Body.Data body);
 
+		// TODO: temporary, will be removed
 		public enum Type: uint
 		{
 			Undefined,
@@ -703,11 +722,12 @@ namespace TC2.Base.Components
 			Radiance,
 			Cognition,
 			Electricity,
-			Failure
+			Failure,
+			Order
 		}
 
-		[Obsolete] public static readonly Dictionary<IMaterial.Handle, IEssence.Handle> material_to_essence = new();
-		[Obsolete] public static readonly Dictionary<IEssence.Handle, IMaterial.Handle> essence_to_material = new();
+		//[Obsolete] public static readonly Dictionary<IMaterial.Handle, IEssence.Handle> material_to_essence = new();
+		//[Obsolete] public static readonly Dictionary<IEssence.Handle, IMaterial.Handle> essence_to_material = new();
 
 		public const float essence_per_pellet = 10.00f;
 		//public const float force_per_motion_essence = 2000.00f;
@@ -776,14 +796,8 @@ namespace TC2.Base.Components
 		//	}
 		//}
 
-		public static IEssence.Handle GetEssenceType(in this Resource.Data resource) => Essence.GetEssenceType(resource.material);
-		public static IEssence.Handle GetEssenceType(this IMaterial.Handle material)
-		{
-			material_to_essence.TryGetValue(material, out var essence_type);
-			return essence_type;
-
-			//return material.id < material_to_essence.Length ? material_to_essence[material.id] : default;
-		}
+		public static IEssence.Handle GetEssenceType(this Resource.Data resource) => Essence.GetEssenceType(resource.material);
+		public static IEssence.Handle GetEssenceType(this IMaterial.Handle material) => IEssence.material_to_essence[(byte)material.id];
 
 		//public static Prefab.Handle GetEssencePrefab(Essence.Type type) => type switch
 		//{
