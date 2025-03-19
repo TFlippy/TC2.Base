@@ -1,0 +1,66 @@
+$tags: []
+
+body:
+{
+	@shape.circle:
+	{
+		offset: [0.000, 0.250]
+		mass: 1.000
+		radius: 0.750
+		friction: 0.650
+		elasticity: 0.500
+		material: coal
+		layer: entity, solid, resource, ignore_melee, ignore_bullet
+		mask: world
+	}
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "resource.himlkarzenus"
+		count: 4
+		size: [16, 16]
+	}
+}
+
+transform:
+{
+
+}
+
+resource:
+{
+	material: "himlkarzenus"
+}
+
+holdable:
+{
+	offset: [0.000, 0.750]
+}
+
+norotate:
+{
+	bias: 0.000
+	mass_multiplier: 25.000
+	attached_multiplier: 0.500
+}
+
+health:
+{
+	max: 5000.000
+}
+
+breakable:
+{
+	flags: no_damage
+}
+
+despawn:
+{
+	sleep_count_max: 11
+	interval: 25.000
+	threshold_delete: 0.020
+	threshold_despawning: 0.100
+}

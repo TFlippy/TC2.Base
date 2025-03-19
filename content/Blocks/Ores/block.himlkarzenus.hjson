@@ -1,0 +1,50 @@
+﻿{
+	$version: "0.1.62.0"
+	name: "Himlkarzenus"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	material_type: coal
+	tile_flags: non_empty
+	flags: raw, ore, uncommon, mineral
+	
+	max_health: 12000.000
+	smoothing: 0.134
+	stability: 3.660
+	strength_tensile: 8.500
+	strength_compressive: 2.800
+	
+	mass: 1.110
+	friction: 0.150
+	elasticity: 0.890
+	collision_layer: none
+	collision_mask: none
+	
+	texture: terrain.himlkarzenus
+	pattern: pattern.stone
+	texture_scale: 1.204
+	texture_overshoot: -0.750
+	texture_offset: 0.125
+	
+	color_preview: "0xffb63789"
+	color_fill: "0xff140e08"
+	
+	resources:
+	[
+		{
+			material: himlkarzenus
+			quantity: 1.260
+		}
+		null
+	]
+	
+	mappings:
+	[
+		{
+			color: "0xffb63789"
+			tile_flags: solid, non_empty, become_background_on_break, ground, no_replace
+		}
+	]
+}
