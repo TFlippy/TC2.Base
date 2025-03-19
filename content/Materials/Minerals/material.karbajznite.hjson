@@ -44,9 +44,9 @@
 	{
 		heat:
 		{
-			h_material: ferronickel.powder
+			h_material: ferrous.gravel
 			spawn_flags: none
-			product_flags: residue
+			product_flags: waste
 			ratio: 0.460
 			ratio_extra: 0.360
 			
@@ -80,7 +80,7 @@
 			flags: none
 			flags_product: waste
 			
-			yield: [0.414, 0.325]
+			yield: [0.454, 0.527]
 		}
 		drilling:
 		{
@@ -89,16 +89,16 @@
 			flags: none
 			flags_product: residue
 			
-			yield: [0.251, 0.299]
+			yield: [0.774, 0.226]
 		}
 		heating:
 		{
 			h_material: ferrous.gravel
 			h_substance: "null"
 			flags: none
-			flags_product: waste, residue
+			flags_product: waste
 			
-			yield: [0.480, 0.212]
+			yield: [0.351, 0.486]
 		}
 		smithing:
 		{
@@ -107,7 +107,7 @@
 			flags: none
 			flags_product: residue
 			
-			yield: [0.322, 0.492]
+			yield: [0.424, 0.461]
 		}
 	}
 }
