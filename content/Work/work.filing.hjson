@@ -55,11 +55,11 @@
 	}
 	
 	sound_volume: 0.700
-	sound_pitch: 1.360
+	sound_pitch: 1.140
 	sound_size: 0.600
 	sound_dist: 0.650
 	
-	sounds: ["clutch.angry.00", "clutch.angry.01", "clutch.angry.02"]
+	sounds: ["clutch.angry.01"]
 	sounds_manual: []
 	sounds_machine: []
 	sounds_passive: []

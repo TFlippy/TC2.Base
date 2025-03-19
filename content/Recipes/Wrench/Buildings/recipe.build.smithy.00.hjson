@@ -344,6 +344,8 @@
 						}
 					]
 					
+					complete_delay: 1.000
+					
 					quality: 1.000
 					precision: 1.000
 				}

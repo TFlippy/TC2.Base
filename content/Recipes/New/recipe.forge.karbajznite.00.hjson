@@ -15,7 +15,7 @@
 			type: workpiece
 			flags: none
 			// Damage type used for discarding leftover resources.
-			discard_damage_type: sledgehammer
+			discard_damage_type: heat
 			
 			ratio: 1.000
 			mass_base: 0.000
@@ -33,29 +33,31 @@
 						{
 							type: resource
 							material: karbajznite
-							amount: 8.000
-							snapping: 0.100
-							loss: 0.075
+							amount: 9.500
+							snapping: 1.000
+							loss: 0.173
+							ratio: 1.000
 							group: 0
 							flags: primary, prerequisite
 						}
 						{
 							type: temperature
-							amount: 925.800
-							amount_min: 839.000
-							amount_max: 1073.240
-							falloff: 4.000
+							amount: 980.700
+							amount_min: 677.000
+							amount_max: 1000.240
+							falloff: 2.477
 							group: 1
 							flags: no_scaling, always_evaluate
 						}
 						{
 							type: work
 							work: heating
-							amount: 200.000
-							amount_min: 75.000
-							difficulty: 5
+							amount: 650.000
+							amount_min: 250.000
+							difficulty: 9
 							snapping: 5.000
-							falloff: 0.674
+							falloff: 0.795
+							ratio: 0.322
 							group: 1
 							flags: always_evaluate, conditional
 						}
@@ -67,6 +69,7 @@
 							difficulty: 7
 							snapping: 5.000
 							falloff: 0.865
+							ratio: 0.604
 							group: 1
 							flags: conditional
 						}
@@ -77,11 +80,17 @@
 						{
 							type: resource
 							material: steel.ingot
-							amount: 1.000
+							amount: 0.854
+							amount_extra: 0.220
+							snapping: 0.020
 							group: 0
 							flags: primary, compact, use_temperature
 						}
 					]
+					
+					start_delay: 4.000
+					advance_delay: 1.000
+					complete_delay: 1.000
 					
 					quality: 1.000
 					precision: 1.000
@@ -96,6 +105,8 @@
 						include: workshop, stationary, fireproof, sturdy
 						exclude: fragile
 					}
+					
+					h_sound_begin: metal.hit.heavy.00
 				}
 			]
 		}
@@ -123,20 +134,20 @@
 						{
 							type: temperature
 							amount: 293.500
-							amount_min: 276.000
-							amount_max: 338.000
-							falloff: 1.000
+							amount_min: 341.000
+							amount_max: 511.000
+							falloff: 2.500
 							group: 0
 							flags: no_scaling, always_evaluate
 						}
 						{
 							type: work
 							work: cooling
-							amount: 150.000
-							amount_min: 110.000
+							amount: 350.000
+							amount_min: 250.000
 							difficulty: 6
 							snapping: 5.000
-							falloff: 0.619
+							falloff: 0.677
 							group: 0
 							flags: always_evaluate, conditional
 						}

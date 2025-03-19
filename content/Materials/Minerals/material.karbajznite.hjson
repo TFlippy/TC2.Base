@@ -6,7 +6,7 @@
 		'''
 		Iron-nickel mineral commonly used as a steel substitute.
 
-		Can be readily forged or machined into smaller items.
+		Can be forged or machined into smaller items.
 		'''
 	
 	tips: []
@@ -39,6 +39,38 @@
 	
 	colliders: []
 	
+	// Conversions into other materials.
+	conversions:
+	{
+		heat:
+		{
+			h_material: ferronickel.powder
+			spawn_flags: none
+			product_flags: residue
+			ratio: 0.460
+			ratio_extra: 0.360
+			
+			h_material_waste: ferrous.gravel
+			spawn_flags_waste: none
+			product_flags_waste: waste
+			ratio_waste: 0.500
+			ratio_waste_extra: 0.210
+			
+			yield: 0.600
+			yield_extra: 0.310
+			
+			h_sound: missing
+			sound_volume: 0.500
+			sound_pitch: 1.000
+			
+			chance: 0.855
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.000
+			velocity_mult: 1.000
+		}
+	}
+	
 	residues:
 	{
 		hammering:
@@ -58,6 +90,24 @@
 			flags_product: residue
 			
 			yield: [0.251, 0.299]
+		}
+		heating:
+		{
+			h_material: ferrous.gravel
+			h_substance: "null"
+			flags: none
+			flags_product: waste, residue
+			
+			yield: [0.480, 0.212]
+		}
+		smithing:
+		{
+			h_material: ferronickel.powder
+			h_substance: "null"
+			flags: none
+			flags_product: residue
+			
+			yield: [0.322, 0.492]
 		}
 	}
 }

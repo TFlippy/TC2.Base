@@ -241,7 +241,7 @@ heat:
 	temperature_ignite: 1415.000
 	temperature_operating: 1193.150
 	temperature_breakdown: 1650.000
-	cool_rate: 15.000
+	cool_rate: 20.000
 	heat_capacity_extra: 900.000
 	heat_capacity_mult: 6.000
 	heat_damage_mult: 0.200
