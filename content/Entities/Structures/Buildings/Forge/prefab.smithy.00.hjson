@@ -133,6 +133,10 @@ workshop:
 		flags: standalone, allow_ducts, ignore_mass, public, faction, vertical
 		stack_size_multiplier: 4.000
 		
+		filter:
+		{
+			exclude: gas
+		}
 		offset: [-0.625, -0.250]
 	}
 }
@@ -161,6 +165,10 @@ crafter:
 		flags: standalone, allow_ducts, ignore_mass
 		stack_size_multiplier: 2.000
 		
+		filter:
+		{
+			exclude: gas
+		}
 		offset: [1.125, 0.250]
 	}
 }
@@ -210,7 +218,7 @@ essence.container:
 		{
 			require: small, pellet, solid
 			include: none
-			exclude: none
+			exclude: gas
 		}
 
 		offset: [-0.375, 1.000]

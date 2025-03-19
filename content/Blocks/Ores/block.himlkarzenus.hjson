@@ -24,8 +24,8 @@
 	
 	texture: terrain.himlkarzenus
 	pattern: pattern.stone
-	texture_scale: 1.204
-	texture_overshoot: -0.750
+	texture_scale: 1.254
+	texture_overshoot: -0.150
 	texture_offset: 0.125
 	
 	color_preview: "0xffb63789"

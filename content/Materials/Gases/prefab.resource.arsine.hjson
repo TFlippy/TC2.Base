@@ -6,22 +6,22 @@ body:
 
 	@shape.circle:
 	{
-		radius: 1.300
-		friction: 0.980
-		elasticity: 0.120
-		rigidity_static: 0.500
+		radius: 1.500
+		friction: 0.410
+		elasticity: 0.520
+		rigidity_static: 0.700
 		rigidity_dynamic: 0.500
 		
 		material: gas
-		miss_chance: 0.560
+		miss_chance: 0.160
 		
 		layer: entity, solid, resource, gas, ignore_melee, ignore_hover, flammable
 		mask: world, gas
 		exclude: decoration, background, barbed
 	}
 
-	gravity: 1.050
-	damping: 0.801
+	gravity: 1.010
+	damping: 0.762
 	mass_multiplier: 275.000
 	fall_damage_multiplier: 0.000
 }
@@ -46,11 +46,38 @@ resource:
 	material: "arsine"
 }
 
+health:
+{
+	max: 100.000
+}
+
+explosive:
+{
+	damage_type: deflagration
+	damage_type_secondary: fire
+
+	radius: 5.500
+	power: 4.000
+	damage_entity: 6000.000
+	damage_terrain: 7000.000
+	smoke_amount: 4.000
+	smoke_lifetime_multiplier: 0.300
+	smoke_velocity_multiplier: 4.000
+	flash_duration_multiplier: 1.000
+	flash_intensity_multiplier: 0.700
+	force_multiplier: 0.500
+	shake_multiplier: 0.080
+	fire_amount: 0.000
+	volume: 1.200
+	pitch: 0.500
+	health_threshold: 0.999
+	flags: explode_when_primed
+}
+
 despawn:
 {
-	sleep_count: 0
-	sleep_count_max: 0
+	sleep_count_max: 3
 	interval: 30.000
 	threshold_delete: 0.010
-	threshold_despawning: 1.500
+	threshold_despawning: 0.500
 }
