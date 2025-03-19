@@ -15,7 +15,7 @@
 			amount: 5.000
 			snapping: 1.000
 			group: 0
-			flags: no_scaling
+			flags: no_scaling, prerequisite
 		}
 		{
 			type: resource
@@ -23,6 +23,7 @@
 			amount: 1.000
 			snapping: 1.000
 			group: 0
+			flags: prerequisite
 		}
 	]
 	
@@ -85,5 +86,5 @@
 		}
 	}
 	
-	version: 0
+	version: 1
 }

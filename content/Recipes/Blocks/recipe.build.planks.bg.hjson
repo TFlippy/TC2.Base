@@ -14,6 +14,7 @@
 			material: wood
 			amount: 0.025
 			group: 0
+			flags: prerequisite
 		}
 	]
 	
@@ -53,7 +54,6 @@
 		cooldown: 0.400
 		min_support: 0.035
 		min_claim: 1.000
-		max_range: 4.000
 		
 		length_max: 6.000
 		
@@ -70,5 +70,5 @@
 		}
 	}
 	
-	version: 0
+	version: 1
 }

@@ -10,14 +10,14 @@
 			material: wood
 			amount: 4.000
 			group: 0
-			flags: compact
+			flags: compact, prerequisite
 		}
 		{
 			type: resource
 			material: steel.frames
 			amount: 2.500
 			group: 0
-			flags: compact
+			flags: compact, prerequisite
 		}
 	]
 	
@@ -88,5 +88,5 @@
 		}
 	}
 	
-	version: 0
+	version: 1
 }

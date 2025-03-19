@@ -11,12 +11,14 @@
 			amount: 5.500
 			snapping: 0.500
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: resource
 			material: steel.frames
 			amount: 2.000
 			group: 0
+			flags: prerequisite
 		}
 	]
 	
@@ -93,5 +95,5 @@
 		}
 	}
 	
-	version: 0
+	version: 1
 }

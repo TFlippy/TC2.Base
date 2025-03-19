@@ -10,12 +10,14 @@
 			material: steel.rod
 			amount: 8.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: resource
 			material: steel.frames
 			amount: 2.000
 			group: 0
+			flags: prerequisite
 		}
 	]
 	
@@ -32,6 +34,7 @@
 	type: architecture
 	flags: blueprintable
 	tags: large, construction
+	infrastructure: none
 	
 	icon:
 	{
@@ -40,6 +43,7 @@
 	}
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	rank: -6.000
 	
 	dismantle_work: 4.000
@@ -83,5 +87,5 @@
 		}
 	}
 	
-	version: 0
+	version: 1
 }

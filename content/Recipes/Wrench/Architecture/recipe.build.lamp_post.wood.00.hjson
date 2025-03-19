@@ -10,18 +10,21 @@
 			material: timber
 			amount: 5.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: resource
 			material: steel.frames
 			amount: 4.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: resource
 			material: limelight
 			amount: 5.000
 			group: 0
+			flags: prerequisite
 		}
 	]
 	
@@ -90,5 +93,5 @@
 		}
 	}
 	
-	version: 0
+	version: 1
 }

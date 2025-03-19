@@ -17,12 +17,14 @@
 			material: timber
 			amount: 10.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: resource
 			material: cloth
 			amount: 35.000
 			group: 0
+			flags: prerequisite
 		}
 	]
 	
@@ -92,5 +94,5 @@
 		}
 	}
 	
-	version: 0
+	version: 1
 }

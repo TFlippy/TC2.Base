@@ -16,6 +16,7 @@
 			snapping: 0.200
 			falloff: 0.950
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: resource
@@ -24,6 +25,7 @@
 			snapping: 0.500
 			falloff: 0.900
 			group: 0
+			flags: prerequisite
 		}
 	]
 	
@@ -40,6 +42,7 @@
 	type: architecture
 	flags: none
 	tags: construction
+	infrastructure: none
 	
 	icon:
 	{
@@ -47,6 +50,7 @@
 	}
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	rank: -766.000
 	
 	dismantle_work: 50.000
@@ -84,5 +88,5 @@
 		}
 	}
 	
-	version: 0
+	version: 1
 }
