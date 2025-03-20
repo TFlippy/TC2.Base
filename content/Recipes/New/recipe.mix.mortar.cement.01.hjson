@@ -61,6 +61,9 @@
 						}
 					]
 					
+					quality: 1.000
+					precision: 1.000
+					
 					filter_tools:
 					{
 						include: bucket, spatula
@@ -71,7 +74,7 @@
 		{
 			name: "Water"
 			
-			type: processing
+			type: additives
 			flags: no_residue
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: wet
@@ -108,6 +111,9 @@
 							flags: conditional
 						}
 					]
+					
+					quality: 1.000
+					precision: 1.000
 					
 					filter_tools:
 					{
@@ -146,6 +152,9 @@
 						}
 					]
 					
+					quality: 1.000
+					precision: 1.000
+					
 					filter_tools:
 					{
 						include: bucket
@@ -166,11 +175,15 @@
 						{
 							type: resource
 							material: water
-							amount: 50.000
+							amount: 5.000
+							snapping: 0.100
 							group: 0
 							flags: no_residue, prerequisite
 						}
 					]
+					
+					quality: 1.000
+					precision: 1.000
 				}
 				{
 					name: "Freshwater2"
@@ -183,11 +196,14 @@
 						{
 							type: substance
 							h_substance: water
-							amount: 10.000
+							amount: 5.000
 							group: 0
 							flags: no_residue, filler, prerequisite
 						}
 					]
+					
+					quality: 1.000
+					precision: 1.000
 				}
 				{
 					name: "Wastewater"
@@ -200,11 +216,15 @@
 						{
 							type: resource
 							material: water.dirty
-							amount: 50.000
+							amount: 5.000
+							snapping: 0.100
 							group: 0
 							flags: no_residue, prerequisite
 						}
 					]
+					
+					quality: 1.000
+					precision: 1.000
 				}
 			]
 		}
@@ -243,8 +263,8 @@
 					]
 					
 					purity_mult: 0.977
-					quality_mult: 0.957
-					loss_mult: 1.122
+					quality: 1.000
+					precision: 1.000
 					
 					filter_tools:
 					{
@@ -263,7 +283,7 @@
 			amount: 16.178
 			amount_extra: 1.572
 			group: 0
-			flags: byproduct, primary
+			flags: primary
 		}
 	]
 	
@@ -353,6 +373,7 @@
 	icon_c_offset: [-10.000, -11.000]
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	rank: -160.900
 	
 	min: 1

@@ -17,7 +17,7 @@
 	flags: none
 	tags: manual, simple, construction
 	cooldown: 1.000
-	multiplier: 1.500
+	multiplier: 1.220
 	color: "0xffffa200"
 	
 	tools_required: none
@@ -26,8 +26,8 @@
 	machinery_required: none
 	machinery_optional: none
 	
-	equipment_required: none
-	equipment_optional: none
+	infrastructure_required: none
+	infrastructure_optional: none
 	
 	character_traits:
 	{

@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.62.0"
-	name: "Brezolyt Mortar"
+	name: "[WIP] Brezolyt Mortar"
 	desc:
 		'''
 		TODO: Desc
@@ -109,7 +109,7 @@
 			material: brezolyt
 			amount: 25.000
 			snapping: 1.000
-			loss: 0.086
+			loss: 0.075
 			group: 0
 			flags: no_residue, primary, prerequisite
 		}
@@ -120,80 +120,10 @@
 		{
 			type: resource
 			material: mortar
-			amount: 9.122
-			amount_extra: 4.990
+			amount: 12.822
+			amount_extra: 3.890
 			group: 0
-			flags: byproduct, primary
-		}
-	]
-	
-	requirements_old:
-	[
-		{
-			type: resource
-			material: brezolyt
-			amount: 25.000
-			group: 0
-			flags: primary, prerequisite
-		}
-		{
-			type: work
-			work: shattering
-			amount: 150.000
-			difficulty: 3
-			snapping: 5.000
-			falloff: 0.800
-			group: 0
-			flags: conditional
-		}
-		{
-			type: resource
-			material: soil
-			amount: 6.000
-			group: 1
-		}
-		{
-			type: resource
-			material: water
-			amount: 6.000
-			snapping: 0.010
-			group: 1
-		}
-		{
-			type: work
-			work: blending
-			amount: 400.000
-			difficulty: 6
-			snapping: 5.000
-			falloff: 0.390
-			group: 1
-			flags: conditional
-		}
-	]
-	
-	products_old:
-	[
-		{
-			type: resource
-			material: mortar
-			amount: 9.122
-			amount_extra: 4.990
-			group: 0
-		}
-		{
-			type: resource
-			material: clay
-			amount: 1.068
-			amount_extra: 2.372
-			group: 1
-		}
-		{
-			type: resource
-			material: water.dirty
-			amount: 2.4478
-			amount_extra: 0.8372
-			snapping: 0.010
-			group: 1
+			flags: primary, compact
 		}
 	]
 	

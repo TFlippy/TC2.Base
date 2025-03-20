@@ -556,7 +556,7 @@ namespace TC2.Base.Components
 															}
 
 															//if (!Crafting.Evaluate(ent_wrench, ent_parent, this_transform.position, ref recipe.requirements, inventory: inventory, amount_multiplier: amount_multiplier, h_faction: h_faction)) errors |= Errors.RequirementsNotMet;
-															if (!context.Evaluate(requirements: recipe.requirements.AsSpan(), amount_multiplier: amount_multiplier)) errors |= Errors.RequirementsNotMet;
+															if (!context.Evaluate(requirements: recipe.requirements.AsSpan(), amount_multiplier: amount_multiplier, evaluation_flags: Crafting.EvaluateFlags.Prerequisite)) errors |= Errors.RequirementsNotMet;
 
 															var bb_canvas = region.WorldToCanvas(bb);
 
@@ -668,12 +668,12 @@ namespace TC2.Base.Components
 																var construction = recipe.construction.Value;
 
 																//if (!Crafting.Evaluate(ent_wrench, ent_parent, this_transform.position, ref construction.requirements, inventory: inventory, amount_multiplier: amount_multiplier, h_faction: h_faction)) errors |= Errors.RequirementsNotMet;
-																if (!context.Evaluate(requirements: construction.requirements, amount_multiplier: amount_multiplier)) errors |= Errors.RequirementsNotMet;
+																if (!context.Evaluate(requirements: construction.requirements, amount_multiplier: amount_multiplier, evaluation_flags: Crafting.EvaluateFlags.Prerequisite)) errors |= Errors.RequirementsNotMet;
 															}
 															else
 															{
 																//if (!Crafting.Evaluate(ent_wrench, ent_parent, this_transform.position, ref recipe.requirements, inventory: inventory, amount_multiplier: amount_multiplier, h_faction: h_faction)) errors |= Errors.RequirementsNotMet;
-																if (!context.Evaluate(requirements: recipe.requirements.AsSpan(), amount_multiplier: amount_multiplier)) errors |= Errors.RequirementsNotMet;
+																if (!context.Evaluate(requirements: recipe.requirements.AsSpan(), amount_multiplier: amount_multiplier, evaluation_flags: Crafting.EvaluateFlags.Prerequisite)) errors |= Errors.RequirementsNotMet;
 															}
 
 															if (errors != Wrench.Mode.Build.Errors.None)
@@ -1558,12 +1558,12 @@ namespace TC2.Base.Components
 											Wrench.Mode.Build.Evaluate(region: ref region, entity: rpc.entity, placement: in placement, errors: ref errors, skip_support: ref skip_support, support: out support, clearance: out clearance, bb: bb, transform: in transform, placement_range: build.placement_range, pos: pos, pos_a: pos_a, pos_b: pos_b, faction_id: h_faction);
 
 											//if (!Crafting.Evaluate(entity, ent_parent, transform.position, ref recipe.requirements, inventory: inventory, amount_multiplier: amount_multiplier, h_faction: h_faction)) errors |= Errors.RequirementsNotMet;
-											if (!context.Evaluate(requirements: recipe.requirements.AsSpan(), amount_multiplier: amount_multiplier)) errors |= Errors.RequirementsNotMet;
+											if (!context.Evaluate(requirements: recipe.requirements.AsSpan(), amount_multiplier: amount_multiplier, evaluation_flags: Crafting.EvaluateFlags.Prerequisite)) errors |= Errors.RequirementsNotMet;
 
 											if (errors == Wrench.Mode.Build.Errors.None)
 											{
 												//Crafting.Consume(ent_parent, transform.position, ref recipe.requirements, inventory: inventory, amount_multiplier: amount_multiplier, sync: true);
-												context.Consume(requirements: recipe.requirements.AsSpan(), amount_multiplier: amount_multiplier);
+												context.Consume(requirements: recipe.requirements.AsSpan(), amount_multiplier: amount_multiplier, evaluation_flags: Crafting.EvaluateFlags.Prerequisite);
 
 												var tile_meta = 0u;
 
@@ -1665,12 +1665,12 @@ namespace TC2.Base.Components
 												var construction = recipe.construction.Value;
 
 												//if (!Crafting.Evaluate(entity, ent_parent, transform.position, ref construction.requirements, inventory: inventory, amount_multiplier: amount_multiplier, h_faction: h_faction)) errors |= Errors.RequirementsNotMet;
-												if (!context.Evaluate(requirements: construction.requirements.AsSpan(), amount_multiplier: amount_multiplier)) errors |= Errors.RequirementsNotMet;
+												if (!context.Evaluate(requirements: construction.requirements.AsSpan(), amount_multiplier: amount_multiplier, evaluation_flags: Crafting.EvaluateFlags.Prerequisite)) errors |= Errors.RequirementsNotMet;
 
 												if (errors == Wrench.Mode.Build.Errors.None)
 												{
 													//Crafting.Consume(ent_parent, transform.position, ref construction.requirements, inventory: inventory, amount_multiplier: amount_multiplier, sync: true);
-													context.Consume(requirements: construction.requirements.AsSpan(), amount_multiplier: amount_multiplier);
+													context.Consume(requirements: construction.requirements.AsSpan(), amount_multiplier: amount_multiplier, evaluation_flags: Crafting.EvaluateFlags.Prerequisite);
 
 													var dismantlable_tmp = new Dismantlable.Data();
 													dismantlable_tmp.yield = 0.90f;
@@ -1764,12 +1764,12 @@ namespace TC2.Base.Components
 											else
 											{
 												//if (!Crafting.Evaluate(entity, ent_parent, transform.position, ref recipe.requirements, inventory: inventory, amount_multiplier: amount_multiplier, h_faction: h_faction)) errors |= Errors.RequirementsNotMet;
-												if (!context.Evaluate(requirements: recipe.requirements.AsSpan(), amount_multiplier: amount_multiplier)) errors |= Errors.RequirementsNotMet;
+												if (!context.Evaluate(requirements: recipe.requirements.AsSpan(), amount_multiplier: amount_multiplier, evaluation_flags: Crafting.EvaluateFlags.Prerequisite)) errors |= Errors.RequirementsNotMet;
 
 												if (errors == Wrench.Mode.Build.Errors.None)
 												{
 													//Crafting.Consume(ent_parent, transform.position, ref recipe.requirements, inventory: inventory, amount_multiplier: amount_multiplier, sync: true);
-													context.Consume(requirements: recipe.requirements.AsSpan(), amount_multiplier: amount_multiplier);
+													context.Consume(requirements: recipe.requirements.AsSpan(), amount_multiplier: amount_multiplier, evaluation_flags: Crafting.EvaluateFlags.Prerequisite);
 
 													var dismantlable_tmp = new Dismantlable.Data();
 													dismantlable_tmp.yield = recipe.dismantle_yield;
