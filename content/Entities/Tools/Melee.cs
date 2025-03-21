@@ -24,7 +24,7 @@ namespace TC2.Base.Components
 		}
 
 		[Flags]
-		public enum Flags: uint
+		public enum Flags: byte
 		{
 			None = 0,
 
@@ -53,85 +53,77 @@ namespace TC2.Base.Components
 		{
 			public static Sound.Handle sound_swing_default = "tool_swing_00";
 
+			[Statistics.Info("Damage", description: "Base damage", format: "{0:0}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
+			public float damage_base;
+			[Statistics.Info("Damage (Extra)", description: "Random additional damage", format: "{0:0}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
+			public float damage_bonus;
+			[Statistics.Info("Armor Pierce", description: "TODO: Desc", format: "{0:0}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
+			public float armor_pierce;
+
+			[Save.NewLine]
+			[Statistics.Info("Damage (Integrity)", description: "TODO: Desc", format: "{0:0.##}x", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
+			public float primary_damage_multiplier = 1.00f;
+			[Statistics.Info("Damage (Durability)", description: "TODO: Desc", format: "{0:0.##}x", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
+			public float secondary_damage_multiplier = 1.00f;
+			[Statistics.Info("Damage (Terrain)", description: "Damage to terrain", format: "{0:0.##}x", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
+			public float terrain_damage_multiplier = 1.00f;
+			[Statistics.Info("Pain", description: "Pain multiplier.", format: "{0:0.##}x", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
+			public float pain_multiplier = 1.00f;
+			[Statistics.Info("Stun", description: "Stun multiplier.", format: "{0:0.##}x", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
+			public float stun_multiplier = 1.00f;
+
+			[Save.NewLine]
+			[Statistics.Info("Disarm", description: "TODO: Desc", format: "{0:P2}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
+			public float disarm_chance = 0.02f;
+			[Statistics.Info("Cooldown", description: "Time between attacks", format: "{0:0.##}s", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.Medium)]
+			public float cooldown;
+			[Statistics.Info("Reach", description: "Melee weapon range", format: "{0:0.##}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
+			public float max_distance;
+			[Statistics.Info("Area of Effect", description: "Size of the affected area", format: "{0:0.##}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
+			public float aoe;
+			[Statistics.Info("Thickness", description: "TODO: Desc", format: "{0:0.##}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Low)]
+			public float thickness = 0.30f;
+			[Statistics.Info("Knockback", description: "TODO: Desc", format: "{0:0}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
+			public float knockback;
+			[Statistics.Info("Knockback Speed", description: "TODO: Desc", format: "{0:0.##}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Low)]
+			public float knockback_speed = 8.00f;
+			[Statistics.Info("Yield", description: "Affects amount of material obtained from harvesting", format: "{0:P2}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
+			public float yield = 1.00f;
+			[Statistics.Info("Penetration Falloff", description: "Modifies damage after each penetration", format: "{0:P2}", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.Low)]
+			public float penetration_falloff = 0.75f;
+			[Statistics.Info("Penetration", description: "How many objects are hit in single strike", format: "{0:0}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
+			public int penetration;
+
+			[Save.NewLine]
+			[Editor.Picker.Position(true, true)]
+			public Vector2 hit_offset;
+			[Editor.Picker.Direction(true, true)]
+			public Vector2 hit_direction = new(1.00f, 0.00f);
+
+			[Save.NewLine]
+			[Editor.Picker.Position(true, true)]
+			public Vector2 swing_offset = new(1.00f, 1.00f);
+			public float swing_rotation = -2.50f;
+
+			[Save.NewLine]
 			public Sound.Handle sound_swing = sound_swing_default;
 			public float sound_volume = 0.75f;
 			public float sound_size = 1.00f;
 			public float sound_pitch = 1.00f;
 
-			[Editor.Picker.Position(true, true)]
-			public Vector2 hit_offset = new(0.00f, 0.00f);
-
-			[Editor.Picker.Direction(true, true)]
-			public Vector2 hit_direction = new(1.00f, 0.00f);
-
-			[Editor.Picker.Position(true, true)]
-			public Vector2 swing_offset = new(1.00f, 1.00f);
-			public float swing_rotation = -2.50f;
-
+			[Save.NewLine]
 			public Melee.AttackType attack_type = AttackType.Swing;
-
-			[Statistics.Info("Damage", description: "Base damage", format: "{0:0}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
-			public float damage_base;
-
-			[Statistics.Info("Damage (Extra)", description: "Random additional damage", format: "{0:0}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
-			public float damage_bonus;
-
-			[Statistics.Info("Damage (Integrity)", description: "TODO: Desc", format: "{0:0.##}x", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
-			public float primary_damage_multiplier = 1.00f;
-
-			[Statistics.Info("Damage (Durability)", description: "TODO: Desc", format: "{0:0.##}x", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
-			public float secondary_damage_multiplier = 1.00f;
-
-			[Statistics.Info("Damage (Terrain)", description: "Damage to terrain", format: "{0:0.##}x", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
-			public float terrain_damage_multiplier = 1.00f;
-
-			[Statistics.Info("Pain", description: "Pain multiplier.", format: "{0:0.##}x", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
-			public float pain_multiplier = 1.00f;
-
-			[Statistics.Info("Stun", description: "Stun multiplier.", format: "{0:0.##}x", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
-			public float stun_multiplier = 1.00f;
-
-			[Statistics.Info("Disarm", description: "TODO: Desc", format: "{0:P2}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
-			public float disarm_chance = 0.02f;
-
-			[Statistics.Info("Cooldown", description: "Time between attacks", format: "{0:0.##}s", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.Medium)]
-			public float cooldown;
-
-			[Statistics.Info("Reach", description: "Melee weapon range", format: "{0:0.##}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
-			public float max_distance;
-
-			[Statistics.Info("Area of Effect", description: "Size of the affected area", format: "{0:0.##}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
-			public float aoe;
-
-			[Statistics.Info("Thickness", description: "TODO: Desc", format: "{0:0.##}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Low)]
-			public float thickness = 0.30f;
-
-			[Statistics.Info("Knockback", description: "TODO: Desc", format: "{0:0}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
-			public float knockback;
-
-			[Statistics.Info("Knockback Speed", description: "TODO: Desc", format: "{0:0.##}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Low)]
-			public float knockback_speed = 8.00f;
-
-			[Statistics.Info("Yield", description: "Affects amount of material obtained from harvesting", format: "{0:P2}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
-			public float yield = 1.00f;
-
-			[Statistics.Info("Penetration Falloff", description: "Modifies damage after each penetration", format: "{0:P2}", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.Low)]
-			public float penetration_falloff = 0.75f;
-
-			[Statistics.Info("Penetration", description: "How many objects are hit in single strike", format: "{0:0}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
-			public int penetration;
-
 			[Statistics.Info("Damage Type", description: "Type of damage dealt", format: "{0}", comparison: Statistics.Comparison.None, priority: Statistics.Priority.High)]
 			public Damage.Type damage_type;
-
 			[Statistics.Info("Category", description: "TODO: Desc", comparison: Statistics.Comparison.None, priority: Statistics.Priority.Low)]
 			public Melee.Category category;
-
 			public Melee.Flags flags;
 
+			[Save.NewLine]
 			public Damage.Flags damage_flags_add;
 			public Damage.Flags damage_flags_rem;
 
+			[Save.NewLine]
 			public Physics.Layer hit_mask;
 			public Physics.Layer hit_require;
 			public Physics.Layer hit_exclude;
@@ -974,7 +966,7 @@ namespace TC2.Base.Components
 			Damage.Hit(ent_attacker: ent_attacker, ent_owner: ent_owner, ent_target: ent_target,
 				position: hit_pos, velocity: dir * melee.knockback_speed, normal: normal,
 				damage_integrity: damage * melee.primary_damage_multiplier, damage_durability: damage * melee.secondary_damage_multiplier, damage_terrain: damage * melee.terrain_damage_multiplier,
-				target_material_type: material_type, damage_type: melee.damage_type, flags: damage_flags,
+				target_material_type: material_type, damage_type: melee.damage_type, flags: damage_flags, armor_pierce: melee.armor_pierce,
 				yield: melee.yield, size: melee.aoe, impulse: melee.knockback, faction_id: h_faction, pain: melee.pain_multiplier, stun: melee.stun_multiplier);
 
 			if (ent_target.IsValid() && melee.disarm_chance > 0.00f && random_local.NextBool(melee.disarm_chance))

@@ -1,11 +1,13 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.0"
 	name: "Steel Rod"
 	name_short: "St. Rod"
 	description:
 		'''
 		Standard 4x4x60 cm nickelsteel rod.
 		'''
+	
+	tips: []
 	
 	icon:
 	{
@@ -19,23 +21,25 @@
 	flags: hard, long, magnetic, metal, small, flexible, solid, processed
 	display_flags: sprite_stack_linear, no_random_facing
 	hints: materials, construction
-	bulk_density_ratio_min: 0.000
-	bulk_density_ratio_max: 0.000
+	
 	density_ratio: 0.9069
 	porosity: 0.004
 	purity: 0.985
 	mass_per_unit: 5.843082
 	volume_per_unit: 0.000754
 	quantity_max: 100.000
+	spawn_quantity_threshold: 0.100
+	snapping: 0.500
+	
 	form_type: rod
 	prefab: resource.steel.rod
 	h_substance: steel
 	
+	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
 	color_dust: "0xffc0c6ac"
 	color_gib: "0xffc0c6ac"
-	color_spark: [0.000, 0.000, 0.000, 0.000]
 	color_flame: [1.000, 0.521, 0.220, 0.882]
-	color_liquid: [0.000, 0.000, 0.000, 0.000]
 	color_smoke: [0.753, 0.776, 0.675, 1.000]
 	
 	colliders:
@@ -223,6 +227,33 @@
 			flags: none
 			merge_radius_mult: 1.000
 			velocity_mult: 1.000
+		}
+		handsaw:
+		{
+			h_material: steel.frames
+			spawn_flags: merge, pickup, show_notification
+			product_flags: primary
+			ratio: 0.180
+			ratio_extra: 0.270
+			
+			h_material_waste: steel.powder
+			spawn_flags_waste: merge, pickup
+			product_flags_waste: residue
+			ratio_waste: 0.060
+			ratio_waste_extra: 0.080
+			
+			yield: 0.720
+			yield_extra: 0.210
+			
+			h_sound: missing
+			sound_volume: 0.730
+			sound_pitch: 0.900
+			
+			chance: 0.093
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.000
+			velocity_mult: 1.520
 		}
 	}
 	

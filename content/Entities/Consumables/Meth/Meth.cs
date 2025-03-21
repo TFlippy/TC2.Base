@@ -39,13 +39,15 @@ namespace TC2.Base.Components
 		}
 #endif
 
-		public static Gradient<float> gr_consciousness = new Gradient<float>(1.00f, 1.35f, 1.55f, 1.62f, 1.74f, 1.66f, 1.54f, 1.50f, 1.30f, 0.90f, 0.80f, 0.75f, 0.70f, 0.00f);
-		public static Gradient<float> gr_endurance = new Gradient<float>(1.00f, 1.05f, 1.10f, 1.15f, 1.30f, 1.40f, 1.55f, 1.70f, 1.90f, 2.10f, 2.50f, 3.00f);
-		public static Gradient<float> gr_dexterity = new Gradient<float>(1.00f, 1.15f, 1.30f, 1.45f, 1.35f, 1.50f, 1.65f, 1.75f, 1.85f, 1.10f, 0.85f, 0.80f);
-		public static Gradient<float> gr_strength = new Gradient<float>(1.00f, 1.02f, 1.04f, 1.07f, 1.10f, 1.25f, 1.50f, 1.80f, 2.10f, 2.40f, 2.60f, 2.80f);
-		public static Gradient<float> gr_motorics = new Gradient<float>(1.00f, 1.05f, 1.15f, 1.25f, 1.40f, 1.60f, 1.85f, 1.90f, 1.95f, 1.85f, 1.80f, 1.70f, 1.65f, 1.60f, 1.60f);
-		public static Gradient<float> gr_coordination = new Gradient<float>(1.00f, 1.05f, 1.10f, 1.20f, 1.25f, 1.22f, 1.20f, 1.15f, 1.10f, 1.10f, 1.10f, 1.10f);
-		public static Gradient<float> gr_pain_modifier = new Gradient<float>(1.00f, 1.00f, 0.95f, 0.85f, 0.80f, 0.70f, 0.45f, 0.30f, 0.14f, 0.08f, 0.04f, 0.02f);
+		public static Gradient<float> gr_consciousness = [1.00f, 1.35f, 1.55f, 1.62f, 1.74f, 1.66f, 1.54f, 1.50f, 1.30f, 0.90f, 0.80f, 0.75f, 0.70f, 0.00f];
+		public static Gradient<float> gr_endurance = [1.00f, 1.05f, 1.10f, 1.15f, 1.30f, 1.40f, 1.55f, 1.70f, 1.90f, 2.10f, 2.50f, 3.00f];
+		public static Gradient<float> gr_dexterity = [1.00f, 1.15f, 1.30f, 1.45f, 1.35f, 1.50f, 1.65f, 1.75f, 1.85f, 1.10f, 0.85f, 0.80f];
+		public static Gradient<float> gr_strength = [1.00f, 1.02f, 1.04f, 1.07f, 1.10f, 1.25f, 1.50f, 1.80f, 2.10f, 2.40f, 2.60f, 2.80f];
+		public static Gradient<float> gr_motorics = [1.00f, 1.05f, 1.15f, 1.25f, 1.40f, 1.60f, 1.85f, 1.90f, 1.95f, 1.85f, 1.40f, 1.20f, 0.95f, 0.80f, 0.60f];
+		public static Gradient<float> gr_coordination = [1.00f, 1.05f, 1.10f, 1.20f, 1.25f, 1.22f, 0.98f, 0.82f, 0.77f, 0.69f, 0.60f, 0.50f];
+		public static Gradient<float> gr_pain_modifier = [1.00f, 1.00f, 0.95f, 0.85f, 0.80f, 0.70f, 0.45f, 0.30f, 0.14f, 0.08f, 0.04f, 0.02f];
+		public static Gradient<float> gr_work_modifier = [1.00f, 1.11f, 1.16f, 1.22f, 1.34f, 1.60f, 1.55f, 1.20f, 0.98f, 0.90f, 0.60f, 0.10f];
+		public static Gradient<float> gr_smartness = [1.01f, 1.02f, 1.06f, 1.11f, 1.25f, 1.40f, 1.17f, 1.02f, 0.90f, 0.85f, 0.70f, 0.65f];
 
 		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned)]
 		public static void UpdateStats(ISystem.Info info, Entity entity,
@@ -60,6 +62,8 @@ namespace TC2.Base.Components
 			organic.motorics *= gr_motorics.GetValue(modifier_a * 1.00f);
 			organic.coordination *= gr_coordination.GetValue(modifier_a * 1.00f);
 			organic.pain_modifier *= gr_pain_modifier.GetValue(modifier_a * 1.00f);
+			organic.work_speed = gr_work_modifier.GetValue(modifier_a * 1.00f);
+			organic.smartness = gr_smartness.GetValue(modifier_a * 1.00f);
 
 			var modifier_b = (meth.modifier_withdrawal - meth.modifier_current).Clamp0X();
 			if (modifier_b > Maths.epsilon)
@@ -170,8 +174,10 @@ namespace TC2.Base.Components
 			});
 		}
 
-		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("local", true, Source.Modifier.Shared)]
-		public static void UpdateCamera(ref XorRandom random, ISystem.Info info, Entity entity, [Source.Singleton] ref Camera.Singleton camera, [Source.Shared] in Player.Data player, [Source.Owned] in Meth.Effect meth, [Source.Singleton] ref Head.Singleton head_global)
+		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("local", true, Source.Modifier.Shared)]
+		public static void UpdateCamera(ref XorRandom random, ISystem.Info info, Entity entity, 
+		[Source.Singleton] ref Camera.Singleton camera, [Source.Shared] in Player.Data player, 
+		[Source.Owned] in Meth.Effect meth, [Source.Singleton] ref Head.Singleton head_global)
 		{
 			var modifier = MathF.Pow(meth.modifier_current, 1.40f);
 

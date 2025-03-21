@@ -11,7 +11,7 @@ body:
 		radius: 0.750
 		friction: 0.850
 		elasticity: 0.100
-		layer: entity, solid, resource, ignore_melee, ignore_bullet
+		layer: entity, solid, resource, ignore_melee, ignore_bullet, flammable
 		mask: world
 		material: ammo
 	}

@@ -50,20 +50,16 @@ health:
 
 melee:
 {
-	sound_swing: swish.00
-	sound_volume: 0.400
-	sound_size: 1.500
-	sound_pitch: 0.600
-	hit_offset: [-0.250, 0.125]
-	swing_rotation: 0.000
-	attack_type: thrust
 	damage_base: 42.000
 	damage_bonus: 11.000
+	armor_pierce: 85.000
+	
 	primary_damage_multiplier: 1.200
 	secondary_damage_multiplier: 0.600
 	terrain_damage_multiplier: 0.000
 	pain_multiplier: 1.800
 	stun_multiplier: 0.800
+	
 	disarm_chance: 0.000
 	cooldown: 0.250
 	max_distance: 1.250
@@ -72,9 +68,21 @@ melee:
 	knockback_speed: 1.000
 	yield: 2.250
 	penetration_falloff: 1.000
+	
+	hit_offset: [-0.250, 0.125]
+	
+	swing_rotation: 0.000
+	
+	sound_swing: swish.00
+	sound_volume: 0.400
+	sound_size: 1.500
+	sound_pitch: 0.600
+	
+	attack_type: thrust
 	damage_type: handsaw
-	category: misc
+	category: bladed
 	flags: no_handle, use_aim_direction
+	
 	hit_mask: tree, destructible
 	hit_exclude: world, building, water, fire, gas, powder, liquid, held, stored
 	hit_ignore: water, fire, gas, powder, liquid, stored

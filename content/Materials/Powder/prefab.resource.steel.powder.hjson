@@ -5,13 +5,18 @@ body:
 	@shape.circle:
 	{
 		offset: [0.000, 0.250]
+		
 		mass: 1.000
 		radius: 0.750
 		friction: 0.950
 		elasticity: 0.050
+		
 		material: powder
-		layer: entity, solid, resource, ignore_melee, ignore_bullet
+		miss_chance: 0.000
+		
+		layer: entity, solid, resource, conductive, powder, magnetic, ignore_melee, ignore_bullet
 		mask: world
+		exclude: none
 	}
 }
 
