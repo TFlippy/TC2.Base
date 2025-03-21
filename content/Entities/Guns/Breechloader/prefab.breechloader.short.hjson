@@ -159,3 +159,44 @@ essence.container:
 		texture: light.circle.04
 	}
 }
+
+melee:
+{
+	damage_base: 120.000
+	damage_bonus: 260.000
+	
+	pain_multiplier: 1.650
+	stun_multiplier: 1.400
+	
+	disarm_chance: 0.065
+	cooldown: 1.100
+	max_distance: 0.350
+	aoe: 0.600
+	thickness: 0.600
+	knockback: 350.000
+	knockback_speed: 4.000
+	yield: 1.180
+	penetration_falloff: 0.800
+	penetration: 1
+	
+	hit_offset: [0.750, 0.000]
+	
+	swing_offset: [0.375, 0.375]
+	swing_rotation: -1.000
+	
+	sound_size: 0.875
+	sound_pitch: 0.700
+	
+	damage_type: club
+	category: blunt
+	flags: no_handle, use_rmb, no_material_filter, use_aim_direction
+	
+	hit_mask: world, destructible
+	hit_exclude: background, tree, climbable, ignore_melee
+	hit_ignore: background, tree, climbable, ignore_melee
+}
+
+melee.state:
+{
+
+}
