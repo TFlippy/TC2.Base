@@ -23,11 +23,15 @@ body:
 		
 		mass: 5000.000
 		radius: 1.000
+		friction: 0.500
+		elasticity: 0.500
 		
 		material: building_masonry
-		miss_chance: 0.827
+		miss_chance: 0.824
 		
-		layer: entity, solid, building, ignore_melee
+		layer: entity, solid, background, building, no_overlapped_placement, ignore_melee
+		mask: world
+		exclude: none
 	}
 }
 
