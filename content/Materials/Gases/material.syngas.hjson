@@ -7,6 +7,8 @@
 		Flammable mixture of various gases.
 		'''
 	
+	tips: []
+	
 	icon:
 	{
 		texture: ui_icons_widget
@@ -17,14 +19,26 @@
 	
 	type: gas
 	flags: gas, explosive, toxic, chemical, fuel, flammable, volatile, processed
-	display_flags: none
+	display_flags: sprite_stack_linear, no_random_facing
+	spawn_flags:
+	{
+		rem: pickup, allow_encumbered
+	}
 	hints: none
+	
 	mass_per_unit: 0.010
 	quantity_max: 1000.000
+	spawn_quantity_threshold: 0.100
+	snapping: 0.100
+	
 	form_type: gas
 	prefab: resource.syngas
+	h_substance: "null"
 	
 	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
 	
 	colliders: []
 	

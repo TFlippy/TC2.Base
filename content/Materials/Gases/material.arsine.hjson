@@ -19,7 +19,11 @@
 	
 	type: gas
 	flags: gas, explosive, toxic, chemical, raw, flammable, volatile, smelly, primary
-	display_flags: none
+	display_flags: sprite_stack_linear, no_random_facing
+	spawn_flags:
+	{
+		rem: pickup, allow_encumbered
+	}
 	hints: none
 	
 	purity: 0.886
