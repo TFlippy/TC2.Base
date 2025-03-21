@@ -10,17 +10,21 @@ body:
 {
 	@shape.line:
 	{
-		a: [0.000, -0.125]
+		a: [0.000, -0.375]
 		b: [0.000, 0.250]
+		offset: [0.000, 0.000]
 		
 		mass: 0.300
-		friction: 0.350
+		radius: 0.250
+		friction: 0.370
 		elasticity: 0.700
 		
 		material: glass
-		miss_chance: 0.678
+		miss_chance: 0.675
 		
 		layer: entity, solid, item
+		mask: world
+		exclude: none
 	}
 }
 

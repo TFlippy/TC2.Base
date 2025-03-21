@@ -87,8 +87,8 @@
 			h_material: wood
 			spawn_flags: merge, show_notification
 			product_flags: primary
-			ratio: 0.420
-			ratio_extra: 0.230
+			ratio: 0.220
+			ratio_extra: 0.410
 			
 			h_material_waste: sawdust
 			spawn_flags_waste: merge
@@ -103,7 +103,7 @@
 			sound_volume: 0.000
 			sound_pitch: 0.000
 			
-			chance: 0.472
+			chance: 0.281
 			type: undefined
 			flags: none
 			merge_radius_mult: 1.000

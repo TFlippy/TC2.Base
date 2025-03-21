@@ -108,8 +108,16 @@ storage:
 	@inventory8:
 	{
 		stack_size_multiplier: 2.000
-		filter_flags: soft, malleable, granular, small
 		type: backpack
+		flags: public, faction
+		offset: [-0.250, -0.375]
+
+		filter:
+		{
+			require: none
+			include: soft, malleable, granular, small
+			exclude: gas
+		}
 	}
 }
 

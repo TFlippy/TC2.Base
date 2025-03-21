@@ -75,21 +75,21 @@ storage:
 	@inventory4:
 	{
 		type: backpack
-		flags: standalone, public, faction, horizontal
-		stack_size_multiplier: 6.000
+		flags: public, faction, horizontal
+		stack_size_multiplier: 4.000
 
 		filter:
 		{
 			require: none
-			include: long, granular, small
-			exclude: large, heavy
+			include: soft, malleable, long, granular, small
+			exclude: large, heavy, gas
 		}
 	}
 }
 
 interactable:
 {
-	flags: no_tab
+	flags: no_tab, centered_inventory
 	priority: -0.500
-	window_size: [192.000, 96.000]
+	window_size: [192.000, 48.000]
 }
