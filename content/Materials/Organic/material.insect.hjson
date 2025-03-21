@@ -7,6 +7,8 @@
 		Crispy and grubby!
 		'''
 	
+	tips: []
+	
 	icon:
 	{
 		texture: resource.insect
@@ -18,13 +20,19 @@
 	flags: soft, malleable, sticky, food, organic, corrosive, raw, flexible, solid
 	display_flags: none
 	hints: none
+	
 	mass_per_unit: 0.250
 	quantity_max: 500.000
 	spawn_quantity_threshold: 3.000
+	
 	form_type: raw
 	prefab: resource.insect
+	h_substance: "null"
 	
 	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
 	
 	colliders: []
 	
@@ -65,5 +73,18 @@
 		quantity_retail: 0.000
 		quantity_wholesale: 0.000
 		quantity_industry: 0.000
+	}
+	
+	related:
+	{
+		vinegar: refined, wet, residue
+		ash: ruined, burnt
+		chitin: raw
+		glue: refined
+		rot: ruined
+		scrap.charred: ruined, burnt
+		water.toxic: ruined, wet
+		lubricant: refined, reaction
+		sludge: ruined, wet, melted
 	}
 }

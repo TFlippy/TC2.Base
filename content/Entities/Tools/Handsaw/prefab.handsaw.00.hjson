@@ -1,7 +1,7 @@
 $name: "Handsaw"
 $desc:
 	'''
-	TODO: Desc
+	Versatile tool used for cutting metal, wood, bodies and such into smaller parts.
 	'''
 $tags: []
 
@@ -39,8 +39,9 @@ animated.renderer:
 	sprite:
 	{
 		texture: handsaw.00
+		size: [20, 12]
 	}
-	scale: [0.875, 0.875]
+	scale: [0.8125, 0.8125]
 }
 
 health:
