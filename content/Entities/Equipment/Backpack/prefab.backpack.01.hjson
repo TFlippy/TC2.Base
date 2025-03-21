@@ -19,7 +19,8 @@ body:
 		friction: 0.600
 		elasticity: 0.100
 		rigidity_dynamic: 0.750
-		
+		miss_chance: 0.710
+
 		material: fabric
 		
 		layer: entity, solid, item, storage, flammable

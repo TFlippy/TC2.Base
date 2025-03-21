@@ -239,7 +239,7 @@
 			h_material_waste: steel.powder
 			spawn_flags_waste: merge, pickup
 			product_flags_waste: residue
-			ratio_waste: 0.060
+			ratio_waste: 0.040
 			ratio_waste_extra: 0.080
 			
 			yield: 0.720

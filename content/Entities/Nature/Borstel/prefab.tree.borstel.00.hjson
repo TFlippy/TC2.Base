@@ -109,3 +109,49 @@ harvestable:
 		}
 	]
 }
+
+faction:
+{
+	id: drevokocur
+}
+
+claimer:
+{
+	radius: 16.000
+	strength: 3.500
+	falloff: 0.500
+}
+
+spawn:
+{
+	spawn_offset: [0.000, -14.125]
+	flags: faction, public
+}
+
+spawner:
+{
+	max_count: 2
+	ai_stance: aggressive
+	ai_type: attack
+	interval: 35.000
+	interval_extra: 200.000
+	interval_count_modifier: 60.000
+}
+
+dormitory:
+{
+	flags: no_hiring, no_reject, no_kit_selection, no_kit_requirements, repopulate_needs_faction, region_only, hide_xp, hide_kits
+	species: drevokocur
+	
+	characters_capacity: 2
+	characters_initial_count: 1
+	
+	repopulate_interval: 60.000
+	repopulate_interval_extra: 240.000
+	repopulate_max: 2
+	repopulate_num: 1
+	repopulate_num_extra: 1
+	repopulate_character_flags_add: npc, public
+	
+	asset_flags: recycle
+}

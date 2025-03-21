@@ -1,11 +1,13 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.0"
 	name: "Steel Chunk"
 	name_short: "St. Chunk"
 	description:
 		'''
 		Standard mangled nickelsteel chunk.
 		'''
+	
+	tips: []
 	
 	icon:
 	{
@@ -18,24 +20,21 @@
 	flags: hard, magnetic, metal, small, raw, solid, primary
 	display_flags: none
 	hints: materials, construction, civilian, military, industrial
-	bulk_density_ratio_min: 0.000
-	bulk_density_ratio_max: 0.000
-	density_ratio: 0.000
+	
 	porosity: 0.066
 	purity: 0.963
 	mass_per_unit: 11.67425
 	volume_per_unit: 0.0016
 	quantity_max: 50.000
+	
 	form_type: chunk
 	prefab: resource.steel
 	h_substance: steel
 	
+	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
 	color_dust: "0xffc0c6ac"
 	color_gib: "0xffc0c6ac"
-	color_spark: [0.000, 0.000, 0.000, 0.000]
-	color_flame: [0.000, 0.000, 0.000, 0.000]
-	color_liquid: [0.000, 0.000, 0.000, 0.000]
-	color_smoke: [0.000, 0.000, 0.000, 0.000]
 	
 	colliders: []
 	
@@ -45,29 +44,29 @@
 		sledgehammer:
 		{
 			h_material: steel.plate
-			spawn_flags: merge
-			product_flags: none
-			ratio: 0.390
-			ratio_extra: 0.420
+			spawn_flags: merge, show_notification
+			product_flags: byproduct
+			ratio: 0.050
+			ratio_extra: 0.710
 			
 			h_material_waste: scrap.steel
 			spawn_flags_waste: merge
-			product_flags_waste: none
-			ratio_waste: 0.650
-			ratio_waste_extra: 0.210
+			product_flags_waste: waste, residue
+			ratio_waste: 0.120
+			ratio_waste_extra: 0.700
 			
-			yield: 0.855
-			yield_extra: 0.160
+			yield: 0.785
+			yield_extra: 0.140
 			
 			h_sound: metal.snap.medium.02
 			sound_volume: 0.390
 			sound_pitch: 0.900
 			
-			chance: 0.450
+			chance: 0.308
 			type: undefined
 			flags: none
 			merge_radius_mult: 1.000
-			velocity_mult: 1.000
+			velocity_mult: 4.360
 		}
 	}
 	
