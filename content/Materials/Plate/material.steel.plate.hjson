@@ -7,6 +7,8 @@
 		Standard 20x60x0.25 cm nickelsteel plate.
 		'''
 	
+	tips: []
+	
 	icon:
 	{
 		texture: resource.steel.plate
@@ -18,15 +20,18 @@
 	flags: magnetic, metal, small, plate, flexible, solid, processed
 	display_flags: no_random_facing
 	hints: none
+	
 	purity: 0.985
 	mass_per_unit: 2.3436
 	volume_per_unit: 0.0003
 	quantity_max: 250.000
+	
 	form_type: plate
 	prefab: resource.steel.plate
 	h_substance: steel
 	
 	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
 	color_dust: "0xffc0c6ac"
 	color_gib: "0xffc0c6ac"
 	
@@ -117,7 +122,6 @@
 		quantity_industry: 0.000
 	}
 	
-	// Conversions into other materials.
 	conversions:
 	{
 		bullet_ac:
@@ -282,6 +286,33 @@
 			merge_radius_mult: 1.000
 			velocity_mult: 1.000
 		}
+		handsaw:
+		{
+			h_material: steel.frames
+			spawn_flags: merge, pickup, show_notification
+			product_flags: byproduct
+			ratio: 0.660
+			ratio_extra: 0.210
+			
+			h_material_waste: steel.powder
+			spawn_flags_waste: merge, pickup
+			product_flags_waste: residue
+			ratio_waste: 0.020
+			ratio_waste_extra: 0.040
+			
+			yield: 0.870
+			yield_extra: 0.077
+			
+			h_sound: missing
+			sound_volume: 0.500
+			sound_pitch: 1.000
+			
+			chance: 0.294
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.000
+			velocity_mult: 1.000
+		}
 	}
 	
 	residues:
@@ -291,7 +322,7 @@
 			h_material: scrap.steel
 			h_substance: "null"
 			flags: none
-			flags_product: residue
+			flags_product: waste, residue
 			
 			yield: [0.859649, 0.1384]
 		}

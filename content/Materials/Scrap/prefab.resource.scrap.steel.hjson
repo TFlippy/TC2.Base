@@ -2,18 +2,23 @@ $tags: []
 
 body:
 {
-	buoyancy: 0.150
+	buoyancy: 0.750
 
 	@shape.circle:
 	{
-		offset: [0.000, 0.250]
+		offset: [-0.125, 0.250]
+		
 		mass: 1.000
-		radius: 0.750
-		friction: 0.450
-		elasticity: 0.500
+		radius: 0.720
+		friction: 0.890
+		elasticity: 0.660
+		
 		material: scrap
+		miss_chance: 0.000
+		
 		layer: entity, solid, resource, ignore_melee, ignore_bullet
 		mask: world
+		exclude: none
 	}
 }
 
@@ -40,19 +45,24 @@ resource:
 
 holdable:
 {
-	offset: [0.000, 0.750]
+	offset: [-0.125, 0.625]
+	force_multiplier: 1.200
+	torque_multiplier: 1.150
+	stress_multiplier: 0.850
+	radius: 0.000
+	flags: disable_parent_facing, disable_rotation, disable_control
 }
 
 norotate:
 {
 	bias: 0.000
 	mass_multiplier: 25.000
-	attached_multiplier: 0.500
+	attached_multiplier: 0.200
 }
 
 health:
 {
-	max: 58000.000
+	max: 98000.000
 }
 
 despawn:
