@@ -21,7 +21,7 @@ body:
 		friction: 0.500
 		elasticity: 0.300
 		material: flesh
-		layer: entity, solid, creature, storage, flammable
+		layer: entity, solid, creature, storage, flammable, organic
 		mask: world
 	}
 }
@@ -289,7 +289,7 @@ vehicle:
 
 }
 
-+slot_head|instance:
++slot.head|instance:
 {
 	$tags: []
 	
@@ -369,7 +369,7 @@ vehicle:
 				friction: 0.400
 				elasticity: 0.450
 				material: flesh
-				layer: entity, solid, creature, flammable
+				layer: entity, solid, creature, flammable, organic
 				mask: world
 			}
 		}
@@ -508,7 +508,7 @@ vehicle:
 	}
 }
 
-+slot_waist|instance:
++slot.waist|instance:
 {
 	joint.base:
 	{
@@ -585,7 +585,7 @@ vehicle:
 				friction: 0.700
 				elasticity: 0.750
 				material: flesh
-				layer: entity, solid, creature, flammable
+				layer: entity, solid, creature, flammable, organic
 				mask: world
 			}
 		}
