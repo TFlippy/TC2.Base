@@ -1,0 +1,259 @@
+﻿{
+	$version: "0.1.62.0"
+	name: "Handsaw"
+	tips: []
+	
+	stages:
+	[
+		{
+			name: "Grip"
+			
+			type: part
+			flags: replaceable, part
+			tags: grip, thin, functional, small, rounded
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: stress
+			
+			ratio: 0.197368
+			mass_base: 0.450
+			
+			options:
+			[
+				{
+					name: "Simple"
+					
+					type: undefined
+					flags: none
+					
+					quality: 1.000
+					precision: 1.000
+				}
+			]
+		}
+		{
+			name: "Frame"
+			
+			type: part
+			flags: part
+			tags: frame, rod, thin, structural
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 0.745614
+			mass_base: 1.700
+			
+			options:
+			[
+				{
+					name: "Bent Rod"
+					
+					type: undefined
+					flags: none
+					
+					quality: 1.000
+					precision: 1.000
+				}
+			]
+		}
+		{
+			name: "Blade"
+			
+			type: part
+			flags: replaceable, part
+			tags: thin, functional, blade, flat, sharp, dangerous
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: axe
+			
+			ratio: 0.065789
+			mass_base: 0.150
+			
+			options:
+			[
+				{
+					name: "Spare Frames"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: fracture
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.frames
+							amount: 0.073882
+							snapping: 0.100
+							loss: 0.224
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: search.components
+							amount: 80.000
+							amount_min: 150.000
+							difficulty: 4
+							snapping: 15.000
+							falloff: 0.726
+							ratio: 0.369
+							group: 0
+							flags: conditional
+						}
+						{
+							type: work
+							work: filing
+							amount: 80.000
+							amount_min: 75.000
+							difficulty: 6
+							snapping: 15.000
+							falloff: 0.933
+							ratio: 1.000
+							group: 1
+							flags: conditional
+						}
+					]
+					
+					quality: 1.000
+					precision: 1.000
+				}
+				{
+					name: "Whole-Plate"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.plate
+							amount: 0.071283
+							snapping: 1.000
+							loss: 0.114
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: snipping.metal
+							amount: 90.000
+							amount_min: 45.000
+							difficulty: 12
+							snapping: 15.000
+							falloff: 0.845
+							ratio: 0.055
+							group: 0
+							flags: conditional
+						}
+						{
+							type: work
+							work: filing
+							amount: 50.000
+							amount_min: 50.000
+							difficulty: 5
+							snapping: 15.000
+							falloff: 0.766
+							ratio: 1.000
+							group: 1
+							flags: conditional
+						}
+					]
+					
+					quality: 1.000
+					precision: 1.000
+				}
+			]
+		}
+		{
+			name: "Assembly"
+			
+			type: assembly
+			flags: none
+			tags: assembly
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Glued"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: glue
+							amount: 0.730
+							snapping: 1.000
+							loss: 0.055
+							group: 0
+							flags: no_residue, prerequisite
+						}
+						{
+							type: work
+							work: gluing
+							amount: 93.000
+							difficulty: 3
+							snapping: 5.000
+							falloff: 0.945
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					quality: 1.000
+					precision: 1.000
+					
+					filter_tools:
+					{
+						include: paintbrush, file
+					}
+					filter_environment:
+					{
+						exclude: wet
+					}
+				}
+			]
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: handsaw.00
+			amount: 1.000
+			group: 0
+			flags: primary
+		}
+	]
+	
+	type: workshop
+	flags: blueprintable, item, wip
+	tags: workbench, manual, simple, small, tool, metalworking
+	infrastructure: surface
+	
+	icon:
+	{
+		texture: handsaw.00
+		size: [20, 12]
+	}
+	icon_offset: [2.000, 4.000]
+	
+	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
+	button_name: "Craft"
+	rank: 17.000
+	
+	min: 1
+	max: 10
+	step: 1
+	
+	version: 1
+}

@@ -407,5 +407,14 @@
 			
 			yield: [0.849, 0.151]
 		}
+		filing:
+		{
+			h_material: steel.powder
+			h_substance: "null"
+			flags: none
+			flags_product: residue
+			
+			yield: [0.708, 0.292]
+		}
 	}
 }

@@ -9,17 +9,24 @@ body:
 {
 	inventory_weight_multiplier: 0.200
 
-	@shape.circle:
+	@shape.line:
 	{
+		a: [-0.125, -0.250]
+		b: [0.000, 0.250]
+		offset: [0.000, 0.000]
+		
 		mass: 4.200
-		radius: 0.500
+		radius: 0.625
 		friction: 0.600
 		elasticity: 0.100
-		material: leather
-		layer: entity, solid, item, flammable, storage
-		mask: world
 		rigidity_dynamic: 0.750
-		miss_chance: 0.610
+		
+		material: leather
+		miss_chance: 0.608
+		
+		layer: entity, solid, item, storage, flammable
+		mask: world
+		exclude: none
 	}
 }
 

@@ -1,0 +1,69 @@
+﻿{
+	$version: "0.1.62.0"
+	name: "Rummaging (Components)"
+	name_short: "Rummaging (Components)"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: ui.icons.work.00
+		size: [16, 16]
+		frame: [9, 0]
+	}
+	
+	flags: none
+	tags: manual, simple, technical, careful, wip
+	cooldown: 1.100
+	multiplier: 1.000
+	color: "0xffffa200"
+	
+	tools_required: none
+	tools_optional: magnifying_glass, bucket, towel, spatula
+	
+	machinery_required: none
+	machinery_optional: none
+	
+	infrastructure_required: none
+	infrastructure_optional: table, surface
+	
+	filter_environment:
+	{
+		include: office, stationary, clean, cozy, quiet, organized
+	}
+	
+	character_traits:
+	{
+		include: bureaucrat, scientist, educated, medical, technician, engineer, poor, culinary, sedentary, junkie
+		exclude: illiterate, dumb, clumsy, huge
+		weight: 1.000
+	}
+	
+	skills_min:
+	{
+	
+	}
+	
+	skills_mult:
+	{
+		scavenging: 0.550
+		intellect: 0.530
+		engineering: 0.360
+	}
+	
+	sound_volume: 0.600
+	sound_pitch: 1.000
+	sound_size: 0.550
+	sound_dist: 0.900
+	
+	sounds: ["effect.boink.metal.00", "effect.clink.metal.01", "effect.tinker.components.01", "effect.rattle.spring.00", "effect.spring.erupt.01", "effect.tinker.components.00", "effect.ponk.metal.00", "item.rattle.00", "item.rattle.01"]
+	sounds_manual: []
+	sounds_machine: []
+	sounds_passive: []
+	
+	sounds_start: []
+	sounds_end: []
+	sounds_fail: []
+}
