@@ -7,6 +7,8 @@
 		Pile of small machine parts and fasteners - gears, hinges, bolts, springs, screws.
 		'''
 	
+	tips: []
+	
 	icon:
 	{
 		texture: resource.machine_parts
@@ -18,12 +20,18 @@
 	flags: hard, magnetic, granular, metal, small, device, solid
 	display_flags: none
 	hints: none
+	
 	mass_per_unit: 0.2575
 	quantity_max: 250.000
 	spawn_quantity_threshold: 0.750
+	
 	prefab: resource.machine_parts
+	h_substance: "null"
 	
 	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
 	
 	colliders: []
 	
@@ -66,7 +74,6 @@
 		quantity_industry: 4000.000
 	}
 	
-	// Conversions into other materials.
 	conversions:
 	{
 		sledgehammer:
@@ -114,7 +121,7 @@
 			h_material: scrap.machine
 			h_substance: "null"
 			flags: none
-			flags_product: none
+			flags_product: waste, residue
 			
 			yield: [0.920, 0.070]
 		}
@@ -177,7 +184,7 @@
 			h_material: scrap.metal
 			h_substance: "null"
 			flags: none
-			flags_product: none
+			flags_product: waste
 			
 			yield: [0.770, 0.200]
 		}
@@ -303,9 +310,9 @@
 			h_material: scrap.mixed
 			h_substance: "null"
 			flags: none
-			flags_product: waste
+			flags_product: none
 			
-			yield: [0.380, 0.380]
+			yield: [0.000, 0.000]
 		}
 	}
 }

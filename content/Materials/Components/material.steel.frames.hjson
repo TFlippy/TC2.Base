@@ -70,7 +70,7 @@
 		{
 			h_material: steel.powder
 			spawn_flags: merge, pickup
-			product_flags: none
+			product_flags: residue
 			ratio: 0.010
 			ratio_extra: 0.070
 			
