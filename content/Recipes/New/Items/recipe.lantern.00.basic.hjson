@@ -1,0 +1,329 @@
+﻿{
+	$version: "0.1.62.0"
+	name: "Lantern"
+	tips: []
+	
+	stages:
+	[
+		{
+			name: "Enclosure"
+			
+			type: part
+			flags: part
+			tags: chassis, shell, container, structural, small, rounded
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 0.000
+			mass_base: 6.000
+			
+			options:
+			[
+				{
+					name: "Hand-Carved Ingot"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.ingot
+							amount: 0.700
+							snapping: 0.100
+							loss: 0.220
+							group: 0
+							flags: primary, prerequisite
+						}
+						{
+							type: work
+							work: sawing.metal
+							amount: 75.000
+							amount_min: 180.000
+							difficulty: 15
+							snapping: 15.000
+							falloff: 0.922
+							loss: 0.475
+							ratio: 0.075
+							group: 0
+							flags: conditional
+						}
+						{
+							type: work
+							work: filing
+							amount: 200.000
+							amount_min: 300.000
+							difficulty: 8
+							snapping: 15.000
+							falloff: 0.956
+							loss: 0.475
+							ratio: 0.761
+							group: 1
+							flags: conditional
+						}
+						{
+							type: work
+							work: hammering
+							amount: 150.000
+							amount_min: 200.000
+							difficulty: 11
+							snapping: 15.000
+							falloff: 0.956
+							loss: 0.475
+							ratio: 1.000
+							group: 1
+							flags: conditional
+						}
+					]
+					
+					quality: 1.000
+					precision: 1.000
+				}
+			]
+		}
+		{
+			name: "Wick"
+			
+			type: part
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: slash
+			
+			ratio: 0.000
+			mass_base: 0.400
+			
+			options:
+			[
+				{
+					name: "Benzene-Soaked"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: cloth
+							amount: 0.240
+							snapping: 0.100
+							loss: 0.071
+							group: 0
+							flags: primary, prerequisite
+						}
+						{
+							type: resource
+							material: benzene
+							amount: 2.000
+							snapping: 0.100
+							loss: 0.012
+							group: 0
+							flags: primary, prerequisite
+						}
+						{
+							type: work
+							work: soaking
+							amount: 200.000
+							amount_min: 80.000
+							difficulty: 3
+							snapping: 15.000
+							falloff: 0.688
+							loss: 0.475
+							ratio: 1.000
+							group: 1
+							flags: conditional
+						}
+					]
+					
+					quality: 1.000
+					precision: 1.000
+				}
+				{
+					name: "Naphtha-Soaked"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: cloth
+							amount: 0.240
+							snapping: 0.100
+							loss: 0.071
+							group: 0
+							flags: primary, prerequisite
+						}
+						{
+							type: resource
+							material: naphtha
+							amount: 2.000
+							snapping: 0.100
+							loss: 0.012
+							group: 0
+							flags: primary, prerequisite
+						}
+						{
+							type: work
+							work: soaking
+							amount: 240.000
+							amount_min: 110.000
+							difficulty: 7
+							snapping: 15.000
+							falloff: 0.731
+							loss: 0.475
+							ratio: 1.000
+							group: 1
+							flags: conditional
+						}
+					]
+					
+					quality: 1.000
+					precision: 1.000
+				}
+				{
+					name: "Fake"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: limelight
+							amount: 0.500
+							snapping: 0.500
+							group: 0
+							flags: primary, prerequisite
+						}
+						{
+							type: work
+							work: assembling
+							amount: 100.000
+							amount_min: 75.000
+							difficulty: 3
+							snapping: 15.000
+							falloff: 0.865
+							loss: 0.475
+							ratio: 1.000
+							group: 1
+							flags: conditional
+						}
+					]
+					
+					quality: 1.000
+					precision: 1.000
+				}
+			]
+		}
+		{
+			name: "Assembly"
+			
+			type: assembly
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 0.000
+			mass_base: 0.100
+			
+			options:
+			[
+				{
+					name: "Glued"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: glue
+							amount: 0.730
+							snapping: 1.000
+							loss: 0.055
+							group: 0
+							flags: no_residue, prerequisite
+						}
+						{
+							type: work
+							work: gluing
+							amount: 93.000
+							difficulty: 3
+							snapping: 5.000
+							falloff: 0.945
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						include: paintbrush, file
+					}
+					filter_infrastructure:
+					{
+						require: table
+						include: chair, vise, rack
+					}
+					filter_environment:
+					{
+						exclude: wet
+					}
+				}
+			]
+			
+			requirements:
+			[
+				{
+					type: resource
+					material: steel.frames
+					amount: 0.132
+					snapping: 0.100
+					loss: 0.427
+					group: 0
+					flags: primary, prerequisite
+				}
+			]
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: lantern
+			amount: 1.000
+			group: 0
+			flags: primary
+		}
+	]
+	
+	type: workshop
+	flags: blueprintable, item, wip
+	tags: workbench, manual, simple, small, metalworking
+	infrastructure: surface
+	
+	icon:
+	{
+		texture: lantern
+		size: [7, 14]
+	}
+	
+	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
+	button_name: "Craft"
+	rank: 30.000
+	
+	min: 1
+	max: 4
+	step: 1
+	
+	version: 1
+}

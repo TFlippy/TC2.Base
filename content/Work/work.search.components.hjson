@@ -18,7 +18,7 @@
 	tags: manual, simple, technical, careful, wip
 	cooldown: 1.100
 	multiplier: 1.000
-	color: "0xffffa200"
+	color: "0xffdd4f60"
 	
 	tools_required: none
 	tools_optional: magnifying_glass, bucket, towel, spatula

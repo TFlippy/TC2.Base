@@ -1,7 +1,7 @@
 $name: "Lantern"
 $desc: 
 	'''
-	Small portable oil lamp.
+	Standard portable trusty lantern specially designed to outlive its owner.
 	'''
 $tags: []
 
@@ -9,17 +9,23 @@ body:
 {
 	buoyancy: 0.400
 
-	@shape.box:
+	@shape.line:
 	{
-		size: [0.625, 1.125]
+		a: [0.000, -0.500]
+		b: [0.000, 0.200]
 		offset: [0.000, 0.000]
-		mass: 4.000
-		radius: 0.125
-		friction: 0.600
+		
+		mass: 6.800
+		radius: 0.375
+		friction: 0.800
 		elasticity: 0.500
-		material: metal
-		layer: entity, solid, ignore_bullet
+		
+		material: metal_solid
+		miss_chance: 0.000
+		
+		layer: entity, solid, item, ignore_bullet
 		mask: world
+		exclude: none
 	}
 }
 
@@ -45,14 +51,17 @@ transform:
 
 norotate:
 {
-	bias: 0.020
-	speed: 1.000
-	mass_multiplier: 10.000
+	bias: 0.000
+	speed: 2.500
+	multiplier: 3.000
+	mass_multiplier: 5.000
+	attached_multiplier: 0.500
+	flags: no_share
 }
 
 health:
 {
-	max: 800.000
+	max: 7900.000
 }
 
 lantern:

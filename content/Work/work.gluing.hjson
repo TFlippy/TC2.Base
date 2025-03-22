@@ -15,9 +15,9 @@
 	}
 	
 	flags: none
-	tags: manual, simple, careful, leisure, wip
+	tags: manual, simple, leisure, careful, wip
 	cooldown: 1.100
-	multiplier: 1.600
+	multiplier: 1.100
 	color: "0xffdd4f60"
 	
 	tools_required: none
@@ -26,18 +26,19 @@
 	machinery_required: none
 	machinery_optional: none
 	
-	equipment_required: table
-	equipment_optional: chair, vise, rack
+	infrastructure_required: none
+	infrastructure_optional: table
 	
 	filter_environment:
 	{
+		include: clean, organized
 		exclude: wet
 	}
 	
 	character_traits:
 	{
 		include: bureaucrat, scientist, medical, nobility, artisan, laborer, civillian, law, commerce, technician, engineer, insane, entertainer, illiterate, sedentary, evil, politician
-		exclude: feral, pest, brawler, junkie, huge
+		exclude: feral, pest, brawler, junkie, dumb, clumsy, huge
 		weight: 1.000
 	}
 	
@@ -48,10 +49,10 @@
 	
 	skills_mult:
 	{
-		dexterity: 0.470
-		carpentry: 0.190
-		intellect: 0.290
-		construction: 0.310
+		dexterity: 0.640
+		chemistry: 0.220
+		intellect: 0.620
+		engineering: 0.340
 	}
 	
 	sound_volume: 0.700

@@ -62,6 +62,16 @@
 					
 					quality: 1.000
 					precision: 1.000
+					
+					filter_tools:
+					{
+						require: hand_drill
+						include: screwdriver
+					}
+					filter_machinery:
+					{
+						include: lathe
+					}
 				}
 			]
 		}
@@ -112,6 +122,16 @@
 					
 					quality: 1.000
 					precision: 1.000
+					
+					filter_tools:
+					{
+						require: hammer
+						include: hammer, pliers, towel, tongs
+					}
+					filter_machinery:
+					{
+						include: bender
+					}
 				}
 			]
 		}
@@ -143,7 +163,7 @@
 							material: steel.frames
 							amount: 0.073882
 							snapping: 0.100
-							loss: 0.224
+							loss: 0.173
 							group: 0
 							flags: prerequisite
 						}
@@ -151,7 +171,7 @@
 							type: work
 							work: search.components
 							amount: 80.000
-							amount_min: 150.000
+							amount_min: 100.000
 							difficulty: 4
 							snapping: 15.000
 							falloff: 0.726
@@ -175,6 +195,20 @@
 					
 					quality: 1.000
 					precision: 1.000
+					
+					filter_tools:
+					{
+						require: file
+						include: magnifying_glass, bucket, towel, spatula
+					}
+					filter_infrastructure:
+					{
+						include: table, surface
+					}
+					filter_environment:
+					{
+						include: workshop, office, stationary, clean, cozy, illuminated, quiet, dry, organized
+					}
 				}
 				{
 					name: "Whole-Plate"
@@ -189,7 +223,7 @@
 							material: steel.plate
 							amount: 0.071283
 							snapping: 1.000
-							loss: 0.114
+							loss: 0.102
 							group: 0
 							flags: prerequisite
 						}
@@ -201,7 +235,7 @@
 							difficulty: 12
 							snapping: 15.000
 							falloff: 0.845
-							ratio: 0.055
+							ratio: 0.071
 							group: 0
 							flags: conditional
 						}
@@ -221,6 +255,16 @@
 					
 					quality: 1.000
 					precision: 1.000
+					
+					filter_tools:
+					{
+						require: cutters, file
+						include: pliers, knife
+					}
+					filter_environment:
+					{
+						include: workshop, stationary, illuminated, dry
+					}
 				}
 			]
 		}
@@ -259,8 +303,8 @@
 						{
 							type: work
 							work: gluing
-							amount: 175.000
-							amount_min: 150.000
+							amount: 140.000
+							amount_min: 110.000
 							difficulty: 11
 							snapping: 5.000
 							falloff: 0.925
@@ -277,8 +321,13 @@
 					{
 						include: paintbrush, file
 					}
+					filter_infrastructure:
+					{
+						include: table
+					}
 					filter_environment:
 					{
+						include: clean, organized
 						exclude: wet
 					}
 				}
