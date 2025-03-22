@@ -17,7 +17,7 @@
 	flags: none
 	tags: manual, machine, automated, tools, simple, construction, wip
 	cooldown: 1.200
-	multiplier: 0.850
+	multiplier: 0.500
 	color: "0xff719240"
 	
 	tools_required: saw

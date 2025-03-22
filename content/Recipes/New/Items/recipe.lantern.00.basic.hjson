@@ -14,7 +14,7 @@
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
 			
-			ratio: 0.000
+			ratio: 0.882353
 			mass_base: 6.000
 			
 			options:
@@ -79,6 +79,25 @@
 					
 					quality: 1.000
 					precision: 1.000
+					
+					filter_tools:
+					{
+						require: hammer, saw, file
+						include: file
+					}
+					filter_machinery:
+					{
+						include: mill, planer
+					}
+					filter_infrastructure:
+					{
+						require: surface
+						include: workbench
+					}
+					filter_environment:
+					{
+						include: workshop, stationary, illuminated, dry
+					}
 				}
 			]
 		}
@@ -91,7 +110,7 @@
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: slash
 			
-			ratio: 0.000
+			ratio: 0.058824
 			mass_base: 0.400
 			
 			options:
@@ -139,6 +158,15 @@
 					
 					quality: 1.000
 					precision: 1.000
+					
+					filter_tools:
+					{
+						include: bucket
+					}
+					filter_environment:
+					{
+						exclude: dry
+					}
 				}
 				{
 					name: "Naphtha-Soaked"
@@ -183,6 +211,15 @@
 					
 					quality: 1.000
 					precision: 1.000
+					
+					filter_tools:
+					{
+						include: bucket
+					}
+					filter_environment:
+					{
+						exclude: dry
+					}
 				}
 				{
 					name: "Fake"
@@ -217,6 +254,12 @@
 					
 					quality: 1.000
 					precision: 1.000
+					
+					filter_tools:
+					{
+						require: screwdriver, wrench
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, stapler, towel, tongs, pick, crowbar, knife
+					}
 				}
 			]
 		}
@@ -229,7 +272,7 @@
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
 			
-			ratio: 0.000
+			ratio: 0.014706
 			mass_base: 0.100
 			
 			options:
@@ -263,17 +306,20 @@
 						}
 					]
 					
+					quality: 1.000
+					precision: 1.000
+					
 					filter_tools:
 					{
 						include: paintbrush, file
 					}
 					filter_infrastructure:
 					{
-						require: table
-						include: chair, vise, rack
+						include: table
 					}
 					filter_environment:
 					{
+						include: clean, organized
 						exclude: wet
 					}
 				}
@@ -286,7 +332,7 @@
 					material: steel.frames
 					amount: 0.132
 					snapping: 0.100
-					loss: 0.427
+					loss: 0.424
 					group: 0
 					flags: primary, prerequisite
 				}

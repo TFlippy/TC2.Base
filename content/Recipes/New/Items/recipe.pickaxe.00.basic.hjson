@@ -10,6 +10,7 @@
 			
 			type: part
 			flags: none
+			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
 			
@@ -54,18 +55,22 @@
 						}
 					]
 					
+					quality: 1.000
+					precision: 1.000
+					
 					filter_tools:
 					{
 						require: hammer, tongs
-						include: bucket
+						include: pliers
 					}
-					filter_infrastructure:
+					filter_environment:
 					{
-						require: anvil, forge, table
+						include: workshop, stationary, fireproof, sturdy
+						exclude: fragile
 					}
 				}
 				{
-					name: "Forged (Rod)"
+					name: "Bad-Tempered"
 					
 					type: undefined
 					flags: wip, incomplete
@@ -73,41 +78,72 @@
 					requirements:
 					[
 						{
-							type: resource
-							material: steel.rod
-							amount: 0.916116
-							snapping: 0.500
+							type: prefab
+							prefab: breechloader.short
+							amount: 1.000
+							snapping: 1.000
 							loss: 0.071
 							group: 0
-							flags: prerequisite
-						}
-						{
-							type: temperature
-							amount: 1315.200
-							amount_min: 822.000
-							amount_max: 1578.240
-							group: 0
-							flags: no_scaling, always_evaluate
+							flags: primary, prerequisite
 						}
 						{
 							type: work
-							work: smithing
-							amount: 650.000
-							difficulty: 8
+							work: trashing.metal
+							amount: 350.000
+							amount_min: 120.000
+							difficulty: 10
 							snapping: 25.000
+							falloff: 0.970
+							ratio: 1.000
 							group: 0
+							flags: conditional
+						}
+						{
+							type: work
+							work: hammering
+							amount: 135.000
+							amount_min: 75.000
+							difficulty: 7
+							snapping: 15.000
+							falloff: 0.957
+							ratio: 1.000
+							group: 1
+							flags: conditional
+						}
+						{
+							type: work
+							work: filing
+							amount: 100.000
+							amount_min: 90.000
+							difficulty: 8
+							snapping: 15.000
+							falloff: 0.967
+							ratio: 1.000
+							group: 1
 							flags: conditional
 						}
 					]
 					
+					products:
+					[
+						{
+							type: resource
+							material: scrap.mixed
+							amount: 1.178
+							amount_extra: 0.893
+							snapping: 0.010
+							group: 0
+							flags: waste
+						}
+					]
+					
+					quality: 1.000
+					precision: 1.000
+					
 					filter_tools:
 					{
-						require: hammer, tongs
-						include: bucket
-					}
-					filter_infrastructure:
-					{
-						require: anvil, forge, table
+						require: screwdriver, wrench, spanner, pliers
+						include: cutters, hand_drill, wrench, tweezers, magnifying_glass, knife
 					}
 				}
 			]
@@ -117,6 +153,7 @@
 			
 			type: part
 			flags: none
+			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: axe
 			
@@ -126,7 +163,7 @@
 			options:
 			[
 				{
-					name: "Hand-Carved"
+					name: "Carved"
 					
 					type: undefined
 					flags: none
@@ -153,6 +190,9 @@
 						}
 					]
 					
+					quality: 1.000
+					precision: 1.000
+					
 					filter_tools:
 					{
 						require: file, knife
@@ -161,10 +201,6 @@
 					filter_machinery:
 					{
 						include: lathe, mill, sander, planer
-					}
-					filter_infrastructure:
-					{
-						include: table, chair, vise
 					}
 				}
 				{
@@ -196,10 +232,13 @@
 						}
 					]
 					
+					quality: 1.000
+					precision: 1.000
+					
 					filter_tools:
 					{
 						require: saw
-						include: pencil, ruler, pliers, axe, towel, knife
+						include: ruler, file, knife
 					}
 					filter_machinery:
 					{
@@ -207,7 +246,8 @@
 					}
 					filter_infrastructure:
 					{
-						include: table, chair
+						require: surface
+						include: workbench
 					}
 				}
 			]
@@ -217,6 +257,7 @@
 			
 			type: assembly
 			flags: wip, incomplete
+			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
 			
@@ -255,17 +296,20 @@
 						}
 					]
 					
+					quality: 1.000
+					precision: 1.000
+					
 					filter_tools:
 					{
 						include: paintbrush, file
 					}
 					filter_infrastructure:
 					{
-						require: table
-						include: chair, vise, rack
+						include: table
 					}
 					filter_environment:
 					{
+						include: clean, organized
 						exclude: wet
 					}
 				}
@@ -289,13 +333,12 @@
 						}
 					]
 					
+					quality: 1.000
+					precision: 1.000
+					
 					filter_tools:
 					{
 						require: hammer
-					}
-					filter_infrastructure:
-					{
-						require: table
 					}
 				}
 			]
@@ -332,5 +375,5 @@
 	max: 5
 	step: 1
 	
-	version: 0
+	version: 1
 }

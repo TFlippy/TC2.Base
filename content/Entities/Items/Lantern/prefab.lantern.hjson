@@ -1,7 +1,7 @@
 $name: "Lantern"
 $desc: 
 	'''
-	Standard portable trusty lantern specially designed to outlive its owner.
+	Standard portable trusty lantern specially designed to stay upright and outlive its owner.
 	'''
 $tags: []
 
@@ -21,9 +21,9 @@ body:
 		elasticity: 0.500
 		
 		material: metal_solid
-		miss_chance: 0.000
+		miss_chance: 0.780
 		
-		layer: entity, solid, item, ignore_bullet
+		layer: entity, solid, item, flammable, conductive, magnetic
 		mask: world
 		exclude: none
 	}
@@ -61,7 +61,7 @@ norotate:
 
 health:
 {
-	max: 7900.000
+	max: 8900.000
 }
 
 lantern:
