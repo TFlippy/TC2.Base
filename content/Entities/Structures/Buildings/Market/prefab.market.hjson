@@ -98,9 +98,7 @@ loot.container:
 {
 	rolls: 4
 	rolls_extra: 2
-
-	// rarity_min: 1.500
-	// rarity_max: 4.000
+	merge_flags: skip_resources
 
 	tables:
 	[

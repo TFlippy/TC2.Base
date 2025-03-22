@@ -69,6 +69,7 @@ loot.container:
 {
 	rolls: 2
 	rolls_extra: 1
+	merge_flags: skip_resources
 
 	tables:
 	[
