@@ -756,21 +756,15 @@ commandable:
 
 	puncher:
 	{
-		sound: "swish.00"
+		sound: swish.00
 		damage_base: 40.000
 		damage_bonus: 180.000
-
-		cooldown: 0.500
 		max_distance: 1.300
 		aoe: 0.400
-		damage_type: punch
-		hit_mask: destructible, world
 		knockback: 3.000
-		penetration: 0
-		force: 500.000
-
 		frame: [9, 0]
 		offset: [0.250, -0.125]
+		hit_exclude: background, essence, water, fire, gas, climbable, stored
 	}
 }
 

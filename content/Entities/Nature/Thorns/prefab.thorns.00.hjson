@@ -16,7 +16,7 @@ body:
 			[-2.375, 1.500]
 		]
 		
-		mass: 250.000
+		mass: 3150.000
 		radius: 1.750
 		friction: 0.100
 		elasticity: 0.400
@@ -38,7 +38,7 @@ transform:
 
 health:
 {
-	max: 25000.000
+	max: 75000.000
 }
 
 foliage.renderer:
@@ -57,4 +57,31 @@ barbedwire:
 	damage: 100.000
 	speed_multiplier: 0.800
 	damage_type: scratch
+}
+
+harvestable:
+{
+	resources:
+	[
+		{
+			material: timber
+			quantity: 315.000
+		}
+		{
+			material: scrap.wood
+			quantity: 536.000
+		}
+		{
+			material: resin
+			quantity: 223.000
+		}
+		null
+	]
+	
+	thresholds: [0.990, 1.000, 0.772, 0.000]
+	
+	pct_damage_mult: [0.952, 1.000, 0.859, 0.000]
+	pct_quantity_min: [0.030, 0.022, 0.078, 0.000]
+	
+	chance_base: [0.188, 0.571, 0.173, 0.000]
 }

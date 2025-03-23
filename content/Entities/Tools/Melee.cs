@@ -257,6 +257,43 @@ namespace TC2.Base.Components
 				break;
 
 				case Damage.Type.Slash:
+				{
+					return material_type switch
+					{
+						Material.Type.Wood => false,
+						Material.Type.Stone => false,
+						Material.Type.Gravel => false,
+						Material.Type.Flesh => true,
+						Material.Type.Glass => true,
+						Material.Type.Liquid => false,
+						Material.Type.Metal => false,
+						Material.Type.Soil => false,
+						Material.Type.Powder => false,
+						Material.Type.Foliage => true,
+						Material.Type.Fabric => true,
+						Material.Type.Rubber => true,
+						Material.Type.Mushroom => true,
+						Material.Type.Insect => true,
+						Material.Type.Paper => true,
+						Material.Type.Leather => true,
+						Material.Type.Wire => true,
+						Material.Type.Bone => true,
+						Material.Type.Chitin => true,
+						Material.Type.Rubble => false,
+						Material.Type.Scrap => false,
+						Material.Type.Tool => false,
+						Material.Type.Stone_Porous => true,
+						Material.Type.Chalk => true,
+						Material.Type.Tree => false,
+						Material.Type.Bramble => true,
+						Material.Type.Components => true,
+						Material.Type.Egg => true,
+						Material.Type.Fur => true,
+						_ => false
+					};
+				}
+				break;
+
 				case Damage.Type.Stab:
 				{
 					return material_type switch

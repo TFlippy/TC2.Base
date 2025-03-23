@@ -758,6 +758,7 @@ commandable:
 		aoe: 0.500
 		damage_type: punch
 		hit_mask: destructible, world
+		hit_exclude: background, essence, water, fire, gas, climbable, stored
 		knockback: 4.500
 		penetration: 0
 		force: 800.000
