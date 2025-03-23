@@ -71,7 +71,7 @@
 	]
 	
 	type: workshop
-	flags: none
+	flags: disabled, wip
 	tags: workbench, manual, simple, chemistry, blending, explosive, dangerous
 	infrastructure: none
 	

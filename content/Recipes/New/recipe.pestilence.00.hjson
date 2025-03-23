@@ -14,6 +14,7 @@
 			
 			type: ingredients
 			flags: wip, incomplete, auto_generated
+			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
 			
@@ -48,6 +49,7 @@
 			
 			type: ingredients
 			flags: wip, incomplete, auto_generated
+			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
 			
@@ -82,6 +84,7 @@
 			
 			type: processing
 			flags: wip, incomplete, auto_generated
+			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
 			
@@ -184,7 +187,7 @@
 	]
 	
 	type: workshop
-	flags: wip, converted
+	flags: disabled, wip
 	tags: workbench, manual, complex, organic, essence, research, science, biology, messy, dangerous
 	infrastructure: table
 	

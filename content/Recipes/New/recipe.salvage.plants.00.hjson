@@ -14,6 +14,7 @@
 			
 			type: disassembly
 			flags: subtractive, wip, auto_generated
+			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: slash
 			
@@ -73,9 +74,9 @@
 			]
 		}
 	]
-
+	
 	type: workshop
-	flags: wip
+	flags: disabled, wip
 	tags: workbench, manual, simple, tailoring, salvaging
 	infrastructure: table
 	
