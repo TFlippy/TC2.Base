@@ -99,10 +99,10 @@ loot.container:
 	rarity: 3.000
 	rarity_min: 1.000
 	rarity_max: 6.000
-	amount_multiplier: 1.500
+	amount_multiplier: 1.000
 	merge_flags: skip_resources
-	rolls: 2
-	rolls_extra: 2
+	rolls: 4
+	rolls_extra: 0
 	tables:
 	[
 		construction.tools.00

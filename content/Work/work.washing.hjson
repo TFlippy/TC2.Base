@@ -18,7 +18,7 @@
 	tags: manual, machine, automated, simple, chemical, wip
 	cooldown: 1.500
 	multiplier: 1.000
-	color: "0xff5469ff"
+	color: "0xff739de3"
 	
 	tools_required: none
 	tools_optional: bucket, towel
@@ -26,8 +26,8 @@
 	machinery_required: none
 	machinery_optional: none
 	
-	equipment_required: none
-	equipment_optional: cauldron, barrel, chair, rack
+	infrastructure_required: none
+	infrastructure_optional: none
 	
 	filter_environment:
 	{

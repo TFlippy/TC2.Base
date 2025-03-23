@@ -65,15 +65,15 @@ harvestable:
 	[
 		{
 			material: timber
-			quantity: 315.000
+			quantity: 312.000
 		}
 		{
 			material: scrap.wood
-			quantity: 536.000
+			quantity: 971.000
 		}
 		{
 			material: resin
-			quantity: 223.000
+			quantity: 127.000
 		}
 		null
 	]
@@ -83,5 +83,5 @@ harvestable:
 	pct_damage_mult: [0.952, 1.000, 0.859, 0.000]
 	pct_quantity_min: [0.030, 0.022, 0.078, 0.000]
 	
-	chance_base: [0.188, 0.571, 0.173, 0.000]
+	chance_base: [0.184, 0.569, 0.173, 0.000]
 }

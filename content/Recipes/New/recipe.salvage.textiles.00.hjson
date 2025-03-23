@@ -10,12 +10,13 @@
 	stages:
 	[
 		{
-			name: "Method"
+			name: "Cleaning"
 			
-			type: disassembly
-			flags: subtractive, wip, auto_generated
+			type: cleaning
+			flags: subtractive, wip
+			tags: material, raw
 			// Damage type used for discarding leftover resources.
-			discard_damage_type: slash
+			discard_damage_type: wet
 			
 			ratio: 1.000
 			mass_base: 0.000
@@ -23,26 +24,29 @@
 			options:
 			[
 				{
-					name: "Simple"
+					name: "Rinsed"
 					
 					type: undefined
-					flags: wip, auto_generated
+					flags: wip
 					
 					requirements:
 					[
 						{
 							type: work
 							work: scavenging
-							amount: 230.000
+							amount: 200.000
+							amount_min: 80.000
 							difficulty: 4
-							snapping: 25.000
+							snapping: 15.000
+							falloff: 0.864
+							ratio: 0.424
 							group: 0
 							flags: conditional
 						}
 						{
 							type: resource
 							material: water
-							amount: 3.000
+							amount: 1.000
 							snapping: 0.010
 							group: 1
 							flags: prerequisite
@@ -50,9 +54,12 @@
 						{
 							type: work
 							work: washing
-							amount: 360.000
+							amount: 150.000
+							amount_min: 45.000
 							difficulty: 5
-							snapping: 25.000
+							snapping: 15.000
+							falloff: 0.859
+							ratio: 1.000
 							group: 1
 							flags: conditional
 						}
@@ -62,20 +69,39 @@
 					[
 						{
 							type: resource
-							material: scrap.mixed
-							amount: 4.540
-							amount_extra: 2.770
+							material: cloth
+							amount: 2.400
+							amount_extra: 1.700
+							snapping: 0.010
 							group: 1
-							flags: waste, residue
+							flags: primary, compact
+						}
+						{
+							type: resource
+							material: leather
+							amount: 0.400
+							amount_extra: 1.400
+							snapping: 0.010
+							group: 1
+							flags: byproduct, secondary, compact
+						}
+						{
+							type: resource
+							material: scrap.mixed
+							amount: 1.200
+							amount_extra: 0.200
+							snapping: 0.010
+							group: 1
+							flags: residue
 						}
 						{
 							type: resource
 							material: water.dirty
-							amount: 1.642
-							amount_extra: 0.395
+							amount: 0.750
+							amount_extra: 0.195
 							snapping: 0.010
 							group: 1
-							flags: waste, residue
+							flags: waste
 						}
 					]
 					
@@ -96,132 +122,25 @@
 				}
 			]
 			
-			products:
+			requirements:
 			[
 				{
 					type: resource
-					material: leather
-					amount: 0.413
-					amount_extra: 3.452
+					material: scrap.mixed
+					amount: 3.000
+					snapping: 0.500
+					loss: 0.110
 					group: 0
-					flags: byproduct, secondary
-				}
-				{
-					type: resource
-					material: rubber
-					amount: 0.013
-					amount_extra: 1.452
-					group: 0
-					flags: byproduct, secondary
+					flags: primary, prerequisite
 				}
 			]
 		}
 	]
 	
-	requirements:
-	[
-		{
-			type: resource
-			material: scrap.mixed
-			amount: 10.000
-			snapping: 1.000
-			group: 0
-			flags: primary, prerequisite
-		}
-	]
-	
-	products:
-	[
-		{
-			type: resource
-			material: cloth
-			amount: 0.647
-			amount_extra: 4.870
-			group: 0
-			flags: primary
-		}
-	]
-	
-	requirements_old:
-	[
-		{
-			type: resource
-			material: scrap.mixed
-			amount: 10.000
-			group: 0
-			flags: prerequisite
-		}
-		{
-			type: work
-			work: scavenging
-			amount: 230.000
-			difficulty: 4
-			group: 0
-			flags: conditional
-		}
-		{
-			type: resource
-			material: water
-			amount: 3.000
-			snapping: 0.010
-			group: 1
-		}
-		{
-			type: work
-			work: washing
-			amount: 360.000
-			difficulty: 5
-			group: 1
-			flags: conditional
-		}
-	]
-	
-	products_old:
-	[
-		{
-			type: resource
-			material: cloth
-			amount: 0.647
-			amount_extra: 4.870
-			group: 0
-		}
-		{
-			type: resource
-			material: leather
-			amount: 0.413
-			amount_extra: 3.452
-			group: 0
-		}
-		{
-			type: resource
-			material: rubber
-			amount: 0.013
-			amount_extra: 1.452
-			group: 0
-		}
-		{
-			type: resource
-			material: scrap.mixed
-			amount: 4.540
-			amount_extra: 2.770
-			group: 1
-			flags: waste, residue
-		}
-		{
-			type: resource
-			material: water.dirty
-			amount: 1.642
-			amount_extra: 0.395
-			snapping: 0.010
-			group: 1
-			flags: waste, residue
-		}
-	]
-	
 	type: workshop
-	flags: wip, converted
-	tags: workbench, manual, simple, tailoring, salvaging
-	infrastructure: table
+	flags: wip
+	tags: manual, simple, small, filtering, salvaging
+	infrastructure: surface
 	
 	h_company: common
 	
