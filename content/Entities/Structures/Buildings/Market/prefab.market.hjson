@@ -96,16 +96,19 @@ shipment:
 
 loot.container:
 {
-	rolls: 4
-	rolls_extra: 2
+	rarity: 3.000
+	rarity_min: 1.000
+	rarity_max: 6.000
+	amount_multiplier: 1.500
 	merge_flags: skip_resources
-
+	rolls: 2
+	rolls_extra: 2
 	tables:
 	[
-		drugs.00
-		drugs.00
-		drugs.00
+		construction.tools.00
 		guns.survival.00
+		drugs.00
+		"null"
 	]
 }
 
@@ -113,18 +116,23 @@ storage:
 {
 	@loot.container:
 	{
+		rarity: 4.000
+		rarity_falloff: 1.000
+		rarity_weight: 1.000
+		rarity_min: 1.000
+		rarity_max: 6.000
+		weight_multiplier: 1.000
+		amount_multiplier: 1.500
+		flags: none
+		merge_flags: skip_prefabs
 		rolls: 7
 		rolls_extra: 6
-		rarity_min: 0.000
-		rarity_max: 6.000
-		amount_multiplier: 1.000
-
 		tables:
 		[
 			junk.00
 			construction.00
-			bricks.00
-			munitions.00
+			junk.ruins.00
+			bleh.00
 		]
 	}
 
