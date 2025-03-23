@@ -1,7 +1,7 @@
 $name: "Reeds"
 $desc: 
 	'''
-	People have been trying to turn these into sugar for centuries, but to no avail.
+	For centuries, people have been trying to extract sugar from these, but to no avail.
 	'''
 $tags: []
 
@@ -17,9 +17,9 @@ body:
 		radius: 1.000
 		friction: 0.950
 		elasticity: 0.500
-		mass: 8.000
+		mass: 22.000
 		material: foliage
-		layer: entity, plant, ignore_melee
+		layer: entity, plant, ignore_melee, ignore_bullet, organic
 		mask: world
 	}
 }
@@ -31,7 +31,7 @@ transform:
 
 health:
 {
-	max: 800.000
+	max: 1100.000
 }
 
 foliage.renderer:
@@ -49,9 +49,21 @@ harvestable:
 	resources:
 	[
 		{
-			material: "plants"
-			quantity: 38.000
-			flags: none
+			material: plants
+			quantity: 108.000
 		}
+		{
+			material: tobacco
+			quantity: 19.000
+		}
+		null
+		null
 	]
+	
+	thresholds: [0.952, 1.000, 0.000, 0.000]
+	
+	pct_damage_mult: [0.892, 1.000, 0.000, 0.000]
+	pct_quantity_min: [0.075, 0.276, 0.000, 0.000]
+	
+	chance_base: [0.686, 0.522, 0.000, 0.000]
 }

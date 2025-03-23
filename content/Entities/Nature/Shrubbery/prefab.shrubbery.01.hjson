@@ -12,7 +12,7 @@ body:
 		radius: 1.000
 		friction: 0.950
 		elasticity: 0.500
-		mass: 6.400
+		mass: 7.450
 		material: foliage
 		layer: entity, flammable, plant, ignore_melee
 		mask: world
@@ -46,14 +46,24 @@ harvestable:
 	resources:
 	[
 		{
-			material: "woodchips"
-			quantity: 4.000
-			flags: no_autopickup
+			material: plants
+			quantity: 18.000
 		}
 		{
-			material: "plants"
-			quantity: 28.000
-			flags: no_autopickup
+			material: woodchips
+			quantity: 12.000
 		}
+		{
+			material: cmajzl
+			quantity: 5.400
+		}
+		null
 	]
+	
+	thresholds: [0.582, 0.920, 0.514, 0.000]
+	
+	pct_damage_mult: [0.852, 0.908, 1.000, 0.000]
+	pct_quantity_min: [0.145, 0.376, 0.372, 0.000]
+	
+	chance_base: [0.682, 0.722, 0.737, 0.000]
 }
