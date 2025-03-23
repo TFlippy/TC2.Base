@@ -56,17 +56,17 @@ harvestable:
 			quantity: 14.95726
 		}
 		{
-			material: plants
+			material: resin
 			quantity: 22.000
 		}
 		null
 		null
 	]
 	
-	thresholds: [0.000, 0.000, 0.000, 0.000]
+	thresholds: [0.950, 0.314, 0.000, 0.000]
 	
-	pct_damage_mult: [0.000, 0.000, 0.000, 0.000]
-	pct_quantity_min: [0.000, 0.000, 0.000, 0.000]
+	pct_damage_mult: [0.834, 1.000, 0.000, 0.000]
+	pct_quantity_min: [0.121, 0.372, 0.000, 0.000]
 	
-	chance_base: [0.000, 0.000, 0.000, 0.000]
+	chance_base: [0.651, 0.357, 0.000, 0.000]
 }

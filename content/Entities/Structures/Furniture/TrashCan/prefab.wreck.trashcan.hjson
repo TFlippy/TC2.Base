@@ -63,12 +63,13 @@ transform:
 shipment:
 {
 	flags: keep_items, allow_withdraw, allow_deposit
+	layout: large
 }
 
 loot.container:
 {
 	rolls: 2
-	rolls_extra: 1
+	rolls_extra: 2
 	merge_flags: skip_resources
 
 	tables:

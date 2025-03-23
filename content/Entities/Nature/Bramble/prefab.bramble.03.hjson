@@ -61,9 +61,21 @@ harvestable:
 	resources:
 	[
 		{
-			material: "woodchips"
-			quantity: 610.000
-			flags: no_autopickup
+			material: scrap.wood
+			quantity: 98.000
 		}
+		{
+			material: timber
+			quantity: 6.000
+		}
+		null
+		null
 	]
+	
+	thresholds: [0.950, 0.200, 0.000, 0.000]
+	
+	pct_damage_mult: [0.834, 1.000, 0.000, 0.000]
+	pct_quantity_min: [0.121, 0.350, 0.000, 0.000]
+	
+	chance_base: [0.651, 0.800, 0.000, 0.000]
 }

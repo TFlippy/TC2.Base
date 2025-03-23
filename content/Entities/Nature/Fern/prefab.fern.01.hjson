@@ -46,9 +46,21 @@ harvestable:
 	resources:
 	[
 		{
-			material: "plants"
-			quantity: 144.000
-			flags: none
+			material: plants
+			quantity: 116.000
 		}
+		{
+			material: cmajzl
+			quantity: 14.000
+		}
+		null
+		null
 	]
+	
+	thresholds: [0.582, 0.920, 0.000, 0.000]
+	
+	pct_damage_mult: [0.852, 0.908, 0.000, 0.000]
+	pct_quantity_min: [0.145, 0.376, 0.000, 0.000]
+	
+	chance_base: [0.694, 0.729, 0.000, 0.000]
 }
