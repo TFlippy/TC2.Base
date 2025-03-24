@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.0"
 	name: "Drilling"
 	name_short: "Drilling"
 	desc:
@@ -15,19 +15,19 @@
 	}
 	
 	flags: none
-	tags: manual, machine, automated, tools, dangerous, simple, technical, careful, construction, industrial, wip
+	tags: manual, machine, automated, tools, simple, technical, construction, industrial, dangerous, careful, wip
 	cooldown: 1.800
 	multiplier: 3.500
 	color: "0xffff6200"
 	
 	tools_required: hand_drill
-	tools_optional: screwdriver
+	tools_optional: screwdriver, file, knife, scissors
 	
 	machinery_required: none
 	machinery_optional: lathe
 	
-	equipment_required: none
-	equipment_optional: table, vise
+	infrastructure_required: none
+	infrastructure_optional: none
 	
 	character_traits:
 	{

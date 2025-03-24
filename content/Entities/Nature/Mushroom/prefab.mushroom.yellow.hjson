@@ -13,12 +13,17 @@ body:
 	{
 		a: [0.000, 0.220]
 		b: [0.700, -7.500]
+		offset: [0.000, 0.000]
+		
 		mass: 490.000
 		radius: 1.500
 		friction: 0.500
 		elasticity: 0.400
+		
 		material: mushroom
-		layer: entity, solid, tree, ignore_bullet, flammable, plant
+		miss_chance: 0.000
+		
+		layer: entity, solid, tree, plant, flammable, no_overlapped_placement, ignore_bullet
 		mask: world
 		exclude: tree
 	}
