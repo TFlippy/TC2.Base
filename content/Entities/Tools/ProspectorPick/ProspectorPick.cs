@@ -98,7 +98,7 @@ namespace TC2.Base.Components
 							var args = (offset: offset, rect_size: rect_size, random: random, alpha: alpha);
 
 							terrain.IterateLine(this.prospector_pick_state.position, this.prospector_pick_state.position + this.prospector_pick_state.direction * this.prospector_pick.max_depth, 0.50f, ref args, Func, iteration_flags: Terrain.IterationFlags.None);
-							static void Func(ref Tile tile, int x, int y, byte mask, ref (Vector2 offset, Vector2 rect_size, XorRandom random, float alpha) args)
+							static void Func(Tile tile, ref (Vector2 offset, Vector2 rect_size, XorRandom random, float alpha) args, int x, int y, byte mask)
 							{
 								if (tile.BlockID != 0)
 								{
@@ -147,7 +147,7 @@ namespace TC2.Base.Components
 			var arg = (a: 0, samples: new FixedArray8<OreSample>());
 
 			terrain.IterateLine(data.world_position, data.world_position + data.direction * prospector_pick.max_depth, 0.10f, ref arg, Func, iteration_flags: Terrain.IterationFlags.None);
-			static void Func(ref Tile tile, int x, int y, byte mask, ref (int a, FixedArray8<OreSample> samples) arg)
+			static void Func(Tile tile, ref (int a, FixedArray8<OreSample> samples) arg, int x, int y, byte mask)
 			{
 				if (tile.BlockFlags.HasAny(Block.Flags.Mineral | Block.Flags.Ore))
 				{

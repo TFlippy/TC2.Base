@@ -1927,7 +1927,7 @@ namespace TC2.Base.Components
 
 				#region CalculateBlockCount
 				private record struct CalculateBlockCountArgs(IBlock.Handle block, TileFlags tile_flags, int count, float max_health, Dictionary<IBlock.Handle, Block.Mapping> mappings_replace = null);
-				private static void CountTileFunc(ref Tile tile, int x, int y, byte mask, ref CalculateBlockCountArgs args)
+				private static void CountTileFunc(Tile tile, ref CalculateBlockCountArgs args, int x, int y, byte mask)
 				{
 					if ((tile.BlockID == 0 || args.tile_flags.HasAny(TileFlags.Solid)) && tile.Flags.HasNone(TileFlags.Solid))
 					{
@@ -1935,7 +1935,7 @@ namespace TC2.Base.Components
 					}
 				}
 
-				private static void CountTileFuncReplace(ref Tile tile, int x, int y, byte mask, ref CalculateBlockCountArgs args)
+				private static void CountTileFuncReplace(Tile tile, ref CalculateBlockCountArgs args, int x, int y, byte mask)
 				{
 					//if (tile.BlockID != 0 && !tile.Flags.HasAll(TileFlags.Solid) && tile.BlockID != arg.block.id)
 					//if (tile.BlockID != 0 && tile.BlockID != args.block.id && !tile.Flags.HasAny(TileFlags.No_Replace) && (tile.Flags.HasAll(TileFlags.Solid) == args.tile_flags.HasAll(TileFlags.Solid) && tile.ScaledHealth <= args.max_health))
@@ -1990,7 +1990,7 @@ namespace TC2.Base.Components
 #if CLIENT
 				#region DrawTile
 				private record struct DrawTileArgs(Vector2 offset, Vector2 pixel_size, TileFlags tile_flags, IBlock.Handle block, float max_health, Color32BGRA color, Dictionary<IBlock.Handle, Block.Mapping> mappings_replace = null);
-				static void DrawTileFunc(ref Tile tile, int x, int y, byte mask, ref DrawTileArgs args)
+				static void DrawTileFunc(Tile tile, ref DrawTileArgs args, int x, int y, byte mask)
 				{
 					var pos = args.offset + new Vector2(args.pixel_size.X * x, args.pixel_size.Y * y);
 					if ((tile.BlockID == 0 || args.tile_flags.HasAny(TileFlags.Solid)) && tile.Flags.HasNone(TileFlags.Solid))
@@ -2003,7 +2003,7 @@ namespace TC2.Base.Components
 					}
 				}
 
-				static void DrawTileFuncReplace(ref Tile tile, int x, int y, byte mask, ref DrawTileArgs args)
+				static void DrawTileFuncReplace(Tile tile, ref DrawTileArgs args, int x, int y, byte mask)
 				{
 					var pos = args.offset + new Vector2(args.pixel_size.X * x, args.pixel_size.Y * y);
 					//if (tile.BlockID != 0 && !tile.Flags.HasAll(TileFlags.Solid) && tile.BlockID != args.block.id)
@@ -2020,7 +2020,7 @@ namespace TC2.Base.Components
 				}
 
 				private record struct DrawFoundationArgs(Vector2 offset, Vector2 pixel_size, TileFlags tile_flags, float max_health, Color32BGRA color);
-				static void DrawFoundationFunc(ref Tile tile, int x, int y, byte mask, ref DrawFoundationArgs args)
+				static void DrawFoundationFunc(Tile tile, ref DrawFoundationArgs args, int x, int y, byte mask)
 				{
 					var pos = args.offset + new Vector2(args.pixel_size.X * x, args.pixel_size.Y * y);
 					if (tile.Flags.HasAny(args.tile_flags))
@@ -2043,7 +2043,7 @@ namespace TC2.Base.Components
 #if SERVER
 				#region SetTile
 				private record struct SetTileFuncArgs(IBlock.Handle block, TileFlags tile_flags, int count, float max_health, byte meta, Dictionary<IBlock.Handle, Block.Mapping> mappings_replace = null);
-				static void SetTileFunc(ref Tile tile, int x, int y, byte mask, ref SetTileFuncArgs args)
+				static void SetTileFunc(Tile tile, ref SetTileFuncArgs args, int x, int y, byte mask)
 				{
 					if ((tile.BlockID == 0 || args.tile_flags.HasAny(TileFlags.Solid)) && tile.Flags.HasNone(TileFlags.Solid))
 					{
@@ -2058,7 +2058,7 @@ namespace TC2.Base.Components
 					}
 				}
 
-				static void SetTileFuncReplace(ref Tile tile, int x, int y, byte mask, ref SetTileFuncArgs args)
+				static void SetTileFuncReplace(Tile tile, ref SetTileFuncArgs args, int x, int y, byte mask)
 				{
 					//if (tile.BlockID != 0 && !tile.Flags.HasAll(TileFlags.Solid) && tile.BlockID != arg.block.id)
 					//if (tile.BlockID != 0 && tile.BlockID != args.block.id && !tile.Flags.HasAny(TileFlags.No_Replace) && (tile.Flags.HasAll(TileFlags.Solid) == args.tile_flags.HasAll(TileFlags.Solid) && tile.ScaledHealth <= args.max_health))
@@ -2083,7 +2083,7 @@ namespace TC2.Base.Components
 
 				#region CalculateSupport
 				private record struct CalculateSupportArgs(int support_count, int blocked_count, int total_count, Dictionary<IBlock.Handle, Block.Mapping> mappings_replace = null);
-				private static void CalculateSupportFunc(ref Tile tile, int x, int y, byte mask, ref CalculateSupportArgs args)
+				private static void CalculateSupportFunc(Tile tile, ref CalculateSupportArgs args, int x, int y, byte mask)
 				{
 					if ((tile.BlockID != 0 || tile.Flags.HasAny(TileFlags.Ground))) // && !tile.Flags.HasAll(TileFlags.Solid))
 					{
@@ -2098,7 +2098,7 @@ namespace TC2.Base.Components
 					args.total_count++;
 				}
 
-				private static void CalculateSupportFuncReplace(ref Tile tile, int x, int y, byte mask, ref CalculateSupportArgs args)
+				private static void CalculateSupportFuncReplace(Tile tile, ref CalculateSupportArgs args, int x, int y, byte mask)
 				{
 					if ((tile.BlockID != 0 || tile.Flags.HasAny(TileFlags.Ground))) // && !tile.Flags.HasAll(TileFlags.Solid))
 					{
@@ -2114,7 +2114,7 @@ namespace TC2.Base.Components
 				}
 
 				private record struct CalculateFoundationSupportArgs(int support_count, int blocked_count, int total_count, TileFlags tile_flags, float max_health);
-				private static void CalculateFoundationSupportFunc(ref Tile tile, int x, int y, byte mask, ref CalculateFoundationSupportArgs args)
+				private static void CalculateFoundationSupportFunc(Tile tile, ref CalculateFoundationSupportArgs args, int x, int y, byte mask)
 				{
 					if (tile.Flags.HasAny(args.tile_flags))
 					{
@@ -2129,7 +2129,7 @@ namespace TC2.Base.Components
 				}
 
 				private record struct CalculateFoundationClearanceArgs(int clear_count, int blocked_count, int total_count, TileFlags tile_flags);
-				private static void CalculateFoundationClearanceFunc(ref Tile tile, int x, int y, byte mask, ref CalculateFoundationClearanceArgs args)
+				private static void CalculateFoundationClearanceFunc(Tile tile, ref CalculateFoundationClearanceArgs args, int x, int y, byte mask)
 				{
 					if (tile.Flags.HasAny(args.tile_flags))
 					{

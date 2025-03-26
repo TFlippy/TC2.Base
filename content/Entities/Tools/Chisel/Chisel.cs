@@ -197,13 +197,11 @@
 			}
 
 			private record struct DrawTileArgs(Vector2 offset, Vector2 pixel_size, TileFlags tile_flags, Color32BGRA color);
-			static void DrawTileFunc(ref Tile tile, int x, int y, byte mask, ref DrawTileArgs args)
+			static void DrawTileFunc(Tile tile, ref DrawTileArgs args, int x, int y, byte mask)
 			{
 				var pos = args.offset + new Vector2(args.pixel_size.X * x, args.pixel_size.Y * y);
 				var color = args.color;
 				
-
-
 				if (tile.Flags.HasAll(args.tile_flags))
 				{
 					if (tile.Neighbours == 255) color = Color32BGRA.Red.WithAlpha(50); //.WithAlphaMult()
