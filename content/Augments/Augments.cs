@@ -97,6 +97,89 @@ namespace TC2.Base
 
 			definitions.Add(Augment.Definition.New<Health.Data>
 			(
+				identifier: "health.dismantlable",
+				category: "Utility",
+				name: "Dismantlable",
+				description: "Can be turned into some of the materials used to craft it using a wrench",
+
+				can_add: static (ref Augment.Context context, in Health.Data data, ref Augment.Handle handle, Span<Augment.Handle> Augments) =>
+				{
+					return context.GetComponent<Dismantlable.Data>().IsNull();
+				},
+
+				finalize: static (ref Augment.Context context, ref Health.Data data, ref Augment.Handle handle, Span<Augment.Handle> Augments) =>
+				{
+					ref var dis = ref context.GetOrAddComponent<Dismantlable.Data>();
+					dis.yield = 0.5f;
+					dis.required_work = 3.0f;
+					int j = 0; 
+					foreach (ref var requirement in context.requirements_new)
+					{
+						if (requirement.type == Crafting.Requirement.Type.Resource && j < dis.resources.Length)
+						{
+							dis.resources[j] = new Resource.Data(requirement.material, requirement.amount);
+							j++;
+						}
+					}
+					return true;
+				},
+
+				apply_1: static (ref Augment.Context context, ref Health.Data data, ref Augment.Handle handle, Span<Augment.Handle> Augments) =>
+				{
+					foreach (ref var requirement in context.requirements_new)
+					{
+						if (requirement.type == Crafting.Requirement.Type.Work)
+						{
+							requirement.amount *= 1.50f;
+							requirement.difficulty += 2.00f;
+						}
+					}
+				}
+			));
+
+			definitions.Add(Augment.Definition.New<Health.Data>
+			(
+				identifier: "health.reincarnating",
+				category: "Utility",
+				name: "Contains itself",
+				description: "Reappears once when destroyed",
+
+				can_add: static (ref Augment.Context context, in Health.Data data, ref Augment.Handle handle, Span<Augment.Handle> Augments) =>
+				{
+					return true;
+				},
+
+				apply_0: static (ref Augment.Context context, ref Health.Data data, ref Augment.Handle handle, Span<Augment.Handle> Augments) =>
+				{
+					ref var rec = ref context.GetOrAddComponent<Reincarnating.Data>();
+					rec.count += 1;
+				},
+
+				apply_1: static (ref Augment.Context context, ref Health.Data data, ref Augment.Handle handle, Span<Augment.Handle> Augments) =>
+				{
+					foreach (ref var requirement in context.requirements_new)
+					{
+						if (requirement.type == Crafting.Requirement.Type.Work) //Doubles both work and ressource cost since you get two objects for the price of well two, though you cant use em at the same time
+						{
+							requirement.amount *= 2.00f;
+							requirement.difficulty += 1.00f;
+						}
+						else if (requirement.type == Crafting.Requirement.Type.Resource)
+						{
+							requirement.amount *= 2.00f;
+						}
+					}
+
+					ref var body = ref context.GetComponent<Body.Data>(); //Becomes twice as heavy (for obvious reasons)
+					if (!body.IsNull())
+					{
+						body.mass_multiplier *= 2.00f;
+					}
+				}
+			));
+
+			definitions.Add(Augment.Definition.New<Health.Data>
+			(
 				identifier: "health.varnish",
 				category: "Protection",
 				name: "Varnished Wood",
