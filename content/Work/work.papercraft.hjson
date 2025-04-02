@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.2"
 	name: "Papercraft"
 	name_short: "Papercraft"
 	desc:
@@ -15,7 +15,7 @@
 	}
 	
 	flags: none
-	tags: manual, simple, careful, leisure
+	tags: manual, simple, leisure, careful
 	cooldown: 1.900
 	multiplier: 2.000
 	color: "0xffdd4f60"
@@ -26,8 +26,8 @@
 	machinery_required: none
 	machinery_optional: none
 	
-	equipment_required: table
-	equipment_optional: chair
+	infrastructure_required: none
+	infrastructure_optional: none
 	
 	filter_environment:
 	{

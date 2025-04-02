@@ -103,21 +103,18 @@ shop:
 {
 	tags_filter:
 	{
-		require: manual
-		include: workbench, workshop
-		exclude: laboratory, passive, huge, vehicle, research, social, science, gathering, biology, forestry, smelting, fermenting, melting, heating, casting, overworld
+		include: workbench, workshop, magitronics, weapon, gun, tool, munitions, machinery, assembling, machining, metalworking, engineering, salvaging, explosive
+		exclude: passive, huge, blacksmithing, social, science, biology, forestry, smelting, fermenting, melting, heating, casting, moulding, overworld
 	}
 	
 	tools: pencil, paper, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, pliers, bucket, paintbrush, file, towel, crowbar, knife, sandpaper, needle, pins
-	environment: workshop, stationary, dirty, cozy, noisy, dry, durable, sturdy, flammable
-	infrastructure: table, chair, vise, rack, workbench
-	machinery: lathe, grinder, mill, bender, sander, planer
+	infrastructure: dishes, table, chair, vise, rack, pulley, surface, hard_surface, workbench
+	machinery: lathe, mill, sander, planer
+	environment: workshop, stationary, dirty, cozy, noisy, durable, sturdy, flammable
 	
 	menu_columns: 6
 	recipe_type: workshop
 	flags: none
-	
-	offset_spawn: [0.000, 0.000]
 	
 	name: "Manufactory"
 }
@@ -218,11 +215,15 @@ fillable:
 
 crafter:
 {
-	tools: pencil, paper, ruler, hammer, saw, screwdriver, wrench, pliers, bucket, file, tongs, knife
-	machinery: heater, burner, stove
-	infrastructure: oven, anvil, forge, barrel, table, chair, vise, rack, crucible
-	environment: workshop, stationary, dirty, noisy
+	flags: none
+	
+	tools: pencil, paper, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, spanner, pliers, bucket, paintbrush, file, chisel, towel, tongs, crowbar, knife, sandpaper, needle, pins, scissors
+	infrastructure: dishes, barrel, table, chair, vise, rack, pulley, surface, hard_surface, liquid_container, workbench
+	machinery: lathe, mill, planer
+	environment: workshop, stationary, dirty, noisy, reinforced, durable, sturdy
+	
 	temperature_max: 893.150
+	pressure_max: 0.000
 
 	@inventory8:
 	{

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.2"
 	name: "Dynamite"
 	tips: []
 	
@@ -10,6 +10,7 @@
 			
 			type: construction
 			flags: wip, auto_generated
+			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
 			
@@ -76,20 +77,17 @@
 						}
 					]
 					
+					quality: 1.000
+					precision: 1.000
+					
 					filter_tools:
 					{
 						include: paper, ruler, cutters, tweezers, magnifying_glass, stapler, knife
 					}
-					filter_infrastructure:
-					{
-						require: table
-						include: dishes, table, chair
-					}
 					filter_environment:
 					{
-						require: indoor
 						include: workshop, office, clean
-						exclude: noisy, wet
+						exclude: noisy
 					}
 				}
 			]

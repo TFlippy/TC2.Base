@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.2"
 	name: "Pickaxe"
 	tips: []
 	
@@ -62,6 +62,15 @@
 					{
 						require: hammer, tongs
 						include: pliers
+					}
+					filter_machinery:
+					{
+						include: heater
+					}
+					filter_infrastructure:
+					{
+						require: hard_surface
+						include: anvil, forge
 					}
 					filter_environment:
 					{
@@ -142,8 +151,12 @@
 					
 					filter_tools:
 					{
-						require: screwdriver, wrench, spanner, pliers
-						include: cutters, hand_drill, wrench, tweezers, magnifying_glass, knife
+						require: hammer, file
+						include: hammer, wrench, cleaver, bucket, axe, shovel, spatula, crowbar, knife, scissors
+					}
+					filter_environment:
+					{
+						include: workshop, stationary, dirty, smelly, ugly, scary, illuminated, noisy, dry, reinforced, durable, sturdy
 					}
 				}
 			]
