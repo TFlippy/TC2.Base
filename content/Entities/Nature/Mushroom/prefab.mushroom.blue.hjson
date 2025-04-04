@@ -54,13 +54,21 @@ harvestable:
 	resources:
 	[
 		{
-			material: "mushroom"
+			material: mushroom
 			quantity: 85.000
-			flags: no_autopickup
 		}
 		{
-			material: "mushroom.blue"
+			material: mushroom.blue
 			quantity: 60.000
 		}
+		null
+		null
 	]
+	
+	thresholds: [0.880, 1.000, 0.892, 0.000]
+	
+	pct_damage_mult: [0.952, 1.000, 0.859, 0.000]
+	pct_quantity_min: [0.035, 0.082, 0.050, 0.000]
+	
+	chance_base: [0.878, 1.000, 0.173, 0.000]
 }

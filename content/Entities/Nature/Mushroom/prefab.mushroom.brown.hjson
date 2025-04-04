@@ -47,6 +47,28 @@ health:
 	max: 15000.000
 }
 
+// splittable:
+// {
+// 	rect: [-0.500, -6.500, 1.000, -0.125]
+// 	split_health: 0.874
+// 	sprite_stub:
+// 	{
+// 		texture: tree.stubs.00
+// 		mask: missing
+// 		size: [16, 8]
+// 		frame: [2, 0]
+// 	}
+// 	sound_split: snap
+// }
+
+// holdable:
+// {
+// 	radius: 0.000
+// 	force_multiplier: 3.000
+// 	torque_multiplier: 2.000
+// 	flags: disable_parent_facing, disable_rotation, full_rotate
+// }
+
 animated.renderer:
 {
 	sprite:
@@ -56,6 +78,11 @@ animated.renderer:
 	offset: [0.500, -3.500]
 	z: -200.000
 }
+
+// tree:
+// {
+// 	sound_cut: "tree_fall"
+// }
 
 harvestable:
 {
@@ -70,4 +97,11 @@ harvestable:
 			quantity: 240.000
 		}
 	]
+
+	thresholds: [1.000, 0.880, 0.892, 0.000]
+	
+	pct_damage_mult: [0.952, 0.922, 0.859, 0.000]
+	pct_quantity_min: [0.035, 0.052, 0.050, 0.000]
+	
+	chance_base: [0.882, 0.473, 0.173, 0.000]
 }

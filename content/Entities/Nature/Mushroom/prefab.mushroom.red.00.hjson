@@ -10,7 +10,7 @@ body:
 	{
 		a: [0.400, 0.100]
 		b: [0.700, -7.500]
-		mass: 1500.000
+		mass: 2200.000
 		radius: 1.000
 		friction: 1.500
 		elasticity: 0.010
@@ -28,7 +28,7 @@ transform:
 
 health:
 {
-	max: 20000.000
+	max: 85000.000
 }
 
 animated.renderer:
@@ -46,13 +46,21 @@ harvestable:
 	resources:
 	[
 		{
-			material: "mushroom"
-			quantity: 4500.000
-			flags: no_autopickup
+			material: mushroom
+			quantity: 8386.000
 		}
 		{
-			material: "mushroom.red"
-			quantity: 600.000
+			material: mushroom.red
+			quantity: 1118.000
 		}
+		null
+		null
 	]
+	
+	thresholds: [1.000, 0.880, 0.892, 0.000]
+	
+	pct_damage_mult: [0.952, 0.922, 0.859, 0.000]
+	pct_quantity_min: [0.035, 0.052, 0.050, 0.000]
+	
+	chance_base: [0.878, 0.471, 0.173, 0.000]
 }
