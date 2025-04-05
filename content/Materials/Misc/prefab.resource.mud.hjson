@@ -48,7 +48,8 @@ resource:
 
 holdable:
 {
-	offset: [0.000, 0.750]
+	offset: [-0.125, 0.375]
+	flags: disable_control
 }
 
 norotate:

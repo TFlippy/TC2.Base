@@ -250,8 +250,8 @@ npc:
 {
 	pain_modifier: 0.450
 	min_consciousness: 0.300
-	avoid_distance: [1.000, 0.000]
-	idle_distance: [1.500, 1.500]
+	avoid_distance_base: [1.000, 0.000]
+	idle_distance_base: [1.500, 1.500]
 
 	wander_interval: 10.000
 	wander_interval_extra: 8.000

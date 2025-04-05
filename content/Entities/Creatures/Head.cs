@@ -186,11 +186,11 @@ namespace TC2.Base.Components
 		public static void OnUpdateAI(ISystem.Info info, Entity entity, ref Region.Data region, ref XorRandom random,
 		[Source.Owned] in Head.Data head, [Source.Owned] ref Head.State head_state,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Body.Data body,
-		[Source.Any, Original] ref NPC.Data npc_original,
+		[Source.Any] ref NPC.Data npc,
 		[Source.Owned, Override] in Organic.Data organic, [Source.Owned] ref Organic.State organic_state)
 		{
-			npc_original.self_hints.SetFlag(NPC.SelfHints.Is_Suffocating, head_state.flags.HasAny(Head.State.Flags.Is_Suffocating));
-			npc_original.self_hints.SetFlag(NPC.SelfHints.Is_Drowning, head_state.flags.HasAny(Head.State.Flags.Is_Drowning));
+			npc.self_hints.SetFlag(NPC.SelfHints.Is_Suffocating, head_state.flags.HasAny(Head.State.Flags.Is_Suffocating));
+			npc.self_hints.SetFlag(NPC.SelfHints.Is_Drowning, head_state.flags.HasAny(Head.State.Flags.Is_Drowning));
 		}
 
 #if SERVER
@@ -199,7 +199,6 @@ namespace TC2.Base.Components
 		public static void OnUpdateVoice(ISystem.Info info, Entity entity, ref Region.Data region, ref XorRandom random,
 		[Source.Owned] in Head.Data head, [Source.Owned] ref Head.State head_state,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Body.Data body,
-		[Source.Any, Override] in NPC.Data npc_override,
 		[Source.Owned, Override] in Organic.Data organic, [Source.Owned] ref Organic.State organic_state)
 		{
 			ref var species_data = ref organic.h_species.GetData();

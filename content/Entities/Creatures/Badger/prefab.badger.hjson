@@ -124,8 +124,8 @@ animal.state:
 
 npc:
 {
-	avoid_distance: [0.500, 0.000]
-	idle_distance: [2.000, 2.000]
+	avoid_distance_base: [0.500, 0.000]
+	idle_distance_base: [2.000, 2.000]
 
 	wander_radius: 12.000
 	wander_interval: 2.000
