@@ -688,7 +688,7 @@ commandable:
 		stress_threshold: 1.200
 		stress_damp: 0.500
 		flags: control_write, facing_reset_pos, force_facing
-		z: 40.000
+		z: 45.000
 	}
 	
 	// joint.pivot:
@@ -734,6 +734,7 @@ commandable:
 	{
 		max_force: 9500.000
 		max_distance: 2.250
+		layer_exclude: world, bounds, essence, water, fire, gas, powder, hot, liquid, stored, static
 	}
 
 	puncher:

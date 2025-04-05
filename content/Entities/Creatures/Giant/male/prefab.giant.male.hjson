@@ -743,7 +743,7 @@ vehicle:
 		stress_threshold: 1.000
 		stress_damp: 0.500
 		flags: control_write, facing_reset_pos, force_facing
-		z: 40.000
+		z: 45.000
 	}
 
 	joint.piston:
@@ -788,6 +788,7 @@ vehicle:
 	{
 		max_force: 75000.000
 		max_distance: 5.000
+		layer_exclude: world, bounds, essence, water, fire, gas, powder, hot, liquid, stored, static
 	}
 }
 
