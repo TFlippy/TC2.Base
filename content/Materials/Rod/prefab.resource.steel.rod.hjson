@@ -48,7 +48,9 @@ resource:
 
 holdable:
 {
-	offset: [0.000, 0.500]
+	force_multiplier: 1.400
+	torque_multiplier: 0.800
+	stress_multiplier: 0.850
 	radius: 0.000
 	hints: materials, construction
 	flags: disable_parent_facing, disable_rotation, disable_control, full_rotate
@@ -58,7 +60,7 @@ norotate:
 {
 	bias: 0.150
 	speed: 2.500
-	mass_multiplier: 10.000
+	mass_multiplier: 4.000
 	attached_multiplier: 0.400
 	flags: no_share
 }

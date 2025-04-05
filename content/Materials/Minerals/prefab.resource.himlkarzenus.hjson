@@ -39,6 +39,9 @@ resource:
 holdable:
 {
 	offset: [0.000, 0.750]
+	force_multiplier: 1.200
+	stress_multiplier: 0.800
+	flags: disable_control, full_rotate
 }
 
 norotate:
