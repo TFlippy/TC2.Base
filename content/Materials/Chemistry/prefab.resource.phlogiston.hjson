@@ -27,6 +27,7 @@ animated.renderer:
 		size: [16, 16]
 	}
 	scale: [0.850, 0.850]
+	z: -20.000
 }
 
 transform:

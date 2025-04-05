@@ -28,7 +28,7 @@ animated.renderer:
 		count: 4
 		size: [16, 16]
 	}
-	z: -60.000
+	z: -65.000
 }
 
 transform:

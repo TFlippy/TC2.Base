@@ -32,7 +32,7 @@ animated.renderer:
 		count: 4
 		size: [16, 16]
 	}
-	z: -85.000
+	z: -82.000
 	offset: [0.000, -0.250]
 }
 
