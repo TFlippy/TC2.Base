@@ -27,7 +27,7 @@ animated.renderer:
 		size: [16, 16]
 		frame: [3, 0]
 	}
-	z: -80.000
+	z: -78.000
 }
 
 transform:

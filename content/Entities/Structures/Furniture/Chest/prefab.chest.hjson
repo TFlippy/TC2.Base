@@ -35,7 +35,7 @@ animated.renderer:
 		mask: "chest.mask"
 	}
 	offset: [0.000, 0.000]
-	z: -280.000
+	z: -200.000
 }
 
 faction.colorable:
