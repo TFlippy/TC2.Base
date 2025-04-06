@@ -1,11 +1,13 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.3"
 	name: "Copper Rod"
 	name_short: "Cop. Rod"
 	description:
 		'''
 		Standard 4x4x60 cm copper rod.
 		'''
+	
+	tips: []
 	
 	icon:
 	{
@@ -17,20 +19,22 @@
 	
 	type: metal_pole
 	flags: hard, long, metal, small, flexible, solid, processed
-	display_flags: sprite_stack_linear, no_random_facing
+	display_flags: no_random_facing
 	hints: materials, construction
-	bulk_density_ratio_min: 0.000
-	bulk_density_ratio_max: 0.000
+	
 	density_ratio: 0.9069
 	porosity: 0.004
 	purity: 0.985
 	mass_per_unit: 6.701743
 	volume_per_unit: 0.000754
 	quantity_max: 100.000
+	
 	form_type: rod
 	prefab: resource.copper.rod
 	h_substance: copper
 	
+	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
 	color_dust: "0xffdf873d"
 	color_gib: "0xffdf873d"
 	color_spark: [0.666, 0.775, 0.366, 1.000]
@@ -86,7 +90,6 @@
 		}
 	]
 	
-	// Conversions into other materials.
 	conversions:
 	{
 		blunt:

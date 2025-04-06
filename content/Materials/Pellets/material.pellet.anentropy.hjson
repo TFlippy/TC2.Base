@@ -1,0 +1,29 @@
+﻿{
+	$version: "0.1.62.0"
+	name: "Arcanite Pellets (Anentropy)"
+	name_short: "E-NN Pellets"
+	description:
+		'''
+		Small arcanite pellets that can be infused with essences.
+		'''
+	
+	icon:
+	{
+		texture: resource.pellet.anentropy
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	type: metal_solid
+	flags: hard, magnetic, essence, metal, small, pellet, solid
+	display_flags: none
+	hints: none
+	mass_per_unit: 0.500
+	quantity_max: 150.000
+	prefab: resource.pellet.anentropy
+	h_substance: arcanite
+	
+	color_icon: "0xffffffff"
+	
+	colliders: []
+}

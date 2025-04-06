@@ -1,11 +1,13 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.3"
 	name: "Wooden Rod"
 	name_short: "Wood Rd."
 	description:
 		'''
 		Standard 4x4x60 cm wooden rod.
 		'''
+	
+	tips: []
 	
 	icon:
 	{
@@ -17,8 +19,9 @@
 	
 	type: wood
 	flags: hard, long, organic, small, fuel, flammable, flexible, solid
-	display_flags: sprite_stack_linear, no_random_facing
+	display_flags: no_random_facing
 	hints: materials, construction
+	
 	density_ratio: 0.9069
 	porosity: 0.004
 	purity: 0.985
@@ -27,11 +30,15 @@
 	quantity_max: 100.000
 	spawn_quantity_threshold: 0.500
 	snapping: 0.500
+	
 	form_type: rod
 	prefab: resource.wood.rod
 	h_substance: wood
 	
 	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
 	
 	colliders:
 	[
@@ -81,7 +88,6 @@
 		}
 	]
 	
-	// Conversions into other materials.
 	conversions:
 	{
 		saw:

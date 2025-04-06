@@ -1,0 +1,142 @@
+$tags: []
+
+body:
+{
+	buoyancy: 0.020
+	fall_damage_multiplier: 1.000
+
+	@shape.circle:
+	{
+		offset: [0.000, 0.250]
+		mass: 1.000
+		radius: 0.750
+		friction: 1.000
+		elasticity: 0.100
+		material: metal_solid
+		layer: entity, solid, resource, conductive, magnetic, heatable
+		mask: world, essence
+		miss_chance: 0.000
+	}
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "resource.pellet.anentropy"
+		count: 4
+		size: [16, 16]
+	}
+}
+
+transform:
+{
+
+}
+
+resource:
+{
+	material: "pellet.anentropy"
+}
+
+health:
+{
+	max: 85000.000
+}
+
+holdable:
+{
+	offset: [0.000, 0.750]
+	radius: 0.000
+	hints: materials, dangerous, rare, advanced, powerful, small, expensive, arcane, unstable
+	flags: disable_parent_facing, disable_rotation, disable_control
+}
+
+essence.container:
+{
+	h_essence: anentropy
+	available: 1500.000
+	rate: 0.410
+	rate_speed: 1.900
+	stability: 0.101
+	health_threshold: 0.950
+	glow_modifier: 1.300
+	heat_modifier: 0.100
+	frequency: 955.000
+	emit_type: ambient
+
+	@light:
+	{
+		color: [14.318, 9.320, 13.531, 0.110]
+		scale: [1.370, 2.788]
+		intensity: 6.970402
+		texture: essence.spark
+		rotation: -0.002001
+	}
+
+	@sound.emitter:
+	{
+		file: essence.mumble.loop.01
+		flags: start_muted
+		volume: 0.800
+		pitch: 0.300
+		size: 0.625
+		size_max_modifier: 0.700
+		spread: 93.000
+		doppler: 25.000
+		priority: 0.600
+	}
+}
+
+heat:
+{
+	temperature_medium: 620.996
+	temperature_high: 1032.985
+	temperature_breakdown: 1438.483
+	heat_damage_mult: 0.350
+	heat_capacity_extra: 10.000
+	cool_rate_mult: 2.000
+	cool_rate: 3.000
+	smoke_speed_mult: 0.700
+	flags: no_ignite
+	offset: [0.000, 0.250]
+	smoke_offset: [0.000, 0.250]
+	size: [0.750, 0.500]
+	
+	@light:
+	{
+		offset: [0.000, 0.250]
+		scale: [25.000, 22.000]
+		intensity: 1.500
+		texture: light.circle.04
+	}
+
+	@sound.emitter:
+	{
+		file: overheat_loop
+		flags: start_muted
+		volume: 1.000
+		pitch: 0.680
+		size_max_modifier: 0.600
+		priority: 0.100
+		offset: [0.000, 0.500]
+	}
+}
+
+norotate:
+{
+	bias: 0.000
+	speed: 3.500
+	multiplier: 3.500
+	mass_multiplier: 3.500
+	flags: no_share
+}
+
+vibrate:
+{
+	frequency: 203.600
+	modifier: 1.280
+	rotation_mult: 0.080
+	flags: shared
+	position_mult: [0.080, 0.190]
+}

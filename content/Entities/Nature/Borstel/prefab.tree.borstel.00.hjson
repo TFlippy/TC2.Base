@@ -155,3 +155,15 @@ dormitory:
 	
 	asset_flags: recycle
 }
+
+minimap.marker:
+{
+	sprite:
+	{
+		texture: "ui_icons_minimap"
+		size: [16, 16]
+		frame: [0, 1]
+	}
+
+	flags: faction, spawner
+}

@@ -723,7 +723,7 @@ namespace TC2.Base.Components
 			Cognition,
 			Electricity,
 			Failure,
-			Order
+			Anentropy
 		}
 
 		//[Obsolete] public static readonly Dictionary<IMaterial.Handle, IEssence.Handle> material_to_essence = new();

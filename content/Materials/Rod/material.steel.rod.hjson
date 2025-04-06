@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.3"
 	name: "Steel Rod"
 	name_short: "St. Rod"
 	description:
@@ -19,7 +19,7 @@
 	
 	type: metal_pole
 	flags: hard, long, magnetic, metal, small, flexible, solid, processed
-	display_flags: sprite_stack_linear, no_random_facing
+	display_flags: no_random_facing
 	hints: materials, construction
 	
 	density_ratio: 0.9069
@@ -90,7 +90,6 @@
 		}
 	]
 	
-	// Conversions into other materials.
 	conversions:
 	{
 		blunt:

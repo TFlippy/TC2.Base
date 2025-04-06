@@ -1,20 +1,20 @@
 ﻿{
-	$version: "0.1.61.4"
-	name: "Order"
+	$version: "0.1.62.3"
+	name: "Anentropy"
 	desc:
 		'''
 		TODO: Desc
 		'''
 	
 	flags: none
-	type_tmp: order
+	type_tmp: anentropy
 	
-	color_emit: [1.043, 0.506, 0.372, 0.860]
+	color_emit: [14.318, 9.320, 13.531, 0.110]
 	
-	emit_force: -750.000
-	emit_power_thermal: 4.960
+	emit_force: -1750.000
+	emit_power_thermal: -100.000
 	emit_power_kinetic: -6.790
-	emit_power_radiant: 0.650
+	emit_power_radiant: -0.350
 	emit_power_electric: -28.350
 	emit_power_magnetic: 18.760
 	
@@ -26,16 +26,16 @@
 	sound_emit_impactor_loop: shaft.loop.overload.00
 	sound_emit_cycler_loop: mount.turn.loop.02
 	sound_emit_oscillator_loop: essence.emit.generic.loop.08
-	sound_emit_ambient_loop: wheel.metal_loop_03
+	sound_emit_ambient_loop: essence.mumble.loop.01
 	sound_emit_projector_loop: missing
 	
-	sound_collapse: essence.collapse.order.01
-	sound_zap: essence.collapse.order.00
+	sound_collapse: missing
+	sound_zap: missing
 	sound_blast: essence.blast.00
 	sound_impulse: effect.stupid.00
 	sound_impact: snap
 	sound_shatter: missing
 	
-	h_prefab_node: essence_node.order
-	h_material_pellet: pellet.order
+	h_prefab_node: "null"
+	h_material_pellet: pellet.anentropy
 }

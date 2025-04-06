@@ -29,11 +29,11 @@ health:
 	max: 2100.000
 }
 
-holdable:
-{
-	radius: 0.000
-	flags: disable_parent_facing, disable_rotation, disable_control
-}
+// holdable:
+// {
+// 	radius: 0.000
+// 	flags: disable_parent_facing, disable_rotation, disable_control
+// }
 
 animated.renderer:
 {
