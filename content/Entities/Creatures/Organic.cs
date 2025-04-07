@@ -176,7 +176,7 @@ namespace TC2.Base.Components
 		public static void UpdateRotting(ISystem.Info info, Entity entity, 
 		[Source.Owned, Override] in Organic.Data organic, [Source.Owned] ref Organic.State organic_state)
 		{
-			organic_state.rotten = Maths.Max(organic_state.rotten + (info.DeltaTime * Constants.Organic.rotting_speed), 0.00f);
+			organic_state.rotten = Maths.Max(organic_state.rotten + (info.DeltaTime * Constants.Organic.rotting_speed * 0.005f), 0.00f);
 
 #if SERVER
 			//App.WriteLine($"{organic_state.rotten} {entity}");
