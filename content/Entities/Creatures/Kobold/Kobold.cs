@@ -1943,7 +1943,8 @@ namespace TC2.Base.Components
 			//App.WriteLine($"{pain_delta}");
 
 			//if (time >= kobold.next_scream && ((organic_state.consciousness_shared > 0.80f && pain_delta >= 1000.00f) || ((time - commandable.last_time) < 0.50f && commandable.last_type == Commandable.OrderType.Attack) || (ai_override.anger >= 750.00f)))
-			if (time >= kobold.next_scream && ((organic_state.consciousness_shared > 0.80f && pain_delta >= 1000.00f) || ((behavior_original.type == AI.Behavior.Type.Flee) || (ai_override.anger >= 750.00f))))
+			//if (time >= kobold.next_scream && ((organic_state.consciousness_shared > 0.80f && pain_delta >= 1000.00f) || ((behavior_original.type == AI.Behavior.Type.Flee) || (ai_override.anger >= 750.00f))))
+			if (time >= kobold.next_scream && ((organic_state.consciousness_shared > 0.80f && pain_delta >= 1000.00f) || ((ai_override.anger >= 750.00f))))
 			{
 				if (random.NextBool(0.90f))
 				{

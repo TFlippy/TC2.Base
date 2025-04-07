@@ -201,6 +201,18 @@ namespace TC2.Base.Components
 
 		}
 
+		//[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region)]
+		//public static void OnAssetTest([Source.Owned] in NPC.Data npc, [Source.Owned] ref Faction.Colorable colorable)
+		//{
+		//	ref var faction_data = ref npc.h_faction_cached.GetData();
+		//	if (faction_data.IsNotNull())
+		//	{
+		//		colorable.color_a_cached = faction_data.color_a;
+		//		colorable.color_a_cached = faction_data.color_a;
+		//		colorable.h_faction_cached = npc.h_faction_cached;
+		//	} 
+		//}
+
 #if SERVER
 		[WIP]
 		[ISystem.PostUpdate.C(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.139f), HasTag("dead", false, Source.Modifier.Owned)]
