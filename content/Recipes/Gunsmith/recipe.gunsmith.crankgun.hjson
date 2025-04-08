@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.3"
 	name: "Crankgun"
 	desc:
 		'''
@@ -34,6 +34,7 @@
 			amount: 600.000
 			difficulty: 7
 			group: 0
+			flags: conditional
 		}
 		{
 			type: work
@@ -41,6 +42,7 @@
 			amount: 70.000
 			difficulty: 3
 			group: 0
+			flags: conditional
 		}
 		{
 			type: work
@@ -48,6 +50,7 @@
 			amount: 450.000
 			difficulty: 6
 			group: 0
+			flags: conditional
 		}
 	]
 	
@@ -64,7 +67,7 @@
 	type: workshop
 	flags: blueprintable, disabled, wip
 	tags: workshop, manual, weapon, gun, assembling, metalworking, engineering, military, construction
-	infrastructure: none
+	infrastructure: anvil, vise, surface, hard_surface
 	
 	icon:
 	{

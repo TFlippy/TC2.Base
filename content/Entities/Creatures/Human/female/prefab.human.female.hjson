@@ -1,7 +1,7 @@
 $name: "Human"
 $desc:
 	'''
-	Common human.
+	Standard human.
 	'''
 $export: false
 $tags: 
@@ -349,7 +349,7 @@ commandable:
 		$name: "Human (Head)"
 		$desc:
 			'''
-			Common human head.
+			Standard human head.
 			'''
 		$tags: 
 		[
@@ -359,7 +359,7 @@ commandable:
 			
 		body:
 		{
-			fall_damage_multiplier: 1.650
+			fall_damage_multiplier: 3.500
 			buoyancy: 0.560
 
 			@shape.circle:
@@ -558,7 +558,7 @@ commandable:
 		$name: "Human (Waist)"
 		$desc:
 			'''
-			Common human waist.
+			Standard human waist.
 			'''
 		$tags: 
 		[
