@@ -1,11 +1,13 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.3"
 	name: "Black Powder"
 	name_short: "B. Powder"
 	description:
 		'''
 		Simple low explosive.
 		'''
+	
+	tips: []
 	
 	icon:
 	{
@@ -18,15 +20,24 @@
 	flags: granular, explosive, chemical, powder, flammable, solid, processed
 	display_flags: none
 	hints: none
+	
 	porosity: 0.1152
 	purity: 0.913
 	mass_per_unit: 0.230
+	
 	quantity_max: 1000.000
 	spawn_quantity_threshold: 1.500
+	snapping: 1.000
+	snapping_pickup: 100.000
+	
 	form_type: powder
 	prefab: resource.gunpowder
+	h_substance: "null"
 	
 	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
 	
 	colliders: []
 	

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.3"
 	name: "Smirgrafit Powder"
 	name_short: "Sgft. Powder"
 	description:
@@ -8,6 +8,8 @@
 
 		Fuses together into a durable refractory ceramic-like material when exposed to a high-temperature oxidizing flame.
 		'''
+	
+	tips: []
 	
 	icon:
 	{
@@ -20,17 +22,23 @@
 	flags: malleable, magnetic, granular, metal, heavy, small, powder, flammable, solid
 	display_flags: none
 	hints: none
+	
 	porosity: 0.128
 	purity: 0.988
 	mass_per_unit: 1.959321
 	volume_per_unit: 0.0001
+	
 	quantity_max: 1000.000
 	spawn_quantity_threshold: 0.500
+	snapping: 1.000
+	snapping_pickup: 100.000
+	
 	form_type: powder
 	prefab: resource.smirgrafit.powder
 	h_substance: smirgrafit
 	
 	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
 	color_dust: "0xff403a39"
 	color_gib: "0xff403a39"
 	color_flame: [1.000, 0.638, 0.014, 0.827]

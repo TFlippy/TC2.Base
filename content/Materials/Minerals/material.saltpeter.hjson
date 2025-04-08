@@ -1,11 +1,13 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.3"
 	name: "Potassium Nitrate"
 	name_short: "Saltpeter"
 	description:
 		'''
 		Commonly used for fertilizers and explosives.
 		'''
+	
+	tips: []
 	
 	icon:
 	{
@@ -18,15 +20,23 @@
 	flags: granular, mineral, raw, powder, solid, primary
 	display_flags: none
 	hints: none
+	
 	purity: 0.788
 	mass_per_unit: 0.660
+	
 	quantity_max: 500.000
 	spawn_quantity_threshold: 2.000
+	snapping: 1.000
+	snapping_pickup: 50.000
+	
 	form_type: raw
 	prefab: resource.saltpeter
 	h_substance: saltpeter
 	
 	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
 	
 	colliders: []
 	

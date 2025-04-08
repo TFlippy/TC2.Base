@@ -1,11 +1,13 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.3"
 	name: "Sugar"
 	name_short: "Sugar"
 	description:
 		'''
 		TODO: Desc
 		'''
+	
+	tips: []
 	
 	icon:
 	{
@@ -18,13 +20,22 @@
 	flags: food, granular, organic, small, powder, solid
 	display_flags: none
 	hints: none
+	
 	mass_per_unit: 0.350
+	
 	quantity_max: 500.000
 	spawn_quantity_threshold: 0.500
+	snapping: 1.000
+	snapping_pickup: 50.000
+	
 	form_type: powder
 	prefab: resource.sugar
+	h_substance: "null"
 	
 	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
 	
 	colliders: []
 	

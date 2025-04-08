@@ -1,11 +1,13 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.3"
 	name: "Mushroom Juice"
 	name_short: "Mushroom J."
 	description:
 		'''
 		Astonishingly slimy liquid made from boiled mushrooms or something similar.
 		'''
+	
+	tips: []
 	
 	icon:
 	{
@@ -20,8 +22,11 @@
 	hints: none
 	
 	mass_per_unit: 0.743
+	
 	quantity_max: 100.000
+	spawn_quantity_threshold: 0.000
 	snapping: 0.100
+	snapping_pickup: 50.000
 	
 	form_type: packaged
 	prefab: resource.mushroom.juice

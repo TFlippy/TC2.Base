@@ -1,11 +1,13 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.3"
 	name: "Nitrocellulose"
 	name_short: "Nitrocel."
 	description:
 		'''
 		TODO: Desc
 		'''
+	
+	tips: []
 	
 	icon:
 	{
@@ -18,24 +20,23 @@
 	flags: granular, explosive, chemical, powder, flammable, solid, primary
 	display_flags: none
 	hints: none
-	bulk_density_ratio_min: 0.000
-	bulk_density_ratio_max: 0.000
-	density_ratio: 0.000
-	porosity: 0.000
+	
 	purity: 0.883
 	mass_per_unit: 0.390
-	volume_per_unit: 0.000
+	
 	quantity_max: 500.000
+	spawn_quantity_threshold: 0.000
+	snapping: 1.000
+	snapping_pickup: 50.000
+	
 	form_type: powder
 	prefab: resource.nitrocellulose
 	h_substance: nitrocellulose
 	
+	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
-	color_spark: [0.000, 0.000, 0.000, 0.000]
-	color_flame: [0.000, 0.000, 0.000, 0.000]
-	color_liquid: [0.000, 0.000, 0.000, 0.000]
-	color_smoke: [0.000, 0.000, 0.000, 0.000]
 	
 	colliders: []
 	

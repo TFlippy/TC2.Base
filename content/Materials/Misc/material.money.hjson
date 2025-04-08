@@ -34,7 +34,7 @@
 	quantity_max: 5000.000
 	spawn_quantity_threshold: 1.000
 	snapping: 1.000
-	snapping_pickup: 100.000
+	snapping_pickup: 500.000
 	
 	prefab: resource.money
 	h_substance: "null"

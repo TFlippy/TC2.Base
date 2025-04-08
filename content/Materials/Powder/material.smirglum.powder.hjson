@@ -1,11 +1,13 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.3"
 	name: "Smirglum Powder"
 	name_short: "Sg. Powder"
 	description:
 		'''
 		Standard fine-grained smirglum powder.
 		'''
+	
+	tips: []
 	
 	icon:
 	{
@@ -18,17 +20,23 @@
 	flags: magnetic, granular, metal, heavy, small, powder, solid
 	display_flags: none
 	hints: none
+	
 	porosity: 0.128
 	purity: 0.989
 	mass_per_unit: 2.609129
 	volume_per_unit: 0.0001
+	
 	quantity_max: 1000.000
 	spawn_quantity_threshold: 0.500
+	snapping: 1.000
+	snapping_pickup: 100.000
+	
 	form_type: powder
 	prefab: resource.smirglum.powder
 	h_substance: smirglum
 	
 	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
 	color_dust: "0xff6c584b"
 	color_gib: "0xff6c584b"
 	

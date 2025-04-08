@@ -1,11 +1,13 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.3"
 	name: "Arcanite Pellets (Cognition)"
 	name_short: "E-CG Pellets"
 	description:
 		'''
 		Small arcanite pellets that can be infused with essences.
 		'''
+	
+	tips: []
 	
 	icon:
 	{
@@ -18,12 +20,21 @@
 	flags: hard, magnetic, essence, metal, small, pellet, solid
 	display_flags: none
 	hints: none
+	
 	mass_per_unit: 0.500
+	
 	quantity_max: 100.000
+	spawn_quantity_threshold: 0.000
+	snapping: 1.000
+	snapping_pickup: 10.000
+	
 	prefab: resource.pellet.cognition
 	h_substance: arcanite
 	
 	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
 	
 	colliders: []
 	

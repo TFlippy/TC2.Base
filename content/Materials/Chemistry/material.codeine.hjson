@@ -1,11 +1,13 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.3"
 	name: "Codeine"
 	name_short: "Codeine"
 	description:
 		'''
 		A mild analgesic similar to morphine.
 		'''
+	
+	tips: []
 	
 	icon:
 	{
@@ -18,15 +20,23 @@
 	flags: chemical, powder, solid, primary
 	display_flags: none
 	hints: none
+	
 	purity: 0.893
 	mass_per_unit: 0.100
+	
 	quantity_max: 500.000
 	spawn_quantity_threshold: 0.100
+	snapping: 1.000
+	snapping_pickup: 50.000
+	
 	form_type: powder
 	prefab: resource.codeine
 	h_substance: codeine
 	
 	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
 	
 	colliders: []
 	

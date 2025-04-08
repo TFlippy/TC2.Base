@@ -1,11 +1,13 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.3"
 	name: "Nickel Powder"
 	name_short: "Nic. Powder"
 	description:
 		'''
 		Standard fine-grained nickel powder.
 		'''
+	
+	tips: []
 	
 	icon:
 	{
@@ -18,17 +20,23 @@
 	flags: magnetic, granular, metal, powder, solid
 	display_flags: none
 	hints: none
+	
 	porosity: 0.128
 	purity: 0.949
 	mass_per_unit: 0.686613
 	volume_per_unit: 0.0001
+	
 	quantity_max: 1000.000
 	spawn_quantity_threshold: 0.500
+	snapping: 1.000
+	snapping_pickup: 100.000
+	
 	form_type: powder
 	prefab: resource.nickel.powder
 	h_substance: nickel
 	
 	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
 	color_dust: "0xff62605e"
 	color_gib: "0xff62605e"
 	

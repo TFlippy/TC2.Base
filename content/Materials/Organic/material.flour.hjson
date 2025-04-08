@@ -1,11 +1,13 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.3"
 	name: "Flour"
 	name_short: "Flour"
 	description:
 		'''
 		Commonly used in cooking.
 		'''
+	
+	tips: []
 	
 	icon:
 	{
@@ -18,13 +20,22 @@
 	flags: food, granular, organic, raw, powder, flammable, solid
 	display_flags: none
 	hints: none
+	
 	mass_per_unit: 0.200
+	
 	quantity_max: 500.000
 	spawn_quantity_threshold: 1.000
+	snapping: 1.000
+	snapping_pickup: 50.000
+	
 	form_type: powder
 	prefab: resource.flour
+	h_substance: "null"
 	
 	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
 	
 	colliders: []
 	

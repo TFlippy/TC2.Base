@@ -1,11 +1,13 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.3"
 	name: "Lime"
 	name_short: "Lime"
 	description:
 		'''
 		Alkaline mineral commonly used in metallurgy, chemical industry and in production of cement and paper.
 		'''
+	
+	tips: []
 	
 	icon:
 	{
@@ -18,15 +20,23 @@
 	flags: granular, mineral, chemical, corrosive, raw, powder, solid, primary
 	display_flags: none
 	hints: none
+	
 	purity: 0.811
 	mass_per_unit: 0.830
+	
 	quantity_max: 500.000
 	spawn_quantity_threshold: 2.000
+	snapping: 1.000
+	snapping_pickup: 50.000
+	
 	form_type: raw
 	prefab: resource.lime
 	h_substance: lime
 	
 	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
 	
 	colliders: []
 	

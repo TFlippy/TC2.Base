@@ -1,11 +1,13 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.3"
 	name: "Silver Powder"
 	name_short: "Sv. Powder"
 	description:
 		'''
 		Standard fine-grained silver powder.
 		'''
+	
+	tips: []
 	
 	icon:
 	{
@@ -18,17 +20,23 @@
 	flags: granular, metal, powder, solid
 	display_flags: none
 	hints: none
+	
 	porosity: 0.128
 	purity: 0.991
 	mass_per_unit: 0.914728
 	volume_per_unit: 0.0001
+	
 	quantity_max: 1000.000
 	spawn_quantity_threshold: 1.000
+	snapping: 1.000
+	snapping_pickup: 100.000
+	
 	form_type: powder
 	prefab: resource.silver.powder
 	h_substance: silver
 	
 	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
 	color_dust: "0xfff4fbf8"
 	color_gib: "0xfff4fbf8"
 	

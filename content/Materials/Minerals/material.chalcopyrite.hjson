@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.3"
 	name: "Chalcopyrite"
 	name_short: "Chalcopyrite"
 	description:
@@ -17,13 +17,16 @@
 	}
 	
 	type: stone_dense
-	flags: hard, granular, metal, mineral, raw, ore, gravel, solid, impure, primary
+	flags: hard, granular, metal, mineral, raw, gravel, solid, impure, primary
 	display_flags: none
 	hints: none
 	
 	mass_per_unit: 1.650
+	
 	quantity_max: 500.000
 	spawn_quantity_threshold: 1.000
+	snapping: 1.000
+	snapping_pickup: 1.000
 	
 	form_type: raw
 	prefab: resource.chalcopyrite
