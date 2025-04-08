@@ -1,11 +1,13 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.3"
 	name: "Smirglum Chunk"
 	name_short: "Sg. Chunk"
 	description:
 		'''
 		Extremely dense metal with a unique property of being able to interact with essences.
 		'''
+	
+	tips: []
 	
 	icon:
 	{
@@ -19,24 +21,25 @@
 	flags: hard, magnetic, metal, small, raw, solid, primary
 	display_flags: none
 	hints: materials, heavy, advanced, powerful, construction, industrial, slow
-	bulk_density_ratio_min: 0.000
-	bulk_density_ratio_max: 0.000
-	density_ratio: 0.000
+	
 	porosity: 0.066
 	purity: 0.969
 	mass_per_unit: 44.71423
 	volume_per_unit: 0.0016
+	
 	quantity_max: 50.000
+	spawn_quantity_threshold: 0.100
+	snapping: 1.000
+	snapping_pickup: 1.000
+	
 	form_type: chunk
 	prefab: resource.smirglum
 	h_substance: smirglum
 	
+	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
 	color_dust: "0xff6c584b"
 	color_gib: "0xff6c584b"
-	color_spark: [0.000, 0.000, 0.000, 0.000]
-	color_flame: [0.000, 0.000, 0.000, 0.000]
-	color_liquid: [0.000, 0.000, 0.000, 0.000]
-	color_smoke: [0.000, 0.000, 0.000, 0.000]
 	
 	colliders:
 	[
@@ -86,7 +89,6 @@
 		}
 	]
 	
-	// Conversions into other materials.
 	conversions:
 	{
 		sledgehammer:

@@ -23,10 +23,10 @@
 	
 	mass_per_unit: 0.2575
 	
-	quantity_max: 250.000
+	quantity_max: 500.000
 	spawn_quantity_threshold: 0.750
 	snapping: 1.000
-	snapping_pickup: 1.000
+	snapping_pickup: 50.000
 	
 	prefab: resource.machine_parts
 	h_substance: "null"

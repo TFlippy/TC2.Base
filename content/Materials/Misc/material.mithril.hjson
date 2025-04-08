@@ -1,11 +1,13 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.3"
 	name: "Mithril"
 	name_short: "Mithril"
 	description:
 		'''
 		A mysterious unstable substance.
 		'''
+	
+	tips: []
 	
 	icon:
 	{
@@ -20,7 +22,11 @@
 	hints: materials, dangerous, illegal, advanced, destructive, expensive, arcane, contraband, unstable
 	
 	mass_per_unit: 1.144
+	
 	quantity_max: 250.000
+	spawn_quantity_threshold: 1.000
+	snapping: 1.000
+	snapping_pickup: 1.000
 	
 	prefab: resource.mithril
 	h_substance: "null"

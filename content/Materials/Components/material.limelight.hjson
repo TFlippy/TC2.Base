@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.3"
 	name: "Limelight"
 	name_short: "Limelight"
 	description:
@@ -8,6 +8,8 @@
 
 		Commonly used for illumination.
 		'''
+	
+	tips: []
 	
 	icon:
 	{
@@ -20,24 +22,21 @@
 	flags: hard, magnetic, granular, essence, metal, alkaline, small, corrosive, fragile, device, solid
 	display_flags: none
 	hints: none
-	bulk_density_ratio_min: 0.000
-	bulk_density_ratio_max: 0.000
-	density_ratio: 0.000
-	porosity: 0.000
-	purity: 0.000
+	
 	mass_per_unit: 1.150
-	volume_per_unit: 0.000
+	
 	quantity_max: 50.000
-	form_type: undefined
+	spawn_quantity_threshold: 1.000
+	snapping: 1.000
+	snapping_pickup: 1.000
+	
 	prefab: resource.limelight
 	h_substance: "null"
 	
+	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
-	color_spark: [0.000, 0.000, 0.000, 0.000]
-	color_flame: [0.000, 0.000, 0.000, 0.000]
-	color_liquid: [0.000, 0.000, 0.000, 0.000]
-	color_smoke: [0.000, 0.000, 0.000, 0.000]
 	
 	colliders: []
 	

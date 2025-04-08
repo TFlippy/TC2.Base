@@ -11,9 +11,11 @@ body:
 		
 		mass: 1.000
 		radius: 0.925
-		friction: 0.650
-		elasticity: 0.500
+		friction: 0.400
+		elasticity: 0.700
+		
 		material: metal_sheet
+		
 		layer: entity, solid, resource, ignore_melee, ignore_bullet
 		mask: world
 	}
@@ -53,11 +55,13 @@ norotate:
 	speed: 2.000
 	multiplier: 0.500
 	mass_multiplier: 15.000
+	attached_multiplier: 0.300
+	flags: no_share
 }
 
 health:
 {
-	max: 22000.000
+	max: 100000.000
 }
 
 breakable:

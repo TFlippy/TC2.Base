@@ -4,7 +4,7 @@
 	name_short: "Cop. Rod"
 	description:
 		'''
-		Standard 4x4x60 cm copper rod.
+		Standard 60x4x4 cm copper rod.
 		'''
 	
 	tips: []
@@ -29,7 +29,7 @@
 	volume_per_unit: 0.000754
 	
 	quantity_max: 100.000
-	spawn_quantity_threshold: 0.000
+	spawn_quantity_threshold: 0.200
 	snapping: 0.500
 	snapping_pickup: 10.000
 	

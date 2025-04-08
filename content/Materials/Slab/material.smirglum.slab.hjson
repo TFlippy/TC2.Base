@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.3"
 	name: "Smirglum Slab"
 	name_short: "Sg. Slab"
 	description:
@@ -7,6 +7,8 @@
 		Standard 120x60x20 cm smirglum slab.
 		Used in large-scale metal processing.
 		'''
+	
+	tips: []
 	
 	icon:
 	{
@@ -19,24 +21,25 @@
 	flags: hard, long, metal, large, heavy, ingot, solid
 	display_flags: sprite_stack_linear, no_random_facing
 	hints: none
-	bulk_density_ratio_min: 0.000
-	bulk_density_ratio_max: 0.000
-	density_ratio: 0.000
+	
 	porosity: 0.030
 	purity: 0.983
 	mass_per_unit: 4179.393
 	volume_per_unit: 0.144
+	
 	quantity_max: 4.000
+	spawn_quantity_threshold: 0.050
+	snapping: 1.000
+	snapping_pickup: 1.000
+	
 	form_type: slab
 	prefab: resource.smirglum.slab
 	h_substance: smirglum
 	
+	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
 	color_dust: "0xff6c584b"
 	color_gib: "0xff6c584b"
-	color_spark: [0.000, 0.000, 0.000, 0.000]
-	color_flame: [0.000, 0.000, 0.000, 0.000]
-	color_liquid: [0.000, 0.000, 0.000, 0.000]
-	color_smoke: [0.000, 0.000, 0.000, 0.000]
 	
 	colliders:
 	[

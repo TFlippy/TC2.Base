@@ -25,7 +25,7 @@
 	mass_per_unit: 0.360
 	
 	quantity_max: 1000.000
-	spawn_quantity_threshold: 1.800
+	spawn_quantity_threshold: 2.000
 	snapping: 1.000
 	snapping_pickup: 100.000
 	

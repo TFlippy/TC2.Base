@@ -1,11 +1,13 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.3"
 	name: "Aluminium Chunk"
 	name_short: "Al. Chunk"
 	description:
 		'''
 		TODO: Desc
 		'''
+	
+	tips: []
 	
 	icon:
 	{
@@ -18,24 +20,25 @@
 	flags: hard, metal, small, raw, solid, primary
 	display_flags: none
 	hints: materials, advanced, weak, expensive, civilian, military, fast
-	bulk_density_ratio_min: 0.000
-	bulk_density_ratio_max: 0.000
-	density_ratio: 0.000
+	
 	porosity: 0.066
 	purity: 0.897
 	mass_per_unit: 4.033385
 	volume_per_unit: 0.0016
+	
 	quantity_max: 50.000
+	spawn_quantity_threshold: 0.100
+	snapping: 1.000
+	snapping_pickup: 1.000
+	
 	form_type: chunk
 	prefab: resource.aluminium
 	h_substance: aluminium
 	
+	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
 	color_dust: "0xff929894"
 	color_gib: "0xff929894"
-	color_spark: [0.000, 0.000, 0.000, 0.000]
-	color_flame: [0.000, 0.000, 0.000, 0.000]
-	color_liquid: [0.000, 0.000, 0.000, 0.000]
-	color_smoke: [0.000, 0.000, 0.000, 0.000]
 	
 	colliders: []
 }

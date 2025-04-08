@@ -4,7 +4,7 @@
 	name_short: "Gd. Powder"
 	description:
 		'''
-		Standard fine-grained gold powder.
+		Standard fine-grained gold powderswarf.
 		'''
 	
 	tips: []
@@ -27,7 +27,7 @@
 	volume_per_unit: 0.0001
 	
 	quantity_max: 1000.000
-	spawn_quantity_threshold: 0.500
+	spawn_quantity_threshold: 1.000
 	snapping: 1.000
 	snapping_pickup: 100.000
 	

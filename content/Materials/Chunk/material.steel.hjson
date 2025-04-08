@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.3"
 	name: "Steel Chunk"
 	name_short: "St. Chunk"
 	description:
@@ -25,7 +25,11 @@
 	purity: 0.963
 	mass_per_unit: 11.67425
 	volume_per_unit: 0.0016
+	
 	quantity_max: 50.000
+	spawn_quantity_threshold: 0.100
+	snapping: 1.000
+	snapping_pickup: 1.000
 	
 	form_type: chunk
 	prefab: resource.steel
@@ -38,7 +42,6 @@
 	
 	colliders: []
 	
-	// Conversions into other materials.
 	conversions:
 	{
 		sledgehammer:

@@ -28,7 +28,7 @@
 	volume_per_unit: 0.0016
 	
 	quantity_max: 100.000
-	spawn_quantity_threshold: 0.000
+	spawn_quantity_threshold: 0.100
 	snapping: 1.000
 	snapping_pickup: 10.000
 	

@@ -4,7 +4,7 @@
 	name_short: "St. Scrap"
 	description:
 		'''
-		Mostly clean steel scrap.
+		Mostly clean nickelsteel scrap.
 		'''
 	
 	tips: []
@@ -27,7 +27,7 @@
 	volume_per_unit: 0.00043
 	
 	quantity_max: 250.000
-	spawn_quantity_threshold: 2.000
+	spawn_quantity_threshold: 0.550
 	snapping: 1.000
 	snapping_pickup: 1.000
 	
