@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.3"
 	name: "Kordel Denar"
 	name_short: "Đk"
 	description:
@@ -7,6 +7,8 @@
 		Standard Imperial coins.
 		40% Gold, 60% Smirglum.
 		'''
+	
+	tips: []
 	
 	icon:
 	{
@@ -26,11 +28,21 @@
 	flags: hard, magnetic, granular, metal, currency, small, solid, processed
 	display_flags: none
 	hints: none
+	
 	mass_per_unit: 0.015625
+	
 	quantity_max: 5000.000
+	spawn_quantity_threshold: 1.000
+	snapping: 1.000
+	snapping_pickup: 10.000
+	
 	prefab: resource.money
+	h_substance: "null"
 	
 	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
 	
 	colliders: []
 	
