@@ -1,11 +1,13 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.3"
 	name: "Copper Ingot"
 	name_short: "Cop. Ingot"
 	description:
 		'''
 		Standard 20x10x8 cm copper ingot.
 		'''
+	
+	tips: []
 	
 	icon:
 	{
@@ -19,16 +21,23 @@
 	flags: hard, metal, small, ingot, solid
 	display_flags: no_random_facing
 	hints: none
+	
 	porosity: 0.030
 	purity: 0.979
 	mass_per_unit: 13.48874
 	volume_per_unit: 0.0016
+	
 	quantity_max: 100.000
+	spawn_quantity_threshold: 0.000
+	snapping: 1.000
+	snapping_pickup: 10.000
+	
 	form_type: ingot
 	prefab: resource.copper.ingot
 	h_substance: copper
 	
 	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
 	color_dust: "0xffdf873d"
 	color_gib: "0xffdf873d"
 	color_spark: [0.666, 0.775, 0.366, 1.000]
@@ -167,7 +176,6 @@
 		quantity_industry: 0.000
 	}
 	
-	// Conversions into other materials.
 	conversions:
 	{
 		sledgehammer:
@@ -180,7 +188,7 @@
 			
 			h_material_waste: copper
 			spawn_flags_waste: merge
-			product_flags_waste: waste, byproduct, residue
+			product_flags_waste: waste, residue, byproduct
 			ratio_waste: 0.720
 			ratio_waste_extra: 0.210
 			

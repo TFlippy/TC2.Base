@@ -27,9 +27,11 @@
 	purity: 0.985
 	mass_per_unit: 5.843082
 	volume_per_unit: 0.000754
+	
 	quantity_max: 100.000
 	spawn_quantity_threshold: 0.100
 	snapping: 0.500
+	snapping_pickup: 10.000
 	
 	form_type: rod
 	prefab: resource.steel.rod

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.3"
 	name: "Steel Frames"
 	name_short: "St. Frames"
 	description:
@@ -23,9 +23,11 @@
 	
 	purity: 0.953
 	mass_per_unit: 2.500
+	
 	quantity_max: 250.000
 	spawn_quantity_threshold: 0.100
 	snapping: 0.100
+	snapping_pickup: 50.000
 	
 	prefab: resource.steel.frames
 	h_substance: steel

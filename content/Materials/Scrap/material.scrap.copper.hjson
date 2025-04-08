@@ -1,11 +1,13 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.3"
 	name: "Copper Scrap"
 	name_short: "Cop. Scrap"
 	description:
 		'''
 		TODO: Desc
 		'''
+	
+	tips: []
 	
 	icon:
 	{
@@ -18,17 +20,25 @@
 	flags: scrap, granular, metal, waste, flexible, solid, processed
 	display_flags: none
 	hints: materials, junk, construction, cheap
+	
 	porosity: 0.270
 	purity: 0.852
 	mass_per_unit: 2.053157
 	volume_per_unit: 0.00043
+	
 	quantity_max: 250.000
 	spawn_quantity_threshold: 1.000
+	snapping: 1.000
+	snapping_pickup: 1.000
+	
 	form_type: scrap
 	prefab: resource.scrap.copper
 	h_substance: copper
 	
 	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
 	
 	colliders: []
 	

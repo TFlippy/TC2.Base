@@ -1,11 +1,13 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.3"
 	name: "Smirglum Ingot"
 	name_short: "Sg. Ingot"
 	description:
 		'''
 		Standard 20x10x8 cm smirglum ingot.
 		'''
+	
+	tips: []
 	
 	icon:
 	{
@@ -18,24 +20,25 @@
 	flags: hard, magnetic, metal, heavy, small, ingot, solid
 	display_flags: no_random_facing
 	hints: none
-	bulk_density_ratio_min: 0.000
-	bulk_density_ratio_max: 0.000
-	density_ratio: 0.000
+	
 	porosity: 0.030
 	purity: 0.996
 	mass_per_unit: 46.43769
 	volume_per_unit: 0.0016
+	
 	quantity_max: 100.000
+	spawn_quantity_threshold: 0.000
+	snapping: 1.000
+	snapping_pickup: 10.000
+	
 	form_type: ingot
 	prefab: resource.smirglum.ingot
 	h_substance: smirglum
 	
+	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
 	color_dust: "0xff6c584b"
 	color_gib: "0xff6c584b"
-	color_spark: [0.000, 0.000, 0.000, 0.000]
-	color_flame: [0.000, 0.000, 0.000, 0.000]
-	color_liquid: [0.000, 0.000, 0.000, 0.000]
-	color_smoke: [0.000, 0.000, 0.000, 0.000]
 	
 	colliders:
 	[

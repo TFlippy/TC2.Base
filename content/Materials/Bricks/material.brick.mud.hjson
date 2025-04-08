@@ -1,11 +1,13 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.3"
 	name: "Mud Bricks"
 	name_short: "Mudbricks"
 	description:
 		'''
 		TODO: Desc
 		'''
+	
+	tips: []
 	
 	icon:
 	{
@@ -20,8 +22,11 @@
 	hints: none
 	
 	mass_per_unit: 0.660
+	
 	quantity_max: 500.000
 	spawn_quantity_threshold: 1.000
+	snapping: 1.000
+	snapping_pickup: 50.000
 	
 	form_type: brick
 	prefab: resource.brick.mud

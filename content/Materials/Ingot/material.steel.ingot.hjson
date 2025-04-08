@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.3"
 	name: "Steel Ingot"
 	name_short: "St. Ingot"
 	description:
@@ -25,7 +25,11 @@
 	purity: 0.976
 	mass_per_unit: 11.7605
 	volume_per_unit: 0.0016
+	
 	quantity_max: 100.000
+	spawn_quantity_threshold: 0.000
+	snapping: 1.000
+	snapping_pickup: 10.000
 	
 	form_type: ingot
 	prefab: resource.steel.ingot
@@ -130,7 +134,6 @@
 		}
 	]
 	
-	// Conversions into other materials.
 	conversions:
 	{
 		bullet_ac:
