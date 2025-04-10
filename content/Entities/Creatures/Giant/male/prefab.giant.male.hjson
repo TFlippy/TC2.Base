@@ -298,8 +298,8 @@ vehicle:
 		offset_a: [0.250, -0.375]
 		max_force: 70000.000
 		max_torque: 1200000.000
-		max_stress: 1.700
-		stress_threshold: 1.400
+		max_stress: 2.500
+		stress_threshold: 1.250
 		stress_damp: 0.300
 		flags: organic, control_write, force_facing, facing_reset_pos, no_sync
 		material_type: flesh
@@ -515,8 +515,8 @@ vehicle:
 		offset_a: [0.000, 1.125]
 		max_force: 300000.000
 		max_torque: 150000.000
-		max_bias: 0.100
-		stress_threshold: 1.800
+		max_stress: 3.500
+		stress_threshold: 1.250
 		stress_damp: 0.300
 		flags: organic, control_write, force_facing, facing_reset_pos, no_sync
 		material_type: flesh
@@ -736,16 +736,31 @@ vehicle:
 {
 	joint.base:
 	{
-		offset_a: [-0.000, 0.375]
+		offset_a: [0.000, 0.375]
 		max_force: 180000.000
 		max_torque: 40000.000
+		attaching_time_max: 3.000
+		attaching_distance_max: 5.000
 		max_stress: 2.000
-		stress_threshold: 1.000
+		stress_threshold: 1.250
 		stress_damp: 0.500
-		flags: control_write, facing_reset_pos, force_facing
 		z: 45.000
+		flags: control_write, facing_reset_pos, force_facing
 	}
 
+	arm:
+	{
+		radius: 1.000
+		interact_distance: 5.000
+		pickup_distance: 5.000
+		max_pickup_weight: 5000.000
+		
+		aim_torque: 150000.000
+		throw_force: 85000.000
+		
+		flags: none
+	}
+	
 	joint.piston:
 	{
 		error_bias: 0.000
@@ -774,16 +789,6 @@ vehicle:
 	
 	}
 	
-	arm:
-	{
-		flags: no_stress
-		radius: 1.000
-		interact_distance: 3.000
-		pickup_distance: 3.000
-		aim_torque: 150000.000
-		throw_force: 85000.000
-	}
-
 	drag:
 	{
 		max_force: 75000.000
@@ -809,8 +814,8 @@ vehicle:
 		max_torque: 300000.000
 		flags: no_aiming, no_wrap, attachment, use_center_of_gravity, control_read, control_write, facing_reset_pos, force_facing, mirror_x
 		material_type: leather
-		max_stress: 2.000
-		stress_threshold: 2.010
+		max_stress: 2.500
+		stress_threshold: 1.500
 		z: -150.000
 	}
 

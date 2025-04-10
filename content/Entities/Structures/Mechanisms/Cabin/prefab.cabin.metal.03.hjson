@@ -308,7 +308,7 @@ analog.transducer:
 		max_force: 100000.000
 		max_torque: 100000.000
 		max_stress: 3.000
-		stress_threshold: 3.010
+		stress_threshold: 1.500
 		z: -10.000
 		flags: no_aiming, no_wrap, attachment, allow_dragging, control_write, control_read, facing_reset_rot, force_facing, use_proxy_body
 		material_type: metal
@@ -367,7 +367,7 @@ analog.transducer:
 		max_force: 100000.000
 		max_torque: 100000.000
 		max_stress: 3.000
-		stress_threshold: 3.010
+		stress_threshold: 1.500
 		z: -10.000
 		flags: no_aiming, no_wrap, attachment, allow_dragging, control_write, control_read, facing_reset_rot, force_facing, use_proxy_body
 		material_type: metal
@@ -426,7 +426,7 @@ analog.transducer:
 		max_force: 100000.000
 		max_torque: 100000.000
 		max_stress: 3.000
-		stress_threshold: 3.010
+		stress_threshold: 1.500
 		z: -10.000
 		flags: no_aiming, no_wrap, attachment, allow_dragging, control_write, control_read, facing_reset_rot, force_facing, use_proxy_body
 		material_type: metal

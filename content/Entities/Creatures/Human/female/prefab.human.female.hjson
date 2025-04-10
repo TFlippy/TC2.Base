@@ -298,8 +298,8 @@ commandable:
 		offset_a: [0.125, -0.250]
 		max_force: 7200.000
 		max_torque: 1200000.000
-		max_stress: 1.700
-		stress_threshold: 1.400
+		max_stress: 2.000
+		stress_threshold: 1.250
 		stress_damp: 0.300
 		flags: organic, control_write, force_facing, facing_reset_pos, no_sync
 		material_type: flesh
@@ -515,14 +515,14 @@ commandable:
 		offset_a: [0.000, 0.375]
 		max_force: 12000.000
 		max_torque: 4000.000
-		max_stress: 1.500
-		stress_threshold: 1.400
+		max_stress: 3.000
+		stress_threshold: 1.500
 		stress_damp: 0.300
 		flags: organic, control_write, force_facing, facing_reset_pos, no_sync
 		material_type: flesh
 
 		max_displacement: 0.400
-		displacement_stress_modifier: 0.500
+		displacement_stress_modifier: 0.000
 		displacement_force_modifier: 0.500
 		
 		z: -5.000
@@ -700,17 +700,19 @@ commandable:
 		max_force: 3500.000
 		max_torque: 9000.000
 		max_stress: 2.000
-		stress_threshold: 1.000
+		stress_threshold: 1.250
 		stress_damp: 0.500
 		flags: control_write, facing_reset_pos, force_facing
 		z: 45.000
+
+		attaching_distance_max: 3.500
 	}
 	
-	// joint.pivot:
-	// {
-	// 	error_bias: 0.0005
-	// 	max_bias: 8.000
-	// }
+	arm:
+	{
+		aim_torque: 2100.000
+		max_pickup_weight: 120.000
+	}
 
 	joint.piston:
 	{
@@ -738,12 +740,7 @@ commandable:
 	{
 	
 	}
-	
-	arm:
-	{
-		aim_torque: 2100.000
-	}
-	
+		
 	drag:
 	{
 		max_force: 6000.000
@@ -791,8 +788,8 @@ commandable:
 		max_torque: 9000.000
 		flags: no_aiming, no_wrap, attachment, use_center_of_gravity, control_read, control_write, facing_reset_pos, force_facing, no_sync
 		material_type: leather
-		max_stress: 1.300
-		stress_threshold: 1.210
+		max_stress: 2.500
+		stress_threshold: 1.250
 		z: -60.000
 	}
 

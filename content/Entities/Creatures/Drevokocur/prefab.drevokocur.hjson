@@ -336,8 +336,8 @@ faction:
 		torque_modifier: 1.250
 		max_displacement: 0.220
 		displacement_force_modifier: 0.350
-		max_stress: 1.500
-		stress_threshold: 1.450
+		max_stress: 3.000
+		stress_threshold: 1.500
 		z: 15.000
 		material_type: flesh
 		flags: organic, no_wrap, allow_dragging, control_write, facing_reset_pos, force_facing, no_sync
@@ -558,8 +558,8 @@ faction:
 		max_force: 22000.000
 		max_torque: 2000.000
 		torque_modifier: 1.096845
-		max_stress: 2.000
-		stress_threshold: 2.010
+		max_stress: 3.000
+		stress_threshold: 1.500
 		z: 15.000
 		material_type: flesh
 		flags: organic, no_wrap, control_write, facing_reset_pos, force_facing, no_sync

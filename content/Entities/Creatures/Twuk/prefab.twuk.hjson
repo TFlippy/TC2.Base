@@ -255,8 +255,8 @@ faction:
 		offset_a: [0.000, 0.700]
 		max_force: 25000.000
 		max_torque: 4000.000
-		max_stress: 1.500
-		stress_threshold: 1.400
+		max_stress: 3.500
+		stress_threshold: 1.500
 		stress_damp: 0.300
 		flags: organic, no_wrap, control_write, force_facing, facing_reset_pos, no_sync
 		material_type: flesh
@@ -508,8 +508,8 @@ faction:
 		max_force: 27000.000
 		max_torque: 5000.000
 		torque_modifier: 1.250
-		max_stress: 1.500
-		stress_threshold: 1.400
+		max_stress: 2.500
+		stress_threshold: 1.500
 		stress_damp: 0.300
 		z: -10.000
 		material_type: flesh

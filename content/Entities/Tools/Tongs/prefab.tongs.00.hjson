@@ -166,7 +166,7 @@ heat:
 		max_displacement: 0.000
 		displacement_force_modifier: 1.000
 		max_stress: 2.000
-		stress_threshold: 2.100
+		stress_threshold: 1.500
 		material_type: metal
 		flags: control_read, control_write, facing_reset_rot, facing_reset_pos
 	}

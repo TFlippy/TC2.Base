@@ -85,8 +85,8 @@ interactable:
 		max_force: 800000.000
 		max_torque: 800000.000
 
-		max_stress: 2.000
-		stress_threshold: 2.010
+		max_stress: 5.000
+		stress_threshold: 1.500
 
 		flags: none
 		material_type: metal

@@ -163,8 +163,8 @@ axle:
 		offset_a: [3.000, 0.375]
 		max_force: 50000.000
 		max_torque: 50000.000
-		max_stress: 2.000
-		stress_threshold: 2.010
+		max_stress: 4.000
+		stress_threshold: 1.500
 		material_type: metal
 		flags: use_center_of_gravity, align_side
 	}

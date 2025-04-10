@@ -168,7 +168,7 @@ sticky:
 		max_displacement: 0.450
 		displacement_stress_modifier: 0.500
 		displacement_force_modifier: 0.100
-		max_stress: 0.400
+		max_stress: 2.500
 		stress_damp: 0.950
 		material_type: metal
 		flags: no_wrap, attachment, allow_dragging, control_write, facing_reset_pos, force_facing

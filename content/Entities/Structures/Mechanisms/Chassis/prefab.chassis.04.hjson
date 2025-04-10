@@ -419,7 +419,7 @@ axle:
 		max_force: 850000.000
 		max_torque: 150000.000
 		max_stress: 3.000
-		stress_threshold: 3.010
+		stress_threshold: 1.500
 		stress_damp: 0.500
 		z: -100.000
 		material_type: metal
@@ -471,7 +471,7 @@ axle:
 		max_force: 850000.000
 		max_torque: 150000.000
 		max_stress: 3.000
-		stress_threshold: 3.010
+		stress_threshold: 1.500
 		stress_damp: 0.500
 		z: -100.000
 		material_type: metal

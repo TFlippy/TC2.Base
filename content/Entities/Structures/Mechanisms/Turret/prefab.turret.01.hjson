@@ -157,7 +157,7 @@ vehicle:
 
 		max_stress_modifier: 1.000
 		max_stress: 3.000
-		stress_threshold: 3.010
+		stress_threshold: 1.500
 		stress_damp: 0.200
 
 		z: 25.000

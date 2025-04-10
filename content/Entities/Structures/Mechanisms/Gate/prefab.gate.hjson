@@ -138,8 +138,8 @@ rope.renderer:
 		offset_b: [0.000, -3.000]
 		max_force: 50000.000
 		max_torque: 50000.000
-		max_stress: 3.000
-		stress_threshold: 3.100
+		max_stress: 4.000
+		stress_threshold: 1.500
 		flags: control_read, control_write
 		material_type: metal
 	}

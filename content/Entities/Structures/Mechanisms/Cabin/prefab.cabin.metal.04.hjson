@@ -177,7 +177,7 @@ mount:
 		max_force: 100000.000
 		max_torque: 8000.000
 		max_stress: 3.000
-		stress_threshold: 3.010
+		stress_threshold: 1.500
 		flags: attachment, allow_dragging, control_write, facing_reset_rot, facing_reset_pos, force_facing
 		z: 75.000
 		material_type: metal
@@ -270,7 +270,7 @@ mount:
 		max_force: 100000.000
 		max_torque: 8000.000
 		max_stress: 3.000
-		stress_threshold: 3.010
+		stress_threshold: 1.500
 		flags: attachment, allow_dragging, control_write, facing_reset_rot, facing_reset_pos, force_facing
 		z: 50.000
 		material_type: metal

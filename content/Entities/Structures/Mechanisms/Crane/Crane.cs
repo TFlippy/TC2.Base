@@ -248,7 +248,7 @@
 				//				}
 				//#endif
 
-				var parity = transform.scale.GetParity();
+				//var parity = transform.scale.GetParity();
 
 				crane_state.rotation_a = transform_parent.WorldToLocalRotation(crane_state.angle_a, scale: true, normalize: false); // transform_parent.WorldToLocalRotation(crane_state.angle_a, rotation: false, scale: true, normalize: false);
 				//crane_state.rotation_b = transform.WorldToLocalRotation(crane_state.angle_b, rotation: false, scale: true, normalize: false);

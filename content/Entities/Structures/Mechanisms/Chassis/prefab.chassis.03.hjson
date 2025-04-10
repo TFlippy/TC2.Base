@@ -220,7 +220,7 @@ axle:
 		z: -60.000
 
 		max_stress: 3.000
-		stress_threshold: 3.010
+		stress_threshold: 1.500
 		material_type: metal
 	}
 
@@ -274,7 +274,7 @@ axle:
 		z: -60.000
 
 		max_stress: 3.000
-		stress_threshold: 3.010
+		stress_threshold: 1.500
 		material_type: metal
 	}
 
@@ -387,7 +387,7 @@ axle:
 		z: -60.000
 
 		max_stress: 3.000
-		stress_threshold: 3.010
+		stress_threshold: 1.500
 		material_type: metal
 	}
 
@@ -429,7 +429,7 @@ axle:
 		z: -60.000
 
 		max_stress: 3.000
-		stress_threshold: 3.010
+		stress_threshold: 1.500
 		material_type: metal
 	}
 

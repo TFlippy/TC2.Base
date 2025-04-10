@@ -153,8 +153,8 @@ vehicle:
 		offset_a: [0.000, 0.000]
 		max_force: 750000.000
 		max_torque: 500000.000
-		max_stress: 2.000
-		stress_threshold: 2.010
+		max_stress: 1.500
+		stress_threshold: 2.000
 		flags: control_write, no_wrap, force_facing
 		material_type: metal
 		

@@ -215,7 +215,7 @@ axle:
 		max_displacement: 0.750
 		displacement_stress_modifier: 0.350
 		displacement_force_modifier: 0.000
-		max_stress: 1.500
+		max_stress: 2.500
 		stress_threshold: 1.600
 		material_type: metal
 
@@ -274,7 +274,7 @@ axle:
 		max_displacement: 0.750
 		displacement_stress_modifier: 0.350
 		displacement_force_modifier: 0.000
-		max_stress: 1.500
+		max_stress: 2.500
 		stress_threshold: 1.600
 		material_type: metal
 

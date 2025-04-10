@@ -60,7 +60,7 @@ vehicle:
 		max_force: 1000000.000
 		max_torque: 1000000.000
 		max_stress: 3.000
-		stress_threshold: 3.010
+		stress_threshold: 1.500
 		z: -50.000
 		material_type: metal
 		flags: attachment, allow_dragging
