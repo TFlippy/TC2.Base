@@ -2,6 +2,12 @@ $tags: []
 
 body:
 {
+	type: dynamic
+	flags: none
+	
+	fall_damage_multiplier: 0.650
+	buoyancy: 0.700
+
 	@shape.polygon:
 	{
 		mass: 1.000
@@ -53,7 +59,7 @@ norotate:
 
 health:
 {
-	max: 10000.000
+	max: 25000.000
 }
 
 breakable:

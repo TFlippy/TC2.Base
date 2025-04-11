@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.3"
 	name: "Machining"
 	name_short: "Machining"
 	desc:
@@ -15,8 +15,8 @@
 	}
 	
 	flags: none
-	tags: manual, skilled, machine, tools, dangerous, technical, construction, industrial, wip
-	cooldown: 0.500
+	tags: manual, skilled, machine, tools, technical, construction, industrial, dangerous, wip
+	cooldown: 1.000
 	multiplier: 1.000
 	color: "0xffff6200"
 	
@@ -26,8 +26,8 @@
 	machinery_required: lathe
 	machinery_optional: grinder, heater
 	
-	equipment_required: table, vise
-	equipment_optional: anvil, table, chair, vise
+	infrastructure_required: none
+	infrastructure_optional: none
 	
 	character_traits:
 	{

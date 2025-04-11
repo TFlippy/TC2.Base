@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.3"
 	name: "Chiseling"
 	name_short: "Chiseling"
 	desc:
@@ -15,8 +15,8 @@
 	}
 	
 	flags: none
-	tags: manual, tools, simple, careful, construction, wip
-	cooldown: 0.500
+	tags: manual, tools, simple, construction, careful, wip
+	cooldown: 1.000
 	multiplier: 1.000
 	color: "0xffaeb59a"
 	
@@ -26,8 +26,8 @@
 	machinery_required: none
 	machinery_optional: none
 	
-	equipment_required: none
-	equipment_optional: none
+	infrastructure_required: none
+	infrastructure_optional: none
 	
 	character_traits:
 	{

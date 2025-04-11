@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.3"
 	name: "Soaking"
 	name_short: "Soaking"
 	desc:
@@ -16,7 +16,7 @@
 	
 	flags: none
 	tags: manual, machine, automated, simple, chemical, wip
-	cooldown: 0.500
+	cooldown: 1.000
 	multiplier: 1.000
 	color: "0xff5469ff"
 	
@@ -26,8 +26,8 @@
 	machinery_required: none
 	machinery_optional: none
 	
-	equipment_required: none
-	equipment_optional: none
+	infrastructure_required: none
+	infrastructure_optional: none
 	
 	filter_environment:
 	{

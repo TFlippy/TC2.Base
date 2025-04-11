@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.3"
 	name: "Casting"
 	name_short: "Casting"
 	desc:
@@ -15,8 +15,8 @@
 	}
 	
 	flags: none
-	tags: dangerous, simple, industrial, passive
-	cooldown: 0.500
+	tags: simple, industrial, passive, dangerous
+	cooldown: 1.000
 	multiplier: 1.000
 	color: "0xffef3500"
 	
@@ -26,8 +26,8 @@
 	machinery_required: none
 	machinery_optional: none
 	
-	equipment_required: casting_mould
-	equipment_optional: none
+	infrastructure_required: none
+	infrastructure_optional: none
 	
 	filter_environment:
 	{

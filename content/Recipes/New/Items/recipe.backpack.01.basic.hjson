@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.3"
 	name: "Rucksack"
 	tips:
 	[
@@ -16,6 +16,7 @@
 			
 			type: part
 			flags: wip, incomplete, auto_generated
+			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: slash
 			
@@ -25,7 +26,7 @@
 			options:
 			[
 				{
-					name: "<TODO>"
+					name: "Standard"
 					
 					type: undefined
 					flags: wip, incomplete, auto_generated
@@ -34,19 +35,10 @@
 					[
 						{
 							type: resource
-							material: cloth
-							amount: 0.3726
-							snapping: 0.500
-							loss: 0.024
-							group: 0
-							flags: prerequisite
-						}
-						{
-							type: resource
 							material: leather
-							amount: 3.3641
+							amount: 3.966488
 							snapping: 0.500
-							loss: 0.024
+							loss: 0.075
 							group: 0
 							flags: prerequisite
 						}
@@ -59,12 +51,12 @@
 							snapping: 5.000
 							falloff: 0.880
 							group: 0
-							flags: conditional, add_amount_min
+							flags: conditional
 						}
 						{
 							type: resource
 							material: glue
-							amount: 0.305836
+							amount: 0.365768
 							snapping: 0.500
 							falloff: 0.910
 							loss: 0.024
@@ -80,7 +72,7 @@
 							snapping: 5.000
 							falloff: 0.830
 							group: 1
-							flags: conditional, add_amount_min
+							flags: conditional
 						}
 						{
 							type: work
@@ -91,9 +83,12 @@
 							snapping: 5.000
 							falloff: 0.900
 							group: 2
-							flags: conditional, add_amount_min
+							flags: conditional
 						}
 					]
+					
+					quality: 1.000
+					precision: 1.000
 					
 					filter_tools:
 					{
@@ -102,11 +97,11 @@
 					}
 					filter_infrastructure:
 					{
-						require: table
-						include: table, chair, vise, rack
+						include: table
 					}
 					filter_environment:
 					{
+						include: clean, organized
 						exclude: wet
 					}
 				}
@@ -117,6 +112,7 @@
 			
 			type: part
 			flags: wip, incomplete, auto_generated
+			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: slash
 			
@@ -126,7 +122,7 @@
 			options:
 			[
 				{
-					name: "<TODO>"
+					name: "Standard"
 					
 					type: undefined
 					flags: wip, incomplete, auto_generated
@@ -160,18 +156,17 @@
 							snapping: 5.000
 							falloff: 0.800
 							group: 0
-							flags: conditional, add_amount_min
+							flags: conditional
 						}
 					]
+					
+					quality: 1.000
+					precision: 1.000
 					
 					filter_tools:
 					{
 						require: knife, needle
 						include: cutters, tweezers, stapler, knife, needle, pins
-					}
-					filter_infrastructure:
-					{
-						include: table, chair
 					}
 				}
 			]

@@ -80,6 +80,7 @@ holdable:
 	torque_multiplier: 0.050
 	stress_multiplier: 0.150
 	radius: 0.000
+	priority: -3.000
 	flags: disable_parent_facing, disable_rotation, disable_control
 }
 
@@ -98,13 +99,14 @@ norotate:
 	speed: 2.000
 	multiplier: 3.000
 	mass_multiplier: 5.000
+	attached_multiplier: 0.500
 	flags: no_share
 }
 
 interactable:
 {
 	flags: no_tab
-	priority: 1.500
+	priority: 1.000
 	window_size: [680.000, 564.000]
 	window_size_misc: [120.000, 0.000]
 }

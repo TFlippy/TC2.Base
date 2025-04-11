@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.3"
 	name: "Planks (Back)"
 	desc:
 		'''
@@ -49,7 +49,7 @@
 		type: line
 		flags: continuous, no_snapping, align_background
 		
-		size: [0.750, 0.750]
+		size: [0.500, 0.500]
 		
 		cooldown: 0.400
 		min_support: 0.035
