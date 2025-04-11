@@ -160,7 +160,7 @@
 	products: []
 	
 	type: workshop
-	flags: no_amount_multiplier, upgrade, auto_complete
+	flags: no_amount_multiplier, auto_complete
 	tags: casting
 	
 	icon:

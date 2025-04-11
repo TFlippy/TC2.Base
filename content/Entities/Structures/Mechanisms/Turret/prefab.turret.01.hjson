@@ -12,8 +12,8 @@ body:
 		a: [-0.250, 0.000]
 		b: [0.375, 0.000]
 		radius: 1.250
-		mass: 310.000
-		friction: 0.700
+		mass: 230.000
+		friction: 0.500
 		elasticity: 0.600
 		material: machine
 		layer: entity, solid
@@ -32,12 +32,12 @@ transform:
 
 health:
 {
-	max: 27000.000
+	max: 45000.000
 }
 
 armor:
 {
-	toughness: 900.000
+	toughness: 700.000
 	protection: 0.800
 	
 	knockback_modifier: 1.300
@@ -112,7 +112,6 @@ storage:
 {
 	@inventory1:
 	{
-		name: "Ammo"
 		stack_size_multiplier: 8.000
 		type: ammo
 		flags: standalone, allow_ducts, ignore_mass, faction
@@ -155,10 +154,9 @@ vehicle:
 		max_force: 650000.000
 		max_torque: 900000.000
 
-		max_stress_modifier: 1.000
 		max_stress: 3.000
-		stress_threshold: 1.500
-		stress_damp: 0.200
+		stress_threshold: 1.700
+		stress_damp: 0.400
 
 		z: 25.000
 		flags: no_aiming, attachment, allow_dragging, control_write, facing_reset_rot, facing_reset_pos, force_facing, no_sync

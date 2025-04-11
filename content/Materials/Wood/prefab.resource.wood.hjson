@@ -37,9 +37,11 @@ resource:
 
 holdable:
 {
+	force_multiplier: 2.000
+	stress_multiplier: 0.800
 	radius: 0.000
 	hints: materials, construction
-	flags: disable_parent_facing, disable_rotation, disable_control, full_rotate
+	flags: disable_rotation, disable_control, full_rotate, force_edge_pickup
 }
 
 norotate:

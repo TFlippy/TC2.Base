@@ -137,12 +137,12 @@ storage:
 	}
 
 	@inventory16:
-	{
+	{		
 		type: storage
-		flags: public, no_auto_pickup
+		flags: ignore_mass, public, no_auto_pickup
 		stack_size_multiplier: 4.000
 		
-		offset: [0.000, 0.000]
+		offset: [1.000, 1.500]
 	}
 }
 

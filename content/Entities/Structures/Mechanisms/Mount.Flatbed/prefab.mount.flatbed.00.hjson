@@ -111,7 +111,7 @@ storage:
 
 +mount|instance:
 {
-	joint_base:
+	joint.base:
 	{
 		offset_a: [0.000, -0.375]
 		rotation_origin: -1.571

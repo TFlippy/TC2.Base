@@ -168,6 +168,7 @@
 		//	}
 		//}
 
+		[Shitcode]
 		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateA(ISystem.Info info, Entity entity, [Source.Owned] in Control.Data control,
 		[Source.Owned] in Transform.Data transform, [Source.Parent] in Transform.Data transform_parent,
