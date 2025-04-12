@@ -1,0 +1,155 @@
+$name: "Tub"
+$desc:
+	'''
+	TODO: Desc
+	'''
+$tags: []
+
+body:
+{
+	type: static
+
+	@shape.polygon:
+	{
+		points:
+		[
+			[-1.125, 0.000]
+			[1.125, 0.000]
+			[1.000, 1.000]
+			[-1.000, 1.000]
+		]
+		
+		mass: 80.000
+		radius: 0.250
+		friction: 0.850
+		elasticity: 0.400
+		
+		material: wood
+		miss_chance: 0.000
+		
+		layer: entity, solid, building, crafter, ignore_melee, ignore_bullet
+		mask: world, building
+		exclude: none
+	}
+}
+
+health:
+{
+	max: 9500.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "tub.00"
+		size: [24, 24]
+		frame: [0, 0]
+	}
+	z: -66.400
+}
+
+transform:
+{
+
+}
+
+shop:
+{
+	tags_filter:
+	{
+		require: manual
+		include: crude, simple, drying
+		exclude: workbench, advanced, assembling, machining, metalworking, salvaging, smelting
+	}
+	
+	tools: none
+	infrastructure: table, shaping_mould
+	machinery: none
+	environment: container, mobile, dirty, ugly, flammable
+	
+	menu_columns: 3
+	recipe_type: workshop
+	flags: hidden_if_order
+	
+	name: "Tub"
+}
+
+// crafter:
+// {
+// 	infrastructure: rack
+// 	environment: contaminated, ugly
+// }
+
+// crafter.state:
+// {
+// 	@inventory4:
+// 	{
+// 		stack_size_multiplier: 1.000
+// 		type: input
+// 		flags: standalone, no_auto_pickup
+// 		offset: [0.000, -0.125]
+// 	}
+// }
+
+workshop:
+{
+	flags: hidden_if_no_orders, add_order_mass
+	
+	tools: none
+	infrastructure: table, shaping_mould
+	machinery: none
+	environment: container, mobile, dirty, ugly, sturdy, flammable, large
+	
+	orders_capacity: 1
+}
+
+shipment:
+{	
+	flags: keep_items, allow_deposit, use_misc, no_empty_deposit
+	layout: square
+}
+
+interactable:
+{
+	flags: none
+	priority: 2.000
+	window_size: [576.000, 472.000]
+	window_size_misc: [72.000, 0.000]
+}
+
+// animated.renderer|"work":
+// {
+// 	sprite:
+// 	{
+// 		texture: form.fill.atlas.00
+// 		mask: form.fill.atlas.00
+// 		count: 4
+// 		size: [32, 8]
+// 	}
+// 	offset: [0.000, -0.750]
+// 	z: -75.000
+// }
+
+// fillable:
+// {
+// 	flags: use_misc
+// 	form_type: ingot
+// 	max_tilt: 0.980
+// 	capacity: 32.000
+// 	h_sound_dump: hatch.open.00
+// 	offset_drop: [-0.250, -1.000]
+// 	tilt_ratio: 0.000001
+
+// 	// @animated.renderer:
+// 	// {
+// 	// 	sprite:
+// 	// 	{
+// 	// 		texture: form.fill.atlas.00
+// 	// 		mask: form.fill.atlas.00
+// 	// 		size: [32, 8]
+// 	// 	}
+// 	// 	offset: [0.000, -0.750]
+// 	// 	z: -110.000
+// 	// }
+// }
