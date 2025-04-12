@@ -1,0 +1,96 @@
+﻿{
+	$version: "0.1.62.3"
+	name: "Felt Cloth"
+	desc:
+		'''
+		One of the worst-feeling materials in the universe, can be manufactured with relative ease.
+		'''
+	tips: []
+	
+	stages:
+	[
+		{
+			name: "Base Formula"
+			
+			type: ingredients
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 1.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "TODO"
+					
+					type: undefined
+					flags: none
+					
+					products:
+					[
+						{
+							type: resource
+							material: glue
+							amount: 11.0197
+							amount_extra: 1.380282
+							group: 0
+							flags: primary, compact
+						}
+					]
+					
+					filter_tools:
+					{
+						include: bucket, spatula
+					}
+					filter_environment:
+					{
+						include: stationary, quiet
+					}
+				}
+			]
+		}
+	]
+	
+	type: workshop
+	flags: production, wip, disabled
+	tags: workbench, manual, dumb, crude, simple, small, blending, messy
+	infrastructure: table, surface
+	
+	h_company: common
+	
+	icon:
+	{
+		texture: resource.cloth
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	icon_offset: [0.000, 2.000]
+	
+	icon_extra:
+	{
+		size: [16, 16]
+		frame: [1, 0]
+	}
+	icon_extra_offset: [-20.000, -6.000]
+	
+	icon_c:
+	{
+		texture: ui_icons_widget
+		size: [16, 16]
+		frame: [0, 15]
+	}
+	icon_c_offset: [2.000, -15.000]
+	
+	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
+	rank: -20.000
+	
+	min: 1
+	max: 10
+	step: 1
+	
+	version: 1
+}
