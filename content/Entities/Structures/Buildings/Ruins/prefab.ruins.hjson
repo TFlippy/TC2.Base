@@ -61,9 +61,18 @@ nameable:
 	type: location
 }
 
-spawn:
+stockpile:
 {
-	flags: public
+	request_types: pack, unpack, move, send, load
+	flags: hide_unowned
+	grid_column_count: 4
+	capacity_items: 4
+	capacity_shipments: 4
+}
+
+claimable:
+{
+	flags: no_menu
 }
 
 minimap.marker:
@@ -81,8 +90,29 @@ minimap.marker:
 interactable:
 {
 	flags: no_tab
-	window_size: [496.000, 422.000]
+	window_size: [600.000, 420.000]
 	window_size_misc: [172.000, 0.000]
+}
+
+spawn:
+{
+	spawn_offset: [0.000, 1.000]
+	flags: public
+}
+
+checkpoint:
+{
+
+}
+
+address:
+{
+	flags: auto_generate
+}
+
+entrance.linkable:
+{
+	
 }
 
 dormitory:
@@ -103,83 +133,3 @@ dormitory:
 		weight: 1.000
 	}
 }
-
-address:
-{
-	flags: auto_generate
-}
-
-entrance.linkable:
-{
-	
-}
-
-// claimable:
-// {
-// 	// flags: no_menu
-// 	requirements:
-// 	[
-// 		{
-// 			type: money
-// 			amount: 500.000
-// 		}
-// 	]
-// }
-
-// dormitory:
-// {
-// 	species: "human"
-// 	flags: no_hiring, no_kit_selection, no_kit_requirements, region_only
-// 	asset_flags: recycle
-// 	max_kits: 2
-// 	kit_default: "default.ruins"
-// 	characters_capacity: 4
-// 	characters_initial_count: 0
-
-// 	repopulate_interval: 600.000
-// 	repopulate_interval_extra: 400.000
-// 	repopulate_num: 1
-// 	repopulate_num_extra: 3
-
-// 	character_flags_filter: 
-// 	{
-// 		require: nomad
-// 		include: farmer, laborer, armed, hunter, nomad, commerce, poor, miner, alcoholic, insane, lower_class
-// 		exclude: none
-// 		weight: 2.000
-// 	}
-// }
-
-// dormitory:
-// {
-// 	species: "human"
-// 	flags: no_repopulate, no_kit_selection, no_kit_requirements
-// 	asset_flags: recycle
-// 	max_kits: 2
-// 	kit_default: "null"
-// 	characters_capacity: 4
-// 	characters_initial_count: 0
-
-// 	repopulate_interval: 600.000
-// 	repopulate_interval_extra: 400.000
-// 	repopulate_num: 1
-// 	repopulate_num_extra: 3
-
-// 	character_flags_filter: 
-// 	{
-// 		require: nomad
-// 		include: farmer, laborer, armed, hunter, nomad, commerce, poor, miner, alcoholic, insane, lower_class
-// 		exclude: none
-// 		weight: 2.000
-// 	}
-// }
-
-// checkpoint:
-// {
-
-// }
-
-// entrance:
-// {
-// 	flags: force_spawn
-// }

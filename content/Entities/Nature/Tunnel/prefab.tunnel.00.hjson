@@ -70,11 +70,6 @@ claimable:
 	flags: no_menu
 }
 
-spawn:
-{
-	flags: public
-}
-
 minimap.marker:
 {
 	sprite:
@@ -91,9 +86,29 @@ interactable:
 {
 	flags: no_tab
 	priority: 0.500
-	window_size: [600.000, 402.000]
+	window_size: [600.000, 420.000]
 	// window_size_misc: [216.000, 0.000]
 	window_size_misc: [172.000, 0.000]
+}
+
+spawn:
+{
+	flags: public
+}
+
+checkpoint:
+{
+
+}
+
+address:
+{
+	flags: auto_generate
+}
+
+entrance.linkable:
+{
+	
 }
 
 dormitory:
@@ -113,14 +128,4 @@ dormitory:
 		exclude: nobility, upper_class, elite_class
 		weight: 1.000
 	}
-}
-
-address:
-{
-	flags: auto_generate
-}
-
-entrance.linkable:
-{
-	
 }
