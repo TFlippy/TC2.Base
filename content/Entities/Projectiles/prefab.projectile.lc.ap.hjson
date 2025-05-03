@@ -19,8 +19,8 @@ projectile:
 projectile.renderer:
 {	
 	intensity: 1.600
-	thickness_a: 0.050
-	thickness_b: 0.100
+	thickness_a: 0.020
+	thickness_b: 0.075
 }
 
 transform:

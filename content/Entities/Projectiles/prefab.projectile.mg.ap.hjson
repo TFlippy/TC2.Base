@@ -2,10 +2,10 @@ $tags: []
 
 projectile:
 {
-	damage_base: 750.000
-	damage_bonus: 1800.000
-	terrain_damage_mult: 3.500
-	armor_pierce: 800.000
+	damage_base: 350.000
+	damage_bonus: 800.000
+	terrain_damage_mult: 1.300
+	armor_pierce: 600.000
 	knockback_multiplier: 22.000
 	lifetime: 4.000
 	damage_type: bullet_mg

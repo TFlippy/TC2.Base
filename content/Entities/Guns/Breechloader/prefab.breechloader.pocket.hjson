@@ -9,15 +9,21 @@ body:
 {
 	@shape.line:
 	{
-		a: [-0.400, 0.000]
-		b: [0.400, -0.200]
+		a: [-0.375, 0.125]
+		b: [0.250, 0.000]
+		offset: [0.000, 0.000]
+		
 		mass: 3.250
 		radius: 0.250
 		friction: 0.900
 		elasticity: 0.250
+		
 		material: tool
-		layer: entity, solid, ignore_bullet, ignore_melee, item
+		miss_chance: 0.000
+		
+		layer: entity, solid, item, ignore_melee, ignore_bullet
 		mask: world
+		exclude: none
 	}
 }
 
@@ -26,18 +32,13 @@ gun:
 	muzzle_offset: [0.375, 0.000]
 	receiver_offset: [-0.250, 0.000]
 	
-	particle_offset: [0.000, 0.000]
-	
 	eject_direction: [30.000, -3.000]
 	eject_angular_velocity: 25.000
-	particle_rotation: 0.000
-	flash_size: 1.000
 	
 	smoke_size: 4.000
 	smoke_amount: 4.000
 	
 	shake_amount: 0.300
-	shake_radius: 16.000
 	
 	sound_volume: 1.900
 	sound_size: 1.500
@@ -47,26 +48,20 @@ gun:
 	sound_shoot: breechloader.pocket.shoot
 	sound_cycle: breechloader.pocket.cycle
 	sound_reload: revolver_reload
-	sound_empty: missing
-	sound_eject: missing
-	sound_jam: metal.hit.sharp.03
+	sound_jam: metal.hit.dense.weak.01
 	
 	damage_multiplier: 1.600
 	velocity_multiplier: 160.000
 	jitter_multiplier: 8.000
-	recoil_multiplier: 1.700
+	recoil_multiplier: 1.900
 	velocity_max: 160.000
-	reload_interval: 1.200
-	cycle_interval: 0.500
+	reload_interval: 0.400
+	cycle_interval: 0.200
 	stability: 1840.000
-	failure_rate: 0.041
+	failure_rate: 0.071
 	
 	ammo_filter: ammo_lc, ammo_hc, ammo_musket
-	ammo_per_shot: 1.000
 	max_ammo: 1.000
-	barrel_count: 1
-	projectile_count: 1
-	burst_count: 1
 	
 	action: manual
 	type: handgun

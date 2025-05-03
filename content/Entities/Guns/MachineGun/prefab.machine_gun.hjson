@@ -36,7 +36,7 @@ gun:
 	sound_reload: "machine_gun_reload"
 	velocity_multiplier: 850.000
 	jitter_multiplier: 0.800
-	damage_multiplier: 3.700
+	damage_multiplier: 3.400
 	recoil_multiplier: 1.150
 	reload_interval: 2.500
 	cycle_interval: 0.085
