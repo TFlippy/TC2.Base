@@ -1,0 +1,51 @@
+$tags: []
+
+body:
+{
+	@shape.circle:
+	{
+		offset: [0.000, 0.250]
+		mass: 1.000
+		radius: 0.750
+		friction: 0.850
+		elasticity: 0.200
+		material: glass
+		layer: entity, solid, resource, ignore_melee, ignore_bullet
+		mask: world
+	}
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "resource.oil"
+		count: 4
+		size: [16, 16]
+	}
+}
+
+transform:
+{
+
+}
+
+resource:
+{
+	material: "oil"
+}
+
+holdable:
+{
+	offset: [0.000, 0.750]
+}
+
+norotate:
+{
+	flags: disable_in_air, align_to_surface
+	speed: 3.000
+	bias: 0.010
+	min_surface_dot: 0.800
+	
+	mass_multiplier: 50.000
+}
