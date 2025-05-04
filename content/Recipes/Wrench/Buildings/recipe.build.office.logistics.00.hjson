@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.5"
 	name: "Logistics Office"
 	desc:
 		'''
@@ -14,6 +14,7 @@
 			
 			type: foundation
 			flags: wip
+			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: shovel
 			
@@ -209,6 +210,7 @@
 			
 			type: infrastructure
 			flags: wip
+			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: axe
 			
@@ -280,7 +282,7 @@
 	
 	type: buildings
 	flags: no_amount_multiplier, blueprintable, disabled, construction, building, ignore_tools, ignore_equipment, ignore_machinery, ignore_environment, wip, auto_complete
-	tags: huge, construction
+	tags: simple, large, architecture, construction
 	infrastructure: none
 	
 	icon:

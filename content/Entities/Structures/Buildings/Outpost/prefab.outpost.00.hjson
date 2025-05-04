@@ -213,13 +213,13 @@ shop:
 	}
 	
 	tools: pencil, paper, ruler, hammer, screwdriver, magnifying_glass, bucket, towel, knife, needle, pins, scissors
-	infrastructure: dishes, table, chair, bed, surface
+	infrastructure: dishes, table, chair, bed, stationery, surface
 	machinery: none
-	environment: office, stationary, cozy, flammable, kitchen
+	environment: office, stationary, cozy, flammable
 	
+	flags: none
 	menu_columns: 4
 	recipe_type: workshop
-	flags: none
 	
 	name: "Outpost"
 }
@@ -233,7 +233,7 @@ crafter:
 {
 	flags: no_gui
 	tools: pencil, paper, ruler, hammer, screwdriver, bucket, knife
-	infrastructure: table, chair, bed
+	infrastructure: dishes, table, chair, bed, surface
 	environment: indoor, workshop, office, stationary
 	temperature_max: 493.150
 }

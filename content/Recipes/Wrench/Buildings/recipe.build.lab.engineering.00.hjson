@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.5"
 	name: "Engineering Laboratory"
 	tips: []
 	
@@ -10,6 +10,7 @@
 			
 			type: foundation
 			flags: wip
+			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: shovel
 			
@@ -31,7 +32,7 @@
 							material: gravel
 							amount: 1060.000
 							snapping: 0.500
-							loss: 0.031
+							loss: 0.024
 							group: 0
 							flags: compact, primary
 						}
@@ -213,6 +214,7 @@
 			
 			type: infrastructure
 			flags: wip
+			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: axe
 			
@@ -274,6 +276,7 @@
 			
 			type: appliances
 			flags: wip
+			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
 			
@@ -337,7 +340,7 @@
 	
 	type: buildings
 	flags: no_amount_multiplier, blueprintable, construction, building, ignore_tools, ignore_equipment, ignore_machinery, ignore_environment, wip, auto_complete
-	tags: huge, woodworking, metalworking, stoneworking, engineering, carpentry, construction
+	tags: simple, huge, architecture, construction
 	infrastructure: none
 	
 	icon:

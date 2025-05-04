@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.5"
 	name: "Storage"
 	tips: []
 	
@@ -10,6 +10,7 @@
 			
 			type: foundation
 			flags: wip
+			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: shovel
 			
@@ -30,7 +31,7 @@
 							type: resource
 							material: gravel
 							amount: 740.000
-							loss: 0.031
+							loss: 0.024
 							group: 0
 							flags: compact, primary
 						}
@@ -209,6 +210,7 @@
 			
 			type: infrastructure
 			flags: wip
+			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: axe
 			
@@ -280,7 +282,7 @@
 	
 	type: buildings
 	flags: no_amount_multiplier, blueprintable, construction, building, ignore_tools, ignore_equipment, ignore_machinery, ignore_environment, wip, auto_complete
-	tags: large, construction
+	tags: simple, large, architecture, construction
 	infrastructure: none
 	
 	icon:
