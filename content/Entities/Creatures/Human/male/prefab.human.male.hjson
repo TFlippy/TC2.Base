@@ -172,9 +172,9 @@ facing:
 
 interactable:
 {
-	flags: no_tab
+	flags: centered_inventory
 	priority: -4.000
-	window_size: [192.000, 296.000]
+	window_size: [208.000, 288.000]
 	window_size_misc: [120.000, 0.000]
 }
 
@@ -240,7 +240,7 @@ ai.gunner:
 	cover_distance_offset: 4.000
 
 	attack_cooldown: 1.000
-	attack_burst_time: 2.000
+	attack_burst_time: 1.700
 }
 
 ai.gunner.state:
@@ -359,7 +359,7 @@ commandable:
 		
 		body:
 		{
-			fall_damage_multiplier: 3.500
+			fall_damage_multiplier: 3.300
 			buoyancy: 0.550
 
 			@shape.circle:
@@ -467,9 +467,11 @@ commandable:
 		
 		head:
 		{
-			air_capacity: 0.550
+			air_capacity: 0.620
 			air_usage: 0.080
+			
 			offset_mouth: [0.300, 0.350]
+
 			frame_pain: 1
 			frame_dead: 2
 		}

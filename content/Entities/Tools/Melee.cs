@@ -134,15 +134,16 @@ namespace TC2.Base.Components
 		public partial struct State(): IComponent
 		{
 			[Flags]
-			public enum Flags: byte
+			public enum Flags: uint
 			{
 				None = 0,
 
 				Hitting = 1 << 0,
 			}
 
-			[Asset.Ignore, Save.Ignore] public Vector2 last_hit_dir;
-			[Asset.Ignore, Save.Ignore] public Melee.State.Flags flags;
+			[Save.Ignore, Asset.Ignore] public Vector2 last_hit_dir;
+			[Save.Ignore, Asset.Ignore] public Melee.State.Flags flags;
+			[Save.Ignore, Asset.Ignore] public int hit_counter;
 
 			[Save.Ignore, Net.Ignore] public float next_hit;
 			[Save.Ignore, Net.Ignore] public float last_hit;
@@ -1057,8 +1058,9 @@ namespace TC2.Base.Components
 		{
 			//var max = Maths.Min(0.20f, melee.cooldown * 0.50f);
 
-			var delta = info.WorldTime - melee_state.last_hit;
-			if (delta <= 0.03f)
+			//var delta = info.WorldTime - melee_state.last_hit;
+			//if (delta <= 0.02f)
+			if (melee_state.hit_counter >= 0)
 			{
 				//var t = Maths.EaseInOut(Maths.NormalizeClamp(info.WorldTime - melee_state.last_hit, max).Inv01(), Maths.Easing.Bounce) - 0.50f;
 
@@ -1068,8 +1070,9 @@ namespace TC2.Base.Components
 				//body.AddForceLocal(melee.hit_direction * melee.knockback, melee.hit_offset);
 
 				//body.AddForceWorld(dir * body.GetMass() * App.tickrate * 25.00f * t, transform.LocalToWorld(melee.swing_offset));
-				body.AddForce(melee_state.last_hit_dir * melee.knockback.Abs() * 2.00f); //,  * body.GetMass() * App.tickrate * 25.00f * t, transform.LocalToWorld(melee.swing_offset));
-
+				body.AddForce(melee_state.last_hit_dir * melee.knockback.Abs()); //,  * body.GetMass() * App.tickrate * 25.00f * t, transform.LocalToWorld(melee.swing_offset));
+				melee_state.hit_counter--; // TODO: shithack
+				
 				//App.WriteLine(t);
 			}
 		}
@@ -1093,6 +1096,8 @@ namespace TC2.Base.Components
 				{
 					melee_state.last_hit_dir = (control.mouse.position - transform.position).GetNormalized();
 				}
+
+				melee_state.hit_counter = 2;
 				melee_state.Sync(entity, true);
 			}
 #endif
@@ -1123,8 +1128,8 @@ namespace TC2.Base.Components
 				//dir = (control.mouse.position - transform.position).GetNormalized();
 
 				var dir = melee_state.last_hit_dir;
-				var pos_target = melee.flags.HasAny(Melee.Flags.Use_Aim_Direction) ? 
-					pos + (dir * melee.max_distance) : 
+				var pos_target = melee.flags.HasAny(Melee.Flags.Use_Aim_Direction) ?
+					pos + (dir * melee.max_distance) :
 					Maths.ClampRadius(control.mouse.position, pos, melee.max_distance); //  pos + (dir * len);
 
 				var len = Vector2.Distance(pos, pos_target);

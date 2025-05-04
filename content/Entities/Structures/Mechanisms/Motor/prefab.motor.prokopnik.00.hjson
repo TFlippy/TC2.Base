@@ -180,7 +180,7 @@ essence.container:
 
 	@inventory1:
 	{
-		stack_size_multiplier: 0.100
+		stack_size_multiplier: 0.400
 		filter_flags: essence
 		type: essence
 		flags: standalone, ignore_mass

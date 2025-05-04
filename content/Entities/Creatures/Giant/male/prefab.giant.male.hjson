@@ -840,7 +840,7 @@ vehicle:
 		flags_editable: use_center_of_gravity, locked, disabled, keyboard_read, keyboard_write, mouse_read, mouse_write, manual_aim, loose, offset, rotation
 		name: "Back"
 		identifier: "back"
-		gui_size: [192.000, 160.000]
+		gui_size: [168.000, 120.000]
 	}
 }
 

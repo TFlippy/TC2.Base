@@ -244,8 +244,7 @@ laboratory:
 	augments_capacity: 8
 	filter_tags:
 	{
-		require: manual
-		include: workbench, simple, gathering
-		exclude: passive, large, vehicle, blacksmithing, machining, casting, smelting, fermenting
+		include: construction, architecture
+		exclude: complex, advanced, vehicle, machinery, blacksmithing, smelting, melting, casting, processing
 	}
 }

@@ -172,9 +172,9 @@ facing:
 
 interactable:
 {
-	flags: no_tab
+	flags: centered_inventory
 	priority: -4.000
-	window_size: [192.000, 296.000]
+	window_size: [208.000, 288.000]
 	window_size_misc: [120.000, 0.000]
 }
 
@@ -222,7 +222,7 @@ ai.movement:
 ai.behavior:
 {
 	movement_flags: hold, open_doors
-	combat_flags: attack_visible, attack_when_hit, cover, flee, defend
+	combat_flags: attack_visible, attack_when_hit, cover, flee, defend, evade
 }
 
 ai.search:
@@ -233,14 +233,14 @@ ai.search:
 ai.gunner:
 {
 	aim_min_dot: 0.994
-	aim_speed_mult: 2.500
-	aim_time_mult: 0.950
+	aim_speed_mult: 2.000
+	aim_time_mult: 1.150
 
 	attack_distance: 24.000
 	cover_distance_offset: 7.000
 
 	attack_cooldown: 0.600
-	attack_burst_time: 0.800
+	attack_burst_time: 0.500
 }
 
 ai.gunner.state:
@@ -266,7 +266,7 @@ npc.emotions:
 	courage: 0.500
 	cruelty: 0.600
 	irritability: 0.400
-	apathy: 0.600
+	apathy: 0.460
 }
 
 npc.emotions.state:
@@ -359,7 +359,7 @@ commandable:
 			
 		body:
 		{
-			fall_damage_multiplier: 3.500
+			fall_damage_multiplier: 3.800
 			buoyancy: 0.560
 
 			@shape.circle:
@@ -573,7 +573,7 @@ commandable:
 		
 		body:
 		{
-			fall_damage_multiplier: 1.200
+			fall_damage_multiplier: 1.000
 			buoyancy: 0.300
 
 			@shape.circle:

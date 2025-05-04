@@ -125,7 +125,7 @@ animal.state:
 npc:
 {
 	avoid_distance_base: [1.000, 1.000]
-	idle_distance_base: [1.000, 3.000]
+	idle_distance_base: [1.200, 3.000]
 	
 	wander_radius: 16.000
 	wander_interval: 2.000
@@ -199,7 +199,7 @@ twuk:
 norotate:
 {
 	bias: 0.100
-	multiplier: 1.000
+	multiplier: 5.000
 	mass_multiplier: 25.000
 }
 
@@ -322,8 +322,9 @@ faction:
 		{
 			bias: 0.0001
 			speed: 8.000
-			multiplier: 40.000
+			multiplier: 50.000
 			mass_multiplier: 300.000
+			flags: no_share
 		}
 				
 		organic:
@@ -420,7 +421,7 @@ faction:
 
 		climber:
 		{
-			max_speed: [3.000, 1.000]
+			max_speed: [3.000, 2.000]
 			climb_speed: 35.000
 			climb_force: 10000.000
 			// cling_force: 8000.000

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.3"
+	$version: "0.1.62.5"
 	name: "Magitronic Actuators"
 	name_short: "Actuators"
 	description:
@@ -39,43 +39,4 @@
 	color_gib: "0xffffffff"
 	
 	colliders: []
-	
-	commodity:
-	{
-		availability: 0.110
-		rarity: 2.250
-		scalability: 3.660
-		reusability: 2.260
-		longevity: 1.340
-		complexity: 6.210
-		tech: 4.900
-		liquidity: 0.840
-		demand: 1.740
-		
-		flags: marketable
-		categories: machinery, components, artificial, arcane, technology, tools, luxury, consumer, industrial, military, toys
-		
-		industries_produce: manufacturing, high_tech, arcane, research, engineering, experimental, luxury, jewelry
-		industries_consume: financial, telecommunications, mining, manufacturing, high_tech, metallurgy, chemical, automotive, power, military, entertainment, arcane, construction, logistics, research, education, munitions, engineering, weapons, experimental, aviation, naval, furniture, architecture, luxury, jewelry
-		industries_buy: none
-		industries_sell: none
-		
-		buildings_produce: factory, manufactory, laboratory, university, essenceworks
-		buildings_consume: warehouse, factory, office, airport, trainyard, power_plant, docks, lighthouse, theatre, constabulary, manufactory, refinery, mine, laboratory, university, school, subway, train_station, black_market, metalworks, phlogiston, circus, essenceworks, steel_mill, transmitter
-		buildings_buy: none
-		buildings_sell: none
-		
-		categories_produce: military, imperial, industrial, commercial, urban, governmental, magitech, wealthy, advanced, secure, fortified, innovative, powerful, modern, mechanized
-		categories_consume: military, imperial, industrial, commercial, residential, urban, administrative, governmental, magitech, frontier, wealthy, advanced, developing, secure, fortified, innovative, powerful, modern, mechanized
-		categories_buy: none
-		categories_sell: none
-		
-		market_price: 120.000
-		market_price_min: 0.000
-		market_price_max: 0.000
-		
-		quantity_retail: 0.000
-		quantity_wholesale: 0.000
-		quantity_industry: 0.000
-	}
 }

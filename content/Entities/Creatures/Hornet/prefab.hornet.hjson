@@ -15,7 +15,7 @@ body:
 		mass: 3.500
 		radius: 0.700
 		friction: 0.300
-		elasticity: 0.990
+		elasticity: 0.890
 		rigidity_dynamic: 0.400
 		material: insect
 		layer: entity, solid, creature, flammable

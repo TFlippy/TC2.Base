@@ -43,7 +43,7 @@ gun:
 	sound_size: 4.000
 	sound_dist_multiplier: 2.700
 	
-	sound_shoot: autocannon_shoot
+	sound_shoot: tank_gun.shoot.00
 	sound_reload: cannon_reload
 	sound_jam: hatch.open.00
 	
