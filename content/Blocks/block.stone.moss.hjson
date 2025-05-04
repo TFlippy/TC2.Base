@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.5"
 	name: "Mossy Stone"
 	desc:
 		'''
@@ -24,9 +24,9 @@
 	
 	texture: terrain.stone.moss
 	pattern: pattern.stone.moss
-	texture_scale: 1.980
-	texture_overshoot: -0.750
-	texture_offset: 0.000
+	texture_scale: 1.700
+	texture_overshoot: -1.550
+	texture_offset: -0.125
 	
 	color_preview: "0xff80775f"
 	color_fill: "0xff140e08"

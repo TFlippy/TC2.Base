@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.5"
 	name: "Concrete (Mossy)"
 	desc:
 		'''
@@ -18,7 +18,7 @@
 	
 	mass: 2.700
 	friction: 0.850
-	elasticity: 0.490
+	elasticity: 0.190
 	collision_layer: none
 	collision_mask: none
 	
