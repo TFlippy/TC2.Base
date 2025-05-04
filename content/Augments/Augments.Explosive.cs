@@ -130,7 +130,7 @@ namespace TC2.Base
 						}
 					}
 					
-					context.requirements_new.Merge(Crafting.Requirement.Resource("soil", amount_total));				
+					context.requirements_new.Merge(Crafting.Requirement.Resource("soil", amount_total).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));				
 				}
 			));
 
@@ -159,7 +159,6 @@ namespace TC2.Base
 					GUI.SameLine();
 					dirty |= GUI.SliderIntLerp("Amount", ref modifier, 1, 20, size: GUI.Rm);
 
-
 					return dirty;
 				},
 #endif
@@ -181,7 +180,7 @@ namespace TC2.Base
 							essence_container.available = amount * Essence.essence_per_pellet;
 						}
 
-						context.requirements_new.Merge(Crafting.Requirement.Resource(essence_data.h_material_pellet, amount));
+						context.requirements_new.Merge(Crafting.Requirement.Resource(essence_data.h_material_pellet, amount).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 					}
 				}
 			));
@@ -223,7 +222,7 @@ namespace TC2.Base
 						}
 					}
 					
-					context.requirements_new.Merge(Crafting.Requirement.Resource("sulfur", amount_total));				
+					context.requirements_new.Merge(Crafting.Requirement.Resource("sulfur", amount_total).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));				
 				}
 			));
 		}

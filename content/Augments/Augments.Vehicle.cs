@@ -71,8 +71,8 @@ namespace TC2.Base
 
 				apply_1: static (ref Augment.Context context, ref Mount.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					context.requirements_new.Merge(Crafting.Requirement.Resource("computer", 1.00f));
-					context.requirements_new.Merge(Crafting.Requirement.Resource("machine_parts", 15.00f));
+					context.requirements_new.Merge(Crafting.Requirement.Resource("computer", 1.00f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
+					context.requirements_new.Merge(Crafting.Requirement.Resource("machine_parts", 15.00f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 					context.requirements_new.Merge(Crafting.Requirement.Work("assembling", 500, 20));
 				}
 			));

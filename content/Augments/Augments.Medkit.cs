@@ -97,7 +97,7 @@ namespace TC2.Base
 					}
 
 					var total_amount = 0.25f + ingot_amount;
-					context.requirements_new.Merge(Crafting.Requirement.Resource("silver.ingot", total_amount));
+					context.requirements_new.Merge(Crafting.Requirement.Resource("silver.ingot", total_amount).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 				}
 			));
 
@@ -187,7 +187,7 @@ namespace TC2.Base
 				apply_1: static (ref Augment.Context context, ref Medkit.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					data.pain -= 200.00f;
-					context.requirements_new.Merge(Crafting.Requirement.Resource("red_sugar", 10));
+					context.requirements_new.Merge(Crafting.Requirement.Resource("red_sugar", 10).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 				}
 			));
 		}

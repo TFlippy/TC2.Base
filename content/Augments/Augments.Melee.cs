@@ -163,7 +163,7 @@ namespace TC2.Base
 
 				apply_1: static (ref Augment.Context context, ref Melee.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					context.requirements_new.Merge(Crafting.Requirement.Resource("steel.ingot", 0.25f));
+					context.requirements_new.Merge(Crafting.Requirement.Resource("steel.ingot", 0.25f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 				}
 			));
 

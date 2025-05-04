@@ -42,8 +42,8 @@ namespace TC2.Base
 						//}
 					}
 
-					context.requirements_new.Merge(Crafting.Requirement.Resource("machine_parts", 15.00f));
-					context.requirements_new.Merge(Crafting.Requirement.Resource("lubricant", 10.00f));
+					context.requirements_new.Merge(Crafting.Requirement.Resource("machine_parts", 15.00f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
+					context.requirements_new.Merge(Crafting.Requirement.Resource("lubricant", 10.00f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 				}
 			));
 
@@ -126,7 +126,7 @@ namespace TC2.Base
 					}
 
 					var amount = 2.00f;
-					context.requirements_new.Merge(Crafting.Requirement.Resource("smirglum.ingot", amount));
+					context.requirements_new.Merge(Crafting.Requirement.Resource("smirglum.ingot", amount).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 
 					ref var body = ref context.GetComponent<Body.Data>();
 					if (!body.IsNull())

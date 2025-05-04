@@ -64,7 +64,7 @@ namespace TC2.Base
 				apply_1: static (ref Augment.Context context, ref Health.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var pair = ref handle.GetData<(int amount, float threshold)>();
-					context.requirements_new.Merge(Crafting.Requirement.Resource("nitroglycerine", pair.amount));
+					context.requirements_new.Merge(Crafting.Requirement.Resource("nitroglycerine", pair.amount).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 				}
 			));
 
@@ -91,7 +91,7 @@ namespace TC2.Base
 
 				apply_1: static (ref Augment.Context context, ref Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					context.requirements_new.Merge(Crafting.Requirement.Resource("mushroom.green", 3.00f));
+					context.requirements_new.Merge(Crafting.Requirement.Resource("mushroom.green", 3.00f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 				}
 			));
 
@@ -123,7 +123,7 @@ namespace TC2.Base
 					}
 
 					var total_amount = 3.00f + (amount * 0.10f);
-					context.requirements_new.Merge(Crafting.Requirement.Resource("resin", total_amount));
+					context.requirements_new.Merge(Crafting.Requirement.Resource("resin", total_amount).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 
 					data.max += total_amount * 85.00f;
 
@@ -212,7 +212,7 @@ namespace TC2.Base
 				apply_0: static (ref Augment.Context context, ref Fuse.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					data.failure_chance = 0.00f;
-					context.requirements_new.Merge(Crafting.Requirement.Resource("mushroom.green", 4.00f));
+					context.requirements_new.Merge(Crafting.Requirement.Resource("mushroom.green", 4.00f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 				}
 			));
 
@@ -279,7 +279,7 @@ namespace TC2.Base
 					ref var modifier = ref handle.GetModifier();
 					var amount = Maths.LerpInt(1, 200, modifier);
 
-					context.requirements_new.Merge(Crafting.Requirement.Resource("water", amount));
+					context.requirements_new.Merge(Crafting.Requirement.Resource("water", amount).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 
 					ref var body = ref context.GetComponent<Body.Data>();
 					if (!body.IsNull())
@@ -408,37 +408,37 @@ namespace TC2.Base
 					{
 						case 0:
 						{
-							context.requirements_new.Merge(Crafting.Requirement.Resource("steel.plate", 0.25f), ref added_mass);
+							context.requirements_new.Merge(Crafting.Requirement.Resource("steel.plate", 0.25f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact), ref added_mass);
 						}
 						break;
 
 						case 1:
 						{
-							context.requirements_new.Merge(Crafting.Requirement.Resource("steel.plate", 0.50f), ref added_mass);
+							context.requirements_new.Merge(Crafting.Requirement.Resource("steel.plate", 0.50f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact), ref added_mass);
 						}
 						break;
 
 						case 2:
 						{
-							context.requirements_new.Merge(Crafting.Requirement.Resource("steel.plate", 1.00f), ref added_mass);
+							context.requirements_new.Merge(Crafting.Requirement.Resource("steel.plate", 1.00f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact), ref added_mass);
 						}
 						break;
 
 						case 3:
 						{
-							context.requirements_new.Merge(Crafting.Requirement.Resource("steel.plate", 3.00f), ref added_mass);
+							context.requirements_new.Merge(Crafting.Requirement.Resource("steel.plate", 3.00f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact), ref added_mass);
 						}
 						break;
 
 						case 4:
 						{
-							context.requirements_new.Merge(Crafting.Requirement.Resource("steel.plate", 6.00f), ref added_mass);
+							context.requirements_new.Merge(Crafting.Requirement.Resource("steel.plate", 6.00f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact), ref added_mass);
 						}
 						break;
 
 						case 5:
 						{
-							context.requirements_new.Merge(Crafting.Requirement.Resource("steel.plate", 10.00f), ref added_mass);
+							context.requirements_new.Merge(Crafting.Requirement.Resource("steel.plate", 10.00f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact), ref added_mass);
 						}
 						break;
 					}
@@ -486,8 +486,8 @@ namespace TC2.Base
 					}
 
 					amount = MathF.Ceiling(amount);
-					context.requirements_new.Merge(Crafting.Requirement.Resource("smirglum.ingot", amount));
-					context.requirements_new.Merge(Crafting.Requirement.Resource("mushroom.green", 20.00f));
+					context.requirements_new.Merge(Crafting.Requirement.Resource("smirglum.ingot", amount).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
+					context.requirements_new.Merge(Crafting.Requirement.Resource("mushroom.green", 20.00f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 
 					ref var body = ref context.GetComponent<Body.Data>();
 					if (!body.IsNull())
@@ -526,11 +526,11 @@ namespace TC2.Base
 
 				apply_1: static (ref Augment.Context context, ref Control.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					context.requirements_new.Merge(Crafting.Requirement.Resource("actuator", 1.00f)); // High cost
+					context.requirements_new.Merge(Crafting.Requirement.Resource("actuator", 1.00f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact)); // High cost
 
 					if (!context.GetComponent<Melee.Data>().IsNull())
 					{
-						context.requirements_new.Merge(Crafting.Requirement.Resource("actuator", 1.00f)); // Even higher cost on melee weapons
+						context.requirements_new.Merge(Crafting.Requirement.Resource("actuator", 1.00f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact)); // Even higher cost on melee weapons
 					}
 				}
 			));
@@ -793,7 +793,7 @@ namespace TC2.Base
 							}
 						}
 
-						context.requirements_new.Merge(Crafting.Requirement.Resource(material_scrap_id, total_mass / material_scrap.mass_per_unit));
+						context.requirements_new.Merge(Crafting.Requirement.Resource(material_scrap_id, total_mass / material_scrap.mass_per_unit).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 					}
 				}
 			));
@@ -1228,7 +1228,7 @@ namespace TC2.Base
 
 				apply_1: static (ref Augment.Context context, ref Equipment.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					context.requirements_new.Merge(Crafting.Requirement.Resource("tar", 15.00f));
+					context.requirements_new.Merge(Crafting.Requirement.Resource("tar", 15.00f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 				}
 			));
 
@@ -1256,7 +1256,7 @@ namespace TC2.Base
 
 				apply_1: static (ref Augment.Context context, ref Equipment.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					context.requirements_new.Merge(Crafting.Requirement.Resource("cloth", 5.00f));
+					context.requirements_new.Merge(Crafting.Requirement.Resource("cloth", 5.00f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 				}
 			));
 
@@ -1284,7 +1284,7 @@ namespace TC2.Base
 
 				apply_1: static (ref Augment.Context context, ref Equipment.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					context.requirements_new.Merge(Crafting.Requirement.Resource("mushroom", 20.00f));
+					context.requirements_new.Merge(Crafting.Requirement.Resource("mushroom", 20.00f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 				}
 			));
 
@@ -1376,7 +1376,7 @@ namespace TC2.Base
 					ref var material = ref IMaterial.Database.GetData("alcohol", out var material_id);
 					if (material.IsNotNull())
 					{
-						context.requirements_new.Merge(Crafting.Requirement.Resource(material_id, amount * 0.001f / material.mass_per_unit));
+						context.requirements_new.Merge(Crafting.Requirement.Resource(material_id, amount * 0.001f / material.mass_per_unit).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 					}
 				}
 			));
@@ -1424,7 +1424,7 @@ namespace TC2.Base
 					ref var material = ref IMaterial.Database.GetData("meth", out var material_id);
 					if (material.IsNotNull())
 					{
-						context.requirements_new.Merge(Crafting.Requirement.Resource(material_id, amount * 0.001f / material.mass_per_unit));
+						context.requirements_new.Merge(Crafting.Requirement.Resource(material_id, amount * 0.001f / material.mass_per_unit).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 					}
 				}
 			));
@@ -1520,7 +1520,7 @@ namespace TC2.Base
 					ref var material = ref IMaterial.Database.GetData("morphine", out var material_id);
 					if (material.IsNotNull())
 					{
-						context.requirements_new.Merge(Crafting.Requirement.Resource(material_id, amount * 0.001f / material.mass_per_unit));
+						context.requirements_new.Merge(Crafting.Requirement.Resource(material_id, amount * 0.001f / material.mass_per_unit).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 					}
 				}
 			));
@@ -1568,7 +1568,7 @@ namespace TC2.Base
 					ref var material = ref IMaterial.Database.GetData("codeine", out var material_id);
 					if (material.IsNotNull())
 					{
-						context.requirements_new.Merge(Crafting.Requirement.Resource(material_id, amount * 0.001f / material.mass_per_unit));
+						context.requirements_new.Merge(Crafting.Requirement.Resource(material_id, amount * 0.001f / material.mass_per_unit).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 					}
 				}
 			));
@@ -1616,7 +1616,7 @@ namespace TC2.Base
 					ref var material = ref IMaterial.Database.GetData("paxilon", out var material_id);
 					if (material.IsNotNull())
 					{
-						context.requirements_new.Merge(Crafting.Requirement.Resource(material_id, amount * 0.001f / material.mass_per_unit));
+						context.requirements_new.Merge(Crafting.Requirement.Resource(material_id, amount * 0.001f / material.mass_per_unit).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 					}
 				}
 			));
@@ -1700,7 +1700,7 @@ namespace TC2.Base
 
 				apply_1: static (ref Augment.Context context, ref Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					context.requirements_new.Merge(Crafting.Requirement.Resource("rubber", 1.00f));
+					context.requirements_new.Merge(Crafting.Requirement.Resource("rubber", 1.00f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 				}
 			));
 
@@ -1765,7 +1765,7 @@ namespace TC2.Base
 
 				apply_1: static (ref Augment.Context context, ref Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					context.requirements_new.Merge(Crafting.Requirement.Resource("machine_parts", 8.00f));
+					context.requirements_new.Merge(Crafting.Requirement.Resource("machine_parts", 8.00f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 				}
 			));
 
@@ -1788,7 +1788,7 @@ namespace TC2.Base
 
 				apply_1: static (ref Augment.Context context, ref LandMine.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					context.requirements_new.Merge(Crafting.Requirement.Resource("paper", 1));
+					context.requirements_new.Merge(Crafting.Requirement.Resource("paper", 1).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 				}
 			));
 
@@ -1995,7 +1995,7 @@ namespace TC2.Base
 					ref var material = ref h_material.GetData();
 					if (material.IsNotNull())
 					{
-						context.requirements_new.Merge(Crafting.Requirement.Resource(h_material, mass / material.mass_per_unit));
+						context.requirements_new.Merge(Crafting.Requirement.Resource(h_material, mass / material.mass_per_unit).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 					}
 
 					context.mass_new += mass;
@@ -2302,7 +2302,7 @@ namespace TC2.Base
 					ref var material = ref h_material.GetData();
 					if (material.IsNotNull())
 					{
-						context.requirements_new.Merge(Crafting.Requirement.Resource(h_material, mass / material.mass_per_unit));
+						context.requirements_new.Merge(Crafting.Requirement.Resource(h_material, mass / material.mass_per_unit).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 					}
 
 					context.mass_new += mass;
@@ -2588,7 +2588,7 @@ namespace TC2.Base
 					ref var material_scrap = ref IMaterial.Database.GetData("scrap.ferrous", out var material_scrap_id);
 					if (material_scrap.IsNotNull())
 					{
-						context.requirements_new.Merge(Crafting.Requirement.Resource(material_scrap_id, mass / material_scrap.mass_per_unit));
+						context.requirements_new.Merge(Crafting.Requirement.Resource(material_scrap_id, mass / material_scrap.mass_per_unit).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 
 						for (var i = 0; i < context.requirements_new.Length; i++)
 						{
@@ -2911,7 +2911,7 @@ namespace TC2.Base
 							}
 						}
 
-						context.requirements_new.Merge(Crafting.Requirement.Resource(material_scrap_id, Maths.Max(total_mass, 5.00f) / material_scrap.mass_per_unit));
+						context.requirements_new.Merge(Crafting.Requirement.Resource(material_scrap_id, Maths.Max(total_mass, 5.00f) / material_scrap.mass_per_unit).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 					}
 				}
 			));
@@ -3196,9 +3196,9 @@ namespace TC2.Base
 					ref var material = ref h_material.GetData();
 					if (material.IsNotNull())
 					{
-						context.requirements_new.Merge(Crafting.Requirement.Resource(h_material, mass / material.mass_per_unit));
+						context.requirements_new.Merge(Crafting.Requirement.Resource(h_material, mass / material.mass_per_unit).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 					}
-					context.requirements_new.Merge(Crafting.Requirement.Resource("phlogiston", 1));
+					context.requirements_new.Merge(Crafting.Requirement.Resource("phlogiston", 1).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 
 					context.mass_new += mass;
 				}
@@ -3484,9 +3484,9 @@ namespace TC2.Base
 					ref var material = ref h_material.GetData();
 					if (material.IsNotNull())
 					{
-						context.requirements_new.Merge(Crafting.Requirement.Resource(h_material, mass / material.mass_per_unit));
+						context.requirements_new.Merge(Crafting.Requirement.Resource(h_material, mass / material.mass_per_unit).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 					}
-					context.requirements_new.Merge(Crafting.Requirement.Resource("phlogiston", 4));
+					context.requirements_new.Merge(Crafting.Requirement.Resource("phlogiston", 4).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 
 					//App.WriteLine(mass);
 					context.mass_new += mass;

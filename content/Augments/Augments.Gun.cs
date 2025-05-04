@@ -149,7 +149,7 @@ namespace TC2.Base
 								ref var material = ref requirement.material.GetData();
 								if (material.IsNotNull() && !material.flags.HasAll(Material.Flags.Manufactured) && material.type == Material.Type.Metal)
 								{
-									context.requirements_new.Merge(Crafting.Requirement.Resource(requirement.material, requirement.amount * 0.40f * amount));
+									context.requirements_new.Merge(Crafting.Requirement.Resource(requirement.material, requirement.amount * 0.40f * amount).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 								}
 							}
 							break;
@@ -630,7 +630,7 @@ namespace TC2.Base
 						}
 					}
 
-					context.requirements_new.Merge(Crafting.Requirement.Resource("lubricant", 5.00f));
+					context.requirements_new.Merge(Crafting.Requirement.Resource("lubricant", 5.00f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 				}
 			));
 
@@ -1283,11 +1283,11 @@ namespace TC2.Base
 							{
 								if (material.flags.HasAll(Material.Flags.Manufactured))
 								{
-									context.requirements_new.Merge(Crafting.Requirement.Resource(requirement.material, requirement.amount * 0.20f));
+									context.requirements_new.Merge(Crafting.Requirement.Resource(requirement.material, requirement.amount * 0.20f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 								}
 								else if (material.flags.HasAll(Material.Flags.Metal))
 								{
-									context.requirements_new.Merge(Crafting.Requirement.Resource(requirement.material, requirement.amount * 0.25f));
+									context.requirements_new.Merge(Crafting.Requirement.Resource(requirement.material, requirement.amount * 0.25f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 								}
 							}
 						}
@@ -1444,7 +1444,7 @@ namespace TC2.Base
 						}
 					}
 
-					context.requirements_new.Merge(Crafting.Requirement.Resource("phlogiston", 3.00f));
+					context.requirements_new.Merge(Crafting.Requirement.Resource("phlogiston", 3.00f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 				}
 			));
 
@@ -1534,7 +1534,7 @@ namespace TC2.Base
 							ref var material = ref requirement.material.GetData();
 							if (material.IsNotNull() && material.flags.HasAll(Material.Flags.Manufactured))
 							{
-								context.requirements_new.Merge(Crafting.Requirement.Resource(requirement.material, requirement.amount * 0.40f));
+								context.requirements_new.Merge(Crafting.Requirement.Resource(requirement.material, requirement.amount * 0.40f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 							}
 						}
 						else if (requirement.type == Crafting.Requirement.Type.Work)
@@ -2321,7 +2321,7 @@ namespace TC2.Base
 						}
 					}
 
-					context.requirements_new.Merge(Crafting.Requirement.Resource("lubricant", 5.00f));
+					context.requirements_new.Merge(Crafting.Requirement.Resource("lubricant", 5.00f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 				}
 			));
 
@@ -2848,7 +2848,7 @@ namespace TC2.Base
 							ref var material = ref requirement.material.GetData();
 							if (material.IsNotNull() && material.flags.HasAll(Material.Flags.Metal))
 							{
-								context.requirements_new.Merge(Crafting.Requirement.Resource(requirement.material, requirement.amount * 0.40f * barrel_count_inv));
+								context.requirements_new.Merge(Crafting.Requirement.Resource(requirement.material, requirement.amount * 0.40f * barrel_count_inv).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 							}
 						}
 						else if (requirement.type == Crafting.Requirement.Type.Work)
@@ -3114,7 +3114,7 @@ namespace TC2.Base
 
 				apply_1: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					context.requirements_new.Merge(Crafting.Requirement.Resource("steel.ingot", 0.25f));
+					context.requirements_new.Merge(Crafting.Requirement.Resource("steel.ingot", 0.25f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 					context.requirements_new.Merge(Crafting.Requirement.Work("assembling", 150.00f, 10));
 				}
 			));
@@ -3309,37 +3309,37 @@ namespace TC2.Base
 
 					if (data.ammo_filter.HasAll(Material.Flags.Ammo_HW))
 					{
-						context.requirements_new.Merge(Crafting.Requirement.Resource("actuator", 10.00f), ref extra_mass);
-						context.requirements_new.Merge(Crafting.Requirement.Resource("steel.ingot", 20.00f), ref extra_mass);
-						context.requirements_new.Merge(Crafting.Requirement.Resource("machine_parts", 25.00f), ref extra_mass);
+						context.requirements_new.Merge(Crafting.Requirement.Resource("actuator", 10.00f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact), ref extra_mass);
+						context.requirements_new.Merge(Crafting.Requirement.Resource("steel.ingot", 20.00f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact), ref extra_mass);
+						context.requirements_new.Merge(Crafting.Requirement.Resource("machine_parts", 25.00f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact), ref extra_mass);
 						context.requirements_new.Merge(Crafting.Requirement.Work("assembling", 500.00f, 20));
 					}
 					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_AC))
 					{
-						context.requirements_new.Merge(Crafting.Requirement.Resource("actuator", 5.00f), ref extra_mass);
-						context.requirements_new.Merge(Crafting.Requirement.Resource("steel.ingot", 7.00f), ref extra_mass);
-						context.requirements_new.Merge(Crafting.Requirement.Resource("machine_parts", 15.00f), ref extra_mass);
+						context.requirements_new.Merge(Crafting.Requirement.Resource("actuator", 5.00f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact), ref extra_mass);
+						context.requirements_new.Merge(Crafting.Requirement.Resource("steel.ingot", 7.00f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact), ref extra_mass);
+						context.requirements_new.Merge(Crafting.Requirement.Resource("machine_parts", 15.00f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact), ref extra_mass);
 						context.requirements_new.Merge(Crafting.Requirement.Work("assembling", 250.00f, 20));
 					}
 					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_KN))
 					{
-						context.requirements_new.Merge(Crafting.Requirement.Resource("actuator", 1.00f), ref extra_mass);
-						context.requirements_new.Merge(Crafting.Requirement.Resource("steel.ingot", 3.00f), ref extra_mass);
-						context.requirements_new.Merge(Crafting.Requirement.Resource("machine_parts", 17.00f), ref extra_mass);
+						context.requirements_new.Merge(Crafting.Requirement.Resource("actuator", 1.00f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact), ref extra_mass);
+						context.requirements_new.Merge(Crafting.Requirement.Resource("steel.ingot", 3.00f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact), ref extra_mass);
+						context.requirements_new.Merge(Crafting.Requirement.Resource("machine_parts", 17.00f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact), ref extra_mass);
 						context.requirements_new.Merge(Crafting.Requirement.Work("assembling", 100.00f, 10));
 					}
 					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_MG))
 					{
-						context.requirements_new.Merge(Crafting.Requirement.Resource("actuator", 4.00f), ref extra_mass);
-						context.requirements_new.Merge(Crafting.Requirement.Resource("steel.ingot", 2.00f), ref extra_mass);
-						context.requirements_new.Merge(Crafting.Requirement.Resource("machine_parts", 13.00f), ref extra_mass);
+						context.requirements_new.Merge(Crafting.Requirement.Resource("actuator", 4.00f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact), ref extra_mass);
+						context.requirements_new.Merge(Crafting.Requirement.Resource("steel.ingot", 2.00f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact), ref extra_mass);
+						context.requirements_new.Merge(Crafting.Requirement.Resource("machine_parts", 13.00f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact), ref extra_mass);
 						context.requirements_new.Merge(Crafting.Requirement.Work("assembling", 200.00f, 20));
 					}
 					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_SG))
 					{
-						context.requirements_new.Merge(Crafting.Requirement.Resource("actuator", 2.00f), ref extra_mass);
-						context.requirements_new.Merge(Crafting.Requirement.Resource("steel.ingot", 1.50f), ref extra_mass);
-						context.requirements_new.Merge(Crafting.Requirement.Resource("machine_parts", 12.00f), ref extra_mass);
+						context.requirements_new.Merge(Crafting.Requirement.Resource("actuator", 2.00f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact), ref extra_mass);
+						context.requirements_new.Merge(Crafting.Requirement.Resource("steel.ingot", 1.50f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact), ref extra_mass);
+						context.requirements_new.Merge(Crafting.Requirement.Resource("machine_parts", 12.00f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact), ref extra_mass);
 						context.requirements_new.Merge(Crafting.Requirement.Work("assembling", 100.00f, 20));
 					}
 					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_HC))
@@ -3348,18 +3348,18 @@ namespace TC2.Base
 						{
 							case 0:
 							{
-								context.requirements_new.Merge(Crafting.Requirement.Resource("actuator", 1.00f), ref extra_mass);
-								context.requirements_new.Merge(Crafting.Requirement.Resource("steel.ingot", 0.25f), ref extra_mass);
-								context.requirements_new.Merge(Crafting.Requirement.Resource("machine_parts", 5.00f), ref extra_mass);
+								context.requirements_new.Merge(Crafting.Requirement.Resource("actuator", 1.00f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact), ref extra_mass);
+								context.requirements_new.Merge(Crafting.Requirement.Resource("steel.ingot", 0.25f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact), ref extra_mass);
+								context.requirements_new.Merge(Crafting.Requirement.Resource("machine_parts", 5.00f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact), ref extra_mass);
 								context.requirements_new.Merge(Crafting.Requirement.Work("assembling", 350.00f, 20));
 							}
 							break;
 
 							default:
 							{
-								context.requirements_new.Merge(Crafting.Requirement.Resource("actuator", 2.00f), ref extra_mass);
-								context.requirements_new.Merge(Crafting.Requirement.Resource("steel.ingot", 1.00f), ref extra_mass);
-								context.requirements_new.Merge(Crafting.Requirement.Resource("machine_parts", 8.00f), ref extra_mass);
+								context.requirements_new.Merge(Crafting.Requirement.Resource("actuator", 2.00f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact), ref extra_mass);
+								context.requirements_new.Merge(Crafting.Requirement.Resource("steel.ingot", 1.00f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact), ref extra_mass);
+								context.requirements_new.Merge(Crafting.Requirement.Resource("machine_parts", 8.00f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact), ref extra_mass);
 								context.requirements_new.Merge(Crafting.Requirement.Work("assembling", 100.00f, 20));
 							}
 							break;
@@ -3367,9 +3367,9 @@ namespace TC2.Base
 					}
 					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_LC))
 					{
-						context.requirements_new.Merge(Crafting.Requirement.Resource("actuator", 1.00f), ref extra_mass);
-						context.requirements_new.Merge(Crafting.Requirement.Resource("steel.ingot", 0.10f), ref extra_mass);
-						context.requirements_new.Merge(Crafting.Requirement.Resource("machine_parts", 4.00f), ref extra_mass);
+						context.requirements_new.Merge(Crafting.Requirement.Resource("actuator", 1.00f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact), ref extra_mass);
+						context.requirements_new.Merge(Crafting.Requirement.Resource("steel.ingot", 0.10f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact), ref extra_mass);
+						context.requirements_new.Merge(Crafting.Requirement.Resource("machine_parts", 4.00f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact), ref extra_mass);
 						context.requirements_new.Merge(Crafting.Requirement.Work("assembling", 100.00f, 15));
 					}
 
@@ -3503,9 +3503,9 @@ namespace TC2.Base
 							smirglum_count = (1.00f + type) * 7.00f * 0.25f;
 						}
 
-						context.requirements_new.Merge(Crafting.Requirement.Resource("pellet.motion", pellet_count), ref mass_added);
-						context.requirements_new.Merge(Crafting.Requirement.Resource("smirglum.ingot", smirglum_count), ref mass_added);
-						context.requirements_new.Merge(Crafting.Requirement.Resource("phlogiston", Maths.SnapCeil(smirglum_count * 0.25f, 0.50f)));
+						context.requirements_new.Merge(Crafting.Requirement.Resource("pellet.motion", pellet_count).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact), ref mass_added);
+						context.requirements_new.Merge(Crafting.Requirement.Resource("smirglum.ingot", smirglum_count).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact), ref mass_added);
+						context.requirements_new.Merge(Crafting.Requirement.Resource("phlogiston", Maths.SnapCeil(smirglum_count * 0.25f, 0.50f)).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 						context.requirements_new.Merge(Crafting.Requirement.Work("assembling", 150.00f * smirglum_count * (type + pellet_count) * 0.25f, (byte)(10 + ((type + pellet_count).Pow2()))));
 
 						context.mass_new += mass_added;
@@ -3674,9 +3674,9 @@ namespace TC2.Base
 							smirglum_count = (1.00f + type) * 14.00f * 0.25f;
 						}
 
-						context.requirements_new.Merge(Crafting.Requirement.Resource("pellet.motion", pellet_count), ref mass_added);
-						context.requirements_new.Merge(Crafting.Requirement.Resource("smirglum.ingot", smirglum_count), ref mass_added);
-						context.requirements_new.Merge(Crafting.Requirement.Resource("phlogiston", Maths.SnapCeil(smirglum_count * 0.25f, 0.50f)));
+						context.requirements_new.Merge(Crafting.Requirement.Resource("pellet.motion", pellet_count).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact), ref mass_added);
+						context.requirements_new.Merge(Crafting.Requirement.Resource("smirglum.ingot", smirglum_count).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact), ref mass_added);
+						context.requirements_new.Merge(Crafting.Requirement.Resource("phlogiston", Maths.SnapCeil(smirglum_count * 0.25f, 0.50f)).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 						context.requirements_new.Merge(Crafting.Requirement.Work("assembling", 150.00f * smirglum_count * (type + pellet_count) * 0.25f, (byte)(10 + ((type + pellet_count).Pow2()))));
 
 						context.mass_new += mass_added;
