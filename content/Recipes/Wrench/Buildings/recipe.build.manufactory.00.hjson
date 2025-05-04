@@ -335,7 +335,7 @@
 	]
 	
 	type: buildings
-	flags: no_amount_multiplier, blueprintable, construction, building, ignore_tools, ignore_equipment, ignore_machinery, ignore_environment, auto_complete
+	flags: no_amount_multiplier, blueprintable, construction, building, ignore_tools, ignore_equipment, ignore_machinery, ignore_environment, wip, no_cancel, auto_complete
 	tags: advanced, huge, architecture, construction
 	infrastructure: none
 	

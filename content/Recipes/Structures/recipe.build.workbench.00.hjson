@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.5"
 	name: "Workbench"
 	desc:
 		'''
@@ -46,7 +46,15 @@
 		texture: workbench
 		size: [32, 24]
 	}
-	icon_offset: [11.000, -1.000]
+	icon_offset: [-0.625, -0.250]
+	
+	icon_extra:
+	{
+		texture: ui_icons_widget
+		size: [16, 16]
+		frame: [5, 1]
+	}
+	icon_extra_offset: [-6.125, 0.000]
 	
 	color_frame: "0xffaeb59a"
 	color_button: "0xff9dd80f"

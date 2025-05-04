@@ -31,7 +31,7 @@
 							type: resource
 							material: gravel
 							amount: 1260.000
-							loss: 0.027
+							loss: 0.024
 							group: 0
 							flags: compact, primary
 						}
@@ -335,7 +335,7 @@
 	]
 	
 	type: buildings
-	flags: no_amount_multiplier, blueprintable, construction, building, ignore_tools, ignore_equipment, ignore_machinery, ignore_environment, auto_complete
+	flags: no_amount_multiplier, blueprintable, construction, building, ignore_tools, ignore_equipment, ignore_machinery, ignore_environment, wip, no_cancel, auto_complete
 	tags: complex, huge, architecture, construction
 	infrastructure: none
 	

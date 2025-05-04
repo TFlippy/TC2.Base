@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.5"
 	name: "Grenade"
 	tips: []
 	
@@ -10,6 +10,7 @@
 			
 			type: construction
 			flags: wip, auto_generated
+			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
 			
@@ -115,73 +116,6 @@
 			amount: 1.000
 			group: 0
 			flags: primary
-		}
-	]
-	
-	requirements_old:
-	[
-		{
-			type: resource
-			material: steel.plate
-			amount: 0.100
-			snapping: 0.200
-			group: 0
-			flags: prerequisite
-		}
-		{
-			type: work
-			work: bending
-			amount: 85.000
-			difficulty: 14
-			group: 0
-			flags: conditional
-		}
-		{
-			type: resource
-			material: gunpowder
-			amount: 3.000
-			snapping: 1.000
-			group: 1
-		}
-		{
-			type: work
-			work: filling.powder
-			amount: 60.000
-			difficulty: 3
-			group: 1
-			flags: conditional
-		}
-		{
-			type: resource
-			material: machine_parts
-			amount: 0.500
-			snapping: 1.000
-			group: 2
-		}
-		{
-			type: resource
-			material: wood.rod
-			amount: 0.400
-			snapping: 0.500
-			group: 2
-		}
-		{
-			type: work
-			work: assembling
-			amount: 60.000
-			difficulty: 9
-			group: 2
-			flags: conditional
-		}
-	]
-	
-	products_old:
-	[
-		{
-			type: prefab
-			prefab: grenade
-			amount: 1.000
-			group: 0
 		}
 	]
 	
