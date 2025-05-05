@@ -20,7 +20,7 @@
 			public uint frame_count = 4;
 			public uint fps = 12;
 
-			public uint2 frames_air;
+			public Vec2u32 frames_air;
 
 			[Save.Ignore, Net.Ignore] public Vector2 offset;
 			[Save.Ignore, Net.Ignore] public float lerp;
@@ -160,7 +160,7 @@
 				}
 
 				renderer.sprite.fps = 0;
-				renderer.sprite.frame.x = (uint)MathF.Floor(Maths.Lerp(torso.frames_air.X, torso.frames_air.Y, t));
+				renderer.sprite.frame.x = (uint)MathF.Floor(Maths.Lerp(torso.frames_air.x, torso.frames_air.y, t));
 				renderer.sprite.count = 0;
 				renderer.offset = Vector2.Lerp(renderer.offset, offset, 0.50f);
 

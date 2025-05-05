@@ -10,7 +10,7 @@
 	stages:
 	[
 		{
-			name: "Enlistment Contract"
+			name: "Contract"
 			
 			type: preparation
 			flags: wip
@@ -171,7 +171,7 @@
 		size: [24, 24]
 	}
 	
-	color_frame: "0xffb78ad3"
+	color_frame: "0xff4f79a5"
 	color_button: "0xff9dd80f"
 	rank: -200.000
 	

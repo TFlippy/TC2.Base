@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.5"
 	name: "Dismantle Computer"
 	desc:
 		'''
@@ -14,6 +14,7 @@
 			
 			type: disassembly
 			flags: subtractive, wip, auto_generated
+			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
 			
@@ -63,7 +64,7 @@
 					material: actuator
 					amount: 2.000
 					group: 0
-					flags: byproduct, primary
+					flags: byproduct, primary, compact
 				}
 				{
 					type: resource
@@ -71,15 +72,23 @@
 					amount: 15.000
 					amount_extra: 12.000
 					group: 0
-					flags: byproduct, secondary
+					flags: byproduct, secondary, compact
 				}
 				{
 					type: resource
 					material: steel.plate
-					amount: 4.000
-					amount_extra: 2.000
+					amount: 4.600
+					amount_extra: 1.300
 					group: 0
-					flags: byproduct, secondary
+					flags: residue, compact
+				}
+				{
+					type: resource
+					material: scrap.machine
+					amount: 26.700
+					amount_extra: 3.300
+					group: 0
+					flags: waste, compact
 				}
 			]
 		}
@@ -90,64 +99,10 @@
 		{
 			type: resource
 			material: computer
-			amount: 141.500
+			amount: 1.000
 			snapping: 1.000
 			group: 0
 			flags: primary, prerequisite
-		}
-	]
-	
-	requirements_old:
-	[
-		{
-			type: resource
-			material: computer
-			amount: 1.000
-			group: 0
-			flags: prerequisite
-		}
-		{
-			type: work
-			work: dismantling
-			amount: 1120.000
-			difficulty: 14
-			group: 0
-			flags: conditional
-		}
-	]
-	
-	products_old:
-	[
-		{
-			type: resource
-			material: actuator
-			amount: 2.000
-			group: 0
-			flags: byproduct, primary
-		}
-		{
-			type: resource
-			material: machine_parts
-			amount: 15.000
-			amount_extra: 12.000
-			group: 0
-			flags: byproduct, secondary
-		}
-		{
-			type: resource
-			material: steel.plate
-			amount: 4.000
-			amount_extra: 2.000
-			group: 0
-			flags: byproduct, secondary
-		}
-		{
-			type: resource
-			material: scrap.machine
-			amount: 25.000
-			amount_extra: 12.000
-			group: 0
-			flags: waste, residue
 		}
 	]
 	

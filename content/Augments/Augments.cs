@@ -541,6 +541,7 @@ namespace TC2.Base
 				category: "Crafting",
 				name: "Bulk Production",
 				description: "More efficient manufacturing process by producing multiple items in bulk.",
+				flags: Augment.Definition.Flags.Hidden,
 
 				validate: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{

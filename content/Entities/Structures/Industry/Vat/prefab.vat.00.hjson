@@ -54,21 +54,69 @@ shop:
 {
 	tags_filter:
 	{
-		require: manual
-		include: crude, simple, drying
-		exclude: workbench, advanced, assembling, machining, metalworking, salvaging, smelting
+		include: raw, filtering, chemistry, gathering, blending, drying, fermenting, processing
+		exclude: large, huge, weapon, gun, tool, vehicle, furniture, machinery, blacksmithing, woodworking, assembling, machining, tailoring, metalworking, stoneworking, carpentry, architecture, construction, smelting, drying
 	}
 	
-	tools: none
-	infrastructure: table, shaping_mould
+	tools: bucket, shovel, spatula
+	infrastructure: crucible, casting_mould, shaping_mould, liquid_container
 	machinery: none
-	environment: container, mobile, dirty, ugly, flammable
+	environment: container, waterproof, stationary, ugly, fireproof, durable, sturdy
 	
+	flags: hidden_if_order
 	menu_columns: 3
 	recipe_type: workshop
-	flags: hidden_if_order
+	
+	offset_spawn: [0.000, -0.500]
 	
 	name: "Vat"
+}
+
+crafter:
+{
+	flags: none
+	
+	tools: bucket, shovel, spatula
+	infrastructure: cauldron, crucible, casting_mould, shaping_mould, liquid_container
+	machinery: none
+	environment: container, mobile, dirty, contaminated, smelly, ugly, flammable
+	
+	temperature_max: 1479.000
+	pressure_max: 1.500
+	
+	spawn_offset: [0.000, -0.625]
+
+	@inventory4:
+	{
+		
+		type: workshop
+		flags: standalone, allow_ducts, ignore_mass, no_auto_pickup, vertical
+		stack_size_multiplier: 1.000
+		
+		filter:
+		{
+			include: soft, malleable, liquid, granular, viscous, small, gravel, powder
+			exclude: gas
+		}
+		offset: [0.000, -0.375]
+	}
+}
+
+crafter.state:
+{
+	// @inventory4:
+	// {
+	// 	stack_size_multiplier: 2.000
+	// 	type: input
+	// 	flags: standalone, no_auto_pickup
+	// 	offset: [0.000, -0.125]
+	// }
+}
+
+crucible:
+{
+	flow_rate: 0.400
+	offset: [0.000, -0.375]
 }
 
 // crafter:
@@ -111,7 +159,7 @@ interactable:
 	flags: none
 	priority: 2.000
 	window_size: [576.000, 472.000]
-	window_size_misc: [72.000, 0.000]
+	window_size_misc: [120.000, 0.000]
 }
 
 // animated.renderer|"work":
@@ -149,3 +197,55 @@ interactable:
 // 	// 	z: -110.000
 // 	// }
 // }
+
+heat:
+{
+	temperature_medium: 440.9637
+	temperature_high: 1479.600
+	temperature_ignite: 1894.000
+	temperature_operating: 1034.303
+	temperature_melt: 1644.000
+	temperature_breakdown: 3143.000
+	heat_capacity_mult: 0.200
+	heat_damage_mult: 0.200
+	smoke_size_mult: 0.800
+	smoke_speed_mult: 0.600
+	smoke_rise_mult: 1.200
+	flags: no_gui
+	fire_flags: no_self_damage
+	offset: [0.000, -0.125]
+	smoke_offset: [0.000, -0.875]
+	size: [1.000, 1.000]
+	flame_tint: "0xe0ff8438"
+
+	@light:
+	{
+		offset: [-0.125, -0.375]
+		scale: [80.000, 40.000]
+		intensity: 1.000
+		texture: light.circle.04
+	}
+		
+	@sound.emitter:
+	{
+		file: overheat_loop
+		flags: start_muted
+		volume: 1.000
+		pitch: 0.680
+		size_max_modifier: 0.600
+		priority: 0.100
+		offset: [0.000, -0.375]
+	}
+}
+
+fillable:
+{
+	flags: use_misc, reusable
+	form_type: chunk
+	max_tilt: 0.875
+	h_substance_mould: steel
+	volume_capacity: 0.300
+	capacity: 1.000
+	h_sound_dump: hatch.open.00
+	offset_drop: [0.000, -0.750]
+}
