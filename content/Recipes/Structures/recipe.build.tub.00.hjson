@@ -1,0 +1,108 @@
+﻿{
+	$version: "0.1.62.5"
+	name: "Tub"
+	tips: []
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: brick.concrete
+			amount: 80.000
+			group: 0
+			flags: prerequisite
+		}
+		{
+			type: resource
+			material: gravel
+			amount: 230.000
+			group: 0
+			flags: prerequisite
+		}
+		{
+			type: resource
+			material: sand
+			amount: 150.000
+			group: 0
+			flags: prerequisite
+		}
+		{
+			type: resource
+			material: steel.frames
+			amount: 12.000
+			group: 0
+			flags: prerequisite
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: tub.00
+			amount: 1.000
+			group: 0
+			flags: primary
+		}
+	]
+	
+	type: industry
+	flags: no_amount_multiplier, blueprintable, wip
+	tags: construction
+	infrastructure: none
+	
+	icon:
+	{
+		texture: tub.00
+		size: [24, 24]
+	}
+	icon_offset: [13.000, -9.000]
+	
+	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
+	rank: -833.000
+	frame_size: [64.000, 48.000]
+	
+	dismantle_work: 5.000
+	dismantle_yield: 0.800
+	
+	placement:
+	{
+		type: simple
+		flags: allow_mirror_x, require_terrain, terrain_is_support
+		
+		size: [4.000, 3.000]
+		offset: [0.000, -0.500]
+		
+		rect_foundation: [-1.750, 0.750, 1.750, 1.500]
+		tileflags_foundation: solid
+		
+		rect_clearance: [-1.750, -1.750, 1.750, 0.750]
+		tileflags_clearance: solid
+		
+		cooldown: 1.000
+		min_support: 0.700
+		min_clearance: 0.950
+		min_claim: 1.000
+		max_range: 2.500
+		
+		rotation_max: 0.050
+		
+		sound: building_place
+		
+		snapping_filter:
+		{
+			exclude: construction, dynamic
+		}
+		snapping_flags: snap_to_surface, use_raw_collider, no_end_snap
+		snapping_radius: 0.500
+		snapping_depth: 1.000
+		
+		mappings_replace:
+		{
+		
+		}
+	}
+	
+	version: 1
+}
