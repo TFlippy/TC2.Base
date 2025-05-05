@@ -18,7 +18,7 @@ body:
 		mass: 265.000
 		radius: 0.500
 		friction: 0.750
-		elasticity: 0.670
+		elasticity: 0.470
 		
 		material: cermet
 		

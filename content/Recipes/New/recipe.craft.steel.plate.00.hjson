@@ -1,9 +1,9 @@
 ﻿{
 	$version: "0.1.62.5"
-	name: "Handsawn Steel Frames"
+	name: "Steel Plates"
 	desc:
 		'''
-		Laboriously cut steel plates into shapes resembling frames only using a handsaw.
+		TODO: Desc
 		'''
 	tips: []
 	
@@ -79,7 +79,7 @@
 	[
 		{
 			type: resource
-			material: steel.frames
+			material: steel.plate
 			amount: 0.800
 			amount_extra: 0.100
 			group: 0
@@ -88,8 +88,8 @@
 	]
 	
 	type: workshop
-	flags: item, wip, converted
-	tags: workbench, workshop, manual, simple, metalworking, processing, messy
+	flags: item, production, wip
+	tags: workbench, workshop, manual, simple, metalworking, processing
 	infrastructure: workbench
 	
 	h_company: common
@@ -100,15 +100,7 @@
 		size: [16, 16]
 		frame: [2, 0]
 	}
-	icon_offset: [0.000, -3.000]
-	
-	icon_extra:
-	{
-		texture: resource.steel.frames
-		size: [16, 16]
-		frame: [1, 0]
-	}
-	icon_extra_offset: [-4.000, -7.000]
+	icon_offset: [0.000, -1.000]
 	
 	color_frame: "0xffeabb3e"
 	color_button: "0xff9dd80f"

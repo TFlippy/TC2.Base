@@ -1,0 +1,75 @@
+$name: "Power Hammer"
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.polygon:
+	{
+		points:
+		[
+			[-0.750, -1.875]
+			[1.250, 1.000]
+			[1.250, 2.000]
+			[-0.625, 2.000]
+		]
+		
+		mass: 250.000
+		radius: 0.500
+		friction: 0.500
+		elasticity: 0.500
+		
+		material: metal_solid
+		miss_chance: 0.745
+		
+		layer: entity, solid, background, building, support, no_overlapped_placement, ignore_melee
+		mask: world
+		exclude: none
+	}
+}
+
+control:
+{
+
+}
+
+health:
+{
+	max: 43500.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "power_hammer.00"
+	}
+	z: -80.000
+}
+
+transform:
+{
+
+}
+
+interactable:
+{
+	flags: none
+	priority: 1.800
+	window_size: [120.000, 200.000]
+	window_size_min: [192.000, 96.000]
+	window_size_misc: [72.000, 0.000]
+	window_offset: [0.000, 178.000]
+}
+
+// storage:
+// {
+// 	@inventory1:
+// 	{
+// 		name: "Ammo"
+// 		stack_size_multiplier: 8.000
+// 		type: ammo
+// 		flags: allow_ducts, ignore_mass, faction
+// 	}
+// }
