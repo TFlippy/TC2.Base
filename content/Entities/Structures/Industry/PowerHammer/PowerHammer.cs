@@ -29,6 +29,7 @@
 			[Net.Segment.C, Asset.Ignore, Save.Ignore] public Entity ent_joint_attached;
 
 			[Net.Segment.D, Asset.Ignore] public float current_load;
+			[Net.Segment.D, Asset.Ignore] public float current_phase;
 		}
 
 		[ISystem.PreUpdate.Reset(ISystem.Mode.Single, ISystem.Scope.Region)]

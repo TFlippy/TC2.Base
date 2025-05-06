@@ -159,10 +159,10 @@ powerhammer:
 {
 	flags: none
 	
-	slider_offset: [-0.125, 1.875]
-	slider_length: 1.500
+	slider_offset: [-0.375, 2.125]
+	slider_length: 1.750
 	
-	speed: 0.300
+	speed: 1.400
 	gear_ratio: 1.000
 
 	@animated.renderer:
@@ -178,7 +178,7 @@ powerhammer:
 
 axle:
 {
-	offset: [1.000, -1.250]
+	offset: [1.000, -0.500]
 	mass: 150.000
 	friction: 0.400
 	z: -190.000
