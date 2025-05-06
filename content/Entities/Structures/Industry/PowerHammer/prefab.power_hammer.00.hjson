@@ -98,17 +98,18 @@ powerhammer:
 {
 	flags: none
 	
-	slider_offset: [-0.375, -1.250]
-	slider_length: 1.300
+	slider_offset: [-0.375, 2.000]
+	slider_length: 1.250
 	
 	speed: 0.500
+	gear_ratio: 1.000
 
 	@animated.renderer:
 	{
 		sprite:
 		{
 			texture: "power_hammer.00.parts"
-			size: [16, 48]
+			size: [16, 32]
 			frame: [0, 0]
 		}
 		z: -80.000
@@ -180,10 +181,7 @@ axle:
 {
 	offset: [0.875, -0.750]
 	mass: 180.000
-	friction: 0.300
-	radius_a: 1.000
-	radius_inner: 0.750
-	z: -250.000
+	z: -175.000
 	
 	@animated.renderer:
 	{

@@ -81,7 +81,7 @@
 		{
 			if (renderer_slider.IsNotNull())
 			{
-				renderer_slider.offset = hammer.slider_offset + new Vector2(0.00f, MathF.Pow((MathF.Cos(axle_state.rotation) + 1.00f) * 0.50f, hammer.speed) * hammer.slider_length);
+				renderer_slider.offset = hammer.slider_offset + new Vector2(0.00f, -(renderer_slider.sprite.size.y / 16) - (MathF.Pow(Maths.HvCos(axle_state.rotation), hammer.speed) * hammer.slider_length));
 			}
 
 			if (sound_emitter.IsNotNull())
@@ -133,16 +133,7 @@
 							{
 								//GUI.DrawBackground(GUI.tex_frame, group.GetOuterRect(), new(8));
 
-								var ent_child = default(Entity);
-								var ent_joint = default(Entity);
-
-								ent_joint = this.ent_hammer.GetChild(Relation.Type.Instance);
-								if (ent_joint.IsAlive())
-								{
-									ent_child = ent_joint.GetChild(Relation.Type.Child);
-								}
-
-								using (var slot = GUI.EntitySlot.New(ref context, "slot.power_hammer"u8, "Item"u8, ent_child, new Vector2(GUI.RmX, 64)))
+								using (var slot = GUI.EntitySlot.New(ref context, "slot.power_hammer"u8, "Item"u8, this.hammer.ent_joint_attached, new Vector2(GUI.RmX, 64)))
 								{
 									if (slot.pressed)
 									{
@@ -152,7 +143,7 @@
 											{
 												var rpc = new Holdable.AttachRPC
 												{
-													ent_joint = ent_joint
+													ent_joint = this.hammer.ent_joint
 												};
 												rpc.Send(context.ent_pickup_target);
 											}
@@ -164,7 +155,7 @@
 												{
 
 												};
-												rpc.Send(ent_child);
+												rpc.Send(this.hammer.ent_joint_attached);
 											}
 											break;
 
@@ -172,7 +163,7 @@
 											{
 												var rpc = new Holdable.AttachRPC
 												{
-													ent_joint = ent_joint
+													ent_joint = this.hammer.ent_joint
 												};
 												rpc.Send(context.ent_pickup_target);
 											}
