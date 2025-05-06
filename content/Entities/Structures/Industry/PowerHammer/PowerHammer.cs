@@ -9,7 +9,7 @@
 			public enum Flags: ushort
 			{
 				None = 0,
-				
+
 				[Asset.Ignore, Save.Ignore] Lifting = 1 << 13,
 				[Asset.Ignore, Save.Ignore] Falling = 1 << 14,
 				[Asset.Ignore, Save.Ignore] Impacted = 1 << 15
@@ -46,12 +46,12 @@
 		[Source.Owned] ref PowerHammer.Data hammer, [Source.Owned] in Transform.Data transform, [Source.Owned] ref Body.Data body,
 		[Source.Owned] ref Crafter.Data crafter, [Source.Owned] ref Crafter.State crafter_state)
 		{
-			
+
 		}
 
 		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnUpdateJoint(Entity ent_hammer, Entity ent_joint_base,
-		[Source.Shared] ref PowerHammer.Data hammer, [Source.Owned] ref Joint.Base joint_base) 
+		[Source.Shared] ref PowerHammer.Data hammer, [Source.Owned] ref Joint.Base joint_base)
 		{
 			hammer.ent_joint = ent_joint_base;
 			hammer.ent_joint_attached = joint_base.ent_attached;
@@ -65,12 +65,26 @@
 		[Source.Owned] ref Crafter.Data crafter, [Source.Owned] ref Crafter.State crafter_state,
 		[Source.Owned] ref Axle.Data axle, [Source.Owned] ref Axle.State axle_state)
 		{
-			var is_lifting = axle_state.rotation.Abs() > Maths.pi;
-			hammer.flags.SetFlag(Data.Flags.Lifting, is_lifting);
-			if (is_lifting)
+			if (axle_state.rotation.Abs() > Maths.pi)
 			{
+				if (hammer.flags.TryAddFlag(Data.Flags.Lifting))
+				{
+#if CLIENT
+					//if (hammer.h_sound_release) Sound.Play(region: ref region, sound: hammer.h_sound_release, world_position: transform.LocalToWorld(axle.offset), volume: 0.60f, pitch: random.NextFloatExtra(0.90f, 0.15f));
+#endif
+				}
+
 				hammer.current_velocity = 0.00f;
 				hammer.current_displacement += Axle.CalculateAngularDistance(axle.radius_outer, axle_state.rotation_delta);
+			}
+			else
+			{
+				if (hammer.flags.TryRemoveFlag(Data.Flags.Lifting))
+				{
+#if CLIENT
+					if (hammer.h_sound_release) Sound.Play(region: ref region, sound: hammer.h_sound_release, world_position: transform.LocalToWorld(axle.offset), volume: 0.60f, pitch: random.NextFloatExtra(0.90f, 0.15f));
+#endif
+				}
 			}
 			//var t = MathF.Pow((MathF.Cos(axle_state.rotation) + 1.00f) * 0.50f, 1.50f);
 			//if (MathF.Abs(axle_state.rotation) <= 1.00f)
@@ -93,10 +107,10 @@
 			{
 				hammer.current_velocity += region.GetGravity().Y * App.fixed_update_interval_s_f32;
 				hammer.current_displacement -= hammer.current_velocity * App.fixed_update_interval_s_f32;
-			
+
 				if (hammer.current_displacement <= 0.00f)
 				{
-					hammer.load_multiplier = 0.50f * (hammer.hammer_mass * hammer.current_velocity.Pow2());
+					hammer.last_impact_energy = 0.50f * (hammer.hammer_mass.m_value * hammer.current_velocity.Pow2());
 
 					if (hammer.current_velocity.Abs() > 7.00f)
 					{
@@ -106,7 +120,7 @@
 					else
 					{
 						hammer.current_velocity = 0.00f;
-						
+
 					}
 				}
 				else
@@ -126,10 +140,19 @@
 		[Source.Owned, Pair.Component<PowerHammer.Data>, Optional(true)] ref Sound.Emitter sound_emitter)
 		{
 #if CLIENT
-			if (hammer.flags.HasAny(Data.Flags.Impacted))
+			if (hammer.flags.HasAny(Data.Flags.Impacted) && hammer.last_impact_energy >= 500.00f)
 			{
+				var pos_impact = transform.LocalToWorld(hammer.slider_offset);
 
-				Sound.Play(region: ref region, sound: hammer.h_sound_impact, world_position: transform.LocalToWorld(hammer.slider_offset), volume: 0.75f, pitch: 1.00f);
+				var modifier_base = hammer.last_impact_energy;
+				var modifier = Maths.Sqrt(modifier_base * 0.01f) * 2.00f;
+				var modifier_sqrt = Maths.Sqrt(modifier);
+				var modifier_sqrt_rcp = float.ReciprocalSqrtEstimate(modifier);
+				var modifier_mix = Maths.Avg(modifier, modifier_sqrt);
+
+				//App.WriteValue(modifier);
+				Shake.Emit(ref region, world_position: pos_impact, trauma: modifier_sqrt * 0.07f, max: 0.70f, radius: Maths.Clamp(modifier * 4.00f, 6.00f, 200.00f));
+				Sound.Play(region: ref region, sound: hammer.h_sound_impact, world_position: pos_impact, volume: Maths.Max(0.30f, modifier_sqrt * 0.30f), pitch: random.NextFloatExtra(0.20f + (modifier_sqrt_rcp * 1.70f), 0.15f), size: modifier * 0.10f, dist_multiplier: Maths.FMA(modifier_mix, 0.01f, 0.30f));
 			}
 #endif
 

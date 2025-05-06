@@ -157,9 +157,14 @@ animated.renderer|"background":
 
 powerhammer:
 {
+	flags: none
+	
 	slider_offset: [-0.375, 2.125]
 	slider_length: 3.000
-	hammer_mass: 100.000
+	hammer_mass: 80.000
+	h_material_hammer: steel.ingot
+	h_sound_impact: press.smash.02
+	h_sound_release: burner.lid.clang.01
 	
 	gear_ratio: 1.000
 
@@ -179,7 +184,9 @@ axle:
 	offset: [0.875, -2.125]
 	
 	mass: 80.000
-	friction: 0.500
+	friction: 0.150
+	radius_a: 0.625
+	radius_b: 0.625
 	radius_inner: 1.000
 	radius_outer: 1.250
 	z: -60.000
