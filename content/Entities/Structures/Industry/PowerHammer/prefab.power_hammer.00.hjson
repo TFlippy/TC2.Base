@@ -5,27 +5,46 @@ body:
 {
 	type: static
 	
+	@shape.line:
+	{
+		a: [0.125, -2.000]
+		b: [0.125, 2.625]
+		offset: [0.000, 0.000]
+		
+		mass: 140.000
+		radius: 1.125
+		friction: 0.600
+		elasticity: 0.500
+		
+		material: metal_frame
+		miss_chance: 0.875
+		
+		layer: entity, solid, background, building, support, ignore_melee
+		mask: world
+		exclude: none
+	}
+
 	@shape.polygon:
 	{
 		points:
 		[
-			[-0.750, -1.875]
-			[1.250, 1.000]
-			[1.250, 2.000]
-			[-0.625, 2.000]
+			[-1.125, 2.625]
+			[1.250, 2.625]
+			[1.250, 3.750]
+			[-1.000, 3.750]
 		]
 		
-		mass: 250.000
-		radius: 0.500
-		friction: 0.500
-		elasticity: 0.500
+		mass: 350.000
+		radius: 0.250
+		friction: 0.700
+		elasticity: 0.200
 		
-		material: metal_solid
-		miss_chance: 0.745
+		material: building_reinforced
+		miss_chance: 0.094
 		
-		layer: entity, solid, background, building, support, no_overlapped_placement, ignore_melee
-		mask: world
-		exclude: none
+		layer: entity, solid, building, no_overlapped_placement
+		mask: world, resource
+		exclude: held, attached, gas
 	}
 }
 
@@ -44,8 +63,20 @@ animated.renderer:
 	sprite:
 	{
 		texture: "power_hammer.00"
+		size: [24, 64]
 	}
-	z: -80.000
+	z: -60.000
+}
+
+animated.renderer|"background":
+{
+	sprite:
+	{
+		texture: "power_hammer.00"
+		size: [24, 64]
+		frame: [1, 0]
+	}
+	z: -200.000
 }
 
 transform:
@@ -133,14 +164,12 @@ crafter.state:
 
 axle:
 {
-	offset: [-2.000, 0.250]
+	offset: [-0.250, -1.500]
 	mass: 180.000
-	friction: 0.300
-	radius_a: 1.500
-	radius_b: 1.500
-	radius_inner: 1.000
-	radius_outer: 1.500
-	z: 95.000
+	friction: 0.200
+	radius_a: 0.500
+	radius_inner: 0.500
+	z: -250.000
 	
 	@animated.renderer:
 	{
@@ -148,7 +177,7 @@ axle:
 		{
 			texture: "wheel_1000.steel"
 		}
-		z: 100.000
+		z: -250.000
 	}
 
 	@sound.emitter:
