@@ -20,7 +20,7 @@ body:
 		miss_chance: 0.875
 		
 		layer: entity, solid, background, building, support, ignore_melee
-		mask: world
+		mask: world, building
 		exclude: none
 	}
 
@@ -28,23 +28,23 @@ body:
 	{
 		points:
 		[
-			[-1.125, 2.625]
-			[1.250, 2.625]
-			[1.250, 3.750]
-			[-1.000, 3.750]
+			[-1.000, 2.375]
+			[1.125, 2.375]
+			[1.000, 3.625]
+			[-0.875, 3.625]
 		]
 		
 		mass: 350.000
-		radius: 0.250
-		friction: 0.700
+		radius: 0.375
+		friction: 0.550
 		elasticity: 0.200
 		
 		material: building_reinforced
-		miss_chance: 0.094
+		miss_chance: 0.090
 		
-		layer: entity, solid, building, no_overlapped_placement
-		mask: world, resource
-		exclude: held, attached, gas
+		layer: entity, solid, building, support, ignore_melee
+		mask: world, resource, building
+		exclude: gas, held, attached
 	}
 }
 
@@ -88,87 +88,101 @@ interactable:
 {
 	flags: none
 	priority: 1.800
-	window_size: [440.000, 416.000]
+	window_size: [528.000, 520.000]
 	window_size_min: [192.000, 96.000]
-	window_size_misc: [72.000, 0.000]
-	window_offset: [0.000, 178.000]
+	window_size_misc: [120.000, 0.000]
+	window_offset: [-192.000, 0.000]
 }
 
 powerhammer:
 {
+	flags: none
+	
+	slider_offset: [-0.375, -1.250]
+	slider_length: 1.300
+	
+	speed: 0.500
 
+	@animated.renderer:
+	{
+		sprite:
+		{
+			texture: "power_hammer.00.parts"
+			size: [16, 48]
+			frame: [0, 0]
+		}
+		z: -80.000
+	}
 }
 
 shop:
 {
 	tags_filter:
 	{
-		include: raw, filtering, chemistry, gathering, blending, drying, fermenting, processing
-		exclude: large, huge, weapon, gun, tool, vehicle, furniture, machinery, blacksmithing, woodworking, assembling, machining, tailoring, metalworking, stoneworking, carpentry, architecture, construction, smelting, drying
+		include: blacksmithing, metalworking, stoneworking, salvaging
+		exclude: complex, advanced, large, huge, filtering, woodworking, assembling, machining, tailoring, cooking, social, gathering, blending, forestry, smelting, fermenting, melting
 	}
 	
-	tools: bucket, shovel, spatula
-	infrastructure: crucible, casting_mould, shaping_mould, liquid_container
-	machinery: none
-	environment: container, waterproof, stationary, ugly, fireproof, durable, sturdy
+	tools: hammer, screwdriver, spanner, pliers, towel, tongs
+	infrastructure: anvil, forge, rack, shaping_mould, surface, hard_surface
+	machinery: metal_press, bender
+	environment: machine, waterproof, stationary, scary, noisy, reinforced, fireproof, durable, sturdy
 	
-	flags: hidden_if_order
+	flags: none
 	menu_columns: 3
 	recipe_type: workshop
 	
-	offset_spawn: [0.000, -0.500]
+	offset_spawn: [0.000, 1.750]
 	
-	name: "Vat"
+	name: "Drop Hammer"
 }
 
 crafter:
 {
 	flags: none
 	
-	tools: bucket, shovel, spatula
-	infrastructure: cauldron, crucible, casting_mould, shaping_mould, liquid_container
-	machinery: none
-	environment: container, mobile, dirty, contaminated, smelly, ugly, flammable
+	tools: hammer, screwdriver, spanner, pliers, towel, tongs
+	infrastructure: anvil, forge, rack, shaping_mould, surface, hard_surface
+	machinery: metal_press, bender
+	environment: machine, waterproof, stationary, scary, noisy, reinforced, fireproof, durable, sturdy
 	
 	temperature_max: 1479.000
 	pressure_max: 1.500
 	
-	spawn_offset: [0.000, -0.625]
+	spawn_offset: [0.000, 1.750]
 
 	@inventory4:
-	{
-		
+	{		
 		type: workshop
-		flags: standalone, allow_ducts, ignore_mass, no_auto_pickup, vertical
+		flags: standalone, allow_ducts, ignore_mass, no_auto_pickup
 		stack_size_multiplier: 1.000
 		
 		filter:
 		{
-			include: soft, malleable, liquid, granular, viscous, small, gravel, powder
+			include: soft, malleable, granular, viscous, small, gravel, powder
 			exclude: gas
 		}
 		offset: [0.000, -0.375]
 	}
 }
 
-crafter.state:
+workshop:
 {
-	// @inventory4:
-	// {
-	// 	stack_size_multiplier: 2.000
-	// 	type: input
-	// 	flags: standalone, no_auto_pickup
-	// 	offset: [0.000, -0.125]
-	// }
+	tools: hammer, screwdriver, spanner, pliers, towel, tongs
+	infrastructure: anvil, forge, rack, shaping_mould, surface, hard_surface
+	machinery: metal_press, bender
+	environment: machine, waterproof, stationary, scary, noisy, reinforced, fireproof, durable, sturdy
+	
+	orders_capacity: 2
 }
 
 axle:
 {
-	offset: [-0.250, -1.500]
+	offset: [0.875, -0.750]
 	mass: 180.000
-	friction: 0.200
-	radius_a: 0.500
-	radius_inner: 0.500
+	friction: 0.300
+	radius_a: 1.000
+	radius_inner: 0.750
 	z: -250.000
 	
 	@animated.renderer:
@@ -191,6 +205,11 @@ axle:
 	}
 }
 
+controllable:
+{
+
+}
+
 // storage:
 // {
 // 	@inventory1:
@@ -201,3 +220,32 @@ axle:
 // 		flags: allow_ducts, ignore_mass, faction
 // 	}
 // }
+
++mount|instance:
+{
+	joint.base:
+	{
+		offset_a: [-0.125, 1.250]
+		max_force: 100000.000
+		max_torque: 100000.000
+		max_stress: 4.000
+		z: -100.000
+		material_type: metal
+		flags: no_aiming, no_wrap, use_center_of_gravity, align_side
+	}
+
+	joint.gear:
+	{
+		step: 2.000
+		error_bias: 0.050
+		max_bias: 2.000
+		max_bias_bounce: 0.000
+		bounce: 0.000
+		stress_mult: 0.000
+	}
+
+	joint.pivot:
+	{
+		max_bias: 8.000
+	}
+}
