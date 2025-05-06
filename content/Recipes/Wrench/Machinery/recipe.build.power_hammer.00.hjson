@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.62.5"
-	name: "Vat"
+	name: "Power Hammer"
 	tips: []
 	
 	requirements:
@@ -8,21 +8,21 @@
 		{
 			type: resource
 			material: brick.concrete
+			amount: 80.000
+			group: 0
+			flags: prerequisite
+		}
+		{
+			type: resource
+			material: steel.frames
 			amount: 20.000
 			group: 0
 			flags: prerequisite
 		}
 		{
 			type: resource
-			material: steel.plate
-			amount: 15.000
-			group: 0
-			flags: prerequisite
-		}
-		{
-			type: resource
 			material: machine_parts
-			amount: 10.000
+			amount: 35.000
 			group: 0
 			flags: prerequisite
 		}
@@ -32,29 +32,29 @@
 	[
 		{
 			type: prefab
-			prefab: vat.00
+			prefab: power_hammer.00
 			amount: 1.000
 			group: 0
 			flags: primary
 		}
 	]
 	
-	type: industry
+	type: machinery
 	flags: no_amount_multiplier, blueprintable, wip
 	tags: construction
 	infrastructure: none
 	
 	icon:
 	{
-		texture: vat.00
-		size: [16, 24]
+		texture: power_hammer.00
+		size: [32, 40]
 	}
-	icon_offset: [0.000, 4.000]
+	icon_offset: [10.000, 0.000]
 	
 	color_frame: "0xffaeb59a"
 	color_button: "0xff9dd80f"
 	rank: -555.000
-	frame_size: [48.000, 96.000]
+	frame_size: [88.000, 64.000]
 	
 	dismantle_work: 5.000
 	dismantle_yield: 0.800

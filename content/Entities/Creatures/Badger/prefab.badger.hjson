@@ -20,7 +20,7 @@ body:
 		material: flesh
 		layer: entity, solid, creature, organic, flammable
 		mask: world, vehicle, creature
-		exclude: barbed, dead, held
+		exclude: barbed, dead
 	}
 }
 
@@ -54,7 +54,7 @@ armor:
 	stun_modifier: 0.650
 	pain_modifier: 0.690
 	material_type: fur
-	flags: no_damage_type_conversion, no_sound, no_particles
+	flags: no_damage_type_conversion
 }
 
 animated.renderer:
@@ -361,7 +361,7 @@ faction:
 				material: flesh
 				layer: entity, solid, creature, flammable
 				mask: world, vehicle, creature
-				exclude: barbed, dead, held
+				exclude: barbed, dead
 			}
 		}
 			
@@ -401,7 +401,7 @@ faction:
 			stun_modifier: 0.350
 			pain_modifier: 0.620
 			material_type: fur
-			flags: no_damage_type_conversion, no_sound, no_particles
+			flags: no_damage_type_conversion
 		}
 
 		regen:
@@ -560,7 +560,7 @@ faction:
 				material: flesh
 				layer: entity, solid, creature, organic, flammable
 				mask: world, vehicle, creature
-				exclude: barbed, dead, held
+				exclude: barbed, dead
 
 				miss_chance: 0.360
 			}
@@ -603,7 +603,7 @@ faction:
 			max_distance: 1.250
 			aoe: 1.400
 			thickness: 1.000
-			knockback: 12500.000
+			knockback: 2250.000
 			yield: 0.500
 			penetration_falloff: 0.600
 			penetration: 2
@@ -664,7 +664,7 @@ faction:
 			stun_modifier: 0.550
 			pain_modifier: 0.620
 			material_type: fur
-			flags: no_damage_type_conversion, no_sound, no_particles
+			flags: no_damage_type_conversion
 		}
 	
 		holdable:

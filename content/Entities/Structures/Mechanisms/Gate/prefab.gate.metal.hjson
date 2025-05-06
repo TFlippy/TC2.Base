@@ -17,7 +17,7 @@ body:
 		elasticity: 0.350
 		mass: 800.000
 		material: metal_frame
-		layer: entity, building, ignore_melee
+		layer: entity, building, ignore_melee, solid
 		mask: world
 	}
 }

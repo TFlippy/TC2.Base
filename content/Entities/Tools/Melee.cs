@@ -1070,7 +1070,7 @@ namespace TC2.Base.Components
 				//body.AddForceLocal(melee.hit_direction * melee.knockback, melee.hit_offset);
 
 				//body.AddForceWorld(dir * body.GetMass() * App.tickrate * 25.00f * t, transform.LocalToWorld(melee.swing_offset));
-				body.AddForce(melee_state.last_hit_dir * melee.knockback.Abs()); //,  * body.GetMass() * App.tickrate * 25.00f * t, transform.LocalToWorld(melee.swing_offset));
+				body.AddForce(transform.Right * melee.knockback.Abs() * melee.knockback_speed); //,  * body.GetMass() * App.tickrate * 25.00f * t, transform.LocalToWorld(melee.swing_offset));
 				melee_state.hit_counter--; // TODO: shithack
 				
 				//App.WriteLine(t);

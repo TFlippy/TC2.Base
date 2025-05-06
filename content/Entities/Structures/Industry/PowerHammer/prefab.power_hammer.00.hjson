@@ -36,7 +36,7 @@ control:
 
 health:
 {
-	max: 43500.000
+	max: 75000.000
 }
 
 animated.renderer:
@@ -57,10 +57,109 @@ interactable:
 {
 	flags: none
 	priority: 1.800
-	window_size: [120.000, 200.000]
+	window_size: [440.000, 416.000]
 	window_size_min: [192.000, 96.000]
 	window_size_misc: [72.000, 0.000]
 	window_offset: [0.000, 178.000]
+}
+
+powerhammer:
+{
+
+}
+
+shop:
+{
+	tags_filter:
+	{
+		include: raw, filtering, chemistry, gathering, blending, drying, fermenting, processing
+		exclude: large, huge, weapon, gun, tool, vehicle, furniture, machinery, blacksmithing, woodworking, assembling, machining, tailoring, metalworking, stoneworking, carpentry, architecture, construction, smelting, drying
+	}
+	
+	tools: bucket, shovel, spatula
+	infrastructure: crucible, casting_mould, shaping_mould, liquid_container
+	machinery: none
+	environment: container, waterproof, stationary, ugly, fireproof, durable, sturdy
+	
+	flags: hidden_if_order
+	menu_columns: 3
+	recipe_type: workshop
+	
+	offset_spawn: [0.000, -0.500]
+	
+	name: "Vat"
+}
+
+crafter:
+{
+	flags: none
+	
+	tools: bucket, shovel, spatula
+	infrastructure: cauldron, crucible, casting_mould, shaping_mould, liquid_container
+	machinery: none
+	environment: container, mobile, dirty, contaminated, smelly, ugly, flammable
+	
+	temperature_max: 1479.000
+	pressure_max: 1.500
+	
+	spawn_offset: [0.000, -0.625]
+
+	@inventory4:
+	{
+		
+		type: workshop
+		flags: standalone, allow_ducts, ignore_mass, no_auto_pickup, vertical
+		stack_size_multiplier: 1.000
+		
+		filter:
+		{
+			include: soft, malleable, liquid, granular, viscous, small, gravel, powder
+			exclude: gas
+		}
+		offset: [0.000, -0.375]
+	}
+}
+
+crafter.state:
+{
+	// @inventory4:
+	// {
+	// 	stack_size_multiplier: 2.000
+	// 	type: input
+	// 	flags: standalone, no_auto_pickup
+	// 	offset: [0.000, -0.125]
+	// }
+}
+
+axle:
+{
+	offset: [-2.000, 0.250]
+	mass: 180.000
+	friction: 0.300
+	radius_a: 1.500
+	radius_b: 1.500
+	radius_inner: 1.000
+	radius_outer: 1.500
+	z: 95.000
+	
+	@animated.renderer:
+	{
+		sprite:
+		{
+			texture: "wheel_1000.steel"
+		}
+		z: 100.000
+	}
+
+	@sound.emitter:
+	{
+		file: "flywheel.loop.01"
+		flags: start_muted
+		volume: 1.000
+		pitch: 1.000
+		size: 1.000
+		size_max_modifier: 0.800
+	}
 }
 
 // storage:
