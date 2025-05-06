@@ -6,30 +6,39 @@
 		public partial struct Data(): IComponent
 		{
 			[Flags]
-			public enum Flags: uint
+			public enum Flags: ushort
 			{
 				None = 0,
 				
-				[Asset.Ignore] Impacted = 1 << 16
+				[Asset.Ignore, Save.Ignore] Lifting = 1 << 13,
+				[Asset.Ignore, Save.Ignore] Falling = 1 << 14,
+				[Asset.Ignore, Save.Ignore] Impacted = 1 << 15
 			}
 
 			[Net.Segment.A, Save.Force] public PowerHammer.Data.Flags flags;
-			[Net.Segment.A] public Sound.Handle h_sound_impact;
 
 			[Save.NewLine]
 			[Net.Segment.A, Save.Force, Editor.Picker.Position(true)] public required Vec2f slider_offset;
 			[Net.Segment.A, Save.Force] public required float slider_length;
+			[Net.Segment.A, Save.Force] public required Mass hammer_mass;
+			[Net.Segment.A, Save.Force] public required IMaterial.Handle h_material_hammer;
+			[Net.Segment.A] public Sound.Handle h_sound_impact;
+			[Net.Segment.A] public Sound.Handle h_sound_release;
 
 			[Save.NewLine]
-			[Net.Segment.B, Save.Force] public float speed = 1.00f;
 			[Net.Segment.B, Save.Force] public float gear_ratio = 1.00f;
 			[Net.Segment.B] public float load_multiplier = 1.00f;
 
+			[Save.NewLine]
 			[Net.Segment.C, Asset.Ignore, Save.Ignore] public Entity ent_joint;
 			[Net.Segment.C, Asset.Ignore, Save.Ignore] public Entity ent_joint_attached;
 
-			[Net.Segment.D, Asset.Ignore] public float current_load;
-			[Net.Segment.D, Asset.Ignore] public float current_phase;
+			[Save.NewLine]
+			[Net.Segment.D, Asset.Ignore] public float current_velocity;
+			[Net.Segment.D, Asset.Ignore] public float current_displacement;
+
+			[Net.Ignore, Save.Ignore] public Energy last_impact_energy;
+			[Net.Ignore, Save.Ignore] public float last_impact_speed;
 		}
 
 		[ISystem.PreUpdate.Reset(ISystem.Mode.Single, ISystem.Scope.Region)]
@@ -50,12 +59,19 @@
 
 		}
 
-		[ISystem.Update.C(ISystem.Mode.Single, ISystem.Scope.Region)]
+		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateAxle(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity ent_hammer,
 		[Source.Owned] ref PowerHammer.Data hammer, [Source.Owned] in Transform.Data transform,
 		[Source.Owned] ref Crafter.Data crafter, [Source.Owned] ref Crafter.State crafter_state,
 		[Source.Owned] ref Axle.Data axle, [Source.Owned] ref Axle.State axle_state)
 		{
+			var is_lifting = axle_state.rotation.Abs() > Maths.pi;
+			hammer.flags.SetFlag(Data.Flags.Lifting, is_lifting);
+			if (is_lifting)
+			{
+				hammer.current_velocity = 0.00f;
+				hammer.current_displacement += Axle.CalculateAngularDistance(axle.radius_outer, axle_state.rotation_delta);
+			}
 			//var t = MathF.Pow((MathF.Cos(axle_state.rotation) + 1.00f) * 0.50f, 1.50f);
 			//if (MathF.Abs(axle_state.rotation) <= 1.00f)
 			//{
@@ -70,19 +86,59 @@
 		[Source.Owned] ref PowerHammer.Data hammer, [Source.Owned] in Transform.Data transform, [Source.Owned] ref Body.Data body,
 		[Source.Owned] ref Crafter.Data crafter, [Source.Owned] ref Crafter.State crafter_state)
 		{
+			hammer.flags.RemoveFlag(Data.Flags.Impacted);
+			hammer.flags.SetFlag(Data.Flags.Falling, hammer.flags.HasNone(Data.Flags.Lifting) & (hammer.current_displacement != default | hammer.current_velocity != default));
 
+			if (hammer.flags.HasAny(Data.Flags.Falling))
+			{
+				hammer.current_velocity += region.GetGravity().Y * App.fixed_update_interval_s_f32;
+				hammer.current_displacement -= hammer.current_velocity * App.fixed_update_interval_s_f32;
+			
+				if (hammer.current_displacement <= 0.00f)
+				{
+					hammer.load_multiplier = 0.50f * (hammer.hammer_mass * hammer.current_velocity.Pow2());
+
+					if (hammer.current_velocity.Abs() > 7.00f)
+					{
+						hammer.current_velocity = -hammer.current_velocity * 0.40f; // 0.00f;
+						hammer.flags.AddFlag(Data.Flags.Impacted);
+					}
+					else
+					{
+						hammer.current_velocity = 0.00f;
+						
+					}
+				}
+				else
+				{
+
+				}
+			}
+
+			hammer.current_displacement = Maths.Clamp(hammer.current_displacement, 0.00f, hammer.slider_length);
 		}
 
-		[ISystem.PostUpdate.D(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void OnUpdateEffects(ISystem.Info info,
+		[ISystem.PostUpdate.C(ISystem.Mode.Single, ISystem.Scope.Region)]
+		public static void OnUpdateEffects(ISystem.Info info, ref Region.Data region, ref XorRandom random,
 		[Source.Owned] ref PowerHammer.Data hammer, [Source.Owned] in Transform.Data transform,
 		[Source.Owned] in Axle.Data axle, [Source.Owned] in Axle.State axle_state,
 		[Source.Owned, Pair.Component<PowerHammer.Data>, Optional(true)] ref Animated.Renderer.Data renderer_slider,
 		[Source.Owned, Pair.Component<PowerHammer.Data>, Optional(true)] ref Sound.Emitter sound_emitter)
 		{
+#if CLIENT
+			if (hammer.flags.HasAny(Data.Flags.Impacted))
+			{
+
+				Sound.Play(region: ref region, sound: hammer.h_sound_impact, world_position: transform.LocalToWorld(hammer.slider_offset), volume: 0.75f, pitch: 1.00f);
+			}
+#endif
+
 			if (renderer_slider.IsNotNull())
 			{
-				renderer_slider.offset = hammer.slider_offset - new Vector2(0.00f, renderer_slider.sprite.size.y.Div16x() + (MathF.Pow(Maths.HvCos(axle_state.rotation), hammer.speed) * hammer.slider_length));
+				var offset = hammer.slider_offset;
+				offset.y -= Maths.FMA(renderer_slider.sprite.size.y.Div8x(), 0.50f, hammer.current_displacement); // (MathF.Pow(Maths.HvCos(axle_state.rotation), hammer.speed) * hammer.slider_length);
+
+				renderer_slider.offset = offset;
 			}
 
 			if (sound_emitter.IsNotNull())
@@ -125,7 +181,7 @@
 					{
 						using (var group = GUI.Group.New(GUI.Rm))
 						{
-							GUI.DrawBackground(group, GUI.tex_window);
+							//GUI.DrawBackground(group, GUI.tex_window);
 
 							ref var player = ref Client.GetPlayer();
 							ref var region = ref Client.GetRegion();
@@ -134,7 +190,11 @@
 							{
 								//GUI.DrawBackground(GUI.tex_frame, group.GetOuterRect(), new(8));
 
-								using (var slot = GUI.EntitySlot.New(ref context, "slot.power_hammer"u8, "Item"u8, this.hammer.ent_joint_attached, new Vector2(GUI.RmX, 64)))
+								using (var slot = GUI.EntitySlot.New(context: ref context,
+								identifier: "slot.power_hammer"u8,
+								name: "Item"u8,
+								ent_attached: this.hammer.ent_joint_attached,
+								size: new Vector2(GUI.RmX, 64)))
 								{
 									if (slot.pressed)
 									{
@@ -173,6 +233,13 @@
 									}
 								}
 
+								using (var group_info = GUI.Group.New(GUI.Rm, padding: new(8)))
+								{
+									GUI.DrawBackground(group_info, GUI.tex_window);
+
+									GUI.LabelShaded("Angle:"u8, Axle.CalculateAngularDistance(this.axle.radius_a, this.axle_state.rotation_delta), format: "0.000", width: GUI.RmX);
+									GUI.LabelShaded("Slider:"u8, this.hammer.current_displacement, format: "0.000", width: GUI.RmX);
+								}
 								//var dirty = false;
 								//if (GUI.SliderFloat("Slider"u8, ref this.sawmill_state.slider_ratio, 1.00f, 0.00f, size: new Vector2(GUI.RmX, slider_h)))
 								//{

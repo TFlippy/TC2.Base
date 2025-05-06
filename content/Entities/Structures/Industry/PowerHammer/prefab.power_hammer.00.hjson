@@ -58,27 +58,6 @@ health:
 	max: 75000.000
 }
 
-animated.renderer:
-{
-	sprite:
-	{
-		texture: "power_hammer.00"
-		size: [24, 64]
-	}
-	z: -60.000
-}
-
-animated.renderer|"background":
-{
-	sprite:
-	{
-		texture: "power_hammer.00"
-		size: [24, 64]
-		frame: [1, 0]
-	}
-	z: -200.000
-}
-
 transform:
 {
 
@@ -155,14 +134,33 @@ workshop:
 	orders_capacity: 2
 }
 
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "power_hammer.00"
+		size: [24, 64]
+	}
+	z: -60.000
+}
+
+animated.renderer|"background":
+{
+	sprite:
+	{
+		texture: "power_hammer.00"
+		size: [24, 64]
+		frame: [1, 0]
+	}
+	z: -200.000
+}
+
 powerhammer:
 {
-	flags: none
-	
 	slider_offset: [-0.375, 2.125]
-	slider_length: 1.750
+	slider_length: 3.000
+	hammer_mass: 100.000
 	
-	speed: 1.400
 	gear_ratio: 1.000
 
 	@animated.renderer:
@@ -170,7 +168,7 @@ powerhammer:
 		sprite:
 		{
 			texture: power_hammer.00.parts
-			size: [24, 32]
+			size: [24, 40]
 		}
 		z: -80.000
 	}
@@ -178,18 +176,22 @@ powerhammer:
 
 axle:
 {
-	offset: [1.000, -0.500]
-	mass: 150.000
-	friction: 0.400
-	z: -190.000
+	offset: [0.875, -2.125]
+	
+	mass: 80.000
+	friction: 0.500
+	radius_inner: 1.000
+	radius_outer: 1.250
+	z: -60.000
 
 	@animated.renderer:
 	{
 		sprite:
 		{
-			texture: "wheel_1000.steel"
+			texture: power_hammer.00.parts
+			size: [24, 24]
+			frame: [0, 2]
 		}
-		z: -250.000
 	}
 
 	@sound.emitter:
