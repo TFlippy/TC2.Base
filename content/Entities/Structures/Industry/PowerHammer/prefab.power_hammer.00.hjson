@@ -7,12 +7,12 @@ body:
 	
 	@shape.line:
 	{
-		a: [0.125, -2.000]
-		b: [0.125, 2.625]
+		a: [0.500, -3.250]
+		b: [0.500, 2.375]
 		offset: [0.000, 0.000]
 		
 		mass: 140.000
-		radius: 1.125
+		radius: 0.750
 		friction: 0.600
 		elasticity: 0.500
 		
@@ -94,28 +94,6 @@ interactable:
 	window_offset: [-192.000, 0.000]
 }
 
-powerhammer:
-{
-	flags: none
-	
-	slider_offset: [-0.375, 2.000]
-	slider_length: 1.250
-	
-	speed: 0.500
-	gear_ratio: 1.000
-
-	@animated.renderer:
-	{
-		sprite:
-		{
-			texture: "power_hammer.00.parts"
-			size: [16, 32]
-			frame: [0, 0]
-		}
-		z: -80.000
-	}
-}
-
 shop:
 {
 	tags_filter:
@@ -177,12 +155,34 @@ workshop:
 	orders_capacity: 2
 }
 
+powerhammer:
+{
+	flags: none
+	
+	slider_offset: [-0.125, 1.875]
+	slider_length: 1.500
+	
+	speed: 0.300
+	gear_ratio: 1.000
+
+	@animated.renderer:
+	{
+		sprite:
+		{
+			texture: power_hammer.00.parts
+			size: [24, 32]
+		}
+		z: -80.000
+	}
+}
+
 axle:
 {
-	offset: [0.875, -0.750]
-	mass: 180.000
-	z: -175.000
-	
+	offset: [1.000, -1.250]
+	mass: 150.000
+	friction: 0.400
+	z: -190.000
+
 	@animated.renderer:
 	{
 		sprite:

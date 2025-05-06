@@ -81,7 +81,7 @@
 		{
 			if (renderer_slider.IsNotNull())
 			{
-				renderer_slider.offset = hammer.slider_offset + new Vector2(0.00f, -(renderer_slider.sprite.size.y / 16) - (MathF.Pow(Maths.HvCos(axle_state.rotation), hammer.speed) * hammer.slider_length));
+				renderer_slider.offset = hammer.slider_offset - new Vector2(0.00f, renderer_slider.sprite.size.y.Div16x() + (MathF.Pow(Maths.HvCos(axle_state.rotation), hammer.speed) * hammer.slider_length));
 			}
 
 			if (sound_emitter.IsNotNull())
