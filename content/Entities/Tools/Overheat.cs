@@ -201,7 +201,7 @@ namespace TC2.Base.Components
 		public static void AddEnergy(ref this Heat.State heat_state, Energy energy)
 		{
 			//var heat = amount / Maths.Max(heat_state.heat_capacity_extra + (mass * 0.10f), 1.00f);
-			heat_state.temperature_current.m_value.FMA(energy.m_value, heat_state.heat_capacity_inv.m_value);
+			heat_state.temperature_current.m_value.FMARef(energy.m_value, heat_state.heat_capacity_inv.m_value);
 		}
 
 		public static void AddPower(ref this Heat.State heat_state, Power power, float dt)
@@ -209,7 +209,7 @@ namespace TC2.Base.Components
 			//var heat = amount / Maths.Max(heat_state.heat_capacity_extra + (mass * 0.10f), 1.00f);
 
 			power.m_value *= dt;
-			heat_state.temperature_current.m_value.FMA(power.m_value, heat_state.heat_capacity_inv.m_value);
+			heat_state.temperature_current.m_value.FMARef(power.m_value, heat_state.heat_capacity_inv.m_value);
 		}
 
 		[ISystem.Monitor(ISystem.Mode.Single, ISystem.Scope.Region), HasComponent<Heat.Data>(Source.Modifier.Owned, true)]

@@ -65,16 +65,22 @@
 		[Source.Owned] ref Crafter.Data crafter, [Source.Owned] ref Crafter.State crafter_state,
 		[Source.Owned] ref Axle.Data axle, [Source.Owned] ref Axle.State axle_state)
 		{
-			if (axle_state.rotation.Abs() > Maths.pi)
+			//if (((axle_state.rotation + Maths.pi).NormalizeAngle_Test() + Maths.pi) < Maths.pi)
+			if (axle_state.rotation.NormalizeAngleTau_Test() < Maths.pi)
 			{
-				if (hammer.flags.TryAddFlag(Data.Flags.Lifting))
-				{
-#if CLIENT
-					//if (hammer.h_sound_release) Sound.Play(region: ref region, sound: hammer.h_sound_release, world_position: transform.LocalToWorld(axle.offset), volume: 0.60f, pitch: random.NextFloatExtra(0.90f, 0.15f));
-#endif
-				}
+				//axle_state.ApplyTorque(axle.radius_outer * hammer.hammer_mass * Region.gravity_acc * 1.70f, -Region.gravity_acc);
 
-				hammer.current_velocity = 0.00f;
+				if (axle_state.angular_velocity > 1.00f)
+				{
+					if (hammer.flags.TryAddFlag(Data.Flags.Lifting))
+					{
+#if CLIENT
+						//if (hammer.h_sound_release) Sound.Play(region: ref region, sound: hammer.h_sound_release, world_position: transform.LocalToWorld(axle.offset), volume: 0.60f, pitch: random.NextFloatExtra(0.90f, 0.15f));
+#endif
+					}
+					hammer.current_velocity = 0.00f;
+				}
+					
 				hammer.current_displacement += Axle.CalculateAngularDistance(axle.radius_outer, axle_state.rotation_delta);
 			}
 			else
@@ -120,7 +126,6 @@
 					else
 					{
 						hammer.current_velocity = 0.00f;
-
 					}
 				}
 				else
@@ -260,9 +265,14 @@
 								{
 									GUI.DrawBackground(group_info, GUI.tex_window);
 
-									GUI.LabelShaded("Angle:"u8, Axle.CalculateAngularDistance(this.axle.radius_a, this.axle_state.rotation_delta), format: "0.000", width: GUI.RmX);
-									GUI.LabelShaded("Slider:"u8, this.hammer.current_displacement, format: "0.000", width: GUI.RmX);
+									//GUI.LabelShaded("Angle:"u8, Axle.CalculateAngularDistance(this.axle.radius_a, this.axle_state.rotation_delta), format: "0.000", width: GUI.RmX);
+									//GUI.LabelShaded("Slider:"u8, this.hammer.current_displacement, format: "0.000", width: GUI.RmX);
+									GUI.TextShaded(this.hammer.last_impact_energy.MJ(), format: "0.## 'MJ'");
+									GUI.TextShaded(this.axle_state.rotation.NormalizeAngleTau_Test());
 								}
+
+								
+
 								//var dirty = false;
 								//if (GUI.SliderFloat("Slider"u8, ref this.sawmill_state.slider_ratio, 1.00f, 0.00f, size: new Vector2(GUI.RmX, slider_h)))
 								//{

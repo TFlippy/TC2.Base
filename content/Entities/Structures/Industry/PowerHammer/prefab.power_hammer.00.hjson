@@ -159,7 +159,7 @@ powerhammer:
 {
 	flags: none
 	
-	slider_offset: [-0.375, 2.125]
+	slider_offset: [-0.500, 2.125]
 	slider_length: 3.000
 	hammer_mass: 80.000
 	h_material_hammer: steel.ingot
@@ -173,7 +173,7 @@ powerhammer:
 		sprite:
 		{
 			texture: power_hammer.00.parts
-			size: [24, 40]
+			size: [24, 48]
 		}
 		z: -80.000
 	}
