@@ -9,7 +9,7 @@ $tags: []
 
 body:
 {
-	buoyancy: 0.580
+	buoyancy: 0.380
 	fall_damage_multiplier: 0.640
 
 	@shape.box:
@@ -29,7 +29,7 @@ body:
 
 health:
 {
-	max: 7000.000
+	max: 8000.000
 }
 
 animated.renderer:
@@ -130,17 +130,17 @@ attachment:
 // 	}
 // }
 
-harvestable:
-{
-	resources:
-	[
-		{
-			material: "actuator"
-			flags: no_conversion, drop_on_break
-			quantity: 2.000
-		}
-	]
-}
+// harvestable:
+// {
+// 	resources:
+// 	[
+// 		{
+// 			material: "actuator"
+// 			flags: no_conversion, drop_on_break
+// 			quantity: 2.000
+// 		}
+// 	]
+// }
 
 essence.container:
 {

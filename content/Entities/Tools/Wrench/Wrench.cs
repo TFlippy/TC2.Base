@@ -21,7 +21,7 @@ namespace TC2.Base.Components
 
 			public bool IsRecipeValid(ref Region.Data region, ref IRecipe.Data recipe)
 			{
-				return recipe.IsNotNull() && recipe.type == this.RecipeType && recipe.placement.HasValue;
+				return recipe.IsNotNull() && recipe.type == this.RecipeType && recipe.flags.HasNone(Recipe.Flags.Disabled) && recipe.placement.HasValue;
 			}
 
 #if CLIENT
@@ -493,41 +493,39 @@ namespace TC2.Base.Components
 								if (recipe.type == this.RecipeType)
 								{
 									using (GUI.ID.Push(d_recipe.id))
+									using (GUI.Group.New(size: new Vector2(GUI.RmX, 48)))
 									{
-										using (GUI.Group.New(size: new Vector2(GUI.RmX, 48)))
+										var frame_size = new Vector2(48, 48);
+										var selected = this.SelectedRecipe.id == d_recipe.id;
+										using (var button = GUI.CustomButton.New(recipe.name, frame_size, sound: GUI.sound_select, sound_volume: 0.10f, enabled: recipe.flags.HasNone(Recipe.Flags.Disabled)))
 										{
-											var frame_size = new Vector2(48, 48);
-											var selected = this.SelectedRecipe.id == d_recipe.id;
-											using (var button = GUI.CustomButton.New(recipe.name, frame_size, sound: GUI.sound_select, sound_volume: 0.10f))
+											GUI.Draw9Slice((selected || button.hovered) ? GUI.tex_slot_simple_hover : GUI.tex_slot_simple, new Vector4(4), button.bb);
+
+											using (var clip = GUI.Clip.Push(button.group.GetInnerRect().Shrink(6), cull: true))
 											{
-												GUI.Draw9Slice((selected || button.hovered) ? GUI.tex_slot_simple_hover : GUI.tex_slot_simple, new Vector4(4), button.bb);
-
-												using (var clip = GUI.Clip.Push(button.group.GetInnerRect().Shrink(6), cull: true))
+												if (clip.visible)
 												{
-													if (clip.visible)
-													{
-														GUI.DrawSpriteCentered(recipe.icon, button.bb, layer: GUI.Layer.Window, scale: 2.00f);
-													}
-												}
-
-												if (button.pressed)
-												{
-													this.SendSetRecipeRPC(ent_wrench, d_recipe);
+													GUI.DrawSpriteCentered(recipe.icon, button.bb, layer: GUI.Layer.Window, scale: 2.00f);
 												}
 											}
-											if (GUI.IsItemHovered())
+
+											if (button.pressed)
 											{
-												using (GUI.Tooltip.New())
-												{
-													using (GUI.Wrap.Push(256))
-													{
-														GUI.Title(recipe.GetName());
-														GUI.TextShaded(recipe.GetDescription().OrDefault(recipe.GetDescriptionFallback()), color: GUI.font_color_default);
-													}
-												}
+												this.SendSetRecipeRPC(ent_wrench, d_recipe);
 											}
-											GUI.FocusableAsset(d_recipe.GetHandle());
 										}
+										if (GUI.IsItemHovered())
+										{
+											using (GUI.Tooltip.New())
+											{
+												using (GUI.Wrap.Push(256))
+												{
+													GUI.Title(recipe.GetName());
+													GUI.TextShaded(recipe.GetDescription().OrDefault(recipe.GetDescriptionFallback()), color: GUI.font_color_default);
+												}
+											}
+										}
+										GUI.FocusableAsset(d_recipe.GetHandle());
 									}
 								}
 							}
@@ -671,7 +669,7 @@ namespace TC2.Base.Components
 				//using (var window = GUI.Window.Interaction("Wrench"u8, this.ent_wrench, padding: new(0, 0), no_mouse_close: true))
 				//{
 
-				using (var widget = Sidebar.Widget.New(identifier: "wrench", name: "Wrench", icon: sprite_wrench, 
+				using (var widget = Sidebar.Widget.New(identifier: "wrench", name: "Wrench", icon: sprite_wrench,
 				size: new Vector2(454, 442), //size_min: new Vector2(454 - 96, 256),
 				lockable: false, order: 2.00f,
 				flags: Sidebar.Widget.Flags.Force_Open | Sidebar.Widget.Flags.Has_Window | Sidebar.Widget.Flags.Show_As_Selected | Sidebar.Widget.Flags.Align_Right | Sidebar.Widget.Flags.Fade | Sidebar.Widget.Flags.Enabled/* | Sidebar.Widget.Flags.Resizable*/))

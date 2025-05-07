@@ -68,10 +68,10 @@
 		size: [3.000, 8.000]
 		offset: [0.000, -3.250]
 		
-		rect_foundation: [-1.250, -0.625, 1.500, 0.750]
+		rect_foundation: [-1.375, -0.625, 1.375, 0.750]
 		tileflags_foundation: solid
 		
-		rect_clearance: [-1.375, -7.000, 1.500, -0.625]
+		rect_clearance: [-1.500, -10.000, 1.500, -0.625]
 		tileflags_clearance: solid
 		
 		cooldown: 1.000

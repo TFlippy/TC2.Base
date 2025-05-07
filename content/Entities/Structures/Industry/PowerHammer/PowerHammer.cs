@@ -218,45 +218,48 @@
 							{
 								//GUI.DrawBackground(GUI.tex_frame, group.GetOuterRect(), new(8));
 
-								using (var slot = GUI.EntitySlot.New(context: ref context,
-								identifier: "slot.power_hammer"u8,
-								name: "Item"u8,
-								ent_attached: this.hammer.ent_joint_attached,
-								size: new Vector2(GUI.RmX, 64)))
+								if (this.hammer.ent_joint)
 								{
-									if (slot.pressed)
+									using (var slot = GUI.EntitySlot.New(context: ref context,
+									identifier: "slot.power_hammer"u8,
+									name: "Item"u8,
+									ent_attached: this.hammer.ent_joint_attached,
+									size: new Vector2(GUI.RmX, 64)))
 									{
-										switch (slot.action)
+										if (slot.pressed)
 										{
-											case GUI.ItemContext.Action.Add:
+											switch (slot.action)
 											{
-												var rpc = new Holdable.AttachRPC
+												case GUI.ItemContext.Action.Add:
 												{
-													ent_joint = this.hammer.ent_joint
-												};
-												rpc.Send(context.ent_pickup_target);
-											}
-											break;
+													var rpc = new Holdable.AttachRPC
+													{
+														ent_joint = this.hammer.ent_joint
+													};
+													rpc.Send(context.ent_pickup_target);
+												}
+												break;
 
-											case GUI.ItemContext.Action.Remove:
-											{
-												var rpc = new Holdable.DetachRPC
+												case GUI.ItemContext.Action.Remove:
 												{
+													var rpc = new Holdable.DetachRPC
+													{
 
-												};
-												rpc.Send(this.hammer.ent_joint_attached);
-											}
-											break;
+													};
+													rpc.Send(this.hammer.ent_joint_attached);
+												}
+												break;
 
-											case GUI.ItemContext.Action.Swap:
-											{
-												var rpc = new Holdable.AttachRPC
+												case GUI.ItemContext.Action.Swap:
 												{
-													ent_joint = this.hammer.ent_joint
-												};
-												rpc.Send(context.ent_pickup_target);
+													var rpc = new Holdable.AttachRPC
+													{
+														ent_joint = this.hammer.ent_joint
+													};
+													rpc.Send(context.ent_pickup_target);
+												}
+												break;
 											}
-											break;
 										}
 									}
 								}
@@ -268,6 +271,7 @@
 									//GUI.LabelShaded("Angle:"u8, Axle.CalculateAngularDistance(this.axle.radius_a, this.axle_state.rotation_delta), format: "0.000", width: GUI.RmX);
 									//GUI.LabelShaded("Slider:"u8, this.hammer.current_displacement, format: "0.000", width: GUI.RmX);
 									GUI.TextShaded(this.hammer.last_impact_energy.MJ(), format: "0.## 'MJ'");
+									//GUI.TextShaded((Energy.J(this.hammer.current_displacement * this.hammer.hammer_mass * (Region.gravity_acc).Pow2())).MJ(), format: "0.## 'MJ'");
 									GUI.TextShaded(this.axle_state.rotation.NormalizeAngleTau_Test());
 								}
 

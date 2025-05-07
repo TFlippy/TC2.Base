@@ -1,4 +1,4 @@
-$name: "Power Hammer"
+$name: "Trip Hammer"
 $tags: []
 
 body:
@@ -19,7 +19,7 @@ body:
 		material: metal_frame
 		miss_chance: 0.875
 		
-		layer: entity, solid, background, building, support, ignore_melee
+		layer: entity, solid, building, support, ignore_melee, no_overlapped_placement
 		mask: world, building
 		exclude: none
 	}
@@ -212,10 +212,10 @@ axle:
 	}
 }
 
-controllable:
-{
+// controllable:
+// {
 
-}
+// }
 
 // storage:
 // {
@@ -228,31 +228,31 @@ controllable:
 // 	}
 // }
 
-+mount|instance:
-{
-	joint.base:
-	{
-		offset_a: [-0.125, 1.250]
-		max_force: 100000.000
-		max_torque: 100000.000
-		max_stress: 4.000
-		z: -100.000
-		material_type: metal
-		flags: no_aiming, no_wrap, use_center_of_gravity, align_side
-	}
+// +mount|instance:
+// {
+// 	joint.base:
+// 	{
+// 		offset_a: [-0.125, 1.250]
+// 		max_force: 100000.000
+// 		max_torque: 100000.000
+// 		max_stress: 4.000
+// 		z: -100.000
+// 		material_type: metal
+// 		flags: no_aiming, no_wrap, use_center_of_gravity, align_side
+// 	}
 
-	joint.gear:
-	{
-		step: 2.000
-		error_bias: 0.050
-		max_bias: 2.000
-		max_bias_bounce: 0.000
-		bounce: 0.000
-		stress_mult: 0.000
-	}
+// 	joint.gear:
+// 	{
+// 		step: 2.000
+// 		error_bias: 0.050
+// 		max_bias: 2.000
+// 		max_bias_bounce: 0.000
+// 		bounce: 0.000
+// 		stress_mult: 0.000
+// 	}
 
-	joint.pivot:
-	{
-		max_bias: 8.000
-	}
-}
+// 	joint.pivot:
+// 	{
+// 		max_bias: 8.000
+// 	}
+// }

@@ -1,4 +1,10 @@
-$name: "Axle Mount (Wall)"
+$name: "Axle (Ground)"
+$desc: 
+	'''
+	Axle anchored to the ground.
+	Used as part of belt drives.
+	'''
+
 $tags: []
 
 body:
@@ -16,11 +22,11 @@ body:
 		friction: 0.590
 		elasticity: 0.400
 		
-		material: metal_frame
+		material: metal
 		miss_chance: 0.718
 		
 		layer: entity, background, building, no_overlapped_placement, ignore_melee
-		mask: world
+		mask: world, building
 		exclude: none
 	}
 }
@@ -32,7 +38,7 @@ body:
 
 health:
 {
-	max: 20000.000
+	max: 28000.000
 }
 
 animated.renderer:
@@ -50,13 +56,13 @@ transform:
 
 }
 
-interactable:
-{
-	flags: centered_inventory
-	priority: 1.800
-	window_size: [168.000, 168.000]
-	window_size_misc: [88.000, 0.000]
-}
+// interactable:
+// {
+// 	flags: centered_inventory
+// 	priority: 1.800
+// 	window_size: [168.000, 168.000]
+// 	window_size_misc: [88.000, 0.000]
+// }
 
 // module.slots:
 // {

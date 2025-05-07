@@ -56,7 +56,7 @@
 		texture: tub.00
 		size: [24, 24]
 	}
-	icon_offset: [13.000, -9.000]
+	icon_offset: [15.000, 2.000]
 	
 	color_frame: "0xffaeb59a"
 	color_button: "0xff9dd80f"
