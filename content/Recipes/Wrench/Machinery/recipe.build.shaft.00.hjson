@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.5"
 	name: "Shaft"
 	desc:
 		'''
@@ -12,9 +12,27 @@
 	[
 		{
 			type: resource
-			material: steel.ingot
-			amount: 5.000
+			material: steel.frames
+			amount: 8.000
+			loss: 0.078
 			group: 0
+			flags: prerequisite
+		}
+		{
+			type: resource
+			material: machine_parts
+			amount: 4.000
+			loss: 0.035
+			group: 0
+			flags: prerequisite
+		}
+		{
+			type: resource
+			material: steel.plate
+			amount: 2.000
+			loss: 0.110
+			group: 0
+			flags: prerequisite
 		}
 	]
 	
@@ -22,23 +40,27 @@
 	[
 		{
 			type: prefab
-			prefab: shaft
+			prefab: mount.axle.00
 			amount: 1.000
 			group: 0
+			flags: primary
 		}
 	]
 	
 	type: machinery
-	flags: disabled, wip
+	flags: no_amount_multiplier, building
 	tags: construction
+	infrastructure: none
 	
 	icon:
 	{
-		texture: shaft
-		size: [16, 16]
+		texture: atlas.axle.00
+		size: [24, 24]
 	}
+	icon_offset: [0.000, 7.000]
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	rank: 0.000
 	
 	dismantle_work: 3.000
@@ -47,16 +69,31 @@
 	placement:
 	{
 		type: simple
-		flags: allow_placement_over_buildings
+		flags: allow_mirror_y, allow_placement_over_buildings, require_terrain, no_solid_support
 		
-		size: [1.000, 1.000]
+		size: [1.000, 2.500]
+		offset: [0.000, -0.750]
+		
+		rect_foundation: [-0.625, -0.250, 0.625, 0.250]
+		
+		rect_clearance: [-0.500, -2.125, 0.500, -0.250]
 		
 		cooldown: 0.500
 		min_support: 0.200
 		min_clearance: 0.500
 		min_claim: 1.000
 		
+		rotation_max: 10.000
+		
 		sound: building_place
+		
+		snapping_filter:
+		{
+			include: world
+		}
+		snapping_flags: snap_to_surface, align_to_surface, add_size_to_snap_radius, use_raw_collider
+		snapping_radius: 0.500
+		snapping_depth: 0.250
 		
 		mappings_replace:
 		{

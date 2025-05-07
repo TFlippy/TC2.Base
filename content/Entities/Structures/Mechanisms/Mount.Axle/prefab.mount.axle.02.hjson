@@ -5,42 +5,33 @@ body:
 {
 	type: static
 	
-	@shape.line:
+	@shape.circle:
 	{
-		a: [0.000, -0.750]
-		b: [0.000, 0.375]
-		offset: [0.000, 0.000]
-		
-		mass: 20.000
+		mass: 18.000
 		radius: 0.750
-		friction: 0.590
-		elasticity: 0.400
-		
-		material: metal_frame
-		miss_chance: 0.718
-		
+		friction: 0.500
+		elasticity: 0.500
+		material: metal
 		layer: entity, background, building, no_overlapped_placement, ignore_melee
-		mask: world
-		exclude: none
+		miss_chance: 0.400
 	}
 }
 
-// control:
-// {
+control:
+{
 
-// }
+}
 
 health:
 {
-	max: 20000.000
+	max: 21000.000
 }
 
 animated.renderer:
 {
 	sprite:
 	{
-		texture: atlas.axle.00
-		size: [24, 24]
+		texture: "mount.axle.00"
 	}
 	z: -200.000
 }
@@ -58,21 +49,24 @@ interactable:
 	window_size_misc: [88.000, 0.000]
 }
 
-// module.slots:
-// {
-// 	slot_type: motor
-// 	offset: [0.000, 0.000]
-// 	z: 40.000
-// }
+module.slots:
+{
+	slot_type: motor
+	offset: [0.000, 0.000]
+	z: 40.000
+}
 
 axle:
 {
-	offset: [0.000, -0.875]
-	
-	mass: 40.000
-	friction: 0.250
+	offset: [0.000, 0.000]
+	mass: 20.000
+	friction: 0.200
+	radius_a: 1.000
+	radius_b: 1.000
+	radius_inner: 0.750
+	radius_outer: 1.000
 	z: -140.000
-
+	
 	@animated.renderer:
 	{
 		sprite:
