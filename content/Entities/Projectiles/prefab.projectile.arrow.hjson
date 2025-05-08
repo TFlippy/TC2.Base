@@ -5,10 +5,11 @@ projectile:
 	damage_base: 200.000
 	damage_bonus: 300.000
 	knockback_multiplier: 200.000
-	lifetime: 15.000
+	lifetime: 12.000
 	damage_type: arrow
-	size: 0.200
+	size: 0.040
 	ricochet_count: 0
+	stabilization: 0.800
 }
 
 animated.renderer:

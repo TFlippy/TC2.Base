@@ -52,11 +52,11 @@
 	{
 		texture: ui_icons_widget
 		size: [16, 16]
-		frame: [5, 1]
+		frame: [5, 8]
 	}
 	icon_extra_offset: [-6.125, 0.000]
 	
-	color_frame: "0xffaeb59a"
+	color_frame: "0xffff5f11"
 	color_button: "0xff9dd80f"
 	rank: -1540.000
 	frame_size: [96.000, 48.000]

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.5"
 	name: "Tool Rack"
 	tips: []
 	
@@ -42,7 +42,7 @@
 		size: [24, 16]
 	}
 	
-	color_frame: "0xffaeb59a"
+	color_frame: "0xffc99918"
 	color_button: "0xff9dd80f"
 	rank: -5090.000
 	

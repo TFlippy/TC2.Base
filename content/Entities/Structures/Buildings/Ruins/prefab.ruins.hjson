@@ -27,7 +27,7 @@ body:
 		elasticity: 0.500
 		
 		material: building_masonry
-		miss_chance: 0.824
+		miss_chance: 0.894
 		
 		layer: entity, solid, background, building, no_overlapped_placement, ignore_melee
 		mask: world

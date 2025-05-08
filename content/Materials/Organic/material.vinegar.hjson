@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.3"
+	$version: "0.1.62.5"
 	name: "Vinegar"
 	name_short: "Vinegar"
 	description:
@@ -33,9 +33,15 @@
 	h_substance: "null"
 	
 	color_icon: "0xffffffff"
-	color_item: "0xffffffff"
-	color_dust: "0xffffffff"
-	color_gib: "0xffffffff"
+	color_item: "0xd2ee9e10"
+	color_dust: "0xd2ee9e10"
+	color_gib: "0xd2ee9e10"
+	color_liquid: [0.936, 0.623, 0.065, 0.824]
 	
 	colliders: []
+	
+	related:
+	{
+	
+	}
 }
