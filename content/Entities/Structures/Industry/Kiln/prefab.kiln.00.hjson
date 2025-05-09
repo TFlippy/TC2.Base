@@ -146,12 +146,12 @@ animated.renderer|"intake":
 
 sound.emitter|"aux":
 {
-	file: "burner.gas.loop.01"
+	file: truck_engine_loop
 	flags: start_muted
-	volume: 0.300
-	pitch: 0.700
-	size: 1.000
-	size_max_modifier: 0.500
+	volume: 0.800
+	pitch: 0.400
+	size: 0.700
+	size_max_modifier: 0.400
 }
 
 air.vent|"exhaust":
@@ -166,53 +166,53 @@ air.vent|"intake":
 {
 	offset: [-0.500, 0.250]
 	rotation: 1.571
-	cross_section: 0.200
+	cross_section: 0.300
 	type: intake
 }
 
 air.container:
 {
-	volume: 1.000
+	volume: 0.700
 }
 
 burner:
 {
 	flags: none
-	type: solid
-	area_fuel: 0.800
+	type: liquid
+	area_fuel: 0.300
 	area_aux: 0.007854
-	pressure_max: 8.000
-	temperature_max: 2200.000
+	pressure_max: 4.000
+	temperature_max: 1700.000
 	insulation: 0.450
 
-	@inventory1:
-	{
-		stack_size_multiplier: 0.500
-		type: fuel
-		flags: allow_ducts, ignore_mass
-		offset: [-0.250, 1.125]
-		filter:
-		{
-			require: fuel, flammable, solid
-			include: granular, small, powder, volatile
-			exclude: long, gas, large, bottled
-		}
-	}
+	// @inventory1:
+	// {
+	// 	stack_size_multiplier: 0.500
+	// 	type: fuel
+	// 	flags: allow_ducts, ignore_mass
+	// 	offset: [-0.250, 1.125]
+	// 	filter:
+	// 	{
+	// 		require: fuel, flammable, solid
+	// 		include: granular, small, powder, volatile
+	// 		exclude: long, gas, large, bottled
+	// 	}
+	// }
 
 	@sound.emitter:
 	{
-		file: "furnace_loop"
+		file: burner.burn.solid.loop.01
 		flags: start_muted
-		volume: 1.000
-		pitch: 0.500
-		size: 0.700
-		size_max_modifier: 0.600
+		volume: 0.900
+		pitch: 1.100
+		size: 2.450
+		size_max_modifier: 0.840
 	}
 
 	@light:
 	{
 		color: [1.000, 0.500, 0.000, 2.000]
-		offset: [-0.250, 0.750]
+		offset: [-0.500, 0.375]
 		scale: [14.000, 13.000]
 		intensity: 0.000
 		texture: "light.circle.04"
@@ -225,15 +225,16 @@ burner.state:
 
 	@inventory1:
 	{
-		stack_size_multiplier: 0.500
 		type: input
 		flags: allow_ducts, ignore_mass
-		offset: [-0.250, 1.125]
+		stack_size_multiplier: 0.500
+		
 		filter:
 		{
 			require: fuel, flammable
 			include: liquid, gas
 			exclude: sticky, viscous, solid
 		}
+		offset: [-0.500, 0.375]
 	}
 }
