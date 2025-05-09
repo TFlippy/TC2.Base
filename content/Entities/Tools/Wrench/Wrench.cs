@@ -750,7 +750,7 @@ namespace TC2.Base.Components
 			{
 				ref readonly var info = ref ECS.GetInfo<T>();
 
-				using (var window = GUI.Window.Docked(info.identifier, dock_identifier: Wrench.dock_identifier, padding: new(0, 0)))
+				using (var window = GUI.Window.Docked(info.identifier, dock_identifier: Wrench.dock_identifier))
 				{
 					if (window.show)
 					{

@@ -38,7 +38,7 @@ namespace TC2.Base.Components
 					Doors = 1u << 4,
 				}
 
-				[IComponent.Data(Net.SendType.Reliable, IComponent.Scope.Region, name: "Wrench (Repair)")]
+				[IComponent.Data(Net.SendType.Reliable, IComponent.Scope.Region, name: "Wrench (Repair)", order: 9)]
 				public partial struct Data: IComponent, Wrench.IMode, Wrench.ITargeterMode<TargetInfo>
 				{
 					public static readonly Sound.Handle sound_repair_default = "wrench.repair.00";

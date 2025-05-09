@@ -10,7 +10,7 @@ namespace TC2.Base.Components
 		{
 			public static partial class Build
 			{
-				[IComponent.Data(Net.SendType.Reliable, IComponent.Scope.Region, name: "Wrench (Build)")]
+				[IComponent.Data(Net.SendType.Reliable, IComponent.Scope.Region, name: "Wrench (Build)", order: 4)]
 				public partial struct Data(): IComponent, Wrench.IMode
 				{
 					public float placement_range = 4.00f;

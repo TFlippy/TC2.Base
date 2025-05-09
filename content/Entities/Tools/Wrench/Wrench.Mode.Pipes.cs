@@ -6,7 +6,7 @@
 		{
 			public static partial class Pipes
 			{
-				[IComponent.Data(Net.SendType.Reliable, IComponent.Scope.Region, name: "Wrench (Pipes)")]
+				[IComponent.Data(Net.SendType.Reliable, IComponent.Scope.Region, name: "Wrench (Pipes)", order: 7)]
 				public partial struct Data: IComponent, Wrench.IMode,  Wrench.ILinkerMode<Pipes.TargetInfo, Pipe.Data>
 				{
 					[Save.Ignore] public Entity ent_src;

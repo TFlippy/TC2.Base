@@ -6,7 +6,7 @@
 		{
 			public static partial class Conveyors
 			{
-				[IComponent.Data(Net.SendType.Reliable, IComponent.Scope.Region, name: "Wrench (Conveyors)")]
+				[IComponent.Data(Net.SendType.Reliable, IComponent.Scope.Region, name: "Wrench (Conveyors)", order: 6)]
 				public partial struct Data: IComponent, Wrench.IMode, Wrench.ILinkerMode<Conveyors.TargetInfo, Conveyor.Data>
 				{
 					[Save.Ignore] public Entity ent_src;
