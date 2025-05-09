@@ -9,7 +9,7 @@
 			name: "Construction"
 			
 			type: construction
-			flags: wip, auto_generated
+			flags: wip
 			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
@@ -61,7 +61,7 @@
 							material: steel.frames
 							amount: 0.61098
 							snapping: 0.100
-							loss: 0.027
+							loss: 0.024
 							group: 1
 							flags: prerequisite
 						}
@@ -92,12 +92,12 @@
 					
 					filter_tools:
 					{
-						require: hammer, saw, screwdriver, wrench, file, knife
-						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, tweezers, axe, stapler, file, chisel, towel, tongs, pick, crowbar, knife
+						require: screwdriver, wrench, file, knife
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, stapler, file, towel, tongs, pick, crowbar, knife, sandpaper
 					}
 					filter_machinery:
 					{
-						include: lathe
+						include: lathe, mill, sander, planer
 					}
 				}
 			]
@@ -118,7 +118,7 @@
 	type: workshop
 	flags: item, production, wip, converted
 	tags: workbench, manual, simple, small, weapon, woodworking, assembling, metalworking
-	infrastructure: workbench
+	infrastructure: table, surface
 	
 	icon:
 	{
