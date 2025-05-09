@@ -1,0 +1,216 @@
+﻿{
+	$version: "0.1.62.0"
+	name: "Niklajzner"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	tips: []
+	
+	stages:
+	[
+		{
+			name: "Forging"
+			
+			type: workpiece
+			flags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: heat
+			
+			ratio: 1.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Ingot"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: temperature
+							amount: 980.700
+							amount_min: 677.000
+							amount_max: 1000.240
+							falloff: 2.477
+							group: 1
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: work
+							work: heating
+							amount: 650.000
+							amount_min: 250.000
+							difficulty: 9
+							snapping: 5.000
+							falloff: 0.795
+							ratio: 0.271
+							group: 1
+							flags: always_evaluate, conditional
+						}
+						{
+							type: work
+							work: smithing
+							amount: 350.000
+							amount_min: 150.000
+							difficulty: 7
+							snapping: 5.000
+							falloff: 0.865
+							ratio: 0.173
+							group: 1
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: steel.ingot
+							amount: 0.972
+							amount_extra: 0.216
+							group: 0
+							flags: primary, compact, use_temperature
+						}
+					]
+					
+					start_delay: 4.000
+					advance_delay: 1.000
+					complete_delay: 1.000
+					
+					quality: 1.000
+					precision: 1.000
+					
+					loss: 0.024
+					
+					filter_tools:
+					{
+						require: hammer, tongs
+						include: pliers
+					}
+					filter_environment:
+					{
+						include: workshop, stationary, fireproof, sturdy
+						exclude: fragile
+					}
+					
+					h_sound_begin: metal.hit.heavy.00
+				}
+			]
+			
+			requirements:
+			[
+				{
+					type: resource
+					material: niklajzner
+					amount: 10.000
+					snapping: 1.000
+					loss: 0.165
+					ratio: 1.000
+					group: 0
+					flags: primary, prerequisite
+				}
+			]
+		}
+		{
+			name: "Cooling"
+			
+			type: refining
+			flags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: fracture
+			
+			ratio: 1.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Ambient"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: temperature
+							amount: 293.500
+							amount_min: 341.000
+							amount_max: 511.000
+							falloff: 2.500
+							group: 0
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: work
+							work: cooling
+							amount: 350.000
+							amount_min: 250.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.677
+							group: 0
+							flags: always_evaluate, conditional
+						}
+					]
+					
+					quality: 1.000
+					precision: 1.000
+					
+					filter_tools:
+					{
+						require: hammer, tongs
+						include: pliers
+					}
+					filter_environment:
+					{
+						include: workshop, stationary, fireproof, sturdy
+						exclude: fragile
+					}
+				}
+			]
+		}
+	]
+	
+	type: workshop
+	flags: item, production
+	tags: manual, simple, raw, metalworking, processing
+	infrastructure: hard_surface
+	
+	icon:
+	{
+		texture: resource.steel.ingot
+		size: [16, 16]
+	}
+	icon_offset: [-9.000, 2.000]
+	
+	icon_extra:
+	{
+		texture: ui_icons_widget
+		size: [16, 16]
+		frame: [2, 3]
+	}
+	icon_extra_offset: [0.000, -18.000]
+	
+	icon_c:
+	{
+		texture: resource.niklajzner
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	icon_c_offset: [-3.000, -6.000]
+	
+	color_frame: "0xffff851e"
+	color_button: "0xff9dd80f"
+	rank: -15.000
+	
+	min: 1
+	max: 10
+	step: 1
+	
+	version: 1
+}
