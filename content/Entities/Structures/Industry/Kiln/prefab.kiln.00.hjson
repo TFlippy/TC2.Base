@@ -29,6 +29,16 @@ body:
 	}
 }
 
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "kiln.00"
+		size: [24, 40]
+	}
+	z: -280.000
+}
+
 control:
 {
 
@@ -80,11 +90,6 @@ crafter:
 {
 	flags: none
 	
-	tools: hammer, screwdriver, spanner, pliers, towel, tongs
-	infrastructure: anvil, forge, rack, shaping_mould, surface, hard_surface
-	machinery: metal_press, bender
-	environment: machine, waterproof, stationary, scary, noisy, reinforced, fireproof, durable, sturdy
-	
 	temperature_max: 1479.000
 	pressure_max: 1.500
 	
@@ -107,20 +112,128 @@ crafter:
 
 workshop:
 {
-	tools: hammer, screwdriver, spanner, pliers, towel, tongs
-	infrastructure: anvil, forge, rack, shaping_mould, surface, hard_surface
-	machinery: metal_press, bender
-	environment: machine, waterproof, stationary, scary, noisy, reinforced, fireproof, durable, sturdy
-	
 	orders_capacity: 2
 }
 
-animated.renderer:
+kiln:
+{
+
+}
+
+animated.renderer|"exhaust":
 {
 	sprite:
 	{
-		texture: "kiln.00"
-		size: [24, 40]
+		texture: burner.parts.00
+		size: [16, 16]
+		frame: [0, 1]
 	}
-	z: -60.000
+	offset: [-0.125, -2.250]
+	rotation: 0.000
+	z: -285.000
+}
+
+animated.renderer|"intake":
+{
+	sprite:
+	{
+		texture: "burner.parts.00"
+		size: [8, 8]
+		frame: [0, 1]
+	}
+	z: -275.000
+}
+
+sound.emitter|"aux":
+{
+	file: "burner.gas.loop.01"
+	flags: start_muted
+	volume: 0.300
+	pitch: 0.700
+	size: 1.000
+	size_max_modifier: 0.500
+}
+
+air.vent|"exhaust":
+{
+	offset: [0.375, -2.375]
+	rotation: -1.571
+	cross_section: 0.200
+	type: exhaust
+}
+
+air.vent|"intake":
+{
+	offset: [-0.500, 0.250]
+	rotation: 1.571
+	cross_section: 0.200
+	type: intake
+}
+
+air.container:
+{
+	volume: 1.000
+}
+
+burner:
+{
+	flags: none
+	type: solid
+	area_fuel: 0.800
+	area_aux: 0.007854
+	pressure_max: 8.000
+	temperature_max: 2200.000
+	insulation: 0.450
+
+	@inventory1:
+	{
+		stack_size_multiplier: 0.500
+		type: fuel
+		flags: allow_ducts, ignore_mass
+		offset: [-0.250, 1.125]
+		filter:
+		{
+			require: fuel, flammable, solid
+			include: granular, small, powder, volatile
+			exclude: long, gas, large, bottled
+		}
+	}
+
+	@sound.emitter:
+	{
+		file: "furnace_loop"
+		flags: start_muted
+		volume: 1.000
+		pitch: 0.500
+		size: 0.700
+		size_max_modifier: 0.600
+	}
+
+	@light:
+	{
+		color: [1.000, 0.500, 0.000, 2.000]
+		offset: [-0.250, 0.750]
+		scale: [14.000, 13.000]
+		intensity: 0.000
+		texture: "light.circle.04"
+	}
+}
+
+burner.state:
+{
+	current_temperature: 300.000
+
+	@inventory1:
+	{
+		stack_size_multiplier: 0.500
+		type: input
+		flags: allow_ducts, ignore_mass
+		offset: [-0.250, 1.125]
+		filter:
+		{
+			require: fuel, flammable
+			include: liquid, gas
+			exclude: sticky, viscous, solid
+		}
+	}
 }
