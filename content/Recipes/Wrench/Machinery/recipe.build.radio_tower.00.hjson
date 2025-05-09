@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.5"
 	name: "Radio Tower"
 	tips: []
 	
@@ -10,6 +10,7 @@
 			
 			type: foundation
 			flags: wip
+			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: shovel
 			
@@ -201,9 +202,10 @@
 		}
 	]
 	
-	type: buildings
+	type: machinery
 	flags: no_amount_multiplier, blueprintable, disabled, construction, wip, auto_complete
 	tags: advanced, huge, magitronics, machinery, assembling, metalworking, engineering, science, construction
+	infrastructure: none
 	
 	icon:
 	{
@@ -211,6 +213,7 @@
 	}
 	
 	color_frame: "0xff6a7a9a"
+	color_button: "0xff9dd80f"
 	button_name: "Build"
 	rank: -109.000
 	

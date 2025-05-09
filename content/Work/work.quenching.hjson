@@ -1,0 +1,63 @@
+﻿{
+	$version: "0.1.62.5"
+	name: "Quenching"
+	name_short: "Quenching"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: ui.icons.work.00
+		size: [16, 16]
+		frame: [11, 0]
+	}
+	
+	flags: none
+	tags: manual, simple
+	cooldown: 3.000
+	multiplier: 5.000
+	color: "0xff5469ff"
+	
+	tools_required: bucket
+	tools_optional: towel, tongs
+	
+	machinery_required: none
+	machinery_optional: none
+	
+	infrastructure_required: none
+	infrastructure_optional: cauldron, liquid_container
+	
+	character_traits:
+	{
+		include: medical, artisan, farmer, laborer, chemist, culinary, insane, brawler, evil, dumb, clumsy
+		weight: 1.000
+	}
+	
+	skills_min:
+	{
+	
+	}
+	
+	skills_mult:
+	{
+		dexterity: 0.400
+		metallurgy: 0.300
+		strength: 0.200
+	}
+	
+	sound_volume: 1.100
+	sound_pitch: 0.900
+	sound_size: 0.850
+	sound_dist: 0.700
+	
+	sounds: ["effect.sizzle.fry.00", "effect.sizzle.sparky.00", "effect.sizzle.water.00"]
+	sounds_manual: []
+	sounds_machine: []
+	sounds_passive: []
+	
+	sounds_start: []
+	sounds_end: []
+	sounds_fail: []
+}

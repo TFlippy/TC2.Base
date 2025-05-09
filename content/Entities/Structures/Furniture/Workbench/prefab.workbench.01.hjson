@@ -19,7 +19,7 @@ body:
 			[-1.375, 1.375]
 		]
 		
-		mass: 210.000
+		mass: 200.000
 		radius: 0.350
 		friction: 0.950
 		elasticity: 0.300
@@ -27,15 +27,15 @@ body:
 		material: building_reinforced
 		miss_chance: 0.082
 		
-		layer: entity, solid, background, storage, furniture, ignore_melee
-		mask: world
+		layer: entity, solid, background, storage, furniture, ignore_melee, no_overlapped_placement
+		mask: world, building
 		exclude: none
 	}
 }
 
 health:
 {
-	max: 29400.000
+	max: 39400.000
 }
 
 // faction.colorable:
@@ -60,7 +60,7 @@ animated.renderer:
 		texture: "workbench.01"
 		size: [32, 32]
 	}
-	z: -120.000
+	z: -150.000
 	flags: has_damage
 }
 

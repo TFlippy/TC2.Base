@@ -43,7 +43,7 @@ body:
 		miss_chance: 0.090
 		
 		layer: entity, solid, building, support, ignore_melee
-		mask: world, resource, building
+		mask: world, building
 		exclude: gas, held, attached
 	}
 }
