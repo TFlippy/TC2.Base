@@ -1,13 +1,11 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.5"
 	name: "Refurbished Machine Parts"
 	desc:
 		'''
 		Combine two piles of spare parts into spare machine parts.
 		'''
 	tips: []
-	
-	stages: []
 	
 	requirements:
 	[
@@ -43,6 +41,7 @@
 			snapping: 5.000
 			falloff: 0.870
 			group: 1
+			flags: conditional
 		}
 	]
 	
@@ -61,7 +60,7 @@
 			amount: 1.940
 			amount_extra: 1.440
 			group: 0
-			flags: byproduct, residue
+			flags: residue, byproduct
 		}
 		{
 			type: resource
@@ -69,7 +68,7 @@
 			amount: 0.160
 			amount_extra: 0.480
 			group: 0
-			flags: byproduct, residue
+			flags: residue, byproduct
 		}
 		{
 			type: resource
@@ -81,13 +80,10 @@
 		}
 	]
 	
-	requirements_old: []
-	
-	products_old: []
-	
 	type: workshop
 	flags: disabled, wip
 	tags: workbench, workshop, manual, simple, salvaging, processing
+	infrastructure: surface
 	
 	icon:
 	{
@@ -113,6 +109,7 @@
 	icon_c_offset: [-3.000, -13.000]
 	
 	color_frame: "0xffac7534"
+	color_button: "0xff9dd80f"
 	rank: -140.000
 	
 	min: 1

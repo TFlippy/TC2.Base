@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.5"
 	name: "Melt: Copper (Scrap)"
 	desc:
 		'''
@@ -14,6 +14,7 @@
 			
 			type: payload
 			flags: none
+			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: none
 			
@@ -35,7 +36,7 @@
 							material: scrap.copper
 							amount: 0.980
 							snapping: 1.000
-							loss: 0.039
+							loss: 0.035
 							group: 0
 							flags: prerequisite
 						}
@@ -81,20 +82,13 @@
 					]
 				}
 			]
-			
-			requirements: []
-			
-			products: []
 		}
 	]
 	
-	requirements: []
-	
-	products: []
-	
 	type: workshop
 	flags: none
-	tags: dangerous, metalworking, melting, heating, messy
+	tags: metalworking, melting, heating, messy, dangerous
+	infrastructure: crucible
 	
 	icon:
 	{
@@ -122,6 +116,7 @@
 	icon_c_offset: [-3.000, -3.000]
 	
 	color_frame: "0xfffff391"
+	color_button: "0xff9dd80f"
 	rank: -167.500
 	
 	min: 1
@@ -143,4 +138,6 @@
 	h_sound_begin: burner.bang.01
 	h_sound_complete: effect.sizzle.low.00
 	h_sound_finalize: burner.groan.01
+	
+	version: 0
 }

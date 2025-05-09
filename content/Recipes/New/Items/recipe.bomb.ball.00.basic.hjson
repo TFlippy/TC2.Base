@@ -1,27 +1,11 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.5"
 	name: "Bomb"
 	desc:
 		'''
 		Small throwable explosive.
 		'''
 	tips: []
-	
-	icon:
-	{
-		texture: bomb.ball
-	}
-	
-	min: 2
-	max: 16
-	step: 2
-	
-	type: workshop
-	flags: blueprintable, disabled, wip
-	tags: workbench, manual, simple, dangerous, small, explosive, weapon, munitions, blacksmithing, metalworking, casting, smelting
-	
-	color_frame: "0xffaeb59a"
-	rank: 0.000
 	
 	requirements:
 	[
@@ -34,7 +18,7 @@
 		}
 		{
 			type: resource
-			material: iron.ingot
+			material: "null"
 			amount: 1.000
 			group: 0
 			flags: prerequisite
@@ -65,4 +49,24 @@
 			group: 0
 		}
 	]
+	
+	type: workshop
+	flags: blueprintable, disabled, wip
+	tags: workbench, manual, simple, small, weapon, munitions, blacksmithing, metalworking, casting, explosive, dangerous
+	infrastructure: none
+	
+	icon:
+	{
+		texture: bomb.ball
+	}
+	
+	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
+	rank: 0.000
+	
+	min: 2
+	max: 16
+	step: 2
+	
+	version: 0
 }

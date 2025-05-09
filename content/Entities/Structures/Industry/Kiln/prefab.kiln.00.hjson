@@ -60,7 +60,7 @@ interactable:
 	priority: 1.800
 	window_size: [528.000, 520.000]
 	window_size_min: [192.000, 96.000]
-	window_size_misc: [120.000, 0.000]
+	window_size_misc: [168.000, 0.000]
 	window_offset: [-192.000, 0.000]
 }
 
@@ -68,20 +68,20 @@ shop:
 {
 	tags_filter:
 	{
-		include: blacksmithing, metalworking, stoneworking, salvaging
-		exclude: complex, advanced, large, huge, filtering, woodworking, assembling, machining, tailoring, cooking, social, gathering, blending, forestry, smelting, fermenting, melting
+		include: raw, filtering, cooking, smelting, drying, heating, processing
+		exclude: advanced, large, huge, assembling, blending, construction, fermenting
 	}
 	
-	tools: hammer, screwdriver, spanner, pliers, towel, tongs
-	infrastructure: anvil, forge, rack, shaping_mould, surface, hard_surface
-	machinery: metal_press, bender
-	environment: machine, waterproof, stationary, scary, noisy, reinforced, fireproof, durable, sturdy
+	tools: none
+	infrastructure: none
+	machinery: none
+	environment: none
 	
 	flags: none
 	menu_columns: 3
 	recipe_type: workshop
 	
-	offset_spawn: [0.000, 1.750]
+	offset_spawn: [1.000, -0.375]
 	
 	name: "Kiln"
 }
@@ -90,10 +90,10 @@ crafter:
 {
 	flags: none
 	
-	temperature_max: 1479.000
-	pressure_max: 1.500
+	temperature_max: 1279.000
+	pressure_max: 3.000
 	
-	spawn_offset: [0.000, 1.750]
+	spawn_offset: [1.000, -0.375]
 
 	@inventory4:
 	{		
@@ -181,8 +181,8 @@ burner:
 	type: liquid
 	area_fuel: 0.300
 	area_aux: 0.007854
-	pressure_max: 4.000
-	temperature_max: 1700.000
+	temperature_max: 1279.000
+	pressure_max: 3.000
 	insulation: 0.450
 
 	// @inventory1:
@@ -204,9 +204,10 @@ burner:
 		file: burner.burn.solid.loop.01
 		flags: start_muted
 		volume: 0.900
-		pitch: 1.100
-		size: 2.450
-		size_max_modifier: 0.840
+		pitch: 0.900
+		size: 0.475
+		size_max_modifier: 0.460
+		offset: [-0.500, 0.375]
 	}
 
 	@light:
@@ -231,9 +232,9 @@ burner.state:
 		
 		filter:
 		{
-			require: fuel, flammable
-			include: liquid, gas
-			exclude: sticky, viscous, solid
+			require: fuel, flammable, liquid
+			include: liquid
+			exclude: solid, gas
 		}
 		offset: [-0.500, 0.375]
 	}
