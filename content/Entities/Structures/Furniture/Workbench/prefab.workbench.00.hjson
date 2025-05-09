@@ -1,0 +1,147 @@
+$name: "Workbench"
+$desc:
+	'''
+	Simple wooden workbench equipped with basic tools.
+	'''
+$tags: []
+
+body:
+{
+	inventory_weight_multiplier: 0.800
+	fall_damage_multiplier: 15.000
+	
+	@shape.polygon:
+	{
+		points:
+		[
+			[-1.125, -0.375]
+			[1.375, -0.500]
+			[1.375, 1.125]
+			[-1.500, 1.125]
+		]
+		
+		mass: 78.000
+		radius: 0.350
+		friction: 0.950
+		elasticity: 0.400
+		material: wood
+		
+		layer: entity, solid, furniture, flammable, ignore_melee, background, storage
+
+		miss_chance: 0.890
+	}
+}
+
+health:
+{
+	max: 7500.000
+}
+
+// faction.colorable:
+// {
+
+// }
+
+// faction:
+// {
+
+// }
+
+// claimable:
+// {
+// 	flags: allow_owner_unclaim
+// }
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "workbench.00"
+		size: [32, 24]
+	}
+	z: -120.000
+	flags: has_damage
+}
+
+damage.effects:
+{
+	frame_count: 2
+	threshold_wreck: 0.500
+}
+
+transform:
+{
+
+}
+
+holdable:
+{
+	force_multiplier: 0.750
+	torque_multiplier: 0.050
+	stress_multiplier: 0.150
+	radius: 0.000
+	priority: -3.000
+	flags: disable_parent_facing, disable_rotation, disable_control
+}
+
+// attachment:
+// {
+// 	force_multiplier: 1.000
+// 	torque_multiplier: 4.000
+// 	offset: [0.000, 0.650]
+// 	flags: disable_parent_facing
+// 	tags: large, fixed
+// }
+
+norotate:
+{
+	bias: 0.000
+	speed: 2.000
+	multiplier: 3.000
+	mass_multiplier: 5.000
+	attached_multiplier: 0.500
+	flags: no_share
+}
+
+interactable:
+{
+	flags: no_tab
+	priority: 1.000
+	window_size: [680.000, 564.000]
+	window_size_misc: [120.000, 0.000]
+}
+
+shop:
+{
+	tags_filter:
+	{
+		require: manual
+		include: workbench, simple, gathering
+		exclude: passive, advanced, large, huge, vehicle, blacksmithing, machining, smelting, fermenting, heating, casting
+	}
+	
+	tools: hammer, cutters, saw, hand_drill, screwdriver, wrench, bucket, axe, file, chisel, knife, sandpaper
+	infrastructure: table, rack, surface, workbench
+	machinery: none
+	environment: mobile, dirty, sturdy, flammable
+	
+	menu_columns: 4
+	recipe_type: workshop
+	flags: none
+	
+	name: "Workbench"
+}
+
+workshop:
+{
+	orders_capacity: 2
+
+	@inventory8:
+	{
+		stack_size_multiplier: 1.000
+		type: workshop
+		flags: standalone, public, vertical, no_auto_pickup
+	}
+
+	offset: [0.250, 0.000]
+}

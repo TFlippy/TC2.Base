@@ -1,40 +1,41 @@
-$name: "Workbench"
+$name: "Workbench (Heavy)"
 $desc:
 	'''
-	Simple wooden workbench equipped with basic tools.
+	Heavy-duty workbench equipped with basic tools suitable for more demanding tasks.
 	'''
 $tags: []
 
 body:
 {
-	inventory_weight_multiplier: 0.800
-	fall_damage_multiplier: 15.000
-	
+	type: static
+
 	@shape.polygon:
 	{
 		points:
 		[
-			[-1.125, -0.375]
-			[1.375, -0.500]
-			[1.375, 1.125]
-			[-1.500, 1.125]
+			[-1.375, -1.250]
+			[1.500, -0.875]
+			[1.500, 1.375]
+			[-1.375, 1.375]
 		]
 		
-		mass: 78.000
+		mass: 210.000
 		radius: 0.350
 		friction: 0.950
-		elasticity: 0.400
-		material: wood
+		elasticity: 0.300
 		
-		layer: entity, solid, furniture, flammable, ignore_melee, background, storage
-
-		miss_chance: 0.890
+		material: building_reinforced
+		miss_chance: 0.082
+		
+		layer: entity, solid, background, storage, furniture, ignore_melee
+		mask: world
+		exclude: none
 	}
 }
 
 health:
 {
-	max: 7500.000
+	max: 29400.000
 }
 
 // faction.colorable:
@@ -56,8 +57,8 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "workbench"
-		size: [32, 24]
+		texture: "workbench.01"
+		size: [32, 32]
 	}
 	z: -120.000
 	flags: has_damage
@@ -66,7 +67,7 @@ animated.renderer:
 damage.effects:
 {
 	frame_count: 2
-	threshold_wreck: 0.500
+	threshold_wreck: 0.200
 }
 
 transform:
@@ -74,15 +75,15 @@ transform:
 
 }
 
-holdable:
-{
-	force_multiplier: 0.750
-	torque_multiplier: 0.050
-	stress_multiplier: 0.150
-	radius: 0.000
-	priority: -3.000
-	flags: disable_parent_facing, disable_rotation, disable_control
-}
+// holdable:
+// {
+// 	force_multiplier: 0.750
+// 	torque_multiplier: 0.050
+// 	stress_multiplier: 0.150
+// 	radius: 0.000
+// 	priority: -3.000
+// 	flags: disable_parent_facing, disable_rotation, disable_control
+// }
 
 // attachment:
 // {
@@ -93,15 +94,15 @@ holdable:
 // 	tags: large, fixed
 // }
 
-norotate:
-{
-	bias: 0.000
-	speed: 2.000
-	multiplier: 3.000
-	mass_multiplier: 5.000
-	attached_multiplier: 0.500
-	flags: no_share
-}
+// norotate:
+// {
+// 	bias: 0.000
+// 	speed: 2.000
+// 	multiplier: 3.000
+// 	mass_multiplier: 5.000
+// 	attached_multiplier: 0.500
+// 	flags: no_share
+// }
 
 interactable:
 {
@@ -129,7 +130,7 @@ shop:
 	recipe_type: workshop
 	flags: none
 	
-	name: "Workbench"
+	name: "Heavy Workbench"
 }
 
 workshop:

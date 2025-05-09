@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.62.5"
-	name: "Workbench"
+	name: "Workbench (Heavy)"
 	tips: []
 	
 	requirements:
@@ -26,7 +26,7 @@
 	[
 		{
 			type: prefab
-			prefab: workbench.00
+			prefab: workbench.01
 			amount: 1.000
 			group: 0
 		}
@@ -39,8 +39,8 @@
 	
 	icon:
 	{
-		texture: workbench.00
-		size: [32, 24]
+		texture: workbench.01
+		size: [32, 32]
 	}
 	icon_offset: [-0.625, -0.250]
 	
