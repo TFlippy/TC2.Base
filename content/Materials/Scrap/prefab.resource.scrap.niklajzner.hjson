@@ -11,7 +11,7 @@ body:
 		mass: 1.000
 		radius: 0.720
 		friction: 0.890
-		elasticity: 0.320
+		elasticity: 0.260
 		
 		material: scrap
 		miss_chance: 0.000
@@ -26,7 +26,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.scrap.steel"
+		texture: "resource.scrap.niklajzner"
 		count: 4
 		size: [16, 16]
 	}
@@ -40,7 +40,7 @@ transform:
 
 resource:
 {
-	material: "scrap.steel"
+	material: "scrap.niklajzner"
 }
 
 holdable:
@@ -62,7 +62,7 @@ norotate:
 
 health:
 {
-	max: 98000.000
+	max: 71000.000
 }
 
 despawn:

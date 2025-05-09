@@ -1,0 +1,75 @@
+﻿{
+	$version: "0.1.62.3"
+	name: "Niklajzner Scrap"
+	name_short: "Nkz. Scrap"
+	description:
+		'''
+		TODO: Desc
+		'''
+	
+	tips: []
+	
+	icon:
+	{
+		texture: resource.scrap.niklajzner
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	type: scrap
+	flags: scrap, hard, magnetic, granular, metal, small, waste, solid, processed
+	display_flags: none
+	hints: materials, junk, construction, cheap, industrial, wrecked
+	
+	porosity: 0.270
+	purity: 0.788
+	mass_per_unit: 1.790096
+	volume_per_unit: 0.00043
+	
+	quantity_max: 250.000
+	spawn_quantity_threshold: 0.550
+	snapping: 1.000
+	snapping_pickup: 1.000
+	
+	form_type: scrap
+	prefab: resource.scrap.niklajzner
+	h_substance: niklajzner
+	
+	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
+	color_dust: "0xffc0c6ac"
+	color_gib: "0xffc0c6ac"
+	
+	colliders: []
+	
+	conversions:
+	{
+		phlogiston:
+		{
+			h_material: steel
+			spawn_flags: merge, no_offset
+			product_flags: none
+			ratio: 0.910
+			ratio_extra: 0.060
+			
+			h_material_waste: "null"
+			spawn_flags_waste: merge, no_offset
+			product_flags_waste: none
+			ratio_waste: 0.000
+			ratio_waste_extra: 0.000
+			
+			yield: 0.950
+			yield_extra: 0.070
+			
+			h_sound: ui.swosh.00
+			sound_volume: 0.630
+			sound_pitch: 0.440
+			
+			chance: 0.275
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.000
+			velocity_mult: 1.000
+		}
+	}
+}

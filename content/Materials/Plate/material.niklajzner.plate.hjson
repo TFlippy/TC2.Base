@@ -1,0 +1,358 @@
+﻿{
+	$version: "0.1.62.3"
+	name: "Niklajzner Plate"
+	name_short: "Nkz. Plate"
+	description:
+		'''
+		Non-standard irregular niklajzner plates.
+		'''
+	
+	tips: []
+	
+	icon:
+	{
+		texture: resource.niklajzner.plate
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	type: metal_sheet
+	flags: magnetic, metal, small, plate, flexible, solid, processed
+	display_flags: no_random_facing
+	hints: none
+	
+	purity: 0.985
+	mass_per_unit: 2.3436
+	volume_per_unit: 0.0003
+	
+	quantity_max: 250.000
+	spawn_quantity_threshold: 0.100
+	snapping: 1.000
+	snapping_pickup: 50.000
+	
+	form_type: plate
+	prefab: resource.niklajzner.plate
+	h_substance: niklajzner
+	
+	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
+	color_dust: "0xffc0c6ac"
+	color_gib: "0xffc0c6ac"
+	
+	colliders:
+	[
+		{
+			offset: [0.000, 0.800]
+			radius: 0.200
+			values:
+			[
+				[-0.800, 0.000]
+				[0.800, 0.000]
+				[0.000, 0.000]
+				[0.000, 0.000]
+			]
+		}
+		{
+			offset: [0.000, 0.550]
+			radius: 0.425
+			values:
+			[
+				[-0.600, 0.000]
+				[0.600, 0.000]
+				[0.000, 0.000]
+				[0.000, 0.000]
+			]
+		}
+		{
+			offset: [0.000, 0.300]
+			radius: 0.675
+			values:
+			[
+				[-0.350, 0.000]
+				[0.350, 0.000]
+				[0.000, 0.000]
+				[0.000, 0.000]
+			]
+		}
+		{
+			offset: [0.000, 0.050]
+			radius: 0.925
+			values:
+			[
+				[-0.125, 0.000]
+				[0.0625, 0.000]
+				[0.000, 0.000]
+				[0.000, 0.000]
+			]
+		}
+	]
+	
+	conversions:
+	{
+		bullet_ac:
+		{
+			h_material: scrap.niklajzner
+			spawn_flags: merge, pickup
+			product_flags: none
+			ratio: 0.820
+			ratio_extra: 0.100
+			
+			h_material_waste: "null"
+			spawn_flags_waste: none
+			product_flags_waste: none
+			ratio_waste: 0.000
+			ratio_waste_extra: 0.000
+			
+			yield: 0.910
+			yield_extra: 0.000
+			
+			h_sound: missing
+			sound_volume: 0.000
+			sound_pitch: 0.000
+			
+			chance: 0.920
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.000
+			velocity_mult: 1.000
+		}
+		pickaxe:
+		{
+			h_material: scrap.niklajzner
+			spawn_flags: merge, pickup
+			product_flags: none
+			ratio: 0.120
+			ratio_extra: 0.200
+			
+			h_material_waste: "null"
+			spawn_flags_waste: none
+			product_flags_waste: none
+			ratio_waste: 0.000
+			ratio_waste_extra: 0.000
+			
+			yield: 0.988
+			yield_extra: 0.000
+			
+			h_sound: missing
+			sound_volume: 0.000
+			sound_pitch: 0.000
+			
+			chance: 0.540
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.000
+			velocity_mult: 1.000
+		}
+		blunt:
+		{
+			h_material: scrap.niklajzner
+			spawn_flags: merge, pickup
+			product_flags: none
+			ratio: 0.180
+			ratio_extra: 0.300
+			
+			h_material_waste: "null"
+			spawn_flags_waste: none
+			product_flags_waste: none
+			ratio_waste: 0.000
+			ratio_waste_extra: 0.000
+			
+			yield: 0.980
+			yield_extra: 0.000
+			
+			h_sound: missing
+			sound_volume: 0.000
+			sound_pitch: 0.000
+			
+			chance: 0.250
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.000
+			velocity_mult: 1.000
+		}
+		club:
+		{
+			h_material: scrap.niklajzner
+			spawn_flags: merge, pickup
+			product_flags: none
+			ratio: 0.200
+			ratio_extra: 0.500
+			
+			h_material_waste: "null"
+			spawn_flags_waste: none
+			product_flags_waste: none
+			ratio_waste: 0.000
+			ratio_waste_extra: 0.000
+			
+			yield: 0.980
+			yield_extra: 0.000
+			
+			h_sound: missing
+			sound_volume: 0.000
+			sound_pitch: 0.000
+			
+			chance: 0.140
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.000
+			velocity_mult: 1.000
+		}
+		axe:
+		{
+			h_material: scrap.niklajzner
+			spawn_flags: merge, pickup
+			product_flags: none
+			ratio: 0.220
+			ratio_extra: 0.400
+			
+			h_material_waste: "null"
+			spawn_flags_waste: none
+			product_flags_waste: none
+			ratio_waste: 0.000
+			ratio_waste_extra: 0.000
+			
+			yield: 0.910
+			yield_extra: 0.000
+			
+			h_sound: missing
+			sound_volume: 0.000
+			sound_pitch: 0.000
+			
+			chance: 0.660
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.000
+			velocity_mult: 1.000
+		}
+		phlogiston:
+		{
+			h_material: steel
+			spawn_flags: merge, no_offset
+			product_flags: none
+			ratio: 0.910
+			ratio_extra: 0.060
+			
+			h_material_waste: "null"
+			spawn_flags_waste: merge, no_offset
+			product_flags_waste: none
+			ratio_waste: 0.000
+			ratio_waste_extra: 0.000
+			
+			yield: 0.950
+			yield_extra: 0.070
+			
+			h_sound: ui.swosh.00
+			sound_volume: 0.630
+			sound_pitch: 0.440
+			
+			chance: 0.575
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.000
+			velocity_mult: 1.000
+		}
+	}
+	
+	residues:
+	{
+		snipping.metal:
+		{
+			h_material: scrap.niklajzner
+			h_substance: "null"
+			flags: none
+			flags_product: waste, residue
+			
+			yield: [0.859649, 0.1384]
+		}
+		carving:
+		{
+			h_material: scrap.niklajzner
+			h_substance: "null"
+			flags: none
+			flags_product: residue
+			
+			yield: [0.919, 0.042]
+		}
+		cutting:
+		{
+			h_material: scrap.niklajzner
+			h_substance: "null"
+			flags: none
+			flags_product: residue
+			
+			yield: [0.986, 0.014]
+		}
+		drilling:
+		{
+			h_material: scrap.niklajzner
+			h_substance: "null"
+			flags: none
+			flags_product: residue
+			
+			yield: [0.940, 0.050]
+		}
+		smithing:
+		{
+			h_material: scrap.ferrous
+			h_substance: "null"
+			flags: none
+			flags_product: residue
+			
+			yield: [0.950, 0.030]
+		}
+		machining:
+		{
+			h_material: ferronickel.powder
+			h_substance: "null"
+			flags: none
+			flags_product: residue
+			
+			yield: [0.870, 0.110]
+		}
+		sawing:
+		{
+			h_material: steel.powder
+			h_substance: "null"
+			flags: none
+			flags_product: residue
+			
+			yield: [0.952, 0.033]
+		}
+		die_cutting.metal:
+		{
+			h_material: scrap.steel
+			h_substance: "null"
+			flags: none
+			flags_product: residue
+			
+			yield: [0.972, 0.028]
+		}
+		bending:
+		{
+			h_material: scrap.steel
+			h_substance: "null"
+			flags: none
+			flags_product: residue
+			
+			yield: [0.9546, 0.0454]
+		}
+		carpentry:
+		{
+			h_material: scrap.steel
+			h_substance: "null"
+			flags: none
+			flags_product: residue
+			
+			yield: [0.849, 0.151]
+		}
+		filing:
+		{
+			h_material: steel.powder
+			h_substance: "null"
+			flags: none
+			flags_product: residue
+			
+			yield: [0.708, 0.292]
+		}
+	}
+}
