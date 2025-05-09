@@ -89,8 +89,8 @@
 	
 	type: workshop
 	flags: item, production, wip
-	tags: workbench, workshop, manual, simple, metalworking, processing
-	infrastructure: workbench
+	tags: workbench, workshop, manual, simple, medium, metalworking, processing
+	infrastructure: hard_surface
 	
 	h_company: common
 	

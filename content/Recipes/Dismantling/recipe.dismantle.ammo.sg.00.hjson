@@ -197,7 +197,7 @@
 	]
 	
 	type: workshop
-	flags: dismantling, wip
+	flags: disabled, dismantling, wip
 	tags: workbench, manual, simple, small, munitions, metalworking, salvaging
 	infrastructure: none
 	

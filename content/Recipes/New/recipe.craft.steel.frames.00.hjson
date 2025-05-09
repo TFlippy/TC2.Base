@@ -1,19 +1,15 @@
 ﻿{
 	$version: "0.1.62.5"
-	name: "Handsawn Steel Frames"
-	desc:
-		'''
-		Laboriously cut steel plates into shapes resembling frames only using a handsaw.
-		'''
+	name: "Steel Frames"
 	tips: []
 	
 	stages:
 	[
 		{
-			name: "Processing"
+			name: "Method"
 			
 			type: processing
-			flags: wip, auto_generated
+			flags: important, wip
 			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
@@ -24,25 +20,58 @@
 			options:
 			[
 				{
-					name: "Standard"
+					name: "Handsawn"
+					desc: "Laboriously cut steel plates into shapes resembling frames only using a handsaw."
 					
 					type: undefined
-					flags: wip, auto_generated
+					flags: wip
+					discard_damage_type_override: handsaw
+					
+					prefix: "Handsawn"
+					priority: 1.000
 					
 					requirements:
 					[
 						{
+							type: resource
+							material: steel.plate
+							amount: 1.000
+							snapping: 1.000
+							loss: 0.024
+							group: 0
+							flags: primary, prerequisite
+						}
+						{
 							type: work
-							work: sawing
+							work: sawing.metal
 							amount: 400.000
 							amount_min: 125.000
-							difficulty: 21
+							difficulty: 7
 							snapping: 25.000
 							falloff: 0.530
 							group: 0
 							flags: conditional
 						}
 					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: steel.frames
+							amount: 0.781
+							amount_extra: 0.122
+							snapping: 0.050
+							group: 0
+							flags: primary, compact
+						}
+					]
+					
+					quality: 0.851
+					precision: 0.766
+					efficiency: 0.759
+					
+					loss: 0.075
 					
 					filter_tools:
 					{
@@ -62,34 +91,9 @@
 		}
 	]
 	
-	requirements:
-	[
-		{
-			type: resource
-			material: steel.plate
-			amount: 1.000
-			snapping: 1.000
-			loss: 0.051
-			group: 0
-			flags: primary, prerequisite
-		}
-	]
-	
-	products:
-	[
-		{
-			type: resource
-			material: steel.frames
-			amount: 0.800
-			amount_extra: 0.100
-			group: 0
-			flags: primary, compact
-		}
-	]
-	
 	type: workshop
-	flags: item, wip, converted
-	tags: workbench, workshop, manual, simple, metalworking, processing, messy
+	flags: item, production, wip
+	tags: workbench, workshop, manual, simple, medium, metalworking, processing
 	infrastructure: workbench
 	
 	h_company: common

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.5"
 	name: "Manual Timber Processing"
 	desc:
 		'''
@@ -14,6 +14,7 @@
 			
 			type: preparation
 			flags: subtractive
+			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: axe
 			
@@ -30,7 +31,6 @@
 					discard_damage_type_override: axe
 					
 					purity_mult: 0.990
-					quality_mult: 0.930
 				}
 				{
 					name: "Sawn"
@@ -55,8 +55,6 @@
 					]
 					
 					purity_mult: 0.985
-					quality_mult: 0.995
-					loss_mult: 1.288
 				}
 				{
 					name: "Split"
@@ -66,7 +64,6 @@
 					discard_damage_type_override: axe
 					
 					purity_mult: 0.830
-					quality_mult: 0.780
 				}
 			]
 			
@@ -88,6 +85,7 @@
 			
 			type: processing
 			flags: subtractive
+			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: axe
 			
@@ -130,8 +128,6 @@
 					]
 					
 					purity_mult: 0.959
-					quality_mult: 0.987
-					loss_mult: 1.021
 				}
 			]
 		}
@@ -139,8 +135,8 @@
 	
 	type: workshop
 	flags: disabled, wip
-	tags: workbench, workshop, manual, simple, raw, woodworking, forestry, processing, messy
-	infrastructure: none
+	tags: workbench, workshop, manual, simple, large, raw, woodworking, forestry, processing, messy
+	infrastructure: large_surface
 	
 	icon:
 	{

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.5"
 	name: "Sawing (Metal)"
 	name_short: "Sawing"
 	desc:
@@ -16,7 +16,7 @@
 	
 	flags: none
 	tags: manual, machine, tools, crude, simple, construction, wip
-	cooldown: 1.300
+	cooldown: 0.940
 	multiplier: 0.650
 	color: "0xffffa200"
 	
@@ -27,7 +27,7 @@
 	machinery_optional: mill, planer
 	
 	infrastructure_required: surface
-	infrastructure_optional: workbench
+	infrastructure_optional: vise, workbench
 	
 	character_traits:
 	{
@@ -43,17 +43,18 @@
 	skills_mult:
 	{
 		strength: 0.730
-		blacksmithing: 0.420
+		blacksmithing: 0.190
 		mining: 0.210
-		endurance: 0.350
+		endurance: 0.430
+		woodcutting: 0.490
 	}
 	
-	sound_volume: 0.600
-	sound_pitch: 1.730
-	sound_size: 0.500
-	sound_dist: 0.600
+	sound_volume: 0.660
+	sound_pitch: 0.920
+	sound_size: 0.770
+	sound_dist: 0.640
 	
-	sounds: ["metal.stress.long.strong.00", "metal.stress.long.strong.01"]
+	sounds: ["metal.impact.light.hollow.02", "metal.frame.hit.hard.01", "metal.frame.hit.hard.00", "press.fail.02", "metal.impact.light.sheet.02", "press.fail.01", "effect.spring.machine.00"]
 	sounds_manual: []
 	sounds_machine: []
 	sounds_passive: []

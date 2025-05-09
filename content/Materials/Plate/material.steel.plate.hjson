@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.3"
+	$version: "0.1.62.5"
 	name: "Steel Plate"
 	name_short: "St. Plate"
 	description:
@@ -305,13 +305,13 @@
 			ratio_waste_extra: 0.040
 			
 			yield: 0.870
-			yield_extra: 0.077
+			yield_extra: 0.137
 			
 			h_sound: missing
 			sound_volume: 0.500
 			sound_pitch: 1.000
 			
-			chance: 0.294
+			chance: 0.297
 			type: undefined
 			flags: none
 			merge_radius_mult: 1.000
@@ -383,6 +383,15 @@
 			flags_product: residue
 			
 			yield: [0.952, 0.033]
+		}
+		sawing.metal:
+		{
+			h_material: steel.powder
+			h_substance: "null"
+			flags: none
+			flags_product: residue
+			
+			yield: [0.952, 0.023]
 		}
 		die_cutting.metal:
 		{
