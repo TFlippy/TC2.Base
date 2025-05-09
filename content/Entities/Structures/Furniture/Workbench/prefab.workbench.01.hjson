@@ -13,10 +13,10 @@ body:
 	{
 		points:
 		[
-			[-1.500, -1.625]
+			[-1.375, -1.625]
 			[1.500, -1.250]
-			[1.375, 1.125]
-			[-1.375, 1.125]
+			[1.500, 0.875]
+			[-1.500, 0.875]
 		]
 		
 		mass: 200.000
@@ -25,7 +25,7 @@ body:
 		elasticity: 0.300
 		
 		material: building_reinforced
-		miss_chance: 0.078
+		miss_chance: 0.075
 		
 		layer: entity, solid, background, storage, furniture, no_overlapped_placement, ignore_melee
 		mask: world, building

@@ -1,0 +1,126 @@
+$name: "Kiln"
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.polygon:
+	{
+		points:
+		[
+			[-1.000, -0.625]
+			[1.125, -0.625]
+			[1.000, 1.625]
+			[-0.875, 1.625]
+		]
+		
+		mass: 320.000
+		radius: 0.375
+		friction: 0.650
+		elasticity: 0.200
+		
+		material: building_masonry
+		miss_chance: 0.082
+		
+		layer: entity, solid, building, support, ignore_melee
+		mask: world, building
+		exclude: none
+	}
+}
+
+control:
+{
+
+}
+
+health:
+{
+	max: 45000.000
+}
+
+transform:
+{
+
+}
+
+interactable:
+{
+	flags: none
+	priority: 1.800
+	window_size: [528.000, 520.000]
+	window_size_min: [192.000, 96.000]
+	window_size_misc: [120.000, 0.000]
+	window_offset: [-192.000, 0.000]
+}
+
+shop:
+{
+	tags_filter:
+	{
+		include: blacksmithing, metalworking, stoneworking, salvaging
+		exclude: complex, advanced, large, huge, filtering, woodworking, assembling, machining, tailoring, cooking, social, gathering, blending, forestry, smelting, fermenting, melting
+	}
+	
+	tools: hammer, screwdriver, spanner, pliers, towel, tongs
+	infrastructure: anvil, forge, rack, shaping_mould, surface, hard_surface
+	machinery: metal_press, bender
+	environment: machine, waterproof, stationary, scary, noisy, reinforced, fireproof, durable, sturdy
+	
+	flags: none
+	menu_columns: 3
+	recipe_type: workshop
+	
+	offset_spawn: [0.000, 1.750]
+	
+	name: "Kiln"
+}
+
+crafter:
+{
+	flags: none
+	
+	tools: hammer, screwdriver, spanner, pliers, towel, tongs
+	infrastructure: anvil, forge, rack, shaping_mould, surface, hard_surface
+	machinery: metal_press, bender
+	environment: machine, waterproof, stationary, scary, noisy, reinforced, fireproof, durable, sturdy
+	
+	temperature_max: 1479.000
+	pressure_max: 1.500
+	
+	spawn_offset: [0.000, 1.750]
+
+	@inventory4:
+	{		
+		type: workshop
+		flags: standalone, allow_ducts, ignore_mass, no_auto_pickup
+		stack_size_multiplier: 1.000
+		
+		filter:
+		{
+			include: soft, malleable, granular, viscous, small, gravel, powder
+			exclude: gas
+		}
+		offset: [0.000, -0.375]
+	}
+}
+
+workshop:
+{
+	tools: hammer, screwdriver, spanner, pliers, towel, tongs
+	infrastructure: anvil, forge, rack, shaping_mould, surface, hard_surface
+	machinery: metal_press, bender
+	environment: machine, waterproof, stationary, scary, noisy, reinforced, fireproof, durable, sturdy
+	
+	orders_capacity: 2
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "kiln.00"
+		size: [24, 40]
+	}
+	z: -60.000
+}
