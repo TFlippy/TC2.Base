@@ -1,10 +1,10 @@
 ﻿{
 	$version: "0.1.62.3"
-	name: "Steel Ingot"
-	name_short: "St. Ingot"
+	name: "Steel Bar"
+	name_short: "St. Bar"
 	description:
 		'''
-		Standard 20x10x8 cm nickelsteel ingot.
+		Standard 20x10x8 cm nickelsteel bar.
 		'''
 	
 	tips: []

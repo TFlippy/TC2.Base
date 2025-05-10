@@ -1,10 +1,10 @@
 ﻿{
 	$version: "0.1.62.3"
-	name: "Aluminium Ingot"
-	name_short: "Al. Ingot"
+	name: "Aluminium Bar"
+	name_short: "Al. Bar"
 	description:
 		'''
-		Standard 20x10x8 cm aluminium ingot.
+		Standard 20x10x8 cm aluminium bar.
 		'''
 	
 	tips: []

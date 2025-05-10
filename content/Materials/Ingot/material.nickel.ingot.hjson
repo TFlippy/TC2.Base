@@ -1,10 +1,10 @@
 ﻿{
 	$version: "0.1.62.3"
-	name: "Nickel Ingot"
-	name_short: "Nic. Ingot"
+	name: "Nickel Bar"
+	name_short: "Nic. Bar"
 	description:
 		'''
-		Standard 20x10x8 cm nickel ingot.
+		Standard 20x10x8 cm nickel bar.
 		'''
 	
 	tips: []

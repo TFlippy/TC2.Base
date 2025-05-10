@@ -3,7 +3,7 @@
 	name: "Hammered Recondite Plates"
 	desc:
 		'''
-		Keep hitting a recondite ingot with a hammer until it becomes a plate.
+		Keep hitting a recondite bar with a hammer until it becomes a plate.
 		'''
 	tips: []
 	

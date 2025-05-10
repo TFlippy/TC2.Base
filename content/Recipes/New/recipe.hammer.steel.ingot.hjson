@@ -3,7 +3,7 @@
 	name: "Hammered Steel Plates"
 	desc:
 		'''
-		Keep hitting a steel ingot with a hammer until it becomes a plate.
+		Keep hitting a steel bar with a hammer until it becomes a plate.
 		'''
 	tips: []
 	

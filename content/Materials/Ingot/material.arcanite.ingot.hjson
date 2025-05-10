@@ -1,10 +1,10 @@
 ﻿{
 	$version: "0.1.62.3"
-	name: "Arcanite Ingot"
-	name_short: "Arc. Ingot"
+	name: "Arcanite Bar"
+	name_short: "Arc. Bar"
 	description:
 		'''
-		Standard 20x10x8 cm arcanite ingot.
+		Standard 20x10x8 cm arcanite bar.
 		'''
 	
 	tips: []

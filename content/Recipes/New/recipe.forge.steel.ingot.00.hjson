@@ -24,7 +24,7 @@
 			options:
 			[
 				{
-					name: "Ingot"
+					name: "Bar"
 					
 					type: undefined
 					flags: none

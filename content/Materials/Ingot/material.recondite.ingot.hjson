@@ -1,10 +1,10 @@
 ﻿{
 	$version: "0.1.62.3"
-	name: "Recondite Ingot"
-	name_short: "Rec. Ingot"
+	name: "Recondite Bar"
+	name_short: "Rec. Bar"
 	description:
 		'''
-		Standard 20x10x8 cm recondite ingot.
+		Standard 20x10x8 cm recondite bar.
 		'''
 	
 	tips: []

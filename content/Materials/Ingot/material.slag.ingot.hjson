@@ -1,10 +1,10 @@
 ﻿{
 	$version: "0.1.62.3"
-	name: "Slag Ingot"
-	name_short: "Slag Ingot"
+	name: "Slag Bar"
+	name_short: "Slag Bar"
 	description:
 		'''
-		Standard 20x10x8 cm slag ingot.
+		Standard 20x10x8 cm slag bar.
 		'''
 	
 	tips: []

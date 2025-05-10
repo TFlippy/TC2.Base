@@ -1,9 +1,9 @@
 ﻿{
 	$version: "0.1.61.4"
-	name: "Convert to: Cast Ingot Mould"
+	name: "Convert to: Cast Bar Mould"
 	desc:
 		'''
-		Change the casting basin's pattern to ingots.
+		Change the casting basin's pattern to bars.
 		'''
 	tips: []
 	

@@ -1,10 +1,10 @@
 ﻿{
 	$version: "0.1.62.3"
-	name: "Smirglum Ingot"
-	name_short: "Sg. Ingot"
+	name: "Smirglum Bar"
+	name_short: "Sg. Bar"
 	description:
 		'''
-		Standard 20x10x8 cm smirglum ingot.
+		Standard 20x10x8 cm smirglum bar.
 		'''
 	
 	tips: []

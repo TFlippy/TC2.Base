@@ -1,10 +1,10 @@
 ﻿{
 	$version: "0.1.62.3"
-	name: "Gold Ingot"
-	name_short: "Gd. Ingot"
+	name: "Gold Bar"
+	name_short: "Gd. Bar"
 	description:
 		'''
-		Standard 20x10x8 cm gold ingot.
+		Standard 20x10x8 cm gold bar.
 		'''
 	
 	tips: []
