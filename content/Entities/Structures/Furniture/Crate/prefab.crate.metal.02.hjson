@@ -23,6 +23,8 @@ body:
 		material: metal
 		
 		layer: entity, solid, crate, storage, furniture, ignore_bullet
+		mask: world, crate
+		exclude: held
 	}
 }
 
@@ -93,7 +95,7 @@ holdable:
 	torque_multiplier: 0.250
 	stress_multiplier: 0.600
 	radius: 0.000
-	flags: disable_parent_facing, disable_rotation, disable_control
+	flags: disable_parent_facing, disable_rotation, disable_control, force_edge_pickup
 }
 
 attachment:

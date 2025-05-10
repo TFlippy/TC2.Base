@@ -24,8 +24,8 @@ body:
 		miss_chance: 0.637
 		
 		layer: entity, solid, crate, storage, flammable
-		mask: world
-		exclude: none
+		mask: world, crate
+		exclude: held
 	}
 }
 
@@ -84,7 +84,7 @@ holdable:
 	torque_multiplier: 0.500
 
 	radius: 0.000
-	flags: disable_parent_facing, disable_rotation, disable_control
+	flags: disable_parent_facing, disable_rotation, disable_control, force_edge_pickup
 }
 
 attachment:

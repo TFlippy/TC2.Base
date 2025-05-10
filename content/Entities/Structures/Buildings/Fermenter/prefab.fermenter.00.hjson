@@ -18,7 +18,7 @@ body:
 		friction: 0.750
 		elasticity: 0.410
 		material: wood
-		layer: entity, solid, building, ignore_melee, ignore_bullet
+		layer: entity, solid, furniture, flammable, ignore_melee, ignore_bullet
 	}
 }
 
@@ -45,11 +45,12 @@ transform:
 
 holdable:
 {
+	offset: [0.000, 1.125]
 	force_multiplier: 0.100
 	torque_multiplier: 0.100
 	stress_multiplier: 0.250
 	radius: 0.000
-	flags: disable_parent_facing, disable_rotation, disable_control
+	flags: disable_parent_facing, disable_rotation, disable_control, force_edge_pickup
 }
 
 attachment:

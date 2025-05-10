@@ -19,7 +19,8 @@ body:
 		elasticity: 0.600
 		material: wood
 		layer: entity, solid, crate, storage, ignore_bullet, flammable
-		mask: world
+		mask: world, crate
+		exclude: held
 	}
 }
 
@@ -73,7 +74,7 @@ holdable:
 	torque_multiplier: 0.500
 
 	radius: 0.000
-	flags: disable_parent_facing, disable_rotation, disable_control
+	flags: disable_parent_facing, disable_rotation, disable_control, force_edge_pickup
 }
 
 attachment:

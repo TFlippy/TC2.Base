@@ -20,7 +20,7 @@ body:
 		elasticity: 0.500
 		layer: entity, crate, shipment, solid, flammable
 		mask: world, crate
-		exclude: attached
+		exclude: held
 		material: wood
 		miss_chance: 0.635
 	}
@@ -69,7 +69,7 @@ norotate:
 holdable:
 {
 	radius: 0.000
-	flags: disable_parent_facing, disable_rotation, disable_control
+	flags: disable_parent_facing, disable_rotation, disable_control, force_edge_pickup
 }
 
 attachment:

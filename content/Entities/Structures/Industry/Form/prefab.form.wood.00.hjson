@@ -58,7 +58,7 @@ holdable:
 	stress_multiplier: 0.250
 	radius: 0.000
 	priority: -3.000
-	flags: disable_parent_facing, disable_rotation, disable_control
+	flags: disable_parent_facing, disable_rotation, disable_control, force_edge_pickup
 }
 
 norotate:
