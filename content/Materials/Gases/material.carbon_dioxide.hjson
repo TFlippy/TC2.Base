@@ -18,11 +18,11 @@
 	}
 	
 	type: gas
-	flags: gas, toxic, chemical, primary
+	flags: gas, toxic, chemical, waste, primary
 	display_flags: sprite_stack_linear, no_random_facing
 	spawn_flags:
 	{
-		rem: pickup, allow_encumbered
+		rem: pickup, allow_encumbered, show_notification
 	}
 	hints: none
 	
