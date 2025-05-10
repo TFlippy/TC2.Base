@@ -86,7 +86,7 @@ shop:
 
 crafter:
 {
-	flags: none
+	flags: hide_temperature, hide_pressure
 	
 	tools: bucket, shovel, towel, spatula
 	infrastructure: rack, liquid_container
