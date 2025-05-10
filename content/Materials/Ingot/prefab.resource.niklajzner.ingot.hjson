@@ -1,0 +1,120 @@
+$tags: []
+
+body:
+{
+	buoyancy: 0.050
+
+	@shape.polygon:
+	{
+		points:
+		[
+			[-0.875, -0.875]
+			[0.875, -0.875]
+			[0.875, 0.875]
+			[-0.875, 0.875]
+		]
+
+		mass: 1.000
+		radius: 0.125
+		friction: 0.650
+		elasticity: 0.300
+		material: metal_solid
+		layer: entity, solid, resource, ignore_melee, ignore_bullet, conductive, heatable, magnetic
+		mask: world
+	}
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "resource.niklajzner.ingot"
+		count: 8
+		size: [16, 16]
+	}
+	z: -77.100
+}
+
+transform:
+{
+
+}
+
+resource:
+{
+	material: "niklajzner.ingot"
+}
+
+holdable:
+{
+	offset: [0.000, 0.500]
+	radius: 0.000
+	hints: materials, construction
+	flags: disable_parent_facing, disable_rotation, disable_control, full_rotate
+}
+
+// norotate:
+// {
+
+// }
+
+health:
+{
+	max: 110000.000
+}
+
+breakable:
+{
+	flags: no_damage, splittable
+}
+
+heat:
+{
+	temperature_medium: 440.9637
+	temperature_high: 2618.350
+	temperature_ignite: 1894.000
+	temperature_operating: 1034.303
+	temperature_melt: 1644.000
+	temperature_breakdown: 3143.000
+	cool_rate: 2.500
+	smoke_speed_mult: 0.750
+	flags: meltable
+	fire_flags: no_self_damage, always_contact_ignite
+	offset: [0.000, 0.125]
+	smoke_offset: [0.000, 0.125]
+	size: [2.000, 2.000]
+
+	@light:
+	{
+		offset: [-0.125, 0.125]
+		scale: [48.000, 48.000]
+		intensity: 1.000
+		texture: light.circle.00
+	}
+
+	@sound.emitter:
+	{
+		file: overheat_loop
+		flags: start_muted
+		volume: 1.100
+		pitch: 0.680
+		size: 3.500
+		size_max_modifier: 0.850
+		priority: 0.100
+		offset: [-0.250, 0.250]
+	}
+}
+
+despawn:
+{
+	sleep_count_max: 74
+	flags: no_despawn
+	
+	interval: 7.000
+	interval_extra: 14.000
+	threshold_delete: 0.000
+	threshold_despawning: 0.500
+
+	amount_ratio: 0.000
+	amount_ratio_extra: 0.000
+}

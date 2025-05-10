@@ -10,7 +10,7 @@
 		but requires to be hardened in order to be actually usable.
 		'''
 	
-	tips: 
+	tips:
 	[
 		"- "
 	]
@@ -23,7 +23,7 @@
 	}
 	
 	type: metal_solid
-	flags: malleable, magnetic, granular, metal, mineral, raw, flexible, solid, primary
+	flags: malleable, magnetic, granular, metal, mineral, raw, solid, primary
 	display_flags: none
 	hints: none
 	
@@ -36,7 +36,7 @@
 	
 	form_type: raw
 	prefab: resource.niklajzner
-	h_substance: "null"
+	h_substance: niklajzner
 	
 	color_icon: "0xffffffff"
 	color_item: "0xffffffff"
@@ -114,5 +114,17 @@
 			
 			yield: [0.424, 0.461]
 		}
+	}
+	
+	related:
+	{
+		steel: refined, solidified
+		iron: raw, element
+		nickel: raw, element
+		niklajzner.ingot: similar, solidified
+		niklajzner.plate: similar, flattened
+		scrap.niklajzner: residue, mangled, waste, similar
+		ferronickel.powder: ruined, oxidized, burnt, dirty, waste, powdered
+		ferrous.gravel: ruined, oxidized, burnt, crushed, mangled, dirty, waste
 	}
 }

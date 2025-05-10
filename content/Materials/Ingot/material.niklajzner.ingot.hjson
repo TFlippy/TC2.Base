@@ -1,0 +1,297 @@
+﻿{
+	$version: "0.1.62.5"
+	name: "Niklajzner Bar"
+	name_short: "Nkz. Bar"
+	description:
+		'''
+		Standard 20x10x8 cm niklajzner bar.
+		'''
+	
+	tips: []
+	
+	icon:
+	{
+		texture: resource.niklajzner.ingot
+		size: [16, 16]
+		frame: [7, 0]
+	}
+	
+	type: metal_solid
+	flags: malleable, magnetic, metal, small, ingot, solid, processed
+	display_flags: no_random_facing
+	hints: none
+	
+	porosity: 0.030
+	purity: 0.976
+	mass_per_unit: 11.7605
+	volume_per_unit: 0.0016
+	
+	quantity_max: 100.000
+	spawn_quantity_threshold: 0.100
+	snapping: 1.000
+	snapping_pickup: 10.000
+	
+	form_type: ingot
+	prefab: resource.niklajzner.ingot
+	h_substance: niklajzner
+	
+	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
+	color_dust: "0xffc0c6ac"
+	color_gib: "0xffc0c6ac"
+	color_flame: [1.000, 0.521, 0.220, 0.882]
+	color_smoke: [0.753, 0.776, 0.675, 1.000]
+	
+	colliders:
+	[
+		{
+			radius: 0.125
+			count: 4
+			values:
+			[
+				[-0.500, 0.625]
+				[0.625, 0.625]
+				[0.625, 0.875]
+				[-0.500, 0.875]
+			]
+		}
+		{
+			radius: 0.125
+			count: 4
+			values:
+			[
+				[-0.500, 0.250]
+				[0.625, 0.250]
+				[0.625, 0.875]
+				[-0.500, 0.875]
+			]
+		}
+		{
+			radius: 0.125
+			count: 4
+			values:
+			[
+				[-0.750, 0.250]
+				[0.375, 0.250]
+				[0.875, 0.875]
+				[-0.875, 0.875]
+			]
+		}
+		{
+			radius: 0.125
+			count: 4
+			values:
+			[
+				[-0.500, -0.125]
+				[0.625, -0.125]
+				[0.875, 0.875]
+				[-0.875, 0.875]
+			]
+		}
+		{
+			radius: 0.125
+			count: 4
+			values:
+			[
+				[-0.750, -0.500]
+				[0.875, -0.125]
+				[0.875, 0.875]
+				[-0.875, 0.875]
+			]
+		}
+		{
+			radius: 0.125
+			count: 4
+			values:
+			[
+				[-0.875, -0.500]
+				[0.875, -0.500]
+				[0.875, 0.875]
+				[-0.875, 0.875]
+			]
+		}
+		{
+			radius: 0.125
+			count: 4
+			values:
+			[
+				[-0.875, -0.500]
+				[0.750, -0.875]
+				[0.875, 0.875]
+				[-0.875, 0.875]
+			]
+		}
+		{
+			radius: 0.125
+			count: 4
+			values:
+			[
+				[-0.875, -0.875]
+				[0.875, -0.875]
+				[0.875, 0.875]
+				[-0.875, 0.875]
+			]
+		}
+	]
+	
+	conversions:
+	{
+		bullet_ac:
+		{
+			h_material: scrap.niklajzner
+			spawn_flags: merge
+			product_flags: none
+			ratio: 0.310
+			ratio_extra: 0.670
+			
+			h_material_waste: "null"
+			spawn_flags_waste: none
+			product_flags_waste: none
+			ratio_waste: 0.000
+			ratio_waste_extra: 0.000
+			
+			yield: 0.760
+			yield_extra: 0.000
+			
+			h_sound: missing
+			sound_volume: 0.000
+			sound_pitch: 0.000
+			
+			chance: 0.850
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.000
+			velocity_mult: 1.000
+		}
+		pickaxe:
+		{
+			h_material: scrap.niklajzner
+			spawn_flags: merge, pickup
+			product_flags: none
+			ratio: 0.120
+			ratio_extra: 0.500
+			
+			h_material_waste: "null"
+			spawn_flags_waste: none
+			product_flags_waste: none
+			ratio_waste: 0.000
+			ratio_waste_extra: 0.000
+			
+			yield: 0.945
+			yield_extra: 0.000
+			
+			h_sound: missing
+			sound_volume: 0.000
+			sound_pitch: 0.000
+			
+			chance: 0.540
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.000
+			velocity_mult: 1.000
+		}
+		sledgehammer:
+		{
+			h_material: niklajzner.plate
+			spawn_flags: merge
+			product_flags: none
+			ratio: 0.050
+			ratio_extra: 0.920
+			
+			h_material_waste: scrap.niklajzner
+			spawn_flags_waste: merge
+			product_flags_waste: none
+			ratio_waste: 0.850
+			ratio_waste_extra: 0.110
+			
+			yield: 0.825
+			yield_extra: 0.160
+			
+			h_sound: metal.snap.medium.02
+			sound_volume: 0.390
+			sound_pitch: 0.900
+			
+			chance: 0.450
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.000
+			velocity_mult: 1.000
+		}
+	}
+	
+	residues:
+	{
+		carving:
+		{
+			h_material: ferronickel.powder
+			h_substance: "null"
+			flags: none
+			flags_product: residue
+			
+			yield: [0.818, 0.169]
+		}
+		cutting:
+		{
+			h_material: ferronickel.powder
+			h_substance: "null"
+			flags: none
+			flags_product: residue
+			
+			yield: [0.903, 0.090]
+		}
+		drilling:
+		{
+			h_material: ferronickel.powder
+			h_substance: "null"
+			flags: none
+			flags_product: residue
+			
+			yield: [0.919, 0.031]
+		}
+		smithing:
+		{
+			h_material: steel
+			h_substance: "null"
+			flags: none
+			flags_product: residue
+			
+			yield: [0.983, 0.012]
+		}
+		machining:
+		{
+			h_material: ferronickel.powder
+			h_substance: "null"
+			flags: none
+			flags_product: residue
+			
+			yield: [0.918, 0.082]
+		}
+		sawing:
+		{
+			h_material: ferronickel.powder
+			h_substance: "null"
+			flags: none
+			flags_product: residue
+			
+			yield: [0.918, 0.055]
+		}
+		filing:
+		{
+			h_material: ferronickel.powder
+			h_substance: "null"
+			flags: none
+			flags_product: residue
+			
+			yield: [0.918, 0.081]
+		}
+		grinding:
+		{
+			h_material: ferronickel.powder
+			h_substance: "null"
+			flags: none
+			flags_product: residue
+			
+			yield: [0.645, 0.309]
+		}
+	}
+}

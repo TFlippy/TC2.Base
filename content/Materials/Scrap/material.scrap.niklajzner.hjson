@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.3"
+	$version: "0.1.62.5"
 	name: "Niklajzner Scrap"
 	name_short: "Nkz. Scrap"
 	description:
@@ -17,7 +17,7 @@
 	}
 	
 	type: scrap
-	flags: scrap, hard, magnetic, granular, metal, small, waste, solid, processed
+	flags: scrap, malleable, magnetic, granular, metal, small, waste, solid, processed
 	display_flags: none
 	hints: materials, junk, construction, cheap, industrial, wrecked
 	

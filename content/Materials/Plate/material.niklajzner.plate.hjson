@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.3"
+	$version: "0.1.62.5"
 	name: "Niklajzner Plate"
 	name_short: "Nkz. Plate"
 	description:
@@ -17,7 +17,7 @@
 	}
 	
 	type: metal_sheet
-	flags: magnetic, metal, small, plate, flexible, solid, processed
+	flags: malleable, magnetic, metal, small, thin, plate, solid, processed
 	display_flags: no_random_facing
 	hints: none
 	

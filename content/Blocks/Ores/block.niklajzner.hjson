@@ -1,14 +1,14 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.5"
 	name: "Niklajzner"
 	desc:
 		'''
 		TODO: Desc
 		'''
 	
-	material_type: stone_metallic
+	material_type: metal_solid
 	tile_flags: non_empty
-	flags: raw, common, mineral, magnetic
+	flags: raw, ore, common, mineral, magnetic, native
 	
 	max_health: 46000.000
 	smoothing: 0.180
