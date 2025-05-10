@@ -56,7 +56,7 @@ transform:
 
 interactable:
 {
-	flags: none
+	flags: no_tab
 	priority: 1.800
 	window_size: [528.000, 520.000]
 	window_size_min: [192.000, 96.000]
@@ -72,10 +72,10 @@ shop:
 		exclude: advanced, large, huge, assembling, blending, construction, fermenting
 	}
 	
-	tools: none
-	infrastructure: none
-	machinery: none
-	environment: none
+	tools: hammer, bucket, shovel, tongs
+	infrastructure: oven, hard_surface
+	machinery: heater, burner
+	environment: container, waterproof, stationary, dirty, ugly, fireproof, durable, sturdy
 	
 	flags: none
 	menu_columns: 3
@@ -88,7 +88,7 @@ shop:
 
 crafter:
 {
-	flags: none
+	flags: no_gui
 	
 	temperature_max: 1279.000
 	pressure_max: 3.000
@@ -159,6 +159,7 @@ air.vent|"exhaust":
 	offset: [0.375, -2.375]
 	rotation: -1.571
 	cross_section: 0.200
+	flags: no_gui
 	type: exhaust
 }
 
@@ -167,6 +168,7 @@ air.vent|"intake":
 	offset: [-0.500, 0.250]
 	rotation: 1.571
 	cross_section: 0.300
+	flags: no_gui
 	type: intake
 }
 
@@ -177,7 +179,7 @@ air.container:
 
 burner:
 {
-	flags: none
+	flags: show_misc
 	type: liquid
 	area_fuel: 0.300
 	area_aux: 0.007854
