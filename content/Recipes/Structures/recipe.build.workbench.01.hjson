@@ -48,7 +48,7 @@
 		}
 	]
 	
-	type: architecture
+	type: industry
 	flags: no_amount_multiplier, blueprintable
 	tags: construction
 	infrastructure: none
@@ -71,7 +71,7 @@
 	color_frame: "0xffff5f11"
 	color_button: "0xff9dd80f"
 	rank: -1540.000
-	frame_size: [80.000, 24.000]
+	frame_size: [80.000, 64.000]
 	
 	dismantle_work: 5.000
 	dismantle_yield: 0.800

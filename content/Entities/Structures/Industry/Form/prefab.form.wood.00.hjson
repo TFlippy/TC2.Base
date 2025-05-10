@@ -8,29 +8,31 @@ $tags: []
 body:
 {
 	buoyancy: 0.550
-	fall_damage_multiplier: 0.750
+	fall_damage_multiplier: 1.750
 
 	@shape.line:
 	{
 		a: [-1.275, 0.000]
 		b: [1.275, 0.000]
-		
 		offset: [0.000, 0.050]
 		
-		mass: 25.000
-		radius: 0.450
+		mass: 30.000
+		radius: 0.425
 		friction: 0.850
 		elasticity: 0.410
 		
 		material: wood
+		miss_chance: 0.663
 		
-		layer: entity, solid, ignore_melee, ignore_bullet
+		layer: entity, solid, background, crate, furniture, flammable, ignore_melee
+		mask: world, crate
+		exclude: held, attached
 	}
 }
 
 health:
 {
-	max: 8500.000
+	max: 7500.000
 }
 
 animated.renderer:

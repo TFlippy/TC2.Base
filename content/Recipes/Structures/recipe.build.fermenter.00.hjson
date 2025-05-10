@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.5"
 	name: "Fermenter"
 	desc:
 		'''
@@ -47,7 +47,7 @@
 		size: [24, 24]
 	}
 	
-	color_frame: "0xffaeb59a"
+	color_frame: "0xff86a627"
 	color_button: "0xff9dd80f"
 	rank: -557.000
 	frame_size: [96.000, 96.000]

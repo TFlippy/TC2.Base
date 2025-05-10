@@ -34,7 +34,7 @@ body:
 
 health:
 {
-	max: 7500.000
+	max: 8000.000
 }
 
 // faction.colorable:
