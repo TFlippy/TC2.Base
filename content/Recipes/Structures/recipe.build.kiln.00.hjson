@@ -11,9 +11,32 @@
 	[
 		{
 			type: resource
-			material: "null"
-			amount: 280.000
+			material: brick.concrete
+			amount: 100.000
+			snapping: 0.500
 			group: 0
+			flags: prerequisite
+		}
+		{
+			type: resource
+			material: steel.frames
+			amount: 35.000
+			group: 0
+			flags: prerequisite
+		}
+		{
+			type: resource
+			material: steel.plate
+			amount: 40.000
+			group: 0
+			flags: prerequisite
+		}
+		{
+			type: resource
+			material: machine_parts
+			amount: 12.000
+			group: 0
+			flags: prerequisite
 		}
 	]
 	

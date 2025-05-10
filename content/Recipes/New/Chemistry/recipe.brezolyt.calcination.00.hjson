@@ -10,11 +10,93 @@
 	stages:
 	[
 		{
-			name: "Method"
+			name: "Feedstock"
 			
 			type: ingredients
 			flags: important
 			tags: material, raw
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: heat
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Standard"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: heat
+					
+					requirements:
+					[
+						{
+							type: temperature
+							amount: 1263.000
+							amount_min: 1000.000
+							falloff: 0.228
+							group: 0
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: work
+							work: heating
+							amount: 22.000
+							amount_min: 400.000
+							amount_max: 1362.000
+							difficulty: 4
+							snapping: 5.000
+							falloff: 0.734
+							ratio: 0.718
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					quality: 0.863
+					precision: 0.911
+					efficiency: 0.677
+					
+					loss: 0.275
+					
+					filter_machinery:
+					{
+						require: heater
+						include: heater, burner
+					}
+					filter_infrastructure:
+					{
+						include: oven, forge, crucible
+					}
+					filter_environment:
+					{
+						include: container, airtight, stationary, dirty, ugly, cozy, fireproof, flammable, small
+					}
+					
+					h_sound_complete: burner.bang.00
+				}
+			]
+			
+			requirements:
+			[
+				{
+					type: resource
+					material: brezolyt
+					amount: 1.000
+					ratio: 1.000
+					group: 0
+					flags: primary, prerequisite
+				}
+			]
+		}
+		{
+			name: "Processing"
+			
+			type: processing
+			flags: important
+			tags: material
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: heat
 			
@@ -35,44 +117,23 @@
 						{
 							type: temperature
 							amount: 1263.000
-							amount_min: 600.000
-							falloff: 0.819
-							group: 0
-							flags: no_scaling, always_evaluate
-						}
-						{
-							type: work
-							work: heating
-							amount: 22.000
-							amount_min: 200.000
-							amount_max: 1362.000
-							difficulty: 4
-							snapping: 5.000
-							falloff: 0.925
-							ratio: 0.718
-							group: 0
-							flags: conditional
-						}
-						{
-							type: temperature
-							amount: 1263.000
 							amount_min: 1000.000
 							amount_max: 1362.000
 							falloff: 0.819
-							group: 1
+							group: 0
 							flags: no_scaling, always_evaluate
 						}
 						{
 							type: work
 							work: calcination
 							amount: 150.000
-							amount_min: 400.000
+							amount_min: 900.000
 							amount_max: 1362.000
 							difficulty: 7
 							snapping: 10.000
-							falloff: 0.776
+							falloff: 0.701
 							ratio: 1.000
-							group: 1
+							group: 0
 							flags: conditional
 						}
 					]
@@ -82,25 +143,33 @@
 						{
 							type: resource
 							material: lime
-							amount: 0.165
+							amount: 0.145
 							amount_extra: 0.093
-							group: 1
+							group: 0
 							flags: primary, compact
 						}
 						{
 							type: resource
 							material: gravel
-							amount: 0.260
-							amount_extra: 0.082
-							group: 1
+							amount: 0.2468
+							amount_extra: 0.072
+							group: 0
 							flags: waste, residue, compact
 						}
 						{
 							type: resource
+							material: ash
+							amount: 0.129
+							amount_extra: 0.092
+							group: 0
+							flags: waste, compact
+						}
+						{
+							type: resource
 							material: carbon_dioxide
-							amount: 22.8855
-							amount_extra: 2.800
-							group: 1
+							amount: 5.199
+							amount_extra: 0.410
+							group: 0
 							flags: pollutant, byproduct, secondary, spawn, compact, hidden
 						}
 					]
@@ -124,18 +193,6 @@
 					{
 						include: container, airtight, stationary, dirty, ugly, cozy, fireproof, flammable, small
 					}
-				}
-			]
-			
-			requirements:
-			[
-				{
-					type: resource
-					material: brezolyt
-					amount: 1.000
-					ratio: 1.000
-					group: 0
-					flags: primary, prerequisite
 				}
 			]
 		}
@@ -179,6 +236,7 @@
 	step: 10
 	
 	h_sound_begin: burner.bang.01
+	h_sound_complete: burner.groan.01
 	
 	version: 1
 }

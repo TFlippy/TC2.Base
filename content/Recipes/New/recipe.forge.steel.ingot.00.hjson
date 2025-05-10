@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.5"
 	name: "Basic Niklajzner Reforging"
 	desc:
 		'''
@@ -14,6 +14,7 @@
 			
 			type: workpiece
 			flags: none
+			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: heat
 			
@@ -120,6 +121,7 @@
 			
 			type: refining
 			flags: none
+			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: fracture
 			
@@ -177,7 +179,7 @@
 	]
 	
 	type: workshop
-	flags: item, production
+	flags: disabled, item, production
 	tags: manual, simple, raw, blacksmithing, metalworking, heating, processing
 	infrastructure: anvil, forge, hard_surface
 	

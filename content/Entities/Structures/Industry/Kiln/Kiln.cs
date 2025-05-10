@@ -43,7 +43,7 @@
 
 			public void Draw()
 			{
-				using (var window = GUI.Window.InteractionMisc("Kiln"u8, this.ent_kiln, size: new(96, 168)))
+				using (var window = GUI.Window.InteractionMisc("Kiln"u8, this.ent_kiln, size: new(96, 48)))
 				{
 					this.StoreCurrentWindowTypeID(order: -100);
 					if (window.show)
