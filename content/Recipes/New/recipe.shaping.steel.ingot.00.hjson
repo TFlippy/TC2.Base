@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.62.5"
-	name: "Steel Rods"
+	name: "(Steel Bar)"
 	desc:
 		'''
 		TODO: Desc
@@ -10,11 +10,11 @@
 	stages:
 	[
 		{
-			name: "Processing"
+			name: "Shape"
 			
-			type: processing
+			type: preparation
 			flags: wip, auto_generated
-			tags: none
+			tags: material
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
 			
@@ -24,21 +24,25 @@
 			options:
 			[
 				{
-					name: "Standard"
+					name: "Rod"
 					
 					type: undefined
 					flags: wip, auto_generated
+					
+					prefix: "Filed Rods"
+					priority: 1.000
 					
 					requirements:
 					[
 						{
 							type: work
-							work: sawing
+							work: filing
 							amount: 400.000
 							amount_min: 125.000
 							difficulty: 21
 							snapping: 25.000
 							falloff: 0.530
+							ratio: 0.973
 							group: 0
 							flags: conditional
 						}
@@ -59,36 +63,24 @@
 					}
 				}
 			]
-		}
-	]
-	
-	requirements:
-	[
-		{
-			type: resource
-			material: steel.plate
-			amount: 1.000
-			snapping: 1.000
-			loss: 0.051
-			group: 0
-			flags: primary, prerequisite
-		}
-	]
-	
-	products:
-	[
-		{
-			type: resource
-			material: steel.rod
-			amount: 0.800
-			amount_extra: 0.100
-			group: 0
-			flags: primary, compact
+			
+			requirements:
+			[
+				{
+					type: resource
+					material: steel.ingot
+					amount: 1.000
+					loss: 0.075
+					ratio: 0.361
+					group: 0
+					flags: primary, prerequisite
+				}
+			]
 		}
 	]
 	
 	type: workshop
-	flags: item, production, wip
+	flags: disabled, item, production, wip
 	tags: workbench, workshop, manual, simple, medium, metalworking, processing
 	infrastructure: hard_surface
 	

@@ -208,73 +208,10 @@
 		}
 	]
 	
-	requirements_old:
-	[
-		{
-			type: resource
-			material: scrap.steel
-			amount: 0.010
-			group: 0
-			flags: prerequisite
-		}
-		{
-			type: resource
-			material: wood
-			amount: 0.03125
-			group: 0
-			flags: prerequisite
-		}
-		{
-			type: resource
-			material: cloth
-			amount: 0.025
-			group: 0
-			flags: prerequisite
-		}
-		{
-			type: work
-			work: woodworking
-			amount: 23.000
-			difficulty: 5
-			snapping: 5.000
-			falloff: 0.900
-			group: 0
-			flags: conditional
-		}
-		{
-			type: work
-			work: assembling
-			amount: 13.000
-			difficulty: 3
-			snapping: 5.000
-			falloff: 0.850
-			group: 0
-			flags: conditional
-		}
-	]
-	
-	products_old:
-	[
-		{
-			type: resource
-			material: ammo_arrow
-			amount: 1.000
-			group: 0
-		}
-		{
-			type: resource
-			material: sawdust
-			amount: 0.017
-			amount_extra: 0.005
-			group: 1
-			flags: waste, residue
-		}
-	]
-	
 	type: workshop
-	flags: wip, converted
-	tags: workbench, manual, crude, simple, small, munitions, woodworking
-	infrastructure: none
+	flags: wip
+	tags: manual, crude, simple, small, munitions, woodworking
+	infrastructure: surface
 	
 	icon:
 	{
