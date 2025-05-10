@@ -1,4 +1,8 @@
 $name: "Trip Hammer"
+$desc:
+	'''
+	TODO: Desc
+	'''
 $tags: []
 
 body:

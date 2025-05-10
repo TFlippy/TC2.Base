@@ -1,7 +1,7 @@
 ﻿{
-	$version: "0.1.61.4"
-	name: "Metal Cutting"
-	name_short: "Cutting"
+	$version: "0.1.62.5"
+	name: "Snipping (Metal)"
+	name_short: "Snipping"
 	desc:
 		'''
 		TODO: Desc
@@ -26,8 +26,8 @@
 	machinery_required: none
 	machinery_optional: none
 	
-	equipment_required: none
-	equipment_optional: none
+	infrastructure_required: none
+	infrastructure_optional: none
 	
 	character_traits:
 	{

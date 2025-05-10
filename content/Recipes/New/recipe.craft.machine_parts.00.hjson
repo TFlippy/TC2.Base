@@ -24,23 +24,94 @@
 			options:
 			[
 				{
-					name: "Standard"
+					name: "Recycled"
 					
 					type: undefined
 					flags: wip, auto_generated
 					
+					prefix: "Recycled"
+					priority: 1.000
+					
 					requirements:
 					[
 						{
+							type: resource
+							material: steel.frames
+							amount: 0.500
+							snapping: 0.100
+							loss: 0.290
+							ratio: 0.659
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: scrap.machine
+							amount: 1.500
+							snapping: 0.100
+							falloff: 0.932
+							loss: 0.235
+							ratio: 0.655
+							group: 0
+							flags: prerequisite
+						}
+						{
 							type: work
-							work: sawing
-							amount: 400.000
-							amount_min: 125.000
-							difficulty: 21
-							snapping: 25.000
-							falloff: 0.530
+							work: search.components
+							amount: 120.000
+							amount_min: 170.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.741
+							ratio: 0.408
 							group: 0
 							flags: conditional
+						}
+						{
+							type: work
+							work: snipping.metal
+							amount: 75.000
+							amount_min: 50.000
+							difficulty: 7
+							snapping: 5.000
+							falloff: 0.870
+							ratio: 0.588
+							group: 1
+							flags: conditional
+						}
+						{
+							type: work
+							work: bending
+							amount: 80.000
+							amount_min: 40.000
+							difficulty: 5
+							snapping: 5.000
+							falloff: 0.924
+							ratio: 0.808
+							group: 1
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: machine_parts
+							amount: 1.171
+							amount_extra: 2.730
+							snapping: 0.100
+							group: 0
+							flags: primary, compact
+						}
+						{
+							type: resource
+							material: scrap.machine
+							amount: 0.368
+							amount_extra: 0.4774
+							snapping: 0.100
+							group: 0
+							flags: residue, secondary
 						}
 					]
 					
@@ -59,31 +130,6 @@
 					}
 				}
 			]
-		}
-	]
-	
-	requirements:
-	[
-		{
-			type: resource
-			material: steel.plate
-			amount: 1.000
-			snapping: 1.000
-			loss: 0.051
-			group: 0
-			flags: primary, prerequisite
-		}
-	]
-	
-	products:
-	[
-		{
-			type: resource
-			material: machine_parts
-			amount: 0.800
-			amount_extra: 0.100
-			group: 0
-			flags: primary, compact
 		}
 	]
 	

@@ -1,15 +1,214 @@
 ﻿{
-	$version: "0.1.62.0"
-	name: "Arrows"
+	$version: "0.1.62.5"
+	name: "Arrowbolts"
 	desc:
 		'''
-		Ammunition for bows and crossbows.
+		Deadly wooden sticks capable of flight.
+
+		Cleverly designed by ISO to fit both bows' and crossbows' form factor in order to streamline logistics.
 		'''
 	tips: []
 	
-	stages: []
+	stages:
+	[
+		{
+			name: "Arrowhead"
+			
+			type: part
+			flags: wip, incomplete, auto_generated
+			tags: small, blade, sharp
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 1.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Steel Scrap"
+					
+					type: undefined
+					flags: wip, incomplete, auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: scrap.steel
+							amount: 0.0099
+							snapping: 0.100
+							loss: 0.220
+							ratio: 0.722
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: snipping.metal
+							amount: 10.000
+							amount_min: 25.000
+							difficulty: 7
+							snapping: 5.000
+							falloff: 0.889
+							ratio: 0.675
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					quality: 1.000
+					precision: 1.000
+					
+					filter_tools:
+					{
+						require: hammer, saw, screwdriver, wrench, file, knife
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, tweezers, axe, stapler, file, chisel, towel, tongs, pick, crowbar, knife
+					}
+					filter_machinery:
+					{
+						include: lathe
+					}
+				}
+			]
+		}
+		{
+			name: "Shaft"
+			
+			type: part
+			flags: wip, incomplete, auto_generated
+			tags: rod, thin, small
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 1.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Stick"
+					
+					type: undefined
+					flags: wip, incomplete, auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: wood.rod
+							amount: 0.030
+							snapping: 0.100
+							loss: 0.024
+							ratio: 0.604
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: sawing
+							amount: 22.000
+							amount_min: 75.000
+							difficulty: 3
+							snapping: 5.000
+							falloff: 0.688
+							ratio: 0.263
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					quality: 1.000
+					precision: 1.000
+					
+					filter_tools:
+					{
+						require: hammer, saw, screwdriver, wrench, file, knife
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, tweezers, axe, stapler, file, chisel, towel, tongs, pick, crowbar, knife
+					}
+					filter_machinery:
+					{
+						include: lathe
+					}
+				}
+			]
+		}
+		{
+			name: "Assembly"
+			
+			type: part
+			flags: wip, incomplete, auto_generated
+			tags: rod, thin, small
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 1.000
+			mass_base: 0.040
+			
+			options:
+			[
+				{
+					name: "Glued"
+					
+					type: undefined
+					flags: wip, incomplete, auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: glue
+							amount: 0.100
+							snapping: 0.200
+							falloff: 0.822
+							loss: 0.212
+							ratio: 0.224
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: gluing
+							amount: 10.000
+							amount_min: 14.000
+							difficulty: 5
+							snapping: 5.000
+							falloff: 0.843
+							ratio: 0.369
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					quality: 1.000
+					precision: 1.000
+					
+					filter_tools:
+					{
+						require: hammer, saw, screwdriver, wrench, file, knife
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, tweezers, axe, stapler, file, chisel, towel, tongs, pick, crowbar, knife
+					}
+					filter_machinery:
+					{
+						include: lathe
+					}
+				}
+			]
+		}
+	]
 	
-	requirements:
+	products:
+	[
+		{
+			type: resource
+			material: ammo_arrow
+			amount: 1.000
+			group: 0
+			flags: primary
+		}
+	]
+	
+	requirements_old:
 	[
 		{
 			type: resource
@@ -54,7 +253,7 @@
 		}
 	]
 	
-	products:
+	products_old:
 	[
 		{
 			type: resource
@@ -72,13 +271,10 @@
 		}
 	]
 	
-	requirements_old: []
-	
-	products_old: []
-	
 	type: workshop
-	flags: disabled, wip
+	flags: wip, converted
 	tags: workbench, manual, crude, simple, small, munitions, woodworking
+	infrastructure: none
 	
 	icon:
 	{
@@ -88,11 +284,12 @@
 	}
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	rank: 100.000
 	
 	min: 8
 	max: 64
 	step: 8
 	
-	version: 0
+	version: 1
 }
