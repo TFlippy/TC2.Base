@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.62.5"
-	name: "Heating"
-	name_short: "Heating"
+	name: "Calcination"
+	name_short: "Calcination"
 	desc:
 		'''
 		TODO: Desc
@@ -15,23 +15,23 @@
 	}
 	
 	flags: passive
-	tags: ambient, simple, industrial, passive, dangerous, wip
+	tags: ambient, simple, chemical, industrial, passive, toxic, wip
 	cooldown: 1.000
 	multiplier: 10.000
-	color: "0xffef3500"
+	color: "0xffc5ba9d"
 	
 	tools_required: none
 	tools_optional: none
 	
-	machinery_required: heater
-	machinery_optional: heater, burner
+	machinery_required: none
+	machinery_optional: none
 	
 	infrastructure_required: none
-	infrastructure_optional: oven, forge, crucible
+	infrastructure_optional: oven
 	
 	filter_environment:
 	{
-		include: container, airtight, stationary, dirty, ugly, cozy, fireproof, flammable, small
+		include: airtight
 	}
 	
 	skills_min:

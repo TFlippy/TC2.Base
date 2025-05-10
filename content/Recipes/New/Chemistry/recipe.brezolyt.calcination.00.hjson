@@ -16,7 +16,7 @@
 			flags: important
 			tags: material, raw
 			// Damage type used for discarding leftover resources.
-			discard_damage_type: sledgehammer
+			discard_damage_type: heat
 			
 			ratio: 0.000
 			mass_base: 0.000
@@ -28,22 +28,78 @@
 					
 					type: undefined
 					flags: none
+					discard_damage_type_override: heat
+					
+					requirements:
+					[
+						{
+							type: temperature
+							amount: 1263.000
+							amount_min: 600.000
+							falloff: 0.819
+							group: 0
+							flags: no_scaling
+						}
+						{
+							type: work
+							work: heating
+							amount: 22.000
+							amount_min: 200.000
+							amount_max: 1362.000
+							difficulty: 4
+							snapping: 5.000
+							falloff: 0.925
+							group: 0
+							flags: conditional
+						}
+						{
+							type: temperature
+							amount: 1263.000
+							amount_min: 1000.000
+							amount_max: 1362.000
+							falloff: 0.819
+							group: 1
+							flags: no_scaling
+						}
+						{
+							type: work
+							work: calcination
+							amount: 150.000
+							amount_min: 400.000
+							amount_max: 1362.000
+							difficulty: 7
+							snapping: 10.000
+							falloff: 0.776
+							group: 1
+							flags: conditional
+						}
+					]
 					
 					products:
 					[
 						{
 							type: resource
 							material: lime
-							amount: 0.385542
+							amount: 0.195
+							amount_extra: 0.073
 							group: 0
 							flags: primary, compact
 						}
 						{
 							type: resource
-							material: lime
-							amount: 0.385542
+							material: carbon_dioxide
+							amount: 22.8855
+							amount_extra: 2.800
 							group: 0
-							flags: primary, compact
+							flags: pollutant, byproduct, secondary, spawn, compact
+						}
+						{
+							type: resource
+							material: gravel
+							amount: 0.260
+							amount_extra: 0.082
+							group: 0
+							flags: waste, residue, secondary, compact
 						}
 					]
 				}
