@@ -74,7 +74,7 @@ shop:
 	tags_filter:
 	{
 		require: manual
-		include: crude, simple, drying
+		include: crude, drying, moulding
 		exclude: workbench, advanced, assembling, machining, metalworking, salvaging, smelting
 	}
 	
@@ -83,9 +83,9 @@ shop:
 	machinery: none
 	environment: container, mobile, dirty, ugly, flammable
 	
+	flags: hidden_if_order
 	menu_columns: 3
 	recipe_type: workshop
-	flags: hidden_if_order
 	
 	name: "Wooden Form"
 }

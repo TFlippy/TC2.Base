@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.5"
 	name: "Fermenting"
 	name_short: "Fermenting"
 	desc:
@@ -17,7 +17,7 @@
 	flags: passive, ambient
 	tags: machine, automated, simple, chemical, wip
 	cooldown: 3.000
-	multiplier: 5.000
+	multiplier: 3.500
 	color: "0xff818c11"
 	
 	tools_required: none
@@ -52,10 +52,10 @@
 	
 	}
 	
-	sound_volume: 0.500
-	sound_pitch: 0.450
-	sound_size: 0.500
-	sound_dist: 0.600
+	sound_volume: 0.330
+	sound_pitch: 0.210
+	sound_size: 3.930
+	sound_dist: 0.410
 	
 	sounds: []
 	sounds_manual: []

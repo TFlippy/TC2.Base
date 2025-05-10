@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.5"
 	name: "Standard Concrete Slabs"
 	desc:
 		'''
@@ -14,6 +14,7 @@
 			
 			type: processing
 			flags: wip, auto_generated
+			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: shovel
 			
@@ -27,6 +28,7 @@
 					
 					type: undefined
 					flags: wip, auto_generated
+					
 					color: "0xff675f5d"
 					
 					requirements:
@@ -69,11 +71,11 @@
 						{
 							type: work
 							work: blending
-							amount: 25.000
-							amount_min: 25.000
-							difficulty: 3
+							amount: 20.000
+							amount_min: 200.000
+							difficulty: 5
 							snapping: 5.000
-							falloff: 0.885
+							falloff: 0.705
 							group: 1
 							flags: conditional
 						}
@@ -81,11 +83,11 @@
 							type: work
 							work: pouring
 							amount: 25.000
-							amount_min: 25.000
+							amount_min: 75.000
 							difficulty: 3
 							snapping: 5.000
-							falloff: 0.700
-							group: 2
+							falloff: 0.618
+							group: 1
 							flags: conditional
 						}
 					]
@@ -102,6 +104,7 @@
 			
 			type: postprocessing
 			flags: wip, auto_generated
+			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: fracture
 			
@@ -115,6 +118,7 @@
 					
 					type: undefined
 					flags: wip, auto_generated
+					
 					color: "0xff675f5d"
 					
 					requirements:
@@ -122,7 +126,8 @@
 						{
 							type: work
 							work: cement.curing
-							amount: 530.000
+							amount: 650.000
+							amount_min: 350.000
 							difficulty: 7
 							group: 0
 							flags: no_scaling, no_residue, conditional
@@ -149,77 +154,7 @@
 			material: brick.concrete
 			amount: 1.000
 			group: 0
-			flags: byproduct, primary
-		}
-	]
-	
-	requirements_old:
-	[
-		{
-			type: resource
-			material: water
-			amount: 0.100
-			snapping: 0.010
-			group: 0
-			flags: prerequisite
-		}
-		{
-			type: resource
-			material: cement
-			amount: 0.200
-			group: 0
-			flags: prerequisite
-		}
-		{
-			type: resource
-			material: sand
-			amount: 0.400
-			group: 0
-			flags: prerequisite
-		}
-		{
-			type: resource
-			material: gravel
-			amount: 1.000
-			group: 0
-			flags: prerequisite
-		}
-		{
-			type: work
-			work: blending
-			amount: 10.000
-			difficulty: 3
-			snapping: 5.000
-			falloff: 0.885
-			group: 1
-			flags: conditional
-		}
-		{
-			type: work
-			work: pouring
-			amount: 15.000
-			difficulty: 3
-			snapping: 5.000
-			falloff: 0.700
-			group: 2
-			flags: conditional
-		}
-		{
-			type: work
-			work: cement.curing
-			amount: 1750.000
-			difficulty: 7
-			group: 3
-		}
-	]
-	
-	products_old:
-	[
-		{
-			type: resource
-			material: brick.concrete
-			amount: 1.000
-			group: 0
+			flags: primary, spawn
 		}
 	]
 	
