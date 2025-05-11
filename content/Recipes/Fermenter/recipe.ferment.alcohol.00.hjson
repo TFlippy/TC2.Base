@@ -38,6 +38,7 @@
 							snapping: 0.100
 							loss: 0.110
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: resource
@@ -46,6 +47,7 @@
 							snapping: 0.100
 							loss: 0.153
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: resource
@@ -54,6 +56,7 @@
 							snapping: 0.100
 							loss: 0.212
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: work
@@ -106,20 +109,8 @@
 						}
 					]
 					
-					filter_tools:
-					{
-						include: bucket, spatula
-					}
-					filter_machinery:
-					{
-						include: heater
-					}
-					filter_environment:
-					{
-						require: container
-						include: warm, stationary, contaminated, polluted, smelly, ugly, scary
-						exclude: cold, disinfected, sterile, toxic
-					}
+					quality: 1.000
+					precision: 1.000
 				}
 			]
 		}
@@ -158,6 +149,9 @@
 							flags: conditional
 						}
 					]
+					
+					quality: 1.000
+					precision: 1.000
 					
 					filter_tools:
 					{

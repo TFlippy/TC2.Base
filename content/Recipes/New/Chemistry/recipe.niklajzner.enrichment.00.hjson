@@ -137,7 +137,7 @@
 							material: black_coal
 							amount: 0.500
 							snapping: 0.100
-							loss: 0.333
+							loss: 0.325
 							group: 0
 							flags: prerequisite
 						}
@@ -180,7 +180,7 @@
 	]
 	
 	type: workshop
-	flags: production, auto_complete
+	flags: production
 	tags: simple, raw, metalworking, heating, processing
 	infrastructure: oven
 	

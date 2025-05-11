@@ -157,5 +157,6 @@ interactable:
 
 shipment:
 {
-	flags: keep_items, no_gui, allow_withdraw, allow_deposit
+	type: crafting
+	flags: keep_items, allow_deposit, use_misc, no_empty_deposit
 }

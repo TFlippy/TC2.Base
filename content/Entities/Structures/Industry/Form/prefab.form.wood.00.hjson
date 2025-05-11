@@ -120,7 +120,8 @@ workshop:
 }
 
 shipment:
-{	
+{
+	type: crafting
 	flags: keep_items, allow_deposit, use_misc, no_empty_deposit
 }
 
