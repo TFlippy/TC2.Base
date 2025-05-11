@@ -1,12 +1,12 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.5"
 	name: "Steel"
 	description:
 		'''
 		TODO: Desc
 		'''
 	
-	cas_number: "7439-89-6"
+	formula: "FeNi"
 	type: alloy
 	atomic_number: 0
 	flags: none
@@ -33,14 +33,14 @@
 	// kg/mol (use atomic mass for elements)
 	molar_mass: 0.05497
 	// kg/m³ (STP)
-	density: 7812.000
+	density: 8093.232
 	// kg/m³ (STP)
-	density_liquid: 6980.000
+	density_liquid: 7231.280
 	// kg/m³
-	density_solid: 7812.000
+	density_solid: 8093.232
 	
 	// K (STP)
-	melting_point: 1644.000
+	melting_point: 1690.000
 	// K (STP)
 	boiling_point: 3143.000
 	
@@ -54,6 +54,8 @@
 	// bar
 	triple_point_pressure: 0.000
 	
+	// K
+	ductile_temperature: 600.000
 	// K
 	forging_temperature_lower: 822.000
 	// K
@@ -78,10 +80,10 @@
 	// kJ/kg
 	specific_heat_of_vaporization: 6312.534
 	// kJ/(kg*K)
-	specific_heat_capacity: 0.490
+	specific_heat_capacity: 0.510
 	
 	// kW/(m*K)
-	thermal_conductivity: 0.043
+	thermal_conductivity: 0.013
 	
 	form_to_material:
 	{
@@ -93,5 +95,6 @@
 		scrap: scrap.steel
 		slab: steel.slab
 		rod: steel.rod
+		gravel: ferrous.gravel
 	}
 }

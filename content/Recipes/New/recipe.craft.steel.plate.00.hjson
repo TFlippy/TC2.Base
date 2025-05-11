@@ -88,7 +88,7 @@
 	]
 	
 	type: workshop
-	flags: item, production, wip
+	flags: disabled, item, production, wip
 	tags: workbench, workshop, manual, simple, medium, metalworking, processing
 	infrastructure: hard_surface
 	

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.5"
 	name: "Handsaw"
 	tips: []
 	
@@ -101,10 +101,19 @@
 							type: resource
 							material: steel.rod
 							amount: 0.294365
-							snapping: 0.500
+							snapping: 1.000
 							loss: 0.012
 							group: 0
 							flags: prerequisite
+						}
+						{
+							type: temperature
+							amount: 1432.470
+							amount_min: 600.000
+							amount_max: 1684.849
+							falloff: 0.500
+							group: 1
+							flags: no_scaling, always_evaluate, optional
 						}
 						{
 							type: work

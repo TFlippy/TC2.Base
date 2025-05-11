@@ -10,10 +10,7 @@
 		but requires to be hardened in order to be actually usable.
 		'''
 	
-	tips:
-	[
-		"- "
-	]
+	tips: []
 	
 	icon:
 	{
@@ -49,7 +46,7 @@
 	{
 		heat:
 		{
-			h_material: ferrous.gravel
+			h_material: ferronickel.powder
 			spawn_flags: none
 			product_flags: waste
 			ratio: 0.460
@@ -80,16 +77,16 @@
 	{
 		hammering:
 		{
-			h_material: ferrous.gravel
+			h_material: scrap.niklajzner
 			h_substance: "null"
 			flags: none
-			flags_product: waste
+			flags_product: residue
 			
-			yield: [0.454, 0.527]
+			yield: [0.595, 0.380]
 		}
 		drilling:
 		{
-			h_material: ferronickel.powder
+			h_material: scrap.niklajzner
 			h_substance: "null"
 			flags: none
 			flags_product: residue
@@ -98,7 +95,7 @@
 		}
 		heating:
 		{
-			h_material: ferrous.gravel
+			h_material: ferronickel.powder
 			h_substance: "null"
 			flags: none
 			flags_product: waste
@@ -113,6 +110,15 @@
 			flags_product: residue
 			
 			yield: [0.424, 0.461]
+		}
+		filing:
+		{
+			h_material: ferronickel.powder
+			h_substance: "null"
+			flags: none
+			flags_product: waste
+			
+			yield: [0.618, 0.373]
 		}
 	}
 	
