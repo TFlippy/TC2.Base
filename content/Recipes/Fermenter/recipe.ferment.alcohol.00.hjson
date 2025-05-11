@@ -123,6 +123,59 @@
 				}
 			]
 		}
+		{
+			name: "Fermenting"
+			
+			type: processing
+			flags: wip, incomplete, auto_generated
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: rotting
+			
+			ratio: 1.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Standard"
+					
+					type: undefined
+					flags: wip, incomplete, auto_generated
+					
+					requirements:
+					[
+						{
+							type: work
+							work: fermenting
+							amount: 340.000
+							amount_min: 400.000
+							difficulty: 5
+							snapping: 50.000
+							falloff: 0.902
+							loss: 0.110
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						include: bucket, spatula
+					}
+					filter_machinery:
+					{
+						include: heater
+					}
+					filter_environment:
+					{
+						require: container
+						include: warm, stationary, contaminated, polluted, smelly, ugly, scary
+						exclude: cold, disinfected, sterile, toxic
+					}
+				}
+			]
+		}
 	]
 	
 	type: fermenter
@@ -134,7 +187,7 @@
 	
 	icon:
 	{
-		texture: resource.insect
+		texture: resource.alcohol
 		size: [16, 16]
 		frame: [2, 0]
 	}
@@ -142,18 +195,19 @@
 	
 	icon_extra:
 	{
-		texture: resource.vinegar
+		texture: resource.sugar
 		size: [16, 16]
-		frame: [2, 0]
+		frame: [1, 0]
 	}
 	icon_extra_offset: [-18.000, -7.000]
 	
 	icon_c:
 	{
+		texture: resource.mushroom
 		size: [16, 16]
-		frame: [1, 0]
+		frame: [3, 0]
 	}
-	icon_c_offset: [6.000, -4.000]
+	icon_c_offset: [4.000, -13.000]
 	
 	color_frame: "0xffaeb59a"
 	color_button: "0xff9dd80f"
