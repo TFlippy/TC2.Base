@@ -17,7 +17,7 @@
 	flags: none
 	tags: manual, tools, simple, construction
 	cooldown: 1.000
-	multiplier: 1.200
+	multiplier: 0.800
 	color: "0xffffa200"
 	
 	tools_required: cutters
@@ -42,10 +42,10 @@
 	
 	skills_mult:
 	{
-		strength: 0.950
-		endurance: 0.150
-		dexterity: 0.300
-		construction: 0.500
+		strength: 0.620
+		blacksmithing: 0.300
+		dexterity: 0.420
+		construction: 0.270
 	}
 	
 	sound_volume: 0.900

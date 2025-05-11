@@ -1,0 +1,222 @@
+﻿{
+	$version: "0.1.62.5"
+	name: "Niklajzner Enrichment"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	tips: []
+	
+	stages:
+	[
+		{
+			name: "Feedstock"
+			
+			type: feedstock
+			flags: important
+			tags: material, raw
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: heat
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Plates"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: heat
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: niklajzner.plate
+							amount: 1.000
+							snapping: 0.100
+							loss: 0.114
+							ratio: 1.000
+							group: 0
+							flags: argument, primary
+						}
+						{
+							type: temperature
+							amount: 980.700
+							amount_min: 677.000
+							amount_max: 1000.240
+							falloff: 2.477
+							group: 0
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: work
+							work: heating
+							amount: 100.000
+							amount_min: 250.000
+							difficulty: 9
+							snapping: 5.000
+							falloff: 0.795
+							ratio: 0.271
+							group: 0
+							flags: always_evaluate, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: steel.plate
+							amount: 0.9523
+							amount_extra: 0.027
+							group: 0
+							flags: primary, compact, use_temperature
+						}
+						{
+							type: resource
+							material: ferronickel.powder
+							amount: 0.0244
+							amount_extra: 0.0274
+							group: 0
+							flags: waste, residue, compact
+						}
+					]
+					
+					quality: 0.863
+					precision: 0.911
+					efficiency: 0.677
+					
+					loss: 0.275
+					
+					filter_machinery:
+					{
+						require: heater
+						include: heater, burner
+					}
+					filter_infrastructure:
+					{
+						include: oven, forge, crucible
+					}
+					filter_environment:
+					{
+						include: container, airtight, stationary, dirty, ugly, cozy, fireproof, flammable, small
+					}
+					
+					h_sound_complete: burner.bang.00
+				}
+			]
+		}
+		{
+			name: "Processing"
+			
+			type: processing
+			flags: important
+			tags: material
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: heat
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Simple"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: corrosion
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: black_coal
+							amount: 0.500
+							snapping: 0.100
+							loss: 0.333
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: carburization
+							amount: 150.000
+							amount_min: 750.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.403
+							ratio: 0.216
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					quality: 0.863
+					precision: 0.911
+					efficiency: 0.677
+					
+					loss: 0.275
+					
+					filter_machinery:
+					{
+						require: heater
+						include: heater, burner
+					}
+					filter_infrastructure:
+					{
+						include: oven, forge, crucible
+					}
+					filter_environment:
+					{
+						include: container, airtight, stationary, dirty, ugly, cozy, fireproof, flammable, small
+					}
+				}
+			]
+		}
+	]
+	
+	type: workshop
+	flags: production, auto_complete
+	tags: simple, raw, metalworking, heating, processing
+	infrastructure: oven
+	
+	icon:
+	{
+		texture: resource.niklajzner.ingot
+		size: [16, 16]
+		frame: [5, 0]
+	}
+	icon_offset: [8.000, 1.000]
+	
+	icon_extra:
+	{
+		texture: resource.steel.ingot
+		size: [16, 16]
+	}
+	icon_extra_offset: [-16.000, -6.000]
+	
+	icon_c:
+	{
+		texture: resource.steel.plate
+		size: [16, 16]
+		frame: [1, 0]
+	}
+	icon_c_offset: [-13.000, -11.000]
+	
+	color_frame: "0xff7d588a"
+	color_button: "0xff9dd80f"
+	rank: -157.000
+	
+	min: 1
+	max: 20
+	step: 1
+	
+	h_sound_begin: burner.bang.01
+	h_sound_complete: burner.groan.01
+	
+	version: 1
+}

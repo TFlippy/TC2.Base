@@ -73,7 +73,7 @@ shop:
 	}
 	
 	tools: hammer, bucket, shovel, tongs
-	infrastructure: oven, hard_surface
+	infrastructure: oven
 	machinery: heater, burner
 	environment: container, waterproof, stationary, dirty, ugly, fireproof, durable, sturdy
 	
