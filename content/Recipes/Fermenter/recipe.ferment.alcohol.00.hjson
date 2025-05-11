@@ -1,0 +1,167 @@
+﻿{
+	$version: "0.1.62.5"
+	name: "Alcoholic Fermentation"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	tips: []
+	
+	stages:
+	[
+		{
+			name: "Formula"
+			
+			type: ingredients
+			flags: wip, incomplete, auto_generated
+			tags: material, raw
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: rotting
+			
+			ratio: 1.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Standard"
+					
+					type: undefined
+					flags: wip, incomplete, auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: sugar
+							amount: 10.000
+							snapping: 0.100
+							loss: 0.110
+							group: 0
+						}
+						{
+							type: resource
+							material: mushroom
+							amount: 50.000
+							snapping: 0.100
+							loss: 0.153
+							group: 0
+						}
+						{
+							type: resource
+							material: plants
+							amount: 40.000
+							snapping: 0.100
+							loss: 0.212
+							group: 0
+						}
+						{
+							type: work
+							work: mashing
+							amount: 220.000
+							amount_min: 100.000
+							difficulty: 4
+							snapping: 5.000
+							falloff: 0.964
+							loss: 0.212
+							ratio: 0.353
+							group: 1
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: alcohol
+							amount: 12.800
+							amount_extra: 40.700
+							group: 0
+							flags: byproduct, primary, compact
+						}
+						{
+							type: resource
+							material: compost
+							amount: 15.400
+							amount_extra: 1.500
+							group: 0
+							flags: residue, secondary
+						}
+						{
+							type: resource
+							material: carbon_dioxide
+							amount: 52.000
+							amount_extra: 36.800
+							group: 0
+							flags: pollutant, waste, byproduct, spawn, hidden
+						}
+						{
+							type: resource
+							material: rot
+							amount: 19.300
+							amount_extra: 6.300
+							group: 0
+							flags: waste
+						}
+					]
+					
+					filter_tools:
+					{
+						include: bucket, spatula
+					}
+					filter_machinery:
+					{
+						include: heater
+					}
+					filter_environment:
+					{
+						require: container
+						include: warm, stationary, contaminated, polluted, smelly, ugly, scary
+						exclude: cold, disinfected, sterile, toxic
+					}
+				}
+			]
+		}
+	]
+	
+	type: fermenter
+	flags: production, wip, auto_complete
+	tags: fermenting
+	infrastructure: liquid_container
+	
+	h_company: common
+	
+	icon:
+	{
+		texture: resource.insect
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	icon_offset: [4.000, -1.000]
+	
+	icon_extra:
+	{
+		texture: resource.vinegar
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	icon_extra_offset: [-18.000, -7.000]
+	
+	icon_c:
+	{
+		size: [16, 16]
+		frame: [1, 0]
+	}
+	icon_c_offset: [6.000, -4.000]
+	
+	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
+	rank: -50.000
+	
+	min: 1
+	max: 10
+	step: 1
+	
+	version: 1
+}

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.5"
 	name: "Methane"
 	name_short: "Methane"
 	description:
@@ -28,15 +28,17 @@
 	
 	purity: 0.919
 	mass_per_unit: 0.010
+	
 	quantity_max: 1000.000
 	spawn_quantity_threshold: 0.100
 	snapping: 0.100
+	snapping_pickup: 1.000
 	
 	form_type: gas
 	prefab: resource.methane
 	h_substance: methane
 	
-	color_icon: "0xffffffff"
+	color_icon: "0x51b5d97b"
 	color_item: "0xffffffff"
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
