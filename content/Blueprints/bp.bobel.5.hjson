@@ -1,15 +1,17 @@
 ﻿{
+	$version: "0.1.62.5"
 	name: "Bobel-5"
 	description:
 		'''
 		Reliable magitech automatic rifle.
 		'''
 	
-	flags: none
-	h_company: "elektron_imperial"
+	flags: hidden
 	
-	h_prefab: "smg"
-	h_recipe: "gunsmith.smg"
+	h_company: "null"
+	h_prefab: smg
+	h_recipe: gunsmith.smg
+	
 	seed: 0
 	
 	augments:

@@ -62,12 +62,11 @@
 					filter_tools:
 					{
 						require: hammer
-						include: hammer, pliers
+						include: hammer, pliers, chisel, towel, crowbar
 					}
 					filter_infrastructure:
 					{
-						require: hard_surface
-						include: vise
+						include: anvil, vise, hard_surface, workbench
 					}
 				}
 				{

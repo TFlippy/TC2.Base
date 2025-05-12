@@ -1,15 +1,17 @@
 ﻿{
+	$version: "0.1.62.5"
 	name: "Boban vz.8"
 	description:
 		'''
 		Land mine with safety markings to prevent accidental detonation.
 		'''
 	
-	flags: none
-	h_company: "houfmistr"
+	flags: hidden
 	
-	h_prefab: "landmine"
-	h_recipe: "munitions.landmine"
+	h_company: houfmistr
+	h_prefab: landmine
+	h_recipe: "null"
+	
 	seed: 0
 	
 	augments:

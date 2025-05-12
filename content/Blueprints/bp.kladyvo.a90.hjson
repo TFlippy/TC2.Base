@@ -1,15 +1,17 @@
 ﻿{
+	$version: "0.1.62.5"
 	name: "Kladyvo A90"
 	description:
 		'''
 		Portable shoulder-mounted autocannon.
 		'''
 	
-	flags: none
-	h_company: "null"
+	flags: hidden
 	
-	h_prefab: "lmg"
-	h_recipe: "gunsmith.lmg"
+	h_company: "null"
+	h_prefab: lmg
+	h_recipe: gunsmith.lmg
+	
 	seed: 427717013522
 	
 	augments:

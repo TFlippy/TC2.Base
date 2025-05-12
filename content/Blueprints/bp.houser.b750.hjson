@@ -1,15 +1,18 @@
-{
+﻿{
+	$version: "0.1.62.5"
 	name: "Houser B-750"
 	description:
 		'''
 		Special model of Houser-A750 intended for construction workers.
 		'''
 	
-	flags: none
-	h_company: "null"
+	flags: hidden
 	
-	h_prefab: "machine_pistol"
-	h_recipe: "gunsmith.machine_pistol"
+	h_company: "null"
+	h_prefab: machine_pistol
+	h_recipe: gunsmith.machine_pistol
+	
+	seed: 0
 	
 	augments:
 	[

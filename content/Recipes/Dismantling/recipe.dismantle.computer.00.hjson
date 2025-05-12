@@ -44,15 +44,17 @@
 						}
 					]
 					
+					quality: 1.000
+					precision: 1.000
+					
 					filter_tools:
 					{
-						require: screwdriver, wrench, spanner, pliers
-						include: cutters, hand_drill, wrench, tweezers, magnifying_glass, knife
+						require: screwdriver, spanner
+						include: cutters, hand_drill, screwdriver, wrench, spanner, pliers, tweezers, magnifying_glass, knife
 					}
 					filter_infrastructure:
 					{
-						require: table
-						include: table, chair, vise
+						include: table, chair, vise, workbench
 					}
 				}
 			]
@@ -110,6 +112,7 @@
 	flags: item, dismantling, wip, converted
 	tags: workbench, workshop, manual, simple, complex, magitronics, machinery, engineering, salvaging
 	infrastructure: table, chair, surface
+	infrastructure_exclude: none
 	
 	icon:
 	{

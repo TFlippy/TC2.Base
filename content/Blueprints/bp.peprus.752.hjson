@@ -1,16 +1,17 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.62.5"
 	name: "Peprus 752-A"
 	description:
 		'''
 		Experimental rapid-fire grenade launcher developed by Houfmistr.
 		'''
 	
-	flags: none
-	h_company: "houfmistr"
+	flags: hidden
 	
+	h_company: houfmistr
 	h_prefab: auto_shotgun
 	h_recipe: gunsmith.auto_shotgun
+	
 	seed: 597236819634
 	
 	augments:

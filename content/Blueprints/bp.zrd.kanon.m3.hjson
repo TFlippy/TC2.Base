@@ -1,15 +1,17 @@
 ﻿{
+	$version: "0.1.62.5"
 	name: "ZRD Kanon M.3"
 	description:
 		'''
 		Cutting-edge rapid-fire cannon utilizing arcane technology.
 		'''
 	
-	flags: none
-	h_company: "houfmistr"
+	flags: hidden
 	
-	h_prefab: "cannon.short"
-	h_recipe: "gunsmith.cannon.short"
+	h_company: houfmistr
+	h_prefab: cannon.short
+	h_recipe: gunsmith.cannon.short
+	
 	seed: 0
 	
 	augments:

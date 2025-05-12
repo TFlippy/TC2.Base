@@ -1,15 +1,17 @@
 ﻿{
+	$version: "0.1.62.5"
 	name: "Pervitin 50mg ER"
 	description:
 		'''
 		Extended-release 50mg methamphetamine tablet.
 		'''
 	
-	flags: none
-	h_company: "zdravotnyk"
+	flags: hidden
 	
-	h_prefab: "pill"
+	h_company: zdravotnyk
+	h_prefab: pill
 	h_recipe: "null"
+	
 	seed: 0
 	
 	augments:

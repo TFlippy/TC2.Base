@@ -1,15 +1,17 @@
 ﻿{
+	$version: "0.1.62.5"
 	name: "Burt-Mini"
 	description:
 		'''
 		Semi-automatic double-barreled PDW with an arcer.
 		'''
 	
-	flags: none
-	h_company: "zajac"
+	flags: hidden
 	
-	h_prefab: "machine_pistol"
-	h_recipe: "gunsmith.machine_pistol"
+	h_company: zajac
+	h_prefab: machine_pistol
+	h_recipe: gunsmith.machine_pistol
+	
 	seed: 0
 	
 	augments:

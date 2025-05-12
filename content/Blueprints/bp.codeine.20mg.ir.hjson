@@ -1,15 +1,17 @@
 ﻿{
+	$version: "0.1.62.5"
 	name: "Codeine 20mg IR"
 	description:
 		'''
 		Immediate-release 20mg codeine tablet.
 		'''
 	
-	flags: none
-	h_company: "plak_tope"
+	flags: hidden
 	
-	h_prefab: "pill"
+	h_company: plak_tope
+	h_prefab: pill
 	h_recipe: "null"
+	
 	seed: 0
 	
 	augments:

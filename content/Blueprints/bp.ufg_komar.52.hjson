@@ -1,48 +1,117 @@
-{
-	name:
-		'''
-		UFG-Komar 52
-		'''
+﻿{
+	$version: "0.1.62.5"
+	name: "UFG-Komar 52"
 	description:
 		'''
 		Water-cooled automatic submachine gun with extremely high rate of fire and large ammo capacity. 
 		Almost no overheat, but can burn through all ammo in no time.
 		'''
-	h_prefab: "smg"
-	h_recipe: "gunsmith.smg"
+	
+	flags: hidden
+	
+	h_company: "null"
+	h_prefab: smg
+	h_recipe: gunsmith.smg
+	
+	seed: 0
+	
 	augments:
 	[
 		{
 			identifier: "gun.expanded_magazine"
+			flags: none
+			modifier: 0.000
 			data: 1084227584
 		}
 		{
 			identifier: "gun.faster_cycling_mechanism"
+			flags: none
+			modifier: 0.000
 			data: 1060655595
 		}
 		{
 			identifier: "gun.gas_operation"
+			flags: none
+			modifier: 0.000
 			data: 0
 		}
 		{
 			identifier: "gun.improved_ammo_loading"
+			flags: none
+			modifier: 0.000
 			data: 0
 		}
 		{
 			identifier: "gun.rapid_fire_mechanism"
+			flags: none
+			modifier: 0.000
 			data: 0
 		}
 		{
 			identifier: "gun.hardened_frame"
+			flags: none
+			modifier: 0.000
 			data: 13690942870410756096
 		}
 		{
 			identifier: "gun.tempered_frame"
+			flags: none
+			modifier: 0.000
 			data: 1048576000
 		}
 		{
 			identifier: "heat.coolant"
+			flags: none
+			modifier: 0.000
 			data: 27
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
 		}
 	]
 }

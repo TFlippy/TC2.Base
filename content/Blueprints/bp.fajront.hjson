@@ -1,15 +1,17 @@
 ﻿{
+	$version: "0.1.62.5"
 	name: "Fajront"
 	description:
 		'''
 		Heavy quad-barreled shoulder-mounted gun designed to counter armored infantry.
 		'''
 	
-	flags: none
-	h_company: "elektron_imperial"
+	flags: hidden
 	
-	h_prefab: "carbine"
-	h_recipe: "gunsmith.carbine"
+	h_company: "null"
+	h_prefab: carbine
+	h_recipe: gunsmith.carbine
+	
 	seed: 293035011897
 	
 	augments:
@@ -84,7 +86,7 @@
 			identifier: "gun.automatic_reloading"
 			flags: mirror_y
 			modifier: 0.000
-			data: 13690942870410756096
+			data: 13690942870406561792
 		}
 		{
 			identifier: "holdable.grip.friction"

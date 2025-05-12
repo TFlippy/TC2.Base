@@ -62,12 +62,12 @@
 					
 					filter_tools:
 					{
-						require: hammer, saw, screwdriver, wrench, file, knife
-						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, tweezers, axe, stapler, file, chisel, towel, tongs, pick, crowbar, knife
+						require: cutters
+						include: cutters, pliers, knife, scissors
 					}
-					filter_machinery:
+					filter_infrastructure:
 					{
-						include: lathe
+						include: table
 					}
 				}
 			]
@@ -99,8 +99,8 @@
 							material: wood.rod
 							amount: 0.030
 							snapping: 0.100
-							loss: 0.024
-							ratio: 0.604
+							loss: 0.133
+							ratio: 0.475
 							group: 0
 							flags: prerequisite
 						}
@@ -112,7 +112,7 @@
 							difficulty: 3
 							snapping: 5.000
 							falloff: 0.688
-							ratio: 0.263
+							ratio: 0.890
 							group: 0
 							flags: conditional
 						}
@@ -123,12 +123,13 @@
 					
 					filter_tools:
 					{
-						require: hammer, saw, screwdriver, wrench, file, knife
-						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, tweezers, axe, stapler, file, chisel, towel, tongs, pick, crowbar, knife
+						require: saw
+						include: ruler, file, knife
 					}
-					filter_machinery:
+					filter_infrastructure:
 					{
-						include: lathe
+						require: surface
+						include: workbench
 					}
 				}
 			]
@@ -185,12 +186,16 @@
 					
 					filter_tools:
 					{
-						require: hammer, saw, screwdriver, wrench, file, knife
-						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, tweezers, axe, stapler, file, chisel, towel, tongs, pick, crowbar, knife
+						include: paintbrush, file
 					}
-					filter_machinery:
+					filter_infrastructure:
 					{
-						include: lathe
+						include: table
+					}
+					filter_environment:
+					{
+						include: clean, organized
+						exclude: wet
 					}
 				}
 			]
@@ -212,6 +217,7 @@
 	flags: wip
 	tags: manual, crude, simple, small, munitions, woodworking
 	infrastructure: surface
+	infrastructure_exclude: none
 	
 	icon:
 	{

@@ -1,15 +1,18 @@
-{
+﻿{
+	$version: "0.1.62.5"
 	name: "R750 Automat"
 	description:
 		'''
 		Cutting-edge automatic rifle with an unbelievable rate of fire utilizing an ARC-MT auto-loader.
 		'''
 	
-	flags: none
-	h_company: "elektron_imperial"
+	flags: hidden
 	
-	h_prefab: "smg"
-	h_recipe: "gunsmith.smg"
+	h_company: "null"
+	h_prefab: smg
+	h_recipe: gunsmith.smg
+	
+	seed: 0
 	
 	augments:
 	[

@@ -1,15 +1,17 @@
 ﻿{
+	$version: "0.1.62.5"
 	name: "Bambula Dvoj-B"
 	description:
 		'''
 		Break-action shotgun with two barrels, a timeless classic.
 		'''
 	
-	flags: none
-	h_company: "zajac"
+	flags: hidden
 	
-	h_prefab: "scattergun"
-	h_recipe: "gunsmith.scattergun"
+	h_company: zajac
+	h_prefab: scattergun
+	h_recipe: gunsmith.scattergun
+	
 	seed: 0
 	
 	augments:

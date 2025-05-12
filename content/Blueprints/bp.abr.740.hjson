@@ -1,15 +1,17 @@
 ﻿{
+	$version: "0.1.62.5"
 	name: "ABR 740"
 	description:
 		'''
 		Powerful burst-fire battle rifle with a bayonet.
 		'''
 	
-	flags: none
-	h_company: "zajac"
+	flags: hidden
 	
-	h_prefab: "battle_rifle"
-	h_recipe: "gunsmith.battle_rifle"
+	h_company: zajac
+	h_prefab: battle_rifle
+	h_recipe: gunsmith.battle_rifle
+	
 	seed: 0
 	
 	augments:

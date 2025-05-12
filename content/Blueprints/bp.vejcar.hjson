@@ -1,15 +1,17 @@
 ﻿{
+	$version: "0.1.62.5"
 	name: "Vejcar"
 	description:
 		'''
 		Superheavy triple-barreled slugthrower used for riot control.
 		'''
 	
-	flags: none
-	h_company: "elektron_imperial"
+	flags: hidden
 	
-	h_prefab: "slugthrower"
-	h_recipe: "gunsmith.slugthrower"
+	h_company: "null"
+	h_prefab: slugthrower
+	h_recipe: gunsmith.slugthrower
+	
 	seed: 151816801204
 	
 	augments:

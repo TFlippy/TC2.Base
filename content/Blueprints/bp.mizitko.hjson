@@ -1,15 +1,17 @@
 ﻿{
+	$version: "0.1.62.5"
 	name: "Mizitko"
 	description:
 		'''
 		Heavy ARC-MT personal cannon capable of firing AC ammunition.
 		'''
 	
-	flags: none
-	h_company: "elektron_imperial"
+	flags: hidden
 	
-	h_prefab: "scattergun"
-	h_recipe: "gunsmith.scattergun"
+	h_company: "null"
+	h_prefab: scattergun
+	h_recipe: gunsmith.scattergun
+	
 	seed: 1006107412198
 	
 	augments:

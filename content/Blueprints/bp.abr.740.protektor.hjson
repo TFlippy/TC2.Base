@@ -1,15 +1,17 @@
 ﻿{
+	$version: "0.1.62.5"
 	name: "ABR 740-Protektor"
 	description:
 		'''
 		Heavier variant of ABR-740 equipped with a barrel-mounted ballistic shield and expanded magazine.
 		'''
 	
-	flags: none
-	h_company: "zajac"
+	flags: hidden
 	
-	h_prefab: "battle_rifle"
-	h_recipe: "gunsmith.battle_rifle"
+	h_company: zajac
+	h_prefab: battle_rifle
+	h_recipe: gunsmith.battle_rifle
+	
 	seed: 0
 	
 	augments:

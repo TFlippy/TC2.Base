@@ -131,12 +131,11 @@
 					filter_tools:
 					{
 						require: hammer
-						include: hammer, pliers
+						include: hammer, pliers, chisel, towel, crowbar
 					}
 					filter_infrastructure:
 					{
-						require: hard_surface
-						include: vise
+						include: anvil, vise, hard_surface, workbench
 					}
 				}
 			]
@@ -265,7 +264,11 @@
 					filter_tools:
 					{
 						require: cutters, file
-						include: pliers, knife
+						include: cutters, pliers, knife, scissors
+					}
+					filter_infrastructure:
+					{
+						include: table
 					}
 					filter_environment:
 					{

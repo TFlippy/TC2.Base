@@ -21,10 +21,10 @@
 	color: "0xffa94535"
 	
 	tools_required: hammer
-	tools_optional: hammer, pliers
+	tools_optional: hammer, pliers, chisel, towel, crowbar
 	
-	infrastructure_required: hard_surface
-	infrastructure_optional: vise
+	infrastructure_required: none
+	infrastructure_optional: anvil, vise, hard_surface, workbench
 	
 	character_traits:
 	{

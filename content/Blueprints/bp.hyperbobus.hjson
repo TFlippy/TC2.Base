@@ -1,15 +1,18 @@
-{
+﻿{
+	$version: "0.1.62.5"
 	name: "Hyperbobus"
 	description:
 		'''
 		Heavy AC-caliber shotgun. Not intended for human use.
 		'''
 	
-	flags: none
-	h_company: "elektron_imperial"
+	flags: hidden
 	
-	h_prefab: "machine_gun"
-	h_recipe: "gunsmith.machine_gun"
+	h_company: "null"
+	h_prefab: machine_gun
+	h_recipe: gunsmith.machine_gun
+	
+	seed: 0
 	
 	augments:
 	[
@@ -35,7 +38,7 @@
 			identifier: "gun.automatic_reloading"
 			flags: none
 			modifier: 0.000
-			data: 4539628427585519616
+			data: 4503599630566555648
 		}
 		{
 			identifier: "gun.extra_barrel"
@@ -107,7 +110,7 @@
 			identifier: "gun.recoil_compensator"
 			flags: none
 			modifier: 0.000
-			data: 1082130432
+			data: 1069547520
 		}
 	]
 }

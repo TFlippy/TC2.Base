@@ -21,13 +21,10 @@
 	color: "0xffffa200"
 	
 	tools_required: cutters
-	tools_optional: pliers, knife
-	
-	machinery_required: none
-	machinery_optional: none
+	tools_optional: cutters, pliers, knife, scissors
 	
 	infrastructure_required: none
-	infrastructure_optional: none
+	infrastructure_optional: table
 	
 	character_traits:
 	{

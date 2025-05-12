@@ -1,15 +1,17 @@
 ﻿{
+	$version: "0.1.62.5"
 	name: "Medimax Emergency Kit"
 	description:
 		'''
 		Cutting-edge doctor's bag with clean tools and a built-in red lamp for medical emergencies.
 		'''
 	
-	flags: none
-	h_company: "zdravotnyk"
+	flags: hidden
 	
-	h_prefab: "medkit"
-	h_recipe: "manufactory.medkit"
+	h_company: zdravotnyk
+	h_prefab: medkit
+	h_recipe: "null"
+	
 	seed: 42762012890
 	
 	augments:

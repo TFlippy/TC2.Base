@@ -1,15 +1,18 @@
-{
+﻿{
+	$version: "0.1.62.5"
 	name: "Pivan Klasik"
 	description:
 		'''
 		The Pivan beer that even a bear could afford.
 		'''
 	
-	flags: none
-	h_company: "pivan"
+	flags: hidden
 	
-	h_prefab: "beer"
-	h_recipe: "refinery.beer"
+	h_company: pivan
+	h_prefab: beer
+	h_recipe: "null"
+	
+	seed: 0
 	
 	augments:
 	[

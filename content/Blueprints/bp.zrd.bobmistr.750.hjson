@@ -1,15 +1,17 @@
 ﻿{
+	$version: "0.1.62.5"
 	name: "ZRD Bobmistr 750"
 	description:
 		'''
 		Heavy triple-barreled ARC-MT machine gun designed for giants.
 		'''
 	
-	flags: none
-	h_company: "houfmistr"
+	flags: hidden
 	
-	h_prefab: "machine_gun"
-	h_recipe: "gunsmith.machine_gun"
+	h_company: houfmistr
+	h_prefab: machine_gun
+	h_recipe: gunsmith.machine_gun
+	
 	seed: 0
 	
 	augments:

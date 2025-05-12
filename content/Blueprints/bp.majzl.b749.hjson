@@ -1,15 +1,17 @@
 ﻿{
+	$version: "0.1.62.5"
 	name: "Majzl B-749"
 	description:
 		'''
 		Heavy MG-caliber gun with a scope, ARC-MT recoil compensator and an auto-loader.
 		'''
 	
-	flags: none
-	h_company: "elektron_imperial"
+	flags: hidden
 	
-	h_prefab: "carbine"
-	h_recipe: "gunsmith.carbine"
+	h_company: "null"
+	h_prefab: carbine
+	h_recipe: gunsmith.carbine
+	
 	seed: 0
 	
 	augments:
