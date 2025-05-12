@@ -5,7 +5,7 @@ body:
 {
 	@shape.box:
 	{
-		size: [5.250, 4.750]
+		size: [6.250, 4.750]
 	}
 }
 
@@ -13,7 +13,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		size: [56, 56]
+		size: [64, 56]
 		frame: [7, 0]
 	}
 }
