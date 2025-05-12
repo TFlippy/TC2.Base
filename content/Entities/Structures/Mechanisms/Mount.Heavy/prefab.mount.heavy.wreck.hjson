@@ -97,6 +97,11 @@ storage:
 		stack_size_multiplier: 5.000
 		type: ammo
 		flags: standalone, ignore_mass
+
+		filter:
+		{
+			exclude: gas
+		}
 	}
 }
 

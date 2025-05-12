@@ -79,6 +79,7 @@ gun:
 		filter:
 		{
 			require: ammo
+			exclude: gas
 		}
 	}
 	

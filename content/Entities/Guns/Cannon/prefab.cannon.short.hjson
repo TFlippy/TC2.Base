@@ -71,6 +71,12 @@ gun:
 		stack_size_multiplier: 1.000
 		type: ammo
 		flags: hidden, ignore_mass, no_auto_pickup
+
+		filter:
+		{
+			require: ammo
+			exclude: gas
+		}
 	}
 	
 	@light:

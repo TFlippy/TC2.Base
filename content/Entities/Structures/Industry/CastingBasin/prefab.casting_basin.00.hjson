@@ -85,5 +85,10 @@ workshop:
 		stack_size_multiplier: 1.000
 		type: workshop
 		flags: standalone, public, vertical
+
+		filter:
+		{
+			exclude: gas
+		}
 	}
 }

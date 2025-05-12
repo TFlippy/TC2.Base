@@ -107,7 +107,7 @@ crafter:
 		filter:
 		{
 			include: soft, malleable, food, liquid, granular, organic, small, powder
-			exclude: heavy
+			exclude: gas, heavy
 		}
 		offset: [-0.875, 0.250]
 	}

@@ -137,7 +137,7 @@ storage:
 		{
 			require: none
 			include: soft, malleable, granular, small, bottled
-			exclude: large
+			exclude: large, gas
 		}
 	}
 }

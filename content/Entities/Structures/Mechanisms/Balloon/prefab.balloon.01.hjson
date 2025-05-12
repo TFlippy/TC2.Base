@@ -120,6 +120,11 @@ storage:
 		stack_size_multiplier: 4.000
 		layout: horizontal
 		type: storage
+
+		filter:
+		{
+			exclude: gas
+		}
 	}
 }
 

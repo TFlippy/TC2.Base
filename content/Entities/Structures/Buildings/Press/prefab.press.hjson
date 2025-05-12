@@ -102,7 +102,7 @@ crafter:
 		{
 			require: none
 			include: none
-			exclude: none
+			exclude: gas
 		}
 		
 		offset: [0.000, 0.000]
@@ -121,7 +121,7 @@ crafter.state:
 		{
 			require: none
 			include: none
-			exclude: none
+			exclude: gas
 		}
 		
 		offset: [0.000, 0.000]

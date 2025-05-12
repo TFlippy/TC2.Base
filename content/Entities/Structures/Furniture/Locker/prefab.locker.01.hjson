@@ -64,7 +64,7 @@ storage:
 		filter:
 		{
 			include: soft, malleable, granular, heavy, small, powder
-			exclude: long, large
+			exclude: gas, long, large
 		}
 		
 		offset: [0.000, 0.000]

@@ -130,6 +130,11 @@ storage:
 		type: storage
 		flags: standalone, allow_ducts, faction, vertical
 		offset: [-1.000, 0.375]
+
+		filter:
+		{
+			exclude: gas
+		}
 	}
 }
 

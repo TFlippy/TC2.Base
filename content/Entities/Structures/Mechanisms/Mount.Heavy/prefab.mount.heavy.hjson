@@ -127,6 +127,7 @@ storage:
 		filter:
 		{
 			require: ammo
+			exclude: gas
 		}
 	}
 }

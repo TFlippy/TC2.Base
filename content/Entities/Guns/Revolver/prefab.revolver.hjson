@@ -60,6 +60,12 @@ gun:
 		type: ammo
 		flags: hidden, ignore_mass, no_auto_pickup
 		stack_size_multiplier: 1.000
+
+		filter:
+		{
+			require: ammo
+			exclude: gas
+		}
 	}
 	
 	@light:

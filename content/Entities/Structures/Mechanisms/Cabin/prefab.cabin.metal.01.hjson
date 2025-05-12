@@ -132,6 +132,11 @@ storage:
 		flags: standalone, allow_ducts
 		layout: vertical
 		offset: [-1.000, 0.375]
+
+		filter:
+		{
+			exclude: gas
+		}
 	}
 }
 

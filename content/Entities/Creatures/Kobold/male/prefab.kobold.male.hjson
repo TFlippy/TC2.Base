@@ -134,6 +134,11 @@ storage:
 		filter_flags: soft, malleable, granular, small
 		type: personal
 		flags: public
+
+		filter:
+		{
+			exclude: gas
+		}
 	}
 }
 

@@ -157,6 +157,11 @@ storage:
 		type: storage
 		layout: vertical
 		flags: standalone, public, faction
+
+		filter:
+		{
+			exclude: gas
+		}
 	}
 }
 

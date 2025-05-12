@@ -71,6 +71,12 @@ gun:
 		type: ammo
 		filter_flags: ammo_hw
 		flags: hidden, ignore_mass, no_auto_pickup
+
+		filter:
+		{
+			require: ammo
+			exclude: gas
+		}
 	}
 	
 	@light:

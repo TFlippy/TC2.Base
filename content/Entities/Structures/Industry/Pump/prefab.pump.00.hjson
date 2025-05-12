@@ -91,6 +91,11 @@ pump:
 		stack_size_multiplier: 4.000
 		type: output
 		flags: allow_ducts, ignore_mass, public, standalone
+
+		filter:
+		{
+			exclude: gas
+		}
 	}
 }
 

@@ -121,6 +121,7 @@ market:
 		filter:
 		{
 			require: hard, magnetic, granular, metal, currency, small, solid, processed
+			exclude: gas
 		}
 	}
 }

@@ -92,6 +92,11 @@ storage:
 		stack_size_multiplier: 1.000
 		
 		offset: [0.000, 0.000]
+
+		filter:
+		{
+			exclude: gas
+		}
 	}
 }
 

@@ -87,6 +87,7 @@ gun:
 		filter:
 		{
 			require: ammo
+			exclude: gas
 		}
 		
 		offset: [-2.375, -0.125]

@@ -67,5 +67,10 @@ workshop:
 		stack_size_multiplier: 2.000
 		type: storage
 		flags: standalone, allow_ducts, public, ignore_mass, faction
+
+		filter:
+		{
+			exclude: gas
+		}
 	}
 }

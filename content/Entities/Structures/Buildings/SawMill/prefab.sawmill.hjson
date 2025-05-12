@@ -101,7 +101,7 @@ sawmill:
 		{
 			require: none
 			include: none
-			exclude: none
+			exclude: gas
 		}
 	}
 }

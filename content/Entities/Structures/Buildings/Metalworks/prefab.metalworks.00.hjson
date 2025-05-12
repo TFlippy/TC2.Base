@@ -134,6 +134,11 @@ workshop:
 		stack_size_multiplier: 5.000
 		
 		offset: [0.000, 0.000]
+
+		filter:
+		{
+			exclude: gas
+		}
 	}
 }
 
@@ -194,6 +199,11 @@ crafter:
 		stack_size_multiplier: 4.000
 		
 		offset: [0.000, 0.000]
+
+		filter:
+		{
+			exclude: gas
+		}
 	}
 }
 
@@ -242,7 +252,7 @@ essence.container:
 		{
 			require: small, pellet, solid
 			include: none
-			exclude: none
+			exclude: gas
 		}
 
 		offset: [1.875, -0.375]

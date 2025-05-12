@@ -69,7 +69,7 @@ storage:
 		filter:
 		{
 			include: granular, small, solid
-			exclude: long, large
+			exclude: gas, long, large
 		}
 	}
 }

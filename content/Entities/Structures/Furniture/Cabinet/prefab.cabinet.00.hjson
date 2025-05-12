@@ -60,6 +60,11 @@ storage:
 		flags: standalone, ignore_mass, public, no_auto_pickup, vertical
 		stack_size_multiplier: 1.000	
 		offset: [0.625, 0.500]
+
+		filter:
+		{
+			exclude: gas
+		}
 	}
 }
 

@@ -184,6 +184,11 @@ essence.container:
 		filter_flags: essence
 		type: essence
 		flags: standalone, ignore_mass
+
+		filter:
+		{
+			exclude: gas
+		}
 	}
 }
 

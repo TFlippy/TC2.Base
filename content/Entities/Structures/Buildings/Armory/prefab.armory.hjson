@@ -67,6 +67,11 @@ armory:
 		filter_flags: ammo
 		type: ammo
 		flags: allow_ducts, ignore_mass, public, faction
+
+		filter:
+		{
+			exclude: gas
+		}
 	}
 }
 

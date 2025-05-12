@@ -113,6 +113,11 @@ storage:
 		stack_size_multiplier: 4.000
 		type: storage
 		flags: standalone, allow_ducts, no_auto_pickup
+
+		filter:
+		{
+			exclude: gas
+		}
 	}
 }
 

@@ -117,7 +117,7 @@ essence.container:
 		{
 			require: small, pellet, solid
 			include: none
-			exclude: none
+			exclude: gas
 		}
 		
 		offset: [0.250, 0.000]

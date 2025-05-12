@@ -81,6 +81,11 @@ storage:
 		flags: standalone
 		stack_size_multiplier: 4.000
 		type: storage
+
+		filter:
+		{
+			exclude: gas
+		}
 	}
 }
 

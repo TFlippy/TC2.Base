@@ -145,6 +145,11 @@ storage:
 		stack_size_multiplier: 4.000
 		type: storage
 		flags: standalone, public, faction, vertical
+
+		filter:
+		{
+			exclude: gas
+		}
 	}
 }
 

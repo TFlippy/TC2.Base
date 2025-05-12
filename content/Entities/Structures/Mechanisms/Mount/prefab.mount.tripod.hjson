@@ -110,6 +110,7 @@ storage:
 		filter:
 		{
 			include: ammo_lc, ammo_hc, ammo_mg, ammo_ac, ammo_sg, ammo_rocket, ammo_musket
+			exclude: gas
 		}
 		
 		offset: [-0.125, -0.750]

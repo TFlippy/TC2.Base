@@ -116,6 +116,11 @@ storage:
 		type: ammo
 		flags: standalone, allow_ducts, ignore_mass, faction
 		filter_flags: ammo
+
+		filter:
+		{
+			exclude: gas
+		}
 	}
 }
 

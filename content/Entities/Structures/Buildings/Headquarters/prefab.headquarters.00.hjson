@@ -79,7 +79,7 @@ storage:
 		
 		filter:
 		{
-			exclude: large, heavy, smelly
+			exclude: large, heavy, smelly, gas
 		}
 		
 		offset: [0.000, 0.000]
@@ -148,6 +148,7 @@ armory:
 		{
 			require: ammo
 			include: granular, small
+			exclude: gas
 		}
 		
 		offset: [0.000, 0.000]
