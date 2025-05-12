@@ -1,16 +1,6 @@
 ﻿{
 	$version: "0.1.62.5"
-	name: "Outpost"
-	desc:
-		'''
-		Small faction outpost.
-		'''
-	tips:
-	[
-		"Can be respawned at"
-		"Provides a small storage"
-		"Access to faction management"
-	]
+	name: "Barracks"
 	
 	stages:
 	[
@@ -282,7 +272,7 @@
 	[
 		{
 			type: prefab
-			prefab: outpost.00
+			prefab: barracks.00
 			amount: 1.000
 			group: 0
 			flags: primary, hidden
@@ -290,14 +280,14 @@
 	]
 	
 	type: buildings
-	flags: no_amount_multiplier, blueprintable, construction, building, ignore_tools, ignore_equipment, ignore_machinery, ignore_environment, no_cancel, auto_complete
+	flags: no_amount_multiplier, blueprintable, construction, building, ignore_tools, ignore_equipment, ignore_machinery, ignore_environment, wip, no_cancel, auto_complete
 	tags: simple, large, architecture, construction
 	infrastructure: none
 	
 	icon:
 	{
-		texture: outpost.00
-		size: [40, 40]
+		texture: barracks.00
+		size: [56, 40]
 	}
 	
 	color_frame: "0xff4f79a5"
@@ -317,13 +307,13 @@
 		type: simple
 		flags: allow_mirror_x
 		
-		size: [5.000, 5.000]
+		size: [7.000, 5.000]
 		offset: [0.000, -1.500]
 		
-		rect_foundation: [-2.500, 0.000, 2.500, 1.000]
+		rect_foundation: [-3.500, 0.000, 3.500, 1.000]
 		tileflags_foundation: solid
 		
-		rect_clearance: [-2.125, -3.500, 2.125, 0.000]
+		rect_clearance: [-3.125, -3.500, 3.125, 0.000]
 		tileflags_clearance: solid
 		
 		cooldown: 1.000
@@ -351,7 +341,7 @@
 	
 	construction:
 	{
-		prefab: construction.5x5
+		prefab: construction.7x5
 		
 		requirements:
 		[

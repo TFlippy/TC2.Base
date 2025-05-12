@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.5"
 	name: "Cmajzl Vinegar"
 	desc:
 		'''
@@ -14,6 +14,7 @@
 			
 			type: ingredients
 			flags: wip
+			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: shovel
 			
@@ -61,10 +62,6 @@
 						}
 					]
 					
-					start_delay: 0.500
-					advance_delay: 0.500
-					complete_delay: 0.500
-					
 					filter_tools:
 					{
 						include: bucket, spatula
@@ -99,6 +96,7 @@
 			
 			type: additives
 			flags: wip
+			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: shovel
 			
@@ -125,9 +123,6 @@
 							group: 0
 						}
 					]
-					
-					advance_delay: 0.500
-					complete_delay: 0.500
 				}
 			]
 			
@@ -160,7 +155,7 @@
 	]
 	
 	type: fermenter
-	flags: production, ignore_tools, wip, auto_complete, converted
+	flags: disabled, production, ignore_tools, wip, auto_complete, converted
 	tags: simple, medium, organic, agriculture, fermenting, processing, messy
 	infrastructure: none
 	

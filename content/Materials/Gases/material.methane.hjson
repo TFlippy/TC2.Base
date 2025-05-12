@@ -38,7 +38,7 @@
 	prefab: resource.methane
 	h_substance: methane
 	
-	color_icon: "0x51b5d97b"
+	color_icon: "0xff829c32"
 	color_item: "0xffffffff"
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"

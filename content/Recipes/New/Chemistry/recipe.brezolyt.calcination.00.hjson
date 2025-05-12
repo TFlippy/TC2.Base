@@ -36,6 +36,7 @@
 							type: resource
 							material: brezolyt
 							amount: 1.000
+							snapping: 0.500
 							ratio: 1.000
 							group: 0
 							flags: primary
@@ -47,20 +48,6 @@
 					efficiency: 0.677
 					
 					loss: 0.275
-					
-					filter_machinery:
-					{
-						require: heater
-						include: heater, burner
-					}
-					filter_infrastructure:
-					{
-						include: oven, forge, crucible
-					}
-					filter_environment:
-					{
-						include: container, airtight, stationary, dirty, ugly, cozy, fireproof, flammable, small
-					}
 					
 					h_sound_complete: burner.bang.00
 				}
@@ -155,18 +142,13 @@
 					
 					loss: 0.275
 					
-					filter_machinery:
-					{
-						require: heater
-						include: heater, burner
-					}
 					filter_infrastructure:
 					{
-						include: oven, forge, crucible
+						include: oven
 					}
 					filter_environment:
 					{
-						include: container, airtight, stationary, dirty, ugly, cozy, fireproof, flammable, small
+						include: airtight
 					}
 					
 					h_sound_begin: furnace.produce.00
@@ -215,18 +197,12 @@
 					advance_delay: 1.000
 					complete_delay: 1.000
 					
-					filter_machinery:
+					quality: 1.000
+					precision: 1.000
+					
+					filter_tools:
 					{
-						require: heater
-						include: heater, burner
-					}
-					filter_infrastructure:
-					{
-						include: oven, forge, crucible
-					}
-					filter_environment:
-					{
-						include: container, airtight, stationary, dirty, ugly, cozy, fireproof, flammable, small
+						require: hammer
 					}
 					
 					h_sound_begin: structural.stone.break.small.00

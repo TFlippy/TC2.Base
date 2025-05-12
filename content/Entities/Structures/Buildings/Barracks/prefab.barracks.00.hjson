@@ -1,0 +1,177 @@
+$name: "Barracks"
+$desc:
+	'''
+	Many people can be crammed inside this building.
+	'''
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.box:
+	{
+		size: [5.250, 2.750]
+		offset: [0.000, -0.125]
+		
+		mass: 600.000
+		radius: 0.500
+		friction: 0.750
+		elasticity: 0.250
+		
+		material: building_masonry
+		
+		layer: entity, building, support, ignore_melee, ignore_bullet, storage
+		mask: world, building
+	}
+}
+
+health:
+{
+	max: 41000.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "barracks.00"
+		mask: "barracks.00.mask"
+	}
+	z: -300.000
+}
+
+faction.colorable:
+{
+	intensity_a: 0.600
+	intensity_b: 0.600
+}
+
+faction:
+{
+
+}
+
+claimable:
+{
+	flags: allow_owner_unclaim
+}
+
+transform:
+{
+
+}
+
+storage:
+{
+	@inventory8:
+	{
+		type: storage
+		flags: allow_ducts, ignore_mass, public, faction
+		stack_size_multiplier: 2.000
+		
+		filter:
+		{
+			require: none
+			include: soft, hard, granular, large, small, bottled
+			exclude: none
+		}
+		
+		offset: [0.500, 0.750]
+	}
+}
+
+interactable:
+{
+	flags: no_tab
+	priority: 1.000
+	window_size: [384.000, 192.000]
+	window_size_misc: [72.000, 0.000]
+}
+
+// body:
+// {
+// 	type: static
+	
+// 	@shape.box:
+// 	{
+// 		size: [6.000, 5.000]
+// 		offset: [0.000, 0.000]
+// 		mass: 1000.000
+// 		friction: 0.500
+// 		elasticity: 0.500
+// 		material: stone
+// 		layer: entity, building, support, ignore_melee, storage
+// 		mask: world
+// 	}
+// }
+
+// health:
+// {
+// 	max: 22000.000
+// }
+
+// animated.renderer:
+// {
+// 	sprite:
+// 	{
+// 		texture: "barracks.00"
+// 	}
+// 	z: -300.000
+// }
+
+// transform:
+// {
+
+// }
+
+// building:
+// {
+
+// }
+
+// interactable:
+// {
+// 	flags: no_tab
+// 	priority: 2.750
+// 	window_size: [750.000, 500.000]
+// }
+
+// nameable:
+// {
+// 	flags: randomize
+// }
+
+// faction:
+// {
+
+// }
+
+// claimable:
+// {
+// 	flags: no_menu
+// }
+
+// dormitory:
+// {
+// 	species: "human"
+// 	flags: no_repopulate, no_kit_selection, repopulate_needs_faction
+// 	asset_flags: recycle
+// 	kit_default: "null"
+// 	characters_capacity: 4
+// 	characters_initial_count: 0
+// 	repopulate_num: 0
+// 	repopulate_interval: 0.000
+// 	move_radius: 16.000
+// }
+
+// minimap.marker:
+// {
+// 	sprite:
+// 	{
+// 		texture: "ui_icons_minimap"
+// 		size: [16, 16]
+// 		frame: [1, 0]
+// 	}
+// 	flags: faction, spawner
+// }

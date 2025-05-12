@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.5"
 	name: "Universal Brown Sauce"
 	desc:
 		'''
@@ -53,7 +53,7 @@
 	]
 	
 	type: fermenter
-	flags: no_amount_multiplier, wip
+	flags: no_amount_multiplier, disabled, wip
 	tags: passive, simple, food, organic, fermenting
 	infrastructure: none
 	

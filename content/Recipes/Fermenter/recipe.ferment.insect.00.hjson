@@ -330,7 +330,7 @@
 	]
 	
 	type: fermenter
-	flags: no_amount_multiplier, production, wip, auto_complete
+	flags: production, wip, auto_complete
 	tags: fermenting
 	infrastructure: liquid_container
 	
@@ -364,7 +364,7 @@
 	rank: -50.000
 	
 	min: 1
-	max: 1
+	max: 10
 	step: 1
 	
 	version: 1

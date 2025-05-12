@@ -1504,10 +1504,20 @@
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.50f)]
 		public static void UpdateHoldable([Source.Owned] in Gun.Data gun, [Source.Owned] in Gun.State gun_state, [Source.Owned] ref Holdable.Data holdable, [Source.Owned] ref Body.Data body)
 		{
-			holdable.hints.AddFlag(NPC.ItemHints.Weapon | NPC.ItemHints.Gun);
-			holdable.hints.SetFlag(NPC.ItemHints.Short_Range, gun_state.hints.HasAny(Gun.Hints.Close_Range));
-			holdable.hints.SetFlag(NPC.ItemHints.Long_Range, gun_state.hints.HasAny(Gun.Hints.Long_Range));
-			holdable.hints.SetFlag(NPC.ItemHints.Usable, !gun_state.hints.HasAny(Gun.Hints.No_Ammo));
+			holdable.hints.AddFlag(NPC.ItemHints.Weapon | NPC.ItemHints.Gun | NPC.ItemHints.Ranged);
+			holdable.hints.SetFlag(NPC.ItemHints.No_Ammo, gun_state.hints.HasAny(Gun.Hints.No_Ammo));
+
+			if (holdable.hints.HasNone(NPC.ItemHints.No_Ammo) | gun_state.hints.HasAny(Gun.Hints.Loaded | Gun.Hints.Cycled))
+			{
+				holdable.hints.AddFlag(NPC.ItemHints.Usable);
+				holdable.hints.SetFlag(NPC.ItemHints.Short_Range, gun_state.hints.HasAny(Gun.Hints.Close_Range));
+				holdable.hints.SetFlag(NPC.ItemHints.Long_Range, gun_state.hints.HasAny(Gun.Hints.Long_Range));
+			}
+			else
+			{
+				holdable.hints.RemoveFlag(NPC.ItemHints.Usable | NPC.ItemHints.Weapon | NPC.ItemHints.Ranged | NPC.ItemHints.Long_Range | NPC.ItemHints.Short_Range);
+			}
+			
 			holdable.hints.SetFlag(NPC.ItemHints.Heavy, body.GetMass() >= 30.00f);
 			holdable.hints.SetFlag(NPC.ItemHints.Inaccurate, gun.jitter_multiplier >= 1.50f);
 			holdable.hints.SetFlag(NPC.ItemHints.Junk, gun.failure_rate >= 0.10f || gun.jitter_multiplier >= 5.00f);
@@ -1521,8 +1531,8 @@
 		{
 			gun_state.hints.SetFlag(Gun.Hints.Loaded, inventory_magazine.resource.IsValid());
 			gun_state.hints.SetFlag(Gun.Hints.Supressive_Fire, gun.max_ammo >= 20.00f && (gun.cycle_interval > 0.09f && (gun.cycle_interval <= 0.15f || (gun.cycle_interval <= 0.40f && gun.flags.HasAny(Gun.Flags.Automatic)))));
-			gun_state.hints.SetFlag(Gun.Hints.Close_Range, gun.type == Gun.Type.Shotgun || (gun.heuristic_range <= 15.00f && gun.reload_interval <= 0.50f));
 			gun_state.hints.SetFlag(Gun.Hints.Long_Range, gun.heuristic_range > 15.00f && gun.jitter_multiplier <= 0.05f);
+			gun_state.hints.SetFlag(Gun.Hints.Close_Range, gun.type == Gun.Type.Shotgun || gun_state.hints.HasNone(Gun.Hints.Long_Range));
 
 			if (gun_state.stage == Gun.Stage.Ready)
 			{
