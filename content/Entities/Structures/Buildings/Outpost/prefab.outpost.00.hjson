@@ -208,7 +208,7 @@ shop:
 {
 	tags_filter:
 	{
-		include: workbench, manual, munitions, tailoring, engineering, salvaging, medical, research, social, science
+		include: manual, munitions, tailoring, engineering, salvaging, medical, research, social, science
 		exclude: passive, advanced, large, huge, raw, machining, smelting, fermenting, melting, heating, casting, overworld
 	}
 	

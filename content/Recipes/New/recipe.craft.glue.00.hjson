@@ -478,7 +478,7 @@
 	type: workshop
 	flags: item, production, wip, auto_complete
 	tags: workbench, manual, dumb, crude, simple, small, blending, messy
-	infrastructure: dishes, table, chair
+	infrastructure: dishes, table, surface
 	
 	h_company: common
 	

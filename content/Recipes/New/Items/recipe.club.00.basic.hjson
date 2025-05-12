@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.5"
 	name: "Club"
 	tips: []
 	
@@ -10,6 +10,7 @@
 			
 			type: part
 			flags: wip, auto_generated
+			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: axe
 			
@@ -31,7 +32,7 @@
 							material: timber
 							amount: 0.440062
 							snapping: 0.500
-							loss: 0.090
+							loss: 0.086
 							group: 0
 							flags: prerequisite
 						}
@@ -48,8 +49,6 @@
 						}
 					]
 					
-					products: []
-					
 					filter_tools:
 					{
 						require: file, knife
@@ -65,14 +64,8 @@
 					}
 				}
 			]
-			
-			requirements: []
-			
-			products: []
 		}
 	]
-	
-	requirements: []
 	
 	products:
 	[
@@ -92,7 +85,7 @@
 			material: timber
 			amount: 0.440062
 			snapping: 1.000
-			loss: 0.125
+			loss: 0.122
 			group: 0
 			flags: prerequisite
 		}
@@ -121,6 +114,7 @@
 	type: workshop
 	flags: blueprintable, item, wip, converted
 	tags: workbench, workshop, manual, dumb, crude, simple, small, weapon, tool, woodworking, construction
+	infrastructure: surface
 	
 	icon:
 	{
@@ -129,6 +123,7 @@
 	icon_offset: [-1.000, 0.000]
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	rank: 0.000
 	
 	min: 1

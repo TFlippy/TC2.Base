@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.5"
 	name: "Baton"
 	tips: []
 	
@@ -10,6 +10,7 @@
 			
 			type: construction
 			flags: wip, auto_generated
+			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
 			
@@ -31,7 +32,7 @@
 							material: wood.rod
 							amount: 1.191153
 							snapping: 0.750
-							loss: 0.180
+							loss: 0.176
 							group: 0
 							flags: prerequisite
 						}
@@ -67,8 +68,6 @@
 						}
 					]
 					
-					products: []
-					
 					filter_tools:
 					{
 						require: hammer, saw, file, knife, needle
@@ -84,14 +83,8 @@
 					}
 				}
 			]
-			
-			requirements: []
-			
-			products: []
 		}
 	]
-	
-	requirements: []
 	
 	products:
 	[
@@ -111,7 +104,7 @@
 			material: wood.rod
 			amount: 1.210
 			snapping: 0.750
-			loss: 0.180
+			loss: 0.176
 			group: 0
 			flags: prerequisite
 		}
@@ -160,6 +153,7 @@
 	type: workshop
 	flags: blueprintable, item, wip, converted
 	tags: workbench, workshop, manual, simple, small, weapon, tool, woodworking
+	infrastructure: surface
 	
 	icon:
 	{
@@ -167,6 +161,7 @@
 	}
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	rank: 0.000
 	
 	min: 1

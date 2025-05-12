@@ -161,7 +161,7 @@
 	]
 	
 	type: workshop
-	flags: no_amount_multiplier, wip
+	flags: no_amount_multiplier, hidden, disabled, wip
 	tags: simple, research, social, military
 	infrastructure: table, chair, stationery
 	

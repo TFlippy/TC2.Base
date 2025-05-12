@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.5"
 	name: "Thinly Veiled Threads"
 	desc:
 		'''
@@ -140,7 +140,7 @@
 	type: workshop
 	flags: wip
 	tags: manual, simple, small, filtering, salvaging
-	infrastructure: surface
+	infrastructure: barrel, surface
 	
 	h_company: common
 	

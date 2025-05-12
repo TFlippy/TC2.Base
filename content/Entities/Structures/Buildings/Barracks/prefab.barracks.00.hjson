@@ -11,10 +11,10 @@ body:
 	
 	@shape.box:
 	{
-		size: [5.250, 2.750]
+		size: [5.250, 3.750]
 		offset: [0.000, -0.125]
 		
-		mass: 600.000
+		mass: 700.000
 		radius: 0.500
 		friction: 0.750
 		elasticity: 0.250
@@ -24,11 +24,6 @@ body:
 		layer: entity, building, support, ignore_melee, ignore_bullet, storage
 		mask: world, building
 	}
-}
-
-health:
-{
-	max: 41000.000
 }
 
 animated.renderer:
@@ -41,10 +36,22 @@ animated.renderer:
 	z: -300.000
 }
 
+interactable:
+{
+	flags: no_tab
+	priority: 1.500
+	window_size: [644.000, 528.000]
+	window_size_misc: [120.000, 0.000]
+}
+
+health:
+{
+	max: 43500.000
+}
+
 faction.colorable:
 {
 	intensity_a: 0.600
-	intensity_b: 0.600
 }
 
 faction:
@@ -52,12 +59,30 @@ faction:
 
 }
 
-claimable:
+transform:
 {
-	flags: allow_owner_unclaim
+
 }
 
-transform:
+building:
+{
+
+}
+
+nameable:
+{
+	tags: lame, homely, food
+	flags: randomize
+	type: building
+	max_length: 16
+}
+
+address:
+{
+	
+}
+
+entrance.linkable:
 {
 
 }
@@ -67,7 +92,7 @@ storage:
 	@inventory8:
 	{
 		type: storage
-		flags: allow_ducts, ignore_mass, public, faction
+		flags: standalone, ignore_mass, faction, vertical
 		stack_size_multiplier: 2.000
 		
 		filter:
@@ -81,13 +106,111 @@ storage:
 	}
 }
 
-interactable:
+squad:
 {
-	flags: no_tab
-	priority: 1.000
-	window_size: [384.000, 192.000]
-	window_size_misc: [72.000, 0.000]
+
 }
+
+personnel:
+{
+	flags: store_characters
+	slots:
+	[
+		{
+			role: clerk
+			tags: administrative, civil, paperwork, sedentary
+			color: "0x8f005ec2"
+			multiplier: 2.000
+		}
+		{
+			role: resident
+			tags: civil, sedentary, maintenance
+			multiplier: 0.500
+		}
+		{
+			role: resident
+			tags: civil, sedentary, maintenance
+			multiplier: 0.500
+		}
+		{
+			role: resident
+			tags: civil, sedentary, maintenance
+			multiplier: 0.500
+		}
+	]
+	characters_capacity: 4
+}
+
+shop:
+{
+	tags_filter:
+	{
+		require: manual
+		include: manual, food, tailoring, cooking, research, social
+		exclude: advanced, medium, large, huge, vehicle, blacksmithing, machining, gathering, architecture, smelting, drying, fermenting, melting, heating, casting, moulding
+	}
+	
+	tools: pencil, paper, hammer, screwdriver, tweezers, bucket, towel, spatula, knife, needle, pins, scissors, ladle
+	infrastructure: dishes, bottle, table, chair, rack, bed, stationery, surface
+	machinery: none
+	environment: office, stationary, cozy, sturdy, flammable, kitchen
+	
+	flags: none
+	menu_columns: 4
+	recipe_type: workshop
+	
+	name: "Barracks"
+}
+
+workshop:
+{
+	orders_capacity: 2
+}
+
+dormitory:
+{
+	flags: no_kit_selection, no_kit_requirements, repopulate_needs_faction, region_only
+	species: human
+	
+	characters_capacity: 8
+	characters_initial_count: 0
+	
+	repopulate_interval: 120.000
+	repopulate_interval_extra: 300.000
+	repopulate_max: 2
+	repopulate_num: 1
+	repopulate_num_extra: 1
+	repopulate_character_flags_add: recruitable
+	
+	asset_flags: recycle
+	character_flags_filter:
+	{
+		include: construction, artisan, farmer, laborer, civillian, nomad, culinary, entertainer, artist, lower_class, lower_middle_class, middle_class
+		exclude: upper_middle_class, upper_class, elite_class
+	}
+}
+
+minimap.marker:
+{
+	sprite:
+	{
+		texture: "ui_icons_minimap"
+		size: [16, 16]
+		frame: [1, 0]
+	}
+	flags: faction, spawner
+}
+
+// laboratory:
+// {
+// 	blueprints_capacity: 2
+// 	augments_capacity: 8
+// 	filter_tags:
+// 	{
+// 		include: construction, architecture
+// 		exclude: complex, advanced, vehicle, machinery, blacksmithing, smelting, melting, casting, processing
+// 	}
+// }
 
 // body:
 // {

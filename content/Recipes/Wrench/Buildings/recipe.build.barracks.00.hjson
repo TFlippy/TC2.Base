@@ -29,17 +29,16 @@
 						{
 							type: resource
 							material: gravel
-							amount: 440.000
-							loss: 0.024
+							amount: 1060.000
+							loss: 0.039
 							group: 0
 							flags: compact, primary
 						}
 						{
 							type: work
 							work: filling.gravel
-							amount: 475.000
+							amount: 1175.000
 							difficulty: 9
-							snapping: 25.000
 							group: 0
 							flags: conditional
 						}
@@ -59,7 +58,7 @@
 						{
 							type: resource
 							material: soil
-							amount: 380.000
+							amount: 920.000
 							loss: 0.067
 							group: 0
 							flags: compact, primary
@@ -67,18 +66,16 @@
 						{
 							type: work
 							work: filling.soil
-							amount: 325.000
+							amount: 825.000
 							difficulty: 5
-							snapping: 25.000
 							group: 0
 							flags: conditional
 						}
 						{
 							type: work
 							work: compaction.soil
-							amount: 150.000
+							amount: 390.000
 							difficulty: 3
-							snapping: 25.000
 							group: 1
 							flags: conditional
 						}
@@ -98,7 +95,7 @@
 						{
 							type: resource
 							material: scrap.rubble
-							amount: 280.000
+							amount: 660.000
 							loss: 0.020
 							group: 0
 							flags: compact, primary
@@ -106,16 +103,15 @@
 						{
 							type: work
 							work: filling.rubble
-							amount: 325.000
+							amount: 800.000
 							difficulty: 12
-							snapping: 25.000
 							group: 0
 							flags: conditional
 						}
 						{
 							type: resource
 							material: soil
-							amount: 80.000
+							amount: 200.000
 							loss: 0.059
 							group: 1
 							flags: compact, primary
@@ -123,9 +119,8 @@
 						{
 							type: work
 							work: filling.soil
-							amount: 60.000
+							amount: 160.000
 							difficulty: 4
-							snapping: 25.000
 							group: 1
 							flags: conditional
 						}
@@ -287,7 +282,7 @@
 	icon:
 	{
 		texture: barracks.00
-		size: [56, 40]
+		size: [56, 48]
 	}
 	
 	color_frame: "0xff4f79a5"
@@ -305,15 +300,15 @@
 	placement:
 	{
 		type: simple
-		flags: allow_mirror_x
+		flags: allow_mirror_x, require_claimed, require_terrain, terrain_is_support
 		
-		size: [7.000, 5.000]
-		offset: [0.000, -1.500]
+		size: [7.000, 6.000]
+		offset: [0.000, -2.000]
 		
 		rect_foundation: [-3.500, 0.000, 3.500, 1.000]
 		tileflags_foundation: solid
 		
-		rect_clearance: [-3.125, -3.500, 3.125, 0.000]
+		rect_clearance: [-3.125, -4.500, 3.125, 0.000]
 		tileflags_clearance: solid
 		
 		cooldown: 1.000
@@ -321,7 +316,7 @@
 		min_clearance: 0.950
 		min_claim: 1.000
 		
-		rotation_max: 0.200
+		rotation_max: 0.100
 		
 		sound: building_place
 		
@@ -341,23 +336,25 @@
 	
 	construction:
 	{
-		prefab: construction.7x5
+		prefab: construction.7x6
 		
 		requirements:
 		[
 			{
 				type: resource
 				material: wood
-				amount: 16.000
+				amount: 21.000
+				loss: 0.110
 				group: 0
-				flags: prerequisite
+				flags: compact, no_scaling, prerequisite
 			}
 			{
 				type: resource
 				material: brick.concrete
-				amount: 50.000
+				amount: 60.000
+				loss: 0.027
 				group: 0
-				flags: prerequisite
+				flags: compact, no_scaling, prerequisite
 			}
 		]
 	}
