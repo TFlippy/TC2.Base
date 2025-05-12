@@ -68,10 +68,6 @@
 						require: hand_drill
 						include: screwdriver, file, knife, scissors
 					}
-					filter_machinery:
-					{
-						include: lathe
-					}
 				}
 			]
 		}
@@ -135,11 +131,12 @@
 					filter_tools:
 					{
 						require: hammer
-						include: hammer, pliers, towel, tongs
+						include: hammer, pliers
 					}
-					filter_machinery:
+					filter_infrastructure:
 					{
-						include: bender
+						require: hard_surface
+						include: vise
 					}
 				}
 			]
@@ -359,6 +356,7 @@
 	flags: blueprintable, item, wip
 	tags: workbench, manual, simple, small, tool, assembling, metalworking
 	infrastructure: surface, workbench
+	infrastructure_exclude: none
 	
 	icon:
 	{

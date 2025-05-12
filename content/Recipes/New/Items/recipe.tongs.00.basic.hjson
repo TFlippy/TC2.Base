@@ -20,6 +20,56 @@
 			options:
 			[
 				{
+					name: "Bent"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.rod
+							amount: 0.744142
+							snapping: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: temperature
+							amount: 1432.470
+							amount_min: 600.000
+							amount_max: 1684.849
+							falloff: 0.500
+							group: 0
+							flags: no_scaling, always_evaluate, optional
+						}
+						{
+							type: work
+							work: bending
+							amount: 475.000
+							difficulty: 11
+							snapping: 25.000
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					quality: 1.000
+					precision: 1.000
+					
+					filter_tools:
+					{
+						require: hammer
+						include: hammer, pliers
+					}
+					filter_infrastructure:
+					{
+						require: hard_surface
+						include: vise
+					}
+				}
+				{
 					name: "Forged"
 					
 					type: undefined
@@ -56,60 +106,24 @@
 						}
 					]
 					
-					filter_tools:
-					{
-						require: hammer, tongs
-						include: bucket
-					}
-					filter_infrastructure:
-					{
-						require: anvil, forge, table
-					}
-				}
-				{
-					name: "Bent"
-					
-					type: undefined
-					flags: none
-					
-					requirements:
-					[
-						{
-							type: resource
-							material: steel.rod
-							amount: 0.744142
-							snapping: 1.000
-							group: 0
-							flags: prerequisite
-						}
-						{
-							type: temperature
-							amount: 1432.470
-							amount_min: 600.000
-							amount_max: 1684.849
-							falloff: 0.500
-							group: 0
-							flags: no_scaling, always_evaluate, optional
-						}
-						{
-							type: work
-							work: bending
-							amount: 475.000
-							difficulty: 11
-							snapping: 25.000
-							group: 0
-							flags: conditional
-						}
-					]
+					quality: 1.000
+					precision: 1.000
 					
 					filter_tools:
 					{
 						require: hammer, tongs
-						include: bucket
+						include: pliers, chisel
 					}
 					filter_infrastructure:
 					{
-						require: anvil, forge, table
+						require: anvil, forge, heater
+						include: vise
+					}
+					filter_environment:
+					{
+						require: sturdy
+						include: workshop, stationary, fireproof
+						exclude: fragile
 					}
 				}
 			]
@@ -155,19 +169,13 @@
 						}
 					]
 					
+					quality: 1.000
+					precision: 1.000
+					
 					filter_tools:
 					{
 						require: screwdriver, wrench
 						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, stapler, towel, tongs, pick, crowbar, knife
-					}
-					filter_machinery:
-					{
-						include: heater
-					}
-					filter_infrastructure:
-					{
-						require: table
-						include: anvil, table, chair, vise
 					}
 				}
 			]
@@ -189,6 +197,7 @@
 	flags: blueprintable, packable, item, wip
 	tags: workbench, manual, blacksmithing, metalworking
 	infrastructure: table, workbench
+	infrastructure_exclude: none
 	
 	icon:
 	{
@@ -205,5 +214,5 @@
 	max: 5
 	step: 1
 	
-	version: 0
+	version: 1
 }

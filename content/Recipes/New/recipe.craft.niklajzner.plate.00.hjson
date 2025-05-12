@@ -92,6 +92,15 @@
 							flags: primary, compact, use_temperature
 						}
 					]
+					
+					quality: 1.000
+					precision: 1.000
+					
+					filter_tools:
+					{
+						require: hammer, cutters
+						include: pliers, knife
+					}
 				}
 			]
 		}
@@ -152,6 +161,22 @@
 							flags: waste, residue
 						}
 					]
+					
+					quality: 1.000
+					precision: 1.000
+					
+					filter_tools:
+					{
+						require: sandpaper
+					}
+					filter_infrastructure:
+					{
+						include: table, surface
+					}
+					filter_environment:
+					{
+						include: workshop, stationary, illuminated, dry
+					}
 				}
 			]
 		}
@@ -161,6 +186,7 @@
 	flags: production, wip
 	tags: manual, simple, raw, metalworking, processing
 	infrastructure: hard_surface
+	infrastructure_exclude: none
 	
 	icon:
 	{

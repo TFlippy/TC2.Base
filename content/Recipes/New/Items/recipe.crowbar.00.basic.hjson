@@ -56,18 +56,18 @@
 						}
 					]
 					
+					quality: 1.000
+					precision: 1.000
+					
 					filter_tools:
 					{
 						require: hammer
-						include: hammer, pliers, towel, tongs
-					}
-					filter_machinery:
-					{
-						include: bender
+						include: hammer, pliers
 					}
 					filter_infrastructure:
 					{
-						include: anvil, table, vise
+						require: hard_surface
+						include: vise
 					}
 				}
 				{
@@ -106,19 +106,23 @@
 						}
 					]
 					
+					quality: 1.000
+					precision: 1.000
+					
 					filter_tools:
 					{
 						require: hammer, tongs
-						include: pliers
+						include: pliers, chisel
 					}
 					filter_infrastructure:
 					{
-						require: anvil, forge
-						include: oven, barrel
+						require: anvil, forge, heater
+						include: vise
 					}
 					filter_environment:
 					{
-						include: workshop, stationary, fireproof, sturdy
+						require: sturdy
+						include: workshop, stationary, fireproof
 						exclude: fragile
 					}
 				}
@@ -158,13 +162,12 @@
 						}
 					]
 					
+					quality: 1.000
+					precision: 1.000
+					
 					filter_tools:
 					{
 						require: file
-					}
-					filter_infrastructure:
-					{
-						include: table, chair, vise
 					}
 					filter_environment:
 					{
@@ -219,14 +222,13 @@
 						}
 					]
 					
+					quality: 1.000
+					precision: 1.000
+					
 					filter_tools:
 					{
 						require: knife
 						include: cutters, towel, knife
-					}
-					filter_infrastructure:
-					{
-						include: table, chair
 					}
 				}
 			]
@@ -260,6 +262,7 @@
 	flags: blueprintable, packable, item, wip
 	tags: workbench, manual, tool, metalworking
 	infrastructure: table, workbench
+	infrastructure_exclude: none
 	
 	icon:
 	{

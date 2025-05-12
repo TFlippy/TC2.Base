@@ -122,8 +122,8 @@ shop:
 	}
 	
 	tools: hammer, cutters, saw, hand_drill, screwdriver, spanner, pliers, bucket, axe, file, chisel, towel, knife, sandpaper
-	infrastructure: table, vise, rack, bucket, surface, hard_surface, workbench
-	environment: waterproof, stationary, dirty, reinforced, durable, sturdy
+	infrastructure: table, rack, bucket, surface, hard_surface, workbench
+	environment: fireproof, stationary, dirty, reinforced, durable, sturdy
 	
 	flags: none
 	menu_columns: 4

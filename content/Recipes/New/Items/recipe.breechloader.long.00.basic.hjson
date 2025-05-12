@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.5"
 	name: "Long Breechloader"
 	tips: []
 	
@@ -10,6 +10,7 @@
 			
 			type: part
 			flags: wip, incomplete, auto_generated
+			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: pickaxe
 			
@@ -31,7 +32,7 @@
 							material: steel.ingot
 							amount: 1.4981
 							snapping: 0.500
-							loss: 0.231
+							loss: 0.227
 							group: 0
 							flags: prerequisite
 						}
@@ -40,7 +41,7 @@
 							material: steel.frames
 							amount: 0.5845
 							snapping: 0.500
-							loss: 0.141
+							loss: 0.137
 							group: 0
 							flags: prerequisite
 						}
@@ -56,18 +57,13 @@
 						}
 					]
 					
+					quality: 1.000
+					precision: 1.000
+					
 					filter_tools:
 					{
 						require: hand_drill
-						include: screwdriver
-					}
-					filter_machinery:
-					{
-						include: lathe
-					}
-					filter_infrastructure:
-					{
-						include: table, vise
+						include: screwdriver, file, knife, scissors
 					}
 				}
 			]
@@ -77,6 +73,7 @@
 			
 			type: part
 			flags: wip, incomplete, auto_generated
+			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: axe
 			
@@ -99,7 +96,7 @@
 							material: wood
 							amount: 0.359844
 							snapping: 1.000
-							loss: 0.094
+							loss: 0.090
 							group: 0
 							flags: prerequisite
 						}
@@ -115,18 +112,13 @@
 						}
 					]
 					
+					quality: 1.000
+					precision: 1.000
+					
 					filter_tools:
 					{
 						require: file, knife
 						include: saw, hand_drill, file, knife, sandpaper
-					}
-					filter_machinery:
-					{
-						include: lathe, mill, sander, planer
-					}
-					filter_infrastructure:
-					{
-						include: table, chair, vise
 					}
 				}
 			]
@@ -136,6 +128,7 @@
 			
 			type: part
 			flags: wip, incomplete, auto_generated
+			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
 			
@@ -174,19 +167,13 @@
 						}
 					]
 					
+					quality: 1.000
+					precision: 1.000
+					
 					filter_tools:
 					{
 						require: screwdriver, wrench
 						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, stapler, towel, tongs, pick, crowbar, knife
-					}
-					filter_machinery:
-					{
-						include: heater
-					}
-					filter_infrastructure:
-					{
-						require: table
-						include: anvil, table, chair, vise
 					}
 				}
 			]
@@ -208,6 +195,7 @@
 			
 			type: assembly
 			flags: wip, incomplete, auto_generated
+			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
 			
@@ -245,17 +233,20 @@
 						}
 					]
 					
+					quality: 1.000
+					precision: 1.000
+					
 					filter_tools:
 					{
 						include: paintbrush, file
 					}
 					filter_infrastructure:
 					{
-						require: table
-						include: chair, vise, rack
+						include: table
 					}
 					filter_environment:
 					{
+						include: clean, organized
 						exclude: wet
 					}
 				}
@@ -290,6 +281,7 @@
 	flags: blueprintable, item
 	tags: workshop, manual, simple, weapon, gun, assembling, metalworking
 	infrastructure: table, workbench
+	infrastructure_exclude: none
 	
 	icon:
 	{
@@ -297,6 +289,7 @@
 	}
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	button_name: "Craft"
 	rank: -1.700
 	
@@ -304,5 +297,5 @@
 	max: 4
 	step: 1
 	
-	version: 0
+	version: 1
 }

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.5"
 	name: "Longsword"
 	tips: []
 	
@@ -10,6 +10,7 @@
 			
 			type: construction
 			flags: wip, auto_generated
+			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
 			
@@ -31,7 +32,7 @@
 							material: wood
 							amount: 0.367014
 							snapping: 0.500
-							loss: 0.129
+							loss: 0.125
 							group: 0
 							flags: prerequisite
 						}
@@ -71,23 +72,23 @@
 						}
 					]
 					
+					quality: 1.000
+					precision: 1.000
+					
 					filter_tools:
 					{
 						require: hammer, saw, file, tongs, knife
 						include: pencil, ruler, hammer, saw, hand_drill, screwdriver, pliers, tweezers, axe, file, chisel, knife
 					}
-					filter_machinery:
-					{
-						include: lathe
-					}
 					filter_infrastructure:
 					{
-						require: anvil, forge
-						include: oven, barrel, table, chair, vise
+						require: anvil, forge, heater
+						include: vise
 					}
 					filter_environment:
 					{
-						include: workshop, stationary, fireproof, sturdy
+						require: sturdy
+						include: workshop, stationary, fireproof
 						exclude: fragile
 					}
 				}
@@ -153,6 +154,7 @@
 	flags: blueprintable, item, wip, converted
 	tags: workbench, workshop, manual, simple, medium, weapon, blacksmithing, metalworking, construction
 	infrastructure: surface, workbench
+	infrastructure_exclude: none
 	
 	icon:
 	{
