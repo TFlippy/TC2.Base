@@ -109,14 +109,13 @@ shop:
 		exclude: advanced, large, huge, social, forestry, smelting, fermenting, casting, moulding, overworld
 	}
 	
-	tools: hammer, saw, hand_drill, screwdriver, wrench, pliers, bucket, axe, file, chisel, towel, tongs, pick, crowbar, knife, sandpaper
-	infrastructure: oven, anvil, forge, dishes, table, rack, surface, hard_surface, workbench
-	machinery: heater, burner
+	tools: hammer, saw, hand_drill, screwdriver, spanner, pliers, bucket, axe, shovel, file, chisel, towel, tongs, pick, crowbar, knife, sandpaper, ladle
+	infrastructure: oven, anvil, forge, dishes, table, rack, bucket, surface, hard_surface, heater, stove, building, workbench
 	environment: workshop, stationary, dirty, polluted, ugly, scary, fireproof, durable, sturdy
 	
+	flags: none
 	menu_columns: 5
 	recipe_type: workshop
-	flags: none
 	
 	offset_spawn: [1.000, 0.250]
 	

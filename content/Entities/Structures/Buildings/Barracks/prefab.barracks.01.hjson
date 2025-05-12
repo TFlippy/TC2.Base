@@ -137,13 +137,12 @@ shop:
 	{
 		require: manual
 		include: manual, food, tailoring, cooking, research, social
-		exclude: advanced, medium, large, huge, vehicle, blacksmithing, machining, gathering, architecture, smelting, drying, fermenting, melting, heating, casting, moulding
+		exclude: advanced, small, huge, tailoring, cooking, gathering, architecture, smelting, drying, fermenting, melting, heating, casting
 	}
 	
-	tools: pencil, paper, hammer, screwdriver, tweezers, bucket, towel, spatula, knife, needle, pins, scissors, ladle
+	tools: hammer, magnifying_glass, bucket, shovel, towel, tongs, crowbar, sandpaper, scissors, ladle
 	infrastructure: dishes, bottle, table, chair, rack, bed, stationery, surface
-	machinery: none
-	environment: office, stationary, cozy, sturdy, flammable, kitchen
+	environment: stationary, smelly, cozy, scary, durable, sturdy, flammable, large
 	
 	flags: none
 	menu_columns: 4

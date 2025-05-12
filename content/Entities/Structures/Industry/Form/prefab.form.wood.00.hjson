@@ -78,14 +78,15 @@ shop:
 		exclude: workbench, advanced, assembling, machining, metalworking, salvaging, smelting
 	}
 	
-	tools: none
-	infrastructure: table, shaping_mould
-	machinery: none
+	tools: bucket, shovel, spatula, ladle
+	infrastructure: barrel, casting_mould, shaping_mould, bucket
 	environment: container, mobile, dirty, ugly, flammable
 	
 	flags: hidden_if_order
 	menu_columns: 3
 	recipe_type: workshop
+	
+	offset_spawn: [0.000, -0.375]
 	
 	name: "Wooden Form"
 }

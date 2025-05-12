@@ -74,14 +74,15 @@ shop:
 		include: fermenting
 	}
 	
-	tools: bucket, shovel, towel, spatula
-	infrastructure: rack, liquid_container
-	machinery: none
+	tools: bucket, shovel, towel, spatula, ladle
+	infrastructure: barrel, rack, bucket, liquid_container, fermenter
 	environment: container, mobile, dirty, contaminated, smelly, ugly, flammable
 	
+	flags: none
 	menu_columns: 4
 	recipe_type: fermenter
-	flags: none
+	
+	offset_spawn: [-1.000, 0.375]
 }
 
 crafter:

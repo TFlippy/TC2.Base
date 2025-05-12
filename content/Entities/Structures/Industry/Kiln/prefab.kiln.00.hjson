@@ -73,15 +73,14 @@ shop:
 	}
 	
 	tools: hammer, bucket, shovel, tongs
-	infrastructure: oven
-	machinery: heater, burner
+	infrastructure: oven, rack, heater, burner, kiln
 	environment: container, waterproof, stationary, dirty, ugly, fireproof, durable, sturdy
 	
 	flags: none
 	menu_columns: 3
 	recipe_type: workshop
 	
-	offset_spawn: [1.000, -0.375]
+	offset_spawn: [-0.500, 0.375]
 	
 	name: "Kiln"
 }
