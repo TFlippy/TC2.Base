@@ -381,7 +381,7 @@
 	color_frame: "0xffff5f11"
 	color_button: "0xff9dd80f"
 	button_name: "Build"
-	rank: 0.000
+	rank: -800.000
 	
 	min: 1
 	max: 1

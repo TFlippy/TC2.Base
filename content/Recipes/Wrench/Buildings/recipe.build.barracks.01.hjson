@@ -30,7 +30,7 @@
 							type: resource
 							material: gravel
 							amount: 1060.000
-							loss: 0.039
+							loss: 0.027
 							group: 0
 							flags: compact, primary
 						}
@@ -285,10 +285,10 @@
 		size: [64, 56]
 	}
 	
-	color_frame: "0xff4f79a5"
+	color_frame: "0xff86a627"
 	color_button: "0xff9dd80f"
 	button_name: "Build"
-	rank: 0.000
+	rank: -50.000
 	
 	min: 1
 	max: 1
@@ -352,7 +352,7 @@
 				type: resource
 				material: brick.concrete
 				amount: 60.000
-				loss: 0.027
+				loss: 0.024
 				group: 0
 				flags: compact, no_scaling, prerequisite
 			}

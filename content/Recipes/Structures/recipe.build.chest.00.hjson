@@ -43,7 +43,7 @@
 		size: [16, 14]
 	}
 	
-	color_frame: "0xffc99918"
+	color_frame: "0xff4f79a5"
 	color_button: "0xff9dd80f"
 	rank: -5090.500
 	

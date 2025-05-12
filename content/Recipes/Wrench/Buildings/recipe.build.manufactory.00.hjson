@@ -344,10 +344,10 @@
 		texture: manufactory.00
 	}
 	
-	color_frame: "0xffff5f11"
+	color_frame: "0xffffa200"
 	color_button: "0xff9dd80f"
 	button_name: "Build"
-	rank: 0.000
+	rank: -530.000
 	
 	min: 1
 	max: 1

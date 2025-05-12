@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.5"
 	name: "Flagpole (Metal)"
 	desc:
 		'''
@@ -64,7 +64,7 @@
 		size: [16, 80]
 	}
 	
-	color_frame: "0xffaeb59a"
+	color_frame: "0xffc54e5e"
 	color_button: "0xff9dd80f"
 	rank: 100.000
 	
