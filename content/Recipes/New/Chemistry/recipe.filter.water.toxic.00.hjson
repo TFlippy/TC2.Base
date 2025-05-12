@@ -1,13 +1,11 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.5"
 	name: "[TEST] Filtered Toxic Water"
 	desc:
 		'''
 		TODO: Desc
 		'''
 	tips: []
-	
-	stages: []
 	
 	requirements:
 	[
@@ -48,7 +46,8 @@
 	
 	type: workshop
 	flags: disabled, wip
-	tags: manual, simple, dangerous, chemistry, science, biology
+	tags: manual, simple, chemistry, science, biology, dangerous
+	infrastructure: bucket
 	
 	icon:
 	{
@@ -59,9 +58,12 @@
 	icon_offset: [-1.000, 1.000]
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	rank: -157.000
 	
 	min: 1
 	max: 20
 	step: 1
+	
+	version: 0
 }

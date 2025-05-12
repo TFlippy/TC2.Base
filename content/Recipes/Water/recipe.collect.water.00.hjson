@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.5"
 	name: "Collect Water"
 	desc:
 		'''
@@ -17,6 +17,7 @@
 			
 			type: source
 			flags: none
+			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: wet
 			
@@ -266,7 +267,7 @@
 	type: workshop
 	flags: wip, auto_complete
 	tags: workbench, manual, simple, gathering
-	infrastructure: none
+	infrastructure: bucket
 	
 	icon:
 	{

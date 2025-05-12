@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.5"
 	name: "Purified Water"
 	desc:
 		'''
@@ -14,6 +14,7 @@
 			
 			type: source
 			flags: none
+			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: wet
 			
@@ -47,6 +48,7 @@
 			
 			type: additives
 			flags: none
+			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: wet
 			
@@ -117,7 +119,7 @@
 	type: workshop
 	flags: wip, auto_complete, converted
 	tags: workbench, manual, simple, small, chemistry, biology
-	infrastructure: none
+	infrastructure: bucket
 	
 	icon:
 	{

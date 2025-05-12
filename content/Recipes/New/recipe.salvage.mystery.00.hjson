@@ -1,13 +1,11 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.5"
 	name: "Recovered Steel Frames"
 	desc:
 		'''
 		Search a pile of machine garbage for anything that could be used as steel frames.
 		'''
 	tips: []
-	
-	stages: []
 	
 	requirements:
 	[
@@ -47,13 +45,10 @@
 		}
 	]
 	
-	requirements_old: []
-	
-	products_old: []
-	
 	type: workshop
 	flags: disabled, wip
 	tags: workbench, manual, simple, salvaging
+	infrastructure: workbench
 	
 	icon:
 	{
@@ -70,6 +65,7 @@
 	icon_extra_offset: [0.000, -6.000]
 	
 	color_frame: "0xffac7534"
+	color_button: "0xff9dd80f"
 	rank: -140.000
 	
 	min: 1

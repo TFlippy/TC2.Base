@@ -462,10 +462,6 @@
 					{
 						include: shovel, spatula
 					}
-					filter_machinery:
-					{
-						include: blender, mixer
-					}
 					filter_infrastructure:
 					{
 						include: liquid_container
@@ -478,7 +474,7 @@
 	type: workshop
 	flags: item, production, wip, auto_complete
 	tags: workbench, manual, dumb, crude, simple, small, blending, messy
-	infrastructure: dishes, table, surface
+	infrastructure: bucket
 	
 	h_company: common
 	

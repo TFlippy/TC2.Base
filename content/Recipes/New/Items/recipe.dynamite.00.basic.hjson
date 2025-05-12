@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.2"
+	$version: "0.1.62.5"
 	name: "Dynamite"
 	tips: []
 	
@@ -162,7 +162,7 @@
 	type: workshop
 	flags: blueprintable, item, wip, converted
 	tags: workbench, manual, simple, small, weapon, munitions, assembling, construction, explosive, dangerous
-	infrastructure: dishes, table
+	infrastructure: surface
 	
 	h_company: common
 	

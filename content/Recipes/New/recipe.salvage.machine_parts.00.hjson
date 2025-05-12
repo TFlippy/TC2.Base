@@ -83,7 +83,7 @@
 	type: workshop
 	flags: disabled, wip
 	tags: workbench, workshop, manual, simple, salvaging, processing
-	infrastructure: surface
+	infrastructure: surface, workbench
 	
 	icon:
 	{

@@ -121,9 +121,8 @@ shop:
 		exclude: passive, advanced, large, huge, vehicle, machining, smelting, fermenting, melting, heating, casting
 	}
 	
-	tools: hammer, cutters, saw, hand_drill, screwdriver, spanner, bucket, axe, file, chisel, towel, tongs, knife, sandpaper
-	infrastructure: table, vise, rack, surface, hard_surface, workbench
-	machinery: none
+	tools: hammer, cutters, saw, hand_drill, screwdriver, spanner, pliers, bucket, axe, file, chisel, towel, knife, sandpaper
+	infrastructure: table, vise, rack, bucket, surface, hard_surface, workbench
 	environment: waterproof, stationary, dirty, reinforced, durable, sturdy
 	
 	flags: none

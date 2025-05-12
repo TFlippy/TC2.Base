@@ -109,7 +109,7 @@
 	type: workshop
 	flags: item, dismantling, wip, converted
 	tags: workbench, workshop, manual, simple, complex, magitronics, machinery, engineering, salvaging
-	infrastructure: table, chair
+	infrastructure: table, chair, surface
 	
 	icon:
 	{

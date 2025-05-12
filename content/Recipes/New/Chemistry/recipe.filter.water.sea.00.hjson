@@ -1,13 +1,11 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.5"
 	name: "Boiled Sea Water"
 	desc:
 		'''
 		TODO: Desc
 		'''
 	tips: []
-	
-	stages: []
 	
 	requirements:
 	[
@@ -54,7 +52,7 @@
 		{
 			type: resource
 			material: water.clean
-			amount: 0.9410
+			amount: 0.941
 			amount_extra: 0.035
 			snapping: 0.010
 			group: 0
@@ -71,6 +69,7 @@
 	type: workshop
 	flags: disabled, wip
 	tags: manual, simple, chemistry, science, biology, heating
+	infrastructure: bucket
 	
 	icon:
 	{
@@ -81,6 +80,7 @@
 	icon_offset: [-1.000, 1.000]
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	rank: -157.000
 	
 	min: 1
@@ -88,6 +88,4 @@
 	step: 1
 	
 	version: 0
-	requirements_old: []
-	products_old: []
 }

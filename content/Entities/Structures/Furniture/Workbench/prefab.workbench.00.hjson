@@ -120,14 +120,13 @@ shop:
 		exclude: passive, advanced, large, huge, vehicle, blacksmithing, machining, smelting, fermenting, heating, casting
 	}
 	
-	tools: hammer, cutters, saw, hand_drill, screwdriver, wrench, bucket, axe, file, chisel, knife, sandpaper
-	infrastructure: table, rack, surface, workbench
-	machinery: none
+	tools: hammer, cutters, saw, hand_drill, screwdriver, wrench, bucket, axe, shovel, file, chisel, knife, sandpaper, ladle
+	infrastructure: table, rack, bucket, surface, workbench
 	environment: mobile, dirty, sturdy, flammable
 	
+	flags: none
 	menu_columns: 4
 	recipe_type: workshop
-	flags: none
 	
 	name: "Workbench"
 }
