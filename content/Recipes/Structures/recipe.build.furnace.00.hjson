@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.5"
 	name: "Furnace (Small)"
 	desc:
 		'''
@@ -36,6 +36,7 @@
 	type: industry
 	flags: disabled, wip
 	tags: construction
+	infrastructure: none
 	
 	icon:
 	{
@@ -43,7 +44,8 @@
 		size: [32, 48]
 	}
 	
-	color_frame: "0xffad6913"
+	color_frame: "0xffff5f11"
+	color_button: "0xff9dd80f"
 	rank: -33.000
 	
 	dismantle_work: 10.000

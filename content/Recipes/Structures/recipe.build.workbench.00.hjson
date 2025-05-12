@@ -55,7 +55,7 @@
 	
 	color_frame: "0xffffa200"
 	color_button: "0xff9dd80f"
-	rank: -1540.000
+	rank: -1545.000
 	frame_size: [96.000, 64.000]
 	
 	dismantle_work: 5.000

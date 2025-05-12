@@ -40,7 +40,7 @@
 	]
 	
 	type: machinery
-	flags: no_amount_multiplier, blueprintable, wip
+	flags: no_amount_multiplier, blueprintable, disabled, wip
 	tags: construction
 	infrastructure: none
 	

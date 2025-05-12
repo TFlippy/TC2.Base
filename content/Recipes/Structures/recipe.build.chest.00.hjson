@@ -45,7 +45,7 @@
 	
 	color_frame: "0xff4f79a5"
 	color_button: "0xff9dd80f"
-	rank: -5090.500
+	rank: -5084.500
 	
 	dismantle_work: 5.000
 	dismantle_yield: 0.800

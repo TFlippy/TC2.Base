@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.5"
 	name: "Post (Metal)"
 	tips: []
 	
@@ -44,7 +44,7 @@
 	
 	color_frame: "0xffaeb59a"
 	color_button: "0xff9dd80f"
-	rank: -6.000
+	rank: 10.000
 	
 	dismantle_work: 4.000
 	dismantle_yield: 0.800

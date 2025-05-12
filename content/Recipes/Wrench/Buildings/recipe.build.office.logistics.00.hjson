@@ -291,7 +291,7 @@
 		size: [48, 40]
 	}
 	
-	color_frame: "0xffaeb59a"
+	color_frame: "0xff4f79a5"
 	color_button: "0xff9dd80f"
 	button_name: "Build"
 	rank: 235.000

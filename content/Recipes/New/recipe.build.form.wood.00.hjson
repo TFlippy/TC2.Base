@@ -45,7 +45,7 @@
 		texture: form.wood.00
 	}
 	
-	color_frame: "0xffaeb59a"
+	color_frame: "0xffffa200"
 	color_button: "0xff9dd80f"
 	rank: -850.000
 	

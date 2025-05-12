@@ -56,7 +56,7 @@
 		size: [32, 24]
 	}
 	
-	color_frame: "0xffaeb59a"
+	color_frame: "0xffff5f11"
 	color_button: "0xff9dd80f"
 	rank: -555.000
 	frame_size: [96.000, 96.000]
