@@ -1,0 +1,171 @@
+﻿{
+	$version: "0.1.62.5"
+	name: "Wooden Rods"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	tips: []
+	
+	stages:
+	[
+		{
+			name: "Feedstock"
+			
+			type: feedstock
+			flags: wip, auto_generated
+			tags: material, raw
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 1.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Planks"
+					
+					type: undefined
+					flags: wip, auto_generated
+					discard_damage_type_override: axe
+					
+					priority: 1.000
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: wood
+							amount: 0.880
+							snapping: 1.000
+							loss: 0.024
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: sawing
+							amount: 160.000
+							amount_min: 90.000
+							difficulty: 5
+							snapping: 5.000
+							falloff: 0.915
+							ratio: 0.875
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: wood.rod
+							amount: 3.000
+							snapping: 1.000
+							group: 0
+							flags: primary, compact
+						}
+					]
+					
+					filter_tools:
+					{
+						require: saw
+						include: pencil, ruler, pliers, axe, towel, knife
+					}
+					filter_infrastructure:
+					{
+						include: table, chair
+					}
+				}
+			]
+		}
+		{
+			name: "Rounding"
+			
+			type: processing
+			flags: subtractive, wip
+			tags: rod, rounded
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 1.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Carved"
+					
+					type: undefined
+					flags: wip, auto_generated
+					
+					priority: 1.000
+					
+					requirements:
+					[
+						{
+							type: work
+							work: carving
+							amount: 140.000
+							amount_min: 40.000
+							difficulty: 5
+							snapping: 5.000
+							falloff: 0.977
+							ratio: 0.008
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: woodchips
+							amount: 0.690
+							amount_extra: 0.374
+							group: 0
+							flags: residue
+						}
+					]
+					
+					filter_tools:
+					{
+						require: saw
+						include: pencil, ruler, pliers, axe, towel, knife
+					}
+					filter_infrastructure:
+					{
+						include: table, chair
+					}
+				}
+			]
+		}
+	]
+	
+	type: workshop
+	flags: item, production, wip
+	tags: workbench, manual, simple, medium, woodworking
+	infrastructure: surface
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		texture: resource.wood.rod
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	icon_offset: [2.000, 0.000]
+	
+	color_frame: "0xff643c19"
+	color_button: "0xff9dd80f"
+	rank: -18.000
+	
+	min: 1
+	max: 10
+	step: 1
+	
+	version: 1
+}

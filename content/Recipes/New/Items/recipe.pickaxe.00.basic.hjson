@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.2"
+	$version: "0.1.62.5"
 	name: "Pickaxe"
 	tips: []
 	
@@ -61,20 +61,17 @@
 					filter_tools:
 					{
 						require: hammer, tongs
-						include: pliers
-					}
-					filter_machinery:
-					{
-						include: heater
+						include: pliers, chisel
 					}
 					filter_infrastructure:
 					{
-						require: hard_surface
-						include: anvil, forge
+						require: anvil, forge, heater
+						include: vise
 					}
 					filter_environment:
 					{
-						include: workshop, stationary, fireproof, sturdy
+						require: sturdy
+						include: workshop, stationary, fireproof
 						exclude: fragile
 					}
 				}
@@ -211,10 +208,6 @@
 						require: file, knife
 						include: saw, hand_drill, file, knife, sandpaper
 					}
-					filter_machinery:
-					{
-						include: lathe, mill, sander, planer
-					}
 				}
 				{
 					name: "Sawed"
@@ -252,10 +245,6 @@
 					{
 						require: saw
 						include: ruler, file, knife
-					}
-					filter_machinery:
-					{
-						include: lathe, planer
 					}
 					filter_infrastructure:
 					{
@@ -373,6 +362,7 @@
 	flags: blueprintable, item, wip
 	tags: workbench, workshop, manual, simple, medium, tool, metalworking
 	infrastructure: table, workbench
+	infrastructure_exclude: none
 	
 	icon:
 	{

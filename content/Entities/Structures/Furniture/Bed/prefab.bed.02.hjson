@@ -20,7 +20,7 @@ body:
 			[-2.250, 1.000]
 		]
 		
-		mass: 990.000
+		mass: 1337.000
 		radius: 0.500
 		friction: 0.900
 		elasticity: 0.400
@@ -32,11 +32,30 @@ body:
 		mask: world
 		exclude: none
 	}
+
+	// @shape.line:
+	// {
+	// 	a: [-1.375, -0.125]
+	// 	b: [2.250, 0.000]
+	// 	offset: [0.000, 0.000]
+		
+	// 	mass: 100.000
+	// 	radius: 0.375
+	// 	friction: 0.740
+	// 	elasticity: 1.000
+		
+	// 	material: fabric
+	// 	miss_chance: 0.176
+		
+	// 	layer: entity, solid, platform, furniture, ignore_melee
+	// 	mask: world, creature
+	// 	exclude: none
+	// }
 }
 
 health:
 {
-	max: 65000.000
+	max: 95000.000
 }
 
 animated.renderer:
@@ -66,19 +85,19 @@ harvestable:
 	[
 		{
 			material: steel.ingot
-			quantity: 20.000
+			quantity: 30.000
 		}
 		{
 			material: steel.rod
-			quantity: 45.000
+			quantity: 65.000
 		}
 		{
 			material: cloth
-			quantity: 150.000
+			quantity: 160.000
 		}
 		{
 			material: steel.slab
-			quantity: 0.400
+			quantity: 0.500
 		}
 	]
 	
