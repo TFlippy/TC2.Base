@@ -90,7 +90,8 @@
 
 		[ISystem.PostUpdate.C(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void Update(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity,
-		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Body.Data body, [Source.Owned, Pair.Component<Inductor.Data>] ref Shape.Line shape,
+		[Source.Owned] in Transform.Data transform, 
+		[Source.Owned] ref Body.Data body, [Source.Owned, Pair.Component<Inductor.Data>] ref Shape.Line shape,
 		[Source.Owned] ref Essence.Container.Data essence_container,
 		[Source.Owned] ref Inductor.Data inductor, [Source.Owned] ref Inductor.State inductor_state)
 		{

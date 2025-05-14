@@ -1,0 +1,159 @@
+$name: "Impulse Press"
+$desc:
+	'''
+	TODO: Desc
+	'''
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.polygon:
+	{
+		mass: 220.000
+		friction: 0.500
+		elasticity: 0.500
+		material: machine
+		layer: entity, building, ignore_melee, storage
+		mask: world
+	}
+}
+
+health:
+{
+	max: 23500.000
+}
+
+armor:
+{
+	toughness: 340.000
+	protection: 0.750
+	
+	knockback_modifier: 1.300
+	pain_modifier: 0.000
+
+	material_type: metal
+	flags: no_damage_type_conversion
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "press.00"
+	}
+	z: -280.000
+}
+
+transform:
+{
+
+}
+
+shop:
+{
+	tags: none
+}
+
+press:
+{
+	slider_offset: [0.000, -1.000]
+	slider_length: 0.500
+	speed: 2.200
+	load_multiplier: 1.000
+	
+	@animated.renderer:
+	{
+		sprite:
+		{
+			texture: "press.00.parts"
+		}
+		z: -145.000
+	}
+
+	@light:
+	{
+		color: [1.000, 0.400, 0.000, 2.000]
+		offset: [0.000, 1.250]
+		scale: [12.000, 3.000]
+		intensity: 0.000
+		texture: "light.box.00"
+	}
+}
+
+press.state:
+{
+
+}
+
+crafter:
+{
+	@inventory4:
+	{
+		type: output
+		flags: standalone, allow_ducts, ignore_mass, public, faction, vertical
+		stack_size_multiplier: 2.000
+		
+		filter:
+		{
+			require: none
+			include: none
+			exclude: gas
+		}
+		
+		offset: [0.000, 0.000]
+	}
+}
+
+crafter.state:
+{
+	@inventory4:
+	{
+		type: input
+		flags: standalone, allow_ducts, ignore_mass
+		stack_size_multiplier: 2.000
+		
+		filter:
+		{
+			require: none
+			include: none
+			exclude: gas
+		}
+		
+		offset: [0.000, 0.000]
+	}
+}
+
+// axle:
+// {
+// 	offset: [0.000, -1.500]
+// 	mass: 5.000
+// 	friction: 0.200
+// 	radius_a: 1.000
+// 	radius_b: 1.000
+// 	radius_inner: 0.750
+// 	radius_outer: 1.000
+	
+// 	@animated.renderer:
+// 	{
+// 		sprite:
+// 		{
+// 			texture: "wheel_1000.steel"
+// 		}
+// 		z: -200.000
+// 	}
+// }
+
+interactable:
+{
+	flags: no_tab
+	window_size: [650.000, 450.000]
+	window_size_misc: [120.000, 0.000]
+}
+
+shipment:
+{
+	type: crafting
+	flags: keep_items, allow_deposit, use_misc, no_empty_deposit
+}

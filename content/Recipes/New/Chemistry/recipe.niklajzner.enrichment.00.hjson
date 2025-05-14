@@ -91,11 +91,6 @@
 					
 					loss: 0.275
 					
-					filter_machinery:
-					{
-						require: heater
-						include: heater, burner
-					}
 					filter_infrastructure:
 					{
 						include: oven, forge, crucible
@@ -137,7 +132,7 @@
 							material: black_coal
 							amount: 0.500
 							snapping: 0.100
-							loss: 0.325
+							loss: 0.322
 							group: 0
 							flags: prerequisite
 						}
@@ -145,7 +140,7 @@
 							type: work
 							work: carburization
 							amount: 150.000
-							amount_min: 750.000
+							amount_min: 270.000
 							difficulty: 6
 							snapping: 5.000
 							falloff: 0.403
@@ -161,11 +156,6 @@
 					
 					loss: 0.275
 					
-					filter_machinery:
-					{
-						require: heater
-						include: heater, burner
-					}
 					filter_infrastructure:
 					{
 						include: oven, forge, crucible
@@ -183,6 +173,7 @@
 	flags: production
 	tags: simple, raw, metalworking, heating, processing
 	infrastructure: oven
+	infrastructure_exclude: none
 	
 	icon:
 	{

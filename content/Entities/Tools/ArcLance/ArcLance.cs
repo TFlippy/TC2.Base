@@ -799,7 +799,7 @@ namespace TC2.Base.Components
 		}
 
 		[IComponent.Data(Net.SendType.Reliable, region_only: true)]
-		public partial struct Data: IComponent
+		public partial struct Data(): IComponent
 		{
 			public Arcer.Flags flags;
 			public ISubstance.Handle h_substance_electrode;
@@ -815,11 +815,6 @@ namespace TC2.Base.Components
 
 			[Editor.Picker.Position(true)]
 			public Vector2 offset;
-
-			public Data()
-			{
-
-			}
 		}
 
 		//[IComponent.Data(Net.SendType.Unreliable, region_only: true)]

@@ -621,6 +621,8 @@ namespace TC2.Base.Components
 				Projector,
 				[Name("Explosive", desc: "Single-use emitter activated by an explosive charge.")]
 				Explosive,
+				//[Name("Thumper", desc: "")]
+				//Thumper,
 			}
 
 			[Flags]
@@ -639,12 +641,12 @@ namespace TC2.Base.Components
 				public Essence.Emitter.Type type;
 				public Essence.Emitter.Flags flags;
 
-				public float frequency = 0.00f;
+				public float frequency;
 
 				[Editor.Slider.Clamped(-float.Tau, +float.Tau, float.Pi / 16.00f)]
 				public float rotation;
 				[Editor.Picker.Position(true)]
-				public Vector2 offset;
+				public Vec2f offset;
 
 				public float rate_speed = 0.10f;
 				public float rate_max;

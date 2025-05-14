@@ -3,15 +3,15 @@
 	name: "Niklajzner"
 	desc:
 		'''
-		TODO: Desc
+		Native iron-nickel alloy. 
 		'''
 	
-	material_type: metal_solid
+	material_type: stone_metallic
 	tile_flags: non_empty
 	flags: raw, ore, common, mineral, magnetic, native
 	
 	max_health: 46000.000
-	smoothing: 0.180
+	smoothing: 0.150
 	stability: 6.140
 	strength_tensile: 4.800
 	strength_compressive: 21.000

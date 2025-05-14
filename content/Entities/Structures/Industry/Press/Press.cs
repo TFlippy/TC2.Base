@@ -1,5 +1,28 @@
 ﻿namespace TC2.Base.Components
 {
+	public static partial class Piston
+	{
+		[IComponent.Data(Net.SendType.Reliable, IComponent.Scope.Region)]
+		public partial struct Data(): IComponent
+		{
+			[Editor.Picker.Position(relative: true)] public Vec2f offset;
+			[Editor.Picker.Direction(normalize: true)] public Vec2f direction;
+
+			public float length;
+			public float damping;
+
+
+		}
+
+		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
+		public static void OnUpdateRenderer(ISystem.Info info,
+		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Piston.Data piston,
+		[Source.Owned, Pair.Component<Piston.Data>] ref Animated.Renderer.Data renderer)
+		{
+			//renderer_slider.offset = press.slider_offset + new Vector2(0.00f, MathF.Pow((MathF.Cos(axle_state.rotation) + 1.00f) * 0.50f, press.speed) * press.slider_length);
+		}
+	}
+
 	public static partial class Press
 	{
 		public static readonly Sound.Handle[] snd_stamp =
@@ -23,19 +46,19 @@
 			"press.fail.02"
 		};
 
-		[IComponent.Data(Net.SendType.Reliable, region_only: true), IComponent.With<Press.State>]
+		[IComponent.Data(Net.SendType.Reliable, IComponent.Scope.Region), IComponent.With<Press.State>]
 		public partial struct Data(): IComponent
 		{
-			public Vector2 slider_offset;
+			[Editor.Picker.Position(relative: true)] public Vec2f slider_offset;
+
 			public float slider_length;
 			public float speed;
 			public float load_multiplier;
 
-			[Net.Ignore, Save.Ignore]
-			public int current_sound_index;
+			//[Net.Ignore, Save.Ignore] public uint current_sound_index;
 		}
 
-		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
+		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region)]
 		public partial struct State(): IComponent
 		{
 			[Flags]
@@ -48,6 +71,7 @@
 			}
 
 			public Press.State.Flags flags;
+			[Net.Ignore, Save.Ignore] public uint current_sound_index;
 		}
 
 #if CLIENT
@@ -55,15 +79,17 @@
 		private static readonly Texture.Handle metal_spark_01 = "metal_spark.01";
 
 		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void OnUpdate(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity,
-		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Press.Data press, [Source.Owned] ref Press.State press_state, [Source.Owned, Pair.Component<Press.Data>] ref Light.Data light, [Source.Owned] ref Crafter.State state)
+		public static void OnUpdateEffects(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity,
+		[Source.Owned] in Transform.Data transform, 
+		[Source.Owned] ref Press.Data press, [Source.Owned] ref Press.State press_state, 
+		[Source.Owned, Pair.Component<Press.Data>] ref Light.Data light, [Source.Owned] ref Crafter.State state)
 		{
 			if (press_state.flags.HasAny(Press.State.Flags.Smashed))
 			{
 				if (press_state.flags.HasAny(Press.State.Flags.Success))
 				{
 					//Sound.Play(snd_smash[(press.current_sound_index++) % snd_smash.Length], transform.position, volume: 1.00f, pitch: random.NextFloatRange(0.70f, 0.80f), size: 0.80f, priority: 0.60f, dist_multiplier: 0.70f);
-					Sound.Play(snd_stamp[(press.current_sound_index++) % snd_stamp.Length], transform.position, volume: 1.00f, pitch: random.NextFloatRange(0.95f, 1.05f), size: 1.00f, priority: 0.60f, dist_multiplier: 0.70f);
+					Sound.Play(snd_stamp.GetNext(ref press_state.current_sound_index), transform.position, volume: 1.00f, pitch: random.NextFloatRange(0.95f, 1.05f), size: 1.00f, priority: 0.60f, dist_multiplier: 0.70f);
 					Shake.Emit(ref region, transform.position, 0.40f, 0.40f, radius: 24.00f);
 
 					light.intensity = 1.00f;
@@ -119,7 +145,7 @@
 				}
 				else
 				{
-					Sound.Play(snd_fail[(press.current_sound_index++) % snd_fail.Length], transform.position, volume: 1.20f, pitch: random.NextFloatRange(0.70f, 0.90f), size: 0.80f, priority: 0.60f, dist_multiplier: 0.80f);
+					Sound.Play(snd_fail.GetNext(ref press_state.current_sound_index), transform.position, volume: 1.20f, pitch: random.NextFloatRange(0.70f, 0.90f), size: 0.80f, priority: 0.60f, dist_multiplier: 0.80f);
 					Shake.Emit(ref region, transform.position, 0.30f, 0.30f, radius: 16.00f);
 				}
 
@@ -132,29 +158,30 @@
 		}
 #endif
 
-		public static readonly Gradient<float> gradient_work = new(0.00f, 0.00f, 0.00f, 0.00f, 0.00f, 1.00f, 1.00f);
+		//public static readonly Gradient<float> gradient_work = new(0.00f, 0.00f, 0.00f, 0.00f, 0.00f, 1.00f, 1.00f);
 
-		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void UpdateWheel(ISystem.Info info, Entity entity,
-		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Press.Data press, [Source.Owned] ref Axle.Data axle, [Source.Owned] ref Axle.State axle_state)
-		{
-			//var t = MathF.Pow((MathF.Cos(axle_state.rotation) + 1.00f) * 0.50f, 1.50f);
-			//if (MathF.Abs(axle_state.rotation) <= 1.00f)
-			//{
-			//	t = 1;
-			//}
+		//[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
+		//public static void UpdateWheel(ISystem.Info info, Entity entity,
+		//[Source.Owned] in Transform.Data transform, [Source.Owned] ref Press.Data press, [Source.Owned] ref Axle.Data axle, [Source.Owned] ref Axle.State axle_state)
+		//{
+		//	//var t = MathF.Pow((MathF.Cos(axle_state.rotation) + 1.00f) * 0.50f, 1.50f);
+		//	//if (MathF.Abs(axle_state.rotation) <= 1.00f)
+		//	//{
+		//	//	t = 1;
+		//	//}
 
-			var t = Maths.NormalizeClamp(MathF.Abs(axle_state.rotation), MathF.Tau);
-			var val = gradient_work.GetValue(t);
+		//	var t = Maths.NormalizeClamp(MathF.Abs(axle_state.rotation), MathF.Tau);
+		//	var val = gradient_work.GetValue(t);
 
-			axle_state.force_load_new += val * press.load_multiplier * 200.00f;
-		}
+		//	axle_state.force_load_new += val * press.load_multiplier * 200.00f;
+		//}
 
 #if SERVER
 		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void Update(ISystem.Info info, Entity entity,
-		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Press.Data press, [Source.Owned] ref Press.State press_state, [Source.Owned] in Crafter.Data crafter, [Source.Owned] ref Crafter.State crafter_state,
-		[Source.Owned] ref Axle.Data axle, [Source.Owned] ref Axle.State axle_state)
+		public static void Update(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity ent_press,
+		[Source.Owned] in Transform.Data transform, 
+		[Source.Owned] ref Press.Data press, [Source.Owned] ref Press.State press_state, 
+		[Source.Owned] in Crafter.Data crafter, [Source.Owned] ref Crafter.State crafter_state)
 		{
 			//if (crafter.recipe.id != 0)
 			//{
@@ -224,10 +251,10 @@
 			public Crafter.Data crafter;
 			public Crafter.State crafter_state;
 
-			public Axle.Data axle;
-			public Axle.State axle_state;
+			//public Axle.Data axle;
+			//public Axle.State axle_state;
 
-			public static int load_graph_index;
+			public static uint load_graph_index;
 			public static float[] load_graph = new float[App.tickrate * 3];
 
 			public void Draw()
@@ -237,11 +264,11 @@
 					this.StoreCurrentWindowTypeID(order: -100);
 					if (window.show)
 					{
-						ref var player = ref Client.GetPlayer();
-						ref var region = ref Client.GetRegion();
-						ref var character = ref Client.GetCharacter(out var character_asset);
+						//ref var player = ref Client.GetPlayer();
+						//ref var region = ref Client.GetRegion();
+						//ref var character = ref Client.GetCharacter(out var character_asset);
 
-						Crafting.Context.NewFromCharacter(ref region.AsCommon(), character_asset, ent_producer: this.ent_press, out var context);
+						//Crafting.Context.NewFromCharacter(ref region.AsCommon(), character_asset, ent_producer: this.ent_press, out var context);
 
 						var w_right = (48 * 4) + 24;
 
@@ -264,71 +291,71 @@
 									//	//GUI.DrawShopRecipe(ref region, this.crafter.recipe, this.ent_press, player.ent_controlled, this.transform.position, default, default, inventory_data.GetHandle(), draw_button: false, draw_title: false, draw_description: false, search_radius: 0.00f);
 									//}
 
-									using (GUI.Group.New(size: GUI.Rm, padding: new(12, 12)))
-									{
-										GUI.DrawFillBackground(GUI.tex_panel, new(8, 8, 8, 8), margin: new(-12, 0, -12, -12));
+									//using (GUI.Group.New(size: GUI.Rm, padding: new(12, 12)))
+									//{
+									//	GUI.DrawFillBackground(GUI.tex_panel, new(8, 8, 8, 8), margin: new(-12, 0, -12, -12));
 
-										load_graph[load_graph_index] = this.axle_state.force_load_old;
-										GUI.LineGraph("##load", load_graph, ref load_graph_index, size: GUI.Rm, scale_min: 0.00f, scale_max: 10000.00f);
-									}
+									//	load_graph[load_graph_index] = this.axle_state.force_load_old;
+									//	GUI.LineGraph("##load", load_graph, ref load_graph_index, size: GUI.Rm, scale_min: 0.00f, scale_max: 10000.00f);
+									//}
 								}
 							}
 						}
 
-						GUI.SameLine();
+						//GUI.SameLine();
 
-						using (GUI.Group.New(size: new Vector2(w_right, GUI.RmY)))
-						{
-							using (GUI.Group.New(size: new Vector2(48 * 4, 48 * 2) + new Vector2(24, 24), padding: new(12)))
-							{
-								GUI.DrawFillBackground(GUI.tex_frame, new(8, 8, 8, 8));
+						//using (GUI.Group.New(size: new Vector2(w_right, GUI.RmY)))
+						//{
+						//	using (GUI.Group.New(size: new Vector2(48 * 4, 48 * 2) + new Vector2(24, 24), padding: new(12)))
+						//	{
+						//		GUI.DrawFillBackground(GUI.tex_frame, new(8, 8, 8, 8));
 
-								ref var shipment = ref this.ent_press.GetComponent<Shipment.Data>();
-								if (shipment.IsNotNull())
-								{
-									var item_context = GUI.ItemContext.Begin(false);
-									GUI.DrawShipment(ref item_context, this.ent_press, ref shipment, new Vector2(96, 48));
-								}
-							}
+						//		ref var shipment = ref this.ent_press.GetComponent<Shipment.Data>();
+						//		if (shipment.IsNotNull())
+						//		{
+						//			var item_context = GUI.ItemContext.Begin(false);
+						//			GUI.DrawShipment(ref item_context, this.ent_press, ref shipment, new Vector2(96, 48));
+						//		}
+						//	}
 
-							using (GUI.Group.New(size: new Vector2(48 * 4, 48 * 2) + new Vector2(24, 24)))
-							{
-								GUI.DrawFillBackground(GUI.tex_frame, new(8, 8, 8, 8));
+						//	using (GUI.Group.New(size: new Vector2(48 * 4, 48 * 2) + new Vector2(24, 24)))
+						//	{
+						//		GUI.DrawFillBackground(GUI.tex_frame, new(8, 8, 8, 8));
 
-								using (GUI.Group.New(size: GUI.Rm, padding: new(12, 12)))
-								{
-									GUI.DrawInventoryDock(Inventory.Type.Output, size: new(48 * 4, 48 * 2));
-								}
-							}
+						//		using (GUI.Group.New(size: GUI.Rm, padding: new(12, 12)))
+						//		{
+						//			GUI.DrawInventoryDock(Inventory.Type.Output, size: new(48 * 4, 48 * 2));
+						//		}
+						//	}
 
-							using (GUI.Group.New(size: new Vector2(48 * 4, GUI.RmY) + new Vector2(24, 0)))
-							{
-								GUI.DrawFillBackground(GUI.tex_frame, new(8, 8, 8, 8));
+						//	using (GUI.Group.New(size: new Vector2(48 * 4, GUI.RmY) + new Vector2(24, 0)))
+						//	{
+						//		GUI.DrawFillBackground(GUI.tex_frame, new(8, 8, 8, 8));
 
-								using (GUI.Group.New(size: GUI.Rm, padding: new(12, 12)))
-								{
-									GUI.DrawInventoryDock(Inventory.Type.Input, size: new(48 * 4, 48 * 2));
-									//GUI.DrawWorkH(Maths.Normalize(this.crafter_state.work, this.crafter.required_work), size: GUI.Rm with { Y = 32 } - new Vector2(48, 0));
-								}
-							}
-						}
+						//		using (GUI.Group.New(size: GUI.Rm, padding: new(12, 12)))
+						//		{
+						//			GUI.DrawInventoryDock(Inventory.Type.Input, size: new(48 * 4, 48 * 2));
+						//			//GUI.DrawWorkH(Maths.Normalize(this.crafter_state.work, this.crafter.required_work), size: GUI.Rm with { Y = 32 } - new Vector2(48, 0));
+						//		}
+						//	}
+						//}
+					
 					}
 				}
 			}
 		}
 
 		[ISystem.EarlyGUI(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void OnGUI(Entity entity, [Source.Owned] in Transform.Data transform, 
+		public static void OnGUI(Entity ent_press, [Source.Owned] in Transform.Data transform, 
 		[Source.Owned] in Press.Data press, [Source.Owned] in Press.State press_state, 
 		[Source.Owned] in Crafter.Data crafter, [Source.Owned] in Crafter.State crafter_state,
-		[Source.Owned] in Axle.Data axle, [Source.Owned] in Axle.State axle_state,
 		[Source.Owned] in Interactable.Data interactable)
 		{
 			if (interactable.IsActive())
 			{
 				var gui = new PressGUI()
 				{
-					ent_press = entity,
+					ent_press = ent_press,
 
 					transform = transform,
 
@@ -338,8 +365,8 @@
 					crafter = crafter,
 					crafter_state = crafter_state,
 
-					axle = axle,
-					axle_state = axle_state
+					//axle = axle,
+					//axle_state = axle_state
 				};
 				gui.Submit();
 			}
@@ -348,10 +375,10 @@
 		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnUpdate(ISystem.Info info,
 		[Source.Owned] in Transform.Data transform,
-		[Source.Owned] ref Press.Data press, [Source.Owned] ref Axle.Data axle, [Source.Owned] ref Axle.State axle_state,
+		[Source.Owned] ref Press.Data press, // [Source.Owned] ref Axle.Data axle, [Source.Owned] ref Axle.State axle_state,
 		[Source.Owned, Pair.Component<Press.Data>] ref Animated.Renderer.Data renderer_slider)
 		{
-			renderer_slider.offset = press.slider_offset + new Vector2(0.00f, MathF.Pow((MathF.Cos(axle_state.rotation) + 1.00f) * 0.50f, press.speed) * press.slider_length);
+			//renderer_slider.offset = press.slider_offset + new Vector2(0.00f, MathF.Pow((MathF.Cos(axle_state.rotation) + 1.00f) * 0.50f, press.speed) * press.slider_length);
 		}
 #endif
 	}

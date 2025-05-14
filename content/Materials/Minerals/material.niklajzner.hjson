@@ -22,6 +22,10 @@
 	type: metal_solid
 	flags: malleable, magnetic, granular, metal, mineral, raw, solid, primary
 	display_flags: none
+	spawn_flags:
+	{
+		add: show_notification
+	}
 	hints: none
 	
 	mass_per_unit: 1.780

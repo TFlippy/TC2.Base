@@ -178,7 +178,8 @@ ai.movement:
 
 ai.behavior:
 {
-	combat_flags: attack_when_hit, cover, defend, chase, charge
+	movement_flags: hold, open_doors
+	combat_flags: attack_visible, attack_when_hit, cover, flee, defend, chase, charge
 }
 
 ai.search:
