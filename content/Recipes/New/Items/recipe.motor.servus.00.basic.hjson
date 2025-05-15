@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.5"
 	name: "Motor (Servus)"
 	tips:
 	[
@@ -15,6 +15,7 @@
 			
 			type: part
 			flags: wip, incomplete, auto_generated
+			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
 			
@@ -75,6 +76,7 @@
 			
 			type: part
 			flags: wip, incomplete, auto_generated
+			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
 			
@@ -97,7 +99,7 @@
 							amount: 1.000
 							snapping: 1.000
 							group: 0
-							flags: prerequisite, locked
+							flags: prerequisite
 						}
 						{
 							type: work
@@ -128,10 +130,6 @@
 						require: screwdriver, wrench
 						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, stapler, towel, tongs, pick, crowbar, knife
 					}
-					filter_machinery:
-					{
-						include: heater
-					}
 					filter_infrastructure:
 					{
 						require: table
@@ -152,7 +150,7 @@
 							amount: 2.000
 							snapping: 2.000
 							group: 0
-							flags: prerequisite, locked
+							flags: prerequisite
 						}
 						{
 							type: work
@@ -183,10 +181,6 @@
 						require: screwdriver, wrench
 						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, stapler, towel, tongs, pick, crowbar, knife
 					}
-					filter_machinery:
-					{
-						include: heater
-					}
 					filter_infrastructure:
 					{
 						require: table
@@ -207,7 +201,7 @@
 							amount: 3.000
 							snapping: 3.000
 							group: 0
-							flags: prerequisite, locked
+							flags: prerequisite
 						}
 						{
 							type: work
@@ -238,10 +232,6 @@
 						require: screwdriver, wrench
 						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, stapler, towel, tongs, pick, crowbar, knife
 					}
-					filter_machinery:
-					{
-						include: heater
-					}
 					filter_infrastructure:
 					{
 						require: table
@@ -255,6 +245,7 @@
 			
 			type: part
 			flags: wip, incomplete, auto_generated
+			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
 			
@@ -325,8 +316,9 @@
 	
 	type: workshop
 	flags: no_amount_multiplier, item, wip
-	tags: workbench, manual, magitronics, machinery, assembling, metalworking, engineering
-	infrastructure: shaping_mould
+	tags: workbench, manual, complex, medium, magitronics, machinery, delicate, assembling, metalworking, engineering
+	infrastructure: table
+	infrastructure_exclude: none
 	
 	icon:
 	{
@@ -336,6 +328,7 @@
 	}
 	
 	color_frame: "0xff19e2b1"
+	color_button: "0xff9dd80f"
 	button_name: "Craft"
 	rank: 0.000
 	

@@ -109,16 +109,15 @@ shop:
 		exclude: laboratory, passive, advanced, huge, machining, social, forestry, overworld
 	}
 	
-	tools: ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, pliers, bucket, axe, file, chisel, towel, tongs, pick, crowbar, knife, sandpaper
-	environment: indoor, warm, workshop, stationary, dirty, contaminated, smelly, cozy, scary, noisy, reinforced, durable, sturdy
-	infrastructure: oven, anvil, forge, barrel, table, vise, rack, crucible, casting_mould, workbench
-	machinery: grinder, heater, burner
+	tools: ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, spanner, pliers, bucket, axe, shovel, file, chisel, towel, spatula, tongs, pick, crowbar, knife, sandpaper, ladle
+	infrastructure: oven, anvil, forge, barrel, table, chair, vise, rack, crucible, casting_mould, pulley, bucket, surface, hard_surface, heater, stove, kiln, structure, building, workbench
+	environment: indoor, warm, workshop, stationary, dirty, smelly, cozy, scary, noisy, reinforced, durable, sturdy, large
 	
+	flags: none
 	menu_columns: 6
 	recipe_type: workshop
-	flags: none
 	
-	offset_spawn: [0.000, 0.000]
+	offset_spawn: [1.875, 0.250]
 	
 	name: "Metalworks"
 }
@@ -133,12 +132,11 @@ workshop:
 		flags: standalone, allow_ducts, ignore_mass, public, faction
 		stack_size_multiplier: 5.000
 		
-		offset: [0.000, 0.000]
-
 		filter:
 		{
 			exclude: gas
 		}
+		offset: [0.500, 0.000]
 	}
 }
 

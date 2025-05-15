@@ -1,6 +1,7 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.5"
 	name: "Wood"
+	
 	type: organic
 	atomic_number: 0
 	flags: none
@@ -49,6 +50,8 @@
 	triple_point_pressure: 0.000
 	
 	// K
+	ductile_temperature: 0.000
+	// K
 	forging_temperature_lower: 0.000
 	// K
 	forging_temperature_upper: 0.000
@@ -85,5 +88,6 @@
 		gravel: woodchips
 		raw: timber
 		gas: wood_gas
+		rod: wood.rod
 	}
 }

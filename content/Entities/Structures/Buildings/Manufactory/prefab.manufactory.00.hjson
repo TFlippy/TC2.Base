@@ -107,14 +107,13 @@ shop:
 		exclude: passive, huge, blacksmithing, social, science, biology, forestry, smelting, fermenting, melting, heating, casting, moulding, overworld
 	}
 	
-	tools: pencil, paper, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, pliers, bucket, paintbrush, file, towel, crowbar, knife, sandpaper, needle, pins
-	infrastructure: dishes, table, chair, vise, rack, pulley, surface, hard_surface, workbench
-	machinery: lathe, mill, sander, planer
+	tools: pencil, paper, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, spanner, pliers, cleaver, tweezers, magnifying_glass, bucket, paintbrush, axe, shovel, syringe, stapler, file, chisel, towel, spatula, tongs, pick, crowbar, knife, sandpaper, needle, pins, scissors, ladle, calculator
+	infrastructure: dishes, bottle, barrel, table, chair, vise, rack, shaping_mould, pulley, bucket, surface, hard_surface, structure, building, workbench
 	environment: workshop, stationary, dirty, cozy, noisy, durable, sturdy, flammable
 	
+	flags: none
 	menu_columns: 6
 	recipe_type: workshop
-	flags: none
 	
 	name: "Manufactory"
 }
