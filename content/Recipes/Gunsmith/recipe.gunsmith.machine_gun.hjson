@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.5"
 	name: "Machine Gun"
 	desc:
 		'''
@@ -8,7 +8,219 @@
 		'''
 	tips: []
 	
-	requirements:
+	stages:
+	[
+		{
+			name: "Barrel"
+			
+			type: part
+			flags: replaceable, part, important, wip, auto_generated
+			tags: barrel, chassis, rod, metal, structural, rounded
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 0.400
+			mass_base: 18.000
+			
+			options:
+			[
+				{
+					name: "Bent"
+					
+					type: undefined
+					flags: auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.plate
+							amount: 8.33415
+							snapping: 1.000
+							loss: 0.078
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: bending
+							amount: 2700.000
+							amount_min: 630.000
+							difficulty: 7
+							snapping: 5.000
+							falloff: 0.840
+							ratio: 0.898
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					quality: 1.000
+					precision: 1.000
+					
+					filter_tools:
+					{
+						require: hammer
+						include: hammer, pliers, chisel, towel, crowbar
+					}
+					filter_infrastructure:
+					{
+						include: anvil, vise, hard_surface, workbench
+					}
+				}
+			]
+		}
+		{
+			name: "Receiver"
+			
+			type: part
+			flags: part, important, wip, auto_generated
+			tags: frame, chassis, mechanism, metal, structural, functional
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 0.450
+			mass_base: 20.250
+			
+			options:
+			[
+				{
+					name: "Standard"
+					
+					type: undefined
+					flags: auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.frames
+							amount: 8.789362
+							snapping: 0.100
+							loss: 0.078
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: machine_parts
+							amount: 25.18784
+							snapping: 0.100
+							loss: 0.098
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: filing
+							amount: 3960.000
+							amount_min: 55.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.880
+							ratio: 0.898
+							group: 0
+							flags: conditional
+						}
+						{
+							type: work
+							work: assembling
+							amount: 7580.000
+							amount_min: 380.000
+							difficulty: 16
+							snapping: 5.000
+							falloff: 0.880
+							ratio: 0.898
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					quality: 1.000
+					precision: 1.000
+					
+					filter_tools:
+					{
+						require: screwdriver, wrench, file
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, stapler, towel, tongs, pick, crowbar, knife
+					}
+					filter_environment:
+					{
+						include: workshop, stationary, illuminated, dry
+					}
+				}
+			]
+		}
+		{
+			name: "Stock"
+			
+			type: part
+			flags: replaceable, part, wip, auto_generated
+			tags: grip, rounded
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 0.020
+			mass_base: 0.900
+			
+			options:
+			[
+				{
+					name: "Standard"
+					
+					type: undefined
+					flags: auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: wood
+							amount: 0.483981
+							snapping: 0.500
+							loss: 0.129
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: woodcarving
+							amount: 350.000
+							amount_min: 95.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.910
+							ratio: 0.898
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					quality: 1.000
+					precision: 1.000
+					
+					filter_tools:
+					{
+						require: file, knife
+						include: saw, hand_drill, file, knife, sandpaper
+					}
+				}
+			]
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: machine_gun
+			amount: 1.000
+			group: 0
+			flags: primary, compact
+		}
+	]
+	
+	requirements_old:
 	[
 		{
 			type: resource
@@ -34,6 +246,7 @@
 			amount: 600.000
 			difficulty: 18
 			group: 0
+			flags: conditional
 		}
 		{
 			type: work
@@ -41,6 +254,7 @@
 			amount: 100.000
 			difficulty: 4
 			group: 0
+			flags: conditional
 		}
 		{
 			type: work
@@ -48,10 +262,11 @@
 			amount: 750.000
 			difficulty: 9
 			group: 0
+			flags: conditional
 		}
 	]
 	
-	products:
+	products_old:
 	[
 		{
 			type: prefab
@@ -62,9 +277,10 @@
 	]
 	
 	type: workshop
-	flags: blueprintable, disabled, wip
+	flags: blueprintable, item, wip, converted
 	tags: workbench, workshop, manual, complex, weapon, gun, assembling, machining, metalworking, engineering, military, construction
 	infrastructure: table, vise, surface, hard_surface, workbench
+	infrastructure_exclude: none
 	
 	icon:
 	{
@@ -79,5 +295,5 @@
 	max: 10
 	step: 1
 	
-	version: 0
+	version: 1
 }

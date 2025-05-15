@@ -251,10 +251,116 @@
 				mass_barrel = mass_prefab * ratio_barrel;
 
 				if (gun.flags.HasAny(Flags.Cycle_On_Shoot)) complexity += 1.80f;
-				if (gun.flags.HasAny(Flags.Eject_On_Shoot)) complexity *= 1.10f;
-				if (gun.flags.HasAny(Flags.Manual_Cycle)) complexity *= 0.85f;
-				if (gun.flags.HasAny(Flags.Eject_From_Muzzle)) complexity *= 0.50f;
-				if (gun.flags.HasAny(Flags.Automatic)) complexity *= 1.50f;
+
+				switch (gun.feed)
+				{
+					case Feed.Single:
+					case Feed.Breech:
+					case Feed.Front:
+					{
+						complexity *= 0.75f;
+					}
+					break;
+
+					case Feed.Magazine:
+					{
+						complexity *= 1.20f;
+					}
+					break;
+
+					case Feed.Funnel:
+					{
+						complexity *= 0.70f;
+					}
+					break;
+
+					case Feed.Drum:
+					{
+						complexity *= 1.30f;
+					}
+					break;
+
+					case Feed.Clip:
+					{
+						complexity *= 0.90f;
+					}
+					break;
+
+					case Feed.Cylinder:
+					{
+						complexity *= 0.88f;
+					}
+					break;
+				}
+
+				switch (gun.action)
+				{
+					case Action.Revolver:
+					{
+						complexity += 1.90f;
+					}
+					break;
+					
+					case Action.Manual:
+					{
+
+					}
+					break;
+					
+					case Action.Bolt:
+					{
+						complexity += 1.00f;
+					}
+					break;
+
+					case Action.Lever:
+					{
+						complexity += 1.50f;
+					}
+					break;
+
+					case Action.Pump:
+					{
+						complexity += 2.50f;
+					}
+					break;
+
+					case Action.Blowback:
+					{
+						complexity += 3.00f;
+					}
+					break;
+
+					case Action.Gas:
+					{
+						complexity += 4.00f;
+					}
+					break;
+
+					case Action.Matchlock:
+					{
+
+					}
+					break;
+
+					case Action.Flintlock:
+					{
+
+					}
+					break;
+
+					case Action.Crank:
+					{
+
+					}
+					break;
+
+					case Action.Motor:
+					{
+						complexity += 5.00f;
+					}
+					break;
+				}
 
 				switch (gun.type)
 				{
@@ -330,6 +436,11 @@
 					break;
 				}
 
+				if (gun.flags.HasAny(Flags.Eject_On_Shoot)) complexity *= 1.10f;
+				if (gun.flags.HasAny(Flags.Manual_Cycle)) complexity *= 0.85f;
+				if (gun.flags.HasAny(Flags.Eject_From_Muzzle)) complexity *= 0.50f;
+				if (gun.flags.HasAny(Flags.Automatic)) complexity *= 1.50f;
+
 				mass_parts += mass_prefab - (mass_grip + mass_barrel + mass_receiver + mass_parts);
 				//mass_barrel += mass_prefab - (mass_grip + mass_barrel + mass_receiver + mass_parts);
 
@@ -379,11 +490,11 @@
 										req.loss = 1.00f - Maths.Normalize01(rod_area - bore_area, rod_area);
 
 										req_work.work = "drilling";
-										req_work.amount = (mass_barrel * bore_area.cm2() * 100).SnapCeil(5);
-										req_work.amount_min = (mass_barrel * bore_area.cm2() * 40).SnapCeil(10);
+										req_work.amount = (mass_barrel * ratio_barrel * 850).SnapCeil(5);
+										req_work.amount_min = (mass_barrel * ratio_barrel * 580).SnapCeil(10);
 										req_work.difficulty = 8;
 										req_work.snapping = 5;
-										req_work.falloff = 0.87f;
+										req_work.falloff = 0.94f;
 										req_work.ratio = 0.90f;
 									}
 									break;

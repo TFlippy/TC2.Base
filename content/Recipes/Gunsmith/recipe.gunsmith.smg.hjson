@@ -48,7 +48,7 @@
 							difficulty: 7
 							snapping: 5.000
 							falloff: 0.840
-							ratio: 0.894
+							ratio: 0.886
 							group: 0
 							flags: conditional
 						}
@@ -105,7 +105,7 @@
 							material: machine_parts
 							amount: 4.546728
 							snapping: 0.500
-							loss: 0.094
+							loss: 0.086
 							group: 0
 							flags: prerequisite
 						}
@@ -117,7 +117,7 @@
 							difficulty: 6
 							snapping: 5.000
 							falloff: 0.880
-							ratio: 0.894
+							ratio: 0.886
 							group: 0
 							flags: conditional
 						}
@@ -126,10 +126,10 @@
 							work: assembling
 							amount: 590.000
 							amount_min: 165.000
-							difficulty: 7
+							difficulty: 8
 							snapping: 5.000
 							falloff: 0.880
-							ratio: 0.894
+							ratio: 0.886
 							group: 0
 							flags: conditional
 						}
@@ -177,7 +177,7 @@
 							material: wood
 							amount: 0.283936
 							snapping: 0.500
-							loss: 0.125
+							loss: 0.122
 							group: 0
 							flags: prerequisite
 						}
@@ -189,7 +189,7 @@
 							difficulty: 6
 							snapping: 5.000
 							falloff: 0.910
-							ratio: 0.894
+							ratio: 0.886
 							group: 0
 							flags: conditional
 						}

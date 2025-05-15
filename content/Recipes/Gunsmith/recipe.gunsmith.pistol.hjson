@@ -18,8 +18,8 @@
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
 			
-			ratio: 0.580
-			mass_base: 0.986
+			ratio: 0.390
+			mass_base: 0.663
 			
 			options:
 			[
@@ -34,7 +34,7 @@
 						{
 							type: resource
 							material: steel.rod
-							amount: 0.178549
+							amount: 0.120059
 							snapping: 0.500
 							loss: 0.055
 							group: 0
@@ -43,11 +43,11 @@
 						{
 							type: work
 							work: drilling
-							amount: 70.000
-							amount_min: 30.000
+							amount: 220.000
+							amount_min: 150.000
 							difficulty: 8
 							snapping: 5.000
-							falloff: 0.870
+							falloff: 0.940
 							ratio: 0.898
 							group: 0
 							flags: conditional
@@ -74,8 +74,8 @@
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
 			
-			ratio: 0.250
-			mass_base: 0.425
+			ratio: 0.280
+			mass_base: 0.476
 			
 			options:
 			[
@@ -90,7 +90,7 @@
 						{
 							type: resource
 							material: steel.frames
-							amount: 0.184468
+							amount: 0.206604
 							snapping: 0.100
 							loss: 0.078
 							group: 0
@@ -99,7 +99,7 @@
 						{
 							type: resource
 							material: machine_parts
-							amount: 0.365977
+							amount: 1.683495
 							snapping: 0.500
 							loss: 0.098
 							group: 0
@@ -108,7 +108,7 @@
 						{
 							type: work
 							work: filing
-							amount: 90.000
+							amount: 135.000
 							amount_min: 55.000
 							difficulty: 6
 							snapping: 5.000
@@ -120,9 +120,9 @@
 						{
 							type: work
 							work: assembling
-							amount: 36.59772
-							amount_min: 25.000
-							difficulty: 6
+							amount: 280.000
+							amount_min: 205.000
+							difficulty: 9
 							snapping: 5.000
 							falloff: 0.880
 							ratio: 0.898
@@ -155,8 +155,8 @@
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
 			
-			ratio: 0.120
-			mass_base: 0.204
+			ratio: 0.100
+			mass_base: 0.170
 			
 			options:
 			[
@@ -171,7 +171,7 @@
 						{
 							type: resource
 							material: wood
-							amount: 0.109702
+							amount: 0.091419
 							snapping: 0.500
 							loss: 0.129
 							group: 0
@@ -180,8 +180,8 @@
 						{
 							type: work
 							work: woodcarving
-							amount: 63.240
-							amount_min: 25.000
+							amount: 70.000
+							amount_min: 20.000
 							difficulty: 6
 							snapping: 5.000
 							falloff: 0.910
