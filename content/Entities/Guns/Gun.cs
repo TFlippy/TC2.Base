@@ -163,7 +163,7 @@
 			Assembly = 1 << 8,
 		}
 
-		public static void GEN_SetupGunRecipe(ref this IRecipe.Data recipe, SetupGunFlags flags = SetupGunFlags.None)
+		public static void GEN_SetupGunRecipe(ref this IRecipe.Data recipe, float ratio_grip, float ratio_receiver, float ratio_barrel, SetupGunFlags flags = SetupGunFlags.None)
 		{
 			try
 			{
@@ -193,6 +193,18 @@
 
 				var mass_prefab = prefab.GetMass();
 
+				var mass_grip = 0.00f;
+				var mass_barrel = 0.00f;
+				var mass_receiver = 0.00f;
+				var mass_parts = 0.00f;
+
+				var complexity = 1.00f;
+
+				var h_material_grip = IMaterial.Handle.None;
+				var h_material_barrel = IMaterial.Handle.None;
+				var h_material_receiver = IMaterial.Handle.None;
+				var h_material_machine_parts = (IMaterial.Handle)"machine_parts";
+
 				var ammo_type = Material.Flags.None;
 				var bore_diameter = Length.Default;
 				var rod_diameter = Length.cm(4.00f);
@@ -202,96 +214,124 @@
 				{
 					ammo_type = Material.Flags.Ammo_AC;
 					bore_diameter = Length.mm(33.60f);
+					h_material_barrel = "steel.plate";
+					complexity += 4.00f;
 				}
-				else if (gun.ammo_filter.HasAny(Material.Flags.Ammo_MG | Material.Flags.Ammo_SG))
+				else if (gun.ammo_filter.HasAny(Material.Flags.Ammo_SG))
+				{
+					ammo_type = Material.Flags.Ammo_SG;
+					bore_diameter = Length.mm(20.40f);
+					h_material_barrel = "steel.plate";
+					complexity += 1.80f;
+				}
+				else if (gun.ammo_filter.HasAny(Material.Flags.Ammo_MG))
 				{
 					ammo_type = Material.Flags.Ammo_MG;
 					bore_diameter = Length.mm(20.40f);
+					h_material_barrel = "steel.plate";
+					complexity += 2.60f;
 				}
 				else if (gun.ammo_filter.HasAny(Material.Flags.Ammo_HC))
 				{
 					ammo_type = Material.Flags.Ammo_HC;
 					bore_diameter = Length.mm(13.20f);
+					h_material_barrel = "steel.rod";
+					complexity += 2.00f;
 				}
 				else if (gun.ammo_filter.HasAny(Material.Flags.Ammo_LC))
 				{
 					ammo_type = Material.Flags.Ammo_LC;
 					bore_diameter = Length.mm(9.40f);
+					h_material_barrel = "steel.rod";
+					complexity += 1.50f;
 				}
 
-				var mass_grip = 0.00f;
-				var mass_barrel = 0.00f;
-				var mass_receiver = 0.00f;
-				var mass_parts = 0.00f;
+				mass_grip = mass_prefab * ratio_grip;
+				mass_receiver = mass_prefab * ratio_receiver;
+				mass_barrel = mass_prefab * ratio_barrel;
 
-				var h_material_grip = IMaterial.Handle.None;
-				var h_material_barrel = IMaterial.Handle.None;
-				var h_material_receiver = IMaterial.Handle.None;
-
-				var h_material_machine_parts = (IMaterial.Handle)"machine_parts";
+				if (gun.flags.HasAny(Flags.Cycle_On_Shoot)) complexity += 1.80f;
+				if (gun.flags.HasAny(Flags.Eject_On_Shoot)) complexity *= 1.10f;
+				if (gun.flags.HasAny(Flags.Manual_Cycle)) complexity *= 0.85f;
+				if (gun.flags.HasAny(Flags.Eject_From_Muzzle)) complexity *= 0.50f;
+				if (gun.flags.HasAny(Flags.Automatic)) complexity *= 1.50f;
 
 				switch (gun.type)
 				{
 					case Type.Handgun:
 					{
-						mass_grip = mass_prefab * 0.12f;
-						//mass_barrel = mass_prefab * 0.35f;
-						mass_receiver = mass_prefab * 0.25f;
-						mass_parts = mass_prefab * 0.05f;
+						//mass_grip = mass_prefab * 0.12f;
+						//mass_receiver = mass_prefab * 0.25f;
+						//mass_parts = mass_prefab * 0.05f;
 
 						h_material_grip = "wood";
-						//h_material_barrel = "steel.plate";
 						h_material_receiver = "steel.frames";
 
-						recipe.max = 10;
+						if (recipe.max >= 40) recipe.max = 20;
 					}
 					break;
 
 					case Type.Shotgun:
 					{
-						mass_grip = mass_prefab * 0.12f;
+						//mass_grip = mass_prefab * 0.12f;
+						//mass_receiver = mass_prefab * 0.25f;
+						//mass_parts = mass_prefab * 0.05f;
+
+						h_material_grip = "wood";
+						h_material_receiver = "steel.frames";
+
+						if (recipe.max >= 40) recipe.max = 8;
 					}
 					break;
 
 					case Type.SMG:
 					{
-						mass_grip = mass_prefab * 0.12f;
+						h_material_grip = "wood";
+						h_material_receiver = "steel.frames";
+
+						if (recipe.max >= 40) recipe.max = 12;
 					}
 					break;
 
 					case Type.Rifle:
 					{
-						mass_grip = mass_prefab * 0.12f;
+						h_material_grip = "wood";
+						h_material_receiver = "steel.frames";
+
+						if (recipe.max >= 40) recipe.max = 10;
 					}
 					break;
 
 					case Type.MachineGun:
 					{
-						mass_grip = mass_prefab * 0.12f;
+						h_material_grip = "wood";
+						h_material_receiver = "steel.frames";
+
+						if (recipe.max >= 40) recipe.max = 4;
 					}
 					break;
 
 					case Type.Cannon:
 					{
-						mass_grip = mass_prefab * 0.12f;
+						if (recipe.max >= 40) recipe.max = 1;
 					}
 					break;
 
 					case Type.AutoCannon:
 					{
-						mass_grip = mass_prefab * 0.12f;
+						if (recipe.max >= 40) recipe.max = 2;
 					}
 					break;
 
 					case Type.Launcher:
 					{
-						mass_grip = mass_prefab * 0.12f;
+						if (recipe.max >= 40) recipe.max = 6;
 					}
 					break;
 				}
 
-				//mass_parts += mass_prefab - (mass_grip + mass_barrel + mass_receiver + mass_parts);
-				mass_barrel += mass_prefab - (mass_grip + mass_barrel + mass_receiver + mass_parts);
+				mass_parts += mass_prefab - (mass_grip + mass_barrel + mass_receiver + mass_parts);
+				//mass_barrel += mass_prefab - (mass_grip + mass_barrel + mass_receiver + mass_parts);
 
 				if (recipe.stages.IsNullOrEmpty() || flags.HasAll(SetupGunFlags.New | SetupGunFlags.Overwrite))
 				{
@@ -351,6 +391,17 @@
 									default:
 									{
 										h_material_barrel = "steel.plate";
+										option.name = "Bent";
+
+										req.loss = 0.08f;
+
+										req_work.work = "bending";
+										req_work.amount = (mass_barrel * 15).Ceil() * 10;
+										req_work.amount_min = (mass_barrel * 35).SnapCeil(10);
+										req_work.difficulty = 7;
+										req_work.snapping = 5;
+										req_work.falloff = 0.84f;
+										req_work.ratio = 0.90f;
 									}
 									break;
 								}
@@ -430,9 +481,9 @@
 								req.snapping = req.material.DEV_GetDefaultSnapping();
 
 								req_work.work = "assembling";
-								req_work.amount = req.amount * 100.00f;
-								req_work.amount_min = 25.00f;
-								req_work.difficulty = 6;
+								req_work.amount = (req.amount * 20.00f * complexity).SnapCeil(10);
+								req_work.amount_min = (complexity * 25.00f).SnapCeil(5.00f);
+								req_work.difficulty = (byte)complexity.CeilToUInt();
 								req_work.snapping = 5;
 								req_work.falloff = 0.88f;
 								req_work.ratio = 0.90f;
@@ -475,8 +526,8 @@
 								req.snapping = req.material.DEV_GetDefaultSnapping();
 
 								req_work.work = "woodcarving";
-								req_work.amount = (req.material.GetMassFromQuantity(req.amount) * req.loss * 1000).Ceil() * mass_grip * 10;
-								req_work.amount_min = 25.00f;
+								req_work.amount = (((req.material.GetMassFromQuantity(req.amount) * req.loss * 1000).Ceil() * mass_grip * 10).Sqrt() * 10).SnapCeil(10);
+								req_work.amount_min = ((req_work.amount * 0.13f).Ceil() * 2).SnapCeil(5);
 								req_work.difficulty = 6;
 								req_work.snapping = 5;
 								req_work.falloff = 0.91f;

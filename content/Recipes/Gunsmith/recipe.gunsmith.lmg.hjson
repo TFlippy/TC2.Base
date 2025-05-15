@@ -10,16 +10,76 @@
 	stages:
 	[
 		{
-			name: "Construction"
+			name: "Barrel"
 			
-			type: construction
-			flags: wip, auto_generated
-			tags: none
+			type: part
+			flags: replaceable, part, important, wip, auto_generated
+			tags: barrel, chassis, rod, metal, structural, rounded
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
 			
-			ratio: 1.000
-			mass_base: 12.000
+			ratio: 0.430
+			mass_base: 5.160
+			
+			options:
+			[
+				{
+					name: "Bent"
+					
+					type: undefined
+					flags: auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.plate
+							amount: 2.389123
+							snapping: 1.000
+							loss: 0.075
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: bending
+							amount: 780.000
+							amount_min: 190.000
+							difficulty: 7
+							snapping: 5.000
+							falloff: 0.840
+							ratio: 0.894
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					quality: 1.000
+					precision: 1.000
+					
+					filter_tools:
+					{
+						require: hammer
+						include: hammer, pliers, chisel, towel, crowbar
+					}
+					filter_infrastructure:
+					{
+						include: anvil, vise, hard_surface, workbench
+					}
+				}
+			]
+		}
+		{
+			name: "Receiver"
+			
+			type: part
+			flags: part, important, wip, auto_generated
+			tags: frame, chassis, mechanism, metal, structural, functional
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 0.380
+			mass_base: 4.560
 			
 			options:
 			[
@@ -27,78 +87,121 @@
 					name: "Standard"
 					
 					type: undefined
-					flags: wip, auto_generated
+					flags: auto_generated
 					
 					requirements:
 					[
 						{
 							type: resource
-							material: wood
-							amount: 0.32081
-							snapping: 0.500
-							loss: 0.125
-							group: 0
-							flags: prerequisite
-						}
-						{
-							type: resource
-							material: steel.ingot
-							amount: 0.940306
-							snapping: 1.000
+							material: steel.frames
+							amount: 1.979234
+							snapping: 0.100
+							loss: 0.075
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: resource
 							material: machine_parts
-							amount: 1.316429
-							snapping: 1.000
+							amount: 6.71676
+							snapping: 0.500
+							loss: 0.094
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: work
-							work: smithing
-							amount: 400.000
-							difficulty: 18
-							snapping: 25.000
-							group: 0
-							flags: conditional
-						}
-						{
-							type: work
-							work: woodworking
-							amount: 80.000
-							difficulty: 4
-							snapping: 25.000
+							work: filing
+							amount: 900.000
+							amount_min: 55.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.880
+							ratio: 0.894
 							group: 0
 							flags: conditional
 						}
 						{
 							type: work
 							work: assembling
-							amount: 600.000
-							difficulty: 12
-							snapping: 25.000
+							amount: 970.000
+							amount_min: 180.000
+							difficulty: 8
+							snapping: 5.000
+							falloff: 0.880
+							ratio: 0.894
 							group: 0
 							flags: conditional
 						}
 					]
 					
+					quality: 1.000
+					precision: 1.000
+					
 					filter_tools:
 					{
-						require: hammer, saw, screwdriver, wrench, file, tongs, knife
-						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, pliers, tweezers, axe, stapler, file, chisel, towel, tongs, pick, crowbar, knife
-					}
-					filter_infrastructure:
-					{
-						require: anvil, forge, table
-						include: oven, anvil, barrel, table, chair, vise
+						require: screwdriver, wrench, file
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, stapler, towel, tongs, pick, crowbar, knife
 					}
 					filter_environment:
 					{
-						include: workshop, stationary, fireproof, sturdy
-						exclude: fragile
+						include: workshop, stationary, illuminated, dry
+					}
+				}
+			]
+		}
+		{
+			name: "Stock"
+			
+			type: part
+			flags: replaceable, part, wip, auto_generated
+			tags: grip, rounded
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 0.060
+			mass_base: 0.720
+			
+			options:
+			[
+				{
+					name: "Standard"
+					
+					type: undefined
+					flags: auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: wood
+							amount: 0.387185
+							snapping: 0.500
+							loss: 0.125
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: woodcarving
+							amount: 280.000
+							amount_min: 75.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.910
+							ratio: 0.894
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					quality: 1.000
+					precision: 1.000
+					
+					filter_tools:
+					{
+						require: file, knife
+						include: saw, hand_drill, file, knife, sandpaper
 					}
 				}
 			]
@@ -112,7 +215,7 @@
 			prefab: lmg
 			amount: 1.000
 			group: 0
-			flags: primary
+			flags: primary, compact
 		}
 	]
 	
@@ -173,7 +276,7 @@
 	]
 	
 	type: workshop
-	flags: blueprintable, construction, item, wip, converted
+	flags: blueprintable, item, wip, converted
 	tags: workshop, manual, complex, weapon, gun, assembling, machining, metalworking, engineering, military, construction
 	infrastructure: table, workbench
 	infrastructure_exclude: none
