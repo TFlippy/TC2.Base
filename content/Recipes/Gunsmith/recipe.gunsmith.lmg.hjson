@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.5"
 	name: "LMG"
 	desc:
 		'''
@@ -14,6 +14,7 @@
 			
 			type: construction
 			flags: wip, auto_generated
+			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
 			
@@ -35,7 +36,7 @@
 							material: wood
 							amount: 0.32081
 							snapping: 0.500
-							loss: 0.129
+							loss: 0.125
 							group: 0
 							flags: prerequisite
 						}
@@ -89,10 +90,6 @@
 						require: hammer, saw, screwdriver, wrench, file, tongs, knife
 						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, pliers, tweezers, axe, stapler, file, chisel, towel, tongs, pick, crowbar, knife
 					}
-					filter_machinery:
-					{
-						include: lathe, heater
-					}
 					filter_infrastructure:
 					{
 						require: anvil, forge, table
@@ -145,6 +142,7 @@
 			amount: 400.000
 			difficulty: 18
 			group: 0
+			flags: conditional
 		}
 		{
 			type: work
@@ -152,6 +150,7 @@
 			amount: 80.000
 			difficulty: 4
 			group: 0
+			flags: conditional
 		}
 		{
 			type: work
@@ -159,6 +158,7 @@
 			amount: 600.000
 			difficulty: 12
 			group: 0
+			flags: conditional
 		}
 	]
 	
@@ -176,6 +176,7 @@
 	flags: blueprintable, construction, item, wip, converted
 	tags: workshop, manual, complex, weapon, gun, assembling, machining, metalworking, engineering, military, construction
 	infrastructure: table, workbench
+	infrastructure_exclude: none
 	
 	icon:
 	{
@@ -183,10 +184,11 @@
 	}
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	rank: 0.000
 	
 	min: 1
-	max: 10
+	max: 4
 	step: 1
 	
 	version: 1
