@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.62.5"
 	name: "Woodcarving"
 	name_short: "Carving"
 	desc:
@@ -21,13 +21,10 @@
 	color: "0xff719240"
 	
 	tools_required: file, knife
-	tools_optional: saw, hand_drill, file, knife, sandpaper
+	tools_optional: hand_drill, screwdriver, pliers, file, chisel, knife, sandpaper
 	
-	machinery_required: none
-	machinery_optional: lathe, mill, sander, planer
-	
-	equipment_required: none
-	equipment_optional: table, chair, vise
+	infrastructure_required: none
+	infrastructure_optional: none
 	
 	character_traits:
 	{

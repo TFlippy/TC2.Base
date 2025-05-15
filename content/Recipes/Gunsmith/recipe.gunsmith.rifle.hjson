@@ -49,7 +49,7 @@
 							difficulty: 7
 							snapping: 5.000
 							falloff: 0.840
-							ratio: 0.894
+							ratio: 0.882
 							group: 0
 							flags: conditional
 						}
@@ -106,7 +106,7 @@
 							material: machine_parts
 							amount: 0.839596
 							snapping: 0.500
-							loss: 0.094
+							loss: 0.082
 							group: 0
 							flags: prerequisite
 						}
@@ -118,7 +118,7 @@
 							difficulty: 6
 							snapping: 5.000
 							falloff: 0.880
-							ratio: 0.894
+							ratio: 0.882
 							group: 0
 							flags: conditional
 						}
@@ -130,7 +130,7 @@
 							difficulty: 3
 							snapping: 5.000
 							falloff: 0.880
-							ratio: 0.894
+							ratio: 0.882
 							group: 0
 							flags: conditional
 						}
@@ -178,7 +178,7 @@
 							material: wood
 							amount: 0.349542
 							snapping: 0.500
-							loss: 0.125
+							loss: 0.122
 							group: 0
 							flags: prerequisite
 						}
@@ -190,7 +190,7 @@
 							difficulty: 6
 							snapping: 5.000
 							falloff: 0.910
-							ratio: 0.894
+							ratio: 0.882
 							group: 0
 							flags: conditional
 						}
@@ -279,7 +279,7 @@
 	type: workshop
 	flags: blueprintable, item, wip, converted
 	tags: workbench, workshop, manual, weapon, gun, assembling, metalworking, engineering, military, construction
-	infrastructure: table, vise, workbench
+	infrastructure: workbench
 	infrastructure_exclude: none
 	
 	icon:

@@ -212,7 +212,7 @@ shop:
 		exclude: passive, advanced, large, huge, raw, machining, smelting, fermenting, melting, heating, casting, overworld
 	}
 	
-	tools: pencil, paper, ruler, hammer, screwdriver, magnifying_glass, bucket, towel, knife, needle, pins, scissors
+	tools: pencil, paper, ruler, hammer, screwdriver, magnifying_glass, bucket, towel, knife, needle, pins, scissors, sandpaper
 	infrastructure: dishes, bottle, table, chair, bed, stationery, surface, office, building
 	environment: office, stationary, cozy, quiet, flammable
 	

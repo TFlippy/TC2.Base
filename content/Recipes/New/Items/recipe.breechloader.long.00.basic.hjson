@@ -32,7 +32,7 @@
 							material: steel.ingot
 							amount: 1.4981
 							snapping: 0.500
-							loss: 0.227
+							loss: 0.224
 							group: 0
 							flags: prerequisite
 						}
@@ -41,7 +41,7 @@
 							material: steel.frames
 							amount: 0.5845
 							snapping: 0.500
-							loss: 0.137
+							loss: 0.133
 							group: 0
 							flags: prerequisite
 						}
@@ -96,7 +96,7 @@
 							material: wood
 							amount: 0.359844
 							snapping: 1.000
-							loss: 0.090
+							loss: 0.086
 							group: 0
 							flags: prerequisite
 						}
@@ -280,7 +280,7 @@
 	type: workshop
 	flags: blueprintable, item
 	tags: workshop, manual, simple, weapon, gun, assembling, metalworking
-	infrastructure: table, workbench
+	infrastructure: workbench
 	infrastructure_exclude: none
 	
 	icon:

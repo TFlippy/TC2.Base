@@ -97,7 +97,7 @@
 							material: wood.rod
 							amount: 0.489347
 							snapping: 1.000
-							loss: 0.086
+							loss: 0.082
 							group: 0
 							flags: prerequisite
 						}
@@ -283,7 +283,7 @@
 	type: workshop
 	flags: blueprintable, item
 	tags: manual, simple, weapon, gun, assembling, metalworking
-	infrastructure: table, workbench
+	infrastructure: workbench
 	infrastructure_exclude: none
 	
 	icon:

@@ -159,7 +159,7 @@
 	type: workshop
 	flags: item, wip, converted
 	tags: workbench, workshop, manual, simple, small, magitronics, assembling, metalworking, engineering, construction
-	infrastructure: table, workbench
+	infrastructure: workbench
 	infrastructure_exclude: none
 	
 	icon:

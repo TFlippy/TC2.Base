@@ -55,10 +55,6 @@
 						require: hand_drill
 						include: screwdriver
 					}
-					filter_machinery:
-					{
-						include: lathe
-					}
 					filter_infrastructure:
 					{
 						include: table, vise
@@ -113,10 +109,6 @@
 					{
 						require: file, knife
 						include: saw, hand_drill, file, knife, sandpaper
-					}
-					filter_machinery:
-					{
-						include: lathe, mill, sander, planer
 					}
 					filter_infrastructure:
 					{
@@ -230,7 +222,8 @@
 	type: workshop
 	flags: blueprintable, item
 	tags: workbench, workshop, manual, simple, medium, tool, metalworking, construction
-	infrastructure: table, workbench
+	infrastructure: workbench
+	infrastructure_exclude: none
 	
 	icon:
 	{

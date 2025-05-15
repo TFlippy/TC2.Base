@@ -196,7 +196,7 @@
 	type: workshop
 	flags: blueprintable, packable, item, wip
 	tags: workbench, manual, blacksmithing, metalworking
-	infrastructure: table, workbench
+	infrastructure: workbench
 	infrastructure_exclude: none
 	
 	icon:

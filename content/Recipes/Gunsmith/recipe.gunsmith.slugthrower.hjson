@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.5"
 	name: "Slugthrower"
 	desc:
 		'''
@@ -33,6 +33,7 @@
 			amount: 500.000
 			difficulty: 12
 			group: 0
+			flags: conditional
 		}
 		{
 			type: work
@@ -40,6 +41,7 @@
 			amount: 150.000
 			difficulty: 3
 			group: 0
+			flags: conditional
 		}
 		{
 			type: work
@@ -47,6 +49,7 @@
 			amount: 250.000
 			difficulty: 4
 			group: 0
+			flags: conditional
 		}
 	]
 	
@@ -63,7 +66,8 @@
 	type: workshop
 	flags: blueprintable, disabled, wip
 	tags: workshop, manual, weapon, gun, assembling, metalworking, engineering, military, construction
-	infrastructure: table, workbench
+	infrastructure: workbench
+	infrastructure_exclude: none
 	
 	icon:
 	{
@@ -71,6 +75,7 @@
 	}
 	
 	color_frame: "0xff19e2b1"
+	color_button: "0xff9dd80f"
 	rank: 0.000
 	
 	min: 1

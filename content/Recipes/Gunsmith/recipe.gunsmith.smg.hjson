@@ -48,7 +48,7 @@
 							difficulty: 7
 							snapping: 5.000
 							falloff: 0.840
-							ratio: 0.886
+							ratio: 0.882
 							group: 0
 							flags: conditional
 						}
@@ -105,7 +105,7 @@
 							material: machine_parts
 							amount: 4.546728
 							snapping: 0.500
-							loss: 0.086
+							loss: 0.082
 							group: 0
 							flags: prerequisite
 						}
@@ -117,7 +117,7 @@
 							difficulty: 6
 							snapping: 5.000
 							falloff: 0.880
-							ratio: 0.886
+							ratio: 0.882
 							group: 0
 							flags: conditional
 						}
@@ -129,7 +129,7 @@
 							difficulty: 8
 							snapping: 5.000
 							falloff: 0.880
-							ratio: 0.886
+							ratio: 0.882
 							group: 0
 							flags: conditional
 						}
@@ -189,7 +189,7 @@
 							difficulty: 6
 							snapping: 5.000
 							falloff: 0.910
-							ratio: 0.886
+							ratio: 0.882
 							group: 0
 							flags: conditional
 						}
@@ -278,7 +278,7 @@
 	type: workshop
 	flags: blueprintable, item, wip, converted
 	tags: workbench, workshop, manual, complex, weapon, gun, assembling, metalworking, engineering, military, construction
-	infrastructure: table, rack, surface, hard_surface, workbench
+	infrastructure: table, vise, rack, surface, hard_surface, workbench
 	infrastructure_exclude: none
 	
 	icon:

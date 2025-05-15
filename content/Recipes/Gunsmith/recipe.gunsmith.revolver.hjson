@@ -48,7 +48,7 @@
 							difficulty: 8
 							snapping: 5.000
 							falloff: 0.940
-							ratio: 0.898
+							ratio: 0.882
 							group: 0
 							flags: conditional
 						}
@@ -92,7 +92,7 @@
 							material: steel.frames
 							amount: 0.334213
 							snapping: 0.100
-							loss: 0.078
+							loss: 0.075
 							group: 0
 							flags: prerequisite
 						}
@@ -101,7 +101,7 @@
 							material: machine_parts
 							amount: 1.041959
 							snapping: 0.100
-							loss: 0.098
+							loss: 0.082
 							group: 0
 							flags: prerequisite
 						}
@@ -113,7 +113,7 @@
 							difficulty: 6
 							snapping: 5.000
 							falloff: 0.880
-							ratio: 0.898
+							ratio: 0.882
 							group: 0
 							flags: conditional
 						}
@@ -125,7 +125,7 @@
 							difficulty: 5
 							snapping: 5.000
 							falloff: 0.880
-							ratio: 0.898
+							ratio: 0.882
 							group: 0
 							flags: conditional
 						}
@@ -173,7 +173,7 @@
 							material: wood
 							amount: 0.17746
 							snapping: 0.500
-							loss: 0.129
+							loss: 0.122
 							group: 0
 							flags: prerequisite
 						}
@@ -185,7 +185,7 @@
 							difficulty: 6
 							snapping: 5.000
 							falloff: 0.910
-							ratio: 0.898
+							ratio: 0.882
 							group: 0
 							flags: conditional
 						}
@@ -197,7 +197,7 @@
 					filter_tools:
 					{
 						require: file, knife
-						include: saw, hand_drill, file, knife, sandpaper
+						include: hand_drill, screwdriver, pliers, file, chisel, knife, sandpaper
 					}
 				}
 			]
@@ -273,8 +273,8 @@
 	
 	type: workshop
 	flags: blueprintable, item, wip, converted
-	tags: workbench, workshop, manual, small, weapon, gun, assembling, machining, metalworking, engineering, military, construction
-	infrastructure: table, surface, workbench
+	tags: workbench, workshop, manual, small, weapon, gun, assembling, metalworking, engineering, military, construction
+	infrastructure: table, surface
 	infrastructure_exclude: none
 	
 	icon:

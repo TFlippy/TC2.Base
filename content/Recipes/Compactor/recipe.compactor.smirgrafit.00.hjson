@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.5"
 	name: "Explosive Smirgrafit Compaction"
 	desc:
 		'''
@@ -17,6 +17,7 @@
 			
 			type: payload
 			flags: none
+			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: explosion
 			
@@ -39,7 +40,6 @@
 							amount: 4.886672
 							snapping: 1.000
 							group: 0
-							flags: prerequisite, add_amount_min
 						}
 						{
 							type: work
@@ -50,11 +50,9 @@
 							snapping: 5.000
 							falloff: 0.770
 							group: 0
-							flags: conditional, add_amount_min
+							flags: conditional
 						}
 					]
-					
-					products: []
 					
 					filter_tools:
 					{
@@ -66,16 +64,13 @@
 					}
 				}
 			]
-			
-			requirements: []
-			
-			products: []
 		}
 		{
 			name: "Explosive"
 			
 			type: processing
 			flags: no_residue
+			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: explosion
 			
@@ -111,11 +106,9 @@
 						}
 					]
 					
-					products: []
-					
-					start_delay: 0.500
 					advance_delay: 3.000
 					complete_delay: 5.500
+					
 					h_sound_complete: effect.timer.loop.02
 					
 					on_advance:
@@ -133,16 +126,13 @@
 					}
 				}
 			]
-			
-			requirements: []
-			
-			products: []
 		}
 		{
 			name: "Venting"
 			
 			type: cleaning
 			flags: none
+			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: club
 			
@@ -169,8 +159,6 @@
 						}
 					]
 					
-					products: []
-					
 					start_delay: 1.000
 					complete_delay: 0.250
 					
@@ -178,14 +166,8 @@
 					h_sound_complete: effect.steam.sharp.00
 				}
 			]
-			
-			requirements: []
-			
-			products: []
 		}
 	]
-	
-	requirements: []
 	
 	products:
 	[
@@ -198,9 +180,11 @@
 		}
 	]
 	
-	type: workshop
+	type: compactor
 	flags: wip
-	tags: dangerous, explosive, compaction, metalworking
+	tags: metalworking, explosive, dangerous
+	infrastructure: none
+	infrastructure_exclude: none
 	
 	icon:
 	{
@@ -219,6 +203,7 @@
 	icon_extra_offset: [-5.000, -6.000]
 	
 	color_frame: "0xffcf392b"
+	color_button: "0xff9dd80f"
 	rank: -3.000
 	
 	min: 1
@@ -226,4 +211,6 @@
 	step: 1
 	
 	start_delay: 0.500
+	
+	version: 0
 }

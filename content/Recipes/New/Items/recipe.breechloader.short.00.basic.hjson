@@ -32,7 +32,7 @@
 							material: steel.ingot
 							amount: 0.450
 							snapping: 1.000
-							loss: 0.078
+							loss: 0.075
 							group: 0
 							flags: prerequisite
 						}
@@ -97,7 +97,7 @@
 							material: wood.rod
 							amount: 0.978694
 							snapping: 1.000
-							loss: 0.082
+							loss: 0.078
 							group: 0
 							flags: prerequisite
 						}
@@ -281,7 +281,7 @@
 	type: workshop
 	flags: blueprintable, packable, item
 	tags: manual, simple, small, weapon, gun, assembling, metalworking
-	infrastructure: table, workbench
+	infrastructure: workbench
 	infrastructure_exclude: none
 	
 	icon:
