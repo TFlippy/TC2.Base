@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.5"
 	name: "Interrogate"
 	desc:
 		'''
@@ -20,6 +20,7 @@
 			amount: 50.000
 			difficulty: 8
 			group: 0
+			flags: conditional
 		}
 		{
 			type: work
@@ -27,6 +28,7 @@
 			amount: 280.000
 			difficulty: 6
 			group: 0
+			flags: conditional
 		}
 		{
 			type: work
@@ -34,6 +36,7 @@
 			amount: 350.000
 			difficulty: 4
 			group: 0
+			flags: conditional
 		}
 		{
 			type: work
@@ -41,6 +44,7 @@
 			amount: 200.000
 			difficulty: 6
 			group: 0
+			flags: conditional
 		}
 	]
 	
@@ -50,9 +54,10 @@
 	]
 	
 	type: workshop
-	flags: no_amount_multiplier, hidden, disabled, wip
+	flags: no_amount_multiplier, hidden, debug, disabled, wip
 	tags: social
 	infrastructure: none
+	infrastructure_exclude: none
 	
 	h_company: common
 	

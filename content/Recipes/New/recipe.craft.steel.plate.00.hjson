@@ -49,10 +49,6 @@
 						require: saw
 						include: pencil, ruler, pliers, axe, towel, knife
 					}
-					filter_machinery:
-					{
-						include: lathe, planer
-					}
 					filter_infrastructure:
 					{
 						include: table, chair
@@ -88,9 +84,10 @@
 	]
 	
 	type: workshop
-	flags: disabled, item, production, wip
+	flags: debug, disabled, item, production, wip
 	tags: workbench, workshop, manual, simple, medium, metalworking, processing
 	infrastructure: hard_surface
+	infrastructure_exclude: none
 	
 	h_company: common
 	

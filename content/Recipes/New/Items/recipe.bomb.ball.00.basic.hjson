@@ -51,9 +51,10 @@
 	]
 	
 	type: workshop
-	flags: blueprintable, disabled, wip
+	flags: blueprintable, debug, disabled, wip
 	tags: workbench, manual, simple, small, weapon, munitions, blacksmithing, metalworking, casting, explosive, dangerous
 	infrastructure: none
+	infrastructure_exclude: none
 	
 	icon:
 	{

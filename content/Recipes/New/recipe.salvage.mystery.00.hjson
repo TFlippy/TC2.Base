@@ -46,9 +46,10 @@
 	]
 	
 	type: workshop
-	flags: disabled, wip
+	flags: debug, disabled, wip
 	tags: workbench, manual, simple, salvaging
 	infrastructure: workbench
+	infrastructure_exclude: none
 	
 	icon:
 	{

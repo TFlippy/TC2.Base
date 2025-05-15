@@ -34,9 +34,10 @@
 	]
 	
 	type: industry
-	flags: disabled, wip
+	flags: debug, disabled, wip
 	tags: construction
 	infrastructure: none
+	infrastructure_exclude: none
 	
 	icon:
 	{

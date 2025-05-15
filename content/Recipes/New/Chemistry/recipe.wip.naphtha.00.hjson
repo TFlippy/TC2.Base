@@ -1,13 +1,11 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.5"
 	name: "Naphtha"
 	desc:
 		'''
 		TODO: Desc
 		'''
 	tips: []
-	
-	stages: []
 	
 	requirements:
 	[
@@ -19,6 +17,7 @@
 			snapping: 5.000
 			falloff: 0.800
 			group: 0
+			flags: conditional
 		}
 	]
 	
@@ -33,8 +32,10 @@
 	]
 	
 	type: workshop
-	flags: disabled, wip
-	tags: manual, simple, advanced, dangerous, chemistry, science, messy
+	flags: debug, disabled, wip
+	tags: manual, simple, advanced, chemistry, science, messy, dangerous
+	infrastructure: none
+	infrastructure_exclude: none
 	
 	icon:
 	{
@@ -45,9 +46,12 @@
 	icon_offset: [-1.000, 1.000]
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	rank: -157.000
 	
 	min: 1
 	max: 10
 	step: 1
+	
+	version: 0
 }

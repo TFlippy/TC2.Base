@@ -1,13 +1,11 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.5"
 	name: "Chalcopyrite Roasting"
 	desc:
 		'''
 		Roast some chalcopyrite for fun.
 		'''
 	tips: []
-	
-	stages: []
 	
 	requirements:
 	[
@@ -101,8 +99,10 @@
 	]
 	
 	type: workshop
-	flags: disabled, wip
+	flags: debug, disabled, wip
 	tags: laboratory, manual, raw, chemistry, science, smelting, heating, messy
+	infrastructure: none
+	infrastructure_exclude: none
 	
 	icon:
 	{
@@ -113,9 +113,12 @@
 	icon_offset: [1.000, 1.000]
 	
 	color_frame: "0xffffd300"
+	color_button: "0xff9dd80f"
 	rank: -60.000
 	
 	min: 1
 	max: 5
 	step: 1
+	
+	version: 0
 }

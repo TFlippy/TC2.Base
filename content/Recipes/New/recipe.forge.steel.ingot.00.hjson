@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.62.5"
-	name: "Basic Niklajzner Reforging"
+	name: "Steel Forging"
 	desc:
 		'''
 		TODO: Desc
@@ -179,9 +179,10 @@
 	]
 	
 	type: workshop
-	flags: disabled, item, production
+	flags: debug, disabled, item, production, wip
 	tags: manual, simple, raw, blacksmithing, metalworking, heating, processing
 	infrastructure: anvil, forge, hard_surface
+	infrastructure_exclude: none
 	
 	icon:
 	{

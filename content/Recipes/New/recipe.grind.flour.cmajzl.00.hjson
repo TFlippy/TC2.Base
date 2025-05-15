@@ -69,9 +69,10 @@
 	]
 	
 	type: workshop
-	flags: disabled, wip
+	flags: debug, disabled, wip
 	tags: workbench, manual, simple, organic, agriculture, messy
 	infrastructure: none
+	infrastructure_exclude: none
 	
 	h_company: common
 	

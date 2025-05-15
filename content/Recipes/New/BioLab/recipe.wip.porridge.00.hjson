@@ -32,9 +32,10 @@
 	]
 	
 	type: workshop
-	flags: disabled, wip
+	flags: debug, disabled, wip
 	tags: workbench, manual, simple, food, organic, messy
 	infrastructure: none
+	infrastructure_exclude: none
 	
 	icon:
 	{

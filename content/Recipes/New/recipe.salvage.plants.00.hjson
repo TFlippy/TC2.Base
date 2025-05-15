@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.5"
 	name: "Picked Plants"
 	desc:
 		'''
@@ -76,9 +76,10 @@
 	]
 	
 	type: workshop
-	flags: disabled, wip
+	flags: debug, disabled, wip
 	tags: workbench, manual, simple, tailoring, salvaging
 	infrastructure: table
+	infrastructure_exclude: none
 	
 	h_company: common
 	

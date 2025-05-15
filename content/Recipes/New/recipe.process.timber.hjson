@@ -50,7 +50,7 @@
 							snapping: 25.000
 							falloff: 0.880
 							group: 0
-							flags: conditional, add_amount_min
+							flags: conditional
 						}
 					]
 					
@@ -111,7 +111,7 @@
 							snapping: 25.000
 							falloff: 0.880
 							group: 0
-							flags: conditional, add_amount_min
+							flags: conditional
 						}
 					]
 					
@@ -134,9 +134,10 @@
 	]
 	
 	type: workshop
-	flags: disabled, wip
+	flags: debug, disabled, wip
 	tags: workbench, workshop, manual, simple, large, raw, woodworking, forestry, processing, messy
 	infrastructure: large_surface
+	infrastructure_exclude: none
 	
 	icon:
 	{

@@ -1,13 +1,11 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.5"
 	name: "Tell Brown Coal to become useful"
 	desc:
 		'''
 		Convince a lump of crappy brown coal to disintegrate into sulfur and other useful stuff.
 		'''
 	tips: []
-	
-	stages: []
 	
 	requirements:
 	[
@@ -56,8 +54,10 @@
 	]
 	
 	type: workshop
-	flags: hidden, disabled, wip
+	flags: hidden, debug, disabled, wip
 	tags: workbench, workshop, manual, simple, small
+	infrastructure: none
+	infrastructure_exclude: none
 	
 	icon:
 	{
@@ -76,9 +76,12 @@
 	icon_extra_offset: [-16.000, -3.000]
 	
 	color_frame: "0xffffc500"
+	color_button: "0xff9dd80f"
 	rank: -157.000
 	
 	min: 1
 	max: 10
 	step: 1
+	
+	version: 0
 }

@@ -32,9 +32,10 @@
 	]
 	
 	type: workshop
-	flags: hidden, disabled, wip
+	flags: hidden, debug, disabled, wip
 	tags: manual, simple, organic, filtering, chemistry, blending, messy
 	infrastructure: none
+	infrastructure_exclude: none
 	
 	icon:
 	{

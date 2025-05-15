@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.62.5"
 	name: "Stamping Press"
 	desc:
 		'''
@@ -11,23 +11,25 @@
 	[
 		{
 			type: prefab
-			prefab: press
+			prefab: "null"
 			amount: 1.000
 			group: 0
 		}
 	]
 	
 	type: machinery
-	flags: disabled, wip
+	flags: debug, disabled, wip
 	tags: construction
+	infrastructure: none
+	infrastructure_exclude: none
 	
 	icon:
 	{
-		texture: press
 		size: [24, 48]
 	}
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	rank: 5.000
 	
 	dismantle_work: 8.000
