@@ -79,6 +79,7 @@ claimer:
 
 spawn:
 {
+	spawn_offset: [0.000, -0.250]
 	flags: faction, neutral_only
 }
 

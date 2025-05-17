@@ -90,7 +90,7 @@
 #if SERVER
 					if (random.NextBool(0.33f) && region.TryOverlapPoint(world_position: pos_b, radius: 0.125f, result: out var result, mask: Physics.Layer.Flammable))
 					{
-						Fire.Ignite(ent_target: result.entity, intensity: lighter.intensity * random.NextFloatExtra(0.50f, 0.60f), flags: Fire.Flags.None, damage: lighter.damage);
+						Fire.Ignite(ent_target: result.entity, intensity: lighter.intensity, flags: Fire.Flags.No_Radius_Ignite, damage: lighter.damage, step: lighter.intensity * random.NextFloatExtra(0.20f, 0.40f));
 					}
 #endif
 				}

@@ -35,9 +35,9 @@ foliage.renderer:
 	
 	sprite:
 	{
-		texture: "shrubbery.01"
-		frame_count: 1
-		frame_count_total: 1
+		texture: "atlas.shrubbery.00"
+		size: [24, 24]
+		frame: [4, 0]
 	}
 }
 

@@ -43,6 +43,11 @@ holdable:
 	offset: [0.000, 0.750]
 }
 
+// breakable:
+// {
+// 	flags: no_damage
+// }
+
 norotate:
 {
 	bias: 0.000

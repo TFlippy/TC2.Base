@@ -1,0 +1,71 @@
+$name: "Cmajzl"
+$desc: 
+	'''
+	TODO: Desc
+	'''
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.line:
+	{
+		a: [0.000, -1.000]
+		b: [0.000, 1.000]
+
+		radius: 1.000
+		friction: 0.950
+		elasticity: 0.500
+		mass: 22.000
+		material: foliage
+		layer: entity, plant, ignore_melee, ignore_bullet, organic
+		mask: world
+	}
+}
+
+transform:
+{
+
+}
+
+health:
+{
+	max: 2200.000
+}
+
+foliage.renderer:
+{
+	z: 50.000
+	
+	sprite:
+	{
+		texture: "atlas.cmajzl.00"
+		size: [16, 32]
+		frame: [0, 0]
+	}
+}
+
+harvestable:
+{
+	resources:
+	[
+		{
+			material: cmajzl
+			quantity: 77.000
+		}
+		{
+			material: plants
+			quantity: 22.000
+		}
+		null
+		null
+	]
+	
+	thresholds: [0.952, 1.000, 0.000, 0.000]
+	
+	pct_damage_mult: [0.892, 1.000, 0.000, 0.000]
+	pct_quantity_min: [0.075, 0.276, 0.000, 0.000]
+	
+	chance_base: [0.686, 0.522, 0.000, 0.000]
+}

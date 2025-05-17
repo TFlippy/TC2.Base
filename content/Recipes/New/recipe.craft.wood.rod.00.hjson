@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.5"
+	$version: "0.1.63.0"
 	name: "Wooden Rods"
 	desc:
 		'''
@@ -10,7 +10,7 @@
 	stages:
 	[
 		{
-			name: "Feedstock"
+			name: "Material"
 			
 			type: feedstock
 			flags: wip, auto_generated

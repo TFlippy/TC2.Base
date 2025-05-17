@@ -61,14 +61,11 @@ namespace TC2.Base.Components
 					var damage =  ev.damage_integrity * yield;
 					var amount_multiplier = damage * health.GetMaxHealthInvFast();
 
-					var amount = Maths.Min(resource.quantity, MathF.Ceiling(resource.quantity * amount_multiplier));
+					var amount = Maths.Min(resource.quantity, Maths.Ceil(resource.quantity * amount_multiplier));
 					var amount_rem = amount;
 
 					//var yield = Maths.Clamp01(conv.yield * ev.yield);
 
-					//ref var material_conv = ref conv.h_material.GetData();
-					//if (material_conv.IsNotNull())
-					//{
 					var conv_ratio = random.NextFloatExtra(conv.ratio, conv.ratio_extra).Clamp01();
 					var waste_ratio = random.NextFloatExtra(conv.ratio_waste, conv.ratio_waste_extra).Clamp01();
 
@@ -76,11 +73,7 @@ namespace TC2.Base.Components
 					var amount_converted = amount_rem.SplitRef(conv_ratio);
 					var amount_wasted = amount_rem.SplitRef(waste_ratio);
 
-
 					//amount_taken.Split(data.yield * conv.yield, out var amount_wasted, out var amount_converted);
-
-
-
 					//App.WriteLine($"taken: {amount_taken}; wasted: {amount_wasted}; converted: {amount_converted}; rem: {amount_rem}; yield: {yield}");
 
 					//var amount_wasted = amount_rem.MultDiff(conv.yield);
@@ -127,16 +120,11 @@ namespace TC2.Base.Components
 							velocity: has_no_offset ? body.GetVelocity() : body.GetVelocity() + (random.NextUnitVector2Range(0, 4) * conv.velocity_mult));
 						}
 					}
-					//var amount_taken = amount - amount_rem;
-					//}
 
-					if (conv.h_sound.id != 0)
+					if (conv.h_sound)
 					{
 						Sound.Play(ref region, conv.h_sound, ev.world_position, volume: conv.sound_volume * random.NextFloatExtra(0.90f, 0.20f), pitch: conv.sound_pitch * random.NextFloatExtra(0.95f, 0.10f));
 					}
-
-					//var yield = Maths.Clamp01(conv.yield * ev.yield);
-					//amount_rem *= yield;
 
 					var amount_taken = amount - amount_rem;
 					resource.quantity -= amount_taken;
