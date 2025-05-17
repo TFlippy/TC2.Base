@@ -1,0 +1,74 @@
+$name: "Lighter"
+$desc: 
+	'''
+	Set a forest on fire!
+	'''
+$tags: []
+
+body:
+{
+	@shape.line:
+	{
+		a: [0.000, -0.375]
+		b: [0.000, 0.125]
+		offset: [0.000, 0.000]
+		
+		mass: 2.000
+		radius: 0.2625
+		friction: 0.830
+		elasticity: 0.700
+		
+		material: tool
+		miss_chance: 0.000
+		
+		layer: entity, solid, item, ignore_melee, ignore_bullet
+		mask: world
+		exclude: none
+	}
+}
+
+health:
+{
+	max: 1500.000
+}
+
+control:
+{
+
+}
+
+holdable:
+{
+	offset: [0.125, 0.000]
+	flags: storable
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: lighter.00
+		mask: lighter.00.mask
+	}
+	offset: [0.000, -0.125]
+}
+
+transform:
+{
+
+}
+
+lighter:
+{
+	h_sound_use: lighter.use.00
+	cooldown: 0.250
+	distance_max: 2.500
+	damage: 50.000
+	intensity: 10.000
+	offset: [-0.125, -0.375]
+}
+
+packable:
+{
+
+}
