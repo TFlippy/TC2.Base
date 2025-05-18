@@ -1,11 +1,13 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.63.0"
 	name: "Cloth"
 	name_short: "Cloth"
 	description:
 		'''
 		Standard bundle of cloth.
 		'''
+	
+	tips: []
 	
 	icon:
 	{
@@ -15,15 +17,24 @@
 	}
 	
 	type: fabric
-	flags: soft, malleable, flammable, solid
+	flags: soft, malleable, organic, thin, manufactured, flammable, flexible, solid, processed
 	display_flags: none
 	hints: none
+	
 	mass_per_unit: 0.360
-	quantity_max: 100.000
+	
+	quantity_max: 250.000
 	spawn_quantity_threshold: 0.500
+	snapping: 1.000
+	snapping_pickup: 1.000
+	
 	prefab: resource.cloth
+	h_substance: "null"
 	
 	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
 	
 	colliders: []
 	
@@ -66,35 +77,61 @@
 		quantity_industry: 0.000
 	}
 	
-	// Conversions into other materials.
 	conversions:
 	{
-		phlogiston:
+		fire:
 		{
-			h_material: ash
-			spawn_flags: merge, no_offset
+			h_material: "null"
+			spawn_flags: none
 			product_flags: none
-			ratio: 0.150
-			ratio_extra: 0.815
+			ratio: 1.000
+			ratio_extra: 0.000
 			
-			h_material_waste: "null"
+			h_material_waste: ash
 			spawn_flags_waste: merge, no_offset
-			product_flags_waste: none
-			ratio_waste: 0.100
+			product_flags_waste: pollutant, waste
+			ratio_waste: 0.120
 			ratio_waste_extra: 0.400
 			
-			yield: 0.150
-			yield_extra: 0.650
+			yield: 0.140
+			yield_extra: 0.420
 			
 			h_sound: missing
-			sound_volume: 0.200
-			sound_pitch: 1.280
+			sound_volume: 0.000
+			sound_pitch: 0.000
 			
-			chance: 0.650
+			chance: 0.352
 			type: undefined
 			flags: none
 			merge_radius_mult: 1.000
-			velocity_mult: 1.000
+			velocity_mult: 0.100
+		}
+		phlogiston:
+		{
+			h_material: "null"
+			spawn_flags: none
+			product_flags: none
+			ratio: 1.000
+			ratio_extra: 0.000
+			
+			h_material_waste: ash
+			spawn_flags_waste: merge, no_offset
+			product_flags_waste: pollutant, waste
+			ratio_waste: 0.290
+			ratio_waste_extra: 0.620
+			
+			yield: 0.230
+			yield_extra: 0.480
+			
+			h_sound: missing
+			sound_volume: 0.000
+			sound_pitch: 0.000
+			
+			chance: 0.790
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.000
+			velocity_mult: 0.100
 		}
 	}
 }

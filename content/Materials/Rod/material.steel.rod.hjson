@@ -115,7 +115,7 @@
 			sound_volume: 0.000
 			sound_pitch: 0.000
 			
-			chance: 0.250
+			chance: 0.224
 			type: undefined
 			flags: none
 			merge_radius_mult: 1.000
@@ -142,7 +142,7 @@
 			sound_volume: 0.000
 			sound_pitch: 0.000
 			
-			chance: 0.140
+			chance: 0.116
 			type: undefined
 			flags: none
 			merge_radius_mult: 1.000
@@ -169,7 +169,7 @@
 			sound_volume: 0.000
 			sound_pitch: 0.000
 			
-			chance: 0.660
+			chance: 0.230
 			type: undefined
 			flags: none
 			merge_radius_mult: 1.000
@@ -181,7 +181,7 @@
 			spawn_flags: merge, no_offset
 			product_flags: none
 			ratio: 0.910
-			ratio_extra: 0.060
+			ratio_extra: 0.050
 			
 			h_material_waste: "null"
 			spawn_flags_waste: merge, no_offset
@@ -216,14 +216,14 @@
 			ratio_waste: 1.000
 			ratio_waste_extra: 0.000
 			
-			yield: 0.800
-			yield_extra: 0.120
+			yield: 0.690
+			yield_extra: 0.180
 			
 			h_sound: missing
 			sound_volume: 0.500
 			sound_pitch: 1.000
 			
-			chance: 1.000
+			chance: 0.426
 			type: undefined
 			flags: none
 			merge_radius_mult: 1.000

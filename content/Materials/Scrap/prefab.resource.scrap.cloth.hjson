@@ -2,14 +2,18 @@ $tags: []
 
 body:
 {
+	buoyancy: 0.480
+
 	@shape.circle:
 	{
 		offset: [0.000, 0.250]
+		mass: 1.000
 		radius: 0.700
-		friction: 0.750
-		elasticity: 0.250
+		friction: 0.890
+		elasticity: 0.150
 		material: fabric
-		layer: entity, solid, resource, flammable, ignore_melee, ignore_bullet
+		layer: entity, solid, resource, ignore_melee, ignore_bullet, flammable
+		mask: world
 	}
 }
 
@@ -17,10 +21,11 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.cloth"
+		texture: "resource.scrap.cloth"
 		count: 4
 		size: [16, 16]
 	}
+	z: -73.900
 }
 
 transform:
@@ -30,13 +35,18 @@ transform:
 
 resource:
 {
-	material: "cloth"
+	material: "scrap.cloth"
 }
 
 holdable:
 {
 	offset: [0.000, 0.750]
 }
+
+// breakable:
+// {
+// 	flags: no_damage
+// }
 
 norotate:
 {
@@ -47,19 +57,8 @@ norotate:
 
 despawn:
 {
-	sleep_count_max: 13
-	interval: 10.000
-	interval_extra: 15.000
+	sleep_count_max: 27
+	interval: 30.000
 	threshold_delete: 0.010
-	threshold_despawning: 0.300
-}
-
-health:
-{
-	max: 8500.000
-}
-
-breakable:
-{
-	flags: no_damage
+	threshold_despawning: 0.650
 }
