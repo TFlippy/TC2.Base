@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.3"
+	$version: "0.1.63.0"
 	name: "Steel Rod"
 	name_short: "St. Rod"
 	description:
@@ -332,5 +332,10 @@
 			
 			yield: [0.962, 0.033]
 		}
+	}
+	
+	related:
+	{
+		steel: similar
 	}
 }

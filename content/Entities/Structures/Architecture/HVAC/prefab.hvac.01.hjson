@@ -56,10 +56,10 @@ interactable:
 sound.emitter:
 {
 	file: hvac.loop.00
-	volume: 1.100
+	volume: 2.000
 	pitch: 1.580
-	size: 3.000
-	size_max_modifier: 0.420
+	size: 2.000
+	size_max_modifier: 0.250
 	priority: 0.300
 }
 

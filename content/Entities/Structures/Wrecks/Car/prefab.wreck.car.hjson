@@ -120,7 +120,7 @@ storage:
 
 	@inventory8:
 	{
-		type: storage
+		type: wreckage
 		flags: public, no_auto_pickup
 		stack_size_multiplier: 2.000
 		

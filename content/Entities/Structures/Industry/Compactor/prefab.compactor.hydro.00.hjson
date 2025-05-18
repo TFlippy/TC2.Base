@@ -178,7 +178,6 @@ shop:
 	
 	tags_filter:
 	{
-		include: compaction
 		exclude: workbench, filtering, assembling, machining, tailoring, gathering, smelting, fermenting, melting, drying
 	}
 	
@@ -186,7 +185,7 @@ shop:
 	machinery: none
 	infrastructure: none
 	environment: container, waterproof, mobile, dirty, ugly, scary
-	recipe_type: workshop
+	recipe_type: compactor
 	
 	flags: hidden_if_order
 	menu_columns: 4

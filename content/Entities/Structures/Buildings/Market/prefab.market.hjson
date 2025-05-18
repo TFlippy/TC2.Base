@@ -138,7 +138,7 @@ storage:
 
 	@inventory16:
 	{		
-		type: storage
+		type: wreckage
 		flags: ignore_mass, public, no_auto_pickup
 		stack_size_multiplier: 4.000
 		
