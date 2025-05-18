@@ -103,7 +103,7 @@
 			chance: 0.352
 			type: undefined
 			flags: none
-			merge_radius_mult: 1.000
+			merge_radius_mult: 1.200
 			velocity_mult: 0.100
 		}
 		phlogiston:
@@ -130,8 +130,170 @@
 			chance: 0.790
 			type: undefined
 			flags: none
-			merge_radius_mult: 1.000
+			merge_radius_mult: 1.400
 			velocity_mult: 0.100
+		}
+		scratch:
+		{
+			h_material: "null"
+			spawn_flags: none
+			product_flags: none
+			ratio: 1.000
+			ratio_extra: 0.000
+			
+			h_material_waste: scrap.cloth
+			spawn_flags_waste: merge, allow_encumbered
+			product_flags_waste: waste
+			ratio_waste: 0.510
+			ratio_waste_extra: 0.440
+			
+			yield: 0.610
+			yield_extra: 0.320
+			
+			h_sound: missing
+			sound_volume: 0.500
+			sound_pitch: 1.000
+			
+			chance: 0.430
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.700
+			velocity_mult: 0.640
+		}
+		axe:
+		{
+			h_material: "null"
+			spawn_flags: none
+			product_flags: none
+			ratio: 0.090
+			ratio_extra: 0.450
+			
+			h_material_waste: scrap.cloth
+			spawn_flags_waste: merge, allow_encumbered
+			product_flags_waste: waste
+			ratio_waste: 0.210
+			ratio_waste_extra: 0.700
+			
+			yield: 0.610
+			yield_extra: 0.320
+			
+			h_sound: missing
+			sound_volume: 0.500
+			sound_pitch: 1.000
+			
+			chance: 0.440
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.800
+			velocity_mult: 0.640
+		}
+		handsaw:
+		{
+			h_material: "null"
+			spawn_flags: none
+			product_flags: none
+			ratio: 0.180
+			ratio_extra: 0.160
+			
+			h_material_waste: scrap.cloth
+			spawn_flags_waste: merge, allow_encumbered
+			product_flags_waste: waste
+			ratio_waste: 0.810
+			ratio_waste_extra: 0.140
+			
+			yield: 0.610
+			yield_extra: 0.320
+			
+			h_sound: missing
+			sound_volume: 0.500
+			sound_pitch: 1.000
+			
+			chance: 0.760
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.400
+			velocity_mult: 0.640
+		}
+		sledgehammer:
+		{
+			h_material: "null"
+			spawn_flags: none
+			product_flags: none
+			ratio: 0.120
+			ratio_extra: 0.660
+			
+			h_material_waste: scrap.cloth
+			spawn_flags_waste: merge, allow_encumbered
+			product_flags_waste: waste
+			ratio_waste: 0.810
+			ratio_waste_extra: 0.140
+			
+			yield: 0.610
+			yield_extra: 0.320
+			
+			h_sound: missing
+			sound_volume: 0.500
+			sound_pitch: 1.000
+			
+			chance: 0.760
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.500
+			velocity_mult: 0.640
+		}
+		shrapnel:
+		{
+			h_material: "null"
+			spawn_flags: none
+			product_flags: none
+			ratio: 0.100
+			ratio_extra: 0.350
+			
+			h_material_waste: scrap.cloth
+			spawn_flags_waste: merge
+			product_flags_waste: waste
+			ratio_waste: 0.210
+			ratio_waste_extra: 0.640
+			
+			yield: 0.410
+			yield_extra: 0.420
+			
+			h_sound: missing
+			sound_volume: 0.500
+			sound_pitch: 1.000
+			
+			chance: 0.890
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.400
+			velocity_mult: 0.840
+		}
+		explosion:
+		{
+			h_material: "null"
+			spawn_flags: none
+			product_flags: none
+			ratio: 0.400
+			ratio_extra: 0.600
+			
+			h_material_waste: scrap.cloth
+			spawn_flags_waste: merge
+			product_flags_waste: waste
+			ratio_waste: 0.140
+			ratio_waste_extra: 0.440
+			
+			yield: 0.210
+			yield_extra: 0.400
+			
+			h_sound: missing
+			sound_volume: 0.500
+			sound_pitch: 1.000
+			
+			chance: 0.880
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.800
+			velocity_mult: 0.840
 		}
 	}
 }
