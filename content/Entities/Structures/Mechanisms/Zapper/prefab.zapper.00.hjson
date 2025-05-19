@@ -18,7 +18,7 @@ body:
 		layer: entity, solid, building, no_overlapped_placement
 		mask: world, solid, essence
 
-		miss_chance: 0.450
+		miss_chance: 0.680
 	}
 }
 

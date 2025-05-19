@@ -666,6 +666,7 @@ faction:
 			aoe: 1.350
 			thickness: 1.700
 			knockback: -5650.000
+			knockback_speed: 2.000
 			yield: 0.800
 			penetration_falloff: 0.800
 			penetration: 3

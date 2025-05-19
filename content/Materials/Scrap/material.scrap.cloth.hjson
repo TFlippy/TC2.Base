@@ -21,10 +21,10 @@
 	display_flags: none
 	hints: materials, junk, cheap
 	
-	mass_per_unit: 0.136
+	mass_per_unit: 0.267
 	
-	quantity_max: 500.000
-	spawn_quantity_threshold: 1.650
+	quantity_max: 250.000
+	spawn_quantity_threshold: 1.150
 	snapping: 1.000
 	snapping_pickup: 1.000
 	
