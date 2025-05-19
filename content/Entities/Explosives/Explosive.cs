@@ -145,7 +145,8 @@ namespace TC2.Base.Components
 		public static void OnPostDamage(Entity entity, ref XorRandom random, ref Health.PostDamageEvent data, 
 		[Source.Owned] ref Health.Data health, [Source.Owned] ref Explosive.Data explosive)
 		{
-			if (health.integrity <= explosive.health_threshold && explosive.detonate_chance.Evaluate(ref random, true))
+			App.WriteLine(health.integrity);
+			if (health.integrity <= explosive.health_threshold && (health.integrity <= 0.00f || explosive.detonate_chance.Evaluate(ref random, true)))
 			{
 				if (explosive.flags.HasAny(Explosive.Flags.Any_Damage))
 				{
@@ -196,6 +197,7 @@ namespace TC2.Base.Components
 					if (explosive.flags.TryRemoveFlag(Explosive.Flags.Explode_When_Primed))
 					{
 						entity.RemoveComponent<Explosive.Data>();
+						health.integrity = 0.00f;
 					}
 				}
 			}
@@ -248,8 +250,8 @@ namespace TC2.Base.Components
 					{
 						var random = XorRandom.New(true);
 
-						explosion.radius = Maths.Lerp01(explosive_tmp.radius * 0.25f, explosive_tmp.radius, explosive_tmp.modifier) * random.NextFloatExtra(0.80f, 0.20f);
-						explosion.power = Maths.Lerp01(explosive_tmp.power * 0.50f, explosive_tmp.power, explosive_tmp.modifier) * random.NextFloatExtra(0.80f, 0.20f);
+						explosion.radius = Maths.Max(3.00f, Maths.Lerp01(explosive_tmp.radius * 0.25f, explosive_tmp.radius, explosive_tmp.modifier) * random.NextFloatExtra(0.80f, 0.20f));
+						explosion.power = Maths.Max(2.50f, Maths.Lerp01(explosive_tmp.power * 0.50f, explosive_tmp.power, explosive_tmp.modifier) * random.NextFloatExtra(0.80f, 0.20f));
 
 						explosion.damage_entity = explosive_tmp.damage_entity * explosive_tmp.modifier * random.NextFloatExtra(0.85f, 0.18f);
 						explosion.damage_terrain = explosive_tmp.damage_terrain * explosive_tmp.modifier * random.NextFloatExtra(0.84f, 0.17f);

@@ -59,7 +59,7 @@ health:
 
 explosive:
 {
-	radius: 7.000
+	radius: 2.500
 	power: 2.200
 	damage_entity: 650.000
 	damage_terrain: 250.000
@@ -76,7 +76,7 @@ explosive:
 	flash_intensity_multiplier: 0.300
 	sparks_amount: 2.800
 	fire_amount: 0.000
-	volume: 1.900
+	volume: 1.500
 	pitch: 1.500
 	flags: any_damage, explode_when_primed
 }
