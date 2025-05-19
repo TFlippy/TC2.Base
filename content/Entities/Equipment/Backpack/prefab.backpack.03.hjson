@@ -1,7 +1,7 @@
-$name: "Rucksack"
+$name: "Toolbag"
 $desc:
 	'''
-	Ruggy sack for your ruck.
+	Large bag used for holding tools.
 	'''
 $tags: []
 
@@ -11,25 +11,28 @@ body:
 
 	@shape.line:
 	{
-		a: [-0.250, 0.000]
-		b: [0.250, 0.000]
+		a: [-0.125, -0.250]
+		b: [0.000, 0.250]
+		offset: [0.000, 0.000]
 		
-		mass: 1.600
-		radius: 0.500
+		mass: 5.200
+		radius: 0.625
 		friction: 0.600
 		elasticity: 0.100
 		rigidity_dynamic: 0.750
-		miss_chance: 0.710
-
-		material: fabric
+		
+		material: leather
+		miss_chance: 0.508
 		
 		layer: entity, solid, item, storage, flammable
+		mask: world
+		exclude: none
 	}
 }
 
 health:
 {
-	max: 5500.000
+	max: 8000.000
 }
 
 holdable:
@@ -42,23 +45,23 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "backpack.01"
-		mask: "backpack.01.mask"
+		texture: "backpack.03"
+		// mask: "backpack.02.mask"
 		size: [16, 16]
 		frame: [0, 0]
 	}
 }
 
-faction.colorable:
-{
-	intensity_a: 0.700
-	intensity_b: 0.700
-}
+// faction.colorable:
+// {
+// 	intensity_a: 0.700
+// 	intensity_b: 0.700
+// }
 
-faction:
-{
+// faction:
+// {
 
-}
+// }
 
 transform:
 {
@@ -67,10 +70,13 @@ transform:
 
 attachment:
 {
+	force_multiplier: 1.000
+	torque_multiplier: 1.000
 	offset: [0.375, 0.375]
-	rotation_offset: -1.1781
-	force_multiplier: 1.250
+	// flags: mirror_rotate
+	flags: none
 	tags: small, utility, harness
+
 	h_sound_attach: equip.00
 	h_sound_detach: equip.01
 }
@@ -80,14 +86,14 @@ storage:
 	@inventory4:
 	{
 		type: backpack
-		flags: public, faction, horizontal
-		stack_size_multiplier: 4.000
+		flags: vertical
+		stack_size_multiplier: 1.000
 
 		filter:
 		{
 			require: none
-			include: soft, malleable, long, granular, small
-			exclude: large, heavy, gas
+			include: granular, small, long
+			exclude: large, gas
 		}
 	}
 }

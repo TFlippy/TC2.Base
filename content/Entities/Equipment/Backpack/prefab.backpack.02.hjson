@@ -1,7 +1,7 @@
-$name: "Rucksack"
+$name: "Ammo Pouch"
 $desc:
 	'''
-	Ruggy sack for your ruck.
+	Small pouch capable of holding large amounts of ammunition.
 	'''
 $tags: []
 
@@ -9,11 +9,8 @@ body:
 {
 	inventory_weight_multiplier: 0.300
 
-	@shape.line:
+	@shape.circle:
 	{
-		a: [-0.250, 0.000]
-		b: [0.250, 0.000]
-		
 		mass: 1.600
 		radius: 0.500
 		friction: 0.600
@@ -23,13 +20,13 @@ body:
 
 		material: fabric
 		
-		layer: entity, solid, item, storage, flammable
+		layer: entity, solid, item, storage, flammable, ignore_melee, ignore_bullet
 	}
 }
 
 health:
 {
-	max: 5500.000
+	max: 3500.000
 }
 
 holdable:
@@ -42,9 +39,9 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "backpack.01"
-		mask: "backpack.01.mask"
-		size: [16, 16]
+		texture: "backpack.02"
+		mask: "backpack.02.mask"
+		size: [16, 8]
 		frame: [0, 0]
 	}
 }
@@ -67,9 +64,7 @@ transform:
 
 attachment:
 {
-	offset: [0.375, 0.375]
-	rotation_offset: -1.1781
-	force_multiplier: 1.250
+	offset: [-0.250, 0.000]
 	tags: small, utility, harness
 	h_sound_attach: equip.00
 	h_sound_detach: equip.01
@@ -77,16 +72,16 @@ attachment:
 
 storage:
 {
-	@inventory4:
+	@inventory2:
 	{
-		type: backpack
+		type: ammo
 		flags: public, faction, horizontal
-		stack_size_multiplier: 4.000
+		stack_size_multiplier: 8.000
 
 		filter:
 		{
-			require: none
-			include: soft, malleable, long, granular, small
+			require: ammo
+			include: granular, small
 			exclude: large, heavy, gas
 		}
 	}

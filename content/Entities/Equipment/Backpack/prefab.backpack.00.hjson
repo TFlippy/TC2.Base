@@ -30,6 +30,11 @@ body:
 	}
 }
 
+health:
+{
+	max: 7500.000
+}
+
 holdable:
 {
 	offset: [0.000, 0.000]
