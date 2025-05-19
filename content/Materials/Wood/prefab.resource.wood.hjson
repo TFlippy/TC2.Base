@@ -74,11 +74,11 @@ heat:
 	temperature_ignite: 450.000
 	temperature_operating: 320.303
 	temperature_melt: 1644.000
-	temperature_breakdown: 3143.000
+	temperature_breakdown: 1543.000
 	cool_rate: 2.500
 	smoke_speed_mult: 0.750
 	flags: none
-	fire_flags: no_self_damage, always_contact_ignite
+	fire_flags: always_contact_ignite
 	offset: [0.000, 0.125]
 	smoke_offset: [0.000, 0.125]
 	size: [2.000, 2.000]
