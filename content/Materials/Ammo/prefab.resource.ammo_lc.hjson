@@ -54,7 +54,7 @@ despawn:
 
 health:
 {
-	max: 150.000
+	max: 1500.000
 }
 
 explosive:
@@ -63,7 +63,7 @@ explosive:
 	power: 2.500
 	damage_entity: 350.000
 	damage_terrain: 250.000
-	health_threshold: 0.700
+	health_threshold: 0.100
 	damage_type: bullet_lc
 	damage_type_secondary: shrapnel
 	force_multiplier: 0.450

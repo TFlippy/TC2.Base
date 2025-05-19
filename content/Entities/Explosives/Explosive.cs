@@ -4,7 +4,7 @@ namespace TC2.Base.Components
 	public static partial class Explosive
 	{
 		[Flags]
-		public enum Flags: uint
+		public enum Flags: byte
 		{
 			None = 0,
 
@@ -38,9 +38,39 @@ namespace TC2.Base.Components
 #endif
 		}
 
-		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
+		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region)]
 		public partial struct Data(): IComponent
 		{
+			public static readonly BitField<Damage.Type> detonate_damage_filter_default = new BitField<Damage.Type>
+			(
+				Damage.Type.Bullet_LC,
+				Damage.Type.Bullet_HC,
+				Damage.Type.Bullet_SG,
+				Damage.Type.Bullet_MG,
+				Damage.Type.Bullet_AC,
+				Damage.Type.Bullet_KN,
+				Damage.Type.Bullet_HW,
+				Damage.Type.Bullet_Musket,
+				Damage.Type.Rivet,
+				Damage.Type.Club,
+				Damage.Type.Crush,
+				Damage.Type.Impact,
+				Damage.Type.Motion_Impulse,
+				Damage.Type.Axe,
+				Damage.Type.Saw,
+				Damage.Type.Shrapnel,
+				Damage.Type.Stress,
+				Damage.Type.Fracture,
+				Damage.Type.Electricity,
+				Damage.Type.Pickaxe,
+				Damage.Type.Explosion,
+				Damage.Type.Fire,
+				Damage.Type.Phlogiston,
+				Damage.Type.Deflagration,
+				Damage.Type.Sledgehammer,
+				Damage.Type.Shockwave
+			);
+
 			[Statistics.Info("Radius", description: "Size of the explosion.", format: "{0:0.##}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
 			public float radius = 2.00f;
 
@@ -58,6 +88,9 @@ namespace TC2.Base.Components
 
 			public Damage.Type damage_type = Damage.Type.Explosion;
 			public Damage.Type damage_type_secondary = Damage.Type.Shockwave;
+			public Explosive.Flags flags;
+			public Chance detonate_chance;
+			public BitField<Damage.Type> detonate_damage_filter = Explosive.Data.detonate_damage_filter_default;
 
 			public float shake_multiplier = 1.00f;
 			public float force_multiplier = 1.00f;
@@ -80,8 +113,6 @@ namespace TC2.Base.Components
 
 			public float modifier = 1.00f;
 
-			public Explosive.Flags flags;
-
 			[Net.Ignore] public Entity ent_owner;
 		}
 
@@ -89,7 +120,7 @@ namespace TC2.Base.Components
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.50f)]
 		public static void UpdateHoldable([Source.Owned] in Explosive.Data explosive, [Source.Owned] ref Holdable.Data holdable)
 		{
-			holdable.hints.SetFlag(NPC.ItemHints.Dangerous | NPC.ItemHints.Explosive | NPC.ItemHints.Destructive, true);
+			holdable.hints.AddFlag(NPC.ItemHints.Dangerous | NPC.ItemHints.Explosive | NPC.ItemHints.Destructive);
 		}
 
 #if SERVER
@@ -111,9 +142,10 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.Event<Health.PostDamageEvent>(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void OnPostDamage(ISystem.Info info, Entity entity, ref Health.PostDamageEvent data, [Source.Owned] ref Health.Data health, [Source.Owned] ref Explosive.Data explosive)
+		public static void OnPostDamage(Entity entity, ref XorRandom random, ref Health.PostDamageEvent data, 
+		[Source.Owned] ref Health.Data health, [Source.Owned] ref Explosive.Data explosive)
 		{
-			if (health.integrity <= explosive.health_threshold)
+			if (health.integrity <= explosive.health_threshold && explosive.detonate_chance.Evaluate(ref random, true))
 			{
 				if (explosive.flags.HasAny(Explosive.Flags.Any_Damage))
 				{
@@ -121,46 +153,47 @@ namespace TC2.Base.Components
 				}
 				else
 				{
-					switch (data.damage.damage_type)
-					{
-						case Damage.Type.Bullet_LC:
-						case Damage.Type.Bullet_HC:
-						case Damage.Type.Bullet_SG:
-						case Damage.Type.Bullet_MG:
-						case Damage.Type.Bullet_AC:
-						case Damage.Type.Bullet_KN:
-						case Damage.Type.Bullet_HW:
-						case Damage.Type.Bullet_Musket:
-						case Damage.Type.Rivet:
-						case Damage.Type.Club:
-						case Damage.Type.Crush:
-						case Damage.Type.Impact:
-						case Damage.Type.Motion_Impulse:
-						case Damage.Type.Axe:
-						case Damage.Type.Saw:
-						case Damage.Type.Shrapnel:
-						case Damage.Type.Stress:
-						case Damage.Type.Fracture:
-						case Damage.Type.Electricity:
-						case Damage.Type.Pickaxe:
-						case Damage.Type.Explosion:
-						case Damage.Type.Fire:
-						case Damage.Type.Phlogiston:
-						case Damage.Type.Deflagration:
-						case Damage.Type.Sledgehammer:
-						case Damage.Type.Shockwave:
-						{
-							explosive.flags |= Explosive.Flags.Primed;
-						}
-						break;
-					}
+					if (explosive.detonate_damage_filter.Has(data.damage.damage_type)) explosive.flags |= Explosive.Flags.Primed;
+					//switch (data.damage.damage_type)
+					//{
+					//	case Damage.Type.Bullet_LC:
+					//	case Damage.Type.Bullet_HC:
+					//	case Damage.Type.Bullet_SG:
+					//	case Damage.Type.Bullet_MG:
+					//	case Damage.Type.Bullet_AC:
+					//	case Damage.Type.Bullet_KN:
+					//	case Damage.Type.Bullet_HW:
+					//	case Damage.Type.Bullet_Musket:
+					//	case Damage.Type.Rivet:
+					//	case Damage.Type.Club:
+					//	case Damage.Type.Crush:
+					//	case Damage.Type.Impact:
+					//	case Damage.Type.Motion_Impulse:
+					//	case Damage.Type.Axe:
+					//	case Damage.Type.Saw:
+					//	case Damage.Type.Shrapnel:
+					//	case Damage.Type.Stress:
+					//	case Damage.Type.Fracture:
+					//	case Damage.Type.Electricity:
+					//	case Damage.Type.Pickaxe:
+					//	case Damage.Type.Explosion:
+					//	case Damage.Type.Fire:
+					//	case Damage.Type.Phlogiston:
+					//	case Damage.Type.Deflagration:
+					//	case Damage.Type.Sledgehammer:
+					//	case Damage.Type.Shockwave:
+					//	{
+					//		explosive.flags |= Explosive.Flags.Primed;
+					//	}
+					//	break;
+					//}
 				}
 
 				if (explosive.flags.HasAny(Explosive.Flags.Primed))
 				{
 					if (!explosive.ent_owner.IsValid()) explosive.ent_owner = data.damage.ent_attacker;
 
-					if (explosive.flags.HasAny(Explosive.Flags.Explode_When_Primed))
+					if (explosive.flags.TryRemoveFlag(Explosive.Flags.Explode_When_Primed))
 					{
 						entity.RemoveComponent<Explosive.Data>();
 					}
@@ -169,7 +202,7 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.Modified.Component<Resource.Data>(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void OnResourceModified(ISystem.Info info, [Source.Owned] in Resource.Data resource, [Source.Owned] ref Explosive.Data explosive)
+		public static void OnResourceModified([Source.Owned] in Resource.Data resource, [Source.Owned] ref Explosive.Data explosive)
 		{
 			ref var material = ref resource.material.GetData();
 			if (material.IsNotNull())
@@ -182,7 +215,8 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.RemoveLast(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void OnRemove(ref Region.Data region, ISystem.Info info, Entity entity, [Source.Owned] in Transform.Data transform, [Source.Owned] in Explosive.Data explosive)
+		public static void OnRemove(ref Region.Data region, Entity entity, 
+		[Source.Owned] in Transform.Data transform, [Source.Owned] in Explosive.Data explosive)
 		{
 			if (explosive.flags.HasAny(Explosive.Flags.Primed))
 			{
