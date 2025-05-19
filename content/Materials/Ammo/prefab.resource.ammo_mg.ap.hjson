@@ -63,7 +63,8 @@ explosive:
 	power: 4.000
 	damage_entity: 1950.000
 	damage_terrain: 1950.000
-	health_threshold: 0.100
+	health_threshold: 0.700
+	detonate_chance: 0.300
 	damage_type: shrapnel
 	damage_type_secondary: bullet_mg
 	force_multiplier: 0.600

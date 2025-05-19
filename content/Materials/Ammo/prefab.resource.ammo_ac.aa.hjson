@@ -47,7 +47,7 @@ norotate:
 
 health:
 {
-	max: 250.000
+	max: 6000.000
 }
 
 explosive:
@@ -56,6 +56,9 @@ explosive:
 	power: 3.000
 	damage_entity: 4000.000
 	damage_terrain: 15000.000
-	health_threshold: 0.980
+
+	health_threshold: 0.850
+	detonate_chance: 0.300
+
 	flags: any_damage, explode_when_primed
 }

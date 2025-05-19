@@ -49,13 +49,13 @@ norotate:
 
 health:
 {
-	max: 200.000
+	max: 500.000
 }
 
 explosive:
 {
-	radius: 2.500
-	power: 3.000
+	radius: 3.500
+	power: 3.500
 	damage_entity: 2500.000
 	damage_terrain: 6000.000
 	health_threshold: 0.950

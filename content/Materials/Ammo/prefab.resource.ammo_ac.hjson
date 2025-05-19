@@ -49,7 +49,7 @@ norotate:
 
 health:
 {
-	max: 550.000
+	max: 6550.000
 }
 
 explosive:
@@ -58,7 +58,8 @@ explosive:
 	power: 2.500
 	damage_entity: 4000.000
 	damage_terrain: 2000.000
-	health_threshold: 0.700
+	health_threshold: 0.850
+	detonate_chance: 0.220
 	damage_type: shrapnel
 	damage_type_secondary: shrapnel
 	force_multiplier: 0.200
