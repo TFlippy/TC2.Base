@@ -361,6 +361,70 @@ namespace TC2.Base.Components
 				break;
 
 				case Damage.Type.Sledgehammer:
+				{
+					return material_type switch
+					{
+						Material.Type.Wood => true,
+						Material.Type.Stone => true,
+						Material.Type.Gravel => false,
+						Material.Type.Flesh => true,
+						Material.Type.Glass => true,
+						Material.Type.Liquid => false,
+						Material.Type.Metal => true,
+						Material.Type.Soil => false,
+						Material.Type.Powder => false,
+						Material.Type.Foliage => false,
+						Material.Type.Fabric => false,
+						Material.Type.Rubber => false,
+						Material.Type.Mushroom => false,
+						Material.Type.Insect => true,
+						Material.Type.Paper => false,
+						Material.Type.Leather => false,
+						Material.Type.Wire => false,
+						Material.Type.Bone => true,
+						Material.Type.Chitin => true,
+						Material.Type.Rubble => true,
+						Material.Type.Scrap => true,
+						Material.Type.Wreck => true,
+						Material.Type.Tool => true,
+						Material.Type.Stone_Porous => true,
+						Material.Type.Stone_Slab => true,
+						Material.Type.Stone_Dense => true,
+						Material.Type.Stone_Metallic => true,
+						Material.Type.Concrete => true,
+						Material.Type.Metal_Pole => true,
+						Material.Type.Metal_Sheet => false,
+						Material.Type.Metal_Frame => false,
+						Material.Type.Metal_Solid => true,
+						Material.Type.Clay => false,
+						Material.Type.Brick => true,
+						Material.Type.Essence => false,
+						Material.Type.Gas => false,
+						Material.Type.Machine => true,
+						Material.Type.Coin => false,
+						Material.Type.Coal => true,
+						Material.Type.Cermet => true,
+						Material.Type.Sand => false,
+						Material.Type.Resin => false,
+						Material.Type.Slime => false,
+						Material.Type.Tar => false,
+						Material.Type.Chalk => true,
+						Material.Type.Asphalt => true,
+						Material.Type.Mud => false,
+						Material.Type.Peat => false,
+						Material.Type.Wax => false,
+						Material.Type.Tree => false,
+						Material.Type.Wood_Powder => false,
+						Material.Type.Bramble => false,
+						Material.Type.Components => true,
+						Material.Type.Device => true,
+						Material.Type.Egg => true,
+						Material.Type.Fur => true,
+						_ => false
+					};
+				}
+				break;
+
 				case Damage.Type.Blunt:
 				{
 					return material_type switch

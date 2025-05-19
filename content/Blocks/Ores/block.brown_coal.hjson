@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.63.1"
 	name: "Brown Coal"
 	desc:
 		'''
@@ -10,7 +10,7 @@
 	tile_flags: non_empty
 	flags: raw, ore, common, fuel, mineral
 	
-	max_health: 9600.000
+	max_health: 14600.000
 	smoothing: 0.150
 	stability: 3.440
 	strength_tensile: 4.800

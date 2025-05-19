@@ -3,7 +3,7 @@ $desc:
 	'''
 	A really pretty boulder.
 
-	Can be mined with a pickaxe for a large amount of gravel.
+	Can be mined for a large amount of gravel.
 	'''
 $tags: []
 
@@ -29,7 +29,7 @@ body:
 		material: stone
 		miss_chance: 0.318
 		
-		layer: entity, solid, ignore_melee
+		layer: entity, solid, background
 	}
 }
 
@@ -62,8 +62,18 @@ harvestable:
 	resources:
 	[
 		{
-			material: "gravel"
+			material: gravel
 			quantity: 1900.000
 		}
+		null
+		null
+		null
 	]
+	
+	thresholds: [0.980, 0.000, 0.000, 0.000]
+	
+	pct_damage_mult: [0.975, 0.000, 0.000, 0.000]
+	pct_quantity_min: [0.029, 0.000, 0.000, 0.000]
+	
+	chance_base: [0.782, 0.000, 0.000, 0.000]
 }

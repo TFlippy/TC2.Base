@@ -3,7 +3,7 @@ $desc:
 	'''
 	A remarkably tall boulder.
 
-	Can be mined with a pickaxe for a very large amount of gravel.
+	Can be mined for a very large amount of gravel.
 	'''
 $tags: []
 
@@ -66,4 +66,11 @@ harvestable:
 			quantity: 3050.000
 		}
 	]
+	
+	thresholds: [0.980, 0.000, 0.000, 0.000]
+	
+	pct_damage_mult: [0.975, 0.000, 0.000, 0.000]
+	pct_quantity_min: [0.029, 0.000, 0.000, 0.000]
+	
+	chance_base: [0.782, 0.000, 0.000, 0.000]
 }

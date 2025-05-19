@@ -17,9 +17,9 @@ body:
 		radius: 1.000
 		friction: 0.950
 		elasticity: 0.500
-		mass: 22.000
+		mass: 23.000
 		material: foliage
-		layer: entity, plant, ignore_melee, ignore_bullet, organic
+		layer: entity, plant, ignore_melee, ignore_bullet, organic, flammable
 		mask: world
 	}
 }
@@ -31,7 +31,7 @@ transform:
 
 health:
 {
-	max: 2200.000
+	max: 2500.000
 }
 
 foliage.renderer:
@@ -52,11 +52,11 @@ harvestable:
 	[
 		{
 			material: cmajzl
-			quantity: 77.000
+			quantity: 47.000
 		}
 		{
 			material: plants
-			quantity: 22.000
+			quantity: 12.000
 		}
 		null
 		null

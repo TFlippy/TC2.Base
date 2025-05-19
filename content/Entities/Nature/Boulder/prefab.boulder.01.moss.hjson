@@ -3,7 +3,7 @@ $desc:
 	'''
 	A medium-sized boulder with moss that looks exactly like a boulder with moss.
 
-	Can be mined with a pickaxe for a decent amount of gravel.
+	Can be mined for a decent amount of gravel.
 	'''
 $tags: []
 
@@ -67,7 +67,13 @@ harvestable:
 		{
 			material: "plants"
 			quantity: 35.000
-			flags: none
 		}
 	]
+
+	thresholds: [0.991, 1.000, 0.000, 0.000]
+	
+	pct_damage_mult: [1.000, 1.000, 0.000, 0.000]
+	pct_quantity_min: [0.038, 0.180, 0.000, 0.000]
+	
+	chance_base: [0.918, 1.000, 0.000, 0.000]
 }
