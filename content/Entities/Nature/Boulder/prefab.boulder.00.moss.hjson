@@ -10,6 +10,7 @@ $tags: []
 body:
 {
 	type: static
+	tags: solid, round, irregular, dense
 	
 	@shape.polygon:
 	{
@@ -21,7 +22,7 @@ body:
 			[-1.875, 1.250]
 		]
 		
-		mass: 1800.000
+		mass: 2100.000
 		radius: 0.800
 		friction: 0.950
 		elasticity: 0.020
@@ -29,13 +30,13 @@ body:
 		material: stone
 		miss_chance: 0.322
 		
-		layer: entity, solid, ignore_melee
+		layer: entity, solid, background
 	}
 }
 
 health:
 {
-	max: 41000.000
+	max: 61000.000
 }
 
 animated.renderer:

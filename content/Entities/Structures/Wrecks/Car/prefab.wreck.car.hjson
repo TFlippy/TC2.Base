@@ -28,7 +28,7 @@ body:
 		material: wreck
 		miss_chance: 0.424
 		
-		layer: entity, solid, vehicle, conductive, harvestable, magnetic, ignore_melee, background
+		layer: entity, solid, vehicle, conductive, harvestable, magnetic, background
 	}
 }
 
@@ -57,7 +57,7 @@ harvestable:
 	resources:
 	[
 		{
-			material: scrap.ferrous
+			material: scrap.metal
 			quantity: 470.000
 		}
 		{

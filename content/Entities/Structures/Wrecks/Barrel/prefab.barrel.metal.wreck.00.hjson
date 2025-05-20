@@ -18,7 +18,7 @@ body:
 		friction: 0.850
 		elasticity: 0.400
 		material: metal_sheet
-		layer: entity, solid, background, furniture
+		layer: entity, solid, furniture, ignore_melee
 		mask: world
 		miss_chance: 0.835
 	}
@@ -29,11 +29,11 @@ health:
 	max: 2100.000
 }
 
-// holdable:
-// {
-// 	radius: 0.000
-// 	flags: disable_parent_facing, disable_rotation, disable_control
-// }
+holdable:
+{
+	radius: 0.000
+	flags: disable_parent_facing, disable_rotation, disable_control, force_edge_pickup
+}
 
 animated.renderer:
 {

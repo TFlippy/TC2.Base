@@ -1,23 +1,26 @@
 $name: "Boulder"
 $desc: 
 	'''
-	TODO: Desc
+	Biggest boulder in the world you know.
+
+	Can be mined for the biggest amount of gravel.
 	'''
 $tags: []
 
 body:
 {
 	type: static
-	
+	tags: solid, round, irregular, dense
+
 	@shape.circle:
 	{
 		offset: [0.000, -0.500]
-		mass: 7800.000
+		mass: 9500.000
 		radius: 2.250
 		friction: 0.950
 		elasticity: 0.020
 		material: stone
-		layer: entity, solid, ignore_melee
+		layer: entity, solid, background
 		mask: world
 
 		miss_chance: 0.135

@@ -158,7 +158,7 @@
 			ratio: 0.620
 			ratio_extra: 0.290
 			
-			h_material_waste: scrap.metal
+			h_material_waste: scrap.ferrous
 			spawn_flags_waste: merge
 			product_flags_waste: waste
 			ratio_waste: 0.730
@@ -264,7 +264,7 @@
 		}
 		construction:
 		{
-			h_material: scrap.metal
+			h_material: scrap.ferrous
 			h_substance: "null"
 			flags: none
 			flags_product: residue
