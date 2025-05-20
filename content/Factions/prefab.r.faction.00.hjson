@@ -1,8 +1,9 @@
+$name: "Faction"
 $tags: []
 
 faction:
 {
-
+    flags: use_asset
 }
 
 company:
@@ -12,5 +13,11 @@ company:
 
 squad:
 {
+	movement_flags: hold, open_doors
+	combat_flags: attack_visible, attack_when_hit, cover, flee, defend, assist_work
+}
 
+nameable:
+{
+	flags: use_asset_name
 }

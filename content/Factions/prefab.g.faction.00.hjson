@@ -1,11 +1,17 @@
+$name: "Faction"
 $tags: []
 
 faction:
 {
-
+    flags: use_asset
 }
 
 company:
 {
-    
+
+}
+
+nameable:
+{
+	flags: use_asset_name
 }

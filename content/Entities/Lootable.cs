@@ -230,7 +230,7 @@ namespace TC2.Base.Components
 						{
 							Resource.Spawn(region: ref region,
 								material: item.material,
-								world_position: pos + random.NextUnitVector2Range(lootable.spawn_radius * 0.50f, lootable.spawn_radius),
+								world_position: pos, // + random.NextUnitVector2Range(lootable.spawn_radius * 0.50f, lootable.spawn_radius),
 								amount: amount,
 								max_distance: lootable.merge_radius,
 								flags: Resource.SpawnFlags.Merge,

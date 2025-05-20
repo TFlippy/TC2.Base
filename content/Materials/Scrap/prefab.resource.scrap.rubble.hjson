@@ -55,5 +55,5 @@ despawn:
 	sleep_count_max: 39
 	interval: 30.000
 	threshold_delete: 0.010
-	threshold_despawning: 0.250
+	threshold_despawning: 0.072
 }
