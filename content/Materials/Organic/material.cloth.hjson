@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.0"
+	$version: "0.1.63.1"
 	name: "Cloth"
 	name_short: "Cloth"
 	description:
@@ -19,15 +19,20 @@
 	type: fabric
 	flags: soft, malleable, organic, thin, manufactured, flammable, flexible, solid, processed
 	display_flags: none
-	hints: none
+	spawn_flags:
+	{
+		add: merge, show_notification
+	}
+	hints: materials, civilian
 	
 	mass_per_unit: 0.360
 	
 	quantity_max: 250.000
 	spawn_quantity_threshold: 0.500
-	snapping: 1.000
+	snapping: 0.100
 	snapping_pickup: 1.000
 	
+	form_type: plate
 	prefab: resource.cloth
 	h_substance: "null"
 	
@@ -36,6 +41,7 @@
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	
+	centroid_default: [0.000, 0.250]
 	colliders: []
 	
 	commodity:
@@ -294,6 +300,73 @@
 			flags: none
 			merge_radius_mult: 1.800
 			velocity_mult: 0.840
+		}
+	}
+	
+	residues:
+	{
+		tailoring:
+		{
+			h_material: scrap.cloth
+			h_substance: "null"
+			flags: none
+			flags_product: waste, residue
+			
+			yield: [0.724, 0.254]
+		}
+		sewing:
+		{
+			h_material: scrap.cloth
+			h_substance: "null"
+			flags: none
+			flags_product: waste, residue
+			
+			yield: [0.837, 0.163]
+		}
+		assembling:
+		{
+			h_material: scrap.cloth
+			h_substance: "null"
+			flags: none
+			flags_product: waste, residue
+			
+			yield: [0.694, 0.292]
+		}
+		cutting:
+		{
+			h_material: scrap.cloth
+			h_substance: "null"
+			flags: none
+			flags_product: waste, residue
+			
+			yield: [0.898, 0.102]
+		}
+		slicing:
+		{
+			h_material: scrap.cloth
+			h_substance: "null"
+			flags: none
+			flags_product: waste, residue
+			
+			yield: [0.750, 0.209]
+		}
+		wrapping.cloth:
+		{
+			h_material: scrap.cloth
+			h_substance: "null"
+			flags: none
+			flags_product: waste, residue
+			
+			yield: [0.888, 0.112]
+		}
+		dismantling:
+		{
+			h_material: scrap.cloth
+			h_substance: "null"
+			flags: none
+			flags_product: waste, residue
+			
+			yield: [0.748, 0.231]
 		}
 	}
 }

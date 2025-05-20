@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.5"
+	$version: "0.1.63.1"
 	name: "Ferronickel Powder"
 	name_short: "FeNi. Powder"
 	description:
@@ -17,7 +17,7 @@
 	}
 	
 	type: powder
-	flags: magnetic, granular, metal, powder, solid
+	flags: magnetic, granular, metal, small, powder, solid, processed, impure
 	display_flags: none
 	hints: none
 	
@@ -40,5 +40,6 @@
 	color_dust: "0xff62605e"
 	color_gib: "0xff62605e"
 	
+	centroid_default: [0.000, 0.250]
 	colliders: []
 }

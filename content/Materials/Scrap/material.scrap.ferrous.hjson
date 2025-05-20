@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.3"
+	$version: "0.1.63.1"
 	name: "Ferrous Scrap"
 	name_short: "Ferr. Scrap"
 	description:
@@ -17,7 +17,7 @@
 	}
 	
 	type: scrap
-	flags: scrap, magnetic, granular, metal, waste, solid, processed, impure
+	flags: scrap, magnetic, granular, metal, waste, flexible, solid, processed, impure
 	display_flags: none
 	hints: materials, junk, construction, cheap
 	

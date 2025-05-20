@@ -1,11 +1,13 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.63.1"
 	name: "Cmajzl"
 	name_short: "Cmajzl"
 	description:
 		'''
 		Common parasitic cereal grain of many uses, grows on almost anything and tastes terrible.
 		'''
+	
+	tips: []
 	
 	icon:
 	{
@@ -15,14 +17,16 @@
 	}
 	
 	type: foliage
-	flags: food, granular, organic, small, raw, flammable, flexible, solid, smelly
+	flags: soft, malleable, food, granular, organic, small, raw, flammable, flexible, solid, impure, smelly, primary
 	display_flags: none
 	hints: materials
 	
 	mass_per_unit: 0.437
+	
 	quantity_max: 250.000
 	spawn_quantity_threshold: 0.500
 	snapping: 0.100
+	snapping_pickup: 1.000
 	
 	form_type: raw
 	prefab: resource.cmajzl
@@ -33,9 +37,9 @@
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	
+	centroid_default: [0.000, 0.250]
 	colliders: []
 	
-	// Conversions into other materials.
 	conversions:
 	{
 		rotting:

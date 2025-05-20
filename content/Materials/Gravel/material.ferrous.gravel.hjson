@@ -1,11 +1,13 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.63.1"
 	name: "Ferrous Gravel"
 	name_short: "Ferr. Gravel"
 	description:
 		'''
-		Heap of horribly oxidized iron, nickel and who knows what else.
+		Heap of horribly oxidized iron, nickel, ferronickel, slag and who knows what else.
 		'''
+	
+	tips: []
 	
 	icon:
 	{
@@ -15,18 +17,26 @@
 	}
 	
 	type: gravel
-	flags: magnetic, granular, metal, raw, gravel, solid
+	flags: magnetic, granular, metal, raw, gravel, waste, solid, impure, contaminated
 	display_flags: none
 	hints: none
+	
 	mass_per_unit: 1.100
+	
 	quantity_max: 500.000
 	spawn_quantity_threshold: 1.000
+	snapping: 1.000
+	snapping_pickup: 1.000
+	
 	form_type: gravel
 	prefab: resource.ferrous.gravel
+	h_substance: "null"
 	
 	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
 	color_dust: "0xff62605e"
 	color_gib: "0xff62605e"
 	
+	centroid_default: [0.000, 0.250]
 	colliders: []
 }
