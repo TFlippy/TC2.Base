@@ -39,6 +39,8 @@
 							material: saltpeter
 							amount: 1.136364
 							snapping: 0.500
+							loss: 0.075
+							ratio: 1.000
 							group: 0
 							flags: prerequisite
 						}
@@ -47,6 +49,8 @@
 							material: charcoal
 							amount: 0.625
 							snapping: 0.500
+							loss: 0.204
+							ratio: 1.000
 							group: 0
 							flags: prerequisite
 						}
@@ -55,6 +59,8 @@
 							material: sulfur
 							amount: 0.434783
 							snapping: 0.100
+							loss: 0.024
+							ratio: 1.000
 							group: 0
 							flags: prerequisite
 						}
@@ -63,9 +69,9 @@
 							work: crushing
 							amount: 150.000
 							amount_min: 138.000
-							difficulty: 4
+							difficulty: 6
 							snapping: 5.000
-							falloff: 0.817
+							falloff: 0.828
 							ratio: 1.000
 							group: 1
 							flags: conditional
@@ -77,8 +83,8 @@
 						{
 							type: resource
 							material: gunpowder
-							amount: 3.0932
-							amount_extra: 0.9669
+							amount: 3.192496
+							amount_extra: 0.997939
 							group: 0
 							flags: primary, compact
 						}

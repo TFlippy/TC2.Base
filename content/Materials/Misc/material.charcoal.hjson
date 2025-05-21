@@ -1,11 +1,13 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.63.1"
 	name: "Charcoal"
 	name_short: "Charcoal"
 	description:
 		'''
 		A fast-burning fuel produced from wood.
 		'''
+	
+	tips: []
 	
 	icon:
 	{
@@ -18,14 +20,24 @@
 	flags: hard, granular, small, raw, fuel, flammable, solid
 	display_flags: none
 	hints: none
+	
 	mass_per_unit: 0.240
+	
 	quantity_max: 500.000
 	spawn_quantity_threshold: 3.000
+	snapping: 1.000
+	snapping_pickup: 1.000
+	
 	form_type: gravel
 	prefab: resource.charcoal
+	h_substance: "null"
 	
 	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
 	
+	centroid_default: [0.000, 0.250]
 	colliders: []
 	
 	commodity:
@@ -119,5 +131,49 @@
 		// Percentage of volatiles.
 		volatiles_ratio: 0.02883
 		volatiles: ["coal_gas"]
+	}
+	
+	conversions:
+	{
+		fire:
+		{
+			h_material: "null"
+			spawn_flags: none
+			product_flags: none
+			ratio: 1.000
+			ratio_extra: 0.000
+			
+			h_material_waste: ash
+			spawn_flags_waste: merge
+			product_flags_waste: residue
+			ratio_waste: 0.820
+			ratio_waste_extra: 0.240
+			
+			yield: 0.830
+			yield_extra: 0.150
+			
+			h_sound: missing
+			sound_volume: 0.500
+			sound_pitch: 1.000
+			
+			chance: 1.000
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.000
+			velocity_mult: 1.000
+		}
+	}
+	
+	residues:
+	{
+		crushing:
+		{
+			h_material: coal.powder
+			h_substance: "null"
+			flags: none
+			flags_product: residue
+			
+			yield: [0.481, 0.507]
+		}
 	}
 }

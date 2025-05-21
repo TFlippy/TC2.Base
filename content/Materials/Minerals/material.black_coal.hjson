@@ -1,11 +1,13 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.63.1"
 	name: "Black Coal"
 	name_short: "Bl. Coal"
 	description:
 		'''
 		An efficient fuel.
 		'''
+	
+	tips: []
 	
 	icon:
 	{
@@ -15,17 +17,29 @@
 	}
 	
 	type: coal
-	flags: hard, granular, organic, mineral, small, raw, fuel, flammable, solid
+	flags: hard, granular, organic, mineral, small, raw, fuel, flammable, volatile, solid
 	display_flags: none
 	hints: none
+	
+	porosity: 0.2638
+	purity: 0.821
 	mass_per_unit: 0.420
+	
 	quantity_max: 500.000
-	spawn_quantity_threshold: 2.000
-	form_type: gravel
+	spawn_quantity_threshold: 1.000
+	snapping: 1.000
+	snapping_pickup: 1.000
+	
+	form_type: raw
 	prefab: resource.black_coal
+	h_substance: "null"
 	
 	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
 	
+	centroid_default: [0.000, 0.250]
 	colliders: []
 	
 	commodity:
@@ -119,5 +133,14 @@
 		// Percentage of volatiles.
 		volatiles_ratio: 0.0497
 		volatiles: ["coal_gas"]
+	}
+	
+	related:
+	{
+		firedamp: residue, decomposition, dirty, waste
+		coal.powder: residue, crushed, similar, powdered
+		ash: burnt, residue, waste, powdered
+		coke: refined, cooked, dried, purified, similar
+		tar: residue, reaction, decomposition, juice
 	}
 }

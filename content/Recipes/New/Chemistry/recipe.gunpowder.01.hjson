@@ -1,5 +1,4 @@
 ﻿{
-	$region_id: 0
 	$version: "0.1.63.1"
 	name: "Wet Gunpowder"
 	desc:
@@ -35,8 +34,9 @@
 						{
 							type: resource
 							material: alcohol
-							amount: 0.220
-							snapping: 1.000
+							amount: 1.000
+							snapping: 0.100
+							falloff: 0.958
 							loss: 0.024
 							ratio: 1.000
 							group: 0
@@ -118,12 +118,12 @@
 						}
 						{
 							type: work
-							work: crushing
-							amount: 150.000
-							amount_min: 138.000
+							work: blending
+							amount: 60.000
+							amount_min: 125.000
 							difficulty: 4
 							snapping: 5.000
-							falloff: 0.817
+							falloff: 0.801
 							ratio: 1.000
 							group: 1
 							flags: conditional
