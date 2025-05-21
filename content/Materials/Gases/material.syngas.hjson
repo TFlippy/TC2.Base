@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.5"
+	$version: "0.1.63.1"
 	name: "Syngas"
 	name_short: "Syngas"
 	description:
@@ -22,7 +22,7 @@
 	display_flags: sprite_stack_linear, no_random_facing
 	spawn_flags:
 	{
-		rem: pickup, allow_encumbered
+		rem: pickup, allow_encumbered, show_notification
 	}
 	hints: none
 	
