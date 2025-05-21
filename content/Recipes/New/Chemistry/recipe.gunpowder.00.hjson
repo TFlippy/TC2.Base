@@ -12,14 +12,14 @@
 		{
 			name: "Formula"
 			
-			type: processing
+			type: formula
 			flags: wip, auto_generated
-			tags: none
+			tags: material, formula
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
 			
-			ratio: 1.000
-			mass_base: 0.24955
+			ratio: 0.000
+			mass_base: 0.000
 			
 			options:
 			[
@@ -37,40 +37,50 @@
 						{
 							type: resource
 							material: saltpeter
-							amount: 0.266898
-							snapping: 1.000
-							loss: 0.024
+							amount: 1.136364
+							snapping: 0.500
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: resource
 							material: charcoal
-							amount: 0.25675
-							snapping: 1.000
-							loss: 0.075
+							amount: 0.625
+							snapping: 0.500
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: resource
 							material: sulfur
-							amount: 0.097863
-							snapping: 1.000
-							loss: 0.024
+							amount: 0.434783
+							snapping: 0.100
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: work
-							work: mixing
-							amount: 75.000
-							amount_min: 25.000
-							difficulty: 7
+							work: crushing
+							amount: 150.000
+							amount_min: 138.000
+							difficulty: 4
 							snapping: 5.000
-							falloff: 0.550
+							falloff: 0.817
+							ratio: 1.000
 							group: 1
 							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: gunpowder
+							amount: 3.0932
+							amount_extra: 0.9669
+							group: 0
+							flags: primary, compact
 						}
 					]
 					
@@ -83,18 +93,6 @@
 					}
 				}
 			]
-		}
-	]
-	
-	products:
-	[
-		{
-			type: resource
-			material: gunpowder
-			amount: 0.898
-			amount_extra: 0.187
-			group: 0
-			flags: byproduct, primary
 		}
 	]
 	
@@ -197,9 +195,9 @@
 	color_button: "0xff9dd80f"
 	rank: 90.000
 	
-	min: 5
-	max: 100
-	step: 5
+	min: 1
+	max: 50
+	step: 1
 	
 	version: 1
 }

@@ -70,9 +70,9 @@
 		{
 			name: "Formula"
 			
-			type: processing
+			type: formula
 			flags: wip, auto_generated
-			tags: none
+			tags: material, formula
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
 			
@@ -119,11 +119,12 @@
 						{
 							type: work
 							work: crushing
-							amount: 80.000
-							amount_min: 65.000
+							amount: 150.000
+							amount_min: 138.000
 							difficulty: 4
 							snapping: 5.000
 							falloff: 0.817
+							ratio: 1.000
 							group: 1
 							flags: conditional
 						}
