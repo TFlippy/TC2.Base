@@ -8,7 +8,7 @@
 	
 	material_type: coal
 	tile_flags: non_empty
-	flags: raw, ore, uncommon, fuel, mineral
+	flags: raw, ore, uncommon, fuel, mineral, flammable
 	
 	max_health: 16800.000
 	smoothing: 0.150
@@ -16,7 +16,7 @@
 	strength_tensile: 4.800
 	strength_compressive: 21.000
 	
-	mass: 2.000
+	mass: 1.000
 	friction: 0.990
 	elasticity: 0.050
 	collision_layer: none

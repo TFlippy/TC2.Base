@@ -25,7 +25,7 @@
 		{
 			resource:
 			{
-				material: "benzene"
+				material: "toluene"
 				quantity: 100.000
 			}
 		}

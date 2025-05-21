@@ -116,7 +116,7 @@
 			options:
 			[
 				{
-					name: "Benzene-Soaked"
+					name: "Toluene-Soaked"
 					
 					type: undefined
 					flags: none
@@ -134,7 +134,7 @@
 						}
 						{
 							type: resource
-							material: benzene
+							material: toluene
 							amount: 2.000
 							snapping: 0.100
 							loss: 0.012

@@ -6,9 +6,9 @@ body:
 
 	@shape.circle:
 	{
-		radius: 1.900
-		friction: 0.680
-		elasticity: 0.480
+		radius: 1.500
+		friction: 0.880
+		elasticity: 0.280
 		rigidity_static: 0.680
 		rigidity_dynamic: 0.450
 		
@@ -20,7 +20,7 @@ body:
 		exclude: decoration, background, barbed
 	}
 
-	gravity: 0.018
+	gravity: 0.088
 	damping: 0.910
 	mass_multiplier: 220.000
 	fall_damage_multiplier: 0.000
@@ -33,13 +33,12 @@ transform:
 
 gas:
 {
-	radius: 4.000
-	size: 1.450
+	size: 1.525
 	lifetime: 5.000
-	speed: 0.070
-	interval: 0.700
-	color_a: "0x51b5d97b"
-	color_b: "0x00728400"
+	speed: 0.025
+	interval: 0.588
+	color_a: "0x56606749"
+	color_b: "0x001e2320"
 }
 
 resource:
@@ -78,9 +77,15 @@ explosive:
 
 despawn:
 {
-	sleep_count: 0
-	sleep_count_max: 3
-	interval: 30.000
+	amount_ratio: 0.011
+	amount_ratio_extra: 0.023
+	
 	threshold_delete: 0.010
 	threshold_despawning: 1.000
+	
+	interval: 15.000
+	interval_extra: 20.000
+	
+	sleep_count_max: 3
+	sleep_count: 0
 }

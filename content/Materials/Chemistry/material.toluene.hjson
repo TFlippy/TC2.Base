@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.62.3"
-	name: "Benzene"
-	name_short: "Benzene"
+	name: "Toluene"
+	name_short: "Toluene"
 	description:
 		'''
 		TODO: Desc
@@ -11,7 +11,7 @@
 	
 	icon:
 	{
-		texture: resource.benzene
+		texture: resource.toluene
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -30,8 +30,8 @@
 	snapping_pickup: 50.000
 	
 	form_type: packaged
-	prefab: resource.benzene
-	h_substance: benzene
+	prefab: resource.toluene
+	h_substance: toluene
 	
 	color_icon: "0xffffffff"
 	color_item: "0xffffffff"
@@ -46,7 +46,7 @@
 		type: liquid
 		
 		// Combustion energy in kJ/kg, see https://en.wikipedia.org/wiki/Heat_of_combustion
-		energy_combustion: 41800.000
+		energy_combustion: 40589.000
 		// Ratio of produced exhaust gas and leftover ashes.
 		purity: 0.990
 		// Rate at which 1 unit of the material ignites, see https://en.wikipedia.org/wiki/Combustibility_and_flammability
@@ -59,14 +59,14 @@
 		// Adiabatic flame temperature (Kelvin) in air. If not known, just subtract 1000 from 'flame_temperature_o2'.
 		flame_temperature_air: 2363.000
 		// Auto-ignition temperature (Kelvin), see https://en.wikipedia.org/wiki/Autoignition_temperature.
-		autoignition_temperature: 770.930
+		autoignition_temperature: 753.930
 		// Minimum temperature (Kelvin) for ignition, see https://en.wikipedia.org/wiki/Flash_point
-		flash_point: 261.520
+		flash_point: 277.520
 		// kJ/(kg*K)
 		specific_heat: 1.700
 		
 		// kW/(m*K)
-		thermal_conductivity: 0.000143
+		thermal_conductivity: 0.000131
 		// TODO: Desc
 		porosity: 0.000
 		// TODO: Desc

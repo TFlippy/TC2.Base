@@ -1,11 +1,11 @@
 ﻿{
 	$version: "0.1.61.4"
-	name: "Benzene"
+	name: "Toluene"
 	description:
 		'''
 		TODO: Desc
 		'''
-	cas_number: "71-43-2"
+	cas_number: "108-88-3"
 	type: molecule
 	atomic_number: 0
 	flags: none

@@ -428,7 +428,7 @@
 					}
 				}
 				{
-					name: "Benzene"
+					name: "Toluene"
 					
 					type: undefined
 					flags: none
@@ -437,7 +437,7 @@
 					[
 						{
 							type: resource
-							material: benzene
+							material: toluene
 							amount: 0.500
 							snapping: 0.100
 							falloff: 0.904
