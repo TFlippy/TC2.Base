@@ -1,6 +1,6 @@
 ﻿{
-	$version: "0.1.62.1"
-	name: "MG-20.4mm Ammo"
+	$version: "0.1.63.1"
+	name: "MG-20.4mm/HV Ammo"
 	description:
 		'''
 		MG-caliber 20.4mm ammunition.
@@ -19,6 +19,7 @@
 	{
 		texture: ui_icons_gunsmith.mini
 		size: [16, 16]
+		frame: [1, 0]
 	}
 	
 	type: ammo
@@ -27,8 +28,11 @@
 	hints: none
 	
 	mass_per_unit: 0.120
+	
 	quantity_max: 50.000
 	spawn_quantity_threshold: 1.000
+	snapping: 1.000
+	snapping_pickup: 1.000
 	
 	prefab: resource.ammo.mg.hv
 	h_substance: "null"
@@ -38,6 +42,7 @@
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	
+	centroid_default: [0.000, 0.250]
 	colliders: []
 	
 	ammo:

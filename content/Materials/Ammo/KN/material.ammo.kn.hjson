@@ -1,6 +1,6 @@
 ﻿{
-	$version: "0.1.62.1"
-	name: "KN-51.9mm Ammo"
+	$version: "0.1.63.1"
+	name: "KN-51.9mm/LV Ammo"
 	description:
 		'''
 		KN-caliber 51.9mm ammunition.
@@ -27,8 +27,11 @@
 	hints: none
 	
 	mass_per_unit: 1.800
+	
 	quantity_max: 8.000
 	spawn_quantity_threshold: 1.000
+	snapping: 1.000
+	snapping_pickup: 1.000
 	
 	prefab: resource.ammo.kn
 	h_substance: "null"
