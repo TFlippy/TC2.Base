@@ -8,11 +8,11 @@
 			resources:
 			[
 				{
-					material: "ammo_mg"
+					material: "ammo.mg.hv"
 					quantity: 200.000
 				}
 				{
-					material: "ammo_mg"
+					material: "ammo.mg.hv"
 					quantity: 200.000
 				}
 			]

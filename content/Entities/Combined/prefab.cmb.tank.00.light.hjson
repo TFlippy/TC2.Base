@@ -19,19 +19,19 @@ $prefab: "tank.00"
 				resources:
 				[
 					{
-						material: "ammo_ac"
+						material: "ammo.ac.hv"
 						quantity: 100.000
 					}
 					{
-						material: "ammo_ac"
+						material: "ammo.ac.hv"
 						quantity: 100.000
 					}
 					{
-						material: "ammo_ac"
+						material: "ammo.ac.hv"
 						quantity: 100.000
 					}
 					{
-						material: "ammo_ac"
+						material: "ammo.ac.hv"
 						quantity: 100.000
 					}
 				]

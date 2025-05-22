@@ -10,7 +10,7 @@
 	
 	icon:
 	{
-		texture: resource.ammo_hw
+		texture: resource.ammo.hw
 		size: [16, 16]
 	}
 	
@@ -29,7 +29,7 @@
 	quantity_max: 1.000
 	spawn_quantity_threshold: 1.000
 	
-	prefab: resource.ammo_hw
+	prefab: resource.ammo.hw
 	h_substance: "null"
 	
 	color_icon: "0xffffffff"

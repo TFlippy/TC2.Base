@@ -10,7 +10,7 @@
 	
 	icon:
 	{
-		texture: resource.ammo_hc.hv
+		texture: resource.ammo.hc.hv
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -31,7 +31,7 @@
 	quantity_max: 50.000
 	spawn_quantity_threshold: 1.000
 	
-	prefab: resource.ammo_hc.hv
+	prefab: resource.ammo.hc.hv
 	h_substance: "null"
 	
 	color_icon: "0xffffffff"

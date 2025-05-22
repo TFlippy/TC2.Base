@@ -52,7 +52,7 @@
 				{
 					resource:
 					{
-						material: "ammo_hc.hv"
+						material: "ammo.hc.hv"
 						quantity: 400.000
 					}
 				}

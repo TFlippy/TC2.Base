@@ -14,19 +14,19 @@ $prefab: "tractor.00"
 				resources:
 				[
 					{
-						material: "ammo_ac"
+						material: "ammo.ac.hv"
 						quantity: 80.000
 					}
 					{
-						material: "ammo_ac"
+						material: "ammo.ac.hv"
 						quantity: 80.000
 					}
 					{
-						material: "ammo_ac"
+						material: "ammo.ac.hv"
 						quantity: 80.000
 					}
 					{
-						material: "ammo_ac"
+						material: "ammo.ac.hv"
 						quantity: 80.000
 					}
 				]

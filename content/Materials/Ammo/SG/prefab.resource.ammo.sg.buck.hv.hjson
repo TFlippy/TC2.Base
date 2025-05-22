@@ -21,7 +21,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.ammo_sg.buck.hv"
+		texture: "resource.ammo.sg.buck.hv"
 		count: 4
 		size: [16, 16]
 	}
@@ -34,7 +34,7 @@ transform:
 
 resource:
 {
-	material: "ammo_sg.buck.hv"
+	material: "ammo.sg.buck.hv"
 }
 
 holdable:

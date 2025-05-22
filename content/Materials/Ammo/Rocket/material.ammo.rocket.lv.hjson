@@ -10,7 +10,7 @@
 	
 	icon:
 	{
-		texture: resource.ammo_rocket
+		texture: resource.ammo.rocket
 		size: [16, 16]
 	}
 	
@@ -29,7 +29,7 @@
 	quantity_max: 4.000
 	spawn_quantity_threshold: 1.000
 	
-	prefab: resource.ammo_rocket
+	prefab: resource.ammo.rocket
 	h_substance: "null"
 	
 	color_icon: "0xffffffff"

@@ -10,7 +10,7 @@
 	
 	icon:
 	{
-		texture: resource.ammo_hw.shrapnel
+		texture: resource.ammo.hw.shrapnel
 		size: [16, 16]
 	}
 	
@@ -30,7 +30,7 @@
 	quantity_max: 1.000
 	spawn_quantity_threshold: 1.000
 	
-	prefab: resource.ammo_hw.shrapnel
+	prefab: resource.ammo.hw.shrapnel
 	h_substance: "null"
 	
 	color_icon: "0xffffffff"

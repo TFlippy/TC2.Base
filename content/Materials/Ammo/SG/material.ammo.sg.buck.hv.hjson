@@ -11,7 +11,7 @@
 	
 	icon:
 	{
-		texture: resource.ammo_sg.buck.hv
+		texture: resource.ammo.sg.buck.hv
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -32,7 +32,7 @@
 	quantity_max: 24.000
 	spawn_quantity_threshold: 1.000
 	
-	prefab: resource.ammo_sg.buck.hv
+	prefab: resource.ammo.sg.buck.hv
 	h_substance: "null"
 	
 	color_icon: "0xffffffff"

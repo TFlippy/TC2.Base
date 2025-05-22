@@ -20,7 +20,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.ammo_hw.incendiary"
+		texture: "resource.ammo.hw.incendiary"
 		count: 4
 		size: [16, 16]
 	}
@@ -34,7 +34,7 @@ transform:
 
 resource:
 {
-	material: "ammo_hw.incendiary"
+	material: "ammo.hw.incendiary"
 }
 
 holdable:

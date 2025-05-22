@@ -10,7 +10,7 @@
 	
 	icon:
 	{
-		texture: resource.ammo_ac.aa
+		texture: resource.ammo.ac.aa
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -31,7 +31,7 @@
 	quantity_max: 8.000
 	spawn_quantity_threshold: 1.000
 	
-	prefab: resource.ammo_ac.aa
+	prefab: resource.ammo.ac.aa
 	h_substance: "null"
 	
 	color_icon: "0xffffffff"

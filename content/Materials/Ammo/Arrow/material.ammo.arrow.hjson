@@ -13,7 +13,7 @@
 	
 	icon:
 	{
-		texture: resource.ammo_arrow
+		texture: resource.ammo.arrow
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -30,7 +30,7 @@
 	snapping: 1.000
 	snapping_pickup: 1.000
 	
-	prefab: resource.ammo_arrow
+	prefab: resource.ammo.arrow
 	h_substance: "null"
 	
 	color_icon: "0xffffffff"

@@ -7,7 +7,7 @@
 		{
 			resource:
 			{
-				material: "ammo_hw.hv"
+				material: "ammo.hw.hv"
 				quantity: 10.000
 			}
 		}

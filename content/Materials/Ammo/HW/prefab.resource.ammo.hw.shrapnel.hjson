@@ -20,7 +20,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.ammo_hw.shrapnel"
+		texture: "resource.ammo.hw.shrapnel"
 		count: 4
 		size: [16, 16]
 	}
@@ -34,7 +34,7 @@ transform:
 
 resource:
 {
-	material: "ammo_hw.shrapnel"
+	material: "ammo.hw.shrapnel"
 }
 
 holdable:

@@ -21,7 +21,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.ammo_sg.grenade"
+		texture: "resource.ammo.sg.grenade"
 		count: 4
 		size: [16, 16]
 	}
@@ -34,7 +34,7 @@ transform:
 
 resource:
 {
-	material: "ammo_sg.grenade"
+	material: "ammo.sg.grenade"
 }
 
 holdable:

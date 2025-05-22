@@ -20,7 +20,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.ammo_hw.smoke"
+		texture: "resource.ammo.hw.smoke"
 		count: 4
 		size: [16, 16]
 	}
@@ -34,7 +34,7 @@ transform:
 
 resource:
 {
-	material: "ammo_hw.smoke"
+	material: "ammo.hw.smoke"
 }
 
 holdable:

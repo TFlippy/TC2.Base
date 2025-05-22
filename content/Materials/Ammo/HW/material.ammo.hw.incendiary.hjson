@@ -10,7 +10,7 @@
 	
 	icon:
 	{
-		texture: resource.ammo_hw.incendiary
+		texture: resource.ammo.hw.incendiary
 		size: [16, 16]
 	}
 	
@@ -30,7 +30,7 @@
 	quantity_max: 1.000
 	spawn_quantity_threshold: 1.000
 	
-	prefab: resource.ammo_hw.incendiary
+	prefab: resource.ammo.hw.incendiary
 	h_substance: "null"
 	
 	color_icon: "0xffffffff"

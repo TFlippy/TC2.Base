@@ -19,7 +19,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.ammo_ac.aa"
+		texture: "resource.ammo.ac.aa"
 		count: 4
 		size: [16, 16]
 	}
@@ -32,7 +32,7 @@ transform:
 
 resource:
 {
-	material: "ammo_ac.aa"
+	material: "ammo.ac.aa"
 }
 
 holdable:
