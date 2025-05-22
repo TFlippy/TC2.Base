@@ -1,0 +1,76 @@
+﻿{
+	$version: "0.1.62.1"
+	name: "SG Ammo (Birdshot)"
+	description:
+		'''
+		Ammunition for shotguns. Fires many tiny projectiles,
+		typically used for hunting fowl (or when your aim is bad).
+		Gunpowder is weaker, but cheap.
+		'''
+	
+	tips: []
+	
+	icon:
+	{
+		texture: resource.ammo_sg.bird
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	icon_extra:
+	{
+		texture: ui_icons_gunsmith.mini
+		size: [16, 16]
+	}
+	
+	type: ammo
+	flags: ammo, ammo_sg, granular, small, solid
+	display_flags: hide_fraction
+	hints: none
+	
+	mass_per_unit: 0.080
+	quantity_max: 24.000
+	spawn_quantity_threshold: 1.000
+	
+	prefab: resource.ammo_sg.bird
+	h_substance: "null"
+	
+	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
+	
+	colliders: []
+	
+	ammo:
+	{
+		count: 7
+		mass: 0.050
+		heat: 50.000
+		velocity_min: 20.000
+		
+		speed_base: 0.000
+		speed_mult: 0.900
+		speed_jitter: 0.600
+		spin_base: 0.070
+		spin_mult: 1.600
+		spread_mult: 2.750
+		recoil_mult: 0.900
+		
+		failure_base: 0.000
+		failure_mult: 1.000
+		
+		stability_base: 250.000
+		stability_mult: 1.100
+		
+		prefab: projectile.sg.bird
+		
+		sprite_casing:
+		{
+			texture: atlas.ammo.casings.00
+			mask: missing
+			size: [8, 8]
+			frame: [11, 0]
+		}
+	}
+}
