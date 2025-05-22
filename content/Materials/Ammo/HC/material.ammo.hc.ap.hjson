@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.62.1"
-	name: "HC-13.2mm/HV Ammo"
+	name: "HC-13.2mm/AP Ammo"
 	description:
 		'''
 		High-caliber 13.2mm ammunition.
@@ -10,7 +10,7 @@
 	
 	icon:
 	{
-		texture: resource.ammo.hc.hv
+		texture: resource.ammo.hc.ap
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -31,7 +31,7 @@
 	quantity_max: 50.000
 	spawn_quantity_threshold: 1.000
 	
-	prefab: resource.ammo.hc.hv
+	prefab: resource.ammo.hc.ap
 	h_substance: "null"
 	
 	color_icon: "0xffffffff"
@@ -62,7 +62,7 @@
 		stability_base: 790.000
 		stability_mult: 0.940
 		
-		prefab: projectile.hc.hv
+		prefab: projectile.hc.ap
 		
 		sprite_casing:
 		{

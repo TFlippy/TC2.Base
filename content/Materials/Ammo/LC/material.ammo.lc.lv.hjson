@@ -10,7 +10,7 @@
 	
 	icon:
 	{
-		texture: resource.ammo.lc
+		texture: resource.ammo.lc.lv
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -30,7 +30,7 @@
 	quantity_max: 60.000
 	spawn_quantity_threshold: 1.000
 	
-	prefab: resource.ammo.lc
+	prefab: resource.ammo.lc.lv
 	h_substance: "null"
 	
 	color_icon: "0xffffffff"
@@ -61,7 +61,7 @@
 		stability_base: 160.000
 		stability_mult: 0.940
 		
-		prefab: projectile.lc
+		prefab: projectile.lc.lv
 		
 		sprite_casing:
 		{

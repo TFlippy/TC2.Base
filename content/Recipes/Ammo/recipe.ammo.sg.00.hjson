@@ -51,7 +51,7 @@
 					[
 						{
 							type: resource
-							material: ammo.sg.buck
+							material: ammo.sg.buck.lv
 							amount: 1.000
 							snapping: 1.000
 							group: 0
@@ -232,7 +232,7 @@
 	
 	icon:
 	{
-		texture: resource.ammo.sg.bird
+		texture: resource.ammo.sg.bird.lv
 		count: 4
 		size: [16, 16]
 		frame: [3, 0]

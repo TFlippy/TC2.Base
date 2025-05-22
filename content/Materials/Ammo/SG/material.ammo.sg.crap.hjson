@@ -1,18 +1,16 @@
 ﻿{
 	$version: "0.1.62.1"
-	name: "SG Ammo (Birdshot)"
+	name: "SG Ammo (Crapshot)"
 	description:
 		'''
-		Ammunition for shotguns. Fires many tiny projectiles,
-		typically used for hunting fowl (or when your aim is bad).
-		Gunpowder is weaker, but cheap.
+		TODO: Desc
 		'''
 	
 	tips: []
 	
 	icon:
 	{
-		texture: resource.ammo.sg.bird
+		texture: resource.ammo.sg.crap
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -32,7 +30,7 @@
 	quantity_max: 24.000
 	spawn_quantity_threshold: 1.000
 	
-	prefab: resource.ammo.sg.bird
+	prefab: resource.ammo.sg.crap
 	h_substance: "null"
 	
 	color_icon: "0xffffffff"
@@ -63,7 +61,7 @@
 		stability_base: 250.000
 		stability_mult: 1.100
 		
-		prefab: projectile.sg.bird
+		prefab: projectile.sg.crap
 		
 		sprite_casing:
 		{

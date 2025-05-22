@@ -21,7 +21,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.ammo.sg.bird"
+		texture: "resource.ammo.sg.bird.lv"
 		count: 4
 		size: [16, 16]
 	}
@@ -34,7 +34,7 @@ transform:
 
 resource:
 {
-	material: "ammo.sg.bird"
+	material: "ammo.sg.bird.lv"
 }
 
 holdable:

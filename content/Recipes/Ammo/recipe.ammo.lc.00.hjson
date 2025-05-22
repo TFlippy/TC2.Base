@@ -62,7 +62,7 @@
 					[
 						{
 							type: resource
-							material: ammo.lc
+							material: ammo.lc.lv
 							amount: 1.000
 							snapping: 1.000
 							group: 0
@@ -243,7 +243,7 @@
 	
 	icon:
 	{
-		texture: resource.ammo.lc
+		texture: resource.ammo.lc.lv
 		count: 4
 		size: [16, 16]
 		frame: [3, 0]

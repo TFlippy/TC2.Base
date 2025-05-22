@@ -1,18 +1,16 @@
 ﻿{
 	$version: "0.1.62.1"
-	name: "SG Ammo (Slug)"
+	name: "SG Ammo (EMT)"
 	description:
 		'''
-		Ammunition for shotguns. Fires single heavy projectile
-		with low velocity, which deals a large amount of damage.
-		Gunpowder is weaker, but cheap.
+		TODO: Desc
 		'''
 	
 	tips: []
 	
 	icon:
 	{
-		texture: resource.ammo.sg.slug
+		texture: resource.ammo.sg.emt
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -32,7 +30,7 @@
 	quantity_max: 24.000
 	spawn_quantity_threshold: 1.000
 	
-	prefab: resource.ammo.sg.slug
+	prefab: resource.ammo.sg.emt
 	h_substance: "null"
 	
 	color_icon: "0xffffffff"
@@ -63,7 +61,7 @@
 		stability_base: 380.000
 		stability_mult: 1.000
 		
-		prefab: projectile.sg.slug
+		prefab: projectile.sg.emt
 		
 		sprite_casing:
 		{

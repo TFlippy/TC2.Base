@@ -82,7 +82,7 @@ explosive:
 
 cluster:
 {
-	prefab: "projectile.mg"
+	prefab: "projectile.mg.hv"
 	velocity: [0.000, 0.000]
 	offset: [0.000, -1.000]
 	radius: 0.010

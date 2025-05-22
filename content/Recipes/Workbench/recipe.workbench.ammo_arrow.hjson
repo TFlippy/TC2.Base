@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.5"
+	$version: "0.1.63.1"
 	name: "Arrowbolts"
 	desc:
 		'''
@@ -16,7 +16,7 @@
 			
 			type: part
 			flags: wip, incomplete, auto_generated
-			tags: small, blade, sharp
+			tags: thin, small, blade, sharp, material
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
 			
@@ -31,27 +31,30 @@
 					type: undefined
 					flags: wip, incomplete, auto_generated
 					
+					prefix: "Steelhead"
+					priority: 1.000
+					
 					requirements:
 					[
 						{
 							type: resource
 							material: scrap.steel
-							amount: 0.0099
+							amount: 0.01553
 							snapping: 0.100
-							loss: 0.220
-							ratio: 0.722
+							loss: 0.369
+							ratio: 1.000
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: work
-							work: snipping.metal
+							work: scavenging
 							amount: 10.000
 							amount_min: 25.000
 							difficulty: 7
 							snapping: 5.000
 							falloff: 0.889
-							ratio: 0.675
+							ratio: 1.000
 							group: 0
 							flags: conditional
 						}
@@ -99,7 +102,7 @@
 							material: wood.rod
 							amount: 0.030
 							snapping: 0.100
-							loss: 0.133
+							loss: 0.122
 							ratio: 0.475
 							group: 0
 							flags: prerequisite
@@ -112,7 +115,7 @@
 							difficulty: 3
 							snapping: 5.000
 							falloff: 0.688
-							ratio: 0.890
+							ratio: 0.875
 							group: 0
 							flags: conditional
 						}
@@ -206,7 +209,7 @@
 	[
 		{
 			type: resource
-			material: ammo_arrow
+			material: ammo.arrow
 			amount: 1.000
 			group: 0
 			flags: primary
@@ -215,13 +218,13 @@
 	
 	type: workshop
 	flags: wip
-	tags: manual, crude, simple, small, munitions, woodworking
+	tags: workbench, manual, crude, simple, small, munitions, delicate, woodworking, assembling
 	infrastructure: surface
 	infrastructure_exclude: none
 	
 	icon:
 	{
-		texture: resource.ammo_arrow
+		texture: resource.ammo.arrow
 		size: [16, 16]
 		frame: [3, 0]
 	}

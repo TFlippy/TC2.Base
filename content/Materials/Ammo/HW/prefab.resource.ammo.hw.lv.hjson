@@ -20,7 +20,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.ammo.hw"
+		texture: "resource.ammo.hw.lv"
 		count: 4
 		size: [16, 16]
 	}
@@ -34,7 +34,7 @@ transform:
 
 resource:
 {
-	material: "ammo.hw"
+	material: "ammo.hw.lv"
 }
 
 holdable:
@@ -69,8 +69,6 @@ explosive:
 	sparks_amount: 2.500
 	volume: 2.000
 	pitch: 1.000
-	flags: primed
-
-		health_threshold: 0.250
+	health_threshold: 0.250
 	flags: any_damage, explode_when_primed
 }

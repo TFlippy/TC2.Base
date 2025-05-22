@@ -21,7 +21,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.ammo.rocket"
+		texture: "resource.ammo.rocket.lv"
 		count: 4
 		size: [16, 16]
 	}
@@ -35,7 +35,7 @@ transform:
 
 resource:
 {
-	material: "ammo.rocket"
+	material: "ammo.rocket.lv"
 }
 
 holdable:

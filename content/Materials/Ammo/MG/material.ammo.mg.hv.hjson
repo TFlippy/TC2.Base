@@ -61,7 +61,7 @@
 		stability_base: 1750.000
 		stability_mult: 1.000
 		
-		prefab: projectile.mg
+		prefab: projectile.mg.hv
 		
 		sprite_casing:
 		{
