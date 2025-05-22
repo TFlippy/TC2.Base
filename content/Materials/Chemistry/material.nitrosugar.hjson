@@ -1,0 +1,53 @@
+﻿{
+	$version: "0.1.63.1"
+	name: "Nitrosugar"
+	name_short: "Nitrosugar"
+	name_imperial: "Nitrocukker"
+	name_advanced: "Nitrated Glycitol Compound"
+	description:
+		'''
+		Sugar alcohol-based high explosive commonly used in detonators, primers and medicine.
+		'''
+	
+	tips: []
+	
+	icon:
+	{
+		texture: resource.nitrosugar
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	type: resin
+	flags: hard, sticky, food, granular, explosive, organic, chemical, small, fragile, flammable, solid, processed, impure, primary
+	display_flags: none
+	hints: none
+	
+	purity: 0.834
+	mass_per_unit: 0.348
+	
+	quantity_max: 500.000
+	spawn_quantity_threshold: 1.000
+	snapping: 1.000
+	snapping_pickup: 50.000
+	
+	form_type: gravel
+	prefab: resource.nitrosugar
+	h_substance: "null"
+	
+	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
+	
+	centroid_default: [0.000, 0.250]
+	colliders: []
+	
+	related:
+	{
+		red_sugar: source, similar
+		nitric_acid: component, reaction, chemical
+		alcohol: component, reaction, chemical
+		sugar: raw, source, similar
+	}
+}

@@ -1,0 +1,80 @@
+$tags: []
+
+body:
+{
+	fall_damage_multiplier: 10.000
+
+	@shape.circle:
+	{
+		offset: [0.000, 0.250]
+		mass: 1.000
+		radius: 0.750
+		friction: 0.950
+		elasticity: 0.700
+		material: resin
+		layer: entity, solid, resource, flammable
+		mask: world
+	}
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "resource.nitrosugar"
+		count: 4
+		size: [16, 16]
+	}
+}
+
+transform:
+{
+
+}
+
+resource:
+{
+	material: "nitrosugar"
+}
+
+holdable:
+{
+	offset: [0.000, 0.750]
+}
+
+norotate:
+{
+
+}
+
+health:
+{
+	max: 3500.000
+}
+
+explosive:
+{
+	radius: 5.000
+	power: 6.000
+	damage_entity: 37500.000
+	damage_terrain: 95000.000
+	health_threshold: 0.990
+	damage_type: explosion
+	damage_type_secondary: shockwave
+	flags: explode_when_primed
+	detonate_chance: 0.671
+	detonate_damage_filter: bullet_lc, bullet_hc, bullet_mg, bullet_ac, bullet_sg, bullet_kn, bullet_hw, bullet_musket, rivet, stab, impact, crush, slash, axe, pickaxe, drill, shovel, club, blunt, sledgehammer, explosion, deflagration, motion_impulse, fire, ram, saw, handsaw, electricity, shockwave, shrapnel, fracture, stress, heat, phlogiston, compression
+	shake_multiplier: 0.850
+	force_multiplier: 1.650
+	stun_multiplier: 1.400
+	terrain_radius_multiplier: 4.500
+	smoke_amount: 2.800
+	smoke_lifetime_multiplier: 0.700
+	smoke_velocity_multiplier: 5.500
+	smoke_color: "0xeaf9f9f9"
+	flash_duration_multiplier: 0.120
+	flash_intensity_multiplier: 2.500
+	fire_amount: 0.000
+	volume: 4.000
+	pitch: 2.800
+}
