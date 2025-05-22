@@ -1,4 +1,4 @@
-$name: "Impulse Press"
+$name: "Munitions Workshop"
 $desc:
 	'''
 	TODO: Desc
@@ -9,55 +9,51 @@ body:
 {
 	type: static
 	
-	@shape.polygon:
+	@shape.box:
 	{
-		points:
-		[
-			[-1.125, 0.375]
-			[1.000, 0.375]
-			[0.875, 1.500]
-			[-0.875, 1.500]
-		]
+		size: [5.250, 3.750]
+		offset: [0.000, -0.125]
 		
-		mass: 220.000
-		radius: 0.375
-		friction: 0.500
-		elasticity: 0.500
+		mass: 920.000
+		radius: 0.500
 		
 		material: building_reinforced
-		miss_chance: 0.612
 		
-		layer: entity, solid, building, storage, workshop, crafter, ignore_melee
+		layer: entity, building, support, ignore_melee, ignore_bullet
 		mask: world, building
-		exclude: none
 	}
-}
-
-health:
-{
-	max: 53500.000
-}
-
-armor:
-{
-	toughness: 340.000
-	protection: 0.750
-	
-	knockback_modifier: 1.300
-	pain_modifier: 0.000
-
-	material_type: metal
-	flags: no_damage_type_conversion
 }
 
 animated.renderer:
 {
 	sprite:
 	{
-		texture: press.00
-		size: [24, 32]
+		texture: ammoshop.00
 	}
-	z: -280.000
+	z: -300.000
+}
+
+interactable:
+{
+	flags: no_tab
+	priority: 1.000
+	window_size: [552.000, 576.000]
+	window_size_misc: [168.000, 0.000]
+}
+
+health:
+{
+	max: 88000.000
+}
+
+faction.colorable:
+{
+
+}
+
+faction:
+{
+
 }
 
 transform:
@@ -65,26 +61,144 @@ transform:
 
 }
 
+building:
+{
+
+}
+
+nameable:
+{
+	tags: dangerous, industrial, tool, factory
+	type: gun
+	flags: randomize
+	max_length: 16
+}
+
+// address:
+// {
+	
+// }
+
+// entrance.linkable:
+// {
+
+// }
+
+claimable:
+{
+	flags: allow_owner_unclaim
+}
+
+// laboratory:
+// {
+// 	blueprints_capacity: 4
+// 	filter_tags:
+// 	{
+// 		include: weapon, gun, assembling, machining, metalworking, engineering
+// 	}
+// }
+
 shop:
 {
 	tags_filter:
 	{
-		require: manual
-		include: workbench, workshop, blacksmithing, metalworking, stoneworking, salvaging, heating
-		exclude: advanced, large, huge, social, forestry, smelting, fermenting, casting, moulding, overworld
+		include: munitions, explosive
+		exclude: large, huge
 	}
 	
-	tools: hammer, saw, hand_drill, screwdriver, spanner, pliers, bucket, axe, shovel, file, chisel, towel, tongs, pick, crowbar, knife, sandpaper, ladle
-	infrastructure: oven, anvil, forge, dishes, table, rack, bucket, surface, hard_surface, heater, stove, building, workbench
-	environment: workshop, stationary, dirty, polluted, ugly, scary, fireproof, durable, sturdy
+	tools: pencil, paper, ruler, hammer, cutters, hand_drill, screwdriver, spanner, pliers, tweezers, bucket, shovel, syringe, file, towel, spatula, knife, sandpaper, scissors, ladle
+	infrastructure: anvil, dishes, bottle, table, chair, rack, shaping_mould, bucket, surface, hard_surface, structure, machine, building, workbench
+	environment: workshop, stationary, smelly, scary, noisy, durable, sturdy, flammable
 	
 	flags: none
-	menu_columns: 5
+	menu_columns: 3
 	recipe_type: workshop
 	
-	offset_spawn: [1.000, 0.250]
+	name: "Munitions Workshop"
+}
+
+workshop:
+{
+	orders_capacity: 2
 	
-	name: "Press"
+	tools: none
+	infrastructure: none
+	environment: none
+
+	@inventory8:
+	{
+		type: workshop
+		flags: standalone, ignore_mass, public, no_auto_pickup, faction, vertical
+		stack_size_multiplier: 2.000
+		
+		filter:
+		{
+			exclude: gas
+		}
+	}
+}
+
+personnel:
+{
+	flags: store_characters
+	slots:
+	[
+		{
+			role: engineer
+			tags: management, civil, industrial, logistics, production, paperwork, sedentary, technical
+			color: "0xffff8333"
+			multiplier: 1.000
+		}
+		{
+			role: technician
+			tags: civil, industrial, production, dangerous, manual_labor, technical, operation
+			color: "0xffffa800"
+			multiplier: 1.000
+		}
+		{
+			role: technician
+			tags: civil, industrial, production, dangerous, manual_labor, technical, operation
+			color: "0xffffa800"
+			multiplier: 1.000
+		}
+		null
+		null
+		null
+	]
+	characters_capacity: 3
+}
+
+heat:
+{
+	temperature_medium: 450.000
+	temperature_high: 650.000
+	temperature_operating: 698.150
+	temperature_breakdown: 800.000
+	cool_rate: 8.000
+	heat_capacity_extra: 80.000
+	heat_capacity_mult: 3.000
+	heat_damage_mult: 0.200
+	flags: exclude_body_mass, no_smoke, no_gui
+	fire_flags: none
+	offset: [0.000, 0.250]
+	smoke_offset: [0.000, -0.750]
+	size: [1.500, 2.000]
+
+	@light:
+	{
+		offset: [-2.125, 0.250]
+		scale: [3.000, 6.000]
+		intensity: 2.500
+		texture: light.box.02
+	}
+		
+	@sound.emitter:
+	{
+		file: "overheat_loop"
+		flags: start_muted
+		volume: 1.000
+		pitch: 1.000
+	}
 }
 
 press:
@@ -98,7 +212,8 @@ press:
 	{
 		sprite:
 		{
-			texture: "press.00.parts"
+			texture: "ammoshop.00.parts"
+			size: [24, 24]
 		}
 		z: -145.000
 	}
@@ -120,30 +235,28 @@ press.state:
 
 crafter:
 {
-	flags: hide_temperature, hide_pressure
-	
 	tools: none
 	infrastructure: none
 	environment: none
 	
 	temperature_max: 700.000
-	pressure_max: 100.000
+	pressure_max: 0.000
 
-	@inventory4:
-	{
-		type: output
-		flags: standalone, allow_ducts, ignore_mass, public, faction, vertical
-		stack_size_multiplier: 2.000
+	// @inventory4:
+	// {
+	// 	type: output
+	// 	flags: standalone, allow_ducts, ignore_mass, public, faction, vertical
+	// 	stack_size_multiplier: 2.000
 		
-		filter:
-		{
-			require: none
-			include: none
-			exclude: gas
-		}
+	// 	filter:
+	// 	{
+	// 		require: none
+	// 		include: none
+	// 		exclude: gas
+	// 	}
 		
-		offset: [0.000, 0.000]
-	}
+	// 	offset: [0.000, 0.000]
+	// }
 }
 
 crafter.state:
@@ -151,7 +264,7 @@ crafter.state:
 	@inventory4:
 	{
 		type: input
-		flags: standalone, allow_ducts, ignore_mass
+		flags: standalone, allow_ducts, ignore_mass, vertical
 		stack_size_multiplier: 2.000
 		
 		filter:
@@ -185,21 +298,9 @@ crafter.state:
 // 	}
 // }
 
-interactable:
-{
-	flags: no_tab
-	window_size: [650.000, 450.000]
-	window_size_misc: [168.000, 0.000]
-}
-
 shipment:
 {
 	type: crafting
 	layout: square
 	flags: keep_items, allow_deposit, use_misc, no_empty_deposit
-}
-
-heat:
-{
-
 }

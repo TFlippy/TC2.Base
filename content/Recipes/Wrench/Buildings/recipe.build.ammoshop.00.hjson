@@ -1,6 +1,7 @@
 ﻿{
+	$region_id: 0
 	$version: "0.1.63.1"
-	name: "Manufactory"
+	name: "Munitions Workshop"
 	tips: []
 	
 	stages:
@@ -31,6 +32,7 @@
 							type: resource
 							material: gravel
 							amount: 1060.000
+							snapping: 0.500
 							loss: 0.024
 							group: 0
 							flags: compact, primary
@@ -61,6 +63,7 @@
 							type: resource
 							material: soil
 							amount: 920.000
+							snapping: 0.500
 							loss: 0.067
 							group: 0
 							flags: compact, primary
@@ -100,6 +103,7 @@
 							type: resource
 							material: scrap.rubble
 							amount: 660.000
+							snapping: 0.200
 							loss: 0.020
 							group: 0
 							flags: compact, primary
@@ -117,6 +121,7 @@
 							type: resource
 							material: soil
 							amount: 200.000
+							snapping: 0.500
 							loss: 0.059
 							group: 1
 							flags: compact, primary
@@ -185,7 +190,7 @@
 						{
 							type: resource
 							material: water
-							amount: 40.000
+							amount: 35.000
 							snapping: 1.000
 							group: 2
 						}
@@ -327,7 +332,7 @@
 	[
 		{
 			type: prefab
-			prefab: manufactory.00
+			prefab: ammoshop.00
 			amount: 1.000
 			group: 0
 			flags: primary, hidden
@@ -336,25 +341,26 @@
 	
 	type: buildings
 	flags: no_amount_multiplier, blueprintable, construction, building, ignore_tools, ignore_equipment, ignore_machinery, ignore_environment, wip, no_cancel, auto_complete
-	tags: complex, huge, architecture, construction
+	tags: complex, huge, engineering, architecture, construction
 	infrastructure: none
 	infrastructure_exclude: none
 	
 	icon:
 	{
-		texture: manufactory.00
+		texture: ammoshop.00
+		size: [56, 48]
 	}
 	
 	color_frame: "0xffffa200"
 	color_button: "0xff9dd80f"
 	button_name: "Build"
-	rank: -530.000
+	rank: -610.000
 	
 	min: 1
 	max: 1
 	step: 1
 	
-	dismantle_work: 10.000
+	dismantle_work: 8.000
 	dismantle_yield: 0.800
 	
 	placement:
@@ -403,16 +409,18 @@
 			{
 				type: resource
 				material: wood
-				amount: 20.000
+				amount: 21.000
+				loss: 0.110
 				group: 0
-				flags: prerequisite
+				flags: compact, no_scaling, prerequisite
 			}
 			{
 				type: resource
 				material: brick.concrete
 				amount: 60.000
+				loss: 0.024
 				group: 0
-				flags: prerequisite
+				flags: compact, no_scaling, prerequisite
 			}
 		]
 	}

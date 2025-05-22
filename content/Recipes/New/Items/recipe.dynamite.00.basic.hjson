@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.5"
+	$version: "0.1.63.1"
 	name: "Dynamite"
 	tips: []
 	
@@ -30,8 +30,8 @@
 						{
 							type: resource
 							material: nitroglycerine
-							amount: 9.50528
-							snapping: 0.500
+							amount: 3.816794
+							snapping: 0.100
 							loss: 0.075
 							group: 0
 							flags: prerequisite
@@ -39,8 +39,8 @@
 						{
 							type: resource
 							material: sawdust
-							amount: 4.475113
-							snapping: 1.000
+							amount: 3.864737
+							snapping: 0.100
 							loss: 0.012
 							group: 0
 							flags: prerequisite
@@ -48,11 +48,11 @@
 						{
 							type: work
 							work: kneading
-							amount: 300.000
-							amount_min: 100.000
-							difficulty: 4
+							amount: 350.000
+							amount_min: 150.000
+							difficulty: 7
 							snapping: 5.000
-							falloff: 0.400
+							falloff: 0.719
 							group: 0
 							flags: conditional
 						}
@@ -65,10 +65,29 @@
 							flags: prerequisite
 						}
 						{
+							type: resource
+							material: glue
+							amount: 0.550
+							snapping: 0.500
+							group: 1
+							flags: prerequisite
+						}
+						{
 							type: work
 							work: papercraft
+							amount: 110.000
+							amount_min: 55.000
+							difficulty: 5
+							snapping: 5.000
+							falloff: 0.930
+							group: 1
+							flags: conditional
+						}
+						{
+							type: work
+							work: gluing
 							amount: 75.000
-							amount_min: 25.000
+							amount_min: 60.000
 							difficulty: 4
 							snapping: 5.000
 							falloff: 0.800
@@ -84,10 +103,13 @@
 					{
 						include: paper, ruler, cutters, tweezers, magnifying_glass, stapler, knife
 					}
+					filter_infrastructure:
+					{
+						include: table, chair, structure
+					}
 					filter_environment:
 					{
-						include: workshop, office, clean
-						exclude: noisy
+						include: workshop, office, stationary, clean
 					}
 				}
 			]
@@ -160,11 +182,10 @@
 	]
 	
 	type: workshop
-	flags: blueprintable, item, wip, converted
+	flags: blueprintable, item, production, wip, converted
 	tags: workbench, manual, simple, small, weapon, munitions, assembling, construction, explosive, dangerous
 	infrastructure: surface
-	
-	h_company: common
+	infrastructure_exclude: none
 	
 	icon:
 	{
