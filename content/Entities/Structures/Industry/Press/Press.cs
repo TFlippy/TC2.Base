@@ -259,48 +259,50 @@
 
 			public void Draw()
 			{
-				using (var window = GUI.Window.Interaction("Press"u8, this.ent_press))
+				using (var window = GUI.Window.InteractionMisc(title: "Press"u8, entity: this.ent_press, size: new(48 * 3, 96), show_misc: true))
 				{
-					this.StoreCurrentWindowTypeID(order: -100);
+					this.StoreCurrentWindowTypeID(order: 100);
 					if (window.show)
 					{
+						GUI.DrawFillBackground(GUI.tex_frame, new(8, 8, 8, 8));
+
 						//ref var player = ref Client.GetPlayer();
 						//ref var region = ref Client.GetRegion();
 						//ref var character = ref Client.GetCharacter(out var character_asset);
 
 						//Crafting.Context.NewFromCharacter(ref region.AsCommon(), character_asset, ent_producer: this.ent_press, out var context);
 
-						var w_right = (48 * 4) + 24;
+						//var w_right = (48 * 4) + 24;
 
-						using (GUI.Group.New(size: new Vector2(GUI.RmX - w_right, GUI.RmY)))
-						{
-							using (GUI.Group.New(size: GUI.Rm))
-							{
-								GUI.DrawFillBackground(GUI.tex_frame, new(8, 8, 8, 8));
+						//using (GUI.Group.New(size: new Vector2(GUI.RmX - w_right, GUI.RmY)))
+						//{
+						//	using (GUI.Group.New(size: GUI.Rm))
+						//	{
+						//		GUI.DrawFillBackground(GUI.tex_frame, new(8, 8, 8, 8));
 
-								using (GUI.Group.New(size: GUI.Rm, padding: new(12, 12)))
-								{
-									//CrafterExt.DrawRecipe(ref region, ref this.crafter, ref this.crafter_state);
-									//CrafterExt.DrawRecipe(ref context, ref this.crafter, ref this.crafter_state);
+						//		using (GUI.Group.New(size: GUI.Rm, padding: new(12, 12)))
+						//		{
+						//			//CrafterExt.DrawRecipe(ref region, ref this.crafter, ref this.crafter_state);
+						//			//CrafterExt.DrawRecipe(ref context, ref this.crafter, ref this.crafter_state);
 
-									//ref var recipe = ref this.crafter.GetCurrentRecipe();
-									//if (!recipe.IsNull())
-									//{
-									//	//ref var inventory_data = ref this.ent_press.GetTrait<Crafter.State, Inventory8.Data>();
+						//			//ref var recipe = ref this.crafter.GetCurrentRecipe();
+						//			//if (!recipe.IsNull())
+						//			//{
+						//			//	//ref var inventory_data = ref this.ent_press.GetTrait<Crafter.State, Inventory8.Data>();
 
-									//	//GUI.DrawShopRecipe(ref region, this.crafter.recipe, this.ent_press, player.ent_controlled, this.transform.position, default, default, inventory_data.GetHandle(), draw_button: false, draw_title: false, draw_description: false, search_radius: 0.00f);
-									//}
+						//			//	//GUI.DrawShopRecipe(ref region, this.crafter.recipe, this.ent_press, player.ent_controlled, this.transform.position, default, default, inventory_data.GetHandle(), draw_button: false, draw_title: false, draw_description: false, search_radius: 0.00f);
+						//			//}
 
-									//using (GUI.Group.New(size: GUI.Rm, padding: new(12, 12)))
-									//{
-									//	GUI.DrawFillBackground(GUI.tex_panel, new(8, 8, 8, 8), margin: new(-12, 0, -12, -12));
+						//			//using (GUI.Group.New(size: GUI.Rm, padding: new(12, 12)))
+						//			//{
+						//			//	GUI.DrawFillBackground(GUI.tex_panel, new(8, 8, 8, 8), margin: new(-12, 0, -12, -12));
 
-									//	load_graph[load_graph_index] = this.axle_state.force_load_old;
-									//	GUI.LineGraph("##load", load_graph, ref load_graph_index, size: GUI.Rm, scale_min: 0.00f, scale_max: 10000.00f);
-									//}
-								}
-							}
-						}
+						//			//	load_graph[load_graph_index] = this.axle_state.force_load_old;
+						//			//	GUI.LineGraph("##load", load_graph, ref load_graph_index, size: GUI.Rm, scale_min: 0.00f, scale_max: 10000.00f);
+						//			//}
+						//		}
+						//	}
+						//}
 
 						//GUI.SameLine();
 
@@ -339,7 +341,7 @@
 						//		}
 						//	}
 						//}
-					
+
 					}
 				}
 			}
