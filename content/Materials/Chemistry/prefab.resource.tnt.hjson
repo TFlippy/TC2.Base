@@ -21,7 +21,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.trinitrotoluene"
+		texture: "resource.tnt"
 		count: 4
 		size: [16, 16]
 	}
@@ -34,7 +34,7 @@ transform:
 
 resource:
 {
-	material: "trinitrotoluene"
+	material: "tnt"
 }
 
 holdable:
