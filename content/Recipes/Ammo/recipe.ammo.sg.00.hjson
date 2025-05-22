@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.63.1"
-	name: "LC-9.4mm"
+	name: "SG-20.4mm"
 	desc:
 		'''
 		TODO: Desc
@@ -33,22 +33,11 @@
 					[
 						{
 							type: resource
-							material: copper.plate
+							material: paper
 							amount: 1.000
 							snapping: 1.000
 							ratio: 1.000
 							group: 0
-						}
-						{
-							type: work
-							work: die_cutting.metal
-							amount: 50.000
-							amount_min: 100.000
-							difficulty: 7
-							snapping: 1.000
-							ratio: 1.000
-							group: 1
-							flags: conditional
 						}
 					]
 				}
@@ -62,7 +51,7 @@
 					[
 						{
 							type: resource
-							material: ammo_lc
+							material: ammo_sg.buck
 							amount: 1.000
 							snapping: 1.000
 							group: 0
@@ -186,7 +175,7 @@
 			]
 		}
 		{
-			name: "Primer"
+			name: "Payload"
 			
 			type: processing
 			flags: none
@@ -243,12 +232,12 @@
 	
 	icon:
 	{
-		texture: resource.ammo_lc
+		texture: resource.ammo_sg.bird
 		count: 4
 		size: [16, 16]
 		frame: [3, 0]
 	}
-	icon_offset: [-1.000, -4.000]
+	icon_offset: [-3.000, -3.000]
 	
 	icon_extra:
 	{
@@ -258,7 +247,7 @@
 	
 	color_frame: "0xffcf392b"
 	color_button: "0xff9dd80f"
-	rank: -55.900
+	rank: -55.70001
 	
 	min: 1
 	max: 10

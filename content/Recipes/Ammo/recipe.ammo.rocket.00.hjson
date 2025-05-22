@@ -1,0 +1,278 @@
+﻿{
+	$version: "0.1.63.1"
+	name: "AC-33.6mm"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	tips: []
+	
+	stages:
+	[
+		{
+			name: "Case"
+			
+			type: container
+			flags: part
+			tags: shell, container, structural, rounded
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: crush
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Basic"
+					
+					type: undefined
+					flags: wip
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: copper.plate
+							amount: 1.000
+							snapping: 1.000
+							ratio: 1.000
+							group: 0
+						}
+						{
+							type: work
+							work: die_cutting.metal
+							amount: 50.000
+							amount_min: 100.000
+							difficulty: 7
+							snapping: 1.000
+							ratio: 1.000
+							group: 1
+							flags: conditional
+						}
+						{
+							type: work
+							work: metal.forming
+							amount: 50.000
+							amount_min: 100.000
+							difficulty: 7
+							snapping: 1.000
+							group: 1
+							flags: conditional
+						}
+					]
+				}
+				{
+					name: "AC-33.6mm/HE"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: ammo_ac
+							amount: 1.000
+							snapping: 1.000
+							group: 0
+							flags: prerequisite
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: nitrocellulose
+							amount: 0.160
+							amount_extra: 0.020
+							group: 0
+							flags: primary
+						}
+						{
+							type: resource
+							material: scrap.machine
+							amount: 0.030
+							amount_extra: 0.020
+							group: 0
+							flags: waste
+						}
+					]
+				}
+				{
+					name: "AC-33.6mm/AA"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: ammo_lc.ap
+							amount: 10.000
+							snapping: 1.000
+							group: 0
+							flags: prerequisite
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: nitrocellulose
+							amount: 0.160
+							amount_extra: 0.020
+							group: 0
+							flags: primary
+						}
+						{
+							type: resource
+							material: scrap.machine
+							amount: 0.030
+							amount_extra: 0.020
+							group: 0
+							flags: waste
+						}
+						{
+							type: resource
+							material: scrap.heavy
+							amount: 0.010
+							group: 0
+							flags: waste
+						}
+					]
+				}
+			]
+		}
+		{
+			name: "Primer"
+			
+			type: disassembly
+			flags: subtractive
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: saw
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Coarse"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: saw
+					
+					requirements:
+					[
+						{
+							type: work
+							work: scavenging
+							amount: 35.000
+							amount_min: 50.000
+							difficulty: 5
+							snapping: 15.000
+							falloff: 0.950
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: hammer
+						include: hammer, cutters, hand_drill, screwdriver, wrench, tweezers, magnifying_glass, towel, tongs, pick, crowbar
+					}
+					filter_infrastructure:
+					{
+						include: table, chair, vise
+					}
+				}
+			]
+		}
+		{
+			name: "Payload"
+			
+			type: disassembly
+			flags: subtractive
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: saw
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Coarse"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: saw
+					
+					requirements:
+					[
+						{
+							type: work
+							work: scavenging
+							amount: 35.000
+							amount_min: 50.000
+							difficulty: 5
+							snapping: 15.000
+							falloff: 0.950
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: hammer
+						include: hammer, cutters, hand_drill, screwdriver, wrench, tweezers, magnifying_glass, towel, tongs, pick, crowbar
+					}
+					filter_infrastructure:
+					{
+						include: table, chair, vise
+					}
+				}
+			]
+		}
+	]
+	
+	type: workshop
+	flags: production, wip
+	tags: manual, small, munitions, delicate, assembling, metalworking, military, explosive, dangerous
+	infrastructure: table, chair, surface, machine, workbench
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		texture: resource.ammo_ac
+		count: 4
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	icon_offset: [-2.000, -2.000]
+	
+	icon_extra:
+	{
+		size: [16, 16]
+	}
+	icon_extra_offset: [3.000, -7.000]
+	
+	color_frame: "0xffcf392b"
+	color_button: "0xff9dd80f"
+	rank: -55.500
+	
+	min: 1
+	max: 10
+	step: 1
+	
+	version: 0
+}

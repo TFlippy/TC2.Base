@@ -1,0 +1,76 @@
+﻿{
+	$version: "0.1.62.1"
+	name: "HC-13.2mm/HV Ammo"
+	description:
+		'''
+		High-caliber 13.2mm ammunition.
+		'''
+	
+	tips: []
+	
+	icon:
+	{
+		texture: resource.ammo_hc.hv
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	icon_extra:
+	{
+		texture: ui_icons_gunsmith.mini
+		size: [16, 16]
+		frame: [1, 0]
+	}
+	
+	type: ammo
+	flags: ammo, ammo_hc, magnetic, granular, small, solid
+	display_flags: hide_fraction
+	hints: none
+	
+	mass_per_unit: 0.035
+	quantity_max: 50.000
+	spawn_quantity_threshold: 1.000
+	
+	prefab: resource.ammo_hc.hv
+	h_substance: "null"
+	
+	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
+	
+	colliders: []
+	
+	ammo:
+	{
+		count: 1
+		mass: 0.015
+		heat: 25.000
+		velocity_min: 80.000
+		
+		speed_base: 0.000
+		speed_mult: 1.200
+		speed_jitter: 0.020
+		spin_base: 0.000
+		spin_mult: 1.000
+		spread_mult: 0.600
+		recoil_mult: 1.050
+		
+		failure_base: 0.000
+		failure_mult: 0.900
+		
+		stability_base: 790.000
+		stability_mult: 0.940
+		
+		prefab: projectile.hc.hv
+		
+		sprite_casing:
+		{
+			texture: atlas.ammo.casings.00
+			mask: missing
+			size: [8, 8]
+			frame: [1, 0]
+		}
+		casing_scale: 0.850
+	}
+}

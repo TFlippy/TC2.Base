@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.63.1"
-	name: "MG-20.4mm"
+	name: "AC-33.6mm"
 	desc:
 		'''
 		TODO: Desc
@@ -50,10 +50,20 @@
 							group: 1
 							flags: conditional
 						}
+						{
+							type: work
+							work: metal.forming
+							amount: 50.000
+							amount_min: 100.000
+							difficulty: 7
+							snapping: 1.000
+							group: 1
+							flags: conditional
+						}
 					]
 				}
 				{
-					name: "MG-20.4mm/AP"
+					name: "AC-33.6mm/HE"
 					
 					type: undefined
 					flags: none
@@ -62,7 +72,7 @@
 					[
 						{
 							type: resource
-							material: ammo_mg
+							material: ammo_ac
 							amount: 1.000
 							snapping: 1.000
 							group: 0
@@ -88,17 +98,10 @@
 							group: 0
 							flags: waste
 						}
-						{
-							type: resource
-							material: scrap.heavy
-							amount: 0.010
-							group: 0
-							flags: waste
-						}
 					]
 				}
 				{
-					name: "MG-20.4mm/EMT"
+					name: "AC-33.6mm/AA"
 					
 					type: undefined
 					flags: none
@@ -147,11 +150,11 @@
 		{
 			name: "Primer"
 			
-			type: processing
-			flags: none
+			type: disassembly
+			flags: subtractive
 			tags: none
 			// Damage type used for discarding leftover resources.
-			discard_damage_type: none
+			discard_damage_type: saw
 			
 			ratio: 0.000
 			mass_base: 0.000
@@ -193,13 +196,13 @@
 			]
 		}
 		{
-			name: "Primer"
+			name: "Payload"
 			
-			type: processing
-			flags: none
+			type: disassembly
+			flags: subtractive
 			tags: none
 			// Damage type used for discarding leftover resources.
-			discard_damage_type: none
+			discard_damage_type: saw
 			
 			ratio: 0.000
 			mass_base: 0.000
@@ -250,12 +253,12 @@
 	
 	icon:
 	{
-		texture: resource.ammo_mg
+		texture: resource.ammo_ac
 		count: 4
 		size: [16, 16]
 		frame: [3, 0]
 	}
-	icon_offset: [-1.000, -2.000]
+	icon_offset: [-2.000, -2.000]
 	
 	icon_extra:
 	{
@@ -265,7 +268,7 @@
 	
 	color_frame: "0xffcf392b"
 	color_button: "0xff9dd80f"
-	rank: -55.60001
+	rank: -55.500
 	
 	min: 1
 	max: 10

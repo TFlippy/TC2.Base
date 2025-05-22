@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.63.1"
-	name: "HC-13.2mm"
+	name: "HW-106.7mm"
 	desc:
 		'''
 		TODO: Desc
@@ -33,7 +33,7 @@
 					[
 						{
 							type: resource
-							material: copper.plate
+							material: steel.plate
 							amount: 1.000
 							snapping: 1.000
 							ratio: 1.000
@@ -44,7 +44,7 @@
 							work: die_cutting.metal
 							amount: 50.000
 							amount_min: 100.000
-							difficulty: 7
+							difficulty: 15
 							snapping: 1.000
 							ratio: 1.000
 							group: 1
@@ -53,7 +53,7 @@
 					]
 				}
 				{
-					name: "HC-13.2mm/HV"
+					name: "HW-106.7mm/HV"
 					
 					type: undefined
 					flags: none
@@ -62,8 +62,8 @@
 					[
 						{
 							type: resource
-							material: ammo_hc
-							amount: 4.000
+							material: ammo_hw
+							amount: 1.000
 							snapping: 1.000
 							group: 0
 							flags: prerequisite
@@ -91,7 +91,7 @@
 					]
 				}
 				{
-					name: "HC-13.2mm/RR"
+					name: "HW-106.7mm/HE"
 					
 					type: undefined
 					flags: none
@@ -100,7 +100,7 @@
 					[
 						{
 							type: resource
-							material: ammo_lc.ap
+							material: ammo_lc.hv
 							amount: 10.000
 							snapping: 1.000
 							group: 0
@@ -126,17 +126,86 @@
 							group: 0
 							flags: waste
 						}
+					]
+				}
+				{
+					name: "HW-106.7mm/SM"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
 						{
 							type: resource
-							material: scrap.heavy
-							amount: 0.010
+							material: ammo_lc.hv
+							amount: 10.000
+							snapping: 1.000
+							group: 0
+							flags: prerequisite
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: nitrocellulose
+							amount: 0.160
+							amount_extra: 0.020
+							group: 0
+							flags: primary
+						}
+						{
+							type: resource
+							material: scrap.machine
+							amount: 0.030
+							amount_extra: 0.020
 							group: 0
 							flags: waste
 						}
 					]
 				}
 				{
-					name: "HC-13.2mm/EMT"
+					name: "HW-106.7mm/SP"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: ammo_lc.hv
+							amount: 10.000
+							snapping: 1.000
+							group: 0
+							flags: prerequisite
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: nitrocellulose
+							amount: 0.160
+							amount_extra: 0.020
+							group: 0
+							flags: primary
+						}
+						{
+							type: resource
+							material: scrap.machine
+							amount: 0.030
+							amount_extra: 0.020
+							group: 0
+							flags: waste
+						}
+					]
+				}
+				{
+					name: "HW-106.7mm/AP"
 					
 					type: undefined
 					flags: none
@@ -231,7 +300,7 @@
 			]
 		}
 		{
-			name: "Primer"
+			name: "Payload"
 			
 			type: processing
 			flags: none
@@ -288,12 +357,12 @@
 	
 	icon:
 	{
-		texture: resource.ammo_hc
+		texture: resource.ammo_hw
 		count: 4
 		size: [16, 16]
 		frame: [3, 0]
 	}
-	icon_offset: [0.000, -3.000]
+	icon_offset: [-2.000, -2.000]
 	
 	icon_extra:
 	{
@@ -303,7 +372,7 @@
 	
 	color_frame: "0xffcf392b"
 	color_button: "0xff9dd80f"
-	rank: -55.800
+	rank: -55.20001
 	
 	min: 1
 	max: 10
