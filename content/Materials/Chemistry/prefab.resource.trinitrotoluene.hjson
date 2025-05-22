@@ -1,0 +1,78 @@
+$tags: []
+
+body:
+{
+	fall_damage_multiplier: 0.000
+
+	@shape.circle:
+	{
+		offset: [0.000, 0.250]
+		mass: 1.000
+		radius: 0.750
+		friction: 0.850
+		elasticity: 0.600
+		material: mushroom
+		layer: entity, solid, resource, flammable
+		mask: world
+	}
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "resource.trinitrotoluene"
+		count: 4
+		size: [16, 16]
+	}
+}
+
+transform:
+{
+
+}
+
+resource:
+{
+	material: "trinitrotoluene"
+}
+
+holdable:
+{
+	offset: [0.000, 0.750]
+}
+
+norotate:
+{
+
+}
+
+health:
+{
+	max: 11500.000
+}
+
+explosive:
+{
+	radius: 20.000
+	power: 4.180
+	damage_entity: 40000.000
+	damage_terrain: 48999.990
+	health_threshold: 0.990
+	flags: explode_when_primed
+	detonate_chance: 0.110
+	detonate_damage_filter: bullet_mg, bullet_ac, bullet_kn, bullet_hw, rivet, explosion, deflagration, electricity, shockwave, stress, phlogiston
+	shake_multiplier: 1.350
+	force_multiplier: 1.030
+	stun_multiplier: 1.140
+	terrain_radius_multiplier: 1.350
+	smoke_amount: 1.200
+	smoke_lifetime_multiplier: 1.000
+	smoke_velocity_multiplier: 1.800
+	flash_duration_multiplier: 0.650
+	flash_intensity_multiplier: 0.400
+	fire_amount: 0.700
+	sparks_amount: 1.200
+	volume: 3.200
+	pitch: 2.200
+}

@@ -55,7 +55,7 @@ health:
 explosive:
 {
 	radius: 5.000
-	power: 6.000
+	power: 6.400
 	damage_entity: 37500.000
 	damage_terrain: 95000.000
 	health_threshold: 0.990

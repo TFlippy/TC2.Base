@@ -54,10 +54,10 @@ health:
 
 explosive:
 {
-	radius: 24.000
-	power: 5.000
-	damage_entity: 18000.000
-	damage_terrain: 50000.000
+	radius: 26.000
+	power: 4.000
+	damage_entity: 36000.000
+	damage_terrain: 38000.000
 	smoke_amount: 1.200
 	smoke_lifetime_multiplier: 1.200
 	smoke_velocity_multiplier: 1.700

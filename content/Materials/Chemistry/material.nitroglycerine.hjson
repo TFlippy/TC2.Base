@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.62.3"
+	$version: "0.1.63.1"
 	name: "Nitroglycerine"
 	name_short: "NitroGl."
+	name_dumb: "TNT"
 	description:
 		'''
 		TODO: Desc
@@ -22,7 +23,7 @@
 	hints: none
 	
 	purity: 0.873
-	mass_per_unit: 0.159
+	mass_per_unit: 0.393
 	
 	quantity_max: 500.000
 	spawn_quantity_threshold: 1.000
@@ -38,6 +39,7 @@
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	
+	centroid_default: [0.000, 0.250]
 	colliders: []
 	
 	commodity:

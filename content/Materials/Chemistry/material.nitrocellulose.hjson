@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.3"
+	$version: "0.1.63.1"
 	name: "Nitrocellulose"
 	name_short: "Nitrocel."
 	description:
@@ -22,7 +22,7 @@
 	hints: none
 	
 	purity: 0.883
-	mass_per_unit: 0.390
+	mass_per_unit: 0.347
 	
 	quantity_max: 500.000
 	spawn_quantity_threshold: 1.000
@@ -38,6 +38,7 @@
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	
+	centroid_default: [0.000, 0.250]
 	colliders: []
 	
 	commodity:
