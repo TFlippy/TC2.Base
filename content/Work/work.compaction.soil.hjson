@@ -1,7 +1,7 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.63.1"
 	name: "Soil Compaction"
-	name_short: "Soil Compaction"
+	name_short: "S. Compaction"
 	desc:
 		'''
 		TODO: Desc
@@ -22,9 +22,6 @@
 	
 	tools_required: none
 	tools_optional: shovel
-	
-	machinery_required: none
-	machinery_optional: none
 	
 	infrastructure_required: none
 	infrastructure_optional: none

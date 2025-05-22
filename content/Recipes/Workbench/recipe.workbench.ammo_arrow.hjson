@@ -31,7 +31,7 @@
 					type: undefined
 					flags: wip, incomplete, auto_generated
 					
-					prefix: "Steelhead"
+					prefix: "Steelhead "
 					priority: 1.000
 					
 					requirements:

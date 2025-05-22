@@ -1,7 +1,7 @@
 ﻿{
-	$version: "0.1.62.3"
-	name: "Pressing"
-	name_short: "Pressing"
+	$version: "0.1.63.1"
+	name: "Die-Stamping"
+	name_short: "Stamping"
 	desc:
 		'''
 		TODO: Desc
@@ -22,9 +22,6 @@
 	
 	tools_required: none
 	tools_optional: none
-	
-	machinery_required: metal_press
-	machinery_optional: none
 	
 	infrastructure_required: none
 	infrastructure_optional: none

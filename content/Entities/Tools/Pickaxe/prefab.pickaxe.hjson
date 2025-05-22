@@ -57,7 +57,7 @@ melee:
 	attack_type: swing
 	category: pointed
 	hit_mask: world, destructible
-	hit_exclude: world, building, water, fire, gas, powder, liquid, stored
+	hit_exclude: building, water, fire, gas, powder, liquid, stored
 	hit_ignore: water, fire, gas, powder, liquid, stored
 }
 

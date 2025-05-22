@@ -1,7 +1,7 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.63.1"
 	name: "Rummaging (Components)"
-	name_short: "Rummaging (Components)"
+	name_short: "Rummaging"
 	desc:
 		'''
 		TODO: Desc
@@ -22,9 +22,6 @@
 	
 	tools_required: none
 	tools_optional: magnifying_glass, bucket, towel, spatula
-	
-	machinery_required: none
-	machinery_optional: none
 	
 	infrastructure_required: none
 	infrastructure_optional: table, surface

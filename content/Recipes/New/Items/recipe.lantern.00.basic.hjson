@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.5"
+	$version: "0.1.63.1"
 	name: "Lantern"
 	tips: []
 	
@@ -60,7 +60,7 @@
 							loss: 0.475
 							ratio: 0.761
 							group: 1
-							flags: conditional
+							flags: simultaneous, conditional
 						}
 						{
 							type: work
@@ -73,7 +73,7 @@
 							loss: 0.475
 							ratio: 1.000
 							group: 1
-							flags: conditional
+							flags: simultaneous, conditional
 						}
 					]
 					
@@ -84,10 +84,6 @@
 					{
 						require: hammer, saw, file
 						include: file
-					}
-					filter_machinery:
-					{
-						include: mill, planer
 					}
 					filter_infrastructure:
 					{
@@ -355,6 +351,7 @@
 	flags: blueprintable, item, wip
 	tags: workbench, manual, simple, small, metalworking
 	infrastructure: surface, workbench
+	infrastructure_exclude: none
 	
 	icon:
 	{

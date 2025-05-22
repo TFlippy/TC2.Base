@@ -29,6 +29,9 @@
 					type: undefined
 					flags: wip
 					
+					prefix: "Basic "
+					priority: 1.000
+					
 					requirements:
 					[
 						{
@@ -58,7 +61,7 @@
 							snapping: 5.000
 							ratio: 1.000
 							group: 1
-							flags: simultaneous, conditional
+							flags: conditional
 						}
 						{
 							type: work
@@ -68,7 +71,7 @@
 							snapping: 5.000
 							ratio: 1.000
 							group: 1
-							flags: simultaneous, conditional
+							flags: conditional
 						}
 					]
 				}
@@ -163,6 +166,9 @@
 					type: undefined
 					flags: none
 					discard_damage_type_override: saw
+					
+					suffix: "/LV (Gunpowder)"
+					priority: 1.000
 					
 					requirements:
 					[

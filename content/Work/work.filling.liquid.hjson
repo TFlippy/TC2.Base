@@ -1,7 +1,7 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.63.1"
 	name: "Filling (Liquid)"
-	name_short: "Filling (Liquid)"
+	name_short: "Filling"
 	desc:
 		'''
 		TODO: Desc
@@ -23,11 +23,8 @@
 	tools_required: none
 	tools_optional: bucket, spatula
 	
-	machinery_required: none
-	machinery_optional: none
-	
-	equipment_required: none
-	equipment_optional: dishes, table, chair
+	infrastructure_required: none
+	infrastructure_optional: none
 	
 	character_traits:
 	{
