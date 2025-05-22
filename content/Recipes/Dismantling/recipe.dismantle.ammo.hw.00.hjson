@@ -1,6 +1,6 @@
 ﻿{
-	$version: "0.1.62.5"
-	name: "Dismantle: HW Ammo"
+	$version: "0.1.63.1"
+	name: "HW-106.7mm"
 	desc:
 		'''
 		TODO: Desc
@@ -10,54 +10,45 @@
 	stages:
 	[
 		{
-			name: "Ammo"
+			name: "Case"
 			
-			type: payload
-			flags: none
-			tags: none
+			type: container
+			flags: part
+			tags: shell, container, structural, rounded
 			// Damage type used for discarding leftover resources.
-			discard_damage_type: pickaxe
+			discard_damage_type: crush
 			
-			ratio: 1.000
+			ratio: 0.000
 			mass_base: 0.000
 			
 			options:
 			[
 				{
-					name: "HW-106.7mm"
+					name: "Basic"
 					
 					type: undefined
-					flags: none
+					flags: wip
 					
 					requirements:
 					[
 						{
 							type: resource
-							material: ammo_lc
-							amount: 10.000
+							material: steel.plate
+							amount: 1.000
 							snapping: 1.000
+							ratio: 1.000
 							group: 0
-							flags: prerequisite
-						}
-					]
-					
-					products:
-					[
-						{
-							type: resource
-							material: gunpowder
-							amount: 0.160
-							amount_extra: 0.040
-							group: 0
-							flags: primary
 						}
 						{
-							type: resource
-							material: scrap.machine
-							amount: 0.030
-							amount_extra: 0.020
-							group: 0
-							flags: waste
+							type: work
+							work: die_cutting.metal
+							amount: 50.000
+							amount_min: 100.000
+							difficulty: 15
+							snapping: 1.000
+							ratio: 1.000
+							group: 1
+							flags: conditional
 						}
 					]
 				}
@@ -261,7 +252,55 @@
 			]
 		}
 		{
-			name: "Dismantling Method"
+			name: "Primer"
+			
+			type: processing
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Coarse"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: saw
+					
+					requirements:
+					[
+						{
+							type: work
+							work: scavenging
+							amount: 35.000
+							amount_min: 50.000
+							difficulty: 5
+							snapping: 15.000
+							falloff: 0.950
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: hammer
+						include: hammer, cutters, hand_drill, screwdriver, wrench, tweezers, magnifying_glass, towel, tongs, pick, crowbar
+					}
+					filter_infrastructure:
+					{
+						include: table, chair, vise
+					}
+				}
+			]
+		}
+		{
+			name: "Primer"
 			
 			type: processing
 			flags: none
@@ -311,9 +350,10 @@
 	]
 	
 	type: workshop
-	flags: disabled, dismantling, wip
-	tags: workbench, manual, simple, small, munitions, metalworking, salvaging
-	infrastructure: surface, workbench
+	flags: production, wip
+	tags: manual, small, munitions, delicate, assembling, metalworking, military, explosive, dangerous
+	infrastructure: table, chair, surface, machine, workbench
+	infrastructure_exclude: none
 	
 	icon:
 	{
@@ -326,12 +366,11 @@
 	
 	icon_extra:
 	{
-		texture: ui_icons_crafting.mini
 		size: [16, 16]
 	}
 	icon_extra_offset: [3.000, -7.000]
 	
-	color_frame: "0xffac7534"
+	color_frame: "0xffcf392b"
 	color_button: "0xff9dd80f"
 	rank: -55.20001
 	
