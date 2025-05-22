@@ -18,7 +18,7 @@
 	
 	mass: 1.000
 	friction: 0.990
-	elasticity: 0.050
+	elasticity: 0.150
 	collision_layer: none
 	collision_mask: none
 	
@@ -37,7 +37,10 @@
 			material: black_coal
 			quantity: 1.980
 		}
-		null
+		{
+			material: firedamp
+			quantity: 2.292958
+		}
 	]
 	
 	mappings:

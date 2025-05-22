@@ -27,7 +27,7 @@
 	hints: none
 	
 	purity: 0.762
-	mass_per_unit: 0.010
+	mass_per_unit: 0.071
 	
 	quantity_max: 1000.000
 	spawn_quantity_threshold: 0.100

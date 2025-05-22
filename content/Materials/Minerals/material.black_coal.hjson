@@ -17,11 +17,10 @@
 	}
 	
 	type: coal
-	flags: hard, granular, organic, mineral, small, raw, fuel, flammable, volatile, solid
+	flags: hard, granular, organic, mineral, raw, fuel, flammable, volatile, solid
 	display_flags: none
 	hints: none
 	
-	porosity: 0.2638
 	purity: 0.821
 	mass_per_unit: 0.420
 	
