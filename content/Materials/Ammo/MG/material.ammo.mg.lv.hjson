@@ -1,20 +1,16 @@
 ﻿{
 	$version: "0.1.63.1"
-	name: "HC-13.2mm/LV Ammo"
+	name: "MG-20.4mm/LV Ammo"
 	description:
 		'''
-		High-caliber 13.2mm ammunition.
+		MG-caliber 20.4mm ammunition.
 		'''
 	
-	tips:
-	[
-		"- Straight-walled case"
-		"- Rimfire"
-	]
+	tips: []
 	
 	icon:
 	{
-		texture: resource.ammo.hc.lv
+		texture: resource.ammo.mg.lv
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -23,21 +19,22 @@
 	{
 		texture: ui_icons_gunsmith.mini
 		size: [16, 16]
+		frame: [0, 0]
 	}
 	
 	type: ammo
-	flags: ammo, ammo_hc, magnetic, granular, small, solid
+	flags: ammo, ammo_mg, magnetic, granular, small, solid
 	display_flags: hide_fraction
 	hints: none
 	
-	mass_per_unit: 0.038
+	mass_per_unit: 0.130
 	
 	quantity_max: 50.000
 	spawn_quantity_threshold: 1.000
 	snapping: 1.000
 	snapping_pickup: 1.000
 	
-	prefab: resource.ammo.hc.lv
+	prefab: resource.ammo.mg.lv
 	h_substance: "null"
 	
 	color_icon: "0xffffffff"
@@ -51,33 +48,33 @@
 	ammo:
 	{
 		count: 1
-		mass: 0.020
-		heat: 25.000
-		velocity_min: 80.000
+		mass: 0.050
+		heat: 56.000
+		velocity_min: 50.000
 		
 		speed_base: 0.000
-		speed_mult: 0.720
-		speed_jitter: 0.020
+		speed_mult: 1.000
+		speed_jitter: 0.027
 		spin_base: 0.000
 		spin_mult: 1.000
-		spread_mult: 1.100
-		recoil_mult: 1.100
+		spread_mult: 1.190
+		recoil_mult: 1.000
 		
-		failure_base: 0.001
-		failure_mult: 1.200
+		failure_base: 0.0007
+		failure_mult: 1.015
 		
-		stability_base: 550.000
+		stability_base: 1450.000
 		stability_mult: 1.000
 		
-		prefab: projectile.hc.lv
+		prefab: projectile.mg.lv
 		
 		sprite_casing:
 		{
 			texture: atlas.ammo.casings.00
 			mask: missing
 			size: [8, 8]
-			frame: [1, 0]
+			frame: [3, 0]
 		}
-		casing_scale: 0.850
+		casing_scale: 1.100
 	}
 }

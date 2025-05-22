@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.62.1"
-	name: "AC-33.6mm Ammo"
+	name: "AC-33.6mm/HV Ammo"
 	description:
 		'''
 		AC-caliber 33.6mm ammunition.
@@ -19,6 +19,7 @@
 	{
 		texture: ui_icons_gunsmith.mini
 		size: [16, 16]
+		frame: [1, 0]
 	}
 	
 	type: ammo

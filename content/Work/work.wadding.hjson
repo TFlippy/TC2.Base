@@ -1,0 +1,61 @@
+﻿{
+	$region_id: 0
+	$version: "0.1.63.1"
+	name: "Wadding"
+	name_short: "Wadding"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: ui.icons.work.00
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	
+	flags: none
+	tags: manual, simple
+	cooldown: 1.100
+	multiplier: 1.100
+	color: "0xffdd4f60"
+	
+	tools_required: none
+	tools_optional: paintbrush, towel, spatula
+	
+	infrastructure_required: none
+	infrastructure_optional: table, chair
+	
+	character_traits:
+	{
+		include: scientist, medical, chemist, culinary, insane, entertainer, artist, junkie, dumb
+		exclude: clumsy, huge
+		weight: 1.000
+	}
+	
+	skills_min:
+	{
+	
+	}
+	
+	skills_mult:
+	{
+		dexterity: 0.710
+		masonry: 0.340
+	}
+	
+	sound_volume: 0.600
+	sound_pitch: 1.170
+	sound_size: 0.500
+	sound_dist: 0.600
+	
+	sounds: ["effect.squish.slimy.00", "effect.cloth.place.03", "effect.squish.slimy.01", "effect.cloth.place.00", "effect.plunger.00", "effect.cloth.slide.00"]
+	sounds_manual: []
+	sounds_machine: []
+	sounds_passive: []
+	
+	sounds_start: []
+	sounds_end: []
+	sounds_fail: []
+}

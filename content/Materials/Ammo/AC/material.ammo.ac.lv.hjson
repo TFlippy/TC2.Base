@@ -1,0 +1,76 @@
+﻿{
+	$version: "0.1.62.1"
+	name: "AC-33.6mm/LV Ammo"
+	description:
+		'''
+		AC-caliber 33.6mm ammunition.
+		'''
+	
+	tips: []
+	
+	icon:
+	{
+		texture: resource.ammo.ac.lv
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	icon_extra:
+	{
+		texture: ui_icons_gunsmith.mini
+		size: [16, 16]
+		frame: [0, 0]
+	}
+	
+	type: ammo
+	flags: ammo, ammo_ac, magnetic, small, solid
+	display_flags: hide_fraction
+	hints: none
+	
+	mass_per_unit: 0.980
+	quantity_max: 20.000
+	spawn_quantity_threshold: 1.000
+	
+	prefab: resource.ammo.ac.lv
+	h_substance: "null"
+	
+	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
+	
+	colliders: []
+	
+	ammo:
+	{
+		count: 1
+		mass: 0.450
+		heat: 710.000
+		velocity_min: 80.000
+		
+		speed_base: 0.000
+		speed_mult: 0.950
+		speed_jitter: 0.032
+		spin_base: 0.020
+		spin_mult: 1.000
+		spread_mult: 1.320
+		recoil_mult: 1.000
+		
+		failure_base: 0.000
+		failure_mult: 1.000
+		
+		stability_base: 4300.000
+		stability_mult: 1.000
+		
+		prefab: projectile.ac.lv
+		
+		sprite_casing:
+		{
+			texture: atlas.ammo.casings.00
+			mask: missing
+			size: [8, 8]
+			frame: [4, 0]
+		}
+		casing_scale: 1.300
+	}
+}

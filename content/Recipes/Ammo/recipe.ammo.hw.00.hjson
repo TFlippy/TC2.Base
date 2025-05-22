@@ -52,211 +52,14 @@
 						}
 					]
 				}
-				{
-					name: "HW-106.7mm/HV"
-					
-					type: undefined
-					flags: none
-					
-					requirements:
-					[
-						{
-							type: resource
-							material: ammo.hw.lv
-							amount: 1.000
-							snapping: 1.000
-							group: 0
-							flags: prerequisite
-						}
-					]
-					
-					products:
-					[
-						{
-							type: resource
-							material: nitrocellulose
-							amount: 0.160
-							amount_extra: 0.020
-							group: 0
-							flags: primary
-						}
-						{
-							type: resource
-							material: scrap.machine
-							amount: 0.030
-							amount_extra: 0.020
-							group: 0
-							flags: waste
-						}
-					]
-				}
-				{
-					name: "HW-106.7mm/HE"
-					
-					type: undefined
-					flags: none
-					
-					requirements:
-					[
-						{
-							type: resource
-							material: ammo.lc.hv
-							amount: 10.000
-							snapping: 1.000
-							group: 0
-							flags: prerequisite
-						}
-					]
-					
-					products:
-					[
-						{
-							type: resource
-							material: nitrocellulose
-							amount: 0.160
-							amount_extra: 0.020
-							group: 0
-							flags: primary
-						}
-						{
-							type: resource
-							material: scrap.machine
-							amount: 0.030
-							amount_extra: 0.020
-							group: 0
-							flags: waste
-						}
-					]
-				}
-				{
-					name: "HW-106.7mm/SM"
-					
-					type: undefined
-					flags: none
-					
-					requirements:
-					[
-						{
-							type: resource
-							material: ammo.lc.hv
-							amount: 10.000
-							snapping: 1.000
-							group: 0
-							flags: prerequisite
-						}
-					]
-					
-					products:
-					[
-						{
-							type: resource
-							material: nitrocellulose
-							amount: 0.160
-							amount_extra: 0.020
-							group: 0
-							flags: primary
-						}
-						{
-							type: resource
-							material: scrap.machine
-							amount: 0.030
-							amount_extra: 0.020
-							group: 0
-							flags: waste
-						}
-					]
-				}
-				{
-					name: "HW-106.7mm/SP"
-					
-					type: undefined
-					flags: none
-					
-					requirements:
-					[
-						{
-							type: resource
-							material: ammo.lc.hv
-							amount: 10.000
-							snapping: 1.000
-							group: 0
-							flags: prerequisite
-						}
-					]
-					
-					products:
-					[
-						{
-							type: resource
-							material: nitrocellulose
-							amount: 0.160
-							amount_extra: 0.020
-							group: 0
-							flags: primary
-						}
-						{
-							type: resource
-							material: scrap.machine
-							amount: 0.030
-							amount_extra: 0.020
-							group: 0
-							flags: waste
-						}
-					]
-				}
-				{
-					name: "HW-106.7mm/AP"
-					
-					type: undefined
-					flags: none
-					
-					requirements:
-					[
-						{
-							type: resource
-							material: ammo.lc.hp
-							amount: 10.000
-							snapping: 1.000
-							group: 0
-							flags: prerequisite
-						}
-					]
-					
-					products:
-					[
-						{
-							type: resource
-							material: nitrocellulose
-							amount: 0.160
-							amount_extra: 0.020
-							group: 0
-							flags: primary
-						}
-						{
-							type: resource
-							material: scrap.machine
-							amount: 0.030
-							amount_extra: 0.020
-							group: 0
-							flags: waste
-						}
-						{
-							type: resource
-							material: scrap.heavy
-							amount: 0.010
-							group: 0
-							flags: waste
-						}
-					]
-				}
 			]
 		}
 		{
 			name: "Primer"
 			
-			type: processing
-			flags: none
-			tags: none
+			type: component
+			flags: part
+			tags: functional, small, flat, rounded, material, dangerous
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: none
 			
@@ -266,7 +69,7 @@
 			options:
 			[
 				{
-					name: "Coarse"
+					name: "Nitrosugar"
 					
 					type: undefined
 					flags: none
@@ -300,13 +103,13 @@
 			]
 		}
 		{
-			name: "Payload"
+			name: "Type"
 			
-			type: processing
-			flags: none
-			tags: none
+			type: formula
+			flags: important
+			tags: container, assembly, functional, material, dangerous, formula
 			// Damage type used for discarding leftover resources.
-			discard_damage_type: none
+			discard_damage_type: pickaxe
 			
 			ratio: 0.000
 			mass_base: 0.000
@@ -314,7 +117,7 @@
 			options:
 			[
 				{
-					name: "Coarse"
+					name: "TODO"
 					
 					type: undefined
 					flags: none
@@ -362,7 +165,7 @@
 		size: [16, 16]
 		frame: [3, 0]
 	}
-	icon_offset: [-2.000, -2.000]
+	icon_offset: [-1.000, 1.000]
 	
 	icon_extra:
 	{

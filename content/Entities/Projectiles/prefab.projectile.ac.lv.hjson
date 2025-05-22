@@ -1,0 +1,46 @@
+$tags: []
+
+projectile:
+{
+	damage_base: 900.000
+	damage_bonus: 1200.000
+	damage_type: bullet_ac
+	armor_pierce: 420.000
+	terrain_damage_mult: 1.100
+	lifetime: 10.000
+	size: 0.075
+	ricochet_count: 2
+	ricochet_threshold_multiplier: 0.500
+	damp: 0.980
+	tracer_length: 8.000
+	mass: 0.370
+	knockback_multiplier: 20.000
+	flags: no_miss
+}
+
+projectile.renderer:
+{	
+	intensity: 2.000
+	thickness_a: 0.350
+	thickness_b: 0.000
+}
+
+transform:
+{
+
+}
+
+// explosive:
+// {
+// 	radius: 2.000
+// 	power: 2.000
+// 	damage_type: bullet_musket
+// 	// damage_entity: 1000.000
+// 	damage_entity: 0.000
+// 	damage_terrain: 1800.000
+// 	smoke_amount: 0.200
+// 	sparks_amount: 0.300
+// 	volume: 0.700
+// 	pitch: 1.100
+// 	flags: primed
+// }
