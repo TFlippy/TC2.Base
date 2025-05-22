@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.63.1"
-	name: "SG-20.4mm/LV Crapshot"
+	name: "SG-20.4mm/CR Crapshot"
 	description:
 		'''
 		TODO: Desc
@@ -19,6 +19,7 @@
 	{
 		texture: ui_icons_gunsmith.mini
 		size: [16, 16]
+		frame: [5, 0]
 	}
 	
 	type: ammo

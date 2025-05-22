@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.63.1"
-	name: "HW-106.7mm/LV Ammo"
+	name: "HW-106.7mm/LV Shell"
 	description:
 		'''
 		HW-caliber 106.7mm ammunition.

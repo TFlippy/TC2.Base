@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.63.1"
-	name: "KN-51.9mm/LV Ammo"
+	name: "KN-51.9mm/LV Shell"
 	description:
 		'''
 		KN-caliber 51.9mm ammunition.
@@ -41,6 +41,7 @@
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	
+	centroid_default: [0.000, 0.250]
 	colliders: []
 	
 	ammo:
