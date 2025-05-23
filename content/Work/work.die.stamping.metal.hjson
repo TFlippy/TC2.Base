@@ -1,0 +1,62 @@
+﻿{
+	$version: "0.1.63.1"
+	name: "Die-Stamping"
+	name_short: "D-Stamping"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: ui.icons.work.00
+		size: [16, 16]
+		frame: [7, 0]
+	}
+	
+	flags: passive, no_randomization
+	tags: machine, automated, technical, construction, industrial, wip
+	
+	amount_base: 5.000
+	cooldown: 1.000
+	multiplier: 1.000
+	
+	amount_jitter: 0.038
+	color: "0xffaeb59a"
+	
+	tools_required: none
+	tools_optional: none
+	
+	infrastructure_required: none
+	infrastructure_optional: none
+	
+	character_traits:
+	{
+		include: slave, insane, strong, evil
+		weight: 1.000
+	}
+	
+	skills_min:
+	{
+	
+	}
+	
+	skills_mult:
+	{
+	
+	}
+	
+	sound_volume: 0.500
+	sound_pitch: 1.000
+	sound_size: 1.000
+	sound_dist: 0.500
+	
+	sounds: []
+	sounds_manual: []
+	sounds_machine: []
+	sounds_passive: ["press.stamp.01"]
+	
+	sounds_start: []
+	sounds_end: []
+	sounds_fail: []
+}

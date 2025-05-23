@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.63.1"
-	name: "Die-Stamping"
-	name_short: "Stamping"
+	name: "Die-Cutting"
+	name_short: "D-Cutting"
 	desc:
 		'''
 		TODO: Desc
@@ -14,14 +14,13 @@
 		frame: [7, 0]
 	}
 	
-	flags: passive, no_randomization
+	flags: passive, time_independent, no_randomization
 	tags: machine, automated, technical, construction, industrial, wip
 	
-	amount_base: 5.000
+	amount_base: 10.000
 	cooldown: 1.000
 	multiplier: 1.000
 	
-	amount_jitter: 0.038
 	color: "0xffaeb59a"
 	
 	tools_required: none
@@ -29,12 +28,6 @@
 	
 	infrastructure_required: none
 	infrastructure_optional: none
-	
-	character_traits:
-	{
-		include: slave, insane, strong, evil
-		weight: 1.000
-	}
 	
 	skills_min:
 	{
@@ -46,15 +39,15 @@
 	
 	}
 	
-	sound_volume: 0.500
-	sound_pitch: 1.000
+	sound_volume: 0.550
+	sound_pitch: 0.900
 	sound_size: 1.000
 	sound_dist: 0.500
 	
-	sounds: []
+	sounds: ["press.stamp.02"]
 	sounds_manual: []
 	sounds_machine: []
-	sounds_passive: ["press.stamp.01"]
+	sounds_passive: ["press.stamp.02"]
 	
 	sounds_start: []
 	sounds_end: []

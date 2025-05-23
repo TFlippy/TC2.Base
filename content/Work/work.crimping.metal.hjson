@@ -1,0 +1,65 @@
+﻿{
+	$region_id: 0
+	$version: "0.1.63.1"
+	name: "Crimping (Metal)"
+	name_short: "Crimping"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: ui.icons.work.00
+		size: [16, 16]
+		frame: [40, 0]
+	}
+	
+	flags: none
+	tags: manual, tools, simple, construction
+	
+	amount_base: 0.000
+	cooldown: 1.000
+	multiplier: 0.800
+	
+	color: "0xffffa200"
+	
+	tools_required: pliers
+	tools_optional: wrench, pliers, tweezers
+	
+	infrastructure_required: none
+	infrastructure_optional: table, vise
+	
+	character_traits:
+	{
+		include: construction, laborer, technician, engineer, insane, strong, evil
+		exclude: huge
+		weight: 1.000
+	}
+	
+	skills_min:
+	{
+	
+	}
+	
+	skills_mult:
+	{
+		strength: 0.310
+		dexterity: 0.370
+		engineering: 0.460
+	}
+	
+	sound_volume: 0.700
+	sound_pitch: 0.820
+	sound_size: 0.750
+	sound_dist: 0.600
+	
+	sounds: ["effect.tool.small.00", "effect.rattle.spring.00", "effect.tool.small.01", "work_assembly_00", "effect.tool.small.02"]
+	sounds_manual: []
+	sounds_machine: []
+	sounds_passive: []
+	
+	sounds_start: []
+	sounds_end: []
+	sounds_fail: []
+}

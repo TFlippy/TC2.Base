@@ -1,7 +1,8 @@
 ﻿{
+	$region_id: 0
 	$version: "0.1.63.1"
-	name: "Die-Cutting"
-	name_short: "Die-Cutting"
+	name: "Die-Drawing"
+	name_short: "D-Drawing"
 	desc:
 		'''
 		TODO: Desc
@@ -11,16 +12,17 @@
 	{
 		texture: ui.icons.work.00
 		size: [16, 16]
-		frame: [7, 0]
+		frame: [8, 0]
 	}
 	
-	flags: passive, time_independent, no_randomization
+	flags: passive
 	tags: machine, automated, technical, construction, industrial, wip
 	
-	amount_base: 10.000
-	cooldown: 1.000
+	amount_base: 5.000
+	cooldown: 1.500
 	multiplier: 1.000
 	
+	amount_jitter: 0.080
 	color: "0xffaeb59a"
 	
 	tools_required: none
@@ -28,6 +30,11 @@
 	
 	infrastructure_required: none
 	infrastructure_optional: none
+	
+	character_traits:
+	{
+		weight: 1.000
+	}
 	
 	skills_min:
 	{
@@ -39,15 +46,15 @@
 	
 	}
 	
-	sound_volume: 0.550
-	sound_pitch: 0.900
+	sound_volume: 0.500
+	sound_pitch: 0.950
 	sound_size: 1.000
-	sound_dist: 0.500
+	sound_dist: 0.890
 	
-	sounds: ["press.stamp.02"]
+	sounds: ["work_assembly_00", "work_assembly_01", "work_assembly_02", "work_assembly_03", "work_assembly_04"]
 	sounds_manual: []
 	sounds_machine: []
-	sounds_passive: ["press.stamp.02"]
+	sounds_passive: ["press.smash.00", "press.smash.01", "press.smash.02"]
 	
 	sounds_start: []
 	sounds_end: []

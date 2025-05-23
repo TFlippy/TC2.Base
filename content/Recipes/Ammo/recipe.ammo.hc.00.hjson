@@ -45,33 +45,45 @@
 						}
 						{
 							type: work
-							work: die_cutting.metal
+							work: die.cutting.metal
 							amount: 10.000
-							difficulty: 7
+							difficulty: 8
 							snapping: 5.000
 							ratio: 1.000
 							group: 0
-							flags: conditional
+							flags: simultaneous, conditional
 						}
 						{
 							type: work
-							work: press
-							amount: 25.000
+							work: die.drawing.metal
+							amount: 35.000
 							difficulty: 6
 							snapping: 5.000
 							ratio: 1.000
-							group: 1
-							flags: conditional
+							group: 0
+							flags: simultaneous, conditional
 						}
 						{
 							type: work
-							work: metal.forming
-							amount: 35.000
-							difficulty: 3
+							work: die.stamping.metal
+							amount: 25.000
+							difficulty: 5
 							snapping: 5.000
 							ratio: 1.000
 							group: 1
-							flags: conditional
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: snipping.metal
+							amount: 100.000
+							amount_min: 75.000
+							difficulty: 7
+							snapping: 5.000
+							falloff: 0.798
+							ratio: 1.000
+							group: 1
+							flags: simultaneous, conditional
 						}
 					]
 					
@@ -213,12 +225,12 @@
 						}
 						{
 							type: work
-							work: assembling
-							amount: 19.000
+							work: crimping.metal
+							amount: 26.000
 							amount_min: 50.000
-							difficulty: 8
+							difficulty: 9
 							snapping: 5.000
-							falloff: 0.971
+							falloff: 0.980
 							ratio: 1.000
 							group: 1
 							flags: simultaneous, conditional

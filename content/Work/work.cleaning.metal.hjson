@@ -1,7 +1,8 @@
 ﻿{
+	$region_id: 0
 	$version: "0.1.63.1"
-	name: "Sanding"
-	name_short: "Sanding"
+	name: "Cleaning (Metal)"
+	name_short: "Cleaning"
 	desc:
 		'''
 		TODO: Desc
@@ -15,13 +16,13 @@
 	}
 	
 	flags: none
-	tags: manual, tools, crude, simple, construction
+	tags: manual, simple, leisure
 	
 	amount_base: 0.000
 	cooldown: 0.950
 	multiplier: 0.960
 	
-	color: "0xffffa200"
+	color: "0xffdd4f60"
 	
 	tools_required: sandpaper
 	tools_optional: none

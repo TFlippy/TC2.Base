@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.63.1"
 	name: "Hammering"
 	name_short: "Hammering"
 	desc:
@@ -14,19 +14,20 @@
 		frame: [1, 0]
 	}
 	
-	tags: manual, machine, tools, dangerous, construction, industrial, wip
+	flags: none
+	tags: manual, machine, tools, construction, industrial, dangerous, wip
+	
+	amount_base: 0.000
 	cooldown: 1.000
 	multiplier: 1.000
+	
 	color: "0xffffa200"
 	
 	tools_required: hammer
 	tools_optional: none
 	
-	machinery_required: none
-	machinery_optional: none
-	
-	equipment_required: table
-	equipment_optional: none
+	infrastructure_required: none
+	infrastructure_optional: none
 	
 	character_traits:
 	{
@@ -47,12 +48,17 @@
 		endurance: 0.330
 	}
 	
-	sounds:
-	[
-		work_smithing_00
-		work_smithing_01
-		work_smithing_02
-		work_smithing_03
-		work_smithing_04
-	]
+	sound_volume: 0.500
+	sound_pitch: 1.000
+	sound_size: 0.500
+	sound_dist: 0.600
+	
+	sounds: ["work_smithing_00", "work_smithing_01", "work_smithing_02", "work_smithing_03", "work_smithing_04"]
+	sounds_manual: []
+	sounds_machine: []
+	sounds_passive: []
+	
+	sounds_start: []
+	sounds_end: []
+	sounds_fail: []
 }
