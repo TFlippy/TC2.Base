@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.5"
+	$version: "0.1.63.1"
 	name: "Crossbow"
 	tips: []
 	
@@ -40,10 +40,11 @@
 							type: work
 							work: woodcarving
 							amount: 250.000
-							amount_min: 75.000
+							amount_min: 150.000
 							difficulty: 6
 							snapping: 10.000
 							falloff: 0.844
+							ratio: 1.000
 							group: 0
 							flags: conditional
 						}
@@ -52,7 +53,7 @@
 							material: leather
 							amount: 0.823
 							snapping: 1.000
-							loss: 0.075
+							loss: 0.157
 							group: 1
 							flags: prerequisite
 						}
@@ -69,7 +70,16 @@
 							type: resource
 							material: machine_parts
 							amount: 2.0329
-							snapping: 1.000
+							snapping: 0.100
+							loss: 0.075
+							group: 1
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: glue
+							amount: 0.400
+							snapping: 0.100
 							loss: 0.075
 							group: 1
 							flags: prerequisite
@@ -77,13 +87,26 @@
 						{
 							type: work
 							work: assembling
-							amount: 175.000
-							amount_min: 80.000
+							amount: 600.000
+							amount_min: 200.000
 							difficulty: 5
 							snapping: 10.000
 							falloff: 0.771
+							ratio: 1.000
 							group: 1
-							flags: conditional
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: gluing
+							amount: 250.000
+							amount_min: 180.000
+							difficulty: 4
+							snapping: 10.000
+							falloff: 0.815
+							ratio: 1.000
+							group: 1
+							flags: simultaneous, conditional
 						}
 					]
 					
@@ -94,10 +117,6 @@
 					{
 						require: screwdriver, wrench, file, knife
 						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, stapler, file, towel, tongs, pick, crowbar, knife, sandpaper
-					}
-					filter_machinery:
-					{
-						include: lathe, mill, sander, planer
 					}
 				}
 			]
@@ -119,6 +138,7 @@
 	flags: item, production, wip, converted
 	tags: workbench, manual, simple, small, weapon, woodworking, assembling, metalworking
 	infrastructure: table, surface
+	infrastructure_exclude: none
 	
 	icon:
 	{

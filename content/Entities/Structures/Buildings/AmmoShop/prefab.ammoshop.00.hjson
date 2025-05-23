@@ -120,7 +120,7 @@ shop:
 
 workshop:
 {
-	orders_capacity: 2
+	orders_capacity: 1
 	
 	tools: none
 	infrastructure: none
@@ -264,9 +264,9 @@ crafter.state:
 {
 	@inventory4:
 	{
-		type: input
+		type: waste
 		flags: standalone, allow_ducts, ignore_mass, vertical
-		stack_size_multiplier: 2.000
+		stack_size_multiplier: 4.000
 		
 		filter:
 		{

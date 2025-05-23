@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.3"
+	$version: "0.1.63.1"
 	name: "Copper Plate"
 	name_short: "Cop. Plate"
 	description:
@@ -44,6 +44,7 @@
 	[
 		{
 			offset: [0.000, 0.800]
+			centroid: [0.000, 0.800]
 			radius: 0.200
 			values:
 			[
@@ -55,6 +56,7 @@
 		}
 		{
 			offset: [0.000, 0.550]
+			centroid: [0.000, 0.550]
 			radius: 0.425
 			values:
 			[
@@ -66,6 +68,7 @@
 		}
 		{
 			offset: [0.000, 0.300]
+			centroid: [0.000, 0.300]
 			radius: 0.675
 			values:
 			[
@@ -77,6 +80,7 @@
 		}
 		{
 			offset: [0.000, 0.050]
+			centroid: [-0.03125, 0.050]
 			radius: 0.925
 			values:
 			[
@@ -125,6 +129,37 @@
 		quantity_retail: 0.000
 		quantity_wholesale: 0.000
 		quantity_industry: 0.000
+	}
+	
+	conversions:
+	{
+		shovel:
+		{
+			h_material: "null"
+			spawn_flags: none
+			product_flags: none
+			ratio: 1.000
+			ratio_extra: 0.000
+			
+			h_material_waste: scrap.copper
+			spawn_flags_waste: none
+			product_flags_waste: waste, residue
+			ratio_waste: 0.710
+			ratio_waste_extra: 0.220
+			
+			yield: 0.680
+			yield_extra: 0.220
+			
+			h_sound: missing
+			sound_volume: 0.500
+			sound_pitch: 1.000
+			
+			chance: 1.000
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.000
+			velocity_mult: 1.000
+		}
 	}
 	
 	residues:

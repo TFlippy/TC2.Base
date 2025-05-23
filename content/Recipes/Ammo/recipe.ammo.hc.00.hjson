@@ -16,7 +16,7 @@
 			flags: part
 			tags: shell, container, structural, rounded
 			// Damage type used for discarding leftover resources.
-			discard_damage_type: crush
+			discard_damage_type: shovel
 			
 			ratio: 0.000
 			mass_base: 0.000
@@ -74,6 +74,14 @@
 							flags: conditional
 						}
 					]
+					
+					start_delay: 1.500
+					advance_delay: 2.000
+					complete_delay: 3.000
+					
+					h_sound_begin: effect.tinker.machine.00
+					h_sound_complete: effect.tinker.machine.00
+					h_sound_finalize: effect.lathe.00
 				}
 			]
 		}
@@ -113,7 +121,7 @@
 						{
 							type: resource
 							material: alcohol
-							amount: 0.140
+							amount: 0.010
 							snapping: 0.100
 							falloff: 0.970
 							loss: 0.122
@@ -224,7 +232,7 @@
 							material: ammo.hc.lv
 							amount: 1.000
 							group: 0
-							flags: primary, compact
+							flags: primary
 						}
 					]
 					
@@ -243,7 +251,7 @@
 	]
 	
 	type: workshop
-	flags: production, wip
+	flags: production, manufacturing, repeat, wip, auto_complete
 	tags: manual, small, munitions, delicate, assembling, metalworking, military, explosive, dangerous
 	infrastructure: table, chair, surface, machine, workbench
 	infrastructure_exclude: none

@@ -113,9 +113,9 @@
 						{
 							type: work
 							work: filing
-							amount: 2936.700
+							amount: 134.4321
 							amount_min: 137.500
-							difficulty: 6
+							difficulty: 7
 							snapping: 5.000
 							falloff: 0.880
 							ratio: 0.898
@@ -125,7 +125,7 @@
 						{
 							type: work
 							work: assembling
-							amount: 610.000
+							amount: 50.000
 							amount_min: 315.000
 							difficulty: 6
 							snapping: 5.000
@@ -185,8 +185,8 @@
 						{
 							type: work
 							work: woodcarving
-							amount: 680.000
-							amount_min: 445.000
+							amount: 340.000
+							amount_min: 225.000
 							difficulty: 6
 							snapping: 5.000
 							falloff: 0.910

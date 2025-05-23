@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.5"
+	$version: "0.1.63.1"
 	name: "Woodcarving"
 	name_short: "Carving"
 	desc:
@@ -17,7 +17,7 @@
 	flags: none
 	tags: manual, skilled, machine, tools, construction, wip
 	cooldown: 0.850
-	multiplier: 1.300
+	multiplier: 0.910
 	color: "0xff719240"
 	
 	tools_required: file, knife

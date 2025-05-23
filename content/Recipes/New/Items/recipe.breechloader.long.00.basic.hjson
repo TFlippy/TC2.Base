@@ -265,7 +265,7 @@
 				{
 					type: resource
 					material: steel.frames
-					amount: 0.230
+					amount: 0.248
 					snapping: 0.100
 					loss: 0.102
 					group: 0

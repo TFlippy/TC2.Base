@@ -14,21 +14,24 @@
 		frame: [8, 0]
 	}
 	
-	flags: none
-	tags: manual, machine, tools, technical, construction, industrial, wip
-	cooldown: 1.000
+	flags: passive
+	tags: machine, automated, technical, construction, industrial, wip
+	
+	amount_base: 5.000
+	cooldown: 1.500
 	multiplier: 1.000
+	
+	amount_jitter: 0.080
 	color: "0xffaeb59a"
 	
 	tools_required: none
-	tools_optional: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, stapler, towel, tongs, pick, crowbar, knife
+	tools_optional: none
 	
 	infrastructure_required: none
 	infrastructure_optional: none
 	
 	character_traits:
 	{
-		include: construction, military, artisan, laborer, technician, engineer, miner, soldier, insane, naval, thief
 		weight: 1.000
 	}
 	
@@ -39,20 +42,18 @@
 	
 	skills_mult:
 	{
-		construction: 0.750
-		scavenging: 0.600
-		dexterity: 0.500
+	
 	}
 	
 	sound_volume: 0.500
-	sound_pitch: 1.000
-	sound_size: 0.500
-	sound_dist: 1.000
+	sound_pitch: 0.950
+	sound_size: 1.000
+	sound_dist: 0.890
 	
 	sounds: ["work_assembly_00", "work_assembly_01", "work_assembly_02", "work_assembly_03", "work_assembly_04"]
 	sounds_manual: []
 	sounds_machine: []
-	sounds_passive: []
+	sounds_passive: ["press.smash.00", "press.smash.01", "press.smash.02"]
 	
 	sounds_start: []
 	sounds_end: []

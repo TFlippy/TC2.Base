@@ -1,0 +1,64 @@
+﻿{
+	$region_id: 0
+	$version: "0.1.63.1"
+	name: "Phlogiston Welding"
+	name_short: "P. Welding"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: ui.icons.work.00
+		size: [16, 16]
+		frame: [35, 0]
+	}
+	
+	flags: none
+	tags: manual, machine, tools, technical, chemical, construction, industrial, dangerous, wip
+	cooldown: 3.000
+	multiplier: 0.900
+	color: "0xffef3500"
+	
+	tools_required: none
+	tools_optional: none
+	
+	infrastructure_required: hard_surface
+	infrastructure_optional: none
+	
+	character_traits:
+	{
+		include: construction, scientist, artisan, laborer, technician, chemist
+		exclude: alcoholic, dumb, clumsy
+		weight: 1.000
+	}
+	
+	skills_min:
+	{
+		metallurgy: 3
+		blacksmithing: 2
+	}
+	
+	skills_mult:
+	{
+		blacksmithing: 0.350
+		metallurgy: 0.600
+		engineering: 0.350
+		construction: 0.450
+	}
+	
+	sound_volume: 0.600
+	sound_pitch: 0.900
+	sound_size: 0.500
+	sound_dist: 0.700
+	
+	sounds: ["effect.sizzle.sparky.00", "effect.sizzle.low.00", "effect.inflate.00"]
+	sounds_manual: []
+	sounds_machine: []
+	sounds_passive: []
+	
+	sounds_start: []
+	sounds_end: []
+	sounds_fail: []
+}
