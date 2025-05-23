@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.5"
+	$version: "0.1.63.1"
 	name: "Pocket Breechloader"
 	tips: []
 	
@@ -30,29 +30,30 @@
 						{
 							type: resource
 							material: steel.rod
-							amount: 0.309151
+							amount: 0.3292
 							snapping: 1.000
-							loss: 0.024
+							loss: 0.075
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: resource
 							material: steel.frames
-							amount: 0.22821
-							snapping: 0.500
-							loss: 0.024
+							amount: 0.1882
+							snapping: 0.100
+							loss: 0.122
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: work
 							work: drilling
-							amount: 225.000
-							amount_min: 50.000
-							difficulty: 6
+							amount: 510.000
+							amount_min: 150.000
+							difficulty: 8
 							snapping: 5.000
-							falloff: 0.890
+							falloff: 0.818
+							ratio: 1.000
 							group: 0
 							flags: conditional
 						}
@@ -97,7 +98,7 @@
 							material: wood.rod
 							amount: 0.489347
 							snapping: 1.000
-							loss: 0.082
+							loss: 0.122
 							group: 0
 							flags: prerequisite
 						}
@@ -108,7 +109,8 @@
 							amount_min: 100.000
 							difficulty: 5
 							snapping: 5.000
-							falloff: 0.935
+							falloff: 0.900
+							ratio: 1.000
 							group: 0
 							flags: conditional
 						}
@@ -150,8 +152,9 @@
 						{
 							type: resource
 							material: machine_parts
-							amount: 0.672661
-							snapping: 0.200
+							amount: 0.712
+							snapping: 0.100
+							loss: 0.122
 							group: 0
 							flags: prerequisite
 						}
@@ -159,10 +162,11 @@
 							type: work
 							work: assembling
 							amount: 175.000
-							amount_min: 75.000
-							difficulty: 5
+							amount_min: 175.000
+							difficulty: 4
 							snapping: 5.000
-							falloff: 0.970
+							falloff: 0.889
+							ratio: 1.000
 							group: 0
 							flags: conditional
 						}
@@ -216,10 +220,10 @@
 						{
 							type: resource
 							material: glue
-							amount: 1.047191
+							amount: 0.9472
 							snapping: 0.500
 							falloff: 0.950
-							loss: 0.059
+							loss: 0.075
 							group: 0
 							flags: prerequisite
 						}
@@ -227,10 +231,11 @@
 							type: work
 							work: gluing
 							amount: 135.000
-							amount_min: 75.000
+							amount_min: 150.000
 							difficulty: 7
 							snapping: 25.000
-							falloff: 0.920
+							falloff: 0.883
+							ratio: 1.000
 							group: 0
 							flags: conditional
 						}
@@ -260,8 +265,9 @@
 				{
 					type: resource
 					material: steel.frames
-					amount: 0.120
+					amount: 0.140
 					snapping: 0.100
+					loss: 0.106
 					group: 0
 					flags: prerequisite
 				}

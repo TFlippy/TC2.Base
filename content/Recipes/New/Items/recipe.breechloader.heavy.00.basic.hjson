@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.5"
+	$version: "0.1.63.1"
 	name: "Heavy Breechloader"
 	tips: []
 	
@@ -30,9 +30,9 @@
 						{
 							type: resource
 							material: steel.ingot
-							amount: 2.500
+							amount: 3.000
 							snapping: 1.000
-							loss: 0.122
+							loss: 0.224
 							group: 0
 							flags: prerequisite
 						}
@@ -40,7 +40,7 @@
 							type: resource
 							material: steel.frames
 							amount: 2.000
-							snapping: 0.500
+							snapping: 0.100
 							loss: 0.122
 							group: 0
 							flags: prerequisite
@@ -48,24 +48,26 @@
 						{
 							type: work
 							work: drilling
-							amount: 750.000
-							amount_min: 250.000
-							difficulty: 11
+							amount: 1450.000
+							amount_min: 480.000
+							difficulty: 10
 							snapping: 5.000
-							falloff: 0.965
+							falloff: 0.832
+							ratio: 1.000
 							group: 0
-							flags: conditional
+							flags: simultaneous, conditional
 						}
 						{
 							type: work
 							work: filing
-							amount: 350.000
-							amount_min: 100.000
+							amount: 420.000
+							amount_min: 400.000
 							difficulty: 6
 							snapping: 5.000
-							falloff: 0.990
+							falloff: 0.833
+							ratio: 1.000
 							group: 0
-							flags: conditional
+							flags: simultaneous, conditional
 						}
 					]
 					
@@ -112,7 +114,7 @@
 							material: wood
 							amount: 0.514063
 							snapping: 1.000
-							loss: 0.082
+							loss: 0.075
 							group: 0
 							flags: prerequisite
 						}
@@ -123,7 +125,8 @@
 							amount_min: 100.000
 							difficulty: 6
 							snapping: 5.000
-							falloff: 0.915
+							falloff: 0.881
+							ratio: 1.000
 							group: 0
 							flags: conditional
 						}
@@ -165,8 +168,9 @@
 						{
 							type: resource
 							material: machine_parts
-							amount: 11.66119
-							snapping: 0.200
+							amount: 2.500
+							snapping: 0.100
+							loss: 0.110
 							group: 0
 							flags: prerequisite
 						}
@@ -175,9 +179,10 @@
 							work: assembling
 							amount: 450.000
 							amount_min: 150.000
-							difficulty: 7
+							difficulty: 3
 							snapping: 5.000
-							falloff: 0.940
+							falloff: 0.876
+							ratio: 1.000
 							group: 0
 							flags: conditional
 						}
@@ -231,9 +236,10 @@
 						{
 							type: resource
 							material: glue
-							amount: 7.783897
+							amount: 1.7839
 							snapping: 0.500
 							falloff: 0.950
+							loss: 0.075
 							group: 0
 							flags: prerequisite
 						}
@@ -241,9 +247,11 @@
 							type: work
 							work: gluing
 							amount: 300.000
+							amount_min: 150.000
 							difficulty: 5
 							snapping: 25.000
-							falloff: 0.920
+							falloff: 0.894
+							ratio: 1.000
 							group: 0
 							flags: conditional
 						}
@@ -273,8 +281,9 @@
 				{
 					type: resource
 					material: steel.frames
-					amount: 0.080
+					amount: 0.440
 					snapping: 0.100
+					loss: 0.035
 					group: 0
 					flags: prerequisite
 				}
@@ -310,7 +319,7 @@
 	rank: -1.900
 	
 	min: 1
-	max: 10
+	max: 4
 	step: 1
 	
 	version: 1
