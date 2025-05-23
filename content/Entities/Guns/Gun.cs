@@ -157,6 +157,8 @@
 
 			Overwrite = 1 << 0,
 			New = 1 << 1,
+			Names = 1 << 2,
+
 
 			Grip = 1 << 4,
 			Barrel = 1 << 5,
@@ -191,6 +193,16 @@
 				Assert.Check(prefab.root.TryGetComponentData<Gun.Data>(out var gun, true));
 				Assert.Check(prefab.root.TryGetComponentData<Holdable.Data>(out var holdable, true));
 
+				var stages_copy = recipe.stages.ToArray(8, out var list);
+
+				ref var stage_barrel = ref list.GetFirstOrNew((in x) => x.name.EqualsAny(StringComparison.OrdinalIgnoreCase, "barrel"), out _);
+				ref var stage_receiver = ref list.GetFirstOrNew((in x) => x.name.EqualsAny(StringComparison.OrdinalIgnoreCase, "receiver"), out _);
+				ref var stage_grip = ref list.GetFirstOrNew((in x) => x.name.EqualsAny(StringComparison.OrdinalIgnoreCase, "grip", "stock"), out _);
+
+				ratio_barrel.SetIfDefault(stage_barrel.ratio);
+				ratio_receiver.SetIfDefault(stage_receiver.ratio);
+				ratio_grip.SetIfDefault(stage_grip.ratio);
+
 				var mass_prefab = prefab.GetMass();
 
 				var mass_grip = 0.00f;
@@ -198,6 +210,7 @@
 				var mass_receiver = 0.00f;
 				var mass_parts = 0.00f;
 
+				var work_multiplier = 2.50f;
 				var complexity = 1.00f;
 
 				var h_material_grip = IMaterial.Handle.None;
@@ -444,230 +457,237 @@
 				mass_parts += mass_prefab - (mass_grip + mass_barrel + mass_receiver + mass_parts);
 				//mass_barrel += mass_prefab - (mass_grip + mass_barrel + mass_receiver + mass_parts);
 
-				if (recipe.stages.IsNullOrEmpty() || flags.HasAll(SetupGunFlags.New | SetupGunFlags.Overwrite))
+				//if (recipe.stages.IsNullOrEmpty() || flags.HasAll(SetupGunFlags.New | SetupGunFlags.Overwrite))
 				{
 					//ref var stage = ref recipe.stages[0];
 
-
-					var stages_list = new List<Crafting.Stage>(4);
-
-					var stage_barrel = new Crafting.Stage();
-					var stage_receiver = new Crafting.Stage();
-					var stage_grip = new Crafting.Stage();
-
 					{
-						stage_barrel.name = "Barrel";
-						stage_barrel.type = Crafting.Stage.Type.Part;
-						stage_barrel.flags.AddFlag(Crafting.Stage.Flags.Part | Crafting.Stage.Flags.Auto_Generated | Crafting.Stage.Flags.WIP | Crafting.Stage.Flags.Replaceable | Crafting.Stage.Flags.Important);
-						stage_barrel.tags.AddFlag(Crafting.Stage.Tags.Structural | Crafting.Stage.Tags.Barrel | Crafting.Stage.Tags.Metal | Crafting.Stage.Tags.Rod | Crafting.Stage.Tags.Rounded | Crafting.Stage.Tags.Chassis);
-						stage_barrel.discard_damage_type = Damage.Type.Sledgehammer;
-						stage_barrel.mass_base = mass_barrel;
-
 						{
-							var option = new Crafting.Option();
-							option.name = "Standard";
-							option.flags.AddFlag(Crafting.Option.Flags.Auto_Generated);
+							string.SetIfNullOrEmpty(ref stage_barrel.name, "Barrel");
+							stage_barrel.type = Crafting.Stage.Type.Part;
+							stage_barrel.flags.AddFlag(Crafting.Stage.Flags.Part | Crafting.Stage.Flags.Auto_Generated | Crafting.Stage.Flags.WIP | Crafting.Stage.Flags.Replaceable | Crafting.Stage.Flags.Important);
+							stage_barrel.tags.AddFlag(Crafting.Stage.Tags.Structural | Crafting.Stage.Tags.Barrel | Crafting.Stage.Tags.Metal | Crafting.Stage.Tags.Rod | Crafting.Stage.Tags.Rounded | Crafting.Stage.Tags.Chassis);
+							stage_barrel.discard_damage_type = Damage.Type.Sledgehammer;
+							stage_barrel.mass_base = mass_barrel;
 
 							{
-								var req = new Crafting.Requirement()
-								{
-									type = Crafting.Requirement.Type.Resource,
-								};
+								//var option = new Crafting.Option();
 
-								var req_work = new Crafting.Requirement()
-								{
-									type = Crafting.Requirement.Type.Work,
-								};
+								ref var option = ref stage_barrel.options.GetFirstOrNew(out stage_barrel.options, (in x) => x.name.EqualsAny(StringComparison.OrdinalIgnoreCase, "standard", "bent", "drilled"), out _);
+								option.name = "Standard";
+								option.flags.AddFlag(Crafting.Option.Flags.Auto_Generated);
+								option.requirements = null;
+								option.products = null;
 
-								switch (gun.type)
 								{
-									case Type.Handgun:
+									var req = new Crafting.Requirement()
 									{
-										h_material_barrel = "steel.rod";
-										option.name = "Drilled";
+										type = Crafting.Requirement.Type.Resource,
+									};
 
-										var bore_area = Area.Circle(radius: bore_diameter * 0.50f);
-										req.loss = 1.00f - Maths.Normalize01(rod_area - bore_area, rod_area);
-
-										req_work.work = "drilling";
-										req_work.amount = (mass_barrel * ratio_barrel * 850).SnapCeil(5);
-										req_work.amount_min = (mass_barrel * ratio_barrel * 580).SnapCeil(10);
-										req_work.difficulty = 8;
-										req_work.snapping = 5;
-										req_work.falloff = 0.94f;
-										req_work.ratio = 0.90f;
-									}
-									break;
-
-									default:
+									var req_work = new Crafting.Requirement()
 									{
-										h_material_barrel = "steel.plate";
-										option.name = "Bent";
+										type = Crafting.Requirement.Type.Work,
+									};
 
-										req.loss = 0.08f;
+									switch (gun.type)
+									{
+										case Type.Handgun:
+										{
+											h_material_barrel = "steel.rod";
+											option.name = "Drilled";
 
-										req_work.work = "bending";
-										req_work.amount = (mass_barrel * 15).Ceil() * 10;
-										req_work.amount_min = (mass_barrel * 35).SnapCeil(10);
-										req_work.difficulty = 7;
-										req_work.snapping = 5;
-										req_work.falloff = 0.84f;
-										req_work.ratio = 0.90f;
+											var bore_area = Area.Circle(radius: bore_diameter * 0.50f);
+											req.loss = 1.00f - Maths.Normalize01(rod_area - bore_area, rod_area);
+
+											req_work.work = "drilling";
+											req_work.amount = (mass_barrel * ratio_barrel * 850 * work_multiplier).SnapCeil(5);
+											req_work.amount_min = (mass_barrel * ratio_barrel * 580 * work_multiplier).SnapCeil(10);
+											req_work.difficulty = 9;
+											req_work.snapping = 5;
+											req_work.falloff = 0.94f;
+											req_work.ratio = 0.90f;
+										}
+										break;
+
+										default:
+										{
+											h_material_barrel = "steel.plate";
+											option.name = "Bent";
+
+											req.loss = 0.08f;
+
+											req_work.work = "bending";
+											req_work.amount = (mass_barrel * 15 * work_multiplier).Ceil() * 10;
+											req_work.amount_min = (mass_barrel * 35 * work_multiplier).SnapCeil(10);
+											req_work.difficulty = 12;
+											req_work.snapping = 5;
+											req_work.falloff = 0.88f;
+											req_work.ratio = 0.90f;
+										}
+										break;
 									}
-									break;
+
+									req.material = h_material_barrel;
+									req.flags.AddFlag(Crafting.Requirement.Flags.Prerequisite);
+									req.amount = req.material.GetQuantityFromMassWithLoss(mass_barrel, req.loss);
+									//if (req.loss > 0.00f) req.amount /= 1.00f - req.loss;
+									req.snapping = req.material.DEV_GetDefaultSnapping();
+
+									option.requirements = option.requirements.Add(req);
+									if (req_work.work) option.requirements = option.requirements.Add(req_work);
 								}
 
-								req.material = h_material_barrel;
-								req.flags.AddFlag(Crafting.Requirement.Flags.Prerequisite);
-								req.amount = req.material.GetQuantityFromMassWithLoss(mass_barrel, req.loss);
-								//if (req.loss > 0.00f) req.amount /= 1.00f - req.loss;
-								req.snapping = req.material.DEV_GetDefaultSnapping();
-
-								option.requirements = option.requirements.Add(req);
-								if (req_work.work) option.requirements = option.requirements.Add(req_work);
+								//stage_barrel.options = stage_barrel.options.Add(option);
 							}
-
-							stage_barrel.options = stage_barrel.options.Add(option);
 						}
-					}
-
-					{
-						stage_receiver.name = "Receiver";
-						stage_receiver.type = Crafting.Stage.Type.Part;
-						stage_receiver.flags.AddFlag(Crafting.Stage.Flags.Part | Crafting.Stage.Flags.Auto_Generated | Crafting.Stage.Flags.WIP | Crafting.Stage.Flags.Important);
-						stage_receiver.tags.AddFlag(Crafting.Stage.Tags.Structural | Crafting.Stage.Tags.Frame | Crafting.Stage.Tags.Metal | Crafting.Stage.Tags.Mechanism | Crafting.Stage.Tags.Chassis | Crafting.Stage.Tags.Functional);
-						stage_receiver.discard_damage_type = Damage.Type.Sledgehammer;
-						stage_receiver.mass_base = mass_receiver;
 
 						{
-							var option = new Crafting.Option();
-							option.name = "Standard";
-							option.flags.AddFlag(Crafting.Option.Flags.Auto_Generated);
+							string.SetIfNullOrEmpty(ref stage_receiver.name, "Receiver");
+							stage_receiver.type = Crafting.Stage.Type.Part;
+							stage_receiver.flags.AddFlag(Crafting.Stage.Flags.Part | Crafting.Stage.Flags.Auto_Generated | Crafting.Stage.Flags.WIP | Crafting.Stage.Flags.Important);
+							stage_receiver.tags.AddFlag(Crafting.Stage.Tags.Structural | Crafting.Stage.Tags.Frame | Crafting.Stage.Tags.Metal | Crafting.Stage.Tags.Mechanism | Crafting.Stage.Tags.Chassis | Crafting.Stage.Tags.Functional);
+							stage_receiver.discard_damage_type = Damage.Type.Sledgehammer;
+							stage_receiver.mass_base = mass_receiver;
 
 							{
-								var req = new Crafting.Requirement()
+								//var option = new Crafting.Option();
+								ref var option = ref stage_receiver.options.GetFirstOrNew(out stage_receiver.options, (in x) => x.name.EqualsAny(StringComparison.OrdinalIgnoreCase, "standard"), out _);
+								option.name = "Standard";
+								option.flags.AddFlag(Crafting.Option.Flags.Auto_Generated);
+								option.requirements = null;
+								option.products = null;
+
 								{
-									type = Crafting.Requirement.Type.Resource,
-								};
+									var req = new Crafting.Requirement()
+									{
+										type = Crafting.Requirement.Type.Resource,
+									};
 
-								var req_work = new Crafting.Requirement()
+									var req_work = new Crafting.Requirement()
+									{
+										type = Crafting.Requirement.Type.Work,
+									};
+
+									req.material = h_material_receiver;
+									req.flags.AddFlag(Crafting.Requirement.Flags.Prerequisite);
+									req.loss = 0.08f;
+									req.amount = req.material.GetQuantityFromMassWithLoss(mass_receiver, req.loss);
+									req.snapping = req.material.DEV_GetDefaultSnapping();
+
+									req_work.work = "filing";
+									req_work.flags.AddFlag(Crafting.Requirement.Flags.Conditional | Crafting.Requirement.Flags.Simultaneous);
+									req_work.amount = (req.GetMass().mass * 180.00f * complexity).m_value.Sqrt().SnapCeil(15) * ratio_receiver * work_multiplier * complexity.Sqrt();
+									req_work.amount_min = 55.00f * work_multiplier;
+									req_work.difficulty = (byte)(4 + (complexity * 0.50f).CeilToUInt());
+									req_work.snapping = 5;
+									req_work.falloff = 0.88f;
+									req_work.ratio = 0.90f;
+
+									option.requirements = option.requirements.Add(req);
+									if (req_work.work) option.requirements = option.requirements.Add(req_work);
+								}
+
+								if (mass_parts.IsNotZero())
 								{
-									type = Crafting.Requirement.Type.Work,
-								};
+									var req = new Crafting.Requirement()
+									{
+										type = Crafting.Requirement.Type.Resource,
+									};
 
-								req.material = h_material_receiver;
-								req.flags.AddFlag(Crafting.Requirement.Flags.Prerequisite);
-								req.loss = 0.08f;
-								req.amount = req.material.GetQuantityFromMassWithLoss(mass_receiver, req.loss);
-								req.snapping = req.material.DEV_GetDefaultSnapping();
+									var req_work = new Crafting.Requirement()
+									{
+										type = Crafting.Requirement.Type.Work,
+									};
 
-								req_work.work = "filing";
-								req_work.amount = req.GetMass().mass * 180.00f;
-								req_work.amount_min = 55.00f;
-								req_work.difficulty = 6;
-								req_work.snapping = 5;
-								req_work.falloff = 0.88f;
-								req_work.ratio = 0.90f;
+									req.material = h_material_machine_parts;
+									req.flags.AddFlag(Crafting.Requirement.Flags.Prerequisite);
+									req.loss = 0.10f;
+									req.amount = req.material.GetQuantityFromMassWithLoss(mass_parts, req.loss);
+									req.snapping = req.material.DEV_GetDefaultSnapping();
 
-								option.requirements = option.requirements.Add(req);
-								if (req_work.work) option.requirements = option.requirements.Add(req_work);
+									req_work.work = "assembling";
+									req_work.flags.AddFlag(Crafting.Requirement.Flags.Conditional | Crafting.Requirement.Flags.Simultaneous);
+									req_work.amount = (req.amount * mass_prefab * complexity * work_multiplier).Pow(0.72f).SnapCeil(10);
+									req_work.amount_min = (complexity * 25.00f * work_multiplier).SnapCeil(5.00f);
+									req_work.difficulty = (byte)complexity.CeilToUInt();
+									req_work.snapping = 5;
+									req_work.falloff = 0.88f;
+									req_work.ratio = 0.90f;
+
+									option.requirements = option.requirements.Insert(1, req);
+									if (req_work.work) option.requirements = option.requirements.Add(req_work);
+								}
+
+								//stage_receiver.options = stage_receiver.options.Add(option);
 							}
-
-							if (mass_parts.IsNotZero())
-							{
-								var req = new Crafting.Requirement()
-								{
-									type = Crafting.Requirement.Type.Resource,
-								};
-
-								var req_work = new Crafting.Requirement()
-								{
-									type = Crafting.Requirement.Type.Work,
-								};
-
-								req.material = h_material_machine_parts;
-								req.flags.AddFlag(Crafting.Requirement.Flags.Prerequisite);
-								req.loss = 0.10f;
-								req.amount = req.material.GetQuantityFromMassWithLoss(mass_parts, req.loss);
-								req.snapping = req.material.DEV_GetDefaultSnapping();
-
-								req_work.work = "assembling";
-								req_work.amount = (req.amount * 20.00f * complexity).SnapCeil(10);
-								req_work.amount_min = (complexity * 25.00f).SnapCeil(5.00f);
-								req_work.difficulty = (byte)complexity.CeilToUInt();
-								req_work.snapping = 5;
-								req_work.falloff = 0.88f;
-								req_work.ratio = 0.90f;
-
-								option.requirements = option.requirements.Insert(1, req);
-								if (req_work.work) option.requirements = option.requirements.Add(req_work);
-							}
-
-							stage_receiver.options = stage_receiver.options.Add(option);
 						}
-					}
-
-					{
-						stage_grip.type = Crafting.Stage.Type.Part;
-						stage_grip.flags.AddFlag(Crafting.Stage.Flags.Part | Crafting.Stage.Flags.Auto_Generated | Crafting.Stage.Flags.WIP | Crafting.Stage.Flags.Replaceable);
-						stage_grip.tags.AddFlag(Crafting.Stage.Tags.Grip | Crafting.Stage.Tags.Rounded);
-						stage_grip.discard_damage_type = Damage.Type.Sledgehammer;
-						stage_grip.mass_base = mass_grip;
 
 						{
-							var option = new Crafting.Option();
-							option.name = "Standard";
-							option.flags.AddFlag(Crafting.Option.Flags.Auto_Generated);
+							stage_grip.type = Crafting.Stage.Type.Part;
+							stage_grip.flags.AddFlag(Crafting.Stage.Flags.Part | Crafting.Stage.Flags.Auto_Generated | Crafting.Stage.Flags.WIP | Crafting.Stage.Flags.Replaceable);
+							stage_grip.tags.AddFlag(Crafting.Stage.Tags.Grip | Crafting.Stage.Tags.Rounded);
+							stage_grip.discard_damage_type = Damage.Type.Sledgehammer;
+							stage_grip.mass_base = mass_grip;
 
 							{
-								var req = new Crafting.Requirement()
+								//var option = new Crafting.Option();
+								ref var option = ref stage_grip.options.GetFirstOrNew(out stage_grip.options, (in x) => x.name.EqualsAny(StringComparison.OrdinalIgnoreCase, "standard"), out _);
+								option.name = "Standard";
+								option.flags.AddFlag(Crafting.Option.Flags.Auto_Generated);
+								option.requirements = null;
+								option.products = null;
+
 								{
-									type = Crafting.Requirement.Type.Resource,
-								};
+									var req = new Crafting.Requirement()
+									{
+										type = Crafting.Requirement.Type.Resource,
+									};
 
-								var req_work = new Crafting.Requirement()
-								{
-									type = Crafting.Requirement.Type.Work,
-								};
+									var req_work = new Crafting.Requirement()
+									{
+										type = Crafting.Requirement.Type.Work,
+									};
 
-								req.material = h_material_grip;
-								req.flags.AddFlag(Crafting.Requirement.Flags.Prerequisite);
-								req.loss = 0.13f;
-								req.amount = req.material.GetQuantityFromMassWithLoss(mass_grip, req.loss);
-								req.snapping = req.material.DEV_GetDefaultSnapping();
+									req.material = h_material_grip;
+									req.flags.AddFlag(Crafting.Requirement.Flags.Prerequisite);
+									req.loss = 0.13f;
+									req.amount = req.material.GetQuantityFromMassWithLoss(mass_grip, req.loss);
+									req.snapping = req.material.DEV_GetDefaultSnapping();
 
-								req_work.work = "woodcarving";
-								req_work.amount = (((req.material.GetMassFromQuantity(req.amount) * req.loss * 1000).Ceil() * mass_grip * 10).Sqrt() * 10).SnapCeil(10);
-								req_work.amount_min = ((req_work.amount * 0.13f).Ceil() * 2).SnapCeil(5);
-								req_work.difficulty = 6;
-								req_work.snapping = 5;
-								req_work.falloff = 0.91f;
-								req_work.ratio = 0.90f;
+									req_work.work = "woodcarving";
+									req_work.amount = (((req.material.GetMassFromQuantity(req.amount) * req.loss * 1000).Ceil() * mass_grip * 10).Sqrt() * 5 * work_multiplier).SnapCeil(10);
+									req_work.amount_min = ((req_work.amount * 0.13f).Ceil() * 2 * work_multiplier).SnapCeil(5);
+									req_work.difficulty = 6;
+									req_work.snapping = 5;
+									req_work.falloff = 0.91f;
+									req_work.ratio = 0.90f;
 
-								option.requirements = option.requirements.Add(req);
-								if (req_work.work) option.requirements = option.requirements.Add(req_work);
+									option.requirements = option.requirements.Add(req);
+									if (req_work.work) option.requirements = option.requirements.Add(req_work);
+								}
+
+								//stage_grip.options = stage_grip.options.Add(option);
 							}
-
-							stage_grip.options = stage_grip.options.Add(option);
 						}
+
+						if (gun.type.EqualsAnyValue(Gun.Type.Handgun))
+						{
+							string.SetIfNullOrEmpty(ref stage_grip.name, "Grip");
+							stage_grip.tags.AddFlag(Crafting.Stage.Tags.Small);
+						}
+						else if (gun.type.EqualsAnyValue(Gun.Type.Shotgun, Gun.Type.SMG, Gun.Type.Rifle, Gun.Type.MachineGun))
+						{
+							string.SetIfNullOrEmpty(ref stage_grip.name, "Stock");
+							//stage_grip.tags.AddFlag(Crafting.Stage.Tags.Grip | Crafting.Stage.Tags.Rounded);
+						}
+
+						//stages_list.Add(stage_barrel);
+						//stages_list.Add(stage_receiver);
+						//stages_list.Add(stage_grip);
 					}
 
-					if (gun.type.EqualsAnyValue(Gun.Type.Handgun))
-					{
-						stage_grip.name = "Grip";
-						stage_grip.tags.AddFlag(Crafting.Stage.Tags.Small);
-					}
-					else if (gun.type.EqualsAnyValue(Gun.Type.Shotgun, Gun.Type.SMG, Gun.Type.Rifle, Gun.Type.MachineGun))
-					{
-						stage_grip.name = "Stock";
-						//stage_grip.tags.AddFlag(Crafting.Stage.Tags.Grip | Crafting.Stage.Tags.Rounded);
-					}
-
-					stages_list.Add(stage_barrel);
-					stages_list.Add(stage_receiver);
-					stages_list.Add(stage_grip);
-
-					recipe.stages = stages_list.ToArray();
+					recipe.stages = list.GetSpan().WithLength(list.Count).ToArray();
 
 					if (recipe.flags.TryAddFlag(Recipe.Flags.Converted))
 					{
@@ -689,95 +709,6 @@
 					};
 
 					recipe.GEN_AutoComplete(CraftingUtils.RecipeAutoCompleteFlags.Mass | CraftingUtils.RecipeAutoCompleteFlags.Flags | CraftingUtils.RecipeAutoCompleteFlags.Validation | CraftingUtils.RecipeAutoCompleteFlags.Overwrite | CraftingUtils.RecipeAutoCompleteFlags.Filters);
-
-					//{
-					//	ref var option = ref stage.options.GetFirstOrNull(x => string.Equals(x.name, "gravel", StringComparison.OrdinalIgnoreCase));
-					//	if (option.IsNotNull())
-					//	{
-					//		var h_material_gravel = (IMaterial.Handle)"gravel";
-					//		var amount = (info.foundation_volume / h_material_gravel.GetVolumePerStack()).m_value * h_material_gravel.GetMaxQuantity();
-					//		var amount_snapped = amount.SnapCeil(20);
-
-					//		option.requirements = new Crafting.Requirement[]
-					//		{
-					//			Crafting.Requirement.Resource(h_material_gravel, amount_snapped).WithFlags(Crafting.Requirement.Flags.Compact | Crafting.Requirement.Flags.Primary).WithLoss(0.04f),
-					//			//Crafting.Requirement.Work("filling.gravel", (info.foundation_volume.m_value * 1000 * 0.80f).Snap(25), difficulty: 9)
-					//			Crafting.Requirement.Work("filling.gravel", (info.foundation_volume.m_value * 1000 * h_material_gravel.GetMassPerUnit().m_value * 0.73f * work_mult_filling).Snap(25), difficulty: 9),
-					//		};
-					//		App.WriteLine($"Gravel cost: {amount_snapped} ({h_material_gravel.GetMassFromQuantity(amount_snapped)} kg)");
-					//	}
-					//}
-
-					//{
-					//	ref var option = ref stage.options.GetFirstOrNull(x => string.Equals(x.name, "compacted soil", StringComparison.OrdinalIgnoreCase));
-					//	if (option.IsNotNull())
-					//	{
-					//		var h_material_soil = (IMaterial.Handle)"soil";
-					//		var amount = (info.foundation_volume / h_material_soil.GetVolumePerStack()).m_value * h_material_soil.GetMaxQuantity();
-					//		var amount_snapped = amount.SnapCeil(20);
-
-					//		option.requirements = new Crafting.Requirement[]
-					//		{
-					//			Crafting.Requirement.Resource(h_material_soil, amount_snapped).WithFlags(Crafting.Requirement.Flags.Compact | Crafting.Requirement.Flags.Primary).WithLoss(0.07f),
-					//			//Crafting.Requirement.Work("filling.soil", (info.foundation_volume.m_value * 1000 * 0.70f).Snap(25), difficulty: 5),
-					//			Crafting.Requirement.Work("filling.soil", (info.foundation_volume.m_value * 1000 * h_material_soil.GetMassPerUnit().m_value * 0.79f * work_mult_filling).Snap(25), difficulty: 5),
-					//			Crafting.Requirement.Work("compaction.soil", ((info.foundation_volume.m_value / 0.20f) * 100 * 0.40f).Snap(15), difficulty: 3).WithGroup(1),
-					//		};
-					//		App.WriteLine($"Soil cost: {amount_snapped} ({h_material_soil.GetMassFromQuantity(amount_snapped)} kg)");
-					//	}
-					//}
-
-					//{
-					//	ref var option = ref stage.options.GetFirstOrNull(x => string.Equals(x.name, "rubble", StringComparison.OrdinalIgnoreCase));
-					//	if (option.IsNotNull())
-					//	{
-					//		var h_material_rubble = (IMaterial.Handle)"scrap.rubble";
-					//		var h_material_soil = (IMaterial.Handle)"soil";
-
-					//		var amount_rubble = ((info.foundation_volume * 0.78f) / h_material_rubble.GetVolumePerStack()).m_value * h_material_rubble.GetMaxQuantity();
-					//		var amount_rubble_snapped = amount_rubble.SnapCeil(20);
-
-					//		var amount_soil = ((info.foundation_volume * 0.20f) / h_material_soil.GetVolumePerStack()).m_value * h_material_soil.GetMaxQuantity();
-					//		var amount_soil_snapped = amount_soil.SnapCeil(20);
-
-					//		option.requirements = new Crafting.Requirement[]
-					//		{
-					//			Crafting.Requirement.Resource(h_material_rubble, amount_rubble_snapped).WithFlags(Crafting.Requirement.Flags.Compact | Crafting.Requirement.Flags.Primary).WithLoss(0.02f),
-					//			Crafting.Requirement.Work("filling.rubble", ((info.foundation_volume.m_value * 0.45f) * 1000 * h_material_rubble.GetMassPerUnit().m_value * 0.76f * work_mult_filling).Snap(25), difficulty: 12),
-					//			Crafting.Requirement.Resource(h_material_soil, amount_soil_snapped).WithFlags(Crafting.Requirement.Flags.Compact | Crafting.Requirement.Flags.Primary).WithLoss(0.06f).WithGroup(1),
-					//			Crafting.Requirement.Work("filling.soil", ((info.foundation_volume.m_value * 0.20f) * 1000 * h_material_soil.GetMassPerUnit().m_value * 0.78f * work_mult_filling).Snap(20), difficulty: 4).WithGroup(1),
-					//		};
-					//		App.WriteLine($"Soil cost: {amount_soil_snapped} ({h_material_soil.GetMassFromQuantity(amount_soil_snapped)} kg)");
-					//	}
-					//}
-
-					//{
-					//	ref var option = ref stage.options.GetFirstOrNull(x => string.Equals(x.name, "concrete composite", StringComparison.OrdinalIgnoreCase));
-					//	if (option.IsNotNull())
-					//	{
-					//		option.flags |= Crafting.Option.Flags.Disabled;
-					//		//var h_material_rubble = (IMaterial.Handle)"scrap.concrete";
-					//		//var h_material_soil = (IMaterial.Handle)"soil";
-
-					//		//var amount_rubble = ((info.foundation_volume * 0.78f) / h_material_rubble.GetVolumePerStack()).m_value * h_material_rubble.GetMaxQuantity();
-					//		//var amount_rubble_snapped = amount_rubble.SnapCeil(20);
-
-					//		//var amount_soil = ((info.foundation_volume * 0.20f) / h_material_soil.GetVolumePerStack()).m_value * h_material_soil.GetMaxQuantity();
-					//		//var amount_soil_snapped = amount_soil.SnapCeil(20);
-
-					//		//option.requirements = new Crafting.Requirement[]
-					//		//{
-					//		//	Crafting.Requirement.Resource(h_material_rubble, amount_rubble_snapped).WithFlags(Crafting.Requirement.Flags.Compact | Crafting.Requirement.Flags.Primary).WithLoss(0.02f),
-					//		//	Crafting.Requirement.Work("filling.rubble", ((info.foundation_volume.m_value * 0.45f) * 1000 * h_material_rubble.GetMassPerUnit().m_value * 0.76f).Snap(25), difficulty: 12),
-					//		//	Crafting.Requirement.Resource(h_material_soil, amount_soil_snapped).WithFlags(Crafting.Requirement.Flags.Compact | Crafting.Requirement.Flags.Primary).WithLoss(0.06f).WithGroup(1),
-					//		//	Crafting.Requirement.Work("filling.soil", ((info.foundation_volume.m_value * 0.20f) * 1000 * h_material_soil.GetMassPerUnit().m_value * 0.83f).Snap(25), difficulty: 4).WithGroup(1),
-					//		//};
-					//		//App.WriteLine($"Soil cost: {amount_soil_snapped} ({h_material_soil.GetMassFromQuantity(amount_soil_snapped)} kg)");
-					//	}
-					//}
-
-
-
 				}
 			}
 			catch (Exception e)

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.5"
+	$version: "0.1.63.1"
 	name: "Pistol"
 	desc:
 		'''
@@ -43,12 +43,12 @@
 						{
 							type: work
 							work: drilling
-							amount: 220.000
-							amount_min: 150.000
-							difficulty: 8
+							amount: 550.000
+							amount_min: 380.000
+							difficulty: 9
 							snapping: 5.000
 							falloff: 0.940
-							ratio: 0.894
+							ratio: 0.898
 							group: 0
 							flags: conditional
 						}
@@ -92,7 +92,7 @@
 							material: steel.frames
 							amount: 0.206604
 							snapping: 0.100
-							loss: 0.075
+							loss: 0.078
 							group: 0
 							flags: prerequisite
 						}
@@ -100,34 +100,34 @@
 							type: resource
 							material: machine_parts
 							amount: 1.683495
-							snapping: 0.500
-							loss: 0.094
+							snapping: 0.100
+							loss: 0.098
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: work
 							work: filing
-							amount: 135.000
-							amount_min: 55.000
+							amount: 771.120
+							amount_min: 137.500
 							difficulty: 6
 							snapping: 5.000
 							falloff: 0.880
-							ratio: 0.894
+							ratio: 0.898
 							group: 0
-							flags: conditional
+							flags: simultaneous, conditional
 						}
 						{
 							type: work
 							work: assembling
-							amount: 280.000
-							amount_min: 205.000
+							amount: 690.000
+							amount_min: 510.000
 							difficulty: 9
 							snapping: 5.000
 							falloff: 0.880
-							ratio: 0.894
+							ratio: 0.898
 							group: 0
-							flags: conditional
+							flags: simultaneous, conditional
 						}
 					]
 					
@@ -173,19 +173,19 @@
 							material: wood
 							amount: 0.091419
 							snapping: 0.500
-							loss: 0.125
+							loss: 0.129
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: work
 							work: woodcarving
-							amount: 70.000
-							amount_min: 20.000
+							amount: 170.000
+							amount_min: 115.000
 							difficulty: 6
 							snapping: 5.000
 							falloff: 0.910
-							ratio: 0.894
+							ratio: 0.898
 							group: 0
 							flags: conditional
 						}
@@ -197,7 +197,7 @@
 					filter_tools:
 					{
 						require: file, knife
-						include: saw, hand_drill, file, knife, sandpaper
+						include: hand_drill, screwdriver, pliers, file, chisel, knife, sandpaper
 					}
 				}
 			]

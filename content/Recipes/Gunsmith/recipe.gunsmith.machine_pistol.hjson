@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.5"
+	$version: "0.1.63.1"
 	name: "Machine Pistol"
 	desc:
 		'''
@@ -44,9 +44,9 @@
 						{
 							type: work
 							work: drilling
-							amount: 135.000
-							amount_min: 90.000
-							difficulty: 8
+							amount: 330.000
+							amount_min: 230.000
+							difficulty: 9
 							snapping: 5.000
 							falloff: 0.940
 							ratio: 0.898
@@ -109,26 +109,26 @@
 						{
 							type: work
 							work: filing
-							amount: 180.000
-							amount_min: 55.000
-							difficulty: 6
+							amount: 146.940
+							amount_min: 137.500
+							difficulty: 11
 							snapping: 5.000
 							falloff: 0.880
 							ratio: 0.898
 							group: 0
-							flags: conditional
+							flags: simultaneous, conditional
 						}
 						{
 							type: work
 							work: assembling
-							amount: 1230.000
-							amount_min: 310.000
+							amount: 90.000
+							amount_min: 765.000
 							difficulty: 13
 							snapping: 5.000
 							falloff: 0.880
 							ratio: 0.898
 							group: 0
-							flags: conditional
+							flags: simultaneous, conditional
 						}
 					]
 					
@@ -181,8 +181,8 @@
 						{
 							type: work
 							work: woodcarving
-							amount: 110.000
-							amount_min: 30.000
+							amount: 130.000
+							amount_min: 85.000
 							difficulty: 6
 							snapping: 5.000
 							falloff: 0.910
@@ -198,7 +198,7 @@
 					filter_tools:
 					{
 						require: file, knife
-						include: saw, hand_drill, file, knife, sandpaper
+						include: hand_drill, screwdriver, pliers, file, chisel, knife, sandpaper
 					}
 				}
 			]

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.5"
+	$version: "0.1.63.1"
 	name: "LMG"
 	desc:
 		'''
@@ -36,19 +36,19 @@
 							material: steel.plate
 							amount: 2.389123
 							snapping: 1.000
-							loss: 0.075
+							loss: 0.078
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: work
 							work: bending
-							amount: 780.000
-							amount_min: 190.000
-							difficulty: 7
+							amount: 1940.000
+							amount_min: 460.000
+							difficulty: 12
 							snapping: 5.000
-							falloff: 0.840
-							ratio: 0.890
+							falloff: 0.880
+							ratio: 0.898
 							group: 0
 							flags: conditional
 						}
@@ -96,7 +96,7 @@
 							material: steel.frames
 							amount: 1.979234
 							snapping: 0.100
-							loss: 0.075
+							loss: 0.078
 							group: 0
 							flags: prerequisite
 						}
@@ -104,34 +104,34 @@
 							type: resource
 							material: machine_parts
 							amount: 6.71676
-							snapping: 0.500
-							loss: 0.090
+							snapping: 0.100
+							loss: 0.098
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: work
 							work: filing
-							amount: 900.000
-							amount_min: 55.000
-							difficulty: 6
+							amount: 424.4108
+							amount_min: 137.500
+							difficulty: 11
 							snapping: 5.000
 							falloff: 0.880
-							ratio: 0.890
+							ratio: 0.898
 							group: 0
-							flags: conditional
+							flags: simultaneous, conditional
 						}
 						{
 							type: work
 							work: assembling
-							amount: 970.000
-							amount_min: 180.000
-							difficulty: 8
+							amount: 310.000
+							amount_min: 870.000
+							difficulty: 14
 							snapping: 5.000
 							falloff: 0.880
-							ratio: 0.890
+							ratio: 0.898
 							group: 0
-							flags: conditional
+							flags: simultaneous, conditional
 						}
 					]
 					
@@ -177,19 +177,19 @@
 							material: wood
 							amount: 0.387185
 							snapping: 0.500
-							loss: 0.122
+							loss: 0.129
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: work
 							work: woodcarving
-							amount: 280.000
-							amount_min: 75.000
+							amount: 350.000
+							amount_min: 230.000
 							difficulty: 6
 							snapping: 5.000
 							falloff: 0.910
-							ratio: 0.890
+							ratio: 0.898
 							group: 0
 							flags: conditional
 						}
@@ -201,7 +201,7 @@
 					filter_tools:
 					{
 						require: file, knife
-						include: saw, hand_drill, file, knife, sandpaper
+						include: hand_drill, screwdriver, pliers, file, chisel, knife, sandpaper
 					}
 				}
 			]

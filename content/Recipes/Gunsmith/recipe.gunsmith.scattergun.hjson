@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.5"
+	$version: "0.1.63.1"
 	name: "Scattergun"
 	desc:
 		'''
@@ -37,19 +37,19 @@
 							material: steel.plate
 							amount: 1.13437
 							snapping: 1.000
-							loss: 0.075
+							loss: 0.078
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: work
 							work: bending
-							amount: 370.000
-							amount_min: 90.000
-							difficulty: 7
+							amount: 920.000
+							amount_min: 220.000
+							difficulty: 12
 							snapping: 5.000
-							falloff: 0.840
-							ratio: 0.890
+							falloff: 0.880
+							ratio: 0.898
 							group: 0
 							flags: conditional
 						}
@@ -97,7 +97,7 @@
 							material: steel.frames
 							amount: 0.71617
 							snapping: 0.100
-							loss: 0.075
+							loss: 0.078
 							group: 0
 							flags: prerequisite
 						}
@@ -105,34 +105,34 @@
 							type: resource
 							material: machine_parts
 							amount: 0.645841
-							snapping: 0.500
-							loss: 0.090
+							snapping: 0.100
+							loss: 0.098
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: work
 							work: filing
-							amount: 360.000
-							amount_min: 55.000
+							amount: 623.700
+							amount_min: 137.500
 							difficulty: 6
 							snapping: 5.000
 							falloff: 0.880
-							ratio: 0.890
+							ratio: 0.898
 							group: 0
-							flags: conditional
+							flags: simultaneous, conditional
 						}
 						{
 							type: work
 							work: assembling
-							amount: 40.000
-							amount_min: 70.000
+							amount: 70.000
+							amount_min: 135.000
 							difficulty: 3
 							snapping: 5.000
 							falloff: 0.880
-							ratio: 0.890
+							ratio: 0.898
 							group: 0
-							flags: conditional
+							flags: simultaneous, conditional
 						}
 					]
 					
@@ -178,19 +178,19 @@
 							material: wood
 							amount: 0.403318
 							snapping: 0.500
-							loss: 0.122
+							loss: 0.129
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: work
 							work: woodcarving
-							amount: 290.000
-							amount_min: 80.000
+							amount: 730.000
+							amount_min: 475.000
 							difficulty: 6
 							snapping: 5.000
 							falloff: 0.910
-							ratio: 0.890
+							ratio: 0.898
 							group: 0
 							flags: conditional
 						}
@@ -202,7 +202,7 @@
 					filter_tools:
 					{
 						require: file, knife
-						include: saw, hand_drill, file, knife, sandpaper
+						include: hand_drill, screwdriver, pliers, file, chisel, knife, sandpaper
 					}
 				}
 			]

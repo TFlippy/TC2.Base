@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.5"
+	$version: "0.1.63.1"
 	name: "Battle Rifle"
 	desc:
 		'''
@@ -43,11 +43,11 @@
 						{
 							type: work
 							work: bending
-							amount: 440.000
-							amount_min: 110.000
-							difficulty: 7
+							amount: 1080.000
+							amount_min: 260.000
+							difficulty: 12
 							snapping: 5.000
-							falloff: 0.840
+							falloff: 0.880
 							ratio: 0.898
 							group: 0
 							flags: conditional
@@ -104,7 +104,7 @@
 							type: resource
 							material: machine_parts
 							amount: 3.315325
-							snapping: 0.500
+							snapping: 0.100
 							loss: 0.098
 							group: 0
 							flags: prerequisite
@@ -112,26 +112,26 @@
 						{
 							type: work
 							work: filing
-							amount: 585.0001
-							amount_min: 55.000
-							difficulty: 6
+							amount: 221.9797
+							amount_min: 137.500
+							difficulty: 9
 							snapping: 5.000
 							falloff: 0.880
 							ratio: 0.898
 							group: 0
-							flags: conditional
+							flags: simultaneous, conditional
 						}
 						{
 							type: work
 							work: assembling
-							amount: 320.000
-							amount_min: 125.000
-							difficulty: 5
+							amount: 90.000
+							amount_min: 550.000
+							difficulty: 9
 							snapping: 5.000
 							falloff: 0.880
 							ratio: 0.898
 							group: 0
-							flags: conditional
+							flags: simultaneous, conditional
 						}
 					]
 					
@@ -184,8 +184,8 @@
 						{
 							type: work
 							work: woodcarving
-							amount: 220.000
-							amount_min: 60.000
+							amount: 280.000
+							amount_min: 185.000
 							difficulty: 6
 							snapping: 5.000
 							falloff: 0.910
@@ -201,7 +201,7 @@
 					filter_tools:
 					{
 						require: file, knife
-						include: saw, hand_drill, file, knife, sandpaper
+						include: hand_drill, screwdriver, pliers, file, chisel, knife, sandpaper
 					}
 				}
 			]
