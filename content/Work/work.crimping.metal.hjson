@@ -54,7 +54,7 @@
 	sound_size: 0.750
 	sound_dist: 0.600
 	
-	sounds: ["effect.tool.small.00", "effect.rattle.spring.00", "effect.tool.small.01", "work_assembly_00", "effect.tool.small.02"]
+	sounds: ["item.adjust.00", "item.adjust.03", "item.adjust.02", "item.adjust.01"]
 	sounds_manual: []
 	sounds_machine: []
 	sounds_passive: []

@@ -1,0 +1,64 @@
+﻿{
+	$region_id: 0
+	$version: "0.1.63.1"
+	name: "Polishing"
+	name_short: "Polishing"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: ui.icons.work.00
+		size: [16, 16]
+		frame: [4, 0]
+	}
+	
+	flags: none
+	tags: manual, simple, leisure
+	
+	amount_base: 0.000
+	cooldown: 0.900
+	multiplier: 1.150
+	
+	color: "0xffdd4f60"
+	
+	tools_required: towel
+	tools_optional: paintbrush, towel
+	
+	infrastructure_required: none
+	infrastructure_optional: none
+	
+	character_traits:
+	{
+		include: slave, military, medical, commerce, soldier, insane, naval, entertainer, artist, politician
+		weight: 1.000
+	}
+	
+	skills_min:
+	{
+	
+	}
+	
+	skills_mult:
+	{
+		endurance: 0.230
+		dexterity: 0.400
+		scavenging: 0.220
+	}
+	
+	sound_volume: 0.600
+	sound_pitch: 0.970
+	sound_size: 0.600
+	sound_dist: 0.620
+	
+	sounds: ["zabar.tongue.return", "work.paperwork.page.00"]
+	sounds_manual: []
+	sounds_machine: []
+	sounds_passive: []
+	
+	sounds_start: []
+	sounds_end: []
+	sounds_fail: []
+}

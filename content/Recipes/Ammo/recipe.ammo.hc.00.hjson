@@ -24,7 +24,7 @@
 			options:
 			[
 				{
-					name: "Basic"
+					name: "Lubricated"
 					
 					type: undefined
 					flags: wip
@@ -42,6 +42,18 @@
 							loss: 0.424
 							ratio: 1.000
 							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: lubricant
+							amount: 0.538
+							snapping: 0.100
+							falloff: 0.759
+							loss: 0.075
+							ratio: 1.000
+							group: 0
+							flags: prerequisite
 						}
 						{
 							type: work
@@ -55,45 +67,39 @@
 						}
 						{
 							type: work
-							work: die.drawing.metal
-							amount: 35.000
-							difficulty: 6
+							work: polishing.oil
+							amount: 50.000
+							amount_min: 75.000
+							difficulty: 3
 							snapping: 5.000
+							falloff: 0.756
 							ratio: 1.000
 							group: 0
 							flags: simultaneous, conditional
 						}
 						{
 							type: work
+							work: die.drawing.metal
+							amount: 35.000
+							difficulty: 6
+							snapping: 5.000
+							ratio: 1.000
+							group: 1
+							flags: conditional
+						}
+						{
+							type: work
 							work: die.stamping.metal
-							amount: 25.000
+							amount: 20.000
 							difficulty: 5
 							snapping: 5.000
 							ratio: 1.000
 							group: 1
-							flags: simultaneous, conditional
-						}
-						{
-							type: work
-							work: snipping.metal
-							amount: 100.000
-							amount_min: 75.000
-							difficulty: 7
-							snapping: 5.000
-							falloff: 0.798
-							ratio: 1.000
-							group: 1
-							flags: simultaneous, conditional
+							flags: conditional
 						}
 					]
 					
-					start_delay: 1.500
 					advance_delay: 2.000
-					complete_delay: 3.000
-					
-					h_sound_begin: effect.tinker.machine.00
-					h_sound_complete: effect.tinker.machine.00
-					h_sound_finalize: effect.lathe.00
 				}
 			]
 		}
@@ -128,7 +134,6 @@
 							loss: 0.055
 							ratio: 1.000
 							group: 0
-							flags: prerequisite
 						}
 						{
 							type: resource
@@ -138,7 +143,6 @@
 							falloff: 0.970
 							loss: 0.122
 							group: 0
-							flags: prerequisite
 						}
 						{
 							type: work
@@ -200,7 +204,6 @@
 							loss: 0.067
 							ratio: 0.106
 							group: 0
-							flags: prerequisite
 						}
 						{
 							type: resource
@@ -210,7 +213,6 @@
 							loss: 0.075
 							ratio: 1.000
 							group: 0
-							flags: prerequisite
 						}
 						{
 							type: work
@@ -263,7 +265,7 @@
 	]
 	
 	type: workshop
-	flags: production, manufacturing, repeat, wip, auto_complete
+	flags: production, manufacturing, wip
 	tags: manual, small, munitions, delicate, assembling, metalworking, military, explosive, dangerous
 	infrastructure: table, chair, surface, machine, workbench
 	infrastructure_exclude: none
