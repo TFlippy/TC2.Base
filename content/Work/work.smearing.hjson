@@ -1,0 +1,64 @@
+﻿{
+	$region_id: 0
+	$version: "0.1.63.1"
+	name: "Smearing"
+	name_short: "Smearing"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: ui.icons.work.00
+		size: [16, 16]
+		frame: [4, 0]
+	}
+	
+	flags: none
+	tags: manual, crude, simple, leisure
+	
+	amount_base: 0.000
+	cooldown: 0.950
+	multiplier: 1.150
+	
+	color: "0xff719240"
+	
+	tools_required: none
+	tools_optional: paintbrush, spatula
+	
+	infrastructure_required: none
+	infrastructure_optional: none
+	
+	character_traits:
+	{
+		include: criminal, medical, laborer, lowlife, chemist, culinary, insane, entertainer, pest, brawler, junkie, evil, politician, murderer, terrorist, dumb, clumsy
+		weight: 1.000
+	}
+	
+	skills_min:
+	{
+	
+	}
+	
+	skills_mult:
+	{
+		endurance: 0.370
+		strength: 0.440
+		animals: 0.220
+	}
+	
+	sound_volume: 0.600
+	sound_pitch: 0.970
+	sound_size: 0.750
+	sound_dist: 0.760
+	
+	sounds: ["effect.splat.muddy.00", "effect.smack.meaty.01", "effect.smack.meaty.00", "effect.plunger.01", "effect.knead.slimy.00"]
+	sounds_manual: []
+	sounds_machine: []
+	sounds_passive: []
+	
+	sounds_start: []
+	sounds_end: []
+	sounds_fail: []
+}

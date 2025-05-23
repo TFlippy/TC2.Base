@@ -10,11 +10,11 @@
 	stages:
 	[
 		{
-			name: "Case"
+			name: "Casing"
 			
 			type: container
 			flags: part
-			tags: shell, container, structural, rounded
+			tags: chassis, shell, thin, metal, container, structural, flat, rounded, material
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: shovel
 			
@@ -29,7 +29,7 @@
 					type: undefined
 					flags: wip
 					
-					prefix: "Basic "
+					prefix: "Shiny "
 					priority: 1.000
 					
 					requirements:
@@ -49,7 +49,7 @@
 							material: lubricant
 							amount: 0.538
 							snapping: 0.100
-							falloff: 0.759
+							falloff: 0.344
 							loss: 0.075
 							ratio: 1.000
 							group: 0
@@ -68,11 +68,11 @@
 						{
 							type: work
 							work: polishing.oil
-							amount: 50.000
-							amount_min: 75.000
+							amount: 42.000
+							amount_min: 89.000
 							difficulty: 3
 							snapping: 5.000
-							falloff: 0.756
+							falloff: 0.762
 							ratio: 1.000
 							group: 0
 							flags: simultaneous, conditional
@@ -80,8 +80,8 @@
 						{
 							type: work
 							work: die.drawing.metal
-							amount: 35.000
-							difficulty: 6
+							amount: 25.000
+							difficulty: 5
 							snapping: 5.000
 							ratio: 1.000
 							group: 1
@@ -91,8 +91,168 @@
 							type: work
 							work: die.stamping.metal
 							amount: 20.000
+							difficulty: 4
+							snapping: 5.000
+							ratio: 1.000
+							group: 1
+							flags: conditional
+						}
+					]
+					
+					advance_delay: 2.000
+				}
+				{
+					name: "Oiled"
+					
+					type: undefined
+					flags: wip
+					
+					prefix: "Oily "
+					priority: 1.000
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: copper.plate
+							amount: 0.021131
+							snapping: 0.500
+							loss: 0.424
+							ratio: 0.965
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: oil
+							amount: 0.242
+							snapping: 0.100
+							falloff: 0.414
+							loss: 0.122
+							ratio: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: die.cutting.metal
+							amount: 10.000
+							difficulty: 8
+							snapping: 5.000
+							ratio: 1.000
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: polishing.oil
+							amount: 49.000
+							amount_min: 90.000
 							difficulty: 5
 							snapping: 5.000
+							falloff: 0.778
+							ratio: 1.000
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: die.drawing.metal
+							amount: 40.000
+							difficulty: 6
+							snapping: 50.000
+							falloff: 0.975
+							ratio: 1.000
+							group: 1
+							flags: conditional
+						}
+						{
+							type: work
+							work: die.stamping.metal
+							amount: 20.000
+							difficulty: 5
+							snapping: 10.000
+							falloff: 0.990
+							ratio: 1.000
+							group: 1
+							flags: conditional
+						}
+					]
+					
+					advance_delay: 2.000
+				}
+				{
+					name: "Greasy"
+					
+					type: undefined
+					flags: wip
+					
+					prefix: "Greasy "
+					priority: 1.000
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: copper.plate
+							amount: 0.0309
+							snapping: 1.000
+							loss: 0.467
+							ratio: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: tallow
+							amount: 0.5988
+							snapping: 0.100
+							falloff: 0.629
+							loss: 0.267
+							ratio: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: die.cutting.metal
+							amount: 10.000
+							difficulty: 8
+							snapping: 5.000
+							ratio: 1.000
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: smearing
+							amount: 43.000
+							amount_min: 110.000
+							difficulty: 8
+							snapping: 5.000
+							falloff: 0.853
+							ratio: 1.000
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: die.drawing.metal
+							amount: 42.000
+							difficulty: 4
+							snapping: 10.000
+							falloff: 0.989
+							ratio: 1.000
+							group: 1
+							flags: conditional
+						}
+						{
+							type: work
+							work: die.stamping.metal
+							amount: 20.000
+							difficulty: 7
+							snapping: 10.000
+							falloff: 1.015
 							ratio: 1.000
 							group: 1
 							flags: conditional
