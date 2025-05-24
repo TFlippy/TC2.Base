@@ -22,7 +22,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.pulp"
+		texture: "resource.mush"
 		count: 4
 		size: [16, 16]
 	}
@@ -37,7 +37,7 @@ transform:
 
 resource:
 {
-	material: "pulp"
+	material: "mush"
 }
 
 holdable:

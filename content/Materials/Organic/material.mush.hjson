@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.62.0"
-	name: "Pulp"
-	name_short: "Pulp"
+	name: "Mush"
+	name_short: "Mush"
 	description:
 		'''
 		TODO: Desc
@@ -9,7 +9,7 @@
 	
 	icon:
 	{
-		texture: resource.pulp
+		texture: resource.mush
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -22,7 +22,7 @@
 	quantity_max: 500.000
 	spawn_quantity_threshold: 3.000
 	form_type: chunk
-	prefab: resource.pulp
+	prefab: resource.mush
 	
 	color_icon: "0xffffffff"
 	
