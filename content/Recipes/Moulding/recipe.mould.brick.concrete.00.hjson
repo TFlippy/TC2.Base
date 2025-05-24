@@ -81,7 +81,7 @@
 						}
 						{
 							type: work
-							work: pouring
+							work: filling.liquid
 							amount: 25.000
 							amount_min: 75.000
 							difficulty: 3

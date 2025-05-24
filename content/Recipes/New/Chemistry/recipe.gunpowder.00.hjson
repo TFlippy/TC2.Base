@@ -67,11 +67,23 @@
 						{
 							type: work
 							work: crushing
-							amount: 150.000
-							amount_min: 138.000
+							amount: 190.000
+							amount_min: 175.000
+							difficulty: 7
+							snapping: 5.000
+							falloff: 0.870
+							ratio: 1.000
+							group: 0
+							flags: conditional
+						}
+						{
+							type: work
+							work: mixing
+							amount: 300.000
+							amount_min: 220.000
 							difficulty: 6
 							snapping: 5.000
-							falloff: 0.828
+							falloff: 0.807
 							ratio: 1.000
 							group: 1
 							flags: conditional
@@ -89,9 +101,6 @@
 							flags: primary, compact
 						}
 					]
-					
-					quality: 1.000
-					precision: 1.000
 					
 					filter_tools:
 					{
@@ -171,8 +180,6 @@
 	infrastructure: none
 	infrastructure_exclude: none
 	
-	h_company: common
-	
 	icon:
 	{
 		texture: resource.gunpowder
@@ -202,7 +209,7 @@
 	rank: 90.000
 	
 	min: 1
-	max: 50
+	max: 20
 	step: 1
 	
 	version: 1

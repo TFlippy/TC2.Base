@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.5"
+	$version: "0.1.63.1"
 	name: "Chemical Laboratory"
 	tips: []
 	
@@ -45,9 +45,6 @@
 							flags: conditional
 						}
 					]
-					
-					quality: 1.000
-					precision: 1.000
 				}
 				{
 					name: "Compacted Soil"
@@ -84,9 +81,6 @@
 							flags: conditional
 						}
 					]
-					
-					quality: 1.000
-					precision: 1.000
 				}
 				{
 					name: "Rubble"
@@ -131,9 +125,6 @@
 							flags: conditional
 						}
 					]
-					
-					quality: 1.000
-					precision: 1.000
 				}
 				{
 					name: "Concrete Composite"
@@ -191,7 +182,7 @@
 						}
 						{
 							type: work
-							work: pouring
+							work: filling.liquid
 							amount: 150.000
 							difficulty: 3
 							snapping: 5.000
@@ -199,9 +190,6 @@
 							flags: conditional
 						}
 					]
-					
-					quality: 1.000
-					precision: 1.000
 				}
 			]
 		}
@@ -261,9 +249,6 @@
 							flags: conditional
 						}
 					]
-					
-					quality: 1.000
-					precision: 1.000
 				}
 			]
 		}
@@ -315,9 +300,6 @@
 							flags: conditional
 						}
 					]
-					
-					quality: 1.000
-					precision: 1.000
 				}
 			]
 		}
@@ -335,9 +317,10 @@
 	]
 	
 	type: buildings
-	flags: no_amount_multiplier, blueprintable, construction, building, ignore_tools, ignore_equipment, ignore_machinery, ignore_environment, wip, no_cancel, auto_complete
+	flags: no_amount_multiplier, blueprintable, disabled, construction, building, ignore_tools, ignore_equipment, ignore_machinery, ignore_environment, wip, no_cancel, auto_complete
 	tags: advanced, huge, architecture, construction
 	infrastructure: none
+	infrastructure_exclude: none
 	
 	icon:
 	{

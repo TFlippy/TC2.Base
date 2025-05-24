@@ -370,6 +370,48 @@
 						include: table, chair, vise
 					}
 				}
+				{
+					name: "Nitroglycerine"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: wet
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: nitroglycerine
+							amount: 0.0051
+							snapping: 0.500
+							loss: 0.075
+							ratio: 1.000
+							group: 0
+						}
+						{
+							type: work
+							work: filling.liquid
+							amount: 46.000
+							amount_min: 80.000
+							difficulty: 9
+							snapping: 5.000
+							falloff: 0.852
+							ratio: 1.000
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: hammer
+						include: hammer, cutters, hand_drill, screwdriver, wrench, tweezers, magnifying_glass, towel, tongs, pick, crowbar
+					}
+					filter_infrastructure:
+					{
+						include: table, chair, vise
+					}
+				}
 			]
 		}
 		{
@@ -412,7 +454,7 @@
 							material: scrap.niklajzner
 							amount: 0.015083
 							snapping: 0.100
-							loss: 0.227
+							loss: 0.224
 							ratio: 1.000
 							group: 0
 						}

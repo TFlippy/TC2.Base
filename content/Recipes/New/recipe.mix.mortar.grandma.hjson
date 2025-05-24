@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.5"
+	$version: "0.1.63.1"
 	name: "Grandma's Traditional Mortar"
 	desc:
 		'''
@@ -67,7 +67,7 @@
 							snapping: 5.000
 							falloff: 0.150
 							group: 0
-							flags: conditional
+							flags: simultaneous, conditional
 						}
 						{
 							type: work
@@ -77,8 +77,8 @@
 							difficulty: 6
 							snapping: 5.000
 							falloff: 0.800
-							group: 1
-							flags: conditional
+							group: 0
+							flags: simultaneous, conditional
 						}
 						{
 							type: work
@@ -88,7 +88,7 @@
 							difficulty: 10
 							snapping: 5.000
 							falloff: 0.950
-							group: 2
+							group: 1
 							flags: conditional
 						}
 					]
@@ -135,6 +135,7 @@
 	flags: wip, converted
 	tags: workbench, manual, dumb, crude, simple, food, cooking, blending, messy
 	infrastructure: dishes, table, surface
+	infrastructure_exclude: none
 	
 	h_company: common
 	

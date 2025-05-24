@@ -21,14 +21,9 @@ body:
 		
 		material: building_masonry
 		
-		layer: entity, building, support, ignore_melee, ignore_bullet
+		layer: entity, building, support, storage, ignore_melee, ignore_bullet, flammable
 		mask: world, building
 	}
-}
-
-health:
-{
-	max: 38000.000
 }
 
 animated.renderer:
@@ -36,8 +31,24 @@ animated.renderer:
 	sprite:
 	{
 		texture: "kitchen.00"
+		// texture: "kitchen.00.mask"
 	}
 	z: -300.000
+}
+
+health:
+{
+	max: 38000.000
+}
+
+faction.colorable:
+{
+	intensity_a: 0.600
+}
+
+faction:
+{
+
 }
 
 transform:
@@ -53,51 +64,31 @@ building:
 interactable:
 {
 	flags: no_tab
-	window_size: [764.000, 512.000]
-	window_size_misc: [120.000, 0.000]
+	window_size: [660.000, 528.000]
+	window_size_misc: [168.000, 0.000]
 }
 
-shop:
+nameable:
 {
-	tags_filter:
-	{
-		require: manual
-		include: food, organic, agriculture, cooking, chemistry, medical, research, gathering, biology, blending, forestry, processing
-		exclude: advanced, medium, large, huge, gun, vehicle, blacksmithing, machining, metalworking
-	}
-	
-	tools: hammer, cutters, saw, pliers, cleaver, tweezers, bucket, towel, spatula, tongs, knife
-	infrastructure: oven, dishes, bottle, table, chair, rack, surface, hard_surface, liquid_container
-	machinery: heater
-	environment: workshop, stationary, cozy, sturdy, kitchen, small
-	
-	menu_columns: 4
-	recipe_type: workshop
-	flags: none
-	
-	name: "Kitchen"
+	tags: homely, tool, food, female
+	type: consumable
+	flags: randomize
+	max_length: 16
 }
 
-workshop:
+address:
 {
-	orders_capacity: 4
+	
 }
 
-storage:
+entrance.linkable:
 {
-	@inventory16:
-	{
-		type: workshop
-		flags: standalone, ignore_mass, public, no_auto_pickup, vertical
-		stack_size_multiplier: 1.000
-		
-		offset: [0.000, 0.000]
 
-		filter:
-		{
-			exclude: gas
-		}
-	}
+}
+
+claimable:
+{
+	
 }
 
 laboratory:
@@ -109,20 +100,51 @@ laboratory:
 	}
 }
 
-nameable:
+shop:
 {
-	tags: homely, tool, food, female
-	type: consumable
-	flags: randomize
-	max_length: 16
+	tags_filter:
+	{
+		require: manual
+		include: food, organic, agriculture, filtering, cooking, chemistry, medical, gathering, biology, blending
+		exclude: advanced, medium, large, huge, gun, vehicle, furniture, blacksmithing, machining, metalworking, carpentry, architecture, smelting, casting
+	}
+	
+	tools: hammer, cutters, saw, pliers, cleaver, tweezers, bucket, towel, spatula, tongs, knife
+	infrastructure: oven, lab_glassware, dishes, bottle, barrel, table, chair, rack, bucket, surface, hard_surface, liquid_container, heater, stove, kitchen, building, workbench
+	environment: workshop, stationary, cozy, sturdy, kitchen, small
+	
+	flags: none
+	menu_columns: 4
+	recipe_type: workshop
+	
+	name: "Kitchen"
 }
 
-faction:
+workshop:
 {
+	orders_capacity: 2
 
+	@inventory16:
+	{
+		type: workshop
+		flags: standalone, ignore_mass, public, faction, vertical
+		stack_size_multiplier: 1.000
+		
+		offset: [0.000, 0.000]
+
+		filter:
+		{
+			exclude: gas
+		}
+	}
 }
 
-claimable:
+personnel:
 {
-	flags: no_menu
+	flags: store_characters
+	slots:
+	[
+
+	]
+	characters_capacity: 1
 }

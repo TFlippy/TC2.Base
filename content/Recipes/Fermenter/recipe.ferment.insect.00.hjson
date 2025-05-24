@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.5"
+	$version: "0.1.63.1"
 	name: "Grubby Vinegar"
 	desc:
 		'''
@@ -42,22 +42,12 @@
 						}
 						{
 							type: resource
-							material: mushroom.red
-							amount: 30.000
+							material: mushroom.brown
+							amount: 26.44068
 							snapping: 0.500
 							loss: 0.075
 							group: 0
 							flags: prerequisite
-						}
-						{
-							type: resource
-							material: pestilence
-							amount: 2.000
-							snapping: 1.000
-							falloff: 0.201
-							loss: 0.165
-							group: 0
-							flags: no_residue, prerequisite
 						}
 					]
 					
@@ -76,10 +66,6 @@
 					filter_tools:
 					{
 						include: bucket, spatula
-					}
-					filter_machinery:
-					{
-						include: heater
 					}
 					filter_environment:
 					{
@@ -185,10 +171,6 @@
 					{
 						include: bucket, spatula
 					}
-					filter_machinery:
-					{
-						include: heater
-					}
 					filter_environment:
 					{
 						require: container
@@ -261,10 +243,6 @@
 					{
 						include: bucket, spatula
 					}
-					filter_machinery:
-					{
-						include: heater
-					}
 					filter_environment:
 					{
 						require: container
@@ -314,10 +292,6 @@
 					{
 						include: bucket, spatula
 					}
-					filter_machinery:
-					{
-						include: heater
-					}
 					filter_environment:
 					{
 						require: container
@@ -333,6 +307,7 @@
 	flags: production, wip, auto_complete
 	tags: fermenting
 	infrastructure: liquid_container
+	infrastructure_exclude: none
 	
 	h_company: common
 	

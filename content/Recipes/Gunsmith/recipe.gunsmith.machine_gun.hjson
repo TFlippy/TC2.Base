@@ -37,7 +37,7 @@
 							material: steel.plate
 							amount: 8.33415
 							snapping: 1.000
-							loss: 0.078
+							loss: 0.075
 							group: 0
 							flags: prerequisite
 						}
@@ -49,14 +49,11 @@
 							difficulty: 12
 							snapping: 5.000
 							falloff: 0.880
-							ratio: 0.898
+							ratio: 0.894
 							group: 0
 							flags: conditional
 						}
 					]
-					
-					quality: 1.000
-					precision: 1.000
 					
 					filter_tools:
 					{
@@ -97,7 +94,7 @@
 							material: steel.frames
 							amount: 8.789362
 							snapping: 0.100
-							loss: 0.078
+							loss: 0.075
 							group: 0
 							flags: prerequisite
 						}
@@ -106,7 +103,7 @@
 							material: machine_parts
 							amount: 25.18784
 							snapping: 0.100
-							loss: 0.098
+							loss: 0.094
 							group: 0
 							flags: prerequisite
 						}
@@ -118,7 +115,7 @@
 							difficulty: 12
 							snapping: 5.000
 							falloff: 0.880
-							ratio: 0.898
+							ratio: 0.894
 							group: 0
 							flags: simultaneous, conditional
 						}
@@ -130,14 +127,11 @@
 							difficulty: 16
 							snapping: 5.000
 							falloff: 0.880
-							ratio: 0.898
+							ratio: 0.894
 							group: 0
 							flags: simultaneous, conditional
 						}
 					]
-					
-					quality: 1.000
-					precision: 1.000
 					
 					filter_tools:
 					{
@@ -178,7 +172,7 @@
 							material: wood
 							amount: 0.483981
 							snapping: 0.500
-							loss: 0.129
+							loss: 0.125
 							group: 0
 							flags: prerequisite
 						}
@@ -190,14 +184,11 @@
 							difficulty: 6
 							snapping: 5.000
 							falloff: 0.910
-							ratio: 0.898
+							ratio: 0.894
 							group: 0
 							flags: conditional
 						}
 					]
-					
-					quality: 1.000
-					precision: 1.000
 					
 					filter_tools:
 					{
@@ -278,7 +269,7 @@
 	
 	type: workshop
 	flags: blueprintable, item, wip, converted
-	tags: workbench, workshop, manual, complex, weapon, gun, assembling, machining, metalworking, engineering, military, construction
+	tags: workbench, workshop, manual, complex, medium, weapon, gun, assembling, machining, metalworking, engineering, military, construction
 	infrastructure: table, vise, surface, hard_surface, workbench
 	infrastructure_exclude: none
 	

@@ -41,7 +41,7 @@
 						}
 						{
 							type: work
-							work: die_cutting.metal
+							work: "null"
 							amount: 50.000
 							amount_min: 100.000
 							difficulty: 7
@@ -171,7 +171,7 @@
 	]
 	
 	type: workshop
-	flags: production, wip
+	flags: debug, production, wip
 	tags: manual, small, munitions, delicate, assembling, metalworking, military, explosive, dangerous
 	infrastructure: table, chair, surface, machine, workbench
 	infrastructure_exclude: none

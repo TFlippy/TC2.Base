@@ -34,7 +34,7 @@
 						{
 							type: resource
 							material: alcohol
-							amount: 1.000
+							amount: 1.477
 							snapping: 0.100
 							falloff: 0.958
 							loss: 0.024
@@ -56,9 +56,6 @@
 							flags: conditional
 						}
 					]
-					
-					quality: 1.000
-					precision: 1.000
 					
 					filter_tools:
 					{
@@ -118,15 +115,27 @@
 						}
 						{
 							type: work
+							work: crushing
+							amount: 190.000
+							amount_min: 135.000
+							difficulty: 5
+							snapping: 5.000
+							falloff: 0.802
+							ratio: 1.000
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
 							work: blending
-							amount: 60.000
+							amount: 80.000
 							amount_min: 125.000
 							difficulty: 4
 							snapping: 5.000
 							falloff: 0.801
 							ratio: 1.000
-							group: 1
-							flags: conditional
+							group: 0
+							flags: simultaneous, conditional
 						}
 					]
 					
@@ -142,12 +151,57 @@
 						}
 					]
 					
-					quality: 1.000
-					precision: 1.000
-					
 					filter_tools:
 					{
 						include: bucket, spatula
+					}
+				}
+			]
+		}
+		{
+			name: "Drying"
+			
+			type: postprocessing
+			flags: wip, auto_generated
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: fracture
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Simple"
+					
+					type: undefined
+					flags: wip, auto_generated
+					
+					color: "0xff373742"
+					
+					requirements:
+					[
+						{
+							type: work
+							work: drying
+							amount: 222.000
+							amount_min: 120.000
+							difficulty: 3
+							snapping: 5.000
+							falloff: 0.521
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						include: towel
+					}
+					filter_environment:
+					{
+						exclude: wet
 					}
 				}
 			]
@@ -218,12 +272,10 @@
 	]
 	
 	type: workshop
-	flags: wip, converted
-	tags: workbench, manual, simple, blending, drying, explosive, dangerous
+	flags: production, wip, converted
+	tags: workbench, manual, simple, blending, drying, moulding, explosive, dangerous
 	infrastructure: none
 	infrastructure_exclude: none
-	
-	h_company: common
 	
 	icon:
 	{

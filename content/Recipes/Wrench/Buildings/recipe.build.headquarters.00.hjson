@@ -200,7 +200,7 @@
 						}
 						{
 							type: work
-							work: pouring
+							work: filling.liquid
 							amount: 150.000
 							difficulty: 3
 							snapping: 5.000

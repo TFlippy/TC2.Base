@@ -73,9 +73,9 @@ shop:
 {
 	tags_filter:
 	{
-		require: manual
+		require: manual, drying
 		include: crude, drying, moulding
-		exclude: workbench, advanced, assembling, machining, metalworking, salvaging, smelting
+		exclude: advanced, assembling, machining, metalworking, salvaging, smelting
 	}
 	
 	tools: bucket, shovel, spatula, ladle

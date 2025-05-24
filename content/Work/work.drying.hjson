@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.63.1"
 	name: "Air-Drying"
 	name_short: "Air-Drying"
 	desc:
@@ -16,15 +16,16 @@
 	
 	flags: passive, ambient
 	tags: ambient, simple, passive, wip
+	
+	amount_base: 1.000
 	cooldown: 1.000
 	multiplier: 1.000
+	
+	amount_jitter: 0.052
 	color: "0xffaeb59a"
 	
 	tools_required: none
 	tools_optional: none
-	
-	machinery_required: none
-	machinery_optional: none
 	
 	infrastructure_required: none
 	infrastructure_optional: none
@@ -32,10 +33,6 @@
 	filter_environment:
 	{
 		exclude: wet
-	}
-	
-	character_traits:
-	{
 	}
 	
 	skills_min:

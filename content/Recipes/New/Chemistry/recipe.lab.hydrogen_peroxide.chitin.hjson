@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.63.1"
 	name: "Chitin-based Hydrogen Peroxide"
 	desc:
 		'''
@@ -16,6 +16,7 @@
 			
 			type: payload
 			flags: wip, incomplete, auto_generated
+			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: none
 			
@@ -62,20 +63,15 @@
 							flags: prerequisite
 						}
 					]
-					
-					products: []
 				}
 			]
-			
-			requirements: []
-			
-			products: []
 		}
 		{
 			name: "<TODO:01>"
 			
 			type: undefined
 			flags: wip, incomplete, auto_generated
+			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: none
 			
@@ -109,20 +105,15 @@
 							flags: no_scaling, conditional
 						}
 					]
-					
-					products: []
 				}
 			]
-			
-			requirements: []
-			
-			products: []
 		}
 		{
 			name: "<TODO:02>"
 			
 			type: undefined
 			flags: wip, incomplete, auto_generated
+			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: none
 			
@@ -150,20 +141,15 @@
 							flags: conditional
 						}
 					]
-					
-					products: []
 				}
 			]
-			
-			requirements: []
-			
-			products: []
 		}
 		{
 			name: "<TODO:03>"
 			
 			type: undefined
 			flags: wip, incomplete, auto_generated
+			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: none
 			
@@ -199,18 +185,10 @@
 							flags: conditional
 						}
 					]
-					
-					products: []
 				}
 			]
-			
-			requirements: []
-			
-			products: []
 		}
 	]
-	
-	requirements: []
 	
 	products:
 	[
@@ -228,7 +206,7 @@
 			amount: 5.5333
 			amount_extra: 2.137
 			group: 1
-			flags: secondary, byproduct
+			flags: byproduct, secondary
 		}
 		{
 			type: resource
@@ -236,7 +214,7 @@
 			amount: 75.114
 			amount_extra: 31.410
 			group: 2
-			flags: byproduct, residue, spawn
+			flags: residue, byproduct, spawn
 		}
 		{
 			type: resource
@@ -244,7 +222,7 @@
 			amount: 44.544
 			amount_extra: 24.610
 			group: 2
-			flags: byproduct, residue, spawn
+			flags: residue, byproduct, spawn
 		}
 		{
 			type: resource
@@ -257,8 +235,10 @@
 	]
 	
 	type: workshop
-	flags: none
-	tags: manual, simple, advanced, dangerous, chemistry, science, biology, messy
+	flags: debug, disabled, manufacturing, wip
+	tags: manual, advanced, delicate, filtering, chemistry, science, biology, blending, heating, messy, dangerous
+	infrastructure: none
+	infrastructure_exclude: none
 	
 	icon:
 	{
@@ -277,6 +257,7 @@
 	icon_extra_offset: [-5.000, -6.000]
 	
 	color_frame: "0xff80dc7e"
+	color_button: "0xff9dd80f"
 	rank: -157.000
 	
 	min: 1
@@ -286,4 +267,6 @@
 	start_delay: 1.500
 	advance_delay: 2.000
 	complete_delay: 1.500
+	
+	version: 0
 }

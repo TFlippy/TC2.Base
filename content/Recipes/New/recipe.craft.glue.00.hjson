@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.5"
+	$version: "0.1.63.1"
 	name: "Homemade Glue"
 	desc:
 		'''
@@ -472,7 +472,7 @@
 	]
 	
 	type: workshop
-	flags: item, production, wip, auto_complete
+	flags: item, production, wip
 	tags: workbench, manual, dumb, crude, simple, small, blending, messy
 	infrastructure: bucket
 	infrastructure_exclude: none

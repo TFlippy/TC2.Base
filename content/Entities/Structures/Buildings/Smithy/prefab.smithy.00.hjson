@@ -29,7 +29,7 @@ animated.renderer:
 	sprite:
 	{
 		texture: smithy.00
-		mask: smithy.00.mask
+		// mask: smithy.00.mask
 	}
 	z: -300.000
 }
@@ -87,7 +87,7 @@ entrance.linkable:
 
 claimable:
 {
-	flags: enable_wololo
+	
 }
 
 laboratory:
