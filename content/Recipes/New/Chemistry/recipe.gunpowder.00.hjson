@@ -13,7 +13,7 @@
 			name: "Formula"
 			
 			type: formula
-			flags: wip, auto_generated
+			flags: none
 			tags: material, formula
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
@@ -175,7 +175,7 @@
 	]
 	
 	type: workshop
-	flags: wip, converted
+	flags: production, manufacturing
 	tags: workbench, manual, simple, chemistry, blending, explosive, dangerous
 	infrastructure: none
 	infrastructure_exclude: none
@@ -184,9 +184,9 @@
 	{
 		texture: resource.gunpowder
 		size: [16, 16]
-		frame: [3, 0]
+		frame: [2, 0]
 	}
-	icon_offset: [0.000, -2.000]
+	icon_offset: [-9.000, 0.000]
 	
 	icon_extra:
 	{
@@ -198,11 +198,11 @@
 	
 	icon_c:
 	{
-		texture: resource.charcoal
+		texture: resource.saltpeter
 		size: [16, 16]
-		frame: [1, 0]
+		frame: [3, 0]
 	}
-	icon_c_offset: [-15.000, -17.000]
+	icon_c_offset: [-6.000, -9.000]
 	
 	color_frame: "0xffcf392b"
 	color_button: "0xff9dd80f"

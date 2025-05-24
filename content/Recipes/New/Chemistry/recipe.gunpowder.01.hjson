@@ -59,7 +59,7 @@
 					
 					filter_tools:
 					{
-						include: bucket, spatula
+						include: bucket, spatula, ladle
 					}
 				}
 			]
@@ -82,7 +82,8 @@
 					name: "Traditional"
 					
 					type: undefined
-					flags: wip, auto_generated
+					flags: none
+					discard_damage_type_override: wet
 					
 					prefix: "Traditional "
 					priority: 1.000
@@ -94,6 +95,8 @@
 							material: saltpeter
 							amount: 1.136364
 							snapping: 0.500
+							loss: 0.024
+							ratio: 0.659
 							group: 0
 							flags: prerequisite
 						}
@@ -102,6 +105,8 @@
 							material: charcoal
 							amount: 0.625
 							snapping: 0.500
+							loss: 0.075
+							ratio: 0.173
 							group: 0
 							flags: prerequisite
 						}
@@ -110,6 +115,8 @@
 							material: sulfur
 							amount: 0.434783
 							snapping: 0.100
+							loss: 0.024
+							ratio: 0.106
 							group: 0
 							flags: prerequisite
 						}
@@ -153,7 +160,7 @@
 					
 					filter_tools:
 					{
-						include: bucket, spatula
+						include: spatula
 					}
 				}
 			]
@@ -185,8 +192,8 @@
 						{
 							type: work
 							work: drying
-							amount: 222.000
-							amount_min: 120.000
+							amount: 122.000
+							amount_min: 50.000
 							difficulty: 3
 							snapping: 5.000
 							falloff: 0.521
@@ -195,10 +202,6 @@
 						}
 					]
 					
-					filter_tools:
-					{
-						include: towel
-					}
 					filter_environment:
 					{
 						exclude: wet
@@ -272,7 +275,7 @@
 	]
 	
 	type: workshop
-	flags: production, wip, converted
+	flags: production, manufacturing
 	tags: workbench, manual, simple, blending, drying, moulding, explosive, dangerous
 	infrastructure: none
 	infrastructure_exclude: none
@@ -283,23 +286,22 @@
 		size: [16, 16]
 		frame: [3, 0]
 	}
-	icon_offset: [0.000, -2.000]
+	icon_offset: [-2.000, 1.000]
 	
 	icon_extra:
 	{
-		texture: ui_icons_crafting.mini
 		size: [8, 8]
 		frame: [3, 2]
 	}
-	icon_extra_offset: [-6.000, -6.000]
+	icon_extra_offset: [-6.000, -5.000]
 	
 	icon_c:
 	{
-		texture: resource.charcoal
+		texture: resource.water
 		size: [16, 16]
-		frame: [1, 0]
+		frame: [2, 0]
 	}
-	icon_c_offset: [-15.000, -17.000]
+	icon_c_offset: [-2.000, -12.000]
 	
 	color_frame: "0xffcf392b"
 	color_button: "0xff9dd80f"
