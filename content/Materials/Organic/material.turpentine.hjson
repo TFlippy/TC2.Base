@@ -1,7 +1,8 @@
 ﻿{
 	$version: "0.1.63.1"
-	name: "Toluene"
-	name_short: "Toluene"
+	name: "Turpentine"
+	name_short: "Turpentine"
+	name_dumb: "Piss"
 	description:
 		'''
 		TODO: Desc
@@ -11,34 +12,34 @@
 	
 	icon:
 	{
-		texture: resource.toluene
+		texture: resource.turpentine
 		size: [16, 16]
 		frame: [3, 0]
 	}
 	
 	type: liquid
-	flags: liquid, toxic, chemical, bottled, fuel, flammable, volatile, processed, smelly, primary
-	display_flags: none
-	hints: materials, dangerous, chemical, civilian, industrial
+	flags: liquid, organic, viscous, chemical, bottled, fuel, flammable, impure, smelly
+	display_flags: sprite_stack_linear
+	hints: none
 	
-	purity: 0.864
-	mass_per_unit: 0.867
+	mass_per_unit: 0.840
 	
-	quantity_max: 500.000
-	spawn_quantity_threshold: 1.000
-	snapping: 1.000
+	quantity_max: 100.000
+	spawn_quantity_threshold: 0.500
+	snapping: 0.100
 	snapping_pickup: 50.000
 	
 	form_type: packaged
-	prefab: resource.toluene
-	h_substance: toluene
+	prefab: resource.turpentine
+	h_substance: "null"
 	
 	color_icon: "0xffffffff"
-	color_item: "0xffffffff"
-	color_dust: "0xffffffff"
-	color_gib: "0xffffffff"
+	color_item: "0xd2ee9e10"
+	color_dust: "0xd2ee9e10"
+	color_gib: "0xd2ee9e10"
+	color_liquid: [0.936, 0.623, 0.065, 0.824]
 	
-	centroid_default: [0.000, 0.250]
+	centroid_default: [0.000, 0.225]
 	colliders: []
 	
 	fuel:
@@ -47,51 +48,56 @@
 		type: liquid
 		
 		// Combustion energy in kJ/kg, see https://en.wikipedia.org/wiki/Heat_of_combustion
-		energy_combustion: 40589.000
+		energy_combustion: 43500.000
 		// Ratio of produced exhaust gas and leftover ashes.
-		purity: 0.990
+		purity: 0.863
 		// Rate at which 1 unit of the material ignites, see https://en.wikipedia.org/wiki/Combustibility_and_flammability
-		flammability: 0.780
+		flammability: 0.700
 		// Rate at which combustion decays, see https://en.wikipedia.org/wiki/Smouldering
-		decay_rate: 0.336
+		decay_rate: 0.090
 		
 		// Adiabatic flame temperature (Kelvin) in pure oxygen, see https://en.wikipedia.org/wiki/Adiabatic_flame_temperature
-		flame_temperature_o2: 3784.000
+		flame_temperature_o2: 2423.000
 		// Adiabatic flame temperature (Kelvin) in air. If not known, just subtract 1000 from 'flame_temperature_o2'.
-		flame_temperature_air: 2363.000
+		flame_temperature_air: 1410.000
 		// Auto-ignition temperature (Kelvin), see https://en.wikipedia.org/wiki/Autoignition_temperature.
-		autoignition_temperature: 753.930
+		autoignition_temperature: 493.150
 		// Minimum temperature (Kelvin) for ignition, see https://en.wikipedia.org/wiki/Flash_point
-		flash_point: 277.520
+		flash_point: 308.000
 		// kJ/(kg*K)
 		specific_heat: 1.700
 		
 		// kW/(m*K)
-		thermal_conductivity: 0.000131
+		thermal_conductivity: 0.000128
 		// TODO: Desc
 		porosity: 0.000
 		// TODO: Desc
-		volatility: 0.982
+		volatility: 0.119
 		// TODO: Desc
-		viscosity: 0.400
+		viscosity: 1.320
 		// TODO: Desc
 		surface_area_mult: 0.000
 		
 		// Percentage of carbon.
-		carbon_ratio: 0.490
+		carbon_ratio: 0.35175
 		// Percentage of hydrogen.
-		hydrogen_ratio: 0.490
+		hydrogen_ratio: 0.58625
 		// Percentage of nitrogen.
-		nitrogen_ratio: 0.000
+		nitrogen_ratio: 0.032
 		// Percentage of oxygen.
-		oxygen_ratio: 0.006
+		oxygen_ratio: 0.012
 		// Percentage of sulfur.
-		sulfur_ratio: 0.002
+		sulfur_ratio: 0.004
 		// Percentage of water.
-		water_ratio: 0.012
+		water_ratio: 0.014
 		
 		// Percentage of volatiles.
 		volatiles_ratio: 0.000
 		volatiles: []
+	}
+	
+	related:
+	{
+	
 	}
 }

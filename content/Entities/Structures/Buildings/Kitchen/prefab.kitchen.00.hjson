@@ -64,8 +64,8 @@ building:
 interactable:
 {
 	flags: no_tab
-	window_size: [660.000, 528.000]
-	window_size_misc: [168.000, 0.000]
+	window_size: [628.000, 528.000]
+	window_size_misc: [216.000, 0.000]
 }
 
 nameable:
@@ -94,9 +94,10 @@ claimable:
 laboratory:
 {
 	blueprints_capacity: 2
+	augments_capacity: 8
 	filter_tags:
 	{
-		include: medical, cooking, chemistry
+		include: food, organic, agriculture, cooking, chemistry, medical, biology, forestry, fermenting, explosive
 	}
 }
 
@@ -105,17 +106,19 @@ shop:
 	tags_filter:
 	{
 		require: manual
-		include: food, organic, agriculture, filtering, cooking, chemistry, medical, gathering, biology, blending
+		include: food, organic, agriculture, filtering, cooking, chemistry, medical, gathering, biology, blending, forestry, moulding, messy
 		exclude: advanced, medium, large, huge, gun, vehicle, furniture, blacksmithing, machining, metalworking, carpentry, architecture, smelting, casting
 	}
 	
-	tools: hammer, cutters, saw, pliers, cleaver, tweezers, bucket, towel, spatula, tongs, knife
+	tools: pencil, paper, hammer, saw, hand_drill, cleaver, tweezers, bucket, paintbrush, syringe, towel, spatula, tongs, knife, needle, pins, scissors, ladle
 	infrastructure: oven, lab_glassware, dishes, bottle, barrel, table, chair, rack, bucket, surface, hard_surface, liquid_container, heater, stove, kitchen, building, workbench
-	environment: workshop, stationary, cozy, sturdy, kitchen, small
+	environment: workshop, stationary, fancy, cozy, sturdy, flammable, kitchen, small
 	
 	flags: none
 	menu_columns: 4
 	recipe_type: workshop
+	
+	offset_spawn: [-1.000, 0.375]
 	
 	name: "Kitchen"
 }
@@ -127,16 +130,40 @@ workshop:
 	@inventory16:
 	{
 		type: workshop
-		flags: standalone, ignore_mass, public, faction, vertical
-		stack_size_multiplier: 1.000
+		flags: standalone, ignore_mass, public, faction
+		stack_size_multiplier: 0.500
 		
 		offset: [0.000, 0.000]
 
 		filter:
 		{
-			exclude: gas
+			exclude: gas, large
 		}
 	}
+}
+
+crafter:
+{
+	flags: no_gui
+	
+	temperature_max: 859.000
+	pressure_max: 5.000
+	
+	spawn_offset: [1.000, -0.375]
+
+	// @inventory2:
+	// {
+	// 	type: waste
+	// 	flags: standalone, allow_ducts, ignore_mass, no_auto_pickup, vertical
+	// 	stack_size_multiplier: 1.000
+		
+	// 	filter:
+	// 	{
+	// 		include: soft, malleable, granular, viscous, small, gravel, powder
+	// 		exclude: gas
+	// 	}
+	// 	offset: [-0.500, 0.500]
+	// }
 }
 
 personnel:
@@ -146,5 +173,134 @@ personnel:
 	[
 
 	]
-	characters_capacity: 1
+	characters_capacity: 2
+}
+
+// animated.renderer|"exhaust":
+// {
+// 	sprite:
+// 	{
+// 		texture: burner.parts.00
+// 		size: [16, 16]
+// 		frame: [0, 1]
+// 	}
+// 	offset: [-0.125, -2.250]
+// 	rotation: 0.000
+// 	z: -285.000
+// }
+
+// animated.renderer|"intake":
+// {
+// 	sprite:
+// 	{
+// 		texture: "burner.parts.00"
+// 		size: [8, 8]
+// 		frame: [0, 1]
+// 	}
+// 	z: -275.000
+// }
+
+sound.emitter|"aux":
+{
+	file: burner.gas.loop.00
+	flags: start_muted
+	volume: 0.500
+	pitch: 1.100
+	size: 0.500
+	size_max_modifier: 0.400
+}
+
+air.vent|"exhaust":
+{
+	offset: [-1.875, -2.625]
+	rotation: -1.571
+	cross_section: 0.080
+	flags: no_gui
+	type: exhaust
+}
+
+air.vent|"intake":
+{
+	offset: [-0.875, 1.250]
+	rotation: 1.571
+	cross_section: 0.150
+	flags: no_gui
+	type: intake
+}
+
+air.container:
+{
+	volume: 0.200
+}
+
+burner:
+{
+	flags: show_misc
+	type: solid
+	area_fuel: 0.100
+	area_aux: 0.002854
+	temperature_max: 859.000
+	pressure_max: 5.000
+	insulation: 0.610
+
+	@inventory1:
+	{
+		stack_size_multiplier: 0.100
+		type: fuel
+		flags: ignore_mass, no_auto_pickup
+		offset: [-0.875, 1.125]
+		filter:
+		{
+			require: fuel, flammable, solid
+			include: granular, small, powder, volatile
+			exclude: long, gas, large, bottled
+		}
+	}
+
+	@sound.emitter:
+	{
+		file: burner.burn.solid.loop.01
+		flags: start_muted
+		volume: 0.900
+		pitch: 0.900
+		size: 0.475
+		size_max_modifier: 0.460
+		offset: [-0.500, 0.375]
+	}
+
+	@light:
+	{
+		color: [1.000, 0.500, 0.000, 2.000]
+		offset: [-0.875, 1.125]
+		scale: [14.000, 13.000]
+		intensity: 0.000
+		texture: "light.circle.04"
+	}
+}
+
+burner.state:
+{
+	current_temperature: 300.000
+
+	@inventory1:
+	{
+		type: input
+		flags: ignore_mass, no_auto_pickup
+		stack_size_multiplier: 0.250
+		
+		filter:
+		{
+			require: fuel, flammable, liquid
+			include: liquid
+			exclude: solid, gas
+		}
+		offset: [-1.875, 0.375]
+	}
+}
+
+shipment:
+{
+	type: crafting
+	layout: square
+	flags: keep_items, allow_deposit, use_misc, no_empty_deposit
 }

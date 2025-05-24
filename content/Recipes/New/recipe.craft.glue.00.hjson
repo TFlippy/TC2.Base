@@ -438,7 +438,7 @@
 						{
 							type: resource
 							material: toluene
-							amount: 0.500
+							amount: 0.110
 							snapping: 0.100
 							falloff: 0.904
 							loss: 0.024

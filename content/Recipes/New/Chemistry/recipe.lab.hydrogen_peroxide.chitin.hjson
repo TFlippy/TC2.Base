@@ -5,7 +5,7 @@
 		'''
 		Thoroughly mix chitin, saltpeter and Smoulus mushrooms with pure water, heat them up to 370°C, boil them for a while and then douse them with cold water.
 
-		This releases a fair amount of ammonia and hydrogen gas, while leaving behind a variable amount of hydrogen peroxide, lubricant and some mushy pulp.
+		This releases a fair amount of ammonia and hydrogen gas, while leaving behind a variable amount of hydrogen peroxide, lubricant and some mush.
 		'''
 	tips: []
 	
@@ -226,7 +226,7 @@
 		}
 		{
 			type: resource
-			material: pulp
+			material: mush
 			amount: 10.456
 			amount_extra: 2.374
 			group: 2

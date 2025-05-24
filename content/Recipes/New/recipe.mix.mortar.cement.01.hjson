@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.63.1"
 	name: "Cement Mortar"
 	desc:
 		'''
@@ -14,6 +14,7 @@
 			
 			type: ingredients
 			flags: wip, auto_generated
+			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
 			
@@ -61,9 +62,6 @@
 						}
 					]
 					
-					quality: 1.000
-					precision: 1.000
-					
 					filter_tools:
 					{
 						include: bucket, spatula
@@ -76,6 +74,7 @@
 			
 			type: additives
 			flags: no_residue
+			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: wet
 			
@@ -111,9 +110,6 @@
 							flags: conditional
 						}
 					]
-					
-					quality: 1.000
-					precision: 1.000
 					
 					filter_tools:
 					{
@@ -152,9 +148,6 @@
 						}
 					]
 					
-					quality: 1.000
-					precision: 1.000
-					
 					filter_tools:
 					{
 						include: bucket
@@ -181,9 +174,6 @@
 							flags: no_residue, prerequisite
 						}
 					]
-					
-					quality: 1.000
-					precision: 1.000
 				}
 				{
 					name: "Freshwater2"
@@ -201,9 +191,6 @@
 							flags: no_residue, filler, prerequisite
 						}
 					]
-					
-					quality: 1.000
-					precision: 1.000
 				}
 				{
 					name: "Wastewater"
@@ -222,9 +209,6 @@
 							flags: no_residue, prerequisite
 						}
 					]
-					
-					quality: 1.000
-					precision: 1.000
 				}
 			]
 		}
@@ -233,6 +217,7 @@
 			
 			type: postprocessing
 			flags: none
+			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: shovel
 			
@@ -261,10 +246,6 @@
 							flags: conditional
 						}
 					]
-					
-					purity_mult: 0.977
-					quality: 1.000
-					precision: 1.000
 					
 					filter_tools:
 					{
@@ -343,9 +324,10 @@
 	]
 	
 	type: workshop
-	flags: wip, converted
+	flags: wip
 	tags: workbench, manual, simple, blending, processing, messy
 	infrastructure: none
+	infrastructure_exclude: none
 	
 	icon:
 	{

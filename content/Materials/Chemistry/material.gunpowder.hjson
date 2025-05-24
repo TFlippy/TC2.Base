@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.3"
+	$version: "0.1.63.1"
 	name: "Black Powder"
 	name_short: "B. Powder"
 	description:
@@ -21,7 +21,6 @@
 	display_flags: none
 	hints: none
 	
-	porosity: 0.1152
 	purity: 0.913
 	mass_per_unit: 0.230
 	
@@ -39,6 +38,7 @@
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	
+	centroid_default: [0.000, 0.250]
 	colliders: []
 	
 	commodity:
@@ -78,5 +78,10 @@
 		quantity_retail: 0.000
 		quantity_wholesale: 0.000
 		quantity_industry: 0.000
+	}
+	
+	related:
+	{
+		saltpeter: none
 	}
 }

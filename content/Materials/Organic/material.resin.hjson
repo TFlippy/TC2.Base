@@ -2,6 +2,7 @@
 	$version: "0.1.62.0"
 	name: "Resin"
 	name_short: "Resin"
+	name_dumb: "Raisin"
 	description:
 		'''
 		Sticky resin harvested from trees.

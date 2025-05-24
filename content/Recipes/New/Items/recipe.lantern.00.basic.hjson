@@ -131,7 +131,7 @@
 						{
 							type: resource
 							material: toluene
-							amount: 2.000
+							amount: 0.461
 							snapping: 0.100
 							loss: 0.012
 							group: 0

@@ -135,7 +135,7 @@
 		}
 		wet:
 		{
-			h_material: pulp
+			h_material: mush
 			spawn_flags: merge, no_offset
 			product_flags: none
 			ratio: 0.850

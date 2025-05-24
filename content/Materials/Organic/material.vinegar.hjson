@@ -2,6 +2,7 @@
 	$version: "0.1.62.5"
 	name: "Vinegar"
 	name_short: "Vinegar"
+	name_dumb: "Piss"
 	description:
 		'''
 		Mildly acidic liquid produced by fermentation.

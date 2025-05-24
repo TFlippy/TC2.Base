@@ -1,0 +1,62 @@
+$tags: []
+
+body:
+{
+	@shape.line:
+	{
+		a: [0.000, -0.125]
+		b: [0.000, 0.575]
+		offset: [0.000, 0.000]
+		
+		mass: 1.000
+		radius: 0.300
+		friction: 0.250
+		elasticity: 0.800
+		
+		material: glass
+		miss_chance: 0.015
+		
+		layer: entity, solid, resource
+		mask: world
+		exclude: none
+	}
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "resource.turpentine"
+		count: 4
+		size: [16, 16]
+	}
+	scale: [0.875, 0.875]
+}
+
+transform:
+{
+
+}
+
+resource:
+{
+	material: "turpentine"
+}
+
+holdable:
+{
+	offset: [0.000, 0.250]
+}
+
+norotate:
+{
+	bias: 0.001
+	speed: 4.000
+	multiplier: 1.500
+	mass_multiplier: 2.000
+}
+
+health:
+{
+	max: 800.000
+}

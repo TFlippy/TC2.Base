@@ -18,7 +18,7 @@
 	}
 	
 	type: liquid
-	flags: liquid, chemical, bottled
+	flags: food, liquid, chemical, bottled, fuel, flammable
 	display_flags: none
 	hints: none
 	

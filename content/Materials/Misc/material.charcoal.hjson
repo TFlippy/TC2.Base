@@ -173,7 +173,7 @@
 			flags: none
 			flags_product: residue
 			
-			yield: [0.481, 0.507]
+			yield: [0.478, 0.505]
 		}
 	}
 }
