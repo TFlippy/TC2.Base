@@ -16,12 +16,15 @@
 	
 	flags: none
 	tags: manual, machine, automated, simple, wip
+	
+	amount_base: 0.000
 	cooldown: 1.500
-	multiplier: 1.000
+	multiplier: 1.250
+	
 	color: "0xff5469ff"
 	
 	tools_required: none
-	tools_optional: bucket, spatula
+	tools_optional: bucket, spatula, ladle
 	
 	infrastructure_required: none
 	infrastructure_optional: none
@@ -44,12 +47,12 @@
 		endurance: 0.300
 	}
 	
-	sound_volume: 0.550
-	sound_pitch: 1.250
+	sound_volume: 0.600
+	sound_pitch: 0.830
 	sound_size: 0.500
-	sound_dist: 0.700
+	sound_dist: 0.600
 	
-	sounds: []
+	sounds: ["effect.pour.small.00"]
 	sounds_manual: []
 	sounds_machine: []
 	sounds_passive: []

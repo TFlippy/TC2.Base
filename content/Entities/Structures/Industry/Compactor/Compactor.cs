@@ -73,7 +73,7 @@
 
 			void IEvent<Crafting.ConfiguredStage>.Bind(ref Crafting.ConfiguredStage arg)
 			{
-				ref var req_explosive = ref arg.requirements.GetFirstOrNull((x) => x.type == Crafting.Requirement.Type.Resource && x.flags.HasAny(Crafting.Requirement.Flags.Argument));
+				ref var req_explosive = ref arg.reqs.GetFirstOrNull((x) => x.type == Crafting.Requirement.Type.Resource && x.flags.HasAny(Crafting.Requirement.Flags.Argument));
 				if (req_explosive.IsNotNull())
 				{
 					this.resource_explosive = new(req_explosive.material, req_explosive.GetRequirementAmount(arg.amount_multiplier).amount);

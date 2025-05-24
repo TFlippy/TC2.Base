@@ -15,11 +15,11 @@
 	}
 	
 	flags: none
-	tags: manual, tools, crude, simple, construction
+	tags: manual, tools, simple
 	
 	amount_base: 0.000
 	cooldown: 0.950
-	multiplier: 0.960
+	multiplier: 1.250
 	
 	color: "0xffffa200"
 	

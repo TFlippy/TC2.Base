@@ -1,5 +1,4 @@
 ﻿{
-	$region_id: 0
 	$version: "0.1.63.1"
 	name: "Crimping (Metal)"
 	name_short: "Crimping"
@@ -20,7 +19,7 @@
 	
 	amount_base: 0.000
 	cooldown: 1.000
-	multiplier: 0.800
+	multiplier: 1.000
 	
 	color: "0xffffa200"
 	

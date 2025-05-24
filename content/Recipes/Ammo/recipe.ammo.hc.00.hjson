@@ -24,12 +24,12 @@
 			options:
 			[
 				{
-					name: "Lubricated"
+					name: "Greasy"
 					
 					type: undefined
 					flags: wip
 					
-					prefix: "Shiny "
+					prefix: "Greasy "
 					priority: 1.000
 					
 					requirements:
@@ -37,20 +37,20 @@
 						{
 							type: resource
 							material: copper.plate
-							amount: 0.019271
+							amount: 0.0309
 							snapping: 1.000
-							loss: 0.424
+							loss: 0.467
 							ratio: 1.000
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: resource
-							material: lubricant
-							amount: 0.538
+							material: tallow
+							amount: 0.5988
 							snapping: 0.100
-							falloff: 0.344
-							loss: 0.075
+							falloff: 0.629
+							loss: 0.267
 							ratio: 1.000
 							group: 0
 							flags: prerequisite
@@ -67,12 +67,12 @@
 						}
 						{
 							type: work
-							work: polishing.oil
-							amount: 42.000
-							amount_min: 89.000
-							difficulty: 3
+							work: smearing
+							amount: 43.000
+							amount_min: 110.000
+							difficulty: 8
 							snapping: 5.000
-							falloff: 0.762
+							falloff: 0.853
 							ratio: 1.000
 							group: 0
 							flags: simultaneous, conditional
@@ -80,9 +80,10 @@
 						{
 							type: work
 							work: die.drawing.metal
-							amount: 25.000
-							difficulty: 5
-							snapping: 5.000
+							amount: 42.000
+							difficulty: 4
+							snapping: 10.000
+							falloff: 0.989
 							ratio: 1.000
 							group: 1
 							flags: conditional
@@ -91,8 +92,9 @@
 							type: work
 							work: die.stamping.metal
 							amount: 20.000
-							difficulty: 4
-							snapping: 5.000
+							difficulty: 7
+							snapping: 10.000
+							falloff: 1.015
 							ratio: 1.000
 							group: 1
 							flags: conditional
@@ -182,12 +184,12 @@
 					advance_delay: 2.000
 				}
 				{
-					name: "Greasy"
+					name: "Lubricated"
 					
 					type: undefined
 					flags: wip
 					
-					prefix: "Greasy "
+					prefix: "Shiny "
 					priority: 1.000
 					
 					requirements:
@@ -195,20 +197,20 @@
 						{
 							type: resource
 							material: copper.plate
-							amount: 0.0309
+							amount: 0.019271
 							snapping: 1.000
-							loss: 0.467
+							loss: 0.424
 							ratio: 1.000
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: resource
-							material: tallow
-							amount: 0.5988
+							material: lubricant
+							amount: 0.538
 							snapping: 0.100
-							falloff: 0.629
-							loss: 0.267
+							falloff: 0.344
+							loss: 0.075
 							ratio: 1.000
 							group: 0
 							flags: prerequisite
@@ -225,12 +227,12 @@
 						}
 						{
 							type: work
-							work: smearing
-							amount: 43.000
-							amount_min: 110.000
-							difficulty: 8
+							work: polishing.oil
+							amount: 42.000
+							amount_min: 89.000
+							difficulty: 3
 							snapping: 5.000
-							falloff: 0.853
+							falloff: 0.762
 							ratio: 1.000
 							group: 0
 							flags: simultaneous, conditional
@@ -238,10 +240,9 @@
 						{
 							type: work
 							work: die.drawing.metal
-							amount: 42.000
-							difficulty: 4
-							snapping: 10.000
-							falloff: 0.989
+							amount: 25.000
+							difficulty: 5
+							snapping: 5.000
 							ratio: 1.000
 							group: 1
 							flags: conditional
@@ -250,9 +251,8 @@
 							type: work
 							work: die.stamping.metal
 							amount: 20.000
-							difficulty: 7
-							snapping: 10.000
-							falloff: 1.015
+							difficulty: 4
+							snapping: 5.000
 							ratio: 1.000
 							group: 1
 							flags: conditional
@@ -282,7 +282,7 @@
 					
 					type: undefined
 					flags: none
-					discard_damage_type_override: saw
+					discard_damage_type_override: punch
 					
 					requirements:
 					[
@@ -312,6 +312,48 @@
 							difficulty: 4
 							snapping: 5.000
 							falloff: 0.838
+							ratio: 1.000
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: hammer
+						include: hammer, cutters, hand_drill, screwdriver, wrench, tweezers, magnifying_glass, towel, tongs, pick, crowbar
+					}
+					filter_infrastructure:
+					{
+						include: table, chair, vise
+					}
+				}
+				{
+					name: "Nitroglycerine"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: wet
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: nitroglycerine
+							amount: 0.0051
+							snapping: 0.500
+							loss: 0.075
+							ratio: 1.000
+							group: 0
+						}
+						{
+							type: work
+							work: filling.liquid
+							amount: 46.000
+							amount_min: 80.000
+							difficulty: 9
+							snapping: 5.000
+							falloff: 0.852
 							ratio: 1.000
 							group: 0
 							flags: conditional
@@ -370,25 +412,25 @@
 							material: scrap.niklajzner
 							amount: 0.015083
 							snapping: 0.100
-							loss: 0.075
+							loss: 0.227
 							ratio: 1.000
 							group: 0
 						}
 						{
 							type: work
 							work: filling.powder
-							amount: 22.000
+							amount: 18.000
 							amount_min: 70.000
 							difficulty: 4
 							snapping: 5.000
-							falloff: 0.917
+							falloff: 0.974
 							group: 1
 							flags: simultaneous, conditional
 						}
 						{
 							type: work
 							work: crimping.metal
-							amount: 26.000
+							amount: 17.000
 							amount_min: 50.000
 							difficulty: 9
 							snapping: 5.000
@@ -427,7 +469,7 @@
 	type: workshop
 	flags: production, manufacturing, wip
 	tags: manual, small, munitions, delicate, assembling, metalworking, military, explosive, dangerous
-	infrastructure: table, chair, surface, machine, workbench
+	infrastructure: table, chair, surface, stamping_press, workbench
 	infrastructure_exclude: none
 	
 	icon:

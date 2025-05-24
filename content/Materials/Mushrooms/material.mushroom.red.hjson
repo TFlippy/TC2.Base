@@ -1,11 +1,13 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.63.1"
 	name: "Mouchus Mushrooms"
 	name_short: "Mouchus M."
 	description:
 		'''
 		A heap of red mushroom bits, may be poisonous.
 		'''
+	
+	tips: []
 	
 	icon:
 	{
@@ -15,55 +17,31 @@
 	}
 	
 	type: mushroom
-	flags: soft, granular, toxic, organic, small, raw, solid
+	flags: soft, sticky, granular, toxic, organic, small, corrosive, raw, flammable, flexible, solid, smelly
 	display_flags: none
 	hints: none
+	
 	mass_per_unit: 0.208
+	
 	quantity_max: 500.000
 	spawn_quantity_threshold: 3.000
+	snapping: 1.000
+	snapping_pickup: 1.000
+	
 	form_type: raw
 	prefab: resource.mushroom.red
+	h_substance: "null"
 	
 	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
 	
+	centroid_default: [0.000, 0.250]
 	colliders: []
 	
-	commodity:
+	related:
 	{
-		availability: 1.000
-		rarity: 1.000
-		scalability: 1.000
-		reusability: 1.000
-		longevity: 1.000
-		complexity: 1.000
-		tech: 1.000
-		liquidity: 1.000
-		demand: 1.000
-		
-		flags: none
-		categories: none
-		
-		industries_produce: none
-		industries_consume: none
-		industries_buy: none
-		industries_sell: none
-		
-		buildings_produce: none
-		buildings_consume: none
-		buildings_buy: none
-		buildings_sell: none
-		
-		categories_produce: none
-		categories_consume: none
-		categories_buy: none
-		categories_sell: none
-		
-		market_price: 1.620
-		market_price_min: 0.000
-		market_price_max: 0.000
-		
-		quantity_retail: 0.000
-		quantity_wholesale: 0.000
-		quantity_industry: 0.000
+		hydrazine: refined, purified, chemical
 	}
 }
