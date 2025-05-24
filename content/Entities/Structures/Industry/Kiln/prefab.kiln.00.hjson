@@ -177,6 +177,7 @@ air.vent|"exhaust":
 	offset: [0.375, -2.375]
 	rotation: -1.571
 	cross_section: 0.200
+	leak_ratio: 0.020
 	flags: no_gui
 	type: exhaust
 }
@@ -186,13 +187,14 @@ air.vent|"intake":
 	offset: [-0.500, 0.250]
 	rotation: 1.571
 	cross_section: 0.300
+	leak_ratio: 0.077
 	flags: no_gui
 	type: intake
 }
 
 air.container:
 {
-	volume: 0.700
+	volume: 0.400
 }
 
 burner:
@@ -200,10 +202,10 @@ burner:
 	flags: show_misc
 	type: liquid
 	area_fuel: 0.300
-	area_aux: 0.007854
+	area_aux: 0.006854
 	temperature_max: 1579.000
 	pressure_max: 3.000
-	insulation: 0.450
+	insulation: 0.680
 
 	// @inventory1:
 	// {
@@ -248,7 +250,7 @@ burner.state:
 	{
 		type: fuel
 		flags: allow_ducts, ignore_mass
-		stack_size_multiplier: 0.500
+		stack_size_multiplier: 1.000
 		
 		filter:
 		{

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.5"
+	$version: "0.1.63.1"
 	name: "Calcination"
 	name_short: "Calcination"
 	desc:
@@ -16,15 +16,17 @@
 	
 	flags: passive
 	tags: ambient, simple, chemical, industrial, passive, toxic, wip
-	cooldown: 1.000
-	multiplier: 20.000
+	
+	amount_base: 1.500
+	cooldown: 3.000
+	multiplier: 4.000
+	
+	amount_jitter: 0.093
+	cooldown_jitter: 0.032
 	color: "0xffc5ba9d"
 	
 	tools_required: none
 	tools_optional: none
-	
-	machinery_required: none
-	machinery_optional: none
 	
 	infrastructure_required: none
 	infrastructure_optional: oven

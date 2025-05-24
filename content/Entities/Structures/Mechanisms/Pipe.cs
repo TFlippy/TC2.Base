@@ -547,7 +547,7 @@ namespace TC2.Base.Components
 
 			container.vent_y_bottom_cached_new = Maths.Max(pos_y, pos_y_connected, container.vent_y_bottom_cached_new);
 			container.vent_y_top_cached_new = Maths.Min(pos_y, pos_y_connected, container.vent_y_top_cached_new);
-			container.vent_area_total_cached_new += vent.cross_section * vent.modifier;
+			container.vent_area_total_cached_new += vent.cross_section * Maths.LerpFMA(vent.leak_ratio, 1.00f, vent.modifier);
 
 #if DEBUG
 			if (Air.Container.Data.dev_purge)
@@ -749,7 +749,10 @@ namespace TC2.Base.Components
 				ref var vent_a = ref h_vent_a.data;
 				ref var vent_b = ref h_vent_b.data;
 
-				if ((vent_a.modifier * vent_b.modifier) > 0.01f)
+				var modifier_a = Maths.LerpFMA(vent_a.leak_ratio, 1.00f, vent_a.modifier);
+				var modifier_b = Maths.LerpFMA(vent_b.leak_ratio, 1.00f, vent_b.modifier);
+
+				if ((modifier_a * modifier_b) > 0.01f)
 				{
 					if (Air.Container.Data.dev_enable_transport)
 					{
@@ -771,7 +774,7 @@ namespace TC2.Base.Components
 						}
 					}
 
-					if (vent_a.modifier > 0.00f)
+					if (modifier_a > 0.00f)
 					{
 						vent_a.pressure_outside = vent_b.pressure_inside;
 						vent_a.density_outside = vent_b.density_inside;
@@ -779,7 +782,7 @@ namespace TC2.Base.Components
 						vent_a.pos_y_connected = vent_b.pos_y;
 					}
 
-					if (vent_b.modifier > 0.00f)
+					if (modifier_b > 0.00f)
 					{
 						vent_b.pressure_outside = vent_a.pressure_inside;
 						vent_b.density_outside = vent_a.density_inside;
@@ -813,7 +816,7 @@ namespace TC2.Base.Components
 			float vent_y = vent.pos_y;
 			float vent_y_connected = vent.pos_y_connected;
 
-			var area_modifier = vent.modifier;
+			var area_modifier = Maths.LerpFMA(vent.leak_ratio, 1.00f, vent.modifier);
 			var area = vent.cross_section * area_modifier;
 			var dt = App.fixed_update_interval_s;
 
@@ -979,7 +982,7 @@ namespace TC2.Base.Components
 			if (flow_rate >= 0.001f)
 			{
 				var dt = App.fixed_update_interval_s;
-				var area_modifier = vent.modifier;
+				var area_modifier = Maths.LerpFMA(vent.leak_ratio, 1.00f, vent.modifier);
 				var area = vent.cross_section * area_modifier;
 				if (area > Maths.epsilon)
 				{
@@ -1086,7 +1089,7 @@ namespace TC2.Base.Components
 				var flow_rate_abs = Maths.Abs(flow_rate);
 
 				var dt = App.fixed_update_interval_s;
-				var area_modifier = vent.modifier;
+				var area_modifier = Maths.LerpFMA(vent.leak_ratio, 1.00f, vent.modifier);
 				var area = vent.cross_section * area_modifier;
 				if (area > Maths.epsilon)
 				{
@@ -1752,7 +1755,9 @@ namespace TC2.Base.Components
 					None = 0,
 
 					Has_Pipe = 1 << 0,
-					No_GUI = 1 << 1
+					No_GUI = 1 << 1,
+
+					No_Control = 1 << 2,
 
 					//[Save.Ignore] Has_Pressure_Cached = 1u << 31,
 				}
@@ -1767,7 +1772,8 @@ namespace TC2.Base.Components
 				public float rotation;
 				public Area cross_section = Area.Circle(10.00f.cm()); // TODO: dumb name, rename this
 
-				public float modifier = 1.00f;
+				[Editor.Slider.Clamped(0.00f, 1.00f, snap: 0.01f)] public float modifier = 1.00f;
+				[Editor.Slider.Clamped(0.00f, 1.00f, snap: 0.01f)] public float leak_ratio = 0.10f;
 				public Vent.Data.Flags flags;
 				public Vent.Type type;
 

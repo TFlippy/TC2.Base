@@ -131,7 +131,7 @@ workshop:
 	{
 		type: workshop
 		flags: standalone, ignore_mass, public, faction
-		stack_size_multiplier: 0.500
+		stack_size_multiplier: 1.000
 		
 		offset: [0.000, 0.000]
 
@@ -146,8 +146,8 @@ crafter:
 {
 	flags: no_gui
 	
-	temperature_max: 859.000
-	pressure_max: 5.000
+	temperature_max: 959.000
+	pressure_max: 3.000
 	
 	spawn_offset: [1.000, -0.375]
 
@@ -202,19 +202,19 @@ personnel:
 
 sound.emitter|"aux":
 {
-	file: burner.gas.loop.00
+	file: balloon.burner.loop.00
 	flags: start_muted
-	volume: 0.500
-	pitch: 1.100
-	size: 0.500
+	volume: 0.300
+	pitch: 1.300
+	size: 0.750
 	size_max_modifier: 0.400
 }
 
 air.vent|"exhaust":
 {
-	offset: [-1.875, -2.625]
+	offset: [1.375, -2.875]
 	rotation: -1.571
-	cross_section: 0.080
+	cross_section: 0.100
 	flags: no_gui
 	type: exhaust
 }
@@ -230,7 +230,7 @@ air.vent|"intake":
 
 air.container:
 {
-	volume: 0.200
+	volume: 0.150
 }
 
 burner:
@@ -238,10 +238,11 @@ burner:
 	flags: show_misc
 	type: solid
 	area_fuel: 0.100
-	area_aux: 0.002854
-	temperature_max: 859.000
-	pressure_max: 5.000
-	insulation: 0.610
+	area_aux: 0.002154
+	fuel_amount_mult: 0.010
+	temperature_max: 959.000
+	pressure_max: 3.000
+	insulation: 0.420
 
 	@inventory1:
 	{
@@ -263,16 +264,16 @@ burner:
 		flags: start_muted
 		volume: 0.900
 		pitch: 0.900
-		size: 0.475
+		size: 0.775
 		size_max_modifier: 0.460
 		offset: [-0.500, 0.375]
 	}
 
 	@light:
 	{
-		color: [1.000, 0.500, 0.000, 2.000]
-		offset: [-0.875, 1.125]
-		scale: [14.000, 13.000]
+		color: [1.000, 0.500, 0.000, 4.500]
+		offset: [-0.950, 1.125]
+		scale: [15.000, 13.000]
 		intensity: 0.000
 		texture: "light.circle.04"
 	}
@@ -286,7 +287,7 @@ burner.state:
 	{
 		type: input
 		flags: ignore_mass, no_auto_pickup
-		stack_size_multiplier: 0.250
+		stack_size_multiplier: 0.500
 		
 		filter:
 		{

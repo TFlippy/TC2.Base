@@ -17,7 +17,7 @@
 	}
 	
 	type: liquid
-	flags: liquid, toxic, chemical, bottled, fuel, flammable, volatile, primary
+	flags: liquid, toxic, chemical, bottled, fuel, flammable, volatile, processed, smelly, primary
 	display_flags: none
 	hints: materials, chemical
 	
@@ -38,6 +38,7 @@
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	
+	centroid_default: [0.000, 0.250]
 	colliders: []
 	
 	fuel:
