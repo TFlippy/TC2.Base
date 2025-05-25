@@ -82,7 +82,7 @@ shop:
 	tags_filter:
 	{
 		include: blacksmithing, metalworking, salvaging
-		exclude: complex, advanced, large, huge, filtering, woodworking, assembling, machining, tailoring, cooking, social, gathering, blending, forestry, smelting, fermenting, melting
+		exclude: complex, advanced, large, huge, filtering, woodworking, assembling, tailoring, cooking, social, gathering, blending, forestry, smelting, fermenting, melting
 	}
 	
 	tools: hammer, screwdriver, spanner, pliers, towel, tongs

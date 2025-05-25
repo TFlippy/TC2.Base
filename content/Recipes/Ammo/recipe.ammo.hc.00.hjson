@@ -371,10 +371,10 @@
 					}
 				}
 				{
-					name: "Nitroglycerine"
+					name: "TODO"
 					
 					type: undefined
-					flags: none
+					flags: disabled, incomplete
 					discard_damage_type_override: wet
 					
 					requirements:

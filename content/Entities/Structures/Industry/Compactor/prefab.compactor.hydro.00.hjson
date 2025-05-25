@@ -178,7 +178,7 @@ shop:
 	
 	tags_filter:
 	{
-		exclude: workbench, filtering, assembling, machining, tailoring, gathering, smelting, fermenting, melting, drying
+		exclude: workbench, filtering, assembling, tailoring, gathering, smelting, fermenting, melting, drying
 	}
 	
 	tools: none

@@ -18,7 +18,7 @@
 	
 	type: workshop
 	flags: no_amount_multiplier, blueprintable, disabled, wip
-	tags: manual, large, vehicle, machining, metalworking
+	tags: manual, large, vehicle, metalworking
 	
 	color_frame: "0xffaeb59a"
 	rank: 0.000

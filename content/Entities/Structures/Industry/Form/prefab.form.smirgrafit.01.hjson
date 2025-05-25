@@ -126,7 +126,7 @@ heat:
 // 	{
 // 		require: casting
 // 		include: heating, casting, refining, smelting
-// 		exclude: assembling, machining, tailoring, social
+// 		exclude: assembling, tailoring, social
 // 	}
 	
 // 	tools: none

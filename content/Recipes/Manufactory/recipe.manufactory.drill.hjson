@@ -55,7 +55,7 @@
 	
 	type: workshop
 	flags: blueprintable, disabled, wip
-	tags: manual, assembling, machining, metalworking, engineering
+	tags: manual, assembling, metalworking, engineering
 	infrastructure: anvil, table, vise, surface, hard_surface, workbench
 	
 	icon:

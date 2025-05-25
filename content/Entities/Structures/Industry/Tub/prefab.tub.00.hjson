@@ -60,7 +60,7 @@ shop:
 	{
 		require: manual
 		include: crude, simple, drying
-		exclude: workbench, advanced, assembling, machining, metalworking, salvaging, smelting
+		exclude: workbench, advanced, assembling, metalworking, salvaging, smelting
 	}
 	
 	tools: none

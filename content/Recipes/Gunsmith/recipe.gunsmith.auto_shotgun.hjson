@@ -278,7 +278,7 @@
 	
 	type: workshop
 	flags: blueprintable, item, wip, converted
-	tags: workbench, workshop, manual, complex, weapon, gun, assembling, machining, metalworking, engineering, military, construction
+	tags: workbench, workshop, manual, complex, weapon, gun, assembling, metalworking, engineering, military, construction
 	infrastructure: table, vise, rack, surface, hard_surface, workbench
 	infrastructure_exclude: none
 	

@@ -138,7 +138,7 @@ shop:
 	{
 		require: heating, melting
 		include: metalworking, heating, smelting, melting
-		exclude: assembling, machining, tailoring, social, drying
+		exclude: assembling, tailoring, social, drying
 	}
 	
 	tools: none

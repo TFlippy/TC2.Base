@@ -118,7 +118,7 @@ shop:
 	{
 		require: manual
 		include: workbench, woodworking, assembling, metalworking, salvaging, gathering
-		exclude: passive, advanced, large, huge, vehicle, machining, smelting, fermenting, melting, heating, casting
+		exclude: passive, advanced, large, huge, vehicle, smelting, fermenting, melting, heating, casting
 	}
 	
 	tools: hammer, cutters, saw, hand_drill, screwdriver, spanner, pliers, bucket, axe, file, chisel, towel, knife, sandpaper

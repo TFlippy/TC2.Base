@@ -72,9 +72,9 @@
 					[
 						{
 							type: temperature
-							amount: 1263.000
-							amount_min: 1000.000
-							amount_max: 1362.000
+							amount: 679.000
+							amount_min: 550.000
+							amount_max: 1022.000
 							falloff: 0.819
 							group: 0
 							flags: no_scaling, always_evaluate
@@ -82,12 +82,12 @@
 						{
 							type: work
 							work: pyrolysis
-							amount: 150.000
-							amount_min: 900.000
+							amount: 100.000
+							amount_min: 825.000
 							amount_max: 1362.000
-							difficulty: 5
+							difficulty: 6
 							snapping: 10.000
-							falloff: 0.701
+							falloff: 0.612
 							ratio: 1.000
 							group: 0
 							flags: conditional
@@ -98,35 +98,27 @@
 					[
 						{
 							type: resource
-							material: lime
+							material: charcoal
 							amount: 0.145
-							amount_extra: 0.093
+							amount_extra: 0.073
 							group: 0
 							flags: primary, compact
 						}
 						{
 							type: resource
-							material: gravel
-							amount: 0.2468
-							amount_extra: 0.072
-							group: 0
-							flags: waste, residue, compact
-						}
-						{
-							type: resource
-							material: ash
-							amount: 0.129
-							amount_extra: 0.092
+							material: scrap.charred
+							amount: 0.0349
+							amount_extra: 0.0291
 							group: 0
 							flags: waste, compact
 						}
 						{
 							type: resource
-							material: carbon_dioxide
-							amount: 5.199
-							amount_extra: 0.410
+							material: ash
+							amount: 0.02886
+							amount_extra: 0.0454
 							group: 0
-							flags: pollutant, byproduct, secondary, spawn, compact, hidden
+							flags: waste, compact
 						}
 					]
 					
@@ -141,56 +133,6 @@
 					
 					h_sound_begin: furnace.produce.00
 					h_sound_complete: burner.groan.01
-				}
-			]
-		}
-		{
-			name: "Retrieval"
-			
-			type: postprocessing
-			flags: subtractive
-			tags: none
-			// Damage type used for discarding leftover resources.
-			discard_damage_type: sledgehammer
-			
-			ratio: 0.000
-			mass_base: 0.000
-			
-			options:
-			[
-				{
-					name: "Crude"
-					
-					type: undefined
-					flags: none
-					discard_damage_type_override: sledgehammer
-					
-					requirements:
-					[
-						{
-							type: work
-							work: shattering
-							amount: 75.000
-							amount_min: 150.000
-							amount_max: 1362.000
-							difficulty: 8
-							snapping: 5.000
-							falloff: 0.605
-							ratio: 1.000
-							group: 0
-							flags: conditional
-						}
-					]
-					
-					advance_delay: 1.000
-					complete_delay: 1.000
-					
-					filter_tools:
-					{
-						require: hammer
-					}
-					
-					h_sound_begin: structural.stone.break.small.00
 				}
 			]
 		}

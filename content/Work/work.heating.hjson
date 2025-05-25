@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.5"
+	$version: "0.1.63.1"
 	name: "Heating"
 	name_short: "Heating"
 	desc:
@@ -16,15 +16,15 @@
 	
 	flags: passive
 	tags: ambient, simple, industrial, passive, dangerous, wip
+	
+	amount_base: 1.000
 	cooldown: 1.000
 	multiplier: 20.000
+	
 	color: "0xffef3500"
 	
 	tools_required: none
 	tools_optional: none
-	
-	machinery_required: heater
-	machinery_optional: heater, burner
 	
 	infrastructure_required: none
 	infrastructure_optional: oven, forge, crucible

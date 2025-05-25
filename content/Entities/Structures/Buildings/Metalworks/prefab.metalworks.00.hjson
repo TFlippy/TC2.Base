@@ -106,7 +106,7 @@ shop:
 	{
 		require: manual
 		include: workbench, workshop, blacksmithing, metalworking, salvaging
-		exclude: laboratory, passive, advanced, huge, machining, social, forestry, overworld
+		exclude: laboratory, passive, advanced, huge, social, forestry, overworld
 	}
 	
 	tools: ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, spanner, pliers, bucket, axe, shovel, file, chisel, towel, spatula, tongs, pick, crowbar, knife, sandpaper, ladle

@@ -51,7 +51,7 @@
 	
 	type: workshop
 	flags: blueprintable, disabled, wip
-	tags: manual, advanced, small, assembling, machining, metalworking, engineering
+	tags: manual, advanced, small, assembling, metalworking, engineering
 	infrastructure: none
 	infrastructure_exclude: none
 	

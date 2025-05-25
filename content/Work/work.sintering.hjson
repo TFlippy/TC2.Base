@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.63.1"
 	name: "Sintering"
 	name_short: "Sintering"
 	desc:
@@ -15,19 +15,19 @@
 	}
 	
 	flags: passive
-	tags: dangerous, simple, industrial, passive, wip
+	tags: simple, industrial, passive, dangerous, wip
+	
+	amount_base: 1.000
 	cooldown: 1.000
 	multiplier: 50.000
+	
 	color: "0xffef3500"
 	
 	tools_required: none
 	tools_optional: none
 	
-	machinery_required: heater
-	machinery_optional: none
-	
-	equipment_required: none
-	equipment_optional: none
+	infrastructure_required: none
+	infrastructure_optional: none
 	
 	skills_min:
 	{

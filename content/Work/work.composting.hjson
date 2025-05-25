@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.63.1"
 	name: "Composting"
 	name_short: "Composting"
 	desc:
@@ -16,18 +16,18 @@
 	
 	flags: passive, ambient
 	tags: ambient, simple, passive, wip
+	
+	amount_base: 1.000
 	cooldown: 1.000
 	multiplier: 1.000
+	
 	color: "0xff818c11"
 	
 	tools_required: none
 	tools_optional: bucket, spatula
 	
-	machinery_required: none
-	machinery_optional: heater
-	
-	equipment_required: none
-	equipment_optional: barrel
+	infrastructure_required: none
+	infrastructure_optional: none
 	
 	filter_environment:
 	{

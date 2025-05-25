@@ -102,7 +102,7 @@ shop:
 	tags_filter:
 	{
 		require: manual
-		include: workbench, advanced, munitions, woodworking, assembling, machining, metalworking, engineering, salvaging
+		include: workbench, advanced, munitions, woodworking, assembling, metalworking, engineering, salvaging
 		exclude: passive, large, vehicle, blacksmithing, social, gathering, smelting, overworld
 	}
 	

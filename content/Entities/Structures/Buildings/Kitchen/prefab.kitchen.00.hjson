@@ -107,7 +107,7 @@ shop:
 	{
 		require: manual
 		include: food, organic, agriculture, filtering, cooking, chemistry, medical, gathering, biology, blending, forestry, moulding, messy
-		exclude: advanced, medium, large, huge, gun, vehicle, furniture, blacksmithing, machining, metalworking, carpentry, architecture, smelting, casting
+		exclude: advanced, medium, large, huge, gun, vehicle, furniture, blacksmithing, metalworking, carpentry, architecture, smelting, casting
 	}
 	
 	tools: pencil, paper, hammer, saw, hand_drill, cleaver, tweezers, bucket, paintbrush, syringe, towel, spatula, tongs, knife, needle, pins, scissors, ladle

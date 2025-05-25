@@ -91,7 +91,7 @@ shop:
 	
 	tags: dangerous, workbench, salvaging, simple, crude, assembling, dumb
 	tags_require: manual
-	tags_exclude: research, machining, passive, advanced, social
+	tags_exclude: research, passive, advanced, social
 	
 	tools: hammer, saw, screwdriver, pliers, bucket, knife
 	machinery: none

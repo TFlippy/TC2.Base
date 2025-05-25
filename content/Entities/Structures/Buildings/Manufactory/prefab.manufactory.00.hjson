@@ -95,7 +95,7 @@ laboratory:
 	blueprints_capacity: 4
 	filter_tags:
 	{
-		include: weapon, gun, assembling, machining, metalworking, engineering
+		include: weapon, gun, assembling, metalworking, engineering
 	}
 }
 
@@ -103,7 +103,7 @@ shop:
 {
 	tags_filter:
 	{
-		include: workbench, workshop, magitronics, weapon, gun, tool, munitions, machinery, assembling, machining, metalworking, engineering, salvaging, explosive
+		include: workbench, workshop, magitronics, weapon, gun, tool, munitions, machinery, assembling, metalworking, engineering, salvaging, explosive
 		exclude: passive, huge, blacksmithing, social, science, biology, forestry, smelting, fermenting, melting, heating, casting, moulding, overworld
 	}
 	

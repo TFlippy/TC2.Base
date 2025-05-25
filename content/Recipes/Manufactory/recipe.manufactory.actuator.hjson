@@ -20,7 +20,7 @@
 	
 	type: workshop
 	flags: disabled, wip
-	tags: manual, assembling, machining, metalworking, engineering
+	tags: manual, assembling, metalworking, engineering
 	
 	color_frame: "0xffaeb59a"
 	rank: -540.000
