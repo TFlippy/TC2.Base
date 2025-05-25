@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.63.1"
-	name: "Brezolyt Calcination"
+	name: "Charcoal"
 	desc:
 		'''
 		TODO: Desc
@@ -24,7 +24,7 @@
 			options:
 			[
 				{
-					name: "Standard"
+					name: "Woodchips"
 					
 					type: undefined
 					flags: none
@@ -34,9 +34,9 @@
 					[
 						{
 							type: resource
-							material: brezolyt
+							material: woodchips
 							amount: 1.000
-							snapping: 0.500
+							snapping: 1.000
 							ratio: 1.000
 							group: 0
 							flags: primary
@@ -52,7 +52,7 @@
 			
 			type: processing
 			flags: important
-			tags: material
+			tags: formula
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: heat
 			
@@ -81,7 +81,7 @@
 						}
 						{
 							type: work
-							work: calcination
+							work: pyrolysis
 							amount: 150.000
 							amount_min: 900.000
 							amount_max: 1362.000
@@ -198,25 +198,25 @@
 	
 	type: workshop
 	flags: production
-	tags: raw, smelting, heating, processing
-	infrastructure: kiln
+	tags: simple, raw, drying, heating, processing
+	infrastructure: oven
 	infrastructure_exclude: none
 	
 	icon:
 	{
-		texture: resource.brezolyt
-		size: [16, 16]
-		frame: [3, 0]
+		texture: resource.timber
+		size: [24, 16]
+		frame: [1, 0]
 	}
-	icon_offset: [7.000, -2.000]
+	icon_offset: [14.000, -3.000]
 	
 	icon_extra:
 	{
-		texture: resource.lime
+		texture: resource.charcoal
 		size: [16, 16]
 		frame: [1, 0]
 	}
-	icon_extra_offset: [-6.000, -7.000]
+	icon_extra_offset: [0.000, -7.000]
 	
 	icon_c:
 	{
@@ -229,6 +229,7 @@
 	color_frame: "0xffb45630"
 	color_button: "0xff9dd80f"
 	rank: -157.000
+	frame_size: [24.000, 24.000]
 	
 	min: 10
 	max: 250

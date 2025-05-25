@@ -55,7 +55,7 @@ shop:
 	tags_filter:
 	{
 		include: raw, filtering, chemistry, gathering, blending, drying, fermenting, processing
-		exclude: large, huge, weapon, gun, tool, vehicle, furniture, machinery, blacksmithing, woodworking, assembling, machining, tailoring, metalworking, stoneworking, carpentry, architecture, construction, smelting, drying
+		exclude: large, huge, weapon, gun, tool, vehicle, furniture, machinery, blacksmithing, woodworking, assembling, machining, tailoring, metalworking, carpentry, architecture, construction, smelting, drying
 	}
 	
 	tools: bucket, shovel, spatula

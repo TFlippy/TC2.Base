@@ -81,7 +81,7 @@ shop:
 {
 	tags_filter:
 	{
-		include: blacksmithing, metalworking, stoneworking, salvaging
+		include: blacksmithing, metalworking, salvaging
 		exclude: complex, advanced, large, huge, filtering, woodworking, assembling, machining, tailoring, cooking, social, gathering, blending, forestry, smelting, fermenting, melting
 	}
 	

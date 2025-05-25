@@ -70,7 +70,7 @@ shop:
 	tags_filter:
 	{
 		require: manual
-		include: workbench, workshop, blacksmithing, metalworking, stoneworking, salvaging, heating
+		include: workbench, workshop, blacksmithing, metalworking, salvaging, heating
 		exclude: advanced, large, huge, social, forestry, smelting, fermenting, casting, moulding, overworld
 	}
 	

@@ -117,7 +117,7 @@ shop:
 	tags_filter:
 	{
 		require: manual
-		include: workbench, woodworking, assembling, metalworking, stoneworking, salvaging, gathering
+		include: workbench, woodworking, assembling, metalworking, salvaging, gathering
 		exclude: passive, advanced, large, huge, vehicle, machining, smelting, fermenting, melting, heating, casting
 	}
 	
