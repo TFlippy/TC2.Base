@@ -17,7 +17,7 @@
 	}
 	
 	type: insect
-	flags: soft, malleable, sticky, food, organic, corrosive, raw, flexible, solid
+	flags: soft, malleable, sticky, organic, corrosive, raw, flexible, solid
 	display_flags: none
 	hints: none
 	

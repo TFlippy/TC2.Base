@@ -37,19 +37,29 @@
 						{
 							type: resource
 							material: insect
-							amount: 11.740
+							amount: 20.000
 							snapping: 1.000
-							loss: 0.463
+							loss: 0.255
 							ratio: 1.000
 							group: 0
 							flags: primary, prerequisite
 						}
 						{
 							type: resource
-							material: mushroom
-							amount: 24.61207
+							material: alcohol
+							amount: 25.000
 							snapping: 1.000
-							loss: 0.216
+							loss: 0.522
+							ratio: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: mushroom
+							amount: 50.000
+							snapping: 1.000
+							loss: 0.075
 							ratio: 1.000
 							group: 0
 							flags: prerequisite
@@ -73,11 +83,35 @@
 					[
 						{
 							type: resource
-							material: vinegar
-							amount: 6.100
-							amount_extra: 1.300
+							material: rubber
+							amount: 19.43009
+							amount_extra: 4.289587
 							group: 0
-							flags: byproduct, primary, compact
+							flags: residue, primary, compact
+						}
+						{
+							type: resource
+							material: sludge
+							amount: 9.35848
+							amount_extra: 0.99952
+							group: 0
+							flags: pollutant, waste, compact
+						}
+						{
+							type: resource
+							material: vinegar
+							amount: 9.8021
+							amount_extra: 1.0469
+							group: 0
+							flags: byproduct, secondary, compact
+						}
+						{
+							type: resource
+							material: hydrogen_cyanide
+							amount: 87.48148
+							amount_extra: 13.86851
+							group: 0
+							flags: byproduct, spawn, hidden
 						}
 					]
 					
@@ -113,7 +147,7 @@
 					
 					type: undefined
 					flags: wip, incomplete, auto_generated
-
+					
 					requirements:
 					[
 						{
