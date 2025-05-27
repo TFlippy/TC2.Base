@@ -106,16 +106,16 @@
 							snapping: 0.500
 							loss: 0.424
 							group: 0
-							flags: filler
+							flags: filler, prerequisite
 						}
 						{
 							type: resource
 							material: woodchips
-							amount: 100.000
+							amount: 50.000
 							snapping: 0.500
 							loss: 0.024
 							group: 0
-							flags: filler
+							flags: filler, prerequisite
 						}
 						{
 							type: work
@@ -194,7 +194,7 @@
 							snapping: 0.500
 							loss: 0.063
 							group: 0
-							flags: filler
+							flags: filler, prerequisite
 						}
 						{
 							type: resource
@@ -203,7 +203,7 @@
 							snapping: 0.500
 							loss: 0.063
 							group: 0
-							flags: no_consume, filler
+							flags: filler, prerequisite
 						}
 						{
 							type: work
@@ -223,17 +223,25 @@
 					[
 						{
 							type: resource
-							material: biogas
-							amount: 16.500
-							amount_extra: 51.100
+							material: compost
+							amount: 38.7027
+							amount_extra: 7.5323
 							group: 0
-							flags: waste, residue
+							flags: residue
+						}
+						{
+							type: resource
+							material: biogas
+							amount: 83.8373
+							amount_extra: 35.7627
+							group: 0
+							flags: waste, residue, spawn, hidden
 						}
 						{
 							type: resource
 							material: water.swamp
-							amount: 5.700
-							amount_extra: 1.100
+							amount: 6.12476
+							amount_extra: 1.18197
 							group: 0
 							flags: pollutant, waste
 						}
@@ -327,11 +335,6 @@
 	}
 	icon_extra_offset: [-18.000, -7.000]
 	
-	icon_c:
-	{
-		size: [16, 16]
-		frame: [1, 0]
-	}
 	icon_c_offset: [6.000, -4.000]
 	
 	color_frame: "0xffaeb59a"

@@ -314,7 +314,7 @@ essence.container:
 		
 		filter:
 		{
-			require: small, pellet, solid
+			require: small, pellet, solid, essence
 			include: none
 			exclude: gas
 		}

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.3"
+	$version: "0.1.63.2"
 	name: "Charred Remains"
 	name_short: "Char"
 	description:
@@ -19,6 +19,10 @@
 	type: coal
 	flags: scrap, granular, small, waste, flexible, solid, impure
 	display_flags: none
+	spawn_flags:
+	{
+		rem: pickup
+	}
 	hints: materials, junk, cheap
 	
 	mass_per_unit: 0.468

@@ -121,7 +121,7 @@ crafter:
 		
 		filter:
 		{
-			include: soft, malleable, granular, viscous, small, gravel, powder
+			include: soft, malleable, granular, viscous, small, gravel, powder, bottled, solid
 			exclude: gas
 		}
 		offset: [0.000, -0.375]

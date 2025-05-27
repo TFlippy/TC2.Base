@@ -63,7 +63,7 @@ storage:
 		
 		filter:
 		{
-			include: soft, malleable, granular, heavy, small, powder
+			include: soft, malleable, granular, heavy, small, powder, bottled
 			exclude: gas, long, large
 		}
 		

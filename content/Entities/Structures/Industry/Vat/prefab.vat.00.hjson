@@ -88,7 +88,6 @@ crafter:
 
 	@inventory4:
 	{
-		
 		type: workshop
 		flags: standalone, allow_ducts, ignore_mass, no_auto_pickup, vertical
 		stack_size_multiplier: 1.000

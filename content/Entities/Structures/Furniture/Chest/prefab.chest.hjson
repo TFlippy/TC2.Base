@@ -17,6 +17,7 @@ body:
 		material: wood
 		layer: entity, solid, storage, furniture, flammable, ignore_melee, no_overlapped_placement
 		mask: world, furniture, door
+		exclude: held
 
 		miss_chance: 0.550
 	}
@@ -68,7 +69,7 @@ storage:
 		
 		filter:
 		{
-			include: granular, small, solid
+			include: granular, small, solid, bottled, malleable
 			exclude: gas, long, large
 		}
 	}

@@ -109,7 +109,6 @@ storage:
 {
 	@inventory4:
 	{
-		name: "Cargo"
 		stack_size_multiplier: 4.000
 		type: storage
 		flags: standalone, allow_ducts, no_auto_pickup

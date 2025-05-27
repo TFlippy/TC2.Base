@@ -92,13 +92,13 @@ storage:
 {
 	@inventory1:
 	{
-		name: "Ammo"
 		stack_size_multiplier: 10.000
-		type: storage
+		type: ammo
 		flags: allow_ducts
 
 		filter:
 		{
+			require: ammo
 			exclude: gas
 		}
 	}

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.3"
+	$version: "0.1.63.2"
 	name: "Ash"
 	name_short: "Ash"
 	description:
@@ -19,6 +19,10 @@
 	type: powder
 	flags: soft, granular, raw, powder, waste, solid
 	display_flags: none
+	spawn_flags:
+	{
+		rem: pickup
+	}
 	hints: none
 	
 	mass_per_unit: 0.260

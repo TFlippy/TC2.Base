@@ -189,7 +189,7 @@ armory:
 		filter:
 		{
 			require: ammo, solid
-			include: granular, small
+			include: granular, small, bottled
 			exclude: gas, large
 		}
 

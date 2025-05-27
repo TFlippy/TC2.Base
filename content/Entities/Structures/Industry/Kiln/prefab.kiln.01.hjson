@@ -1,4 +1,4 @@
-$name: "Kiln (Small)"
+$name: "Distillation Oven"
 $tags: []
 
 body:
@@ -72,17 +72,17 @@ shop:
 		exclude: advanced, large, huge, assembling, blending, construction, fermenting
 	}
 	
-	tools: hammer, bucket, shovel, tongs
-	infrastructure: oven, rack, heater, burner, kiln
-	environment: container, waterproof, stationary, dirty, ugly, fireproof, durable, sturdy
+	tools: hammer, spanner, bucket, shovel, towel, spatula, tongs, ladle
+	infrastructure: oven, bucket, liquid_container, heater, burner, stove, kiln, still, smokestack, condenser, structure, machine
+	environment: machine, container, waterproof, stationary, dirty, fireproof, durable, sturdy
 	
 	flags: none
 	menu_columns: 3
 	recipe_type: workshop
 	
-	offset_spawn: [-0.500, 0.375]
+	offset_spawn: [1.375, -2.750]
 	
-	name: "Kiln"
+	name: "Distillation Oven"
 }
 
 crafter:
@@ -94,29 +94,29 @@ crafter:
 	
 	spawn_offset: [1.000, -0.375]
 
-	@inventory4:
-	{		
-		type: workshop
-		flags: standalone, allow_ducts, ignore_mass, no_auto_pickup
+	@inventory1:
+	{
+		type: gas
+		flags: standalone, allow_ducts, ignore_mass
 		stack_size_multiplier: 1.000
 		
 		filter:
 		{
-			include: soft, malleable, granular, viscous, small, gravel, powder
-			exclude: gas
+			require: gas
+			include: gas
 		}
-		offset: [0.000, -0.375]
+		offset: [-0.500, 0.500]
 	}
 
-	@inventory2:
+	@inventory4:
 	{
-		type: waste
+		type: output
 		flags: standalone, allow_ducts, ignore_mass, no_auto_pickup, vertical
 		stack_size_multiplier: 1.000
 		
 		filter:
 		{
-			include: soft, malleable, granular, viscous, small, gravel, powder
+			include: soft, malleable, granular, viscous, small, gravel, powder, bottled
 			exclude: gas
 		}
 		offset: [-0.500, 0.500]
@@ -131,6 +131,20 @@ workshop:
 	environment: container, waterproof, stationary, dirty, ugly, fireproof, durable, sturdy
 
 	orders_capacity: 1
+
+	@inventory8:
+	{		
+		type: workshop
+		flags: standalone, allow_ducts, ignore_mass, no_auto_pickup, vertical
+		stack_size_multiplier: 1.000
+		
+		filter:
+		{
+			include: soft, malleable, granular, viscous, small, gravel, powder, bottled
+			exclude: gas
+		}
+		offset: [0.000, -0.375]
+	}
 }
 
 kiln:

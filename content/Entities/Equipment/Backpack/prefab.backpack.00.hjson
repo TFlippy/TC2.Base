@@ -127,7 +127,7 @@ storage:
 		filter:
 		{
 			require: none
-			include: soft, malleable, granular, small
+			include: soft, malleable, granular, small, bottled
 			exclude: gas
 		}
 	}

@@ -99,7 +99,7 @@ crafter:
 	
 	spawn_offset: [-0.125, -1.000]
 
-	@inventory4:
+	@inventory8:
 	{
 		type: workshop
 		flags: standalone, allow_ducts, no_auto_pickup
@@ -107,7 +107,7 @@ crafter:
 		
 		filter:
 		{
-			include: soft, malleable, food, liquid, granular, organic, small, powder
+			include: soft, malleable, food, liquid, granular, organic, small, powder, bottled
 			exclude: gas, heavy
 		}
 		offset: [-0.875, 0.250]
