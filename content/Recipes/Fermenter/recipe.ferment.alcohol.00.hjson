@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.63.2"
-	name: "Alcoholic Fermentation"
+	name: "Alcoholic"
 	desc:
 		'''
 		TODO: Desc
@@ -12,7 +12,7 @@
 		{
 			name: "Formula"
 			
-			type: ingredients
+			type: formula
 			flags: wip, incomplete, auto_generated
 			tags: material, raw
 			// Damage type used for discarding leftover resources.
@@ -24,10 +24,13 @@
 			options:
 			[
 				{
-					name: "Standard"
+					name: "Sawdust"
 					
 					type: undefined
 					flags: wip, incomplete, auto_generated
+					
+					suffix: " Sawdust Fermentation"
+					priority: 1.000
 					
 					requirements:
 					[
@@ -112,7 +115,7 @@
 			]
 		}
 		{
-			name: "Fermenting"
+			name: "Fermentation"
 			
 			type: processing
 			flags: wip, incomplete, auto_generated
@@ -126,7 +129,7 @@
 			options:
 			[
 				{
-					name: "Standard"
+					name: "Simple"
 					
 					type: undefined
 					flags: wip, incomplete, auto_generated
@@ -163,7 +166,7 @@
 	]
 	
 	type: fermenter
-	flags: production, wip, auto_complete
+	flags: production, no_cancel
 	tags: fermenting
 	infrastructure: liquid_container, fermenter
 	infrastructure_exclude: none
@@ -176,30 +179,30 @@
 		size: [16, 16]
 		frame: [2, 0]
 	}
-	icon_offset: [4.000, -1.000]
+	icon_offset: [4.000, 1.000]
 	
 	icon_extra:
 	{
 		texture: resource.sugar
 		size: [16, 16]
-		frame: [1, 0]
+		frame: [2, 0]
 	}
-	icon_extra_offset: [-18.000, -7.000]
+	icon_extra_offset: [-15.000, -6.000]
 	
 	icon_c:
 	{
-		texture: resource.mushroom
+		texture: resource.plants
 		size: [16, 16]
 		frame: [3, 0]
 	}
-	icon_c_offset: [4.000, -13.000]
+	icon_c_offset: [-12.000, -12.000]
 	
-	color_frame: "0xffaeb59a"
+	color_frame: "0xffbdcf3f"
 	color_button: "0xff9dd80f"
 	rank: -50.000
 	
 	min: 1
-	max: 10
+	max: 8
 	step: 1
 	
 	version: 1

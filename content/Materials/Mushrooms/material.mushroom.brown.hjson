@@ -1,11 +1,13 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.63.2"
 	name: "Gustus Mushrooms"
 	name_short: "Gustus M."
 	description:
 		'''
-		A heap of brown mushroom bits, looks tasty!
+		Heap of brown mushroom bits, looks tasty!
 		'''
+	
+	tips: []
 	
 	icon:
 	{
@@ -18,52 +20,22 @@
 	flags: soft, food, granular, organic, small, raw, solid
 	display_flags: none
 	hints: none
+	
 	mass_per_unit: 0.236
+	
 	quantity_max: 500.000
 	spawn_quantity_threshold: 3.000
+	snapping: 1.000
+	snapping_pickup: 1.000
+	
 	form_type: raw
 	prefab: resource.mushroom.brown
+	h_substance: "null"
 	
 	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
 	
 	colliders: []
-	
-	commodity:
-	{
-		availability: 1.000
-		rarity: 1.000
-		scalability: 1.000
-		reusability: 1.000
-		longevity: 1.000
-		complexity: 1.000
-		tech: 1.000
-		liquidity: 1.000
-		demand: 1.000
-		
-		flags: none
-		categories: none
-		
-		industries_produce: none
-		industries_consume: none
-		industries_buy: none
-		industries_sell: none
-		
-		buildings_produce: none
-		buildings_consume: none
-		buildings_buy: none
-		buildings_sell: none
-		
-		categories_produce: none
-		categories_consume: none
-		categories_buy: none
-		categories_sell: none
-		
-		market_price: 1.700
-		market_price_min: 0.000
-		market_price_max: 0.000
-		
-		quantity_retail: 0.000
-		quantity_wholesale: 0.000
-		quantity_industry: 0.000
-	}
 }

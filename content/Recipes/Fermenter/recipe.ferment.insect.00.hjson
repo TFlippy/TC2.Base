@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.63.2"
-	name: "Grubby Fermentation"
+	name: "Grubby"
 	desc:
 		'''
 		TODO: Desc
@@ -12,7 +12,7 @@
 		{
 			name: "Formula"
 			
-			type: ingredients
+			type: formula
 			flags: wip, incomplete, auto_generated
 			tags: material, raw
 			// Damage type used for discarding leftover resources.
@@ -24,30 +24,48 @@
 			options:
 			[
 				{
-					name: "Standard"
+					name: "Mushroom"
 					
 					type: undefined
 					flags: wip, incomplete, auto_generated
+					
+					suffix: " Mushroom Fermentation"
+					priority: 1.000
 					
 					requirements:
 					[
 						{
 							type: resource
 							material: insect
-							amount: 25.000
-							snapping: 0.500
-							loss: 0.012
+							amount: 11.740
+							snapping: 1.000
+							loss: 0.463
+							ratio: 1.000
 							group: 0
 							flags: primary, prerequisite
 						}
 						{
 							type: resource
-							material: mushroom.brown
-							amount: 26.44068
-							snapping: 0.500
-							loss: 0.075
+							material: mushroom
+							amount: 24.61207
+							snapping: 1.000
+							loss: 0.216
+							ratio: 1.000
 							group: 0
 							flags: prerequisite
+						}
+						{
+							type: work
+							work: mashing
+							amount: 220.000
+							amount_min: 150.000
+							difficulty: 4
+							snapping: 5.000
+							falloff: 0.964
+							loss: 0.212
+							ratio: 0.314
+							group: 1
+							flags: conditional
 						}
 					]
 					
@@ -77,191 +95,7 @@
 			]
 		}
 		{
-			name: "Filler"
-			
-			type: additives
-			flags: wip, incomplete, auto_generated
-			tags: none
-			// Damage type used for discarding leftover resources.
-			discard_damage_type: wet
-			
-			ratio: 1.000
-			mass_base: 0.000
-			
-			options:
-			[
-				{
-					name: "Woodchips"
-					
-					type: undefined
-					flags: wip, incomplete, auto_generated
-					discard_damage_type_override: wet
-					
-					requirements:
-					[
-						{
-							type: resource
-							material: water
-							amount: 15.000
-							snapping: 0.500
-							loss: 0.424
-							group: 0
-							flags: filler, prerequisite
-						}
-						{
-							type: resource
-							material: woodchips
-							amount: 50.000
-							snapping: 0.500
-							loss: 0.024
-							group: 0
-							flags: filler, prerequisite
-						}
-						{
-							type: work
-							work: mashing
-							amount: 100.000
-							amount_min: 100.000
-							difficulty: 5
-							snapping: 5.000
-							falloff: 0.842
-							loss: 0.024
-							group: 0
-							flags: conditional
-						}
-					]
-					
-					products:
-					[
-						{
-							type: resource
-							material: alcohol
-							amount: 7.500
-							amount_extra: 4.700
-							group: 0
-							flags: byproduct, secondary
-						}
-						{
-							type: resource
-							material: compost
-							amount: 23.500
-							amount_extra: 3.100
-							group: 0
-							flags: waste
-						}
-						{
-							type: resource
-							material: biogas
-							amount: 127.600
-							amount_extra: 71.100
-							group: 0
-							flags: waste, residue, spawn, hidden
-						}
-						{
-							type: resource
-							material: water.swamp
-							amount: 5.400
-							amount_extra: 0.900
-							group: 0
-							flags: pollutant, waste
-						}
-					]
-					
-					filter_tools:
-					{
-						include: bucket, spatula
-					}
-					filter_environment:
-					{
-						require: container
-						include: warm, stationary, contaminated, polluted, smelly, ugly, scary
-						exclude: cold, disinfected, sterile, toxic
-					}
-				}
-				{
-					name: "Compost"
-					
-					type: undefined
-					flags: wip, incomplete, auto_generated
-					discard_damage_type_override: wet
-					
-					requirements:
-					[
-						{
-							type: resource
-							material: water
-							amount: 10.000
-							snapping: 0.500
-							loss: 0.063
-							group: 0
-							flags: filler, prerequisite
-						}
-						{
-							type: resource
-							material: compost
-							amount: 40.000
-							snapping: 0.500
-							loss: 0.063
-							group: 0
-							flags: filler, prerequisite
-						}
-						{
-							type: work
-							work: mashing
-							amount: 350.000
-							amount_min: 150.000
-							difficulty: 7
-							snapping: 5.000
-							falloff: 0.842
-							loss: 0.024
-							group: 0
-							flags: conditional
-						}
-					]
-					
-					products:
-					[
-						{
-							type: resource
-							material: compost
-							amount: 38.7027
-							amount_extra: 7.5323
-							group: 0
-							flags: residue
-						}
-						{
-							type: resource
-							material: biogas
-							amount: 83.8373
-							amount_extra: 35.7627
-							group: 0
-							flags: waste, residue, spawn, hidden
-						}
-						{
-							type: resource
-							material: water.swamp
-							amount: 6.12476
-							amount_extra: 1.18197
-							group: 0
-							flags: pollutant, waste
-						}
-					]
-					
-					filter_tools:
-					{
-						include: bucket, spatula
-					}
-					filter_environment:
-					{
-						require: container
-						include: warm, stationary, contaminated, polluted, smelly, ugly, scary
-						exclude: cold, disinfected, sterile, toxic
-					}
-				}
-			]
-		}
-		{
-			name: "Process"
+			name: "Fermentation"
 			
 			type: processing
 			flags: wip, incomplete, auto_generated
@@ -279,8 +113,7 @@
 					
 					type: undefined
 					flags: wip, incomplete, auto_generated
-					discard_damage_type_override: wet
-					
+
 					requirements:
 					[
 						{
@@ -312,37 +145,42 @@
 	]
 	
 	type: fermenter
-	flags: production, wip, auto_complete
+	flags: production, no_cancel
 	tags: fermenting
-	infrastructure: liquid_container
+	infrastructure: liquid_container, fermenter
 	infrastructure_exclude: none
 	
 	h_company: common
 	
 	icon:
 	{
-		texture: resource.insect
-		size: [16, 16]
-		frame: [2, 0]
-	}
-	icon_offset: [4.000, -1.000]
-	
-	icon_extra:
-	{
 		texture: resource.vinegar
 		size: [16, 16]
 		frame: [2, 0]
 	}
-	icon_extra_offset: [-18.000, -7.000]
+	icon_offset: [8.000, -2.000]
 	
-	icon_c_offset: [6.000, -4.000]
+	icon_extra:
+	{
+		texture: resource.insect
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	icon_extra_offset: [-15.000, -7.000]
 	
-	color_frame: "0xffaeb59a"
+	icon_c:
+	{
+		texture: hornet
+		size: [16, 16]
+	}
+	icon_c_offset: [-18.000, -15.000]
+	
+	color_frame: "0xffbdcf3f"
 	color_button: "0xff9dd80f"
 	rank: -50.000
 	
 	min: 1
-	max: 10
+	max: 8
 	step: 1
 	
 	version: 1

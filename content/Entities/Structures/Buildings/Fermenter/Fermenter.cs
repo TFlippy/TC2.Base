@@ -185,6 +185,8 @@
 		[Source.Owned] in Crafter.Data crafter, [Source.Owned] in Crafter.State crafter_state,
 		[Source.Owned] in Interactable.Data interactable)
 		{
+			return;
+
 			if (interactable.IsActive())
 			{
 				var gui = new FermenterGUI()

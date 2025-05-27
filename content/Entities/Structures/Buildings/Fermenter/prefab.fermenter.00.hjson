@@ -79,15 +79,17 @@ shop:
 	environment: container, mobile, dirty, contaminated, smelly, ugly, flammable
 	
 	flags: hidden_if_order
-	menu_columns: 4
+	menu_columns: 3
 	recipe_type: fermenter
 	
 	offset_spawn: [0.000, -1.000]
+	
+	name: "Fermenter"
 }
 
 crafter:
 {
-	flags: hide_pressure
+	flags: no_gui
 	
 	tools: bucket, shovel, towel, spatula
 	infrastructure: rack, liquid_container
@@ -102,7 +104,7 @@ crafter:
 	@inventory8:
 	{
 		type: workshop
-		flags: standalone, allow_ducts, no_auto_pickup
+		flags: standalone, allow_ducts, no_auto_pickup, vertical
 		stack_size_multiplier: 2.000
 		
 		filter:
@@ -154,7 +156,7 @@ heat:
 	cool_rate: 0.500
 	heat_damage_mult: 0.250
 	cool_rate_mult: 0.200
-	flags: no_gui, no_held_damage
+	flags: no_held_damage
 	offset: [0.000, -0.375]
 	smoke_offset: [0.000, -1.000]
 	size: [0.625, 0.375]
@@ -163,5 +165,6 @@ heat:
 shipment:
 {
 	type: crafting
+	layout: square
 	flags: keep_items, allow_deposit, use_misc, no_empty_deposit
 }
