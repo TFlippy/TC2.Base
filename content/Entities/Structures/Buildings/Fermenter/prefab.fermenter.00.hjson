@@ -78,11 +78,11 @@ shop:
 	infrastructure: barrel, rack, bucket, liquid_container, fermenter
 	environment: container, mobile, dirty, contaminated, smelly, ugly, flammable
 	
-	flags: none
+	flags: hidden_if_order
 	menu_columns: 4
 	recipe_type: fermenter
 	
-	offset_spawn: [-1.000, 0.375]
+	offset_spawn: [0.000, -1.000]
 }
 
 crafter:
@@ -127,7 +127,7 @@ crafter.state:
 
 workshop:
 {
-	flags: add_order_mass
+	flags: hidden_if_no_orders, add_order_mass
 	orders_capacity: 1
 }
 
@@ -163,6 +163,5 @@ heat:
 shipment:
 {
 	type: crafting
-	layout: square
 	flags: keep_items, allow_deposit, use_misc, no_empty_deposit
 }

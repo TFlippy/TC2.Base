@@ -126,6 +126,8 @@ shop:
 workshop:
 {
 	orders_capacity: 2
+	
+	h_sound_order_complete: computer.bell.00
 
 	@inventory16:
 	{

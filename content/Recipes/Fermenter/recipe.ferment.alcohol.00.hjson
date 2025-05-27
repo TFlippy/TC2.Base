@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.5"
+	$version: "0.1.63.2"
 	name: "Alcoholic Fermentation"
 	desc:
 		'''
@@ -36,25 +36,25 @@
 							material: sugar
 							amount: 10.000
 							snapping: 0.100
-							loss: 0.110
+							loss: 0.518
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: resource
-							material: mushroom
-							amount: 50.000
+							material: sawdust
+							amount: 40.000
 							snapping: 0.100
-							loss: 0.153
+							loss: 0.373
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: resource
 							material: plants
-							amount: 40.000
+							amount: 50.000
 							snapping: 0.100
-							loss: 0.212
+							loss: 0.322
 							group: 0
 							flags: prerequisite
 						}
@@ -62,12 +62,12 @@
 							type: work
 							work: mashing
 							amount: 220.000
-							amount_min: 100.000
+							amount_min: 150.000
 							difficulty: 4
 							snapping: 5.000
 							falloff: 0.964
 							loss: 0.212
-							ratio: 0.353
+							ratio: 0.314
 							group: 1
 							flags: conditional
 						}
@@ -78,39 +78,36 @@
 						{
 							type: resource
 							material: alcohol
-							amount: 12.800
-							amount_extra: 40.700
+							amount: 32.800
+							amount_extra: 10.259
 							group: 0
 							flags: byproduct, primary, compact
 						}
 						{
 							type: resource
-							material: compost
-							amount: 15.400
-							amount_extra: 1.500
+							material: mulch
+							amount: 14.35036
+							amount_extra: 1.909398
 							group: 0
-							flags: residue, secondary
-						}
-						{
-							type: resource
-							material: carbon_dioxide
-							amount: 52.000
-							amount_extra: 36.800
-							group: 0
-							flags: pollutant, waste, byproduct, spawn, hidden
+							flags: waste, residue, compact
 						}
 						{
 							type: resource
 							material: rot
-							amount: 19.300
-							amount_extra: 6.300
+							amount: 8.751515
+							amount_extra: 2.856715
 							group: 0
 							flags: waste
 						}
+						{
+							type: resource
+							material: carbon_dioxide
+							amount: 60.86363
+							amount_extra: 43.07274
+							group: 0
+							flags: pollutant, waste, byproduct, spawn, hidden
+						}
 					]
-					
-					quality: 1.000
-					precision: 1.000
 				}
 			]
 		}
@@ -150,16 +147,9 @@
 						}
 					]
 					
-					quality: 1.000
-					precision: 1.000
-					
 					filter_tools:
 					{
 						include: bucket, spatula
-					}
-					filter_machinery:
-					{
-						include: heater
 					}
 					filter_environment:
 					{
@@ -175,7 +165,8 @@
 	type: fermenter
 	flags: production, wip, auto_complete
 	tags: fermenting
-	infrastructure: liquid_container
+	infrastructure: liquid_container, fermenter
+	infrastructure_exclude: none
 	
 	h_company: common
 	

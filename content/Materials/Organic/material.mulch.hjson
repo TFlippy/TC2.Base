@@ -1,0 +1,30 @@
+﻿{
+	$version: "0.1.62.0"
+	name: "Mulch"
+	name_short: "Mulch"
+	description:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: resource.mulch
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	type: peat
+	flags: soft, malleable, granular, organic, small, raw, flammable, waste, flexible, solid
+	display_flags: none
+	hints: materials, junk, primitive, crappy
+	mass_per_unit: 0.410
+	quantity_max: 500.000
+	spawn_quantity_threshold: 1.000
+	form_type: raw
+	prefab: resource.mulch
+	
+	color_icon: "0xffffffff"
+	
+	colliders: []
+}
