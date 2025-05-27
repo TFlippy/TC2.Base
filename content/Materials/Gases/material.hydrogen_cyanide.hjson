@@ -1,0 +1,57 @@
+﻿{
+	$version: "0.1.63.2"
+	name: "Hydrogen Cyanide"
+	name_short: "H.Cyanide"
+	description:
+		'''
+		TODO: Desc
+		'''
+	
+	tips: []
+	
+	icon:
+	{
+		texture: ui_icons_widget
+		count: 1
+		size: [16, 16]
+		frame: [14, 2]
+	}
+	
+	type: gas
+	flags: gas, explosive, toxic, chemical, flammable
+	display_flags: sprite_stack_linear, no_random_facing
+	spawn_flags:
+	{
+		rem: pickup, allow_encumbered, show_notification
+	}
+	hints: weapon, dangerous, explosive, powerful, destructive, chemical, military, industrial, fast
+	
+	purity: 0.863
+	mass_per_unit: 0.014
+	
+	quantity_max: 1000.000
+	spawn_quantity_threshold: 0.100
+	snapping: 0.100
+	snapping_pickup: 1.000
+	
+	form_type: gas
+	prefab: resource.hydrogen_cyanide
+	h_substance: "null"
+	
+	color_icon: "0xaa22b08d"
+	color_item: "0xffffffff"
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
+	
+	colliders: []
+	
+	related:
+	{
+		hydrogen: none
+		ammonia: none
+		insect: none
+		vinegar: none
+		methane: none
+		syngas: none
+	}
+}

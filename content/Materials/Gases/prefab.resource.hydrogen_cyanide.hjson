@@ -1,0 +1,84 @@
+$tags: []
+
+body:
+{
+	type: dynamic
+
+	@shape.circle:
+	{
+		radius: 1.850
+		friction: 0.980
+		elasticity: 0.980
+		rigidity_static: 0.550
+		rigidity_dynamic: 0.150
+		
+		material: gas
+		miss_chance: 0.019
+		
+		layer: entity, solid, resource, gas, flammable, ignore_melee, ignore_hover
+		mask: world, gas
+		exclude: decoration, background, barbed
+	}
+
+	gravity: -0.020
+	damping: 0.910
+	mass_multiplier: 100.000
+	fall_damage_multiplier: 0.000
+}
+
+transform:
+{
+
+}
+
+gas:
+{
+	size: 1.850
+	lifetime: 3.000
+	speed: 0.200
+	interval: 0.380
+	color_a: "0x56606749"
+	color_b: "0x001e2320"
+}
+
+resource:
+{
+	material: "hydrogen_cyanide"
+}
+
+health:
+{
+	max: 10000.000
+}
+
+explosive:
+{
+	damage_type: deflagration
+	damage_type_secondary: fire
+
+	radius: 5.500
+	power: 4.000
+	damage_entity: 6000.000
+	damage_terrain: 7000.000
+	smoke_amount: 4.000
+	smoke_lifetime_multiplier: 0.300
+	smoke_velocity_multiplier: 4.000
+	flash_duration_multiplier: 1.000
+	flash_intensity_multiplier: 0.700
+	force_multiplier: 0.500
+	shake_multiplier: 0.080
+	fire_amount: 0.000
+	volume: 1.200
+	pitch: 0.500
+	health_threshold: 0.999
+	flags: any_damage, explode_when_primed
+}
+
+despawn:
+{
+	sleep_count: 0
+	sleep_count_max: 12
+	interval: 1.000
+	threshold_delete: 0.010
+	threshold_despawning: 1.000
+}
