@@ -165,9 +165,9 @@
 		}
 	]
 	
-	type: fermenter
+	type: workshop
 	flags: production, no_cancel
-	tags: fermenting
+	tags: simple, organic, agriculture, fermenting, processing, dangerous
 	infrastructure: liquid_container, fermenter
 	infrastructure_exclude: none
 	

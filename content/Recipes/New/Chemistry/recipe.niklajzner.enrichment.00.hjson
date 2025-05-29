@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.5"
+	$version: "0.1.63.2"
 	name: "Niklajzner Enrichment"
 	desc:
 		'''
@@ -85,12 +85,6 @@
 						}
 					]
 					
-					quality: 0.863
-					precision: 0.911
-					efficiency: 0.677
-					
-					loss: 0.275
-					
 					filter_infrastructure:
 					{
 						include: oven, forge, crucible
@@ -150,12 +144,6 @@
 						}
 					]
 					
-					quality: 0.863
-					precision: 0.911
-					efficiency: 0.677
-					
-					loss: 0.275
-					
 					filter_infrastructure:
 					{
 						include: oven, forge, crucible
@@ -171,7 +159,7 @@
 	
 	type: workshop
 	flags: production
-	tags: simple, raw, metalworking, heating, processing
+	tags: simple, raw, heating, processing
 	infrastructure: oven
 	infrastructure_exclude: none
 	

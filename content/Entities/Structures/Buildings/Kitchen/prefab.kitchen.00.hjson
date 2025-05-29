@@ -105,13 +105,12 @@ shop:
 {
 	tags_filter:
 	{
-		require: manual
-		include: food, organic, agriculture, filtering, cooking, chemistry, medical, gathering, biology, blending, forestry, moulding, messy
-		exclude: advanced, medium, large, huge, gun, vehicle, furniture, blacksmithing, metalworking, carpentry, architecture, smelting, casting
+		include: food, organic, delicate, agriculture, filtering, cooking, chemistry, medical, gathering, biology, blending, forestry, heating, moulding, messy
+		exclude: advanced, medium, large, huge, gun, vehicle, furniture, blacksmithing, metalworking, metallurgy, carpentry, architecture, smelting, casting
 	}
 	
 	tools: pencil, paper, hammer, saw, hand_drill, cleaver, tweezers, bucket, paintbrush, syringe, towel, spatula, tongs, knife, needle, pins, scissors, ladle
-	infrastructure: oven, lab_glassware, dishes, bottle, barrel, table, chair, rack, bucket, surface, hard_surface, liquid_container, heater, stove, kitchen, building, workbench
+	infrastructure: oven, dishes, bottle, barrel, table, chair, rack, bucket, surface, hard_surface, liquid_container, heater, burner, stove, smokestack, kitchen, building, workbench
 	environment: workshop, stationary, fancy, cozy, sturdy, flammable, kitchen, small
 	
 	flags: none

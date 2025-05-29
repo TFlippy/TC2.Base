@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.5"
+	$version: "0.1.63.2"
 	name: "Nitroglycerine"
 	desc:
 		'''
@@ -33,7 +33,7 @@
 	
 	type: workshop
 	flags: debug, disabled, wip
-	tags: laboratory, manual, advanced, chemistry, science, messy, explosive, dangerous
+	tags: manual, advanced, chemistry, science, messy, explosive, dangerous
 	infrastructure: none
 	infrastructure_exclude: none
 	

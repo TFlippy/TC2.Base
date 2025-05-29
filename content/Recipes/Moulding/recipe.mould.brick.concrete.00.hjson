@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.5"
+	$version: "0.1.63.2"
 	name: "Standard Concrete Slabs"
 	desc:
 		'''
@@ -160,8 +160,9 @@
 	
 	type: workshop
 	flags: wip, converted
-	tags: manual, passive, simple, medium, blending, drying, moulding, messy
-	infrastructure: shaping_mould
+	tags: manual, simple, medium, blending, drying, moulding, messy
+	infrastructure: shaping_mould, form
+	infrastructure_exclude: none
 	
 	icon:
 	{

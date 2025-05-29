@@ -68,19 +68,20 @@ shop:
 {
 	tags_filter:
 	{
+		require: heating
 		include: raw, filtering, cooking, smelting, drying, heating, processing
-		exclude: advanced, large, huge, assembling, blending, construction, fermenting
+		exclude: advanced, large, huge, assembling, construction, casting, moulding
 	}
 	
-	tools: hammer, spanner, bucket, shovel, towel, spatula, tongs, ladle
-	infrastructure: oven, bucket, liquid_container, heater, burner, stove, kiln, still, smokestack, condenser, structure, machine
-	environment: machine, container, waterproof, stationary, dirty, fireproof, durable, sturdy
+	tools: hammer, screwdriver, spanner, bucket, shovel, chisel, towel, spatula, tongs, crowbar, ladle
+	infrastructure: oven, barrel, bucket, liquid_container, heater, burner, stove, kiln, still, smokestack, condenser, structure, machine
+	environment: machine, container, watertight, stationary, dirty, scary, reinforced, fireproof, durable, sturdy, waterproof
 	
 	flags: none
 	menu_columns: 3
 	recipe_type: workshop
 	
-	offset_spawn: [1.375, -2.750]
+	offset_spawn: [1.500, -1.875]
 	
 	name: "Distillation Oven"
 }

@@ -68,13 +68,14 @@ shop:
 {
 	tags_filter:
 	{
+		require: heating
 		include: raw, filtering, cooking, smelting, drying, heating, processing
-		exclude: advanced, large, huge, assembling, blending, construction, fermenting
+		exclude: advanced, large, huge, assembling, blending, construction, fermenting, casting, moulding
 	}
 	
 	tools: hammer, bucket, shovel, tongs
-	infrastructure: oven, rack, heater, burner, kiln
-	environment: container, waterproof, stationary, dirty, ugly, fireproof, durable, sturdy
+	infrastructure: oven, rack, heater, burner, stove, kiln, smokestack, structure
+	environment: container, stationary, dirty, scary, reinforced, fireproof, durable, sturdy, waterproof
 	
 	flags: none
 	menu_columns: 3

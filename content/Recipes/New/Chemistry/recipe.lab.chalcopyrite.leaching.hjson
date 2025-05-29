@@ -1,13 +1,144 @@
 ﻿{
-	$version: "0.1.62.5"
+	$version: "0.1.63.2"
 	name: "Chalcopyrite Roasting"
 	desc:
 		'''
 		Roast some chalcopyrite for fun.
 		'''
 	tips: []
+
+	stages:
+	[
+		{
+			name: "Feedstock"
+			
+			type: feedstock
+			flags: important
+			tags: material, raw
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: heat
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Woodchips"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: heat
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: woodchips
+							amount: 1.000
+							snapping: 1.000
+							ratio: 1.000
+							group: 0
+							flags: primary
+						}
+					]
+					
+					h_sound_complete: burner.bang.00
+				}
+			]
+		}
+		{
+			name: "Processing"
+			
+			type: processing
+			flags: important
+			tags: formula
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: heat
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Simple"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: heat
+					
+					requirements:
+					[
+						{
+							type: temperature
+							amount: 679.000
+							amount_min: 550.000
+							amount_max: 1022.000
+							falloff: 0.819
+							group: 0
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: work
+							work: pyrolysis
+							amount: 100.000
+							amount_min: 825.000
+							amount_max: 1362.000
+							difficulty: 6
+							snapping: 10.000
+							falloff: 0.612
+							ratio: 1.000
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: charcoal
+							amount: 0.145
+							amount_extra: 0.073
+							group: 0
+							flags: primary, compact
+						}
+						{
+							type: resource
+							material: scrap.charred
+							amount: 0.0349
+							amount_extra: 0.0291
+							group: 0
+							flags: waste, compact
+						}
+						{
+							type: resource
+							material: ash
+							amount: 0.02886
+							amount_extra: 0.0454
+							group: 0
+							flags: waste, compact
+						}
+					]
+					
+					filter_infrastructure:
+					{
+						include: oven
+					}
+					filter_environment:
+					{
+						include: airtight
+					}
+					
+					h_sound_begin: furnace.produce.00
+					h_sound_complete: burner.groan.01
+				}
+			]
+		}
+	]
 	
-	requirements:
+	requirements_old:
 	[
 		{
 			type: resource
@@ -66,7 +197,7 @@
 		}
 	]
 	
-	products:
+	products_old:
 	[
 		{
 			type: resource
@@ -81,6 +212,7 @@
 			amount: 9.410
 			amount_extra: 0.350
 			group: 0
+			flags: primary
 		}
 		{
 			type: resource
@@ -99,9 +231,9 @@
 	]
 	
 	type: workshop
-	flags: debug, disabled, wip
-	tags: laboratory, manual, raw, chemistry, science, smelting, heating, messy
-	infrastructure: none
+	flags: debug, production, wip
+	tags: simple, raw, smelting, heating, processing
+	infrastructure: oven, heater, kiln
 	infrastructure_exclude: none
 	
 	icon:

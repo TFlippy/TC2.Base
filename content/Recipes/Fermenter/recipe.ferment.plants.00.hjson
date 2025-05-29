@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.5"
+	$version: "0.1.63.2"
 	name: "Fermented Plants"
 	desc:
 		'''
@@ -83,10 +83,6 @@
 					filter_tools:
 					{
 						include: bucket, spatula
-					}
-					filter_machinery:
-					{
-						include: heater
 					}
 					filter_environment:
 					{
@@ -181,10 +177,11 @@
 		}
 	]
 	
-	type: fermenter
+	type: workshop
 	flags: no_amount_multiplier, disabled, wip, converted
-	tags: fermenting
-	infrastructure: none
+	tags: simple, organic, agriculture, forestry, fermenting, processing
+	infrastructure: liquid_container, fermenter
+	infrastructure_exclude: none
 	
 	h_company: common
 	

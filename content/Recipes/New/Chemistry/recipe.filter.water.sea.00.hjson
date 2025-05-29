@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.5"
+	$version: "0.1.63.2"
 	name: "Boiled Sea Water"
 	desc:
 		'''
@@ -68,8 +68,9 @@
 	
 	type: workshop
 	flags: disabled, wip
-	tags: manual, simple, chemistry, science, biology, heating
-	infrastructure: bucket
+	tags: manual, simple, heating, processing
+	infrastructure: bucket, heater, condenser
+	infrastructure_exclude: none
 	
 	icon:
 	{

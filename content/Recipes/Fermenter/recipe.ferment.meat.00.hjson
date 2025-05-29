@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.63.2"
 	name: "Fermented Meat"
 	desc:
 		'''
@@ -26,6 +26,7 @@
 			amount: 120.000
 			difficulty: 4
 			group: 0
+			flags: conditional
 		}
 	]
 	
@@ -65,10 +66,11 @@
 		}
 	]
 	
-	type: fermenter
+	type: workshop
 	flags: no_amount_multiplier, disabled, wip
-	tags: fermenting
-	infrastructure: none
+	tags: simple, organic, agriculture, fermenting, processing
+	infrastructure: liquid_container, fermenter
+	infrastructure_exclude: none
 	
 	h_company: common
 	

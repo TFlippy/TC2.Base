@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.1"
+	$version: "0.1.63.2"
 	name: "Brezolyt Calcination"
 	desc:
 		'''
@@ -145,7 +145,7 @@
 			]
 		}
 		{
-			name: "Retrieval"
+			name: "Separation"
 			
 			type: postprocessing
 			flags: subtractive
@@ -199,7 +199,7 @@
 	type: workshop
 	flags: production
 	tags: raw, smelting, heating, processing
-	infrastructure: kiln
+	infrastructure: oven, kiln, smokestack
 	infrastructure_exclude: none
 	
 	icon:

@@ -53,30 +53,34 @@ norotate:
 
 health:
 {
-	max: 1950.000
+	max: 11250.000
 }
 
 explosive:
 {
-	radius: 20.000
+	radius: 22.000
 	power: 2.000
-	damage_entity: 11000.000
-	damage_terrain: 22000.000
-	health_threshold: 0.680
+	damage_entity: 20000.000
+	damage_terrain: 38000.000
+	health_threshold: 1.000
 	damage_type: deflagration
-	damage_type_secondary: explosion
-	force_multiplier: 0.430
-	stun_multiplier: 0.670
+	damage_type_secondary: fire
+	flags: explode_when_primed
+	detonate_chance: 0.218
+	detonate_damage_filter: bullet_ac, bullet_kn, bullet_hw, rivet, crush, sledgehammer, explosion, deflagration, fire, electricity, shockwave, corrosion, stress, heat, phlogiston, compression
+	force_multiplier: 0.630
+	stun_multiplier: 0.870
+	terrain_radius_multiplier: 0.750
 	smoke_amount: 2.500
-	smoke_velocity_multiplier: 4.000
+	smoke_lifetime_multiplier: 1.150
+	smoke_velocity_multiplier: 6.000
 	smoke_color: "0xff44403e"
 	flash_duration_multiplier: 6.500
 	flash_intensity_multiplier: 0.400
 	fire_amount: 3.000
-	sparks_amount: 2.500
+	sparks_amount: 4.500
 	volume: 1.440
 	pitch: 0.500
-	flags: explode_when_primed
 }
 
 despawn:
