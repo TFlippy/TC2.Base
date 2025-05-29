@@ -1,0 +1,50 @@
+﻿{
+	$version: "0.1.63.2"
+	name: "Kuprovst"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	material_type: stone_dense
+	tile_flags: non_empty
+	flags: raw, ore, common, mineral
+	
+	max_health: 35000.000
+	smoothing: 0.130
+	stability: 4.140
+	strength_tensile: 4.800
+	strength_compressive: 21.000
+	
+	mass: 2.900
+	friction: 0.960
+	elasticity: 0.520
+	collision_layer: none
+	collision_mask: none
+	
+	texture: terrain.kuprovst
+	pattern: pattern.stone
+	texture_scale: 1.050
+	texture_overshoot: -0.750
+	texture_offset: 0.000
+	
+	color_preview: "0xff86935a"
+	color_fill: "0xff140e08"
+	
+	resources:
+	[
+		{
+			material: kuprovst
+			quantity: 2.1064
+		}
+		null
+	]
+	
+	mappings:
+	[
+		{
+			color: "0xff86935a"
+			tile_flags: solid, non_empty, ground, no_replace
+		}
+	]
+}

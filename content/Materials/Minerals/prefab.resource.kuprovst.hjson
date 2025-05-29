@@ -1,0 +1,63 @@
+$tags: []
+
+body:
+{
+	buoyancy: 0.010
+
+	@shape.circle:
+	{
+		offset: [0.000, 0.250]
+		mass: 1.000
+		radius: 0.750
+		friction: 0.850
+		elasticity: 0.400
+		material: stone_dense
+		layer: entity, solid, resource, ignore_melee, ignore_bullet, bulk
+		mask: world, bulk
+		exclude: held, stored
+	}
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "resource.kuprovst"
+		count: 4
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	z: -44.000
+}
+
+transform:
+{
+
+}
+
+resource:
+{
+	material: "kuprovst"
+}
+
+holdable:
+{
+	force_multiplier: 2.600
+	torque_multiplier: 0.700
+	offset: [0.000, 0.750]
+}
+
+norotate:
+{
+	bias: 0.000
+	mass_multiplier: 25.000
+	attached_multiplier: 0.500
+}
+
+despawn:
+{
+	sleep_count_max: 17
+	interval: 30.000
+	threshold_delete: 0.010
+	threshold_despawning: 0.150
+}

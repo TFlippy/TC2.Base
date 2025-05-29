@@ -1,0 +1,60 @@
+﻿{
+	$version: "0.1.63.2"
+	name: "Kuprovst"
+	name_short: "Kuprovst"
+	description:
+		'''
+		TODO: Desc
+		'''
+	
+	tips: []
+	
+	icon:
+	{
+		texture: resource.kuprovst
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	type: stone_dense
+	flags: hard, granular, toxic, metal, mineral, small, corrosive, raw, gravel, solid, impure, acidic, primary
+	display_flags: none
+	hints: materials, dangerous, heavy, mining, slow, clumsy
+	
+	purity: 0.722
+	mass_per_unit: 1.147
+	
+	quantity_max: 500.000
+	spawn_quantity_threshold: 0.200
+	snapping: 0.100
+	snapping_pickup: 1.000
+	
+	form_type: raw
+	prefab: resource.kuprovst
+	h_substance: "null"
+	
+	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
+	color_dust: "0xff646749"
+	color_gib: "0xff646749"
+	
+	centroid_default: [0.000, 0.250]
+	colliders: []
+	
+	conversions:
+	{
+	
+	}
+	
+	residues:
+	{
+	
+	}
+	
+	related:
+	{
+		sulfur: none
+		copper: none
+		arsenic: none
+	}
+}
