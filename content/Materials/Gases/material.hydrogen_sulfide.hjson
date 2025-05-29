@@ -1,9 +1,10 @@
 ﻿{
 	$version: "0.1.63.2"
-	name: "Hydrogen Cyanide"
-	name_short: "H.Cyanide"
-	name_advanced: "Hydrogen Cyanide"
-	name_dumb: "Almonds"
+	name: "Sulfane"
+	name_short: "Sulfane"
+	name_imperial: "Sulfan"
+	name_advanced: "Hydrogen Sulfide"
+	name_dumb: "Farts"
 	description:
 		'''
 		TODO: Desc
@@ -20,16 +21,16 @@
 	}
 	
 	type: gas
-	flags: gas, explosive, toxic, chemical, flammable
+	flags: gas, toxic, organic, chemical, corrosive, flammable, impure, smelly
 	display_flags: sprite_stack_linear, no_random_facing
 	spawn_flags:
 	{
 		rem: pickup, allow_encumbered, show_notification
 	}
-	hints: weapon, dangerous, explosive, powerful, destructive, chemical, military, industrial, fast
+	hints: dangerous, junk, explosive, destructive, chemical, dumb, civilian, crappy, slow, unstable, clumsy
 	
-	purity: 0.875
-	mass_per_unit: 0.027025
+	purity: 0.845
+	mass_per_unit: 0.03408
 	
 	quantity_max: 1000.000
 	spawn_quantity_threshold: 0.100
@@ -37,10 +38,10 @@
 	snapping_pickup: 1.000
 	
 	form_type: gas
-	prefab: resource.hydrogen_cyanide
-	h_substance: hydrogen_cyanide
+	prefab: resource.hydrogen_sulfide
+	h_substance: hydrogen_sulfide
 	
-	color_icon: "0x98429176"
+	color_icon: "0x9bc4b111"
 	color_item: "0xffffffff"
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"

@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.63.1"
+	$version: "0.1.63.2"
 	name: "Syngas"
 	name_short: "Syngas"
+	name_dumb: "Smoke"
 	description:
 		'''
 		Flammable mixture of various gases.
@@ -26,7 +27,8 @@
 	}
 	hints: none
 	
-	mass_per_unit: 0.010
+	purity: 0.915
+	mass_per_unit: 0.052
 	
 	quantity_max: 1000.000
 	spawn_quantity_threshold: 0.100

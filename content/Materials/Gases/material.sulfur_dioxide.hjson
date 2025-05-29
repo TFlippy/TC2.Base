@@ -1,7 +1,9 @@
 ﻿{
-	$version: "0.1.63.1"
+	$version: "0.1.63.2"
 	name: "Sulfur Dioxide"
 	name_short: "S. Dioxide"
+	name_advanced: "Sulfur Dioxide"
+	name_dumb: "Matches"
 	description:
 		'''
 		TODO: Desc
@@ -26,8 +28,8 @@
 	}
 	hints: none
 	
-	purity: 0.889
-	mass_per_unit: 0.010
+	purity: 0.947
+	mass_per_unit: 0.064066
 	
 	quantity_max: 1000.000
 	spawn_quantity_threshold: 0.100

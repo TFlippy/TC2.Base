@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.63.1"
+	$version: "0.1.63.2"
 	name: "Ozone"
 	name_short: "Ozone"
+	name_dumb: "Electricity"
 	description:
 		'''
 		TODO: Desc
@@ -27,7 +28,7 @@
 	hints: none
 	
 	purity: 0.993
-	mass_per_unit: 0.010
+	mass_per_unit: 0.048
 	
 	quantity_max: 1000.000
 	spawn_quantity_threshold: 0.100

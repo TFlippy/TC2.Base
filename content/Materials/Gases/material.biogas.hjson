@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.63.1"
+	$version: "0.1.63.2"
 	name: "Biogas"
 	name_short: "Biogas"
+	name_dumb: "Farts"
 	description:
 		'''
 		Low-grade mixture of methane and other gases.
@@ -26,7 +27,8 @@
 	}
 	hints: none
 	
-	mass_per_unit: 0.010
+	purity: 0.719
+	mass_per_unit: 0.056
 	
 	quantity_max: 1000.000
 	spawn_quantity_threshold: 0.100

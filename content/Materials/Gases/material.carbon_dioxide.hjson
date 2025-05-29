@@ -1,7 +1,9 @@
 ﻿{
-	$version: "0.1.63.0"
+	$version: "0.1.63.2"
 	name: "Carbon Dioxide"
 	name_short: "C. Dioxide"
+	name_advanced: "Carbon Dioxide"
+	name_dumb: "Smoke"
 	description:
 		'''
 		TODO: Desc
@@ -26,7 +28,7 @@
 	}
 	hints: none
 	
-	purity: 0.869
+	purity: 0.925
 	mass_per_unit: 0.044
 	
 	quantity_max: 1000.000

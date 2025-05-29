@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.63.1"
+	$version: "0.1.63.2"
 	name: "Chlorine"
 	name_short: "Chlorine"
+	name_dumb: "Bleach"
 	description:
 		'''
 		TODO: Desc
@@ -26,8 +27,8 @@
 	}
 	hints: none
 	
-	purity: 0.821
-	mass_per_unit: 0.010
+	purity: 0.966
+	mass_per_unit: 0.03545
 	
 	quantity_max: 1000.000
 	spawn_quantity_threshold: 0.100

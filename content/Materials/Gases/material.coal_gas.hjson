@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.63.1"
+	$version: "0.1.63.2"
 	name: "Coal Gas"
 	name_short: "Coal Gas"
+	name_dumb: "Air"
 	description:
 		'''
 		TODO: Desc
@@ -26,7 +27,8 @@
 	}
 	hints: none
 	
-	mass_per_unit: 0.010
+	purity: 0.785
+	mass_per_unit: 0.058
 	
 	quantity_max: 1000.000
 	spawn_quantity_threshold: 0.100
