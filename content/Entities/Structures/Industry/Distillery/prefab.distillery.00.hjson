@@ -1,0 +1,385 @@
+$name: "Distillery"
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.polygon:
+	{
+		points:
+		[
+			[-0.625, -0.125]
+			[0.625, -0.750]
+			[0.625, 1.250]
+			[-0.750, 1.250]
+		]
+		
+		mass: 350.000
+		radius: 0.750
+		friction: 0.250
+		elasticity: 0.600
+		
+		material: machine
+		miss_chance: 0.780
+		
+		layer: entity, solid, building, ignore_melee
+		mask: world, building
+		exclude: none
+	}
+
+	@shape.box:
+	{
+		size: [2.000, 0.500]
+		offset: [-0.125, 2.125]
+		
+		mass: 235.000
+		radius: 0.500
+		friction: 0.500
+		elasticity: 0.500
+		
+		material: building_masonry
+		miss_chance: 0.000
+		
+		layer: entity, solid, building, ignore_melee, ignore_bullet
+		mask: world, building
+		exclude: none
+	}
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "distillery.00"
+	}
+	z: -280.000
+}
+
+control:
+{
+
+}
+
+health:
+{
+	max: 55000.000
+}
+
+transform:
+{
+
+}
+
+interactable:
+{
+	flags: no_tab
+	priority: 1.800
+	window_size: [576.000, 520.000]
+	window_size_min: [192.000, 96.000]
+	window_size_misc: [168.000, 0.000]
+	window_offset: [-192.000, 0.000]
+}
+
+shop:
+{
+	tags_filter:
+	{
+		include: raw, filtering, cooking, smelting, drying, heating, processing
+		exclude: advanced, large, huge, assembling, blending, construction, fermenting
+	}
+	
+	tools: hammer, spanner, bucket, shovel, towel, spatula, tongs, ladle
+	infrastructure: oven, bucket, liquid_container, heater, burner, stove, kiln, still, smokestack, condenser, structure, machine
+	environment: machine, container, waterproof, stationary, dirty, fireproof, durable, sturdy
+	
+	flags: none
+	menu_columns: 3
+	recipe_type: workshop
+	
+	offset_spawn: [1.375, -2.750]
+	
+	name: "Distillation Oven"
+}
+
+crafter:
+{
+	flags: no_gui
+	
+	temperature_max: 1579.000
+	pressure_max: 3.000
+	
+	spawn_offset: [1.000, -0.375]
+
+	@inventory2:
+	{
+		type: gas
+		flags: standalone, allow_ducts, ignore_mass
+		stack_size_multiplier: 1.000
+		
+		filter:
+		{
+			require: gas
+			include: gas
+		}
+		offset: [-0.500, 0.500]
+	}
+
+	@inventory4:
+	{
+		type: output
+		flags: standalone, allow_ducts, ignore_mass, no_auto_pickup, vertical
+		stack_size_multiplier: 1.000
+		
+		filter:
+		{
+			include: soft, malleable, granular, viscous, small, gravel, powder, bottled
+			exclude: gas
+		}
+		offset: [-0.500, 0.500]
+	}
+}
+
+workshop:
+{
+	tools: hammer, bucket, shovel, tongs
+	infrastructure: oven, hard_surface
+	machinery: heater, burner
+	environment: container, waterproof, stationary, dirty, ugly, fireproof, durable, sturdy
+
+	orders_capacity: 1
+	h_sound_order_complete: computer.bell.00
+
+	@inventory8:
+	{		
+		type: workshop
+		flags: standalone, allow_ducts, ignore_mass, no_auto_pickup, vertical
+		stack_size_multiplier: 1.000
+		
+		filter:
+		{
+			include: soft, malleable, granular, viscous, small, gravel, powder, bottled
+			exclude: gas
+		}
+		offset: [0.000, -0.375]
+	}
+}
+
+distillery:
+{
+
+}
+
+// animated.renderer|"exhaust":
+// {
+// 	sprite:
+// 	{
+// 		texture: burner.parts.00
+// 		size: [16, 16]
+// 		frame: [0, 1]
+// 	}
+// 	offset: [-1.625, -2.000]
+// 	rotation: 0.000
+// 	z: -285.000
+// }
+
+// animated.renderer|"intake":
+// {
+// 	sprite:
+// 	{
+// 		texture: "burner.parts.00"
+// 		size: [8, 8]
+// 		frame: [0, 1]
+// 	}
+// 	z: -275.000
+// }
+
+// sound.emitter|"aux":
+// {
+// 	file: truck_engine_loop
+// 	flags: start_muted
+// 	volume: 0.800
+// 	pitch: 0.400
+// 	size: 0.700
+// 	size_max_modifier: 0.400
+// }
+
+// air.vent|"exhaust":
+// {
+// 	offset: [-1.250, -2.125]
+// 	rotation: -1.571
+// 	cross_section: 0.200
+// 	leak_ratio: 0.020
+// 	flags: no_gui
+// 	type: exhaust
+// }
+
+// air.vent|"intake":
+// {
+// 	offset: [0.375, 0.375]
+// 	rotation: 1.571
+// 	cross_section: 0.300
+// 	leak_ratio: 0.077
+// 	flags: no_gui
+// 	type: intake
+// }
+
+// air.container:
+// {
+// 	volume: 0.250
+// }
+
+// burner:
+// {
+// 	flags: show_misc
+// 	type: liquid
+// 	area_fuel: 0.300
+// 	area_aux: 0.006854
+// 	temperature_max: 1579.000
+// 	pressure_max: 40.000
+// 	insulation: 0.780
+
+// 	// @inventory1:
+// 	// {
+// 	// 	stack_size_multiplier: 0.500
+// 	// 	type: fuel
+// 	// 	flags: allow_ducts, ignore_mass
+// 	// 	offset: [-0.250, 1.125]
+// 	// 	filter:
+// 	// 	{
+// 	// 		require: fuel, flammable, solid
+// 	// 		include: granular, small, powder, volatile
+// 	// 		exclude: long, gas, large, bottled
+// 	// 	}
+// 	// }
+
+// 	@sound.emitter:
+// 	{
+// 		file: refinery.loop.03
+// 		flags: start_muted
+// 		volume: 0.700
+// 		pitch: 0.400
+// 		size: 0.600
+// 		size_max_modifier: 0.450
+// 		spread: 80.000
+// 		offset: [-0.500, 0.375]
+// 	}
+
+// 	@light:
+// 	{
+// 		color: [1.000, 0.500, 0.000, 2.000]
+// 		offset: [-1.250, -2.250]
+// 		scale: [14.000, 13.000]
+// 		intensity: 0.000
+// 		texture: "light.circle.04"
+// 	}
+// }
+
+// burner.state:
+// {
+// 	current_temperature: 300.000
+
+// 	@inventory1:
+// 	{
+// 		type: fuel
+// 		flags: allow_ducts, ignore_mass
+// 		stack_size_multiplier: 1.000
+		
+// 		filter:
+// 		{
+// 			require: fuel, flammable, liquid
+// 			include: liquid
+// 			exclude: solid, gas
+// 		}
+// 		offset: [-0.500, 0.375]
+// 	}
+// }
+
+shipment:
+{
+	type: crafting
+	layout: square
+	flags: keep_items, allow_deposit, use_misc, no_empty_deposit
+}
+
+essence.container:
+{
+	stability: 0.910
+	health_threshold: 0.100
+	glow_modifier: 1.800
+	emit_type: stressor
+	flags: show_gui, allow_edit_rate
+
+	@inventory1:
+	{
+		type: essence
+		flags: ignore_mass
+		stack_size_multiplier: 0.100
+		
+		filter:
+		{
+			require: small, pellet, solid, essence
+			include: none
+			exclude: gas
+		}
+
+		offset: [-0.375, 1.000]
+	}
+
+	@sound.emitter:
+	{
+		flags: start_muted
+		volume: 0.500
+		pitch: 1.730
+		size: 0.350
+		size_max_modifier: 0.700
+		spread: 80.000
+	}
+
+	@light:
+	{
+		offset: [-0.375, 0.625]
+		scale: [11.000, 5.000]
+		texture: light.circle.00
+	}
+}
+
+heat:
+{
+	temperature_medium: 600.000
+	temperature_high: 1150.000
+	temperature_ignite: 1415.000
+	temperature_operating: 1193.150
+	temperature_breakdown: 1650.000
+	cool_rate: 20.000
+	heat_capacity_extra: 900.000
+	heat_capacity_mult: 6.000
+	heat_damage_mult: 0.200
+	smoke_size_mult: 0.700
+	smoke_speed_mult: 0.010
+	smoke_rise_mult: 0.100
+	flags: exclude_body_mass, no_gui
+	fire_flags: none
+	offset: [-0.875, -0.250]
+	smoke_offset: [-0.875, -0.250]
+	size: [0.875, 0.500]
+
+	@light:
+	{
+		offset: [-0.875, -0.125]
+		scale: [28.000, 26.000]
+		intensity: 1.000
+		texture: light.circle.03
+	}
+		
+	@sound.emitter:
+	{
+		file: furnace_loop
+		flags: start_muted
+		volume: 1.100
+		pitch: 1.100
+		size_max_modifier: 0.850
+		priority: 0.550
+		offset: [-0.625, -0.125]
+	}
+}
