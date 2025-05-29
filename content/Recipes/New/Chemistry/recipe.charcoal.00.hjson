@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.1"
+	$version: "0.1.63.2"
 	name: "Charcoal"
 	desc:
 		'''
@@ -140,8 +140,8 @@
 	
 	type: workshop
 	flags: production
-	tags: simple, raw, drying, heating, processing
-	infrastructure: oven
+	tags: simple, raw, heating, processing
+	infrastructure: oven, heater
 	infrastructure_exclude: none
 	
 	icon:

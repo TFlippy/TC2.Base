@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.63.2"
-	name: "Boiled Sea Water"
+	name: "Seawater Desalination"
 	desc:
 		'''
 		TODO: Desc
@@ -67,9 +67,9 @@
 	]
 	
 	type: workshop
-	flags: disabled, wip
+	flags: debug, wip
 	tags: manual, simple, heating, processing
-	infrastructure: bucket, heater, condenser
+	infrastructure: liquid_container, heater, condenser
 	infrastructure_exclude: none
 	
 	icon:

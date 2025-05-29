@@ -159,8 +159,8 @@
 	
 	type: workshop
 	flags: production
-	tags: simple, raw, heating, processing
-	infrastructure: oven
+	tags: simple, raw, metallurgy, heating, processing
+	infrastructure: oven, kiln, smokestack
 	infrastructure_exclude: none
 	
 	icon:
