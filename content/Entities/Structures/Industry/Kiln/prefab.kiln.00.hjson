@@ -152,16 +152,16 @@ animated.renderer|"exhaust":
 	z: -285.000
 }
 
-animated.renderer|"intake":
-{
-	sprite:
-	{
-		texture: "burner.parts.00"
-		size: [8, 8]
-		frame: [0, 1]
-	}
-	z: -275.000
-}
+// animated.renderer|"intake":
+// {
+// 	sprite:
+// 	{
+// 		texture: "burner.parts.00"
+// 		size: [8, 8]
+// 		frame: [0, 1]
+// 	}
+// 	z: -275.000
+// }
 
 sound.emitter|"aux":
 {

@@ -84,24 +84,24 @@
 						{
 							type: resource
 							material: rubber
-							amount: 19.43009
-							amount_extra: 4.289587
+							amount: 17.72897
+							amount_extra: 4.209416
 							group: 0
 							flags: residue, primary, compact
 						}
 						{
 							type: resource
 							material: sludge
-							amount: 9.35848
-							amount_extra: 0.99952
+							amount: 6.322631
+							amount_extra: 0.759732
 							group: 0
 							flags: pollutant, waste, compact
 						}
 						{
 							type: resource
 							material: vinegar
-							amount: 9.8021
-							amount_extra: 1.0469
+							amount: 9.679958
+							amount_extra: 1.033855
 							group: 0
 							flags: byproduct, secondary, compact
 						}
