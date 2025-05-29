@@ -103,7 +103,7 @@ shop:
 	{
 		require: manual
 		include: workbench, advanced, munitions, woodworking, assembling, metalworking, engineering, salvaging
-		exclude: passive, large, vehicle, blacksmithing, social, gathering, smelting, overworld
+		exclude: large, vehicle, blacksmithing, social, gathering, smelting, overworld
 	}
 	
 	tools: pencil, paper, ruler, hammer, cutters, screwdriver, wrench, spanner, pliers, tweezers, magnifying_glass, paintbrush, stapler, file, chisel, towel, tongs, knife, sandpaper, needle, pins, scissors

@@ -209,7 +209,7 @@ shop:
 	tags_filter:
 	{
 		include: workbench, manual, munitions, tailoring, engineering, salvaging, medical, research, social, science
-		exclude: passive, advanced, large, huge, raw, smelting, fermenting, melting, heating, casting, overworld
+		exclude: advanced, large, huge, raw, smelting, fermenting, melting, heating, casting, overworld
 	}
 	
 	tools: pencil, paper, ruler, hammer, screwdriver, magnifying_glass, bucket, towel, knife, needle, pins, scissors, sandpaper
