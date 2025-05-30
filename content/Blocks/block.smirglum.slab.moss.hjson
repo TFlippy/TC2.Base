@@ -34,7 +34,7 @@
 	resources:
 	[
 		{
-			material: scrap.heavy
+			material: smirglum
 			quantity: 0.100
 		}
 		null

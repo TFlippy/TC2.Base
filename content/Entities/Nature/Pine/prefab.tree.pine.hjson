@@ -96,7 +96,7 @@ harvestable:
 			quantity: 273.000
 		}
 		{
-			material: rosin
+			material: resin.pine
 			quantity: 833.000
 		}
 		null

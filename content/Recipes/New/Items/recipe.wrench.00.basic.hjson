@@ -29,7 +29,7 @@
 					[
 						{
 							type: resource
-							material: scrap.heavy
+							material: scrap.niklajzner
 							amount: 3.95498
 							snapping: 1.000
 							falloff: 0.970

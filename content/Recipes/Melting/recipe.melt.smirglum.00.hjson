@@ -24,65 +24,6 @@
 			options:
 			[
 				{
-					name: "Scrap"
-					
-					type: undefined
-					flags: none
-					
-					requirements:
-					[
-						{
-							type: resource
-							material: scrap.heavy
-							amount: 0.509877
-							snapping: 1.000
-							group: 0
-							flags: prerequisite
-						}
-						{
-							type: temperature
-							amount: 3345.280
-							amount_min: 3164.085
-							amount_max: 4468.354
-							group: 0
-							flags: no_scaling, always_evaluate
-						}
-						{
-							type: work
-							work: melting
-							amount: 17.02982
-							amount_min: 200.000
-							difficulty: 5
-							snapping: 5.000
-							falloff: 1.000
-							group: 0
-							flags: conditional, add_amount_min
-						}
-					]
-					
-					products:
-					[
-						{
-							type: substance
-							h_substance: smirglum
-							amount: 1.000
-							amount_extra: 0.042817
-							group: 0
-							flags: primary, parameter, use_temperature
-						}
-						{
-							type: substance
-							h_substance: slag
-							amount: 0.031731
-							amount_extra: 0.01149
-							group: 0
-							flags: waste, residue, parameter, use_temperature
-						}
-					]
-					
-					purity_mult: 0.9441
-				}
-				{
 					name: "Chunks"
 					
 					type: undefined

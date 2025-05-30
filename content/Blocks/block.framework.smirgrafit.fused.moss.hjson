@@ -34,7 +34,7 @@
 	resources:
 	[
 		{
-			material: scrap.heavy
+			material: scrap.smirgrafit
 			quantity: 0.050
 		}
 		null

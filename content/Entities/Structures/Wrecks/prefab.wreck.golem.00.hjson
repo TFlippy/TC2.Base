@@ -42,19 +42,15 @@ harvestable:
 	resources:
 	[
 		{
-			material: "scrap.heavy"
-			quantity: 150.000
+			material: "smirglum"
+			quantity: 50.000
 		}
 		{
-			material: "smirglum.ingot"
-			quantity: 35.000
-		}
-		{
-			material: "arcanite.ingot"
+			material: "arcanite"
 			quantity: 15.000
 		}
 		{
-			material: "recondite.ingot"
+			material: "recondite"
 			quantity: 4.000
 		}
 	]

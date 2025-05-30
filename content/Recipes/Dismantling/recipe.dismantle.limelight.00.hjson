@@ -63,7 +63,7 @@
 						}
 						{
 							type: resource
-							material: scrap.heavy
+							material: recondite
 							amount: 0.134
 							amount_extra: 0.017
 							group: 1
@@ -152,7 +152,7 @@
 		}
 		{
 			type: resource
-			material: scrap.heavy
+			material: recondite
 			amount: 0.134
 			amount_extra: 0.017
 			group: 1
