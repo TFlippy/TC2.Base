@@ -59,7 +59,7 @@
 							snapping: 5.000
 							falloff: 0.820
 							loss: 0.153
-							ratio: 0.376
+							ratio: 0.373
 							group: 0
 							flags: simultaneous, conditional
 						}
@@ -72,7 +72,7 @@
 							snapping: 5.000
 							falloff: 0.799
 							loss: 0.153
-							ratio: 0.576
+							ratio: 0.573
 							group: 0
 							flags: simultaneous, conditional
 						}
@@ -329,7 +329,7 @@
 	]
 	
 	type: workshop
-	flags: blueprintable, debug, item, wip
+	flags: blueprintable, item, wip
 	tags: manual, crafting, complex, small, weapon, munitions, assembling, metalworking, engineering, military, explosive, dangerous
 	infrastructure: table, surface
 	infrastructure_exclude: none

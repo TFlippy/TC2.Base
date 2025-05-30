@@ -398,11 +398,11 @@
 	
 	icon:
 	{
-		texture: resource.timber.maple
-		size: [24, 16]
-		frame: [2, 0]
+		texture: resource.turpentine
+		size: [16, 16]
+		frame: [3, 0]
 	}
-	icon_offset: [14.000, -3.000]
+	icon_offset: [9.000, -6.000]
 	
 	icon_extra:
 	{
@@ -410,7 +410,7 @@
 		size: [16, 16]
 		frame: [1, 0]
 	}
-	icon_extra_offset: [0.000, -7.000]
+	icon_extra_offset: [-5.000, -8.000]
 	
 	icon_c:
 	{

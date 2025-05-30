@@ -163,6 +163,8 @@
 					flags: none
 					discard_damage_type_override: heat
 					
+					suffix: " Charring"
+					
 					requirements:
 					[
 						{
@@ -177,8 +179,8 @@
 						{
 							type: work
 							work: charring
-							amount: 100.000
-							amount_min: 825.000
+							amount: 75.000
+							amount_min: 480.000
 							amount_max: 1362.000
 							difficulty: 6
 							snapping: 10.000
@@ -205,7 +207,7 @@
 							amount: 0.0349
 							amount_extra: 0.0291
 							group: 0
-							flags: waste, compact
+							flags: waste
 						}
 						{
 							type: resource
@@ -213,73 +215,7 @@
 							amount: 0.02886
 							amount_extra: 0.0454
 							group: 0
-							flags: waste, compact
-						}
-					]
-					
-					filter_infrastructure:
-					{
-						include: oven
-					}
-					filter_environment:
-					{
-						include: airtight
-					}
-					
-					h_sound_begin: furnace.produce.00
-					h_sound_complete: burner.groan.01
-				}
-				{
-					name: "Dry Distillation"
-					
-					type: undefined
-					flags: none
-					
-					requirements:
-					[
-						{
-							type: temperature
-							amount: 679.000
-							amount_min: 587.000
-							amount_max: 845.000
-							falloff: 0.819
-							group: 0
-							flags: no_scaling, always_evaluate
-						}
-						{
-							type: work
-							work: pyrolysis
-							amount: 100.000
-							amount_min: 825.000
-							amount_max: 1362.000
-							difficulty: 6
-							snapping: 10.000
-							falloff: 0.612
-							ratio: 1.000
-							group: 0
-							flags: conditional
-						}
-						{
-							type: temperature
-							amount: 625.000
-							amount_min: 500.000
-							amount_max: 1000.000
-							falloff: 0.749
-							group: 1
-							flags: no_scaling, always_evaluate, prerequisite
-						}
-						{
-							type: work
-							work: pyrolysis
-							amount: 100.000
-							amount_min: 825.000
-							amount_max: 1362.000
-							difficulty: 6
-							snapping: 10.000
-							falloff: 0.643
-							ratio: 1.000
-							group: 1
-							flags: conditional
+							flags: waste, residue
 						}
 					]
 					
