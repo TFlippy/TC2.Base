@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.62.3"
+	$version: "0.1.63.2"
 	name: "Onion Juice"
 	name_short: "Onion J."
+	name_dumb: "Juice"
 	description:
 		'''
 		Mighty juice full of vitamins and goodness.

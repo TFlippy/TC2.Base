@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.62.3"
+	$version: "0.1.63.2"
 	name: "Steel Chunk"
 	name_short: "St. Chunk"
+	name_dumb: "Iron"
 	description:
 		'''
 		Standard mangled nickelsteel chunk.
@@ -21,7 +22,6 @@
 	display_flags: none
 	hints: materials, construction, civilian, military, industrial
 	
-	porosity: 0.066
 	purity: 0.963
 	mass_per_unit: 11.67425
 	volume_per_unit: 0.0016

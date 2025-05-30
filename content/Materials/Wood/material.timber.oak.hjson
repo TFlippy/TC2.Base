@@ -2,6 +2,7 @@
 	$version: "0.1.63.2"
 	name: "Timber (Oak)"
 	name_short: "Oak"
+	name_dumb: "Wood"
 	description:
 		'''
 		Raw unprocessed oak.

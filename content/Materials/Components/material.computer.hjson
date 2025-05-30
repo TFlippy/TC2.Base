@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.62.3"
+	$version: "0.1.63.2"
 	name: "Mechanical Computer"
 	name_short: "Computer"
+	name_dumb: "Box"
 	description:
 		'''
 		General-purpose mechanical computer capable of performing advanced calculations.

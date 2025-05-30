@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.63.1"
+	$version: "0.1.63.2"
 	name: "Universal Brown Sauce"
 	name_short: "Sauce"
+	name_dumb: "Food"
 	description:
 		'''
 		Key ingredient of the Imperial cuisine.

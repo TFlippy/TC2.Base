@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.62.3"
+	$version: "0.1.63.2"
 	name: "Iron Powder"
 	name_short: "Irn. Powder"
+	name_dumb: "Glitter"
 	description:
 		'''
 		Standard fine-grained iron powderswarf.
@@ -21,7 +22,6 @@
 	display_flags: none
 	hints: none
 	
-	porosity: 0.128
 	purity: 0.949
 	mass_per_unit: 0.686613
 	volume_per_unit: 0.0001

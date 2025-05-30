@@ -2,6 +2,7 @@
 	$version: "0.1.63.2"
 	name: "Kuprovst"
 	name_short: "Kuprovst"
+	name_dumb: "Mossy Iron"
 	description:
 		'''
 		TODO: Desc

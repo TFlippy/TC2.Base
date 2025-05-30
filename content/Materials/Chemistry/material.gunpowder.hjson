@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.63.1"
+	$version: "0.1.63.2"
 	name: "Black Powder"
 	name_short: "B. Powder"
+	name_dumb: "Gunpowder"
 	description:
 		'''
 		Simple low explosive.

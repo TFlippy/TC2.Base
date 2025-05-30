@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.62.5"
+	$version: "0.1.63.2"
 	name: "Niklajzner Plate"
 	name_short: "Nkz. Plate"
+	name_dumb: "Tinfoil"
 	description:
 		'''
 		Non-standard irregular niklajzner plates.
@@ -43,6 +44,7 @@
 	[
 		{
 			offset: [0.000, 0.800]
+			centroid: [0.000, 0.800]
 			radius: 0.200
 			values:
 			[
@@ -54,6 +56,7 @@
 		}
 		{
 			offset: [0.000, 0.550]
+			centroid: [0.000, 0.550]
 			radius: 0.425
 			values:
 			[
@@ -65,6 +68,7 @@
 		}
 		{
 			offset: [0.000, 0.300]
+			centroid: [0.000, 0.300]
 			radius: 0.675
 			values:
 			[
@@ -76,6 +80,7 @@
 		}
 		{
 			offset: [0.000, 0.050]
+			centroid: [-0.03125, 0.050]
 			radius: 0.925
 			values:
 			[
@@ -317,15 +322,6 @@
 			flags_product: residue
 			
 			yield: [0.952, 0.033]
-		}
-		die_cutting.metal:
-		{
-			h_material: scrap.steel
-			h_substance: "null"
-			flags: none
-			flags_product: residue
-			
-			yield: [0.972, 0.028]
 		}
 		bending:
 		{

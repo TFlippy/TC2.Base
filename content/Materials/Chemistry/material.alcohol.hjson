@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.62.3"
+	$version: "0.1.63.2"
 	name: "Alcohol"
 	name_short: "Alcohol"
+	name_dumb: "Beer"
 	description:
 		'''
 		Industrial alcohol, used as a disinfectant, solvent and drink.

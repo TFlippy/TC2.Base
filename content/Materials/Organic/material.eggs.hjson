@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.62.3"
+	$version: "0.1.63.2"
 	name: "Eggs"
 	name_short: "Eggs"
+	name_dumb: "Egg"
 	description:
 		'''
 		According to the ancient legends, if you eat a dozen of these every day, you get a heart disease.

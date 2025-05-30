@@ -1,11 +1,12 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.63.2"
 	name: "Betoniter"
 	name_short: "Betoniter"
+	name_dumb: "Stone"
 	description:
 		'''
 		Hard argillaceous sedimentary rock. 
-		
+
 		Often found together with various alkaline minerals, can be used as a cement substitute when crushed into a fine powder.
 		'''
 	
@@ -24,8 +25,11 @@
 	hints: none
 	
 	mass_per_unit: 1.450
+	
 	quantity_max: 500.000
 	spawn_quantity_threshold: 1.000
+	snapping: 1.000
+	snapping_pickup: 1.000
 	
 	form_type: chunk
 	prefab: resource.betoniter
@@ -38,7 +42,6 @@
 	
 	colliders: []
 	
-	// Conversions into other materials.
 	conversions:
 	{
 		sledgehammer:

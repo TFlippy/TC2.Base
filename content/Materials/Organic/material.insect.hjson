@@ -2,6 +2,7 @@
 	$version: "0.1.63.2"
 	name: "Insect Meat"
 	name_short: "Insect"
+	name_dumb: "Grubby"
 	description:
 		'''
 		Sticky and grubby!

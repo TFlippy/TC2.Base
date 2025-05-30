@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.62.3"
+	$version: "0.1.63.2"
 	name: "Hydrogen Peroxide"
 	name_short: "H. Peroxide"
+	name_dumb: "Water"
 	description:
 		'''
 		Strong oxidizer and disinfectant.

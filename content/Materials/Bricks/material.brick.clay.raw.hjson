@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.62.3"
+	$version: "0.1.63.2"
 	name: "Clay Bricks (Raw)"
 	name_short: "Bricks (Raw)"
+	name_dumb: "Putty"
 	description:
 		'''
 		TODO: Desc
@@ -37,6 +38,7 @@
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	
+	centroid_default: [0.000, 0.250]
 	colliders: []
 	
 	conversions:

@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.62.3"
+	$version: "0.1.63.2"
 	name: "Glass"
 	name_short: "Glass"
+	name_dumb: "Window"
 	
 	tips: []
 	
@@ -38,6 +39,7 @@
 	[
 		{
 			offset: [0.000, 0.800]
+			centroid: [0.000, 0.800]
 			radius: 0.200
 			values:
 			[
@@ -49,6 +51,7 @@
 		}
 		{
 			offset: [0.000, 0.550]
+			centroid: [0.000, 0.550]
 			radius: 0.425
 			values:
 			[
@@ -60,6 +63,7 @@
 		}
 		{
 			offset: [0.000, 0.300]
+			centroid: [0.000, 0.300]
 			radius: 0.675
 			values:
 			[
@@ -71,6 +75,7 @@
 		}
 		{
 			offset: [0.000, 0.050]
+			centroid: [-0.03125, 0.050]
 			radius: 0.925
 			values:
 			[

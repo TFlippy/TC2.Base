@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.62.3"
+	$version: "0.1.63.2"
 	name: "Seawater"
 	name_short: "S. Water"
+	name_dumb: "Water"
 	description:
 		'''
 		Water, salty seawater.

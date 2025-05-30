@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.63.1"
+	$version: "0.1.63.2"
 	name: "Phlogiston"
 	name_short: "Phlogiston"
+	name_dumb: "Fire"
 	description:
 		'''
 		Exotic oxygen-rich fuel capable of reaching incredibly high temperatures.

@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.62.3"
+	$version: "0.1.63.2"
 	name: "Majonez"
 	name_short: "Mayo"
+	name_dumb: "Mayor"
 	description:
 		'''
 		Popular Imperial delicacy, either eaten directly or as a side dish.

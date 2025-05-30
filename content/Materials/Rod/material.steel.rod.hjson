@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.63.0"
+	$version: "0.1.63.2"
 	name: "Steel Rod"
 	name_short: "St. Rod"
+	name_dumb: "Iron Stick"
 	description:
 		'''
 		Standard 60x4x4 cm nickelsteel rod.
@@ -22,8 +23,6 @@
 	display_flags: no_random_facing
 	hints: materials, construction
 	
-	density_ratio: 0.9069
-	porosity: 0.004
 	purity: 0.985
 	mass_per_unit: 5.843082
 	volume_per_unit: 0.000754
@@ -47,6 +46,7 @@
 	colliders:
 	[
 		{
+			centroid: [0.053571, 0.642857]
 			radius: 0.250
 			count: 4
 			values:
@@ -58,6 +58,7 @@
 			]
 		}
 		{
+			centroid: [0.000, 0.575]
 			radius: 0.250
 			count: 4
 			values:
@@ -69,6 +70,7 @@
 			]
 		}
 		{
+			centroid: [-0.027778, 0.347222]
 			radius: 0.375
 			count: 4
 			values:
@@ -80,6 +82,7 @@
 			]
 		}
 		{
+			centroid: [-0.017241, 0.123563]
 			radius: 0.375
 			count: 4
 			values:

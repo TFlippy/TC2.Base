@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.62.5"
+	$version: "0.1.63.2"
 	name: "Magitronic Actuators"
 	name_short: "Actuators"
+	name_dumb: "Mushroom"
 	description:
 		'''
 		Advanced essence-infused actuators used in robotics and mechanics.

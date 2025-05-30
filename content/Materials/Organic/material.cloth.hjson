@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.63.1"
+	$version: "0.1.63.2"
 	name: "Cloth"
 	name_short: "Cloth"
+	name_dumb: "Wool"
 	description:
 		'''
 		Standard bundle of cloth.

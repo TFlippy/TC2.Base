@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.63.1"
+	$version: "0.1.63.2"
 	name: "Charcoal"
 	name_short: "Charcoal"
+	name_dumb: "Coal"
 	description:
 		'''
 		A fast-burning fuel produced from wood.

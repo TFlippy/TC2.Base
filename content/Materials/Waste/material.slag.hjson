@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.62.3"
+	$version: "0.1.63.2"
 	name: "Slag"
 	name_short: "Slag"
+	name_dumb: "Stone"
 	description:
 		'''
 		A mixture of various metals and waste from smelting.
@@ -42,18 +43,22 @@
 	[
 		{
 			offset: [0.000, 0.500]
+			centroid: [0.000, 0.500]
 			radius: 0.500
 		}
 		{
 			offset: [0.000, 0.500]
+			centroid: [0.000, 0.500]
 			radius: 0.500
 		}
 		{
 			offset: [0.000, 0.375]
+			centroid: [0.000, 0.375]
 			radius: 0.600
 		}
 		{
 			offset: [-0.125, 0.250]
+			centroid: [-0.125, 0.250]
 			radius: 0.720
 		}
 	]

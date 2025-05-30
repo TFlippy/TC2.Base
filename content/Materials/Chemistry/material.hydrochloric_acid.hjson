@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.62.3"
+	$version: "0.1.63.2"
 	name: "Hydrochloric Acid"
 	name_short: "HCl. Acid"
+	name_dumb: "Water"
 	description:
 		'''
 		A strong acid.

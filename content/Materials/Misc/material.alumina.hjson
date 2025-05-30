@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.62.3"
+	$version: "0.1.63.2"
 	name: "Alumina"
 	name_short: "Alumina"
+	name_dumb: "Sand"
 	description:
 		'''
 		TODO: Desc

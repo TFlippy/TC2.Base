@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.62.5"
+	$version: "0.1.63.2"
 	name: "Niklajzner"
 	name_short: "Niklajz."
+	name_dumb: "Iron"
 	description:
 		'''
 		Native iron-nickel alloy used predominantly in Kordel's steel production.

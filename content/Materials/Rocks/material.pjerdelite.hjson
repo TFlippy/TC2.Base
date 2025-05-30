@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.63.2"
 	name: "Pjerdelite"
 	name_short: "Pjerdelite"
+	name_dumb: "Stone"
 	description:
 		'''
 		Dense smirglum-iron rock with traces of silver.
@@ -22,8 +23,11 @@
 	hints: none
 	
 	mass_per_unit: 3.170
+	
 	quantity_max: 500.000
 	spawn_quantity_threshold: 1.000
+	snapping: 1.000
+	snapping_pickup: 1.000
 	
 	form_type: chunk
 	prefab: resource.pjerdelite

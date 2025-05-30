@@ -1,11 +1,14 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.63.2"
 	name: "Tar"
 	name_short: "Tar"
+	name_dumb: "Rubber"
 	description:
 		'''
 		Sticky tar.
 		'''
+	
+	tips: []
 	
 	icon:
 	{
@@ -18,14 +21,24 @@
 	flags: soft, malleable, sticky, granular, toxic, raw, flammable, smelly
 	display_flags: none
 	hints: none
+	
 	mass_per_unit: 0.400
+	
 	quantity_max: 500.000
 	spawn_quantity_threshold: 0.800
+	snapping: 1.000
+	snapping_pickup: 1.000
+	
 	form_type: raw
 	prefab: resource.tar
+	h_substance: "null"
 	
 	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
 	
+	centroid_default: [0.000, 0.250]
 	colliders: []
 	
 	commodity:

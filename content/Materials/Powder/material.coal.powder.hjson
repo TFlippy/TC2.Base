@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.62.3"
+	$version: "0.1.63.2"
 	name: "Coal (Powder)"
 	name_short: "Coal P."
+	name_dumb: "Gunpowder"
 	description:
 		'''
 		Standard powdered mixture of various coals.
@@ -31,11 +32,13 @@
 	
 	form_type: powder
 	prefab: resource.coal.powder
+	h_substance: "null"
 	
 	color_icon: "0xffffffff"
 	color_item: "0xffffffff"
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	
+	centroid_default: [0.000, 0.250]
 	colliders: []
 }

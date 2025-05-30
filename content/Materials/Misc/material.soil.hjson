@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.63.2"
 	name: "Soil"
 	name_short: "Soil"
+	name_dumb: "Dirt"
 	description:
 		'''
 		Regular soil, fairly fertile.
@@ -23,8 +24,11 @@
 	
 	mass_per_unit: 0.720
 	volume_per_stack: 1.063
+	
 	quantity_max: 500.000
 	spawn_quantity_threshold: 3.000
+	snapping: 1.000
+	snapping_pickup: 1.000
 	
 	form_type: raw
 	prefab: resource.soil
@@ -37,7 +41,6 @@
 	
 	colliders: []
 	
-	// Conversions into other materials.
 	conversions:
 	{
 		wet:

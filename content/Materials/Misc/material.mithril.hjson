@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.62.3"
+	$version: "0.1.63.2"
 	name: "Mithril"
 	name_short: "Mithril"
+	name_dumb: "Uranium"
 	description:
 		'''
 		A mysterious unstable substance.

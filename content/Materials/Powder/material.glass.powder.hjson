@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.62.3"
+	$version: "0.1.63.2"
 	name: "Glass (Powder)"
 	name_short: "Glass P."
+	name_dumb: "Meth"
 	description:
 		'''
 		This is not meth.

@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.62.3"
+	$version: "0.1.63.2"
 	name: "Aluminium Chunk"
 	name_short: "Al. Chunk"
+	name_dumb: "Tinfoil"
 	description:
 		'''
 		TODO: Desc
@@ -21,7 +22,6 @@
 	display_flags: none
 	hints: materials, advanced, weak, expensive, civilian, military, fast
 	
-	porosity: 0.066
 	purity: 0.897
 	mass_per_unit: 4.033385
 	volume_per_unit: 0.0016

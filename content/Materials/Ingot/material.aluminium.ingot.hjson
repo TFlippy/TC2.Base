@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.62.3"
+	$version: "0.1.63.2"
 	name: "Aluminium Bar"
 	name_short: "Al. Bar"
+	name_dumb: "Tinfoil Brick"
 	description:
 		'''
 		Standard 20x10x8 cm aluminium bar.
@@ -21,7 +22,6 @@
 	display_flags: no_random_facing
 	hints: none
 	
-	porosity: 0.030
 	purity: 0.963
 	mass_per_unit: 4.063182
 	volume_per_unit: 0.0016
@@ -43,6 +43,7 @@
 	colliders:
 	[
 		{
+			centroid: [0.0625, 0.750]
 			radius: 0.125
 			count: 4
 			values:
@@ -54,6 +55,7 @@
 			]
 		}
 		{
+			centroid: [0.0625, 0.5625]
 			radius: 0.125
 			count: 4
 			values:
@@ -65,6 +67,7 @@
 			]
 		}
 		{
+			centroid: [-0.086957, 0.585145]
 			radius: 0.125
 			count: 4
 			values:
@@ -76,6 +79,7 @@
 			]
 		}
 		{
+			centroid: [0.028986, 0.411232]
 			radius: 0.125
 			count: 4
 			values:
@@ -87,6 +91,7 @@
 			]
 		}
 		{
+			centroid: [-0.014858, 0.2823]
 			radius: 0.125
 			count: 4
 			values:
@@ -98,6 +103,7 @@
 			]
 		}
 		{
+			centroid: [0.000, 0.1875]
 			radius: 0.125
 			count: 4
 			values:
@@ -109,6 +115,7 @@
 			]
 		}
 		{
+			centroid: [0.003933, 0.098328]
 			radius: 0.125
 			count: 4
 			values:

@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.62.3"
+	$version: "0.1.63.2"
 	name: "Nickel Chunk"
 	name_short: "Ni. Chunk"
+	name_dumb: "Gold"
 	description:
 		'''
 		TODO: Desc
@@ -21,7 +22,6 @@
 	display_flags: none
 	hints: materials, construction, cheap, dumb, industrial
 	
-	porosity: 0.066
 	purity: 0.939
 	mass_per_unit: 11.7669
 	volume_per_unit: 0.0016

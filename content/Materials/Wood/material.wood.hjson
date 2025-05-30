@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.63.1"
+	$version: "0.1.63.2"
 	name: "Planks"
 	name_short: "Planks"
+	name_dumb: "Wood"
 	description:
 		'''
 		Planks used for construction.
@@ -22,7 +23,6 @@
 	display_flags: sprite_stack_linear, no_random_facing
 	hints: none
 	
-	porosity: 0.110
 	purity: 0.753
 	mass_per_unit: 2.136
 	volume_per_unit: 0.0032

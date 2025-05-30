@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.62.3"
+	$version: "0.1.63.2"
 	name: "Pestilence"
 	name_short: "Pestilence"
+	name_dumb: "Friend"
 	description:
 		'''
 		It's teeming with life, kill it.

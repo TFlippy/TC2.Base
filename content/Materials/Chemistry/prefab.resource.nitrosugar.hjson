@@ -9,7 +9,7 @@ body:
 		offset: [0.000, 0.250]
 		mass: 1.000
 		radius: 0.750
-		friction: 0.950
+		friction: 0.450
 		elasticity: 0.700
 		material: resin
 		layer: entity, solid, resource, flammable
@@ -44,37 +44,64 @@ holdable:
 
 norotate:
 {
-
+	flags: no_share, disable_in_air
+	speed: 3.000
+	bias: 0.000
+	
+	mass_multiplier: 25.000
+	attached_multiplier: 0.500
 }
 
 health:
 {
-	max: 3500.000
+	max: 6500.000
 }
 
 explosive:
 {
-	radius: 5.000
+	radius: 5.500
 	power: 6.400
 	damage_entity: 37500.000
 	damage_terrain: 95000.000
 	health_threshold: 0.990
-	damage_type: explosion
-	damage_type_secondary: shockwave
+	damage_type: shockwave
+	damage_type_secondary: explosion
 	flags: explode_when_primed
-	detonate_chance: 0.671
-	detonate_damage_filter: bullet_lc, bullet_hc, bullet_mg, bullet_ac, bullet_sg, bullet_kn, bullet_hw, bullet_musket, rivet, stab, impact, crush, slash, axe, pickaxe, drill, shovel, club, blunt, sledgehammer, explosion, deflagration, motion_impulse, fire, ram, saw, handsaw, electricity, shockwave, shrapnel, fracture, stress, heat, phlogiston, compression
+	detonate_chance: 0.969
+	detonate_damage_filter: bullet_lc, bullet_hc, bullet_mg, bullet_ac, bullet_sg, bullet_kn, bullet_hw, bullet_musket, rivet, impact, crush, axe, pickaxe, drill, shovel, club, blunt, sledgehammer, explosion, deflagration, motion_impulse, fire, ram, saw, radiation, electricity, shockwave, shrapnel, fracture, corrosion, stress, steam, heat, phlogiston, wet, compression
 	shake_multiplier: 0.850
-	force_multiplier: 1.650
+	force_multiplier: 1.950
 	stun_multiplier: 1.400
-	terrain_radius_multiplier: 4.500
+	terrain_radius_multiplier: 3.500
 	smoke_amount: 2.800
-	smoke_lifetime_multiplier: 0.700
+	smoke_lifetime_multiplier: 0.500
 	smoke_velocity_multiplier: 5.500
-	smoke_color: "0xeaf9f9f9"
+	smoke_color: "0xeaf09797"
 	flash_duration_multiplier: 0.120
 	flash_intensity_multiplier: 2.500
 	fire_amount: 0.000
 	volume: 4.000
-	pitch: 2.800
+	pitch: 2.000
+}
+
+despawn:
+{
+	sleep_count_max: 6
+	interval: 14.000
+	threshold_delete: 0.010
+	threshold_despawning: 0.050
+}
+
+// breakable:
+// {
+// 	flags: splittable
+// 	spawn_flags_rem: merge, pickup, allow_encumbered, show_notification
+// }
+
+wettable:
+{
+	flags: damage_if_wet
+	absorption: 0.850
+	damage_multiplier: 50.000
+	damage_interval: 1.000
 }

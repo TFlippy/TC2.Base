@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.62.3"
+	$version: "0.1.63.2"
 	name: "Lubricant"
 	name_short: "Lubricant"
+	name_dumb: "Lube"
 	description:
 		'''
 		Mostly used in industry for reducing friction.

@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.63.1"
+	$version: "0.1.63.2"
 	name: "Machine Parts"
 	name_short: "M. Parts"
+	name_dumb: "Things"
 	description:
 		'''
 		Pile of small machine parts and fasteners - gears, hinges, bolts, springs, screws.
@@ -155,15 +156,6 @@
 			flags_product: waste
 			
 			yield: [0.490, 0.230]
-		}
-		die_cutting.metal:
-		{
-			h_material: scrap.machine
-			h_substance: "null"
-			flags: none
-			flags_product: none
-			
-			yield: [0.920, 0.070]
 		}
 		dismantling:
 		{

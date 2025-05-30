@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.62.3"
+	$version: "0.1.63.2"
 	name: "Lime"
 	name_short: "Lime"
+	name_dumb: "Flour"
 	description:
 		'''
 		Alkaline mineral commonly used in metallurgy, chemical industry and in production of cement and paper.

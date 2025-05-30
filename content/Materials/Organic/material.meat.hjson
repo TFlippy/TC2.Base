@@ -1,11 +1,14 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.63.2"
 	name: "Mystery Meat"
 	name_short: "Meat"
+	name_dumb: "Food"
 	description:
 		'''
 		It is a mystery.
 		'''
+	
+	tips: []
 	
 	icon:
 	{
@@ -18,13 +21,22 @@
 	flags: soft, malleable, sticky, food, granular, organic, small, raw, flexible, solid
 	display_flags: none
 	hints: none
+	
 	mass_per_unit: 0.400
+	
 	quantity_max: 250.000
 	spawn_quantity_threshold: 2.400
+	snapping: 1.000
+	snapping_pickup: 1.000
+	
 	form_type: raw
 	prefab: resource.meat
+	h_substance: "null"
 	
 	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
 	
 	colliders: []
 	
@@ -67,7 +79,6 @@
 		quantity_industry: 0.000
 	}
 	
-	// Conversions into other materials.
 	conversions:
 	{
 		phlogiston:

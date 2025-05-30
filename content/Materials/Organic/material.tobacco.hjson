@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.62.3"
+	$version: "0.1.63.2"
 	name: "Tobacco"
 	name_short: "Tobacco"
+	name_dumb: "Dirt"
 	description:
 		'''
 		Dried tobacco leaves used in cigarettes and cigars.

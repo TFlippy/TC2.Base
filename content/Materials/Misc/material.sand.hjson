@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.62.3"
+	$version: "0.1.63.2"
 	name: "Sand"
 	name_short: "Sand"
+	name_dumb: "Sand"
 	description:
 		'''
 		Pile of sand - fit for glass production.

@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.63.0"
+	$version: "0.1.63.2"
 	name: "Steel Powder"
 	name_short: "St. Powder"
+	name_dumb: "Shiny Dust"
 	description:
 		'''
 		Standard fine-grained nickelsteel powderswarf.
@@ -21,7 +22,6 @@
 	display_flags: none
 	hints: none
 	
-	porosity: 0.128
 	purity: 0.961
 	mass_per_unit: 0.594012
 	volume_per_unit: 0.0001

@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.62.3"
+	$version: "0.1.63.2"
 	name: "Limelight"
 	name_short: "Limelight"
+	name_dumb: "Lamp"
 	description:
 		'''
 		Small stackable cylinders of compacted quicklime with a thermal pellet inside.

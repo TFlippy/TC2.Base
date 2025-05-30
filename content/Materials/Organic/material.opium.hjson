@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.62.3"
+	$version: "0.1.63.2"
 	name: "Opium"
 	name_short: "Opium"
+	name_dumb: "Dirt"
 	description:
 		'''
 		Dried poppy resin used for production of opiates.

@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.62.3"
+	$version: "0.1.63.2"
 	name: "Rubber"
 	name_short: "Rubber"
+	name_dumb: "Gum"
 	description:
 		'''
 		Bouncy rubber.

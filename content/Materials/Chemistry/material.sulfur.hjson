@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.62.3"
+	$version: "0.1.63.2"
 	name: "Sulfur"
 	name_short: "Sulfur"
+	name_dumb: "Yellow Dust"
 	description:
 		'''
 		Widely used in chemistry.

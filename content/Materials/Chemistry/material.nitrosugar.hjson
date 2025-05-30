@@ -1,9 +1,10 @@
 ﻿{
-	$version: "0.1.63.1"
+	$version: "0.1.63.2"
 	name: "Nitrosugar"
 	name_short: "Nitrosugar"
 	name_imperial: "Nitrocukker"
 	name_advanced: "Nitrated Glycitol Compound"
+	name_dumb: "Ruby"
 	description:
 		'''
 		Sugar alcohol-based high explosive commonly used in detonators, primers and medicine.

@@ -1,11 +1,14 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.63.2"
 	name: "Shite"
 	name_short: "Shite"
+	name_dumb: "Shite"
 	description:
 		'''
 		But will it burn?
 		'''
+	
+	tips: []
 	
 	icon:
 	{
@@ -18,17 +21,25 @@
 	flags: soft, malleable, sticky, granular, organic, raw, fuel, flammable, waste, flexible
 	display_flags: none
 	hints: junk, primitive, weak, cheap, dumb, crappy, fast
+	
 	mass_per_unit: 0.213
+	
 	quantity_max: 500.000
 	spawn_quantity_threshold: 3.000
+	snapping: 1.000
+	snapping_pickup: 1.000
+	
 	form_type: raw
 	prefab: resource.shite
+	h_substance: "null"
 	
 	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
 	
 	colliders: []
 	
-	// Conversions into other materials.
 	conversions:
 	{
 		phlogiston:

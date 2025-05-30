@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.63.1"
+	$version: "0.1.63.2"
 	name: "Steel Plate"
 	name_short: "St. Plate"
+	name_dumb: "Flat Iron"
 	description:
 		'''
 		Standard 60x20x0.25 cm nickelsteel plate.
@@ -397,15 +398,6 @@
 			flags_product: residue
 			
 			yield: [0.952, 0.023]
-		}
-		die_cutting.metal:
-		{
-			h_material: scrap.steel
-			h_substance: "null"
-			flags: none
-			flags_product: residue
-			
-			yield: [0.972, 0.028]
 		}
 		bending:
 		{

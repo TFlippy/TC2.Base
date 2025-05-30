@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.63.1"
+	$version: "0.1.63.2"
 	name: "Steel Frames"
 	name_short: "St. Frames"
+	name_dumb: "Frame"
 	description:
 		'''
 		Various structural nickelsteel components - frames, braces, grids, grates, struts.

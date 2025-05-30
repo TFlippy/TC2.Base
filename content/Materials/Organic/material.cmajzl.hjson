@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.63.1"
+	$version: "0.1.63.2"
 	name: "Cmajzl"
 	name_short: "Cmajzl"
+	name_dumb: "Weed"
 	description:
 		'''
 		Common parasitic cereal grain of many uses, grows on almost anything and tastes terrible.

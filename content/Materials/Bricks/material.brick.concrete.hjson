@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.62.3"
+	$version: "0.1.63.2"
 	name: "Concrete Slabs"
 	name_short: "Cnc. Slabs"
+	name_dumb: "Stone Brick"
 	description:
 		'''
 		TODO: Desc
