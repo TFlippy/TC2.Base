@@ -18,16 +18,16 @@
 	}
 	
 	type: tree
-	flags: hard, long, organic, raw, fuel, flammable, flexible, solid, impure, primary
+	flags: soft, organic, raw, fuel, flammable, flexible, solid, impure, primary
 	display_flags: none
 	hints: none
 	
-	mass_per_unit: 5.592
+	mass_per_unit: 4.779
 	
-	quantity_max: 150.000
-	spawn_quantity_threshold: 0.100
+	quantity_max: 100.000
+	spawn_quantity_threshold: 1.000
 	snapping: 1.000
-	snapping_pickup: 10.000
+	snapping_pickup: 25.000
 	
 	form_type: raw
 	prefab: resource.timber.pine

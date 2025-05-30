@@ -13,7 +13,7 @@ body:
 		b: [0.000, -0.375]
 		offset: [0.000, 0.000]
 		
-		mass: 3720.000
+		mass: 3820.000
 		radius: 0.500
 		friction: 0.840
 		elasticity: 0.080
@@ -34,7 +34,7 @@ transform:
 
 health:
 {
-	max: 107800.000
+	max: 117800.000
 }
 
 splittable:
@@ -78,11 +78,11 @@ harvestable:
 	[
 		{
 			material: timber.oak
-			quantity: 415.000
+			quantity: 397.000
 		}
 		{
 			material: scrap.wood
-			quantity: 436.000
+			quantity: 236.000
 		}
 		{
 			material: resin

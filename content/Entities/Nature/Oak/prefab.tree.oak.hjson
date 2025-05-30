@@ -34,7 +34,7 @@ transform:
 
 health:
 {
-	max: 92500.000
+	max: 102500.000
 }
 
 splittable:
@@ -90,15 +90,15 @@ harvestable:
 	[
 		{
 			material: timber.oak
-			quantity: 450.000
+			quantity: 429.000
 		}
 		{
 			material: plants
-			quantity: 1277.000
+			quantity: 637.000
 		}
 		{
 			material: resin
-			quantity: 194.000
+			quantity: 144.000
 		}
 		null
 	]

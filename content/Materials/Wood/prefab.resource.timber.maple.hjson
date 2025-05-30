@@ -10,8 +10,8 @@ body:
 		b: [0.750, 0.000]
 		mass: 1.000
 		radius: 0.750
-		friction: 0.850
-		elasticity: 0.200
+		friction: 0.550
+		elasticity: 0.500
 		material: tree
 		layer: entity, solid, resource, flammable, ignore_bullet
 		mask: world
@@ -41,11 +41,11 @@ resource:
 
 holdable:
 {
-	force_multiplier: 2.000
+	force_multiplier: 2.200
 	torque_multiplier: 1.200
-	stress_multiplier: 0.250
+	stress_multiplier: 0.400
 	radius: 0.000
-	flags: disable_parent_facing, disable_rotation, disable_control
+	flags: disable_parent_facing, disable_rotation, disable_control, full_rotate
 }
 
 despawn:

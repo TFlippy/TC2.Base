@@ -11,7 +11,7 @@ body:
 	{
 		a: [0.000, -10.500]
 		b: [0.000, -0.250]
-		mass: 1390.000
+		mass: 1490.000
 		radius: 0.500
 		friction: 0.950
 		elasticity: 0.310
@@ -89,15 +89,15 @@ harvestable:
 	[
 		{
 			material: timber.pine
-			quantity: 166.5096
+			quantity: 266.5096
 		}
 		{
 			material: plants
-			quantity: 483.3261
+			quantity: 753.3261
 		}
 		{
 			material: resin.pine
-			quantity: 560.2728
+			quantity: 340.2728
 		}
 		null
 	]

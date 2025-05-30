@@ -12,10 +12,10 @@ body:
 		a: [0.000, -6.000]
 		b: [0.000, 0.000]
 		
-		mass: 710.000
+		mass: 820.000
 		radius: 0.375
-		friction: 0.860
-		elasticity: 0.140
+		friction: 0.660
+		elasticity: 0.240
 
 		material: tree
 		miss_chance: 0.942
@@ -33,7 +33,7 @@ transform:
 
 health:
 {
-	max: 27000.000
+	max: 37000.000
 }
 
 splittable:
@@ -77,15 +77,15 @@ harvestable:
 	[
 		{
 			material: timber.maple
-			quantity: 91.000
+			quantity: 106.000
 		}
 		{
 			material: woodchips
-			quantity: 192.000
+			quantity: 328.000
 		}
 		{
 			material: resin
-			quantity: 32.000
+			quantity: 86.000
 		}
 		{
 			material: plants

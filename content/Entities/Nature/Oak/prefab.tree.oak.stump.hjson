@@ -46,7 +46,7 @@ harvestable:
 	[
 		{
 			material: timber.oak
-			quantity: 45.000
+			quantity: 42.000
 		}
 		{
 			material: scrap.wood
