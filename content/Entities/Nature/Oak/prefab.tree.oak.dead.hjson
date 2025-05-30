@@ -84,10 +84,7 @@ harvestable:
 			material: scrap.wood
 			quantity: 236.000
 		}
-		{
-			material: resin
-			quantity: 43.000
-		}
+		null
 		null
 	]
 	

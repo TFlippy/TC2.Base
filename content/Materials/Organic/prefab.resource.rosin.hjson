@@ -7,8 +7,8 @@ body:
 		offset: [0.000, 0.250]
 		mass: 1.000
 		radius: 0.750
-		friction: 0.990
-		elasticity: 0.000
+		friction: 0.690
+		elasticity: 0.500
 		material: resin
 		layer: entity, solid, resource, ignore_melee, ignore_bullet, flammable
 		mask: world
@@ -19,7 +19,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.resin.pine"
+		texture: "resource.rosin"
 		count: 4
 		size: [16, 16]
 	}
@@ -32,7 +32,7 @@ transform:
 
 resource:
 {
-	material: resin.pine
+	material: rosin
 }
 
 holdable:
@@ -52,7 +52,7 @@ despawn:
 	sleep_count_max: 16
 	interval: 30.000
 	threshold_delete: 0.010
-	threshold_despawning: 0.150
+	threshold_despawning: 0.100
 }
 
 health:

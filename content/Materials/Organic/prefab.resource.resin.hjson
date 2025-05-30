@@ -8,7 +8,7 @@ body:
 		mass: 1.000
 		radius: 0.750
 		friction: 0.990
-		elasticity: 0.000
+		elasticity: 0.085
 		material: resin
 		layer: entity, solid, resource, ignore_melee, ignore_bullet, flammable
 		mask: world

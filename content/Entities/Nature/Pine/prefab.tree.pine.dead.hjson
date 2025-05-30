@@ -77,15 +77,15 @@ harvestable:
 	[
 		{
 			material: timber.pine
-			quantity: 207.000
+			quantity: 184.000
 		}
 		{
 			material: scrap.wood
-			quantity: 171.000
+			quantity: 134.000
 		}
 		{
-			material: resin.pine
-			quantity: 220.000
+			material: resin
+			quantity: 158.000
 		}
 		null
 	]

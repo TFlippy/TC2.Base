@@ -97,12 +97,12 @@ harvestable:
 			quantity: 171.000
 		}
 		{
-			material: resin
-			quantity: 194.000
+			material: cmajzl
+			quantity: 104.000
 		}
 		{
 			material: wood.rod
-			quantity: 56.000
+			quantity: 49.000
 		}
 	]
 	

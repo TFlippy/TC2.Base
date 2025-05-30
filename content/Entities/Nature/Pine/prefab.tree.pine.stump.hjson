@@ -10,7 +10,7 @@ body:
 	{
 		radius: 1.125
 		offset: [0.080, -0.375]
-		mass: 850.000
+		mass: 320.000
 		friction: 0.950
 		elasticity: 0.500
 		material: tree
@@ -27,7 +27,7 @@ transform:
 
 health:
 {
-	max: 18800.000
+	max: 14800.000
 }
 
 animated.renderer:
@@ -45,12 +45,24 @@ harvestable:
 	resources:
 	[
 		{
-			material: timber.pine
-			quantity: 68.000
+			material: woodchips
+			quantity: 218.000
 		}
 		{
 			material: scrap.wood
-			quantity: 874.000
+			quantity: 294.000
 		}
+		{
+			material: resin
+			quantity: 98.000
+		}
+		null
 	]
+	
+	thresholds: [0.990, 1.000, 0.772, 0.000]
+	
+	pct_damage_mult: [0.952, 0.900, 0.859, 0.000]
+	pct_quantity_min: [0.040, 0.102, 0.060, 0.000]
+	
+	chance_base: [0.188, 0.471, 0.173, 0.000]
 }

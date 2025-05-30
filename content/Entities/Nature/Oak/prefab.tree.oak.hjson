@@ -97,7 +97,7 @@ harvestable:
 			quantity: 637.000
 		}
 		{
-			material: resin
+			material: cmajzl
 			quantity: 144.000
 		}
 		null
@@ -108,5 +108,5 @@ harvestable:
 	pct_damage_mult: [0.952, 0.900, 0.859, 0.000]
 	pct_quantity_min: [0.035, 0.052, 0.050, 0.000]
 	
-	chance_base: [0.082, 0.573, 0.173, 0.000]
+	chance_base: [0.078, 0.573, 0.173, 0.000]
 }
