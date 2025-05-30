@@ -14,7 +14,7 @@
 		texture: resource.timber.oak
 		count: 4
 		size: [24, 16]
-		frame: [2, 0]
+		frame: [3, 0]
 	}
 	
 	type: tree

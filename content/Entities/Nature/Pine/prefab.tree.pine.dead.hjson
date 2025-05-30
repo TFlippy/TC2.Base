@@ -11,7 +11,7 @@ body:
 	{
 		a: [0.000, -10.500]
 		b: [0.000, -0.250]
-		mass: 1200.000
+		mass: 1140.000
 		radius: 0.500
 		friction: 0.920
 		elasticity: 0.210
@@ -77,7 +77,7 @@ harvestable:
 	[
 		{
 			material: timber.pine
-			quantity: 118.000
+			quantity: 139.000
 		}
 		{
 			material: scrap.wood
@@ -91,8 +91,9 @@ harvestable:
 	]
 	
 	thresholds: [0.990, 1.000, 0.772, 0.000]
+	
 	pct_damage_mult: [0.952, 0.900, 0.859, 0.000]
 	pct_quantity_min: [0.040, 0.102, 0.060, 0.000]
 	
-	chance_base: [0.189, 0.473, 0.176, 0.000]
+	chance_base: [0.188, 0.471, 0.173, 0.000]
 }

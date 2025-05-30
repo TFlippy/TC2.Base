@@ -90,23 +90,26 @@ harvestable:
 	[
 		{
 			material: timber.maple
-			quantity: 88.000
+			quantity: 97.000
 		}
 		{
 			material: plants
-			quantity: 61.000
+			quantity: 71.000
 		}
 		{
 			material: resin
 			quantity: 92.000
 		}
-		null
+		{
+			material: wood.rod
+			quantity: 56.000
+		}
 	]
 	
-	thresholds: [0.990, 1.000, 0.892, 0.000]
+	thresholds: [0.990, 1.000, 0.892, 0.980]
 	
-	pct_damage_mult: [0.992, 0.950, 0.859, 0.000]
-	pct_quantity_min: [0.225, 0.332, 0.360, 0.000]
+	pct_damage_mult: [0.992, 0.950, 0.859, 0.756]
+	pct_quantity_min: [0.225, 0.332, 0.360, 0.082]
 	
-	chance_base: [0.026, 0.010, 0.010, 0.000]
+	chance_base: [0.026, 0.010, 0.056, 0.040]
 }

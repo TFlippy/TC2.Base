@@ -77,11 +77,11 @@ harvestable:
 	[
 		{
 			material: timber.maple
-			quantity: 79.000
+			quantity: 91.000
 		}
 		{
 			material: woodchips
-			quantity: 54.000
+			quantity: 192.000
 		}
 		{
 			material: resin

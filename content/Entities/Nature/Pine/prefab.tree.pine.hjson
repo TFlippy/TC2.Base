@@ -11,7 +11,7 @@ body:
 	{
 		a: [0.000, -10.500]
 		b: [0.000, -0.250]
-		mass: 1570.000
+		mass: 1390.000
 		radius: 0.500
 		friction: 0.950
 		elasticity: 0.310
@@ -89,22 +89,23 @@ harvestable:
 	[
 		{
 			material: timber.pine
-			quantity: 152.000
+			quantity: 166.5096
 		}
 		{
 			material: plants
-			quantity: 273.000
+			quantity: 483.3261
 		}
 		{
 			material: resin.pine
-			quantity: 833.000
+			quantity: 560.2728
 		}
 		null
 	]
 	
-	thresholds: [0.980, 1.000, 0.892, 0.000]
+	thresholds: [0.980, 1.000, 0.892, 0.947]
+	
 	pct_damage_mult: [0.952, 0.900, 0.859, 0.000]
 	pct_quantity_min: [0.035, 0.132, 0.060, 0.000]
 	
-	chance_base: [0.089, 0.573, 0.176, 0.000]
+	chance_base: [0.086, 0.573, 0.173, 0.000]
 }
