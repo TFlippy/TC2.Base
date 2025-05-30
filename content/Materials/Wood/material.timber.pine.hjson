@@ -117,17 +117,17 @@
 		}
 		sledgehammer:
 		{
-			h_material: scrap.wood
-			spawn_flags: merge
-			product_flags: waste, residue
-			ratio: 0.190
-			ratio_extra: 0.290
+			h_material: "null"
+			spawn_flags: none
+			product_flags: none
+			ratio: 0.000
+			ratio_extra: 0.000
 			
-			h_material_waste: woodchips
+			h_material_waste: scrap.wood
 			spawn_flags_waste: merge
 			product_flags_waste: waste, residue
-			ratio_waste: 0.140
-			ratio_waste_extra: 0.348
+			ratio_waste: 0.340
+			ratio_waste_extra: 0.548
 			
 			yield: 0.550
 			yield_extra: 0.370
@@ -169,9 +169,36 @@
 			merge_radius_mult: 1.000
 			velocity_mult: 1.000
 		}
+		crush:
+		{
+			h_material: "null"
+			spawn_flags: none
+			product_flags: none
+			ratio: 0.000
+			ratio_extra: 0.000
+			
+			h_material_waste: scrap.wood
+			spawn_flags_waste: merge
+			product_flags_waste: waste, residue
+			ratio_waste: 0.320
+			ratio_waste_extra: 0.550
+			
+			yield: 0.660
+			yield_extra: 0.100
+			
+			h_sound: missing
+			sound_volume: 0.000
+			sound_pitch: 0.000
+			
+			chance: 1.000
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.000
+			velocity_mult: 1.000
+		}
 		explosion:
 		{
-			h_material: woodchips
+			h_material: scrap.wood
 			spawn_flags: merge
 			product_flags: none
 			ratio: 0.130
@@ -286,7 +313,7 @@
 			h_material: woodchips
 			h_substance: "null"
 			flags: none
-			flags_product: none
+			flags_product: residue
 			
 			yield: [0.6558, 0.2242]
 		}
@@ -295,7 +322,7 @@
 			h_material: scrap.wood
 			h_substance: "null"
 			flags: none
-			flags_product: none
+			flags_product: waste, residue
 			
 			yield: [0.820, 0.120]
 		}
@@ -304,7 +331,7 @@
 			h_material: scrap.wood
 			h_substance: "null"
 			flags: none
-			flags_product: none
+			flags_product: waste, residue
 			
 			yield: [0.820, 0.120]
 		}
@@ -313,7 +340,7 @@
 			h_material: sawdust
 			h_substance: "null"
 			flags: none
-			flags_product: none
+			flags_product: residue
 			
 			yield: [0.720, 0.210]
 		}
@@ -322,7 +349,7 @@
 			h_material: sawdust
 			h_substance: "null"
 			flags: none
-			flags_product: none
+			flags_product: residue
 			
 			yield: [0.890, 0.070]
 		}
@@ -331,7 +358,7 @@
 			h_material: woodchips
 			h_substance: "null"
 			flags: none
-			flags_product: none
+			flags_product: residue
 			
 			yield: [0.880, 0.070]
 		}
@@ -349,7 +376,7 @@
 			h_material: sawdust
 			h_substance: "null"
 			flags: none
-			flags_product: none
+			flags_product: residue
 			
 			yield: [0.770, 0.210]
 		}
@@ -358,9 +385,63 @@
 			h_material: woodchips
 			h_substance: "null"
 			flags: none
-			flags_product: none
+			flags_product: residue
 			
 			yield: [0.840, 0.130]
+		}
+		trashing.wood:
+		{
+			h_material: scrap.wood
+			h_substance: "null"
+			flags: none
+			flags_product: waste, residue
+			
+			yield: [0.797, 0.176]
+		}
+		charring:
+		{
+			h_material: scrap.charred
+			h_substance: "null"
+			flags: none
+			flags_product: waste, residue
+			
+			yield: [0.256, 0.356]
+		}
+		pyrolysis:
+		{
+			h_material: scrap.charred
+			h_substance: "null"
+			flags: none
+			flags_product: waste, residue
+			
+			yield: [0.271, 0.324]
+		}
+		carbonization:
+		{
+			h_material: charcoal
+			h_substance: "null"
+			flags: none
+			flags_product: byproduct, residue
+			
+			yield: [0.271, 0.324]
+		}
+		coking:
+		{
+			h_material: charcoal
+			h_substance: "null"
+			flags: none
+			flags_product: byproduct, residue
+			
+			yield: [0.271, 0.324]
+		}
+		roasting:
+		{
+			h_material: scrap.charred
+			h_substance: "null"
+			flags: none
+			flags_product: waste, residue
+			
+			yield: [0.286, 0.330]
 		}
 	}
 }

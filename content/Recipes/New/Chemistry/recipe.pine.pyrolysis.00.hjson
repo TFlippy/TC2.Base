@@ -1,0 +1,436 @@
+﻿{
+	$region_id: 0
+	$version: "0.1.63.2"
+	name: "Pine"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	tips: []
+	
+	stages:
+	[
+		{
+			name: "Preparation"
+			
+			type: preparation
+			flags: important
+			tags: material, raw
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: axe
+			
+			ratio: 0.000
+			mass_base: 1.000
+			
+			options:
+			[
+				{
+					name: "Handsawn"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: timber.pine
+							amount: 0.209249
+							snapping: 0.250
+							loss: 0.024
+							ratio: 1.000
+							group: 0
+							flags: primary
+						}
+						{
+							type: work
+							work: sawing
+							amount: 66.000
+							amount_min: 110.000
+							difficulty: 5
+							snapping: 5.000
+							falloff: 0.792
+							loss: 0.224
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					purity_modifier: 0.107
+					quality_modifier: 0.123
+					yield_modifier: 0.224
+					
+					h_sound_complete: burner.bang.00
+				}
+				{
+					name: "Trashed"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: crush
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: timber.pine
+							amount: 0.209249
+							snapping: 1.000
+							loss: 0.075
+							ratio: 1.000
+							group: 0
+							flags: primary
+						}
+						{
+							type: work
+							work: trashing.wood
+							amount: 90.000
+							amount_min: 89.000
+							difficulty: 9
+							snapping: 5.000
+							falloff: 0.769
+							loss: 0.224
+							ratio: 1.000
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					purity_modifier: 0.107
+					quality_modifier: 0.123
+					yield_modifier: 0.224
+					
+					h_sound_complete: burner.bang.00
+				}
+			]
+		}
+		{
+			name: "Decomposition"
+			
+			type: heating
+			flags: important
+			tags: formula
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: heat
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Low-Temperature"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: heat
+					
+					prefix: "Low-Temperature "
+					
+					requirements:
+					[
+						{
+							type: temperature
+							amount: 712.000
+							amount_min: 484.000
+							amount_max: 950.000
+							falloff: 0.807
+							group: 0
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: work
+							work: pyrolysis
+							amount: 200.000
+							amount_min: 820.000
+							amount_max: 1362.000
+							difficulty: 5
+							snapping: 10.000
+							falloff: 0.692
+							ratio: 1.000
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: charcoal
+							amount: 0.751921
+							amount_extra: 0.210996
+							group: 0
+							flags: primary, compact
+						}
+						{
+							type: resource
+							material: tar
+							amount: 0.351905
+							amount_extra: 0.247345
+							group: 0
+							flags: residue, byproduct
+						}
+						{
+							type: resource
+							material: wood_gas
+							amount: 0.988344
+							amount_extra: 1.276569
+							group: 0
+							flags: byproduct, hidden
+						}
+						{
+							type: resource
+							material: scrap.charred
+							amount: 0.069912
+							amount_extra: 0.0903
+							group: 0
+							flags: waste
+						}
+					]
+					
+					purity_modifier: -0.206
+					quality_modifier: -0.183
+					yield_modifier: 0.722
+					
+					filter_infrastructure:
+					{
+						include: oven
+					}
+					filter_environment:
+					{
+						include: airtight
+					}
+					
+					h_sound_begin: furnace.produce.00
+					h_sound_complete: burner.groan.01
+				}
+				{
+					name: "High-Temperature"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: heat
+					
+					prefix: "High-Temperature "
+					
+					requirements:
+					[
+						{
+							type: temperature
+							amount: 946.900
+							amount_min: 824.000
+							amount_max: 1019.000
+							falloff: 0.819
+							group: 0
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: work
+							work: carbonization
+							amount: 240.000
+							amount_min: 525.000
+							amount_max: 1362.000
+							difficulty: 9
+							snapping: 10.000
+							falloff: 0.599
+							ratio: 1.000
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: charcoal
+							amount: 1.502904
+							amount_extra: 0.239179
+							group: 0
+							flags: primary, compact
+						}
+						{
+							type: resource
+							material: graphite.powder
+							amount: 0.044
+							amount_extra: 0.077424
+							group: 0
+							flags: residue, byproduct
+						}
+						{
+							type: resource
+							material: syngas
+							amount: 1.492056
+							amount_extra: 1.927175
+							group: 0
+							flags: byproduct, hidden
+						}
+						{
+							type: resource
+							material: ash
+							amount: 0.070902
+							amount_extra: 0.113714
+							group: 0
+							flags: waste
+						}
+					]
+					
+					purity_modifier: 0.417
+					quality_modifier: 0.169
+					yield_modifier: 0.922
+					
+					filter_infrastructure:
+					{
+						include: oven
+					}
+					filter_environment:
+					{
+						include: airtight
+					}
+					
+					h_sound_begin: furnace.produce.00
+					h_sound_complete: burner.groan.01
+				}
+			]
+		}
+		{
+			name: "Distillation"
+			
+			type: refining
+			flags: optional
+			tags: formula
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "None"
+					
+					type: undefined
+					flags: none
+					
+					suffix: " Charring"
+					
+					filter_infrastructure:
+					{
+						include: oven
+					}
+					filter_environment:
+					{
+						include: airtight
+					}
+				}
+				{
+					name: "Dry"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: wet
+					
+					suffix: " Distillation"
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: water
+							amount: 5.000
+							snapping: 5.000
+							falloff: 0.747
+							loss: 0.208
+							group: 0
+							flags: no_scaling, prerequisite
+						}
+						{
+							type: work
+							work: distillation
+							amount: 35.000
+							amount_min: 140.000
+							amount_max: 1362.000
+							difficulty: 5
+							snapping: 10.000
+							falloff: 0.835
+							ratio: 1.000
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: turpentine
+							amount: 0.273214
+							amount_extra: 0.064286
+							group: 0
+							flags: primary, compact
+						}
+					]
+					
+					purity_modifier: 0.543
+					quality_modifier: 0.381
+					yield_modifier: 0.804
+					
+					filter_infrastructure:
+					{
+						include: oven
+					}
+					filter_environment:
+					{
+						include: airtight
+					}
+				}
+			]
+		}
+	]
+	
+	type: workshop
+	flags: production, wip, no_cancel
+	tags: simple, raw, heating, processing
+	infrastructure: oven, heater
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		texture: resource.timber.maple
+		size: [24, 16]
+		frame: [2, 0]
+	}
+	icon_offset: [14.000, -3.000]
+	
+	icon_extra:
+	{
+		texture: resource.charcoal
+		size: [16, 16]
+		frame: [1, 0]
+	}
+	icon_extra_offset: [0.000, -7.000]
+	
+	icon_c:
+	{
+		texture: ui_icons_widget
+		size: [16, 16]
+		frame: [4, 1]
+	}
+	icon_c_offset: [-15.000, -11.000]
+	
+	color_frame: "0xffb45630"
+	color_button: "0xff9dd80f"
+	rank: -157.000
+	frame_size: [24.000, 24.000]
+	
+	min: 1
+	max: 50
+	step: 1
+	
+	h_sound_begin: burner.bang.01
+	h_sound_complete: burner.groan.01
+	
+	version: 1
+}

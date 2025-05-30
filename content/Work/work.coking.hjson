@@ -1,0 +1,63 @@
+﻿{
+	$region_id: 0
+	$version: "0.1.63.1"
+	name: "Coking"
+	name_short: "Coking"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: ui.icons.work.00
+		size: [16, 16]
+		frame: [11, 0]
+	}
+	
+	flags: passive, ambient
+	tags: ambient, simple, passive, dangerous
+	
+	amount_base: 1.000
+	cooldown: 3.000
+	multiplier: 10.000
+	
+	amount_jitter: 0.073
+	cooldown_jitter: 0.118
+	color: "0xff685f7b"
+	
+	tools_required: none
+	tools_optional: none
+	
+	infrastructure_required: none
+	infrastructure_optional: heater, burner
+	
+	filter_environment:
+	{
+		include: sturdy
+	}
+	
+	skills_min:
+	{
+	
+	}
+	
+	skills_mult:
+	{
+	
+	}
+	
+	sound_volume: 0.500
+	sound_pitch: 1.000
+	sound_size: 0.500
+	sound_dist: 1.000
+	
+	sounds: []
+	sounds_manual: []
+	sounds_machine: []
+	sounds_passive: []
+	
+	sounds_start: []
+	sounds_end: []
+	sounds_fail: []
+}
