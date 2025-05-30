@@ -22,7 +22,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.timber"
+		texture: resource.timber.pine
 		count: 4
 		size: [24, 16]
 	}
@@ -36,7 +36,7 @@ transform:
 
 resource:
 {
-	material: "timber"
+	material: timber.pine
 }
 
 holdable:

@@ -45,11 +45,11 @@ harvestable:
 	resources:
 	[
 		{
-			material: "timber"
+			material: timber.oak
 			quantity: 45.000
 		}
 		{
-			material: "scrap.wood"
+			material: scrap.wood
 			quantity: 300.000
 		}
 	]

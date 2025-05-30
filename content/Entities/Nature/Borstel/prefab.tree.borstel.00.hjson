@@ -94,7 +94,7 @@ harvestable:
 	resources:
 	[
 		{
-			material: "timber"
+			material: "woodchips"
 			quantity: 830.000
 			flags: no_autopickup
 		}

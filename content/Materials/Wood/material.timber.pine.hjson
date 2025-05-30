@@ -1,17 +1,17 @@
 ﻿{
 	$version: "0.1.63.2"
-	name: "Timber"
-	name_short: "Timber"
+	name: "Timber (Pine)"
+	name_short: "Pine"
 	description:
 		'''
-		Raw unprocessed wood.
+		Raw unprocessed pine.
 		'''
 	
 	tips: []
 	
 	icon:
 	{
-		texture: resource.timber
+		texture: resource.timber.pine
 		count: 4
 		size: [24, 16]
 		frame: [2, 0]
@@ -30,7 +30,7 @@
 	snapping_pickup: 10.000
 	
 	form_type: raw
-	prefab: resource.timber
+	prefab: resource.timber.pine
 	h_substance: wood
 	
 	color_icon: "0xffffffff"

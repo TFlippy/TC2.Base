@@ -64,7 +64,7 @@ harvestable:
 	resources:
 	[
 		{
-			material: timber
+			material: woodchips
 			quantity: 312.000
 		}
 		{

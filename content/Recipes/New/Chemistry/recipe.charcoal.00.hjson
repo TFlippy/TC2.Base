@@ -241,7 +241,7 @@
 	
 	icon:
 	{
-		texture: resource.timber
+		texture: resource.timber.pine
 		size: [24, 16]
 		frame: [1, 0]
 	}

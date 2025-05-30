@@ -1,0 +1,75 @@
+$tags: []
+
+body:
+{
+	buoyancy: 0.400
+
+	@shape.line:
+	{
+		a: [-0.750, 0.000]
+		b: [0.750, 0.000]
+		mass: 1.000
+		radius: 0.750
+		friction: 0.850
+		elasticity: 0.200
+		material: tree
+		layer: entity, solid, resource, flammable, ignore_bullet
+		mask: world
+	}
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: resource.timber.maple
+		count: 4
+		size: [24, 16]
+	}
+	z: -70.000
+}
+
+transform:
+{
+
+}
+
+resource:
+{
+	material: timber.maple
+}
+
+holdable:
+{
+	force_multiplier: 2.000
+	torque_multiplier: 1.200
+	stress_multiplier: 0.250
+	radius: 0.000
+	flags: disable_parent_facing, disable_rotation, disable_control
+}
+
+despawn:
+{
+	sleep_count_max: 50
+	flags: no_despawn
+	
+	interval: 7.000
+	interval_extra: 14.000
+	threshold_delete: 0.000
+	threshold_despawning: 0.500
+
+	amount_ratio: 0.000
+	amount_ratio_extra: 0.000
+}
+
+health:
+{
+	max: 120000.000
+}
+
+breakable:
+{
+	// flags: splittable
+	spawn_flags: merge, pickup
+	merge_radius: 2.500
+}

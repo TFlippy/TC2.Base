@@ -71,7 +71,7 @@
 			[
 				{
 					type: resource
-					material: timber
+					material: timber.pine
 					amount: 1.000
 					snapping: 1.000
 					loss: 0.024
@@ -141,7 +141,7 @@
 	
 	icon:
 	{
-		texture: resource.timber
+		texture: resource.timber.pine
 		count: 4
 		size: [24, 16]
 		frame: [2, 0]

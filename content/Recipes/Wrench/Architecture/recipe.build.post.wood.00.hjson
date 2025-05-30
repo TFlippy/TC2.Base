@@ -7,7 +7,7 @@
 	[
 		{
 			type: resource
-			material: timber
+			material: timber.maple
 			amount: 5.000
 			group: 0
 			flags: prerequisite

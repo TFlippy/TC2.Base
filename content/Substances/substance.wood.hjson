@@ -86,7 +86,6 @@
 		powder: sawdust
 		scrap: scrap.wood
 		gravel: woodchips
-		raw: timber
 		gas: wood_gas
 		rod: wood.rod
 	}

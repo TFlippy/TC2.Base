@@ -77,7 +77,7 @@ harvestable:
 	resources:
 	[
 		{
-			material: timber
+			material: timber.oak
 			quantity: 415.000
 		}
 		{

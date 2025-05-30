@@ -65,7 +65,7 @@ harvestable:
 			quantity: 98.000
 		}
 		{
-			material: timber
+			material: woodchips
 			quantity: 6.000
 		}
 		null

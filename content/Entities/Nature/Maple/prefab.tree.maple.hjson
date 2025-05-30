@@ -89,7 +89,7 @@ harvestable:
 	resources:
 	[
 		{
-			material: timber
+			material: timber.maple
 			quantity: 88.000
 		}
 		{

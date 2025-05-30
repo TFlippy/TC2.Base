@@ -76,7 +76,7 @@ harvestable:
 	resources:
 	[
 		{
-			material: timber
+			material: timber.pine
 			quantity: 118.000
 		}
 		{
