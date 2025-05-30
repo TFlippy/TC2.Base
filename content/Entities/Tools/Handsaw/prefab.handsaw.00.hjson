@@ -53,7 +53,7 @@ melee:
 {
 	damage_base: 42.000
 	damage_bonus: 11.000
-	armor_pierce: 85.000
+	armor_pierce: 65.000
 	
 	primary_damage_multiplier: 1.200
 	secondary_damage_multiplier: 0.600

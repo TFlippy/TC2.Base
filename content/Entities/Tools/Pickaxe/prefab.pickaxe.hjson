@@ -30,7 +30,7 @@ body:
 
 health:
 {
-	max: 3700.000
+	max: 4700.000
 }
 
 aimable:
@@ -40,22 +40,29 @@ aimable:
 
 melee:
 {
-	sound_swing: "tool_swing_00"
-	damage_base: 150.000
-	damage_bonus: 250.000
-	terrain_damage_multiplier: 6.000
+	damage_base: 180.000
+	damage_bonus: 350.000
+	armor_pierce: 115.000
+	
+	primary_damage_multiplier: 0.910
+	secondary_damage_multiplier: 1.230
+	terrain_damage_multiplier: 5.000
+	pain_multiplier: 1.200
+	stun_multiplier: 0.790
+	
 	cooldown: 0.900
 	max_distance: 1.750
-	thickness: 0.250
-	hit_offset: [0.750, -0.500]
 	aoe: 1.000
+	thickness: 0.250
 	knockback: 125.000
 	yield: 1.400
 	penetration_falloff: 0.500
-	penetration: 0
+	
+	hit_offset: [0.750, -0.500]
+	
 	damage_type: pickaxe
-	attack_type: swing
 	category: pointed
+	
 	hit_mask: world, destructible
 	hit_exclude: building, water, fire, gas, powder, liquid, stored
 	hit_ignore: water, fire, gas, powder, liquid, stored

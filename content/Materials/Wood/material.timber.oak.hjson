@@ -18,7 +18,7 @@
 	}
 	
 	type: tree
-	flags: hard, long, organic, raw, fuel, flammable, flexible, solid, impure, primary
+	flags: hard, long, organic, large, heavy, raw, fuel, flammable, solid, impure, primary
 	display_flags: none
 	hints: none
 	

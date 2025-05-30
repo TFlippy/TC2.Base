@@ -16,8 +16,8 @@ body:
 
 	@shape.line:
 	{
-		a: [-0.125, 0.500]
-		b: [-0.125, -0.500]
+		a: [-0.125, -0.500]
+		b: [-0.125, 0.500]
 		mass: 4.100
 		radius: 0.375
 		friction: 0.650
@@ -35,13 +35,14 @@ health:
 
 melee:
 {
-	hit_offset: [0.500, 0.000]
 	damage_base: 350.000
 	damage_bonus: 300.000
-	primary_damage_multiplier: 1.150
+	
+	primary_damage_multiplier: 1.190
 	secondary_damage_multiplier: 0.900
 	terrain_damage_multiplier: 0.800
 	stun_multiplier: 1.150
+	
 	cooldown: 1.280
 	max_distance: 1.200
 	aoe: 1.150
@@ -51,11 +52,15 @@ melee:
 	yield: 1.320
 	penetration_falloff: 0.850
 	penetration: 1
+	
+	hit_offset: [0.500, 0.000]
+	
 	damage_type: axe
 	category: bladed
-	hit_mask: solid, creature, tree, door, plant, organic, furniture
-	hit_require: destructible
-	hit_exclude: belt, pipe, conveyor, water, fire, gas, stored
+	
+	hit_mask: world, creature, tree, door, plant
+	hit_exclude: belt, pipe, conveyor, water, fire, gas, powder, stored
+	hit_ignore: water, fire, gas, powder, liquid, stored
 }
 
 melee.state:
