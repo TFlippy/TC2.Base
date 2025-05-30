@@ -1,0 +1,62 @@
+﻿{
+	$region_id: 0
+	$version: "0.1.63.2"
+	name: "Roasting"
+	name_short: "Roasting"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: ui.icons.work.00
+		size: [16, 16]
+		frame: [11, 0]
+	}
+	
+	flags: passive
+	tags: ambient, simple, industrial, passive, dangerous, wip
+	
+	amount_base: 1.000
+	cooldown: 1.000
+	multiplier: 10.000
+	
+	color: "0xffef3500"
+	
+	tools_required: none
+	tools_optional: none
+	
+	infrastructure_required: heater
+	infrastructure_optional: oven, heater, kiln
+	
+	filter_environment:
+	{
+		include: container, stationary, fireproof
+		exclude: fragile, flammable
+	}
+	
+	skills_min:
+	{
+	
+	}
+	
+	skills_mult:
+	{
+	
+	}
+	
+	sound_volume: 0.500
+	sound_pitch: 1.000
+	sound_size: 0.500
+	sound_dist: 1.000
+	
+	sounds: []
+	sounds_manual: []
+	sounds_machine: []
+	sounds_passive: []
+	
+	sounds_start: []
+	sounds_end: []
+	sounds_fail: []
+}

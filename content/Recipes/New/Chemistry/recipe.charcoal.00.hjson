@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.63.2"
-	name: "Charcoal"
+	name: "Wood Charcoal"
 	desc:
 		'''
 		TODO: Desc
@@ -16,41 +16,136 @@
 			flags: important
 			tags: material, raw
 			// Damage type used for discarding leftover resources.
-			discard_damage_type: heat
+			discard_damage_type: shovel
 			
 			ratio: 0.000
-			mass_base: 0.000
+			mass_base: 1.000
 			
 			options:
 			[
 				{
-					name: "Woodchips"
+					name: "Sawdust"
 					
 					type: undefined
 					flags: none
-					discard_damage_type_override: heat
 					
 					requirements:
 					[
 						{
 							type: resource
-							material: woodchips
-							amount: 1.000
-							snapping: 1.000
+							material: sawdust
+							amount: 5.263158
+							snapping: 0.100
+							loss: 0.275
 							ratio: 1.000
 							group: 0
 							flags: primary
 						}
 					]
 					
+					purity_modifier: 0.370
+					quality_modifier: 0.312
+					yield_modifier: 0.173
+					
+					h_sound_complete: burner.bang.00
+				}
+				{
+					name: "Woodchips"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: woodchips
+							amount: 6.896552
+							snapping: 0.100
+							loss: 0.224
+							ratio: 1.000
+							group: 0
+							flags: primary
+						}
+					]
+					
+					purity_modifier: 0.195
+					quality_modifier: 0.167
+					yield_modifier: 0.373
+					
+					h_sound_complete: burner.bang.00
+				}
+				{
+					name: "Debris"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: scrap.wood
+							amount: 2.136752
+							snapping: 0.500
+							loss: 0.224
+							ratio: 1.000
+							group: 0
+							flags: primary
+						}
+					]
+					
+					purity_modifier: 0.058
+					quality_modifier: 0.032
+					yield_modifier: 0.220
+					
+					h_sound_complete: burner.bang.00
+				}
+				{
+					name: "Rods"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: wood.rod
+							amount: 1.78262
+							snapping: 1.000
+							loss: 0.224
+							ratio: 1.000
+							group: 0
+							flags: primary
+						}
+						{
+							type: work
+							work: trashing.wood
+							amount: 66.000
+							amount_min: 50.000
+							difficulty: 4
+							snapping: 5.000
+							falloff: 0.792
+							loss: 0.224
+							ratio: 1.000
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					purity_modifier: 0.107
+					quality_modifier: 0.123
+					yield_modifier: 0.224
+					
 					h_sound_complete: burner.bang.00
 				}
 			]
 		}
 		{
-			name: "Processing"
+			name: "Formula"
 			
-			type: processing
+			type: formula
 			flags: important
 			tags: formula
 			// Damage type used for discarding leftover resources.
@@ -173,9 +268,9 @@
 	rank: -157.000
 	frame_size: [24.000, 24.000]
 	
-	min: 10
-	max: 250
-	step: 10
+	min: 1
+	max: 50
+	step: 1
 	
 	h_sound_begin: burner.bang.01
 	h_sound_complete: burner.groan.01

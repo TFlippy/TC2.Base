@@ -16,13 +16,13 @@
 		frame: [3, 0]
 	}
 	
-	type: stone_dense
+	type: stone_metallic
 	flags: hard, granular, toxic, metal, mineral, small, corrosive, raw, gravel, solid, impure, acidic, primary
 	display_flags: none
 	hints: materials, dangerous, heavy, mining, slow, clumsy
 	
 	purity: 0.722
-	mass_per_unit: 1.147
+	mass_per_unit: 1.282
 	
 	quantity_max: 500.000
 	spawn_quantity_threshold: 0.200
@@ -35,8 +35,8 @@
 	
 	color_icon: "0xffffffff"
 	color_item: "0xffffffff"
-	color_dust: "0xff646749"
-	color_gib: "0xff646749"
+	color_dust: "0xff4a6749"
+	color_gib: "0xff4a6749"
 	
 	centroid_default: [0.000, 0.250]
 	colliders: []

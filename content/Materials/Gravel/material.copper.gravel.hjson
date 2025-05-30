@@ -1,10 +1,10 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.63.2"
 	name: "Copper (Gravel)"
 	name_short: "Cop. Gravel"
 	description:
 		'''
-		Standard copper gravel.
+		Standard arsenic-contaminated copper gravel.
 		'''
 	
 	tips: []
@@ -17,13 +17,16 @@
 	}
 	
 	type: gravel
-	flags: granular, metal, raw, gravel, solid
+	flags: hard, granular, toxic, metal, small, raw, gravel, solid, impure, contaminated
 	display_flags: none
 	hints: none
 	
 	mass_per_unit: 1.150
+	
 	quantity_max: 500.000
 	spawn_quantity_threshold: 1.000
+	snapping: 1.000
+	snapping_pickup: 1.000
 	
 	form_type: gravel
 	prefab: resource.copper.gravel
@@ -34,5 +37,14 @@
 	color_dust: "0xffdf873d"
 	color_gib: "0xffdf873d"
 	
+	centroid_default: [0.000, 0.250]
 	colliders: []
+	
+	related:
+	{
+		copper: none
+		copper.powder: none
+		arsenic: none
+		sulfur: none
+	}
 }

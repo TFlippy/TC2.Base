@@ -1,9 +1,9 @@
 ﻿{
 	$version: "0.1.63.2"
-	name: "Chalcopyrite Roasting"
+	name: "Kuprovst Roasting"
 	desc:
 		'''
-		Roast some chalcopyrite for fun.
+		TODO: Desc
 		'''
 	tips: []
 	
@@ -14,9 +14,9 @@
 			
 			type: feedstock
 			flags: important
-			tags: material, raw
+			tags: material, raw, ingredient
 			// Damage type used for discarding leftover resources.
-			discard_damage_type: heat
+			discard_damage_type: sledgehammer
 			
 			ratio: 0.000
 			mass_base: 0.000
@@ -28,13 +28,12 @@
 					
 					type: undefined
 					flags: none
-					discard_damage_type_override: heat
 					
 					requirements:
 					[
 						{
 							type: resource
-							material: chalcopyrite
+							material: kuprovst
 							amount: 1.000
 							snapping: 0.500
 							ratio: 1.000
@@ -50,7 +49,7 @@
 		{
 			name: "Processing"
 			
-			type: processing
+			type: formula
 			flags: important
 			tags: formula
 			// Damage type used for discarding leftover resources.
@@ -66,7 +65,6 @@
 					
 					type: undefined
 					flags: none
-					discard_damage_type_override: heat
 					
 					requirements:
 					[
@@ -81,7 +79,7 @@
 						}
 						{
 							type: work
-							work: pyrolysis
+							work: roasting
 							amount: 100.000
 							amount_min: 825.000
 							amount_max: 1362.000
@@ -98,27 +96,19 @@
 					[
 						{
 							type: resource
-							material: charcoal
+							material: copper.gravel
 							amount: 0.145
 							amount_extra: 0.073
 							group: 0
-							flags: primary, compact
+							flags: byproduct, primary, compact
 						}
 						{
 							type: resource
-							material: scrap.charred
-							amount: 0.0349
-							amount_extra: 0.0291
-							group: 0
-							flags: waste, compact
-						}
-						{
-							type: resource
-							material: ash
+							material: sulfur
 							amount: 0.02886
 							amount_extra: 0.0454
 							group: 0
-							flags: waste, compact
+							flags: byproduct, secondary, compact
 						}
 					]
 					
@@ -238,7 +228,7 @@
 	
 	icon:
 	{
-		texture: resource.chalcopyrite
+		texture: resource.kuprovst
 		size: [16, 16]
 		frame: [3, 0]
 	}

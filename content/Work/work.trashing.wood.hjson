@@ -1,0 +1,72 @@
+﻿{
+	$region_id: 0
+	$version: "0.1.63.2"
+	name: "Trashing (Wood)"
+	name_short: "Trashing"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: ui.icons.work.00
+		size: [16, 16]
+		frame: [9, 0]
+	}
+	
+	flags: none
+	tags: manual, crude, leisure
+	
+	amount_base: 0.000
+	cooldown: 0.840
+	multiplier: 0.610
+	
+	amount_jitter: 0.190
+	cooldown_jitter: 0.113
+	color: "0xffa94535"
+	
+	tools_required: none
+	tools_optional: hammer, saw, cleaver, axe, shovel, crowbar, knife
+	
+	infrastructure_required: none
+	infrastructure_optional: none
+	
+	filter_environment:
+	{
+		include: workshop, stationary, ugly, scary, durable, sturdy
+	}
+	
+	character_traits:
+	{
+		include: construction, criminal, unskilled, medical, farmer, laborer, lowlife, rich, soldier, insane, alcoholic, nomad, entertainer, illiterate, feral, pest, animal, brawler, strong, junkie, evil, murderer, terrorist, fanatic, dumb, clumsy, huge
+		weight: 1.000
+	}
+	
+	skills_min:
+	{
+	
+	}
+	
+	skills_mult:
+	{
+		strength: 0.620
+		scavenging: 0.210
+		endurance: 0.170
+		woodcutting: 0.430
+	}
+	
+	sound_volume: 0.890
+	sound_pitch: 0.980
+	sound_size: 0.840
+	sound_dist: 1.040
+	
+	sounds: ["wood_break_00", "structural.wood.break.00", "wood_hit_sharp_02", "wood_hit_sharp_00", "structural.wood.stress.00", "structural.wood.break.01", "wood_break_00", "wood_hit_sharp_01", "drunk.02", "wood.stress.long.strong.00", "wood_hit_sharp_01", "wood_hit_sharp_00", "wood_hit_sharp_02", "structural.wood.break.02"]
+	sounds_manual: []
+	sounds_machine: []
+	sounds_passive: []
+	
+	sounds_start: []
+	sounds_end: ["kobold.bleh.00"]
+	sounds_fail: []
+}

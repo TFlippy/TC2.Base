@@ -16,7 +16,7 @@
 	strength_tensile: 4.800
 	strength_compressive: 21.000
 	
-	mass: 2.900
+	mass: 2.720
 	friction: 0.900
 	elasticity: 0.470
 	collision_layer: none

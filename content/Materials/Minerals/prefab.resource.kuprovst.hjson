@@ -11,7 +11,7 @@ body:
 		radius: 0.750
 		friction: 0.850
 		elasticity: 0.400
-		material: stone_dense
+		material: stone_metallic
 		layer: entity, solid, resource, ignore_melee, ignore_bullet, bulk
 		mask: world, bulk
 		exclude: held, stored
