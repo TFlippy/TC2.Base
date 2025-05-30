@@ -1,9 +1,272 @@
 ﻿{
-	$version: "0.1.63.1"
+	$version: "0.1.63.2"
 	name: "Landmine"
 	tips: []
 	
-	requirements:
+	stages:
+	[
+		{
+			name: "Case"
+			
+			type: container
+			flags: part, wip
+			tags: container, structural, small
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Hand-made"
+					
+					type: undefined
+					flags: wip, auto_generated
+					
+					prefix: "Hand-made "
+					priority: 1.000
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.plate
+							amount: 0.332821
+							snapping: 0.500
+							loss: 0.275
+							ratio: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: steel.frames
+							amount: 0.368
+							snapping: 0.100
+							loss: 0.153
+							ratio: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: bending
+							amount: 250.000
+							amount_min: 150.000
+							difficulty: 8
+							snapping: 5.000
+							falloff: 0.820
+							loss: 0.153
+							ratio: 0.376
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: snipping.metal
+							amount: 165.000
+							amount_min: 140.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.799
+							loss: 0.153
+							ratio: 0.576
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: resource
+							material: scrap.machine
+							amount: 1.11828
+							snapping: 0.500
+							loss: 0.424
+							ratio: 1.000
+							group: 1
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: assembling
+							amount: 135.000
+							amount_min: 245.000
+							difficulty: 5
+							snapping: 5.000
+							falloff: 0.890
+							loss: 0.373
+							ratio: 0.773
+							group: 1
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: hammer, cutters, screwdriver, wrench
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, pliers, stapler, chisel, towel, tongs, pick, crowbar, knife, scissors
+					}
+					filter_infrastructure:
+					{
+						include: anvil, table, vise, hard_surface, workbench
+					}
+				}
+			]
+		}
+		{
+			name: "Payload"
+			
+			type: payload
+			flags: wip, auto_generated
+			tags: functional, material, dangerous, ingredient
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Gunpowder"
+					
+					type: undefined
+					flags: wip, auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: gunpowder
+							amount: 3.26087
+							snapping: 0.100
+							loss: 0.173
+							ratio: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: scrap.metal
+							amount: 0.319149
+							snapping: 0.500
+							loss: 0.012
+							ratio: 0.973
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: filling.powder
+							amount: 75.000
+							amount_min: 120.000
+							difficulty: 3
+							snapping: 5.000
+							falloff: 0.837
+							loss: 0.373
+							ratio: 0.773
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						include: bucket, spatula
+					}
+				}
+			]
+		}
+		{
+			name: "Assembly"
+			
+			type: assembly
+			flags: wip, auto_generated
+			tags: assembly
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Glued"
+					
+					type: undefined
+					flags: wip, auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: glue
+							amount: 1.000
+							snapping: 0.500
+							loss: 0.063
+							ratio: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: gluing
+							amount: 75.000
+							amount_min: 120.000
+							difficulty: 4
+							snapping: 5.000
+							falloff: 0.816
+							loss: 0.373
+							ratio: 1.000
+							group: 0
+							flags: conditional
+						}
+						{
+							type: work
+							work: sealing
+							amount: 35.000
+							amount_min: 25.000
+							difficulty: 3
+							snapping: 5.000
+							falloff: 0.886
+							loss: 0.373
+							ratio: 1.000
+							group: 1
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						include: paintbrush, file
+					}
+					filter_infrastructure:
+					{
+						include: table
+					}
+					filter_environment:
+					{
+						include: clean, organized
+						exclude: wet
+					}
+				}
+			]
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: landmine
+			amount: 1.000
+			group: 0
+			flags: primary, compact
+		}
+	]
+	
+	requirements_old:
 	[
 		{
 			type: resource
@@ -47,7 +310,7 @@
 		}
 	]
 	
-	products:
+	products_old:
 	[
 		{
 			type: prefab
@@ -66,9 +329,9 @@
 	]
 	
 	type: workshop
-	flags: blueprintable, debug, wip
-	tags: workbench, manual, small, weapon, munitions, assembling, metalworking, explosive, dangerous
-	infrastructure: table
+	flags: blueprintable, debug, item, wip
+	tags: manual, crafting, complex, small, weapon, munitions, assembling, metalworking, engineering, military, explosive, dangerous
+	infrastructure: table, surface
 	infrastructure_exclude: none
 	
 	icon:
@@ -76,7 +339,7 @@
 		texture: landmine
 		size: [8, 8]
 	}
-	icon_offset: [-4.000, 3.000]
+	icon_offset: [-6.000, 6.000]
 	
 	icon_extra:
 	{
@@ -88,11 +351,12 @@
 	
 	color_frame: "0xffcf392b"
 	color_button: "0xff9dd80f"
+	button_name: "Craft"
 	rank: 85.000
 	
 	min: 1
-	max: 20
+	max: 16
 	step: 1
 	
-	version: 0
+	version: 1
 }

@@ -5,7 +5,7 @@
 	name_dumb: "Nitra"
 	description:
 		'''
-		A sweet substance produced by hornet larvae.
+		Sweet substance produced by hornet larvae.
 		'''
 	
 	tips: []
@@ -38,6 +38,7 @@
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	
+	centroid_default: [0.000, 0.250]
 	colliders: []
 	
 	commodity:

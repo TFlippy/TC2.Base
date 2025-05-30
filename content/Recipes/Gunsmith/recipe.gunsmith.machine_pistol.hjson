@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.1"
+	$version: "0.1.63.2"
 	name: "Machine Pistol"
 	desc:
 		'''
@@ -49,14 +49,11 @@
 							difficulty: 9
 							snapping: 5.000
 							falloff: 0.940
-							ratio: 0.898
+							ratio: 0.890
 							group: 0
 							flags: conditional
 						}
 					]
-					
-					quality: 1.000
-					precision: 1.000
 					
 					filter_tools:
 					{
@@ -93,7 +90,7 @@
 							material: steel.frames
 							amount: 0.352443
 							snapping: 0.100
-							loss: 0.078
+							loss: 0.075
 							group: 0
 							flags: prerequisite
 						}
@@ -102,7 +99,7 @@
 							material: machine_parts
 							amount: 4.994513
 							snapping: 0.100
-							loss: 0.098
+							loss: 0.090
 							group: 0
 							flags: prerequisite
 						}
@@ -114,7 +111,7 @@
 							difficulty: 11
 							snapping: 5.000
 							falloff: 0.880
-							ratio: 0.898
+							ratio: 0.890
 							group: 0
 							flags: simultaneous, conditional
 						}
@@ -126,14 +123,11 @@
 							difficulty: 13
 							snapping: 5.000
 							falloff: 0.880
-							ratio: 0.898
+							ratio: 0.890
 							group: 0
 							flags: simultaneous, conditional
 						}
 					]
-					
-					quality: 1.000
-					precision: 1.000
 					
 					filter_tools:
 					{
@@ -174,7 +168,7 @@
 							material: wood
 							amount: 0.140355
 							snapping: 0.500
-							loss: 0.129
+							loss: 0.122
 							group: 0
 							flags: prerequisite
 						}
@@ -186,14 +180,11 @@
 							difficulty: 6
 							snapping: 5.000
 							falloff: 0.910
-							ratio: 0.898
+							ratio: 0.890
 							group: 0
 							flags: conditional
 						}
 					]
-					
-					quality: 1.000
-					precision: 1.000
 					
 					filter_tools:
 					{
@@ -274,7 +265,7 @@
 	
 	type: workshop
 	flags: blueprintable, item, wip, converted
-	tags: workbench, workshop, manual, complex, small, weapon, gun, assembling, metalworking, engineering, military, construction
+	tags: manual, crafting, complex, small, weapon, gun, assembling, metalworking, engineering, military
 	infrastructure: table, vise, workbench
 	infrastructure_exclude: none
 	

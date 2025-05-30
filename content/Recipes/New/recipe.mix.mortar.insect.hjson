@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.63.2"
 	name: "Slimy Mortar"
 	desc:
 		'''
@@ -14,6 +14,7 @@
 			
 			type: processing
 			flags: wip, auto_generated
+			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
 			
@@ -140,6 +141,7 @@
 	flags: wip, converted
 	tags: workbench, manual, dumb, simple, biology, blending, messy, dangerous
 	infrastructure: none
+	infrastructure_exclude: none
 	
 	h_company: common
 	
@@ -167,7 +169,7 @@
 	}
 	icon_c_offset: [-12.000, -14.000]
 	
-	color_frame: "0xffaeb59a"
+	color_frame: "0xffe3cb93"
 	color_button: "0xff9dd80f"
 	rank: -160.500
 	

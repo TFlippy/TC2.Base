@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.1"
+	$version: "0.1.63.2"
 	name: "Cement Mortar"
 	desc:
 		'''
@@ -354,7 +354,7 @@
 	}
 	icon_c_offset: [-10.000, -11.000]
 	
-	color_frame: "0xffaeb59a"
+	color_frame: "0xffe3cb93"
 	color_button: "0xff9dd80f"
 	rank: -160.900
 	

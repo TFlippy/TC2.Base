@@ -208,11 +208,12 @@ shop:
 {
 	tags_filter:
 	{
-		include: workbench, manual, munitions, tailoring, engineering, salvaging, medical, research, social, science
-		exclude: advanced, large, huge, raw, smelting, fermenting, melting, heating, casting, overworld
+		require: manual
+		include: manual, munitions, tailoring, engineering, salvaging, medical, research, social, science
+		exclude: advanced, medium, large, huge, vehicle, raw, blacksmithing, smelting, fermenting, melting, heating, casting, overworld
 	}
 	
-	tools: pencil, paper, ruler, hammer, screwdriver, magnifying_glass, bucket, towel, knife, needle, pins, scissors, sandpaper
+	tools: pencil, paper, ruler, hammer, screwdriver, magnifying_glass, bucket, towel, knife, sandpaper, needle, pins, scissors
 	infrastructure: dishes, bottle, table, chair, bed, stationery, surface, office, building
 	environment: office, stationary, cozy, quiet, flammable
 	
