@@ -138,6 +138,15 @@
 					quality_modifier: 0.123
 					yield_modifier: 0.224
 					
+					filter_tools:
+					{
+						include: hammer, saw, cleaver, axe, shovel, crowbar, knife
+					}
+					filter_environment:
+					{
+						include: workshop, stationary, ugly, scary, durable, sturdy
+					}
+					
 					h_sound_complete: burner.bang.00
 				}
 			]
@@ -221,11 +230,11 @@
 					
 					filter_infrastructure:
 					{
-						include: oven
+						include: heater, burner
 					}
 					filter_environment:
 					{
-						include: airtight
+						include: sturdy
 					}
 					
 					h_sound_begin: furnace.produce.00

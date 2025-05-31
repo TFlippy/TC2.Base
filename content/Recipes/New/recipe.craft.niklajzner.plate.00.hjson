@@ -96,7 +96,11 @@
 					filter_tools:
 					{
 						require: hammer, cutters
-						include: pliers, knife
+						include: cutters, pliers, knife, scissors
+					}
+					filter_infrastructure:
+					{
+						include: table
 					}
 				}
 			]

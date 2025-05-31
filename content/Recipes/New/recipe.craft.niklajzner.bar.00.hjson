@@ -57,11 +57,11 @@
 						{
 							type: work
 							work: hammering
-							amount: 380.000
+							amount: 200.000
 							amount_min: 150.000
 							difficulty: 11
 							snapping: 5.000
-							falloff: 0.902
+							falloff: 0.857
 							group: 0
 							flags: conditional
 						}

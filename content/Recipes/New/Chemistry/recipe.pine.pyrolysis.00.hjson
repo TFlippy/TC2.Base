@@ -1,5 +1,4 @@
 ﻿{
-	$region_id: 0
 	$version: "0.1.63.2"
 	name: "Pine"
 	desc:
@@ -60,6 +59,17 @@
 					quality_modifier: 0.123
 					yield_modifier: 0.224
 					
+					filter_tools:
+					{
+						require: saw
+						include: ruler, file, knife
+					}
+					filter_infrastructure:
+					{
+						require: surface
+						include: workbench
+					}
+					
 					h_sound_complete: burner.bang.00
 				}
 				{
@@ -99,6 +109,15 @@
 					purity_modifier: 0.107
 					quality_modifier: 0.123
 					yield_modifier: 0.224
+					
+					filter_tools:
+					{
+						include: hammer, saw, cleaver, axe, shovel, crowbar, knife
+					}
+					filter_environment:
+					{
+						include: workshop, stationary, ugly, scary, durable, sturdy
+					}
 					
 					h_sound_complete: burner.bang.00
 				}
@@ -195,11 +214,11 @@
 					
 					filter_infrastructure:
 					{
-						include: oven
+						include: heater, burner
 					}
 					filter_environment:
 					{
-						include: airtight
+						include: sturdy
 					}
 					
 					h_sound_begin: furnace.produce.00
@@ -282,11 +301,14 @@
 					
 					filter_infrastructure:
 					{
-						include: oven
+						require: heater
+						include: heater, burner
 					}
 					filter_environment:
 					{
-						include: airtight
+						require: fireproof
+						include: container, airtight, sturdy
+						exclude: flammable
 					}
 					
 					h_sound_begin: furnace.produce.00
@@ -315,15 +337,6 @@
 					flags: none
 					
 					suffix: " Charring"
-					
-					filter_infrastructure:
-					{
-						include: oven
-					}
-					filter_environment:
-					{
-						include: airtight
-					}
 				}
 				{
 					name: "Dry"
@@ -379,11 +392,12 @@
 					
 					filter_infrastructure:
 					{
-						include: oven
+						require: still, condenser
+						include: still, condenser
 					}
 					filter_environment:
 					{
-						include: airtight
+						include: watertight, fireproof
 					}
 				}
 			]

@@ -1,5 +1,4 @@
 ﻿{
-	$region_id: 0
 	$version: "0.1.63.2"
 	name: "Carbonization"
 	name_short: "Carbonization"
@@ -16,7 +15,7 @@
 	}
 	
 	flags: passive, ambient
-	tags: ambient, simple, passive, dangerous
+	tags: ambient, complex, industrial, passive, dangerous
 	
 	amount_base: 1.300
 	cooldown: 3.000
@@ -29,12 +28,14 @@
 	tools_required: none
 	tools_optional: none
 	
-	infrastructure_required: none
+	infrastructure_required: heater
 	infrastructure_optional: heater, burner
 	
 	filter_environment:
 	{
-		include: sturdy
+		require: fireproof
+		include: container, airtight, sturdy
+		exclude: flammable
 	}
 	
 	skills_min:

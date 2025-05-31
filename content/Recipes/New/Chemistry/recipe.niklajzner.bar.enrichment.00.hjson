@@ -56,15 +56,6 @@
 						}
 					]
 					
-					filter_infrastructure:
-					{
-						include: oven, forge, crucible
-					}
-					filter_environment:
-					{
-						include: container, airtight, stationary, dirty, ugly, cozy, fireproof, flammable, small
-					}
-					
 					h_sound_complete: burner.bang.00
 				}
 			]
@@ -133,7 +124,7 @@
 					}
 					filter_environment:
 					{
-						include: container, airtight, stationary, dirty, ugly, cozy, fireproof, flammable, small
+						include: machine, container, airtight, clean, reinforced, fireproof, sturdy, small
 					}
 				}
 			]
