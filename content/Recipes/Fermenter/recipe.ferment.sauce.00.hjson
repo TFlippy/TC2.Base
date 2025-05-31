@@ -53,7 +53,7 @@
 	]
 	
 	type: workshop
-	flags: no_amount_multiplier, disabled, wip
+	flags: no_amount_multiplier, disabled, production, wip, no_cancel
 	tags: simple, food, organic, agriculture, fermenting, processing
 	infrastructure: liquid_container, fermenter
 	infrastructure_exclude: none

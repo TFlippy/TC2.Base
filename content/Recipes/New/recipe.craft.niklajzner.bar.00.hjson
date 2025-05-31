@@ -87,7 +87,7 @@
 							amount: 1.173454
 							amount_extra: 0.128149
 							group: 0
-							flags: primary, compact, use_temperature
+							flags: primary, spawn, compact, use_temperature
 						}
 					]
 					

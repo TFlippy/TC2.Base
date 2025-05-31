@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.1"
+	$version: "0.1.63.2"
 	name: "Steel Frames"
 	tips: []
 	
@@ -25,7 +25,7 @@
 					
 					type: undefined
 					flags: wip
-					discard_damage_type_override: handsaw
+					discard_damage_type_override: axe
 					
 					prefix: "Handsawn "
 					priority: 1.000
@@ -37,18 +37,19 @@
 							material: steel.plate
 							amount: 1.000
 							snapping: 1.000
-							loss: 0.024
+							loss: 0.063
 							group: 0
 							flags: primary, prerequisite
 						}
 						{
 							type: work
 							work: sawing.metal
-							amount: 400.000
+							amount: 450.000
 							amount_min: 125.000
-							difficulty: 7
+							difficulty: 10
 							snapping: 25.000
-							falloff: 0.530
+							falloff: 0.849
+							ratio: 0.424
 							group: 0
 							flags: conditional
 						}
@@ -59,19 +60,13 @@
 						{
 							type: resource
 							material: steel.frames
-							amount: 0.781
-							amount_extra: 0.122
+							amount: 0.753323
+							amount_extra: 0.117677
 							snapping: 0.050
 							group: 0
 							flags: primary, compact
 						}
 					]
-					
-					quality: 0.851
-					precision: 0.766
-					efficiency: 0.759
-					
-					loss: 0.075
 					
 					filter_tools:
 					{
@@ -116,7 +111,7 @@
 	rank: -18.000
 	
 	min: 1
-	max: 10
+	max: 25
 	step: 1
 	
 	version: 1

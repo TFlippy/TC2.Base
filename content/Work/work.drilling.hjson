@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.1"
+	$version: "0.1.63.2"
 	name: "Drilling"
 	name_short: "Drilling"
 	desc:
@@ -16,8 +16,12 @@
 	
 	flags: none
 	tags: manual, machine, automated, tools, simple, technical, construction, industrial, dangerous, careful, wip
+	
+	amount_base: 0.000
 	cooldown: 1.800
-	multiplier: 2.750
+	multiplier: 1.870
+	
+	amount_jitter: 0.496
 	color: "0xffff6200"
 	
 	tools_required: hand_drill

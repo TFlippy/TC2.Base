@@ -89,7 +89,7 @@
 							amount_extra: 0.187
 							snapping: 0.100
 							group: 0
-							flags: primary, compact, use_temperature
+							flags: primary, spawn, compact, use_temperature
 						}
 					]
 					

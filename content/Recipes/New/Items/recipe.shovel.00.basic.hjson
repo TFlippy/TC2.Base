@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.5"
+	$version: "0.1.63.2"
 	name: "Shovel"
 	tips: []
 	
@@ -168,7 +168,7 @@
 						}
 						{
 							type: work
-							work: die_cutting.metal
+							work: "null"
 							amount: 50.000
 							difficulty: 11
 							snapping: 25.000
@@ -394,7 +394,7 @@
 	]
 	
 	type: workshop
-	flags: blueprintable, packable, item
+	flags: blueprintable, item
 	tags: workbench, workshop, manual, simple, medium, tool, woodworking, assembling, metalworking, construction
 	infrastructure: workbench
 	infrastructure_exclude: none

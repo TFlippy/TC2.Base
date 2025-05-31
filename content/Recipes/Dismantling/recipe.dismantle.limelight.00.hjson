@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.5"
+	$version: "0.1.63.2"
 	name: "Dismantle Limelight"
 	desc:
 		'''
@@ -24,7 +24,7 @@
 			options:
 			[
 				{
-					name: "Simple"
+					name: "Crude"
 					
 					type: undefined
 					flags: wip, auto_generated
@@ -64,8 +64,8 @@
 						{
 							type: resource
 							material: recondite
-							amount: 0.134
-							amount_extra: 0.017
+							amount: 0.006846
+							amount_extra: 0.001008
 							group: 1
 							flags: waste
 						}
@@ -164,6 +164,7 @@
 	flags: dismantling, wip, converted
 	tags: workbench, workshop, manual, crude, simple, small, salvaging
 	infrastructure: surface
+	infrastructure_exclude: none
 	
 	icon:
 	{

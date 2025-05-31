@@ -151,7 +151,7 @@
 	]
 	
 	type: workshop
-	flags: disabled, production, ignore_tools, wip, auto_complete, converted
+	flags: disabled, production, ignore_tools, wip, no_cancel, converted
 	tags: simple, organic, agriculture, fermenting, processing
 	infrastructure: liquid_container, fermenter
 	infrastructure_exclude: none
