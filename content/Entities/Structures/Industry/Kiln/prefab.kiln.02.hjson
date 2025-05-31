@@ -131,6 +131,7 @@ workshop:
 	environment: container, waterproof, stationary, dirty, ugly, fireproof, durable, sturdy
 
 	orders_capacity: 1
+	h_sound_order_complete: computer.bell.00
 }
 
 kiln:

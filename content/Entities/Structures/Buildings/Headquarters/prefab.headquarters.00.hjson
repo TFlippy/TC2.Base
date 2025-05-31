@@ -205,7 +205,8 @@ shop:
 
 workshop:
 {
-
+	orders_capacity: 4
+	h_sound_order_complete: computer.bell.00
 }
 
 stockpile:

@@ -128,6 +128,8 @@ workshop:
 	infrastructure: none
 	environment: none
 
+	h_sound_order_complete: effect.bell.ring.01
+
 	@inventory8:
 	{
 		type: workshop

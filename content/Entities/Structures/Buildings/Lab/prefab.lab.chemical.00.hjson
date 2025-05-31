@@ -154,6 +154,7 @@ crafter:
 workshop:
 {
 	orders_capacity: 4
+	h_sound_order_complete: effect.bell.ring.01
 
 	@inventory8:
 	{

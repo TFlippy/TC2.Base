@@ -145,6 +145,7 @@ workshop:
 	environment: container, mobile, dirty, ugly, sturdy, flammable, large
 	
 	orders_capacity: 1
+	h_sound_order_complete: computer.bell.00
 }
 
 shipment:

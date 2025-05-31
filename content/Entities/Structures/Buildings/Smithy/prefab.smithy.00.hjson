@@ -125,6 +125,7 @@ shop:
 workshop:
 {
 	orders_capacity: 3
+	h_sound_order_complete: order_complete
 
 	@inventory8:
 	{	
