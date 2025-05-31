@@ -10,7 +10,7 @@
 	tile_flags: non_empty
 	flags: raw, common, magnetic, native
 	
-	max_health: 138000.000
+	max_health: 168000.000
 	smoothing: 0.110
 	stability: 6.140
 	strength_tensile: 4.800

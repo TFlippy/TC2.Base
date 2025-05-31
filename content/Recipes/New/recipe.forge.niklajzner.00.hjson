@@ -1,6 +1,6 @@
 ﻿{
-	$version: "0.1.62.0"
-	name: "Basic Niklajzner Reforging"
+	$version: "0.1.63.2"
+	name: "Basic Niklajzner Forging"
 	desc:
 		'''
 		TODO: Desc
@@ -14,6 +14,7 @@
 			
 			type: workpiece
 			flags: none
+			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: heat
 			
@@ -81,11 +82,6 @@
 					advance_delay: 1.000
 					complete_delay: 1.000
 					
-					quality: 1.000
-					precision: 1.000
-					
-					loss: 0.024
-					
 					filter_tools:
 					{
 						require: hammer, tongs
@@ -120,6 +116,7 @@
 			
 			type: refining
 			flags: none
+			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: fracture
 			
@@ -158,9 +155,6 @@
 						}
 					]
 					
-					quality: 1.000
-					precision: 1.000
-					
 					filter_tools:
 					{
 						require: hammer, tongs
@@ -180,6 +174,7 @@
 	flags: item, production
 	tags: manual, simple, raw, blacksmithing, metalworking, heating, processing
 	infrastructure: anvil, forge, hard_surface
+	infrastructure_exclude: none
 	
 	icon:
 	{

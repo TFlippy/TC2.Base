@@ -10,7 +10,7 @@
 	tile_flags: non_empty
 	flags: raw, rare, native
 	
-	max_health: 35000.000
+	max_health: 45000.000
 	smoothing: 0.150
 	stability: 0.500
 	strength_tensile: 0.000
