@@ -17,11 +17,11 @@
 	flags: passive, ambient
 	tags: automated, science, ambient, complex, chemical, passive, dangerous, careful
 	
-	amount_base: 5.000
-	cooldown: 3.000
-	multiplier: 2.000
+	amount_base: 1.200
+	cooldown: 2.000
+	multiplier: 1.750
 	
-	amount_jitter: 0.159
+	amount_jitter: 0.179
 	color: "0xff14d081"
 	
 	tools_required: none

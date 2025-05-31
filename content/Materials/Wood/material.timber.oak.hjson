@@ -362,5 +362,59 @@
 			
 			yield: [0.840, 0.130]
 		}
+		trashing.wood:
+		{
+			h_material: scrap.wood
+			h_substance: "null"
+			flags: none
+			flags_product: waste, residue
+			
+			yield: [0.797, 0.176]
+		}
+		charring:
+		{
+			h_material: scrap.charred
+			h_substance: "null"
+			flags: none
+			flags_product: waste, residue
+			
+			yield: [0.256, 0.356]
+		}
+		pyrolysis:
+		{
+			h_material: scrap.charred
+			h_substance: "null"
+			flags: none
+			flags_product: waste, residue
+			
+			yield: [0.271, 0.324]
+		}
+		carbonization:
+		{
+			h_material: charcoal
+			h_substance: "null"
+			flags: none
+			flags_product: byproduct, residue
+			
+			yield: [0.271, 0.324]
+		}
+		coking:
+		{
+			h_material: charcoal
+			h_substance: "null"
+			flags: none
+			flags_product: byproduct, residue
+			
+			yield: [0.271, 0.324]
+		}
+		roasting:
+		{
+			h_material: scrap.charred
+			h_substance: "null"
+			flags: none
+			flags_product: waste, residue
+			
+			yield: [0.286, 0.330]
+		}
 	}
 }
