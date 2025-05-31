@@ -203,7 +203,7 @@ essence.container:
 {
 	stability: 0.910
 	health_threshold: 0.100
-	glow_modifier: 1.800
+	glow_modifier: 1.000
 	emit_type: stressor
 	flags: show_gui, allow_edit_rate
 
@@ -211,7 +211,7 @@ essence.container:
 	{
 		type: essence
 		flags: ignore_mass
-		stack_size_multiplier: 0.100
+		stack_size_multiplier: 0.200
 		
 		filter:
 		{
@@ -236,7 +236,7 @@ essence.container:
 	@light:
 	{
 		offset: [-0.375, 0.625]
-		scale: [11.000, 5.000]
+		scale: [11.000, 7.000]
 		texture: light.circle.00
 	}
 }

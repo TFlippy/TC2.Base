@@ -171,7 +171,7 @@
 	]
 	
 	type: workshop
-	flags: item, production
+	flags: debug, disabled, item, production, wip
 	tags: manual, simple, raw, blacksmithing, metalworking, heating, processing
 	infrastructure: anvil, forge, hard_surface
 	infrastructure_exclude: none

@@ -57,7 +57,7 @@
 						{
 							type: work
 							work: hammering
-							amount: 1000.000
+							amount: 510.000
 							amount_min: 250.000
 							difficulty: 14
 							snapping: 5.000
@@ -69,9 +69,9 @@
 						{
 							type: work
 							work: snipping.metal
-							amount: 250.000
-							amount_min: 100.000
-							difficulty: 7
+							amount: 160.000
+							amount_min: 90.000
+							difficulty: 5
 							snapping: 5.000
 							falloff: 0.780
 							ratio: 0.804
@@ -101,112 +101,39 @@
 				}
 			]
 		}
-		{
-			name: "Cleaning"
-			
-			type: cleaning
-			flags: subtractive
-			tags: none
-			// Damage type used for discarding leftover resources.
-			discard_damage_type: scratch
-			
-			ratio: 0.000
-			mass_base: 0.000
-			
-			options:
-			[
-				{
-					name: "Sanded"
-					
-					type: undefined
-					flags: none
-					discard_damage_type_override: scratch
-					
-					requirements:
-					[
-						{
-							type: temperature
-							amount: 300.000
-							amount_min: 280.000
-							amount_max: 423.000
-							falloff: 0.600
-							group: 0
-							flags: no_scaling, always_evaluate
-						}
-						{
-							type: work
-							work: sanding
-							amount: 270.000
-							amount_min: 80.000
-							difficulty: 5
-							snapping: 5.000
-							falloff: 0.929
-							ratio: 1.000
-							group: 0
-							flags: conditional
-						}
-					]
-					
-					products:
-					[
-						{
-							type: resource
-							material: ferronickel.powder
-							amount: 0.0539
-							amount_extra: 0.114
-							group: 0
-							flags: waste, residue
-						}
-					]
-					
-					filter_tools:
-					{
-						require: sandpaper
-					}
-					filter_infrastructure:
-					{
-						include: table, surface
-					}
-					filter_environment:
-					{
-						include: workshop, stationary, illuminated, dry
-					}
-				}
-			]
-		}
 	]
 	
 	type: workshop
-	flags: production, wip
+	flags: production
 	tags: manual, simple, raw, metalworking, metallurgy, processing
 	infrastructure: hard_surface
 	infrastructure_exclude: none
 	
 	icon:
 	{
-		texture: resource.niklajzner
+		texture: resource.niklajzner.plate
 		size: [16, 16]
-		frame: [2, 0]
+		frame: [1, 0]
 	}
-	icon_offset: [10.000, 2.000]
+	icon_offset: [-3.125, 2.000]
 	
 	icon_extra:
 	{
 		texture: ui_icons_widget
 		size: [16, 16]
-		frame: [3, 9]
+		frame: [2, 3]
 	}
-	icon_extra_offset: [18.000, -22.000]
+	icon_extra_offset: [0.000, -18.000]
 	
 	icon_c:
 	{
-		texture: resource.niklajzner.plate
+		texture: resource.niklajzner
 		size: [16, 16]
 		frame: [3, 0]
 	}
-	icon_c_offset: [-12.000, -8.000]
+	icon_c_offset: [-3.000, -6.000]
 	
-	color_frame: "0xffeabb3e"
+	color_frame: "0xffff851e"
 	color_button: "0xff9dd80f"
 	rank: -15.000
 	

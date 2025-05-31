@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.5"
+	$version: "0.1.63.2"
 	name: "Snipping (Metal)"
 	name_short: "Snipping"
 	desc:
@@ -16,8 +16,12 @@
 	
 	flags: none
 	tags: manual, tools, simple, construction
+	
+	amount_base: 0.000
 	cooldown: 1.000
 	multiplier: 0.800
+	
+	amount_jitter: 0.493
 	color: "0xffffa200"
 	
 	tools_required: cutters
