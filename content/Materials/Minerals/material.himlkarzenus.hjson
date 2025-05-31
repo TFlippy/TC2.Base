@@ -40,6 +40,7 @@
 	color_dust: "0xfff7488e"
 	color_gib: "0xfff7488e"
 	
+	centroid_default: [0.000, 0.250]
 	colliders: []
 	
 	conversions:
@@ -102,6 +103,14 @@
 	
 	residues:
 	{
-	
+		cramming.solid:
+		{
+			h_material: arsine
+			h_substance: "null"
+			flags: none
+			flags_product: pollutant, waste, spawn, hidden
+			
+			yield: [0.397, 0.567]
+		}
 	}
 }

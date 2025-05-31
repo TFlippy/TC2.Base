@@ -1,0 +1,65 @@
+﻿{
+	$region_id: 0
+	$version: "0.1.63.2"
+	name: "Cramming (Solid)"
+	name_short: "Cramming"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: ui.icons.work.00
+		size: [16, 16]
+		frame: [4, 0]
+	}
+	
+	flags: none
+	tags: manual, crude, leisure, dangerous
+	
+	amount_base: 0.000
+	cooldown: 0.720
+	multiplier: 0.670
+	
+	amount_jitter: 0.337
+	cooldown_jitter: 0.492
+	color: "0xffa94535"
+	
+	tools_required: none
+	tools_optional: none
+	
+	infrastructure_required: none
+	infrastructure_optional: none
+	
+	character_traits:
+	{
+		include: slave, bureaucrat, scientist, criminal, unskilled, medical, law, lowlife, technician, engineer, culinary, insane, alcoholic, feral, pest, animal, brawler, strong, junkie, evil, politician, murderer, terrorist, fanatic, dumb, clumsy
+		weight: 1.000
+	}
+	
+	skills_min:
+	{
+	
+	}
+	
+	skills_mult:
+	{
+		dexterity: 0.110
+		strength: 0.460
+	}
+	
+	sound_volume: 0.700
+	sound_pitch: 0.890
+	sound_size: 0.600
+	sound_dist: 0.650
+	
+	sounds: ["item.rattle.01", "item.rattle.00", "item.adjust.01"]
+	sounds_manual: []
+	sounds_machine: []
+	sounds_passive: []
+	
+	sounds_start: []
+	sounds_end: []
+	sounds_fail: []
+}

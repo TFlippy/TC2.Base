@@ -1,6 +1,5 @@
 ﻿{
-	$region_id: 0
-	$version: "0.1.63.1"
+	$version: "0.1.63.2"
 	name: "Smearing"
 	name_short: "Smearing"
 	desc:
@@ -22,7 +21,7 @@
 	cooldown: 0.950
 	multiplier: 1.150
 	
-	color: "0xff719240"
+	color: "0xffa94535"
 	
 	tools_required: none
 	tools_optional: paintbrush, spatula
