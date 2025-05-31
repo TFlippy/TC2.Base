@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.63.2"
 	name: "Native Silver"
 	desc:
 		'''
@@ -8,7 +8,7 @@
 	
 	material_type: metal_solid
 	tile_flags: non_empty
-	flags: raw, ore, rare, mineral, native
+	flags: raw, rare, native
 	
 	max_health: 35000.000
 	smoothing: 0.150
@@ -16,9 +16,9 @@
 	strength_tensile: 4.800
 	strength_compressive: 21.000
 	
-	mass: 2.000
-	friction: 0.700
-	elasticity: 0.300
+	mass: 3.800
+	friction: 0.500
+	elasticity: 0.500
 	collision_layer: none
 	collision_mask: none
 	
@@ -34,8 +34,8 @@
 	resources:
 	[
 		{
-			material: silver.gravel
-			quantity: 2.21579
+			material: silver
+			quantity: 0.204768
 		}
 		null
 	]

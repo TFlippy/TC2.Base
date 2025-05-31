@@ -1,12 +1,12 @@
 ﻿{
-	$version: "0.1.62.5"
+	$version: "0.1.63.2"
 	name: "Niklajzner"
 	desc:
 		'''
 		Native iron-nickel alloy. 
 		'''
 	
-	material_type: stone_metallic
+	material_type: metal_solid
 	tile_flags: non_empty
 	flags: raw, ore, common, mineral, magnetic, native
 	
@@ -35,7 +35,7 @@
 	[
 		{
 			material: niklajzner
-			quantity: 2.262978
+			quantity: 1.139382
 		}
 		null
 	]

@@ -1,14 +1,14 @@
 ﻿{
-	$version: "0.1.62.0"
-	name: "Gold"
+	$version: "0.1.63.2"
+	name: "Native Gold"
 	desc:
 		'''
-		A very precious metal.
+		We're rich!
 		'''
 	
-	material_type: stone_metallic
+	material_type: metal_solid
 	tile_flags: non_empty
-	flags: raw, ore, rare, native
+	flags: raw, rare, native
 	
 	max_health: 35000.000
 	smoothing: 0.150
@@ -16,9 +16,9 @@
 	strength_tensile: 0.000
 	strength_compressive: 0.000
 	
-	mass: 1.000
-	friction: 0.900
-	elasticity: 0.300
+	mass: 5.300
+	friction: 0.400
+	elasticity: 0.500
 	collision_layer: none
 	collision_mask: none
 	
@@ -34,8 +34,8 @@
 	resources:
 	[
 		{
-			material: gold.gravel
-			quantity: 2.780
+			material: gold
+			quantity: 0.161917
 		}
 		null
 	]

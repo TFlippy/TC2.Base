@@ -6,9 +6,9 @@
 		TODO: Desc
 		'''
 	
-	material_type: stone_metallic
+	material_type: metal_solid
 	tile_flags: non_empty
-	flags: raw, ore, uncommon, native
+	flags: raw, uncommon, native
 	
 	max_health: 30000.000
 	smoothing: 0.150
@@ -17,8 +17,8 @@
 	strength_compressive: 21.000
 	
 	mass: 2.700
-	friction: 1.000
-	elasticity: 0.300
+	friction: 0.400
+	elasticity: 0.640
 	collision_layer: none
 	collision_mask: none
 	
@@ -34,8 +34,8 @@
 	resources:
 	[
 		{
-			material: copper.gravel
-			quantity: 2.043478
+			material: copper
+			quantity: 0.155124
 		}
 		null
 	]
