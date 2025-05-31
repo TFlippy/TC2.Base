@@ -106,7 +106,7 @@ shop:
 	tags_filter:
 	{
 		include: food, organic, delicate, agriculture, filtering, cooking, chemistry, medical, gathering, biology, blending, forestry, heating, moulding, messy
-		exclude: advanced, medium, large, huge, gun, vehicle, furniture, blacksmithing, metalworking, metallurgy, carpentry, architecture, smelting, casting
+		exclude: advanced, medium, large, huge, gun, vehicle, furniture, blacksmithing, carpentry, architecture, smelting, casting
 	}
 	
 	tools: pencil, paper, hammer, saw, hand_drill, cleaver, tweezers, bucket, paintbrush, syringe, towel, spatula, tongs, knife, needle, pins, scissors, ladle

@@ -135,6 +135,19 @@
 		volatiles: ["coal_gas"]
 	}
 	
+	residues:
+	{
+		carburization:
+		{
+			h_material: ash
+			h_substance: "null"
+			flags: none
+			flags_product: waste, residue
+			
+			yield: [0.195, 0.334]
+		}
+	}
+	
 	related:
 	{
 		firedamp: residue, decomposition, dirty, waste
