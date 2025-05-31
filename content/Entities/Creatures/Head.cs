@@ -72,8 +72,8 @@ namespace TC2.Base.Components
 
 #if CLIENT
 		[ISystem.EarlyGUI(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("local", true, Source.Modifier.Any)]
-		public static void OnGUI(ISystem.Info info, Entity entity, 
-		[Source.Owned] in Head.Data head, [Source.Owned] in Head.State head_state)
+		public static void OnGUI(/*ISystem.Info info, Entity entity, */
+		/*[Source.Owned] in Head.Data head,*/ [Source.Owned] in Head.State head_state)
 		{
 			var air_current_norm = head_state.air_current_norm;
 			var color = Color32BGRA.FromHSV(air_current_norm.Pow2() * 2.00f, 1.00f, 1.00f);
@@ -155,7 +155,7 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.20f), HasTag("dead", false, Source.Modifier.Owned)]
-		public static void OnUpdateSprite(ISystem.Info info,
+		public static void OnUpdateSprite(/*ISystem.Info info,*/
 		[Source.Owned] ref Organic.State organic_state, [Source.Owned] in Head.Data head, [Source.Owned] ref Animated.Renderer.Data renderer)
 		{
 			renderer.sprite.frame.x = organic_state.pain_shared > 200.00f ? head.frame_pain : 0u;
@@ -182,24 +182,23 @@ namespace TC2.Base.Components
 			//#endif
 		}
 
-		[ISystem.Update.E(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned)]
-		public static void OnUpdateAI(ISystem.Info info, Entity entity, ref Region.Data region, ref XorRandom random,
-		[Source.Owned] in Head.Data head, [Source.Owned] ref Head.State head_state,
-		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Body.Data body,
-		[Source.Any] ref NPC.Data npc,
-		[Source.Owned, Override] in Organic.Data organic, [Source.Owned] ref Organic.State organic_state)
+		[ISystem.Update.E(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned), HasComponent<Organic.State>(Source.Modifier.Owned, true)]
+		public static void OnUpdateAI(/*ISystem.Info info, Entity entity, ref Region.Data region, ref XorRandom random,*/
+		/*[Source.Owned] in Head.Data head, */[Source.Owned] ref Head.State head_state,
+		//[Source.Owned] in Transform.Data transform, [Source.Owned] ref Body.Data body,
+		[Source.Any] ref NPC.Data npc/*, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] ref Organic.State organic_state*/)
 		{
 			npc.self_hints.SetFlag(NPC.SelfHints.Is_Suffocating, head_state.flags.HasAny(Head.State.Flags.Is_Suffocating));
 			npc.self_hints.SetFlag(NPC.SelfHints.Is_Drowning, head_state.flags.HasAny(Head.State.Flags.Is_Drowning));
 		}
 
-		[ISystem.PostUpdate.A(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.666f), HasTag("dead", false, Source.Modifier.Owned)]
-		public static void OnPostUpdate(ISystem.Info info, Entity entity, ref Region.Data region, ref XorRandom random,
-		[Source.Owned] in Head.Data head, [Source.Owned] ref Head.State head_state, [Source.Any] ref NPC.Data npc,
-		[Source.Owned, Override] in Organic.Data organic, [Source.Owned] in Organic.State organic_state)
-		{
+		//[ISystem.PostUpdate.A(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.666f), HasTag("dead", false, Source.Modifier.Owned)]
+		//public static void OnPostUpdate(ISystem.Info info, Entity entity, ref Region.Data region, ref XorRandom random,
+		//[Source.Owned] in Head.Data head, [Source.Owned] ref Head.State head_state, [Source.Any] ref NPC.Data npc,
+		//[Source.Owned, Override] in Organic.Data organic, [Source.Owned] in Organic.State organic_state)
+		//{
 
-		}
+		//}
 
 		//[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region)]
 		//public static void OnAssetTest([Source.Owned] in NPC.Data npc, [Source.Owned] ref Faction.Colorable colorable)
@@ -216,9 +215,9 @@ namespace TC2.Base.Components
 #if SERVER
 		[WIP]
 		[ISystem.PostUpdate.C(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.139f), HasTag("dead", false, Source.Modifier.Owned)]
-		public static void OnUpdateVoice(ISystem.Info info, Entity entity, ref Region.Data region, ref XorRandom random,
-		[Source.Owned] in Head.Data head, [Source.Owned] ref Head.State head_state,
-		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Body.Data body,
+		public static void OnUpdateVoice(ISystem.Info info, /*Entity entity, ref Region.Data region, */ref XorRandom random,
+		/*[Source.Owned] in Head.Data head, */[Source.Owned] ref Head.State head_state,
+		//[Source.Owned] in Transform.Data transform, [Source.Owned] ref Body.Data body,
 		[Source.Owned, Override] in Organic.Data organic, [Source.Owned] ref Organic.State organic_state)
 		{
 
@@ -413,10 +412,10 @@ namespace TC2.Base.Components
 			head_state.concussion = Maths.Max(Maths.MoveTowards(head_state.concussion, 0.00f, info.DeltaTime * 0.15f), organic_state.stun_norm);
 		}
 
-		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned)]
-		public static void OnUpdateNoRotate(ISystem.Info info,
+		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned), HasComponent<Head.Data>(Source.Modifier.Owned, true)]
+		public static void OnUpdateNoRotate(/*ISystem.Info info,*/
 		[Source.Owned, Override] in Organic.Data organic, [Source.Owned] in Organic.State organic_state,
-		[Source.Owned, Override] ref NoRotate.Data no_rotate, [Source.Owned] in Head.Data head)
+		[Source.Owned, Override] ref NoRotate.Data no_rotate/*, [Source.Owned] in Head.Data head*/)
 		{
 			no_rotate.multiplier *= MathF.Round(organic_state.consciousness_shared * organic_state.efficiency * Maths.Lerp(0.20f, 1.00f, organic.motorics * organic.motorics)) * organic.coordination * organic.motorics * (1.00f - organic_state.stun_norm);
 			no_rotate.speed *= Maths.Lerp01(0.90f, 1.00f, organic.motorics);
@@ -435,9 +434,9 @@ namespace TC2.Base.Components
 		//}
 
 #if SERVER
-		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasComponent<Player.Data>(Source.Modifier.Parent, false), HasComponent<NPC.Data>(Source.Modifier.Parent, true)]
-		public static void OnUpdateNPC(ISystem.Info info, Entity entity, ref Region.Data region, ref XorRandom random,
-		[Source.Owned] in Head.Data head, [Source.Owned] ref Head.State head_state, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] ref Transform.Data transform,
+		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasComponent<Organic.State>(Source.Modifier.Owned, true), HasComponent<Player.Data>(Source.Modifier.Parent, false), HasComponent<NPC.Data>(Source.Modifier.Parent, true)]
+		public static void OnUpdateNPC(ISystem.Info info, Entity entity,/* ref Region.Data region, ref XorRandom random,*/
+		/*[Source.Owned] in Head.Data head,*/ [Source.Owned] ref Head.State head_state, /*[Source.Owned, Override] in Organic.Data organic, */[Source.Owned] ref Transform.Data transform,
 		[Source.Parent] ref Control.Data control, [Source.Parent, Pair.Component<Control.Data>, Optional(true)] ref Net.Synchronized sync)
 		{
 			if (head_state.concussion > 0.01f && (sync.IsNull() || sync.player_id == 0))
@@ -500,9 +499,9 @@ namespace TC2.Base.Components
 			head_global.tinnitus_volume = 0.00f;
 		}
 
-		[ISystem.PreUpdate.Reset(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("local", true, Source.Modifier.Parent)]
-		public static void OnUpdateConcussionEffects(ISystem.Info info, ref XorRandom random, 
-		[Source.Owned] in Head.Data head, [Source.Owned] in Head.State head_state,
+		[ISystem.PreUpdate.Reset(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("local", true, Source.Modifier.Parent), HasComponent<Head.Data>(Source.Modifier.Owned, true)]
+		public static void OnUpdateConcussionEffects(/*ISystem.Info info, */ref XorRandom random, 
+		/*[Source.Owned] in Head.Data head,*/ [Source.Owned] in Head.State head_state,
 		[Source.Singleton] ref Head.Singleton head_global, [Source.Singleton] ref Camera.Singleton camera)
 		{
 			var modifier = Maths.Clamp01(head_state.concussion);
@@ -537,9 +536,9 @@ namespace TC2.Base.Components
 		//public static void OnGUIShared(ISystem.Info info, Entity entity, [Source.Shared] in Player.Data player, [Source.Owned] in Health.Data health, [Source.Owned, Override] in Organic.Data organic)
 		//	=> OnGUIParent(info, entity, in player, in health, in organic);
 
-		[ISystem.Update.B(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void OnUpdateOffset(ISystem.Info info, 
-		[Source.Parent] in HeadBob.Data headbob, [Source.Owned] ref Animated.Renderer.Data renderer, [Source.Owned] in Head.Data head)
+		[ISystem.Update.B(ISystem.Mode.Single, ISystem.Scope.Region), HasComponent<Head.Data>(Source.Modifier.Owned, true)]
+		public static void OnUpdateOffset(/*ISystem.Info info, */
+		[Source.Parent] in HeadBob.Data headbob, [Source.Owned] ref Animated.Renderer.Data renderer/*, [Source.Owned] in Head.Data head*/)
 		{
 			renderer.offset = headbob.offset;
 		}
@@ -551,17 +550,17 @@ namespace TC2.Base.Components
 		//	renderer.offset = headbob.offset;
 		//}
 
-		[ISystem.Update.C(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void OnUpdateOffsetHair(ISystem.Info info, 
-		[Source.Parent] in HeadBob.Data headbob, [Source.Owned, Pair.Tag("hair")] ref Animated.Renderer.Data renderer, [Source.Owned] in Head.Data head)
+		[ISystem.Update.C(ISystem.Mode.Single, ISystem.Scope.Region), HasComponent<Head.Data>(Source.Modifier.Owned, true)]
+		public static void OnUpdateOffsetHair(/*ISystem.Info info, */
+		[Source.Parent] in HeadBob.Data headbob, [Source.Owned, Pair.Tag("hair")] ref Animated.Renderer.Data renderer/*, [Source.Owned] in Head.Data head*/)
 		{
 			//App.WriteLine($"{info.WorldTime}");
 			renderer.offset = headbob.offset;
 		}
 
-		[ISystem.Update.C(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void OnUpdateOffsetBeard(ISystem.Info info, 
-		[Source.Parent] in HeadBob.Data headbob, [Source.Owned, Pair.Tag("beard")] ref Animated.Renderer.Data renderer, [Source.Owned] in Head.Data head)
+		[ISystem.Update.C(ISystem.Mode.Single, ISystem.Scope.Region), HasComponent<Head.Data>(Source.Modifier.Owned, true)]
+		public static void OnUpdateOffsetBeard(/*ISystem.Info info, */
+		[Source.Parent] in HeadBob.Data headbob, [Source.Owned, Pair.Tag("beard")] ref Animated.Renderer.Data renderer/*, [Source.Owned] in Head.Data head*/)
 		{
 			//App.WriteLine($"{info.WorldTime}");
 			renderer.offset = headbob.offset;

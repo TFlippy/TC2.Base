@@ -734,7 +734,7 @@ vehicle:
 		max_stress: 2.000
 		stress_threshold: 1.250
 		stress_damp: 0.500
-		z: 45.000
+		z: 100.000
 		flags: control_write, facing_reset_pos, force_facing
 	}
 	

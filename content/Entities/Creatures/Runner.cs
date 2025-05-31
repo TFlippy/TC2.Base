@@ -82,7 +82,7 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.Monitor(ISystem.Mode.Single, ISystem.Scope.Region), HasRelation(Source.Modifier.Any, Relation.Type.Seat, true), HasTag("initialized", true, Source.Modifier.Owned)]
-		public static void OnAddRemoveSit(ISystem.Info info, Entity entity, [Source.Owned] ref Runner.State runner_state)
+		public static void OnAddRemoveSit(ISystem.Info info, [Source.Owned] ref Runner.State runner_state)
 		{
 			switch (info.EventType)
 			{
@@ -115,8 +115,7 @@ namespace TC2.Base.Components
 		//}
 
 		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void UpdateOrganic(ISystem.Info info, 
-		[Source.Owned, Override] ref Runner.Data runner, 
+		public static void UpdateOrganic([Source.Owned, Override] ref Runner.Data runner, 
 		[Source.Owned, Override] in Organic.Data organic, [Source.Owned] in Organic.State organic_state)
 		{
 			//App.WriteLine($"{organic.dexterity}");
@@ -137,7 +136,7 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned)]
-		public static void UpdateNoRotate(ISystem.Info info, Entity entity,
+		public static void UpdateNoRotate(ISystem.Info info,
 		[Source.Owned, Override] in Runner.Data runner, [Source.Owned] ref Runner.State runner_state, 
 		[Source.Owned, Override] ref NoRotate.Data no_rotate, [Source.Owned] ref Control.Data control)
 		{
@@ -157,7 +156,7 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.Update.B(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned)]
-		public static void UpdateNoRotateParent(ISystem.Info info, Entity entity,
+		public static void UpdateNoRotateParent(ISystem.Info info,
 		[Source.Owned, Override] in Runner.Data runner, [Source.Owned] ref Runner.State runner_state, 
 		[Source.Parent, Override] ref NoRotate.Data no_rotate_parent, [Source.Owned] ref Control.Data control)
 		{
@@ -193,9 +192,9 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.Update.C(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned)]
-		public static void UpdateClimbing(ISystem.Info info, Entity ent_runner, Entity ent_climber,
-		[Source.Owned, Override] in Runner.Data runner, [Source.Owned] ref Runner.State runner_state,
-		[Source.Any] in Climber.Data climber, [Source.Owned, Override, Optional(true)] ref NoRotate.Data no_rotate)
+		public static void UpdateClimbing(ISystem.Info info, //, Entity ent_runner, Entity ent_climber,
+		/*[Source.Owned, Override] in Runner.Data runner,*/ [Source.Owned] ref Runner.State runner_state,
+		[Source.Any] in Climber.Data climber) //, [Source.Owned, Override, Optional(true)] ref NoRotate.Data no_rotate)
 		{
 			runner_state.flags.SetFlag(Runner.State.Flags.Climbing, climber.cling_entity.IsValid());
 			runner_state.flags.SetFlag(Runner.State.Flags.WallClimbing, climber.wallclimb_timer >= 0.40f);
@@ -231,7 +230,8 @@ namespace TC2.Base.Components
 		//		}
 
 		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned)]
-		public static void UpdateMovement(ISystem.Info info, ref Region.Data region, [Source.Owned] in Transform.Data transform, [Source.Owned] ref Body.Data body, [Source.Owned] in Control.Data control,
+		public static void UpdateMovement(ISystem.Info info, ref Region.Data region, [Source.Owned] in Transform.Data transform, 
+		[Source.Owned] ref Body.Data body, [Source.Owned] in Control.Data control,
 		[Source.Owned, Override] in Runner.Data runner, [Source.Owned] ref Runner.State runner_state,
 		[Source.Owned] in Physics.Data physics, [Source.Owned, Pair.Component<Physics.Data>, Optional] in Net.Synchronized synchronized)
 		{
