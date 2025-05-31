@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.5"
+	$version: "0.1.63.2"
 	name: "Helmet (Standard)"
 	tips: []
 	
@@ -32,6 +32,7 @@
 							material: steel.plate
 							amount: 0.753457
 							snapping: 0.250
+							ratio: 0.129
 							group: 0
 							flags: prerequisite
 						}
@@ -40,6 +41,7 @@
 							material: steel.frames
 							amount: 0.075346
 							snapping: 0.500
+							ratio: 0.078
 							group: 0
 							flags: prerequisite
 						}
@@ -49,40 +51,27 @@
 							amount: 0.783294
 							snapping: 0.500
 							loss: 0.020
+							ratio: 0.231
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: work
-							work: smithing
+							work: hammering
 							amount: 750.000
 							amount_min: 225.000
 							difficulty: 7
 							snapping: 25.000
 							falloff: 0.690
+							ratio: 0.161
 							group: 0
 							flags: conditional
 						}
 					]
 					
-					quality: 1.000
-					precision: 1.000
-					
 					filter_tools:
 					{
-						require: hammer, tongs
-						include: pliers, chisel
-					}
-					filter_infrastructure:
-					{
-						require: anvil, forge, heater
-						include: vise
-					}
-					filter_environment:
-					{
-						require: sturdy
-						include: workshop, stationary, fireproof
-						exclude: fragile
+						require: hammer
 					}
 				}
 			]
@@ -147,7 +136,7 @@
 	
 	type: workshop
 	flags: blueprintable, item, wip, converted
-	tags: workbench, manual, small, blacksmithing, tailoring, metalworking, construction
+	tags: manual, crafting, simple, small, tailoring, metalworking
 	infrastructure: table, surface, workbench
 	infrastructure_exclude: none
 	

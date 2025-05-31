@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.5"
+	$version: "0.1.63.2"
 	name: "Shield"
 	tips: []
 	
@@ -20,7 +20,7 @@
 			options:
 			[
 				{
-					name: "Forged"
+					name: "Hammered"
 					
 					type: undefined
 					flags: none
@@ -29,51 +29,30 @@
 					[
 						{
 							type: resource
-							material: steel.ingot
-							amount: 0.353411
-							snapping: 0.250
-							loss: 0.012
+							material: steel.plate
+							amount: 1.800648
+							snapping: 1.000
+							loss: 0.075
 							group: 0
 							flags: prerequisite
 						}
 						{
-							type: temperature
-							amount: 1315.200
-							amount_min: 822.000
-							amount_max: 1578.240
-							group: 0
-							flags: no_scaling, always_evaluate
-						}
-						{
 							type: work
-							work: smithing
-							amount: 450.000
-							difficulty: 3
+							work: hammering
+							amount: 375.000
+							amount_min: 200.000
+							difficulty: 7
 							snapping: 25.000
 							falloff: 0.824
+							ratio: 0.910
 							group: 0
 							flags: conditional
 						}
 					]
 					
-					quality: 1.000
-					precision: 1.000
-					
 					filter_tools:
 					{
-						require: hammer, tongs
-						include: pliers, chisel
-					}
-					filter_infrastructure:
-					{
-						require: anvil, forge, heater
-						include: vise
-					}
-					filter_environment:
-					{
-						require: sturdy
-						include: workshop, stationary, fireproof
-						exclude: fragile
+						require: hammer
 					}
 				}
 			]
@@ -101,46 +80,49 @@
 					requirements:
 					[
 						{
-							type: work
-							work: bending
-							amount: 75.000
-							difficulty: 6
-							snapping: 25.000
-							group: 0
-							flags: conditional
-						}
-						{
 							type: resource
 							material: machine_parts
 							amount: 1.074754
 							snapping: 0.100
 							loss: 0.173
-							group: 1
+							ratio: 0.275
+							group: 0
 							flags: prerequisite
 						}
 						{
 							type: work
+							work: bending
+							amount: 75.000
+							amount_min: 75.000
+							difficulty: 7
+							snapping: 25.000
+							falloff: 0.843
+							ratio: 0.424
+							group: 0
+							flags: conditional
+						}
+						{
+							type: work
 							work: assembling
-							amount: 100.000
+							amount: 185.000
+							amount_min: 80.000
 							difficulty: 4
 							snapping: 25.000
+							falloff: 0.926
+							ratio: 0.918
 							group: 1
 							flags: conditional
 						}
 					]
 					
-					quality: 1.000
-					precision: 1.000
-					
 					filter_tools:
 					{
 						require: hammer, screwdriver, wrench
-						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, pliers, stapler, towel, tongs, pick, crowbar, knife
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, pliers, stapler, chisel, towel, tongs, pick, crowbar, knife
 					}
 					filter_infrastructure:
 					{
-						require: hard_surface
-						include: vise
+						include: anvil, vise, hard_surface, workbench
 					}
 				}
 			]
@@ -153,8 +135,9 @@
 					amount: 0.137838
 					snapping: 0.100
 					loss: 0.122
+					ratio: 0.404
 					group: 0
-					flags: prerequisite
+					flags: compact, prerequisite
 				}
 			]
 		}
@@ -173,7 +156,7 @@
 	
 	type: workshop
 	flags: blueprintable, item, wip
-	tags: workbench, manual, blacksmithing, metalworking
+	tags: manual, crafting, simple, medium, tool, assembling, metalworking
 	infrastructure: workbench
 	infrastructure_exclude: none
 	
