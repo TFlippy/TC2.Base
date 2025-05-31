@@ -39,7 +39,7 @@
 							type: temperature
 							amount: 781.665
 							amount_min: 495.000
-							amount_max: 1223.136
+							amount_max: 1643.136
 							falloff: 0.500
 							group: 0
 							flags: no_scaling, always_evaluate, prerequisite, optional
@@ -105,7 +105,7 @@
 	]
 	
 	type: workshop
-	flags: production, wip
+	flags: production
 	tags: manual, simple, raw, metalworking, metallurgy, processing
 	infrastructure: hard_surface
 	infrastructure_exclude: none
@@ -136,7 +136,7 @@
 	
 	color_frame: "0xffff851e"
 	color_button: "0xff9dd80f"
-	rank: -15.000
+	rank: -715.000
 	
 	min: 1
 	max: 10

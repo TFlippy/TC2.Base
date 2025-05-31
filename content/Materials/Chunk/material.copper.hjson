@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.3"
+	$version: "0.1.63.2"
 	name: "Copper Chunk"
 	name_short: "Cop. Chunk"
 	description:
@@ -21,7 +21,6 @@
 	display_flags: none
 	hints: materials, weak, expensive, civilian, tech
 	
-	porosity: 0.066
 	purity: 0.979
 	mass_per_unit: 12.50609
 	volume_per_unit: 0.0016
@@ -40,6 +39,7 @@
 	color_dust: "0xffdf873d"
 	color_gib: "0xffdf873d"
 	
+	centroid_default: [-0.0625, 0.500]
 	colliders: []
 	
 	conversions:
@@ -70,6 +70,37 @@
 			flags: none
 			merge_radius_mult: 1.000
 			velocity_mult: 1.000
+		}
+	}
+	
+	residues:
+	{
+		hammering:
+		{
+			h_material: scrap.copper
+			h_substance: "null"
+			flags: none
+			flags_product: waste
+			
+			yield: [0.817, 0.151]
+		}
+		filing:
+		{
+			h_material: copper.powder
+			h_substance: "null"
+			flags: none
+			flags_product: residue
+			
+			yield: [0.836, 0.152]
+		}
+		snipping.metal:
+		{
+			h_material: scrap.copper
+			h_substance: "null"
+			flags: none
+			flags_product: waste
+			
+			yield: [0.877, 0.096]
 		}
 	}
 }

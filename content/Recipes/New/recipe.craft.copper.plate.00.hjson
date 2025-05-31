@@ -1,6 +1,7 @@
 ﻿{
+	$region_id: 0
 	$version: "0.1.63.2"
-	name: "Niklajzner Plates"
+	name: "Copper Plates"
 	desc:
 		'''
 		TODO: Desc
@@ -37,44 +38,43 @@
 					[
 						{
 							type: temperature
-							amount: 822.665
-							amount_min: 471.000
-							amount_max: 1106.136
-							falloff: 0.628
+							amount: 702.100
+							amount_min: 318.000
+							amount_max: 1049.136
+							falloff: 0.691
 							group: 0
 							flags: no_scaling, always_evaluate, prerequisite, optional
 						}
 						{
 							type: resource
-							material: niklajzner
-							amount: 5.000
-							snapping: 0.100
-							loss: 0.059
-							ratio: 0.165
+							material: copper
+							amount: 1.000
+							snapping: 1.000
+							loss: 0.122
 							group: 0
 							flags: primary, prerequisite
 						}
 						{
 							type: work
 							work: hammering
-							amount: 510.000
-							amount_min: 250.000
-							difficulty: 14
+							amount: 950.000
+							amount_min: 450.000
+							difficulty: 12
 							snapping: 5.000
-							falloff: 0.794
-							ratio: 0.706
+							falloff: 0.899
+							ratio: 0.251
 							group: 0
 							flags: conditional
 						}
 						{
 							type: work
 							work: snipping.metal
-							amount: 160.000
-							amount_min: 90.000
+							amount: 240.000
+							amount_min: 150.000
 							difficulty: 5
 							snapping: 5.000
-							falloff: 0.780
-							ratio: 0.804
+							falloff: 0.819
+							ratio: 0.761
 							group: 1
 							flags: conditional
 						}
@@ -84,9 +84,9 @@
 					[
 						{
 							type: resource
-							material: niklajzner.plate
-							amount: 3.1439
-							amount_extra: 0.187
+							material: copper.plate
+							amount: 3.8699
+							amount_extra: 0.226
 							snapping: 0.100
 							group: 0
 							flags: primary, spawn, compact, use_temperature
@@ -115,7 +115,7 @@
 	
 	icon:
 	{
-		texture: resource.niklajzner.plate
+		texture: resource.copper.plate
 		size: [16, 16]
 		frame: [1, 0]
 	}
@@ -131,7 +131,7 @@
 	
 	icon_c:
 	{
-		texture: resource.niklajzner
+		texture: resource.copper
 		size: [16, 16]
 		frame: [3, 0]
 	}

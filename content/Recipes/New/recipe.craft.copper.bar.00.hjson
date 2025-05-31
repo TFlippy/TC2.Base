@@ -1,6 +1,7 @@
 ﻿{
+	$region_id: 0
 	$version: "0.1.63.2"
-	name: "Niklajzner Plates"
+	name: "Copper Bars"
 	desc:
 		'''
 		TODO: Desc
@@ -37,44 +38,42 @@
 					[
 						{
 							type: temperature
-							amount: 822.665
-							amount_min: 471.000
-							amount_max: 1106.136
-							falloff: 0.628
+							amount: 644.100
+							amount_min: 302.000
+							amount_max: 1309.136
+							falloff: 0.694
 							group: 0
 							flags: no_scaling, always_evaluate, prerequisite, optional
 						}
 						{
 							type: resource
-							material: niklajzner
-							amount: 5.000
-							snapping: 0.100
-							loss: 0.059
-							ratio: 0.165
+							material: copper
+							amount: 1.000
+							snapping: 1.000
+							loss: 0.024
 							group: 0
-							flags: primary, prerequisite
+							flags: argument, primary, prerequisite
 						}
 						{
 							type: work
 							work: hammering
-							amount: 510.000
-							amount_min: 250.000
-							difficulty: 14
+							amount: 420.000
+							amount_min: 200.000
+							difficulty: 10
 							snapping: 5.000
-							falloff: 0.794
-							ratio: 0.706
+							falloff: 0.944
 							group: 0
 							flags: conditional
 						}
 						{
 							type: work
-							work: snipping.metal
-							amount: 160.000
-							amount_min: 90.000
-							difficulty: 5
+							work: filing
+							amount: 235.000
+							amount_min: 190.000
+							difficulty: 6
 							snapping: 5.000
-							falloff: 0.780
-							ratio: 0.804
+							falloff: 0.886
+							ratio: 0.922
 							group: 1
 							flags: conditional
 						}
@@ -84,10 +83,9 @@
 					[
 						{
 							type: resource
-							material: niklajzner.plate
-							amount: 3.1439
-							amount_extra: 0.187
-							snapping: 0.100
+							material: copper.ingot
+							amount: 0.866552
+							amount_extra: 0.033
 							group: 0
 							flags: primary, spawn, compact, use_temperature
 						}
@@ -95,12 +93,11 @@
 					
 					filter_tools:
 					{
-						require: hammer, cutters
-						include: cutters, pliers, knife, scissors
+						require: hammer, file
 					}
-					filter_infrastructure:
+					filter_environment:
 					{
-						include: table
+						include: workshop, stationary, illuminated, dry
 					}
 				}
 			]
@@ -115,11 +112,11 @@
 	
 	icon:
 	{
-		texture: resource.niklajzner.plate
+		texture: resource.copper.ingot
 		size: [16, 16]
-		frame: [1, 0]
+		frame: [2, 0]
 	}
-	icon_offset: [-3.125, 2.000]
+	icon_offset: [-3.875, 2.000]
 	
 	icon_extra:
 	{
@@ -131,7 +128,7 @@
 	
 	icon_c:
 	{
-		texture: resource.niklajzner
+		texture: resource.copper
 		size: [16, 16]
 		frame: [3, 0]
 	}
