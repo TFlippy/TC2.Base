@@ -1,6 +1,7 @@
 ﻿{
+	$region_id: 0
 	$version: "0.1.63.2"
-	name: "Niklajzner Plate"
+	name: "Niklajzner Bar"
 	desc:
 		'''
 		TODO: Desc
@@ -24,7 +25,7 @@
 			options:
 			[
 				{
-					name: "Plates"
+					name: "Bars"
 					
 					type: undefined
 					flags: none
@@ -35,7 +36,7 @@
 					[
 						{
 							type: resource
-							material: niklajzner.plate
+							material: niklajzner.ingot
 							amount: 1.000
 							snapping: 0.100
 							ratio: 1.000
@@ -48,67 +49,8 @@
 					[
 						{
 							type: resource
-							material: steel.plate
+							material: steel.ingot
 							amount: 1.000
-							group: 0
-							flags: primary, compact, use_temperature
-						}
-					]
-					
-					filter_infrastructure:
-					{
-						include: oven, forge, crucible
-					}
-					filter_environment:
-					{
-						include: container, airtight, stationary, dirty, ugly, cozy, fireproof, flammable, small
-					}
-					
-					h_sound_complete: burner.bang.00
-				}
-				{
-					name: "Frames"
-					
-					type: undefined
-					flags: none
-					discard_damage_type_override: handsaw
-					
-					suffix: " Frames"
-					
-					requirements:
-					[
-						{
-							type: resource
-							material: niklajzner.plate
-							amount: 1.000
-							snapping: 1.000
-							loss: 0.024
-							ratio: 1.000
-							group: 0
-							flags: argument, primary
-						}
-						{
-							type: work
-							work: snipping.metal
-							amount: 110.000
-							amount_min: 85.000
-							difficulty: 5
-							snapping: 10.000
-							falloff: 0.868
-							loss: 0.024
-							ratio: 1.000
-							group: 0
-							flags: conditional
-						}
-					]
-					
-					products:
-					[
-						{
-							type: resource
-							material: steel.frames
-							amount: 0.850
-							amount_extra: 0.050
 							group: 0
 							flags: primary, compact, use_temperature
 						}
@@ -155,7 +97,7 @@
 						{
 							type: resource
 							material: black_coal
-							amount: 0.904762
+							amount: 1.404762
 							snapping: 0.100
 							falloff: 0.877
 							loss: 0.671
@@ -167,18 +109,18 @@
 							amount: 980.700
 							amount_min: 677.000
 							amount_max: 1000.240
-							falloff: 2.477
+							falloff: 2.000
 							group: 0
 							flags: no_scaling, always_evaluate
 						}
 						{
 							type: work
 							work: carburization
-							amount: 200.000
-							amount_min: 250.000
-							difficulty: 6
+							amount: 500.000
+							amount_min: 650.000
+							difficulty: 9
 							snapping: 25.000
-							falloff: 0.743
+							falloff: 0.863
 							ratio: 0.275
 							group: 0
 							flags: conditional
@@ -206,34 +148,33 @@
 	
 	icon:
 	{
-		texture: resource.niklajzner.plate
+		texture: resource.niklajzner.ingot
 		size: [16, 16]
-		frame: [3, 0]
+		frame: [5, 0]
 	}
-	icon_offset: [12.000, 2.000]
+	icon_offset: [8.000, 1.000]
 	
 	icon_extra:
+	{
+		texture: resource.steel.ingot
+		size: [16, 16]
+	}
+	icon_extra_offset: [-16.000, -6.000]
+	
+	icon_c:
 	{
 		texture: resource.steel.plate
 		size: [16, 16]
 		frame: [1, 0]
 	}
-	icon_extra_offset: [-11.000, -5.000]
-	
-	icon_c:
-	{
-		texture: resource.steel.frames
-		size: [16, 16]
-		frame: [3, 0]
-	}
-	icon_c_offset: [-13.000, -12.000]
+	icon_c_offset: [-13.000, -11.000]
 	
 	color_frame: "0xff7d588a"
 	color_button: "0xff9dd80f"
 	rank: -157.000
 	
 	min: 1
-	max: 20
+	max: 5
 	step: 1
 	
 	h_sound_begin: burner.bang.01
