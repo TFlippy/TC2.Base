@@ -215,10 +215,11 @@ press:
 	{
 		sprite:
 		{
-			texture: "ammoshop.00.parts"
-			size: [24, 24]
+			texture: ammoshop.00.parts
+			size: [16, 16]
 		}
-		z: -145.000
+		offset: [-0.250, -0.125]
+		z: -315.000
 	}
 
 	@light:
