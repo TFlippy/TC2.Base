@@ -1,0 +1,43 @@
+﻿{
+	$version: "0.1.63.2"
+	name: "Salmiac"
+	name_short: "Salmiac"
+	name_dumb: "Salt"
+	description:
+		'''
+		Tasty.
+		'''
+	
+	tips: []
+	
+	icon:
+	{
+		texture: resource.salmiac
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	type: powder
+	flags: hard, food, granular, mineral, chemical, raw, powder, solid, primary
+	display_flags: none
+	hints: none
+	
+	purity: 0.789
+	mass_per_unit: 0.520
+	
+	quantity_max: 500.000
+	spawn_quantity_threshold: 0.500
+	snapping: 1.000
+	snapping_pickup: 50.000
+	
+	form_type: powder
+	prefab: resource.salmiac
+	h_substance: ammonium_chloride
+	
+	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
+	
+	colliders: []
+}

@@ -227,7 +227,7 @@
 			
 			yield: [0.952, 0.033]
 		}
-		die_cutting.metal:
+		die.cutting.metal:
 		{
 			h_material: scrap.copper
 			h_substance: "null"

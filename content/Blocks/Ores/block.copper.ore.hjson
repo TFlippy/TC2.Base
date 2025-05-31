@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.63.2"
 	name: "Native Copper"
 	desc:
 		'''
@@ -17,16 +17,16 @@
 	strength_compressive: 21.000
 	
 	mass: 2.700
-	friction: 0.900
+	friction: 1.000
 	elasticity: 0.300
 	collision_layer: none
 	collision_mask: none
 	
 	texture: terrain.copper.ore
 	pattern: pattern.stone
-	texture_scale: 1.040
-	texture_overshoot: -0.600
-	texture_offset: 0.250
+	texture_scale: 1.270
+	texture_overshoot: -0.700
+	texture_offset: -0.125
 	
 	color_preview: "0xffff3a00"
 	color_fill: "0xff140e08"

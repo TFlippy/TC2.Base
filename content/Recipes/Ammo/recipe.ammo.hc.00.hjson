@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.1"
+	$version: "0.1.63.2"
 	name: "HC-13.2mm"
 	desc:
 		'''
@@ -39,7 +39,7 @@
 							material: copper.plate
 							amount: 0.0309
 							snapping: 1.000
-							loss: 0.467
+							loss: 0.416
 							ratio: 1.000
 							group: 0
 							flags: prerequisite
@@ -47,7 +47,7 @@
 						{
 							type: resource
 							material: tallow
-							amount: 0.5988
+							amount: 0.424783
 							snapping: 0.100
 							falloff: 0.629
 							loss: 0.267
@@ -421,7 +421,7 @@
 			flags: important
 			tags: container, assembly, functional, material, dangerous, formula
 			// Damage type used for discarding leftover resources.
-			discard_damage_type: pickaxe
+			discard_damage_type: sledgehammer
 			
 			ratio: 0.000
 			mass_base: 0.000
@@ -454,32 +454,44 @@
 							material: scrap.niklajzner
 							amount: 0.015083
 							snapping: 0.100
-							loss: 0.224
+							loss: 0.624
 							ratio: 1.000
 							group: 0
 						}
 						{
 							type: work
 							work: filling.powder
-							amount: 18.000
-							amount_min: 70.000
+							amount: 7.000
+							amount_min: 50.000
 							difficulty: 4
+							snapping: 10.000
+							falloff: 0.972
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: hammering
+							amount: 12.000
+							amount_min: 90.000
+							difficulty: 7
 							snapping: 5.000
-							falloff: 0.974
-							group: 1
+							falloff: 0.828
+							ratio: 1.000
+							group: 0
 							flags: simultaneous, conditional
 						}
 						{
 							type: work
 							work: crimping.metal
-							amount: 17.000
+							amount: 11.000
 							amount_min: 50.000
-							difficulty: 9
+							difficulty: 5
 							snapping: 5.000
-							falloff: 0.980
+							falloff: 0.919
 							ratio: 1.000
 							group: 1
-							flags: simultaneous, conditional
+							flags: conditional
 						}
 					]
 					

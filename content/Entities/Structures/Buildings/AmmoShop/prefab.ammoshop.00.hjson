@@ -282,25 +282,24 @@ crafter.state:
 	}
 }
 
-// axle:
-// {
-// 	offset: [0.000, -1.500]
-// 	mass: 5.000
-// 	friction: 0.200
-// 	radius_a: 1.000
-// 	radius_b: 1.000
-// 	radius_inner: 0.750
-// 	radius_outer: 1.000
+axle:
+{
+	offset: [-0.375, -1.625]
 	
-// 	@animated.renderer:
-// 	{
-// 		sprite:
-// 		{
-// 			texture: "wheel_1000.steel"
-// 		}
-// 		z: -200.000
-// 	}
-// }
+	friction: 0.200
+	radius_inner: 0.500
+	radius_outer: 0.750
+	z: -310.000
+	
+	@animated.renderer:
+	{
+		sprite:
+		{
+			texture: "wheel_0750.steel"
+		}
+		z: -200.000
+	}
+}
 
 shipment:
 {
