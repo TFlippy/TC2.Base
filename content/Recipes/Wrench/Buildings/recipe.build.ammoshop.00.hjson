@@ -221,7 +221,7 @@
 						{
 							type: resource
 							material: steel.ingot
-							amount: 6.000
+							amount: 10.000
 							snapping: 1.000
 							loss: 0.275
 							group: 0
@@ -278,7 +278,7 @@
 							amount: 900.000
 							difficulty: 11
 							snapping: 5.000
-							ratio: 0.737
+							ratio: 0.722
 							group: 1
 							flags: simultaneous, conditional
 						}
@@ -321,16 +321,36 @@
 							material: machine_parts
 							amount: 80.000
 							snapping: 1.000
-							loss: 0.157
+							loss: 0.173
 							group: 0
 						}
 						{
 							type: work
 							work: construction
 							amount: 500.000
-							difficulty: 7
+							difficulty: 6
 							snapping: 5.000
+							ratio: 0.224
 							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: assembling
+							amount: 680.000
+							difficulty: 11
+							snapping: 5.000
+							ratio: 0.867
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: calibration
+							amount: 450.000
+							difficulty: 8
+							snapping: 5.000
+							group: 1
 							flags: conditional
 						}
 					]
@@ -370,17 +390,25 @@
 						{
 							type: resource
 							material: steel.plate
-							amount: 25.000
+							amount: 30.000
 							snapping: 0.500
-							loss: 0.122
+							loss: 0.173
 							group: 0
 						}
 						{
 							type: resource
 							material: wood
+							amount: 40.000
+							snapping: 5.000
+							loss: 0.114
+							group: 0
+						}
+						{
+							type: resource
+							material: machine_parts
 							amount: 20.000
 							snapping: 5.000
-							loss: 0.075
+							loss: 0.161
 							group: 0
 						}
 						{
@@ -389,8 +417,19 @@
 							amount: 400.000
 							difficulty: 6
 							snapping: 5.000
+							ratio: 0.373
 							group: 0
-							flags: conditional
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: construction
+							amount: 400.000
+							difficulty: 6
+							snapping: 5.000
+							ratio: 0.863
+							group: 0
+							flags: simultaneous, conditional
 						}
 					]
 				}

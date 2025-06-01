@@ -1,7 +1,7 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.63.2"
 	name: "Construction"
-	name_short: "Construction"
+	name_short: "Construct"
 	desc:
 		'''
 		TODO: Desc
@@ -16,18 +16,18 @@
 	
 	flags: none
 	tags: manual, skilled, tools, construction, industrial, wip
+	
+	amount_base: 0.000
 	cooldown: 1.000
 	multiplier: 1.500
+	
 	color: "0xffffa200"
 	
 	tools_required: ruler, hammer, saw, hand_drill, screwdriver
 	tools_optional: pencil, ruler, hammer, saw, hand_drill, screwdriver, tweezers, axe, file, chisel, knife
 	
-	machinery_required: none
-	machinery_optional: lathe
-	
-	equipment_required: none
-	equipment_optional: table, chair, vise
+	infrastructure_required: none
+	infrastructure_optional: none
 	
 	character_traits:
 	{
