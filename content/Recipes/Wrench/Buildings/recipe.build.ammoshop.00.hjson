@@ -1,6 +1,5 @@
 ﻿{
-	$region_id: 0
-	$version: "0.1.63.1"
+	$version: "0.1.63.2"
 	name: "Munitions Workshop"
 	tips: []
 	
@@ -32,7 +31,6 @@
 							type: resource
 							material: gravel
 							amount: 1060.000
-							snapping: 0.500
 							loss: 0.024
 							group: 0
 							flags: compact, primary
@@ -42,14 +40,10 @@
 							work: filling.gravel
 							amount: 1175.000
 							difficulty: 9
-							snapping: 25.000
 							group: 0
 							flags: conditional
 						}
 					]
-					
-					quality: 1.000
-					precision: 1.000
 				}
 				{
 					name: "Compacted Soil"
@@ -63,7 +57,6 @@
 							type: resource
 							material: soil
 							amount: 920.000
-							snapping: 0.500
 							loss: 0.067
 							group: 0
 							flags: compact, primary
@@ -73,7 +66,6 @@
 							work: filling.soil
 							amount: 825.000
 							difficulty: 5
-							snapping: 25.000
 							group: 0
 							flags: conditional
 						}
@@ -82,14 +74,10 @@
 							work: compaction.soil
 							amount: 390.000
 							difficulty: 3
-							snapping: 25.000
 							group: 1
 							flags: conditional
 						}
 					]
-					
-					quality: 1.000
-					precision: 1.000
 				}
 				{
 					name: "Rubble"
@@ -103,7 +91,6 @@
 							type: resource
 							material: scrap.rubble
 							amount: 660.000
-							snapping: 0.200
 							loss: 0.020
 							group: 0
 							flags: compact, primary
@@ -113,7 +100,6 @@
 							work: filling.rubble
 							amount: 800.000
 							difficulty: 12
-							snapping: 25.000
 							group: 0
 							flags: conditional
 						}
@@ -121,7 +107,6 @@
 							type: resource
 							material: soil
 							amount: 200.000
-							snapping: 0.500
 							loss: 0.059
 							group: 1
 							flags: compact, primary
@@ -131,14 +116,10 @@
 							work: filling.soil
 							amount: 160.000
 							difficulty: 4
-							snapping: 25.000
 							group: 1
 							flags: conditional
 						}
 					]
-					
-					quality: 1.000
-					precision: 1.000
 				}
 				{
 					name: "Concrete Composite"
@@ -204,14 +185,160 @@
 							flags: conditional
 						}
 					]
-					
-					quality: 1.000
-					precision: 1.000
 				}
 			]
 		}
 		{
-			name: "Furniture"
+			name: "Anvil & Press"
+			
+			type: appliances
+			flags: wip
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Standard"
+					
+					type: undefined
+					flags: wip
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: brick.concrete
+							amount: 50.000
+							snapping: 1.000
+							loss: 0.122
+							group: 0
+						}
+						{
+							type: resource
+							material: steel.ingot
+							amount: 6.000
+							snapping: 1.000
+							loss: 0.275
+							group: 0
+						}
+						{
+							type: work
+							work: masonry
+							amount: 450.000
+							difficulty: 7
+							snapping: 5.000
+							ratio: 1.000
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: drilling
+							amount: 800.000
+							difficulty: 9
+							snapping: 5.000
+							ratio: 0.824
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: resource
+							material: steel.frames
+							amount: 45.000
+							snapping: 1.000
+							loss: 0.075
+							group: 1
+						}
+						{
+							type: resource
+							material: steel.rod
+							amount: 8.000
+							snapping: 1.000
+							loss: 0.114
+							group: 1
+						}
+						{
+							type: work
+							work: assembling
+							amount: 500.000
+							difficulty: 8
+							snapping: 5.000
+							ratio: 0.553
+							group: 1
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: construction
+							amount: 900.000
+							difficulty: 11
+							snapping: 5.000
+							ratio: 0.737
+							group: 1
+							flags: simultaneous, conditional
+						}
+					]
+				}
+			]
+		}
+		{
+			name: "Machinery"
+			
+			type: appliances
+			flags: wip
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Standard"
+					
+					type: undefined
+					flags: wip
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.frames
+							amount: 35.000
+							snapping: 0.500
+							loss: 0.224
+							group: 0
+						}
+						{
+							type: resource
+							material: machine_parts
+							amount: 80.000
+							snapping: 1.000
+							loss: 0.157
+							group: 0
+						}
+						{
+							type: work
+							work: construction
+							amount: 500.000
+							difficulty: 7
+							snapping: 5.000
+							group: 0
+							flags: conditional
+						}
+					]
+				}
+			]
+		}
+		{
+			name: "Hardware"
 			
 			type: infrastructure
 			flags: wip
@@ -266,63 +393,6 @@
 							flags: conditional
 						}
 					]
-					
-					quality: 1.000
-					precision: 1.000
-				}
-			]
-		}
-		{
-			name: "Hardware"
-			
-			type: appliances
-			flags: wip
-			tags: none
-			// Damage type used for discarding leftover resources.
-			discard_damage_type: sledgehammer
-			
-			ratio: 0.000
-			mass_base: 0.000
-			
-			options:
-			[
-				{
-					name: "Standard"
-					
-					type: undefined
-					flags: wip
-					
-					requirements:
-					[
-						{
-							type: resource
-							material: steel.frames
-							amount: 35.000
-							snapping: 0.500
-							loss: 0.224
-							group: 0
-						}
-						{
-							type: resource
-							material: machine_parts
-							amount: 80.000
-							snapping: 1.000
-							loss: 0.157
-							group: 0
-						}
-						{
-							type: work
-							work: construction
-							amount: 500.000
-							difficulty: 7
-							snapping: 5.000
-							group: 0
-							flags: conditional
-						}
-					]
-					
-					quality: 1.000
-					precision: 1.000
 				}
 			]
 		}

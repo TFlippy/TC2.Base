@@ -38,5 +38,19 @@
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	
+	centroid_default: [0.000, 0.250]
 	colliders: []
+	
+	residues:
+	{
+		masonry:
+		{
+			h_material: scrap.rubble
+			h_substance: "null"
+			flags: none
+			flags_product: waste
+			
+			yield: [0.640, 0.329]
+		}
+	}
 }
