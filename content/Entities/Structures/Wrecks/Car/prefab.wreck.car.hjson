@@ -58,19 +58,19 @@ harvestable:
 	[
 		{
 			material: scrap.metal
-			quantity: 470.000
+			quantity: 480.000
 		}
 		{
 			material: scrap.mixed
-			quantity: 240.000
+			quantity: 375.000
 		}
 		{
-			material: steel.frames
-			quantity: 75.000
+			material: rubber
+			quantity: 175.000
 		}
 		{
 			material: machine_parts
-			quantity: 80.000
+			quantity: 190.000
 		}
 	]
 	

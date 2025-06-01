@@ -15,7 +15,7 @@ body:
 			[-0.750, 1.875]
 		]
 		
-		mass: 350.000
+		mass: 420.000
 		radius: 0.750
 		friction: 0.250
 		elasticity: 0.600
@@ -33,7 +33,7 @@ body:
 		size: [2.000, 0.500]
 		offset: [-0.125, 2.125]
 		
-		mass: 235.000
+		mass: 270.000
 		radius: 0.500
 		friction: 0.500
 		elasticity: 0.500

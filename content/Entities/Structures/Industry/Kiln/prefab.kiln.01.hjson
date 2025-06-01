@@ -9,21 +9,39 @@ body:
 	{
 		points:
 		[
-			[-0.500, -0.625]
-			[1.000, -0.375]
-			[1.125, 0.750]
-			[-0.875, 1.000]
+			[-1.000, 0.000]
+			[1.000, -1.000]
+			[0.875, 2.000]
+			[-0.625, 2.000]
 		]
 		
-		mass: 800.000
+		mass: 600.000
 		radius: 0.750
 		friction: 0.650
 		elasticity: 0.200
 		
 		material: metal
-		miss_chance: 0.398
+		miss_chance: 0.396
 		
-		layer: entity, solid, building, support, ignore_melee, background
+		layer: entity, solid, background, building, support, ignore_melee
+		mask: world, building
+		exclude: none
+	}
+
+	@shape.box:
+	{
+		size: [2.250, 0.500]
+		offset: [0.125, 2.250]
+		
+		mass: 235.000
+		radius: 0.500
+		friction: 0.500
+		elasticity: 0.500
+		
+		material: building_masonry
+		miss_chance: 0.000
+		
+		layer: entity, solid, building, ignore_hover, ignore_bullet
 		mask: world, building
 		exclude: none
 	}

@@ -523,7 +523,7 @@
 	]
 	
 	type: workshop
-	flags: production, manufacturing, wip
+	flags: debug, production, manufacturing, wip
 	tags: manual, crafting, complex, small, munitions, delicate, assembling, industrial, metalworking, military, dangerous
 	infrastructure: table, chair, surface, stamping_press, workbench
 	infrastructure_exclude: none
