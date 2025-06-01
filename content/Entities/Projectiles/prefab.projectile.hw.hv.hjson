@@ -30,7 +30,9 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "projectile.hw.hv"
+		texture: atlas.projectile.hw
+		size: [8, 5]
+		frame: [1, 0]
 	}
 	scale: [0.750, 0.750]
 	z: -40.000

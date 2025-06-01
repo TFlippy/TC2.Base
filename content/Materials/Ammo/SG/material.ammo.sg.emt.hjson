@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.1"
+	$version: "0.1.63.2"
 	name: "SG-20.4mm/EMT Slug"
 	description:
 		'''
@@ -48,9 +48,9 @@
 	ammo:
 	{
 		count: 1
-		mass: 0.070
+		mass: 0.140
 		heat: 50.000
-		velocity_min: 50.000
+		velocity_min: 10.000
 		
 		speed_base: 0.000
 		speed_mult: 0.450
@@ -63,7 +63,7 @@
 		failure_base: 0.000
 		failure_mult: 0.850
 		
-		stability_base: 380.000
+		stability_base: 750.000
 		stability_mult: 1.000
 		
 		prefab: "null"

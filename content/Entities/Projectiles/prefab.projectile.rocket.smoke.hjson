@@ -23,7 +23,9 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "projectile.rocket.smoke"
+		texture: atlas.projectile.rocket
+		size: [16, 5]
+		frame: [2, 0]
 	}
 	scale: [0.750, 0.750]
 	z: -40.000

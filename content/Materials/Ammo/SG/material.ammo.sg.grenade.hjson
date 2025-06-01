@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.1"
+	$version: "0.1.63.2"
 	name: "SG-20.4mm/HE Slug"
 	description:
 		'''
@@ -57,8 +57,8 @@
 		speed_jitter: 0.020
 		spin_base: 0.330
 		spin_mult: 1.000
-		spread_mult: 1.150
-		recoil_mult: 1.400
+		spread_mult: 1.230
+		recoil_mult: 1.610
 		
 		failure_base: 0.050
 		failure_mult: 1.350

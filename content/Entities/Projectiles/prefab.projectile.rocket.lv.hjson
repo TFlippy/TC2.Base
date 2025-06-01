@@ -25,7 +25,9 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "projectile.rocket.lv"
+		texture: atlas.projectile.rocket
+		size: [16, 5]
+		frame: [0, 0]
 	}
 	scale: [0.750, 0.750]
 	z: -40.000
