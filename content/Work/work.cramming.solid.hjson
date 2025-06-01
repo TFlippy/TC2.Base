@@ -1,5 +1,4 @@
 ﻿{
-	$region_id: 0
 	$version: "0.1.63.2"
 	name: "Cramming (Solid)"
 	name_short: "Cramming"
@@ -20,7 +19,7 @@
 	
 	amount_base: 0.000
 	cooldown: 0.720
-	multiplier: 0.670
+	multiplier: 0.970
 	
 	amount_jitter: 0.337
 	cooldown_jitter: 0.492
