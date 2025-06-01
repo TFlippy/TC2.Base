@@ -18,7 +18,7 @@ projectile:
 	ricochet_velocity_ratio: 0.911
 	damp: 0.995
 	tracer_length: 0.600
-	mass: 0.130
+	mass: 0.150
 	stabilization: 0.450
 	flags: always_ricochet
 	hit_mask: world, solid, essence
@@ -36,7 +36,7 @@ projectile:
 
 	@light:
 	{
-		color: [0.000, 0.800, 1.000, 4.000]
+		color: [0.000, 1.000, 0.800, 1.500]
 		offset: [0.000, 0.000]
 		scale: [9.000, 6.000]
 		intensity: 1.000

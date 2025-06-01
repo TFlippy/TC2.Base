@@ -13,19 +13,38 @@ namespace TC2.Base.Components
 		[FixedAddressValueType] public static FixedArray256<IEssence.Handle> material_to_essence;
 		[FixedAddressValueType] public static FixedArray256<IMaterial.Handle> essence_to_material;
 
+		[FixedAddressValueType] public static FixedArray256<ColorBGRA> essence_to_color_emit;
+
+		[FixedAddressValueType] public static FixedArray256<float> essence_to_emit_force;
+		[FixedAddressValueType] public static FixedArray256<Power> essence_to_emit_power_thermal;
+		[FixedAddressValueType] public static FixedArray256<Power> essence_to_emit_power_kinetic;
+		[FixedAddressValueType] public static FixedArray256<Power> essence_to_emit_power_radiant;
+		[FixedAddressValueType] public static FixedArray256<Power> essence_to_emit_power_electric;
+		[FixedAddressValueType] public static FixedArray256<Power> essence_to_emit_power_magnetic;
+
 		static void IAsset2<IEssence, IEssence.Data>.OnRefresh(IEssence.Definition definition)
 		{
 			ref var data = ref definition.GetData();
 
 			var identifier = definition.identifier;
 			var h_essence = definition.GetHandle();
+			var index = (nuint)h_essence.id;
 
 			var identifier_material = $"pellet.{identifier}";
 			if (Assert.Check(IMaterial.Handle.TryParse(identifier_material, out var h_material), Assert.Level.Warn))
 			{
-				essence_to_material[(byte)h_essence.id] = h_material;
-				material_to_essence[(byte)h_material.id] = h_essence;
+				essence_to_material[index] = h_material;
+				material_to_essence[h_material.id] = h_essence;
 			}
+
+			IEssence.essence_to_color_emit[index] = data.color_emit;
+
+			IEssence.essence_to_emit_force[index] = data.emit_force;
+			IEssence.essence_to_emit_power_thermal[index] = data.emit_power_thermal;
+			IEssence.essence_to_emit_power_kinetic[index] = data.emit_power_kinetic;
+			IEssence.essence_to_emit_power_radiant[index] = data.emit_power_radiant;
+			IEssence.essence_to_emit_power_electric[index] = data.emit_power_electric;
+			IEssence.essence_to_emit_power_magnetic[index] = data.emit_power_magnetic;
 		}
 
 		public struct Data(): IName, IDescription
@@ -89,57 +108,21 @@ namespace TC2.Base.Components
 
 	public static partial class Essence
 	{
-		public static Power GetThermalPower(this Essence.Container.Data container)
-		{
-			ref var essence_data = ref container.h_essence.GetData();
-			if (essence_data.IsNotNull())
-			{
-				return container.GetEmittedEssenceAmount() * essence_data.emit_power_thermal;
-			}
-			else
-			{
-				return default;
-			}
-		}
+		public static float GetForce(this IEssence.Handle h_essence) => IEssence.essence_to_emit_force[h_essence.id];
+		public static Power GetThermalPower(this IEssence.Handle h_essence) => IEssence.essence_to_emit_power_thermal[h_essence.id];
+		public static Power GetKineticPower(this IEssence.Handle h_essence) => IEssence.essence_to_emit_power_kinetic[h_essence.id];
+		public static Power GetRadiantPower(this IEssence.Handle h_essence) => IEssence.essence_to_emit_power_radiant[h_essence.id];
+		public static Power GetElectricPower(this IEssence.Handle h_essence) => IEssence.essence_to_emit_power_electric[h_essence.id];
+		public static Power GetMagneticPower(this IEssence.Handle h_essence) => IEssence.essence_to_emit_power_magnetic[h_essence.id];
+		public static ColorBGRA GetEmitColor(this IEssence.Handle h_essence) => IEssence.essence_to_color_emit[h_essence.id];
 
-		public static float GetForce(this Essence.Container.Data container)
-		{
-			ref var essence_data = ref container.h_essence.GetData();
-			if (essence_data.IsNotNull())
-			{
-				return container.GetEmittedEssenceAmount() * essence_data.emit_force;
-			}
-			else
-			{
-				return default;
-			}
-		}
 
-		public static Power GetMagneticPower(this Essence.Container.Data container)
-		{
-			ref var essence_data = ref container.h_essence.GetData();
-			if (essence_data.IsNotNull())
-			{
-				return container.GetEmittedEssenceAmount() * essence_data.emit_power_magnetic;
-			}
-			else
-			{
-				return default;
-			}
-		}
-
-		public static Power GetElectricPower(this Essence.Container.Data container)
-		{
-			ref var essence_data = ref container.h_essence.GetData();
-			if (essence_data.IsNotNull())
-			{
-				return container.GetEmittedEssenceAmount() * essence_data.emit_power_electric;
-			}
-			else
-			{
-				return default;
-			}
-		}
+		public static float GetForce(this Essence.Container.Data container) => container.GetEmittedEssenceAmount() * container.h_essence.GetForce();
+		public static Power GetThermalPower(this Essence.Container.Data container) => container.GetEmittedEssenceAmount() * container.h_essence.GetThermalPower();
+		public static Power GetKineticPower(this Essence.Container.Data container) => container.GetEmittedEssenceAmount() * container.h_essence.GetKineticPower();
+		public static Power GetRadiantPower(this Essence.Container.Data container) => container.GetEmittedEssenceAmount() * container.h_essence.GetRadiantPower();
+		public static Power GetElectricPower(this Essence.Container.Data container) => container.GetEmittedEssenceAmount() * container.h_essence.GetElectricPower();
+		public static Power GetMagneticPower(this Essence.Container.Data container) => container.GetEmittedEssenceAmount() * container.h_essence.GetMagneticPower();
 
 		public static float GetEmittedEssenceAmount(this Essence.Container.Data container)
 		{
@@ -149,47 +132,47 @@ namespace TC2.Base.Components
 		public static partial class Container
 		{
 			[Flags]
-			public enum Flags: uint
+			public enum Flags: byte
 			{
 				None = 0,
 
-				Show_GUI = 1u << 0,
-				Allow_Edit_Rate = 1u << 1,
-				Allow_Edit_Frequency = 1u << 2
+				Show_GUI = 1 << 0,
+				Allow_Edit_Rate = 1 << 1,
+				Allow_Edit_Frequency = 1 << 2,
+				Ignore_Resource_Essence = 1 << 3
 			}
 
 			[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Global | IComponent.Scope.Region)]
 			public partial struct Data(): IComponent
 			{
-				[Statistics.Info("Type", description: "Essence type.", comparison: Statistics.Comparison.None, priority: Statistics.Priority.High)]
-				public IEssence.Handle h_essence;
-
 				[Statistics.Info("Amount", format: "{0:0.##}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
-				public float available;
-
-				public float rate;
-				public float rate_speed = 0.10f;
+				[Net.Segment.A] public float available;
+				[Net.Segment.A] public float rate;
+				[Net.Segment.A, Asset.Ignore] public float rate_current;
+				[Net.Segment.A, Asset.Ignore] public float noise_current;
 
 				[Statistics.Info("Stability", format: "{0:P2}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
-				public float stability = 1.00f;
+				[Net.Segment.B] public float stability = 1.00f;
+				[Net.Segment.B] public float available_modifier = 1.00f;
+				[Net.Segment.B] public float frequency;
 
-				public float health_threshold = 0.20f;
-				public float glow_modifier = 1.00f;
-				public float heat_modifier = 1.00f;
-				public float frequency;
+				[Statistics.Info("Type", description: "Essence type.", comparison: Statistics.Comparison.None, priority: Statistics.Priority.High)]
+				[Net.Segment.B] public IEssence.Handle h_essence;
+				[Net.Segment.B] public Essence.Emitter.Type emit_type;
+				[Net.Segment.B] public Essence.Container.Flags flags;
 
-				public Essence.Container.Flags flags;
-				public Essence.Emitter.Type emit_type;
+				[Net.Segment.C] public float glow_modifier = 1.00f;
+				[Net.Segment.C] public float heat_modifier = 1.00f;
+				[Net.Segment.C] public float rate_speed = 0.10f;
+				[Net.Segment.C] public float health_threshold = 0.20f;
 
-				[Asset.Ignore] public float rate_current;
-				[Asset.Ignore] public float noise_current;
 				[Asset.Ignore, Save.Ignore, Net.Ignore] public float t_next_noise;
 				[Asset.Ignore, Save.Ignore, Net.Ignore] public float t_next_damage;
 				[Asset.Ignore, Save.Ignore, Net.Ignore] public float t_next_collapse;
 			}
 
 			[ISystem.VeryEarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
-			public static void OnUpdate(ISystem.Info info, Entity entity, ref Region.Data region, ref XorRandom random,
+			public static void OnUpdate(ISystem.Info info, ref XorRandom random,
 			[Source.Owned] ref Essence.Container.Data container, [Source.Owned, Optional] in Health.Data health)
 			{
 				var time = info.WorldTime;
@@ -206,7 +189,7 @@ namespace TC2.Base.Components
 			}
 
 			[ISystem.Update.D(ISystem.Mode.Single, ISystem.Scope.Region)]
-			public static void OnUpdateHeat(ISystem.Info info, Entity entity, ref Region.Data region,
+			public static void OnUpdateHeat(ISystem.Info info,
 			[Source.Owned] in Essence.Container.Data container,
 			[Source.Owned] in Heat.Data heat, [Source.Owned] ref Heat.State heat_state)
 			{
@@ -217,15 +200,17 @@ namespace TC2.Base.Components
 			public static void OnResourceModified(Entity entity,
 			[Source.Owned] ref Resource.Data resource, [Source.Owned] ref Essence.Container.Data container)
 			{
-				container.available = resource.quantity * Essence.essence_per_pellet;
+				container.available = (resource.quantity * container.available_modifier) * Essence.essence_per_pellet;
 #if SERVER
-				var sync = false;
-				sync |= container.h_essence.TrySet(resource.GetEssenceType());
-				//App.WriteLine($"OnResourceModified essence container {container.h_essence}");
-
-				if (sync)
+				if (container.flags.HasNone(Essence.Container.Flags.Ignore_Resource_Essence))
 				{
-					container.Modified(entity, true);
+					var sync = container.h_essence.TrySet(resource.GetEssenceType());
+					//App.WriteLine($"OnResourceModified essence container {container.h_essence}");
+
+					if (sync)
+					{
+						container.Modified(entity, true);
+					}
 				}
 #endif
 			}
@@ -234,7 +219,7 @@ namespace TC2.Base.Components
 			public static void OnInventoryModified(Entity entity,
 			[Source.Owned, Pair.Component<Essence.Container.Data>] ref Inventory1.Data inventory, [Source.Owned] ref Essence.Container.Data container)
 			{
-				container.available = inventory.resource.quantity * Essence.essence_per_pellet;
+				container.available = (inventory.resource.quantity * container.available_modifier) * Essence.essence_per_pellet;
 #if SERVER
 				var sync = false;
 				sync |= container.h_essence.TrySet(inventory.resource.GetEssenceType());
@@ -253,112 +238,81 @@ namespace TC2.Base.Components
 			//};
 
 			[ISystem.Modified(ISystem.Mode.Single, ISystem.Scope.Region, order: 50)]
-			public static void OnModified(Entity entity,
-			[Source.Owned] ref Essence.Container.Data container,
-			[Source.Owned, Pair.Component<Essence.Container.Data>, Optional(true)] ref Sound.Emitter sound_emitter,
-			[Source.Owned, Pair.Component<Essence.Container.Data>, Optional(true)] ref Light.Data light)
+			public static void OnModified_Sound([Source.Owned] ref Essence.Container.Data container,
+			[Source.Owned, Pair.Component<Essence.Container.Data>] ref Sound.Emitter sound_emitter)
 			{
+				var h_sound = default(Sound.Handle);
+
 				ref var essence_data = ref container.h_essence.GetData();
-				//App.WriteLine($"OnModified essence container {container.h_essence}");
-
-				if (sound_emitter.IsNotNull())
+				if (essence_data.IsNotNull())
 				{
-					var h_sound = default(Sound.Handle);
-					if (essence_data.IsNotNull())
+					h_sound = container.emit_type switch
 					{
-						h_sound = container.emit_type switch
-						{
-							Essence.Emitter.Type.Undefined => essence_data.sound_emit_ambient_loop,
-							Essence.Emitter.Type.Ambient => essence_data.sound_emit_ambient_loop,
-							Essence.Emitter.Type.Impactor => essence_data.sound_emit_impactor_loop,
-							Essence.Emitter.Type.Cycler => essence_data.sound_emit_cycler_loop,
-							Essence.Emitter.Type.Pulser => essence_data.sound_emit_pulser_loop,
-							Essence.Emitter.Type.Stressor => essence_data.sound_emit_stressor_loop,
-							Essence.Emitter.Type.Oscillator => essence_data.sound_emit_oscillator_loop,
-							Essence.Emitter.Type.Fragmenter => essence_data.sound_emit_ambient_loop,
-							Essence.Emitter.Type.Projector => essence_data.sound_emit_projector_loop,
-							_ => essence_data.sound_emit_loop
-						};
-						//entity.MarkModified<Essence.Container.Data, Sound.Emitter>();
-					}
+						Essence.Emitter.Type.Undefined => essence_data.sound_emit_ambient_loop,
+						Essence.Emitter.Type.Ambient => essence_data.sound_emit_ambient_loop,
+						Essence.Emitter.Type.Impactor => essence_data.sound_emit_impactor_loop,
+						Essence.Emitter.Type.Cycler => essence_data.sound_emit_cycler_loop,
+						Essence.Emitter.Type.Pulser => essence_data.sound_emit_pulser_loop,
+						Essence.Emitter.Type.Stressor => essence_data.sound_emit_stressor_loop,
+						Essence.Emitter.Type.Oscillator => essence_data.sound_emit_oscillator_loop,
+						Essence.Emitter.Type.Fragmenter => essence_data.sound_emit_ambient_loop,
+						Essence.Emitter.Type.Projector => essence_data.sound_emit_projector_loop,
+						_ => essence_data.sound_emit_loop
+					};
+					//entity.MarkModified<Essence.Container.Data, Sound.Emitter>();
+				}
 
-					var refresh = h_sound != sound_emitter.file;
-					sound_emitter.file = h_sound;
+				var refresh = h_sound != sound_emitter.file;
+				sound_emitter.file = h_sound;
 
 #if CLIENT
-					if (refresh) sound_emitter.Refresh();
+				if (refresh) sound_emitter.Refresh();
 #endif
-				}
+			}
 
-				if (light.IsNotNull())
-				{
-					if (essence_data.IsNotNull())
-					{
-						var color = essence_data.color_emit;
-						//color.a *= Maths.Max(1.00f - container.stability, container.rate) * container.available * 0.01f * container.glow_modifier;
-						//color.a *= container.available * 0.01f * container.glow_modifier;
-
-						light.color = color;
-					}
-					else
-					{
-						light.color = default;
-					}
-				}
-
-				//levitator.force_multiplier = Essence.force_per_motion_essence * levitator.EssenceAvailable;
+			[ISystem.Modified(ISystem.Mode.Single, ISystem.Scope.Region, order: 50)]
+			public static void OnModified_Light([Source.Owned] ref Essence.Container.Data container,
+			[Source.Owned, Pair.Component<Essence.Container.Data>] ref Light.Data light)
+			{
+				light.color = container.h_essence.GetEmitColor();
 			}
 
 			[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
-			public static void UpdateEffects(ISystem.Info info, ref Region.Data region, ref XorRandom random,
-			[Source.Owned] in Transform.Data transform,
-			[Source.Owned] ref Essence.Container.Data container,
-			[Source.Owned, Pair.Component<Essence.Container.Data>, Optional(true)] ref Sound.Emitter sound_emitter,
-			[Source.Owned, Pair.Component<Essence.Container.Data>, Optional(true)] ref Light.Data light)
+			public static void UpdateEffects_Sound([Source.Owned] ref Essence.Container.Data container,
+			[Source.Owned, Pair.Component<Essence.Container.Data>] ref Sound.Emitter sound_emitter)
 			{
-				var intensity = container.available * 0.01f * container.rate_current; //.glow_modifier;
-				var noise = 1.00f + container.noise_current; // (1.00f - (float.Sin((random.NextFloat(container.stability.Inv()) * 2) + (info.WorldTime * intensity * 5.00f)) * 0.55f));
-
-				//ref var essence_data = ref container.h_essence.GetData();
-				//if (essence_data.IsNotNull())
-				//var color_a = ColorBGRA.Lerp(essence_data.color_emit, new ColorBGRA(1, 1, 1, 1), 0.50f);
-				//var color_b = essence_data.color_emit.WithColorMult(0.20f).WithAlphaMult(0.00f);
-
-				if (light.IsNotNull())
+				if (container.available > 0.00f)
 				{
+					var intensity = container.available * container.rate_current;
+					var noise = 1.00f + container.noise_current;
+
+					sound_emitter.volume_mult.MoveTowardsDamped(Maths.Lerp01(0.00f, 1.40f, intensity * 0.070f), 0.15f, 0.02f);
+					sound_emitter.pitch_mult.MoveTowardsDamped(Maths.Lerp01(0.10f, 1.20f, intensity * 0.035f) * noise, 0.05f, 0.01f);
+				}
+				else
+				{
+					sound_emitter.volume_mult = 0.00f;
+				}
+			}
+
+			[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
+			public static void UpdateEffects_Light(ref XorRandom random, [Source.Owned] ref Essence.Container.Data container,
+			[Source.Owned, Pair.Component<Essence.Container.Data>] ref Light.Data light)
+			{
+				if (container.available > 0.00f)
+				{
+					var intensity = container.available * container.rate_current;
+					var noise = 1.00f + container.noise_current;
+
 					//light.color = color_a.WithAlphaMult(intensity * random.NextFloatRange(0.90f, 1.20f));
-					light.intensity.LerpFMARef(intensity * container.glow_modifier * noise, 0.05f);
+					light.intensity.LerpFMARef(intensity * container.glow_modifier * noise * 0.01f, 0.05f);
 					//light.scale = new Vector2(8, 8) * random.NextFloatRange(0.90f, 1.10f);
 					light.rotation = random.NextFloat(0.02f);
 					//light.offset = actuator.offset + random.NextVector2Range(new Vector2(-0.08f, +0.08f), new Vector2(-0.02f, +0.02f));
 				}
-
-				//for (var i = 0u; i < 1u; i++)
-				//{
-				//	Particle.Spawn(ref region, new Particle.Data()
-				//	{
-				//		texture = Light.tex_light_circle_00,
-				//		lifetime = 0.20f,
-				//		pos = pos,
-				//		//vel = dir * 30.00f,
-				//		drag = 0.10f,
-				//		frame_count = 1,
-				//		frame_count_total = 1,
-				//		frame_offset = 0,
-				//		scale = 0.70f,
-				//		//stretch = new Vector2(1.00f, 0.30f),
-				//		//face_dir_ratio = 1.00f,
-				//		growth = 100.00f,
-				//		color_a = color_a,
-				//		color_b = color_b,
-				//		glow = 4.00f * intensity
-				//	});
-				//}
-
-				if (sound_emitter.IsNotNull())
+				else
 				{
-					sound_emitter.volume_mult.MoveTowardsDamped(Maths.Lerp01(0.00f, 1.40f, intensity * 0.70f), 0.15f, 0.02f);
-					sound_emitter.pitch_mult.MoveTowardsDamped(Maths.Lerp01(0.10f, 1.20f, intensity * 0.35f) * noise, 0.05f, 0.01f);
+					light.intensity = 0.00f;
 				}
 			}
 
@@ -460,9 +414,9 @@ namespace TC2.Base.Components
 			{
 				if (explosive.flags.HasAny(Explosive.Flags.Primed))
 				{
-					var random = XorRandom.New(entity);
-
 					container.t_next_collapse = info.WorldTime + 10.00f;
+
+					var random = XorRandom.New(entity.lower, container.h_essence);
 					EssenceNode.Collapse(ref region, ref random, container.h_essence, entity, transform.position, container.available);
 					//Essence.Explode(ref region, container.h_essence, container.available, transform.position);
 				}
@@ -710,7 +664,7 @@ namespace TC2.Base.Components
 #endif
 
 		[Query(ISystem.Scope.Region)]
-		public delegate void GetAllNodesQuery(ISystem.Info info, Entity entity, 
+		public delegate void GetAllNodesQuery(ISystem.Info info, Entity entity,
 			[Source.Owned] ref EssenceNode.Data essence_node, [Source.Owned] in Transform.Data transform, [Source.Owned] ref Body.Data body);
 
 		// TODO: temporary, will be removed
