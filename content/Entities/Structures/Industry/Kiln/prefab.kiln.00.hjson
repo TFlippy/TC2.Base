@@ -15,7 +15,7 @@ body:
 			[-0.875, 1.625]
 		]
 		
-		mass: 350.000
+		mass: 380.000
 		radius: 0.375
 		friction: 0.650
 		elasticity: 0.200
@@ -46,7 +46,7 @@ control:
 
 health:
 {
-	max: 55000.000
+	max: 65000.000
 }
 
 transform:

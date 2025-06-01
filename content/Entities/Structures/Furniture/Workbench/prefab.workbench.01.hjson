@@ -1,7 +1,7 @@
 $name: "Workbench (Heavy)"
 $desc:
 	'''
-	Heavy-duty workbench equipped with basic tools suitable for more demanding tasks.
+	Heavy-duty workbench equipped with tools suitable for more demanding tasks.
 	'''
 $tags: []
 
@@ -19,7 +19,7 @@ body:
 			[-1.500, 0.875]
 		]
 		
-		mass: 200.000
+		mass: 250.000
 		radius: 0.350
 		friction: 0.950
 		elasticity: 0.300
@@ -35,7 +35,7 @@ body:
 
 health:
 {
-	max: 39400.000
+	max: 49400.000
 }
 
 // faction.colorable:
@@ -144,6 +144,18 @@ workshop:
 		stack_size_multiplier: 1.000
 		type: workshop
 		flags: standalone, public, vertical, no_auto_pickup
+
+		filter:
+		{
+			exclude: gas
+		}
+	}
+
+	@inventory4:
+	{
+		stack_size_multiplier: 1.000
+		type: waste
+		flags: standalone, public, no_auto_pickup
 
 		filter:
 		{

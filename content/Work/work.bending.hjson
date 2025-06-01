@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.5"
+	$version: "0.1.63.2"
 	name: "Bending"
 	name_short: "Bending"
 	desc:
@@ -16,8 +16,13 @@
 	
 	flags: none
 	tags: manual, machine, automated, simple, construction, wip
+	
+	amount_base: 0.000
 	cooldown: 2.000
 	multiplier: 0.650
+	
+	amount_jitter: 0.362
+	cooldown_jitter: -0.114
 	color: "0xffa94535"
 	
 	tools_required: hammer

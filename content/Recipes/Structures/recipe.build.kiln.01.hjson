@@ -1,10 +1,6 @@
 ﻿{
-	$version: "0.1.62.5"
-	name: "Kiln (Small)"
-	desc:
-		'''
-		TODO: Desc
-		'''
+	$version: "0.1.63.2"
+	name: "Distillation Oven"
 	tips: []
 	
 	requirements:
@@ -12,7 +8,7 @@
 		{
 			type: resource
 			material: brick.concrete
-			amount: 100.000
+			amount: 260.000
 			snapping: 0.500
 			group: 0
 			flags: prerequisite
@@ -20,21 +16,35 @@
 		{
 			type: resource
 			material: steel.frames
-			amount: 35.000
+			amount: 60.000
 			group: 0
 			flags: prerequisite
 		}
 		{
 			type: resource
 			material: steel.plate
-			amount: 40.000
+			amount: 35.000
+			group: 0
+			flags: prerequisite
+		}
+		{
+			type: resource
+			material: copper.plate
+			amount: 45.000
+			group: 0
+			flags: prerequisite
+		}
+		{
+			type: resource
+			material: rubber
+			amount: 18.000
 			group: 0
 			flags: prerequisite
 		}
 		{
 			type: resource
 			material: machine_parts
-			amount: 12.000
+			amount: 60.000
 			group: 0
 			flags: prerequisite
 		}
@@ -44,7 +54,7 @@
 	[
 		{
 			type: prefab
-			prefab: kiln.00
+			prefab: kiln.01
 			amount: 1.000
 			group: 0
 		}
@@ -54,17 +64,19 @@
 	flags: wip
 	tags: construction
 	infrastructure: none
+	infrastructure_exclude: none
 	
 	icon:
 	{
-		texture: kiln.00
-		size: [24, 40]
+		texture: kiln.01
+		size: [32, 48]
 	}
+	icon_offset: [1.000, -5.000]
 	
 	color_frame: "0xffff5f11"
 	color_button: "0xff9dd80f"
 	rank: -386.000
-	frame_size: [56.000, 56.000]
+	frame_size: [80.000, 80.000]
 	
 	dismantle_work: 10.000
 	dismantle_yield: 0.800
@@ -74,13 +86,13 @@
 		type: simple
 		flags: allow_mirror_x, require_terrain, terrain_is_support, no_solid_support
 		
-		size: [3.000, 5.000]
-		offset: [0.000, -1.750]
+		size: [4.000, 6.000]
+		offset: [0.000, -2.500]
 		
-		rect_foundation: [-1.125, 0.000, 1.375, 0.500]
+		rect_foundation: [-1.500, 0.000, 1.750, 0.500]
 		tileflags_foundation: solid
 		
-		rect_clearance: [-1.375, -2.750, 1.500, 0.000]
+		rect_clearance: [-1.875, -5.250, 1.875, 0.000]
 		tileflags_clearance: solid
 		
 		cooldown: 1.000

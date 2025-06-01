@@ -1,10 +1,6 @@
 ﻿{
-	$version: "0.1.62.5"
-	name: "Kiln (Small)"
-	desc:
-		'''
-		TODO: Desc
-		'''
+	$version: "0.1.63.2"
+	name: "Kiln"
 	tips: []
 	
 	requirements:
@@ -12,7 +8,7 @@
 		{
 			type: resource
 			material: brick.concrete
-			amount: 100.000
+			amount: 110.000
 			snapping: 0.500
 			group: 0
 			flags: prerequisite
@@ -20,7 +16,7 @@
 		{
 			type: resource
 			material: steel.frames
-			amount: 35.000
+			amount: 45.000
 			group: 0
 			flags: prerequisite
 		}
@@ -34,7 +30,7 @@
 		{
 			type: resource
 			material: machine_parts
-			amount: 12.000
+			amount: 20.000
 			group: 0
 			flags: prerequisite
 		}
@@ -54,16 +50,18 @@
 	flags: wip
 	tags: construction
 	infrastructure: none
+	infrastructure_exclude: none
 	
 	icon:
 	{
 		texture: kiln.00
 		size: [24, 40]
 	}
+	icon_offset: [-1.875, 2.875]
 	
 	color_frame: "0xffff5f11"
 	color_button: "0xff9dd80f"
-	rank: -386.000
+	rank: -397.000
 	frame_size: [56.000, 56.000]
 	
 	dismantle_work: 10.000
