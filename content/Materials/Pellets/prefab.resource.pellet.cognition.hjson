@@ -76,7 +76,7 @@ essence.container:
 		size: 3.000
 		size_max_modifier: 0.270
 		spread: 170.000
-		priority: 0.600
+		priority: 0.100
 		flags: start_muted
 	}
 }

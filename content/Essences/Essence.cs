@@ -221,8 +221,7 @@ namespace TC2.Base.Components
 			{
 				container.available = (inventory.resource.quantity * container.available_modifier) * Essence.essence_per_pellet;
 #if SERVER
-				var sync = false;
-				sync |= container.h_essence.TrySet(inventory.resource.GetEssenceType());
+				var sync = container.h_essence.TrySet(inventory.resource.GetEssenceType());
 				//App.WriteLine($"OnInventoryModified essence container {container.h_essence}");
 
 				if (sync)
@@ -286,8 +285,8 @@ namespace TC2.Base.Components
 					var intensity = container.available * container.rate_current;
 					var noise = 1.00f + container.noise_current;
 
-					sound_emitter.volume_mult.MoveTowardsDamped(Maths.Lerp01(0.00f, 1.40f, intensity * 0.070f), 0.15f, 0.02f);
-					sound_emitter.pitch_mult.MoveTowardsDamped(Maths.Lerp01(0.10f, 1.20f, intensity * 0.035f) * noise, 0.05f, 0.01f);
+					sound_emitter.volume_mult.MoveTowardsDamped(Maths.Lerp01(0.00f, 1.40f, intensity * 0.0070f), 0.15f, 0.02f);
+					sound_emitter.pitch_mult.MoveTowardsDamped(Maths.Lerp01(0.10f, 1.20f, intensity * 0.0035f) * noise, 0.05f, 0.01f);
 				}
 				else
 				{
@@ -301,11 +300,11 @@ namespace TC2.Base.Components
 			{
 				if (container.available > 0.00f)
 				{
-					var intensity = container.available * container.rate_current;
+					var intensity = container.available * container.rate_current * 0.01f;
 					var noise = 1.00f + container.noise_current;
 
 					//light.color = color_a.WithAlphaMult(intensity * random.NextFloatRange(0.90f, 1.20f));
-					light.intensity.LerpFMARef(intensity * container.glow_modifier * noise * 0.01f, 0.05f);
+					light.intensity.LerpFMARef(intensity * container.glow_modifier * noise, 0.05f);
 					//light.scale = new Vector2(8, 8) * random.NextFloatRange(0.90f, 1.10f);
 					light.rotation = random.NextFloat(0.02f);
 					//light.offset = actuator.offset + random.NextVector2Range(new Vector2(-0.08f, +0.08f), new Vector2(-0.02f, +0.02f));

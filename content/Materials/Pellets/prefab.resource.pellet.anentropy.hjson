@@ -84,7 +84,7 @@ essence.container:
 		size_max_modifier: 0.700
 		spread: 93.000
 		doppler: 25.000
-		priority: 0.600
+		priority: 0.100
 	}
 }
 
