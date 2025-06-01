@@ -10,7 +10,7 @@ body:
 	@shape.box:
 	{
 		size: [1.500, 2.500]
-		mass: 150.000
+		mass: 80.000
 		radius: 0.175
 		friction: 0.700
 		elasticity: 0.400
@@ -22,7 +22,7 @@ body:
 
 health:
 {
-	max: 3500.000
+	max: 8500.000
 }
 
 animated.renderer:

@@ -23,9 +23,9 @@ body:
 		elasticity: 0.400
 		
 		material: wood
-		miss_chance: 0.620
+		miss_chance: 0.720
 		
-		layer: entity, background, furniture, flammable, ignore_melee, ignore_bullet
+		layer: entity, background, furniture, flammable, ignore_melee
 		mask: world, building
 		exclude: none
 	}

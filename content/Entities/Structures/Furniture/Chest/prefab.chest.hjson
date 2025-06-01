@@ -15,7 +15,7 @@ body:
 		mass: 31.000
 		radius: 0.250
 		material: wood
-		layer: entity, solid, storage, furniture, flammable, ignore_melee, no_overlapped_placement
+		layer: entity, solid, storage, furniture, flammable, ignore_melee, no_overlapped_placement, background
 		mask: world, furniture, door
 		exclude: held
 

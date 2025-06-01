@@ -27,7 +27,7 @@
 	display_flags: hide_fraction
 	hints: none
 	
-	mass_per_unit: 0.150
+	mass_per_unit: 0.140
 	
 	quantity_max: 12.000
 	spawn_quantity_threshold: 1.000

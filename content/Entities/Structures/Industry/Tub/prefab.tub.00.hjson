@@ -27,7 +27,7 @@ body:
 		material: wood
 		miss_chance: 0.000
 		
-		layer: entity, solid, building, crafter, ignore_melee, ignore_bullet
+		layer: entity, solid, building, crafter, ignore_melee, ignore_bullet, background
 		mask: world, building
 		exclude: none
 	}

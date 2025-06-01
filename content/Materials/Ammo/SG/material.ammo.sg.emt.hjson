@@ -23,11 +23,11 @@
 	}
 	
 	type: ammo
-	flags: ammo, ammo_sg, granular, small, solid
+	flags: ammo, ammo_sg, hard, granular, essence, explosive, small, manufactured, solid
 	display_flags: hide_fraction
 	hints: none
 	
-	mass_per_unit: 0.100
+	mass_per_unit: 0.165
 	
 	quantity_max: 24.000
 	spawn_quantity_threshold: 1.000
@@ -48,25 +48,25 @@
 	ammo:
 	{
 		count: 1
-		mass: 0.140
+		mass: 0.125
 		heat: 50.000
 		velocity_min: 10.000
 		
-		speed_base: 0.000
-		speed_mult: 0.450
+		speed_base: 5.000
+		speed_mult: 0.200
 		speed_jitter: 0.020
 		spin_base: 0.020
-		spin_mult: 1.000
+		spin_mult: 1.150
 		spread_mult: 0.500
-		recoil_mult: 1.300
+		recoil_mult: 1.100
 		
 		failure_base: 0.000
-		failure_mult: 0.850
+		failure_mult: 0.690
 		
 		stability_base: 750.000
 		stability_mult: 1.000
 		
-		prefab: "null"
+		prefab: projectile.sg.emt
 		
 		sprite_casing:
 		{

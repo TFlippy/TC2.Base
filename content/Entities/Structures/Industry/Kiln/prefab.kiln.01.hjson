@@ -21,9 +21,9 @@ body:
 		elasticity: 0.200
 		
 		material: metal
-		miss_chance: 0.078
+		miss_chance: 0.398
 		
-		layer: entity, solid, building, support, ignore_melee
+		layer: entity, solid, building, support, ignore_melee, background
 		mask: world, building
 		exclude: none
 	}

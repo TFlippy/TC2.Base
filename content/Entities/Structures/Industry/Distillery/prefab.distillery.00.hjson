@@ -23,7 +23,7 @@ body:
 		material: machine
 		miss_chance: 0.776
 		
-		layer: entity, solid, building, ignore_melee
+		layer: entity, solid, building, ignore_melee, background
 		mask: world, building
 		exclude: none
 	}

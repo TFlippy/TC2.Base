@@ -15,7 +15,7 @@ body:
 			[1.125, 1.250]
 			[-1.125, 1.250]
 		]
-		mass: 100.000
+		mass: 120.000
 		radius: 0.250
 		friction: 0.700
 		elasticity: 0.400
@@ -27,7 +27,7 @@ body:
 
 health:
 {
-	max: 3500.000
+	max: 8500.000
 }
 
 animated.renderer:
@@ -74,7 +74,7 @@ harvestable:
 	[
 		{
 			material: "wood"
-			quantity: 80.000
+			quantity: 40.000
 		}
 		{
 			material: "paper"
