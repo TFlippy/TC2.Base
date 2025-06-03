@@ -18,7 +18,7 @@ body:
 		elasticity: 0.390
 		
 		material: mushroom
-		miss_chance: 0.447
+		miss_chance: 0.847
 		
 		layer: entity, solid, background, plant, organic
 		mask: world

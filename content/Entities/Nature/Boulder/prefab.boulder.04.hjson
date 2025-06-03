@@ -23,7 +23,7 @@ body:
 		layer: entity, solid, background
 		mask: world
 
-		miss_chance: 0.135
+		miss_chance: 0.235
 	}
 }
 
@@ -57,15 +57,18 @@ harvestable:
 	resources:
 	[
 		{
-			material: "gravel"
+			material: gravel
 			quantity: 8350.000
 		}
+		null
+		null
+		null
 	]
 	
 	thresholds: [0.980, 0.000, 0.000, 0.000]
 	
 	pct_damage_mult: [0.975, 0.000, 0.000, 0.000]
-	pct_quantity_min: [0.029, 0.000, 0.000, 0.000]
+	pct_quantity_min: [0.006, 0.000, 0.000, 0.000]
 	
-	chance_base: [0.782, 0.000, 0.000, 0.000]
+	chance_base: [0.780, 0.000, 0.000, 0.000]
 }
