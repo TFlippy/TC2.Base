@@ -431,10 +431,9 @@ analog.transducer:
 		max_force: 100000.000
 		max_torque: 100000.000
 		max_stress: 3.000
-		stress_threshold: 1.500
-		z: -10.000
-		flags: no_aiming, no_wrap, attachment, allow_dragging, control_write, control_read, facing_reset_rot, force_facing, use_proxy_body
+		z: 200.000
 		material_type: metal
+		flags: no_wrap, attachment, allow_dragging, control_read, control_write, force_facing
 	}
 
 	joint.pivot:
@@ -444,17 +443,16 @@ analog.transducer:
 
 	joint.gear:
 	{
-		min: 0.000
-		max: 0.000
-		error_bias: 0.0001
-		max_bias: 0.350
+		min: -1.3744
+		max: 1.4726
+		max_bias: 4.000
+		bounce: 1.500
 	}
 
 	attachment.slot:
 	{
-		radius: 1.000
-		flags: keyboard_write, mouse_write, brake
-		flags_editable: locked, disabled, invert, keyboard_read, keyboard_write, mouse_read, mouse_write, offset
+		flags: keyboard_write, mouse_write
+		flags_editable: locked, disabled, invert, cycle, keyboard_read, keyboard_write, mouse_read, mouse_write, brake, loose, offset
 		name:
 			'''
 			Device
@@ -463,16 +461,11 @@ analog.transducer:
 		identifier: "device.02"
 		tags_filter:
 		{
-			require: none
 			include: tiny, small, medium, utility, fixed
 			exclude: cabin, wheel, platform
 		}
-		cycle_interval: 0.000
-		cycle_offset: 0.000
 		rank: 1.000
-		rotation: 0.000
 		offset_bounds: [-0.500, -0.250, 0.500, 0.250]
-		offset: [0.000, 0.000]
 		gui_size: [144.000, 120.000]
 	}
 

@@ -55,7 +55,9 @@ namespace TC2.Base.Components
 
 					var parent = body.GetParent();
 					var modifier = 1.00f;
+#if SERVER
 					var flags = Damage.Flags.No_Loot_Drop | Damage.Flags.No_Loot_Pickup;
+#endif
 					var hit_terrain = false;
 
 					var penetration = biter.penetration;
