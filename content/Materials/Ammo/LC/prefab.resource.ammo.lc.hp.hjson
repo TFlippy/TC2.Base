@@ -54,27 +54,27 @@ despawn:
 
 health:
 {
-	max: 2500.000
+	max: 2000.000
 }
 
 explosive:
 {
 	radius: 3.000
-	power: 3.500
-	damage_entity: 450.000
-	damage_terrain: 350.000
+	power: 2.500
+	damage_entity: 350.000
+	damage_terrain: 250.000
 	health_threshold: 0.700
-	detonate_chance: 0.350
+	detonate_chance: 0.150
 	damage_type: bullet_lc
 	damage_type_secondary: shrapnel
 	force_multiplier: 0.450
-	stun_multiplier: 0.450
+	stun_multiplier: 0.150
 	smoke_amount: 1.300
 	smoke_lifetime_multiplier: 1.050
 	smoke_velocity_multiplier: 2.000
 	flash_duration_multiplier: 0.100
 	flash_intensity_multiplier: 0.300
-	sparks_amount: 2.600
+	sparks_amount: 1.800
 	fire_amount: 0.000
 	volume: 1.500
 	pitch: 1.700

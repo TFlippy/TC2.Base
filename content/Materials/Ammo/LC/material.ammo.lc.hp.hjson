@@ -27,7 +27,7 @@
 	display_flags: hide_fraction
 	hints: none
 	
-	mass_per_unit: 0.014
+	mass_per_unit: 0.012
 	
 	quantity_max: 60.000
 	spawn_quantity_threshold: 1.000
@@ -48,22 +48,22 @@
 	ammo:
 	{
 		count: 1
-		mass: 0.011
-		heat: 13.000
-		velocity_min: 80.000
+		mass: 0.0062
+		heat: 5.000
+		velocity_min: 75.000
 		
 		speed_base: 0.000
-		speed_mult: 1.010
-		speed_jitter: 0.020
-		spin_base: 0.000
-		spin_mult: 1.000
-		spread_mult: 1.740
-		recoil_mult: 0.980
+		speed_mult: 0.840
+		speed_jitter: 0.010
+		spin_base: 0.004
+		spin_mult: 1.040
+		spread_mult: 0.970
+		recoil_mult: 1.000
 		
-		failure_base: 0.000
-		failure_mult: 1.040
+		failure_base: 0.004
+		failure_mult: 1.110
 		
-		stability_base: 380.000
+		stability_base: 170.000
 		stability_mult: 0.945
 		
 		prefab: projectile.lc.hp

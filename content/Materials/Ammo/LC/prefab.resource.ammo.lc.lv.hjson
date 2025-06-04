@@ -54,7 +54,7 @@ despawn:
 
 health:
 {
-	max: 1500.000
+	max: 2000.000
 }
 
 explosive:

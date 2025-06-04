@@ -2,25 +2,27 @@ $tags: []
 
 projectile:
 {
-	damage_base: 70.000
-	damage_bonus: 280.000
-	terrain_damage_mult: 4.000
-	armor_pierce: 310.000
-	knockback_multiplier: 6.000
+	damage_base: 150.000
+	damage_bonus: 660.000
+	terrain_damage_mult: 1.100
+	armor_pierce: 12.000
+	pain_multiplier: 2.900
+	stun_multiplier: 1.100
+	knockback_multiplier: 3.000
 	lifetime: 2.000
-	damage_type: bullet_lc
+	damage_type: bullet_sg
 	size: 0.000
-	ricochet_threshold_multiplier: 1.400
+	ricochet_count: 0
 	tracer_length: 1.500
-	mass: 0.011
-	hit_mask: world, solid, essence
+	mass: 0.0062
+	stabilization: 0.500
 }
 
 projectile.renderer:
 {	
-	intensity: 1.600
+	intensity: 1.200
 	thickness_a: 0.020
-	thickness_b: 0.075
+	thickness_b: 0.080
 }
 
 transform:

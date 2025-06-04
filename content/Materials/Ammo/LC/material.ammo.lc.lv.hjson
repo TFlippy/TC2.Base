@@ -54,12 +54,12 @@
 		speed_base: 0.000
 		speed_mult: 0.800
 		speed_jitter: 0.020
-		spin_base: 0.000
-		spin_mult: 1.000
+		spin_base: 0.010
+		spin_mult: 1.110
 		spread_mult: 1.050
 		recoil_mult: 1.000
 		
-		failure_base: 0.004
+		failure_base: 0.003
 		failure_mult: 1.100
 		
 		stability_base: 160.000
