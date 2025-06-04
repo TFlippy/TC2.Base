@@ -1,11 +1,11 @@
 ﻿{
 	$version: "0.1.63.2"
-	name: "Nickel Bar"
-	name_short: "Nic. Bar"
+	name: "Nickel Brick"
+	name_short: "Nic. Brick"
 	name_dumb: "Gold"
 	description:
 		'''
-		Standard 20x10x8 cm nickel bar.
+		Standard 20x10x8 cm nickel brick.
 		'''
 	
 	tips: []

@@ -1,10 +1,10 @@
 ﻿{
 	$version: "0.1.62.3"
-	name: "Silver Bar"
-	name_short: "Sv. Bar"
+	name: "Silver Brick"
+	name_short: "Sv. Brick"
 	description:
 		'''
-		Standard 20x10x8 cm silver bar.
+		Standard 20x10x8 cm silver brick.
 		'''
 	
 	tips: []

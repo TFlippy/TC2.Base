@@ -1,10 +1,10 @@
 ﻿{
 	$version: "0.1.62.3"
-	name: "Gold Bar"
-	name_short: "Gd. Bar"
+	name: "Gold Brick"
+	name_short: "Gd. Brick"
 	description:
 		'''
-		Standard 20x10x8 cm gold bar.
+		Standard 20x10x8 cm gold brick.
 		'''
 	
 	tips: []

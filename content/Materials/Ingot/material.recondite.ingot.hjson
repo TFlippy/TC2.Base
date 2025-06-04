@@ -1,10 +1,10 @@
 ﻿{
 	$version: "0.1.62.3"
-	name: "Recondite Bar"
-	name_short: "Rec. Bar"
+	name: "Recondite Brick"
+	name_short: "Rec. Brick"
 	description:
 		'''
-		Standard 20x10x8 cm recondite bar.
+		Standard 20x10x8 cm recondite brick.
 		'''
 	
 	tips: []

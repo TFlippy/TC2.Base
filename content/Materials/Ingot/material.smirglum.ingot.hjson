@@ -1,10 +1,10 @@
 ﻿{
 	$version: "0.1.62.3"
-	name: "Smirglum Bar"
-	name_short: "Sg. Bar"
+	name: "Smirglum Brick"
+	name_short: "Sg. Brick"
 	description:
 		'''
-		Standard 20x10x8 cm smirglum bar.
+		Standard 20x10x8 cm smirglum brick.
 		'''
 	
 	tips: []

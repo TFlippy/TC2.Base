@@ -3,7 +3,7 @@
 	name: "Hammered Copper Sheets"
 	desc:
 		'''
-		Keep hitting a copper bar with a hammer until it becomes a sheet.
+		Keep hitting a copper brick with a hammer until it becomes a sheet.
 		'''
 	tips: []
 	

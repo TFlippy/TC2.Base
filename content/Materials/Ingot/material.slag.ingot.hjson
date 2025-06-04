@@ -1,11 +1,11 @@
 ﻿{
 	$version: "0.1.63.2"
-	name: "Slag Bar"
-	name_short: "Slag Bar"
+	name: "Slag Brick"
+	name_short: "Slag Brick"
 	name_dumb: "Stone"
 	description:
 		'''
-		Standard 20x10x8 cm slag bar.
+		Standard 20x10x8 cm slag brick.
 		'''
 	
 	tips: []

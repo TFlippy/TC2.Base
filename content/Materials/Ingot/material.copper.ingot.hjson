@@ -1,10 +1,10 @@
 ﻿{
 	$version: "0.1.62.3"
-	name: "Copper Bar"
-	name_short: "Cop. Bar"
+	name: "Copper Brick"
+	name_short: "Cop. Brick"
 	description:
 		'''
-		Standard 20x10x8 cm copper bar.
+		Standard 20x10x8 cm copper brick.
 		'''
 	
 	tips: []

@@ -1,11 +1,11 @@
 ﻿{
 	$version: "0.1.63.2"
-	name: "Niklajzner Bar"
-	name_short: "Nkz. Bar"
+	name: "Niklajzner Brick"
+	name_short: "Nkz. Brick"
 	name_dumb: "Iron"
 	description:
 		'''
-		Standard 20x10x8 cm niklajzner bar.
+		Standard 20x10x8 cm niklajzner brick.
 		'''
 	
 	tips: []

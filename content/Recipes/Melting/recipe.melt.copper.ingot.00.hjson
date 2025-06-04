@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.62.5"
-	name: "Melt: Copper (Bar)"
+	name: "Melt: Copper (Brick)"
 	desc:
 		'''
 		TODO: Desc
@@ -24,7 +24,7 @@
 			options:
 			[
 				{
-					name: "Bars"
+					name: "Bricks"
 					
 					type: undefined
 					flags: none

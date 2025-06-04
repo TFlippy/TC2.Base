@@ -1,11 +1,11 @@
 ﻿{
 	$version: "0.1.63.2"
-	name: "Aluminium Bar"
-	name_short: "Al. Bar"
+	name: "Aluminium Brick"
+	name_short: "Al. Brick"
 	name_dumb: "Tinfoil Brick"
 	description:
 		'''
-		Standard 20x10x8 cm aluminium bar.
+		Standard 20x10x8 cm aluminium brick.
 		'''
 	
 	tips: []

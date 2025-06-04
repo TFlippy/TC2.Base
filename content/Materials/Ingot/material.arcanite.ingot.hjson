@@ -1,10 +1,10 @@
 ﻿{
 	$version: "0.1.62.3"
-	name: "Arcanite Bar"
-	name_short: "Arc. Bar"
+	name: "Arcanite Brick"
+	name_short: "Arc. Brick"
 	description:
 		'''
-		Standard 20x10x8 cm arcanite bar.
+		Standard 20x10x8 cm arcanite brick.
 		'''
 	
 	tips: []

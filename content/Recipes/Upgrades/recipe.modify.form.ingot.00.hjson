@@ -1,9 +1,9 @@
 ﻿{
 	$version: "0.1.61.4"
-	name: "Convert to: Cast Bar Mould"
+	name: "Convert to: Cast Brick Mould"
 	desc:
 		'''
-		Change the casting basin's pattern to bars.
+		Change the casting basin's pattern to bricks.
 		'''
 	tips: []
 	

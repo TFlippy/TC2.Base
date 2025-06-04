@@ -1,7 +1,7 @@
 ﻿{
 	$region_id: 0
 	$version: "0.1.63.2"
-	name: "Niklajzner Bar"
+	name: "Niklajzner Brick"
 	desc:
 		'''
 		TODO: Desc
@@ -25,7 +25,7 @@
 			options:
 			[
 				{
-					name: "Bars"
+					name: "Bricks"
 					
 					type: undefined
 					flags: none
