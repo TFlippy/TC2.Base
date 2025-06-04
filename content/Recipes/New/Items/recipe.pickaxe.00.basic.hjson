@@ -20,7 +20,7 @@
 			options:
 			[
 				{
-					name: "Forged (Rod)"
+					name: "Forged (Bar)"
 					
 					type: undefined
 					flags: wip, incomplete

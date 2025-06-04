@@ -24,7 +24,7 @@
 			options:
 			[
 				{
-					name: "Rod"
+					name: "Bar"
 					
 					type: undefined
 					flags: wip, auto_generated

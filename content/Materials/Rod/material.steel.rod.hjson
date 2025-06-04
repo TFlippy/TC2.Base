@@ -1,11 +1,11 @@
 ﻿{
 	$version: "0.1.63.2"
-	name: "Steel Rod"
-	name_short: "St. Rod"
+	name: "Steel Bar"
+	name_short: "St. Bar"
 	name_dumb: "Iron Stick"
 	description:
 		'''
-		Standard 60x4x4 cm nickelsteel rod.
+		Standard 60x4x4 cm nickelsteel bar.
 		'''
 	
 	tips: []

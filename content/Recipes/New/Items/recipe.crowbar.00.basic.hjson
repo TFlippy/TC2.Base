@@ -6,7 +6,7 @@
 	stages:
 	[
 		{
-			name: "Rod"
+			name: "Bar"
 			
 			type: part
 			flags: wip, incomplete, auto_generated

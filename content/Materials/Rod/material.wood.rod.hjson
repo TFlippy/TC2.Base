@@ -1,11 +1,11 @@
 ﻿{
 	$version: "0.1.63.2"
-	name: "Wooden Rod"
+	name: "Wooden Bar"
 	name_short: "Wood Rd."
 	name_dumb: "Stick"
 	description:
 		'''
-		Standard 60x4x4 cm wooden rod.
+		Standard 60x4x4 cm wooden bar.
 		'''
 	
 	tips: []
