@@ -1,22 +1,22 @@
 ﻿{
-	$version: "0.1.63.1"
-	name: "Brown Coal"
+	$version: "0.1.63.4"
+	name: "Lignite"
 	desc:
 		'''
-		Low-quality coal.
+		TODO: Desc
 		'''
 	
 	material_type: coal
 	tile_flags: non_empty
-	flags: raw, ore, common, fuel, mineral
+	flags: raw, ore, uncommon, fuel, flammable, rock, sedimentary
 	
-	max_health: 14600.000
+	max_health: 26600.000
 	smoothing: 0.150
 	stability: 3.440
 	strength_tensile: 4.800
 	strength_compressive: 21.000
 	
-	mass: 2.000
+	mass: 0.874
 	friction: 0.990
 	elasticity: 0.050
 	collision_layer: none

@@ -1,24 +1,24 @@
 ﻿{
-	$version: "0.1.63.1"
-	name: "Black Coal"
+	$version: "0.1.63.4"
+	name: "Bituminous Coal"
 	desc:
 		'''
-		High-quality coal that burns better than brown coal.
+		TODO: Desc
 		'''
 	
 	material_type: coal
 	tile_flags: non_empty
-	flags: raw, ore, uncommon, fuel, mineral, flammable
+	flags: raw, ore, uncommon, fuel, flammable, rock, sedimentary
 	
-	max_health: 16800.000
+	max_health: 31800.000
 	smoothing: 0.150
 	stability: 4.140
 	strength_tensile: 4.800
 	strength_compressive: 21.000
 	
-	mass: 1.000
-	friction: 0.990
-	elasticity: 0.150
+	mass: 0.965
+	friction: 0.790
+	elasticity: 0.250
 	collision_layer: none
 	collision_mask: none
 	

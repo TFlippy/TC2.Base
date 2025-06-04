@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.63.4"
 	name: "Brezolyt"
 	desc:
 		'''
@@ -8,7 +8,7 @@
 	
 	material_type: stone
 	tile_flags: non_empty
-	flags: raw, ore, common, mineral
+	flags: raw, common, rock, carbonate, sedimentary
 	
 	max_health: 21800.000
 	smoothing: 0.170

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.63.4"
 	name: "Betoniter"
 	desc:
 		'''
@@ -9,7 +9,7 @@
 	
 	material_type: concrete
 	tile_flags: non_empty
-	flags: raw, ore, common, mineral
+	flags: raw, common, rock, sedimentary
 	
 	max_health: 58400.000
 	smoothing: 0.160

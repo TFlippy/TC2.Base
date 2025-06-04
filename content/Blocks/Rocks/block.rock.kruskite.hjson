@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.63.4"
 	name: "Kruskite"
 	desc:
 		'''
@@ -9,7 +9,7 @@
 	
 	material_type: stone_porous
 	tile_flags: non_empty
-	flags: raw, ore, common, mineral
+	flags: raw, common, rock, silicate, metamorphic
 	
 	max_health: 15000.000
 	smoothing: 0.140

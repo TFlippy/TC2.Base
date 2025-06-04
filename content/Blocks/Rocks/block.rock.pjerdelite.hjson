@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.63.4"
 	name: "Pjerdelite"
 	desc:
 		'''
@@ -9,7 +9,7 @@
 	
 	material_type: stone_metallic
 	tile_flags: non_empty
-	flags: raw, ore, common, mineral
+	flags: raw, common, magnetic, rock, metamorphic
 	
 	max_health: 108500.000
 	smoothing: 0.160
