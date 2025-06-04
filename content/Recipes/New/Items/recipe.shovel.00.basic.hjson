@@ -20,7 +20,7 @@
 			options:
 			[
 				{
-					name: "Hand-Cut Plates"
+					name: "Hand-Cut Sheets"
 					
 					type: undefined
 					flags: none
@@ -151,7 +151,7 @@
 					}
 				}
 				{
-					name: "Die-Cut Plates"
+					name: "Die-Cut Sheets"
 					
 					type: undefined
 					flags: disabled, wip, incomplete

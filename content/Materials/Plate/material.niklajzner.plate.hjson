@@ -1,11 +1,11 @@
 ﻿{
 	$version: "0.1.63.2"
-	name: "Niklajzner Plate"
-	name_short: "Nkz. Plate"
+	name: "Niklajzner Sheet"
+	name_short: "Nkz. Sheet"
 	name_dumb: "Tinfoil"
 	description:
 		'''
-		Non-standard irregular niklajzner plates.
+		Non-standard irregular niklajzner sheets.
 		'''
 	
 	tips: []

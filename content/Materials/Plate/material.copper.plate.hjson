@@ -1,10 +1,10 @@
 ﻿{
 	$version: "0.1.63.1"
-	name: "Copper Plate"
-	name_short: "Cop. Plate"
+	name: "Copper Sheet"
+	name_short: "Cop. Sheet"
 	description:
 		'''
-		Standard 60x20x0.25 cm copper plate.
+		Standard 60x20x0.25 cm copper sheet.
 		'''
 	
 	tips: []

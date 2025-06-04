@@ -1,11 +1,11 @@
 ﻿{
 	$version: "0.1.63.2"
-	name: "Steel Plate"
-	name_short: "St. Plate"
+	name: "Steel Sheet"
+	name_short: "St. Sheet"
 	name_dumb: "Flat Iron"
 	description:
 		'''
-		Standard 60x20x0.25 cm nickelsteel plate.
+		Standard 60x20x0.25 cm nickelsteel sheet.
 		'''
 	
 	tips: []

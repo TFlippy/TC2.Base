@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.63.2"
-	name: "Niklajzner Plate"
+	name: "Niklajzner Sheet"
 	desc:
 		'''
 		TODO: Desc
@@ -24,7 +24,7 @@
 			options:
 			[
 				{
-					name: "Plates"
+					name: "Sheets"
 					
 					type: undefined
 					flags: none

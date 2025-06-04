@@ -1,10 +1,10 @@
 ﻿{
 	$version: "0.1.62.3"
-	name: "Recondite Plate"
-	name_short: "Rec. Plate"
+	name: "Recondite Sheet"
+	name_short: "Rec. Sheet"
 	description:
 		'''
-		Standard 60x20x0.25 cm recondite plate.
+		Standard 60x20x0.25 cm recondite sheet.
 		'''
 	
 	tips: []

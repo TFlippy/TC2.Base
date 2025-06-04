@@ -216,7 +216,7 @@
 					}
 				}
 				{
-					name: "Whole-Plate"
+					name: "Whole-Sheet"
 					
 					type: undefined
 					flags: none

@@ -1,10 +1,10 @@
 ﻿{
 	$version: "0.1.62.3"
-	name: "Arcanite Plate"
-	name_short: "Arc. Plate"
+	name: "Arcanite Sheet"
+	name_short: "Arc. Sheet"
 	description:
 		'''
-		Standard 60x20x0.25 cm arcanite plate.
+		Standard 60x20x0.25 cm arcanite sheet.
 		'''
 	
 	tips: []

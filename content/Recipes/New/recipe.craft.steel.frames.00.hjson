@@ -21,7 +21,7 @@
 			[
 				{
 					name: "Handsawn"
-					desc: "Laboriously cut steel plates into shapes resembling frames only using a handsaw."
+					desc: "Laboriously cut steel sheets into shapes resembling frames only using a handsaw."
 					
 					type: undefined
 					flags: wip
