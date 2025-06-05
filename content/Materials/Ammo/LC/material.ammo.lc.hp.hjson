@@ -1,9 +1,9 @@
 ﻿{
-	$version: "0.1.63.1"
+	$version: "0.1.63.4"
 	name: "LC-9.4mm/HP Ammo"
 	description:
 		'''
-		Low-caliber 9.4mm ammunition.
+		Hollow-point 9.4mm ammunition.
 		'''
 	
 	tips: []
@@ -23,7 +23,7 @@
 	}
 	
 	type: ammo
-	flags: ammo, ammo_lc, magnetic, granular, small, solid
+	flags: ammo, ammo_lc, granular, metal, small, manufactured, solid
 	display_flags: hide_fraction
 	hints: none
 	
@@ -53,12 +53,12 @@
 		velocity_min: 75.000
 		
 		speed_base: 0.000
-		speed_mult: 0.840
-		speed_jitter: 0.010
+		speed_mult: 0.810
+		speed_jitter: 0.004
 		spin_base: 0.004
-		spin_mult: 1.040
-		spread_mult: 0.970
-		recoil_mult: 1.000
+		spin_mult: 1.047
+		spread_mult: 1.380
+		recoil_mult: 1.018
 		
 		failure_base: 0.004
 		failure_mult: 1.110

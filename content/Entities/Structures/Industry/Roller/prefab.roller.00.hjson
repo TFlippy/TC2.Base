@@ -1,0 +1,205 @@
+$name: "Roller"
+$desc:
+	'''
+	TODO: Desc
+	'''
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.polygon:
+	{
+		points:
+		[
+			[-1.125, 0.375]
+			[1.000, 0.375]
+			[0.875, 1.500]
+			[-0.875, 1.500]
+		]
+		
+		mass: 220.000
+		radius: 0.375
+		friction: 0.500
+		elasticity: 0.500
+		
+		material: building_reinforced
+		miss_chance: 0.612
+		
+		layer: entity, solid, building, storage, workshop, crafter, ignore_melee
+		mask: world, building
+		exclude: none
+	}
+}
+
+health:
+{
+	max: 53500.000
+}
+
+armor:
+{
+	toughness: 340.000
+	protection: 0.750
+	
+	knockback_modifier: 1.300
+	pain_modifier: 0.000
+
+	material_type: metal
+	flags: no_damage_type_conversion
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: roller.00
+		size: [24, 32]
+	}
+	z: -280.000
+}
+
+transform:
+{
+
+}
+
+shop:
+{
+	tags_filter:
+	{
+		require: manual
+		include: workbench, workshop, blacksmithing, metalworking, salvaging, heating
+		exclude: advanced, large, huge, social, forestry, smelting, fermenting, casting, moulding, overworld
+	}
+	
+	tools: hammer, saw, hand_drill, screwdriver, spanner, pliers, bucket, axe, shovel, file, chisel, towel, tongs, pick, crowbar, knife, sandpaper, ladle
+	infrastructure: oven, anvil, forge, dishes, table, rack, bucket, surface, hard_surface, heater, stove, building, workbench
+	environment: workshop, stationary, dirty, polluted, ugly, scary, fireproof, durable, sturdy
+	
+	flags: none
+	menu_columns: 5
+	recipe_type: workshop
+	
+	offset_spawn: [1.000, 0.250]
+	
+	name: "Press"
+}
+
+press:
+{
+	slider_offset: [0.000, -1.000]
+	slider_length: 0.500
+	speed: 2.200
+	load_multiplier: 1.000
+	
+	@animated.renderer:
+	{
+		sprite:
+		{
+			texture: "roller.00.parts"
+		}
+		z: -145.000
+	}
+
+	@light:
+	{
+		color: [1.000, 0.400, 0.000, 2.000]
+		offset: [0.000, 1.250]
+		scale: [12.000, 3.000]
+		intensity: 0.000
+		texture: "light.box.00"
+	}
+}
+
+press.state:
+{
+
+}
+
+crafter:
+{
+	flags: hide_temperature, hide_pressure
+	
+	tools: none
+	infrastructure: none
+	environment: none
+	
+	temperature_max: 700.000
+	pressure_max: 100.000
+
+	@inventory4:
+	{
+		type: output
+		flags: standalone, allow_ducts, ignore_mass, public, faction, vertical
+		stack_size_multiplier: 2.000
+		
+		filter:
+		{
+			require: none
+			include: none
+			exclude: gas
+		}
+		
+		offset: [0.000, 0.000]
+	}
+}
+
+crafter.state:
+{
+	@inventory4:
+	{
+		type: input
+		flags: standalone, allow_ducts, ignore_mass
+		stack_size_multiplier: 2.000
+		
+		filter:
+		{
+			require: none
+			include: none
+			exclude: gas
+		}
+		
+		offset: [0.000, 0.000]
+	}
+}
+
+// axle:
+// {
+// 	offset: [0.000, -1.500]
+// 	mass: 5.000
+// 	friction: 0.200
+// 	radius_a: 1.000
+// 	radius_b: 1.000
+// 	radius_inner: 0.750
+// 	radius_outer: 1.000
+	
+// 	@animated.renderer:
+// 	{
+// 		sprite:
+// 		{
+// 			texture: "wheel_1000.steel"
+// 		}
+// 		z: -200.000
+// 	}
+// }
+
+interactable:
+{
+	flags: no_tab
+	window_size: [650.000, 450.000]
+	window_size_misc: [168.000, 0.000]
+}
+
+shipment:
+{
+	type: crafting
+	layout: square
+	flags: keep_items, allow_deposit, use_misc, no_empty_deposit
+}
+
+heat:
+{
+
+}

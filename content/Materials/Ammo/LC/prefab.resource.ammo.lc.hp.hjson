@@ -65,7 +65,7 @@ explosive:
 	damage_terrain: 250.000
 	health_threshold: 0.700
 	detonate_chance: 0.150
-	damage_type: bullet_lc
+	damage_type: bullet_sg
 	damage_type_secondary: shrapnel
 	force_multiplier: 0.450
 	stun_multiplier: 0.150

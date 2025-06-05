@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.63.4"
 	name: "Slag Bricks"
 	desc:
 		'''
@@ -12,23 +12,23 @@
 	flags: artificial
 	
 	max_health: 71500.000
-	
 	smoothing: 0.180
-	mass: 11.400
-	friction: 0.890
-	elasticity: 0.340
 	stability: 1.480
 	strength_tensile: 2.700
 	strength_compressive: 9.700
+	
+	mass: 1.200
+	friction: 0.890
+	elasticity: 0.340
 	collision_layer: none
 	collision_mask: none
 	
 	texture: terrain.brick.slag
 	pattern: pattern.brick.slag
-	
 	texture_scale: 1.070
 	texture_overshoot: -0.400
 	texture_offset: 0.000
+	
 	color_preview: "0xff776157"
 	color_fill: "0xff140e08"
 	

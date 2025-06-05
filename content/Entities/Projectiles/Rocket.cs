@@ -40,13 +40,24 @@ namespace TC2.Base.Components
 
 				var impulse = projectile.mass * ev.speed * projectile.knockback_multiplier * ev.hit_dot;
 
-				Damage.Hit(ent_attacker: ent_projectile, ent_owner: projectile.ent_owner, ent_target: ev.ent_hit,
-					position: ev.flags.HasAny(Projectile.ImpactEvent.Flags.Is_World) ? ev.hit_position_raw : ev.hit_position, velocity: ev.hit_direction * ev.speed, normal: ev.hit_normal,
-					damage_integrity: ev.damage, damage_durability: ev.damage, damage_terrain: ev.damage * projectile.terrain_damage_mult,
+				Damage.Hit(ent_attacker: ent_projectile, 
+					ent_owner: projectile.ent_owner, 
+					ent_target: ev.ent_hit,
+					position: ev.flags.HasAny(Projectile.ImpactEvent.Flags.Is_World) ? ev.hit_position_raw : ev.hit_position, 
+					velocity: ev.hit_direction * ev.speed, normal: ev.hit_normal,
+					damage_integrity: ev.damage, 
+					damage_durability: ev.damage, 
+					damage_terrain: ev.damage * projectile.terrain_damage_mult,
 					armor_pierce: ev.armor_pierce * ev.hit_dot,
-					target_material_type: ev.hit_material_type, damage_type: ev.damage_type,
-					yield: 0.80f, size: Maths.SnapCeil(Maths.Max(0.125f, projectile.size), 0.125f) * random.NextFloatExtra(2.50f, 1.00f), impulse: impulse, stun: projectile.stun_multiplier * ev.hit_applied_ratio,
-					faction_id: projectile.faction_id, flags: Damage.Flags.No_Loot_Pickup);
+					target_material_type: ev.hit_material_type, 
+					damage_type: ev.damage_type,
+					yield: 0.80f, 
+					size: Maths.SnapCeil(Maths.Max(0.125f, projectile.size), 0.125f) * random.NextFloatExtra(2.50f, 1.00f), 
+					impulse: impulse, 
+					stun: projectile.stun_multiplier * ev.hit_applied_ratio,
+					pain: projectile.pain_multiplier, // * ev.hit_applied_ratio,				
+					faction_id: projectile.faction_id, 
+					flags: Damage.Flags.No_Loot_Pickup);
 			}
 #endif
 

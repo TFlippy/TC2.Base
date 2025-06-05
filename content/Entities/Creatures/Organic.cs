@@ -1,16 +1,31 @@
 ﻿
 namespace TC2.Base.Components
 {
+	public static partial class Brain
+	{
+		[IComponent.Data(Net.SendType.Reliable, IComponent.Scope.Region)]
+		public partial struct Data(): IComponent
+		{
+			[Flags]
+			public enum Flags: ushort
+			{
+				None = 0,
+			}
+
+
+		}
+	}
+
 	public static partial class OrganicExt
 	{
 		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region, order: 5, flags: ISystem.Flags.Unchecked)]
-		public static void UpdateBrain(ISystem.Info info,
-		[Source.Owned, Original] ref Organic.Data organic_original, [Source.Owned, Override] in Organic.Data organic_override, [Source.Owned] ref Organic.State organic_state, 
+		public static void UpdateBrain([Source.Owned, Original] ref Organic.Data organic_original, [Source.Owned, Override] in Organic.Data organic_override,
+		[Source.Owned] ref Organic.State organic_state,
 		[Source.Owned] in Health.Data health, [Source.Owned] bool dead)
 		{
 			if (organic_original.tags.HasAny(Organic.Tags.Brain))
 			{
-				var p = (MathF.Pow(Maths.Max(0.00f, organic_state.pain_shared - 100.00f) * 0.002f, 1.20f) * 0.12f);
+				var p = Maths.Pow(Maths.Max(0.00f, organic_state.pain_shared - 100.00f) * 0.002f, 1.20f) * 0.12f;
 				//organic_original.consciousness = Maths.Lerp(organic_original.consciousness, 1.00f - Maths.Clamp01(p), 0.02f); // player.flags.HasAll(Player.Flags.Alive) ? 1.00f : 0.30f;
 				organic_original.consciousness = Maths.Lerp2(organic_original.consciousness, Maths.Min(1.00f - Maths.Clamp01(p), 1.00f - (organic_state.stun_norm * 0.60f)), 0.10f, 0.02f); // player.flags.HasAll(Player.Flags.Alive) ? 1.00f : 0.30f;
 
@@ -112,7 +127,7 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region, flags: ISystem.Flags.Unchecked | ISystem.Flags.SkipLocalsInit)]
-		public static void UpdateArm<T>([Source.Shared, Override] in Organic.Data organic, [Source.Shared] ref Organic.State organic_state, 
+		public static void UpdateArm<T>([Source.Shared, Override] in Organic.Data organic, [Source.Shared] ref Organic.State organic_state,
 		[Source.Owned] in Arm.Data arm, [Source.Owned, Override] ref T joint) where T : unmanaged, IComponent, IRotaryJoint
 		{
 			joint.MaxSpeed *= Maths.Clamp(organic.motorics, 0.30f, 1.50f);
@@ -173,7 +188,7 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.50f, flags: ISystem.Flags.Unchecked), HasTag("dead", true, Source.Modifier.Owned)]
-		public static void UpdateRotting(ISystem.Info info, Entity entity, 
+		public static void UpdateRotting(ISystem.Info info, Entity entity,
 		[Source.Owned, Override] in Organic.Data organic, [Source.Owned] ref Organic.State organic_state)
 		{
 			organic_state.rotten = Maths.Max(organic_state.rotten + (info.DeltaTime * Constants.Organic.rotting_speed * 0.005f), 0.00f);
@@ -218,7 +233,7 @@ namespace TC2.Base.Components
 		[HasComponent<Health.Data>(Source.Modifier.Shared, true), HasComponent<Organic.Data>(Source.Modifier.Shared, true)]
 		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region, flags: ISystem.Flags.Unchecked)]
 		public static void UpdateJoint1A(ISystem.Info info, ref Region.Data region, ref XorRandom random,
-		[Source.Shared] in Transform.Data transform, [Source.Shared] ref Organic.State organic_state, 
+		[Source.Shared] in Transform.Data transform, [Source.Shared] ref Organic.State organic_state,
 		[Source.Owned] ref Joint.Base joint)
 		{
 			if (joint.flags.HasAny(Joint.Flags.Organic))

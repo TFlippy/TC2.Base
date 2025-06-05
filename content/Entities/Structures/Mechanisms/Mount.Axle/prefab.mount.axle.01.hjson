@@ -7,13 +7,13 @@ body:
 	
 	@shape.circle:
 	{
-		mass: 18.000
+		mass: 47.000
 		radius: 0.750
 		friction: 0.500
 		elasticity: 0.500
-		material: metal
+		material: metal_solid
 		layer: entity, background, building, no_overlapped_placement, ignore_melee
-		miss_chance: 0.400
+		miss_chance: 0.840
 	}
 }
 
@@ -24,7 +24,7 @@ control:
 
 health:
 {
-	max: 21000.000
+	max: 38000.000
 }
 
 animated.renderer:
@@ -45,7 +45,7 @@ interactable:
 {
 	flags: centered_inventory
 	priority: 1.800
-	window_size: [168.000, 168.000]
+	window_size: [192.000, 160.000]
 	window_size_misc: [88.000, 0.000]
 }
 
@@ -59,7 +59,7 @@ module.slots:
 axle:
 {
 	offset: [0.000, 0.000]
-	mass: 20.000
+	mass: 30.000
 	friction: 0.200
 	radius_a: 1.000
 	radius_b: 1.000

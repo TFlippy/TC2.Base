@@ -17,13 +17,13 @@ body:
 		b: [0.000, 0.375]
 		offset: [0.000, 0.000]
 		
-		mass: 20.000
+		mass: 40.000
 		radius: 0.750
 		friction: 0.590
 		elasticity: 0.400
 		
-		material: metal
-		miss_chance: 0.718
+		material: metal_solid
+		miss_chance: 0.788
 		
 		layer: entity, background, building, no_overlapped_placement, ignore_melee
 		mask: world, building
@@ -38,7 +38,7 @@ body:
 
 health:
 {
-	max: 28000.000
+	max: 35000.000
 }
 
 animated.renderer:
@@ -75,8 +75,8 @@ axle:
 {
 	offset: [0.000, -0.875]
 	
-	mass: 40.000
-	friction: 0.250
+	mass: 30.000
+	friction: 0.200
 	z: -140.000
 
 	@animated.renderer:
