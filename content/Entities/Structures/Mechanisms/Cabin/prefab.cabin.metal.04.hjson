@@ -119,7 +119,7 @@ interactable:
 {
 	window_size: [240.000, 96.000]
 	window_offset: [0.000, 0.000]
-	window_size_misc: [72.000, 0.000]
+	window_size_misc: [48.000, 0.000]
 	flags: centered_inventory
 	priority: 3.000
 }

@@ -53,7 +53,7 @@ interactable:
 {
 	flags: no_tab
 	window_size: [492.000, 542.000]
-	window_size_misc: [72.000, 0.000]
+	window_size_misc: [48.000, 0.000]
 }
 
 construction:

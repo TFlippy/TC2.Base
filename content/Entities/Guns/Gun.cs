@@ -2075,7 +2075,7 @@
 			holdable.hints.AddFlag(NPC.ItemHints.Weapon | NPC.ItemHints.Gun | NPC.ItemHints.Ranged);
 			holdable.hints.SetFlag(NPC.ItemHints.No_Ammo, gun_state.hints.HasAny(Gun.Hints.No_Ammo));
 
-			if (holdable.hints.HasNone(NPC.ItemHints.No_Ammo) | gun_state.hints.HasAny(Gun.Hints.Loaded | Gun.Hints.Cycled))
+			if (holdable.hints.HasNone(NPC.ItemHints.No_Ammo) | gun_state.hints.HasAnyExcept(Gun.Hints.Loaded | Gun.Hints.Cycled, Gun.Hints.No_Ammo))
 			{
 				holdable.hints.AddFlag(NPC.ItemHints.Usable);
 				holdable.hints.SetFlag(NPC.ItemHints.Short_Range, gun_state.hints.HasAny(Gun.Hints.Close_Range));
@@ -2084,6 +2084,7 @@
 			else
 			{
 				holdable.hints.RemoveFlag(NPC.ItemHints.Usable | NPC.ItemHints.Weapon | NPC.ItemHints.Ranged | NPC.ItemHints.Long_Range | NPC.ItemHints.Short_Range);
+				//App.WriteValue(holdable.hints);
 			}
 
 			holdable.hints.SetFlag(NPC.ItemHints.Heavy, body.GetMass() >= 30.00f);

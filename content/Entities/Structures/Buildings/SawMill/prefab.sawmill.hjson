@@ -37,7 +37,7 @@ interactable:
 {
 	flags: no_tab
 	window_size: [400.000, 220.000]
-	window_size_misc: [120.000, 0.000]
+	window_size_misc: [96.000, 0.000]
 }
 
 transform:

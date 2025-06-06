@@ -34,7 +34,7 @@ interactable:
 {
 	flags: no_tab
 	window_size: [724.000, 512.000]
-	window_size_misc: [216.000, 0.000]
+	window_size_misc: [192.000, 0.000]
 }
 
 health:

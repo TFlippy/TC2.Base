@@ -112,7 +112,7 @@ interactable:
 {
 	flags: none
 	window_size: [504.000, 416.000]
-	window_size_misc: [168.000, 0.000]
+	window_size_misc: [144.000, 0.000]
 }
 
 vehicle:

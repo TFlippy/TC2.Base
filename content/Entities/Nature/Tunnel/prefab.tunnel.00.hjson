@@ -87,7 +87,7 @@ interactable:
 	flags: no_tab
 	priority: 0.500
 	window_size: [600.000, 420.000]
-	// window_size_misc: [216.000, 0.000]
+	// window_size_misc: [192.000, 0.000]
 	window_size_misc: [172.000, 0.000]
 }
 
@@ -124,8 +124,8 @@ dormitory:
 	character_flags_filter:
 	{
 		require: none
-		include: construction, scientist, criminal, military, laborer, armed, technician, engineer, miner, soldier, insane, alcoholic, junkie, evil, thief, murderer, terrorist, lower_class, lower_middle_class, middle_class
-		exclude: nobility, upper_class, elite_class
+		include: slave, criminal, laborer, armed, lowlife, poor, miner, hunter, soldier, insane, alcoholic, nomad, brawler, outdoor, strong, junkie, evil, thief, murderer, terrorist, dumb, lower_class, lower_middle_class, middle_class
+		exclude: bureaucrat, nobility, rich, sedentary, upper_class, elite_class
 		weight: 1.000
 	}
 }

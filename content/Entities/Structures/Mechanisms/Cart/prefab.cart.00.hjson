@@ -80,7 +80,7 @@ interactable:
 {
 	flags: centered_inventory
 	window_size: [160.000, 200.000]
-	window_size_misc: [216.000, 0.000]
+	window_size_misc: [192.000, 0.000]
 	window_offset: [100.000, 160.000]
 }
 

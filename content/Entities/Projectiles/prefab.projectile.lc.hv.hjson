@@ -5,7 +5,7 @@ projectile:
 	damage_base: 260.000
 	damage_bonus: 300.000
 	terrain_damage_mult: 1.080
-	armor_pierce: 96.000
+	armor_pierce: 65.000
 	lifetime: 2.000
 	damage_type: bullet_lc
 	size: 0.000

@@ -93,7 +93,7 @@ namespace TC2.Base.Components
 			organic_state.pain = Maths.Lerp(organic_state.pain, organic_state.pain * (0.15f + (Maths.Max(0.00f, 0.60f - MathF.Pow(health.GetHealthNormalized(), 6.00f) * 0.90f))).Clamp01() * organic.pain_modifier, 0.008f);
 			organic_state.stun = Maths.MoveTowards(organic_state.stun, 0.00f, info.DeltaTime * 50.00f);
 
-			organic_state.stun_norm = Maths.NormalizeClamp(organic_state.stun, 500.00f).Pow2();
+			organic_state.stun_norm = Maths.Normalize01(organic_state.stun, 500.00f).Pow2();
 			organic_state.efficiency = organic_state.motorics_shared.Clamp01() * health.GetHealthNormalized();
 		}
 
@@ -120,7 +120,8 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region, flags: ISystem.Flags.Unchecked | ISystem.Flags.SkipLocalsInit), HasTag("dead", true, Source.Modifier.Owned), HasComponent<Organic.Data>(Source.Modifier.Owned, true)]
+		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region, flags: ISystem.Flags.Unchecked | ISystem.Flags.SkipLocalsInit), 
+		HasTag("dead", true, Source.Modifier.Owned), HasComponent<Organic.Data>(Source.Modifier.Owned, true)]
 		public static void UpdateNoRotate([Source.Owned, Override] ref NoRotate.Data no_rotate)
 		{
 			no_rotate.multiplier = 0.00f;
@@ -159,6 +160,15 @@ namespace TC2.Base.Components
 			facing.flags.SetFlag(Facing.Flags.Disabled, organic_state.consciousness_shared < 0.50f || organic_state.stun_norm >= 0.50f);
 		}
 
+		[ISystem.Update.D(ISystem.Mode.Single, ISystem.Scope.Region)]
+		[HasTag("dead", true, Source.Modifier.Parent), HasComponent<Organic.Data>(Source.Modifier.Parent, true)]
+		public static void OnAddArmDead([Source.Owned] ref Holdable.Data holdable, [Source.Parent] ref Arm.Data arm, [Source.Parent] ref Joint.Base joint_base)
+		{
+			joint_base.force_modifier_attached = 0.00f;
+			joint_base.stress_modifier_attached *= 3.00f;
+			joint_base.torque_modifier_attached = 0.00f;
+		}
+
 		[ISystem.Add(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", true, Source.Modifier.Owned)]
 		public static void OnAddBodyDead(Entity entity, [Source.Owned, Original] in Organic.Data organic, [Source.Owned] ref Body.Data body)
 		{
@@ -175,8 +185,6 @@ namespace TC2.Base.Components
 			body.AddTorque(torque);
 			body.AddForceWorld(random.NextUnitVector2Range(0.50f, 0.90f) * body.GetMass() * App.tickrate * 10.00f, body.GetPosition() + random.NextUnitVector2Range(0.15f, 0.20f));
 		}
-
-
 
 		[ISystem.Remove(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", true, Source.Modifier.Owned)]
 		public static void OnRemoveBodyDead([Source.Owned, Original] in Organic.Data organic, [Source.Owned] ref Body.Data body)

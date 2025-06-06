@@ -90,7 +90,7 @@ interactable:
 {
 	flags: no_tab, no_interact, faction_only
 	window_size: [592.000, 344.000]
-	window_size_misc: [72.000, 0.000]
+	window_size_misc: [48.000, 0.000]
 }
 
 dormitory:

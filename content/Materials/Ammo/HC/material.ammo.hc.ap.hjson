@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.1"
+	$version: "0.1.63.4"
 	name: "HC-13.2mm/AP Ammo"
 	description:
 		'''
@@ -27,7 +27,7 @@
 	display_flags: hide_fraction
 	hints: none
 	
-	mass_per_unit: 0.035
+	mass_per_unit: 0.058
 	
 	quantity_max: 50.000
 	spawn_quantity_threshold: 1.000
@@ -48,22 +48,22 @@
 	ammo:
 	{
 		count: 1
-		mass: 0.015
-		heat: 25.000
-		velocity_min: 80.000
+		mass: 0.035
+		heat: 120.000
+		velocity_min: 100.000
 		
 		speed_base: 0.000
-		speed_mult: 1.200
+		speed_mult: 1.250
 		speed_jitter: 0.020
 		spin_base: 0.000
-		spin_mult: 1.000
-		spread_mult: 0.600
+		spin_mult: 0.750
+		spread_mult: 0.350
 		recoil_mult: 1.050
 		
 		failure_base: 0.000
-		failure_mult: 0.900
+		failure_mult: 1.040
 		
-		stability_base: 790.000
+		stability_base: 1500.000
 		stability_mult: 0.940
 		
 		prefab: projectile.hc.ap

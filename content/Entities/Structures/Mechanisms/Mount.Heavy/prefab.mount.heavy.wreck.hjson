@@ -73,7 +73,7 @@ interactable:
 	priority: 1.800
 	window_size: [192.000, 248.000]
 	window_offset: [0.000, 192.000]
-	window_size_misc: [72.000, 0.000]
+	window_size_misc: [48.000, 0.000]
 	flags: none
 }
 

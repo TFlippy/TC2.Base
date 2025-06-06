@@ -19,7 +19,7 @@ body:
 		
 		material: building_reinforced
 		
-		layer: entity, building, support, ignore_melee, ignore_bullet
+		layer: entity, building, support, ignore_melee, ignore_bullet, background
 		mask: world, building
 	}
 }
@@ -38,7 +38,7 @@ interactable:
 	flags: no_tab
 	priority: 1.000
 	window_size: [608.000, 576.000]
-	window_size_misc: [168.000, 0.000]
+	window_size_misc: [144.000, 0.000]
 }
 
 health:

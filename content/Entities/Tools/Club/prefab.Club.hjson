@@ -5,54 +5,67 @@ $desc:
 	'''
 $tags: []
 
-control:
-{
-
-}
-
 body:
 {
 	@shape.line:
 	{
 		a: [0.000, 0.500]
 		b: [0.000, -0.500]
-		mass: 3.276
+		mass: 2.920
 		radius: 0.250
 		friction: 0.950
 		elasticity: 0.650
 		material: tree
-		layer: entity, solid, ignore_bullet, ignore_melee, item, flammable
+		layer: entity, solid, item, flammable
 		mask: world
+		miss_chance: 0.345
 	}
 }
 
 health:
 {
-	max: 800.000
+	max: 1100.000
 }
 
 melee:
 {
-	sound_swing: "tool_swing_00"
 	damage_base: 150.000
-	damage_bonus: 190.000
+	damage_bonus: 200.000
+	
+	primary_damage_multiplier: 0.850
+	terrain_damage_multiplier: 0.850
+	stun_multiplier: 1.800
+	
+	disarm_chance: 0.060
 	cooldown: 1.500
 	max_distance: 1.500
-	thickness: 1.000
-	hit_offset: [0.500, 0.000]
 	aoe: 1.250
-	knockback: 400.000
-	yield: 0.750
+	thickness: 1.000
+	knockback: 700.000
+	knockback_speed: 4.000
+	yield: 0.950
 	penetration_falloff: 0.900
 	penetration: 3
+	
+	hit_offset: [0.500, 0.000]
+	
+	sound_volume: 0.850
+	sound_size: 0.875
+	sound_pitch: 0.700
+	
 	damage_type: club
-	attack_type: swing
 	category: blunt
+	
 	hit_mask: world, destructible
-	hit_exclude: ignore_melee, background, tree, climbable
+	hit_exclude: background, tree, climbable, ignore_melee
 }
 
 melee.state:
+{
+
+}
+
+control:
 {
 
 }

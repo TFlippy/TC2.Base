@@ -65,7 +65,7 @@ interactable:
 {
 	flags: no_tab
 	window_size: [628.000, 528.000]
-	window_size_misc: [216.000, 0.000]
+	window_size_misc: [192.000, 0.000]
 }
 
 nameable:

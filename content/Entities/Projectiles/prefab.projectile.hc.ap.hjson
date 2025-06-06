@@ -2,16 +2,17 @@ $tags: []
 
 projectile:
 {
-	damage_base: 190.000
-	damage_bonus: 175.000
-	knockback_multiplier: 7.000
+	damage_base: 550.000
+	damage_bonus: 420.000
+	knockback_multiplier: 35.000
+	terrain_damage_mult: 3.500
+	stun_multiplier: 3.000
+	armor_pierce: 425.000
 	lifetime: 2.000
 	damage_type: bullet_hc
 	size: 0.000
 	tracer_length: 3.000
-	mass: 0.015
-
-	// speed_damage: [100.000, 0.000, 1000.000, 1.500]
+	mass: 0.035
 }
 
 projectile.renderer:

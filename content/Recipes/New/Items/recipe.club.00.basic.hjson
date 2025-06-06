@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.5"
+	$version: "0.1.63.4"
 	name: "Club"
 	tips: []
 	
@@ -30,20 +30,20 @@
 						{
 							type: resource
 							material: timber.maple
-							amount: 0.440062
+							amount: 0.455297
 							snapping: 0.500
-							loss: 0.086
+							loss: 0.075
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: work
 							work: woodcarving
-							amount: 175.000
-							amount_min: 75.000
+							amount: 50.000
+							amount_min: 35.000
 							difficulty: 3
 							snapping: 25.000
-							falloff: 0.920
+							falloff: 0.901
 							group: 0
 							flags: conditional
 						}
@@ -53,10 +53,6 @@
 					{
 						require: file, knife
 						include: saw, hand_drill, file, knife, sandpaper
-					}
-					filter_machinery:
-					{
-						include: lathe, mill, sander, planer
 					}
 					filter_infrastructure:
 					{
@@ -74,7 +70,7 @@
 			prefab: club
 			amount: 1.000
 			group: 0
-			flags: primary
+			flags: primary, compact
 		}
 	]
 	
@@ -115,6 +111,9 @@
 	flags: blueprintable, item, wip, converted
 	tags: workbench, workshop, manual, dumb, crude, simple, small, weapon, tool, woodworking, construction
 	infrastructure: surface
+	infrastructure_exclude: none
+	
+	h_company: common
 	
 	icon:
 	{
