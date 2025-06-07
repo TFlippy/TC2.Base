@@ -188,7 +188,7 @@ commandable:
 
 threat:
 {
-	priority: 20.000
+	priority: 25.000
 }
 
 twuk:

@@ -99,7 +99,7 @@ faction.colorable:
 
 threat:
 {
-	priority: 30.000
+	priority: 35.000
 }
 
 transform:

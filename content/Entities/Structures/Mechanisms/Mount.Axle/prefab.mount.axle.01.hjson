@@ -43,10 +43,10 @@ transform:
 
 interactable:
 {
-	flags: centered_inventory
+	flags: centered_inventory, no_tab
 	priority: 1.800
 	window_size: [192.000, 160.000]
-	window_size_misc: [88.000, 0.000]
+	window_size_misc: [64.000, 0.000]
 }
 
 module.slots:

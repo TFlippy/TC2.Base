@@ -152,7 +152,7 @@ commandable:
 
 threat:
 {
-	priority: 6.000
+	priority: 13.000
 }
 
 flyer:

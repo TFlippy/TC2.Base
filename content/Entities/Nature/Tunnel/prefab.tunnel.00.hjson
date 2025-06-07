@@ -88,7 +88,7 @@ interactable:
 	priority: 0.500
 	window_size: [600.000, 420.000]
 	// window_size_misc: [192.000, 0.000]
-	window_size_misc: [172.000, 0.000]
+	window_size_misc: [144.000, 0.000]
 }
 
 spawn:

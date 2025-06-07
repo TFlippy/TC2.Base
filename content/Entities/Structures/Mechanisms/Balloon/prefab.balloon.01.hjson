@@ -93,7 +93,7 @@ faction:
 
 threat:
 {
-	priority: 20.000
+	priority: 5.000
 	self_hints: can_fly, can_hold_items, can_use_items, can_use_guns, has_armor, is_armored, is_dangerous, is_vehicle, is_loud
 	item_hints: armor, weapon, vehicle, heavy, long_range, advanced, powerful, machine, defensive, inaccurate, device, expensive, military, industrial, tech, slow
 }

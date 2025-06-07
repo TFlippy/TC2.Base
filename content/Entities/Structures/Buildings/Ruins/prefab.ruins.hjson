@@ -91,7 +91,7 @@ interactable:
 {
 	flags: no_tab
 	window_size: [600.000, 420.000]
-	window_size_misc: [172.000, 0.000]
+	window_size_misc: [144.000, 0.000]
 }
 
 spawn:

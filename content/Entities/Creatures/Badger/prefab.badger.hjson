@@ -240,7 +240,7 @@ climber:
 
 threat:
 {
-	priority: 7.000
+	priority: 11.000
 }
 
 dive:

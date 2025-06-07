@@ -80,7 +80,7 @@ faction.colorable:
 
 threat:
 {
-	priority: 15.000
+	priority: 18.000
 }
 
 climber:
