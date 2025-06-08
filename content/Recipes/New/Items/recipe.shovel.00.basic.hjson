@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.63.4"
 	name: "Shovel"
 	tips: []
 	
@@ -50,8 +50,12 @@
 					filter_tools:
 					{
 						require: cutters
-						include: pliers, knife
+						include: cutters, pliers, knife, scissors
 						weight: 1.000
+					}
+					filter_infrastructure:
+					{
+						include: table
 					}
 				}
 				{
@@ -93,18 +97,19 @@
 					
 					filter_tools:
 					{
-						require: hammer, tongs
-						include: pliers
+						require: hammer, pliers, tongs
+						include: towel
 					}
 					filter_infrastructure:
 					{
-						require: anvil, forge
-						include: oven, barrel
+						require: anvil, forge, hard_surface, heater
+						include: vise
 					}
 					filter_environment:
 					{
-						include: workshop, stationary, fireproof, sturdy
-						exclude: fragile
+						require: sturdy, smithy
+						include: workshop
+						exclude: office, fragile
 					}
 				}
 				{
@@ -141,10 +146,6 @@
 						}
 					]
 					
-					filter_infrastructure:
-					{
-						require: casting_mould
-					}
 					filter_environment:
 					{
 						include: container, dry, fireproof
@@ -225,11 +226,7 @@
 					filter_tools:
 					{
 						require: file, knife
-						include: saw, hand_drill, file, knife, sandpaper
-					}
-					filter_infrastructure:
-					{
-						include: table, chair, vise
+						include: hand_drill, screwdriver, pliers, file, chisel, knife, sandpaper
 					}
 				}
 				{
@@ -268,7 +265,8 @@
 					}
 					filter_infrastructure:
 					{
-						include: table, chair
+						require: surface
+						include: workbench
 					}
 				}
 			]
@@ -320,11 +318,11 @@
 					}
 					filter_infrastructure:
 					{
-						require: table
-						include: chair, vise, rack
+						include: table
 					}
 					filter_environment:
 					{
+						include: clean, organized
 						exclude: wet
 					}
 				}
@@ -373,10 +371,6 @@
 						require: screwdriver
 						include: screwdriver, wrench, spanner, pliers, towel
 					}
-					filter_infrastructure:
-					{
-						include: table, chair, vise, rack
-					}
 				}
 			]
 		}
@@ -395,7 +389,7 @@
 	
 	type: workshop
 	flags: blueprintable, item
-	tags: workbench, workshop, manual, simple, medium, tool, woodworking, assembling, metalworking, construction
+	tags: manual, simple, medium, tool, woodworking, assembling, metalworking
 	infrastructure: workbench
 	infrastructure_exclude: none
 	

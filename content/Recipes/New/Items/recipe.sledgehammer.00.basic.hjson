@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.5"
+	$version: "0.1.63.4"
 	name: "Sledgehammer"
 	tips: []
 	
@@ -53,11 +53,7 @@
 					filter_tools:
 					{
 						require: hand_drill
-						include: screwdriver
-					}
-					filter_infrastructure:
-					{
-						include: table, vise
+						include: screwdriver, file, knife, scissors
 					}
 				}
 			]
@@ -108,11 +104,7 @@
 					filter_tools:
 					{
 						require: file, knife
-						include: saw, hand_drill, file, knife, sandpaper
-					}
-					filter_infrastructure:
-					{
-						include: table, chair, vise
+						include: hand_drill, screwdriver, pliers, file, chisel, knife, sandpaper
 					}
 				}
 			]
@@ -167,11 +159,11 @@
 					}
 					filter_infrastructure:
 					{
-						require: table
-						include: chair, vise, rack
+						include: table
 					}
 					filter_environment:
 					{
+						include: clean, organized
 						exclude: wet
 					}
 				}
@@ -199,10 +191,6 @@
 					{
 						require: hammer
 					}
-					filter_infrastructure:
-					{
-						require: table
-					}
 				}
 			]
 		}
@@ -215,13 +203,13 @@
 			prefab: sledgehammer
 			amount: 1.000
 			group: 0
-			flags: primary
+			flags: primary, compact
 		}
 	]
 	
 	type: workshop
 	flags: blueprintable, item
-	tags: workbench, workshop, manual, simple, medium, tool, metalworking, construction
+	tags: manual, simple, medium, tool, metalworking
 	infrastructure: workbench
 	infrastructure_exclude: none
 	
@@ -239,5 +227,5 @@
 	max: 5
 	step: 1
 	
-	version: 0
+	version: 1
 }

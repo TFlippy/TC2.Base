@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.63.4"
 	name: "Wrench"
 	tips: []
 	
@@ -20,7 +20,7 @@
 			options:
 			[
 				{
-					name: "Salvaged"
+					name: "Shoddy"
 					
 					type: undefined
 					flags: none
@@ -29,20 +29,20 @@
 					[
 						{
 							type: resource
-							material: scrap.niklajzner
-							amount: 3.95498
+							material: niklajzner
+							amount: 3.977412
 							snapping: 1.000
-							falloff: 0.970
-							loss: 0.122
+							falloff: 1.000
+							loss: 0.259
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: resource
 							material: glue
-							amount: 7.680
+							amount: 9.780
 							snapping: 1.000
-							falloff: 0.940
+							falloff: 0.927
 							loss: 0.322
 							group: 0
 							flags: prerequisite
@@ -51,11 +51,12 @@
 							type: work
 							work: gluing
 							amount: 650.000
-							difficulty: 7
+							difficulty: 11
 							snapping: 10.000
 							falloff: 0.940
+							ratio: 0.224
 							group: 0
-							flags: conditional
+							flags: stepped, conditional
 						}
 					]
 					
@@ -65,11 +66,11 @@
 					}
 					filter_infrastructure:
 					{
-						require: table
-						include: chair, vise, rack
+						include: table
 					}
 					filter_environment:
 					{
+						include: clean, organized
 						exclude: wet
 					}
 				}
@@ -105,10 +106,6 @@
 					filter_tools:
 					{
 						require: file
-					}
-					filter_infrastructure:
-					{
-						include: table, chair, vise
 					}
 					filter_environment:
 					{
@@ -147,10 +144,6 @@
 					filter_tools:
 					{
 						require: file
-					}
-					filter_infrastructure:
-					{
-						include: table, chair, vise
 					}
 					filter_environment:
 					{
@@ -228,11 +221,6 @@
 						require: hammer, screwdriver, wrench
 						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, tweezers, magnifying_glass, stapler, towel, tongs, pick, crowbar, knife
 					}
-					filter_infrastructure:
-					{
-						require: table
-						include: anvil, table, chair, vise
-					}
 				}
 				{
 					name: "Machined"
@@ -266,10 +254,6 @@
 					filter_tools:
 					{
 						require: file
-					}
-					filter_infrastructure:
-					{
-						include: table, chair, vise
 					}
 					filter_environment:
 					{
@@ -312,11 +296,13 @@
 						}
 						{
 							type: work
-							work: sawing
+							work: sawing.metal
 							amount: 450.000
+							amount_min: 150.000
 							difficulty: 9
 							snapping: 5.000
 							falloff: 0.920
+							ratio: 0.871
 							group: 0
 							flags: conditional
 						}
@@ -329,7 +315,8 @@
 					}
 					filter_infrastructure:
 					{
-						include: table, chair
+						require: surface
+						include: workbench
 					}
 				}
 			]
@@ -383,11 +370,11 @@
 					}
 					filter_infrastructure:
 					{
-						require: table
-						include: chair, vise, rack
+						include: table
 					}
 					filter_environment:
 					{
+						include: clean, organized
 						exclude: wet
 					}
 				}
@@ -426,11 +413,11 @@
 					}
 					filter_infrastructure:
 					{
-						require: table
-						include: chair, vise, rack
+						include: table
 					}
 					filter_environment:
 					{
+						include: clean, organized
 						exclude: wet
 					}
 				}
@@ -445,13 +432,13 @@
 			prefab: wrench
 			amount: 1.000
 			group: 0
-			flags: primary
+			flags: primary, compact
 		}
 	]
 	
 	type: workshop
 	flags: blueprintable, item, wip
-	tags: workbench, workshop, manual, complex, medium, tool, assembling, metalworking, engineering, construction
+	tags: manual, complex, medium, tool, assembling, metalworking, engineering
 	infrastructure: workbench
 	infrastructure_exclude: none
 	

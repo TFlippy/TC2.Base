@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.63.4"
 	name: "Wooden Rods"
 	desc:
 		'''
@@ -159,7 +159,7 @@
 	}
 	icon_offset: [2.000, 0.000]
 	
-	color_frame: "0xff643c19"
+	color_frame: "0xff906e4a"
 	color_button: "0xff9dd80f"
 	rank: -18.000
 	

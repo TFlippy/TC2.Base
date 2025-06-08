@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.63.4"
 	name: "Crowbar"
 	tips: []
 	
@@ -20,7 +20,7 @@
 			options:
 			[
 				{
-					name: "Bent"
+					name: "Bent (Bar)"
 					
 					type: undefined
 					flags: wip, incomplete, auto_generated
@@ -30,44 +30,63 @@
 						{
 							type: resource
 							material: steel.rod
-							amount: 0.975513
+							amount: 1.000
 							snapping: 1.000
+							loss: 0.075
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: temperature
-							amount: 1432.470
-							amount_min: 600.000
-							amount_max: 1684.849
-							falloff: 0.500
+							amount: 802.0699
+							amount_min: 468.000
+							amount_max: 946.849
+							falloff: 0.752
 							group: 0
-							flags: no_scaling, always_evaluate, optional
+							flags: no_scaling, always_evaluate, prerequisite, optional
 						}
 						{
 							type: work
 							work: bending
-							amount: 350.000
-							difficulty: 9
+							amount: 480.000
+							amount_min: 300.000
+							difficulty: 13
 							snapping: 25.000
-							falloff: 0.980
+							falloff: 0.970
+							ratio: 0.475
 							group: 0
-							flags: conditional
+							flags: stepped, conditional
+						}
+						{
+							type: work
+							work: sanding
+							amount: 200.000
+							amount_min: 150.000
+							difficulty: 5
+							snapping: 25.000
+							falloff: 0.852
+							ratio: 0.702
+							group: 1
+							flags: stepped, conditional
 						}
 					]
 					
 					filter_tools:
 					{
-						require: hammer
+						require: hammer, sandpaper
 						include: hammer, pliers, chisel, towel, crowbar
 					}
 					filter_infrastructure:
 					{
-						include: anvil, vise, hard_surface, workbench
+						include: anvil, table, vise, surface, hard_surface, workbench
+					}
+					filter_environment:
+					{
+						include: workshop, stationary, illuminated, dry
 					}
 				}
 				{
-					name: "Forged"
+					name: "Forged (Bar)"
 					
 					type: undefined
 					flags: wip, incomplete, auto_generated
@@ -76,9 +95,10 @@
 					[
 						{
 							type: resource
-							material: steel.ingot
-							amount: 0.484673
+							material: steel.rod
+							amount: 1.000
 							snapping: 0.250
+							loss: 0.024
 							group: 0
 							flags: prerequisite
 						}
@@ -87,6 +107,7 @@
 							amount: 1315.200
 							amount_min: 822.000
 							amount_max: 1578.240
+							falloff: 0.742
 							group: 0
 							flags: no_scaling, always_evaluate
 						}
@@ -94,9 +115,11 @@
 							type: work
 							work: smithing
 							amount: 335.000
-							difficulty: 4
+							amount_min: 100.000
+							difficulty: 5
 							snapping: 25.000
-							falloff: 0.960
+							falloff: 0.917
+							ratio: 0.773
 							group: 0
 							flags: conditional
 						}
@@ -104,19 +127,19 @@
 					
 					filter_tools:
 					{
-						require: hammer, tongs
-						include: pliers, chisel
+						require: hammer, pliers, tongs
+						include: towel
 					}
 					filter_infrastructure:
 					{
-						require: anvil, forge, heater
+						require: anvil, forge, hard_surface, heater
 						include: vise
 					}
 					filter_environment:
 					{
-						require: sturdy
-						include: workshop, stationary, fireproof
-						exclude: fragile
+						require: sturdy, smithy
+						include: workshop
+						exclude: office, fragile
 					}
 				}
 			]
@@ -146,12 +169,13 @@
 						{
 							type: work
 							work: filing
-							amount: 185.000
-							difficulty: 6
+							amount: 175.000
+							amount_min: 120.000
+							difficulty: 8
 							snapping: 10.000
-							falloff: 0.980
+							falloff: 0.973
 							group: 0
-							flags: conditional
+							flags: stepped, conditional
 						}
 					]
 					
@@ -241,13 +265,13 @@
 			prefab: crowbar
 			amount: 1.000
 			group: 0
-			flags: primary
+			flags: primary, compact
 		}
 	]
 	
 	type: workshop
 	flags: blueprintable, item, wip
-	tags: workbench, manual, tool, metalworking
+	tags: manual, tool, metalworking
 	infrastructure: workbench
 	infrastructure_exclude: none
 	

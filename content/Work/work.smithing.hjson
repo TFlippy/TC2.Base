@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.63.4"
 	name: "Smithing"
 	name_short: "Smithing"
 	desc:
@@ -15,26 +15,26 @@
 	}
 	
 	flags: none
-	tags: manual, skilled, tools, industrial, dangerous, wip
+	tags: manual, skilled, tools, construction, industrial, dangerous, wip
 	
 	amount_base: 0.000
 	cooldown: 1.000
 	multiplier: 1.550
 	
-	amount_jitter: 0.255
+	amount_jitter: 0.281
 	color: "0xffff6200"
 	
-	tools_required: hammer, tongs
-	tools_optional: pliers, chisel
+	tools_required: hammer, pliers, tongs
+	tools_optional: towel
 	
-	infrastructure_required: anvil, forge, heater
+	infrastructure_required: anvil, forge, hard_surface, heater
 	infrastructure_optional: vise
 	
 	filter_environment:
 	{
-		require: sturdy
-		include: workshop, stationary, fireproof
-		exclude: fragile
+		require: sturdy, smithy
+		include: workshop
+		exclude: office, fragile
 	}
 	
 	character_traits:
@@ -57,8 +57,8 @@
 	
 	sound_volume: 0.500
 	sound_pitch: 1.000
-	sound_size: 0.500
-	sound_dist: 1.000
+	sound_size: 0.800
+	sound_dist: 0.950
 	
 	sounds: ["work_smithing_00", "work_smithing_01", "work_smithing_02", "work_smithing_03", "work_smithing_04"]
 	sounds_manual: []

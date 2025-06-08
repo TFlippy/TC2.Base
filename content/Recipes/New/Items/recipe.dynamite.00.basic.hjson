@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.1"
+	$version: "0.1.63.4"
 	name: "Dynamite"
 	tips: []
 	
@@ -96,12 +96,9 @@
 						}
 					]
 					
-					quality: 1.000
-					precision: 1.000
-					
 					filter_tools:
 					{
-						include: paper, ruler, cutters, tweezers, magnifying_glass, stapler, knife
+						include: paper, ruler, cutters, tweezers, magnifying_glass, paintbrush, stapler, file, knife
 					}
 					filter_infrastructure:
 					{
@@ -109,7 +106,8 @@
 					}
 					filter_environment:
 					{
-						include: workshop, office, stationary, clean
+						include: workshop, office, stationary, clean, organized
+						exclude: wet
 					}
 				}
 			]
@@ -183,7 +181,7 @@
 	
 	type: workshop
 	flags: blueprintable, item, production, wip, converted
-	tags: workbench, manual, simple, small, weapon, munitions, assembling, construction, explosive, dangerous
+	tags: manual, simple, small, weapon, munitions, assembling, explosive, dangerous
 	infrastructure: surface
 	infrastructure_exclude: none
 	

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.5"
+	$version: "0.1.63.4"
 	name: "Grenade"
 	tips: []
 	
@@ -94,10 +94,6 @@
 						require: hammer, screwdriver, wrench
 						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, pliers, bucket, stapler, towel, spatula, tongs, pick, crowbar, knife
 					}
-					filter_machinery:
-					{
-						include: heater, bender
-					}
 					filter_infrastructure:
 					{
 						require: table
@@ -123,6 +119,7 @@
 	flags: blueprintable, item, wip, converted
 	tags: workbench, manual, small, weapon, munitions, assembling, metalworking, engineering, military, construction, explosive, dangerous
 	infrastructure: table, chair, surface
+	infrastructure_exclude: none
 	
 	icon:
 	{
@@ -139,7 +136,7 @@
 	
 	color_frame: "0xffcf392b"
 	color_button: "0xff9dd80f"
-	rank: 0.000
+	rank: 99.000
 	
 	min: 1
 	max: 20

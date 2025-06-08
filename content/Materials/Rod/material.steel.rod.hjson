@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.63.4"
 	name: "Steel Bar"
 	name_short: "St. Bar"
 	name_dumb: "Iron Stick"
@@ -19,7 +19,7 @@
 	}
 	
 	type: metal_pole
-	flags: hard, long, magnetic, metal, small, flexible, solid, processed
+	flags: hard, long, magnetic, metal, small, thin, flexible, solid, processed
 	display_flags: no_random_facing
 	hints: materials, construction
 	
@@ -43,6 +43,7 @@
 	color_flame: [1.000, 0.521, 0.220, 0.882]
 	color_smoke: [0.753, 0.776, 0.675, 1.000]
 	
+	centroid_default: [-0.017241, 0.123563]
 	colliders:
 	[
 		{
@@ -292,12 +293,12 @@
 		}
 		smithing:
 		{
-			h_material: scrap.steel
+			h_material: ferronickel.powder
 			h_substance: "null"
 			flags: none
-			flags_product: residue
+			flags_product: waste
 			
-			yield: [0.950, 0.030]
+			yield: [0.930, 0.041]
 		}
 		machining:
 		{
@@ -309,6 +310,15 @@
 			yield: [0.260, 0.510]
 		}
 		sawing:
+		{
+			h_material: steel.powder
+			h_substance: "null"
+			flags: none
+			flags_product: residue
+			
+			yield: [0.962, 0.033]
+		}
+		sawing.metal:
 		{
 			h_material: steel.powder
 			h_substance: "null"
@@ -334,6 +344,33 @@
 			flags_product: residue
 			
 			yield: [0.962, 0.033]
+		}
+		sanding:
+		{
+			h_material: steel.powder
+			h_substance: "null"
+			flags: none
+			flags_product: residue
+			
+			yield: [0.092, 0.233]
+		}
+		welding.phlogiston:
+		{
+			h_material: ferrous.gravel
+			h_substance: "null"
+			flags: none
+			flags_product: waste
+			
+			yield: [0.474, 0.512]
+		}
+		welding:
+		{
+			h_material: ferronickel.powder
+			h_substance: "null"
+			flags: none
+			flags_product: waste
+			
+			yield: [0.354, 0.620]
 		}
 	}
 	

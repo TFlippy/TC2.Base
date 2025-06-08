@@ -64,19 +64,12 @@
 					
 					filter_tools:
 					{
-						require: hammer, screwdriver, wrench, tongs
-						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, pliers, stapler, chisel, towel, tongs, pick, crowbar, knife
-					}
-					filter_infrastructure:
-					{
-						require: anvil, forge, heater
-						include: vise
+						require: hand_drill, file
+						include: screwdriver, file, knife, scissors
 					}
 					filter_environment:
 					{
-						require: sturdy
-						include: workshop, stationary, fireproof
-						exclude: fragile
+						include: workshop, stationary, illuminated, dry
 					}
 				}
 			]
@@ -149,6 +142,17 @@
 							flags: stepped, simultaneous, conditional
 						}
 					]
+					
+					filter_tools:
+					{
+						require: ruler, screwdriver, file, towel
+						include: pencil, paper, ruler, screwdriver, tweezers, magnifying_glass, paintbrush, syringe, file, towel, pick
+					}
+					filter_environment:
+					{
+						include: workshop, office, stationary, clean, fancy, cozy, safe, illuminated, quiet, dry
+						exclude: scary
+					}
 				}
 			]
 		}
@@ -216,6 +220,21 @@
 							flags: simultaneous, conditional
 						}
 					]
+					
+					filter_tools:
+					{
+						require: screwdriver, wrench
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, paintbrush, stapler, file, towel, tongs, pick, crowbar, knife
+					}
+					filter_infrastructure:
+					{
+						include: table
+					}
+					filter_environment:
+					{
+						include: clean, organized
+						exclude: wet
+					}
 				}
 			]
 		}

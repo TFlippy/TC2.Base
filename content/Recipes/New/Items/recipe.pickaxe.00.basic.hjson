@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.5"
+	$version: "0.1.63.4"
 	name: "Pickaxe"
 	tips: []
 	
@@ -20,7 +20,7 @@
 			options:
 			[
 				{
-					name: "Forged (Bar)"
+					name: "Deformed"
 					
 					type: undefined
 					flags: wip, incomplete
@@ -55,24 +55,74 @@
 						}
 					]
 					
-					quality: 1.000
-					precision: 1.000
-					
 					filter_tools:
 					{
-						require: hammer, tongs
-						include: pliers, chisel
+						require: hammer, pliers, tongs
+						include: towel
 					}
 					filter_infrastructure:
 					{
-						require: anvil, forge, heater
+						require: anvil, forge, hard_surface, heater
 						include: vise
 					}
 					filter_environment:
 					{
-						require: sturdy
-						include: workshop, stationary, fireproof
-						exclude: fragile
+						require: sturdy, smithy
+						include: workshop
+						exclude: office, fragile
+					}
+				}
+				{
+					name: "Forged"
+					
+					type: undefined
+					flags: wip, incomplete
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.rod
+							amount: 0.916116
+							snapping: 0.500
+							loss: 0.071
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: temperature
+							amount: 1315.200
+							amount_min: 822.000
+							amount_max: 1578.240
+							group: 0
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: work
+							work: smithing
+							amount: 650.000
+							difficulty: 8
+							snapping: 25.000
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: hammer, pliers, tongs
+						include: towel
+					}
+					filter_infrastructure:
+					{
+						require: anvil, forge, hard_surface, heater
+						include: vise
+					}
+					filter_environment:
+					{
+						require: sturdy, smithy
+						include: workshop
+						exclude: office, fragile
 					}
 				}
 				{
@@ -143,9 +193,6 @@
 						}
 					]
 					
-					quality: 1.000
-					precision: 1.000
-					
 					filter_tools:
 					{
 						require: hammer, file
@@ -200,13 +247,10 @@
 						}
 					]
 					
-					quality: 1.000
-					precision: 1.000
-					
 					filter_tools:
 					{
 						require: file, knife
-						include: saw, hand_drill, file, knife, sandpaper
+						include: hand_drill, screwdriver, pliers, file, chisel, knife, sandpaper
 					}
 				}
 				{
@@ -237,9 +281,6 @@
 							flags: conditional
 						}
 					]
-					
-					quality: 1.000
-					precision: 1.000
 					
 					filter_tools:
 					{
@@ -298,9 +339,6 @@
 						}
 					]
 					
-					quality: 1.000
-					precision: 1.000
-					
 					filter_tools:
 					{
 						include: paintbrush, file
@@ -335,9 +373,6 @@
 						}
 					]
 					
-					quality: 1.000
-					precision: 1.000
-					
 					filter_tools:
 					{
 						require: hammer
@@ -354,13 +389,13 @@
 			prefab: pickaxe
 			amount: 1.000
 			group: 0
-			flags: primary
+			flags: primary, compact
 		}
 	]
 	
 	type: workshop
 	flags: blueprintable, item, wip
-	tags: workbench, workshop, manual, simple, medium, tool, metalworking
+	tags: manual, simple, medium, tool, metalworking
 	infrastructure: workbench
 	infrastructure_exclude: none
 	

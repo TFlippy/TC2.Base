@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.1"
+	$version: "0.1.63.4"
 	name: "Arrowbolts"
 	desc:
 		'''
@@ -60,9 +60,6 @@
 						}
 					]
 					
-					quality: 1.000
-					precision: 1.000
-					
 					filter_tools:
 					{
 						require: cutters
@@ -120,9 +117,6 @@
 							flags: conditional
 						}
 					]
-					
-					quality: 1.000
-					precision: 1.000
 					
 					filter_tools:
 					{
@@ -184,9 +178,6 @@
 						}
 					]
 					
-					quality: 1.000
-					precision: 1.000
-					
 					filter_tools:
 					{
 						include: paintbrush, file
@@ -231,7 +222,7 @@
 	
 	color_frame: "0xffaeb59a"
 	color_button: "0xff9dd80f"
-	rank: 100.000
+	rank: 35.000
 	
 	min: 8
 	max: 64
