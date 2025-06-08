@@ -76,7 +76,7 @@ melee.state:
 holdable:
 {
 	offset: [-0.375, -0.125]
-	hints: weapon, melee, short_range, usable
+	hints: weapon, melee, short_range, usable, clumsy, long, tools
 	flags: storable
 }
 

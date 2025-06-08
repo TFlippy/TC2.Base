@@ -16,7 +16,7 @@ namespace TC2.Base.Components
 		public static readonly Sound.Handle sound_trigger_default = "item.adjust.02";
 
 		[IComponent.Data(Net.SendType.Reliable, region_only: true)]
-		public partial struct Data: IComponent
+		public partial struct Data(): IComponent
 		{
 			public Sound.Handle sound_arm = LandMine.sound_arm_default;
 			public Sound.Handle sound_trigger = LandMine.sound_trigger_default;
@@ -25,11 +25,6 @@ namespace TC2.Base.Components
 			public uint frame_armed = 1;
 
 			public LandMine.Flags flags;
-
-			public Data()
-			{
-
-			}
 		}
 
 #if CLIENT
@@ -60,7 +55,7 @@ namespace TC2.Base.Components
 		[Source.Owned] ref LandMine.Data landmine, [Source.Owned] ref Explosive.Data explosive,
 		[Source.Owned] ref Body.Data body, [Source.Owned] in Transform.Data transform, [Source.Owned, Optional] in Faction.Data faction)
 		{
-			if (body.HasArbiters() && landmine.flags.HasAny(LandMine.Flags.Armed) && !explosive.flags.HasAny(Explosive.Flags.Primed))
+			if (landmine.flags.HasAny(LandMine.Flags.Armed) && explosive.flags.HasNone(Explosive.Flags.Primed) && body.HasArbiters())
 			{
 				foreach (var arbiter in body.GetArbiters())
 				{

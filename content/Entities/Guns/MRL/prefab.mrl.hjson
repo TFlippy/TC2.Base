@@ -100,9 +100,7 @@ gun.state:
 attachment:
 {
 	offset: [-0.125, 0.000]
-
-	force_multiplier: 1.000
-	torque_multiplier: 1.000
+	tags: large, weapon, rotary, short
 }
 
 holdable:

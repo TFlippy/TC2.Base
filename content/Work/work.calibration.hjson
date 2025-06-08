@@ -1,7 +1,7 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.63.4"
 	name: "Calibration"
-	name_short: "Calibration"
+	name_short: "Calibrate"
 	desc:
 		'''
 		TODO: Desc
@@ -15,19 +15,19 @@
 	}
 	
 	flags: none
-	tags: manual, skilled, machine, tools, science, advanced, technical, careful, construction, industrial, wip
+	tags: manual, skilled, machine, tools, science, advanced, technical, construction, industrial, careful, wip
+	
+	amount_base: 0.000
 	cooldown: 1.500
 	multiplier: 1.250
+	
 	color: "0xff14d081"
 	
 	tools_required: ruler, screwdriver
 	tools_optional: pencil, paper, ruler, screwdriver, tweezers, magnifying_glass, syringe, file, towel, pick
 	
-	machinery_required: none
-	machinery_optional: none
-	
-	equipment_required: table
-	equipment_optional: table, chair, vise
+	infrastructure_required: none
+	infrastructure_optional: none
 	
 	filter_environment:
 	{

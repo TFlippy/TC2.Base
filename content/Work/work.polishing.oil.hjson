@@ -1,6 +1,5 @@
 ﻿{
-	$region_id: 0
-	$version: "0.1.63.1"
+	$version: "0.1.63.4"
 	name: "Polishing"
 	name_short: "Polishing"
 	desc:
