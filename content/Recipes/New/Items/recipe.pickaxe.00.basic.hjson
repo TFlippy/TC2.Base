@@ -20,7 +20,7 @@
 			options:
 			[
 				{
-					name: "Deformed"
+					name: "Battered"
 					
 					type: undefined
 					flags: wip, incomplete
@@ -30,46 +30,66 @@
 						{
 							type: resource
 							material: steel.rod
-							amount: 0.916116
-							snapping: 0.500
-							loss: 0.071
+							amount: 1.000
+							snapping: 1.000
+							loss: 0.122
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: temperature
-							amount: 1315.200
-							amount_min: 822.000
-							amount_max: 1578.240
+							amount: 802.0699
+							amount_min: 468.000
+							amount_max: 946.849
+							falloff: 0.752
 							group: 0
-							flags: no_scaling, always_evaluate
+							flags: no_scaling, always_evaluate, prerequisite, optional
 						}
 						{
 							type: work
-							work: smithing
-							amount: 650.000
-							difficulty: 8
+							work: hammering
+							amount: 900.000
+							amount_min: 350.000
+							difficulty: 14
 							snapping: 25.000
+							falloff: 0.919
+							ratio: 0.522
 							group: 0
-							flags: conditional
+							flags: stepped, conditional
+						}
+						{
+							type: work
+							work: filing
+							amount: 420.000
+							amount_min: 200.000
+							difficulty: 9
+							snapping: 25.000
+							falloff: 0.891
+							ratio: 0.816
+							group: 1
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: chiseling
+							amount: 75.000
+							amount_min: 50.000
+							difficulty: 12
+							snapping: 25.000
+							falloff: 0.917
+							ratio: 0.722
+							group: 1
+							flags: stepped, simultaneous, conditional
 						}
 					]
 					
 					filter_tools:
 					{
-						require: hammer, pliers, tongs
-						include: towel
-					}
-					filter_infrastructure:
-					{
-						require: anvil, forge, hard_surface, heater
-						include: vise
+						require: hammer, file, chisel
 					}
 					filter_environment:
 					{
-						require: sturdy, smithy
-						include: workshop
-						exclude: office, fragile
+						include: workshop, stationary, illuminated, dry
 					}
 				}
 				{
@@ -83,28 +103,32 @@
 						{
 							type: resource
 							material: steel.rod
-							amount: 0.916116
+							amount: 0.874333
 							snapping: 0.500
-							loss: 0.071
+							loss: 0.059
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: temperature
-							amount: 1315.200
-							amount_min: 822.000
-							amount_max: 1578.240
+							amount: 1134.100
+							amount_min: 743.000
+							amount_max: 1481.240
+							falloff: 0.715
 							group: 0
-							flags: no_scaling, always_evaluate
+							flags: no_scaling, always_evaluate, prerequisite
 						}
 						{
 							type: work
 							work: smithing
 							amount: 650.000
+							amount_min: 200.000
 							difficulty: 8
 							snapping: 25.000
+							falloff: 0.874
+							ratio: 0.800
 							group: 0
-							flags: conditional
+							flags: stepped, conditional
 						}
 					]
 					
@@ -220,40 +244,6 @@
 			options:
 			[
 				{
-					name: "Carved"
-					
-					type: undefined
-					flags: none
-					
-					requirements:
-					[
-						{
-							type: resource
-							material: wood
-							amount: 0.207828
-							snapping: 1.000
-							loss: 0.075
-							group: 0
-							flags: prerequisite
-						}
-						{
-							type: work
-							work: woodcarving
-							amount: 220.000
-							difficulty: 4
-							snapping: 25.000
-							group: 0
-							flags: conditional
-						}
-					]
-					
-					filter_tools:
-					{
-						require: file, knife
-						include: hand_drill, screwdriver, pliers, file, chisel, knife, sandpaper
-					}
-				}
-				{
 					name: "Sawed"
 					
 					type: undefined
@@ -264,21 +254,23 @@
 						{
 							type: resource
 							material: wood.rod
-							amount: 0.732621
+							amount: 0.750483
 							snapping: 1.000
-							loss: 0.024
+							loss: 0.012
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: work
 							work: sawing
-							amount: 200.000
-							difficulty: 3
+							amount: 175.000
+							amount_min: 50.000
+							difficulty: 5
 							snapping: 5.000
-							falloff: 0.805
+							falloff: 0.809
+							ratio: 0.824
 							group: 0
-							flags: conditional
+							flags: stepped, conditional
 						}
 					]
 					
@@ -291,6 +283,43 @@
 					{
 						require: surface
 						include: workbench
+					}
+				}
+				{
+					name: "Carved"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: wood
+							amount: 0.226545
+							snapping: 1.000
+							loss: 0.173
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: woodcarving
+							amount: 220.000
+							amount_min: 150.000
+							difficulty: 7
+							snapping: 25.000
+							falloff: 0.905
+							ratio: 0.667
+							group: 0
+							flags: stepped, conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: file, knife
+						include: hand_drill, screwdriver, pliers, file, chisel, knife, sandpaper
 					}
 				}
 			]
@@ -394,7 +423,7 @@
 	]
 	
 	type: workshop
-	flags: blueprintable, item, wip
+	flags: blueprintable, item
 	tags: manual, simple, medium, tool, metalworking
 	infrastructure: workbench
 	infrastructure_exclude: none

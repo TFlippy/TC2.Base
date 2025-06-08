@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.63.4"
 	name: "Machine Parts"
 	name_short: "M. Parts"
 	name_dumb: "Things"
@@ -135,7 +135,7 @@
 			h_material: scrap.machine
 			h_substance: "null"
 			flags: none
-			flags_product: none
+			flags_product: waste
 			
 			yield: [0.960, 0.030]
 		}
@@ -162,7 +162,7 @@
 			h_material: scrap.machine
 			h_substance: "null"
 			flags: none
-			flags_product: none
+			flags_product: waste
 			
 			yield: [0.870, 0.120]
 		}
@@ -171,7 +171,7 @@
 			h_material: scrap.machine
 			h_substance: "null"
 			flags: none
-			flags_product: none
+			flags_product: waste
 			
 			yield: [0.790, 0.240]
 		}
@@ -189,7 +189,7 @@
 			h_material: scrap.machine
 			h_substance: "null"
 			flags: none
-			flags_product: none
+			flags_product: waste
 			
 			yield: [0.920, 0.060]
 		}
@@ -198,7 +198,7 @@
 			h_material: scrap.machine
 			h_substance: "null"
 			flags: none
-			flags_product: none
+			flags_product: waste
 			
 			yield: [0.930, 0.050]
 		}
@@ -207,7 +207,7 @@
 			h_material: scrap.machine
 			h_substance: "null"
 			flags: none
-			flags_product: none
+			flags_product: waste
 			
 			yield: [0.890, 0.110]
 		}
@@ -216,7 +216,7 @@
 			h_material: scrap.machine
 			h_substance: "null"
 			flags: none
-			flags_product: none
+			flags_product: waste
 			
 			yield: [0.930, 0.050]
 		}
@@ -234,7 +234,7 @@
 			h_material: scrap.metal
 			h_substance: "null"
 			flags: none
-			flags_product: none
+			flags_product: waste
 			
 			yield: [0.840, 0.140]
 		}
@@ -243,7 +243,7 @@
 			h_material: scrap.machine
 			h_substance: "null"
 			flags: none
-			flags_product: none
+			flags_product: waste
 			
 			yield: [0.940, 0.050]
 		}
@@ -252,7 +252,7 @@
 			h_material: scrap.machine
 			h_substance: "null"
 			flags: none
-			flags_product: none
+			flags_product: waste
 			
 			yield: [0.940, 0.050]
 		}
@@ -261,7 +261,7 @@
 			h_material: scrap.metal
 			h_substance: "null"
 			flags: none
-			flags_product: none
+			flags_product: waste
 			
 			yield: [0.770, 0.220]
 		}
@@ -270,7 +270,7 @@
 			h_material: scrap.machine
 			h_substance: "null"
 			flags: none
-			flags_product: none
+			flags_product: waste
 			
 			yield: [1.000, 0.000]
 		}
@@ -279,7 +279,7 @@
 			h_material: scrap.machine
 			h_substance: "null"
 			flags: none
-			flags_product: none
+			flags_product: waste
 			
 			yield: [0.720, 0.220]
 		}
@@ -288,7 +288,7 @@
 			h_material: scrap.metal
 			h_substance: "null"
 			flags: none
-			flags_product: none
+			flags_product: waste
 			
 			yield: [0.520, 0.460]
 		}
@@ -297,7 +297,7 @@
 			h_material: scrap.machine
 			h_substance: "null"
 			flags: none
-			flags_product: none
+			flags_product: waste
 			
 			yield: [0.650, 0.280]
 		}
@@ -306,7 +306,7 @@
 			h_material: scrap.mixed
 			h_substance: "null"
 			flags: none
-			flags_product: none
+			flags_product: waste
 			
 			yield: [0.000, 0.000]
 		}

@@ -1,0 +1,65 @@
+﻿{
+	$version: "0.1.63.4"
+	name: "Sharpening (Metal)"
+	name_short: "Sharpening"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: ui.icons.work.00
+		size: [16, 16]
+		frame: [33, 0]
+	}
+	
+	flags: none
+	tags: manual, machine, automated, tools, simple, technical, construction, industrial, dangerous, careful, wip
+	
+	amount_base: 0.000
+	cooldown: 1.800
+	multiplier: 1.870
+	
+	amount_jitter: 0.496
+	color: "0xffff6200"
+	
+	tools_required: hand_drill
+	tools_optional: screwdriver, file, knife, scissors
+	
+	infrastructure_required: none
+	infrastructure_optional: none
+	
+	character_traits:
+	{
+		include: construction, artisan, laborer, technician, insane, evil
+		weight: 1.000
+	}
+	
+	skills_min:
+	{
+	
+	}
+	
+	skills_mult:
+	{
+		metallurgy: 0.100
+		endurance: 0.150
+		engineering: 0.300
+		construction: 0.400
+	}
+	
+	sound_volume: 0.900
+	sound_pitch: 0.760
+	sound_size: 0.340
+	sound_dist: 0.600
+	
+	sounds: ["metal.place.00", "effect.lathe.grind.00"]
+	sounds_manual: []
+	sounds_machine: []
+	sounds_passive: []
+	
+	sounds_start: ["effect.lathe.00"]
+	sounds_end: []
+	sounds_fail: []
+}

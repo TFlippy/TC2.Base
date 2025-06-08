@@ -286,7 +286,7 @@
 			h_material: woodchips
 			h_substance: "null"
 			flags: none
-			flags_product: none
+			flags_product: residue
 			
 			yield: [0.6558, 0.2242]
 		}
@@ -295,7 +295,7 @@
 			h_material: scrap.wood
 			h_substance: "null"
 			flags: none
-			flags_product: none
+			flags_product: waste
 			
 			yield: [0.820, 0.120]
 		}
@@ -304,7 +304,7 @@
 			h_material: scrap.wood
 			h_substance: "null"
 			flags: none
-			flags_product: none
+			flags_product: waste
 			
 			yield: [0.820, 0.120]
 		}
@@ -313,7 +313,7 @@
 			h_material: sawdust
 			h_substance: "null"
 			flags: none
-			flags_product: none
+			flags_product: residue
 			
 			yield: [0.720, 0.210]
 		}
@@ -322,7 +322,7 @@
 			h_material: sawdust
 			h_substance: "null"
 			flags: none
-			flags_product: none
+			flags_product: residue
 			
 			yield: [0.890, 0.070]
 		}
@@ -331,7 +331,7 @@
 			h_material: woodchips
 			h_substance: "null"
 			flags: none
-			flags_product: none
+			flags_product: residue
 			
 			yield: [0.880, 0.070]
 		}
@@ -349,7 +349,7 @@
 			h_material: sawdust
 			h_substance: "null"
 			flags: none
-			flags_product: none
+			flags_product: residue
 			
 			yield: [0.770, 0.210]
 		}
@@ -358,7 +358,7 @@
 			h_material: woodchips
 			h_substance: "null"
 			flags: none
-			flags_product: none
+			flags_product: residue
 			
 			yield: [0.840, 0.130]
 		}

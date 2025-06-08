@@ -98,7 +98,7 @@
 			h_material: steel.powder
 			h_substance: "null"
 			flags: none
-			flags_product: none
+			flags_product: residue
 			
 			yield: [0.820, 0.110]
 		}
@@ -107,7 +107,7 @@
 			h_material: scrap.steel
 			h_substance: "null"
 			flags: none
-			flags_product: none
+			flags_product: waste
 			
 			yield: [0.940, 0.040]
 		}
@@ -116,7 +116,7 @@
 			h_material: steel.powder
 			h_substance: "null"
 			flags: none
-			flags_product: none
+			flags_product: residue
 			
 			yield: [0.920, 0.050]
 		}
@@ -125,7 +125,7 @@
 			h_material: steel
 			h_substance: "null"
 			flags: none
-			flags_product: none
+			flags_product: residue
 			
 			yield: [0.960, 0.030]
 		}
@@ -134,7 +134,7 @@
 			h_material: steel.powder
 			h_substance: "null"
 			flags: none
-			flags_product: none
+			flags_product: residue
 			
 			yield: [0.910, 0.080]
 		}
@@ -143,7 +143,7 @@
 			h_material: steel.powder
 			h_substance: "null"
 			flags: none
-			flags_product: none
+			flags_product: residue
 			
 			yield: [0.960, 0.030]
 		}
@@ -152,7 +152,7 @@
 			h_material: ferronickel.powder
 			h_substance: "null"
 			flags: none
-			flags_product: none
+			flags_product: waste
 			
 			yield: [0.870, 0.090]
 		}

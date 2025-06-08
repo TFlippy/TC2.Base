@@ -322,7 +322,7 @@
 	]
 	
 	type: workshop
-	flags: blueprintable, item, wip
+	flags: blueprintable, item
 	tags: manual, crafting, simple, medium, weapon, tool, metalworking
 	infrastructure: hard_surface, workbench
 	infrastructure_exclude: none

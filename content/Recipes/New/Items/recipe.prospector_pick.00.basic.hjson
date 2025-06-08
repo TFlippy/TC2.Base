@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.63.4"
 	name: "Prospector Pick"
 	tips: []
 	
@@ -10,16 +10,17 @@
 			
 			type: part
 			flags: none
+			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
 			
-			ratio: 0.857143
-			mass_base: 2.700
+			ratio: 0.000
+			mass_base: 0.000
 			
 			options:
 			[
 				{
-					name: "Forged"
+					name: "Filed"
 					
 					type: undefined
 					flags: wip, incomplete
@@ -29,40 +30,63 @@
 						{
 							type: resource
 							material: steel.frames
-							amount: 1.217568
+							amount: 1.21324
 							snapping: 0.500
-							loss: 0.114
+							loss: 0.157
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: temperature
-							amount: 1315.200
-							amount_min: 822.000
-							amount_max: 1578.240
+							amount: 802.0699
+							amount_min: 468.000
+							amount_max: 946.849
+							falloff: 0.752
 							group: 0
-							flags: no_scaling, always_evaluate
+							flags: no_scaling, always_evaluate, prerequisite, optional
 						}
 						{
 							type: work
-							work: smithing
-							amount: 480.000
+							work: hammering
+							amount: 350.000
+							amount_min: 150.000
+							difficulty: 11
+							snapping: 5.000
+							falloff: 0.895
+							ratio: 0.573
+							group: 0
+							flags: stepped, conditional
+						}
+						{
+							type: resource
+							material: machine_parts
+							amount: 0.638835
+							snapping: 1.000
+							loss: 0.216
+							group: 1
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: drilling
+							amount: 75.000
+							amount_min: 140.000
 							difficulty: 7
 							snapping: 5.000
 							falloff: 0.950
-							group: 0
-							flags: conditional
+							ratio: 0.773
+							group: 1
+							flags: stepped, conditional
 						}
 					]
 					
 					filter_tools:
 					{
-						require: hammer, tongs
-						include: bucket
+						require: hammer, file, chisel
 					}
-					filter_infrastructure:
+					filter_environment:
 					{
-						require: anvil, forge, table
+						include: workshop, stationary, illuminated, dry
 					}
 				}
 			]
@@ -72,56 +96,15 @@
 			
 			type: part
 			flags: none
+			tags: none
 			// Damage type used for discarding leftover resources.
-			discard_damage_type: sledgehammer
+			discard_damage_type: axe
 			
-			ratio: 0.142857
-			mass_base: 0.450
+			ratio: 0.000
+			mass_base: 0.000
 			
 			options:
 			[
-				{
-					name: "Hand-Carved"
-					
-					type: undefined
-					flags: wip, incomplete
-					
-					requirements:
-					[
-						{
-							type: resource
-							material: wood
-							amount: 0.233807
-							snapping: 1.000
-							loss: 0.090
-							group: 0
-							flags: prerequisite
-						}
-						{
-							type: work
-							work: woodcarving
-							amount: 220.000
-							difficulty: 4
-							snapping: 5.000
-							group: 0
-							flags: conditional
-						}
-					]
-					
-					filter_tools:
-					{
-						require: file, knife
-						include: saw, hand_drill, file, knife, sandpaper
-					}
-					filter_machinery:
-					{
-						include: lathe, mill, sander, planer
-					}
-					filter_infrastructure:
-					{
-						include: table, chair, vise
-					}
-				}
 				{
 					name: "Sawed"
 					
@@ -133,36 +116,72 @@
 						{
 							type: resource
 							material: wood.rod
-							amount: 0.8242
+							amount: 0.750483
 							snapping: 1.000
-							loss: 0.024
+							loss: 0.012
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: work
 							work: sawing
-							amount: 200.000
-							difficulty: 3
+							amount: 175.000
+							amount_min: 50.000
+							difficulty: 5
 							snapping: 5.000
-							falloff: 0.805
+							falloff: 0.809
+							ratio: 0.824
 							group: 0
-							flags: conditional
+							flags: stepped, conditional
 						}
 					]
 					
 					filter_tools:
 					{
 						require: saw
-						include: pencil, ruler, pliers, axe, towel, knife
-					}
-					filter_machinery:
-					{
-						include: lathe, planer
+						include: ruler, file, knife
 					}
 					filter_infrastructure:
 					{
-						include: table, chair
+						require: surface
+						include: workbench
+					}
+				}
+				{
+					name: "Carved"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: wood
+							amount: 0.226545
+							snapping: 1.000
+							loss: 0.173
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: woodcarving
+							amount: 220.000
+							amount_min: 150.000
+							difficulty: 7
+							snapping: 25.000
+							falloff: 0.905
+							ratio: 0.667
+							group: 0
+							flags: stepped, conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: file, knife
+						include: hand_drill, screwdriver, pliers, file, chisel, knife, sandpaper
 					}
 				}
 			]
@@ -172,6 +191,7 @@
 			
 			type: assembly
 			flags: wip, incomplete
+			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
 			
@@ -191,10 +211,10 @@
 						{
 							type: resource
 							material: glue
-							amount: 2.090164
+							amount: 1.860
 							snapping: 0.010
 							falloff: 0.970
-							loss: 0.035
+							loss: 0.122
 							group: 0
 							flags: no_residue, prerequisite
 						}
@@ -202,9 +222,10 @@
 							type: work
 							work: gluing
 							amount: 75.000
-							difficulty: 2
+							amount_min: 50.000
+							difficulty: 5
 							snapping: 5.000
-							falloff: 0.980
+							falloff: 0.977
 							group: 0
 							flags: conditional
 						}
@@ -216,11 +237,11 @@
 					}
 					filter_infrastructure:
 					{
-						require: table
-						include: chair, vise, rack
+						include: table
 					}
 					filter_environment:
 					{
+						include: clean, organized
 						exclude: wet
 					}
 				}
@@ -248,10 +269,6 @@
 					{
 						require: hammer
 					}
-					filter_infrastructure:
-					{
-						require: table
-					}
 				}
 			]
 		}
@@ -264,14 +281,15 @@
 			prefab: prospector_pick
 			amount: 1.000
 			group: 0
-			flags: primary
+			flags: primary, compact
 		}
 	]
 	
 	type: workshop
-	flags: blueprintable, item, wip
-	tags: workbench, manual, tool, blacksmithing, assembling, metalworking
+	flags: blueprintable, item
+	tags: workbench, manual, crafting, simple, small, tool, assembling, metalworking
 	infrastructure: surface, workbench
+	infrastructure_exclude: none
 	
 	icon:
 	{
