@@ -24,6 +24,7 @@
 					
 					type: undefined
 					flags: none
+					discard_damage_type_override: axe
 					
 					requirements:
 					[
@@ -32,7 +33,7 @@
 							material: steel.plate
 							amount: 1.000
 							snapping: 1.000
-							loss: 0.106
+							loss: 0.122
 							group: 0
 							flags: prerequisite
 						}
@@ -42,6 +43,7 @@
 							amount: 220.000
 							difficulty: 11
 							snapping: 25.000
+							ratio: 0.608
 							group: 0
 							flags: conditional
 						}
@@ -383,13 +385,13 @@
 			prefab: shovel
 			amount: 1.000
 			group: 0
-			flags: primary
+			flags: primary, compact
 		}
 	]
 	
 	type: workshop
 	flags: blueprintable, item
-	tags: manual, simple, medium, tool, woodworking, assembling, metalworking
+	tags: manual, crafting, simple, medium, tool, woodworking, assembling, metalworking
 	infrastructure: workbench
 	infrastructure_exclude: none
 	

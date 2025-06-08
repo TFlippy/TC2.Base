@@ -38,7 +38,7 @@ interactable:
 {
 	flags: no_tab
 	priority: 2.000
-	window_size: [728.000, 580.000]
+	window_size: [704.000, 592.000]
 	window_size_misc: [96.000, 0.000]
 }
 
@@ -109,12 +109,12 @@ shop:
 		exclude: advanced, large, huge, social, forestry, smelting, fermenting, casting, moulding, overworld
 	}
 	
-	tools: hammer, saw, hand_drill, screwdriver, spanner, pliers, bucket, axe, shovel, file, chisel, towel, tongs, pick, crowbar, knife, sandpaper, ladle, cutters
+	tools: hammer, cutters, saw, hand_drill, screwdriver, spanner, pliers, bucket, axe, shovel, file, chisel, towel, tongs, pick, crowbar, knife, sandpaper, ladle
 	infrastructure: anvil, forge, dishes, table, rack, bucket, surface, hard_surface, heater, stove, smokestack, structure, building, workbench
 	environment: workshop, stationary, dirty, polluted, ugly, scary, fireproof, durable, sturdy, smithy
 	
 	flags: none
-	menu_columns: 5
+	menu_columns: 4
 	recipe_type: workshop
 	
 	offset_spawn: [1.000, 0.250]

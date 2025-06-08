@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.5"
+	$version: "0.1.63.4"
 	name: "Handsaw"
 	tips: []
 	
@@ -55,13 +55,10 @@
 							falloff: 0.972
 							loss: 0.122
 							ratio: 1.000
-							group: 1
+							group: 0
 							flags: conditional
 						}
 					]
-					
-					quality: 1.000
-					precision: 1.000
 					
 					filter_tools:
 					{
@@ -104,12 +101,12 @@
 						}
 						{
 							type: temperature
-							amount: 1432.470
-							amount_min: 600.000
-							amount_max: 1684.849
-							falloff: 0.500
-							group: 1
-							flags: no_scaling, always_evaluate, optional
+							amount: 802.0699
+							amount_min: 468.000
+							amount_max: 946.849
+							falloff: 0.752
+							group: 0
+							flags: no_scaling, always_evaluate, prerequisite, optional
 						}
 						{
 							type: work
@@ -120,13 +117,10 @@
 							snapping: 15.000
 							falloff: 0.933
 							ratio: 1.000
-							group: 1
+							group: 0
 							flags: conditional
 						}
 					]
-					
-					quality: 1.000
-					precision: 1.000
 					
 					filter_tools:
 					{
@@ -198,9 +192,6 @@
 						}
 					]
 					
-					quality: 1.000
-					precision: 1.000
-					
 					filter_tools:
 					{
 						require: file
@@ -257,9 +248,6 @@
 							flags: conditional
 						}
 					]
-					
-					quality: 1.000
-					precision: 1.000
 					
 					filter_tools:
 					{
@@ -323,9 +311,6 @@
 						}
 					]
 					
-					quality: 1.000
-					precision: 1.000
-					
 					filter_tools:
 					{
 						include: paintbrush, file
@@ -351,13 +336,13 @@
 			prefab: handsaw.00
 			amount: 1.000
 			group: 0
-			flags: primary
+			flags: primary, compact
 		}
 	]
 	
 	type: workshop
 	flags: blueprintable, item, wip
-	tags: workbench, manual, simple, small, tool, assembling, metalworking
+	tags: manual, simple, small, tool, assembling, metalworking
 	infrastructure: surface, workbench
 	infrastructure_exclude: none
 	

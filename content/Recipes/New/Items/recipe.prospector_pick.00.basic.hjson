@@ -30,9 +30,9 @@
 						{
 							type: resource
 							material: steel.frames
-							amount: 1.21324
+							amount: 1.22924
 							snapping: 0.500
-							loss: 0.157
+							loss: 0.122
 							group: 0
 							flags: prerequisite
 						}
@@ -73,16 +73,29 @@
 							amount_min: 140.000
 							difficulty: 7
 							snapping: 5.000
-							falloff: 0.950
-							ratio: 0.773
+							falloff: 0.907
+							ratio: 0.373
 							group: 1
-							flags: stepped, conditional
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: filing
+							amount: 100.000
+							amount_min: 120.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.962
+							ratio: 0.800
+							group: 1
+							flags: stepped, simultaneous, conditional
 						}
 					]
 					
 					filter_tools:
 					{
-						require: hammer, file, chisel
+						require: hammer, hand_drill, file
+						include: screwdriver, file, knife, scissors
 					}
 					filter_environment:
 					{
@@ -287,7 +300,7 @@
 	
 	type: workshop
 	flags: blueprintable, item
-	tags: workbench, manual, crafting, simple, small, tool, assembling, metalworking
+	tags: manual, crafting, simple, small, tool, assembling, metalworking
 	infrastructure: surface, workbench
 	infrastructure_exclude: none
 	
@@ -302,8 +315,8 @@
 	rank: 16.000
 	
 	min: 1
-	max: 5
+	max: 8
 	step: 1
 	
-	version: 0
+	version: 1
 }
