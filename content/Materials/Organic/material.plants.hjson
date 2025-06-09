@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.63.5"
 	name: "Plant Trimmings"
 	name_short: "Plants"
 	name_dumb: "Grass"
@@ -38,6 +38,7 @@
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	
+	centroid_default: [0.000, 0.250]
 	colliders: []
 	
 	commodity:
@@ -85,28 +86,55 @@
 		{
 			h_material: tar
 			spawn_flags: merge, no_offset
-			product_flags: none
-			ratio: 0.010
-			ratio_extra: 0.075
+			product_flags: residue
+			ratio: 0.030
+			ratio_extra: 0.085
 			
 			h_material_waste: ash
 			spawn_flags_waste: merge, no_offset
-			product_flags_waste: none
+			product_flags_waste: waste
 			ratio_waste: 0.050
-			ratio_waste_extra: 0.200
+			ratio_waste_extra: 0.180
 			
-			yield: 0.050
-			yield_extra: 0.450
+			yield: 0.130
+			yield_extra: 0.220
 			
 			h_sound: missing
 			sound_volume: 0.200
 			sound_pitch: 1.280
 			
-			chance: 0.260
+			chance: 0.180
 			type: undefined
-			flags: none
+			flags: spawn_only_converted
 			merge_radius_mult: 1.000
-			velocity_mult: 1.000
+			velocity_mult: 0.070
+		}
+		fire:
+		{
+			h_material: "null"
+			spawn_flags: none
+			product_flags: none
+			ratio: 1.000
+			ratio_extra: 0.000
+			
+			h_material_waste: ash
+			spawn_flags_waste: merge, no_offset
+			product_flags_waste: waste
+			ratio_waste: 0.050
+			ratio_waste_extra: 0.200
+			
+			yield: 0.110
+			yield_extra: 0.200
+			
+			h_sound: missing
+			sound_volume: 0.200
+			sound_pitch: 1.280
+			
+			chance: 0.130
+			type: undefined
+			flags: spawn_only_converted
+			merge_radius_mult: 1.000
+			velocity_mult: 0.070
 		}
 	}
 }

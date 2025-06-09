@@ -97,7 +97,7 @@ namespace TC2.Base.Components
 						ref var material_conv = ref conv.h_material.GetData();
 						if (material_conv.IsNotNull())
 						{
-							var spawn_flags_conv = spawn_flags | conv.spawn_flags;
+							var spawn_flags_conv = (spawn_flags | conv.spawn_flags).WithAddRemFlags(ev.spawn_flags);
 							Resource.Spawn(region: ref region,
 							material: conv.h_material,
 							world_position: has_no_offset ? transform.position : ev.world_position,
@@ -115,7 +115,7 @@ namespace TC2.Base.Components
 						ref var material_waste = ref conv.h_material_waste.GetData();
 						if (material_waste.IsNotNull())
 						{
-							var spawn_flags_conv = spawn_flags | conv.spawn_flags_waste;
+							var spawn_flags_conv = (spawn_flags | conv.spawn_flags_waste).WithAddRemFlags(ev.spawn_flags);
 							Resource.Spawn(region: ref region,
 							material: conv.h_material_waste,
 							world_position: has_no_offset ? transform.position : ev.world_position,

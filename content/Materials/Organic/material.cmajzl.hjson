@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.63.5"
 	name: "Cmajzl"
 	name_short: "Cmajzl"
 	name_dumb: "Weed"
@@ -69,6 +69,60 @@
 			flags: none
 			merge_radius_mult: 1.000
 			velocity_mult: 1.000
+		}
+		phlogiston:
+		{
+			h_material: tar
+			spawn_flags: merge, no_offset
+			product_flags: residue
+			ratio: 0.056
+			ratio_extra: 0.090
+			
+			h_material_waste: ash
+			spawn_flags_waste: merge, no_offset
+			product_flags_waste: waste
+			ratio_waste: 0.050
+			ratio_waste_extra: 0.180
+			
+			yield: 0.130
+			yield_extra: 0.240
+			
+			h_sound: missing
+			sound_volume: 0.200
+			sound_pitch: 1.280
+			
+			chance: 0.440
+			type: undefined
+			flags: spawn_only_converted
+			merge_radius_mult: 1.000
+			velocity_mult: 0.070
+		}
+		fire:
+		{
+			h_material: tar
+			spawn_flags: merge, no_offset
+			product_flags: residue
+			ratio: 0.089
+			ratio_extra: 0.135
+			
+			h_material_waste: ash
+			spawn_flags_waste: merge, no_offset
+			product_flags_waste: waste
+			ratio_waste: 0.050
+			ratio_waste_extra: 0.200
+			
+			yield: 0.110
+			yield_extra: 0.200
+			
+			h_sound: missing
+			sound_volume: 0.200
+			sound_pitch: 1.280
+			
+			chance: 0.340
+			type: undefined
+			flags: spawn_only_converted
+			merge_radius_mult: 1.000
+			velocity_mult: 0.070
 		}
 	}
 	
