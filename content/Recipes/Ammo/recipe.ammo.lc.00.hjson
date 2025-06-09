@@ -39,7 +39,7 @@
 							material: copper.plate
 							amount: 0.033371
 							snapping: 1.000
-							loss: 0.608
+							loss: 0.668
 							ratio: 1.000
 							group: 0
 							flags: prerequisite

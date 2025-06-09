@@ -67,6 +67,7 @@ interactable:
 
 shipment:
 {	
+	type: tools
 	flags: keep_items, allow_withdraw, allow_deposit, public
 	layout: large
 }

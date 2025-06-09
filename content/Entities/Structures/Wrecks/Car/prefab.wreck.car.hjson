@@ -84,6 +84,7 @@ harvestable:
 
 shipment:
 {
+	type: wreckage
 	flags: keep_items, allow_withdraw, allow_deposit, use_misc
 	layout: square
 }
