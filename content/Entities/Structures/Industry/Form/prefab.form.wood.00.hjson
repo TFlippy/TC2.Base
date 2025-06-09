@@ -24,8 +24,8 @@ body:
 		material: wood
 		miss_chance: 0.663
 		
-		layer: entity, solid, background, crate, furniture, flammable, ignore_melee
-		mask: world, crate
+		layer: entity, solid, background, platform, furniture, flammable, ignore_melee
+		mask: world, platform
 		exclude: held, attached
 	}
 }

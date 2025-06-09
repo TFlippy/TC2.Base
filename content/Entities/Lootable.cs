@@ -41,24 +41,31 @@ namespace TC2.Base.Components
 
 			//var yield = data.yield;
 			//if (yield >= 0.01f)
+
+
+			if (resource.material.HasConversion(ev.damage_type))
 			{
 				//var damage = ev.damage_integrity;
 				//var amount_multiplier = damage * health.GetMaxHealth().RcpFast01();
 
 				//var ent_attacker = data.ent_attacker;
-				var ent_owner = ev.ent_owner;
 
-				var spawn_flags = breakable.spawn_flags;
+				//resource.material.GetConversion()
 
-				ref var material = ref resource.material.GetData();
-				if (material.IsNotNull() && material.conversions != null && material.conversions.TryGetValue(ev.damage_type, out var conv) && random.NextBool(conv.chance))
-				{
+				//ref var material = ref resource.material.GetData();
+				//if (material.IsNotNull() && material.conversions != null && material.conversions.TryGetValue(ev.damage_type, out var conv) && random.NextBool(conv.chance))
 #if SERVER
+				ref var conv = ref resource.material.GetConversion(ev.damage_type);
+				if (conv.IsNotNull() && random.NextBool(conv.chance))
+				{
+					var ent_owner = ev.ent_owner;
+					var spawn_flags = breakable.spawn_flags;
+
 					var has_no_offset = breakable.flags.HasAny(Breakable.Flags.No_Offset) | conv.spawn_flags.HasAny(Resource.SpawnFlags.No_Offset);
 					var has_no_mass_conversion = breakable.flags.HasAny(Breakable.Flags.No_Mass_Conversion) | conv.flags.HasAny(IMaterial.Conversion.Flags.No_Mass_Conversion);
 
 					var yield = Maths.ClampMin(conv.yield * ev.yield, 0.00f);
-					var damage =  ev.damage_integrity * yield;
+					var damage = ev.damage_integrity * yield;
 					var amount_multiplier = damage * health.GetMaxHealthInvFast();
 
 					var amount = Maths.Min(resource.quantity, Maths.Ceil(resource.quantity * amount_multiplier));
@@ -130,17 +137,19 @@ namespace TC2.Base.Components
 					resource.quantity -= amount_taken;
 					resource.Modified(entity, true);
 
-#endif
-					ev.flags.AddFlag(Damage.Flags.No_Damage, breakable.flags.HasAny(Breakable.Flags.No_Damage));
+					//ev.flags.AddFlag(Damage.Flags.No_Damage, breakable.flags.HasAny(Breakable.Flags.No_Damage));
 				}
+#endif
+
+				ev.flags.AddFlag(Damage.Flags.No_Damage, breakable.flags.HasAny(Breakable.Flags.No_Damage));
+				ev.knockback *= 0.10f;
 			}
 
-			ev.knockback *= 0.10f;
 			//App.WriteValue(ev.size);
 
 			if (breakable.flags.HasAny(Flags.Splittable) && ev.flags.HasNone(Damage.Flags.No_Damage | Damage.Flags.No_Loot_Drop) && ev.size >= 1.00f && resource.GetQuantityNormalized() >= 0.20f && ev.random.NextBool((ev.size * 0.50f) + Maths.Normalize01Fast(ev.damage_integrity, health.integrity)))
 			{
-				var split_amount = resource.TakeSplit(ev.random.NextFloatRange(0.15f, 0.40f));
+				//var split_amount = resource.TakeSplit(ev.random.NextFloatRange(0.15f, 0.40f));
 
 				//var vel = ev.normal * random.NextFloatExtra(3.00f, 4.00f);
 				//var vel = ev.random.NextFloatExtra(5.00f, 4.00f);
@@ -157,6 +166,7 @@ namespace TC2.Base.Components
 				//var vel = ev.normal.RotateByRad(random.NextFloat(1)) * random.NextFloatExtra(1.00f, 4.00f);
 				var vel = (ev.normal.RotateByRad(random.NextFloat(0.50f))) * random.NextFloatExtra(4.00f, 4.00f);
 
+				var split_amount = resource.TakeSplit(ev.random.NextFloatRange(0.15f, 0.40f));
 
 				resource.Modified(entity, sync: true);
 				Resource.Spawn(region: ref region,
@@ -169,7 +179,7 @@ namespace TC2.Base.Components
 				velocity: vel);
 
 				//App.WriteValue(ev.normal);
-				
+
 				//region.DrawDebugDir(ev.world_position, ev.normal, color: Color32BGRA.Magenta, 4);
 #endif
 				ev.flags.AddFlag(Damage.Flags.No_Damage, breakable.flags.HasAny(Breakable.Flags.No_Damage));
@@ -209,8 +219,8 @@ namespace TC2.Base.Components
 
 #if SERVER
 		[ISystem.RemoveLast(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("initialized", true, Source.Modifier.Owned)]
-		public static void OnRemove(ref Region.Data region, ref XorRandom random, 
-		[Source.Owned] ref Lootable.Data lootable, 
+		public static void OnRemove(ref Region.Data region, ref XorRandom random,
+		[Source.Owned] ref Lootable.Data lootable,
 		[Source.Owned] in Health.Data health, [Source.Owned] in Body.Data body)
 		{
 			//App.WriteLine("drop loot");

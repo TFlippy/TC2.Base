@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.63.4"
 	name: "Niklajzner Scrap"
 	name_short: "Nkz. Scrap"
 	description:
@@ -46,26 +46,26 @@
 	{
 		phlogiston:
 		{
-			h_material: steel
-			spawn_flags: merge, no_offset
+			h_material: "null"
+			spawn_flags: none
 			product_flags: none
-			ratio: 0.910
-			ratio_extra: 0.060
+			ratio: 0.000
+			ratio_extra: 0.000
 			
-			h_material_waste: "null"
-			spawn_flags_waste: merge, no_offset
-			product_flags_waste: none
-			ratio_waste: 0.000
-			ratio_waste_extra: 0.000
+			h_material_waste: ferrous.gravel
+			spawn_flags_waste: merge
+			product_flags_waste: waste
+			ratio_waste: 0.820
+			ratio_waste_extra: 0.223
 			
-			yield: 0.950
-			yield_extra: 0.070
+			yield: 0.850
+			yield_extra: 0.1042
 			
-			h_sound: ui.swosh.00
-			sound_volume: 0.630
-			sound_pitch: 0.440
+			h_sound: missing
+			sound_volume: 0.720
+			sound_pitch: 0.860
 			
-			chance: 0.275
+			chance: 0.257
 			type: undefined
 			flags: none
 			merge_radius_mult: 1.000
@@ -83,6 +83,24 @@
 			flags_product: waste, residue
 			
 			yield: [0.672, 0.241]
+		}
+		roasting:
+		{
+			h_material: ferrous.gravel
+			h_substance: "null"
+			flags: none
+			flags_product: waste
+			
+			yield: [0.660, 0.314]
+		}
+		welding.phlogiston:
+		{
+			h_material: ferrous.gravel
+			h_substance: "null"
+			flags: none
+			flags_product: waste
+			
+			yield: [0.721, 0.279]
 		}
 	}
 }

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.63.4"
 	name: "LC-9.4mm"
 	desc:
 		'''
@@ -37,9 +37,9 @@
 						{
 							type: resource
 							material: copper.plate
-							amount: 0.010439
+							amount: 0.033371
 							snapping: 1.000
-							loss: 0.416
+							loss: 0.608
 							ratio: 1.000
 							group: 0
 							flags: prerequisite
@@ -47,10 +47,10 @@
 						{
 							type: resource
 							material: tallow
-							amount: 0.424783
+							amount: 0.25087
 							snapping: 0.100
-							falloff: 0.629
-							loss: 0.267
+							falloff: 0.939
+							loss: 0.212
 							ratio: 1.000
 							group: 0
 							flags: prerequisite
@@ -61,19 +61,19 @@
 							amount: 10.000
 							difficulty: 8
 							snapping: 5.000
-							ratio: 1.000
+							ratio: 0.573
 							group: 0
 							flags: simultaneous, conditional
 						}
 						{
 							type: work
 							work: smearing
-							amount: 43.000
-							amount_min: 110.000
-							difficulty: 8
+							amount: 31.000
+							amount_min: 150.000
+							difficulty: 6
 							snapping: 5.000
-							falloff: 0.853
-							ratio: 1.000
+							falloff: 0.725
+							ratio: 0.816
 							group: 0
 							flags: simultaneous, conditional
 						}
@@ -81,23 +81,37 @@
 							type: work
 							work: die.drawing.metal
 							amount: 17.72152
-							difficulty: 6
+							amount_min: 23.000
+							difficulty: 8
 							snapping: 10.000
-							falloff: 0.989
-							ratio: 1.000
+							falloff: 0.890
+							ratio: 0.722
 							group: 1
 							flags: conditional
 						}
 						{
 							type: work
 							work: die.stamping.metal
-							amount: 14.000
+							amount: 11.000
+							amount_min: 44.000
 							difficulty: 7
-							snapping: 10.000
-							falloff: 0.865
-							ratio: 1.000
+							snapping: 3.000
+							falloff: 0.983
+							ratio: 0.773
 							group: 1
 							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: oil
+							amount: 0.04218
+							amount_extra: 0.056237
+							group: 0
+							flags: byproduct
 						}
 					]
 					
@@ -122,20 +136,20 @@
 						{
 							type: resource
 							material: copper.plate
-							amount: 0.021131
-							snapping: 0.500
-							loss: 0.424
-							ratio: 0.965
+							amount: 0.015588
+							snapping: 0.250
+							loss: 0.518
+							ratio: 1.000
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: resource
 							material: oil
-							amount: 0.242
+							amount: 0.06095
 							snapping: 0.100
-							falloff: 0.414
-							loss: 0.122
+							falloff: 0.954
+							loss: 0.110
 							ratio: 1.000
 							group: 0
 							flags: prerequisite
@@ -146,30 +160,31 @@
 							amount: 10.000
 							difficulty: 8
 							snapping: 5.000
-							ratio: 1.000
+							ratio: 0.831
 							group: 0
 							flags: simultaneous, conditional
 						}
 						{
 							type: work
 							work: polishing.oil
-							amount: 49.000
-							amount_min: 90.000
+							amount: 54.000
+							amount_min: 100.000
 							difficulty: 5
 							snapping: 5.000
-							falloff: 0.778
-							ratio: 1.000
+							falloff: 0.579
+							ratio: 0.851
 							group: 0
 							flags: simultaneous, conditional
 						}
 						{
 							type: work
 							work: die.drawing.metal
-							amount: 17.7776
+							amount: 11.3175
+							amount_min: 50.000
 							difficulty: 6
-							snapping: 50.000
-							falloff: 0.975
-							ratio: 1.000
+							snapping: 25.000
+							falloff: 0.954
+							ratio: 0.922
 							group: 1
 							flags: conditional
 						}
@@ -179,10 +194,22 @@
 							amount: 10.000
 							difficulty: 6
 							snapping: 10.000
-							falloff: 0.990
-							ratio: 1.000
+							falloff: 0.984
+							ratio: 0.973
 							group: 1
 							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: oil
+							amount: 0.035737
+							amount_extra: 0.012811
+							group: 0
+							flags: residue
 						}
 					]
 					
@@ -199,6 +226,7 @@
 					
 					type: undefined
 					flags: wip
+					discard_damage_type_override: corrosion
 					
 					prefix: "Shiny "
 					priority: 1.000
@@ -208,10 +236,10 @@
 						{
 							type: resource
 							material: copper.plate
-							amount: 0.019271
-							snapping: 1.000
-							loss: 0.424
-							ratio: 1.000
+							amount: 0.018192
+							snapping: 0.500
+							loss: 0.322
+							ratio: 0.965
 							group: 0
 							flags: prerequisite
 						}
@@ -232,7 +260,7 @@
 							amount: 10.000
 							difficulty: 8
 							snapping: 5.000
-							ratio: 1.000
+							ratio: 0.671
 							group: 0
 							flags: simultaneous, conditional
 						}
@@ -240,33 +268,48 @@
 							type: work
 							work: polishing.oil
 							amount: 42.000
-							amount_min: 89.000
+							amount_min: 90.000
 							difficulty: 3
 							snapping: 5.000
-							falloff: 0.762
-							ratio: 1.000
+							falloff: 0.554
+							ratio: 0.722
 							group: 0
 							flags: simultaneous, conditional
 						}
 						{
 							type: work
 							work: die.drawing.metal
-							amount: 11.3175
+							amount: 6.000
+							amount_min: 40.000
 							difficulty: 5
-							snapping: 5.000
-							ratio: 1.000
+							snapping: 10.000
+							falloff: 0.967
+							ratio: 0.373
 							group: 1
 							flags: conditional
 						}
 						{
 							type: work
 							work: die.stamping.metal
-							amount: 10.000
+							amount: 9.000
 							difficulty: 4
-							snapping: 5.000
-							ratio: 1.000
+							snapping: 10.000
+							falloff: 0.977
+							ratio: 0.373
 							group: 1
 							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: water.toxic
+							amount: 0.013562
+							amount_extra: 0.009324
+							group: 0
+							flags: pollutant, waste
 						}
 					]
 					
@@ -311,7 +354,7 @@
 							material: gunpowder
 							amount: 0.013813
 							snapping: 0.500
-							loss: 0.247
+							loss: 0.224
 							ratio: 0.106
 							group: 0
 						}
@@ -338,7 +381,7 @@
 						{
 							type: work
 							work: crimping.metal
-							amount: 13.000
+							amount: 11.000
 							amount_min: 35.000
 							difficulty: 7
 							snapping: 5.000

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.1"
+	$version: "0.1.63.4"
 	name: "Ferrous Gravel"
 	name_short: "Ferr. Gravel"
 	description:
@@ -17,7 +17,7 @@
 	}
 	
 	type: gravel
-	flags: magnetic, granular, metal, raw, gravel, waste, solid, impure, contaminated
+	flags: hard, magnetic, granular, toxic, metal, raw, gravel, waste, solid, impure, contaminated
 	display_flags: none
 	hints: none
 	

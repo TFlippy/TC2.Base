@@ -104,19 +104,19 @@ shop:
 	tags_filter:
 	{
 		include: munitions, explosive
-		exclude: large, huge
+		exclude: large, huge, blacksmithing, smelting, drying, casting
 	}
 	
 	tools: pencil, paper, ruler, hammer, cutters, hand_drill, screwdriver, spanner, pliers, tweezers, bucket, shovel, syringe, file, towel, spatula, knife, sandpaper, scissors, ladle
 	infrastructure: anvil, lab_glassware, dishes, bottle, table, chair, vise, rack, shaping_mould, bucket, surface, hard_surface, stamping_press, press, structure, machine, building, workbench
-	environment: workshop, stationary, smelly, scary, noisy, durable, sturdy, flammable
+	environment: workshop, stationary, scary, noisy, durable, sturdy, flammable, factory
 	
 	flags: none
 	menu_columns: 3
 	recipe_type: workshop
 	
 	offset_spawn: [0.000, 0.500]
-
+	
 	name: "Munitions Workshop"
 }
 

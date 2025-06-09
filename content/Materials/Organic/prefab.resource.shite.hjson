@@ -50,8 +50,9 @@ norotate:
 
 despawn:
 {
-	sleep_count_max: 17
+	sleep_count_max: 14
 	interval: 20.000
+	interval_extra: 15.000
 	threshold_delete: 0.010
 	threshold_despawning: 0.250
 }
@@ -65,7 +66,7 @@ rotting:
 		file: flies.loop.00
 		volume: 0.200
 		size: 0.500
-		size_max_modifier: 0.500
+		size_max_modifier: 0.350
 		spread: 75.000
 		priority: 0.100
 	}

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.63.4"
 	name: "Die-Drawing"
 	name_short: "D-Drawing"
 	desc:
@@ -19,9 +19,9 @@
 	
 	amount_base: 5.000
 	cooldown: 1.500
-	multiplier: 1.240
+	multiplier: 1.320
 	
-	amount_jitter: 0.320
+	amount_jitter: 0.373
 	color: "0xffaeb59a"
 	
 	tools_required: none
