@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.63.5"
 	name: "Paper"
 	name_short: "Paper"
 	name_dumb: "Paper"
@@ -18,11 +18,11 @@
 	}
 	
 	type: paper
-	flags: soft, malleable, small, fragile, plate, flammable, solid
+	flags: soft, malleable, small, fragile, thin, manufactured, fuel, plate, flammable, flexible, solid, processed
 	display_flags: none
 	hints: none
 	
-	mass_per_unit: 0.020
+	mass_per_unit: 0.427
 	
 	quantity_max: 500.000
 	spawn_quantity_threshold: 1.000
@@ -37,6 +37,7 @@
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	
+	centroid_default: [0.000, 0.250]
 	colliders: []
 	
 	commodity:
@@ -82,17 +83,17 @@
 	{
 		phlogiston:
 		{
-			h_material: ash
-			spawn_flags: merge, no_offset
+			h_material: "null"
+			spawn_flags: none
 			product_flags: none
-			ratio: 0.050
-			ratio_extra: 0.085
+			ratio: 0.000
+			ratio_extra: 0.000
 			
-			h_material_waste: "null"
+			h_material_waste: ash
 			spawn_flags_waste: merge, no_offset
-			product_flags_waste: none
-			ratio_waste: 0.000
-			ratio_waste_extra: 0.000
+			product_flags_waste: waste, residue
+			ratio_waste: 0.190
+			ratio_waste_extra: 0.390
 			
 			yield: 0.050
 			yield_extra: 0.100
@@ -101,25 +102,25 @@
 			sound_volume: 0.200
 			sound_pitch: 1.280
 			
-			chance: 1.000
+			chance: 0.853
 			type: undefined
 			flags: none
 			merge_radius_mult: 1.000
-			velocity_mult: 1.000
+			velocity_mult: 0.070
 		}
 		fire:
 		{
-			h_material: ash
-			spawn_flags: merge, no_offset
+			h_material: "null"
+			spawn_flags: none
 			product_flags: none
-			ratio: 0.050
-			ratio_extra: 0.085
+			ratio: 0.000
+			ratio_extra: 0.000
 			
-			h_material_waste: "null"
+			h_material_waste: ash
 			spawn_flags_waste: merge, no_offset
-			product_flags_waste: none
-			ratio_waste: 0.000
-			ratio_waste_extra: 0.000
+			product_flags_waste: waste, residue
+			ratio_waste: 0.390
+			ratio_waste_extra: 0.310
 			
 			yield: 0.050
 			yield_extra: 0.100
@@ -128,11 +129,11 @@
 			sound_volume: 0.200
 			sound_pitch: 1.280
 			
-			chance: 0.700
+			chance: 0.857
 			type: undefined
 			flags: none
 			merge_radius_mult: 1.000
-			velocity_mult: 1.000
+			velocity_mult: 0.400
 		}
 		wet:
 		{

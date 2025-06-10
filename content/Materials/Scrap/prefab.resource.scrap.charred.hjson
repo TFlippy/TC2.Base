@@ -3,14 +3,15 @@ $tags: []
 body:
 {
 	buoyancy: 0.480
+	damping: 0.989
 
 	@shape.circle:
 	{
 		offset: [0.000, 0.250]
 		mass: 1.000
 		radius: 0.750
-		friction: 0.890
-		elasticity: 0.150
+		friction: 0.980
+		elasticity: 0.100
 		material: coal
 		layer: entity, solid, resource, ignore_melee, ignore_bullet
 		mask: world

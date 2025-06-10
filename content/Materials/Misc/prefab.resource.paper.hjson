@@ -59,12 +59,12 @@ despawn:
 
 health:
 {
-	max: 1000.000
+	max: 7800.000
 }
 
 breakable:
 {
-	flags: no_damage
+	// flags: no_damage
 }
 
 wettable:
