@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.5"
+	$version: "0.1.63.0"
 	name: "Wooden Debris"
 	name_short: "Wood Db."
 	description:
@@ -37,54 +37,53 @@
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	
-	centroid_default: [0.000, 0.250]
 	colliders: []
 	
 	conversions:
 	{
 		fire:
 		{
-			h_material: "null"
-			spawn_flags: none
+			h_material: charcoal
+			spawn_flags: merge, no_offset
 			product_flags: none
-			ratio: 0.220
-			ratio_extra: 0.420
+			ratio: 0.030
+			ratio_extra: 0.040
 			
 			h_material_waste: scrap.charred
 			spawn_flags_waste: merge, no_offset
-			product_flags_waste: pollutant, waste
-			ratio_waste: 0.180
-			ratio_waste_extra: 0.320
+			product_flags_waste: none
+			ratio_waste: 0.120
+			ratio_waste_extra: 0.400
 			
-			yield: 0.160
-			yield_extra: 0.340
+			yield: 0.140
+			yield_extra: 0.420
 			
 			h_sound: missing
 			sound_volume: 0.000
 			sound_pitch: 0.000
 			
-			chance: 0.151
+			chance: 0.152
 			type: undefined
-			flags: spawn_only_converted
+			flags: none
 			merge_radius_mult: 1.000
-			velocity_mult: 0.110
+			velocity_mult: 1.000
 		}
 		phlogiston:
 		{
-			h_material: "null"
-			spawn_flags: none
+			h_material: graphite
+			spawn_flags: merge, no_offset
 			product_flags: none
-			ratio: 0.430
-			ratio_extra: 0.380
+			ratio: 0.010
+			ratio_extra: 0.070
 			
 			h_material_waste: scrap.charred
 			spawn_flags_waste: merge, no_offset
-			product_flags_waste: pollutant, waste
-			ratio_waste: 0.380
-			ratio_waste_extra: 0.460
+			product_flags_waste: none
+			ratio_waste: 0.290
+			ratio_waste_extra: 0.620
 			
 			yield: 0.230
-			yield_extra: 0.360
+			yield_extra: 0.480
 			
 			h_sound: missing
 			sound_volume: 0.000
@@ -92,9 +91,9 @@
 			
 			chance: 0.225
 			type: undefined
-			flags: spawn_only_converted
+			flags: none
 			merge_radius_mult: 1.000
-			velocity_mult: 0.260
+			velocity_mult: 1.000
 		}
 	}
 	

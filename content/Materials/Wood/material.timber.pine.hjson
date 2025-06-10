@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.5"
+	$version: "0.1.63.2"
 	name: "Timber (Pine)"
 	name_short: "Pine"
 	name_dumb: "Wood"
@@ -223,49 +223,22 @@
 			merge_radius_mult: 1.000
 			velocity_mult: 1.000
 		}
-		phlogiston:
-		{
-			h_material: tar
-			spawn_flags: merge
-			product_flags: residue, byproduct
-			ratio: 0.085
-			ratio_extra: 0.170
-			
-			h_material_waste: scrap.charred
-			spawn_flags_waste: merge
-			product_flags_waste: waste
-			ratio_waste: 0.350
-			ratio_waste_extra: 0.530
-			
-			yield: 0.250
-			yield_extra: 0.370
-			
-			h_sound: missing
-			sound_volume: 0.000
-			sound_pitch: 0.000
-			
-			chance: 0.314
-			type: undefined
-			flags: spawn_only_converted
-			merge_radius_mult: 1.000
-			velocity_mult: 0.500
-		}
 		fire:
 		{
-			h_material: tar
+			h_material: ash
 			spawn_flags: merge
-			product_flags: residue, byproduct
-			ratio: 0.077
-			ratio_extra: 0.159
+			product_flags: waste
+			ratio: 0.080
+			ratio_extra: 0.140
 			
 			h_material_waste: scrap.charred
 			spawn_flags_waste: merge
 			product_flags_waste: waste
-			ratio_waste: 0.215
-			ratio_waste_extra: 0.450
+			ratio_waste: 0.150
+			ratio_waste_extra: 0.350
 			
-			yield: 0.210
-			yield_extra: 0.310
+			yield: 0.160
+			yield_extra: 0.230
 			
 			h_sound: missing
 			sound_volume: 0.000
@@ -273,9 +246,36 @@
 			
 			chance: 0.180
 			type: undefined
-			flags: spawn_only_converted
+			flags: none
 			merge_radius_mult: 1.000
-			velocity_mult: 0.100
+			velocity_mult: 1.000
+		}
+		phlogiston:
+		{
+			h_material: tar
+			spawn_flags: merge
+			product_flags: residue, byproduct
+			ratio: 0.060
+			ratio_extra: 0.140
+			
+			h_material_waste: scrap.charred
+			spawn_flags_waste: merge
+			product_flags_waste: waste
+			ratio_waste: 0.150
+			ratio_waste_extra: 0.330
+			
+			yield: 0.150
+			yield_extra: 0.240
+			
+			h_sound: missing
+			sound_volume: 0.000
+			sound_pitch: 0.000
+			
+			chance: 0.240
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.000
+			velocity_mult: 1.500
 		}
 		saw:
 		{
@@ -421,7 +421,7 @@
 			h_material: charcoal
 			h_substance: "null"
 			flags: none
-			flags_product: residue, byproduct
+			flags_product: byproduct, residue
 			
 			yield: [0.271, 0.324]
 		}
@@ -430,7 +430,7 @@
 			h_material: charcoal
 			h_substance: "null"
 			flags: none
-			flags_product: residue, byproduct
+			flags_product: byproduct, residue
 			
 			yield: [0.271, 0.324]
 		}

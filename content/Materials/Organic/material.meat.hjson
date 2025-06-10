@@ -83,16 +83,16 @@
 	{
 		phlogiston:
 		{
-			h_material: tar
+			h_material: scrap.charred
 			spawn_flags: merge, no_offset
-			product_flags: residue
-			ratio: 0.090
-			ratio_extra: 0.115
+			product_flags: none
+			ratio: 0.110
+			ratio_extra: 0.215
 			
-			h_material_waste: scrap.charred
+			h_material_waste: ash
 			spawn_flags_waste: merge, no_offset
-			product_flags_waste: waste
-			ratio_waste: 0.222
+			product_flags_waste: none
+			ratio_waste: 0.100
 			ratio_waste_extra: 0.400
 			
 			yield: 0.150
@@ -106,19 +106,19 @@
 			type: undefined
 			flags: none
 			merge_radius_mult: 1.000
-			velocity_mult: 0.600
+			velocity_mult: 1.000
 		}
 		fire:
 		{
 			h_material: scrap.charred
 			spawn_flags: merge, no_offset
-			product_flags: waste
+			product_flags: none
 			ratio: 0.310
 			ratio_extra: 0.315
 			
 			h_material_waste: ash
 			spawn_flags_waste: merge, no_offset
-			product_flags_waste: waste
+			product_flags_waste: none
 			ratio_waste: 0.110
 			ratio_waste_extra: 0.100
 			

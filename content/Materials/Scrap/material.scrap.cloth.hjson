@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.5"
+	$version: "0.1.63.0"
 	name: "Tattered Cloth"
 	name_short: "Tatters"
 	description:
@@ -37,7 +37,6 @@
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	
-	centroid_default: [0.000, 0.250]
 	colliders: []
 	
 	conversions:
@@ -65,7 +64,7 @@
 			
 			chance: 0.352
 			type: undefined
-			flags: spawn_only_converted
+			flags: none
 			merge_radius_mult: 1.000
 			velocity_mult: 0.100
 		}
@@ -92,7 +91,7 @@
 			
 			chance: 0.790
 			type: undefined
-			flags: spawn_only_converted
+			flags: none
 			merge_radius_mult: 1.000
 			velocity_mult: 0.100
 		}
