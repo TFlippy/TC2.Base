@@ -53,14 +53,19 @@ holdable:
 	flags: disable_parent_facing, disable_rotation, disable_control, full_rotate
 }
 
-norotate:
-{
+// norotate:
+// {
 
+// }
+
+health:
+{
+	max: 110000.000
 }
 
 breakable:
 {
-	flags: no_damage
+	flags: no_damage, splittable
 }
 
 heat:

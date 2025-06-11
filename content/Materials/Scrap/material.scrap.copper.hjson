@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.3"
+	$version: "0.1.63.5"
 	name: "Copper Scrap"
 	name_short: "Cop. Scrap"
 	description:
@@ -19,9 +19,12 @@
 	type: scrap
 	flags: scrap, granular, metal, waste, flexible, solid, processed
 	display_flags: none
+	spawn_flags:
+	{
+		rem: show_notification
+	}
 	hints: materials, junk, construction, cheap
 	
-	porosity: 0.270
 	purity: 0.852
 	mass_per_unit: 2.053157
 	volume_per_unit: 0.00043
@@ -40,6 +43,7 @@
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	
+	centroid_default: [0.000, 0.250]
 	colliders: []
 	
 	commodity:

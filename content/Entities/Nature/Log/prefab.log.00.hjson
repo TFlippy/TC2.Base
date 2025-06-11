@@ -12,15 +12,16 @@ body:
 		a: [-2.500, 0.125]
 		b: [2.750, 0.125]
 		
-		mass: 1280.000
+		mass: 980.000
 		radius: 0.625
-		friction: 1.000
-		elasticity: 0.100
+		friction: 0.970
+		elasticity: 0.140
 		
 		material: tree
 		
-		layer: entity, solid, tree, flammable, ignore_bullet
-		exclude: tree
+		layer: entity, solid, tree, flammable, ignore_bullet, ignore_melee
+		mask: world, solid
+		exclude: tree, crate, background, gas, essence
 	}
 }
 
@@ -57,20 +58,20 @@ harvestable:
 	[
 		{
 			material: timber.oak
-			quantity: 150.000
+			quantity: 104.2314
 		}
 		{
-			material: plants
+			material: compost
 			quantity: 40.000
 		}
 		null
 		null
 	]
 	
-	thresholds: [0.974, 1.000, 0.000, 0.000]
+	thresholds: [0.974, 0.890, 0.000, 0.000]
 	
 	pct_damage_mult: [0.964, 0.937, 0.000, 0.000]
-	pct_quantity_min: [0.019, 0.087, 0.000, 0.000]
+	pct_quantity_min: [0.019, 0.076, 0.000, 0.000]
 	
-	chance_base: [0.110, 0.192, 0.000, 0.000]
+	chance_base: [0.110, 0.188, 0.000, 0.000]
 }

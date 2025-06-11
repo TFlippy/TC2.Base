@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.63.5"
 	name: "Mush"
 	name_short: "Mush"
 	name_dumb: "Porridge"
@@ -20,6 +20,10 @@
 	type: slime
 	flags: soft, malleable, sticky, raw, solid
 	display_flags: none
+	spawn_flags:
+	{
+		rem: pickup, show_notification
+	}
 	hints: none
 	
 	mass_per_unit: 0.220

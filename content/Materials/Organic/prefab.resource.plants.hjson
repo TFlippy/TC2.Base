@@ -13,6 +13,7 @@ body:
 		layer: entity, solid, resource, ignore_melee, ignore_bullet, flammable
 		mask: world
 	}
+	damping: 0.982
 }
 
 animated.renderer:
@@ -63,5 +64,5 @@ health:
 
 breakable:
 {
-	flags: no_damage
+	// flags: no_damage
 }

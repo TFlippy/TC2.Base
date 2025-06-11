@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.63.5"
 	name: "Mystery Meat"
 	name_short: "Meat"
 	name_dumb: "Food"
@@ -20,6 +20,10 @@
 	type: flesh
 	flags: soft, malleable, sticky, food, granular, organic, small, raw, flexible, solid
 	display_flags: none
+	spawn_flags:
+	{
+		rem: show_notification
+	}
 	hints: none
 	
 	mass_per_unit: 0.400
@@ -107,6 +111,7 @@
 			flags: none
 			merge_radius_mult: 1.000
 			velocity_mult: 1.000
+			damage_mult: 1.000
 		}
 		fire:
 		{
@@ -134,6 +139,7 @@
 			flags: none
 			merge_radius_mult: 1.000
 			velocity_mult: 1.000
+			damage_mult: 1.000
 		}
 	}
 }

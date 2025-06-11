@@ -60,7 +60,7 @@ holdable:
 
 health:
 {
-	max: 110000.000
+	max: 130000.000
 }
 
 breakable:

@@ -52,12 +52,12 @@ holdable:
 
 health:
 {
-	max: 62000.000
+	max: 172000.000
 }
 
 breakable:
 {
-	flags: no_damage
+	flags: no_damage, splittable
 }
 
 heat:

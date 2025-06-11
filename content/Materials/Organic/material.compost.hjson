@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.63.5"
 	name: "Compost"
 	name_short: "Compost"
 	name_dumb: "Shitter"
@@ -20,6 +20,10 @@
 	type: peat
 	flags: soft, malleable, granular, organic, small, raw, flammable, waste, flexible, solid
 	display_flags: none
+	spawn_flags:
+	{
+		rem: pickup, show_notification
+	}
 	hints: materials, junk, primitive, crappy
 	
 	mass_per_unit: 0.410
@@ -38,5 +42,6 @@
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	
+	centroid_default: [0.000, 0.250]
 	colliders: []
 }

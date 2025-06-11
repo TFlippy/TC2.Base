@@ -18,6 +18,7 @@ body:
 		mask: world
 		exclude: none
 	}
+	damping: 0.979
 }
 
 animated.renderer:

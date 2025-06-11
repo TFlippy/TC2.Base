@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.3"
+	$version: "0.1.63.5"
 	name: "Smirgrafit Scrap"
 	name_short: "Sgft. Scrap"
 	description:
@@ -19,6 +19,10 @@
 	type: stone_metallic
 	flags: scrap, hard, magnetic, granular, metal, heavy, waste, solid, processed, impure
 	display_flags: none
+	spawn_flags:
+	{
+		rem: pickup, allow_encumbered, show_notification
+	}
 	hints: materials, junk, heavy, construction, industrial, wrecked, slow
 	
 	purity: 0.651
@@ -38,5 +42,6 @@
 	color_dust: "0xff403a39"
 	color_gib: "0xff403a39"
 	
+	centroid_default: [0.000, 0.250]
 	colliders: []
 }

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.63.5"
 	name: "Wooden Bar"
 	name_short: "Wood Rd."
 	name_dumb: "Stick"
@@ -121,6 +121,7 @@
 			flags: none
 			merge_radius_mult: 1.000
 			velocity_mult: 1.000
+			damage_mult: 1.000
 		}
 		axe:
 		{
@@ -148,6 +149,7 @@
 			flags: none
 			merge_radius_mult: 1.000
 			velocity_mult: 1.000
+			damage_mult: 1.000
 		}
 		explosion:
 		{
@@ -175,6 +177,7 @@
 			flags: none
 			merge_radius_mult: 1.000
 			velocity_mult: 1.000
+			damage_mult: 1.000
 		}
 		fire:
 		{
@@ -202,6 +205,7 @@
 			flags: none
 			merge_radius_mult: 1.000
 			velocity_mult: 1.000
+			damage_mult: 1.000
 		}
 		phlogiston:
 		{
@@ -229,6 +233,7 @@
 			flags: none
 			merge_radius_mult: 1.000
 			velocity_mult: 1.000
+			damage_mult: 1.000
 		}
 		sledgehammer:
 		{
@@ -256,6 +261,7 @@
 			flags: none
 			merge_radius_mult: 1.000
 			velocity_mult: 0.640
+			damage_mult: 1.000
 		}
 	}
 	

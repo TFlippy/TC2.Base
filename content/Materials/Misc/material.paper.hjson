@@ -95,8 +95,8 @@
 			ratio_waste: 0.190
 			ratio_waste_extra: 0.390
 			
-			yield: 0.050
-			yield_extra: 0.100
+			yield: 0.350
+			yield_extra: 0.620
 			
 			h_sound: missing
 			sound_volume: 0.200
@@ -122,8 +122,8 @@
 			ratio_waste: 0.390
 			ratio_waste_extra: 0.310
 			
-			yield: 0.050
-			yield_extra: 0.100
+			yield: 0.750
+			yield_extra: 0.820
 			
 			h_sound: missing
 			sound_volume: 0.200

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.63.5"
 	name: "Shite"
 	name_short: "Shite"
 	name_dumb: "Shite"
@@ -20,6 +20,10 @@
 	type: mud
 	flags: soft, malleable, sticky, granular, organic, raw, fuel, flammable, waste, flexible
 	display_flags: none
+	spawn_flags:
+	{
+		rem: pickup, show_notification
+	}
 	hints: junk, primitive, weak, cheap, dumb, crappy, fast
 	
 	mass_per_unit: 0.213
@@ -38,6 +42,7 @@
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	
+	centroid_default: [0.000, 0.250]
 	colliders: []
 	
 	conversions:
@@ -68,6 +73,7 @@
 			flags: none
 			merge_radius_mult: 1.500
 			velocity_mult: 1.000
+			damage_mult: 1.000
 		}
 	}
 }

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.0"
+	$version: "0.1.63.5"
 	name: "Tattered Cloth"
 	name_short: "Tatters"
 	description:
@@ -19,6 +19,10 @@
 	type: fabric
 	flags: scrap, soft, malleable, granular, organic, small, thin, flammable, waste, flexible, solid, impure, smelly
 	display_flags: none
+	spawn_flags:
+	{
+		rem: show_notification
+	}
 	hints: materials, junk, cheap
 	
 	mass_per_unit: 0.267
@@ -67,6 +71,7 @@
 			flags: none
 			merge_radius_mult: 1.000
 			velocity_mult: 0.100
+			damage_mult: 1.000
 		}
 		phlogiston:
 		{
@@ -94,6 +99,7 @@
 			flags: none
 			merge_radius_mult: 1.000
 			velocity_mult: 0.100
+			damage_mult: 1.000
 		}
 	}
 	

@@ -15,6 +15,7 @@ body:
 		layer: entity, solid, resource, flammable
 		mask: world
 	}
+	damping: 0.979
 }
 
 animated.renderer:

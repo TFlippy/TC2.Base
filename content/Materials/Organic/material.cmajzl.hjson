@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.63.5"
 	name: "Cmajzl"
 	name_short: "Cmajzl"
 	name_dumb: "Weed"
@@ -20,6 +20,10 @@
 	type: foliage
 	flags: soft, malleable, food, granular, organic, small, raw, flammable, flexible, solid, impure, smelly, primary
 	display_flags: none
+	spawn_flags:
+	{
+		rem: show_notification
+	}
 	hints: materials
 	
 	mass_per_unit: 0.437
@@ -69,6 +73,63 @@
 			flags: none
 			merge_radius_mult: 1.000
 			velocity_mult: 1.000
+			damage_mult: 1.000
+		}
+		phlogiston:
+		{
+			h_material: "null"
+			spawn_flags: none
+			product_flags: none
+			ratio: 0.000
+			ratio_extra: 0.000
+			
+			h_material_waste: ash
+			spawn_flags_waste: merge
+			product_flags_waste: waste, residue
+			ratio_waste: 0.090
+			ratio_waste_extra: 0.210
+			
+			yield: 0.640
+			yield_extra: 0.330
+			
+			h_sound: missing
+			sound_volume: 0.200
+			sound_pitch: 1.280
+			
+			chance: 0.812
+			type: undefined
+			flags: spawn_only_converted, spawn_use_new_formula, spawn_discard_unconverted
+			merge_radius_mult: 1.250
+			velocity_mult: 0.070
+			damage_mult: 1.320
+		}
+		fire:
+		{
+			h_material: "null"
+			spawn_flags: none
+			product_flags: none
+			ratio: 0.000
+			ratio_extra: 0.000
+			
+			h_material_waste: ash
+			spawn_flags_waste: merge, no_offset
+			product_flags_waste: waste, residue
+			ratio_waste: 0.120
+			ratio_waste_extra: 0.340
+			
+			yield: 0.410
+			yield_extra: 0.440
+			
+			h_sound: missing
+			sound_volume: 0.200
+			sound_pitch: 1.280
+			
+			chance: 0.817
+			type: undefined
+			flags: spawn_only_converted, spawn_use_new_formula, spawn_discard_unconverted
+			merge_radius_mult: 1.080
+			velocity_mult: 0.190
+			damage_mult: 1.460
 		}
 	}
 	

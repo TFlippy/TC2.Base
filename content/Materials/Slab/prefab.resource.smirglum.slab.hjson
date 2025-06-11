@@ -57,7 +57,7 @@ health:
 
 breakable:
 {
-	flags: no_damage
+	flags: no_damage, splittable
 }
 
 heat:

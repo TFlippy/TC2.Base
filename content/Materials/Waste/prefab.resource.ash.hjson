@@ -7,12 +7,14 @@ body:
 		offset: [0.000, 0.250]
 		mass: 1.000
 		radius: 0.750
-		friction: 0.950
+		friction: 0.990
 		elasticity: 0.050
 		material: coal
 		layer: entity, solid, resource, ignore_melee, ignore_bullet
 		mask: world
+		exclude: fire, burning
 	}
+	damping: 0.973
 }
 
 animated.renderer:
@@ -53,15 +55,15 @@ despawn:
 	sleep_count_max: 9
 	interval: 14.000
 	threshold_delete: 0.010
-	threshold_despawning: 1.000
+	threshold_despawning: 0.150
 }
 
-health:
-{
-	max: 7500.000
-}
+// health:
+// {
+// 	max: 7500.000
+// }
 
-breakable:
-{
-	flags: no_damage
-}
+// breakable:
+// {
+// 	flags: no_damage
+// }

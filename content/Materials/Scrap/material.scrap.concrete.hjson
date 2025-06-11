@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.3"
+	$version: "0.1.63.5"
 	name: "Concrete Debris"
 	name_short: "Cnc. Debris"
 	description:
@@ -19,6 +19,10 @@
 	type: rubble
 	flags: scrap, hard, granular, large, heavy, gravel, waste, solid, impure
 	display_flags: sprite_stack_linear
+	spawn_flags:
+	{
+		rem: pickup, allow_encumbered, show_notification
+	}
 	hints: materials, junk, construction, cheap
 	
 	mass_per_unit: 1.410
@@ -38,6 +42,7 @@
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	
+	centroid_default: [0.000, 0.250]
 	colliders: []
 	
 	commodity:

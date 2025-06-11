@@ -21,7 +21,7 @@
 	display_flags: none
 	spawn_flags:
 	{
-		rem: pickup
+		rem: pickup, allow_encumbered, show_notification
 	}
 	hints: materials, junk, cheap
 	

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.3"
+	$version: "0.1.63.5"
 	name: "Aluminium Scrap"
 	name_short: "Al. Scrap"
 	description:
@@ -19,9 +19,12 @@
 	type: scrap
 	flags: scrap, granular, metal, small, waste, flexible, solid, processed
 	display_flags: none
+	spawn_flags:
+	{
+		rem: show_notification
+	}
 	hints: materials, junk, construction, industrial, wrecked
 	
-	porosity: 0.270
 	purity: 0.882
 	mass_per_unit: 0.618468
 	volume_per_unit: 0.00043
@@ -40,6 +43,7 @@
 	color_dust: "0xff929894"
 	color_gib: "0xff929894"
 	
+	centroid_default: [0.000, 0.250]
 	colliders: []
 	
 	conversions:
@@ -70,6 +74,7 @@
 			flags: none
 			merge_radius_mult: 1.000
 			velocity_mult: 1.000
+			damage_mult: 1.000
 		}
 	}
 }

@@ -13,6 +13,7 @@ body:
 		layer: entity, solid, resource, ignore_melee, ignore_bullet
 		mask: world
 	}
+		damping: 0.965
 }
 
 animated.renderer:

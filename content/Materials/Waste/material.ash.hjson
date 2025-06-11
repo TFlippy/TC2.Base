@@ -22,7 +22,7 @@
 	display_flags: none
 	spawn_flags:
 	{
-		rem: pickup
+		rem: pickup, show_notification
 	}
 	hints: none
 	
@@ -42,5 +42,6 @@
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	
+	centroid_default: [0.000, 0.250]
 	colliders: []
 }

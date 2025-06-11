@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.63.5"
 	name: "Timber (Oak)"
 	name_short: "Oak"
 	name_dumb: "Wood"
@@ -114,6 +114,7 @@
 			flags: none
 			merge_radius_mult: 1.000
 			velocity_mult: 1.000
+			damage_mult: 1.000
 		}
 		sledgehammer:
 		{
@@ -123,24 +124,25 @@
 			ratio: 0.190
 			ratio_extra: 0.290
 			
-			h_material_waste: woodchips
-			spawn_flags_waste: merge
-			product_flags_waste: waste, residue
-			ratio_waste: 0.140
-			ratio_waste_extra: 0.348
+			h_material_waste: "null"
+			spawn_flags_waste: none
+			product_flags_waste: none
+			ratio_waste: 0.000
+			ratio_waste_extra: 0.000
 			
-			yield: 0.550
-			yield_extra: 0.370
+			yield: 1.000
+			yield_extra: 0.000
 			
 			h_sound: missing
-			sound_volume: 0.000
-			sound_pitch: 0.000
+			sound_volume: 0.500
+			sound_pitch: 1.000
 			
-			chance: 0.889
+			chance: 1.000
 			type: undefined
 			flags: none
-			merge_radius_mult: 1.250
-			velocity_mult: 1.500
+			merge_radius_mult: 1.000
+			velocity_mult: 1.000
+			damage_mult: 1.000
 		}
 		axe:
 		{
@@ -168,6 +170,7 @@
 			flags: none
 			merge_radius_mult: 1.000
 			velocity_mult: 1.000
+			damage_mult: 1.000
 		}
 		explosion:
 		{
@@ -195,23 +198,52 @@
 			flags: none
 			merge_radius_mult: 1.000
 			velocity_mult: 1.000
+			damage_mult: 1.000
 		}
-		fire:
+		phlogiston:
 		{
-			h_material: ash
+			h_material: charcoal
 			spawn_flags: merge
-			product_flags: waste
-			ratio: 0.080
-			ratio_extra: 0.140
+			product_flags: residue
+			ratio: 0.013
+			ratio_extra: 0.093
 			
 			h_material_waste: scrap.charred
 			spawn_flags_waste: merge
 			product_flags_waste: waste
-			ratio_waste: 0.150
-			ratio_waste_extra: 0.350
+			ratio_waste: 0.610
+			ratio_waste_extra: 0.390
 			
-			yield: 0.160
-			yield_extra: 0.230
+			yield: 0.700
+			yield_extra: 1.790
+			
+			h_sound: missing
+			sound_volume: 0.000
+			sound_pitch: 0.000
+			
+			chance: 0.490
+			type: undefined
+			flags: spawn_only_converted, spawn_use_new_formula, spawn_discard_unconverted
+			merge_radius_mult: 1.000
+			velocity_mult: 0.500
+			damage_mult: 1.400
+		}
+		fire:
+		{
+			h_material: charcoal
+			spawn_flags: merge
+			product_flags: residue
+			ratio: 0.067
+			ratio_extra: 0.044
+			
+			h_material_waste: scrap.charred
+			spawn_flags_waste: merge
+			product_flags_waste: waste
+			ratio_waste: 0.250
+			ratio_waste_extra: 0.450
+			
+			yield: 0.310
+			yield_extra: 0.210
 			
 			h_sound: missing
 			sound_volume: 0.000
@@ -219,36 +251,10 @@
 			
 			chance: 0.180
 			type: undefined
-			flags: none
+			flags: spawn_only_converted, spawn_use_new_formula, spawn_discard_unconverted
 			merge_radius_mult: 1.000
-			velocity_mult: 1.000
-		}
-		phlogiston:
-		{
-			h_material: tar
-			spawn_flags: merge
-			product_flags: residue, byproduct
-			ratio: 0.060
-			ratio_extra: 0.140
-			
-			h_material_waste: scrap.charred
-			spawn_flags_waste: merge
-			product_flags_waste: waste
-			ratio_waste: 0.150
-			ratio_waste_extra: 0.330
-			
-			yield: 0.150
-			yield_extra: 0.240
-			
-			h_sound: missing
-			sound_volume: 0.000
-			sound_pitch: 0.000
-			
-			chance: 0.240
-			type: undefined
-			flags: none
-			merge_radius_mult: 1.000
-			velocity_mult: 1.500
+			velocity_mult: 0.380
+			damage_mult: 1.400
 		}
 		saw:
 		{
@@ -276,6 +282,7 @@
 			flags: none
 			merge_radius_mult: 1.000
 			velocity_mult: 1.000
+			damage_mult: 1.000
 		}
 	}
 	
@@ -394,7 +401,7 @@
 			h_material: charcoal
 			h_substance: "null"
 			flags: none
-			flags_product: byproduct, residue
+			flags_product: residue, byproduct
 			
 			yield: [0.271, 0.324]
 		}
@@ -403,7 +410,7 @@
 			h_material: charcoal
 			h_substance: "null"
 			flags: none
-			flags_product: byproduct, residue
+			flags_product: residue, byproduct
 			
 			yield: [0.271, 0.324]
 		}

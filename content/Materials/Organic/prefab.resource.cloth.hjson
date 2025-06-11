@@ -11,6 +11,7 @@ body:
 		material: fabric
 		layer: entity, solid, resource, flammable, ignore_melee, ignore_bullet
 	}
+	damping: 0.984
 }
 
 animated.renderer:
