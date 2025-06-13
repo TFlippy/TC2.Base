@@ -64,7 +64,7 @@ norotate:
 
 health:
 {
-	max: 7500.000
+	max: 9500.000
 }
 
 breakable:

@@ -15,6 +15,7 @@ body:
 		layer: entity, solid, resource, ignore_melee, ignore_bullet, flammable
 		mask: world
 	}
+	damping: 0.971
 }
 
 animated.renderer:
@@ -43,10 +44,15 @@ holdable:
 	offset: [0.000, 0.750]
 }
 
-// breakable:
-// {
-// 	flags: no_damage
-// }
+breakable:
+{
+	flags: no_damage
+}
+
+health:
+{
+	max: 41500.000
+}
 
 norotate:
 {
@@ -57,8 +63,9 @@ norotate:
 
 despawn:
 {
-	sleep_count_max: 27
-	interval: 30.000
+	sleep_count_max: 23
+	interval: 20.000
+	interval_extra: 25.000
 	threshold_delete: 0.010
-	threshold_despawning: 0.650
+	threshold_despawning: 0.200
 }

@@ -11,10 +11,10 @@ body:
 	{
 		a: [-0.500, 0.000]
 		b: [0.500, 0.000]
-		mass: 8.000
+		mass: 22.000
 		radius: 0.350
 		friction: 0.950
-		elasticity: 0.050
+		elasticity: 0.250
 		material: device
 		layer: entity, solid, item, shield
 		mask: world
@@ -23,7 +23,7 @@ body:
 
 health:
 {
-	max: 8000.000
+	max: 11000.000
 }
 
 chainsaw:

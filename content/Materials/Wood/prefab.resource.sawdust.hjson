@@ -13,7 +13,7 @@ body:
 		layer: entity, solid, resource, ignore_melee, ignore_bullet, flammable
 		mask: world
 	}
-	damping: 0.974
+	damping: 0.964
 }
 
 animated.renderer:
@@ -37,6 +37,11 @@ resource:
 	material: "sawdust"
 }
 
+breakable:
+{
+	
+}
+
 holdable:
 {
 	offset: [0.000, 0.750]
@@ -52,12 +57,13 @@ norotate:
 despawn:
 {
 	sleep_count_max: 11
-	interval: 12.000
-	threshold_delete: 0.050
-	threshold_despawning: 1.000
+	interval: 9.000
+	interval_extra: 13.000
+	threshold_delete: 0.013
+	threshold_despawning: 0.500
 }
 
 health:
 {
-	max: 6000.000
+	max: 9000.000
 }

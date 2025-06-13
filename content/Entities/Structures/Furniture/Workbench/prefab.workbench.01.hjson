@@ -25,7 +25,7 @@ body:
 		elasticity: 0.300
 		
 		material: building_reinforced
-		miss_chance: 0.475
+		miss_chance: 0.675
 		
 		layer: entity, solid, background, storage, furniture, no_overlapped_placement, ignore_melee
 		mask: world, building

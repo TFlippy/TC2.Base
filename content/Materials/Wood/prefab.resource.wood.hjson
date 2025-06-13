@@ -18,6 +18,7 @@ body:
 		layer: entity, solid, resource, ignore_melee, ignore_bullet, flammable
 		mask: world
 	}
+	damping: 0.979
 }
 
 animated.renderer:
@@ -41,6 +42,11 @@ resource:
 	material: "wood"
 }
 
+breakable:
+{
+	// flags: no_damage
+}
+
 holdable:
 {
 	force_multiplier: 2.000
@@ -60,11 +66,6 @@ norotate:
 health:
 {
 	max: 65000.000
-}
-
-breakable:
-{
-	flags: no_damage
 }
 
 heat:
@@ -92,5 +93,5 @@ despawn:
 	interval: 8.000
 	interval_extra: 21.000
 	threshold_delete: 0.010
-	threshold_despawning: 0.090
+	threshold_despawning: 0.050
 }

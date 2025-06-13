@@ -28,7 +28,7 @@ body:
 
 health:
 {
-	max: 1500.000
+	max: 1700.000
 }
 
 holdable:

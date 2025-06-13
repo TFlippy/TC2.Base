@@ -13,6 +13,7 @@ body:
 		layer: entity, solid, resource, ignore_melee, ignore_bullet, flammable
 		mask: world
 	}
+	damping: 0.973
 }
 
 animated.renderer:
@@ -35,6 +36,11 @@ resource:
 	material: "woodchips"
 }
 
+breakable:
+{
+	
+}
+
 holdable:
 {
 	force_multiplier: 1.800
@@ -51,8 +57,14 @@ norotate:
 
 despawn:
 {
-	sleep_count_max: 11
-	interval: 20.000
-	threshold_delete: 0.050
-	threshold_despawning: 0.300
+	sleep_count_max: 13
+	interval: 19.000
+	interval_extra: 15.000
+	threshold_delete: 0.010
+	threshold_despawning: 0.320
+}
+
+health:
+{
+	max: 12500.000
 }

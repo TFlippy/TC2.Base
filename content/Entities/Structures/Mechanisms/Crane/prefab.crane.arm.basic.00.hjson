@@ -14,8 +14,9 @@ body:
 		b: [4.000, 0.000]
 		mass: 40.000
 		radius: 0.500
-		friction: 0.950
-		elasticity: 0.100
+		friction: 0.650
+		elasticity: 0.600
+		miss_chance: 0.741
 		material: wood
 		layer: entity, solid, flammable
 		mask: world

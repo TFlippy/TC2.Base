@@ -22,7 +22,7 @@ body:
 		elasticity: 0.410
 		
 		material: wood
-		miss_chance: 0.663
+		miss_chance: 0.463
 		
 		layer: entity, solid, background, platform, furniture, flammable, ignore_melee
 		mask: world, platform

@@ -9,7 +9,7 @@ $tags: []
 body:
 {
 	buoyancy: 0.100
-	fall_damage_multiplier: 0.700
+	fall_damage_multiplier: 1.500
 
 	@shape.polygon:	
 	{
@@ -34,7 +34,7 @@ body:
 
 health:
 {
-	max: 26000.000
+	max: 46000.000
 }
 
 holdable:
@@ -78,10 +78,10 @@ harvestable:
 		null
 	]
 	
-	thresholds: [0.931, 0.061, 0.990, 0.000]
+	thresholds: [0.931, 0.061, 0.290, 0.000]
 	
-	pct_damage_mult: [0.611, 0.776, 0.110, 0.000]
-	pct_quantity_min: [0.010, 0.363, 0.159, 0.000]
+	pct_damage_mult: [0.611, 0.776, 0.910, 0.000]
+	pct_quantity_min: [0.010, 0.363, 0.459, 0.000]
 	
-	chance_base: [0.327, 0.145, 0.001, 0.000]
+	chance_base: [0.327, 0.145, 0.003, 0.000]
 }

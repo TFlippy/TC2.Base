@@ -23,6 +23,7 @@ body:
 		friction: 0.450
 		elasticity: 0.750
 		material: wood
+		miss_chance: 0.688
 		layer: entity, solid, vehicle, flammable
 		mask: world, solid, platform
 		exclude: tree, wheel, creature, held
