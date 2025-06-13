@@ -15,7 +15,7 @@ body:
 		
 		material: building_wood
 		
-		layer: entity, building, support, ignore_melee, ignore_bullet
+		layer: entity, building, support, ignore_melee, ignore_bullet, flammable
 		mask: world, building
 	}
 }
@@ -147,7 +147,9 @@ armory:
 
 shipment:
 {
-	flags: keep_items, no_gui, allow_deposit, allow_withdraw
+	flags: keep_items, allow_withdraw, allow_deposit, no_gui
+	type: armory
+	layout: large
 }
 
 spawn:

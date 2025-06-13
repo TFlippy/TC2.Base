@@ -16,7 +16,7 @@ body:
 		
 		material: foliage
 		
-		layer: entity, plant, flammable, ignore_melee
+		layer: entity, plant, flammable, ignore_melee, ignore_bullet
 	}
 }
 

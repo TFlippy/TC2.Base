@@ -145,7 +145,7 @@ namespace TC2.Base.Components
 		public static void OnPostDamage(Entity entity, ref XorRandom random, ref Health.PostDamageEvent data, 
 		[Source.Owned] ref Health.Data health, [Source.Owned] ref Explosive.Data explosive)
 		{
-			App.WriteLine(health.integrity);
+			//App.WriteLine(health.integrity);
 			if (health.integrity <= explosive.health_threshold && (health.integrity <= 0.00f || explosive.detonate_chance.Evaluate(ref random, true)))
 			{
 				if (explosive.flags.HasAny(Explosive.Flags.Any_Damage))
@@ -209,7 +209,7 @@ namespace TC2.Base.Components
 			ref var material = ref resource.material.GetData();
 			if (material.IsNotNull())
 			{
-				explosive.modifier = MathF.Sqrt(Maths.Normalize01(resource.quantity, material.quantity_max));
+				explosive.modifier = Maths.Sqrt(Maths.Normalize01(resource.quantity, material.quantity_max)).Clamp01();
 			}
 			//explosive.modifier = Maths.NormalizeClamp(resource.quantity, resource.material.GetDefinition().quantity_max);
 			//explosive.modifier = MathF.Log2(resource.quantity / Maths.Max(resource.material.GetDefinition().quantity_max, 1.00f));

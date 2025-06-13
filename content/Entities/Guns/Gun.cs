@@ -1,4 +1,8 @@
-﻿namespace TC2.Base.Components
+﻿using Keg;
+using Keg.Engine;
+using Keg.Extensions;
+
+namespace TC2.Base.Components
 {
 	public static partial class Gun
 	{
@@ -219,7 +223,7 @@
 				var h_material_machine_parts = (IMaterial.Handle)"machine_parts";
 
 				var ammo_type = Material.Flags.None;
-				var bore_diameter = Length.Default;
+				var bore_diameter = default(Length);
 				var rod_diameter = Length.cm(4.00f);
 				var rod_area = Area.Circle(radius: rod_diameter * 0.50f);
 
@@ -463,7 +467,7 @@
 
 					{
 						{
-							string.SetIfNullOrEmpty(ref stage_barrel.name, "Barrel");
+							StringExtensions.SetIfNullOrEmpty(ref stage_barrel.name, "Barrel");
 							stage_barrel.type = Crafting.Stage.Type.Part;
 							stage_barrel.flags.AddFlag(Crafting.Stage.Flags.Part | Crafting.Stage.Flags.Auto_Generated | Crafting.Stage.Flags.WIP | Crafting.Stage.Flags.Replaceable | Crafting.Stage.Flags.Important);
 							stage_barrel.tags.AddFlag(Crafting.Stage.Tags.Structural | Crafting.Stage.Tags.Barrel | Crafting.Stage.Tags.Metal | Crafting.Stage.Tags.Rod | Crafting.Stage.Tags.Rounded | Crafting.Stage.Tags.Chassis);
@@ -543,7 +547,7 @@
 						}
 
 						{
-							string.SetIfNullOrEmpty(ref stage_receiver.name, "Receiver");
+							StringExtensions.SetIfNullOrEmpty(ref stage_receiver.name, "Receiver");
 							stage_receiver.type = Crafting.Stage.Type.Part;
 							stage_receiver.flags.AddFlag(Crafting.Stage.Flags.Part | Crafting.Stage.Flags.Auto_Generated | Crafting.Stage.Flags.WIP | Crafting.Stage.Flags.Important);
 							stage_receiver.tags.AddFlag(Crafting.Stage.Tags.Structural | Crafting.Stage.Tags.Frame | Crafting.Stage.Tags.Metal | Crafting.Stage.Tags.Mechanism | Crafting.Stage.Tags.Chassis | Crafting.Stage.Tags.Functional);
@@ -673,12 +677,12 @@
 
 						if (gun.type.EqualsAnyValue(Gun.Type.Handgun))
 						{
-							string.SetIfNullOrEmpty(ref stage_grip.name, "Grip");
+							StringExtensions.SetIfNullOrEmpty(ref stage_grip.name, "Grip");
 							stage_grip.tags.AddFlag(Crafting.Stage.Tags.Small);
 						}
 						else if (gun.type.EqualsAnyValue(Gun.Type.Shotgun, Gun.Type.SMG, Gun.Type.Rifle, Gun.Type.MachineGun))
 						{
-							string.SetIfNullOrEmpty(ref stage_grip.name, "Stock");
+							StringExtensions.SetIfNullOrEmpty(ref stage_grip.name, "Stock");
 							//stage_grip.tags.AddFlag(Crafting.Stage.Tags.Grip | Crafting.Stage.Tags.Rounded);
 						}
 

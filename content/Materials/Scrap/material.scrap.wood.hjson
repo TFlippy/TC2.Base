@@ -50,13 +50,13 @@
 		{
 			h_material: ash
 			spawn_flags: merge, no_offset
-			product_flags: none
+			product_flags: waste, residue
 			ratio: 0.010
 			ratio_extra: 0.070
 			
 			h_material_waste: scrap.charred
 			spawn_flags_waste: merge, no_offset
-			product_flags_waste: none
+			product_flags_waste: waste, residue
 			ratio_waste: 0.290
 			ratio_waste_extra: 0.520
 			
@@ -78,13 +78,13 @@
 		{
 			h_material: charcoal
 			spawn_flags: merge, no_offset
-			product_flags: none
+			product_flags: waste, residue
 			ratio: 0.030
 			ratio_extra: 0.040
 			
 			h_material_waste: scrap.charred
 			spawn_flags_waste: merge, no_offset
-			product_flags_waste: none
+			product_flags_waste: waste, residue
 			ratio_waste: 0.120
 			ratio_waste_extra: 0.400
 			

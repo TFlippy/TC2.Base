@@ -30,7 +30,7 @@ control:
 
 health:
 {
-	max: 2500.000
+	max: 3500.000
 }
 
 holdable:

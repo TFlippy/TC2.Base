@@ -23,7 +23,7 @@ body:
 		rigidity_dynamic: 0.000
 
 		material: wood
-		layer: entity, climbable, no_overlapped_placement, ignore_melee, flammable, furniture
+		layer: entity, climbable, no_overlapped_placement, ignore_melee, flammable, furniture, ignore_bullet
 		mask: world
 	}
 }

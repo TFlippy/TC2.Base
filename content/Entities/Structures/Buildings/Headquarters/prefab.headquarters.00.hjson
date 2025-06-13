@@ -21,7 +21,7 @@ body:
 		
 		material: building_wood
 		
-		layer: entity, building, support, ignore_melee, ignore_bullet
+		layer: entity, building, support, ignore_melee, ignore_bullet, flammable
 		mask: world, building
 	}
 }

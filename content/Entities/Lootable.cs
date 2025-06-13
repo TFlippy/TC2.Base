@@ -134,13 +134,14 @@ namespace TC2.Base.Components
 					{
 						var yield = Maths.ClampMin(random.NextFloatExtra(conv.yield, conv.yield_extra) * ev.yield, 0.00f);
 
-						var amount_norm = (ev.damage_integrity * yield) * (health.integrity * health.max * health.modifier).RcpFast(); // health.GetMaxHealthInvFast();
+						var amount_norm = (ev.damage_integrity * yield * conv.damage_mult) * (health.integrity * health.max * health.modifier).RcpFast(); // health.GetMaxHealthInvFast();
 						var amount_base = Maths.Clamp(h_material.GetMaxQuantity() * amount_norm, 0.00f, resource.quantity);
 						var amount_rem = amount_base;
 
-						App.WriteLine($"amount_base: {amount_base} ({amount_base * resource.GetMassPerUnit()} kg); amount_norm: {amount_norm}; yield: {yield}; damage: {ev.damage_integrity}");
+						//App.WriteLine($"amount_base: {amount_base} ({amount_base * resource.GetMassPerUnit()} kg); amount_norm: {amount_norm}; yield: {yield}; damage: {ev.damage_integrity}");
 
 						var amount_wasted = 0.00f;
+						var vel = body.GetVelocity();
 
 						ref var material_a = ref conv.h_material.GetData();
 						if (material_a.IsNotNull())
@@ -148,9 +149,11 @@ namespace TC2.Base.Components
 							var ratio = random.NextFloatExtra(conv.ratio, conv.ratio_extra).Clamp01();
 
 							var (amount_conv, amount_tmp) = amount_rem.Split(ratio);
+
 							if (conv.flags.HasNone(IMaterial.Conversion.Flags.No_Mass_Conversion))
 								amount_conv = Resource.GetConvertedQuantity(h_material_from: h_material, h_material_to: conv.h_material, quantity: amount_conv);
-							App.WriteLine($"{amount_conv} {material_a.name}");
+
+							//App.WriteLine($"{amount_conv} {material_a.name}");
 							if (amount_conv >= material_a.spawn_quantity_threshold)
 							{
 								amount_rem = amount_tmp;
@@ -165,7 +168,7 @@ namespace TC2.Base.Components
 								flags: spawn_flags_conv,
 								ent_owner: ev.ent_owner,
 								angular_velocity: body.GetAngularVelocity(),
-								velocity: has_no_offset ? body.GetVelocity() : body.GetVelocity() + (random.NextUnitVector2Range(0, 4) * conv.velocity_mult));
+								velocity: has_no_offset ? vel : vel + (random.NextUnitVector2(4.00f * conv.velocity_mult)));
 							}
 							else
 							{
@@ -185,7 +188,7 @@ namespace TC2.Base.Components
 							if (conv.flags.HasNone(IMaterial.Conversion.Flags.No_Mass_Conversion))
 								amount_conv = Resource.GetConvertedQuantity(h_material_from: h_material, h_material_to: conv.h_material_waste, quantity: amount_conv);
 
-							App.WriteLine($"{amount_conv} + {amount_wasted} {material_b.name}");
+							//App.WriteLine($"{amount_conv} + {amount_wasted} {material_b.name}");
 							if (amount_conv >= material_b.spawn_quantity_threshold)
 							{
 								amount_rem = amount_tmp;
@@ -200,7 +203,7 @@ namespace TC2.Base.Components
 								flags: spawn_flags_conv,
 								ent_owner: ev.ent_owner,
 								angular_velocity: body.GetAngularVelocity(),
-								velocity: has_no_offset ? body.GetVelocity() : body.GetVelocity() + (random.NextUnitVector2Range(0, 4) * conv.velocity_mult));
+								velocity: has_no_offset ? vel : vel + random.NextUnitVector2(4.00f * conv.velocity_mult));
 							}
 						}
 
@@ -219,8 +222,12 @@ namespace TC2.Base.Components
 						}
 
 						var amount_taken = amount_base - amount_rem;
-						resource.quantity -= amount_taken;
-						resource.Modified(entity, true);
+						//App.WriteLine(amount_taken);
+						if (amount_taken != 0.00f)
+						{
+							resource.quantity -= amount_taken;
+							resource.Modified(entity, true);
+						}
 					}
 					//ev.flags.AddFlag(Damage.Flags.No_Damage, breakable.flags.HasAny(Breakable.Flags.No_Damage));
 				}

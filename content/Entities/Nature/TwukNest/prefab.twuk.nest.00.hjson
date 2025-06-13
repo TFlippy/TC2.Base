@@ -17,7 +17,7 @@ body:
 		radius: 1.100
 		friction: 0.750
 		material: bramble
-		layer: entity, solid, harvestable, flammable
+		layer: entity, solid, harvestable, flammable, ignore_bullet
 	}
 }
 

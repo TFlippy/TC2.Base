@@ -25,7 +25,7 @@ body:
 		material: wood
 		miss_chance: 0.720
 		
-		layer: entity, background, furniture, flammable, ignore_melee
+		layer: entity, background, furniture, flammable, ignore_melee, ignore_bullet
 		mask: world, building
 		exclude: none
 	}

@@ -1,7 +1,7 @@
 $name: "Rusty Chain-Link Fence"
 $desc: 
 	'''
-	Rrusted-down fence full of holes.
+	Rusted-down fence full of holes.
 	'''
 $tags: []
 
@@ -9,22 +9,33 @@ body:
 {
 	type: static
 	
-	@shape.box:
+	@shape.polygon:
 	{
-		size: [4.500, 3.000]
-		offset: [0.000, 0.000]
+		points:
+		[
+			[-2.000, -1.250]
+			[1.875, -1.250]
+			[1.875, 1.500]
+			[-2.125, 1.500]
+		]
+		
 		mass: 65.000
+		radius: 0.500
 		friction: 0.850
 		elasticity: 0.100
+		
 		material: wire
-		layer: entity, ignore_melee, background
+		miss_chance: 0.000
+		
+		layer: entity, background, ignore_melee, ignore_bullet
 		mask: world
+		exclude: none
 	}
 }
 
 health:
 {
-	max: 2000.000
+	max: 2800.000
 }
 
 animated.renderer:
