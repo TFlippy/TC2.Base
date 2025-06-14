@@ -45,33 +45,6 @@
 	
 	conversions:
 	{
-		sledgehammer:
-		{
-			h_material: cement
-			spawn_flags: merge
-			product_flags: none
-			ratio: 0.070
-			ratio_extra: 0.600
-			
-			h_material_waste: gravel
-			spawn_flags_waste: merge
-			product_flags_waste: none
-			ratio_waste: 0.400
-			ratio_waste_extra: 0.500
-			
-			yield: 0.700
-			yield_extra: 0.100
-			
-			h_sound: structural.stone.break.small.01
-			sound_volume: 0.580
-			sound_pitch: 0.850
-			
-			chance: 1.000
-			type: undefined
-			flags: none
-			merge_radius_mult: 1.000
-			velocity_mult: 1.000
-			damage_mult: 1.000
-		}
+	
 	}
 }

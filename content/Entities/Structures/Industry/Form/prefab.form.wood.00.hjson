@@ -129,8 +129,8 @@ shipment:
 interactable:
 {
 	flags: none
-	priority: 2.000
-	window_size: [576.000, 472.000]
+	priority: 1.500
+	window_size: [600.000, 472.000]
 	window_size_misc: [48.000, 0.000]
 }
 

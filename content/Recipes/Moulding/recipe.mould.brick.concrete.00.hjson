@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.63.5"
 	name: "Standard Concrete Slabs"
 	desc:
 		'''
@@ -12,9 +12,9 @@
 		{
 			name: "Composition"
 			
-			type: processing
-			flags: wip, auto_generated
-			tags: none
+			type: ingredients
+			flags: wip
+			tags: material, formula, ingredient
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: shovel
 			
@@ -24,10 +24,10 @@
 			options:
 			[
 				{
-					name: "Basic"
+					name: "Standard"
 					
 					type: undefined
-					flags: wip, auto_generated
+					flags: wip
 					
 					color: "0xff675f5d"
 					
@@ -37,8 +37,8 @@
 							type: resource
 							material: cement
 							amount: 0.200
-							snapping: 1.000
-							loss: 0.012
+							snapping: 0.100
+							falloff: 0.973
 							group: 0
 							flags: no_residue
 						}
@@ -47,6 +47,7 @@
 							material: water
 							amount: 0.220
 							snapping: 0.100
+							falloff: 1.016
 							group: 0
 							flags: no_residue
 						}
@@ -54,8 +55,8 @@
 							type: resource
 							material: sand
 							amount: 0.400
-							snapping: 1.000
-							loss: 0.012
+							snapping: 0.100
+							falloff: 0.979
 							group: 0
 							flags: no_residue
 						}
@@ -63,32 +64,56 @@
 							type: resource
 							material: gravel
 							amount: 1.000
-							snapping: 0.250
-							loss: 0.012
+							snapping: 0.100
+							falloff: 0.991
 							group: 0
 							flags: no_residue
 						}
 						{
 							type: work
-							work: blending
-							amount: 20.000
-							amount_min: 200.000
-							difficulty: 5
+							work: filling.gravel
+							amount: 25.000
+							amount_min: 100.000
+							difficulty: 7
 							snapping: 5.000
-							falloff: 0.705
-							group: 1
-							flags: conditional
+							falloff: 0.722
+							group: 0
+							flags: simultaneous, conditional
 						}
 						{
 							type: work
 							work: filling.liquid
 							amount: 25.000
 							amount_min: 75.000
-							difficulty: 3
+							difficulty: 5
 							snapping: 5.000
-							falloff: 0.618
+							falloff: 0.623
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: blending
+							amount: 22.000
+							amount_min: 200.000
+							difficulty: 7
+							snapping: 5.000
+							falloff: 0.818
 							group: 1
 							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: brick.concrete
+							amount: 0.969
+							amount_extra: 0.029
+							snapping: 1.000
+							group: 0
+							flags: primary, spawn
 						}
 					]
 					
@@ -103,7 +128,7 @@
 			name: "Curing"
 			
 			type: postprocessing
-			flags: wip, auto_generated
+			flags: wip
 			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: fracture
@@ -117,7 +142,7 @@
 					name: "Simple"
 					
 					type: undefined
-					flags: wip, auto_generated
+					flags: wip
 					
 					color: "0xff675f5d"
 					
@@ -128,7 +153,7 @@
 							work: cement.curing
 							amount: 650.000
 							amount_min: 350.000
-							difficulty: 7
+							difficulty: 6
 							group: 0
 							flags: no_scaling, no_residue, conditional
 						}
@@ -147,19 +172,8 @@
 		}
 	]
 	
-	products:
-	[
-		{
-			type: resource
-			material: brick.concrete
-			amount: 1.000
-			group: 0
-			flags: primary, spawn
-		}
-	]
-	
 	type: workshop
-	flags: wip, converted
+	flags: production, wip
 	tags: manual, simple, medium, blending, drying, moulding, messy
 	infrastructure: shaping_mould, form
 	infrastructure_exclude: none

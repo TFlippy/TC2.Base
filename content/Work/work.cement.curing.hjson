@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.1"
+	$version: "0.1.63.5"
 	name: "Curing (Concrete)"
 	name_short: "Curing"
 	desc:
@@ -21,6 +21,8 @@
 	cooldown: 1.000
 	multiplier: 1.000
 	
+	amount_jitter: 0.435
+	cooldown_jitter: 0.271
 	color: "0xffaeb59a"
 	
 	tools_required: none
