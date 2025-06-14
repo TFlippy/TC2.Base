@@ -1,0 +1,59 @@
+$tags: []
+
+body:
+{
+	buoyancy: 0.030
+
+	@shape.circle:
+	{
+		offset: [0.000, 0.250]
+		mass: 1.000
+		radius: 0.750
+		friction: 0.990
+		elasticity: 0.200
+		material: rubble
+		layer: entity, solid, resource, ignore_melee, ignore_bullet
+		mask: world
+	}
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: resource.clinker
+		count: 4
+		size: [16, 16]
+	}
+	z: -25.000
+}
+
+transform:
+{
+
+}
+
+resource:
+{
+	material: clinker
+}
+
+holdable:
+{
+	offset: [0.000, 0.750]
+}
+
+norotate:
+{
+	bias: 0.000
+	mass_multiplier: 25.000
+	attached_multiplier: 0.500
+}
+
+despawn:
+{
+	sleep_count_max: 39
+	interval: 30.000
+	threshold_delete: 0.010
+	threshold_despawning: 0.100
+}
