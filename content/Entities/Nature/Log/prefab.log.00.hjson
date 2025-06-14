@@ -20,7 +20,7 @@ body:
 		material: tree
 		
 		layer: entity, solid, tree, flammable, ignore_bullet, ignore_melee
-		mask: world, solid
+		mask: world
 		exclude: tree, crate, background, gas, essence
 	}
 }

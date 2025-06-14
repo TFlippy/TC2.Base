@@ -1,10 +1,11 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.63.5"
 	name: "Slag"
 	description:
 		'''
 		TODO: Desc
 		'''
+	
 	type: mixture
 	atomic_number: 0
 	flags: none
@@ -53,6 +54,8 @@
 	triple_point_pressure: 0.000
 	
 	// K
+	ductile_temperature: 0.000
+	// K
 	forging_temperature_lower: 740.580
 	// K
 	forging_temperature_upper: 1333.044
@@ -88,5 +91,6 @@
 		raw: slag
 		ingot: slag.ingot
 		slab: slag.slab
+		gravel: slag
 	}
 }

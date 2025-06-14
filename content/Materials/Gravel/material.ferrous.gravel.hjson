@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.4"
+	$version: "0.1.63.5"
 	name: "Ferrous Gravel"
 	name_short: "Ferr. Gravel"
 	description:
@@ -21,7 +21,7 @@
 	display_flags: none
 	hints: none
 	
-	mass_per_unit: 1.100
+	mass_per_unit: 1.104
 	
 	quantity_max: 500.000
 	spawn_quantity_threshold: 1.000

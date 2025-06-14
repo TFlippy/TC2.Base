@@ -1,11 +1,12 @@
 ﻿{
 	$version: "0.1.63.2"
+	$note: "Based on dolomite, alabaster, gypsum."
 	name: "Brezolyt"
 	name_short: "Brezolyt"
 	name_dumb: "Stone"
 	description:
 		'''
-		Sedimentary carbonate rock.
+		Fairly soft mixed sulfate-carbonate sedimentary rock.
 		'''
 	
 	tips: []
@@ -18,7 +19,7 @@
 	}
 	
 	type: stone
-	flags: granular, mineral, fragile, raw, solid, primary
+	flags: granular, fragile, raw, solid, primary
 	display_flags: none
 	hints: none
 	

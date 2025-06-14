@@ -1,9 +1,10 @@
 ﻿{
-	$version: "0.1.63.4"
+	$version: "0.1.63.5"
+	$note: "Based on dolomite, alabaster, gypsum."
 	name: "Brezolyt"
 	desc:
 		'''
-		Fairly soft sedimentary carbonate rock.
+		Fairly soft mixed sulfate-carbonate sedimentary rock.
 		'''
 	
 	material_type: stone

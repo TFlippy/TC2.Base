@@ -1,10 +1,13 @@
 ﻿{
 	$version: "0.1.63.5"
-	name: "Cement Clinker"
+	name: "Clinker"
 	name_short: "Clinker"
+	name_imperial: "Slinker"
+	name_advanced: "Clinker"
+	name_dumb: "Stone"
 	description:
 		'''
-		TODO: Desc
+		Gravel-like byproduct from processing of aluminosilicate ores used in production of cement.
 		'''
 	
 	tips: []
@@ -16,16 +19,17 @@
 		frame: [3, 0]
 	}
 	
-	type: gravel
-	flags: hard, granular, small, gravel, waste, solid, impure
+	type: chalk
+	flags: hard, granular, toxic, caustic, small, gravel, waste, solid, processed, impure, contaminated
 	display_flags: none
 	spawn_flags:
 	{
 		rem: pickup, allow_encumbered, show_notification
 	}
-	hints: materials, junk, construction, cheap
+	hints: materials, junk, construction, cheap, industrial, crappy, slow, clumsy
 	
-	mass_per_unit: 1.097
+	purity: 0.774
+	mass_per_unit: 0.937
 	
 	quantity_max: 500.000
 	spawn_quantity_threshold: 1.000
@@ -43,4 +47,9 @@
 	
 	centroid_default: [0.000, 0.250]
 	colliders: []
+	
+	related:
+	{
+		cement: refined, crushed, purified, powdered, product
+	}
 }

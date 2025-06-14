@@ -53,6 +53,14 @@ norotate:
 	attached_multiplier: 0.500
 }
 
+despawn:
+{
+	sleep_count_max: 17
+	interval: 30.000
+	threshold_delete: 0.010
+	threshold_despawning: 0.150
+}
+
 health:
 {
 	max: 35000.000
@@ -60,13 +68,5 @@ health:
 
 breakable:
 {
-	flags: splittable
-}
-
-despawn:
-{
-	sleep_count_max: 17
-	interval: 30.000
-	threshold_delete: 0.010
-	threshold_despawning: 0.150
+	flags: no_damage
 }

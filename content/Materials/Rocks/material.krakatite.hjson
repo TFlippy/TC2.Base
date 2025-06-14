@@ -5,7 +5,9 @@
 	name_dumb: "Stone"
 	description:
 		'''
-		Soft, yet dense sedimentary rock with a greasy luster.
+		Sedimentary phosphate rock with a greasy luster.
+
+		Very rich in various organic compounds.
 		'''
 	
 	tips: []
@@ -18,7 +20,7 @@
 	}
 	
 	type: stone_dense
-	flags: hard, sticky, granular, toxic, mineral, corrosive, raw, flammable, volatile, solid, contaminated, smelly, primary
+	flags: granular, toxic, corrosive, raw, volatile, solid, contaminated, smelly, primary
 	display_flags: none
 	hints: none
 	

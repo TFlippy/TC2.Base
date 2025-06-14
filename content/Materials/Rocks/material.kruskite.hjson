@@ -19,7 +19,7 @@
 	}
 	
 	type: stone_porous
-	flags: granular, metal, raw, solid, primary
+	flags: granular, raw, solid, primary
 	display_flags: none
 	hints: none
 	

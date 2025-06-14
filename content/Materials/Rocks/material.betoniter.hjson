@@ -1,13 +1,12 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.63.5"
 	name: "Betoniter"
 	name_short: "Betoniter"
 	name_dumb: "Stone"
 	description:
 		'''
-		Hard argillaceous sedimentary rock. 
-
-		Often found together with various alkaline minerals, can be used as a cement substitute when crushed into a fine powder.
+		Hard argillaceous sedimentary rock with an earthy luster.
+		Often found together with various alkaline minerals.
 		'''
 	
 	tips: []
@@ -20,7 +19,7 @@
 	}
 	
 	type: concrete
-	flags: hard, granular, mineral, alkaline, heavy, raw, gravel, solid, primary
+	flags: hard, granular, heavy, raw, gravel, solid, primary
 	display_flags: none
 	hints: none
 	
@@ -70,6 +69,7 @@
 			flags: none
 			merge_radius_mult: 1.000
 			velocity_mult: 1.000
+			damage_mult: 1.000
 		}
 	}
 }

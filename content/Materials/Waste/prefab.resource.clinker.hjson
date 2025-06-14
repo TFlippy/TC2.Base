@@ -11,7 +11,7 @@ body:
 		radius: 0.750
 		friction: 0.990
 		elasticity: 0.200
-		material: rubble
+		material: chalk
 		layer: entity, solid, resource, ignore_melee, ignore_bullet
 		mask: world
 	}
@@ -52,8 +52,19 @@ norotate:
 
 despawn:
 {
-	sleep_count_max: 39
-	interval: 30.000
+	sleep_count_max: 27
+	interval: 24.000
+	interval_extra: 20.000
 	threshold_delete: 0.010
 	threshold_despawning: 0.100
+}
+
+health:
+{
+	max: 35000.000
+}
+
+breakable:
+{
+	flags: no_damage
 }

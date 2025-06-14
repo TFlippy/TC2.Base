@@ -3,8 +3,8 @@
 	name: "Betoniter"
 	desc:
 		'''
-		Hard argillaceous sedimentary rock with an earthy luster. 
-		Often found together with various alkaline minerals, can be used as a cement substitute when crushed into a fine powder.
+		Hard argillaceous sedimentary rock with an earthy luster.
+		Often found together with various alkaline minerals.
 		'''
 	
 	material_type: concrete

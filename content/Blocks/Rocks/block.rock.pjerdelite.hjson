@@ -4,7 +4,6 @@
 	desc:
 		'''
 		Extremely hard metamorphic rock found deeper underground.
-		Consists mostly of smirglum.
 		'''
 	
 	material_type: stone_metallic
