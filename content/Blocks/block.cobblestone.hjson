@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.63.5"
 	name: "Cobblestone"
 	desc:
 		'''
@@ -8,26 +8,26 @@
 	
 	material_type: stone
 	tile_flags: non_empty
-	flags: artificial
+	flags: artificial, construction
 	
 	max_health: 13700.000
-	
 	smoothing: 0.150
-	mass: 5.000
-	friction: 0.900
-	elasticity: 0.470
 	stability: 0.500
 	strength_tensile: 0.000
 	strength_compressive: 0.000
+	
+	mass: 5.000
+	friction: 0.900
+	elasticity: 0.470
 	collision_layer: none
 	collision_mask: none
 	
 	texture: terrain.cobblestone
 	pattern: pattern.cobblestone
-	
 	texture_scale: 1.800
 	texture_overshoot: -0.750
 	texture_offset: 0.000
+	
 	color_preview: "0x00000000"
 	color_fill: "0xff140e08"
 	
@@ -45,12 +45,10 @@
 		{
 			color: "0xff7d716b"
 			tile_flags: solid, non_empty, become_background_on_break
-			meta: 0
 		}
 		{
 			color: "0xff403935"
 			tile_flags: non_empty
-			meta: 0
 		}
 	]
 }

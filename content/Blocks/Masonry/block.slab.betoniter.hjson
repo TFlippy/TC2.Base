@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.63.5"
 	name: "Betoniter Slabs"
 	desc:
 		'''
@@ -14,26 +14,26 @@
 	
 	material_type: stone_dense
 	tile_flags: non_empty
-	flags: artificial
+	flags: artificial, masonry, construction
 	
 	max_health: 56100.000
-	
 	smoothing: 0.160
-	mass: 1.400
-	friction: 0.900
-	elasticity: 0.600
 	stability: 0.500
 	strength_tensile: 1.100
 	strength_compressive: 8.000
+	
+	mass: 1.400
+	friction: 0.900
+	elasticity: 0.600
 	collision_layer: none
 	collision_mask: none
 	
 	texture: terrain.slab.betoniter
 	pattern: pattern.slab.betoniter
-	
 	texture_scale: 1.500
 	texture_overshoot: -0.300
 	texture_offset: 0.000
+	
 	color_preview: "0xff80775f"
 	color_fill: "0xff140e08"
 	

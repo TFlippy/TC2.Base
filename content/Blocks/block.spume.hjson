@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.63.5"
 	name: "Spume"
 	desc:
 		'''
@@ -8,26 +8,26 @@
 	
 	material_type: stone_porous
 	tile_flags: non_empty
-	flags: artificial
+	flags: artificial, construction
 	
 	max_health: 2000.000
-	
 	smoothing: 0.150
-	mass: 0.100
-	friction: 0.950
-	elasticity: 0.050
 	stability: 0.900
 	strength_tensile: 0.000
 	strength_compressive: 0.000
+	
+	mass: 0.100
+	friction: 0.950
+	elasticity: 0.050
 	collision_layer: none
 	collision_mask: none
 	
 	texture: terrain.spume
 	pattern: pattern.spume
-	
 	texture_scale: 1.400
 	texture_overshoot: -0.250
 	texture_offset: 0.000
+	
 	color_preview: "0x00000000"
 	color_fill: "0xff140e08"
 	
@@ -45,7 +45,6 @@
 		{
 			color: "0xffa39a5f"
 			tile_flags: solid, non_empty, become_background_on_break, ground, no_replace
-			meta: 0
 		}
 	]
 }

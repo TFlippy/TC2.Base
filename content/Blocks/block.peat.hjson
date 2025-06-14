@@ -1,10 +1,10 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.63.5"
 	name: "Peat"
 	
 	material_type: peat
 	tile_flags: non_empty
-	flags: raw, common
+	flags: raw, organic, soil
 	
 	max_health: 7700.000
 	smoothing: 0.170

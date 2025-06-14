@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.63.5"
 	name: "Formwork (Empty)"
 	desc:
 		'''
@@ -8,7 +8,7 @@
 	
 	material_type: metal_frame
 	tile_flags: non_empty
-	flags: artificial
+	flags: artificial, metal, construction
 	
 	max_health: 27500.000
 	smoothing: 0.200
@@ -35,7 +35,7 @@
 	[
 		{
 			material: steel.frames
-			quantity: 0.0250
+			quantity: 0.025
 		}
 		null
 	]

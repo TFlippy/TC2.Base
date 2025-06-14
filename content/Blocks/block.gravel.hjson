@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.63.5"
 	name: "Gravel"
 	desc:
 		'''
@@ -8,7 +8,7 @@
 	
 	material_type: gravel
 	tile_flags: non_empty
-	flags: raw
+	flags: raw, rock, soil
 	
 	max_health: 5600.000
 	smoothing: 0.200

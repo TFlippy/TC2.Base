@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.63.5"
 	name: "Smirglum Slabs"
 	desc:
 		'''
@@ -8,26 +8,26 @@
 	
 	material_type: metal_solid
 	tile_flags: non_empty
-	flags: artificial
+	flags: artificial, overgrown, metal, masonry, construction
 	
 	max_health: 440000.000
-	
 	smoothing: 0.150
-	mass: 7.600
-	friction: 0.800
-	elasticity: 0.600
 	stability: 0.900
 	strength_tensile: 13.000
 	strength_compressive: 45.410
+	
+	mass: 7.600
+	friction: 0.800
+	elasticity: 0.600
 	collision_layer: none
 	collision_mask: essence
 	
 	texture: terrain.smirglum.slab.moss
 	pattern: pattern.smirglum.slab.moss
-	
 	texture_scale: 1.500
 	texture_overshoot: -0.125
 	texture_offset: 0.000
+	
 	color_preview: "0x00000000"
 	color_fill: "0xff140e08"
 	

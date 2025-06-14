@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.63.5"
 	name: "Wallpaper"
 	desc:
 		'''
@@ -8,26 +8,26 @@
 	
 	material_type: concrete
 	tile_flags: non_empty
-	flags: artificial
+	flags: artificial, construction
 	
 	max_health: 24000.000
-	
 	smoothing: 0.110
-	mass: 5.000
-	friction: 0.900
-	elasticity: 0.600
 	stability: 0.500
 	strength_tensile: 0.000
 	strength_compressive: 0.000
+	
+	mass: 5.000
+	friction: 0.900
+	elasticity: 0.600
 	collision_layer: none
 	collision_mask: none
 	
 	texture: missing
 	pattern: pattern.wallpaper.01
-	
 	texture_scale: 1.500
 	texture_overshoot: -0.300
 	texture_offset: 0.000
+	
 	color_preview: "0x00000000"
 	color_fill: "0xff140e08"
 	

@@ -1,30 +1,40 @@
-{
+﻿{
+	$version: "0.1.63.5"
 	name: "Debug"
-	desc: "Natural debug."
+	desc:
+		'''
+		Natural debug.
+		'''
 	
 	material_type: stone
 	tile_flags: non_empty
-	flags: raw
+	flags: artificial
 	
 	max_health: 1337.000
 	smoothing: 0.150
+	stability: 0.900
+	strength_tensile: 0.000
+	strength_compressive: 0.000
+	
 	mass: 10.000
 	friction: 0.900
 	elasticity: 0.600
-	stability: 0.900
+	collision_layer: none
+	collision_mask: none
 	
-	texture: "terrain.debug"
-	pattern: "pattern.stone"
-	
+	texture: terrain.debug
+	pattern: pattern.stone
 	texture_scale: 1.500
 	texture_overshoot: -0.750
+	texture_offset: 0.000
+	
+	color_preview: "0x00000000"
+	color_fill: "0xff130d07"
 	
 	resources:
 	[
-		{
-			material: "stone"
-			quantity: 2.000
-		}
+		null
+		null
 	]
 	
 	mappings:
@@ -32,7 +42,6 @@
 		{
 			color: "0xff800080"
 			tile_flags: solid, non_empty, ground, no_replace
-			meta: 0
 		}
 	]
 }

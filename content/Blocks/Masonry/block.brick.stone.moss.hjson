@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.63.5"
 	name: "Stone Bricks (Moss)"
 	desc:
 		'''
@@ -8,26 +8,26 @@
 	
 	material_type: stone_slab
 	tile_flags: non_empty
-	flags: artificial
+	flags: artificial, overgrown, masonry, construction
 	
 	max_health: 19500.000
-	
 	smoothing: 0.170
-	mass: 1.120
-	friction: 0.900
-	elasticity: 0.520
 	stability: 0.500
 	strength_tensile: 1.100
 	strength_compressive: 7.000
+	
+	mass: 1.120
+	friction: 0.900
+	elasticity: 0.520
 	collision_layer: none
 	collision_mask: none
 	
 	texture: terrain.brick.stone.moss
 	pattern: pattern.brick.stone.moss
-	
 	texture_scale: 1.250
 	texture_overshoot: -0.750
 	texture_offset: 0.200
+	
 	color_preview: "0xff80775f"
 	color_fill: "0xff140e08"
 	
@@ -45,12 +45,10 @@
 		{
 			color: "0xff40473d"
 			tile_flags: solid, non_empty, become_background_on_break
-			meta: 0
 		}
 		{
 			color: "0xff20231f"
 			tile_flags: non_empty
-			meta: 0
 		}
 	]
 }
