@@ -62,13 +62,13 @@ namespace TC2.Base.Components
 						if (total_count > Maths.epsilon)
 						{
 							//GUI.DrawLine(a, b, GUI.font_color_default, 1.00f);
-							GUI.DrawLine2(a, b - (this.prospector_pick_state.direction * 0.25f * region.GetWorldToCanvasScale()), GUI.font_color_default.WithAlphaMult(1.00f), GUI.font_color_default.WithAlphaMult(0.50f), 4.00f, 1.00f);
+							GUI.DrawLine2(a, b - (this.prospector_pick_state.direction * 0.25f * region.GetWorldToCanvasScale()), GUI.font_color_default, GUI.font_color_default.WithAlphaDiv(Maths.Factor.x2), 4.00f, 1.00f);
 
 							GUI.DrawLine(a - new Vector2(80, 0), a + new Vector2(80, 0), GUI.font_color_default, 1.00f);
 							//GUI.DrawLine2(b, c, GUI.font_color_default.WithAlphaMult(0.25f), GUI.font_color_default.WithAlphaMult(0.00f), 4.00f, 1.00f);
 							GUI.DrawCircleFilled(b, 0.075f * region.GetWorldToCanvasScale(), GUI.font_color_default.WithAlphaMult(0.80f));
 
-							GUI.Title("Minerals");
+							GUI.Title("Composition"u8);
 
 							for (var i = 0; i < samples.Length; i++)
 							{
@@ -77,8 +77,8 @@ namespace TC2.Base.Components
 								{
 									ref var block = ref sample.block.GetData();
 
-									var ratio = sample.quantity / total_count;
-									var color = Color32BGRA.FromHSV(ratio * 2.00f, 1.00f, 1.00f);
+									var ratio = sample.quantity.Normalize01Fast(total_count); // / total_count;
+									var color = Color32BGRA.RedGreen(ratio); //.FromHSV(ratio * 2.00f, 1.00f, 1.00f);
 
 									//if (block.flags.HasAny(Block.Flags.Rare | Block.Flags.Uncommon)) color = GUI.font_color_default;
 									//else if (block.flags.HasAll(Block.Flags.Common)) color = GUI.font_color_default;
@@ -100,14 +100,18 @@ namespace TC2.Base.Components
 							terrain.IterateLine(this.prospector_pick_state.position, this.prospector_pick_state.position + this.prospector_pick_state.direction * this.prospector_pick.max_depth, 0.50f, ref args, Func, iteration_flags: Terrain.IterationFlags.None);
 							static void Func(Tile tile, ref (Vector2 offset, Vector2 rect_size, XorRandom random, float alpha) args, int x, int y, byte mask)
 							{
-								if (tile.BlockID != 0)
+								var h_block = tile.GetBlockHandle();
+								if (h_block && h_block.GetFlags().HasAnyExcept(Block.Flags.Mineral | Block.Flags.Ore | Block.Flags.Native | Block.Flags.Rock | Block.Flags.Metal | Block.Flags.Raw, Block.Flags.Artificial | Block.Flags.Masonry | Block.Flags.Construction | Block.Flags.Overgrown))
 								{
-									ref var block = ref tile.Block;
+									//ref var block = ref h_block.get
 									//if (args.random.NextBool(0.05f) && block.flags.HasAny(Block.Flags.Mineral | Block.Flags.Ore))
-									if (args.random.NextBool(0.10f) && block.flags.HasAny(Block.Flags.Mineral | Block.Flags.Ore))
+
+									ref var block_data = ref h_block.GetData();
+									if (block_data.IsNotNull() && args.random.NextBool(0.10f))
 									{
-										var pos = args.offset + new Vector2(args.rect_size.X * x, args.rect_size.Y * y);
-										GUI.DrawRectFilled(pos - new Vector2(args.random.NextFloatRange(-8.50f, 15.00f)), pos + new Vector2(args.random.NextFloatRange(-20.50f, 15.00f)), block.color_preview.WithAlphaMult(args.alpha * args.random.NextFloatRange(0.10f, 0.50f)));
+										var pos = args.offset + new Vector2(args.rect_size.X * x, args.rect_size.Y * y); // bleh
+										GUI.DrawRectFilled(a: pos - new Vector2(args.random.NextFloatRange(-8.50f, 15.00f)), b: pos + new Vector2(args.random.NextFloatRange(-20.50f, 15.00f)), 
+											color: block_data.color_preview.WithAlphaMult(args.alpha * args.random.NextFloatRange(0.10f, 0.50f)));
 									}
 								}
 							}
@@ -149,14 +153,15 @@ namespace TC2.Base.Components
 			terrain.IterateLine(data.world_position, data.world_position + data.direction * prospector_pick.max_depth, 0.10f, ref arg, Func, iteration_flags: Terrain.IterationFlags.None);
 			static void Func(Tile tile, ref (int a, FixedArray8<OreSample> samples) arg, int x, int y, byte mask)
 			{
-				if (tile.BlockFlags.HasAny(Block.Flags.Mineral | Block.Flags.Ore))
+				var h_block = tile.GetBlockHandle();
+				if (h_block && h_block.GetFlags().HasAnyExcept(Block.Flags.Mineral | Block.Flags.Ore | Block.Flags.Native | Block.Flags.Rock | Block.Flags.Metal | Block.Flags.Raw, Block.Flags.Artificial | Block.Flags.Masonry | Block.Flags.Construction | Block.Flags.Overgrown))
 				{
 					for (var i = 0; i < arg.samples.Length; i++)
 					{
 						ref var sample = ref arg.samples[i];
-						if (!sample.block || sample.block.id == tile.BlockID)
+						if (!sample.block || sample.block == h_block)
 						{
-							sample.block = tile.BlockID;
+							sample.block = h_block;
 							sample.quantity += 1.00f;
 
 							break;

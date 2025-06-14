@@ -9,7 +9,7 @@
 	
 	material_type: stone_porous
 	tile_flags: non_empty
-	flags: raw, common, rock, silicate, metamorphic
+	flags: raw, ore, common, porous, rock, silicate, metamorphic
 	
 	max_health: 15000.000
 	smoothing: 0.140

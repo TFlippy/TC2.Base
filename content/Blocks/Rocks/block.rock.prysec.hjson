@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.4"
+	$version: "0.1.63.5"
 	name: "Prysec"
 	desc:
 		'''
@@ -8,7 +8,7 @@
 	
 	material_type: stone
 	tile_flags: non_empty
-	flags: raw, common, rock, sedimentary
+	flags: raw, ore, uncommon, rock, halide
 	
 	max_health: 28800.000
 	smoothing: 0.170

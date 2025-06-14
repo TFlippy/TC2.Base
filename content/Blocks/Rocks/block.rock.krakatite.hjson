@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.4"
+	$version: "0.1.63.5"
 	name: "Krakatite"
 	desc:
 		'''
@@ -10,7 +10,7 @@
 	
 	material_type: stone_dense
 	tile_flags: non_empty
-	flags: raw, ore, uncommon, rock, sedimentary
+	flags: raw, ore, uncommon, rock, sedimentary, phosphate
 	
 	max_health: 32000.000
 	smoothing: 0.130

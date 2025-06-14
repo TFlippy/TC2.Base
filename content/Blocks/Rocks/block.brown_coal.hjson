@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.4"
+	$version: "0.1.63.5"
 	name: "Lignite"
 	desc:
 		'''
@@ -8,7 +8,7 @@
 	
 	material_type: coal
 	tile_flags: non_empty
-	flags: raw, ore, uncommon, fuel, flammable, rock, sedimentary
+	flags: raw, ore, uncommon, fuel, flammable, organic, porous, rock, sedimentary
 	
 	max_health: 26600.000
 	smoothing: 0.150

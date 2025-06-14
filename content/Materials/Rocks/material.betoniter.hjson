@@ -2,7 +2,8 @@
 	$version: "0.1.63.5"
 	name: "Betoniter"
 	name_short: "Betoniter"
-	name_dumb: "Stone"
+	name_imperial: "Betoniter"
+	name_dumb: "Concrete Ore"
 	description:
 		'''
 		Hard argillaceous sedimentary rock with an earthy luster.
@@ -19,7 +20,7 @@
 	}
 	
 	type: concrete
-	flags: hard, granular, heavy, raw, gravel, solid, primary
+	flags: hard, granular, heavy, raw, gravel, solid, impure, primary
 	display_flags: none
 	hints: none
 	
@@ -39,6 +40,7 @@
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	
+	centroid_default: [0.000, 0.250]
 	colliders: []
 	
 	conversions:

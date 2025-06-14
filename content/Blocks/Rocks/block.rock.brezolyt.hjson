@@ -9,7 +9,7 @@
 	
 	material_type: stone
 	tile_flags: non_empty
-	flags: raw, common, rock, carbonate, sedimentary
+	flags: raw, ore, common, rock, carbonate, sedimentary, sulfate
 	
 	max_health: 21800.000
 	smoothing: 0.170
