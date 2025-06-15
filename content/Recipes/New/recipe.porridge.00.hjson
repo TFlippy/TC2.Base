@@ -1,10 +1,9 @@
 ﻿{
-	$region_id: 0
 	$version: "0.1.63.5"
 	name: "Porridge"
 	desc:
 		'''
-		TODO: Desc
+		TFlippy didn't get to finish his porridge recipe.
 		'''
 	tips: []
 	
@@ -25,52 +24,96 @@
 			options:
 			[
 				{
-					name: "Grandma's Binder"
+					name: "Half-Assed"
 					
 					type: undefined
 					flags: none
 					
-					prefix: "Grandma's "
+					prefix: "Half-Assed "
 					
 					requirements:
 					[
 						{
 							type: resource
-							material: eggs
-							amount: 1.920
+							material: water
+							amount: 1.000
 							snapping: 1.000
+							falloff: 0.890
+							loss: 0.216
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: saltpeter
+							amount: 0.300
+							snapping: 0.100
+							falloff: 0.844
 							loss: 0.024
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: resource
-							material: mushroom.juice
-							amount: 1.500
-							snapping: 0.100
-							loss: 0.063
+							material: mushroom.brown
+							amount: 3.550847
+							snapping: 0.500
+							loss: 0.024
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: work
-							work: opening.egg
-							amount: 25.000
-							difficulty: 3
-							snapping: 25.000
+							work: mixing.liquid
+							amount: 17.000
+							amount_min: 160.000
+							difficulty: 4
+							snapping: 10.000
+							falloff: 0.907
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: slicing
+							amount: 30.000
+							amount_min: 70.000
+							difficulty: 5
+							snapping: 5.000
+							falloff: 0.965
 							group: 0
 							flags: stepped, simultaneous, conditional
 						}
 						{
+							type: resource
+							material: tallow
+							amount: 2.1826
+							snapping: 0.100
+							falloff: 0.606
+							loss: 0.024
+							group: 1
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: sawdust
+							amount: 1.673684
+							snapping: 0.100
+							falloff: 1.067
+							loss: 0.024
+							group: 1
+							flags: prerequisite
+						}
+						{
 							type: work
-							work: pouring
-							amount: 17.000
-							amount_min: 50.000
-							difficulty: 5
+							work: blending
+							amount: 27.000
+							amount_min: 140.000
+							difficulty: 7
 							snapping: 10.000
-							falloff: 0.951
-							group: 0
-							flags: simultaneous, conditional
+							falloff: 1.018
+							group: 1
+							flags: stepped, conditional
 						}
 					]
 					
@@ -78,11 +121,20 @@
 					[
 						{
 							type: resource
-							material: glue
-							amount: 11.0197
-							amount_extra: 1.380282
+							material: porridge
+							amount: 4.8647
+							amount_extra: 0.4043
 							group: 0
 							flags: primary, compact
+						}
+						{
+							type: resource
+							material: oil
+							amount: 0.085
+							amount_extra: 0.2023
+							group: 0
+							chance: 0.675
+							flags: byproduct
 						}
 					]
 					
