@@ -112,7 +112,7 @@ attachment:
 	force_multiplier: 4.000
 	offset: [-1.500, 0.100]
 	flags: mirror_rotate, full_rotate
-	tags: medium, weapon, rotary, long
+	tags: medium, large, weapon, rotary, long
 }
 
 animated.renderer:

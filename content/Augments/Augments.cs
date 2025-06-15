@@ -1725,7 +1725,7 @@ namespace TC2.Base
 
 				can_add: static (ref Augment.Context context, in Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					return !context.HasComponent<Attachment.Data>();
+					return !context.HasComponent<Attachment.Data>() && !context.HasComponent<Equipment.Data>();
 				},
 
 #if CLIENT
@@ -1758,7 +1758,7 @@ namespace TC2.Base
 					ref var offset = ref handle.GetData<Vector2>();
 
 					ref var attachable = ref context.GetOrAddComponent<Attachment.Data>();
-					if (!attachable.IsNull())
+					if (attachable.IsNotNull())
 					{
 						attachable.offset = offset;
 					}
@@ -1766,6 +1766,50 @@ namespace TC2.Base
 
 				apply_1: static (ref Augment.Context context, ref Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
+					ref var attachable = ref context.GetComponent<Attachment.Data>();
+					if (attachable.IsNotNull())
+					{
+						ref var gun = ref context.GetComponent<Gun.Data>();
+						if (gun.IsNotNull())
+						{
+							attachable.tags.AddFlag(Attachment.Tags.Gun | Attachment.Tags.Weapon);
+							//attachable.tags.AddFlag(Attachment.Tags.);
+						}
+
+						ref var holdable = ref context.GetComponent<Holdable.Data>();
+						if (holdable.IsNotNull())
+						{
+							attachable.tags.AddFlag(Attachment.Tags.Gun, holdable.hints.HasAny(NPC.ItemHints.Gun));
+							attachable.tags.AddFlag(Attachment.Tags.Long, holdable.hints.HasAny(NPC.ItemHints.Long));
+							//attachable.tags.AddFlag(Attachment.Tags.Short, holdable.hints.HasAny(NPC.ItemHints.Small | NPC.ItemHints.Storable));
+							attachable.tags.AddFlag(Attachment.Tags.Heavy, holdable.hints.HasAny(NPC.ItemHints.Heavy));
+							attachable.tags.AddFlag(Attachment.Tags.Tool, holdable.hints.HasAny(NPC.ItemHints.Tools));
+							attachable.tags.AddFlag(Attachment.Tags.Weapon, holdable.hints.HasAny(NPC.ItemHints.Weapon));
+							attachable.tags.AddFlag(Attachment.Tags.Small, holdable.hints.HasAny(NPC.ItemHints.Small));
+							attachable.tags.AddFlag(Attachment.Tags.Device, holdable.hints.HasAny(NPC.ItemHints.Device));
+							//attachable.tags.AddFlag(Attachment.Tags.Medium, holdable.hints.HasAny(NPC.ItemHints.Clumsy));
+							//attachable.tags.AddFlag(Attachment.Tags.)
+						}
+
+
+						//var width = context.rect.GetWidth();
+						//attachable.tags.AddFlag(Attachment.Tags.Short, width <= 1.50f);
+						//attachable.tags.AddFlag(Attachment.Tags.Long, width >= 5.00f);
+
+						var area = context.rect.GetArea();
+						attachable.tags.AddFlag(Attachment.Tags.Tiny, area <= 1.125f);
+						attachable.tags.AddFlag(Attachment.Tags.Small, area >= 1.25f && area <= 3.00f);
+						attachable.tags.AddFlag(Attachment.Tags.Medium, area >= 2.00f && area <= 5.50f);
+						attachable.tags.AddFlag(Attachment.Tags.Large, area >= 5.00f && area <= 11.00f);
+						attachable.tags.AddFlag(Attachment.Tags.Huge, area >= 11.00f);
+
+						//attachable.tags.AddFlag(Attachment.Tags.Mount, context.HasComponent<Mount.Data>());
+						attachable.tags.AddFlag(Attachment.Tags.Mount, context.HasComponent<Mount.Data>());
+						attachable.tags.AddFlag(Attachment.Tags.Rotary, context.HasComponent<Aimable.Data>());
+						attachable.tags.AddFlag(Attachment.Tags.Controllable, context.HasComponent<Control.Data>());
+						attachable.tags.AddFlag(Attachment.Tags.Wheel | Attachment.Tags.Rotary, context.HasComponent<Wheel.Data>());
+					}
+
 					context.requirements_new.Merge(Crafting.Requirement.Resource("machine_parts", 8.00f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 				}
 			));

@@ -24,6 +24,9 @@ body:
 		radius: 0.500
 		friction: 1.000
 		elasticity: 0.500
+
+		rigidity_static: 0.990
+		rigidity_dynamic: 0.990
 		
 		material: metal_frame
 		miss_chance: 0.400

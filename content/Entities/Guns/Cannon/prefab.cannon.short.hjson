@@ -122,7 +122,7 @@ attachment:
 	force_multiplier: 6.000
 	torque_multiplier: 3.000
 
-	tags: medium, large, weapon, rotary
+	tags: large, weapon, rotary, long
 }
 
 animated.renderer:

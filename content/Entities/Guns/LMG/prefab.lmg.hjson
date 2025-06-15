@@ -100,7 +100,7 @@ holdable:
 attachment:
 {
 	offset: [-0.375, -0.125]
-	tags: medium, weapon, rotary
+	tags: small, medium, weapon, rotary
 }
 
 animated.renderer:

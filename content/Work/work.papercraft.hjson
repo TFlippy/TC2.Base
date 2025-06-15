@@ -1,7 +1,7 @@
 ﻿{
-	$version: "0.1.63.1"
+	$version: "0.1.63.5"
 	name: "Papercraft"
-	name_short: "Papercraft"
+	name_short: "Paper cft."
 	desc:
 		'''
 		TODO: Desc
@@ -16,8 +16,13 @@
 	
 	flags: none
 	tags: manual, simple, leisure, careful
-	cooldown: 1.900
-	multiplier: 2.000
+	
+	amount_base: 0.000
+	cooldown: 1.630
+	multiplier: 1.310
+	
+	amount_jitter: 0.237
+	cooldown_jitter: 0.218
 	color: "0xffdd4f60"
 	
 	tools_required: none
@@ -28,7 +33,7 @@
 	
 	filter_environment:
 	{
-		include: workshop, office, stationary, clean
+		include: workshop, office, stationary, clean, cozy, organized
 	}
 	
 	character_traits:

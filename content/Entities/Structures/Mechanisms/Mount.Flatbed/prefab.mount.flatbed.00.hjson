@@ -84,6 +84,7 @@ transform:
 
 interactable:
 {
+	flags: centered_inventory
 	window_size: [168.000, 128.000]
 	window_offset: [64.000, 128.000]
 	window_size_misc: [48.000, 0.000]
@@ -103,7 +104,7 @@ storage:
 {
 	@inventory1:
 	{
-		stack_size_multiplier: 1.000
+		stack_size_multiplier: 4.000
 		type: ammo
 		flags: standalone, allow_ducts, ignore_mass
 

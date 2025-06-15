@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.4"
+	$version: "0.1.63.5"
 	name: "Dynamite"
 	tips: []
 	
@@ -81,7 +81,7 @@
 							snapping: 5.000
 							falloff: 0.930
 							group: 1
-							flags: conditional
+							flags: stepped, simultaneous, conditional
 						}
 						{
 							type: work
@@ -92,7 +92,7 @@
 							snapping: 5.000
 							falloff: 0.800
 							group: 1
-							flags: conditional
+							flags: stepped, simultaneous, conditional
 						}
 					]
 					
