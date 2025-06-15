@@ -1,0 +1,148 @@
+﻿{
+	$version: "0.1.63.5"
+	name: "Grain"
+	name_short: "Grain"
+	name_dumb: "Gold"
+	description:
+		'''
+		TODO: Desc
+		'''
+	
+	tips: []
+	
+	icon:
+	{
+		texture: resource.grain
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	type: powder
+	flags: hard, food, granular, organic, small, raw, powder, flammable, solid
+	display_flags: none
+	spawn_flags:
+	{
+		rem: show_notification
+	}
+	hints: food, materials, small, cheap, civilian
+	
+	mass_per_unit: 0.4539
+	
+	quantity_max: 500.000
+	spawn_quantity_threshold: 0.500
+	snapping: 0.100
+	snapping_pickup: 50.000
+	
+	form_type: gravel
+	prefab: resource.grain
+	h_substance: "null"
+	
+	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
+	
+	centroid_default: [0.000, 0.250]
+	colliders: []
+	
+	conversions:
+	{
+		rotting:
+		{
+			h_material: vinegar
+			spawn_flags: none
+			product_flags: none
+			ratio: 0.080
+			ratio_extra: 0.180
+			
+			h_material_waste: compost
+			spawn_flags_waste: none
+			product_flags_waste: none
+			ratio_waste: 0.930
+			ratio_waste_extra: 0.070
+			
+			yield: 0.870
+			yield_extra: 0.110
+			
+			h_sound: missing
+			sound_volume: 0.500
+			sound_pitch: 1.000
+			
+			chance: 1.000
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.000
+			velocity_mult: 1.000
+			damage_mult: 1.000
+		}
+		phlogiston:
+		{
+			h_material: "null"
+			spawn_flags: none
+			product_flags: none
+			ratio: 0.000
+			ratio_extra: 0.000
+			
+			h_material_waste: ash
+			spawn_flags_waste: merge
+			product_flags_waste: waste, residue
+			ratio_waste: 0.090
+			ratio_waste_extra: 0.210
+			
+			yield: 0.640
+			yield_extra: 0.330
+			
+			h_sound: missing
+			sound_volume: 0.200
+			sound_pitch: 1.280
+			
+			chance: 0.812
+			type: undefined
+			flags: spawn_only_converted, spawn_use_new_formula, spawn_discard_unconverted
+			merge_radius_mult: 1.250
+			velocity_mult: 0.070
+			damage_mult: 1.320
+		}
+		fire:
+		{
+			h_material: "null"
+			spawn_flags: none
+			product_flags: none
+			ratio: 0.000
+			ratio_extra: 0.000
+			
+			h_material_waste: ash
+			spawn_flags_waste: merge, no_offset
+			product_flags_waste: waste, residue
+			ratio_waste: 0.120
+			ratio_waste_extra: 0.340
+			
+			yield: 0.410
+			yield_extra: 0.440
+			
+			h_sound: missing
+			sound_volume: 0.200
+			sound_pitch: 1.280
+			
+			chance: 0.817
+			type: undefined
+			flags: spawn_only_converted, spawn_use_new_formula, spawn_discard_unconverted
+			merge_radius_mult: 1.080
+			velocity_mult: 0.190
+			damage_mult: 1.460
+		}
+	}
+	
+	residues:
+	{
+		fermenting:
+		{
+			h_material: vinegar
+			h_substance: "null"
+			flags: none
+			flags_product: byproduct
+			
+			yield: [0.602, 0.251]
+		}
+	}
+}

@@ -1,0 +1,67 @@
+﻿{
+	$region_id: 0
+	$version: "0.1.63.5"
+	name: "Rummaging (Plants)"
+	name_short: "Rummaging"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: ui.icons.work.00
+		size: [16, 16]
+		frame: [9, 0]
+	}
+	
+	flags: none
+	tags: manual, simple, leisure, culinary, careful
+	
+	amount_base: 0.000
+	cooldown: 0.780
+	multiplier: 1.080
+	
+	amount_jitter: 0.913
+	cooldown_jitter: 0.258
+	color: "0xffdd4f60"
+	
+	tools_required: none
+	tools_optional: cleaver, tweezers, magnifying_glass, bucket, spatula, knife, scissors
+	
+	infrastructure_required: none
+	infrastructure_optional: dishes, table, chair, surface, kitchen
+	
+	character_traits:
+	{
+		include: scientist, farmer, poor, hunter, culinary, insane, nomad, feral, pest, animal, outdoor, junkie
+		weight: 1.000
+	}
+	
+	skills_min:
+	{
+	
+	}
+	
+	skills_mult:
+	{
+		dexterity: 0.170
+		farming: 0.760
+		blades: 0.350
+		medicine: 0.180
+	}
+	
+	sound_volume: 0.600
+	sound_pitch: 0.890
+	sound_size: 0.780
+	sound_dist: 0.840
+	
+	sounds: ["zabar.tongue.shoot.00", "foliage_hit_sharp_00", "foliage_hit_sharp_03", "medkit_use_00", "flesh_hit_slash_00", "foliage_hit_sharp_01", "foliage_hit_sharp_02", "flesh_hit_slash_00", "effect.smack.meaty.01", "walljump.00", "foliage_hit_sharp_01"]
+	sounds_manual: []
+	sounds_machine: []
+	sounds_passive: []
+	
+	sounds_start: []
+	sounds_end: []
+	sounds_fail: []
+}

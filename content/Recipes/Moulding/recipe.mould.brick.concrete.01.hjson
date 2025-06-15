@@ -18,8 +18,8 @@
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: shovel
 			
-			ratio: 1.000
-			mass_base: 1.740
+			ratio: 0.000
+			mass_base: 0.000
 			
 			options:
 			[
@@ -41,7 +41,7 @@
 							snapping: 1.000
 							falloff: 1.021
 							loss: 0.075
-							ratio: 0.075
+							ratio: 0.059
 							group: 0
 						}
 						{
@@ -82,8 +82,8 @@
 							amount: 0.463415
 							snapping: 0.100
 							falloff: 0.947
-							loss: 0.071
-							ratio: 0.016
+							loss: 0.024
+							ratio: 0.024
 							group: 1
 						}
 						{
@@ -91,7 +91,7 @@
 							material: sawdust
 							amount: 0.689474
 							snapping: 0.100
-							ratio: 0.075
+							loss: 0.075
 							group: 1
 						}
 						{

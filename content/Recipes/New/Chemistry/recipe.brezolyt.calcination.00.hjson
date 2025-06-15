@@ -1,5 +1,6 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.63.5"
+	$note: "Needs to be updated to reflect the changes made to Brezolyt's composition."
 	name: "Brezolyt Calcination"
 	desc:
 		'''

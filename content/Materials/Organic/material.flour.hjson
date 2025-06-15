@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.63.5"
 	name: "Flour"
 	name_short: "Flour"
 	name_dumb: "Dust"
@@ -22,7 +22,7 @@
 	display_flags: none
 	hints: none
 	
-	mass_per_unit: 0.200
+	mass_per_unit: 0.633
 	
 	quantity_max: 500.000
 	spawn_quantity_threshold: 1.000
