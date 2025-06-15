@@ -38,21 +38,20 @@
 							type: resource
 							material: brezolyt
 							amount: 1.489146
-							snapping: 0.100
-							falloff: 1.009
+							snapping: 1.000
+							falloff: 1.021
 							loss: 0.075
 							ratio: 0.075
 							group: 0
 						}
 						{
 							type: resource
-							material: eggs
-							amount: 0.500
-							snapping: 1.000
-							falloff: 0.827
-							loss: 0.067
-							ratio: 0.075
+							material: water
+							amount: 0.200
+							snapping: 0.100
+							falloff: 1.024
 							group: 0
+							flags: no_residue
 						}
 						{
 							type: work
@@ -62,39 +61,8 @@
 							difficulty: 9
 							snapping: 5.000
 							falloff: 0.892
-							ratio: 0.361
+							ratio: 0.522
 							group: 0
-							flags: conditional
-						}
-						{
-							type: resource
-							material: sawdust
-							amount: 0.689474
-							snapping: 0.100
-							loss: 0.122
-							ratio: 0.075
-							group: 1
-						}
-						{
-							type: resource
-							material: water
-							amount: 0.300
-							snapping: 1.000
-							falloff: 1.016
-							loss: 0.020
-							group: 1
-							flags: no_residue
-						}
-						{
-							type: work
-							work: mashing
-							amount: 8.000
-							amount_min: 100.000
-							difficulty: 5
-							snapping: 5.000
-							falloff: 0.791
-							ratio: 0.275
-							group: 1
 							flags: simultaneous, conditional
 						}
 						{
@@ -105,19 +73,48 @@
 							difficulty: 5
 							snapping: 5.000
 							falloff: 0.675
-							ratio: 0.122
-							group: 1
+							group: 0
 							flags: simultaneous, conditional
+						}
+						{
+							type: resource
+							material: porridge
+							amount: 0.463415
+							snapping: 0.100
+							falloff: 0.947
+							loss: 0.071
+							ratio: 0.016
+							group: 1
+						}
+						{
+							type: resource
+							material: sawdust
+							amount: 0.689474
+							snapping: 0.100
+							ratio: 0.075
+							group: 1
+						}
+						{
+							type: work
+							work: kneading
+							amount: 9.000
+							amount_min: 150.000
+							difficulty: 9
+							snapping: 5.000
+							falloff: 0.922
+							ratio: 0.514
+							group: 1
+							flags: conditional
 						}
 						{
 							type: work
 							work: pounding
 							amount: 19.000
 							amount_min: 120.000
-							difficulty: 10
+							difficulty: 6
 							snapping: 5.000
-							falloff: 0.818
-							ratio: 1.000
+							falloff: 0.786
+							ratio: 0.875
 							group: 2
 							flags: conditional
 						}
@@ -128,126 +125,34 @@
 						{
 							type: resource
 							material: brick.concrete
-							amount: 0.501829
-							amount_extra: 0.201102
+							amount: 0.5638
+							amount_extra: 0.1451
 							group: 0
 							flags: primary, spawn, compact
 						}
 						{
 							type: resource
 							material: scrap.concrete
-							amount: 0.088419
-							amount_extra: 0.08463
+							amount: 0.0964
+							amount_extra: 0.0496
 							group: 0
 							flags: waste, secondary, spawn
 						}
 						{
 							type: resource
-							material: porridge
-							amount: 0.116528
-							amount_extra: 0.122253
+							material: starch
+							amount: 0.0381
+							amount_extra: 0.0173
 							group: 0
-							flags: byproduct, compact
-						}
-					]
-					
-					filter_tools:
-					{
-						include: bucket, spatula
-					}
-				}
-				{
-					name: "Clinker"
-					
-					type: undefined
-					flags: wip
-					
-					color: "0xff675f5d"
-					prefix: "Clinker "
-					
-					requirements:
-					[
-						{
-							type: resource
-							material: cement
-							amount: 0.200
-							snapping: 0.100
-							falloff: 0.973
-							group: 0
-							flags: no_residue
+							flags: residue
 						}
 						{
 							type: resource
-							material: water
-							amount: 0.220
-							snapping: 0.100
-							falloff: 1.016
+							material: nitrocellulose
+							amount: 0.0049
+							amount_extra: 0.0321
 							group: 0
-							flags: no_residue
-						}
-						{
-							type: resource
-							material: sand
-							amount: 0.400
-							snapping: 0.100
-							falloff: 0.979
-							group: 0
-							flags: no_residue
-						}
-						{
-							type: resource
-							material: gravel
-							amount: 1.000
-							snapping: 0.100
-							falloff: 0.991
-							group: 0
-							flags: no_residue
-						}
-						{
-							type: work
-							work: filling.gravel
-							amount: 25.000
-							amount_min: 100.000
-							difficulty: 7
-							snapping: 5.000
-							falloff: 0.722
-							group: 0
-							flags: simultaneous, conditional
-						}
-						{
-							type: work
-							work: filling.liquid
-							amount: 25.000
-							amount_min: 75.000
-							difficulty: 5
-							snapping: 5.000
-							falloff: 0.623
-							group: 0
-							flags: simultaneous, conditional
-						}
-						{
-							type: work
-							work: blending
-							amount: 22.000
-							amount_min: 200.000
-							difficulty: 7
-							snapping: 5.000
-							falloff: 0.818
-							group: 1
-							flags: conditional
-						}
-					]
-					
-					products:
-					[
-						{
-							type: resource
-							material: brick.concrete
-							amount: 0.969
-							amount_extra: 0.029
-							snapping: 1.000
-							group: 0
-							flags: primary, spawn
+							flags: residue
 						}
 					]
 					
