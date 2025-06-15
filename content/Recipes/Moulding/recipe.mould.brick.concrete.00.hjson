@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.63.5"
-	name: "Standard Concrete Slabs"
+	name: "ISO Concrete Masonry Unit"
 	desc:
 		'''
 		ISO-recommended general-purpose concrete masonry unit formulation carefully formulated and certified by ISO.
@@ -151,8 +151,8 @@
 						{
 							type: work
 							work: cement.curing
-							amount: 650.000
-							amount_min: 350.000
+							amount: 550.000
+							amount_min: 0.000
 							difficulty: 6
 							group: 0
 							flags: no_scaling, no_residue, conditional
