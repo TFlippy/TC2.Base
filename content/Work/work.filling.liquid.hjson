@@ -19,8 +19,10 @@
 	
 	amount_base: 0.000
 	cooldown: 1.200
-	multiplier: 1.000
+	multiplier: 1.420
 	
+	amount_jitter: 0.547
+	cooldown_jitter: 0.251
 	color: "0xff719240"
 	
 	tools_required: none

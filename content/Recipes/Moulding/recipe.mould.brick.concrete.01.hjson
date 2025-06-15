@@ -61,7 +61,7 @@
 							amount_min: 150.000
 							difficulty: 9
 							snapping: 5.000
-							falloff: 0.844
+							falloff: 0.892
 							ratio: 0.361
 							group: 0
 							flags: conditional
@@ -118,7 +118,7 @@
 							snapping: 5.000
 							falloff: 0.818
 							ratio: 1.000
-							group: 1
+							group: 2
 							flags: conditional
 						}
 					]
@@ -147,7 +147,7 @@
 							amount: 0.116528
 							amount_extra: 0.122253
 							group: 0
-							flags: byproduct, spawn, compact
+							flags: byproduct, compact
 						}
 					]
 					
@@ -285,10 +285,13 @@
 						{
 							type: work
 							work: cement.curing
-							amount: 650.000
+							amount: 7.000
+							amount_min: 135.000
 							difficulty: 7
+							snapping: 5.000
+							falloff: 0.857
 							group: 0
-							flags: no_scaling, no_residue, conditional
+							flags: no_residue, conditional
 						}
 					]
 					

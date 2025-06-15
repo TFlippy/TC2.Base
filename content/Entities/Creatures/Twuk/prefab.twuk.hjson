@@ -235,8 +235,8 @@ lootable:
 		}
 		{
 			material: "eggs"
-			min: 4.000
-			max: 6.000
+			min: 9.000
+			max: 19.000
 		}
 	]
 }

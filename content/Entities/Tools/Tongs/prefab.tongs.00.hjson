@@ -48,6 +48,7 @@ animated.renderer:
 		texture: "tongs.00"
 		size: [24, 16]
 		frame: [0, 0]
+		count: 2
 	}
 	z: 20.000
 }
