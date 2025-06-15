@@ -1,0 +1,408 @@
+﻿{
+	$region_id: 0
+	$version: "0.1.63.5"
+	name: "Porridge"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	tips: []
+	
+	stages:
+	[
+		{
+			name: "Base Formula"
+			
+			type: formula
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 1.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Grandma's Binder"
+					
+					type: undefined
+					flags: none
+					
+					prefix: "Grandma's "
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: eggs
+							amount: 1.920
+							snapping: 1.000
+							loss: 0.024
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: mushroom.juice
+							amount: 1.500
+							snapping: 0.100
+							loss: 0.063
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: opening.egg
+							amount: 25.000
+							difficulty: 3
+							snapping: 25.000
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: pouring
+							amount: 17.000
+							amount_min: 50.000
+							difficulty: 5
+							snapping: 10.000
+							falloff: 0.951
+							group: 0
+							flags: simultaneous, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: glue
+							amount: 11.0197
+							amount_extra: 1.380282
+							group: 0
+							flags: primary, compact
+						}
+						{
+							type: resource
+							material: mortar
+							amount: 0.397
+							amount_extra: 0.145
+							group: 0
+							flags: byproduct, secondary
+						}
+					]
+					
+					filter_tools:
+					{
+						include: bucket, spatula
+					}
+					filter_environment:
+					{
+						include: stationary, quiet
+					}
+				}
+			]
+		}
+		{
+			name: "Thickener"
+			
+			type: additives
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: wet
+			
+			ratio: 1.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Sugar"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: sugar
+							amount: 3.000
+							snapping: 0.500
+							loss: 0.024
+							group: 0
+							flags: prerequisite
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: glue
+							amount: 4.166667
+							amount_extra: 2.333333
+							group: 0
+							flags: primary, compact
+						}
+					]
+				}
+				{
+					name: "Flour"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: flour
+							amount: 5.000
+							snapping: 0.500
+							loss: 0.024
+							group: 0
+							flags: prerequisite
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: glue
+							amount: 4.250009
+							amount_extra: 0.749991
+							group: 0
+							flags: primary, compact
+						}
+					]
+				}
+				{
+					name: "Starch"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: starch
+							amount: 2.142
+							snapping: 0.100
+							loss: 0.122
+							group: 0
+							flags: prerequisite
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: glue
+							amount: 9.562537
+							amount_extra: 0.637462
+							group: 0
+							flags: primary, compact
+						}
+					]
+				}
+				{
+					name: "Sawdust"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: sawdust
+							amount: 8.000
+							snapping: 0.500
+							loss: 0.075
+							group: 0
+							flags: prerequisite
+						}
+					]
+				}
+				{
+					name: "Porridge"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: porridge
+							amount: 2.750
+							snapping: 0.100
+							loss: 0.114
+							group: 0
+							flags: prerequisite
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: glue
+							amount: 2.516362
+							amount_extra: 1.583638
+							group: 0
+							flags: primary, compact
+						}
+						{
+							type: resource
+							material: mortar
+							amount: 0.315082
+							amount_extra: 0.341828
+							group: 0
+							flags: byproduct
+						}
+					]
+				}
+			]
+		}
+		{
+			name: "Solvent"
+			
+			type: dissolving
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: wet
+			
+			ratio: 1.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Water"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: water
+							amount: 1.176
+							snapping: 0.100
+							group: 0
+							flags: no_residue, prerequisite
+						}
+						{
+							type: work
+							work: blending
+							amount: 300.000
+							amount_min: 100.000
+							difficulty: 5
+							snapping: 5.000
+							falloff: 0.860
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						include: spatula
+					}
+				}
+				{
+					name: "Toluene"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: toluene
+							amount: 0.110
+							snapping: 0.100
+							falloff: 0.904
+							loss: 0.024
+							group: 0
+							flags: no_residue, prerequisite
+						}
+						{
+							type: work
+							work: mixing.liquid
+							amount: 112.000
+							amount_min: 40.000
+							difficulty: 4
+							snapping: 5.000
+							falloff: 0.669
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						include: shovel, spatula
+					}
+					filter_infrastructure:
+					{
+						include: liquid_container
+					}
+				}
+			]
+		}
+	]
+	
+	type: workshop
+	flags: item, production
+	tags: manual, crafting, dumb, crude, simple, small, food, organic, blending, messy
+	infrastructure: bucket
+	infrastructure_exclude: none
+	
+	h_company: common
+	
+	icon:
+	{
+		texture: resource.porridge
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	icon_offset: [-4.000, 1.000]
+	
+	icon_extra:
+	{
+		texture: resource.mushroom.brown
+		size: [16, 16]
+		frame: [1, 0]
+	}
+	icon_extra_offset: [0.000, -6.000]
+	
+	icon_c:
+	{
+		texture: resource.flour
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	icon_c_offset: [-8.000, -14.000]
+	
+	color_frame: "0xffe3cb93"
+	color_button: "0xff9dd80f"
+	rank: -8.000
+	
+	min: 1
+	max: 10
+	step: 1
+	
+	version: 1
+}
