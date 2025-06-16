@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.5"
+	$version: "0.1.63.7"
 	name: "Wooden Bar"
 	name_short: "Wood Rd."
 	name_dumb: "Stick"
@@ -41,6 +41,7 @@
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	
+	centroid_default: [-0.017241, 0.123563]
 	colliders:
 	[
 		{
@@ -347,6 +348,15 @@
 			flags_product: residue
 			
 			yield: [0.733, 0.214]
+		}
+		sanding:
+		{
+			h_material: sawdust
+			h_substance: "null"
+			flags: none
+			flags_product: residue
+			
+			yield: [0.849, 0.144]
 		}
 	}
 }

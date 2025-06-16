@@ -9,8 +9,8 @@ body:
 		radius: 0.750
 		friction: 0.950
 		elasticity: 0.050
-		material: wood_powder
-		layer: entity, solid, resource, ignore_melee, ignore_bullet, flammable
+		material: bramble
+		layer: entity, solid, resource, ignore_melee, ignore_bullet, flammable, powder
 		mask: world
 	}
 	damping: 0.973

@@ -10,7 +10,7 @@ body:
 		friction: 0.950
 		elasticity: 0.050
 		material: powder
-		layer: entity, solid, resource, ignore_melee, ignore_bullet
+		layer: entity, solid, resource, ignore_melee, ignore_bullet, powder
 		mask: world, essence
 	}
 }

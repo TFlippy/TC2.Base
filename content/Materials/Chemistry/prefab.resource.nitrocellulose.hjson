@@ -12,7 +12,7 @@ body:
 		friction: 0.950
 		elasticity: 0.050
 		material: powder
-		layer: entity, solid, resource, flammable
+		layer: entity, solid, resource, flammable, powder
 		mask: world
 	}
 	damping: 0.979
