@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.5"
+	$version: "0.1.63.7"
 	name: "Clinker"
 	name_short: "Clinker"
 	name_imperial: "Slinker"
@@ -47,6 +47,122 @@
 	
 	centroid_default: [0.000, 0.250]
 	colliders: []
+	
+	conversions:
+	{
+		sledgehammer:
+		{
+			h_material: cement
+			spawn_flags: merge, pickup
+			product_flags: residue, byproduct
+			ratio: 0.387
+			ratio_extra: 0.641
+			
+			h_material_waste: "null"
+			spawn_flags_waste: none
+			product_flags_waste: none
+			ratio_waste: 0.000
+			ratio_waste_extra: 0.000
+			
+			yield: 0.470
+			yield_extra: 0.540
+			
+			h_sound: missing
+			sound_volume: 0.500
+			sound_pitch: 1.000
+			
+			chance: 1.000
+			type: undefined
+			flags: spawn_only_converted, spawn_use_new_formula, spawn_discard_unconverted
+			merge_radius_mult: 1.000
+			velocity_mult: 0.500
+			damage_mult: 1.000
+		}
+		club:
+		{
+			h_material: cement
+			spawn_flags: merge, pickup
+			product_flags: residue, byproduct
+			ratio: 0.387
+			ratio_extra: 0.641
+			
+			h_material_waste: "null"
+			spawn_flags_waste: none
+			product_flags_waste: none
+			ratio_waste: 0.000
+			ratio_waste_extra: 0.000
+			
+			yield: 0.470
+			yield_extra: 0.540
+			
+			h_sound: missing
+			sound_volume: 0.500
+			sound_pitch: 1.000
+			
+			chance: 1.000
+			type: undefined
+			flags: spawn_only_converted, spawn_use_new_formula, spawn_discard_unconverted
+			merge_radius_mult: 1.000
+			velocity_mult: 0.500
+			damage_mult: 1.000
+		}
+		blunt:
+		{
+			h_material: cement
+			spawn_flags: merge, pickup
+			product_flags: residue, byproduct
+			ratio: 0.387
+			ratio_extra: 0.641
+			
+			h_material_waste: "null"
+			spawn_flags_waste: none
+			product_flags_waste: none
+			ratio_waste: 0.000
+			ratio_waste_extra: 0.000
+			
+			yield: 0.470
+			yield_extra: 0.540
+			
+			h_sound: missing
+			sound_volume: 0.500
+			sound_pitch: 1.000
+			
+			chance: 1.000
+			type: undefined
+			flags: spawn_only_converted, spawn_use_new_formula, spawn_discard_unconverted
+			merge_radius_mult: 1.000
+			velocity_mult: 0.500
+			damage_mult: 1.000
+		}
+		crush:
+		{
+			h_material: cement
+			spawn_flags: merge, pickup
+			product_flags: residue, byproduct
+			ratio: 0.387
+			ratio_extra: 0.641
+			
+			h_material_waste: "null"
+			spawn_flags_waste: none
+			product_flags_waste: none
+			ratio_waste: 0.000
+			ratio_waste_extra: 0.000
+			
+			yield: 0.470
+			yield_extra: 0.540
+			
+			h_sound: missing
+			sound_volume: 0.500
+			sound_pitch: 1.000
+			
+			chance: 1.000
+			type: undefined
+			flags: spawn_only_converted, spawn_use_new_formula, spawn_discard_unconverted
+			merge_radius_mult: 1.000
+			velocity_mult: 0.500
+			damage_mult: 1.000
+		}
+	}
 	
 	related:
 	{

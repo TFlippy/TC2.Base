@@ -12,6 +12,7 @@ body:
 		material: powder
 		layer: entity, solid, resource, ignore_melee, ignore_bullet, powder
 		mask: world
+		exclude: fire
 	}
 }
 
