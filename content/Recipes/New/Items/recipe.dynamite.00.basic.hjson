@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.5"
+	$version: "0.1.63.7"
 	name: "Dynamite"
 	tips: []
 	
@@ -39,7 +39,7 @@
 						{
 							type: resource
 							material: sawdust
-							amount: 3.864737
+							amount: 2.812105
 							snapping: 0.100
 							loss: 0.012
 							group: 0
@@ -59,7 +59,7 @@
 						{
 							type: resource
 							material: paper
-							amount: 2.653846
+							amount: 0.499297
 							snapping: 0.500
 							group: 1
 							flags: prerequisite

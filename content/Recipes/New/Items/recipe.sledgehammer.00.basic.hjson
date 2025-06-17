@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.4"
+	$version: "0.1.63.7"
 	name: "Sledgehammer"
 	tips: []
 	
@@ -40,11 +40,12 @@
 						{
 							type: work
 							work: drilling
-							amount: 800.000
-							difficulty: 11
+							amount: 450.000
+							amount_min: 300.000
+							difficulty: 10
 							snapping: 40.000
-							falloff: 0.952
-							ratio: 0.573
+							falloff: 0.921
+							ratio: 0.765
 							group: 0
 							flags: conditional
 						}
@@ -68,12 +69,12 @@
 			discard_damage_type: axe
 			
 			ratio: 0.082569
-			mass_base: 0.900
+			mass_base: 0.500
 			
 			options:
 			[
 				{
-					name: "Hand-Carved"
+					name: "Rod"
 					
 					type: undefined
 					flags: none
@@ -82,29 +83,36 @@
 					[
 						{
 							type: resource
-							material: wood
-							amount: 0.459162
+							material: wood.rod
+							amount: 1.000
 							snapping: 1.000
-							loss: 0.075
+							loss: 0.078
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: work
-							work: woodcarving
-							amount: 220.000
-							difficulty: 4
+							work: sanding
+							amount: 160.000
+							amount_min: 60.000
+							difficulty: 5
 							snapping: 5.000
-							falloff: 0.974
+							falloff: 0.824
+							ratio: 1.000
 							group: 0
-							flags: conditional
+							flags: stepped, conditional
 						}
 					]
 					
 					filter_tools:
 					{
-						require: file, knife
-						include: hand_drill, screwdriver, pliers, file, chisel, knife, sandpaper
+						require: saw
+						include: ruler, file, knife
+					}
+					filter_infrastructure:
+					{
+						require: surface
+						include: workbench
 					}
 				}
 			]
@@ -144,12 +152,13 @@
 						{
 							type: work
 							work: gluing
-							amount: 120.000
-							difficulty: 2
+							amount: 65.000
+							amount_min: 70.000
+							difficulty: 3
 							snapping: 5.000
-							falloff: 0.980
+							falloff: 0.812
 							group: 0
-							flags: conditional
+							flags: stepped, conditional
 						}
 					]
 					
@@ -178,12 +187,13 @@
 						{
 							type: work
 							work: hammering
-							amount: 450.000
-							difficulty: 6
+							amount: 100.000
+							amount_min: 150.000
+							difficulty: 11
 							snapping: 20.000
-							falloff: 0.955
+							falloff: 0.912
 							group: 0
-							flags: conditional
+							flags: stepped, conditional
 						}
 					]
 					
