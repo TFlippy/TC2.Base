@@ -1,40 +1,40 @@
 ﻿{
 	$version: "0.1.63.5"
-	name: "Mud Bricks"
+	name: "Chalcopyrite Bricks"
 	desc:
 		'''
-		Mud bricks made by the best of mediocre mudders.
+		
 		'''
 	
-	material_type: brick
+	material_type: brick_metallic
 	tile_flags: non_empty
-	flags: artificial, masonry, construction
+	flags: artificial, metal, masonry, construction
 	
-	max_health: 9500.000
-	smoothing: 0.125
-	stability: 0.500
+	max_health: 28500.000
+	smoothing: 0.133
+	stability: 0.820
 	strength_tensile: 0.000
 	strength_compressive: 0.000
 	
-	mass: 5.000
-	friction: 0.900
-	elasticity: 0.450
+	mass: 1.400
+	friction: 0.820
+	elasticity: 0.600
 	collision_layer: none
 	collision_mask: none
 	
-	texture: terrain.brick.mud
-	pattern: pattern.brick.mud
+	texture: terrain.brick.chalcopyrite
+	pattern: pattern.brick.slag
 	texture_scale: 1.500
 	texture_overshoot: -0.300
 	texture_offset: 0.000
 	
-	color_preview: "0x00000000"
+	color_preview: "0xff686934"
 	color_fill: "0xff140e08"
 	
 	resources:
 	[
 		{
-			material: brick.mud
+			material: chalcopyrite
 			quantity: 0.100
 		}
 		null
@@ -43,11 +43,11 @@
 	mappings:
 	[
 		{
-			color: "0xff6f5f53"
+			color: "0xff686934"
 			tile_flags: solid, non_empty, become_background_on_break
 		}
 		{
-			color: "0xff2f251d"
+			color: "0xff52472b"
 			tile_flags: non_empty
 		}
 	]
