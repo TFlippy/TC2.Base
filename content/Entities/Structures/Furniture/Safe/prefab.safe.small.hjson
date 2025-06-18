@@ -69,7 +69,7 @@ transform:
 
 shipment:
 {
-	flags: keep_items, allow_withdraw, allow_deposit, locked
+	flags: keep_items, allow_withdraw, allow_deposit, locked, faction
 }
 
 loot.container:

@@ -157,7 +157,7 @@ armory:
 
 shipment:
 {
-	flags: keep_items, no_gui, allow_deposit, allow_withdraw
+	flags: keep_items, no_gui, allow_deposit, allow_withdraw, faction
 }
 
 dormitory:

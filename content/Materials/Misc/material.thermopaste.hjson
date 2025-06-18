@@ -1,0 +1,93 @@
+﻿{
+	$version: "0.1.63.8"
+	name: "Thermopaste"
+	name_short: "Thermopaste"
+	name_dumb: "Putty"
+	description:
+		'''
+		TODO: Desc
+		'''
+	
+	tips: []
+	
+	icon:
+	{
+		texture: resource.thermopaste
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	type: tar
+	flags: soft, malleable, sticky, granular, toxic, raw, flammable, smelly
+	display_flags: none
+	hints: materials, dangerous, advanced, destructive, chemical, construction, military, industrial, unstable
+	
+	mass_per_unit: 0.957
+	
+	quantity_max: 250.000
+	spawn_quantity_threshold: 0.500
+	snapping: 1.000
+	snapping_pickup: 25.000
+	
+	form_type: raw
+	prefab: resource.thermopaste
+	h_substance: "null"
+	
+	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
+	
+	centroid_default: [0.0625, 0.375]
+	colliders:
+	[
+		{
+			offset: [0.000, 0.700]
+			centroid: [0.000, 0.700]
+			radius: 0.260
+			values:
+			[
+				[-0.400, 0.000]
+				[0.400, 0.000]
+				[0.000, 0.000]
+				[0.000, 0.000]
+			]
+		}
+		{
+			offset: [0.000, 0.700]
+			centroid: [0.000, 0.700]
+			radius: 0.260
+			values:
+			[
+				[-0.400, 0.000]
+				[0.400, 0.000]
+				[0.000, 0.000]
+				[0.000, 0.000]
+			]
+		}
+		{
+			offset: [0.000, 0.550]
+			centroid: [0.000, 0.550]
+			radius: 0.400
+			values:
+			[
+				[-0.500, 0.000]
+				[0.500, 0.000]
+				[0.000, 0.000]
+				[0.000, 0.000]
+			]
+		}
+		{
+			offset: [0.000, 0.550]
+			centroid: [-0.050, 0.550]
+			radius: 0.430
+			values:
+			[
+				[-0.600, 0.000]
+				[0.500, 0.000]
+				[0.000, 0.000]
+				[0.000, 0.000]
+			]
+		}
+	]
+}

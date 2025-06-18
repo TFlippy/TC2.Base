@@ -17,8 +17,8 @@ body:
 		
 		mass: 4.200
 		radius: 0.625
-		friction: 0.600
-		elasticity: 0.100
+		friction: 0.400
+		elasticity: 0.350
 		rigidity_dynamic: 0.750
 		
 		material: leather
@@ -70,13 +70,8 @@ transform:
 
 attachment:
 {
-	force_multiplier: 1.000
-	torque_multiplier: 1.000
-	offset: [0.375, 0.375]
-	// flags: mirror_rotate
-	flags: none
+	offset: [-0.250, 0.000]
 	tags: small, utility, harness
-
 	h_sound_attach: equip.00
 	h_sound_detach: equip.01
 }

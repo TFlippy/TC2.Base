@@ -27,7 +27,7 @@ body:
 		
 		material: metal_pole
 		
-		layer: entity, solid, ignore_bullet
+		layer: entity, solid, ignore_bullet, item, heatable, conductive, magnetic
 	}
 }
 
@@ -66,23 +66,34 @@ transform:
 
 }
 
+// holdable:
+// {
+// 	force_multiplier: 0.650
+// 	torque_multiplier: 0.600
+// 	stress_multiplier: 0.300
+// 	grip_min: 1.000
+// 	offset: [-1.000, -0.250]
+// 	radius: 3.000
+// 	hints: tools, long_range, small, construction, cheap, industrial
+// 	flags: storable
+// }
+
 holdable:
 {
+	offset: [-1.000, -0.250]
 	force_multiplier: 0.650
 	torque_multiplier: 0.600
 	stress_multiplier: 0.300
-	grip_min: 1.000
-	offset: [-1.000, -0.250]
 	radius: 3.000
-	hints: tools, long_range, small, construction, cheap, industrial
+	hints: tools, small, construction, cheap, industrial, slow, clumsy, long
 	flags: storable
 }
 
 aimable:
 {
-	deadzone: 1.000
-	min: -2.000
-	max: 2.000
+	deadzone: 0.400
+	min: -2.500
+	max: 0.300
 	offset: [1.000, 0.000]
 }
 
@@ -167,9 +178,8 @@ heat:
 		max_displacement: 0.000
 		displacement_force_modifier: 1.000
 		max_stress: 2.000
-		stress_threshold: 1.500
 		material_type: metal
-		flags: control_read, control_write, facing_reset_rot, facing_reset_pos
+		flags: no_aiming, no_wrap, allow_dragging, control_write, facing_reset_rot, facing_reset_pos
 	}
 
 	joint.pivot:
@@ -199,6 +209,6 @@ heat:
 	grabber:
 	{
 		offset: [1.000, -0.0625]
-		flags: can_attach
+		flags: can_attach, requires_holder
 	}
 }

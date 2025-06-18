@@ -16,10 +16,10 @@ body:
 		b: [4.000, 0.000]
 		mass: 280.000
 		radius: 0.500
-		friction: 0.350
-		elasticity: 0.400
+		friction: 0.570
+		elasticity: 0.440
 		material: metal_solid
-		layer: entity, solid, vehicle
+		layer: entity, solid, vehicle, conductive, heatable, magnetic, storage
 		mask: world, liquid, bulk
 		exclude: item, vehicle, attached
 		miss_chance: 0.413
@@ -122,10 +122,9 @@ storage:
 
 interactable:
 {
-	window_size: [200.000, 128.000]
-	window_offset: [0.000, 0.000]
-	window_size_misc: [96.000, 0.000]
 	flags: none
+	window_size: [200.000, 96.000]
+	window_size_misc: [144.000, 0.000]
 }
 
 vehicle:
@@ -236,7 +235,7 @@ heat:
 		flags: keyboard_write, mouse_write, loose
 		flags_editable: locked, keyboard_write, mouse_write, keyboard_read, mouse_read, loose
 
-		gui_size: [0.000, 128.000]
+		gui_size: [0.000, 96.000]
 
 		tags_filter:
 		{

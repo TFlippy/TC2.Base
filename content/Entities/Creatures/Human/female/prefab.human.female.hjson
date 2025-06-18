@@ -786,7 +786,7 @@ commandable:
 		offset_a: [-0.500, -0.250]
 		max_force: 15000.000
 		max_torque: 9000.000
-		flags: no_aiming, no_wrap, attachment, use_center_of_gravity, control_read, control_write, facing_reset_pos, force_facing, no_sync
+		flags: no_aiming, no_wrap, attachment, control_read, control_write, facing_reset_pos, force_facing, no_sync
 		material_type: leather
 		max_stress: 2.500
 		stress_threshold: 1.250
@@ -813,7 +813,7 @@ commandable:
 		name: "Back"
 		identifier: "back"
 
-		flags: use_center_of_gravity, keyboard_write, mouse_write
+		flags: keyboard_write, mouse_write
 		flags_editable: locked, disabled
 
 		gui_size: [192.000, 160.000]

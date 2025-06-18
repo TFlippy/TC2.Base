@@ -147,7 +147,7 @@ armory:
 
 shipment:
 {
-	flags: keep_items, allow_withdraw, allow_deposit, no_gui
+	flags: keep_items, allow_withdraw, allow_deposit, no_gui, faction
 	type: armory
 	layout: large
 }
