@@ -34,6 +34,7 @@ namespace TC2.Base.Components
 			No_Material_Filter = 1 << 3,
 			Invert_RMB_Material_Filter = 1 << 4,
 			Use_Aim_Direction = 1 << 5,
+			Friendly_Fire = 1 << 6,
 		}
 
 		[IEvent.Data]
@@ -749,7 +750,7 @@ namespace TC2.Base.Components
 						if (result.entity == ent_parent || result.entity_parent == ent_parent || result.entity == ent_melee) continue;
 						if (result.mask.HasNone(Physics.Layer.Solid))
 						{
-							if (h_faction && result.GetFactionHandle() == h_faction) continue;
+							if (h_faction && melee.flags.HasNone(Melee.Flags.Friendly_Fire) && result.GetFactionHandle() == h_faction) continue;
 							if (result.layer.HasNone(Physics.Layer.World | Physics.Layer.Shield) && (has_material_filter && !Melee.CanHitMaterial(melee.damage_type, result.material_type))) continue;
 						}
 
@@ -784,7 +785,7 @@ namespace TC2.Base.Components
 							if (result.entity == ent_parent || result.entity_parent == ent_parent || result.entity == ent_melee) continue;
 							if (result.mask.HasNone(Physics.Layer.Solid))
 							{
-								if (h_faction && result.GetFactionHandle() == h_faction) continue;
+								if (h_faction && melee.flags.HasNone(Melee.Flags.Friendly_Fire) && result.GetFactionHandle() == h_faction) continue;
 								if (result.layer.HasNone(Physics.Layer.World | Physics.Layer.Shield) && (has_material_filter && (result.layer.HasAny(Physics.Layer.Ignore_Melee) || !Melee.CanHitMaterial(melee.damage_type, result.material_type)))) continue;
 							}
 
@@ -1017,8 +1018,9 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region), HasRelation(Source.Modifier.Owned, Relation.Type.Stored, false)]
-		public static void OnSpriteUpdate(ISystem.Info info, Entity entity, [Source.Owned] in Melee.Data melee, [Source.Owned] in Melee.State melee_state, [Source.Owned] ref Animated.Renderer.Data renderer)
+		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region), HasRelation(Source.Modifier.Owned, Relation.Type.Stored, false), HasRelation(Source.Modifier.Owned, Relation.Type.Child, true)]
+		public static void OnSpriteUpdate(ISystem.Info info, Entity entity, 
+		[Source.Owned] in Melee.Data melee, [Source.Owned] in Melee.State melee_state, [Source.Owned] ref Animated.Renderer.Data renderer)
 		{
 			var elapsed = info.WorldTime - melee_state.last_hit;
 			var max = melee_state.next_hit - melee_state.last_hit;
@@ -1109,16 +1111,16 @@ namespace TC2.Base.Components
 
 		[ISystem.Add(ISystem.Mode.Single, ISystem.Scope.Region)]
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.50f)]
-		public static void UpdateHoldable([Source.Owned] in Melee.Data melee, [Source.Owned] ref Holdable.Data holdable, [Source.Owned, Optional] in Aimable.Data aimable)
+		public static void UpdateHoldable([Source.Owned] in Melee.Data melee, [Source.Owned] ref Holdable.Data holdable/*, [Source.Owned, Optional] in Aimable.Data aimable*/)
 		{
 			holdable.hints.AddFlag(NPC.ItemHints.Melee | NPC.ItemHints.Weapon | NPC.ItemHints.Short_Range | NPC.ItemHints.Usable);
 			//holdable.grip_min = aimable.deadzone;
 		}
 
 		[ISystem.Update.F(ISystem.Mode.Single, ISystem.Scope.Region, order: 100), HasTag("dead", false, Source.Modifier.Owned)]
-		public static void UpdateHead(ISystem.Info info, ref Region.Data region, Entity entity, ref XorRandom random,
+		public static void UpdateHead(/*ISystem.Info info, ref Region.Data region, Entity entity, ref XorRandom random,*/
 		[Source.Owned] in Head.Data head, [Source.Owned] in Melee.Data melee, [Source.Owned] ref Melee.State melee_state,
-		[Source.Owned] ref Body.Data body, [Source.Owned] in Control.Data control, [Source.Owned] in Transform.Data transform)
+		[Source.Owned] ref Body.Data body, /*[Source.Owned] in Control.Data control, */[Source.Owned] in Transform.Data transform)
 		{
 			//var max = Maths.Min(0.20f, melee.cooldown * 0.50f);
 

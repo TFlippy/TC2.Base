@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.4"
+	$version: "0.1.63.8"
 	name: "Explosive Keg"
 	desc:
 		'''
@@ -44,7 +44,7 @@
 	]
 	
 	type: workshop
-	flags: blueprintable, debug, wip
+	flags: blueprintable, debug, disabled, wip
 	tags: workbench, manual, crude, weapon, munitions, woodworking, assembling, carpentry, explosive, dangerous
 	infrastructure: workbench
 	infrastructure_exclude: none
