@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.63.8"
 	name: "Munitions Workshop"
 	tips: []
 	
@@ -30,16 +30,16 @@
 						{
 							type: resource
 							material: gravel
-							amount: 1060.000
-							loss: 0.024
+							amount: 760.000
+							loss: 0.039
 							group: 0
 							flags: compact, primary
 						}
 						{
 							type: work
 							work: filling.gravel
-							amount: 1175.000
-							difficulty: 9
+							amount: 950.000
+							difficulty: 6
 							group: 0
 							flags: conditional
 						}
@@ -56,7 +56,7 @@
 						{
 							type: resource
 							material: soil
-							amount: 920.000
+							amount: 840.000
 							loss: 0.067
 							group: 0
 							flags: compact, primary
@@ -64,8 +64,8 @@
 						{
 							type: work
 							work: filling.soil
-							amount: 825.000
-							difficulty: 5
+							amount: 725.000
+							difficulty: 4
 							group: 0
 							flags: conditional
 						}
@@ -73,7 +73,7 @@
 							type: work
 							work: compaction.soil
 							amount: 390.000
-							difficulty: 3
+							difficulty: 7
 							group: 1
 							flags: conditional
 						}
@@ -90,34 +90,34 @@
 						{
 							type: resource
 							material: scrap.rubble
-							amount: 660.000
+							amount: 540.000
 							loss: 0.020
+							group: 0
+							flags: compact, primary
+						}
+						{
+							type: resource
+							material: soil
+							amount: 180.000
+							loss: 0.059
 							group: 0
 							flags: compact, primary
 						}
 						{
 							type: work
 							work: filling.rubble
-							amount: 800.000
+							amount: 675.000
 							difficulty: 12
 							group: 0
-							flags: conditional
-						}
-						{
-							type: resource
-							material: soil
-							amount: 200.000
-							loss: 0.059
-							group: 1
-							flags: compact, primary
+							flags: simultaneous, conditional
 						}
 						{
 							type: work
 							work: filling.soil
 							amount: 160.000
 							difficulty: 4
-							group: 1
-							flags: conditional
+							group: 0
+							flags: simultaneous, conditional
 						}
 					]
 				}
@@ -527,7 +527,7 @@
 				type: resource
 				material: brick.concrete
 				amount: 60.000
-				loss: 0.024
+				loss: 0.027
 				group: 0
 				flags: compact, no_scaling, prerequisite
 			}

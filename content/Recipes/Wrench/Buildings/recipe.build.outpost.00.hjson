@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.1"
+	$version: "0.1.63.8"
 	name: "Outpost"
 	desc:
 		'''
@@ -39,24 +39,20 @@
 						{
 							type: resource
 							material: gravel
-							amount: 440.000
-							loss: 0.024
+							amount: 320.000
+							loss: 0.039
 							group: 0
 							flags: compact, primary
 						}
 						{
 							type: work
 							work: filling.gravel
-							amount: 475.000
-							difficulty: 9
-							snapping: 25.000
+							amount: 400.000
+							difficulty: 6
 							group: 0
 							flags: conditional
 						}
 					]
-					
-					quality: 1.000
-					precision: 1.000
 				}
 				{
 					name: "Compacted Soil"
@@ -69,7 +65,7 @@
 						{
 							type: resource
 							material: soil
-							amount: 380.000
+							amount: 360.000
 							loss: 0.067
 							group: 0
 							flags: compact, primary
@@ -77,9 +73,8 @@
 						{
 							type: work
 							work: filling.soil
-							amount: 325.000
-							difficulty: 5
-							snapping: 25.000
+							amount: 300.000
+							difficulty: 4
 							group: 0
 							flags: conditional
 						}
@@ -87,15 +82,11 @@
 							type: work
 							work: compaction.soil
 							amount: 150.000
-							difficulty: 3
-							snapping: 25.000
+							difficulty: 7
 							group: 1
 							flags: conditional
 						}
 					]
-					
-					quality: 1.000
-					precision: 1.000
 				}
 				{
 					name: "Rubble"
@@ -108,7 +99,7 @@
 						{
 							type: resource
 							material: scrap.rubble
-							amount: 280.000
+							amount: 240.000
 							loss: 0.020
 							group: 0
 							flags: compact, primary
@@ -124,10 +115,9 @@
 						{
 							type: work
 							work: filling.rubble
-							amount: 325.000
+							amount: 275.000
 							difficulty: 12
-							snapping: 25.000
-							group: 1
+							group: 0
 							flags: simultaneous, conditional
 						}
 						{
@@ -135,14 +125,10 @@
 							work: filling.soil
 							amount: 60.000
 							difficulty: 4
-							snapping: 25.000
-							group: 1
+							group: 0
 							flags: simultaneous, conditional
 						}
 					]
-					
-					quality: 1.000
-					precision: 1.000
 				}
 				{
 					name: "Concrete Composite"
@@ -208,9 +194,6 @@
 							flags: conditional
 						}
 					]
-					
-					quality: 1.000
-					precision: 1.000
 				}
 			]
 		}
@@ -270,9 +253,6 @@
 							flags: conditional
 						}
 					]
-					
-					quality: 1.000
-					precision: 1.000
 				}
 			]
 		}
@@ -360,15 +340,17 @@
 				type: resource
 				material: wood
 				amount: 16.000
+				loss: 0.110
 				group: 0
-				flags: prerequisite
+				flags: compact, no_scaling, prerequisite
 			}
 			{
 				type: resource
 				material: brick.concrete
 				amount: 50.000
+				loss: 0.027
 				group: 0
-				flags: prerequisite
+				flags: compact, no_scaling, prerequisite
 			}
 		]
 	}
