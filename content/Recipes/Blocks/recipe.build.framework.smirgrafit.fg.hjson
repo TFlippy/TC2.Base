@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.63.8"
 	name: "Formwork (Smirgrafit)"
 	desc:
 		'''
@@ -29,9 +29,10 @@
 	]
 	
 	type: architecture
-	flags: none
+	flags: wip
 	tags: none
 	infrastructure: none
+	infrastructure_exclude: none
 	
 	icon:
 	{

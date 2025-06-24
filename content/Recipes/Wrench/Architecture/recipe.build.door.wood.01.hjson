@@ -1,10 +1,6 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.63.8"
 	name: "Giant Door (Wood)"
-	desc:
-		'''
-		A cheap wooden door to keep the intruders out.
-		'''
 	tips: []
 	
 	requirements:
@@ -29,9 +25,10 @@
 	]
 	
 	type: architecture
-	flags: disabled, wip
+	flags: wip
 	tags: construction
 	infrastructure: none
+	infrastructure_exclude: none
 	
 	icon:
 	{
@@ -39,10 +36,11 @@
 		mask: missing
 		size: [24, 40]
 	}
+	icon_offset: [13.000, 0.000]
 	
 	color_frame: "0xffaeb59a"
 	color_button: "0xff9dd80f"
-	rank: 143.000
+	rank: -4602.500
 	
 	dismantle_work: 15.000
 	dismantle_yield: 0.800
@@ -50,12 +48,18 @@
 	placement:
 	{
 		type: simple
-		flags: allow_mirror_x, allow_placement_over_buildings, terrain_is_support
+		flags: allow_mirror_x, allow_placement_over_buildings, require_terrain
 		
 		size: [1.000, 5.000]
-		offset: [0.000, -1.500]
+		offset: [0.000, -2.250]
 		
-		cooldown: 0.500
+		rect_foundation: [-0.375, 0.250, 0.375, 0.750]
+		tileflags_foundation: solid
+		
+		rect_clearance: [-0.375, -4.750, 0.375, 0.250]
+		tileflags_clearance: solid
+		
+		cooldown: 0.750
 		min_support: 0.500
 		min_clearance: 0.750
 		min_claim: 1.000
@@ -66,7 +70,7 @@
 		
 		physics_filter:
 		{
-			include: door
+			include: no_overlapped_placement
 		}
 		
 		snapping_filter:
@@ -74,7 +78,8 @@
 			include: world
 			exclude: construction, dynamic
 		}
-		snapping_flags: snap_to_surface, use_collider_radius
+		snapping_flags: snap_to_surface, align_to_surface, use_collider_radius, use_raw_collider, no_end_snap
+		snapping_radius: 0.500
 		
 		mappings_replace:
 		{

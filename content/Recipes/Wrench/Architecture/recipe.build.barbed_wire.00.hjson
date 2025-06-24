@@ -1,6 +1,6 @@
 ﻿{
-	$version: "0.1.62.5"
-	name: "Barbed Wire [WIP]"
+	$version: "0.1.63.8"
+	name: "Barbed Wire"
 	desc:
 		'''
 		Better not walk through it.
@@ -40,9 +40,10 @@
 	]
 	
 	type: architecture
-	flags: none
+	flags: wip
 	tags: construction
 	infrastructure: none
+	infrastructure_exclude: none
 	
 	icon:
 	{
@@ -51,7 +52,7 @@
 	
 	color_frame: "0xffa11209"
 	color_button: "0xff9dd80f"
-	rank: -1676.000
+	rank: -1624.000
 	
 	dismantle_work: 50.000
 	dismantle_yield: 0.200
