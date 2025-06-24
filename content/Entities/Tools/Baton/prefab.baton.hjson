@@ -30,33 +30,39 @@ body:
 
 health:
 {
-	max: 800.000
+	max: 4200.000
 }
 
 melee:
 {
-	sound_swing: "tool_swing_00"
-	damage_base: 20.000
+	damage_base: 17.000
 	damage_bonus: 55.000
+	
 	primary_damage_multiplier: 0.200
+	secondary_damage_multiplier: 0.800
+	pain_multiplier: 2.300
+	stun_multiplier: 3.500
+	
+	disarm_chance: 0.220
 	cooldown: 0.300
 	max_distance: 1.125
-	thickness: 0.500
-	hit_offset: [0.500, 0.000]
 	aoe: 1.000
-	knockback: 100.000
-	yield: 0.740
+	thickness: 0.750
+	knockback: 900.000
+	knockback_speed: 5.500
+	yield: 0.940
 	penetration_falloff: 0.700
-	pain_multiplier: 2.000
-	stun_multiplier: 3.000
-	disarm_chance: 0.220
 	penetration: 3
+	
+	hit_offset: [0.500, 0.000]
+	
 	damage_type: club
-	attack_type: swing
 	category: blunt
-	hit_require: destructible, organic
-	hit_mask: destructible, organic
-	hit_exclude: world, static, ignore_melee, background, tree, climbable
+	flags: friendly_fire
+	
+	hit_mask: world, creature, organic
+	hit_exclude: bounds, background, tree, climbable, ignore_melee
+	hit_ignore: resource
 }
 
 melee.state:

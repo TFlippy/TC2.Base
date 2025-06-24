@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.5"
+	$version: "0.1.63.8"
 	name: "Filling (Gravel)"
 	name_short: "G.Filling"
 	desc:
@@ -21,6 +21,7 @@
 	cooldown: 1.000
 	multiplier: 1.220
 	
+	amount_jitter: 0.562
 	color: "0xff719240"
 	
 	tools_required: none
