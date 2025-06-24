@@ -1,8 +1,7 @@
-$name: "Door (Wood)"
+$name: "Giant Door (Wood)"
 $desc:
 	'''
-	A standard wooden door.
-	Can be locked.
+	Standard giant heavy-duty wooden door for giants.
 	'''
 $tags: []
 
@@ -13,10 +12,11 @@ body:
 	
 	@shape.box:
 	{
-		size: [0.750, 5.000]
+		size: [0.500, 4.750]
 		offset: [0.000, 0.000]
-		mass: 90.000
-		friction: 0.750
+		mass: 85.000
+		radius: 0.125
+		friction: 0.650
 		elasticity: 0.600
 		material: wood
 		layer: entity, solid, building, door, no_overlapped_placement, flammable
@@ -26,7 +26,7 @@ body:
 
 health:
 {
-	max: 9800.000
+	max: 11000.000
 }
 
 animated.renderer:
@@ -72,8 +72,8 @@ door:
 {
 	sound_open: "door_open"
 	sound_close: "door_close"
-	size_open: [2.500, 5.000]
-	size_closed: [0.750, 5.000]
+	size_open: [2.250, 4.750]
+	size_closed: [0.500, 4.750]
 	offset_open: [1.000, 0.000]
 	offset_closed: [0.000, 0.000]
 	direction: horizontal

@@ -15,10 +15,10 @@ body:
 		size: [0.250, 2.750]
 		offset: [0.000, 0.000]
 		
-		mass: 36.000
+		mass: 50.000
 		radius: 0.125
-		friction: 0.750
-		elasticity: 0.300
+		friction: 0.550
+		elasticity: 0.600
 		
 		material: metal_sheet
 		miss_chance: 0.000
@@ -31,7 +31,7 @@ body:
 
 health:
 {
-	max: 11000.000
+	max: 12000.000
 }
 
 armor:

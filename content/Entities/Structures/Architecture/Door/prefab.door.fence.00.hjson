@@ -19,7 +19,7 @@ body:
 		radius: 0.250
 		friction: 0.950
 		elasticity: 0.800
-		rigidity_dynamic: 0.770
+		rigidity_dynamic: 0.790
 		
 		material: wire
 		miss_chance: 0.973
@@ -31,7 +31,18 @@ body:
 
 health:
 {
-	max: 3500.000
+	max: 8000.000
+}
+
+armor:
+{
+	toughness: 250.000
+	protection: 0.950
+	coverage: 0.450
+	knockback_modifier: 1.000
+	pain_modifier: 0.000
+	material_type: metal_frame
+	flags: no_damage_type_conversion
 }
 
 animated.renderer:
