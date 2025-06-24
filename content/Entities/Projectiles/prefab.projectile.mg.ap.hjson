@@ -7,7 +7,7 @@ projectile:
 	terrain_damage_mult: 1.300
 	armor_pierce: 600.000
 	knockback_multiplier: 22.000
-	lifetime: 4.000
+	lifetime: 3.000
 	damage_type: bullet_mg
 	size: 0.010
 	ricochet_count: 1

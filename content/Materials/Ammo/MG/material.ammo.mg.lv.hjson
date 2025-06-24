@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.1"
+	$version: "0.1.63.8"
 	name: "MG-20.4mm/LV Ammo"
 	description:
 		'''
@@ -19,7 +19,6 @@
 	{
 		texture: ui_icons_gunsmith.mini
 		size: [16, 16]
-		frame: [0, 0]
 	}
 	
 	type: ammo
