@@ -4,7 +4,7 @@
 	name_short: "Cop. Scrap"
 	description:
 		'''
-		TODO: Desc
+		Pile containing both shiny and unshiny pieces of rejected copper.
 		'''
 	
 	tips: []
