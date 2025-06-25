@@ -143,12 +143,25 @@ workshop:
 
 personnel:
 {
+	characters_capacity: 2
 	flags: store_characters
 	slots:
 	[
-
+		{
+			role: foreman
+			flags: faction, can_craft, can_manage, can_use_inventory
+			tags: management, civil, industrial, logistics, paperwork
+			color: "0xffffa800"
+			multiplier: 1.250
+		}
+		{
+			role: blacksmith
+			flags: neutral, can_craft, can_use_inventory
+			tags: civil, industrial, production, dangerous, manual_labor, technical, operation
+			color: "0xffff8333"
+			multiplier: 1.000
+		}
 	]
-	characters_capacity: 2
 }
 
 crafter:

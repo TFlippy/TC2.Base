@@ -11,8 +11,15 @@
 	[
 		{
 			type: resource
+			material: steel.rod
+			amount: 0.024
+			group: 0
+			flags: prerequisite
+		}
+		{
+			type: resource
 			material: steel.frames
-			amount: 0.050
+			amount: 0.010
 			group: 0
 			flags: prerequisite
 		}
@@ -56,6 +63,7 @@
 		cooldown: 0.500
 		min_support: 0.040
 		min_claim: 1.000
+		max_range: 5.000
 		
 		length_max: 10.000
 		

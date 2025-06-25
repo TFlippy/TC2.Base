@@ -11,6 +11,7 @@ body:
 		friction: 0.950
 		elasticity: 0.080
 		material: flesh
+		miss_chance: 0.780
 		layer: entity, solid, resource, ignore_melee, ignore_bullet, flammable
 		mask: world
 	}

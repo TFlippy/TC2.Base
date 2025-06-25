@@ -52,7 +52,8 @@ namespace TC2.Base.Components
 			Open = 1 << 0,
 			Lockable = 1 << 1,
 			Locked = 1 << 2,
-			Bidirectional = 1 << 3
+			Bidirectional = 1 << 3,
+			Giant_Only = 1 << 4 // TODO: hack
 		}
 
 
@@ -93,13 +94,14 @@ namespace TC2.Base.Components
 
 #if SERVER
 		[ISystem.Event<Interactable.InteractEvent>(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void OnInteract(ISystem.Info info, Entity entity, ref XorRandom random, ref Region.Data region, [Source.Owned] ref Interactable.InteractEvent data, 
-		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Animated.Renderer.Data renderer, [Source.Owned] ref Door.Data door, [Source.Owned] ref Interactable.Data interactable, 
+		public static void OnInteract(ISystem.Info info, Entity entity, ref XorRandom random, ref Region.Data region, [Source.Owned] ref Interactable.InteractEvent ev, 
+		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Animated.Renderer.Data renderer, 
+		[Source.Owned] ref Door.Data door, [Source.Owned] ref Interactable.Data interactable, 
 		[Source.Owned] ref Body.Data body, [Source.Owned, Pair.Component<Body.Data>] ref Shape.Box shape, [Source.Owned, Optional] in Faction.Data faction)
 		{
-			var is_same_faction = faction.id == 0 || (data.faction_id == faction.id);
+			var is_same_faction = faction.id == 0 | (ev.faction_id == faction.id);
 
-			if (door.flags.HasAny(Door.Flags.Lockable) && data.control.keyboard.GetKey(Keyboard.Key.LeftShift))
+			if (door.flags.HasAny(Door.Flags.Lockable) && ev.control.keyboard.GetKey(Keyboard.Key.LeftShift))
 			{
 				if (door.flags.HasNone(Door.Flags.Open) && is_same_faction)
 				{
@@ -134,10 +136,14 @@ namespace TC2.Base.Components
 					if (door.flags.HasAny(Door.Flags.Open))
 					{
 						var mask = shape.GetCombinedMask(); 
-						mask.SetFlag(Physics.Layer.Solid, true);
+						mask.AddFlag(Physics.Layer.Solid);
 
 						Span<ShapeOverlapResult> results = stackalloc ShapeOverlapResult[8];
-						if (region.TryOverlapShapeAll(ref shape, ref results, mask: mask, require: Physics.Layer.Dynamic, exclude: Physics.Layer.World | Physics.Layer.Building | Physics.Layer.Door | Physics.Layer.Gas | Physics.Layer.Essence | Physics.Layer.Fire | Physics.Layer.Water | Physics.Layer.Static))
+						if (region.TryOverlapShapeAll(shape: ref shape,
+						hits: ref results,
+						mask: mask,
+						require: Physics.Layer.Dynamic,
+						exclude: Physics.Layer.World | Physics.Layer.Building | Physics.Layer.Door | Physics.Layer.Gas | Physics.Layer.Essence | Physics.Layer.Fire | Physics.Layer.Water | Physics.Layer.Static))
 						{
 							WorldNotification.Push(ref region, "* DOOR STUCK! *", 0xffff0000, transform.position);
 							Sound.Play(ref region, door.sound_stuck, transform.position, volume: 1.00f, pitch: random.NextFloatRange(0.95f, 1.05f), priority: 0.40f);
@@ -146,7 +152,7 @@ namespace TC2.Base.Components
 							foreach (ref var result in results)
 							{
 								ref var hit_body = ref result.GetBody();
-								if (!hit_body.IsNull())
+								if (hit_body.IsNotNull())
 								{
 									var dir = door.offset_open.GetNormalized();
 									dir.Y = 1.000f;
@@ -156,6 +162,16 @@ namespace TC2.Base.Components
 									hit_body.AddForceWorld(force, transform.position);
 								}
 							}
+
+							stuck = true;
+						}
+					}
+					else 
+					{
+						if (door.flags.HasAny(Door.Flags.Giant_Only) & ev.self_hints.HasNone(NPC.SelfHints.Is_Giant))
+						{
+							WorldNotification.Push(ref region, "* TOO SMALL! *", 0xffff0000, transform.position);
+							Sound.Play(ref region, door.sound_stuck, transform.position, volume: 1.00f, pitch: random.NextFloatExtra(1.25f, 0.35f), priority: 0.32f);
 
 							stuck = true;
 						}
@@ -170,7 +186,7 @@ namespace TC2.Base.Components
 							shape.mask.RemoveFlag(Physics.Layer.Solid);
 							shape.layer.RemoveFlag(Physics.Layer.Solid);
 
-							var delta = (data.control.mouse.position - transform.position);
+							var delta = (ev.control.mouse.position - transform.position);
 							var sign = 1.00f;
 
 							if (door.flags.HasAny(Door.Flags.Bidirectional))

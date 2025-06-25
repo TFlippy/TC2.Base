@@ -12,6 +12,13 @@
 			group: 0
 			flags: prerequisite
 		}
+		{
+			type: resource
+			material: machine_parts
+			amount: 2.000
+			group: 0
+			flags: prerequisite
+		}
 	]
 	
 	products:

@@ -54,12 +54,12 @@ faction:
 
 claimable:
 {
-	flags: no_menu, enable_wololo
+	flags: no_menu
 }
 
 interactable:
 {
-	flags: once
+	flags: no_window, once
 	priority: 4.000
 }
 

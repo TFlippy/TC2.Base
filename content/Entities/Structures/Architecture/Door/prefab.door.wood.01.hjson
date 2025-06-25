@@ -26,7 +26,7 @@ body:
 
 health:
 {
-	max: 11000.000
+	max: 68000.000
 }
 
 animated.renderer:
@@ -54,13 +54,13 @@ faction:
 
 claimable:
 {
-
+	flags: no_menu
 }
 
 interactable:
 {
-	flags: use_left_click, once
-	priority: 1.500
+	flags: no_window, once
+	priority: 4.000
 }
 
 transform:
@@ -70,18 +70,19 @@ transform:
 
 door:
 {
-	sound_open: "door_open"
-	sound_close: "door_close"
+	sound_open: hatch.open.00
+	sound_close: hatch.open.00
+	
 	size_open: [2.250, 4.750]
 	size_closed: [0.500, 4.750]
 	offset_open: [1.000, 0.000]
 	offset_closed: [0.000, 0.000]
 	direction: horizontal
-	flags: lockable
+	flags: lockable, giant_only
 
 	frame_closed: 0
 	frame_open: 4
 
-	fps_close: 8.000
-	fps_open: 6.000
+	fps_close: 4.000
+	fps_open: 3.000
 }

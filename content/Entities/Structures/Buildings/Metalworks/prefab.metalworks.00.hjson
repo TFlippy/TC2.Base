@@ -150,13 +150,13 @@ personnel:
 			role: engineer
 			tags: management, civil, industrial, logistics, production, paperwork, sedentary, technical
 			color: "0xffff8333"
-			multiplier: 1.000
+			multiplier: 1.750
 		}
 		{
 			role: mechanic
 			tags: civil, industrial, production, dangerous, manual_labor, technical, maintenance, operation
 			color: "0xffff8333"
-			multiplier: 2.000
+			multiplier: 1.500
 		}
 		{
 			role: technician

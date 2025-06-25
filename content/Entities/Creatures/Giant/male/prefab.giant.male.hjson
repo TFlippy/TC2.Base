@@ -163,6 +163,8 @@ npc:
 	wander_interval: 15.000
 	wander_interval_extra: 20.000
 	wander_radius: 32.000
+
+	self_hints: is_giant, is_loud
 }
 
 ai:

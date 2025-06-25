@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.5"
+	$version: "0.1.63.8"
 	name: "Formwork (Empty)"
 	desc:
 		'''
@@ -10,15 +10,15 @@
 	tile_flags: non_empty
 	flags: artificial, metal, construction
 	
-	max_health: 27500.000
+	max_health: 35000.000
 	smoothing: 0.200
-	stability: 8.000
-	strength_tensile: 21.000
-	strength_compressive: 11.000
+	stability: 9.000
+	strength_tensile: 30.000
+	strength_compressive: 14.000
 	
 	mass: 0.080
 	friction: 0.920
-	elasticity: 0.570
+	elasticity: 0.670
 	collision_layer: none
 	collision_mask: none
 	
@@ -34,17 +34,20 @@
 	resources:
 	[
 		{
-			material: steel.frames
-			quantity: 0.025
+			material: steel.rod
+			quantity: 0.012
 		}
-		null
+		{
+			material: steel.frames
+			quantity: 0.005
+		}
 	]
 	
 	mappings:
 	[
 		{
 			color: "0xff808379"
-			tile_flags: solid, non_empty
+			tile_flags: solid, non_empty, become_background_on_break
 		}
 		{
 			color: "0xff50514e"

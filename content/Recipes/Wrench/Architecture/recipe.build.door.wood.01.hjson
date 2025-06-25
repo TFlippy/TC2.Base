@@ -8,7 +8,21 @@
 		{
 			type: resource
 			material: wood
-			amount: 70.000
+			amount: 40.000
+			group: 0
+			flags: prerequisite
+		}
+		{
+			type: resource
+			material: steel.frames
+			amount: 8.000
+			group: 0
+			flags: prerequisite
+		}
+		{
+			type: resource
+			material: machine_parts
+			amount: 4.000
 			group: 0
 			flags: prerequisite
 		}

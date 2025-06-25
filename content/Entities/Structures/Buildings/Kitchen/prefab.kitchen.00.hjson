@@ -172,7 +172,18 @@ personnel:
 	flags: store_characters
 	slots:
 	[
-
+		{
+			role: chef
+			tags: management, civil, logistics, production, manual_labor, paperwork, operation
+			color: "0xffe3cb93"
+			multiplier: 2.000
+		}
+		{
+			role: cook
+			tags: civil, production, manual_labor, maintenance, operation
+			color: "0xffe3cb93"
+			multiplier: 1.500
+		}
 	]
 	characters_capacity: 2
 }

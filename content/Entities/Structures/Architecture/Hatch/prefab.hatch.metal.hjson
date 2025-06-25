@@ -75,8 +75,8 @@ claimable:
 
 interactable:
 {
-	flags: once
-	priority: 1.200
+	flags: no_window, once
+	priority: 2.200
 }
 
 transform:
