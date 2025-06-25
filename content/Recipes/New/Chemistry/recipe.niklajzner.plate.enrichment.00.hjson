@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.63.8"
 	name: "Niklajzner Sheet"
 	desc:
 		'''
@@ -10,7 +10,7 @@
 	stages:
 	[
 		{
-			name: "Shape"
+			name: "Base Formula"
 			
 			type: feedstock
 			flags: important
@@ -28,6 +28,7 @@
 					
 					type: undefined
 					flags: none
+					discard_damage_type_override: sledgehammer
 					
 					suffix: "s"
 					
@@ -49,7 +50,9 @@
 						{
 							type: resource
 							material: steel.plate
-							amount: 1.000
+							amount: 0.973
+							amount_extra: 0.027
+							snapping: 0.100
 							group: 0
 							flags: primary, compact, use_temperature
 						}
@@ -147,31 +150,31 @@
 						{
 							type: resource
 							material: black_coal
-							amount: 0.904762
+							amount: 1.7048
 							snapping: 0.100
-							falloff: 0.877
+							falloff: 0.540
 							loss: 0.671
 							ratio: 0.216
 							group: 0
 						}
 						{
 							type: temperature
-							amount: 980.700
-							amount_min: 677.000
-							amount_max: 1000.240
-							falloff: 2.477
+							amount: 913.500
+							amount_min: 676.000
+							amount_max: 964.240
+							falloff: 2.199
 							group: 0
-							flags: no_scaling, always_evaluate
+							flags: no_scaling, always_evaluate, prerequisite
 						}
 						{
 							type: work
 							work: carburization
-							amount: 200.000
-							amount_min: 250.000
+							amount: 100.000
+							amount_min: 400.000
 							difficulty: 6
 							snapping: 25.000
-							falloff: 0.743
-							ratio: 0.275
+							falloff: 0.730
+							ratio: 0.204
 							group: 0
 							flags: conditional
 						}
@@ -225,7 +228,7 @@
 	rank: -157.000
 	
 	min: 1
-	max: 20
+	max: 40
 	step: 1
 	
 	h_sound_begin: burner.bang.01

@@ -1,6 +1,5 @@
 ﻿{
-	$region_id: 0
-	$version: "0.1.63.2"
+	$version: "0.1.63.8"
 	name: "Niklajzner Brick"
 	desc:
 		'''
@@ -11,7 +10,7 @@
 	stages:
 	[
 		{
-			name: "Shape"
+			name: "Base Formula"
 			
 			type: feedstock
 			flags: important
@@ -88,30 +87,30 @@
 						{
 							type: resource
 							material: black_coal
-							amount: 1.404762
+							amount: 3.119047
 							snapping: 0.100
-							falloff: 0.877
+							falloff: 0.900
 							loss: 0.671
 							ratio: 0.216
 							group: 0
 						}
 						{
 							type: temperature
-							amount: 980.700
+							amount: 961.600
 							amount_min: 677.000
-							amount_max: 1000.240
-							falloff: 2.000
+							amount_max: 1245.240
+							falloff: 1.553
 							group: 0
-							flags: no_scaling, always_evaluate
+							flags: no_scaling, always_evaluate, prerequisite
 						}
 						{
 							type: work
 							work: carburization
 							amount: 500.000
-							amount_min: 650.000
-							difficulty: 9
+							amount_min: 820.000
+							difficulty: 8
 							snapping: 25.000
-							falloff: 0.863
+							falloff: 0.624
 							ratio: 0.275
 							group: 0
 							flags: conditional
@@ -165,7 +164,7 @@
 	rank: -157.000
 	
 	min: 1
-	max: 5
+	max: 12
 	step: 1
 	
 	h_sound_begin: burner.bang.01

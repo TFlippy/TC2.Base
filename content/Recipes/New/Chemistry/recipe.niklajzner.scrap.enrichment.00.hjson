@@ -1,7 +1,6 @@
 ﻿{
-	$region_id: 0
-	$version: "0.1.63.2"
-	name: "Niklajzner Carburization"
+	$version: "0.1.63.8"
+	name: "Niklajzner Scrap"
 	desc:
 		'''
 		TODO: Desc
@@ -11,7 +10,7 @@
 	stages:
 	[
 		{
-			name: "Material"
+			name: "Base Formula"
 			
 			type: feedstock
 			flags: important
@@ -25,20 +24,22 @@
 			options:
 			[
 				{
-					name: "Sheets"
+					name: "Ferrous"
 					
 					type: undefined
 					flags: none
 					discard_damage_type_override: heat
 					
+					prefix: "Ferrous "
+					
 					requirements:
 					[
 						{
 							type: resource
-							material: niklajzner.plate
+							material: scrap.niklajzner
 							amount: 1.000
 							snapping: 0.100
-							loss: 0.114
+							loss: 0.118
 							ratio: 1.000
 							group: 0
 							flags: argument, primary
@@ -49,10 +50,19 @@
 					[
 						{
 							type: resource
-							material: steel.plate
-							amount: 1.000
+							material: scrap.ferrous
+							amount: 1.407962
+							amount_extra: 0.102383
 							group: 0
 							flags: primary, compact, use_temperature
+						}
+						{
+							type: resource
+							material: ferronickel.powder
+							amount: 0.241288
+							amount_extra: 0.075485
+							group: 0
+							flags: residue, byproduct, compact, use_temperature
 						}
 					]
 					
@@ -95,31 +105,31 @@
 						{
 							type: resource
 							material: black_coal
-							amount: 0.904762
+							amount: 1.276191
 							snapping: 0.100
-							falloff: 0.877
+							falloff: 0.633
 							loss: 0.671
 							ratio: 0.216
 							group: 0
 						}
 						{
 							type: temperature
-							amount: 980.700
-							amount_min: 677.000
-							amount_max: 1000.240
-							falloff: 2.477
+							amount: 889.300
+							amount_min: 674.000
+							amount_max: 1247.240
+							falloff: 0.779
 							group: 0
-							flags: no_scaling, always_evaluate
+							flags: no_scaling, always_evaluate, prerequisite
 						}
 						{
 							type: work
-							work: carburization
+							work: heating
 							amount: 200.000
-							amount_min: 250.000
-							difficulty: 6
+							amount_min: 350.000
+							difficulty: 5
 							snapping: 25.000
-							falloff: 0.743
-							ratio: 0.275
+							falloff: 0.564
+							ratio: 0.165
 							group: 0
 							flags: conditional
 						}
@@ -139,40 +149,41 @@
 	]
 	
 	type: workshop
-	flags: debug, production, wip
+	flags: production, wip
 	tags: simple, metallurgy, heating, processing
 	infrastructure: oven
 	infrastructure_exclude: none
 	
 	icon:
 	{
-		texture: resource.niklajzner.ingot
+		texture: resource.scrap.niklajzner
 		size: [16, 16]
-		frame: [5, 0]
+		frame: [3, 0]
 	}
-	icon_offset: [8.000, 1.000]
+	icon_offset: [8.000, 2.000]
 	
 	icon_extra:
 	{
-		texture: resource.steel.ingot
+		texture: resource.steel
 		size: [16, 16]
+		frame: [1, 0]
 	}
 	icon_extra_offset: [-16.000, -6.000]
 	
 	icon_c:
 	{
-		texture: resource.steel.plate
+		texture: resource.scrap.ferrous
 		size: [16, 16]
-		frame: [1, 0]
+		frame: [3, 0]
 	}
-	icon_c_offset: [-13.000, -11.000]
+	icon_c_offset: [-14.125, -10.000]
 	
 	color_frame: "0xff7d588a"
 	color_button: "0xff9dd80f"
 	rank: -157.000
 	
 	min: 1
-	max: 20
+	max: 40
 	step: 1
 	
 	h_sound_begin: burner.bang.01
