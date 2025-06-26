@@ -1,0 +1,94 @@
+﻿{
+	$version: "0.1.63.8"
+	name: "Prdex"
+	name_short: "PRD"
+	name_imperial: "Prdex"
+	name_dumb: "Dynamite"
+	description:
+		'''
+		TODO: Desc
+		'''
+	
+	tips: []
+	
+	icon:
+	{
+		texture: resource.prdex
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	type: clay
+	flags: soft, malleable, granular, explosive, toxic, chemical, manufactured, flammable, solid, primary
+	display_flags: none
+	hints: none
+	
+	purity: 0.875
+	mass_per_unit: 0.8666
+	
+	quantity_max: 500.000
+	spawn_quantity_threshold: 0.100
+	snapping: 1.000
+	snapping_pickup: 25.000
+	
+	form_type: chunk
+	prefab: resource.prdex
+	h_substance: "null"
+	
+	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
+	
+	colliders:
+	[
+		{
+			centroid: [0.000, 0.000]
+			radius: 0.1875
+			count: 4
+			values:
+			[
+				[-0.250, 0.500]
+				[0.250, 0.500]
+				[0.250, 0.750]
+				[-0.250, 0.750]
+			]
+		}
+		{
+			centroid: [0.000, 0.000]
+			radius: 0.250
+			count: 4
+			values:
+			[
+				[-0.500, 0.375]
+				[0.375, 0.375]
+				[0.375, 0.625]
+				[-0.500, 0.625]
+			]
+		}
+		{
+			centroid: [0.000, 0.000]
+			radius: 0.3125
+			count: 4
+			values:
+			[
+				[-0.500, 0.250]
+				[0.500, 0.250]
+				[0.500, 0.625]
+				[-0.500, 0.625]
+			]
+		}
+		{
+			centroid: [0.000, 0.000]
+			radius: 0.3125
+			count: 4
+			values:
+			[
+				[-0.625, 0.000]
+				[0.625, 0.000]
+				[0.625, 0.625]
+				[-0.625, 0.625]
+			]
+		}
+	]
+}
