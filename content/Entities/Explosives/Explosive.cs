@@ -11,7 +11,8 @@ namespace TC2.Base.Components
 			Primed = 1 << 0,
 			Any_Damage = 1 << 1,
 			Explode_When_Primed = 1 << 2,
-			No_Self_Damage = 1 << 3
+			No_Self_Damage = 1 << 3,
+			Repeatable = 1 << 4,
 		}
 
 		[IEvent.Data]
@@ -24,6 +25,7 @@ namespace TC2.Base.Components
 
 			}
 
+			public Explosive.Data explosive;
 
 			void IEvent<Crafting.ConfiguredRecipe>.Bind(ref Crafting.ConfiguredRecipe arg)
 			{
@@ -155,44 +157,11 @@ namespace TC2.Base.Components
 				else
 				{
 					if (explosive.detonate_damage_filter.Has(data.damage.damage_type)) explosive.flags |= Explosive.Flags.Primed;
-					//switch (data.damage.damage_type)
-					//{
-					//	case Damage.Type.Bullet_LC:
-					//	case Damage.Type.Bullet_HC:
-					//	case Damage.Type.Bullet_SG:
-					//	case Damage.Type.Bullet_MG:
-					//	case Damage.Type.Bullet_AC:
-					//	case Damage.Type.Bullet_KN:
-					//	case Damage.Type.Bullet_HW:
-					//	case Damage.Type.Bullet_Musket:
-					//	case Damage.Type.Rivet:
-					//	case Damage.Type.Club:
-					//	case Damage.Type.Crush:
-					//	case Damage.Type.Impact:
-					//	case Damage.Type.Motion_Impulse:
-					//	case Damage.Type.Axe:
-					//	case Damage.Type.Saw:
-					//	case Damage.Type.Shrapnel:
-					//	case Damage.Type.Stress:
-					//	case Damage.Type.Fracture:
-					//	case Damage.Type.Electricity:
-					//	case Damage.Type.Pickaxe:
-					//	case Damage.Type.Explosion:
-					//	case Damage.Type.Fire:
-					//	case Damage.Type.Phlogiston:
-					//	case Damage.Type.Deflagration:
-					//	case Damage.Type.Sledgehammer:
-					//	case Damage.Type.Shockwave:
-					//	{
-					//		explosive.flags |= Explosive.Flags.Primed;
-					//	}
-					//	break;
-					//}
 				}
 
 				if (explosive.flags.HasAny(Explosive.Flags.Primed))
 				{
-					if (!explosive.ent_owner.IsValid()) explosive.ent_owner = data.damage.ent_attacker;
+					//if (!explosive.ent_owner.IsValid()) explosive.ent_owner = data.damage.ent_attacker;
 
 					if (explosive.flags.TryRemoveFlag(Explosive.Flags.Explode_When_Primed))
 					{

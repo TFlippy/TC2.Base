@@ -104,7 +104,7 @@
 			{
 				if (organic_state.consciousness_shared > 0.10f && (organic_state.unconscious_time > 3.00f || (organic_state.efficiency < 0.50f && organic_state.pain > 50.00f)))
 				{
-					var lerp = Maths.NormalizeClamp(organic_state.unconscious_time, 10.00f);
+					var lerp = Maths.Normalize01Fast(organic_state.unconscious_time, 10.00f);
 
 					Sound.Play(ref region, snd_cough.GetRandom(ref random), transform.position, volume: 0.35f * Maths.Lerp(1.00f, 0.50f, lerp), pitch: random.NextFloatRange(0.80f, 1.00f) * Maths.Lerp(1.00f, 0.80f, lerp) * head.voice_pitch);
 					head_state.t_next_sound = time + random.NextFloatRange(1.50f, 2.50f + lerp);

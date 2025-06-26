@@ -1839,7 +1839,7 @@ namespace TC2.Base.Components
 							{
 								var shake_amount = gun.shake_amount * 0.50f;
 								//App.WriteLine(shockwave_radius);
-								Explosion.Spawn(ref region, pos_w_offset + (dir * 1.75f), (Entity ent_explosion, ref Explosion.Data explosion) =>
+								Explosion.Spawn(ref region, pos_w_offset + (dir * 1.75f), (ent_explosion, ref explosion) =>
 								{
 									explosion.power = 2.00f;
 									explosion.radius = shockwave_radius;

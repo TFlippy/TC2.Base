@@ -106,7 +106,7 @@ namespace TC2.Base.Components
 			}
 			else
 			{
-				organic_state.unconscious_time += App.fixed_update_interval_s * ((1.00f - Maths.NormalizeClamp(organic_state.consciousness_shared, 0.50f)) * 5.00f);
+				organic_state.unconscious_time += App.fixed_update_interval_s * ((1.00f - Maths.Normalize01Fast(organic_state.consciousness_shared, 0.50f)) * 5.00f);
 			}
 		}
 

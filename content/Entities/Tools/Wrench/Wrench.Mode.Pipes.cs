@@ -390,7 +390,7 @@
 							{
 								this.pos = transform.position;
 
-								var vents = this.entity.GetComponents<Air.Vent.Data>();
+								var vents = this.entity.GetPairs<Air.Vent.Data>();
 								for (var i = 0; i < vents.count; i++)
 								{
 									var pair = vents[i];

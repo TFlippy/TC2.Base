@@ -193,7 +193,7 @@ namespace TC2.Base.Components
 		[Source.Owned] ref Health.Data health, [Source.Owned] in Transform.Data transform,
 		[Source.Owned] ref SteamEngine.Data steam_engine, [Source.Owned] ref SteamEngine.State steam_engine_state)
 		{
-			var modifier = Maths.NormalizeClamp(steam_engine_state.speed_current, steam_engine.speed_max);
+			var modifier = Maths.Normalize01(steam_engine_state.speed_current, steam_engine.speed_max);
 			if (modifier > 0.30f)
 			{
 				var health_min = Maths.Min(health.integrity, health.durability);

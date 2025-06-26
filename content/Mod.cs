@@ -51,18 +51,15 @@ namespace TC2.Base
 		public static void OriginCommand(ref ChatCommand.Context context, IOrigin.Handle h_origin, bool force_new = false)
 		{
 			ref var region = ref context.GetRegion();
-			Assert.NotNull(ref region);
+			Assert.IsNotNull(ref region);
 
 			ref var player = ref context.GetPlayerData();
-			Assert.NotNull(ref player);
-
-
-
-			var random = XorRandom.New(true);
+			Assert.IsNotNull(ref player);
 
 			ref var origin_data = ref h_origin.GetData(out var origin_asset);
-			Assert.NotNull(ref origin_data);
+			Assert.IsNotNull(ref origin_data);
 
+			var random = XorRandom.New(true);
 
 			//var h_origin = (IOrigin.Handle)origin;
 
@@ -81,7 +78,7 @@ namespace TC2.Base
 			else
 			{
 				var h_faction = origin_data.faction;
-				var h_character = Spawner.CreateCharacter(ref region.AsCommon(), ref random, h_origin, scope: Asset.Scope.Region, asset_flags: Asset.Flags.Recycle, h_player: player.h_player, h_faction: h_faction);
+				var h_character = Spawner.CreateCharacter(region: ref region.AsCommon(), random: ref random, h_origin: h_origin, scope: Asset.Scope.Region, asset_flags: Asset.Flags.Recycle, h_player: player.h_player, h_faction: h_faction);
 				if (Assert.Check(h_character.IsValid(), Assert.Level.Warn))
 				{
 					Spawner.TryGenerateKits(ref random, h_character);
@@ -102,10 +99,10 @@ namespace TC2.Base
 		public static void ControlCommand(ref ChatCommand.Context context)
 		{
 			ref var region = ref context.GetRegion();
-			Assert.NotNull(ref region);
+			Assert.IsNotNull(ref region);
 
 			ref var player = ref context.GetPlayerData();
-			Assert.NotNull(ref player);
+			Assert.IsNotNull(ref player);
 
 			var ent_target = context.GetTargetEntity();
 			Assert.Check(ent_target.IsAlive());
@@ -116,11 +113,11 @@ namespace TC2.Base
 			ref var character = ref ent_target_root.GetComponentWithOwner<Character.Data>(Relation.Type.Instance, out var ent_character, include_self: true);
 			if (character.IsNotNull())
 			{
-				throw new NotImplementedException();
-				//ref var character_data = ref character.character_id.GetData(out var character_asset);
-				//Assert.NotNull(ref character_data);
+				//throw new NotImplementedException();
+				ref var character_data = ref ent_character.GetAssetData<ICharacter.Data>(); // character.character_id.GetData(out var character_asset);
+				Assert.IsNotNull(ref character_data);
 
-				//player.SetControlledCharacter(ent_character);
+				player.SetControlledCharacter(ent_character);
 			}
 			//else
 			//{
@@ -136,10 +133,10 @@ namespace TC2.Base
 		public static void TeleportCommand(ref ChatCommand.Context context)
 		{
 			ref var region = ref context.GetRegion();
-			Assert.NotNull(ref region);
+			Assert.IsNotNull(ref region);
 
 			ref var player = ref context.GetPlayerData();
-			Assert.NotNull(ref player);
+			Assert.IsNotNull(ref player);
 
 			//ref var character = ref player.GetControlledCharacter().data;
 			//Assert.NotNull(ref character);
@@ -154,7 +151,7 @@ namespace TC2.Base
 			//App.WriteLine(ent_root.GetRoot(Relation.Type.Seat).GetRoot(Relation.Type.Child));
 
 			ref var transform_root = ref ent_root.GetComponent<Transform.Data>();
-			Assert.NotNull(ref transform_root);
+			Assert.IsNotNull(ref transform_root);
 
 			Span<Entity> entities = stackalloc Entity[32];
 			ent_root.GetAllChildren(ref entities);
@@ -205,7 +202,7 @@ namespace TC2.Base
 		public static void MoveCommand(ref ChatCommand.Context context)
 		{
 			ref var region = ref context.GetRegionCommon();
-			Assert.NotNull(ref region);
+			Assert.IsNotNull(ref region);
 
 			var ent_target = context.GetTargetEntity();
 			Assert.Check(ent_target.IsAlive());

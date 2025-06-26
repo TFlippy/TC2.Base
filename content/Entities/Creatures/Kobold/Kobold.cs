@@ -102,7 +102,7 @@ namespace TC2.Base.Components
 
 #if SERVER
 		internal static string[] w_starters =
-		{
+		[
 			"ayy",
 			"ay",
 			"yar",
@@ -116,10 +116,10 @@ namespace TC2.Base.Components
 			"oi",
 			"oy",
 			"mate"
-		};
+		];
 
 		internal static string[] w_enders_misc =
-		{
+		[
 			" innit",
 			" ha",
 			" ??",
@@ -156,10 +156,10 @@ namespace TC2.Base.Components
 			" rite?",
 			"'rite?",
 			" not",
-		};
+		];
 
 		internal static string[] w_enders_upset =
-		{
+		[
 			"?",
 			"??",
 			"???",
@@ -184,10 +184,10 @@ namespace TC2.Base.Components
 			" huh??!",
 			" ya?!",
 			" wha??!",
-		};
+		];
 
 		internal static string[] w_enders_nevermind =
-		{
+		[
 			"...or not",
 			"...nevemind",
 			" or...",
@@ -202,10 +202,10 @@ namespace TC2.Base.Components
 			"..fshhhh",
 			"--",
 			"...uh?"
-		};
+		];
 
 		internal static string[] w_enders_curious =
-		{
+		[
 			"?",
 			".??",
 			"...?",
@@ -224,10 +224,10 @@ namespace TC2.Base.Components
 			" or...?",
 			" hmm??",
 			" hmm....",
-		};
+		];
 
 		internal static string[] w_enders_low =
-		{
+		[
 			" ugh",
 			" hhh",
 			"...",
@@ -261,10 +261,10 @@ namespace TC2.Base.Components
 			"...duh",
 			"...pff",
 			"..maybe.",
-		};
+		];
 
 		internal static string[] w_verbs_bad =
-		{
+		[
 			"eat",
 			"drink",
 			"find",
@@ -287,10 +287,10 @@ namespace TC2.Base.Components
 			"do",
 			"fall",
 			"jump",
-		};
+		];
 
 		internal static string[] w_verbs_misc =
-		{
+		[
 			"eat",
 			"drink",
 			"find",
@@ -322,10 +322,10 @@ namespace TC2.Base.Components
 			"bounce",
 			"slap",
 			"kiss"
-		};
+		];
 
 		internal static string[] w_learn =
-		{
+		[
 			"learn",
 			"hear",
 			"know",
@@ -335,38 +335,38 @@ namespace TC2.Base.Components
 			"discover",
 			"listen",
 			"catch"
-		};
+		];
 
 		internal static string[] w_that =
-		{
+		[
 			"that",
 			"dat",
 			"those",
 			"these",
 			"the"
-		};
+		];
 
 		internal static string[] w_our =
-		{
+		[
 			"our",
 			"us",
 			"ours",
 			"kobold",
 			"kobs",
-		};
+		];
 
 		internal static string[] w_and =
-		{
+		[
 			"and",
 			"plus",
 			"also",
 			"along",
 			"and too",
 			"withal"
-		};
+		];
 
 		internal static string[] w_your =
-		{
+		[
 			"ye",
 			"yours",
 			"yer",
@@ -374,20 +374,20 @@ namespace TC2.Base.Components
 			"yo",
 			"yar",
 			"thee",
-		};
+		];
 
 		internal static string[] w_you =
-		{
+		[
 			"ye",
 			"yer",
 			"ya",
 			"yo",
 			"thou",
 			"u"
-		};
+		];
 
 		internal static string[] w_directions =
-		{
+		[
 			"off",
 			"in",
 			"thru",
@@ -401,10 +401,10 @@ namespace TC2.Base.Components
 			"outta",
 			"out",
 			"over"
-		};
+		];
 
 		internal static string[] w_targeters =
-		{
+		[
 			"ya",
 			"ye",
 			"yo",
@@ -414,28 +414,28 @@ namespace TC2.Base.Components
 			"that",
 			"me",
 			"mine"
-		};
+		];
 
 		internal static string[] w_question =
-		{
+		[
 			"how",
 			"when",
 			"wen",
 			"why",
 			"where",
 			"who",
-		};
+		];
 
 		internal static string[] w_me =
-		{
+		[
 			"i",
 			"am",
 			"my",
 			"kobs",
-		};
+		];
 
 		internal static string[] w_us =
-		{
+		[
 			"we",
 			"kobold",
 			"us",
@@ -444,25 +444,25 @@ namespace TC2.Base.Components
 			"other",
 			"frends",
 			"kobs"
-		};
+		];
 
 		internal static string[] w_my =
-		{
+		[
 			"my",
 			"me",
 			"mine"
-		};
+		];
 
 		internal static string[] w_i_am =
-		{
+		[
 			"am",
 			"i'm",
 			"me",
 			"i"
-		};
+		];
 
 		internal static string[] w_their =
-		{
+		[
 			"their",
 			"them",
 			"theirs",
@@ -470,35 +470,35 @@ namespace TC2.Base.Components
 			"these",
 			"the",
 			"there"
-		};
+		];
 
 		internal static string[] w_they =
-		{
+		[
 			"they",
 			"them",
 			"dem",
 			"all",
 			"'em"
-		};
+		];
 
 		internal static string[] w_as =
-		{
+		[
 			"like",
 			"lik",
 			"as",
 			"just",
 			"alike"
-		};
+		];
 
 		internal static string[] w_is =
-		{
+		[
 			"is",
 			"be",
 			"has"
-		};
+		];
 
 		internal static string[] w_want =
-		{
+		[
 			"wanna",
 			"want",
 			"wan",
@@ -506,10 +506,10 @@ namespace TC2.Base.Components
 			"crave",
 			"wish",
 			"demand",
-		};
+		];
 
 		internal static string[] w_have =
-		{
+		[
 			"has",
 			"have",
 			"own",
@@ -517,11 +517,11 @@ namespace TC2.Base.Components
 			"contains",
 			"haves",
 			"carry"
-		};
+		];
 
 
 		internal static string[] w_it =
-		{
+		[
 			"it",
 			"some",
 			"one",
@@ -529,10 +529,10 @@ namespace TC2.Base.Components
 			"this",
 			"such",
 			"that",
-		};
+		];
 
 		internal static string[] w_but =
-		{
+		[
 			"but",
 			"tho",
 			"however",
@@ -544,10 +544,10 @@ namespace TC2.Base.Components
 			"though",
 			"thought",
 			"natheless",
-		};
+		];
 
 		internal static string[] w_i_will =
-		{
+		[
 			"i'ma",
 			"imma",
 			"ima",
@@ -556,10 +556,10 @@ namespace TC2.Base.Components
 			"i shall",
 			"i'll",
 			"i will"
-		};
+		];
 
 		internal static string[] w_adjectives =
-		{
+		[
 			"'lil",
 			"weenie",
 			"poor",
@@ -577,10 +577,10 @@ namespace TC2.Base.Components
 			"wide",
 			"short",
 			"no"
-		};
+		];
 
 		internal static string[] w_objects_vulgar =
-		{
+		[
 			"jerk",
 			"piss",
 			"crap",
@@ -603,10 +603,10 @@ namespace TC2.Base.Components
 			"worm",
 			"spunk",
 			"gnat",
-		};
+		];
 
 		internal static string[] w_bad =
-		{
+		[
 			"dumb",
 			"bad",
 			"stupid",
@@ -629,10 +629,10 @@ namespace TC2.Base.Components
 			"smelly",
 			"crappy",
 			"crap",
-		};
+		];
 
 		internal static string[] w_adjectives_vulgar =
-		{
+		[
 			"dumb",
 			"bad",
 			"stupid",
@@ -653,10 +653,10 @@ namespace TC2.Base.Components
 			"junked",
 			"fokin'",
 			"fookin'"
-		};
+		];
 
 		internal static string[] w_cool =
-		{
+		[
 			"shiny",
 			"good",
 			"best",
@@ -669,10 +669,10 @@ namespace TC2.Base.Components
 			"fast",
 			"red",
 			"grand"
-		};
+		];
 
 		internal static string[] w_become =
-		{
+		[
 			"be",
 			"become",
 			"turn",
@@ -682,10 +682,10 @@ namespace TC2.Base.Components
 			"gain",
 			"emerge",
 			"metamorsel"
-		};
+		];
 
 		internal static string[] w_defile =
-		{
+		[
 			"jerk",
 			"piss",
 			"shit",
@@ -697,10 +697,10 @@ namespace TC2.Base.Components
 			"screw",
 			"blow",
 			"suck",
-		};
+		];
 
 		internal static string[] w_fear =
-		{
+		[
 			"cry",
 			"run",
 			"scream",
@@ -709,10 +709,10 @@ namespace TC2.Base.Components
 			"dread",
 			"tremble",
 			"fret",
-		};
+		];
 
 		internal static string[] w_hear =
-		{
+		[
 			"hear",
 			"know",
 			"heard",
@@ -722,10 +722,10 @@ namespace TC2.Base.Components
 			"eardrop",
 			"eavesdrop",
 			"voice"
-		};
+		];
 
 		internal static string[] w_say =
-		{
+		[
 			"say",
 			"talk",
 			"inform",
@@ -739,10 +739,10 @@ namespace TC2.Base.Components
 			"advice",
 			"warn",
 			"alert",
-		};
+		];
 
 		internal static string[] w_infosource =
-		{
+		[
 			"poster",
 			"friend",
 			"paper",
@@ -779,10 +779,10 @@ namespace TC2.Base.Components
 			"human",
 			"they",
 			"them",
-		};
+		];
 
 		internal static string[] w_take =
-		{
+		[
 			"grab",
 			"take",
 			"steal",
@@ -794,10 +794,10 @@ namespace TC2.Base.Components
 			"confiscate",
 			"capture",
 			"seize",
-		};
+		];
 
 		internal static string[] w_destroy =
-		{
+		[
 			"burn",
 			"destroy",
 			"ruin",
@@ -819,10 +819,10 @@ namespace TC2.Base.Components
 			"shatter",
 			"end",
 			"waste"
-		};
+		];
 
 		internal static string[] w_fight =
-		{
+		[
 			"bash",
 			"kick",
 			"beat",
@@ -853,10 +853,10 @@ namespace TC2.Base.Components
 			"damage",
 			"gut",
 			"bang",
-		};
+		];
 
 		internal static string[] w_move =
-		{
+		[
 			"go",
 			"run",
 			"move",
@@ -877,10 +877,10 @@ namespace TC2.Base.Components
 			"propel",
 			"slither",
 			"accelerate"
-		};
+		];
 
 		internal static string[] w_okay =
-		{
+		[
 			"alrite",
 			"aight",
 			"oke",
@@ -897,10 +897,10 @@ namespace TC2.Base.Components
 			"yee",
 			"rite",
 			"yuh"
-		};
+		];
 
 		internal static string[] w_disagree =
-		{
+		[
 			"nuh",
 			"nop",
 			"nope",
@@ -925,19 +925,19 @@ namespace TC2.Base.Components
 			"wot",
 			"woh",
 			"rrr"
-		};
+		];
 
 		internal static string[] w_what =
-		{
+		[
 			"what",
 			"wat",
 			"wha",
 			"wut",
 			"whut",
-		};
+		];
 
 		internal static string[] w_insert =
-		{
+		[
 			"jam",
 			"bash",
 			"push",
@@ -948,10 +948,10 @@ namespace TC2.Base.Components
 			"embed",
 			"stick",
 			"add"
-		};
+		];
 
 		internal static string[] w_work =
-		{
+		[
 			"work",
 			"spin",
 			"make",
@@ -966,10 +966,10 @@ namespace TC2.Base.Components
 			"produce",
 			"skill",
 			"commit",
-		};
+		];
 
 		internal static string[] w_eat =
-		{
+		[
 			"eat",
 			"chomp",
 			"devour",
@@ -981,55 +981,55 @@ namespace TC2.Base.Components
 			"dinner",
 			"snack",
 			"feed"
-		};
+		];
 
 		internal static string[] w_for =
-		{
+		[
 			"for",
 			"as",
 			"fo'",
 			"with",
 			"wit"
-		};
+		];
 
 		internal static string[] w_into =
-		{
+		[
 			"in",
 			"into",
 			"to",
 			"down",
 			"forth",
 			"up"
-		};
+		];
 
 		internal static string[] w_at =
-		{
+		[
 			"at",
 			"onto",
 			"on",
 			"toward",
 			"ontop",
 			"after"
-		};
+		];
 
 		internal static string[] w_through =
-		{
+		[
 			"through",
 			"thru",
 			"forth",
 			"to",
 			"unto",
-		};
+		];
 
 		internal static string[] w_ed =
-		{
+		[
 			"'d",
 			"ed",
 			"d",
-		};
+		];
 
 		internal static string[] w_then =
-		{
+		[
 			"so",
 			"then",
 			"and",
@@ -1039,10 +1039,10 @@ namespace TC2.Base.Components
 			"cue",
 			"next",
 			"afters",
-		};
+		];
 
 		internal static string[] w_because =
-		{
+		[
 			"cus",
 			"because",
 			"bcuse",
@@ -1053,10 +1053,10 @@ namespace TC2.Base.Components
 			"for",
 			"due",
 			"as"
-		};
+		];
 
 		internal static string[] w_curse =
-		{
+		[
 			"fuck",
 			"screw",
 			"damn",
@@ -1064,10 +1064,10 @@ namespace TC2.Base.Components
 			"shit",
 			"curse",
 			"woe"
-		};
+		];
 
 		internal static string[] w_throw =
-		{
+		[
 			"throw",
 			"toss",
 			"fling",
@@ -1084,10 +1084,10 @@ namespace TC2.Base.Components
 			"sling",
 			"swing",
 			"cast"
-		};
+		];
 
 		internal static string[] w_watch =
-		{
+		[
 			"watch",
 			"see",
 			"keep",
@@ -1102,10 +1102,10 @@ namespace TC2.Base.Components
 			"look",
 			"survilance",
 			"escort"
-		};
+		];
 
 		internal static string[] w_gather =
-		{
+		[
 			"mine",
 			"dig",
 			"excavate",
@@ -1119,10 +1119,10 @@ namespace TC2.Base.Components
 			"confiscate",
 			"procure",
 			"accrue",
-		};
+		];
 
 		internal static string[] w_buy =
-		{
+		[
 			"buy",
 			"get",
 			"trade",
@@ -1134,10 +1134,10 @@ namespace TC2.Base.Components
 			"market",
 			"transaction",
 			"change"
-		};
+		];
 
 		internal static string[] w_discomfort =
-		{
+		[
 			"itch",
 			"smell",
 			"ache",
@@ -1158,10 +1158,10 @@ namespace TC2.Base.Components
 			"stink",
 			"numb",
 			"tired",
-		};
+		];
 
 		internal static string[] w_time =
-		{
+		[
 			"today",
 			"soon",
 			"tomoro",
@@ -1170,10 +1170,10 @@ namespace TC2.Base.Components
 			"now",
 			"before",
 			"then",
-		};
+		];
 
 		internal static string[] w_structures =
-		{
+		[
 			"house",
 			"home",
 			"tavern",
@@ -1215,10 +1215,10 @@ namespace TC2.Base.Components
 			"mill",
 			"ditch",
 			"kitchen"
-		};
+		];
 
 		internal static string[] w_authority =
-		{
+		[
 			"boss",
 			"sire",
 			"master",
@@ -1252,10 +1252,10 @@ namespace TC2.Base.Components
 			"baron",
 			"major",
 			"majordomo",
-		};
+		];
 
 		internal static string[] w_supper =
-		{
+		[
 			"dinar",
 			"dunner",
 			"dinner",
@@ -1267,10 +1267,10 @@ namespace TC2.Base.Components
 			"lunch",
 			"luncheon",
 			"snack"
-		};
+		];
 
 		internal static string[] w_food =
-		{
+		[
 			"majonez",
 			"pudding",
 			"pudling",
@@ -1323,10 +1323,10 @@ namespace TC2.Base.Components
 			"ham",
 			"lard",
 			"butter",
-		};
+		];
 
 		internal static string[] w_enemy =
-		{
+		[
 			"enemy",
 			"demon",
 			"bad",
@@ -1359,10 +1359,10 @@ namespace TC2.Base.Components
 			"collaborateur",
 			"colabolatur",
 			"coraburator"
-		};
+		];
 
 		internal static string[] w_animal =
-		{
+		[
 			"mouse",
 			"cat",
 			"dog",
@@ -1399,10 +1399,10 @@ namespace TC2.Base.Components
 			"snail",
 			"dwarfe",
 			"baby"
-		};
+		];
 
 		internal static string[] w_animal_cute =
-		{
+		[
 			"kitten",
 			"kitty",
 			"puppy",
@@ -1413,10 +1413,10 @@ namespace TC2.Base.Components
 			"tetrad",
 			"chiken",
 			"snail"
-		};
+		];
 
 		internal static string[] w_animal_big =
-		{
+		[
 			"cow",
 			"poh",
 			"bison",
@@ -1426,10 +1426,10 @@ namespace TC2.Base.Components
 			"wahale",
 			"bigfish",
 			"giant"
-		};
+		];
 
 		internal static string[] w_objects_misc =
-		{
+		[
 			"brick",
 			"arse",
 			"cart",
@@ -1540,10 +1540,10 @@ namespace TC2.Base.Components
 			"weed",
 			"hair",
 			"snail"
-		};
+		];
 
 		internal static string[] w_suffix_vulgar =
-		{
+		[
 			"brick",
 			"arse",
 			"cart",
@@ -1601,10 +1601,10 @@ namespace TC2.Base.Components
 			"smith",
 			"wood",
 			"grass"
-		};
+		];
 
 		internal static string[] w_weapons =
-		{
+		[
 			"gun",
 			"pistal",
 			"pistol",
@@ -1624,10 +1624,10 @@ namespace TC2.Base.Components
 			"rebar",
 			"mace",
 			"bottle"
-		};
+		];
 
 		internal static string[] w_devices =
-		{
+		[
 			"device",
 			"tool",
 			"toy",
@@ -1639,10 +1639,10 @@ namespace TC2.Base.Components
 			"utility",
 			"implement",
 			"electron"
-		};
+		];
 
 		internal static string[] w_family =
-		{
+		[
 			"mum",
 			"dad",
 			"dog",
@@ -1665,10 +1665,10 @@ namespace TC2.Base.Components
 			"fren",
 			"jamarcus",
 			"dreams"
-		};
+		];
 
 		internal static string[] w_bodypart =
-		{
+		[
 			"head",
 			"nose",
 			"eyes",
@@ -1696,10 +1696,10 @@ namespace TC2.Base.Components
 			"pelvis",
 			"spine",
 			"fur"
-		};
+		];
 
 		internal static string[] w_comrades =
-		{
+		[
 			"comrades",
 			"fren",
 			"family",
@@ -1721,10 +1721,10 @@ namespace TC2.Base.Components
 			"fam",
 			"kind",
 			"stronks",
-		};
+		];
 
 		internal static string[] w_valuables =
-		{
+		[
 			"money",
 			"gold",
 			"wallet",
@@ -1764,10 +1764,10 @@ namespace TC2.Base.Components
 			"dream",
 			"spice",
 			"fuel"
-		};
+		];
 
 		internal static string[] w_diseases =
-		{
+		[
 			"rickets",
 			"fleas",
 			"crickets",
@@ -1806,7 +1806,7 @@ namespace TC2.Base.Components
 			"prognosis",
 			"parasite",
 			"worms"
-		};
+		];
 
 		public static string GetObjectName(ref XorRandom random, Material.Type material_type, Physics.Layer layer)
 		{
@@ -1959,7 +1959,7 @@ namespace TC2.Base.Components
 				//App.WriteLine(organic_state.efficiency);
 				if (organic_state.consciousness_shared > 0.10f && (organic_state.unconscious_time > 3.00f || (organic_state.efficiency < 0.50f && organic_state.pain > 50.00f)))
 				{
-					var lerp = Maths.NormalizeClamp(organic_state.unconscious_time, 10.00f);
+					var lerp = Maths.Normalize01Fast(organic_state.unconscious_time, 10.00f);
 
 					Sound.Play(ref region, snd_cough.GetRandom(ref random), transform.position, volume: 0.35f * Maths.Lerp(1.00f, 0.50f, lerp), pitch: random.NextFloatRange(0.90f, 1.10f) * Maths.Lerp(1.00f, 0.80f, lerp) * head.voice_pitch);
 					head_state.t_next_sound = time + random.NextFloatRange(1.50f, 2.50f + lerp);

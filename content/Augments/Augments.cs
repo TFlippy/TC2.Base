@@ -14,7 +14,7 @@ namespace TC2.Base
 				name: "Bomb-Rigged",
 				description: "Item will explode after sustaining enough damage.",
 
-				validate: static (ref Augment.Context context, in Health.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				validate: static (ref context, in data, ref handle, augments) =>
 				{
 					ref var pair = ref handle.GetData<(int amount, float threshold)>();
 					pair.amount = Maths.Clamp(pair.amount, 10, 50);
@@ -24,7 +24,7 @@ namespace TC2.Base
 				},
 
 #if CLIENT
-				draw_editor: static (ref Augment.Context context, in Health.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				draw_editor: static (ref context, in data, ref handle, augments) =>
 				{
 					ref var pair = ref handle.GetData<(int amount, float threshold)>();
 
@@ -39,12 +39,12 @@ namespace TC2.Base
 				},
 #endif
 
-				can_add: static (ref Augment.Context context, in Health.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				can_add: static (ref context, in data, ref handle, augments) =>
 				{
 					return !context.HasComponent<Explosive.Data>();
 				},
 
-				apply_0: static (ref Augment.Context context, ref Health.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				apply_0: static (ref context, ref data, ref handle, augments) =>
 				{
 					ref var pair = ref handle.GetData<(int amount, float threshold)>();
 
@@ -61,7 +61,7 @@ namespace TC2.Base
 					}
 				},
 
-				apply_1: static (ref Augment.Context context, ref Health.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				apply_1: static (ref context, ref data, ref handle, augments) =>
 				{
 					ref var pair = ref handle.GetData<(int amount, float threshold)>();
 					context.requirements_new.Merge(Crafting.Requirement.Resource("nitroglycerine", pair.amount).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
@@ -75,12 +75,12 @@ namespace TC2.Base
 				name: "Mushroom Glow",
 				description: "Glows in the dark.",
 
-				can_add: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				can_add: static (ref context, in data, ref handle, augments) =>
 				{
 					return !context.HasComponent<Light.Data>() && !augments.HasAugment(handle);
 				},
 
-				apply_0: static (ref Augment.Context context, ref Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				apply_0: static (ref context, ref data, ref handle, augments) =>
 				{
 					ref var light = ref context.GetOrAddComponent<Light.Data>();
 					light.color = ColorBGRA.RGBA(0.600f, 1.000f, 0.400f, 1.250f);
@@ -89,7 +89,7 @@ namespace TC2.Base
 					light.texture = "light.circle.00";
 				},
 
-				apply_1: static (ref Augment.Context context, ref Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				apply_1: static (ref context, ref data, ref handle, augments) =>
 				{
 					context.requirements_new.Merge(Crafting.Requirement.Resource("mushroom.green", 3.00f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 				}
@@ -102,12 +102,12 @@ namespace TC2.Base
 				name: "Varnished Wood",
 				description: "Applies varnish on item's wooden parts, improving their durability.",
 
-				can_add: static (ref Augment.Context context, in Health.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				can_add: static (ref context, in data, ref handle, augments) =>
 				{
 					return context.requirements_new.HasMaterial("wood") && !augments.HasAugment(handle);
 				},
 
-				apply_1: static (ref Augment.Context context, ref Health.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				apply_1: static (ref context, ref data, ref handle, augments) =>
 				{
 					var amount = 0.00f;
 					foreach (ref var requirement in context.requirements_new)
@@ -169,7 +169,7 @@ namespace TC2.Base
 				name: "Fuse Length",
 				description: "Modifies fuse's length.",
 
-				can_add: static (ref Augment.Context context, in Fuse.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				can_add: static (ref context, in data, ref handle, augments) =>
 				{
 					return !augments.HasAugment(handle);
 				},
@@ -183,14 +183,14 @@ namespace TC2.Base
 				//},
 
 #if CLIENT
-				draw_editor: static (ref Augment.Context context, in Fuse.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				draw_editor: static (ref context, in data, ref handle, augments) =>
 				{
 					ref var modifier = ref handle.GetModifier();
 					return GUI.SliderFloatLerp("Timer", ref modifier, 0.50f, 10.00f);
 				},
 #endif
 
-				apply_0: static (ref Augment.Context context, ref Fuse.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				apply_0: static (ref context, ref data, ref handle, augments) =>
 				{
 					ref var modifier = ref handle.GetModifier();
 					data.time = Maths.Lerp(0.50f, 10.00f, modifier);
@@ -204,12 +204,12 @@ namespace TC2.Base
 				name: "Inextinguishable Fuse",
 				description: "Makes the fuse impossible to be extinguished.",
 
-				can_add: static (ref Augment.Context context, in Fuse.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				can_add: static (ref context, in data, ref handle, augments) =>
 				{
 					return !augments.HasAugment(handle);
 				},
 
-				apply_0: static (ref Augment.Context context, ref Fuse.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				apply_0: static (ref context, ref data, ref handle, augments) =>
 				{
 					data.failure_chance = 0.00f;
 					context.requirements_new.Merge(Crafting.Requirement.Resource("mushroom.green", 4.00f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
@@ -223,13 +223,13 @@ namespace TC2.Base
 				name: "Water-Cooled",
 				description: "Increases heat capacity.",
 
-				can_add: static (ref Augment.Context context, in Heat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				can_add: static (ref context, in data, ref handle, augments) =>
 				{
 					return !augments.HasAugment(handle);
 				},
 
 #if CLIENT
-				draw_editor: static (ref Augment.Context context, in Heat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				draw_editor: static (ref context, in data, ref handle, augments) =>
 				{
 					ref var modifier = ref handle.GetModifier();
 					ref var offset = ref handle.GetData<Vector2>();
@@ -243,7 +243,7 @@ namespace TC2.Base
 					return dirty;
 				},
 
-				generate_sprite: static (ref Augment.Context context, in Heat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
+				generate_sprite: static (ref context, in data, ref handle, augments, ref draw) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 
@@ -263,7 +263,7 @@ namespace TC2.Base
 				},
 #endif
 
-				apply_0: static (ref Augment.Context context, ref Heat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				apply_0: static (ref context, ref data, ref handle, augments) =>
 				{
 					ref var modifier = ref handle.GetModifier();
 					var amount = Maths.LerpInt(1, 200, modifier);
@@ -274,7 +274,7 @@ namespace TC2.Base
 
 				},
 
-				apply_1: static (ref Augment.Context context, ref Heat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				apply_1: static (ref context, ref data, ref handle, augments) =>
 				{
 					ref var modifier = ref handle.GetModifier();
 					var amount = Maths.LerpInt(1, 200, modifier);
@@ -300,13 +300,13 @@ namespace TC2.Base
 				name: "Radiator",
 				description: "Increases cooling rate.",
 
-				can_add: static (ref Augment.Context context, in Heat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				can_add: static (ref context, in data, ref handle, augments) =>
 				{
 					return !augments.HasAugment(handle);
 				},
 
 #if CLIENT
-				draw_editor: static (ref Augment.Context context, in Heat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				draw_editor: static (ref context, in data, ref handle, augments) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 					ref var modifier = ref handle.GetModifier();
@@ -328,7 +328,7 @@ namespace TC2.Base
 					return dirty;
 				},
 
-				generate_sprite: static (ref Augment.Context context, in Heat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
+				generate_sprite: static (ref context, in data, ref handle, augments, ref draw) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 					ref var modifier = ref handle.GetModifier();
@@ -340,7 +340,7 @@ namespace TC2.Base
 				},
 #endif
 
-				apply_0: static (ref Augment.Context context, ref Heat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				apply_0: static (ref context, ref data, ref handle, augments) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 					ref var modifier = ref handle.GetModifier();
@@ -396,7 +396,7 @@ namespace TC2.Base
 					data.cool_rate += (amount / context.mass_new) * dist_modifier;
 				},
 
-				apply_1: static (ref Augment.Context context, ref Heat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				apply_1: static (ref context, ref data, ref handle, augments) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 					ref var modifier = ref handle.GetModifier();
@@ -458,18 +458,18 @@ namespace TC2.Base
 				name: "Heat-Resistant Components",
 				description: "Dramatically increases maximum operating temperature at cost of extra weight and reduced cooling rate.",
 
-				can_add: static (ref Augment.Context context, in Heat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				can_add: static (ref context, in data, ref handle, augments) =>
 				{
 					return !augments.HasAugment(handle);
 				},
 
-				apply_0: static (ref Augment.Context context, ref Heat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				apply_0: static (ref context, ref data, ref handle, augments) =>
 				{
 					data.cool_rate *= 0.80f;
 					data.temperature_operating += 500.00f;
 				},
 
-				apply_1: static (ref Augment.Context context, ref Heat.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				apply_1: static (ref context, ref data, ref handle, augments) =>
 				{
 					var amount = 0.00f;
 
@@ -513,18 +513,18 @@ namespace TC2.Base
 				// Due to the wide variety of uses this has, this costs a large amount of materials
 				// This doesn't aim, so using anything which uses aim direction requires additional setup
 
-				can_add: static (ref Augment.Context context, in Control.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				can_add: static (ref context, in data, ref handle, augments) =>
 				{
 					return !augments.HasAugment(handle);
 				},
 
-				apply_0: static (ref Augment.Context context, ref Control.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				apply_0: static (ref context, ref data, ref handle, augments) =>
 				{
 					ref var random_activation = ref context.GetOrAddComponent<RandomActivation.Data>();
 					random_activation.duration += 0.20f;
 				},
 
-				apply_1: static (ref Augment.Context context, ref Control.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				apply_1: static (ref context, ref data, ref handle, augments) =>
 				{
 					context.requirements_new.Merge(Crafting.Requirement.Resource("actuator", 1.00f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact)); // High cost
 
@@ -543,7 +543,7 @@ namespace TC2.Base
 				description: "More efficient manufacturing process by producing multiple items in bulk.",
 				flags: Augment.Definition.Flags.Hidden,
 
-				validate: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				validate: static (ref context, in data, ref handle, augments) =>
 				{
 					ref var batch_size = ref handle.GetData<int>();
 					batch_size = Maths.Clamp(batch_size, 1, 10);
@@ -552,19 +552,19 @@ namespace TC2.Base
 				},
 
 #if CLIENT
-				draw_editor: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				draw_editor: static (ref context, in data, ref handle, augments) =>
 				{
 					ref var batch_size = ref handle.GetData<int>();
 					return GUI.SliderInt("Count", ref batch_size, 1, 10);
 				},
 #endif
 
-				can_add: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				can_add: static (ref context, in data, ref handle, augments) =>
 				{
 					return !augments.HasAugment(handle);
 				},
 
-				apply_1: static (ref Augment.Context context, ref Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				apply_1: static (ref context, ref data, ref handle, augments) =>
 				{
 					ref readonly var recipe_old = ref context.GetRecipeOld();
 					ref var recipe_new = ref context.GetRecipeNew();
@@ -635,7 +635,7 @@ namespace TC2.Base
 				description: "Lowers the production cost significantly, while also reducing overall item quality.",
 				flags: Augment.Definition.Flags.Hidden,
 
-				validate: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				validate: static (ref context, in data, ref handle, augments) =>
 				{
 					ref var ratio = ref handle.GetData<float>();
 					ratio = Maths.Clamp(ratio, 0.10f, 0.65f);
@@ -644,14 +644,14 @@ namespace TC2.Base
 				},
 
 #if CLIENT
-				draw_editor: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				draw_editor: static (ref context, in data, ref handle, augments) =>
 				{
 					ref var ratio = ref handle.GetData<float>();
 					return GUI.SliderFloat("Ratio", ref ratio, 0.10f, 0.65f, size: GUI.Rm);
 				},
 #endif
 
-				can_add: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				can_add: static (ref context, in data, ref handle, augments) =>
 				{
 					if (augments.HasAugment(handle)) return false;
 
@@ -675,7 +675,7 @@ namespace TC2.Base
 					return has_valid_material;
 				},
 
-				apply_0: static (ref Augment.Context context, ref Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				apply_0: static (ref context, ref data, ref handle, augments) =>
 				{
 					ref var ratio = ref handle.GetData<float>();
 
@@ -735,7 +735,7 @@ namespace TC2.Base
 					}
 				},
 
-				apply_1: static (ref Augment.Context context, ref Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				apply_1: static (ref context, ref data, ref handle, augments) =>
 				{
 					ref var ratio = ref handle.GetData<float>();
 
@@ -823,7 +823,7 @@ namespace TC2.Base
 				name: "Add: Lamp",
 				description: "Attach a lamp.",
 
-				validate: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				validate: static (ref context, in data, ref handle, augments) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 
@@ -834,13 +834,13 @@ namespace TC2.Base
 					return true;
 				},
 
-				can_add: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				can_add: static (ref context, in data, ref handle, augments) =>
 				{
 					return !augments.HasAugment(handle) && !context.HasComponent<Lamp.Data>();
 				},
 
 #if CLIENT
-				draw_editor: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				draw_editor: static (ref context, in data, ref handle, augments) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 					ref var modifier = ref handle.GetModifier();
@@ -871,7 +871,7 @@ namespace TC2.Base
 					//return dirty;
 				},
 
-				generate_sprite: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
+				generate_sprite: static (ref context, in data, ref handle, augments, ref draw) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 					ref var modifier = ref handle.GetModifier();
@@ -884,7 +884,7 @@ namespace TC2.Base
 				},
 #endif
 
-				apply_0: static (ref Augment.Context context, ref Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				apply_0: static (ref context, ref data, ref handle, augments) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 					ref var modifier = ref handle.GetModifier();
@@ -994,7 +994,7 @@ namespace TC2.Base
 				name: "Add: Scope",
 				description: "Attach a scope.",
 
-				validate: static (ref Augment.Context context, in Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				validate: static (ref context, in data, ref handle, augments) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 
@@ -1005,13 +1005,13 @@ namespace TC2.Base
 					return true;
 				},
 
-				can_add: static (ref Augment.Context context, in Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				can_add: static (ref context, in data, ref handle, augments) =>
 				{
 					return !augments.HasAugment(handle) && !context.HasComponent<Telescope.Data>() && data.flags.HasAll(Holdable.Flags.Storable); // && data.type != Gun.Type.Cannon && data.type != Gun.Type.AutoCannon && data.type != Gun.Type.Launcher;
 				},
 
 #if CLIENT
-				draw_editor: static (ref Augment.Context context, in Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				draw_editor: static (ref context, in data, ref handle, augments) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 
@@ -1024,14 +1024,14 @@ namespace TC2.Base
 					return dirty;
 				},
 
-				generate_sprite: static (ref Augment.Context context, in Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
+				generate_sprite: static (ref context, in data, ref handle, augments, ref draw) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 					draw.DrawSprite("augment.scope", Maths.Snap(offset, 0.125f), scale: new(1.00f, 1.00f), pivot: new(0.50f, 0.50f));
 				},
 #endif
 
-				apply_0: static (ref Augment.Context context, ref Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				apply_0: static (ref context, ref data, ref handle, augments) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 
@@ -1056,7 +1056,7 @@ namespace TC2.Base
 				name: "Long-Focus Lens",
 				description: "Increases maximum range at cost of reduced field of view.",
 
-				validate: static (ref Augment.Context context, in Telescope.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				validate: static (ref context, in data, ref handle, augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
 					value.ClampRef(1.00f, 2.00f);
@@ -1065,19 +1065,19 @@ namespace TC2.Base
 				},
 
 #if CLIENT
-				draw_editor: static (ref Augment.Context context, in Telescope.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				draw_editor: static (ref context, in data, ref handle, augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
 					return GUI.SliderFloat("Power", ref value, 1.00f, 2.00f, size: GUI.Rm);
 				},
 #endif
 
-				can_add: static (ref Augment.Context context, in Telescope.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				can_add: static (ref context, in data, ref handle, augments) =>
 				{
 					return augments.GetCount(handle) <= 4;
 				},
 
-				apply_1: static (ref Augment.Context context, ref Telescope.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				apply_1: static (ref context, ref data, ref handle, augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
 
@@ -1097,7 +1097,7 @@ namespace TC2.Base
 				name: "Wide-Angle Lens",
 				description: "Increases field of view.",
 
-				validate: static (ref Augment.Context context, in Telescope.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				validate: static (ref context, in data, ref handle, augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
 					value.ClampRef(1.00f, 3.00f);
@@ -1106,19 +1106,19 @@ namespace TC2.Base
 				},
 
 #if CLIENT
-				draw_editor: static (ref Augment.Context context, in Telescope.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				draw_editor: static (ref context, in data, ref handle, augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
 					return GUI.SliderFloat("Value", ref value, 1.00f, 3.00f, size: GUI.Rm);
 				},
 #endif
 
-				can_add: static (ref Augment.Context context, in Telescope.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				can_add: static (ref context, in data, ref handle, augments) =>
 				{
 					return !augments.HasAugment(handle);
 				},
 
-				apply_1: static (ref Augment.Context context, ref Telescope.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				apply_1: static (ref context, ref data, ref handle, augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
 
@@ -1138,7 +1138,7 @@ namespace TC2.Base
 				name: "High-Precision Optics",
 				description: "Reduces side-effects caused by high magnification.",
 
-				validate: static (ref Augment.Context context, in Telescope.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				validate: static (ref context, in data, ref handle, augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
 					value.ClampRef(0.00f, 1.00f);
@@ -1147,19 +1147,19 @@ namespace TC2.Base
 				},
 
 #if CLIENT
-				draw_editor: static (ref Augment.Context context, in Telescope.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				draw_editor: static (ref context, in data, ref handle, augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
 					return GUI.SliderFloat("Value", ref value, 0.00f, 1.00f, size: GUI.Rm);
 				},
 #endif
 
-				can_add: static (ref Augment.Context context, in Telescope.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				can_add: static (ref context, in data, ref handle, augments) =>
 				{
 					return augments.GetCount(handle) <= 3;
 				},
 
-				apply_1: static (ref Augment.Context context, ref Telescope.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				apply_1: static (ref context, ref data, ref handle, augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
 
@@ -1175,7 +1175,7 @@ namespace TC2.Base
 				name: "Adjustable Optics",
 				description: "Improves scope's adjustment speed.",
 
-				validate: static (ref Augment.Context context, in Telescope.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				validate: static (ref context, in data, ref handle, augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
 					value.ClampRef(0.00f, 1.00f);
@@ -1184,19 +1184,19 @@ namespace TC2.Base
 				},
 
 #if CLIENT
-				draw_editor: static (ref Augment.Context context, in Telescope.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				draw_editor: static (ref context, in data, ref handle, augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
 					return GUI.SliderFloat("Value", ref value, 0.00f, 1.00f, size: GUI.Rm);
 				},
 #endif
 
-				can_add: static (ref Augment.Context context, in Telescope.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				can_add: static (ref context, in data, ref handle, augments) =>
 				{
 					return augments.GetCount(handle) <= 2;
 				},
 
-				apply_1: static (ref Augment.Context context, ref Telescope.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				apply_1: static (ref context, ref data, ref handle, augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
 
@@ -1217,17 +1217,17 @@ namespace TC2.Base
 				name: "Cursed",
 				description: "Covers the inner parts with tar, making it impossible to be unequipped.",
 
-				can_add: static (ref Augment.Context context, in Equipment.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				can_add: static (ref context, in data, ref handle, augments) =>
 				{
 					return !augments.HasAugment(handle);
 				},
 
-				apply_0: static (ref Augment.Context context, ref Equipment.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				apply_0: static (ref context, ref data, ref handle, augments) =>
 				{
 					data.flags.AddFlag(Equipment.Flags.Unremovable);
 				},
 
-				apply_1: static (ref Augment.Context context, ref Equipment.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				apply_1: static (ref context, ref data, ref handle, augments) =>
 				{
 					context.requirements_new.Merge(Crafting.Requirement.Resource("tar", 15.00f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 				}
@@ -1240,12 +1240,12 @@ namespace TC2.Base
 				name: "Cloth Padding",
 				description: "Pads the inner side of the armor with cloth.",
 
-				can_add: static (ref Augment.Context context, in Equipment.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				can_add: static (ref context, in data, ref handle, augments) =>
 				{
 					return !augments.HasAugment(handle);
 				},
 
-				apply_0: static (ref Augment.Context context, ref Equipment.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				apply_0: static (ref context, ref data, ref handle, augments) =>
 				{
 					ref var armor = ref context.GetComponent<Armor.Data>();
 					if (armor.IsNotNull())
@@ -1255,7 +1255,7 @@ namespace TC2.Base
 					}
 				},
 
-				apply_1: static (ref Augment.Context context, ref Equipment.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				apply_1: static (ref context, ref data, ref handle, augments) =>
 				{
 					context.requirements_new.Merge(Crafting.Requirement.Resource("cloth", 5.00f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 				}
@@ -1268,12 +1268,12 @@ namespace TC2.Base
 				name: "Mushroom Stuffing",
 				description: "Stuffs the inner side of the armor with soft mushroom bits.",
 
-				can_add: static (ref Augment.Context context, in Equipment.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				can_add: static (ref context, in data, ref handle, augments) =>
 				{
 					return !augments.HasAugment(handle);
 				},
 
-				apply_0: static (ref Augment.Context context, ref Equipment.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				apply_0: static (ref context, ref data, ref handle, augments) =>
 				{
 					ref var armor = ref context.GetComponent<Armor.Data>();
 					if (armor.IsNotNull())
@@ -1283,7 +1283,7 @@ namespace TC2.Base
 					}
 				},
 
-				apply_1: static (ref Augment.Context context, ref Equipment.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				apply_1: static (ref context, ref data, ref handle, augments) =>
 				{
 					context.requirements_new.Merge(Crafting.Requirement.Resource("mushroom", 20.00f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 				}
@@ -1296,13 +1296,13 @@ namespace TC2.Base
 				name: "Bling",
 				description: "Improves bragging rights.",
 
-				can_add: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				can_add: static (ref context, in data, ref handle, augments) =>
 				{
 					return augments.GetCount(handle) < 4;
 				},
 
 #if CLIENT
-				draw_editor: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				draw_editor: static (ref context, in data, ref handle, augments) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 					ref var modifier = ref handle.GetModifier();
@@ -1316,7 +1316,7 @@ namespace TC2.Base
 					return dirty;
 				},
 
-				generate_sprite: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
+				generate_sprite: static (ref context, in data, ref handle, augments, ref draw) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 					ref var modifier = ref handle.GetModifier();
@@ -1328,7 +1328,7 @@ namespace TC2.Base
 				},
 #endif
 
-				apply_1: static (ref Augment.Context context, ref Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				apply_1: static (ref context, ref data, ref handle, augments) =>
 				{
 
 				}
@@ -1341,12 +1341,12 @@ namespace TC2.Base
 				name: "Mix: Alcohol",
 				description: "Mixes a dose of alcohol into the item.",
 
-				can_add: static (ref Augment.Context context, in Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				can_add: static (ref context, in data, ref handle, augments) =>
 				{
 					return !context.HasComponent<Alcohol.Effect>();
 				},
 
-				validate: static (ref Augment.Context context, in Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				validate: static (ref context, in data, ref handle, augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
 					value.ClampRef(1.00f, 500.00f);
@@ -1355,14 +1355,14 @@ namespace TC2.Base
 				},
 
 #if CLIENT
-				draw_editor: static (ref Augment.Context context, in Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				draw_editor: static (ref context, in data, ref handle, augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
 					return GUI.SliderFloat("Amount", ref value, 1.00f, 500.00f, logarithmic: true, size: GUI.Rm);
 				},
 #endif
 
-				apply_0: static (ref Augment.Context context, ref Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				apply_0: static (ref context, ref data, ref handle, augments) =>
 				{
 					ref var amount = ref handle.GetData<float>();
 
@@ -1370,7 +1370,7 @@ namespace TC2.Base
 					component.amount = amount;
 				},
 
-				apply_1: static (ref Augment.Context context, ref Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				apply_1: static (ref context, ref data, ref handle, augments) =>
 				{
 					ref var amount = ref handle.GetData<float>();
 
@@ -1389,12 +1389,12 @@ namespace TC2.Base
 				name: "Mix: Methamphetamine",
 				description: "Mixes a dose of methamphetamine into the item.",
 
-				can_add: static (ref Augment.Context context, in Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				can_add: static (ref context, in data, ref handle, augments) =>
 				{
 					return !context.HasComponent<Meth.Effect>();
 				},
 
-				validate: static (ref Augment.Context context, in Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				validate: static (ref context, in data, ref handle, augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
 					value.ClampRef(1.00f, 200.00f);
@@ -1403,14 +1403,14 @@ namespace TC2.Base
 				},
 
 #if CLIENT
-				draw_editor: static (ref Augment.Context context, in Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				draw_editor: static (ref context, in data, ref handle, augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
 					return GUI.SliderFloat("Amount", ref value, 1.00f, 200.00f, logarithmic: true, size: GUI.Rm);
 				},
 #endif
 
-				apply_0: static (ref Augment.Context context, ref Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				apply_0: static (ref context, ref data, ref handle, augments) =>
 				{
 					ref var amount = ref handle.GetData<float>();
 
@@ -1418,7 +1418,7 @@ namespace TC2.Base
 					component.amount = amount;
 				},
 
-				apply_1: static (ref Augment.Context context, ref Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				apply_1: static (ref context, ref data, ref handle, augments) =>
 				{
 					ref var amount = ref handle.GetData<float>();
 
@@ -1437,12 +1437,12 @@ namespace TC2.Base
 				name: "Mix: Epinephrine",
 				description: "Mixes a dose of epinephrine into the item.",
 
-				can_add: static (ref Augment.Context context, in Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				can_add: static (ref context, in data, ref handle, augments) =>
 				{
 					return !context.HasComponent<Adrenaline.Effect>();
 				},
 
-				validate: static (ref Augment.Context context, in Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				validate: static (ref context, in data, ref handle, augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
 					value.ClampRef(0.05f, 50.00f);
@@ -1451,14 +1451,14 @@ namespace TC2.Base
 				},
 
 #if CLIENT
-				draw_editor: static (ref Augment.Context context, in Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				draw_editor: static (ref context, in data, ref handle, augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
 					return GUI.SliderFloat("Amount", ref value, 0.05f, 50.00f, logarithmic: true, size: GUI.Rm);
 				},
 #endif
 
-				apply_0: static (ref Augment.Context context, ref Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				apply_0: static (ref context, ref data, ref handle, augments) =>
 				{
 					ref var amount = ref handle.GetData<float>();
 
@@ -1466,7 +1466,7 @@ namespace TC2.Base
 					component.amount = amount;
 				},
 
-				apply_1: static (ref Augment.Context context, ref Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				apply_1: static (ref context, ref data, ref handle, augments) =>
 				{
 					ref var amount = ref handle.GetData<float>();
 
@@ -1485,12 +1485,12 @@ namespace TC2.Base
 				name: "Mix: Morphine",
 				description: "Mixes a dose of morphine into the item.",
 
-				can_add: static (ref Augment.Context context, in Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				can_add: static (ref context, in data, ref handle, augments) =>
 				{
 					return !context.HasComponent<Morphine.Effect>();
 				},
 
-				validate: static (ref Augment.Context context, in Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				validate: static (ref context, in data, ref handle, augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
 					value.ClampRef(1.00f, 100.00f);
@@ -1499,14 +1499,14 @@ namespace TC2.Base
 				},
 
 #if CLIENT
-				draw_editor: static (ref Augment.Context context, in Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				draw_editor: static (ref context, in data, ref handle, augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
 					return GUI.SliderFloat("Amount", ref value, 1.00f, 100.00f, logarithmic: true, size: GUI.Rm);
 				},
 #endif
 
-				apply_0: static (ref Augment.Context context, ref Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				apply_0: static (ref context, ref data, ref handle, augments) =>
 				{
 					ref var amount = ref handle.GetData<float>();
 
@@ -1514,7 +1514,7 @@ namespace TC2.Base
 					component.amount = amount;
 				},
 
-				apply_1: static (ref Augment.Context context, ref Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				apply_1: static (ref context, ref data, ref handle, augments) =>
 				{
 					ref var amount = ref handle.GetData<float>();
 
@@ -1533,12 +1533,12 @@ namespace TC2.Base
 				name: "Mix: Codeine",
 				description: "Mixes a dose of codeine into the item.",
 
-				can_add: static (ref Augment.Context context, in Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				can_add: static (ref context, in data, ref handle, augments) =>
 				{
 					return !context.HasComponent<Codeine.Effect>();
 				},
 
-				validate: static (ref Augment.Context context, in Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				validate: static (ref context, in data, ref handle, augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
 					value.ClampRef(1.00f, 100.00f);
@@ -1547,14 +1547,14 @@ namespace TC2.Base
 				},
 
 #if CLIENT
-				draw_editor: static (ref Augment.Context context, in Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				draw_editor: static (ref context, in data, ref handle, augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
 					return GUI.SliderFloat("Amount", ref value, 1.00f, 100.00f, logarithmic: true, size: GUI.Rm);
 				},
 #endif
 
-				apply_0: static (ref Augment.Context context, ref Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				apply_0: static (ref context, ref data, ref handle, augments) =>
 				{
 					ref var amount = ref handle.GetData<float>();
 
@@ -1562,7 +1562,7 @@ namespace TC2.Base
 					component.amount = amount;
 				},
 
-				apply_1: static (ref Augment.Context context, ref Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				apply_1: static (ref context, ref data, ref handle, augments) =>
 				{
 					ref var amount = ref handle.GetData<float>();
 
@@ -1581,12 +1581,12 @@ namespace TC2.Base
 				name: "Mix: Paxilon Hydrochlorate",
 				description: "Mixes a dose of paxilon hydrochlorate into the item.",
 
-				can_add: static (ref Augment.Context context, in Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				can_add: static (ref context, in data, ref handle, augments) =>
 				{
 					return !context.HasComponent<Paxilon.Effect>();
 				},
 
-				validate: static (ref Augment.Context context, in Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				validate: static (ref context, in data, ref handle, augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
 					value.ClampRef(1.00f, 100.00f);
@@ -1595,14 +1595,14 @@ namespace TC2.Base
 				},
 
 #if CLIENT
-				draw_editor: static (ref Augment.Context context, in Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				draw_editor: static (ref context, in data, ref handle, augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
 					return GUI.SliderFloat("Amount", ref value, 1.00f, 100.00f, logarithmic: true, size: GUI.Rm);
 				},
 #endif
 
-				apply_0: static (ref Augment.Context context, ref Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				apply_0: static (ref context, ref data, ref handle, augments) =>
 				{
 					ref var amount = ref handle.GetData<float>();
 
@@ -1610,7 +1610,7 @@ namespace TC2.Base
 					component.amount = amount;
 				},
 
-				apply_1: static (ref Augment.Context context, ref Consumable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				apply_1: static (ref context, ref data, ref handle, augments) =>
 				{
 					ref var amount = ref handle.GetData<float>();
 
@@ -1629,7 +1629,7 @@ namespace TC2.Base
 				name: "Extended Release",
 				description: "Lowers the release rate of a pill, spreading out the dose over a longer timespan.",
 
-				validate: static (ref Augment.Context context, in Pill.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				validate: static (ref context, in data, ref handle, augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
 					value.ClampRef(0.01f, 0.20f);
@@ -1638,19 +1638,19 @@ namespace TC2.Base
 				},
 
 #if CLIENT
-				draw_editor: static (ref Augment.Context context, in Pill.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				draw_editor: static (ref context, in data, ref handle, augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
 					return GUI.SliderFloat("Multiplier", ref value, 0.01f, 0.20f, size: GUI.Rm);
 				},
 #endif
 
-				can_add: static (ref Augment.Context context, in Pill.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				can_add: static (ref context, in data, ref handle, augments) =>
 				{
 					return !augments.HasAugment(handle);
 				},
 
-				apply_1: static (ref Augment.Context context, ref Pill.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				apply_1: static (ref context, ref data, ref handle, augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
 
@@ -1669,7 +1669,7 @@ namespace TC2.Base
 				name: "High-Friction Grip",
 				description: "Greatly increases grip strength. May lead to injury.",
 
-				validate: static (ref Augment.Context context, in Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				validate: static (ref context, in data, ref handle, augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
 					value.ClampRef(0.00f, 1.50f);
@@ -1677,20 +1677,20 @@ namespace TC2.Base
 					return true;
 				},
 
-				can_add: static (ref Augment.Context context, in Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				can_add: static (ref context, in data, ref handle, augments) =>
 				{
 					return !augments.HasAugment(handle) && !data.flags.HasAny(Holdable.Flags.Disable_Parent_Facing | Holdable.Flags.Disable_Pickup_Offset);
 				},
 
 #if CLIENT
-				draw_editor: static (ref Augment.Context context, in Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				draw_editor: static (ref context, in data, ref handle, augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
 					return GUI.SliderFloat("Amount", ref value, 0.00f, 1.50f, size: GUI.Rm);
 				},
 #endif
 
-				apply_0: static (ref Augment.Context context, ref Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				apply_0: static (ref context, ref data, ref handle, augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
 					value.ClampRef(0.00f, 1.50f);
@@ -1699,7 +1699,7 @@ namespace TC2.Base
 					data.torque_multiplier.MultCapped(Maths.Mulpo(value, 1.20f), 3.00f);
 				},
 
-				apply_1: static (ref Augment.Context context, ref Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				apply_1: static (ref context, ref data, ref handle, augments) =>
 				{
 					context.requirements_new.Merge(Crafting.Requirement.Resource("rubber", 1.00f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 				}
@@ -1712,7 +1712,7 @@ namespace TC2.Base
 				name: "Attachment Connector",
 				description: "Enables mounting this item to attachment slots.",
 
-				validate: static (ref Augment.Context context, in Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				validate: static (ref context, in data, ref handle, augments) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 
@@ -1723,13 +1723,13 @@ namespace TC2.Base
 					return true;
 				},
 
-				can_add: static (ref Augment.Context context, in Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				can_add: static (ref context, in data, ref handle, augments) =>
 				{
 					return !context.HasComponent<Attachment.Data>() && !context.HasComponent<Equipment.Data>();
 				},
 
 #if CLIENT
-				draw_editor: static (ref Augment.Context context, in Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				draw_editor: static (ref context, in data, ref handle, augments) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 
@@ -1746,14 +1746,14 @@ namespace TC2.Base
 					return dirty;
 				},
 
-				generate_sprite: static (ref Augment.Context context, in Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
+				generate_sprite: static (ref context, in data, ref handle, augments, ref draw) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 					draw.DrawSprite("augment.attachable", Maths.Snap(offset, 0.125f), scale: new(1.00f, 1.00f), pivot: new(0.50f, 0.50f));
 				},
 #endif
 
-				apply_0: static (ref Augment.Context context, ref Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				apply_0: static (ref context, ref data, ref handle, augments) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 
@@ -1764,7 +1764,7 @@ namespace TC2.Base
 					}
 				},
 
-				apply_1: static (ref Augment.Context context, ref Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				apply_1: static (ref context, ref data, ref handle, augments) =>
 				{
 					ref var attachable = ref context.GetComponent<Attachment.Data>();
 					if (attachable.IsNotNull())
@@ -1821,17 +1821,17 @@ namespace TC2.Base
 				name: "Safety Markings",
 				description: "Prevents faction members from stepping on the land mine.",
 
-				can_add: static (ref Augment.Context context, in LandMine.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				can_add: static (ref context, in data, ref handle, augments) =>
 				{
 					return !augments.HasAugment(handle);
 				},
 
-				apply_0: static (ref Augment.Context context, ref LandMine.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				apply_0: static (ref context, ref data, ref handle, augments) =>
 				{
 					data.flags |= LandMine.Flags.Faction;
 				},
 
-				apply_1: static (ref Augment.Context context, ref LandMine.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				apply_1: static (ref context, ref data, ref handle, augments) =>
 				{
 					context.requirements_new.Merge(Crafting.Requirement.Resource("paper", 1).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 				}
@@ -1844,13 +1844,13 @@ namespace TC2.Base
 				name: "Steel Casing",
 				description: "TODO: Desc",
 
-				can_add: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				can_add: static (ref context, in data, ref handle, augments) =>
 				{
 					return augments.GetCount(handle) < 4;
 				},
 
 #if CLIENT
-				draw_editor: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				draw_editor: static (ref context, in data, ref handle, augments) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 					ref var modifier = ref handle.GetModifier();
@@ -1868,7 +1868,7 @@ namespace TC2.Base
 					return dirty;
 				},
 
-				generate_sprite: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
+				generate_sprite: static (ref context, in data, ref handle, augments, ref draw) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 					ref var modifier = ref handle.GetModifier();
@@ -1880,7 +1880,7 @@ namespace TC2.Base
 				},
 #endif
 
-				apply_0: static (ref Augment.Context context, ref Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				apply_0: static (ref context, ref data, ref handle, augments) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 					ref var modifier = ref handle.GetModifier();
@@ -2054,13 +2054,13 @@ namespace TC2.Base
 				name: "Steel Casing (Large)",
 				description: "TODO: Desc",
 
-				can_add: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				can_add: static (ref context, in data, ref handle, augments) =>
 				{
 					return augments.GetCount(handle) < 8;
 				},
 
 #if CLIENT
-				draw_editor: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				draw_editor: static (ref context, in data, ref handle, augments) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 					ref var modifier = ref handle.GetModifier();
@@ -2078,7 +2078,7 @@ namespace TC2.Base
 					return dirty;
 				},
 
-				generate_sprite: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
+				generate_sprite: static (ref context, in data, ref handle, augments, ref draw) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 					ref var modifier = ref handle.GetModifier();
@@ -2090,7 +2090,7 @@ namespace TC2.Base
 				},
 #endif
 
-				apply_1: static (ref Augment.Context context, ref Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				apply_1: static (ref context, ref data, ref handle, augments) =>
 				{
 
 				}
@@ -2103,13 +2103,13 @@ namespace TC2.Base
 				name: "Steel Casing (Vehicle)",
 				description: "TODO: Desc",
 
-				can_add: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				can_add: static (ref context, in data, ref handle, augments) =>
 				{
 					return augments.GetCount(handle) < 8;
 				},
 
 #if CLIENT
-				draw_editor: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				draw_editor: static (ref context, in data, ref handle, augments) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 					ref var modifier = ref handle.GetModifier();
@@ -2127,7 +2127,7 @@ namespace TC2.Base
 					return dirty;
 				},
 
-				generate_sprite: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
+				generate_sprite: static (ref context, in data, ref handle, augments, ref draw) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 					ref var modifier = ref handle.GetModifier();
@@ -2139,7 +2139,7 @@ namespace TC2.Base
 				},
 #endif
 
-				apply_1: static (ref Augment.Context context, ref Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				apply_1: static (ref context, ref data, ref handle, augments) =>
 				{
 
 				}
@@ -2152,13 +2152,13 @@ namespace TC2.Base
 				name: "Steel Framework",
 				description: "TODO: Desc",
 
-				can_add: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				can_add: static (ref context, in data, ref handle, augments) =>
 				{
 					return augments.GetCount(handle) < 4;
 				},
 
 #if CLIENT
-				draw_editor: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				draw_editor: static (ref context, in data, ref handle, augments) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 					ref var modifier = ref handle.GetModifier();
@@ -2176,7 +2176,7 @@ namespace TC2.Base
 					return dirty;
 				},
 
-				generate_sprite: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
+				generate_sprite: static (ref context, in data, ref handle, augments, ref draw) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 					ref var modifier = ref handle.GetModifier();
@@ -2188,7 +2188,7 @@ namespace TC2.Base
 				},
 #endif
 
-				apply_1: static (ref Augment.Context context, ref Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				apply_1: static (ref context, ref data, ref handle, augments) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 					ref var modifier = ref handle.GetModifier();
@@ -2361,13 +2361,13 @@ namespace TC2.Base
 				name: "Steel Framework (Large)",
 				description: "TODO: Desc",
 
-				can_add: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				can_add: static (ref context, in data, ref handle, augments) =>
 				{
 					return augments.GetCount(handle) < 8;
 				},
 
 #if CLIENT
-				draw_editor: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				draw_editor: static (ref context, in data, ref handle, augments) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 					ref var modifier = ref handle.GetModifier();
@@ -2385,7 +2385,7 @@ namespace TC2.Base
 					return dirty;
 				},
 
-				generate_sprite: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
+				generate_sprite: static (ref context, in data, ref handle, augments, ref draw) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 					ref var modifier = ref handle.GetModifier();
@@ -2397,12 +2397,12 @@ namespace TC2.Base
 				},
 #endif
 
-				apply_1: static (ref Augment.Context context, ref Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				apply_1: static (ref context, ref data, ref handle, augments) =>
 				{
 
 				},
 
-				finalize: static (ref Augment.Context context, ref Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				finalize: static (ref context, ref data, ref handle, augments) =>
 				{
 					return true;
 				}
@@ -2415,13 +2415,13 @@ namespace TC2.Base
 				name: "Scrap Casing",
 				description: "TODO: Desc",
 
-				can_add: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				can_add: static (ref context, in data, ref handle, augments) =>
 				{
 					return augments.GetCount(handle) < 8;
 				},
 
 #if CLIENT
-				draw_editor: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				draw_editor: static (ref context, in data, ref handle, augments) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 					ref var modifier = ref handle.GetModifier();
@@ -2439,7 +2439,7 @@ namespace TC2.Base
 					return dirty;
 				},
 
-				generate_sprite: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
+				generate_sprite: static (ref context, in data, ref handle, augments, ref draw) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 					ref var modifier = ref handle.GetModifier();
@@ -2451,7 +2451,7 @@ namespace TC2.Base
 				},
 #endif
 
-				apply_0: static (ref Augment.Context context, ref Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				apply_0: static (ref context, ref data, ref handle, augments) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 					ref var modifier = ref handle.GetModifier();
@@ -2804,13 +2804,13 @@ namespace TC2.Base
 				name: "Scrap Casing (Large)",
 				description: "TODO: Desc",
 
-				can_add: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				can_add: static (ref context, in data, ref handle, augments) =>
 				{
 					return augments.GetCount(handle) < 8;
 				},
 
 #if CLIENT
-				draw_editor: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				draw_editor: static (ref context, in data, ref handle, augments) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 					ref var modifier = ref handle.GetModifier();
@@ -2828,7 +2828,7 @@ namespace TC2.Base
 					return dirty;
 				},
 
-				generate_sprite: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
+				generate_sprite: static (ref context, in data, ref handle, augments, ref draw) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 					ref var modifier = ref handle.GetModifier();
@@ -2840,7 +2840,7 @@ namespace TC2.Base
 				},
 #endif
 
-				apply_0: static (ref Augment.Context context, ref Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				apply_0: static (ref context, ref data, ref handle, augments) =>
 				{
 					ref var armor = ref context.GetOrAddComponent<Armor.Data>();
 					if (!armor.IsNull())
@@ -2893,7 +2893,7 @@ namespace TC2.Base
 					}
 				},
 
-				apply_1: static (ref Augment.Context context, ref Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				apply_1: static (ref context, ref data, ref handle, augments) =>
 				{
 					ref var material_scrap = ref IMaterial.Database.GetData("scrap.ferrous", out var material_scrap_id);
 					if (material_scrap.IsNotNull())
@@ -2968,13 +2968,13 @@ namespace TC2.Base
 				name: "Smirglum Casing",
 				description: "TODO: Desc",
 
-				can_add: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				can_add: static (ref context, in data, ref handle, augments) =>
 				{
 					return augments.GetCount(handle) < 4;
 				},
 
 #if CLIENT
-				draw_editor: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				draw_editor: static (ref context, in data, ref handle, augments) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 					ref var modifier = ref handle.GetModifier();
@@ -2992,7 +2992,7 @@ namespace TC2.Base
 					return dirty;
 				},
 
-				generate_sprite: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
+				generate_sprite: static (ref context, in data, ref handle, augments, ref draw) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 					ref var modifier = ref handle.GetModifier();
@@ -3004,7 +3004,7 @@ namespace TC2.Base
 				},
 #endif
 
-				apply_0: static (ref Augment.Context context, ref Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				apply_0: static (ref context, ref data, ref handle, augments) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 					ref var modifier = ref handle.GetModifier();
@@ -3256,13 +3256,13 @@ namespace TC2.Base
 				name: "Smirglum Casing (Large)",
 				description: "TODO: Desc",
 
-				can_add: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				can_add: static (ref context, in data, ref handle, augments) =>
 				{
 					return augments.GetCount(handle) < 8;
 				},
 
 #if CLIENT
-				draw_editor: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				draw_editor: static (ref context, in data, ref handle, augments) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 					ref var modifier = ref handle.GetModifier();
@@ -3280,7 +3280,7 @@ namespace TC2.Base
 					return dirty;
 				},
 
-				generate_sprite: static (ref Augment.Context context, in Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments, ref DynamicTexture.Context draw) =>
+				generate_sprite: static (ref context, in data, ref handle, augments, ref draw) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 					ref var modifier = ref handle.GetModifier();
@@ -3292,7 +3292,7 @@ namespace TC2.Base
 				},
 #endif
 
-				apply_0: static (ref Augment.Context context, ref Body.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				apply_0: static (ref context, ref data, ref handle, augments) =>
 				{
 					ref var offset = ref handle.GetData<Vector2>();
 					ref var modifier = ref handle.GetModifier();
@@ -3548,13 +3548,13 @@ namespace TC2.Base
 				name: "Fail-Safe Mechanism [WIP]",
 				description: "Greatly lowers chance of catastrophic failure at cost of reduced performance.",
 
-				can_add: static (ref Augment.Context context, in SteamEngine.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				can_add: static (ref context, in data, ref handle, augments) =>
 				{
 					return !augments.HasAugment(handle);
 				},
 
 #if CLIENT
-				draw_editor: static (ref Augment.Context context, in SteamEngine.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				draw_editor: static (ref context, in data, ref handle, augments) =>
 				{
 					ref var modifier = ref handle.GetModifier();
 
@@ -3566,7 +3566,7 @@ namespace TC2.Base
 				},
 #endif
 
-				apply_1: static (ref Augment.Context context, ref SteamEngine.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				apply_1: static (ref context, ref data, ref handle, augments) =>
 				{
 					ref var modifier = ref handle.GetModifier();
 

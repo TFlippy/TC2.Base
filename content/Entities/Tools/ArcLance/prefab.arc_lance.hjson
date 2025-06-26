@@ -64,16 +64,10 @@ melee.state:
 
 arcer:
 {
-	h_material_electrode: smirgrafit
-
-	// @light:
-	// {
-	// 	color: [0.650, 0.800, 1.000, 1.500]
-	// 	offset: [1.000, 0.000]
-	// 	scale: [8.000, 8.000]
-	// 	intensity: 1.000
-	// 	texture: "light.circle.00"
-	// }
+	h_substance_electrode: smirglum
+	electrode_separation: 0.200
+	type: dual
+	offset: [1.625, 0.000]
 }
 
 holdable:

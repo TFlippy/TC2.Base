@@ -39,7 +39,7 @@ transform:
 
 health:
 {
-	max: 28000.000
+	max: 68000.000
 }
 
 animated.renderer:
@@ -48,7 +48,7 @@ animated.renderer:
 	{
 		texture: heater.arc.01
 	}
-	z: -140.000
+	z: 10.000
 }
 
 essence.container:
@@ -120,10 +120,10 @@ aimable:
 
 holdable:
 {
+	offset: [-1.125, 0.000]
 	force_multiplier: 0.750
 	torque_multiplier: 1.150
 	stress_multiplier: 0.500
-	offset: [-0.375, 0.000]
 	radius: 3.000
 	hints: tools, dangerous, heavy, short_range, advanced, machine, destructive, construction, device, industrial, arcane, tech, slow, unstable
 	flags: full_rotate
@@ -133,7 +133,7 @@ attachment:
 {
 	offset: [-1.125, 0.000]
 	flags: mirror_rotate
-	tags: small, tool, utility, rotary
+	tags: small, tool, rotary, device, short
 }
 
 electrode:

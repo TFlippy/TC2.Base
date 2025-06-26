@@ -2,6 +2,7 @@
 	$version: "0.1.63.8"
 	name: "Thermopaste"
 	name_short: "Thermopaste"
+	name_imperial: "Termoplastelin"
 	name_dumb: "Putty"
 	description:
 		'''
@@ -20,7 +21,7 @@
 	type: tar
 	flags: soft, malleable, sticky, granular, toxic, metal, viscous, chemical, small, corrosive, manufactured, flammable, flexible, volatile, processed, smelly
 	display_flags: none
-	hints: materials, dangerous, advanced, chemical, construction, civilian, industrial, fast, unstable, clumsy
+	hints: materials, dangerous, advanced, chemical, construction, civilian, industrial, slow, unstable, clumsy
 	
 	purity: 0.927
 	mass_per_unit: 0.957
