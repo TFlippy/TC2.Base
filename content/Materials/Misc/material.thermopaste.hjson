@@ -5,7 +5,7 @@
 	name_dumb: "Putty"
 	description:
 		'''
-		TODO: Desc
+		Standard metalworking putty used for brazing and cermet production.
 		'''
 	
 	tips: []
@@ -18,10 +18,11 @@
 	}
 	
 	type: tar
-	flags: soft, malleable, sticky, granular, toxic, viscous, chemical, manufactured, flammable, flexible, volatile, processed, smelly
+	flags: soft, malleable, sticky, granular, toxic, metal, viscous, chemical, small, corrosive, manufactured, flammable, flexible, volatile, processed, smelly
 	display_flags: none
 	hints: materials, dangerous, advanced, chemical, construction, civilian, industrial, fast, unstable, clumsy
 	
+	purity: 0.927
 	mass_per_unit: 0.957
 	
 	quantity_max: 250.000
@@ -95,13 +96,12 @@
 	{
 		graphite.powder: powdered, ingredient
 		coal.powder: similar, powdered, ingredient
-		oil: none
-		water.toxic: none
-		phlogiston: none
+		himlkarzenus: similar, chemical, ingredient
+		water.toxic: ruined, waste
 		ferronickel.powder: powdered, ingredient
 		silver.powder: powdered, ingredient
-		hydrazine: chemical, ingredient
-		arsenic: none
+		arsenic: similar, chemical, ingredient
 		ammonia: reaction, decomposition, product
+		copper.powder: powdered, ingredient
 	}
 }

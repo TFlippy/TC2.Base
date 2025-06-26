@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.3"
+	$version: "0.1.63.8"
 	name: "Crushing"
 	name_short: "Crushing"
 	desc:
@@ -15,19 +15,21 @@
 	}
 	
 	flags: none
-	tags: manual, machine, automated, simple, industrial, dangerous, wip
+	tags: manual, machine, crude, simple, wip
+	
+	amount_base: 0.000
 	cooldown: 1.000
-	multiplier: 1.000
+	multiplier: 0.640
+	
+	amount_jitter: 0.546
+	cooldown_jitter: 0.025
 	color: "0xffa94535"
 	
 	tools_required: none
-	tools_optional: none
+	tools_optional: hammer, crowbar
 	
-	machinery_required: none
-	machinery_optional: none
-	
-	infrastructure_required: none
-	infrastructure_optional: none
+	infrastructure_required: surface
+	infrastructure_optional: hard_surface
 	
 	character_traits:
 	{
@@ -42,15 +44,18 @@
 	
 	skills_mult:
 	{
-	
+		strength: 0.640
+		endurance: 0.310
+		clubs: 0.180
+		mining: 0.210
 	}
 	
-	sound_volume: 0.500
-	sound_pitch: 1.000
-	sound_size: 0.500
-	sound_dist: 1.000
+	sound_volume: 0.580
+	sound_pitch: 0.870
+	sound_size: 0.740
+	sound_dist: 0.760
 	
-	sounds: []
+	sounds: ["stone_hit_sharp_00", "stone_hit_sharp_01", "stone_hit_sharp_02", "stone_hit_sharp_03"]
 	sounds_manual: []
 	sounds_machine: []
 	sounds_passive: []
