@@ -12,25 +12,31 @@ body:
 	
 	@shape.line:
 	{
-		a: [0.000, -2.500]
-		b: [0.000, 2.500]
-		offset: [0.000, 0.000]
+		material: metal_frame
+		miss_chance: 0.900
+		flags: none
+		tags: large, thin, hard, giant
+		
+		layer: entity, background, building, support, climbable, ignore_melee
+		mask: world
+		exclude: none
 		mass: 200.000
 		radius: 0.900
 		friction: 0.500
 		elasticity: 0.500
+		
 		rigidity_static: 0.000
 		rigidity_dynamic: 0.000
-
-		material: metal_frame
-		layer: entity, climbable, building, support, ignore_melee, background
-		mask: world
+		
+		a: [0.000, -2.500]
+		b: [0.000, 2.500]
+		offset: [0.000, 0.000]
 	}
 }
 
 health:
 {
-	max: 8000.000
+	max: 21500.000
 }
 
 animated.renderer:

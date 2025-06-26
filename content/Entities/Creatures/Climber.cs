@@ -71,29 +71,34 @@ namespace TC2.Base.Components
 					{
 						if (!is_climbing && layer.HasAny(Physics.Layer.Climbable))
 						{
-							var ent_arbiter = arbiter.GetEntity();
+							if (arbiter.GetShapeTags().Evaluate(climber.climbable_tags_mask))
+							{
+								var ent_arbiter = arbiter.GetEntity();
 
-							var cling_force = climber.cling_force;
-							var climb_speed = climber.climb_speed;
-							cling_force *= Maths.Cutoff(organic_state.efficiency * organic_state.consciousness_shared, 0.30f, 0.00f) * organic.strength * (1.00f - organic_state.stun_norm);
-							climber.cling_entity = ent_arbiter;
-							climber.pos_climbable = arbiter.GetBodyPosition();
+								var cling_force = climber.cling_force;
+								var climb_speed = climber.climb_speed;
+								cling_force *= Maths.Cutoff(organic_state.efficiency * organic_state.consciousness_shared, 0.30f, 0.00f) * organic.strength * (1.00f - organic_state.stun_norm);
+								climber.cling_entity = ent_arbiter;
+								climber.pos_climbable = arbiter.GetBodyPosition();
 
-							
+								if (keyboard.GetKey(Keyboard.Key.MoveLeft)) climb_vel.X -= 1.50f;
+								if (keyboard.GetKey(Keyboard.Key.MoveRight)) climb_vel.X += 1.50f;
+								if (keyboard.GetKey(Keyboard.Key.MoveUp)) climb_vel.Y -= 1.00f;
+								if (keyboard.GetKey(Keyboard.Key.MoveDown)) climb_vel.Y += 1.50f;
 
-							if (keyboard.GetKey(Keyboard.Key.MoveLeft)) climb_vel.X -= 1.50f;
-							if (keyboard.GetKey(Keyboard.Key.MoveRight)) climb_vel.X += 1.50f;
-							if (keyboard.GetKey(Keyboard.Key.MoveUp)) climb_vel.Y -= 1.00f;
-							if (keyboard.GetKey(Keyboard.Key.MoveDown)) climb_vel.Y += 1.50f;
+								climb_vel *= climb_speed;
 
-							climb_vel *= climb_speed;
+								climber.MaxForce = cling_force;
+								climber.OffsetA += (climb_vel * dt);
 
-							climber.MaxForce = cling_force;
-							climber.OffsetA += (climb_vel * dt);
+								if (climb_vel != Vector2.Zero) body.Activate();
 
-							if (climb_vel != Vector2.Zero) body.Activate();
-
-							is_climbing = true;
+								is_climbing = true;
+							}
+							else
+							{
+								arbiter.SetIgnored();
+							}
 							//break;
 						}
 						//else if (!is_wallclimbing && can_wallclimb && arbiter.GetRigidityDynamic() > 0.90f)

@@ -23,6 +23,7 @@ body:
 		material: flesh
 		layer: entity, solid, creature, storage, flammable, organic
 		mask: world
+		tags: large, flammable, soft, giant
 	}
 }
 
@@ -100,6 +101,39 @@ faction.colorable:
 threat:
 {
 	priority: 35.000
+}
+
+climber:
+{
+	climb_force: 8000.000
+	cling_force: 12000.000
+	climb_speed: 15.000
+
+	climbable_tags_mask:
+	{
+		require: giant
+		exclude: tiny, small, soft
+	}
+
+	@shape.circle:
+	{
+		material: none
+		miss_chance: 0.000
+		flags: no_mass, no_body_overrides, no_inventory_mass
+		
+		layer: entity, ignore_melee, ignore_hover, ignore_bullet
+		mask: climbable
+		exclude: none
+		mass: 0.001
+		radius: 0.875
+		friction: 0.000
+		elasticity: 0.000
+		
+		rigidity_static: 0.000
+		rigidity_dynamic: 0.000
+		
+		offset: [0.000, 0.125]
+	}
 }
 
 transform:
@@ -374,6 +408,7 @@ vehicle:
 				material: flesh
 				layer: entity, solid, creature, flammable, organic
 				mask: world
+				tags: medium, flammable, hard, giant
 			}
 		}
 		
@@ -579,6 +614,7 @@ vehicle:
 				material: flesh
 				layer: entity, solid, creature, flammable, organic
 				mask: world
+				tags: heavy, large, flammable, soft, giant
 			}
 		}
 		

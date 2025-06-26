@@ -26,6 +26,7 @@ body:
 		layer: entity, climbable, no_overlapped_placement, ignore_melee, ignore_bullet, building
 		mask: world, support, building
 		exclude: door, construction
+		tags: medium, thin, hard
 	}
 }
 

@@ -21,15 +21,17 @@ body:
 		rigidity_static: 0.000
 		rigidity_dynamic: 0.000
 
-		material: metal_pole
-		layer: entity, climbable, no_overlapped_placement, ignore_bullet, furniture
-		mask: world
+		material: metal_solid
+		layer: entity, climbable, no_overlapped_placement, ignore_melee, ignore_bullet, building
+		mask: world, support, building
+		exclude: door, construction
+		tags: heavy, huge, solid, hard, giant
 	}
 }
 
 health:
 {
-	max: 28500.000
+	max: 95000.000
 }
 
 animated.renderer:

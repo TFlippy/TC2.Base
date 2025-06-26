@@ -26,6 +26,7 @@ body:
 		material: flesh
 		layer: entity, solid, creature, storage, flammable, organic
 		mask: world
+		tags: small, flammable, soft
 	}
 }
 
@@ -87,6 +88,11 @@ climber:
 	climb_force: 1000.000
 	cling_force: 3000.000
 
+	climbable_tags_mask:
+	{
+		exclude: huge
+	}
+
 	@shape.circle:
 	{
 		mass: 0.001
@@ -97,7 +103,7 @@ climber:
 		rigidity_static: 0.000
 		layer: entity, ignore_hover, ignore_melee, ignore_bullet
 		mask: climbable
-		// flags: no_mass
+		flags: no_mass, no_body_overrides, no_inventory_mass
 	}
 }
 
