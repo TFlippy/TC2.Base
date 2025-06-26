@@ -116,7 +116,7 @@ shop:
 	tags_filter:
 	{
 		require: manual
-		include: workbench, simple, gathering
+		include: workbench, crafting, simple, gathering
 		exclude: advanced, large, huge, vehicle, blacksmithing, smelting, fermenting, heating, casting
 	}
 	

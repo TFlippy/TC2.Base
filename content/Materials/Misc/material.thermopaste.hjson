@@ -93,10 +93,15 @@
 	
 	related:
 	{
-		graphite.powder: none
-		coal.powder: none
+		graphite.powder: powdered, ingredient
+		coal.powder: similar, powdered, ingredient
 		oil: none
 		water.toxic: none
 		phlogiston: none
+		ferronickel.powder: powdered, ingredient
+		silver.powder: powdered, ingredient
+		hydrazine: chemical, ingredient
+		arsenic: none
+		ammonia: reaction, decomposition, product
 	}
 }

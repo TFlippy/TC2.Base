@@ -1,11 +1,11 @@
 ﻿{
-	$version: "0.1.63.5"
+	$version: "0.1.63.8"
 	name: "Sawdust"
 	name_short: "Sawdust"
 	name_dumb: "Dust"
 	description:
 		'''
-		TODO: Desc
+		Tree flour...
 		'''
 	
 	tips: []
@@ -42,6 +42,7 @@
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	
+	centroid_default: [0.000, 0.250]
 	colliders: []
 	
 	commodity:

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.63.8"
 	name: "Bending"
 	name_short: "Bending"
 	desc:
@@ -19,7 +19,7 @@
 	
 	amount_base: 0.000
 	cooldown: 2.000
-	multiplier: 0.650
+	multiplier: 0.600
 	
 	amount_jitter: 0.362
 	cooldown_jitter: -0.114
@@ -44,7 +44,7 @@
 	
 	skills_mult:
 	{
-		strength: 1.100
+		strength: 0.950
 		endurance: 0.250
 	}
 	

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.63.8"
 	name: "Clay Bricks"
 	desc:
 		'''
@@ -39,6 +39,7 @@
 	flags: none
 	tags: none
 	infrastructure: none
+	infrastructure_exclude: none
 	
 	icon:
 	{
@@ -65,7 +66,7 @@
 		
 		sound: stone_place_0
 		
-		snapping_flags: snap_to_surface, align_to_surface, use_collider_radius, add_size_to_snap_offset, use_raw_collider, inset_terrain
+		snapping_flags: snap_to_surface, align_to_surface, use_collider_radius, add_size_to_snap_offset, use_raw_collider, no_end_snap, inset_terrain
 		snapping_radius: 0.125
 		
 		mappings_replace:
