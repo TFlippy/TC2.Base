@@ -1,0 +1,84 @@
+﻿{
+	$region_id: 0
+	$version: "0.1.63.8"
+	name: "Chalcopyrite Bricks"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	tips: []
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: chalcopyrite
+			amount: 0.480
+			group: 0
+			flags: prerequisite
+		}
+		{
+			type: resource
+			material: thermopaste
+			amount: 0.013
+			group: 0
+			flags: prerequisite
+		}
+	]
+	
+	products:
+	[
+		{
+			type: block
+			block: brick.chalcopyrite
+			tile_flags: solid, become_background_on_break
+			group: 0
+		}
+	]
+	
+	type: architecture
+	flags: none
+	tags: none
+	infrastructure: none
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		texture: block_icons
+		size: [16, 16]
+		frame: [22, 0]
+	}
+	
+	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
+	rank: -80.500
+	
+	placement:
+	{
+		type: rectangle
+		flags: continuous
+		
+		size: [1.000, 0.750]
+		snap: [0.250, 0.250]
+		
+		cooldown: 0.600
+		min_support: 0.050
+		min_claim: 1.000
+		
+		sound: stone_place_0
+		
+		snapping_filter:
+		{
+			include: world
+		}
+		snapping_flags: snap_to_surface, align_to_surface, use_collider_radius, add_size_to_snap_offset, use_raw_collider, no_end_snap, inset_terrain
+		snapping_radius: 0.125
+		
+		mappings_replace:
+		{
+		
+		}
+	}
+	
+	version: 1
+}
