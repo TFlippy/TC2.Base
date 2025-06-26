@@ -59,6 +59,7 @@
 		flags: continuous, replace, ignore_obstructed
 		
 		size: [2.000, 2.000]
+		snap: [0.125, 0.125]
 		radius: 1.000
 		
 		cooldown: 0.200
@@ -70,7 +71,7 @@
 		{
 			include: world
 		}
-		snapping_flags: snap_to_surface, add_size_to_snap_radius, use_raw_collider, inset_terrain
+		snapping_flags: snap_to_surface, use_collider_radius, add_size_to_snap_radius
 		
 		mappings_replace:
 		{

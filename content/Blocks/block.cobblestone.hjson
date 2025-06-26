@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.5"
+	$version: "0.1.63.8"
 	name: "Cobblestone"
 	desc:
 		'''
@@ -10,7 +10,7 @@
 	tile_flags: non_empty
 	flags: artificial, construction
 	
-	max_health: 13700.000
+	max_health: 16800.000
 	smoothing: 0.150
 	stability: 0.500
 	strength_tensile: 0.000
@@ -19,6 +19,7 @@
 	mass: 5.000
 	friction: 0.900
 	elasticity: 0.470
+	fall_damage_mult: 1.000
 	collision_layer: none
 	collision_mask: none
 	

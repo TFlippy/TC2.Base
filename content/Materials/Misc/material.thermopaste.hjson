@@ -18,9 +18,9 @@
 	}
 	
 	type: tar
-	flags: soft, malleable, sticky, granular, toxic, raw, flammable, smelly
+	flags: soft, malleable, sticky, granular, toxic, viscous, chemical, manufactured, flammable, flexible, volatile, processed, smelly
 	display_flags: none
-	hints: materials, dangerous, advanced, destructive, chemical, construction, military, industrial, unstable
+	hints: materials, dangerous, advanced, chemical, construction, civilian, industrial, fast, unstable, clumsy
 	
 	mass_per_unit: 0.957
 	
@@ -29,7 +29,7 @@
 	snapping: 1.000
 	snapping_pickup: 25.000
 	
-	form_type: raw
+	form_type: chunk
 	prefab: resource.thermopaste
 	h_substance: "null"
 	
@@ -90,4 +90,13 @@
 			]
 		}
 	]
+	
+	related:
+	{
+		graphite.powder: none
+		coal.powder: none
+		oil: none
+		water.toxic: none
+		phlogiston: none
+	}
 }

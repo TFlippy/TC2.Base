@@ -72,7 +72,7 @@ health:
 
 breakable:
 {
-	flags: splittable
+	// flags: splittable
 	spawn_flags: merge
 	merge_radius: 2.000
 }

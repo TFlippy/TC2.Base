@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.63.8"
 	name: "Cognition"
 	desc:
 		'''
@@ -9,7 +9,8 @@
 	flags: none
 	type_tmp: cognition
 	
-	color_emit: [0.13711, 0.353362, 0.830275, 1.000]
+	color_emit: [0.137, 0.353, 0.830, 1.000]
+	
 	emit_force: 10.000
 	emit_power_thermal: -35.000
 	emit_power_kinetic: -1.170
@@ -18,18 +19,22 @@
 	emit_power_magnetic: 14.890
 	
 	sound_emit_loop: essence.emit.cognition.loop.00
+	sound_drain_loop: essence.drain.loop.00
+	
 	sound_emit_pulser_loop: essence.machine.loop.01
-	sound_emit_stressor_loop: amb_mystery_loop_00
+	sound_emit_stressor_loop: missing
 	sound_emit_impactor_loop: essence.emit.cognition.loop.00
 	sound_emit_cycler_loop: essence.emit.cognition.loop.00
 	sound_emit_oscillator_loop: arcane.stabilizer.00
-	sound_emit_ambient_loop: amb_mystery_loop_00
-	sound_drain_loop: essence.drain.loop.00
+	sound_emit_ambient_loop: essence.mumble.loop.00
+	sound_emit_projector_loop: missing
+	
 	sound_collapse: essence.imply.scream.00
 	sound_zap: essence.hit.bullet.02
 	sound_blast: essence.blast.00
 	sound_impulse: essence.hit.bullet.01
 	sound_impact: essence.hit.bullet.02
+	sound_shatter: missing
 	
 	h_prefab_node: essence_node.cognition
 	h_material_pellet: pellet.cognition

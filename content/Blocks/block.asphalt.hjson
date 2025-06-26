@@ -10,7 +10,7 @@
 	tile_flags: non_empty
 	flags: artificial, construction
 	
-	max_health: 11700.000
+	max_health: 14000.000
 	smoothing: 0.200
 	stability: 0.500
 	strength_tensile: 0.000

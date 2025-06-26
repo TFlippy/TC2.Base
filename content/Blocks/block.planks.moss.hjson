@@ -10,7 +10,7 @@
 	tile_flags: non_empty
 	flags: artificial, flammable, overgrown, organic, construction
 	
-	max_health: 3950.000
+	max_health: 5000.000
 	smoothing: 0.150
 	stability: 0.500
 	strength_tensile: 0.000

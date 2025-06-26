@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.63.8"
 	name: "Radiance"
 	desc:
 		'''
@@ -9,27 +9,32 @@
 	flags: none
 	type_tmp: radiance
 	
-	color_emit: [1.000, 0.967679, 0.779816, 1.500]
+	color_emit: [1.000, 0.968, 0.780, 1.500]
+	
 	emit_force: 380.000
 	emit_power_thermal: 56.730
 	emit_power_kinetic: 6.000
 	emit_power_radiant: 67.050
 	emit_power_electric: 6.650
-	emit_power_magnetic: 0.490
+	emit_power_magnetic: 3.490
 	
 	sound_emit_loop: essence.emit.generic.loop.12
+	sound_drain_loop: essence.drain.loop.00
+	
 	sound_emit_pulser_loop: essence_pulse.loop.00
 	sound_emit_stressor_loop: arcane.stabilizer.00
 	sound_emit_impactor_loop: welder.loop.00
 	sound_emit_cycler_loop: welder.loop.00
 	sound_emit_oscillator_loop: essence.emit.generic.loop.04
 	sound_emit_ambient_loop: essence.drain.loop.01
-	sound_drain_loop: essence.drain.loop.00
+	sound_emit_projector_loop: missing
+	
 	sound_collapse: essence.collapse.radiance.00
 	sound_zap: explosion.poof.00
 	sound_blast: essence.blast.00
 	sound_impulse: essence.discharge.06
 	sound_impact: essence.collapse.radiance.00
+	sound_shatter: missing
 	
 	h_prefab_node: essence_node.radiance
 	h_material_pellet: pellet.radiance

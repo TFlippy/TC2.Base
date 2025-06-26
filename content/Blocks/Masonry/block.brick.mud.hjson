@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.5"
+	$version: "0.1.63.8"
 	name: "Mud Bricks"
 	desc:
 		'''
@@ -10,7 +10,7 @@
 	tile_flags: non_empty
 	flags: artificial, masonry, construction
 	
-	max_health: 9500.000
+	max_health: 8999.999
 	smoothing: 0.125
 	stability: 0.500
 	strength_tensile: 0.000
@@ -19,6 +19,7 @@
 	mass: 5.000
 	friction: 0.900
 	elasticity: 0.450
+	fall_damage_mult: 1.000
 	collision_layer: none
 	collision_mask: none
 	

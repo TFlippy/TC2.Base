@@ -11,7 +11,7 @@ body:
 		mass: 1.000
 		radius: 0.750
 		friction: 0.850
-		elasticity: 0.500
+		elasticity: 0.750
 		material: metal_solid
 		layer: entity, solid, resource, conductive, magnetic, heatable
 		mask: world, essence
@@ -54,12 +54,12 @@ holdable:
 
 essence.container:
 {
-	rate: 0.050
+	rate: 0.020
 	rate_speed: 0.900
-	stability: 0.850
+	stability: 0.990
 	health_threshold: 0.900
 	glow_modifier: 3.000
-	heat_modifier: 0.150
+	heat_modifier: 0.080
 	emit_type: ambient
 
 	@light:
@@ -118,7 +118,7 @@ heat:
 
 heat.state:
 {
-	temperature_current: 525.000
+	temperature_current: 335.000
 }
 
 norotate:

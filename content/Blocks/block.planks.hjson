@@ -10,7 +10,7 @@
 	tile_flags: non_empty
 	flags: artificial, flammable, organic, construction
 	
-	max_health: 6500.000
+	max_health: 8000.000
 	smoothing: 0.178
 	stability: 1.160
 	strength_tensile: 11.000

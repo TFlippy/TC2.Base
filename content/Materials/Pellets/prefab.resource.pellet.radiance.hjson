@@ -73,11 +73,13 @@ essence.container:
 	{
 		flags: start_muted
 		volume: 4.000
+		volume_mult: 0.500
 		pitch: 5.000
-		size: 10.000
-		size_max_modifier: 0.230
+		pitch_mult: 0.300
+		size: 4.000
+		size_max_modifier: 0.400
 		spread: 70.000
-		priority: 0.100
+		priority: 0.250
 	}
 }
 

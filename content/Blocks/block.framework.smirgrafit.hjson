@@ -19,7 +19,7 @@
 	mass: 9.400
 	friction: 0.950
 	elasticity: 0.470
-	fall_damage_mult: 1.030
+	fall_damage_mult: 1.110
 	collision_layer: none
 	collision_mask: essence
 	

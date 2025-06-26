@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.63.8"
 	name: "Electricity"
 	desc:
 		'''
@@ -9,7 +9,8 @@
 	flags: none
 	type_tmp: electricity
 	
-	color_emit: [0.667368, 0.651376, 1.000, 1.075]
+	color_emit: [0.667, 0.651, 1.000, 1.075]
+	
 	emit_force: 1000.000
 	emit_power_thermal: 2.650
 	emit_power_kinetic: 1.450
@@ -18,18 +19,22 @@
 	emit_power_magnetic: 30.500
 	
 	sound_emit_loop: essence.emit.electricity.loop.00
+	sound_drain_loop: essence.drain.loop.00
+	
 	sound_emit_pulser_loop: turbo_fountain.loop.00
 	sound_emit_stressor_loop: arcane_infuser.loop.00
 	sound_emit_impactor_loop: essence.emit.electricity.loop.00
 	sound_emit_cycler_loop: arcane_infuser.loop.01
 	sound_emit_oscillator_loop: lamp_hum_loop_01
-	sound_emit_ambient_loop: essence.ambient.00
-	sound_drain_loop: essence.drain.loop.00
+	sound_emit_ambient_loop: essence.ambient.01
+	sound_emit_projector_loop: missing
+	
 	sound_collapse: essence.collapse.electricity.00
 	sound_zap: zapper.zap.00
 	sound_blast: essence.blast.00
 	sound_impulse: essence.discharge.02
 	sound_impact: essence.collapse.electricity.01
+	sound_shatter: missing
 	
 	h_prefab_node: essence_node.electricity
 	h_material_pellet: pellet.electricity

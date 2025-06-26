@@ -10,7 +10,7 @@
 	tile_flags: non_empty
 	flags: artificial, masonry, construction
 	
-	max_health: 37000.000
+	max_health: 40000.000
 	smoothing: 0.180
 	stability: 1.800
 	strength_tensile: 1.800

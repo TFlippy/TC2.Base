@@ -8,7 +8,7 @@
 	
 	material_type: metal_frame
 	tile_flags: non_empty
-	flags: artificial, metal, construction
+	flags: artificial, overgrown, metal, construction
 	
 	max_health: 7200.000
 	smoothing: 0.150

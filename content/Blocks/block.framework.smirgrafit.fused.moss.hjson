@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.5"
+	$version: "0.1.63.8"
 	name: "Smirgrafit (Mossy)"
 	desc:
 		'''
@@ -19,6 +19,7 @@
 	mass: 9.420
 	friction: 0.450
 	elasticity: 0.630
+	fall_damage_mult: 1.430
 	collision_layer: none
 	collision_mask: essence
 	
