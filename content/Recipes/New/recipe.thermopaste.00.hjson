@@ -1,0 +1,331 @@
+﻿{
+	$version: "0.1.63.8"
+	name: "Thermopaste"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	tips: []
+	
+	stages:
+	[
+		{
+			name: "Base Formula"
+			
+			type: formula
+			flags: part
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Standard"
+					
+					type: undefined
+					flags: none
+					
+					prefix: "Standard "
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: silver.powder
+							amount: 0.765255
+							snapping: 0.100
+							loss: 0.024
+							ratio: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: copper.powder
+							amount: 1.937461
+							snapping: 0.100
+							loss: 0.071
+							ratio: 1.000
+							group: 0
+							flags: prerequisite
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: thermopaste
+							amount: 1.926175
+							amount_extra: 0.146134
+							group: 0
+							flags: primary, compact
+						}
+					]
+					
+					purity_modifier: 0.895
+					quality_modifier: 0.836
+					yield_modifier: 0.922
+					failure_chance: 0.024
+					
+					filter_tools:
+					{
+						include: bucket, spatula
+					}
+					filter_environment:
+					{
+						include: stationary, quiet
+					}
+				}
+			]
+		}
+		{
+			name: "Carbon Source"
+			
+			type: ingredients
+			flags: part
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Graphite + Coal"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: graphite.powder
+							amount: 1.500
+							snapping: 0.100
+							loss: 0.024
+							ratio: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: coal.powder
+							amount: 3.756345
+							snapping: 0.100
+							loss: 0.024
+							ratio: 1.000
+							group: 0
+							flags: filler, prerequisite
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: thermopaste
+							amount: 1.784608
+							amount_extra: 0.172236
+							group: 0
+							flags: primary, compact
+						}
+					]
+					
+					purity_modifier: 0.989
+					quality_modifier: 0.964
+					yield_modifier: 0.969
+					
+					filter_tools:
+					{
+						include: bucket, spatula
+					}
+					filter_environment:
+					{
+						include: stationary, quiet
+					}
+				}
+			]
+		}
+		{
+			name: "Booster"
+			
+			type: additives
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Gunpowder"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: gunpowder
+							amount: 4.100
+							snapping: 0.100
+							falloff: 0.925
+							loss: 0.075
+							ratio: 1.000
+							group: 0
+							flags: prerequisite
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: thermopaste
+							amount: 0.139
+							amount_extra: 0.2705
+							group: 0
+							flags: primary, compact
+						}
+					]
+					
+					purity_modifier: -0.268
+					quality_modifier: -0.254
+					yield_modifier: 0.667
+					failure_chance: 0.306
+					
+					filter_tools:
+					{
+						include: bucket, spatula
+					}
+					filter_environment:
+					{
+						include: stationary, quiet
+					}
+				}
+			]
+		}
+		{
+			name: "Binder"
+			
+			type: filler
+			flags: part
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Tar"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: tar
+							amount: 6.250
+							snapping: 0.100
+							loss: 0.075
+							ratio: 1.000
+							group: 0
+							flags: filler, prerequisite
+						}
+						{
+							type: resource
+							material: alcohol
+							amount: 6.500
+							snapping: 0.100
+							loss: 0.024
+							ratio: 1.000
+							group: 0
+							flags: prerequisite
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: thermopaste
+							amount: 3.021954
+							amount_extra: 0.117545
+							group: 0
+							flags: primary, compact
+						}
+					]
+					
+					purity_modifier: -0.092
+					quality_modifier: -0.111
+					yield_modifier: 0.922
+					failure_chance: 0.059
+					
+					filter_tools:
+					{
+						include: bucket, spatula
+					}
+					filter_environment:
+					{
+						include: stationary, quiet
+					}
+				}
+			]
+		}
+	]
+	
+	type: workshop
+	flags: production, wip
+	tags: manual, crafting, complex, chemistry, blending, messy, explosive, dangerous
+	infrastructure: bucket
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		texture: resource.thermopaste
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	icon_offset: [0.000, -1.000]
+	
+	icon_extra:
+	{
+		size: [16, 16]
+		frame: [1, 0]
+	}
+	icon_extra_offset: [0.000, -6.000]
+	
+	icon_c:
+	{
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	icon_c_offset: [-8.000, -14.000]
+	
+	color_frame: "0xffcf392b"
+	color_button: "0xff9dd80f"
+	rank: -156.000
+	
+	min: 1
+	max: 25
+	step: 1
+	
+	version: 1
+}
