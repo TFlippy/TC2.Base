@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.5"
+	$version: "0.1.63.8"
 	name: "Framework (Smirgrafit)"
 	desc:
 		'''
@@ -19,6 +19,7 @@
 	mass: 9.400
 	friction: 0.950
 	elasticity: 0.470
+	fall_damage_mult: 1.030
 	collision_layer: none
 	collision_mask: essence
 	

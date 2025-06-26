@@ -1,10 +1,6 @@
 ﻿{
-	$version: "0.1.63.5"
+	$version: "0.1.63.8"
 	name: "Chalcopyrite Bricks"
-	desc:
-		'''
-		
-		'''
 	
 	material_type: brick_metallic
 	tile_flags: non_empty
@@ -19,6 +15,7 @@
 	mass: 1.400
 	friction: 0.820
 	elasticity: 0.600
+	fall_damage_mult: 0.990
 	collision_layer: none
 	collision_mask: none
 	

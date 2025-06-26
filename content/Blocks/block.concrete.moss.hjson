@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.5"
+	$version: "0.1.63.8"
 	name: "Concrete (Mossy)"
 	desc:
 		'''
@@ -17,8 +17,9 @@
 	strength_compressive: 9.760
 	
 	mass: 2.700
-	friction: 0.850
-	elasticity: 0.190
+	friction: 0.880
+	elasticity: 0.590
+	fall_damage_mult: 1.000
 	collision_layer: none
 	collision_mask: none
 	

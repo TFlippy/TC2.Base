@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.5"
+	$version: "0.1.63.8"
 	name: "Concrete"
 	desc:
 		'''
@@ -17,8 +17,9 @@
 	strength_compressive: 11.000
 	
 	mass: 2.700
-	friction: 0.850
-	elasticity: 0.140
+	friction: 0.840
+	elasticity: 0.440
+	fall_damage_mult: 1.000
 	collision_layer: none
 	collision_mask: none
 	

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.5"
+	$version: "0.1.63.8"
 	$note: "Based on dolomite, alabaster, gypsum."
 	name: "Brezolyt"
 	desc:
@@ -20,6 +20,7 @@
 	mass: 1.100
 	friction: 0.840
 	elasticity: 0.580
+	fall_damage_mult: 1.120
 	collision_layer: none
 	collision_mask: none
 	

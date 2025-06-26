@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.5"
+	$version: "0.1.63.8"
 	name: "Niklajzner"
 	desc:
 		'''
@@ -19,6 +19,7 @@
 	mass: 2.200
 	friction: 0.640
 	elasticity: 0.630
+	fall_damage_mult: 0.940
 	collision_layer: none
 	collision_mask: none
 	

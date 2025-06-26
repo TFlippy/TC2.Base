@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.5"
+	$version: "0.1.63.8"
 	name: "Smirglum Slabs"
 	desc:
 		'''
@@ -19,6 +19,7 @@
 	mass: 7.600
 	friction: 0.800
 	elasticity: 0.600
+	fall_damage_mult: 1.130
 	collision_layer: none
 	collision_mask: essence
 	

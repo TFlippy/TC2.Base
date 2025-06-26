@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.5"
+	$version: "0.1.63.8"
 	name: "Sand"
 	desc:
 		'''
@@ -19,6 +19,7 @@
 	mass: 1.100
 	friction: 1.171
 	elasticity: 0.030
+	fall_damage_mult: 0.720
 	collision_layer: none
 	collision_mask: none
 	

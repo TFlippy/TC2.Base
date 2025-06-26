@@ -19,6 +19,7 @@
 	mass: 0.080
 	friction: 0.920
 	elasticity: 0.670
+	fall_damage_mult: 0.940
 	collision_layer: none
 	collision_mask: none
 	
@@ -37,10 +38,7 @@
 			material: steel.rod
 			quantity: 0.012
 		}
-		{
-			material: steel.frames
-			quantity: 0.005
-		}
+		null
 	]
 	
 	mappings:

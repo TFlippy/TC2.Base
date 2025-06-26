@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.5"
+	$version: "0.1.63.8"
 	name: "Betoniter"
 	desc:
 		'''
@@ -20,6 +20,7 @@
 	mass: 1.700
 	friction: 0.700
 	elasticity: 0.560
+	fall_damage_mult: 1.050
 	collision_layer: none
 	collision_mask: none
 	

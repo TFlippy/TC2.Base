@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.5"
+	$version: "0.1.63.8"
 	name: "Asphalt"
 	desc:
 		'''
@@ -19,6 +19,7 @@
 	mass: 3.000
 	friction: 0.990
 	elasticity: 0.370
+	fall_damage_mult: 0.840
 	collision_layer: none
 	collision_mask: none
 	
