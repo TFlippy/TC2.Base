@@ -159,6 +159,7 @@ sticky:
 	seat:
 	{
 		offset: [-1.000, -0.500]
+		flags: open
 	}
 }
 

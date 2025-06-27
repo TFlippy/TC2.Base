@@ -164,6 +164,8 @@ threat:
 		flags: crouch, covered
 		offset: [0.000, 0.750]
 		max_tilt: 10.000
+		damage_mult: 0.120
+		stun_mult: 0.200
 		sound_volume: 1.000
 		sound_attach: "door.metal_open"
 		sound_detach: "door.metal_close"

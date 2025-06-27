@@ -63,6 +63,7 @@ vehicle:
 	seat:
 	{
 		offset: [0.125, -0.250]
+		flags: open
 	}
 }
 

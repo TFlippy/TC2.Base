@@ -107,6 +107,7 @@ interactable:
 	seat:
 	{
 		offset: [0.000, -0.875]
+		flags: open
 		max_tilt: 2.500
 	}
 }

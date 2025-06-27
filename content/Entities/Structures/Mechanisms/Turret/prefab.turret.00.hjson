@@ -126,7 +126,10 @@ vehicle:
 	seat:
 	{
 		offset: [0.000, 0.000]
+		flags: crouch, covered
 		max_tilt: 5.000
+		damage_mult: 0.160
+		stun_mult: 0.150
 	}
 }
 
