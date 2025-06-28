@@ -146,8 +146,8 @@ namespace TC2.Base.Components
 			[Save.Ignore, Asset.Ignore] public Melee.State.Flags flags;
 			[Save.Ignore, Asset.Ignore] public int hit_counter;
 
-			[Save.Ignore, Net.Ignore] public float next_hit;
-			[Save.Ignore, Net.Ignore] public float last_hit;
+			[Save.Ignore, Net.Ignore] public float t_next_hit;
+			[Save.Ignore, Net.Ignore] public float t_last_hit;
 		}
 
 		[Shitcode]
@@ -1022,8 +1022,8 @@ namespace TC2.Base.Components
 		public static void OnSpriteUpdate(ISystem.Info info, Entity entity, 
 		[Source.Owned] in Melee.Data melee, [Source.Owned] in Melee.State melee_state, [Source.Owned] ref Animated.Renderer.Data renderer)
 		{
-			var elapsed = info.WorldTime - melee_state.last_hit;
-			var max = melee_state.next_hit - melee_state.last_hit;
+			var elapsed = info.WorldTime - melee_state.t_last_hit;
+			var max = melee_state.t_next_hit - melee_state.t_last_hit;
 			var alpha = 1.00f - Maths.Clamp(elapsed / (max * 0.80f), 0.00f, 1.00f);
 
 			switch (melee.attack_type)
@@ -1109,12 +1109,21 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.Add(ISystem.Mode.Single, ISystem.Scope.Region)]
-		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.50f)]
-		public static void UpdateHoldable([Source.Owned] in Melee.Data melee, [Source.Owned] ref Holdable.Data holdable/*, [Source.Owned, Optional] in Aimable.Data aimable*/)
+		[ISystem.Add(ISystem.Mode.Single, ISystem.Scope.Region), HasComponent<Melee.Data>(Source.Modifier.Owned, true)]
+		//[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.50f)]
+		public static void OnAddHoldable([Source.Owned] ref Holdable.Data holdable/*, [Source.Owned, Optional] in Aimable.Data aimable*/)
 		{
 			holdable.hints.AddFlag(NPC.ItemHints.Melee | NPC.ItemHints.Weapon | NPC.ItemHints.Short_Range | NPC.ItemHints.Usable);
 			//holdable.grip_min = aimable.deadzone;
+		}
+
+		[ISystem.Add(ISystem.Mode.Single, ISystem.Scope.Region)]
+		public static void OnAddHolder(ISystem.Info info,
+		[Source.Owned] in Melee.Data melee, [Source.Owned] ref Melee.State melee_state, 
+		[Source.Owned] in Holdable.Data holdable, 
+		[Source.Parent] in Joint.Base joint_base)
+		{
+			melee_state.t_next_hit = info.WorldTime + Maths.Clamp(melee_state.t_next_hit - melee_state.t_last_hit, melee.cooldown * 0.35f, melee.cooldown);
 		}
 
 		[ISystem.Update.F(ISystem.Mode.Single, ISystem.Scope.Region, order: 100), HasTag("dead", false, Source.Modifier.Owned)]
@@ -1138,7 +1147,7 @@ namespace TC2.Base.Components
 				//body.AddForceWorld(dir * body.GetMass() * App.tickrate * 25.00f * t, transform.LocalToWorld(melee.swing_offset));
 				body.AddForce(transform.Right * melee.knockback.Abs() * melee.knockback_speed); //,  * body.GetMass() * App.tickrate * 25.00f * t, transform.LocalToWorld(melee.swing_offset));
 				melee_state.hit_counter--; // TODO: shithack
-				
+
 				//App.WriteLine(t);
 			}
 		}
@@ -1152,7 +1161,7 @@ namespace TC2.Base.Components
 			var time = info.WorldTime;
 
 #if SERVER
-			if (control.mouse.GetKey(melee.flags.HasAny(Melee.Flags.Use_RMB) ? Mouse.Key.Right : Mouse.Key.Left) && time >= melee_state.next_hit && melee_state.flags.TryAddFlag(Melee.State.Flags.Hitting))
+			if (control.mouse.GetKey(melee.flags.HasAny(Melee.Flags.Use_RMB) ? Mouse.Key.Right : Mouse.Key.Left) && time >= melee_state.t_next_hit && melee_state.flags.TryAddFlag(Melee.State.Flags.Hitting))
 			{
 				if (melee.flags.HasAny(Melee.Flags.Use_Aim_Direction))
 				{
@@ -1170,8 +1179,8 @@ namespace TC2.Base.Components
 
 			if (melee_state.flags.TryRemoveFlag(Melee.State.Flags.Hitting))
 			{
-				melee_state.last_hit = time;
-				melee_state.next_hit = time + melee.cooldown;
+				melee_state.t_last_hit = time;
+				melee_state.t_next_hit = time + melee.cooldown;
 
 				var pos = transform.LocalToWorld(melee.hit_offset);
 				//var dir = default(Vector2);
