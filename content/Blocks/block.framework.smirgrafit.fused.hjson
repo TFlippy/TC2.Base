@@ -8,18 +8,18 @@
 	
 	material_type: cermet
 	tile_flags: non_empty
-	flags: artificial, metal, construction
+	flags: artificial, magnetic, metal, construction
 	
-	max_health: 280000.000
+	max_health: 350000.000
 	smoothing: 0.170
 	stability: 11.000
 	strength_tensile: 25.000
 	strength_compressive: 36.000
 	
-	mass: 9.400
+	mass: 1.960
 	friction: 0.450
 	elasticity: 0.630
-	fall_damage_mult: 1.670
+	fall_damage_mult: 1.100
 	collision_layer: none
 	collision_mask: essence
 	
@@ -36,16 +36,19 @@
 	[
 		{
 			material: scrap.smirgrafit
-			quantity: 0.050
+			quantity: 0.947025
 		}
-		null
+		{
+			material: steel.rod
+			quantity: 0.012
+		}
 	]
 	
 	mappings:
 	[
 		{
 			color: "0xff877c78"
-			tile_flags: solid, non_empty, become_background_on_break
+			tile_flags: solid, non_empty
 		}
 		{
 			color: "0xff39352e"

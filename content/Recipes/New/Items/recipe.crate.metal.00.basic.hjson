@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.5"
+	$version: "0.1.63.8"
 	name: "Crate (Metal, Small)"
 	tips: []
 	
@@ -58,9 +58,6 @@
 						}
 					]
 					
-					quality: 1.000
-					precision: 1.000
-					
 					filter_tools:
 					{
 						require: screwdriver
@@ -101,9 +98,6 @@
 							flags: prerequisite
 						}
 					]
-					
-					quality: 1.000
-					precision: 1.000
 				}
 			]
 		}
@@ -150,9 +144,6 @@
 						}
 					]
 					
-					quality: 1.000
-					precision: 1.000
-					
 					filter_tools:
 					{
 						include: paintbrush, file
@@ -191,9 +182,10 @@
 	]
 	
 	type: workshop
-	flags: no_amount_multiplier, blueprintable, item
+	flags: no_amount_multiplier, blueprintable, item, wip
 	tags: workbench, manual, simple, assembling, metalworking, carpentry, construction
 	infrastructure: workbench
+	infrastructure_exclude: none
 	
 	icon:
 	{

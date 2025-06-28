@@ -8,15 +8,15 @@
 	
 	material_type: coal
 	tile_flags: non_empty
-	flags: artificial, metal, construction
+	flags: artificial, magnetic, flammable, metal, construction
 	
-	max_health: 36000.000
+	max_health: 38000.000
 	smoothing: 0.170
 	stability: 6.000
 	strength_tensile: 19.000
 	strength_compressive: 17.000
 	
-	mass: 9.400
+	mass: 1.960
 	friction: 0.950
 	elasticity: 0.470
 	fall_damage_mult: 1.110
@@ -35,12 +35,12 @@
 	resources:
 	[
 		{
-			material: steel.rod
-			quantity: 0.012
+			material: smirgrafit.powder
+			quantity: 0.957474
 		}
 		{
-			material: smirgrafit.powder
-			quantity: 0.050
+			material: steel.rod
+			quantity: 0.012
 		}
 	]
 	

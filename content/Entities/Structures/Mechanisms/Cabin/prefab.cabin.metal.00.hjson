@@ -142,13 +142,13 @@ control:
 	
 	seat:
 	{
-		flags: covered, open
 		offset: [0.350, 0.125]
+		flags: covered, open, enclosed, waterproof
 		max_tilt: 5.000
 		damage_mult: 0.420
 		stun_mult: 0.500
 		sound_volume: 1.000
-		sound_attach: "door.metal_open"
-		sound_detach: "door.metal_close"
+		sound_attach: door.metal_open
+		sound_detach: door.metal_close
 	}
 }

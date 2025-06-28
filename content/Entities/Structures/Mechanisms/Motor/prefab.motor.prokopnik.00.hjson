@@ -121,6 +121,15 @@ actuator:
 		size_max_modifier: 1.150
 	}
 
+	// @sound.emitter:
+	// {
+	// 	file: tractor.engine.loop.00
+	// 	flags: start_muted
+	// 	volume: 1.650
+	// 	size: 3.625
+	// 	size_max_modifier: 1.420
+	// }
+
 	@light:
 	{
 		offset: [0.000, 0.000]

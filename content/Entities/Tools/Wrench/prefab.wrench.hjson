@@ -83,15 +83,15 @@ wrench.mode.conveyors:
 
 }
 
-wrench.mode.deconstruct:
-{
+// wrench.mode.deconstruct:
+// {
 
-}
+// }
 
-wrench.mode.repair:
-{
+// wrench.mode.repair:
+// {
 
-}
+// }
 
 sound.emitter:
 {

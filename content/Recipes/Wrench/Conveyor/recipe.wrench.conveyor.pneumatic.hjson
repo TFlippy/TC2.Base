@@ -1,13 +1,11 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.63.8"
 	name: "Conveyor (Pneumatic)"
 	desc:
 		'''
 		Flexible conveyor with adjustable filtering.
 		'''
 	tips: []
-	
-	stages: []
 	
 	requirements:
 	[
@@ -45,8 +43,10 @@
 	]
 	
 	type: conveyor
-	flags: disabled, wip
+	flags: wip
 	tags: none
+	infrastructure: none
+	infrastructure_exclude: none
 	
 	icon:
 	{
@@ -54,6 +54,7 @@
 	}
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	rank: 0.000
 	
 	dismantle_work: 15.000
@@ -80,4 +81,6 @@
 		
 		}
 	}
+	
+	version: 0
 }

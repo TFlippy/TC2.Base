@@ -12,6 +12,8 @@ namespace TC2.Base.Components
 		public static void OnImpact(ISystem.Info info, ref Region.Data region, ref XorRandom random, ref Projectile.ImpactEvent ev,
 		[Source.Owned] ref Projectile.Data projectile, Entity ent_projectile)
 		{
+			//App.WriteLine(ent_projectile);
+
 			if (projectile.ricochet_count > 0 && ev.flags.HasNone(Projectile.ImpactEvent.Flags.Is_Ricochet))
 			{
 				var ricochet_chance = (ev.ricochet_base + ev.ricochet_extra) * (1.00f - (ev.hit_applied_ratio * 0.95f)) * projectile.ricochet_chance_multiplier;
