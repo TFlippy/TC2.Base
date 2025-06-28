@@ -10,28 +10,37 @@ body:
 	inventory_weight_multiplier: 0.250
 	fall_damage_multiplier: 0.600
 
-	@shape.polygon:	
+	@shape.polygon:
 	{
-		points: 
+		material: wood
+		miss_chance: 0.000
+		flags: none
+		tags: none
+		
+		layer: entity, solid, flammable
+		mask: world
+		exclude: none
+		
+		mass: 85.000
+		radius: 0.250
+		friction: 0.750
+		elasticity: 0.640
+		
+		cog_offset: [0.000, 0.375]
+		
+		points:
 		[
 			[-1.000, -1.000]
 			[0.750, -1.000]
 			[1.000, 1.375]
 			[-1.125, 1.375]
 		]
-		radius: 0.250
-		mass: 85.000
-		friction: 0.750
-		elasticity: 0.500
-		material: wood
-		layer: entity, solid, flammable
-		mask: world
 	}
 }
 
 health:
 {
-	max: 19500.000
+	max: 22500.000
 }
 
 damage.effects:
@@ -303,7 +312,7 @@ control:
 	}
 }
 
-+slot_device|instance:
++slot.device|instance:
 {
 	joint.base:
 	{

@@ -9,21 +9,25 @@ body:
 {
 	@shape.line:
 	{
-		a: [0.000, -0.300]
-		b: [0.000, 0.300]
-		offset: [0.000, 0.000]
+		material: wax
+		miss_chance: 0.110
+		flags: none
+		tags: none
+		
+		layer: entity, solid, item, flammable
+		mask: world
+		exclude: none
 		
 		mass: 2.300
 		radius: 0.350
 		friction: 0.980
 		elasticity: 0.600
 		
-		material: wax
-		miss_chance: 0.110
+		cog_offset: [-0.125, 0.125]
 		
-		layer: entity, solid, item, flammable
-		mask: world
-		exclude: none
+		a: [0.000, -0.300]
+		b: [0.000, 0.300]
+		offset: [0.000, 0.000]
 	}
 }
 

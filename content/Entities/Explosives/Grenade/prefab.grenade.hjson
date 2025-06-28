@@ -16,21 +16,31 @@ body:
 
 	@shape.line:
 	{
-		a: [0.000, 0.400]
-		b: [0.000, -0.400]
+		material: metal_solid
+		miss_chance: 0.000
+		flags: none
+		tags: none
+		
+		layer: entity, solid, item, flammable
+		mask: world
+		exclude: none
+		
 		mass: 1.100
 		radius: 0.250
 		friction: 0.980
 		elasticity: 0.600
-		layer: entity, solid, flammable, item
-		mask: world
-		material: tool
+		
+		cog_offset: [0.000, -0.1205]
+		
+		a: [0.000, 0.400]
+		b: [0.000, -0.400]
+		offset: [0.000, 0.000]
 	}
 }
 
 health:
 {
-	max: 600.000
+	max: 1100.000
 }
 
 holdable:

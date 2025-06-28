@@ -26,6 +26,7 @@ body:
 		mask: world
 
 		miss_chance: 0.675
+		cog_offset: [-0.250, 0.500]
 	}
 }
 

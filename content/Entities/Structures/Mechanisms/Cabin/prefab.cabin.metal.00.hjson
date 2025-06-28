@@ -10,8 +10,24 @@ body:
 	inventory_weight_multiplier: 0.250
 	fall_damage_multiplier: 0.750
 
-	@shape.polygon:	
+	@shape.polygon:
 	{
+		material: metal_frame
+		miss_chance: 0.247
+		flags: none
+		tags: none
+		
+		layer: entity, solid
+		mask: world
+		exclude: none
+		
+		mass: 300.000
+		radius: 0.250
+		friction: 0.750
+		elasticity: 0.450
+		
+		cog_offset: [-0.250, 0.625]
+		
 		points:
 		[
 			[-1.000, -1.125]
@@ -19,15 +35,6 @@ body:
 			[1.500, 1.500]
 			[-1.250, 1.500]
 		]
-		radius: 0.250
-		mass: 300.000
-		friction: 0.750
-		elasticity: 0.450
-		material: metal_frame
-		layer: entity, solid
-		mask: world
-
-		miss_chance: 0.250
 	}
 }
 

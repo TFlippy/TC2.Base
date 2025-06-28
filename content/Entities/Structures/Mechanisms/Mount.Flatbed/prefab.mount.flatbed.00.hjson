@@ -7,6 +7,22 @@ body:
 	
 	@shape.polygon:
 	{
+		material: metal
+		miss_chance: 0.400
+		flags: none
+		tags: none
+		
+		layer: entity, solid, vehicle
+		mask: world
+		exclude: item, vehicle
+		
+		mass: 300.000
+		radius: 0.500
+		friction: 0.500
+		elasticity: 0.500
+		
+		cog_offset: [0.000, 0.200]
+		
 		points:
 		[
 			[-0.250, -0.250]
@@ -14,15 +30,6 @@ body:
 			[0.750, 0.375]
 			[-0.750, 0.375]
 		]
-		mass: 300.000
-		radius: 0.500
-		friction: 0.500
-		elasticity: 0.500
-		material: metal
-		layer: entity, solid, vehicle
-		mask: world
-		exclude: item, vehicle
-		miss_chance: 0.400
 	}
 }
 
@@ -33,7 +40,7 @@ control:
 
 health:
 {
-	max: 32000.000
+	max: 54000.000
 }
 
 armor:

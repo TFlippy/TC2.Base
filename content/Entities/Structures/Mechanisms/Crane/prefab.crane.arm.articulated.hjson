@@ -11,17 +11,25 @@ body:
 
 	@shape.line:
 	{
-		a: [-4.000, 0.000]
-		b: [4.000, 0.000]
+		material: metal_solid
+		miss_chance: 0.373
+		flags: none
+		tags: none
+		
+		layer: entity, solid, vehicle
+		mask: world, bulk, liquid
+		exclude: item, vehicle, attached
+		
 		mass: 400.000
 		radius: 0.500
 		friction: 0.350
 		elasticity: 0.450
-		material: metal_solid
-		layer: entity, solid, vehicle
-		mask: world, liquid, bulk
-		exclude: item, vehicle, attached
-		miss_chance: 0.373
+		
+		cog_offset: [-1.625, 0.000]
+		
+		a: [-4.000, 0.000]
+		b: [4.000, 0.000]
+		offset: [0.000, 0.000]
 	}
 }
 

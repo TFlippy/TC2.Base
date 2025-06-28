@@ -10,8 +10,24 @@ body:
 	inventory_weight_multiplier: 0.650
 	fall_damage_multiplier: 0.750
 
-	@shape.polygon:	
+	@shape.polygon:
 	{
+		material: metal_frame
+		miss_chance: 0.208
+		flags: none
+		tags: none
+		
+		layer: entity, solid
+		mask: world
+		exclude: none
+		
+		mass: 320.000
+		radius: 0.375
+		friction: 0.650
+		elasticity: 0.450
+		
+		cog_offset: [0.000, 0.375]
+		
 		points:
 		[
 			[-0.750, -0.750]
@@ -19,16 +35,6 @@ body:
 			[0.625, 0.875]
 			[-1.250, 0.875]
 		]
-		offset: [0.000, 0.000]
-		radius: 0.375
-		mass: 320.000
-		friction: 0.650
-		elasticity: 0.450
-		material: metal_frame
-		layer: entity, solid
-		mask: world
-
-		miss_chance: 0.210
 	}
 }
 
@@ -160,10 +166,11 @@ threat:
 	seat:
 	{
 		offset: [-0.375, 0.125]
-		flags: crouch, covered, insulated, enclosed, armored, waterproof, fireproof
+		flags: crouch, covered, insulated, enclosed, armored, waterproof, fireproof, has_seatbelt
 		max_tilt: 10.000
 		damage_mult: 0.200
 		stun_mult: 0.200
+		coverage: 1.000
 		sound_volume: 1.000
 		sound_attach: door.metal_open
 		sound_detach: door.metal_close

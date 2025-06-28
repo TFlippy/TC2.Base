@@ -11,6 +11,22 @@ body:
 
 	@shape.polygon:
 	{
+		material: machine
+		miss_chance: 0.460
+		flags: none
+		tags: none
+		
+		layer: entity, solid
+		mask: world, essence
+		exclude: vehicle
+		
+		mass: 270.000
+		radius: 0.250
+		friction: 0.600
+		elasticity: 0.750
+		
+		cog_offset: [-0.3125, 0.000]
+		
 		points:
 		[
 			[-0.625, -0.625]
@@ -18,26 +34,18 @@ body:
 			[0.625, 0.750]
 			[-0.625, 0.625]
 		]
-		mass: 270.000
-		radius: 0.250
-		friction: 0.600
-		elasticity: 0.750
-		material: machine
-		layer: entity, solid
-		mask: world, essence
-		exclude: vehicle
 	}
 }
 
 health:
 {
-	max: 24000.000
+	max: 44000.000
 }
 
 armor:
 {
 	toughness: 1200.000
-	protection: 0.760
+	protection: 0.950
 	coverage: 0.832
 	durability_modifier: 0.700
 	knockback_modifier: 1.300

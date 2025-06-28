@@ -9,23 +9,29 @@ body:
 	
 	@shape.polygon:
 	{
-		points: 
+		material: metal_pole
+		miss_chance: 0.376
+		flags: none
+		tags: none
+		
+		layer: entity, solid, furniture, ignore_melee
+		mask: world
+		exclude: none
+		
+		mass: 65.500
+		radius: 0.250
+		friction: 0.900
+		elasticity: 0.400
+		
+		cog_offset: [-0.250, 0.125]
+		
+		points:
 		[
 			[-1.250, -0.500]
 			[1.250, 0.000]
 			[1.250, 0.500]
 			[-1.250, 0.500]
 		]
-		offset: [0.000, 0.000]
-		mass: 65.500
-		radius: 0.250
-		friction: 0.900
-		elasticity: 0.400
-		material: metal_pole
-		layer: entity, solid, furniture, ignore_melee
-		mask: world
-
-		miss_chance: 0.380
 	}
 }
 

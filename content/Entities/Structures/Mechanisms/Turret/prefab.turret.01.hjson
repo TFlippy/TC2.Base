@@ -7,19 +7,43 @@ $tags: []
 
 body:
 {
-	@shape.line:	
+	// type: static
+
+	@shape.line:
+	{
+		material: metal_solid
+		miss_chance: 0.047
+		flags: no_inventory_mass
+		tags: heavy, large, solid, hard
+		
+		layer: entity, solid, vehicle, shield, conductive, magnetic
+		mask: world
+		exclude: none
+		mass: 110.000
+		radius: 0.750
+		friction: 0.600
+		elasticity: 0.500
+
+		fall_damage_mult: 1.140
+		
+		a: [0.750, -0.625]
+		b: [0.875, 0.625]
+		offset: [0.000, 0.000]
+	}
+
+	@shape.circle:	
 	{
 		a: [-0.250, 0.000]
 		b: [0.375, 0.000]
 		radius: 1.250
-		mass: 230.000
+		mass: 100.000
 		friction: 0.600
 		elasticity: 0.600
 		material: machine
-		layer: entity, solid
+		layer: entity, solid, vehicle, conductive, magnetic
 		mask: world
 
-		miss_chance: 0.050
+		miss_chance: 0.750
 	}
 
 	fall_damage_multiplier: 0.600
@@ -43,7 +67,7 @@ armor:
 	knockback_modifier: 1.300
 	pain_modifier: 0.000
 
-	material_type: metal
+	material_type: metal_solid
 	flags: no_damage_type_conversion
 }
 
