@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.63.8"
 	name: "Alumina"
 	name_short: "Alumina"
 	name_dumb: "Sand"
@@ -27,8 +27,8 @@
 	
 	quantity_max: 1000.000
 	spawn_quantity_threshold: 2.000
-	snapping: 1.000
-	snapping_pickup: 100.000
+	snapping: 0.100
+	snapping_pickup: 50.000
 	
 	form_type: powder
 	prefab: resource.alumina
@@ -39,5 +39,6 @@
 	color_dust: "0xff929894"
 	color_gib: "0xff929894"
 	
+	centroid_default: [0.000, 0.250]
 	colliders: []
 }

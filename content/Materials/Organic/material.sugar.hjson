@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.63.8"
 	name: "Sugar"
 	name_short: "Sugar"
 	name_dumb: "Meth"
@@ -20,13 +20,13 @@
 	type: powder
 	flags: food, granular, organic, small, powder, solid
 	display_flags: none
-	hints: none
+	hints: materials
 	
 	mass_per_unit: 0.350
 	
 	quantity_max: 500.000
-	spawn_quantity_threshold: 0.500
-	snapping: 1.000
+	spawn_quantity_threshold: 1.000
+	snapping: 0.100
 	snapping_pickup: 50.000
 	
 	form_type: powder
@@ -38,6 +38,7 @@
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	
+	centroid_default: [0.000, 0.250]
 	colliders: []
 	
 	commodity:

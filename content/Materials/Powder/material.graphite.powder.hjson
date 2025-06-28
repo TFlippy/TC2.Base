@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.63.8"
 	name: "Graphite (Powder)"
 	name_short: "Graphite P."
 	name_dumb: "Gunpowder"
@@ -20,15 +20,15 @@
 	type: powder
 	flags: granular, mineral, powder, solid
 	display_flags: none
-	hints: none
+	hints: materials
 	
 	purity: 0.986
 	mass_per_unit: 0.360
 	
 	quantity_max: 1000.000
-	spawn_quantity_threshold: 1.000
-	snapping: 1.000
-	snapping_pickup: 100.000
+	spawn_quantity_threshold: 0.500
+	snapping: 0.100
+	snapping_pickup: 50.000
 	
 	form_type: powder
 	prefab: resource.graphite.powder
@@ -39,5 +39,6 @@
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	
+	centroid_default: [0.000, 0.250]
 	colliders: []
 }

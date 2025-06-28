@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.5"
+	$version: "0.1.63.8"
 	name: "Flour"
 	name_short: "Flour"
 	name_dumb: "Dust"
@@ -20,13 +20,13 @@
 	type: powder
 	flags: food, granular, organic, raw, powder, flammable, solid
 	display_flags: none
-	hints: none
+	hints: materials
 	
 	mass_per_unit: 0.633
 	
 	quantity_max: 500.000
-	spawn_quantity_threshold: 1.000
-	snapping: 1.000
+	spawn_quantity_threshold: 0.500
+	snapping: 0.100
 	snapping_pickup: 50.000
 	
 	form_type: powder

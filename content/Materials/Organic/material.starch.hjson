@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.63.8"
 	name: "Starch"
 	name_short: "Starch"
 	name_dumb: "Flour"
@@ -20,16 +20,16 @@
 	type: powder
 	flags: soft, malleable, food, granular, organic, powder, flammable, processed
 	display_flags: none
-	hints: none
+	hints: materials
 	
 	mass_per_unit: 0.4734
 	
 	quantity_max: 250.000
 	spawn_quantity_threshold: 1.000
-	snapping: 1.000
+	snapping: 0.100
 	snapping_pickup: 50.000
 	
-	form_type: chunk
+	form_type: powder
 	prefab: resource.starch
 	h_substance: "null"
 	
@@ -38,5 +38,6 @@
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	
+	centroid_default: [0.000, 0.250]
 	colliders: []
 }
