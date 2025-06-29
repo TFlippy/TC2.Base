@@ -298,7 +298,7 @@ commandable:
 	{
 		offset_a: [0.125, -0.200]
 		max_force: 8000.000
-		max_torque: 1200000.000
+		max_torque: 12000.000
 		max_stress: 2.500
 		stress_threshold: 1.400
 		stress_damp: 0.300
@@ -332,7 +332,7 @@ commandable:
 	
 	joint.rotarylimit:
 	{
-		max_torque: 100000.000
+		max_torque: 10000.000
 		min: -0.500
 		max: 0.500
 		max_bias: 8.000

@@ -102,6 +102,11 @@ control:
 	// {
 	// 	interval: 0.000
 	// }
+
+	@net.synchronized:
+	{
+		interval: 0.000
+	}
 }
 
 norotate:

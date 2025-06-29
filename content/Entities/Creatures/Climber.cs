@@ -31,6 +31,7 @@ namespace TC2.Base.Components
 
 			climber.MaxForce = 0.00f;
 			climber.OffsetA = body.GetPosition() + vel_delta;
+			climber.OffsetB = body.GetCenterOfGravity();
 			climber.cling_entity = default;
 
 			//if (!has_authority)

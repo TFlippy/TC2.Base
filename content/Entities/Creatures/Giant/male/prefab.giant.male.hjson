@@ -338,7 +338,7 @@ vehicle:
 	{
 		offset_a: [0.250, -0.375]
 		max_force: 70000.000
-		max_torque: 1200000.000
+		max_torque: 120000.000
 		max_stress: 2.500
 		stress_threshold: 1.250
 		stress_damp: 0.300

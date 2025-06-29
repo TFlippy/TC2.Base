@@ -10,21 +10,25 @@ body:
 {
 	@shape.line:
 	{
-		a: [0.000, -0.375]
-		b: [0.000, 0.250]
-		offset: [0.000, 0.000]
+		material: glass
+		miss_chance: 0.675
+		flags: none
+		tags: none
+		
+		layer: entity, solid, item
+		mask: world
+		exclude: none
 		
 		mass: 0.300
 		radius: 0.250
 		friction: 0.370
 		elasticity: 0.700
 		
-		material: glass
-		miss_chance: 0.675
+		cog_offset: [0.000, 0.1555]
 		
-		layer: entity, solid, item
-		mask: world
-		exclude: none
+		a: [0.000, -0.375]
+		b: [0.000, 0.250]
+		offset: [0.000, 0.000]
 	}
 }
 

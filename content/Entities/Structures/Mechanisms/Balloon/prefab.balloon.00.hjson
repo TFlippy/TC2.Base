@@ -46,7 +46,10 @@ animated.renderer:
 
 control:
 {
-
+	@net.synchronized:
+	{
+		interval: 0.000
+	}
 }
 
 transform:
