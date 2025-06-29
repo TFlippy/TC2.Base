@@ -1,7 +1,7 @@
 $name: "Wrench"
 $desc:
 	'''
-	Universal building tool. It's also bloody heavy.
+	Universal building tool. It's bloody heavy.
 	'''
 $tags: []
 
@@ -11,21 +11,31 @@ body:
 
 	@shape.line:
 	{
-		a: [-0.125, 0.500]
-		b: [0.000, -0.625]
+		material: metal_solid
+		miss_chance: 0.747
+		flags: none
+		tags: none
+		
+		layer: entity, solid, item
+		mask: world
+		exclude: none
+		
 		mass: 11.750
 		radius: 0.375
 		friction: 0.750
 		elasticity: 0.350
-		material: metal_solid
-		layer: entity, solid, ignore_bullet, ignore_melee, item
-		mask: world
+		
+		cog_offset: [0.125, -0.3125]
+		
+		a: [-0.125, 0.500]
+		b: [0.000, -0.625]
+		offset: [0.000, 0.000]
 	}
 }
 
 health:
 {
-	max: 7000.000
+	max: 10000.000
 }
 
 holdable:

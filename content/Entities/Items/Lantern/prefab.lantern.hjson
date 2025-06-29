@@ -11,21 +11,25 @@ body:
 
 	@shape.line:
 	{
-		a: [0.000, -0.500]
-		b: [0.000, 0.200]
-		offset: [0.000, 0.000]
+		material: metal_solid
+		miss_chance: 0.776
+		flags: none
+		tags: none
+		
+		layer: entity, solid, item, conductive, flammable, magnetic
+		mask: world
+		exclude: none
 		
 		mass: 6.800
 		radius: 0.375
 		friction: 0.800
 		elasticity: 0.500
 		
-		material: metal_solid
-		miss_chance: 0.780
+		cog_offset: [0.000, 0.250]
 		
-		layer: entity, solid, item, flammable, conductive, magnetic
-		mask: world
-		exclude: none
+		a: [0.000, -0.500]
+		b: [0.000, 0.200]
+		offset: [0.000, 0.000]
 	}
 }
 

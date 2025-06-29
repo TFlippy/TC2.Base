@@ -12,6 +12,22 @@ body:
 
 	@shape.polygon:
 	{
+		material: metal
+		miss_chance: 0.486
+		flags: none
+		tags: none
+		
+		layer: entity, solid, item, ignore_melee
+		mask: world
+		exclude: none
+		
+		mass: 380.000
+		radius: 0.250
+		friction: 0.700
+		elasticity: 0.450
+		
+		cog_offset: [-0.8125, 0.000]
+		
 		points:
 		[
 			[-3.500, -0.500]
@@ -19,17 +35,6 @@ body:
 			[-0.375, 0.375]
 			[-2.500, 0.500]
 		]
-		
-		mass: 380.000
-		radius: 0.250
-		friction: 0.700
-		elasticity: 0.450
-		
-		material: metal
-		layer: entity, solid, ignore_melee, item
-		mask: world
-
-		miss_chance: 0.488
 	}
 }
 

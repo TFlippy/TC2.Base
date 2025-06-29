@@ -12,15 +12,25 @@ body:
 
 	@shape.line:
 	{
-		a: [-0.300, -0.050]
-		b: [0.400, 0.050]
+		material: metal
+		miss_chance: 0.000
+		flags: none
+		tags: none
+		
+		layer: entity, solid, item, ignore_melee, ignore_bullet
+		mask: world
+		exclude: none
+		
 		mass: 2.900
 		radius: 0.350
 		friction: 0.900
 		elasticity: 0.250
-		material: metal
-		layer: entity, solid, ignore_bullet, ignore_melee, item
-		mask: world
+		
+		cog_offset: [0.1875, 0.000]
+		
+		a: [-0.300, -0.050]
+		b: [0.400, 0.050]
+		offset: [0.000, 0.000]
 	}
 }
 
