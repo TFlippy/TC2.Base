@@ -19,6 +19,7 @@
 		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Piston.Data piston,
 		[Source.Owned, Pair.Component<Piston.Data>] ref Animated.Renderer.Data renderer)
 		{
+			renderer.offset = piston.offset;
 			//renderer_slider.offset = press.slider_offset + new Vector2(0.00f, MathF.Pow((MathF.Cos(axle_state.rotation) + 1.00f) * 0.50f, press.speed) * press.slider_length);
 		}
 	}
