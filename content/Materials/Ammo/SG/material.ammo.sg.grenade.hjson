@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.63.8"
 	name: "SG-20.4mm/HE Slug"
 	description:
 		'''
@@ -23,7 +23,7 @@
 	}
 	
 	type: ammo
-	flags: ammo, ammo_sg, granular, explosive, small, fragile, solid
+	flags: ammo, ammo_sg, granular, explosive, small, fragile, manufactured, solid
 	display_flags: hide_fraction
 	hints: none
 	

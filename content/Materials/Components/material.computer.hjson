@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.63.8"
 	name: "Mechanical Computer"
 	name_short: "Computer"
 	name_dumb: "Box"
@@ -18,7 +18,7 @@
 	}
 	
 	type: machine
-	flags: hard, magnetic, metal, large, heavy, fragile, device, solid
+	flags: hard, magnetic, metal, large, heavy, fragile, manufactured, device, solid
 	display_flags: hide_fraction
 	hints: materials, rare, heavy, advanced, machine, device, expensive, fancy, civilian, arcane, tech, office
 	

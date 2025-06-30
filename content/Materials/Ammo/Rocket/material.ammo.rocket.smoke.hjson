@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.1"
+	$version: "0.1.63.8"
 	name: "RT-68.1mm/SM Rocket"
 	description:
 		'''
@@ -22,7 +22,7 @@
 	}
 	
 	type: ammo
-	flags: ammo, ammo_rocket, hard, magnetic, explosive, metal, small, solid
+	flags: ammo, ammo_rocket, hard, magnetic, explosive, metal, small, manufactured, solid
 	display_flags: hide_fraction
 	hints: none
 	

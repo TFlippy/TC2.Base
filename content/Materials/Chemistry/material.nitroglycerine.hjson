@@ -18,7 +18,7 @@
 	}
 	
 	type: slime
-	flags: sticky, liquid, explosive, chemical, bottled, fragile, flammable, primary
+	flags: sticky, liquid, explosive, chemical, bottled, fragile, manufactured, flammable, primary
 	display_flags: none
 	hints: none
 	

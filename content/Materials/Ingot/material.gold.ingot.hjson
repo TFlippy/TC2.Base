@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.3"
+	$version: "0.1.63.8"
 	name: "Gold Brick"
 	name_short: "Gd. Brick"
 	description:
@@ -18,10 +18,9 @@
 	
 	type: metal_solid
 	flags: hard, metal, currency, heavy, small, ingot, solid
-	display_flags: no_random_facing
+	display_flags: sprite_stack_linear, no_random_facing
 	hints: none
 	
-	porosity: 0.030
 	purity: 0.995
 	mass_per_unit: 29.9536
 	volume_per_unit: 0.0016
@@ -43,6 +42,7 @@
 	colliders:
 	[
 		{
+			centroid: [0.0625, 0.750]
 			radius: 0.125
 			count: 4
 			values:
@@ -54,6 +54,7 @@
 			]
 		}
 		{
+			centroid: [0.0625, 0.5625]
 			radius: 0.125
 			count: 4
 			values:
@@ -65,6 +66,7 @@
 			]
 		}
 		{
+			centroid: [-0.086957, 0.585145]
 			radius: 0.125
 			count: 4
 			values:
@@ -76,6 +78,7 @@
 			]
 		}
 		{
+			centroid: [0.028986, 0.411232]
 			radius: 0.125
 			count: 4
 			values:
@@ -87,6 +90,7 @@
 			]
 		}
 		{
+			centroid: [-0.014858, 0.2823]
 			radius: 0.125
 			count: 4
 			values:
@@ -98,6 +102,7 @@
 			]
 		}
 		{
+			centroid: [0.000, 0.1875]
 			radius: 0.125
 			count: 4
 			values:
@@ -109,6 +114,7 @@
 			]
 		}
 		{
+			centroid: [0.003933, 0.098328]
 			radius: 0.125
 			count: 4
 			values:

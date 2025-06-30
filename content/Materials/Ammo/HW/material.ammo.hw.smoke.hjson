@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.1"
+	$version: "0.1.63.8"
 	name: "HW-106.7mm/SM Shell"
 	description:
 		'''
@@ -22,7 +22,7 @@
 	}
 	
 	type: ammo
-	flags: ammo, ammo_hw, magnetic, explosive, solid
+	flags: ammo, ammo_hw, magnetic, explosive, manufactured, solid
 	display_flags: hide_fraction
 	hints: none
 	

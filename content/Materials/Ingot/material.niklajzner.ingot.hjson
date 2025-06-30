@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.63.8"
 	name: "Niklajzner Brick"
 	name_short: "Nkz. Brick"
 	name_dumb: "Iron"
@@ -19,7 +19,7 @@
 	
 	type: metal_solid
 	flags: malleable, magnetic, metal, small, ingot, solid, processed
-	display_flags: no_random_facing
+	display_flags: sprite_stack_linear, no_random_facing
 	hints: none
 	
 	purity: 0.976
@@ -169,6 +169,7 @@
 			flags: none
 			merge_radius_mult: 1.000
 			velocity_mult: 1.000
+			damage_mult: 1.000
 		}
 		pickaxe:
 		{
@@ -196,6 +197,7 @@
 			flags: none
 			merge_radius_mult: 1.000
 			velocity_mult: 1.000
+			damage_mult: 1.000
 		}
 		sledgehammer:
 		{
@@ -223,6 +225,7 @@
 			flags: none
 			merge_radius_mult: 1.000
 			velocity_mult: 1.000
+			damage_mult: 1.000
 		}
 	}
 	

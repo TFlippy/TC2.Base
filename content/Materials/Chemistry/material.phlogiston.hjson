@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.63.8"
 	name: "Phlogiston"
 	name_short: "Phlogiston"
 	name_dumb: "Fire"
@@ -18,7 +18,7 @@
 	}
 	
 	type: liquid
-	flags: liquid, explosive, toxic, chemical, bottled, corrosive, fragile, fuel, flammable, volatile, primary
+	flags: liquid, explosive, toxic, chemical, bottled, corrosive, fragile, manufactured, fuel, flammable, volatile, primary
 	display_flags: none
 	hints: materials, dangerous, advanced, powerful, chemical, industrial
 	

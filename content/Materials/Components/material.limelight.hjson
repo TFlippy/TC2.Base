@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.5"
+	$version: "0.1.63.8"
 	name: "Limelight"
 	name_short: "Limelight"
 	name_dumb: "Lamp"
@@ -20,7 +20,7 @@
 	}
 	
 	type: device
-	flags: hard, magnetic, granular, essence, metal, small, corrosive, fragile, device, solid
+	flags: hard, magnetic, granular, essence, metal, small, corrosive, fragile, manufactured, device, solid
 	display_flags: none
 	hints: none
 	

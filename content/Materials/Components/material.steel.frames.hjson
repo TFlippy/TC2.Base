@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.4"
+	$version: "0.1.63.8"
 	name: "Steel Frames"
 	name_short: "St. Frames"
 	name_dumb: "Frame"
@@ -18,7 +18,7 @@
 	}
 	
 	type: metal_frame
-	flags: hard, magnetic, granular, metal, small, thin, flexible, solid, processed
+	flags: hard, magnetic, granular, metal, small, thin, manufactured, flexible, solid, processed
 	display_flags: none
 	hints: none
 	
@@ -69,6 +69,7 @@
 			flags: none
 			merge_radius_mult: 1.000
 			velocity_mult: 1.000
+			damage_mult: 1.000
 		}
 		saw:
 		{
@@ -96,6 +97,7 @@
 			flags: none
 			merge_radius_mult: 1.000
 			velocity_mult: 1.000
+			damage_mult: 1.000
 		}
 		phlogiston:
 		{
@@ -123,6 +125,7 @@
 			flags: none
 			merge_radius_mult: 1.000
 			velocity_mult: 1.000
+			damage_mult: 1.000
 		}
 		sledgehammer:
 		{
@@ -150,6 +153,7 @@
 			flags: none
 			merge_radius_mult: 1.000
 			velocity_mult: 0.640
+			damage_mult: 1.000
 		}
 		fracture:
 		{
@@ -177,6 +181,7 @@
 			flags: none
 			merge_radius_mult: 1.000
 			velocity_mult: 1.000
+			damage_mult: 1.000
 		}
 	}
 	

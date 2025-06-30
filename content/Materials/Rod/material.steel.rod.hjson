@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.4"
+	$version: "0.1.63.8"
 	name: "Steel Bar"
 	name_short: "St. Bar"
 	name_dumb: "Iron Stick"
@@ -20,7 +20,7 @@
 	
 	type: metal_pole
 	flags: hard, long, magnetic, metal, small, thin, flexible, solid, processed
-	display_flags: no_random_facing
+	display_flags: sprite_stack_linear, no_random_facing
 	hints: materials, construction
 	
 	purity: 0.985
@@ -124,6 +124,7 @@
 			flags: none
 			merge_radius_mult: 1.000
 			velocity_mult: 1.000
+			damage_mult: 1.000
 		}
 		club:
 		{
@@ -151,6 +152,7 @@
 			flags: none
 			merge_radius_mult: 1.000
 			velocity_mult: 1.000
+			damage_mult: 1.000
 		}
 		axe:
 		{
@@ -178,6 +180,7 @@
 			flags: none
 			merge_radius_mult: 1.000
 			velocity_mult: 1.000
+			damage_mult: 1.000
 		}
 		phlogiston:
 		{
@@ -205,6 +208,7 @@
 			flags: none
 			merge_radius_mult: 1.000
 			velocity_mult: 1.000
+			damage_mult: 1.000
 		}
 		sledgehammer:
 		{
@@ -232,6 +236,7 @@
 			flags: none
 			merge_radius_mult: 1.000
 			velocity_mult: 1.000
+			damage_mult: 1.000
 		}
 		handsaw:
 		{
@@ -259,6 +264,7 @@
 			flags: none
 			merge_radius_mult: 1.000
 			velocity_mult: 1.520
+			damage_mult: 1.000
 		}
 	}
 	

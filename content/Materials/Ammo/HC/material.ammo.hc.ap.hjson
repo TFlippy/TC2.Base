@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.5"
+	$version: "0.1.63.8"
 	name: "HC-13.2mm/AP Ammo"
 	description:
 		'''
@@ -23,7 +23,7 @@
 	}
 	
 	type: ammo
-	flags: ammo, ammo_hc, magnetic, granular, small, solid
+	flags: ammo, ammo_hc, magnetic, granular, small, manufactured, solid
 	display_flags: hide_fraction
 	hints: none
 	

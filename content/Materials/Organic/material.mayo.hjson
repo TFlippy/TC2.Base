@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.63.8"
 	name: "Majonez"
 	name_short: "Mayo"
 	name_dumb: "Mayor"
@@ -18,7 +18,7 @@
 	}
 	
 	type: slime
-	flags: malleable, sticky, food, organic, viscous, bottled, processed
+	flags: malleable, sticky, food, organic, viscous, bottled, manufactured, processed
 	display_flags: none
 	hints: none
 	

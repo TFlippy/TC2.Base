@@ -18,7 +18,7 @@
 	}
 	
 	type: powder
-	flags: granular, explosive, chemical, powder, flammable, solid, primary
+	flags: granular, explosive, chemical, manufactured, powder, flammable, solid, primary
 	display_flags: none
 	hints: materials, dangerous, explosive, powerful, destructive, chemical, military, industrial
 	

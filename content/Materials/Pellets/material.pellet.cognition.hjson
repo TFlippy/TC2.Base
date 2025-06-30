@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.3"
+	$version: "0.1.63.8"
 	name: "Arcanite Pellets (Cognition)"
 	name_short: "E-CG Pellets"
 	description:
@@ -17,7 +17,7 @@
 	}
 	
 	type: metal_solid
-	flags: hard, magnetic, essence, metal, small, pellet, solid
+	flags: hard, magnetic, essence, metal, small, manufactured, pellet, solid
 	display_flags: none
 	hints: none
 	

@@ -23,7 +23,7 @@
 	}
 	
 	type: ammo
-	flags: ammo, ammo_mg, magnetic, granular, small, solid
+	flags: ammo, ammo_mg, magnetic, granular, small, manufactured, solid
 	display_flags: hide_fraction
 	hints: none
 	

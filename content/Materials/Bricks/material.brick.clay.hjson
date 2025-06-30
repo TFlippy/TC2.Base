@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.63.8"
 	name: "Clay Bricks"
 	name_short: "Bricks"
 	name_dumb: "Brick"
@@ -19,7 +19,7 @@
 	
 	type: brick
 	flags: hard, granular, small, fragile, ingot, solid, processed
-	display_flags: none
+	display_flags: sprite_stack_linear
 	hints: none
 	
 	mass_per_unit: 0.510

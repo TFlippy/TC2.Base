@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.4"
+	$version: "0.1.63.8"
 	name: "Machine Parts"
 	name_short: "M. Parts"
 	name_dumb: "Things"
@@ -18,7 +18,7 @@
 	}
 	
 	type: components
-	flags: hard, magnetic, granular, metal, small, device, solid
+	flags: hard, magnetic, granular, metal, small, manufactured, device, solid
 	display_flags: none
 	hints: none
 	
@@ -107,6 +107,7 @@
 			flags: none
 			merge_radius_mult: 1.000
 			velocity_mult: 1.000
+			damage_mult: 1.000
 		}
 	}
 	

@@ -18,8 +18,8 @@
 	}
 	
 	type: concrete
-	flags: hard, granular, large, heavy, ingot, solid, processed
-	display_flags: none
+	flags: hard, granular, large, heavy, manufactured, ingot, solid, processed
+	display_flags: sprite_stack_linear
 	hints: none
 	
 	mass_per_unit: 1.740

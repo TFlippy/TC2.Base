@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.1"
+	$version: "0.1.63.8"
 	name: "AR-6.5mm/ST Arrowbolts"
 	name_short: "Arrowbolts"
 	description:
@@ -19,7 +19,7 @@
 	}
 	
 	type: bramble
-	flags: ammo, ammo_arrow, soft, small, flammable, flexible, solid
+	flags: ammo, ammo_arrow, soft, small, manufactured, flammable, flexible, solid
 	display_flags: hide_fraction
 	hints: primitive, weak, small, cheap, civilian
 	

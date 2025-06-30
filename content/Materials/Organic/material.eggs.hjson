@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.63.8"
 	name: "Eggs"
 	name_short: "Eggs"
 	name_dumb: "Egg"
@@ -19,7 +19,7 @@
 	
 	type: egg
 	flags: hard, granular, organic, fragile, raw
-	display_flags: hide_fraction
+	display_flags: none
 	hints: food, weak
 	
 	mass_per_unit: 0.400

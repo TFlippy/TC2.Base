@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.3"
+	$version: "0.1.63.8"
 	name: "Recondite Sheet"
 	name_short: "Rec. Sheet"
 	description:
@@ -18,7 +18,7 @@
 	
 	type: metal_sheet
 	flags: magnetic, metal, small, plate, solid
-	display_flags: no_random_facing
+	display_flags: sprite_stack_linear, no_random_facing
 	hints: none
 	
 	purity: 0.985
@@ -43,6 +43,7 @@
 	[
 		{
 			offset: [0.000, 0.800]
+			centroid: [0.000, 0.800]
 			radius: 0.200
 			values:
 			[
@@ -54,6 +55,7 @@
 		}
 		{
 			offset: [0.000, 0.550]
+			centroid: [0.000, 0.550]
 			radius: 0.425
 			values:
 			[
@@ -65,6 +67,7 @@
 		}
 		{
 			offset: [0.000, 0.300]
+			centroid: [0.000, 0.300]
 			radius: 0.675
 			values:
 			[
@@ -76,6 +79,7 @@
 		}
 		{
 			offset: [0.000, 0.050]
+			centroid: [-0.03125, 0.050]
 			radius: 0.925
 			values:
 			[
