@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.63.8"
 	name: "Lead"
 	description:
 		'''
@@ -56,6 +56,17 @@
 	triple_point_pressure: 0.000
 	
 	// K
+	ductile_temperature: 0.000
+	// K
+	forging_temperature_lower: 0.000
+	// K
+	forging_temperature_upper: 0.000
+	// K
+	sintering_temperature_lower: 0.000
+	// K
+	sintering_temperature_upper: 0.000
+	
+	// K
 	autoignition_temperature: 0.000
 	
 	// kJ/mol
@@ -63,7 +74,14 @@
 	// kJ/mol
 	heat_of_vaporization: 179.500
 	// kJ/(mol*K)
-	molar_heat_capacity: 0.02650
+	molar_heat_capacity: 0.0265
+	
+	// kJ/kg
+	specific_heat_of_fusion: 0.000
+	// kJ/kg
+	specific_heat_of_vaporization: 0.000
+	// kJ/(kg*K)
+	specific_heat_capacity: 0.000
 	
 	// kW/(m*K)
 	thermal_conductivity: 0.0353

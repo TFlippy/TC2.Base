@@ -55,7 +55,7 @@ animated.renderer:
 	sprite:
 	{
 		texture: roller.00
-		size: [24, 32]
+		size: [48, 32]
 	}
 	z: -280.000
 }
@@ -87,13 +87,8 @@ shop:
 	name: "Press"
 }
 
-press:
+roller:
 {
-	slider_offset: [0.000, -1.000]
-	slider_length: 0.500
-	speed: 2.200
-	load_multiplier: 1.000
-	
 	@animated.renderer:
 	{
 		sprite:
@@ -102,20 +97,6 @@ press:
 		}
 		z: -145.000
 	}
-
-	@light:
-	{
-		color: [1.000, 0.400, 0.000, 2.000]
-		offset: [0.000, 1.250]
-		scale: [12.000, 3.000]
-		intensity: 0.000
-		texture: "light.box.00"
-	}
-}
-
-press.state:
-{
-
 }
 
 crafter:

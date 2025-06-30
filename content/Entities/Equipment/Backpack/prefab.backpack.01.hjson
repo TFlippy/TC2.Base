@@ -11,19 +11,27 @@ body:
 
 	@shape.line:
 	{
-		a: [-0.250, 0.000]
-		b: [0.250, 0.000]
+		material: fabric
+		miss_chance: 0.710
+		flags: none
+		tags: light, medium, flammable, soft
+		
+		layer: entity, solid, item, storage, flammable
+		mask: world
+		exclude: none
 		
 		mass: 1.600
 		radius: 0.500
 		friction: 0.350
 		elasticity: 0.600
-		rigidity_dynamic: 0.750
-		miss_chance: 0.710
-
-		material: fabric
 		
-		layer: entity, solid, item, storage, flammable
+		rigidity_static: 0.950
+		rigidity_dynamic: 0.750
+		cog_offset: [0.000, 0.000]
+		
+		a: [-0.250, 0.000]
+		b: [0.250, 0.000]
+		offset: [0.000, 0.000]
 	}
 }
 
@@ -69,7 +77,8 @@ attachment:
 {
 	offset: [-0.125, -0.125]
 	rotation_offset: -1.1781
-	force_multiplier: 1.250
+	force_multiplier: 0.800
+	torque_multiplier: 0.800
 	tags: small, utility, harness
 	h_sound_attach: equip.00
 	h_sound_detach: equip.01

@@ -212,63 +212,6 @@
 						include: stationary, quiet
 					}
 				}
-				{
-					name: "GBP-Mix"
-					
-					type: undefined
-					flags: none
-					
-					requirements:
-					[
-						{
-							type: resource
-							material: graphite.powder
-							amount: 1.388889
-							snapping: 0.100
-							loss: 0.024
-							ratio: 1.000
-							group: 0
-							flags: prerequisite
-						}
-						{
-							type: resource
-							material: gunpowder
-							amount: 3.043478
-							snapping: 0.100
-							falloff: 0.988
-							loss: 0.024
-							ratio: 1.000
-							group: 0
-							flags: filler, prerequisite
-						}
-					]
-					
-					products:
-					[
-						{
-							type: resource
-							material: thermopaste
-							amount: 1.042144
-							amount_extra: 0.102161
-							group: 0
-							flags: primary, compact
-						}
-					]
-					
-					purity_modifier: 0.901
-					quality_modifier: 0.943
-					yield_modifier: 0.961
-					failure_chance: 0.122
-					
-					filter_tools:
-					{
-						include: bucket, spatula
-					}
-					filter_environment:
-					{
-						include: stationary, quiet
-					}
-				}
 			]
 		}
 		{

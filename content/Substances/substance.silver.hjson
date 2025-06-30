@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.63.8"
 	name: "Silver"
 	description:
 		'''
@@ -55,6 +55,8 @@
 	// bar
 	triple_point_pressure: 0.000
 	
+	// K
+	ductile_temperature: 0.000
 	// K
 	forging_temperature_lower: 617.465
 	// K

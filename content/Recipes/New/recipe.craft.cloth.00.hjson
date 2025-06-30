@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.4"
+	$version: "0.1.63.8"
 	name: "Felt Cloth"
 	desc:
 		'''
@@ -55,7 +55,7 @@
 	]
 	
 	type: workshop
-	flags: debug, production, wip
+	flags: debug, disabled, production, wip
 	tags: workbench, manual, dumb, crude, simple, small, blending, messy
 	infrastructure: bucket, surface
 	infrastructure_exclude: none

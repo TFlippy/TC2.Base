@@ -1,11 +1,11 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.63.8"
 	name: "Gravel"
 	name_short: "Gravel"
 	name_dumb: "Stone"
 	description:
 		'''
-		Wars were fought over gravel.
+		Many wars were fought over gravel.
 		'''
 	
 	tips: []

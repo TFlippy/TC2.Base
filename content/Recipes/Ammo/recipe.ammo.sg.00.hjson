@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.63.8"
 	name: "SG-20.4mm"
 	desc:
 		'''
@@ -523,7 +523,7 @@
 	]
 	
 	type: workshop
-	flags: debug, production, manufacturing, wip
+	flags: debug, disabled, production, manufacturing, wip
 	tags: manual, crafting, complex, small, munitions, delicate, assembling, industrial, metalworking, military, dangerous
 	infrastructure: table, chair, surface, stamping_press, workbench
 	infrastructure_exclude: none

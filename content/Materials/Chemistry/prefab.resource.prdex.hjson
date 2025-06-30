@@ -53,13 +53,13 @@ health:
 
 explosive:
 {
-	radius: 48.000
+	radius: 32.000
 	power: 4.000
 	damage_entity: 25000.000
 	damage_terrain: 22666.000
 	health_threshold: 0.999
 	flags: any_damage, explode_when_primed
-	detonate_chance: 0.663
+	detonate_chance: 0.970
 	shake_multiplier: 2.850
 	force_multiplier: 2.730
 	stun_multiplier: 1.640

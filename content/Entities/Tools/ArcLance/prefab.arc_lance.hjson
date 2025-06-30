@@ -1,7 +1,7 @@
 $name: "Arc Lance"
 $desc: 
 	'''
-	Powerful spear-like weapon tipped with 2 electrodes connected to an ARC-EC pellet power source.
+	Powerful spear-like weapon tipped with a conductive clamp connected to an E-EL pellet stack.
 	'''
 $tags: []
 
@@ -11,21 +11,31 @@ body:
 
 	@shape.line:
 	{
-		a: [-1.000, 0.000]
-		b: [1.000, 0.000]
+		material: tool
+		miss_chance: 0.000
+		flags: none
+		tags: none
+		
+		layer: entity, solid, item, ignore_melee, ignore_bullet
+		mask: world
+		exclude: none
+		
 		mass: 15.000
 		radius: 0.200
 		friction: 0.950
 		elasticity: 0.250
-		material: metal
-		layer: entity, solid, ignore_bullet, ignore_melee, item
-		mask: world
+		
+		cog_offset: [0.738, 0.000]
+		
+		a: [-1.000, 0.000]
+		b: [1.000, 0.000]
+		offset: [0.000, 0.000]
 	}
 }
 
 health:
 {
-	max: 3100.000
+	max: 5500.000
 }
 
 aimable:
@@ -55,6 +65,7 @@ melee:
 	flags: sync_hit_event
 	hit_mask: world, destructible
 	hit_exclude: ignore_melee, background, tree, furniture, climbable
+	damage_flags_add: no_loot_pickup
 }
 
 melee.state:

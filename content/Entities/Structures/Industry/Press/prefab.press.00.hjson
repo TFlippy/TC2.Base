@@ -203,3 +203,15 @@ heat:
 {
 
 }
+
+piston:
+{
+	@animated.renderer:
+	{
+		sprite:
+		{
+			texture: "press.00.parts"
+		}
+		z: -145.000
+	}
+}

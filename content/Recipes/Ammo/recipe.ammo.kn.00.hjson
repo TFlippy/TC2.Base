@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.1"
+	$version: "0.1.63.8"
 	name: "KN-51.9mm"
 	desc:
 		'''
@@ -153,7 +153,7 @@
 	]
 	
 	type: workshop
-	flags: debug, production, wip
+	flags: debug, disabled, production, wip
 	tags: manual, small, munitions, delicate, assembling, metalworking, military, explosive, dangerous
 	infrastructure: table, chair, surface, machine, workbench
 	infrastructure_exclude: none
