@@ -11,7 +11,9 @@
 			public float length;
 			public float damping;
 
+			public Volume cylinder_volume;
 
+			public Sound.Handle h_sound;
 		}
 
 		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]

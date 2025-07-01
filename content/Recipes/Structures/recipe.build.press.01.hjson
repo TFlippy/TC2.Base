@@ -1,0 +1,124 @@
+﻿{
+	$region_id: 0
+	$version: "0.1.63.8"
+	name: "E-MT Forging Press"
+	tips: []
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: brick.concrete
+			amount: 75.000
+			snapping: 0.500
+			group: 0
+			flags: prerequisite
+		}
+		{
+			type: resource
+			material: steel.frames
+			amount: 25.000
+			group: 0
+			flags: prerequisite
+		}
+		{
+			type: resource
+			material: steel.rod
+			amount: 4.000
+			group: 0
+			flags: prerequisite
+		}
+		{
+			type: resource
+			material: steel.ingot
+			amount: 2.000
+			group: 0
+			flags: prerequisite
+		}
+		{
+			type: resource
+			material: machine_parts
+			amount: 30.000
+			group: 0
+			flags: prerequisite
+		}
+		{
+			type: resource
+			material: actuator
+			amount: 2.000
+			group: 0
+			flags: prerequisite
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: press.01
+			amount: 1.000
+			group: 0
+		}
+	]
+	
+	type: industry
+	flags: wip
+	tags: construction
+	infrastructure: none
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		texture: press.01
+		size: [24, 48]
+		frame: [0, 0]
+	}
+	icon_offset: [-1.875, 2.875]
+	
+	color_frame: "0xffffa200"
+	color_button: "0xff9dd80f"
+	rank: -397.000
+	frame_size: [56.000, 56.000]
+	
+	dismantle_work: 10.000
+	dismantle_yield: 0.800
+	
+	placement:
+	{
+		type: simple
+		flags: allow_mirror_x, require_terrain, terrain_is_support, no_solid_support
+		
+		size: [3.000, 6.000]
+		offset: [0.000, -2.250]
+		
+		rect_foundation: [-1.000, 0.000, 1.000, 0.500]
+		tileflags_foundation: solid
+		
+		rect_clearance: [-1.250, -4.500, 1.250, 0.000]
+		tileflags_clearance: solid
+		
+		cooldown: 1.000
+		min_support: 0.250
+		min_clearance: 0.900
+		min_claim: 1.000
+		max_range: 2.500
+		
+		rotation_max: 0.0982
+		
+		sound: building_place
+		
+		snapping_filter:
+		{
+			include: world
+			exclude: none
+		}
+		snapping_flags: snap_to_surface, add_size_to_snap_radius, use_raw_collider
+		
+		mappings_replace:
+		{
+		
+		}
+	}
+	
+	version: 0
+}

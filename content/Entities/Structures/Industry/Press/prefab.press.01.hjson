@@ -1,4 +1,4 @@
-$name: "Forging Press"
+$name: "E-MT Forging Press"
 $desc:
 	'''
 	TODO: Desc
@@ -9,10 +9,33 @@ body:
 {
 	type: static
 	
+	@shape.line:
+	{
+		material: machine
+		miss_chance: 0.659
+		flags: none
+		tags: none
+		
+		layer: entity, solid, building, support, no_overlapped_placement, ignore_melee
+		mask: world, building
+		exclude: none
+		
+		mass: 140.000
+		radius: 0.750
+		friction: 0.600
+		elasticity: 0.500
+		
+		cog_offset: [0.000, 0.000]
+		
+		a: [0.125, -1.250]
+		b: [0.000, 1.375]
+		offset: [0.000, 0.000]
+	}
+
 	@shape.polygon:
 	{
 		material: building_reinforced
-		miss_chance: 0.612
+		miss_chance: 0.000
 		flags: none
 		tags: none
 		
@@ -29,10 +52,10 @@ body:
 		
 		points:
 		[
-			[-1.000, -0.625]
-			[1.125, -0.625]
-			[1.000, 1.625]
-			[-0.875, 1.625]
+			[-0.750, 1.500]
+			[0.625, 1.375]
+			[0.500, 2.250]
+			[-0.625, 2.250]
 		]
 	}
 }
@@ -42,17 +65,17 @@ health:
 	max: 53500.000
 }
 
-armor:
-{
-	toughness: 340.000
-	protection: 0.750
+// armor:
+// {
+// 	toughness: 340.000
+// 	protection: 0.750
 	
-	knockback_modifier: 1.300
-	pain_modifier: 0.000
+// 	knockback_modifier: 1.300
+// 	pain_modifier: 0.000
 
-	material_type: metal
-	flags: no_damage_type_conversion
-}
+// 	material_type: metal
+// 	flags: no_damage_type_conversion
+// }
 
 animated.renderer:
 {
@@ -85,22 +108,21 @@ shop:
 {
 	tags_filter:
 	{
-		require: manual
-		include: workbench, workshop, blacksmithing, metalworking, salvaging, heating
-		exclude: advanced, large, huge, social, forestry, smelting, fermenting, casting, moulding, overworld
+		include: industrial, metalworking, metallurgy, melting, heating, moulding
+		exclude: advanced, large, huge, social, forestry, fermenting, overworld
 	}
 	
-	tools: hammer, saw, hand_drill, screwdriver, spanner, pliers, bucket, axe, shovel, file, chisel, towel, tongs, pick, crowbar, knife, sandpaper, ladle
-	infrastructure: oven, anvil, forge, dishes, table, rack, bucket, surface, hard_surface, heater, stove, building, workbench
-	environment: workshop, stationary, dirty, polluted, ugly, scary, fireproof, durable, sturdy
+	tools: ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, spanner, pliers, bucket, file, chisel, towel, tongs, crowbar, sandpaper
+	infrastructure: anvil, vise, shaping_mould, surface, hard_surface, heater, stamping_press, press, machine
+	environment: machine, stationary, dirty, scary, noisy, reinforced, fireproof, durable, sturdy, small
 	
 	flags: none
-	menu_columns: 5
+	menu_columns: 3
 	recipe_type: workshop
 	
-	offset_spawn: [1.000, 0.250]
+	offset_spawn: [0.125, 0.875]
 	
-	name: "Press"
+	name: "E-MT Forging Press"
 }
 
 press:
@@ -194,6 +216,15 @@ crafter.state:
 	// }
 }
 
+workshop:
+{
+	orders_capacity: 1
+	
+	tools: none
+	infrastructure: none
+	environment: none
+}
+
 // axle:
 // {
 // 	offset: [0.000, -1.500]
@@ -241,45 +272,53 @@ piston:
 		}
 		z: -165.000
 	}
+
+	@light:
+	{
+		color: [0.000, 1.000, 0.800, 1.500]
+		offset: [0.125, -1.875]
+		scale: [12.000, 14.000]
+		intensity: 1.200
+		texture: light.circle.00
+	}
 }
 
 essence.container:
 {
-	stability: 0.910
-	health_threshold: 0.100
+	stability: 0.950
+	health_threshold: 0.780
 	glow_modifier: 1.000
-	emit_type: stressor
+	emit_type: pulser
 	flags: show_gui, allow_edit_rate
 
 	@inventory1:
 	{
 		type: essence
-		flags: ignore_mass
+		flags: ignore_mass, no_auto_pickup, faction
 		stack_size_multiplier: 0.200
 		
 		filter:
 		{
-			require: small, pellet, solid, essence
-			include: none
+			require: essence, small, pellet, solid
 			exclude: gas
 		}
-
-		offset: [-0.375, 1.000]
+		offset: [0.125, -1.875]
 	}
 
 	@sound.emitter:
 	{
 		flags: start_muted
-		volume: 0.500
-		pitch: 1.730
+		volume: 0.800
+		pitch: 0.430
 		size: 0.350
-		size_max_modifier: 0.700
+		size_max_modifier: 0.500
 		spread: 80.000
+		offset: [0.000, -1.875]
 	}
 
 	@light:
 	{
-		offset: [-0.375, 0.625]
+		offset: [0.125, -1.875]
 		scale: [11.000, 7.000]
 		texture: light.circle.00
 	}
