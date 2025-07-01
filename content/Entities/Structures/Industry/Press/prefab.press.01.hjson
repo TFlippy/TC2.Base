@@ -230,7 +230,7 @@ shipment:
 
 piston:
 {
-	offset: [0.000, -0.125]
+	offset: [0.000, -0.625]
 
 	@animated.renderer:
 	{
