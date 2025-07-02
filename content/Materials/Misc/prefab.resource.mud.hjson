@@ -18,9 +18,8 @@ body:
 		material: mud
 		miss_chance: 0.000
 		
-		layer: entity, solid, resource, bulk, ignore_melee, ignore_bullet
-		mask: world, bulk
-		exclude: held, stored
+		layer: entity, solid, resource, ignore_melee, ignore_bullet
+		mask: world
 	}
 }
 

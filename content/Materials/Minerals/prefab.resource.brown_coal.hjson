@@ -10,9 +10,8 @@ body:
 		friction: 0.950
 		elasticity: 0.300
 		material: coal
-		layer: entity, solid, resource, ignore_melee, ignore_bullet, flammable, bulk
-		mask: world, bulk
-		exclude: held, stored
+		layer: entity, solid, resource, ignore_melee, ignore_bullet, flammable
+		mask: world
 	}
 }
 

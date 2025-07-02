@@ -1,5 +1,4 @@
 ﻿{
-	$region_id: 0
 	$version: "0.1.63.8"
 	name: "E-MT Forging Press"
 	tips: []
@@ -49,6 +48,13 @@
 			group: 0
 			flags: prerequisite
 		}
+		{
+			type: resource
+			material: oil
+			amount: 4.000
+			group: 0
+			flags: prerequisite
+		}
 	]
 	
 	products:
@@ -71,9 +77,8 @@
 	{
 		texture: press.01
 		size: [24, 48]
-		frame: [0, 0]
 	}
-	icon_offset: [-1.875, 2.875]
+	icon_offset: [2.000, -4.000]
 	
 	color_frame: "0xffffa200"
 	color_button: "0xff9dd80f"

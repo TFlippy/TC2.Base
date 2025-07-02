@@ -5,15 +5,19 @@
 		[IComponent.Data(Net.SendType.Reliable, IComponent.Scope.Region)]
 		public partial struct Data(): IComponent
 		{
-			[Editor.Picker.Position(relative: true)] public Vec2f offset;
-			[Editor.Picker.Direction(normalize: true)] public Vec2f direction;
+			[Net.Segment.A, Editor.Picker.Position(relative: true)] public required Vec2f offset;
+			[Net.Segment.A, Editor.Picker.Direction(normalize: true)] public required Vec2f direction = Vec2f.Down;
 
-			public float length;
-			public float damping;
+			[Net.Segment.A] public required float length;
+			//public float damping;
+			[Net.Segment.A] public Volume cylinder_volume;
+			//public Sound.Handle h_sound;
 
-			public Volume cylinder_volume;
+			[Net.Segment.C] public float current_distance;
 
-			public Sound.Handle h_sound;
+			[Net.Segment.D] public float current_force;
+			[Net.Segment.D] public float current_;
+			[Net.Segment.D] public Pressure current_pressure;
 		}
 
 		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
@@ -52,11 +56,11 @@
 		[IComponent.Data(Net.SendType.Reliable, IComponent.Scope.Region), IComponent.With<Press.State>]
 		public partial struct Data(): IComponent
 		{
-			[Editor.Picker.Position(relative: true)] public Vec2f slider_offset;
+			[Net.Segment.A, Editor.Picker.Position(relative: true)] public Vec2f slider_offset;
 
-			public float slider_length;
-			public float speed;
-			public float load_multiplier;
+			[Net.Segment.A] public float slider_length;
+			[Net.Segment.A] public float speed;
+			[Net.Segment.A] public float load_multiplier;
 
 			//[Net.Ignore, Save.Ignore] public uint current_sound_index;
 		}
@@ -83,8 +87,8 @@
 
 		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnUpdateEffects(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity,
-		[Source.Owned] in Transform.Data transform, 
-		[Source.Owned] ref Press.Data press, [Source.Owned] ref Press.State press_state, 
+		[Source.Owned] in Transform.Data transform,
+		[Source.Owned] ref Press.Data press, [Source.Owned] ref Press.State press_state,
 		[Source.Owned, Pair.Component<Press.Data>] ref Light.Data light, [Source.Owned] ref Crafter.State state)
 		{
 			if (press_state.flags.HasAny(Press.State.Flags.Smashed))
@@ -351,8 +355,8 @@
 		}
 
 		[ISystem.EarlyGUI(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void OnGUI(Entity ent_press, [Source.Owned] in Transform.Data transform, 
-		[Source.Owned] in Press.Data press, [Source.Owned] in Press.State press_state, 
+		public static void OnGUI(Entity ent_press, [Source.Owned] in Transform.Data transform,
+		[Source.Owned] in Press.Data press, [Source.Owned] in Press.State press_state,
 		[Source.Owned] in Crafter.Data crafter, [Source.Owned] in Crafter.State crafter_state,
 		[Source.Owned] in Interactable.Data interactable)
 		{

@@ -160,14 +160,16 @@ press.state:
 
 crafter:
 {
-	flags: hide_temperature, hide_pressure
+	flags: none
 	
 	tools: none
-	infrastructure: none
-	environment: none
+	infrastructure: anvil, forge, vise, shaping_mould, hard_surface, heater, stamping_press, press, form, structure, machine
+	environment: machine, stationary, dirty, scary, noisy, reinforced, fireproof, durable, sturdy, form, waterproof
 	
-	temperature_max: 700.000
+	temperature_max: 1200.000
 	pressure_max: 100.000
+	
+	spawn_offset: [-0.125, 1.125]
 
 	@inventory4:
 	{
@@ -261,7 +263,9 @@ shipment:
 
 piston:
 {
-	offset: [0.000, -0.125]
+	offset: [-0.250, -0.625]
+	length: 0.400
+	cylinder_volume: 0.200
 
 	@animated.renderer:
 	{
@@ -326,32 +330,32 @@ essence.container:
 
 heat:
 {
-	temperature_medium: 600.000
-	temperature_high: 1150.000
-	temperature_ignite: 1415.000
+	temperature_medium: 800.000
+	temperature_high: 1200.000
+	temperature_ignite: 1337.000
 	temperature_operating: 1193.150
-	temperature_breakdown: 1650.000
-	cool_rate: 20.000
-	heat_capacity_extra: 900.000
-	heat_capacity_mult: 6.000
+	temperature_breakdown: 1950.000
+	cool_rate: 40.000
+	heat_capacity_extra: 50.000
+	heat_capacity_mult: 2.000
 	heat_damage_mult: 0.200
 	smoke_size_mult: 0.700
-	smoke_speed_mult: 0.010
-	smoke_rise_mult: 0.100
+	smoke_speed_mult: 0.300
+	smoke_rise_mult: 0.500
 	flags: exclude_body_mass, no_gui
 	fire_flags: none
-	offset: [-0.875, -0.250]
-	smoke_offset: [-0.875, -0.250]
-	size: [0.875, 0.500]
+	offset: [-0.250, 1.000]
+	smoke_offset: [0.500, 1.375]
+	size: [1.250, 0.500]
 
 	@light:
 	{
-		offset: [-0.875, -0.125]
-		scale: [28.000, 26.000]
+		offset: [-0.125, 1.125]
+		scale: [28.000, 13.000]
 		intensity: 1.000
-		texture: light.circle.03
+		texture: light.circle.00
 	}
-		
+
 	@sound.emitter:
 	{
 		file: furnace_loop

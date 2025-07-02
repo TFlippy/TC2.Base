@@ -3472,7 +3472,7 @@ namespace TC2.Base.Components
 								}
 
 								var text = sb.ToString().AsSpan().Trim();
-								App.WriteLine($"\"{text}\" -- Some kobold", App.Color.DarkGray, show_stacktrace: false);
+								//App.WriteLine($"\"{text}\" -- Some kobold", App.Color.DarkGray, show_stacktrace: false);
 
 								speech_bubble.text = text;
 								speech_bubble.Sync(ent_speech_bubble, true);
