@@ -1,0 +1,29 @@
+﻿{
+	$region_id: 0
+	$version: "0.1.64.0"
+	name: "Forging Press"
+	name_short: "Forging Press"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: press.01
+		size: [24, 40]
+	}
+	
+	flags: wip
+	tags: none
+	
+	modes:
+	[
+		{
+			h_work: die.swaging.metal
+			flags: automated, wip
+			
+			work_multiplier: 1.000
+		}
+	]
+}

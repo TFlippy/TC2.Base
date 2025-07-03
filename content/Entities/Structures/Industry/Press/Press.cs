@@ -25,7 +25,7 @@
 		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Piston.Data piston,
 		[Source.Owned, Pair.Component<Piston.Data>] ref Animated.Renderer.Data renderer)
 		{
-			renderer.offset = piston.offset;
+			renderer.offset = piston.offset.AddY(piston.current_distance);
 			//renderer_slider.offset = press.slider_offset + new Vector2(0.00f, MathF.Pow((MathF.Cos(axle_state.rotation) + 1.00f) * 0.50f, press.speed) * press.slider_length);
 		}
 	}
@@ -86,7 +86,7 @@
 		private static readonly Texture.Handle metal_spark_01 = "metal_spark.01";
 
 		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void OnUpdateEffects(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity,
+		public static void OnUpdateEffects(ISystem.Info info, ref Region.Data region, ref XorRandom random,
 		[Source.Owned] in Transform.Data transform,
 		[Source.Owned] ref Press.Data press, [Source.Owned] ref Press.State press_state,
 		[Source.Owned, Pair.Component<Press.Data>] ref Light.Data light, [Source.Owned] ref Crafter.State state)
@@ -156,7 +156,7 @@
 					Shake.Emit(ref region, transform.position, 0.30f, 0.30f, radius: 16.00f);
 				}
 
-				press_state.flags.SetFlag(Press.State.Flags.Smashed | Press.State.Flags.Success, false);
+				press_state.flags.RemoveFlag(Press.State.Flags.Smashed | Press.State.Flags.Success);
 			}
 			else
 			{

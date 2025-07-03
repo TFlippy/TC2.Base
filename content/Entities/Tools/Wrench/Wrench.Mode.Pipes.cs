@@ -357,7 +357,7 @@
 				public struct TargetInfo: ITargetInfo
 				{
 					public Entity entity;
-					public IComponent.Handle vent_id;
+					public IComponent.Handle<Air.Vent.Data> vent_id;
 					public Air.Vent.Type vent_type;
 
 					public float radius;

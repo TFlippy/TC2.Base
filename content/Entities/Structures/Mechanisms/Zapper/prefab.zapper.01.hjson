@@ -85,8 +85,8 @@ zapper:
 		flags: no_mass, no_body_overrides, no_inventory_mass
 		tags: none
 		
-		layer: ignore_hover
-		mask: creature, organic
+		layer: ignore_melee, ignore_hover, ignore_bullet
+		mask: creature, organic, conductive
 		exclude: resource
 		
 		mass: 1.000
@@ -98,7 +98,7 @@ zapper:
 		rigidity_dynamic: 0.000
 		cog_offset: [0.000, 0.000]
 		
-		offset: [1.500, 0.000]
+		offset: [2.125, 0.000]
 	}
 
 	@light:
@@ -156,12 +156,11 @@ faction:
 
 holdable:
 {
-	radius: 0.000
-	flags: disable_parent_facing, disable_control
-	
-	force_multiplier: 2.000
-	torque_multiplier: 1.000
+	offset: [-2.000, 0.000]
+	force_multiplier: 2.500
+	torque_multiplier: 1.500
 	stress_multiplier: 0.700
+	radius: 0.500
 }
 
 attachment:

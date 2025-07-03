@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.64.0"
 	name: "Niklajzner Bricks"
 	desc:
 		'''
@@ -76,6 +76,71 @@
 							ratio: 1.000
 							group: 1
 							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: niklajzner.ingot
+							amount: 1.173454
+							amount_extra: 0.128149
+							group: 0
+							flags: primary, spawn, compact, use_temperature
+						}
+					]
+					
+					filter_tools:
+					{
+						require: hammer, file
+					}
+					filter_environment:
+					{
+						include: workshop, stationary, illuminated, dry
+					}
+				}
+				{
+					name: "Pressed"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: sledgehammer
+					
+					suffix: " (Pressed)"
+					priority: 1.000
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: niklajzner
+							amount: 10.000
+							snapping: 0.100
+							loss: 0.122
+							ratio: 0.161
+							group: 0
+							flags: primary, prerequisite
+						}
+						{
+							type: temperature
+							amount: 781.665
+							amount_min: 495.000
+							amount_max: 1643.136
+							falloff: 0.500
+							group: 0
+							flags: no_scaling, always_evaluate, optional
+						}
+						{
+							type: work
+							work: die.swaging.metal
+							amount: 200.000
+							amount_min: 150.000
+							difficulty: 11
+							snapping: 5.000
+							falloff: 0.857
+							group: 0
+							flags: stepped, conditional
 						}
 					]
 					

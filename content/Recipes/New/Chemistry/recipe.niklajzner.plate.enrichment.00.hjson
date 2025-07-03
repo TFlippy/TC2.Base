@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.8"
+	$version: "0.1.64.0"
 	name: "Niklajzner Sheet"
 	desc:
 		'''
@@ -164,7 +164,7 @@
 							amount_max: 964.240
 							falloff: 2.199
 							group: 0
-							flags: no_scaling, always_evaluate, prerequisite
+							flags: no_scaling, always_evaluate
 						}
 						{
 							type: work

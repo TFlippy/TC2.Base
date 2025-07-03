@@ -1,0 +1,98 @@
+$name: "Plate"
+$tags: []
+
+body:
+{
+	type: dynamic
+	
+	@shape.line:
+	{
+		material: metal
+		miss_chance: 0.000
+		flags: none
+		tags: none
+		
+		layer: entity, solid, vehicle
+		mask: world
+		exclude: item, vehicle
+		
+		mass: 90.000
+		radius: 0.500
+		friction: 0.760
+		elasticity: 0.580
+		
+		cog_offset: [0.000, 0.000]
+		
+		points:
+		[
+			[-0.250, -0.250]
+			[0.250, -0.250]
+			[0.750, 0.375]
+			[-0.750, 0.375]
+		]
+	}
+}
+
+control:
+{
+
+}
+
+health:
+{
+	max: 42000.000
+}
+
+armor:
+{
+	toughness: 400.000
+	protection: 0.900
+	
+	knockback_modifier: 1.300
+	pain_modifier: 0.000
+
+	material_type: metal
+	flags: no_damage_type_conversion
+}
+
+holdable:
+{
+	force_multiplier: 1.500
+	torque_multiplier: 0.500
+	stress_multiplier: 0.500
+	offset: [0.000, 0.000]
+	radius: 0.000
+	flags: disable_parent_facing, disable_rotation, disable_control
+}
+
+attachment:
+{
+	offset: [0.000, 0.500]
+
+	force_multiplier: 1.600
+	torque_multiplier: 1.500
+
+	tags: large, platform, fixed, rotary
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "plate.00"
+	}
+	z: -80.000
+}
+
+transform:
+{
+
+}
+
+interactable:
+{
+	flags: centered_inventory
+	window_size: [168.000, 128.000]
+	window_offset: [64.000, 128.000]
+	window_size_misc: [48.000, 0.000]
+}

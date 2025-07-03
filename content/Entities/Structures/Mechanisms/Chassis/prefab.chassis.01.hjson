@@ -1,7 +1,7 @@
 $name: "Vehicle Chassis (Compact)"
 $desc:
 	'''
-	Small vehicle chassis for basic aircraft and portable weapons.
+	Small vehicle chassis for basic aircraft and portable weaponry.
 	(x1 cabin slot, 2x tool slot, 4x wheel slot)
 	'''
 $tags: []
@@ -10,21 +10,29 @@ body:
 {
 	@shape.polygon:
 	{
+		material: metal_frame
+		miss_chance: 0.380
+		flags: none
+		tags: medium
+		
+		layer: entity, solid, vehicle
+		mask: world
+		exclude: none
+		
+		mass: 380.000
+		radius: 0.250
+		friction: 0.380
+		elasticity: 0.580
+		
+		cog_offset: [0.000, -0.1875]
+		
 		points:
 		[
+			[-1.500, -0.500]
 			[1.500, -0.500]
 			[1.250, 0.375]
 			[-1.250, 0.375]
-			[-1.500, -0.500]
 		]
-		offset: [0.000, 0.000]
-		mass: 380.000
-		radius: 0.250
-		friction: 0.400
-		elasticity: 0.550
-		material: metal_frame
-		layer: entity, solid, vehicle
-		mask: world
 	}
 }
 

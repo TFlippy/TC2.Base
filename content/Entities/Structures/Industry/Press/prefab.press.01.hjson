@@ -132,25 +132,25 @@ press:
 	speed: 2.200
 	load_multiplier: 1.000
 	
-	@animated.renderer:
-	{
-		sprite:
-		{
-			texture: press.01.parts
-			size: [8, 24]
-			frame: [4, 0]
-		}
-		z: -145.000
-	}
+	// @animated.renderer:
+	// {
+	// 	sprite:
+	// 	{
+	// 		texture: press.01.parts
+	// 		size: [8, 24]
+	// 		frame: [4, 0]
+	// 	}
+	// 	z: -145.000
+	// }
 
-	@light:
-	{
-		color: [1.000, 0.400, 0.000, 2.000]
-		offset: [0.000, 1.250]
-		scale: [12.000, 3.000]
-		intensity: 0.000
-		texture: "light.box.00"
-	}
+	// @light:
+	// {
+	// 	color: [1.000, 0.400, 0.000, 2.000]
+	// 	offset: [0.000, 1.250]
+	// 	scale: [12.000, 3.000]
+	// 	intensity: 0.000
+	// 	texture: "light.box.00"
+	// }
 }
 
 press.state:
@@ -160,16 +160,18 @@ press.state:
 
 crafter:
 {
+	h_crafter: forging.press.emt
 	flags: none
 	
 	tools: none
 	infrastructure: anvil, forge, vise, shaping_mould, hard_surface, heater, stamping_press, press, form, structure, machine
 	environment: machine, stationary, dirty, scary, noisy, reinforced, fireproof, durable, sturdy, form, waterproof
 	
+	distance_max: 4.000
 	temperature_max: 1200.000
 	pressure_max: 100.000
 	
-	spawn_offset: [-0.125, 1.125]
+	offset: [-0.250, 0.875]
 
 	@inventory4:
 	{
@@ -250,7 +252,7 @@ workshop:
 interactable:
 {
 	flags: no_tab
-	window_size: [650.000, 450.000]
+	window_size: [600.000, 488.000]
 	window_size_misc: [144.000, 0.000]
 }
 
@@ -289,8 +291,8 @@ piston:
 
 essence.container:
 {
-	stability: 0.950
-	health_threshold: 0.780
+	stability: 0.970
+	health_threshold: 0.220
 	glow_modifier: 1.000
 	emit_type: pulser
 	flags: show_gui, allow_edit_rate
@@ -309,23 +311,23 @@ essence.container:
 		offset: [0.125, -1.875]
 	}
 
-	@sound.emitter:
-	{
-		flags: start_muted
-		volume: 0.800
-		pitch: 0.430
-		size: 0.350
-		size_max_modifier: 0.500
-		spread: 80.000
-		offset: [0.000, -1.875]
-	}
+	// @sound.emitter:
+	// {
+	// 	flags: start_muted
+	// 	volume: 0.800
+	// 	pitch: 0.430
+	// 	size: 0.350
+	// 	size_max_modifier: 0.500
+	// 	spread: 80.000
+	// 	offset: [0.000, -1.875]
+	// }
 
-	@light:
-	{
-		offset: [0.125, -1.875]
-		scale: [11.000, 7.000]
-		texture: light.circle.00
-	}
+	// @light:
+	// {
+	// 	offset: [0.125, -1.875]
+	// 	scale: [11.000, 7.000]
+	// 	texture: light.circle.00
+	// }
 }
 
 heat:
@@ -335,8 +337,8 @@ heat:
 	temperature_ignite: 1337.000
 	temperature_operating: 1193.150
 	temperature_breakdown: 1950.000
-	cool_rate: 40.000
-	heat_capacity_extra: 50.000
+	cool_rate: 20.000
+	heat_capacity_extra: 500.000
 	heat_capacity_mult: 2.000
 	heat_damage_mult: 0.200
 	smoke_size_mult: 0.700

@@ -115,7 +115,7 @@
 			ref var material_explosive = ref ev.resource_explosive.GetMaterial();
 			if (material_explosive.IsNotNull())
 			{
-				var pos = transform.LocalToWorld(crafter.spawn_offset);
+				var pos = transform.LocalToWorld(crafter.offset);
 				var purity = material_explosive.purity;
 				var explosive_mass = ev.resource_explosive.GetMassNormalized();
 

@@ -66,6 +66,7 @@ nameable:
 
 spawn:
 {
+	spawn_offset: [1.125, 0.375]
 	flags: faction
 }
 
@@ -79,10 +80,9 @@ storage:
 		
 		filter:
 		{
-			exclude: large, heavy, smelly, gas
+			exclude: gas, large, heavy
 		}
-		
-		offset: [0.000, 0.000]
+		offset: [2.000, 0.875]
 	}
 }
 
@@ -157,7 +157,8 @@ armory:
 
 shipment:
 {
-	flags: keep_items, no_gui, allow_deposit, allow_withdraw, faction
+	flags: keep_items, allow_withdraw, allow_deposit, no_gui, faction
+	type: armory
 }
 
 dormitory:
@@ -185,27 +186,28 @@ dormitory:
 
 shop:
 {
-	name: "Headquarters"
-	
 	tags_filter:
 	{
-		include: social, research, tailoring
+		include: manual, crafting, simple, small, medium, tailoring, research, social, science, military, architecture
+		exclude: advanced, large, huge, vehicle, blacksmithing, fermenting, melting, heating, casting
 	}
-
-	tools: pencil, paper, ruler, stapler, towel, knife
-	machinery: none
-	infrastructure: table, chair, rack
+	
+	tools: pencil, paper, ruler, hammer, screwdriver, spanner, tweezers, magnifying_glass, stapler, towel, knife, needle, pins, scissors, utensils
+	infrastructure: dishes, bottle, table, chair, rack, bed, stationery, surface, office, building
 	environment: indoor, warm, office, stationary, fancy, cozy
-	recipe_type: workshop
 	
 	flags: none
 	menu_columns: 4
-	blueprints_capacity: 8
+	recipe_type: workshop
+	
+	offset_spawn: [-1.000, 0.625]
+	
+	name: "Headquarters"
 }
 
 workshop:
 {
-	orders_capacity: 4
+	orders_capacity: 2
 	h_sound_order_complete: computer.bell.00
 }
 
