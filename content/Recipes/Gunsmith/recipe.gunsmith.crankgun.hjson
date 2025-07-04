@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.3"
+	$version: "0.1.64.0"
 	name: "Crankgun"
 	desc:
 		'''
@@ -66,8 +66,9 @@
 	
 	type: workshop
 	flags: blueprintable, disabled, wip
-	tags: workshop, manual, weapon, gun, assembling, metalworking, engineering, military, construction
+	tags: workshop, manual, crafting, simple, large, weapon, gun, assembling, metalworking, engineering, military, construction
 	infrastructure: anvil, vise, surface, hard_surface
+	infrastructure_exclude: none
 	
 	icon:
 	{

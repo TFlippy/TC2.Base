@@ -1,27 +1,11 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.64.0"
 	name: "Beer"
 	desc:
 		'''
 		Common man's water substitute.
 		'''
 	tips: []
-	
-	icon:
-	{
-		texture: beer
-	}
-	
-	min: 4
-	max: 40
-	step: 4
-	
-	type: crafter
-	flags: blueprintable, hidden, wip
-	tags: simple, small, food, chemistry, biology, fermenting
-	
-	color_frame: "0xffaeb59a"
-	rank: 0.000
 	
 	requirements:
 	[
@@ -58,4 +42,25 @@
 			group: 0
 		}
 	]
+	
+	type: workshop
+	flags: blueprintable, hidden, wip
+	tags: simple, small, food, chemistry, biology, fermenting
+	infrastructure: none
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		texture: beer
+	}
+	
+	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
+	rank: 0.000
+	
+	min: 4
+	max: 40
+	step: 4
+	
+	version: 0
 }

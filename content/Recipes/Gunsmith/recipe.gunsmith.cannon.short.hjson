@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.64.0"
 	name: "Short Cannon"
 	desc:
 		'''
@@ -7,8 +7,6 @@
 		which is cheaper, lighter and of worse performance.
 		'''
 	tips: []
-	
-	stages: []
 	
 	requirements:
 	[
@@ -30,6 +28,7 @@
 			amount: 2000.000
 			difficulty: 13
 			group: 0
+			flags: conditional
 		}
 		{
 			type: work
@@ -37,6 +36,7 @@
 			amount: 1200.000
 			difficulty: 10
 			group: 0
+			flags: conditional
 		}
 	]
 	
@@ -50,13 +50,11 @@
 		}
 	]
 	
-	requirements_old: []
-	
-	products_old: []
-	
 	type: workshop
 	flags: no_amount_multiplier, blueprintable, disabled, wip
-	tags: manual, complex, large, weapon, gun, blacksmithing, assembling, metalworking, engineering, military, construction, casting
+	tags: manual, crafting, complex, large, weapon, gun, blacksmithing, assembling, metalworking, engineering, military, construction, casting
+	infrastructure: none
+	infrastructure_exclude: none
 	
 	icon:
 	{
@@ -64,6 +62,7 @@
 	}
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	rank: 0.000
 	
 	min: 1

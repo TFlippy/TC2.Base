@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.64.0"
 	name: "MRL"
 	desc:
 		'''
@@ -8,8 +8,6 @@
 		Needs to be placed on mount.
 		'''
 	tips: []
-	
-	stages: []
 	
 	requirements:
 	[
@@ -31,6 +29,7 @@
 			amount: 1200.000
 			difficulty: 6
 			group: 0
+			flags: conditional
 		}
 		{
 			type: work
@@ -38,6 +37,7 @@
 			amount: 1750.000
 			difficulty: 12
 			group: 0
+			flags: conditional
 		}
 	]
 	
@@ -51,13 +51,11 @@
 		}
 	]
 	
-	requirements_old: []
-	
-	products_old: []
-	
 	type: workshop
 	flags: blueprintable, disabled, wip
-	tags: manual, large, weapon, gun, assembling, metalworking, engineering, military, construction
+	tags: manual, crafting, large, weapon, gun, assembling, metalworking, engineering, military, construction
+	infrastructure: none
+	infrastructure_exclude: none
 	
 	icon:
 	{
@@ -65,6 +63,7 @@
 	}
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	rank: 0.000
 	
 	min: 1

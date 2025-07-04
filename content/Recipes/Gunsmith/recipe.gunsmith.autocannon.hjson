@@ -1,13 +1,11 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.64.0"
 	name: "Autocannon"
 	desc:
 		'''
 		Powerful automatic cannon to be mounted on vehicles.
 		'''
 	tips: []
-	
-	stages: []
 	
 	requirements:
 	[
@@ -35,6 +33,7 @@
 			amount: 2000.000
 			difficulty: 17
 			group: 0
+			flags: conditional
 		}
 		{
 			type: work
@@ -42,6 +41,7 @@
 			amount: 500.000
 			difficulty: 2
 			group: 0
+			flags: conditional
 		}
 		{
 			type: work
@@ -49,6 +49,7 @@
 			amount: 1200.000
 			difficulty: 7
 			group: 0
+			flags: conditional
 		}
 	]
 	
@@ -62,13 +63,11 @@
 		}
 	]
 	
-	requirements_old: []
-	
-	products_old: []
-	
 	type: workshop
 	flags: blueprintable, disabled, wip
-	tags: workshop, manual, complex, large, weapon, gun, machinery, assembling, metalworking, engineering, military, construction
+	tags: workshop, manual, crafting, complex, large, weapon, gun, machinery, assembling, metalworking, engineering, military, construction
+	infrastructure: none
+	infrastructure_exclude: none
 	
 	icon:
 	{
@@ -76,6 +75,7 @@
 	}
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	rank: 0.000
 	
 	min: 1

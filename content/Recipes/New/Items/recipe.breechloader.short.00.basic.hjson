@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.64.0"
 	name: "Short Breechloader"
 	tips: []
 	
@@ -276,7 +276,7 @@
 	
 	type: workshop
 	flags: blueprintable, item
-	tags: manual, simple, small, weapon, gun, assembling, metalworking
+	tags: manual, crafting, simple, small, weapon, gun, assembling, metalworking, military
 	infrastructure: workbench
 	infrastructure_exclude: none
 	

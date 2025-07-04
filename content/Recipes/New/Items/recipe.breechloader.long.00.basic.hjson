@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.1"
+	$version: "0.1.64.0"
 	name: "Long Breechloader"
 	tips: []
 	
@@ -59,9 +59,6 @@
 						}
 					]
 					
-					quality: 1.000
-					precision: 1.000
-					
 					filter_tools:
 					{
 						require: hand_drill
@@ -116,9 +113,6 @@
 						}
 					]
 					
-					quality: 1.000
-					precision: 1.000
-					
 					filter_tools:
 					{
 						require: file, knife
@@ -171,9 +165,6 @@
 							flags: conditional
 						}
 					]
-					
-					quality: 1.000
-					precision: 1.000
 					
 					filter_tools:
 					{
@@ -241,9 +232,6 @@
 						}
 					]
 					
-					quality: 1.000
-					precision: 1.000
-					
 					filter_tools:
 					{
 						include: paintbrush, file
@@ -288,7 +276,7 @@
 	
 	type: workshop
 	flags: blueprintable, item
-	tags: workshop, manual, simple, weapon, gun, assembling, metalworking
+	tags: manual, crafting, simple, weapon, gun, assembling, metalworking, military
 	infrastructure: workbench
 	infrastructure_exclude: none
 	

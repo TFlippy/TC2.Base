@@ -87,7 +87,7 @@
 							amount: 1.173454
 							amount_extra: 0.128149
 							group: 0
-							flags: primary, spawn, compact, use_temperature
+							flags: primary, compact, use_temperature
 						}
 					]
 					
@@ -124,12 +124,13 @@
 						}
 						{
 							type: temperature
-							amount: 781.665
-							amount_min: 495.000
+							amount: 954.665
+							amount_min: 565.000
 							amount_max: 1643.136
 							falloff: 0.500
+							ratio: 0.204
 							group: 0
-							flags: no_scaling, always_evaluate, optional
+							flags: no_scaling, always_evaluate
 						}
 						{
 							type: work
@@ -152,7 +153,7 @@
 							amount: 1.173454
 							amount_extra: 0.128149
 							group: 0
-							flags: primary, spawn, compact, use_temperature
+							flags: primary, compact, use_temperature
 						}
 					]
 					
