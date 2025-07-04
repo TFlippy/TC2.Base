@@ -67,7 +67,7 @@
 	
 	type: workshop
 	flags: blueprintable, disabled, wip
-	tags: workbench, manual, crafting, simple, medium, magitronics, weapon, delicate, blacksmithing, woodworking, assembling, metalworking, military
+	tags: workbench, manual, crafting, simple, medium, weapon, delicate, blacksmithing, woodworking, assembling, metalworking, military
 	infrastructure: none
 	infrastructure_exclude: none
 	

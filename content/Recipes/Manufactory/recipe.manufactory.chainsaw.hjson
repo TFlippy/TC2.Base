@@ -55,7 +55,7 @@
 	
 	type: workshop
 	flags: blueprintable, disabled, wip
-	tags: workshop, manual, advanced, magitronics, tool, machinery, assembling, metalworking, engineering
+	tags: workshop, manual, advanced, tool, machinery, assembling, metalworking, engineering
 	
 	icon:
 	{

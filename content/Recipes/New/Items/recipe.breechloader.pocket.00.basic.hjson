@@ -276,7 +276,7 @@
 	
 	type: workshop
 	flags: blueprintable, item
-	tags: manual, crafting, simple, weapon, gun, assembling, metalworking, military
+	tags: manual, crafting, simple, small, weapon, gun, assembling, metalworking, military
 	infrastructure: workbench
 	infrastructure_exclude: none
 	

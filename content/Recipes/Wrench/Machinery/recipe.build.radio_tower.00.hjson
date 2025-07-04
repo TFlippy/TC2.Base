@@ -204,7 +204,7 @@
 	
 	type: machinery
 	flags: no_amount_multiplier, blueprintable, disabled, construction, wip, auto_complete
-	tags: advanced, huge, magitronics, machinery, assembling, metalworking, engineering, science, construction
+	tags: advanced, huge, machinery, assembling, metalworking, engineering, science, construction
 	infrastructure: none
 	
 	icon:

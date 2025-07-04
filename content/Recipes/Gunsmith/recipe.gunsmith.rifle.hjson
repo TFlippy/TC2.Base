@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.64.0"
 	name: "Rifle"
 	desc:
 		'''
@@ -49,7 +49,7 @@
 							difficulty: 12
 							snapping: 5.000
 							falloff: 0.880
-							ratio: 0.890
+							ratio: 0.886
 							group: 0
 							flags: conditional
 						}
@@ -103,7 +103,7 @@
 							material: machine_parts
 							amount: 0.839596
 							snapping: 0.100
-							loss: 0.090
+							loss: 0.086
 							group: 0
 							flags: prerequisite
 						}
@@ -115,7 +115,7 @@
 							difficulty: 6
 							snapping: 5.000
 							falloff: 0.880
-							ratio: 0.890
+							ratio: 0.886
 							group: 0
 							flags: simultaneous, conditional
 						}
@@ -127,7 +127,7 @@
 							difficulty: 4
 							snapping: 5.000
 							falloff: 0.880
-							ratio: 0.890
+							ratio: 0.886
 							group: 0
 							flags: simultaneous, conditional
 						}
@@ -184,7 +184,7 @@
 							difficulty: 6
 							snapping: 5.000
 							falloff: 0.910
-							ratio: 0.890
+							ratio: 0.886
 							group: 0
 							flags: conditional
 						}
@@ -269,7 +269,7 @@
 	
 	type: workshop
 	flags: blueprintable, item, wip, converted
-	tags: manual, crafting, weapon, gun, assembling, metalworking, engineering, military
+	tags: manual, crafting, simple, medium, weapon, gun, assembling, metalworking, engineering, military
 	infrastructure: workbench
 	infrastructure_exclude: none
 	

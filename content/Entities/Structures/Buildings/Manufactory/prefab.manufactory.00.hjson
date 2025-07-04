@@ -103,7 +103,7 @@ shop:
 {
 	tags_filter:
 	{
-		include: workbench, workshop, magitronics, weapon, gun, tool, munitions, machinery, assembling, metalworking, engineering, salvaging, explosive
+		include: workbench, workshop, weapon, gun, tool, munitions, machinery, assembling, metalworking, engineering, salvaging, explosive
 		exclude: huge, blacksmithing, social, science, biology, forestry, smelting, fermenting, melting, heating, casting, moulding, overworld
 	}
 	
