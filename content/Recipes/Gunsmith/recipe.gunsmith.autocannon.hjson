@@ -1,55 +1,339 @@
 ﻿{
 	$version: "0.1.64.0"
 	name: "Autocannon"
-	desc:
-		'''
-		Powerful automatic cannon to be mounted on vehicles.
-		'''
 	tips: []
 	
-	requirements:
+	stages:
 	[
 		{
-			type: resource
-			material: wood
-			amount: 15.000
-			group: 0
+			name: "Receiver"
+			
+			type: part
+			flags: part, important, wip, auto_generated
+			tags: frame, chassis, shell, mechanism, metal, structural, functional, large, machinery, material
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 0.000
+			mass_base: 115.000
+			
+			options:
+			[
+				{
+					name: "Standard"
+					
+					type: undefined
+					flags: auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.ingot
+							amount: 5.000
+							snapping: 1.000
+							loss: 0.471
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: steel.frames
+							amount: 12.000
+							snapping: 0.500
+							loss: 0.106
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: drilling
+							amount: 7500.000
+							amount_min: 900.000
+							difficulty: 15
+							snapping: 5.000
+							falloff: 0.945
+							ratio: 0.318
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: construction
+							amount: 2800.000
+							amount_min: 1450.000
+							difficulty: 12
+							snapping: 5.000
+							falloff: 0.969
+							ratio: 0.655
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: resource
+							material: machine_parts
+							amount: 40.000
+							snapping: 0.100
+							loss: 0.075
+							group: 1
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: steel.rod
+							amount: 3.000
+							snapping: 0.500
+							falloff: 0.937
+							loss: 0.224
+							group: 1
+							flags: filler, prerequisite
+						}
+						{
+							type: work
+							work: bolting
+							amount: 4000.000
+							amount_min: 1000.000
+							difficulty: 12
+							snapping: 5.000
+							falloff: 0.913
+							ratio: 0.122
+							group: 1
+							flags: conditional
+						}
+						{
+							type: resource
+							material: phlogiston
+							amount: 15.860
+							snapping: 0.100
+							falloff: 0.875
+							loss: 0.255
+							group: 2
+							flags: no_residue, prerequisite
+						}
+						{
+							type: resource
+							material: rosin
+							amount: 4.080576
+							falloff: 0.939
+							loss: 0.122
+							group: 2
+							flags: no_residue, prerequisite
+						}
+						{
+							type: work
+							work: welding.phlogiston
+							amount: 750.000
+							amount_min: 600.000
+							difficulty: 7
+							snapping: 5.000
+							falloff: 0.928
+							ratio: 0.624
+							group: 2
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: screwdriver, wrench, file
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, stapler, towel, tongs, pick, crowbar, knife
+					}
+					filter_environment:
+					{
+						include: workshop, stationary, illuminated, dry
+					}
+				}
+			]
 		}
 		{
-			type: resource
-			material: steel.ingot
-			amount: 30.000
-			group: 0
+			name: "Feeder"
+			
+			type: component
+			flags: part, important, wip, incomplete, auto_generated
+			tags: mechanism, metal, assembly, functional, machinery
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 0.000
+			mass_base: 32.000
+			
+			options:
+			[
+				{
+					name: "Standard"
+					
+					type: undefined
+					flags: auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.plate
+							amount: 10.000
+							loss: 0.075
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: machine_parts
+							amount: 35.000
+							snapping: 0.100
+							loss: 0.208
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: snipping.metal
+							amount: 600.000
+							amount_min: 250.000
+							difficulty: 13
+							snapping: 5.000
+							falloff: 0.892
+							ratio: 0.553
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: sawing.metal
+							amount: 1100.000
+							amount_min: 450.000
+							difficulty: 14
+							snapping: 5.000
+							falloff: 0.982
+							ratio: 0.510
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: resource
+							material: lubricant
+							amount: 9.360731
+							snapping: 0.100
+							group: 1
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: actuator
+							amount: 0.500
+							snapping: 0.500
+							group: 1
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: assembling
+							amount: 3500.000
+							amount_min: 1000.000
+							difficulty: 12
+							snapping: 5.000
+							falloff: 0.913
+							ratio: 0.153
+							group: 1
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: calibration
+							amount: 400.000
+							amount_min: 350.000
+							difficulty: 12
+							snapping: 5.000
+							falloff: 0.960
+							group: 1
+							flags: simultaneous, conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: file, knife
+						include: hand_drill, screwdriver, pliers, file, chisel, knife, sandpaper
+					}
+				}
+			]
 		}
 		{
-			type: resource
-			material: machine_parts
-			amount: 40.000
-			group: 0
-		}
-		{
-			type: work
-			work: smithing
-			amount: 2000.000
-			difficulty: 17
-			group: 0
-			flags: conditional
-		}
-		{
-			type: work
-			work: woodworking
-			amount: 500.000
-			difficulty: 2
-			group: 0
-			flags: conditional
-		}
-		{
-			type: work
-			work: assembling
-			amount: 1200.000
-			difficulty: 7
-			group: 0
-			flags: conditional
+			name: "Barrel"
+			
+			type: part
+			flags: part, important, wip, auto_generated
+			tags: frame, barrel, chassis, shell, metal, structural, large, rounded
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 0.000
+			mass_base: 90.000
+			
+			options:
+			[
+				{
+					name: "Standard"
+					
+					type: undefined
+					flags: auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.plate
+							amount: 32.78499
+							snapping: 1.000
+							falloff: 0.981
+							loss: 0.075
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: steel.frames
+							amount: 3.6302
+							snapping: 0.100
+							falloff: 0.976
+							loss: 0.110
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: thermopaste
+							amount: 8.683176
+							snapping: 0.500
+							falloff: 0.927
+							loss: 0.075
+							group: 1
+							flags: no_residue, filler, prerequisite
+						}
+						{
+							type: work
+							work: welding
+							amount: 850.000
+							amount_min: 250.000
+							difficulty: 9
+							snapping: 5.000
+							falloff: 0.917
+							ratio: 0.859
+							group: 1
+							flags: stepped, conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: hammer
+						include: hammer, pliers, chisel, towel, crowbar
+					}
+					filter_infrastructure:
+					{
+						include: anvil, vise, hard_surface, workbench
+					}
+				}
+			]
 		}
 	]
 	
@@ -60,18 +344,20 @@
 			prefab: autocannon
 			amount: 1.000
 			group: 0
+			flags: primary, compact
 		}
 	]
 	
 	type: workshop
-	flags: blueprintable, disabled, wip
-	tags: workshop, manual, crafting, complex, large, weapon, gun, machinery, assembling, metalworking, engineering, military, construction
+	flags: blueprintable, item, production, wip
+	tags: manual, crafting, advanced, large, weapon, gun, assembling, metalworking, engineering, military
 	infrastructure: none
 	infrastructure_exclude: none
 	
 	icon:
 	{
 		texture: autocannon
+		size: [48, 8]
 	}
 	
 	color_frame: "0xffaeb59a"
@@ -82,5 +368,5 @@
 	max: 4
 	step: 1
 	
-	version: 0
+	version: 1
 }

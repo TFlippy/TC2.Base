@@ -1,7 +1,7 @@
 $name: "Autocannon"
 $desc: 
 	'''
-	A powerful automatic cannon to be mounted on vehicles.
+	Light automatic cannon.
 	'''
 	
 $tags: []
@@ -12,17 +12,25 @@ body:
 
 	@shape.line:
 	{
-		a: [-2.500, 0.000]
-		b: [2.500, 0.000]
-		mass: 180.000
+		material: metal
+		miss_chance: 0.576
+		flags: none
+		tags: large, solid, hard
+		
+		layer: entity, solid, item, conductive, magnetic
+		mask: world
+		exclude: none
+		
+		mass: 195.000
 		radius: 0.400
 		friction: 0.700
 		elasticity: 0.450
-		material: metal
-		layer: entity, solid, ignore_melee, item
-		mask: world
-
-		miss_chance: 0.578
+		
+		cog_offset: [-0.6875, 0.125]
+		
+		a: [-2.500, 0.000]
+		b: [2.500, 0.000]
+		offset: [0.000, 0.000]
 	}
 }
 
@@ -39,41 +47,41 @@ gun:
 	
 	shake_amount: 0.600
 	
-	sound_volume: 2.000
+	sound_volume: 2.200
 	sound_size: 4.000
-	sound_dist_multiplier: 2.700
+	sound_dist_multiplier: 2.800
 	
 	sound_shoot: tank_gun.shoot.00
 	sound_reload: cannon_reload
 	sound_jam: hatch.open.00
 	
-	damage_multiplier: 4.350
-	velocity_multiplier: 450.000
-	jitter_multiplier: 0.500
-	recoil_multiplier: 1.300
+	damage_multiplier: 4.150
+	velocity_multiplier: 510.000
+	jitter_multiplier: 0.320
+	recoil_multiplier: 1.350
 	velocity_max: 1200.000
 	reload_interval: 4.500
 	cycle_interval: 0.330
 	stability: 7850.000
-	failure_rate: 0.014
+	failure_rate: 0.015
 	
 	ammo_filter: ammo_ac
 	max_ammo: 12.000
 	
-	action: blowback
+	action: gas
 	type: autocannon
-	feed: magazine
+	feed: clip
 	
 	flags: automatic, full_reload, cycle_on_shoot
-	heuristic_range: 30.000
-	
+	heuristic_range: 40.000
+
 	@inventory1:
 	{
-		name: "Ammo"
 		stack_size_multiplier: 1.000
 		type: ammo
-		flags: hidden, ignore_mass, no_auto_pickup
-
+		flags: hidden, ignore_mass, no_auto_pickup, allow_ducts
+		offset: [-2.000, 0.000]
+		
 		filter:
 		{
 			require: ammo
@@ -99,12 +107,11 @@ gun.state:
 holdable:
 {
 	offset: [-1.200, 0.100]
-	radius: 2.000
-	flags: full_rotate
-
 	force_multiplier: 4.000
-	torque_multiplier: 1.000
 	stress_multiplier: 0.500
+	radius: 2.500
+	hints: weapon, heavy, gun, short_range, advanced, powerful, usable, military, tech, fast, ranged, clumsy, large, long
+	flags: full_rotate
 }
 
 attachment:
@@ -112,7 +119,7 @@ attachment:
 	force_multiplier: 4.000
 	offset: [-1.500, 0.100]
 	flags: mirror_rotate, full_rotate
-	tags: medium, large, weapon, rotary, long
+	tags: medium, large, weapon, rotary, long, gun
 }
 
 animated.renderer:
@@ -125,7 +132,7 @@ animated.renderer:
 
 health:
 {
-	max: 61000.000
+	max: 70000.000
 }
 
 armor:
