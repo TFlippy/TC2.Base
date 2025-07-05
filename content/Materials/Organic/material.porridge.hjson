@@ -5,7 +5,8 @@
 	name_dumb: "Porridge"
 	description:
 		'''
-		TODO: Desc
+		Everyone's favourite meal.
+		Made from water mixed with whatever you can find, or as a byproduct of various industrial processes.
 		'''
 	
 	tips: []

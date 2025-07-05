@@ -5,7 +5,9 @@
 	name_dumb: "Flour"
 	description:
 		'''
-		Alkaline mineral commonly used in metallurgy, chemical industry and in production of cement and paper.
+		Fine-grained alkaline powder produced by heating calcium-bearing carbonate rocks.
+
+		Commonly used in metallurgy and production of cement, glass, paper.
 		'''
 	
 	tips: []

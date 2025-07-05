@@ -5,7 +5,9 @@
 	name_dumb: "Water"
 	description:
 		'''
-		A strong acid.
+		Strong acidic solution of hydrogen chloride in water.
+
+		Used in various chemical processes, cleaning, and other industrial applications.
 		'''
 	
 	tips: []

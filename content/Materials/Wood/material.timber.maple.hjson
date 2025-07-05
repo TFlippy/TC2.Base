@@ -1,11 +1,11 @@
 ﻿{
-	$version: "0.1.63.5"
+	$version: "0.1.64.0"
 	name: "Timber (Maple)"
 	name_short: "Maple"
 	name_dumb: "Wood"
 	description:
 		'''
-		Raw unprocessed maple.
+		Raw unprocessed maple timber, a common type of hardwood known for its strength and durability.
 		'''
 	
 	tips: []
@@ -114,6 +114,7 @@
 			flags: none
 			merge_radius_mult: 1.000
 			velocity_mult: 1.000
+			damage_mult: 1.000
 		}
 		sledgehammer:
 		{
@@ -141,6 +142,7 @@
 			flags: none
 			merge_radius_mult: 1.250
 			velocity_mult: 1.500
+			damage_mult: 1.000
 		}
 		axe:
 		{
@@ -168,6 +170,7 @@
 			flags: none
 			merge_radius_mult: 1.000
 			velocity_mult: 1.000
+			damage_mult: 1.000
 		}
 		explosion:
 		{
@@ -195,12 +198,13 @@
 			flags: none
 			merge_radius_mult: 1.000
 			velocity_mult: 1.000
+			damage_mult: 1.000
 		}
 		phlogiston:
 		{
 			h_material: ash
 			spawn_flags: merge
-			product_flags: residue, waste
+			product_flags: waste, residue
 			ratio: 0.059
 			ratio_extra: 0.110
 			
@@ -228,7 +232,7 @@
 		{
 			h_material: ash
 			spawn_flags: merge
-			product_flags: residue, waste
+			product_flags: waste, residue
 			ratio: 0.051
 			ratio_extra: 0.099
 			
@@ -278,6 +282,7 @@
 			flags: none
 			merge_radius_mult: 1.000
 			velocity_mult: 1.000
+			damage_mult: 1.000
 		}
 	}
 	

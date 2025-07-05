@@ -1,11 +1,11 @@
 ﻿{
-	$version: "0.1.63.5"
+	$version: "0.1.64.0"
 	name: "Woodchips"
 	name_short: "Wood Ch."
 	name_dumb: "Chips"
 	description:
 		'''
-		Small bits of wood.
+		Small bits of wood, often a residue of coarse wood processing or milling.
 		'''
 	
 	tips: []
@@ -42,5 +42,6 @@
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	
+	centroid_default: [0.000, 0.250]
 	colliders: []
 }

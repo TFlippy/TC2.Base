@@ -1,10 +1,11 @@
 ﻿{
-	$version: "0.1.62.3"
+	$version: "0.1.64.0"
 	name: "Copper Slab"
 	name_short: "Cop. Slab"
 	description:
 		'''
 		Standard 120x60x20 cm copper slab.
+
 		Used in large-scale metal processing.
 		'''
 	
@@ -22,7 +23,6 @@
 	display_flags: sprite_stack_linear, no_random_facing
 	hints: none
 	
-	porosity: 0.030
 	purity: 0.979
 	mass_per_unit: 1213.987
 	volume_per_unit: 0.144
@@ -45,6 +45,7 @@
 	[
 		{
 			offset: [0.000, 0.575]
+			centroid: [0.000, 0.575]
 			radius: 0.3125
 			values:
 			[
@@ -56,6 +57,7 @@
 		}
 		{
 			offset: [0.000, 0.375]
+			centroid: [0.000, 0.375]
 			radius: 0.500
 			values:
 			[
@@ -67,6 +69,7 @@
 		}
 		{
 			offset: [0.000, 0.250]
+			centroid: [0.000, 0.250]
 			radius: 0.625
 			values:
 			[

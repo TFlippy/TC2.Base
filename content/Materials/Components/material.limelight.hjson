@@ -2,12 +2,13 @@
 	$version: "0.1.63.8"
 	name: "Limelight"
 	name_short: "Limelight"
-	name_dumb: "Lamp"
+	name_dumb: "Lightstick"
 	description:
 		'''
-		Small stackable cylinders of compacted quicklime with a thermal pellet inside.
+		Small stackable cylinders of compacted quicklime with E-TH pellets embedded inside.
 
-		Commonly used for illumination.
+		Used as a light source in various devices, such as lamps and lanterns.
+		Some people with destructive tendencies break them down for the E-TH pellets inside.
 		'''
 	
 	tips: []

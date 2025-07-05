@@ -1,11 +1,12 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.64.0"
 	name: "Kruskite"
 	name_short: "Kruskite"
 	name_dumb: "Stone"
 	description:
 		'''
 		Brittle silicate metamorphic rock.
+
 		Commonly found bearing various sulfide minerals, in some cases as well native sulfur, silver and gold.
 		'''
 	

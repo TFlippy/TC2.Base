@@ -1,11 +1,13 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.64.0"
 	name: "Mortar"
 	name_short: "Mortar"
 	name_dumb: "Putty"
 	description:
 		'''
-		TODO: Desc
+		Viscous, sticky substance used in construction as a binding agent for bricks, stones, and other materials. 
+
+		Typically made from a mixture of sand, water, and lime or cement.
 		'''
 	
 	tips: []
@@ -37,5 +39,6 @@
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	
+	centroid_default: [0.000, 0.250]
 	colliders: []
 }

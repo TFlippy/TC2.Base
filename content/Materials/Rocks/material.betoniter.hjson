@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.7"
+	$version: "0.1.64.0"
 	name: "Betoniter"
 	name_short: "Betoniter"
 	name_imperial: "Betoniter"
@@ -7,6 +7,7 @@
 	description:
 		'''
 		Hard argillaceous sedimentary rock with an earthy luster.
+
 		Often found together with various alkaline minerals.
 		'''
 	

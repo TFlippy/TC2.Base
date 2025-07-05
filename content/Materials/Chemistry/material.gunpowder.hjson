@@ -5,7 +5,9 @@
 	name_dumb: "Gunpowder"
 	description:
 		'''
-		Simple low explosive.
+		Traditional explosive mixture of saltpeter, charcoal, and sulfur.
+		
+		Used as a propellant in munitions or as a low-grade explosive.
 		'''
 	
 	tips: []

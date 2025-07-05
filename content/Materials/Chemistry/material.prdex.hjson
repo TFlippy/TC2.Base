@@ -6,7 +6,8 @@
 	name_dumb: "Dynamite"
 	description:
 		'''
-		TODO: Desc
+		Mighty explosive compound used for reliable excavation and demolition.
+		Extremely sensitive, handle with care.
 		'''
 	
 	tips: []

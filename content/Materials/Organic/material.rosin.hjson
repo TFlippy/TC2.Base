@@ -1,11 +1,11 @@
 ﻿{
-	$version: "0.1.63.5"
+	$version: "0.1.64.0"
 	name: "Rosin"
 	name_short: "Rosin"
 	name_dumb: "Raisin"
 	description:
 		'''
-		TODO: Desc
+		Solid form of resin obtained from pine trees and other conifers, typically used as a flux in metalworking and chemical processes.
 		'''
 	
 	tips: []

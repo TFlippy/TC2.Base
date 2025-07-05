@@ -4,7 +4,9 @@
 	name_short: "Arc. Sheet"
 	description:
 		'''
-		Standard 60x20x0.25 cm arcanite sheet.
+		Standard 60x20x0.25 cm arcanite sheet, a gold and smirglum alloy.
+
+		Used in magitronics for essence conduits and other components.
 		'''
 	
 	tips: []

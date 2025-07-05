@@ -1,11 +1,13 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.64.0"
 	name: "Arsenic"
 	name_short: "Arsenic"
 	name_dumb: "Garlic"
 	description:
 		'''
-		TODO: Desc
+		Toxic metalloid found in copper-bearing ores and other minerals.
+
+		Used in metallurgy and various chemical processes.
 		'''
 	
 	tips: []
@@ -39,5 +41,6 @@
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	
+	centroid_default: [0.000, 0.250]
 	colliders: []
 }

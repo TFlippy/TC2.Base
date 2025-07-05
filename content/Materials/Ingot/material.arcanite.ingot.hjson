@@ -4,7 +4,9 @@
 	name_short: "Arc. Brick"
 	description:
 		'''
-		Standard 20x10x8 cm arcanite brick.
+		Standard 20x10x8 cm arcanite brick, a gold and smirglum alloy.
+
+		Used in magitronics for essence conduits and other components.
 		'''
 	
 	tips: []

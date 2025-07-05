@@ -2,9 +2,10 @@
 	$version: "0.1.63.5"
 	name: "Toxic Sludge"
 	name_short: "Sludge"
+	name_dumb: "Goo of Doom"
 	description:
 		'''
-		Bloated heap of miscellaneous chemical waste.
+		Bloated heap of miscellaneous chemical waste and other scary, toxic, and hazardous stuff.
 		'''
 	
 	tips: []

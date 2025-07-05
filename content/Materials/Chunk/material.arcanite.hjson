@@ -1,10 +1,10 @@
 ﻿{
-	$version: "0.1.62.3"
+	$version: "0.1.64.0"
 	name: "Arcanite Chunk"
 	name_short: "Arc. Chunk"
 	description:
 		'''
-		TODO: Desc
+		Standard mangled chunk of a gold and smirglum alloy.
 		'''
 	
 	tips: []
@@ -21,7 +21,6 @@
 	display_flags: none
 	hints: materials, rare, heavy, advanced, expensive, industrial, arcane, tech
 	
-	porosity: 0.066
 	mass_per_unit: 34.9044
 	volume_per_unit: 0.0016
 	
@@ -39,5 +38,6 @@
 	color_dust: "0xffa48b5e"
 	color_gib: "0xffa48b5e"
 	
+	centroid_default: [-0.0625, 0.500]
 	colliders: []
 }

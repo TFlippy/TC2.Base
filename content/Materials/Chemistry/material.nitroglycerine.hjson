@@ -5,7 +5,9 @@
 	name_dumb: "TNT"
 	description:
 		'''
-		TODO: Desc
+		Highly explosive liquid compound used in explosives and propellants, known for its sensitivity to shock and temperature changes.
+		
+		Typically used in the production of dynamite and other high-energy materials.
 		'''
 	
 	tips: []

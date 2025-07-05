@@ -2,10 +2,10 @@
 	$version: "0.1.63.8"
 	name: "Ash"
 	name_short: "Ash"
-	name_dumb: "Coal"
+	name_dumb: "Dust"
 	description:
 		'''
-		TODO: Desc
+		Powdery residue left after the combustion of organic materials.
 		'''
 	
 	tips: []

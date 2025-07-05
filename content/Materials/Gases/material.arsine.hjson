@@ -1,11 +1,13 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.64.0"
 	name: "Arsine"
 	name_short: "Arsine"
 	name_dumb: "Garlic"
 	description:
 		'''
-		TODO: Desc
+		Arsine is a highly toxic and flammable gas, composed of arsenic and hydrogen.
+
+		Famous for its garlic-like odor.
 		'''
 	
 	tips: []
