@@ -14,7 +14,7 @@ body:
 		size: [5.250, 3.750]
 		offset: [0.000, -0.125]
 		
-		mass: 920.000
+		mass: 1320.000
 		radius: 0.500
 		
 		material: building_reinforced
@@ -44,7 +44,7 @@ interactable:
 
 health:
 {
-	max: 88000.000
+	max: 98000.000
 }
 
 faction.colorable:
@@ -120,7 +120,7 @@ shop:
 
 workshop:
 {
-	orders_capacity: 6
+	orders_capacity: 4
 	h_sound_order_complete: effect.bell.ring.01
 
 	@inventory16:
@@ -140,36 +140,42 @@ workshop:
 
 personnel:
 {
+	characters_capacity: 5
 	flags: store_characters
 	slots:
 	[
 		{
 			role: engineer
-			tags: management, civil, industrial, logistics, production, paperwork, sedentary, technical
+			flags: faction, can_craft, can_manage, can_use_inventory
+			tags: management, administrative, civil, industrial, logistics, production, paperwork, sedentary, technical, research
 			color: "0xffff8333"
-			multiplier: 1.000
+			multiplier: 1.900
+		}
+		{
+			role: technician
+			flags: faction, can_craft, can_manage, can_use_inventory
+			tags: administrative, civil, industrial, logistics, production, dangerous, manual_labor, technical, maintenance, operation
+			color: "0xffff8333"
+			multiplier: 1.700
 		}
 		{
 			role: mechanic
-			tags: civil, industrial, production, dangerous, manual_labor, technical, maintenance, operation
-			color: "0xffff8333"
-			multiplier: 2.000
+			flags: can_craft, can_use_inventory
+			tags: civil, industrial, logistics, production, dangerous, manual_labor, technical, maintenance, operation
+			color: "0xffffa800"
+			multiplier: 1.500
 		}
 		{
-			role: technician
-			tags: civil, industrial, production, dangerous, manual_labor, technical, operation
+			role: laborer
+			flags: can_craft
+			tags: civil, industrial, production, dangerous, manual_labor, technical
 			color: "0xffffa800"
 			multiplier: 1.000
 		}
 		{
-			role: technician
-			tags: civil, industrial, production, dangerous, manual_labor, technical, operation
-			color: "0xffffa800"
-			multiplier: 1.000
-		}
-		{
-			role: technician
-			tags: civil, industrial, production, dangerous, manual_labor, technical, operation
+			role: laborer
+			flags: can_craft
+			tags: civil, industrial, production, dangerous, manual_labor, technical
 			color: "0xffffa800"
 			multiplier: 1.000
 		}
@@ -177,7 +183,6 @@ personnel:
 		null
 		null
 	]
-	characters_capacity: 5
 }
 
 heat:
@@ -211,12 +216,12 @@ heat:
 	}
 }
 
-fillable:
-{
-	flags: use_misc, reusable
-	volume_capacity: 0.004
-	capacity: 1.000
-}
+// fillable:
+// {
+// 	flags: use_misc, reusable
+// 	volume_capacity: 0.004
+// 	capacity: 1.000
+// }
 
 crafter:
 {

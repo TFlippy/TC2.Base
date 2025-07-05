@@ -161,13 +161,13 @@ press.state:
 crafter:
 {
 	h_crafter: forging.press.emt
-	flags: none
+	flags: assignable
 	
 	tools: none
 	infrastructure: anvil, forge, vise, shaping_mould, hard_surface, heater, stamping_press, press, form, structure, machine
 	environment: machine, stationary, dirty, scary, noisy, reinforced, fireproof, durable, sturdy, form, waterproof
 	
-	distance_max: 4.000
+	distance_max: 6.000
 	temperature_max: 1200.000
 	pressure_max: 100.000
 	

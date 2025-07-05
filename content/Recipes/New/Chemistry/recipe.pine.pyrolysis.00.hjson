@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.64.0"
 	name: "Pine"
 	desc:
 		'''
@@ -320,7 +320,7 @@
 			name: "Distillation"
 			
 			type: refining
-			flags: optional
+			flags: subtractive, optional
 			tags: formula
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: none
@@ -343,7 +343,7 @@
 					
 					type: undefined
 					flags: none
-					discard_damage_type_override: wet
+					discard_damage_type_override: steam
 					
 					suffix: " Distillation"
 					

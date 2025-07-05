@@ -1,6 +1,5 @@
 ﻿{
-	$region_id: 0
-	$version: "0.1.63.1"
+	$version: "0.1.64.0"
 	name: "Phlogiston Welding"
 	name_short: "P. Welding"
 	desc:
@@ -17,8 +16,13 @@
 	
 	flags: none
 	tags: manual, machine, tools, technical, chemical, construction, industrial, dangerous, wip
-	cooldown: 3.000
-	multiplier: 0.900
+	
+	amount_base: 0.000
+	cooldown: 0.880
+	multiplier: 0.610
+	
+	amount_jitter: 0.038
+	cooldown_jitter: 0.239
 	color: "0xffef3500"
 	
 	tools_required: none
@@ -48,8 +52,8 @@
 		construction: 0.450
 	}
 	
-	sound_volume: 0.600
-	sound_pitch: 0.900
+	sound_volume: 0.640
+	sound_pitch: 1.080
 	sound_size: 0.500
 	sound_dist: 0.700
 	

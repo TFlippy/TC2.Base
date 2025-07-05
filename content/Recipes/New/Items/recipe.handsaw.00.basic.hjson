@@ -106,7 +106,7 @@
 							amount_max: 946.849
 							falloff: 0.752
 							group: 0
-							flags: no_scaling, always_evaluate, prerequisite, optional
+							flags: no_scaling, always_evaluate, optional
 						}
 						{
 							type: work

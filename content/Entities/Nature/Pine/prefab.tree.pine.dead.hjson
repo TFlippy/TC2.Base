@@ -85,15 +85,18 @@ harvestable:
 		}
 		{
 			material: resin
-			quantity: 158.000
+			quantity: 78.05605
 		}
-		null
+		{
+			material: rosin
+			quantity: 21.86151
+		}
 	]
 	
-	thresholds: [0.990, 1.000, 0.772, 0.000]
+	thresholds: [0.990, 1.000, 0.835, 0.441]
 	
-	pct_damage_mult: [0.952, 0.900, 0.859, 0.000]
-	pct_quantity_min: [0.040, 0.102, 0.060, 0.000]
+	pct_damage_mult: [0.952, 0.900, 0.859, 0.390]
+	pct_quantity_min: [0.040, 0.102, 0.060, 0.160]
 	
-	chance_base: [0.188, 0.471, 0.173, 0.000]
+	chance_base: [0.184, 0.471, 0.239, 0.114]
 }
