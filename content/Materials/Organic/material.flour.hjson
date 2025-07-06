@@ -5,7 +5,9 @@
 	name_dumb: "Dust"
 	description:
 		'''
-		Commonly used in cooking.
+		Grain ground into a fine powder of many uses.
+
+		Primarily used in cooking and baking, with some niche applications in construction industry as a binding agent.
 		'''
 	
 	tips: []

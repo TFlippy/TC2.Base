@@ -1,6 +1,5 @@
 ﻿{
-	$region_id: 0
-	$version: "0.1.63.2"
+	$version: "0.1.64.0"
 	name: "Distillery"
 	tips: []
 	
@@ -62,7 +61,7 @@
 	]
 	
 	type: industry
-	flags: wip
+	flags: no_amount_multiplier, blueprintable, wip
 	tags: construction
 	infrastructure: none
 	infrastructure_exclude: none

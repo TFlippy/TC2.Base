@@ -5,7 +5,7 @@
 	name_dumb: "Air"
 	description:
 		'''
-		TODO: Desc
+		Flammable gas sometimes released from freshly mined coal.
 		'''
 	
 	tips: []

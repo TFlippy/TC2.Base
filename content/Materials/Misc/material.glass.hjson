@@ -1,8 +1,14 @@
 ﻿{
-	$version: "0.1.63.8"
+	$version: "0.1.64.0"
 	name: "Glass"
 	name_short: "Glass"
 	name_dumb: "Window"
+	description:
+		'''
+		Standard fragile panels of glass of varying sizes and compositions.
+
+		Used in construction, optics, laboratory equipment, as well as entertainment purposes.
+		'''
 	
 	tips: []
 	

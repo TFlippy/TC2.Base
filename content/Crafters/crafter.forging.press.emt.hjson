@@ -1,5 +1,4 @@
 ﻿{
-	$region_id: 0
 	$version: "0.1.64.0"
 	name: "Forging Press"
 	name_short: "Forging Press"
@@ -24,6 +23,12 @@
 			flags: automated, wip
 			
 			work_multiplier: 1.000
+		}
+		{
+			h_work: hammering
+			flags: automated, wip
+			
+			work_multiplier: 20.000
 		}
 	]
 }

@@ -5,7 +5,9 @@
 	name_dumb: "Stone Brick"
 	description:
 		'''
-		TODO: Desc
+		Standard ISO Concrete Masonry Unit (CMU) brick.
+
+		Used as a building block of great empires, foundations and walls. 
 		'''
 	
 	tips: []

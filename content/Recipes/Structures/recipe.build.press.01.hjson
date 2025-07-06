@@ -68,8 +68,8 @@
 	]
 	
 	type: industry
-	flags: wip
-	tags: construction
+	flags: no_amount_multiplier, blueprintable, wip
+	tags: large, industrial, engineering, construction
 	infrastructure: none
 	infrastructure_exclude: none
 	

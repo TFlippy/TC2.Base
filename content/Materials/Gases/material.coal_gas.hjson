@@ -5,7 +5,7 @@
 	name_dumb: "Air"
 	description:
 		'''
-		TODO: Desc
+		Flammable gas released during heating of coal.
 		'''
 	
 	tips: []

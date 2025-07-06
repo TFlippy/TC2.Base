@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.5"
+	$version: "0.1.64.0"
 	name: "Flagpole (Wood)"
 	desc:
 		'''
@@ -39,9 +39,10 @@
 	]
 	
 	type: architecture
-	flags: blueprintable
+	flags: no_amount_multiplier, blueprintable
 	tags: huge, construction
 	infrastructure: none
+	infrastructure_exclude: none
 	
 	icon:
 	{

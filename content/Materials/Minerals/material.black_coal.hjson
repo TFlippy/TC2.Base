@@ -5,7 +5,9 @@
 	name_dumb: "Coal"
 	description:
 		'''
-		An efficient fuel.
+		Chunks of freshly-mined black coal.
+
+		Can be used as a fairly high-temperature fuel, or further processed into a variety of useful chemical products.
 		'''
 	
 	tips: []
