@@ -7,7 +7,11 @@
 	[
 		{
 			name: "Receiver"
-			desc: "The receiver is the main body of the autocannon, housing the firing mechanism and ammunition feed."
+			desc:
+				'''
+				The receiver is the main body of the autocannon, housing the firing mechanism and ammunition feed.
+				'''
+			
 			type: part
 			flags: part, important, wip, auto_generated
 			tags: frame, chassis, shell, mechanism, metal, structural, functional, large, machinery, material
@@ -59,7 +63,7 @@
 						}
 						{
 							type: work
-							work: sawing.metal
+							work: hammering
 							amount: 2800.000
 							amount_min: 1450.000
 							difficulty: 16
@@ -147,7 +151,11 @@
 		}
 		{
 			name: "Feeder"
-			desc: "The feeder mechanism is responsible for loading ammunition into the autocannon's chamber."
+			desc:
+				'''
+				The feeder mechanism is responsible for loading ammunition into the autocannon's chamber.
+				'''
+			
 			type: component
 			flags: part, important, wip, incomplete, auto_generated
 			tags: mechanism, metal, assembly, functional, machinery
@@ -259,7 +267,11 @@
 		}
 		{
 			name: "Barrel"
-			desc: "The barrel is the long tube through which the projectile is fired, designed to withstand high pressure and heat."
+			desc:
+				'''
+				The barrel is the long tube through which the projectile is fired, designed to withstand high pressure and heat.
+				'''
+			
 			type: part
 			flags: part, important, wip, auto_generated
 			tags: frame, barrel, chassis, shell, metal, structural, large, rounded

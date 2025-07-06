@@ -28,7 +28,7 @@
 			h_work: hammering
 			flags: automated, wip
 			
-			work_multiplier: 20.000
+			work_multiplier: 150.000
 		}
 	]
 }

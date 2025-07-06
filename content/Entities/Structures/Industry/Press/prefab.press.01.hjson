@@ -1,7 +1,9 @@
 $name: "E-MT Forging Press"
 $desc:
 	'''
-	TODO: Desc
+	Small forging press utilizing hydraulics and E-MT actuators with a built-in E-TH preheater.
+
+	Used for shaping and forming metal, as well as sintering of low-temperature alloy powders.
 	'''
 $tags: []
 
