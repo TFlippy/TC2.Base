@@ -196,7 +196,7 @@ shop:
 	infrastructure: dishes, bottle, table, chair, rack, bed, stationery, surface, office, building
 	environment: indoor, warm, office, stationary, fancy, cozy
 	
-	flags: none
+	flags: embed_gui
 	menu_columns: 4
 	recipe_type: workshop
 	

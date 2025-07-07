@@ -76,7 +76,7 @@ shop:
 	infrastructure: oven, rack, heater, burner, kiln
 	environment: container, waterproof, stationary, dirty, ugly, fireproof, durable, sturdy
 	
-	flags: none
+	flags: embed_gui
 	menu_columns: 3
 	recipe_type: workshop
 	

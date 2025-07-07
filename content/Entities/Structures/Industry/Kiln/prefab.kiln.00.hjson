@@ -77,7 +77,7 @@ shop:
 	infrastructure: oven, rack, heater, burner, stove, kiln, smokestack, structure
 	environment: container, stationary, dirty, scary, reinforced, fireproof, durable, sturdy, waterproof
 	
-	flags: none
+	flags: embed_gui
 	menu_columns: 3
 	recipe_type: workshop
 	

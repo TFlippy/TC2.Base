@@ -100,7 +100,7 @@ shop:
 	recipe_max_multiplier: 4.000
 	recipe_step_multiplier: 2.000
 	
-	flags: none
+	flags: embed_gui
 	menu_columns: 6
 	blueprints_capacity: 4
 }

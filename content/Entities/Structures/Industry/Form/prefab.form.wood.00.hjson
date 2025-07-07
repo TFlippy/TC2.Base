@@ -82,7 +82,7 @@ shop:
 	infrastructure: barrel, casting_mould, shaping_mould, bucket, liquid_container, form, structure
 	environment: container, mobile, dirty, ugly, flammable, form
 	
-	flags: hidden_if_order
+	flags: embed_gui
 	menu_columns: 3
 	recipe_type: workshop
 	

@@ -361,7 +361,7 @@
 	]
 	
 	type: workshop
-	flags: blueprintable, item, production, wip
+	flags: blueprintable, packable, item, production, wip
 	tags: manual, crafting, advanced, large, weapon, gun, assembling, metalworking, engineering, military
 	infrastructure: none
 	infrastructure_exclude: none

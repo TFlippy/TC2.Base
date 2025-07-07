@@ -95,7 +95,7 @@ shop:
 	infrastructure: oven, barrel, bucket, liquid_container, heater, burner, stove, kiln, still, smokestack, condenser, structure, machine
 	environment: machine, container, watertight, stationary, dirty, scary, reinforced, fireproof, durable, sturdy, waterproof
 	
-	flags: none
+	flags: embed_gui
 	menu_columns: 3
 	recipe_type: workshop
 	

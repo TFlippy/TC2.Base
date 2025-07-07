@@ -63,7 +63,7 @@ shop:
 	machinery: none
 	environment: container, waterproof, stationary, ugly, fireproof, durable, sturdy
 	
-	flags: hidden_if_order
+	flags: embed_gui
 	menu_columns: 3
 	recipe_type: workshop
 	

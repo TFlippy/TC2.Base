@@ -124,7 +124,7 @@ shop:
 	infrastructure: table, rack, bucket, surface, workbench
 	environment: mobile, dirty, sturdy, flammable
 	
-	flags: none
+	flags: embed_gui
 	menu_columns: 4
 	recipe_type: workshop
 	

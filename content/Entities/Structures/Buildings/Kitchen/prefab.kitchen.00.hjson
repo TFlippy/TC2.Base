@@ -113,7 +113,7 @@ shop:
 	infrastructure: oven, dishes, bottle, barrel, table, chair, rack, bucket, surface, hard_surface, liquid_container, heater, burner, stove, smokestack, kitchen, building, workbench
 	environment: workshop, stationary, fancy, cozy, sturdy, flammable, kitchen, small
 	
-	flags: none
+	flags: embed_gui
 	menu_columns: 4
 	recipe_type: workshop
 	

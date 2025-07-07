@@ -51,6 +51,7 @@ shop:
 {
 	name: "Recipes"
 	tags: smelting
+	flags: embed_gui
 
 	menu_columns: 4
 }

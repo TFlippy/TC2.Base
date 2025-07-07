@@ -78,7 +78,7 @@ shop:
 	infrastructure: oven, anvil, forge, dishes, table, rack, bucket, surface, hard_surface, heater, stove, building, workbench
 	environment: workshop, stationary, dirty, polluted, ugly, scary, fireproof, durable, sturdy
 	
-	flags: none
+	flags: embed_gui
 	menu_columns: 5
 	recipe_type: workshop
 	

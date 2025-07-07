@@ -70,7 +70,7 @@ shop:
 	
 	menu_columns: 3
 	recipe_type: workshop
-	flags: hidden_if_order
+	flags: embed_gui
 	
 	name: "Tub"
 }

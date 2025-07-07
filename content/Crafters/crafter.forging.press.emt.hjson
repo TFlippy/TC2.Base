@@ -22,13 +22,25 @@
 			h_work: die.swaging.metal
 			flags: automated, wip
 			
-			work_multiplier: 1.000
+			work_multiplier: 40.000
 		}
 		{
 			h_work: hammering
 			flags: automated, wip
 			
-			work_multiplier: 150.000
+			work_multiplier: 50.000
+		}
+		{
+			h_work: crushing
+			flags: automated, wip
+			
+			work_multiplier: 40.000
+		}
+		{
+			h_work: shattering
+			flags: automated, wip
+			
+			work_multiplier: 40.000
 		}
 	]
 }

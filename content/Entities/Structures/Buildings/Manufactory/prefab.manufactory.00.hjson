@@ -38,7 +38,7 @@ interactable:
 {
 	flags: no_tab
 	priority: 1.000
-	window_size: [766.000, 552.000]
+	window_size: [814.000, 608.000]
 	window_size_misc: [192.000, 0.000]
 }
 
@@ -111,7 +111,7 @@ shop:
 	infrastructure: dishes, bottle, barrel, table, chair, vise, rack, shaping_mould, pulley, bucket, surface, hard_surface, structure, building, workbench
 	environment: workshop, stationary, dirty, cozy, noisy, durable, sturdy, flammable
 	
-	flags: none
+	flags: embed_gui
 	menu_columns: 6
 	recipe_type: workshop
 	

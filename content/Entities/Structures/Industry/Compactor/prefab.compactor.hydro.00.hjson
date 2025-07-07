@@ -189,7 +189,7 @@ shop:
 	environment: container, waterproof, mobile, dirty, ugly, scary
 	recipe_type: compactor
 	
-	flags: hidden_if_order
+	flags: embed_gui
 	menu_columns: 4
 	blueprints_capacity: 0
 	amount_multiplier: 1.000

@@ -219,7 +219,7 @@ shop:
 	infrastructure: dishes, bottle, table, chair, bed, stationery, surface, office, building
 	environment: office, stationary, cozy, quiet, flammable
 	
-	flags: none
+	flags: embed_gui
 	menu_columns: 4
 	recipe_type: workshop
 	

@@ -111,7 +111,7 @@ shop:
 	infrastructure: anvil, lab_glassware, dishes, bottle, table, chair, vise, rack, shaping_mould, bucket, surface, hard_surface, stamping_press, press, structure, machine, building, workbench
 	environment: workshop, stationary, scary, noisy, durable, sturdy, flammable, factory
 	
-	flags: none
+	flags: embed_gui
 	menu_columns: 3
 	recipe_type: workshop
 	

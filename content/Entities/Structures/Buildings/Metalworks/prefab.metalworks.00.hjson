@@ -113,7 +113,7 @@ shop:
 	infrastructure: oven, anvil, forge, barrel, table, chair, vise, rack, crucible, casting_mould, pulley, bucket, surface, hard_surface, heater, stove, kiln, structure, building, workbench
 	environment: indoor, warm, workshop, stationary, dirty, smelly, cozy, scary, noisy, reinforced, durable, sturdy, large
 	
-	flags: none
+	flags: embed_gui
 	menu_columns: 6
 	recipe_type: workshop
 	

@@ -118,7 +118,7 @@ shop:
 	environment: indoor, workshop, stationary, clean, scary
 	recipe_type: workshop
 	
-	flags: none
+	flags: embed_gui
 	menu_columns: 4
 	blueprints_capacity: 10
 	amount_multiplier: 1.000

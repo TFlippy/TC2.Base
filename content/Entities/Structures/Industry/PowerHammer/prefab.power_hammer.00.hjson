@@ -90,7 +90,7 @@ shop:
 	machinery: metal_press, bender
 	environment: machine, waterproof, stationary, scary, noisy, reinforced, fireproof, durable, sturdy
 	
-	flags: none
+	flags: embed_gui
 	menu_columns: 3
 	recipe_type: workshop
 	

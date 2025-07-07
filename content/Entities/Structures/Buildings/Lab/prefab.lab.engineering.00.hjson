@@ -113,7 +113,7 @@ shop:
 	
 	menu_columns: 7
 	recipe_type: workshop
-	flags: none
+	flags: embed_gui
 	
 	offset_spawn: [0.000, 0.000]
 	

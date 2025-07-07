@@ -147,7 +147,7 @@ shop:
 	environment: container, waterproof, mobile, dirty, ugly, scary
 	recipe_type: workshop
 	
-	flags: hidden_if_order, complete_on_rmb
+	flags: embed_gui, complete_on_rmb
 	menu_columns: 5
 	blueprints_capacity: 0
 	amount_multiplier: 1.000

@@ -69,6 +69,7 @@ shop:
 {
 	menu_columns: 4
 	tags: refinery
+	flags: embed_gui
 }
 
 refinery:

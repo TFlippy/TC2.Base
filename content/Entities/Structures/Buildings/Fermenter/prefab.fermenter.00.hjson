@@ -78,7 +78,7 @@ shop:
 	infrastructure: barrel, rack, bucket, liquid_container, fermenter, structure
 	environment: container, mobile, dirty, contaminated, smelly, ugly, scary, flammable
 	
-	flags: hidden_if_order
+	flags: embed_gui
 	menu_columns: 3
 	recipe_type: workshop
 	

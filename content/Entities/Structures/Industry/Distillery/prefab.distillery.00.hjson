@@ -93,7 +93,7 @@ shop:
 	infrastructure: oven, lab_glassware, pressure_cooker, barrel, bucket, liquid_container, heater, stove, fermenter, kiln, still, condenser, structure, machine
 	environment: machine, container, stationary, dirty, fireproof, durable, sturdy, waterproof
 	
-	flags: none
+	flags: embed_gui
 	menu_columns: 3
 	recipe_type: workshop
 	
