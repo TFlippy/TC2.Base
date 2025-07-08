@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.64.0"
 	name: "Alcohol"
 	name_short: "Alcohol"
+	name_imperial: "Alkohol"
 	name_dumb: "Beer"
 	description:
 		'''

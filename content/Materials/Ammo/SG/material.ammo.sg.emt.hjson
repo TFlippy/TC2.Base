@@ -27,7 +27,7 @@
 	display_flags: hide_fraction
 	hints: none
 	
-	mass_per_unit: 0.165
+	mass_per_unit: 0.225
 	
 	quantity_max: 24.000
 	spawn_quantity_threshold: 1.000
@@ -48,7 +48,7 @@
 	ammo:
 	{
 		count: 1
-		mass: 0.125
+		mass: 0.200
 		heat: 50.000
 		velocity_min: 10.000
 		

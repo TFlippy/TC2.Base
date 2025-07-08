@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.63.5"
+	$version: "0.1.64.0"
 	name: "Mushroom Scraps"
 	name_short: "Mushrooms"
+	name_imperial: "Houbus"
 	description:
 		'''
 		Heap of mixed inedible mushroom bits. Reeks of vinegar.

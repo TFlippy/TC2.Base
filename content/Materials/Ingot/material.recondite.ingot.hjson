@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.63.8"
+	$version: "0.1.64.0"
 	name: "Recondite Brick"
 	name_short: "Rec. Brick"
+	name_imperial: "Rekondit"
 	description:
 		'''
 		Standard 20x10x8 cm recondite brick.

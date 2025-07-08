@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.64.0"
 	name: "Hydrogen Cyanide"
 	name_short: "H.Cyanide"
+	name_imperial: "Hydrokyanid"
 	name_advanced: "Hydrogen Cyanide"
 	name_dumb: "Almonds"
 	description:

@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.64.0"
 	name: "Niklajzner"
 	name_short: "Niklajz."
+	name_imperial: "Niklajzner"
 	name_dumb: "Iron"
 	description:
 		'''
@@ -75,6 +76,7 @@
 			flags: none
 			merge_radius_mult: 1.000
 			velocity_mult: 1.000
+			damage_mult: 1.000
 		}
 	}
 	

@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.62.3"
+	$version: "0.1.64.0"
 	name: "Kordel Denar"
 	name_short: "Đk"
+	name_imperial: "Kordeldenar"
 	description:
 		'''
 		Standard Imperialcoin-shaped currency.

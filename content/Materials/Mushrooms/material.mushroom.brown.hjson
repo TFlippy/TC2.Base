@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.64.0"
 	name: "Gustus Mushrooms"
 	name_short: "Gustus M."
+	name_imperial: "Gustus"
 	description:
 		'''
 		Heap of brown mushroom bits, looks tasty!

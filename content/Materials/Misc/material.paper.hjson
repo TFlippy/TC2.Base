@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.63.5"
+	$version: "0.1.64.0"
 	name: "Paper"
 	name_short: "Paper"
+	name_imperial: "Papyr"
 	name_dumb: "Paper"
 	description:
 		'''
@@ -107,6 +108,7 @@
 			flags: none
 			merge_radius_mult: 1.000
 			velocity_mult: 0.070
+			damage_mult: 1.000
 		}
 		fire:
 		{
@@ -134,6 +136,7 @@
 			flags: none
 			merge_radius_mult: 1.000
 			velocity_mult: 0.400
+			damage_mult: 1.000
 		}
 		wet:
 		{
@@ -161,6 +164,7 @@
 			flags: no_mass_conversion
 			merge_radius_mult: 1.000
 			velocity_mult: 1.000
+			damage_mult: 1.000
 		}
 	}
 }

@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.63.8"
+	$version: "0.1.64.0"
 	name: "Aluminium Brick"
 	name_short: "Al. Brick"
+	name_imperial: "Aluminik"
 	name_dumb: "Tinfoil Brick"
 	description:
 		'''

@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.63.5"
+	$version: "0.1.64.0"
 	name: "Cmajzl"
 	name_short: "Cmajzl"
+	name_imperial: "Cmajzl"
 	name_dumb: "Weed"
 	description:
 		'''

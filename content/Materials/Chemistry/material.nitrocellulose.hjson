@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.63.8"
+	$version: "0.1.64.0"
 	name: "Nitrocellulose"
 	name_short: "Nitrocel."
+	name_imperial: "Nitrocel"
 	name_dumb: "Flour"
 	description:
 		'''

@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.63.8"
+	$version: "0.1.64.0"
 	name: "Copper Brick"
 	name_short: "Cop. Brick"
+	name_imperial: "Kopr"
 	description:
 		'''
 		Standard 20x10x8 cm copper brick.

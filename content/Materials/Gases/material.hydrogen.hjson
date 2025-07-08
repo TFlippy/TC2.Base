@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.64.0"
 	name: "Hydrogen"
 	name_short: "Hydrogen"
+	name_imperial: "Hydroplyn"
 	name_dumb: "Air"
 	description:
 		'''

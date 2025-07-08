@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.64.0"
 	name: "Hortspargl"
 	name_short: "Hortspargl"
+	name_imperial: "Hortspargl"
 	name_dumb: "Obsidian"
 	description:
 		'''

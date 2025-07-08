@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.64.0"
 	name: "Phosphorus"
 	name_short: "Phosphorus"
+	name_imperial: "Fosforus"
 	name_dumb: "Redstone"
 	description:
 		'''

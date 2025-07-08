@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.62.3"
+	$version: "0.1.64.0"
 	name: "Paxilon Hydrochlorate"
 	name_short: "Paxilon"
+	name_imperial: "Paxilon"
 	description:
 		'''
 		A very effective sedative.

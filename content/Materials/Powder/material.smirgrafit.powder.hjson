@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.63.8"
+	$version: "0.1.64.0"
 	name: "Smirgrafit Powder"
 	name_short: "Sgft. Powder"
+	name_imperial: "Smirgrafit"
 	description:
 		'''
 		Standard mixture of smirglum, graphite and aluminium powderswarf.

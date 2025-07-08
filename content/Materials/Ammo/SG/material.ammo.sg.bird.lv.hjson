@@ -1,11 +1,10 @@
 ﻿{
-	$version: "0.1.63.8"
+	$version: "0.1.64.0"
 	name: "SG-20.4mm/LV Birdshot"
 	description:
 		'''
 		Ammunition for shotguns. Fires many tiny projectiles,
 		typically used for hunting fowl (or when your aim is bad).
-		Gunpowder is weaker, but cheap.
 		'''
 	
 	tips: []

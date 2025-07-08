@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.64.0"
 	name: "Rubber"
 	name_short: "Rubber"
+	name_imperial: "Gumitko"
 	name_dumb: "Gum"
 	description:
 		'''
@@ -38,6 +39,7 @@
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	
+	centroid_default: [0.000, 0.250]
 	colliders: []
 	
 	commodity:

@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.63.1"
+	$version: "0.1.64.0"
 	name: "Turpentine"
 	name_short: "Turpentine"
+	name_imperial: "Terpentyn"
 	name_dumb: "Piss"
 	description:
 		'''

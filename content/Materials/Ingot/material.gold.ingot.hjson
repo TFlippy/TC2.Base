@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.63.8"
+	$version: "0.1.64.0"
 	name: "Gold Brick"
 	name_short: "Gd. Brick"
+	name_imperial: "Geld"
 	description:
 		'''
 		Standard 20x10x8 cm gold brick, an indicator of wealth and prosperity.

@@ -1,11 +1,14 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.64.0"
 	name: "Pradedus Mushrooms"
 	name_short: "Pradedus M."
+	name_imperial: "Pradedus"
 	description:
 		'''
 		A heap of glowing green mushroom caps.
 		'''
+	
+	tips: []
 	
 	icon:
 	{
@@ -18,13 +21,22 @@
 	flags: soft, malleable, sticky, organic, small, raw, solid
 	display_flags: none
 	hints: none
+	
 	mass_per_unit: 0.292
+	
 	quantity_max: 500.000
 	spawn_quantity_threshold: 2.000
+	snapping: 1.000
+	snapping_pickup: 1.000
+	
 	form_type: raw
 	prefab: resource.mushroom.green
+	h_substance: "null"
 	
 	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
 	
 	colliders: []
 	

@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.64.0"
 	name: "Glue"
 	name_short: "Glue"
+	name_imperial: "Lepik"
 	name_dumb: "Slime"
 	description:
 		'''

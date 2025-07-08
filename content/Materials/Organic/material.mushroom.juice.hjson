@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.62.3"
+	$version: "0.1.64.0"
 	name: "Mushroom Juice"
 	name_short: "Mushroom J."
+	name_imperial: "Houbodzus"
 	description:
 		'''
 		Astonishingly slimy liquid made from boiled mushrooms or something similar.
@@ -37,5 +38,6 @@
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	
+	centroid_default: [0.000, 0.225]
 	colliders: []
 }

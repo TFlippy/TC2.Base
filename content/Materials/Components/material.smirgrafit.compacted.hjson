@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.63.8"
+	$version: "0.1.64.0"
 	name: "Compacted Smirgrafit"
 	name_short: "C. Smirgrafit"
+	name_imperial: "Smirgrafit"
 	description:
 		'''
 		Mixture of smirglum, graphite and aluminium powders compacted into dense blocks, which can be carved into various shapes.

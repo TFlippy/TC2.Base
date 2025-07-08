@@ -2,6 +2,7 @@
 	$version: "0.1.64.0"
 	name: "Arsine"
 	name_short: "Arsine"
+	name_imperial: "Arzyn"
 	name_dumb: "Garlic"
 	description:
 		'''

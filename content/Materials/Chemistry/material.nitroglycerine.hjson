@@ -1,12 +1,13 @@
 ﻿{
-	$version: "0.1.63.8"
+	$version: "0.1.64.0"
 	name: "Nitroglycerine"
 	name_short: "NTG"
+	name_imperial: "Nitroglycerin"
 	name_dumb: "TNT"
 	description:
 		'''
 		Highly explosive liquid compound used in explosives and propellants, known for its sensitivity to shock and temperature changes.
-		
+
 		Typically used in the production of dynamite and other high-energy materials.
 		'''
 	

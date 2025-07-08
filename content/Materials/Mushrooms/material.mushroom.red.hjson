@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.63.1"
+	$version: "0.1.64.0"
 	name: "Mouchus Mushrooms"
 	name_short: "Mouchus M."
+	name_imperial: "Mouchus"
 	description:
 		'''
 		A heap of red mushroom bits, may be poisonous.

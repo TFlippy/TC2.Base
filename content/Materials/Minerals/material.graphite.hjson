@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.64.0"
 	name: "Graphite"
 	name_short: "Graphite"
+	name_imperial: "Grafit"
 	name_dumb: "TNT"
 	description:
 		'''
@@ -70,6 +71,7 @@
 			flags: none
 			merge_radius_mult: 1.000
 			velocity_mult: 1.000
+			damage_mult: 1.000
 		}
 	}
 }

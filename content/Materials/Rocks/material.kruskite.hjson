@@ -2,6 +2,7 @@
 	$version: "0.1.64.0"
 	name: "Kruskite"
 	name_short: "Kruskite"
+	name_imperial: "Kruskit"
 	name_dumb: "Stone"
 	description:
 		'''

@@ -1,8 +1,8 @@
 ﻿{
-	$version: "0.1.63.7"
+	$version: "0.1.64.0"
 	name: "Clinker"
 	name_short: "Clinker"
-	name_imperial: "Slinker"
+	name_imperial: "Klinker"
 	name_advanced: "Clinker"
 	name_dumb: "Stone"
 	description:

@@ -1,11 +1,14 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.64.0"
 	name: "Smoulus Mushrooms"
 	name_short: "Smoulus M."
+	name_imperial: "Smoulus"
 	description:
 		'''
 		A heap of rare glowing blue mushroom caps, feels slimy to touch.
 		'''
+	
+	tips: []
 	
 	icon:
 	{
@@ -18,13 +21,22 @@
 	flags: soft, malleable, sticky, toxic, organic, small, raw, solid
 	display_flags: none
 	hints: none
+	
 	mass_per_unit: 0.280
+	
 	quantity_max: 500.000
 	spawn_quantity_threshold: 1.000
+	snapping: 1.000
+	snapping_pickup: 1.000
+	
 	form_type: raw
 	prefab: resource.mushroom.blue
+	h_substance: "null"
 	
 	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
 	
 	colliders: []
 	

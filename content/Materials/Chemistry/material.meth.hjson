@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.63.8"
+	$version: "0.1.64.0"
 	name: "Methamphetamine"
 	name_short: "Meth"
+	name_imperial: "Pervitin"
 	name_dumb: "Sugar"
 	description:
 		'''
