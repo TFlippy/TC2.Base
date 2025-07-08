@@ -41,7 +41,7 @@ resource:
 
 health:
 {
-	max: 6500.000
+	max: 20000.000
 }
 
 holdable:
@@ -54,19 +54,22 @@ holdable:
 
 essence.container:
 {
-	rate: 0.050
-	rate_speed: 0.900
-	stability: 0.850
-	health_threshold: 0.900
-	glow_modifier: 5.000
-	heat_modifier: 0.100
+	rate: 0.020
+	stability: 0.970
+	h_essence: electricity
 	emit_type: ambient
+	flags: constant_glow, constant_heat
+	glow_modifier: 0.850
+	heat_modifier: 0.050
+	rate_speed: 0.900
+	health_threshold: 0.900
 
 	@light:
 	{
 		offset: [0.000, 0.250]
 		scale: [32.000, 28.000]
 		texture: light.circle.04
+		intensity: 0.850
 	}
 
 	@sound.emitter:

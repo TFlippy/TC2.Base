@@ -1,0 +1,130 @@
+$tags: []
+
+body:
+{
+	flags: none
+	buoyancy: 0.050
+	fall_damage_multiplier: 0.600
+
+	@shape.polygon:
+	{
+		points:
+		[
+			[-0.500, -0.375]
+			[0.375, -0.500]
+			[0.625, 0.625]
+			[-0.625, 0.625]
+		]
+		radius: 0.375
+		elasticity: 0.670
+		
+		material: metal_pole
+		miss_chance: 0.153
+		
+		layer: entity, solid, resource, conductive, heatable, magnetic, ignore_melee, ignore_bullet
+	}
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "resource.arcanite.rod"
+		count: 4
+		size: [16, 16]
+	}
+	z: -71.000
+}
+
+transform:
+{
+
+}
+
+resource:
+{
+	material: "arcanite.rod"
+}
+
+holdable:
+{
+	force_multiplier: 1.400
+	torque_multiplier: 0.800
+	stress_multiplier: 0.850
+	radius: 0.000
+	hints: materials, construction
+	flags: disable_parent_facing, disable_rotation, disable_control, full_rotate
+}
+
+norotate:
+{
+	bias: 0.150
+	speed: 2.500
+	mass_multiplier: 4.000
+	attached_multiplier: 0.400
+	flags: no_share
+}
+
+// health:
+// {
+// 	max: 90000.000
+// }
+
+// breakable:
+// {
+// 	// flags: splittable
+// 	spawn_flags: merge
+// 	merge_radius: 2.000
+// }
+
+// heat:
+// {
+// 	temperature_medium: 440.9637
+// 	temperature_high: 2618.350
+// 	temperature_ignite: 1894.000
+// 	temperature_operating: 1034.303
+// 	temperature_melt: 1644.000
+// 	temperature_breakdown: 3143.000
+// 	cool_rate: 2.500
+// 	smoke_speed_mult: 0.750
+// 	flags: meltable
+// 	fire_flags: no_self_damage, always_contact_ignite
+// 	offset: [0.000, 0.125]
+// 	smoke_offset: [0.000, 0.125]
+// 	size: [2.000, 2.000]
+// 	flame_tint: "0xe1ff8538"
+
+// 	@light:
+// 	{
+// 		offset: [-0.125, 0.125]
+// 		scale: [48.000, 48.000]
+// 		intensity: 1.000
+// 		texture: light.circle.00
+// 	}
+
+// 	@sound.emitter:
+// 	{
+// 		file: overheat_loop
+// 		flags: start_muted
+// 		volume: 1.100
+// 		pitch: 0.680
+// 		size: 3.500
+// 		size_max_modifier: 0.850
+// 		priority: 0.100
+// 		offset: [-0.250, 0.250]
+// 	}
+// }
+
+despawn:
+{
+	sleep_count_max: 74
+	flags: no_despawn
+	
+	interval: 7.000
+	interval_extra: 14.000
+	threshold_delete: 0.000
+	threshold_despawning: 0.500
+
+	amount_ratio: 0.000
+	amount_ratio_extra: 0.000
+}

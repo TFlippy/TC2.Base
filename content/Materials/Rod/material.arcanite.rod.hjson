@@ -1,0 +1,389 @@
+﻿{
+	$version: "0.1.63.8"
+	name: "Arcanite Bar"
+	name_short: "Arc. Bar"
+	name_dumb: "Carrot"
+	description:
+		'''
+		Standard 60x4x4 cm arcanite bar, a gold and smirglum alloy.
+
+		Used in magitronics for essence conduits and other components.
+		'''
+	
+	tips: []
+	
+	icon:
+	{
+		texture: resource.arcanite.rod
+		count: 4
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	type: metal_pole
+	flags: hard, long, magnetic, metal, small, thin, flexible, solid, processed
+	display_flags: sprite_stack_linear, no_random_facing
+	hints: materials, construction
+	
+	purity: 0.985
+	mass_per_unit: 18.01031
+	volume_per_unit: 0.000754
+	
+	quantity_max: 100.000
+	spawn_quantity_threshold: 0.200
+	snapping: 0.500
+	snapping_pickup: 10.000
+	
+	form_type: rod
+	prefab: resource.arcanite.rod
+	h_substance: arcanite
+	
+	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
+	color_dust: "0xffa48b5e"
+	color_gib: "0xffa48b5e"
+	color_flame: [1.000, 0.521, 0.220, 0.882]
+	color_smoke: [0.753, 0.776, 0.675, 1.000]
+	
+	centroid_default: [-0.017241, 0.123563]
+	colliders:
+	[
+		{
+			centroid: [0.053571, 0.642857]
+			radius: 0.250
+			count: 4
+			values:
+			[
+				[-0.125, 0.500]
+				[0.375, 0.500]
+				[0.625, 0.750]
+				[-0.625, 0.750]
+			]
+		}
+		{
+			centroid: [0.000, 0.575]
+			radius: 0.250
+			count: 4
+			values:
+			[
+				[-0.500, 0.375]
+				[0.500, 0.375]
+				[0.750, 0.750]
+				[-0.750, 0.750]
+			]
+		}
+		{
+			centroid: [-0.027778, 0.347222]
+			radius: 0.375
+			count: 4
+			values:
+			[
+				[-0.375, 0.000]
+				[0.250, 0.000]
+				[0.625, 0.625]
+				[-0.625, 0.625]
+			]
+		}
+		{
+			centroid: [-0.017241, 0.123563]
+			radius: 0.375
+			count: 4
+			values:
+			[
+				[-0.500, -0.375]
+				[0.375, -0.500]
+				[0.625, 0.625]
+				[-0.625, 0.625]
+			]
+		}
+	]
+	
+	conversions:
+	{
+		blunt:
+		{
+			h_material: scrap.steel
+			spawn_flags: merge, pickup
+			product_flags: none
+			ratio: 0.180
+			ratio_extra: 0.300
+			
+			h_material_waste: "null"
+			spawn_flags_waste: none
+			product_flags_waste: none
+			ratio_waste: 0.000
+			ratio_waste_extra: 0.000
+			
+			yield: 0.980
+			yield_extra: 0.000
+			
+			h_sound: missing
+			sound_volume: 0.000
+			sound_pitch: 0.000
+			
+			chance: 0.224
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.000
+			velocity_mult: 1.000
+			damage_mult: 1.000
+		}
+		club:
+		{
+			h_material: scrap.steel
+			spawn_flags: merge, pickup
+			product_flags: none
+			ratio: 0.200
+			ratio_extra: 0.500
+			
+			h_material_waste: "null"
+			spawn_flags_waste: none
+			product_flags_waste: none
+			ratio_waste: 0.000
+			ratio_waste_extra: 0.000
+			
+			yield: 0.980
+			yield_extra: 0.000
+			
+			h_sound: missing
+			sound_volume: 0.000
+			sound_pitch: 0.000
+			
+			chance: 0.116
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.000
+			velocity_mult: 1.000
+			damage_mult: 1.000
+		}
+		axe:
+		{
+			h_material: scrap.steel
+			spawn_flags: merge, pickup
+			product_flags: none
+			ratio: 0.220
+			ratio_extra: 0.400
+			
+			h_material_waste: "null"
+			spawn_flags_waste: none
+			product_flags_waste: none
+			ratio_waste: 0.000
+			ratio_waste_extra: 0.000
+			
+			yield: 0.910
+			yield_extra: 0.000
+			
+			h_sound: missing
+			sound_volume: 0.000
+			sound_pitch: 0.000
+			
+			chance: 0.230
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.000
+			velocity_mult: 1.000
+			damage_mult: 1.000
+		}
+		phlogiston:
+		{
+			h_material: steel
+			spawn_flags: merge, no_offset
+			product_flags: none
+			ratio: 0.910
+			ratio_extra: 0.050
+			
+			h_material_waste: "null"
+			spawn_flags_waste: merge, no_offset
+			product_flags_waste: none
+			ratio_waste: 0.000
+			ratio_waste_extra: 0.000
+			
+			yield: 0.950
+			yield_extra: 0.070
+			
+			h_sound: ui.swosh.00
+			sound_volume: 0.630
+			sound_pitch: 0.440
+			
+			chance: 0.575
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.000
+			velocity_mult: 1.000
+			damage_mult: 1.000
+		}
+		sledgehammer:
+		{
+			h_material: "null"
+			spawn_flags: none
+			product_flags: none
+			ratio: 0.000
+			ratio_extra: 0.000
+			
+			h_material_waste: scrap.steel
+			spawn_flags_waste: merge
+			product_flags_waste: waste
+			ratio_waste: 1.000
+			ratio_waste_extra: 0.000
+			
+			yield: 0.690
+			yield_extra: 0.180
+			
+			h_sound: missing
+			sound_volume: 0.500
+			sound_pitch: 1.000
+			
+			chance: 0.426
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.000
+			velocity_mult: 1.000
+			damage_mult: 1.000
+		}
+		handsaw:
+		{
+			h_material: steel.frames
+			spawn_flags: merge, pickup, show_notification
+			product_flags: primary
+			ratio: 0.180
+			ratio_extra: 0.270
+			
+			h_material_waste: steel.powder
+			spawn_flags_waste: merge, pickup
+			product_flags_waste: residue
+			ratio_waste: 0.040
+			ratio_waste_extra: 0.080
+			
+			yield: 0.720
+			yield_extra: 0.210
+			
+			h_sound: missing
+			sound_volume: 0.730
+			sound_pitch: 0.900
+			
+			chance: 0.093
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.000
+			velocity_mult: 1.520
+			damage_mult: 1.000
+		}
+	}
+	
+	residues:
+	{
+		carving:
+		{
+			h_material: steel.powder
+			h_substance: "null"
+			flags: none
+			flags_product: residue
+			
+			yield: [0.919, 0.042]
+		}
+		cutting:
+		{
+			h_material: steel.powder
+			h_substance: "null"
+			flags: none
+			flags_product: residue
+			
+			yield: [0.986, 0.014]
+		}
+		drilling:
+		{
+			h_material: steel.powder
+			h_substance: "null"
+			flags: none
+			flags_product: residue
+			
+			yield: [0.940, 0.050]
+		}
+		smithing:
+		{
+			h_material: ferronickel.powder
+			h_substance: "null"
+			flags: none
+			flags_product: waste
+			
+			yield: [0.930, 0.041]
+		}
+		machining:
+		{
+			h_material: ferronickel.powder
+			h_substance: "null"
+			flags: none
+			flags_product: residue
+			
+			yield: [0.260, 0.510]
+		}
+		sawing:
+		{
+			h_material: steel.powder
+			h_substance: "null"
+			flags: none
+			flags_product: residue
+			
+			yield: [0.962, 0.033]
+		}
+		sawing.metal:
+		{
+			h_material: steel.powder
+			h_substance: "null"
+			flags: none
+			flags_product: residue
+			
+			yield: [0.962, 0.033]
+		}
+		bending:
+		{
+			h_material: scrap.steel
+			h_substance: "null"
+			flags: none
+			flags_product: residue
+			
+			yield: [0.9546, 0.0454]
+		}
+		filing:
+		{
+			h_material: steel.powder
+			h_substance: "null"
+			flags: none
+			flags_product: residue
+			
+			yield: [0.962, 0.033]
+		}
+		sanding:
+		{
+			h_material: steel.powder
+			h_substance: "null"
+			flags: none
+			flags_product: residue
+			
+			yield: [0.092, 0.233]
+		}
+		welding.phlogiston:
+		{
+			h_material: ferrous.gravel
+			h_substance: "null"
+			flags: none
+			flags_product: waste
+			
+			yield: [0.474, 0.512]
+		}
+		welding:
+		{
+			h_material: ferronickel.powder
+			h_substance: "null"
+			flags: none
+			flags_product: waste
+			
+			yield: [0.354, 0.620]
+		}
+	}
+	
+	related:
+	{
+		steel: similar
+	}
+}

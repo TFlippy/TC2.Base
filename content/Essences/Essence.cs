@@ -139,7 +139,11 @@ namespace TC2.Base.Components
 				Show_GUI = 1 << 0,
 				Allow_Edit_Rate = 1 << 1,
 				Allow_Edit_Frequency = 1 << 2,
-				Ignore_Resource_Essence = 1 << 3
+				Ignore_Resource_Essence = 1 << 3,
+
+				Constant_Glow = 1 << 4,
+				Constant_Heat = 1 << 5,
+				No_Noise = 1 << 6,
 			}
 
 			[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Global | IComponent.Scope.Region)]
@@ -175,14 +179,17 @@ namespace TC2.Base.Components
 			public static void OnUpdate(ISystem.Info info, ref XorRandom random,
 			[Source.Owned] ref Essence.Container.Data container, [Source.Owned, Optional] in Health.Data health)
 			{
-				var time = info.WorldTime;
-				if (time >= container.t_next_noise)
+				if (container.flags.HasNone(Essence.Container.Flags.No_Noise))
 				{
-					var health_modifier = health.GetHealthNormalizedAvg();
+					var time = info.WorldTime;
+					if (time >= container.t_next_noise)
+					{
+						var health_modifier = health.GetHealthNormalizedAvg();
 
-					//App.WriteLine(health_modifier);
-					container.t_next_noise = time + random.NextFloatExtra(0.05f, 0.25f * container.stability);
-					container.noise_current = random.NextFloat((1.00f - (container.stability * health_modifier)).Pow2());
+						//App.WriteLine(health_modifier);
+						container.t_next_noise = time + random.NextFloatExtra(0.05f, 0.25f * container.stability);
+						container.noise_current = random.NextFloat((1.00f - (container.stability * health_modifier)).Pow2());
+					}
 				}
 
 				container.rate_current.LerpFMARef(Maths.Clamp01(container.rate + container.noise_current), container.rate_speed);
@@ -300,11 +307,23 @@ namespace TC2.Base.Components
 			{
 				if (container.available > 0.00f)
 				{
-					var intensity = container.available * container.rate_current * 0.01f;
-					var noise = 1.00f + container.noise_current;
+					var intensity = container.glow_modifier;
+					//var intensity = container.available * container.rate_current * 0.01f;
+					//var noise = 1.00f + container.noise_current;
+
+					if (container.flags.HasNone(Essence.Container.Flags.Constant_Glow))
+					{
+						intensity *= container.available * container.rate_current * 0.01f;
+					}
+
+					if (container.flags.HasNone(Essence.Container.Flags.No_Noise))
+					{
+						intensity *= 1.00f + container.noise_current;
+					}
 
 					//light.color = color_a.WithAlphaMult(intensity * random.NextFloatRange(0.90f, 1.20f));
-					light.intensity.LerpFMARef(intensity * container.glow_modifier * noise, 0.05f);
+					//light.intensity.LerpFMARef(intensity * container.glow_modifier * noise, 0.05f);
+					light.intensity.LerpFMARef(intensity, 0.05f);
 					//light.scale = new Vector2(8, 8) * random.NextFloatRange(0.90f, 1.10f);
 					light.rotation = random.NextFloat(0.02f);
 					//light.offset = actuator.offset + random.NextVector2Range(new Vector2(-0.08f, +0.08f), new Vector2(-0.02f, +0.02f));

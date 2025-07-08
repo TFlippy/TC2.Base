@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.8"
+	$version: "0.1.64.0"
 	name: "Electricity"
 	desc:
 		'''
@@ -9,7 +9,7 @@
 	flags: none
 	type_tmp: electricity
 	
-	color_emit: [0.667, 0.651, 1.000, 1.075]
+	color_emit: [0.736, 0.760, 1.078, 2.164]
 	
 	emit_force: 1000.000
 	emit_power_thermal: 2.650
