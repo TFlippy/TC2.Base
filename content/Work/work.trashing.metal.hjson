@@ -59,7 +59,7 @@
 	
 	sounds: ["hatch.open.00", "metal.gib.lg.00", "metal.hit.bullet.heavy.00", "metal.hit.bullet.heavy.01", "metal.stress.long.strong.00", "flesh_hit_blunt_01", "scrap.gib.lg.01", "burner.lid.clang.00", "drunk.02", "effect.clang.metal.00", "effect.spring.erupt.01", "effect.stupid.00", "conveyor.move.02", "flesh_hit_blunt_00"]
 	sounds_manual: []
-	sounds_machine: []
+	sounds_crafter: []
 	sounds_passive: []
 	
 	sounds_start: []

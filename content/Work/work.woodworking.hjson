@@ -55,7 +55,7 @@
 	
 	sounds: ["structural.wood.stress.00", "axe_hit_wood_03", "work_woodworking_02", "wood_hit_axe_02", "work_woodworking_04", "work_woodworking_05"]
 	sounds_manual: []
-	sounds_machine: []
+	sounds_crafter: []
 	sounds_passive: []
 	
 	sounds_start: []

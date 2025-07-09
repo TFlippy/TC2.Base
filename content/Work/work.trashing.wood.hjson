@@ -62,7 +62,7 @@
 	
 	sounds: ["wood_break_00", "structural.wood.break.00", "wood_hit_sharp_02", "wood_hit_sharp_00", "structural.wood.stress.00", "structural.wood.break.01", "wood_break_00", "wood_hit_sharp_01", "drunk.02", "wood.stress.long.strong.00", "wood_hit_sharp_01", "wood_hit_sharp_00", "wood_hit_sharp_02", "structural.wood.break.02"]
 	sounds_manual: []
-	sounds_machine: []
+	sounds_crafter: []
 	sounds_passive: []
 	
 	sounds_start: []

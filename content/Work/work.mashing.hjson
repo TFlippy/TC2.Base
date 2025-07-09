@@ -52,7 +52,7 @@
 	
 	sounds: ["effect.plunger.00", "effect.smack.meaty.00", "effect.plunger.01", "effect.plunger.02", "effect.smack.meaty.01"]
 	sounds_manual: []
-	sounds_machine: []
+	sounds_crafter: []
 	sounds_passive: []
 	
 	sounds_start: []

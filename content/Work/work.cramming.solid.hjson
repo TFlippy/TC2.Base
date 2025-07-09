@@ -55,7 +55,7 @@
 	
 	sounds: ["item.rattle.01", "item.rattle.00", "item.adjust.01"]
 	sounds_manual: []
-	sounds_machine: []
+	sounds_crafter: []
 	sounds_passive: []
 	
 	sounds_start: []

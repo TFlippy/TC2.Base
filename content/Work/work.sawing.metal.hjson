@@ -56,7 +56,7 @@
 	
 	sounds: ["metal.impact.light.hollow.02", "metal.frame.hit.hard.01", "metal.frame.hit.hard.00", "press.fail.02", "metal.impact.light.sheet.02", "press.fail.01", "effect.spring.machine.00"]
 	sounds_manual: []
-	sounds_machine: []
+	sounds_crafter: []
 	sounds_passive: []
 	
 	sounds_start: []

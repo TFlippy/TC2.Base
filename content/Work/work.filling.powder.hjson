@@ -55,7 +55,7 @@
 	
 	sounds: ["effect.cloth.slide.00", "gravel_hit_sharp_02", "effect.cloth.place.02", "gravel_hit_sharp_00"]
 	sounds_manual: []
-	sounds_machine: []
+	sounds_crafter: []
 	sounds_passive: []
 	
 	sounds_start: ["effect.clunk.metal.00"]

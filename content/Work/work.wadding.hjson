@@ -52,7 +52,7 @@
 	
 	sounds: ["effect.squish.slimy.00", "effect.cloth.place.03", "effect.squish.slimy.01", "effect.cloth.place.00", "effect.plunger.00", "effect.cloth.slide.00"]
 	sounds_manual: []
-	sounds_machine: []
+	sounds_crafter: []
 	sounds_passive: []
 	
 	sounds_start: []

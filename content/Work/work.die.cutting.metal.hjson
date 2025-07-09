@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.1"
+	$version: "0.1.64.0"
 	name: "Die-Cutting"
 	name_short: "D-Cutting"
 	desc:
@@ -14,7 +14,7 @@
 		frame: [7, 0]
 	}
 	
-	flags: passive, time_independent, no_randomization
+	flags: time_independent, no_randomization
 	tags: machine, automated, technical, construction, industrial, wip
 	
 	amount_base: 10.000
@@ -46,7 +46,7 @@
 	
 	sounds: ["press.stamp.02"]
 	sounds_manual: []
-	sounds_machine: []
+	sounds_crafter: []
 	sounds_passive: ["press.stamp.02"]
 	
 	sounds_start: []

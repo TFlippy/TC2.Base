@@ -53,7 +53,7 @@
 	
 	sounds: ["walljump.01", "effect.cloth.slide.00", "effect.cloth.place.02"]
 	sounds_manual: []
-	sounds_machine: []
+	sounds_crafter: []
 	sounds_passive: []
 	
 	sounds_start: []

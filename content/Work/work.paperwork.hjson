@@ -61,7 +61,7 @@
 	
 	sounds: ["work.paperwork.pencil.00", "work.paperwork.pencil.01", "work.paperwork.pencil.02", "work.paperwork.page.00", "work.paperwork.page.01", "work.paperwork.pencil.01", "work.paperwork.page.02"]
 	sounds_manual: []
-	sounds_machine: []
+	sounds_crafter: []
 	sounds_passive: []
 	
 	sounds_start: []

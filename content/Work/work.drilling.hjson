@@ -56,7 +56,7 @@
 	
 	sounds: ["metal.place.00", "effect.lathe.grind.00"]
 	sounds_manual: []
-	sounds_machine: []
+	sounds_crafter: []
 	sounds_passive: []
 	
 	sounds_start: ["effect.lathe.00"]

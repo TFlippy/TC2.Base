@@ -58,7 +58,7 @@
 	
 	sounds: ["effect.spring.erupt.00", "effect.spring.erupt.01", "tree_impact_00", "effect.spring.erupt.01", "structural.wood.break.01"]
 	sounds_manual: []
-	sounds_machine: []
+	sounds_crafter: []
 	sounds_passive: []
 	
 	sounds_start: []

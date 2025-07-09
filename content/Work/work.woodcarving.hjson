@@ -52,7 +52,7 @@
 	
 	sounds: ["wood_hit_axe_00", "axe_hit_wood_03", "walljump.01", "wood_hit_axe_02", "walljump.00"]
 	sounds_manual: []
-	sounds_machine: []
+	sounds_crafter: []
 	sounds_passive: []
 	
 	sounds_start: []

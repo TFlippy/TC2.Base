@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.4"
+	$version: "0.1.64.0"
 	name: "Die-Drawing"
 	name_short: "D-Drawing"
 	desc:
@@ -14,7 +14,7 @@
 		frame: [8, 0]
 	}
 	
-	flags: passive
+	flags: time_independent
 	tags: machine, automated, technical, construction, industrial, wip
 	
 	amount_base: 5.000
@@ -52,7 +52,7 @@
 	
 	sounds: ["work_assembly_00", "work_assembly_01", "work_assembly_02", "work_assembly_03", "work_assembly_04"]
 	sounds_manual: []
-	sounds_machine: []
+	sounds_crafter: []
 	sounds_passive: ["press.smash.00", "press.smash.01", "press.smash.02"]
 	
 	sounds_start: []

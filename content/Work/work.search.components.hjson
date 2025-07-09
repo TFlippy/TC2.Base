@@ -57,7 +57,7 @@
 	
 	sounds: ["effect.boink.metal.00", "effect.clink.metal.01", "effect.tinker.components.01", "effect.rattle.spring.00", "effect.spring.erupt.01", "effect.tinker.components.00", "effect.ponk.metal.00", "item.rattle.00", "item.rattle.01"]
 	sounds_manual: []
-	sounds_machine: []
+	sounds_crafter: []
 	sounds_passive: []
 	
 	sounds_start: []

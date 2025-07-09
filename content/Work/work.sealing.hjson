@@ -53,7 +53,7 @@
 	
 	sounds: ["item.adjust.00"]
 	sounds_manual: []
-	sounds_machine: []
+	sounds_crafter: []
 	sounds_passive: []
 	
 	sounds_start: []

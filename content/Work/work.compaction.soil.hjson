@@ -49,7 +49,7 @@
 	
 	sounds: ["soil.hit.impact.00", "stone.hit.impact.05"]
 	sounds_manual: []
-	sounds_machine: []
+	sounds_crafter: []
 	sounds_passive: []
 	
 	sounds_start: []

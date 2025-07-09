@@ -55,7 +55,7 @@
 	
 	sounds: ["effect.spring.machine.00", "effect.spring.machine.01", "effect.spring.machine.02"]
 	sounds_manual: []
-	sounds_machine: []
+	sounds_crafter: []
 	sounds_passive: []
 	
 	sounds_start: ["effect.clang.metal.00"]

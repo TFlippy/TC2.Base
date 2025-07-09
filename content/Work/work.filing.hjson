@@ -61,7 +61,7 @@
 	
 	sounds: ["clutch.angry.01"]
 	sounds_manual: []
-	sounds_machine: []
+	sounds_crafter: []
 	sounds_passive: []
 	
 	sounds_start: []

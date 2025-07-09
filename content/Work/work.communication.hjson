@@ -55,7 +55,7 @@
 	
 	sounds: ["npc_talk_00", "npc_talk_01", "npc_talk_02"]
 	sounds_manual: []
-	sounds_machine: []
+	sounds_crafter: []
 	sounds_passive: []
 	
 	sounds_start: []

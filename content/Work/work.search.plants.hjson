@@ -58,7 +58,7 @@
 	
 	sounds: ["zabar.tongue.shoot.00", "foliage_hit_sharp_00", "foliage_hit_sharp_03", "medkit_use_00", "flesh_hit_slash_00", "foliage_hit_sharp_01", "foliage_hit_sharp_02", "flesh_hit_slash_00", "effect.smack.meaty.01", "walljump.00", "foliage_hit_sharp_01"]
 	sounds_manual: []
-	sounds_machine: []
+	sounds_crafter: []
 	sounds_passive: []
 	
 	sounds_start: []

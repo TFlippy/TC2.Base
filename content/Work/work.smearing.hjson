@@ -54,7 +54,7 @@
 	
 	sounds: ["effect.splat.muddy.00", "effect.smack.meaty.01", "effect.smack.meaty.00", "effect.plunger.01", "effect.knead.slimy.00"]
 	sounds_manual: []
-	sounds_machine: []
+	sounds_crafter: []
 	sounds_passive: []
 	
 	sounds_start: []

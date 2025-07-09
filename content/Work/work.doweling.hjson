@@ -54,7 +54,7 @@
 	
 	sounds: ["work_woodworking_01", "work_woodworking_02", "work_woodworking_04", "work_woodworking_05"]
 	sounds_manual: []
-	sounds_machine: []
+	sounds_crafter: []
 	sounds_passive: []
 	
 	sounds_start: []

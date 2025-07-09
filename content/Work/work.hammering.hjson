@@ -56,7 +56,7 @@
 	
 	sounds: ["work_smithing_00", "work_smithing_01", "work_smithing_02", "work_smithing_03", "work_smithing_04"]
 	sounds_manual: []
-	sounds_machine: ["press.smash.00", "press.smash.01", "press.smash.02"]
+	sounds_crafter: ["press.smash.00", "press.smash.01", "press.smash.02"]
 	sounds_passive: []
 	
 	sounds_start: []

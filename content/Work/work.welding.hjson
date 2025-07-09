@@ -53,7 +53,7 @@
 	
 	sounds: ["effect.sizzle.small.00", "effect.crackle.fuse.01", "effect.sizzle.sparky.00", "effect.sizzle.low.00", "effect.sizzle.fry.00"]
 	sounds_manual: []
-	sounds_machine: []
+	sounds_crafter: []
 	sounds_passive: []
 	
 	sounds_start: []

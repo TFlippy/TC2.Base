@@ -59,7 +59,7 @@
 	
 	sounds: ["effect.sizzle.sparky.00", "effect.sizzle.low.00", "effect.inflate.00"]
 	sounds_manual: []
-	sounds_machine: []
+	sounds_crafter: []
 	sounds_passive: []
 	
 	sounds_start: []

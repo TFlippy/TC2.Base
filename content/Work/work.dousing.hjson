@@ -54,7 +54,7 @@
 	
 	sounds: ["effect.sizzle.fry.00", "effect.sizzle.sparky.00", "effect.sizzle.water.00"]
 	sounds_manual: []
-	sounds_machine: []
+	sounds_crafter: []
 	sounds_passive: []
 	
 	sounds_start: []

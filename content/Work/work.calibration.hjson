@@ -63,7 +63,7 @@
 	
 	sounds: ["effect.tinker.components.00", "effect.tinker.machine.00", "effect.tinker.components.01", "effect.tool.small.02", "effect.ponk.metal.00", "effect.spring.erupt.00", "vo_why", "effect.clang.metal.00"]
 	sounds_manual: []
-	sounds_machine: []
+	sounds_crafter: []
 	sounds_passive: []
 	
 	sounds_start: []

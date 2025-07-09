@@ -52,7 +52,7 @@
 	
 	sounds: ["vo_idiot", "flesh_hit_blunt_00", "vo_die", "flesh_hit_blunt_01", "flesh_hit_blunt_00", "vo_neutral", "flesh_hit_blunt_00", "metal.frame.hit.00", "vo_look", "flesh_hit_blunt_01", "vo_haha", "equip.00", "zabar.tongue.return", "zabar.tongue.return", "zabar.tongue.return", "flesh.hit.scratch.00", "vo_rip"]
 	sounds_manual: []
-	sounds_machine: []
+	sounds_crafter: []
 	sounds_passive: []
 	
 	sounds_start: []

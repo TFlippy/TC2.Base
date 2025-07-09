@@ -54,7 +54,7 @@
 	
 	sounds: ["soil_hit_sharp_00", "soil_hit_sharp_01"]
 	sounds_manual: []
-	sounds_machine: []
+	sounds_crafter: []
 	sounds_passive: []
 	
 	sounds_start: []

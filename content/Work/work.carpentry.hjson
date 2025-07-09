@@ -55,7 +55,7 @@
 	
 	sounds: ["work_woodworking_00", "work_woodworking_01", "work_woodworking_02", "effect.tinker.components.02", "work_woodworking_02", "work_woodworking_03", "work_woodworking_04", "work_woodworking_05", "effect.clink.metal.01", "effect.tool.small.01", "work_woodworking_04", "effect.ponk.metal.00", "wrench.dismantle.00", "wrench.dismantle.00", "wrench.dismantle.00", "effect.boink.metal.00"]
 	sounds_manual: []
-	sounds_machine: []
+	sounds_crafter: []
 	sounds_passive: []
 	
 	sounds_start: []

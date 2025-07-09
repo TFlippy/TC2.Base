@@ -46,7 +46,7 @@
 	
 	sounds: []
 	sounds_manual: []
-	sounds_machine: []
+	sounds_crafter: []
 	sounds_passive: ["effect.boiling.loop.01"]
 	
 	sounds_start: ["effect.flush.water.00"]

@@ -53,7 +53,7 @@
 	
 	sounds: ["structural.stone.break.small.00", "structural.stone.break.small.01"]
 	sounds_manual: []
-	sounds_machine: []
+	sounds_crafter: []
 	sounds_passive: []
 	
 	sounds_start: []

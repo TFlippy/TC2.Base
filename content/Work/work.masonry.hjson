@@ -54,7 +54,7 @@
 	
 	sounds: ["work_masonry_00", "work_masonry_01", "work_masonry_02"]
 	sounds_manual: []
-	sounds_machine: []
+	sounds_crafter: []
 	sounds_passive: []
 	
 	sounds_start: []

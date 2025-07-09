@@ -57,7 +57,7 @@
 	
 	sounds: ["stone_hit_sharp_00", "stone_hit_sharp_01", "stone_hit_sharp_02", "stone_hit_sharp_03"]
 	sounds_manual: []
-	sounds_machine: []
+	sounds_crafter: []
 	sounds_passive: []
 	
 	sounds_start: []

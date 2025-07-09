@@ -51,7 +51,7 @@
 	
 	sounds: ["effect.cloth.slide.00", "effect.cloth.place.03", "effect.cloth.place.02", "effect.cloth.place.00", "effect.cloth.shuffle.00", "effect.tool.small.00", "effect.cloth.shuffle.02", "effect.cloth.place.01"]
 	sounds_manual: []
-	sounds_machine: []
+	sounds_crafter: []
 	sounds_passive: []
 	
 	sounds_start: []

@@ -56,7 +56,7 @@
 	
 	sounds: ["rivet_gun.shoot.00", "rivet_gun.shoot.01", "effect.tinker.machine.00", "rivet_gun.shoot.00", "effect.spring.machine.00", "effect.smack.metal.00"]
 	sounds_manual: []
-	sounds_machine: []
+	sounds_crafter: []
 	sounds_passive: []
 	
 	sounds_start: []

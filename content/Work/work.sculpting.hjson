@@ -57,7 +57,7 @@
 	
 	sounds: ["effect.knead.slimy.00", "effect.smack.meaty.00", "gravel_place_0", "effect.smack.meaty.01"]
 	sounds_manual: []
-	sounds_machine: []
+	sounds_crafter: []
 	sounds_passive: []
 	
 	sounds_start: []

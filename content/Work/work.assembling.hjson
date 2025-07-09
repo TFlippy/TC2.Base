@@ -54,7 +54,7 @@
 	
 	sounds: ["work_assembly_00", "work_assembly_01", "effect.spring.machine.01", "wrench.dismantle.00", "wrench.dismantle.00", "wrench.dismantle.00", "effect.spring.erupt.00", "effect.clang.metal.00", "work_assembly_02", "work_assembly_03", "effect.use.machine.00", "effect.spring.machine.00", "work_assembly_04"]
 	sounds_manual: []
-	sounds_machine: []
+	sounds_crafter: []
 	sounds_passive: []
 	
 	sounds_start: []

@@ -56,7 +56,7 @@
 	
 	sounds: ["gravel_hit_sharp_02", "gravel_hit_sharp_00", "gravel_hit_sharp_03"]
 	sounds_manual: []
-	sounds_machine: []
+	sounds_crafter: []
 	sounds_passive: []
 	
 	sounds_start: []

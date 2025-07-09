@@ -61,7 +61,7 @@
 	
 	sounds: ["water.impact.soft.00", "water.impact.soft.01", "water.impact.soft.02"]
 	sounds_manual: []
-	sounds_machine: []
+	sounds_crafter: []
 	sounds_passive: []
 	
 	sounds_start: []

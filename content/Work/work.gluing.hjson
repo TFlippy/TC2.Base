@@ -64,7 +64,7 @@
 	
 	sounds: ["effect.spray.foam.00", "effect.smack.meaty.01", "effect.cloth.place.02", "effect.cloth.slide.00", "effect.smack.meaty.00"]
 	sounds_manual: []
-	sounds_machine: []
+	sounds_crafter: []
 	sounds_passive: []
 	
 	sounds_start: []

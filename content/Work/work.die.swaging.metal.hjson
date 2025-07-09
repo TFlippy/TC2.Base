@@ -53,7 +53,7 @@
 	
 	sounds: []
 	sounds_manual: []
-	sounds_machine: []
+	sounds_crafter: []
 	sounds_passive: ["press.smash.00", "press.smash.01", "press.smash.02"]
 	
 	sounds_start: []

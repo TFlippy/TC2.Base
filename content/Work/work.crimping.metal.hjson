@@ -55,7 +55,7 @@
 	
 	sounds: ["item.adjust.00", "item.adjust.03", "item.adjust.02", "item.adjust.01"]
 	sounds_manual: []
-	sounds_machine: []
+	sounds_crafter: []
 	sounds_passive: []
 	
 	sounds_start: []
