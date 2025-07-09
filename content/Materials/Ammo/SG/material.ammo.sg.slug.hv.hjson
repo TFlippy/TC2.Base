@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.63.8"
-	name: "SG-20.4mm/HV Slug"
+	name: "SG-20.4mm HV Slug"
 	description:
 		'''
 		Ammunition for shotguns. Fires single heavy projectile

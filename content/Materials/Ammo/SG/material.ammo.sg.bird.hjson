@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.64.0"
-	name: "SG-20.4mm/LV Birdshot"
+	name: "SG-20.4mm Birdshot"
 	description:
 		'''
 		Ammunition for shotguns. Fires many tiny projectiles,
@@ -11,7 +11,7 @@
 	
 	icon:
 	{
-		texture: resource.ammo.sg.bird.lv
+		texture: resource.ammo.sg.bird
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -34,7 +34,7 @@
 	snapping: 1.000
 	snapping_pickup: 1.000
 	
-	prefab: resource.ammo.sg.bird.lv
+	prefab: resource.ammo.sg.bird
 	h_substance: "null"
 	
 	color_icon: "0xffffffff"
@@ -66,7 +66,7 @@
 		stability_base: 250.000
 		stability_mult: 1.100
 		
-		prefab: projectile.sg.bird.lv
+		prefab: projectile.sg.bird
 		
 		sprite_casing:
 		{
