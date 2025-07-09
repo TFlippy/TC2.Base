@@ -23,7 +23,7 @@ namespace TC2.Base.Components
 			var sprite = smoker.sprite;
 			sprite.frame.x = smoker.count - 1;
 
-			var lerp = Maths.NormalizeClamp(smoker.count - 1, 4.00f);
+			var lerp = Maths.Normalize01(smoker.count - 1, 4.00f);
 
 			Animated.Renderer.Draw(transform, new()
 			{

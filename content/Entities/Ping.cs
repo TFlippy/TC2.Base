@@ -68,15 +68,17 @@ namespace TC2.Base.Components
 			{
 				var pos = this.ping.pos;
 				var rect_canvas = GUI.GetCanvasRect().Pad(16, 16, 16, 16);
+				ref var region_common = ref this.ent_ping.GetRegionCommon();
+				if (region_common.IsNull()) return;
 
-				var c_pos = pos.WorldToCanvas();
+				var c_pos = region_common.WorldToCanvas(pos);
 				c_pos = rect_canvas.ClipPoint(c_pos);
 
 				using (var window = GUI.Window.HUD($"ping.{this.ent_ping}", position: c_pos, size: new Vector2(64, 64), pivot: new(0.50f, 0.50f)))
 				{
 					if (window.show)
 					{
-						var scale = GUI.GetWorldToCanvasScale();
+						var scale = region_common.GetWorldToCanvasScale();
 
 						var speed = 4.40f;
 						var sin = Maths.HvSin(App.GetCurrentTime() * speed);
@@ -84,8 +86,8 @@ namespace TC2.Base.Components
 						var expand_duration = 0.66f;
 						var bounce_duration = 1.00f;
 
-						var expand_lerp_t = Maths.NormalizeClamp(this.ping.elapsed, expand_duration);
-						var bounce_lerp_t = Maths.NormalizeClamp(this.ping.elapsed, bounce_duration);
+						var expand_lerp_t = Maths.Normalize01(this.ping.elapsed, expand_duration);
+						var bounce_lerp_t = Maths.Normalize01(this.ping.elapsed, bounce_duration);
 						var fade_lerp_t = Maths.InvLerp01(this.ping.duration, this.ping.duration - 1.00f, this.ping.elapsed);
 
 						var fade_alpha = fade_lerp_t;
@@ -126,7 +128,7 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.EarlyGUI(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void OnGUI(ISystem.Info info, Entity entity, [Source.Owned] in Ping.Data ping)
+		public static void OnGUI(Entity entity, [Source.Owned] in Ping.Data ping)
 		{
 			//if (faction.IsNull() || faction.id == Client.GetFaction())
 			if (ping.elapsed < ping.duration)
@@ -141,7 +143,7 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void OnUpdate(ISystem.Info info, Entity entity, [Source.Owned] ref Ping.Data ping, [Source.Owned] in Control.Data control)
+		public static void OnUpdate(ISystem.Info info, [Source.Owned] ref Ping.Data ping, [Source.Owned] in Control.Data control)
 		{
 			//if (faction.IsNull() || faction.id == Client.GetFaction())
 			if (ping.elapsed < ping.duration)

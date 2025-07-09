@@ -1846,7 +1846,7 @@ namespace TC2.Base.Components
 				{
 					if (hs_visited.Add(ent))
 					{
-						var vents = ent.GetComponents<Air.Vent.Data>();
+						var vents = ent.GetPairs<Air.Vent.Data>();
 						for (var i = 0; i < vents.count; i++)
 						{
 							var pair = vents[i];

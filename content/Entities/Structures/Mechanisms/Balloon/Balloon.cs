@@ -2,7 +2,7 @@
 {
 	public static class RopeTest
 	{
-		[IComponent.Data(Net.SendType.Reliable, region_only: true)]
+		[IComponent.Data(Net.SendType.Reliable, IComponent.Scope.Region)]
 		public struct Data: IComponent
 		{
 			//public Vector2 offset_a;
@@ -61,7 +61,7 @@
 	// Reference: https://www.kubicekballoons.eu/envelopes/model-series/model-z
 	public static partial class Balloon
 	{
-		[IComponent.Data(Net.SendType.Reliable, region_only: true), IComponent.With<Balloon.State>]
+		[IComponent.Data(Net.SendType.Reliable, IComponent.Scope.Region), IComponent.With<Balloon.State>]
 		public partial struct Data(): IComponent
 		{
 			//public float release_max = 1.00f;
@@ -71,7 +71,7 @@
 			public float speed_max = 8.00f;
 
 			//public float force_modifier = 100.00f;
-			public float temperature_max = Maths.CelsiusToKelvin(180.00f);
+			public float temperature_max = Temperature.Celsius(180.00f); // Maths.CelsiusToKelvin(180.00f);
 
 			public Radius envelope_radius_mid;
 			public Radius envelope_radius_bottom;
@@ -80,7 +80,7 @@
 			public Power envelope_thermal_conductivity = Power.W(0.021f); // kW/m*K
 		}
 
-		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
+		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region)]
 		public partial struct State(): IComponent
 		{
 			public Temperature current_temperature_air = Region.ambient_temperature;

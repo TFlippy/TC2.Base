@@ -90,7 +90,7 @@
 #endif
 
 #if CLIENT
-		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region)]
+		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateAnimation(ISystem.Info info, Entity entity,
 		[Source.Owned, Override] in Organic.Data organic, [Source.Owned] in Organic.State organic_state,
 		[Source.Owned] ref Torso.Data torso, [Source.Owned, Optional(true)] ref HeadBob.Data headbob,

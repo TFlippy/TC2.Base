@@ -92,7 +92,7 @@
 			camera.override_target_position = pos + (new Vector2(Maths.Perlin(0.00f, info.WorldTime, 1.00f) - 0.50f, -Maths.Perlin(info.WorldTime, 0.00f, 1.00f) - 0.50f) * (dist / 100.00f) * telescope.shake_modifier * 0.40f);
 
 			Maths.MinMax(telescope.min_distance, telescope.max_distance, out var min_distance, out var max_distance);
-			var t0 = Maths.NormalizeClamp(dist_clipped, min_distance);
+			var t0 = Maths.Normalize01(dist_clipped, min_distance);
 			var t1 = Maths.Clamp01(dist_clipped / (max_distance - min_distance));
 
 			camera.distance_modifier = Maths.Lerp(camera.distance_modifier, 0.00f, t0);

@@ -118,8 +118,8 @@
 
 									var hud_rect = hud.group.GetOuterRect();
 
-									var vents_src = info_src.entity.GetComponents<Air.Vent.Data>();
-									var vents_dst = info_dst.entity.GetComponents<Air.Vent.Data>();
+									var vents_src = info_src.entity.GetPairs<Air.Vent.Data>();
+									var vents_dst = info_dst.entity.GetPairs<Air.Vent.Data>();
 
 									var sync = false;
 

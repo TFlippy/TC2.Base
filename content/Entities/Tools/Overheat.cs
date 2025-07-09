@@ -437,7 +437,7 @@ namespace TC2.Base.Components
 		public static void HeatCommand(ref ChatCommand.Context context, float energy)
 		{
 			ref var region = ref context.GetRegion();
-			Assert.NotNull(ref region);
+			Assert.IsNotNull(ref region);
 
 			var ent_target = context.GetTargetEntity();
 			if (!ent_target.IsAlive())
@@ -464,7 +464,7 @@ namespace TC2.Base.Components
 		public static void TemperatureCommand(ref ChatCommand.Context context, float temperature)
 		{
 			ref var region = ref context.GetRegion();
-			Assert.NotNull(ref region);
+			Assert.IsNotNull(ref region);
 
 			var ent_target = context.GetTargetEntity();
 

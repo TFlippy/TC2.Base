@@ -61,7 +61,7 @@
 				var dir = (this.control.mouse.position - pos_w_base).GetNormalized(out var len);
 
 				var pos_w = pos_w_base + (dir * Maths.Clamp(len, 0.00f, max_distance));
-				var pos_c = GUI.WorldToCanvas(pos_w);
+				var pos_c = region.WorldToCanvas(pos_w);
 
 				if (len < max_distance)
 				{
@@ -75,7 +75,7 @@
 						foreach (ref var hit in hits)
 						{
 							ref var health = ref hit.entity.GetComponent<Health.Data>();
-							if (!health.IsNull())
+							if (health.IsNotNull())
 							{
 								var health_norm = health.GetHealthNormalized();
 								if (health_norm < 1.00f)
@@ -85,7 +85,7 @@
 
 									var color = Color32BGRA.FromHSV(health_norm * 2.00f, 1.00f, 1.00f).WithAlphaMult(0.75f);
 									GUI.DrawEntity(hit.entity, color: color);
-									GUI.DrawText($"Integrity: {integrity * 100.00f:0}%\nDurability: {durability * 100.00f:0}%", hit.world_position.WorldToCanvas() + new Vector2(-32, -56), font: GUI.Font.Superstar, size: 16.00f, color: color);
+									GUI.DrawText($"Integrity: {integrity * 100.00f:0}%\nDurability: {durability * 100.00f:0}%", region.WorldToCanvas(hit.world_position) + new Vector2(-32, -56), font: GUI.Font.Superstar, size: 16.00f, color: color);
 								}
 								else
 								{
