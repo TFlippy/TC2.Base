@@ -145,14 +145,14 @@ press:
 	// 	z: -145.000
 	// }
 
-	// @light:
-	// {
-	// 	color: [1.000, 0.400, 0.000, 2.000]
-	// 	offset: [0.000, 1.250]
-	// 	scale: [12.000, 3.000]
-	// 	intensity: 0.000
-	// 	texture: "light.box.00"
-	// }
+	@light:
+	{
+		color: [1.000, 0.400, 0.000, 2.000]
+		offset: [0.000, 1.250]
+		scale: [12.000, 3.000]
+		intensity: 0.000
+		texture: "light.box.00"
+	}
 }
 
 press.state:
@@ -229,6 +229,8 @@ workshop:
 	tools: none
 	infrastructure: none
 	environment: none
+	
+	gui_info_size_x: 208.000
 }
 
 // axle:
@@ -267,8 +269,8 @@ shipment:
 
 piston:
 {
-	offset: [-0.250, -0.625]
-	length: 0.400
+	offset: [-0.250, -0.875]
+	length: 0.750
 	cylinder_volume: 0.200
 
 	@animated.renderer:
@@ -370,4 +372,17 @@ heat:
 		priority: 0.550
 		offset: [-0.625, -0.125]
 	}
+}
+
+control:
+{
+
+}
+
+controllable:
+{
+	speed: 7.200
+	radius: 1.500
+	radius_max: 2.000
+	flags: mouse_orthogonal
 }

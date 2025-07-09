@@ -1,0 +1,50 @@
+﻿{
+	$version: "0.1.64.0"
+	name: "Stamping Press"
+	name_short: "Stamping Press"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: ammoshop.00
+		size: [56, 48]
+	}
+	
+	flags: wip
+	tags: none
+	
+	modes:
+	[
+		{
+			h_work: die.cutting.metal
+			flags: automated, wip
+			
+			work_multiplier: 10.000
+			switch_cooldown: 1.000
+		}
+		{
+			h_work: die.drawing.metal
+			flags: automated, wip
+			
+			work_multiplier: 10.000
+			switch_cooldown: 1.000
+		}
+		{
+			h_work: die.stamping.metal
+			flags: automated, wip
+			
+			work_multiplier: 10.000
+			switch_cooldown: 1.000
+		}
+		{
+			h_work: die.swaging.metal
+			flags: automated, wip
+			
+			work_multiplier: 10.000
+			switch_cooldown: 1.000
+		}
+	]
+}

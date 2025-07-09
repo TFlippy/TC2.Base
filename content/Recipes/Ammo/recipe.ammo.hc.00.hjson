@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.4"
+	$version: "0.1.64.0"
 	name: "HC-13.2mm"
 	desc:
 		'''
@@ -100,7 +100,7 @@
 							flags: conditional
 						}
 					]
-
+					
 					products:
 					[
 						{
@@ -158,7 +158,7 @@
 							amount: 10.000
 							difficulty: 8
 							snapping: 5.000
-							ratio: 0.831
+							ratio: 0.827
 							group: 0
 							flags: simultaneous, conditional
 						}
@@ -180,7 +180,7 @@
 							amount: 30.000
 							difficulty: 7
 							snapping: 25.000
-							falloff: 0.9170
+							falloff: 0.917
 							ratio: 0.922
 							group: 1
 							flags: conditional
@@ -197,7 +197,7 @@
 							flags: conditional
 						}
 					]
-
+					
 					products:
 					[
 						{
@@ -256,7 +256,7 @@
 							amount: 10.000
 							difficulty: 8
 							snapping: 5.000
-							ratio: 0.712
+							ratio: 0.710
 							group: 0
 							flags: simultaneous, conditional
 						}
@@ -279,7 +279,7 @@
 							difficulty: 6
 							snapping: 10.000
 							falloff: 0.947
-							ratio: 0.473
+							ratio: 0.471
 							group: 1
 							flags: conditional
 						}
@@ -295,7 +295,7 @@
 							flags: conditional
 						}
 					]
-
+					
 					products:
 					[
 						{

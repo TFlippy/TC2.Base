@@ -37,7 +37,7 @@ interactable:
 {
 	flags: no_tab
 	priority: 1.000
-	window_size: [608.000, 576.000]
+	window_size: [706.000, 576.000]
 	window_size_misc: [144.000, 0.000]
 }
 
@@ -122,7 +122,7 @@ shop:
 
 workshop:
 {
-	orders_capacity: 1
+	orders_capacity: 3
 	
 	tools: none
 	infrastructure: none
@@ -241,12 +241,19 @@ press.state:
 
 crafter:
 {
+	h_crafter: stamping.press.00
+	flags: self_only, assignable
+	
 	tools: none
 	infrastructure: none
 	environment: none
 	
-	temperature_max: 700.000
+	distance_max: 2.000
+	temperature_max: 900.000
 	pressure_max: 0.000
+	
+	offset: [-0.250, 0.750]
+
 
 	// @inventory4:
 	// {

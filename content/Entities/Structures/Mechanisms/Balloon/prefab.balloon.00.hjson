@@ -82,25 +82,24 @@ storage:
 {
 	@inventory4:
 	{
-		flags: standalone
+		type: vehicle
+		flags: standalone, no_auto_pickup, faction
 		stack_size_multiplier: 4.000
-		type: storage
-
+		
 		filter:
 		{
-			exclude: gas
+			exclude: gas, large
 		}
 	}
 }
 
 interactable:
 {
-	priority: 2.000
-	window_size: [168.000, 200.000]
-	window_size_min: [192.000, 144.000]
-	window_size_misc: [96.000, 0.000]
-	window_offset: [-256.000, -128.000]
 	flags: none
+	priority: 2.000
+	window_size: [200.000, 288.000]
+	window_size_misc: [144.000, 0.000]
+	window_offset: [-256.000, -128.000]
 }
 
 +seat|instance:
@@ -162,18 +161,11 @@ air.container:
 
 burner:
 {
-	flags: open_air
+	flags: open_air, show_misc
 	type: gas
-	height: 4.000
-	area_fuel: 0.500
 	area_aux: 0.004
-	area_surface: 1.000
-	volume_chamber: 0.500
-	pressure_max: 8.000
 	temperature_max: 2200.000
 	insulation: 0.000
-	airtightness: 0.000
-	valve_strength: 3.000
 
 	@sound.emitter:
 	{

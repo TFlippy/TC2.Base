@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.8"
+	$version: "0.1.64.0"
 	name: "Copper Sheet"
 	name_short: "Cop. Sheet"
 	description:
@@ -19,7 +19,7 @@
 	
 	type: metal_sheet
 	flags: metal, small, plate, flexible, solid, processed
-	display_flags: sprite_stack_linear, no_random_facing
+	display_flags: no_random_facing
 	hints: none
 	
 	purity: 0.981

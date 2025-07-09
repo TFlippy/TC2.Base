@@ -256,7 +256,7 @@
 
 					private static void DrawVents(ref readonly TargetInfo target_src, ref readonly TargetInfo target_dst, scoped ref IComponent.List<Air.Vent.Data> vents, scoped ref IComponent.Handle selected_vent_id, scoped ref bool sync)
 					{
-						for (var i = 0; i < vents.count; i++)
+						for (var i = 0u; i < vents.count; i++)
 						{
 							var pair = vents[i];
 							//if (h_vent.Flags.HasAny(Vent.Flags.Allow_Ducts))
@@ -391,7 +391,7 @@
 								this.pos = transform.position;
 
 								var vents = this.entity.GetPairs<Air.Vent.Data>();
-								for (var i = 0; i < vents.count; i++)
+								for (var i = 0u; i < vents.count; i++)
 								{
 									var pair = vents[i];
 									if (!pair.data.flags.HasAny(Air.Vent.Data.Flags.Has_Pipe))

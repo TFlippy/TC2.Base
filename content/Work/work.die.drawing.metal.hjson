@@ -14,8 +14,8 @@
 		frame: [8, 0]
 	}
 	
-	flags: time_independent
-	tags: machine, automated, technical, construction, industrial, wip
+	flags: machine, crafter_only, time_independent
+	tags: technical, construction, industrial
 	
 	amount_base: 5.000
 	cooldown: 1.500
@@ -52,8 +52,9 @@
 	
 	sounds: ["work_assembly_00", "work_assembly_01", "work_assembly_02", "work_assembly_03", "work_assembly_04"]
 	sounds_manual: []
-	sounds_crafter: []
-	sounds_passive: ["press.smash.00", "press.smash.01", "press.smash.02"]
+	sounds_crafter: ["press.smash.00", "press.smash.01", "press.smash.02"]
+	sounds_passive: []
+	sounds_ambient: []
 	
 	sounds_start: []
 	sounds_end: []

@@ -123,9 +123,10 @@ transform:
 
 interactable:
 {
-	window_size: [272.000, 240.000]
-	window_size_misc: [48.000, 0.000]
+	flags: none
 	priority: 3.000
+	window_size: [312.000, 240.000]
+	window_size_misc: [112.000, 0.000]
 }
 
 storage:

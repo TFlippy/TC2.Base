@@ -2,7 +2,15 @@
 {
 	public static partial class Piston
 	{
-		[IComponent.Data(Net.SendType.Reliable, IComponent.Scope.Region)]
+		[Flags]
+		public enum Flags: uint
+		{
+			None = 0,
+
+			Active = 1 << 0, // Piston is currently active and moving
+		}
+
+		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region)]
 		public partial struct Data(): IComponent
 		{
 			[Net.Segment.A, Editor.Picker.Position(relative: true)] public required Vec2f offset;
@@ -13,11 +21,11 @@
 			[Net.Segment.A] public Volume cylinder_volume;
 			//public Sound.Handle h_sound;
 
-			[Net.Segment.C] public float current_distance;
+			[Net.Segment.C, Asset.Ignore] public float current_distance;
 
-			[Net.Segment.D] public float current_force;
-			[Net.Segment.D] public float current_;
-			[Net.Segment.D] public Pressure current_pressure;
+			[Net.Segment.D, Asset.Ignore] public float current_force;
+			[Net.Segment.D, Asset.Ignore] public float current_speed;
+			[Net.Segment.D, Asset.Ignore] public Pressure current_pressure;
 		}
 
 		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
@@ -27,6 +35,30 @@
 		{
 			renderer.offset = piston.offset.AddY(piston.current_distance);
 			//renderer_slider.offset = press.slider_offset + new Vector2(0.00f, MathF.Pow((MathF.Cos(axle_state.rotation) + 1.00f) * 0.50f, press.speed) * press.slider_length);
+		}
+
+		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region)]
+		public static void Update(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity ent_piston,
+		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Control.Data control,
+		[Source.Owned] ref Piston.Data piston,
+		[Source.Owned] in Crafter.Data crafter, [Source.Owned] ref Crafter.State crafter_state)
+		{
+			//App.WriteLine("press");
+
+//#if SERVER
+//			if (control.mouse.GetKeyDown(Mouse.Key.Left))
+//			{
+//				App.WriteLine("press pressed");
+//			}
+//#endif
+		}
+
+		[ISystem.PostUpdate.A(ISystem.Mode.Single, ISystem.Scope.Region)]
+		public static void PostUpdate(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity ent_piston,
+		[Source.Owned] in Transform.Data transform,
+		[Source.Owned] ref Piston.Data piston)
+		{
+			//App.WriteLine("press");
 		}
 	}
 
@@ -183,13 +215,23 @@
 		//	axle_state.force_load_new += val * press.load_multiplier * 200.00f;
 		//}
 
-#if SERVER
-		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
+		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void Update(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity ent_press,
-		[Source.Owned] in Transform.Data transform, 
-		[Source.Owned] ref Press.Data press, [Source.Owned] ref Press.State press_state, 
+		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Control.Data control,
+		[Source.Owned] ref Press.Data press, [Source.Owned] ref Press.State press_state,
 		[Source.Owned] in Crafter.Data crafter, [Source.Owned] ref Crafter.State crafter_state)
 		{
+			//App.WriteLine("press");
+
+#if SERVER
+			if (control.mouse.GetKey(Mouse.Key.Left))
+			{
+				press_state.flags.AddFlag(State.Flags.Smashed);
+				press_state.Sync(ent_press, true);
+				App.WriteLine("smash");
+			}
+#endif
+
 			//if (crafter.recipe.id != 0)
 			//{
 			//	if (press.recipe_cached.id != crafter.recipe.id)
@@ -244,7 +286,6 @@
 			//	break;
 			//}
 		}
-#endif
 
 #if CLIENT
 		public struct PressGUI: IGUICommand

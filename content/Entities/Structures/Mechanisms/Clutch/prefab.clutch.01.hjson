@@ -101,9 +101,9 @@ transform:
 
 interactable:
 {
-	flags: none
-	window_size: [200.000, 200.000]
-	window_size_misc: [88.000, 0.000]
+	flags: no_tab, centered_inventory
+	window_size: [200.000, 192.000]
+	window_size_misc: [64.000, 0.000]
 	window_offset: [-112.000, -24.000]
 }
 

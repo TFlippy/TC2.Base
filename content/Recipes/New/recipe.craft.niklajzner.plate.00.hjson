@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.64.0"
 	name: "Niklajzner Sheets"
 	desc:
 		'''
@@ -89,7 +89,7 @@
 							amount_extra: 0.187
 							snapping: 0.100
 							group: 0
-							flags: primary, spawn, compact, use_temperature
+							flags: primary, compact, use_temperature
 						}
 					]
 					

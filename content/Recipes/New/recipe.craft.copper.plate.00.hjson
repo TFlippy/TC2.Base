@@ -1,6 +1,5 @@
 ﻿{
-	$region_id: 0
-	$version: "0.1.63.2"
+	$version: "0.1.64.0"
 	name: "Copper Sheets"
 	desc:
 		'''
@@ -89,7 +88,7 @@
 							amount_extra: 0.226
 							snapping: 0.100
 							group: 0
-							flags: primary, spawn, compact, use_temperature
+							flags: primary, compact, use_temperature
 						}
 					]
 					

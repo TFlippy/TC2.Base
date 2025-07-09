@@ -14,8 +14,8 @@
 		frame: [7, 0]
 	}
 	
-	flags: time_independent, no_randomization
-	tags: machine, automated, technical, construction, industrial, wip
+	flags: machine, crafter_only, time_independent, no_randomization
+	tags: technical, construction, industrial
 	
 	amount_base: 10.000
 	cooldown: 1.000
@@ -46,8 +46,9 @@
 	
 	sounds: ["press.stamp.02"]
 	sounds_manual: []
-	sounds_crafter: []
-	sounds_passive: ["press.stamp.02"]
+	sounds_crafter: ["press.stamp.02"]
+	sounds_passive: []
+	sounds_ambient: []
 	
 	sounds_start: []
 	sounds_end: []
