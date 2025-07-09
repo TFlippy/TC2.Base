@@ -833,13 +833,23 @@ namespace TC2.Base.Components
 				{
 					ref var result = ref results[index_max];
 
-					hit_results.AddFlag(Melee.HitResults.Terrain, !result.entity.IsValid());
+					var is_terrain = result.layer.HasAny(Physics.Layer.World) || !result.entity.IsValid();
+
+					hit_results.AddFlag(Melee.HitResults.Terrain, is_terrain);
 					hit_results.AddFlag(Melee.HitResults.Any | HitResults.Solid);
 
 					var closest_result = result.GetClosestPoint(pos: result.world_position, allow_inside: true);
 
 					//pos_target = result.world_position;
-					pos_hit = closest_result.world_position;
+
+					if (is_terrain)
+					{
+						pos_hit = closest_result.world_position_raw;
+					}
+					else
+					{
+						pos_hit = closest_result.world_position;
+					}
 
 					if (do_hit)
 					{
@@ -874,6 +884,7 @@ namespace TC2.Base.Components
 
 					if (do_hit)
 					{
+						//App.WriteLine("hit terrain");
 						Melee.Hit(region: ref region,
 							ent_attacker: ent_melee,
 							ent_owner: ent_parent,
@@ -1066,6 +1077,8 @@ namespace TC2.Base.Components
 			//	world_position: hit_pos, direction: dir, normal: normal,
 			//	damage: damage, damage_type: melee.damage_type, yield: melee.yield, primary_damage_multiplier: melee.primary_damage_multiplier, secondary_damage_multiplier: melee.secondary_damage_multiplier, terrain_damage_multiplier: melee.terrain_damage_multiplier,
 			//	target_material_type: material_type, knockback: melee.knockback, size: melee.aoe, faction_id: faction.id);
+
+			//App.WriteLine(damage * melee.terrain_damage_multiplier);
 
 			Damage.Hit(ent_attacker: ent_attacker, ent_owner: ent_owner, ent_target: ent_target,
 				position: hit_pos, velocity: dir * melee.knockback_speed, normal: normal,

@@ -63,6 +63,8 @@ melee:
 	damage_type: pickaxe
 	category: pointed
 	
+	damage_flags_add: no_loot_discard
+	
 	hit_mask: world, destructible
 	hit_exclude: building, water, fire, gas, powder, liquid, stored
 	hit_ignore: water, fire, gas, powder, liquid, stored

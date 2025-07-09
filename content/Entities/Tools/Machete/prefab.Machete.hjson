@@ -52,6 +52,7 @@ melee:
 	category: bladed
 	hit_mask: destructible
 	hit_exclude: ignore_melee, background, tree, climbable
+	damage_flags_add: no_loot_discard
 }
 
 melee.state:

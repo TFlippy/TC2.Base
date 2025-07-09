@@ -83,6 +83,7 @@ melee:
 	damage_type: handsaw
 	category: bladed
 	flags: no_handle, use_aim_direction
+	damage_flags_add: no_loot_discard
 	
 	hit_mask: tree, destructible
 	hit_exclude: world, building, water, fire, gas, powder, liquid, held, stored
