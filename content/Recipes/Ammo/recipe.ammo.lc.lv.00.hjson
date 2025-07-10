@@ -121,6 +121,11 @@
 					{
 						include: paintbrush, spatula
 					}
+					filter_infrastructure:
+					{
+						require: anvil, shaping_mould, hard_surface, press
+						include: stamping_press
+					}
 				}
 				{
 					name: "Oiled"
@@ -219,6 +224,11 @@
 					{
 						require: towel
 						include: paintbrush, towel
+					}
+					filter_infrastructure:
+					{
+						require: anvil, shaping_mould, hard_surface, press
+						include: stamping_press
 					}
 				}
 				{
@@ -320,6 +330,11 @@
 						require: towel
 						include: paintbrush, towel
 					}
+					filter_infrastructure:
+					{
+						require: anvil, shaping_mould, hard_surface, press
+						include: stamping_press
+					}
 				}
 			]
 		}
@@ -405,7 +420,7 @@
 					
 					filter_tools:
 					{
-						require: hammer, pliers
+						require: pliers
 						include: wrench, pliers, tweezers, bucket, spatula
 					}
 					filter_infrastructure:

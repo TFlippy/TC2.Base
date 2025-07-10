@@ -30,6 +30,9 @@
 					type: undefined
 					flags: wip
 					
+					prefix: "Hand-made "
+					priority: 1.000
+					
 					requirements:
 					[
 						{
@@ -56,7 +59,7 @@
 						}
 						{
 							type: work
-							work: die.swaging.metal
+							work: smithing
 							amount: 45.000
 							amount_min: 200.000
 							difficulty: 8
@@ -69,6 +72,23 @@
 					]
 					
 					advance_delay: 2.000
+					
+					filter_tools:
+					{
+						require: hammer, cutters, pliers, tongs
+						include: cutters, pliers, towel, knife, scissors
+					}
+					filter_infrastructure:
+					{
+						require: anvil, forge, hard_surface, heater
+						include: table, vise
+					}
+					filter_environment:
+					{
+						require: sturdy, smithy
+						include: workshop
+						exclude: office, fragile
+					}
 				}
 				{
 					name: "Stamped"
@@ -111,6 +131,12 @@
 					]
 					
 					advance_delay: 2.000
+					
+					filter_infrastructure:
+					{
+						require: anvil, shaping_mould, hard_surface, press
+						include: stamping_press
+					}
 				}
 			]
 		}
@@ -263,6 +289,39 @@
 						}
 					]
 				}
+				{
+					name: "Himlkarzenus"
+					
+					type: undefined
+					flags: incomplete
+					discard_damage_type_override: sledgehammer
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: himlkarzenus
+							amount: 0.015088
+							snapping: 0.100
+							falloff: 0.982
+							loss: 0.518
+							ratio: 1.000
+							group: 0
+						}
+						{
+							type: work
+							work: crushing
+							amount: 11.000
+							amount_min: 95.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.897
+							ratio: 1.000
+							group: 0
+							flags: conditional
+						}
+					]
+				}
 			]
 		}
 		{
@@ -386,7 +445,7 @@
 	type: workshop
 	flags: production, manufacturing, wip
 	tags: manual, small, munitions, delicate, assembling, industrial, metalworking, military, dangerous
-	infrastructure: table, chair, surface, stamping_press, workbench
+	infrastructure: anvil, surface, hard_surface, workbench
 	infrastructure_exclude: none
 	
 	icon:

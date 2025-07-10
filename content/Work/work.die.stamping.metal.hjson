@@ -27,8 +27,8 @@
 	tools_required: none
 	tools_optional: none
 	
-	infrastructure_required: none
-	infrastructure_optional: none
+	infrastructure_required: anvil, shaping_mould, hard_surface, press
+	infrastructure_optional: stamping_press
 	
 	character_traits:
 	{

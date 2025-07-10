@@ -1,9 +1,11 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.64.0"
 	name: "Himlkarzenus"
 	desc:
 		'''
-		TODO: Desc
+		Stunningly beautiful crystalline mineral with a charming garlicky fragrance.
+
+		Makes you drop dead, but not before you admire its beauty.
 		'''
 	
 	material_type: cermet
@@ -19,6 +21,7 @@
 	mass: 1.110
 	friction: 0.150
 	elasticity: 0.890
+	fall_damage_mult: 1.150
 	collision_layer: none
 	collision_mask: none
 	

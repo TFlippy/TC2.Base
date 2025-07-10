@@ -6,7 +6,9 @@
 	name_dumb: "Slime"
 	description:
 		'''
-		Mighty adhesive of many uses, mostly used for sticking things together.
+		Mighty adhesive of many uses.
+		
+		Almost exclusively used for sticking things together.
 		'''
 	
 	tips: []

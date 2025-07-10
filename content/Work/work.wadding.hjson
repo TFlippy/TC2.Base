@@ -1,6 +1,5 @@
 ﻿{
-	$region_id: 0
-	$version: "0.1.63.1"
+	$version: "0.1.64.0"
 	name: "Wadding"
 	name_short: "Wadding"
 	desc:
@@ -17,8 +16,11 @@
 	
 	flags: none
 	tags: manual, simple
+	
+	amount_base: 0.000
 	cooldown: 1.100
 	multiplier: 1.100
+	
 	color: "0xffdd4f60"
 	
 	tools_required: none
@@ -54,6 +56,7 @@
 	sounds_manual: []
 	sounds_crafter: []
 	sounds_passive: []
+	sounds_ambient: []
 	
 	sounds_start: []
 	sounds_end: []

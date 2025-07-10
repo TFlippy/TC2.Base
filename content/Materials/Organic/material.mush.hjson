@@ -5,7 +5,9 @@
 	name_dumb: "Porridge"
 	description:
 		'''
-		TODO: Desc
+		Leftover mushy bits.
+		
+		Nobody knows where from, such is the nature of mush.
 		'''
 	
 	tips: []

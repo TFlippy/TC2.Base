@@ -119,6 +119,11 @@
 					{
 						include: paintbrush, spatula
 					}
+					filter_infrastructure:
+					{
+						require: anvil, shaping_mould, hard_surface, press
+						include: stamping_press
+					}
 				}
 				{
 					name: "Oiled"
@@ -216,6 +221,11 @@
 					{
 						require: towel
 						include: paintbrush, towel
+					}
+					filter_infrastructure:
+					{
+						require: anvil, shaping_mould, hard_surface, press
+						include: stamping_press
 					}
 				}
 				{
@@ -315,6 +325,11 @@
 						require: towel
 						include: paintbrush, towel
 					}
+					filter_infrastructure:
+					{
+						require: anvil, shaping_mould, hard_surface, press
+						include: stamping_press
+					}
 				}
 			]
 		}
@@ -325,7 +340,7 @@
 			flags: part
 			tags: functional, small, flat, rounded, material, dangerous
 			// Damage type used for discarding leftover resources.
-			discard_damage_type: none
+			discard_damage_type: sledgehammer
 			
 			ratio: 0.000
 			mass_base: 0.000
