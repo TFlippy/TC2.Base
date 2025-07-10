@@ -2,17 +2,19 @@ $tags: []
 
 projectile:
 {
-	damage_base: 25.000
-	damage_bonus: 90.000
-	knockback_multiplier: 200.000
-	stun_multiplier: 2.500
-	pain_multiplier: 2.500
+	damage_base: 70.000
+	damage_bonus: 20.000
+	knockback_multiplier: 35.000
+	stun_multiplier: 80.000
+	pain_multiplier: 3.500
+	ignore_time: 0.000
 	ricochet_count: 0
-	lifetime: 2.000
+	lifetime: 1.500
 	damage_type: punch
-	size: 0.200
-	tracer_length: 0.600
+	size: 0.500
+	tracer_length: 0.000
 	mass: 0.070
+	damp: 0.890
 }
 
 animated.renderer:
@@ -21,9 +23,8 @@ animated.renderer:
 	{
 		texture: atlas.projectile.sg
 		size: [4, 3]
-		frame: [0, 0]
+		frame: [2, 0]
 	}
-	scale: [0.750, 0.750]
 	z: -40.000
 }
 

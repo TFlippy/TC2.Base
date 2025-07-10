@@ -55,8 +55,7 @@ interactable:
 	flags: none
 	priority: 1.800
 	window_size: [216.000, 184.000]
-	window_size_min: [192.000, 144.000]
-	window_size_misc: [0.000, 0.000]
+	window_size_misc: [48.000, 0.000]
 	window_offset: [0.000, 178.000]
 }
 
@@ -80,6 +79,21 @@ controllable:
 // 		flags: allow_ducts, ignore_mass
 // 	}
 // }
+
+storage:
+{
+	@inventory2:
+	{
+		stack_size_multiplier: 2.000
+		type: vehicle
+		flags: standalone, allow_ducts, ignore_mass, vertical
+
+		filter:
+		{
+			exclude: gas
+		}
+	}
+}
 
 +slot.device.00|instance:
 {

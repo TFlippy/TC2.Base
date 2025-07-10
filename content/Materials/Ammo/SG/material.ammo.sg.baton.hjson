@@ -19,7 +19,7 @@
 	{
 		texture: ui_icons_gunsmith.mini
 		size: [16, 16]
-		frame: [1, 0]
+		frame: [15, 0]
 	}
 	
 	type: ammo
@@ -53,11 +53,11 @@
 		velocity_min: 30.000
 		
 		speed_base: 0.000
-		speed_mult: 0.900
-		speed_jitter: 0.020
+		speed_mult: 0.350
+		speed_jitter: 0.030
 		spin_base: 0.010
 		spin_mult: 1.000
-		spread_mult: 0.350
+		spread_mult: 0.030
 		recoil_mult: 1.000
 		
 		failure_base: 0.000
