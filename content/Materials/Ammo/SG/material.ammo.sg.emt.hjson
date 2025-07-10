@@ -1,9 +1,9 @@
 ﻿{
 	$version: "0.1.64.0"
-	name: "SG-20.4mm E-MT"
+	name: "SG-20.4mm/EMT Slug"
 	description:
 		'''
-		TODO: Desc
+		E-MT 20.4mm shotgun slugs.
 		'''
 	
 	tips: []

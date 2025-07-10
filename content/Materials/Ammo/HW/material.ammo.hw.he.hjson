@@ -1,9 +1,9 @@
 ﻿{
-	$version: "0.1.63.8"
+	$version: "0.1.64.0"
 	name: "HW-106.7mm/HE Shell"
 	description:
 		'''
-		HW-caliber 106.7mm ammunition.
+		High-explosive 106.7mm ammunition.
 		'''
 	
 	tips: []

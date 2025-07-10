@@ -1,10 +1,9 @@
 ﻿{
 	$version: "0.1.64.0"
-	name: "SG-20.4mm HV Slug"
+	name: "SG-20.4mm/ST Slug"
 	description:
 		'''
-		Ammunition for shotguns. Fires single heavy projectile
-		with low velocity, which deals a large amount of damage.
+		Standard 20.4mm shotgun slugs.
 		'''
 	
 	tips: []

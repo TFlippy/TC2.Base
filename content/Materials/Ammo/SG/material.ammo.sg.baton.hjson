@@ -1,9 +1,9 @@
 ﻿{
 	$version: "0.1.64.0"
-	name: "SG-20.4mm Baton"
+	name: "SG-20.4mm/BT Slug"
 	description:
 		'''
-		Ammunition for shotguns.
+		Crowd-control 20.4mm shotgun slugs.
 		'''
 	
 	tips: []

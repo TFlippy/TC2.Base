@@ -1,10 +1,10 @@
 ﻿{
-	$version: "0.1.63.8"
+	$version: "0.1.64.0"
 	name: "AR-6.5mm/ST Arrowbolts"
 	name_short: "Arrowbolts"
 	description:
 		'''
-		Deadly wooden sticks capable of flight.
+		Standard 6.5mm-caliber wooden arrowbolts.
 
 		Cleverly designed by ISO to fit both bows' and crossbows' form factor in order to streamline logistics.
 		'''

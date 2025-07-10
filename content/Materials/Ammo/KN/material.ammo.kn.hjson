@@ -1,9 +1,9 @@
 ﻿{
-	$version: "0.1.63.8"
+	$version: "0.1.64.0"
 	name: "KN-51.9mm/LV Shell"
 	description:
 		'''
-		KN-caliber 51.9mm ammunition.
+		Low-velocity explosive 51.9mm ammunition.
 		'''
 	
 	tips: []

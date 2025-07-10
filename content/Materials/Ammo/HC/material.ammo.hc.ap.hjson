@@ -1,9 +1,9 @@
 ﻿{
-	$version: "0.1.63.8"
+	$version: "0.1.64.0"
 	name: "HC-13.2mm/AP Ammo"
 	description:
 		'''
-		High-caliber 13.2mm ammunition.
+		Armor-piercing 13.2mm ammunition.
 		'''
 	
 	tips: []

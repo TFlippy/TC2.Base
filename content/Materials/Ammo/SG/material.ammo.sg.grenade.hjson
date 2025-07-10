@@ -1,9 +1,9 @@
 ﻿{
 	$version: "0.1.64.0"
-	name: "SG-20.4mm Grenade"
+	name: "SG-20.4mm/HE Slug"
 	description:
 		'''
-		Ammunition for shotguns. Fires a small low-powered grenade.
+		High-explosive 20.4mm shotgun slugs.
 		'''
 	
 	tips: []

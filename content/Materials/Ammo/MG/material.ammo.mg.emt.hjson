@@ -1,9 +1,9 @@
 ﻿{
-	$version: "0.1.63.8"
+	$version: "0.1.64.0"
 	name: "MG-20.4mm/EMT Ammo"
 	description:
 		'''
-		MG-caliber 20.4mm ammunition.
+		E-MT 20.4mm ammunition.
 		'''
 	
 	tips: []

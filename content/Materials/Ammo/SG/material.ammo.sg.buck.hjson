@@ -3,8 +3,7 @@
 	name: "SG-20.4mm Buckshot"
 	description:
 		'''
-		Ammunition for shotguns. Fires multiple medium-sized
-		projectiles, very good for general combat.
+		Buckshot 20.4mm shotgun shells.
 		'''
 	
 	tips: []

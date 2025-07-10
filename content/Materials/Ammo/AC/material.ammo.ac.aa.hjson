@@ -1,9 +1,9 @@
 ﻿{
-	$version: "0.1.63.8"
+	$version: "0.1.64.0"
 	name: "AC-33.6mm/AA Ammo"
 	description:
 		'''
-		AC-caliber 33.6mm ammunition.
+		Anti-air 33.6mm ammunition.
 		'''
 	
 	tips: []

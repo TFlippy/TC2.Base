@@ -1,9 +1,9 @@
 ﻿{
-	$version: "0.1.63.8"
+	$version: "0.1.64.0"
 	name: "LC-9.4mm/LV Ammo"
 	description:
 		'''
-		Low-caliber 9.4mm ammunition.
+		Low-velocity 9.4mm ammunition.
 		'''
 	
 	tips: []

@@ -1,9 +1,9 @@
 ﻿{
-	$version: "0.1.63.8"
+	$version: "0.1.64.0"
 	name: "HW-106.7mm/AP Shell"
 	description:
 		'''
-		HW-caliber 106.7mm ammunition.
+		Armor-piercing 106.7mm ammunition.
 		'''
 	
 	tips: []

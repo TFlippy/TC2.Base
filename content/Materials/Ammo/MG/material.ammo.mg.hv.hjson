@@ -1,9 +1,9 @@
 ﻿{
-	$version: "0.1.63.8"
+	$version: "0.1.64.0"
 	name: "MG-20.4mm/HV Ammo"
 	description:
 		'''
-		MG-caliber 20.4mm ammunition.
+		High-velocity 20.4mm ammunition.
 		'''
 	
 	tips: []
