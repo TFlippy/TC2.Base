@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.64.0"
 	name: "Wood"
 	desc:
 		'''
@@ -245,7 +245,7 @@
 	]
 	
 	type: workshop
-	flags: production, wip, no_cancel
+	flags: production, wip
 	tags: simple, raw, heating, processing
 	infrastructure: oven, heater
 	infrastructure_exclude: none

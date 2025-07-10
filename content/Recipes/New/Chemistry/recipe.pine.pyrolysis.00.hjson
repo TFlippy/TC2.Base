@@ -405,7 +405,7 @@
 	]
 	
 	type: workshop
-	flags: production, wip, no_cancel
+	flags: production, wip
 	tags: simple, raw, heating, processing
 	infrastructure: oven, heater
 	infrastructure_exclude: none

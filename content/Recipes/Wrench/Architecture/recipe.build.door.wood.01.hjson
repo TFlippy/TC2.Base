@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.8"
+	$version: "0.1.64.0"
 	name: "Giant Door (Wood)"
 	tips: []
 	
@@ -39,7 +39,7 @@
 	]
 	
 	type: architecture
-	flags: wip
+	flags: no_amount_multiplier, wip, no_cancel
 	tags: construction
 	infrastructure: none
 	infrastructure_exclude: none

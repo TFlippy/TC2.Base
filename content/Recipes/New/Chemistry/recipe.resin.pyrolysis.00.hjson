@@ -1,6 +1,5 @@
 ﻿{
-	$region_id: 0
-	$version: "0.1.63.2"
+	$version: "0.1.64.0"
 	name: "Resin"
 	desc:
 		'''
@@ -301,7 +300,7 @@
 	]
 	
 	type: workshop
-	flags: debug, production, wip, no_cancel
+	flags: debug, production, wip
 	tags: simple, raw, heating, processing
 	infrastructure: oven, heater
 	infrastructure_exclude: none

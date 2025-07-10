@@ -359,7 +359,7 @@
 						{
 							type: resource
 							material: nitrosugar
-							amount: 0.003209
+							amount: 0.013636
 							snapping: 0.100
 							loss: 0.055
 							ratio: 1.000
@@ -368,7 +368,7 @@
 						{
 							type: resource
 							material: alcohol
-							amount: 0.010
+							amount: 0.022
 							snapping: 0.100
 							falloff: 0.970
 							loss: 0.122

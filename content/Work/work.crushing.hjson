@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.8"
+	$version: "0.1.64.0"
 	name: "Crushing"
 	name_short: "Crushing"
 	desc:
@@ -55,10 +55,11 @@
 	sound_size: 0.740
 	sound_dist: 0.760
 	
-	sounds: ["stone_hit_sharp_00", "stone_hit_sharp_01", "stone_hit_sharp_02", "stone_hit_sharp_03"]
+	sounds: ["structural.stone.break.small.00", "structural.stone.break.small.01"]
 	sounds_manual: []
 	sounds_crafter: []
 	sounds_passive: []
+	sounds_ambient: []
 	
 	sounds_start: []
 	sounds_end: []

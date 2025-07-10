@@ -321,6 +321,16 @@
 							flags: conditional
 						}
 					]
+					
+					filter_tools:
+					{
+						include: hammer, crowbar
+					}
+					filter_infrastructure:
+					{
+						require: surface
+						include: hard_surface
+					}
 				}
 			]
 		}

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.64.0"
 	name: "Hatch (Metal)"
 	desc:
 		'''
@@ -43,9 +43,10 @@
 	]
 	
 	type: architecture
-	flags: blueprintable
+	flags: no_amount_multiplier, blueprintable, no_cancel
 	tags: large, metalworking, construction
 	infrastructure: none
+	infrastructure_exclude: none
 	
 	icon:
 	{

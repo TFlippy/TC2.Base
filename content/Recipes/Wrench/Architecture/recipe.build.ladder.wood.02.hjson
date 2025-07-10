@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.5"
+	$version: "0.1.64.0"
 	name: "Ladder (Shoddy)"
 	desc:
 		'''
@@ -31,9 +31,10 @@
 	]
 	
 	type: architecture
-	flags: none
+	flags: no_amount_multiplier, no_cancel
 	tags: construction
 	infrastructure: none
+	infrastructure_exclude: none
 	
 	h_company: common
 	
