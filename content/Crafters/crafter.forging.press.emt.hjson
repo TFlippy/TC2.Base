@@ -23,24 +23,36 @@
 			flags: automated, wip
 			
 			work_multiplier: 40.000
+			switch_cooldown: 1.000
+			
+			h_sound_switch: lever.bell.00
 		}
 		{
 			h_work: hammering
 			flags: automated, wip
 			
 			work_multiplier: 50.000
+			switch_cooldown: 1.000
+			
+			h_sound_switch: lever.bell.00
 		}
 		{
 			h_work: crushing
 			flags: automated, wip
 			
 			work_multiplier: 40.000
+			switch_cooldown: 1.000
+			
+			h_sound_switch: lever.bell.00
 		}
 		{
 			h_work: shattering
 			flags: automated, wip
 			
 			work_multiplier: 40.000
+			switch_cooldown: 1.000
+			
+			h_sound_switch: lever.bell.00
 		}
 	]
 }

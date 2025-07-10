@@ -34,7 +34,7 @@
 						{
 							type: resource
 							material: copper.plate
-							amount: 0.0309
+							amount: 0.010417
 							snapping: 1.000
 							loss: 0.322
 							ratio: 1.000
@@ -54,7 +54,7 @@
 						{
 							type: work
 							work: die.stamping.metal
-							amount: 20.000
+							amount: 15.000
 							difficulty: 6
 							snapping: 10.000
 							ratio: 1.000
@@ -77,9 +77,9 @@
 			
 			type: container
 			flags: part
-			tags: chassis, shell, thin, container, structural, flat, rounded, material
+			tags: shell, thin, container, small, flat, rounded
 			// Damage type used for discarding leftover resources.
-			discard_damage_type: shovel
+			discard_damage_type: wet
 			
 			ratio: 0.000
 			mass_base: 0.000
@@ -97,7 +97,7 @@
 						{
 							type: resource
 							material: paper
-							amount: 0.051522
+							amount: 0.044496
 							snapping: 1.000
 							loss: 0.024
 							ratio: 1.000
@@ -106,7 +106,7 @@
 						{
 							type: resource
 							material: oil
-							amount: 0.039842
+							amount: 0.01847
 							snapping: 0.100
 							falloff: 0.957
 							loss: 0.161
@@ -117,10 +117,11 @@
 							type: work
 							work: soaking
 							amount: 20.000
-							amount_min: 140.000
+							amount_min: 75.000
 							difficulty: 4
 							snapping: 5.000
 							falloff: 0.725
+							ratio: 0.224
 							group: 0
 							flags: simultaneous, conditional
 						}
@@ -128,13 +129,13 @@
 							type: work
 							work: papercraft
 							amount: 22.000
-							amount_min: 150.000
+							amount_min: 300.000
 							difficulty: 8
 							snapping: 5.000
-							falloff: 0.888
-							ratio: 0.702
+							falloff: 0.842
+							ratio: 1.000
 							group: 0
-							flags: simultaneous, conditional
+							flags: stepped, simultaneous, conditional
 						}
 					]
 					
@@ -144,6 +145,143 @@
 					{
 						include: paintbrush, spatula
 					}
+				}
+			]
+		}
+		{
+			name: "Primer"
+			
+			type: component
+			flags: part
+			tags: functional, small, flat, rounded, material, dangerous
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Nitrosugar"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: punch
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: nitrosugar
+							amount: 0.012032
+							snapping: 0.100
+							loss: 0.055
+							ratio: 1.000
+							group: 0
+						}
+						{
+							type: resource
+							material: alcohol
+							amount: 0.030
+							snapping: 0.100
+							falloff: 0.970
+							loss: 0.122
+							ratio: 1.000
+							group: 0
+						}
+						{
+							type: work
+							work: wadding
+							amount: 15.000
+							amount_min: 75.000
+							difficulty: 8
+							snapping: 5.000
+							falloff: 0.813
+							ratio: 1.000
+							group: 0
+							flags: stepped, conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						include: paintbrush, towel, spatula
+					}
+					filter_infrastructure:
+					{
+						include: table, chair
+					}
+				}
+				{
+					name: "Nitroglycerine"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: wet
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: nitroglycerine
+							amount: 0.011196
+							snapping: 0.500
+							loss: 0.122
+							ratio: 1.000
+							group: 0
+						}
+						{
+							type: work
+							work: pouring
+							amount: 18.000
+							amount_min: 220.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.691
+							ratio: 1.000
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						include: bucket, spatula, ladle
+					}
+				}
+				{
+					name: "Himlkarzenus"
+					
+					type: undefined
+					flags: incomplete
+					discard_damage_type_override: sledgehammer
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: himlkarzenus
+							amount: 0.06129
+							snapping: 0.100
+							falloff: 1.088
+							loss: 0.820
+							ratio: 1.000
+							group: 0
+						}
+						{
+							type: work
+							work: cramming.solid
+							amount: 3.000
+							amount_min: 60.000
+							difficulty: 7
+							snapping: 5.000
+							falloff: 1.002
+							ratio: 1.000
+							group: 0
+							flags: stepped, conditional
+						}
+					]
 				}
 			]
 		}
@@ -162,7 +300,7 @@
 			options:
 			[
 				{
-					name: "Gunpowder"
+					name: "Ferroscrap"
 					
 					type: undefined
 					flags: none
@@ -175,7 +313,7 @@
 						{
 							type: resource
 							material: gunpowder
-							amount: 0.026087
+							amount: 0.130435
 							snapping: 0.100
 							loss: 0.067
 							ratio: 0.106
@@ -183,39 +321,37 @@
 						}
 						{
 							type: resource
-							material: scrap.niklajzner
-							amount: 0.015083
+							material: scrap.ferrous
+							amount: 0.023276
 							snapping: 0.100
-							loss: 0.624
+							loss: 0.157
 							ratio: 1.000
 							group: 0
 						}
 						{
 							type: work
 							work: filling.powder
-							amount: 7.000
-							amount_min: 50.000
+							amount: 17.000
+							amount_min: 100.000
 							difficulty: 4
 							snapping: 10.000
-							falloff: 0.972
+							falloff: 0.834
+							ratio: 0.408
 							group: 0
-							flags: stepped, simultaneous, conditional
+							flags: stepped, conditional
 						}
 						{
-							type: work
-							work: hammering
-							amount: 12.000
-							amount_min: 90.000
-							difficulty: 7
-							snapping: 5.000
-							falloff: 0.828
+							type: resource
+							material: glue
+							amount: 0.100
+							snapping: 0.100
+							loss: 0.412
 							ratio: 1.000
-							group: 0
-							flags: stepped, simultaneous, conditional
+							group: 1
 						}
 						{
 							type: work
-							work: crimping.metal
+							work: gluing
 							amount: 11.000
 							amount_min: 50.000
 							difficulty: 5

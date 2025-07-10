@@ -37,7 +37,7 @@ interactable:
 {
 	flags: no_tab
 	priority: 1.000
-	window_size: [658.000, 688.000]
+	window_size: [658.000, 736.000]
 	window_size_misc: [144.000, 0.000]
 }
 
