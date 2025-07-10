@@ -3,7 +3,9 @@
 	name: "SG-20.4mm Buckshot"
 	desc:
 		'''
-		TODO: Desc
+		Buckshot-type 20.4mm shotgun shells.
+
+		Suitable for general-purpose combat, with decent stopping power and effective range.
 		'''
 	tips: []
 	
@@ -34,7 +36,7 @@
 						{
 							type: resource
 							material: copper.plate
-							amount: 0.010417
+							amount: 0.009673
 							snapping: 1.000
 							loss: 0.322
 							ratio: 1.000
@@ -97,7 +99,7 @@
 						{
 							type: resource
 							material: paper
-							amount: 0.044496
+							amount: 0.019204
 							snapping: 1.000
 							loss: 0.024
 							ratio: 1.000
@@ -106,7 +108,7 @@
 						{
 							type: resource
 							material: oil
-							amount: 0.01847
+							amount: 0.016887
 							snapping: 0.100
 							falloff: 0.957
 							loss: 0.161
@@ -129,7 +131,7 @@
 							type: work
 							work: papercraft
 							amount: 22.000
-							amount_min: 300.000
+							amount_min: 110.000
 							difficulty: 8
 							snapping: 5.000
 							falloff: 0.842
@@ -190,18 +192,6 @@
 							ratio: 1.000
 							group: 0
 						}
-						{
-							type: work
-							work: wadding
-							amount: 15.000
-							amount_min: 75.000
-							difficulty: 8
-							snapping: 5.000
-							falloff: 0.813
-							ratio: 1.000
-							group: 0
-							flags: stepped, conditional
-						}
 					]
 					
 					filter_tools:
@@ -231,57 +221,12 @@
 							ratio: 1.000
 							group: 0
 						}
-						{
-							type: work
-							work: pouring
-							amount: 18.000
-							amount_min: 220.000
-							difficulty: 6
-							snapping: 5.000
-							falloff: 0.691
-							ratio: 1.000
-							group: 0
-							flags: conditional
-						}
 					]
 					
 					filter_tools:
 					{
 						include: bucket, spatula, ladle
 					}
-				}
-				{
-					name: "Himlkarzenus"
-					
-					type: undefined
-					flags: incomplete
-					discard_damage_type_override: sledgehammer
-					
-					requirements:
-					[
-						{
-							type: resource
-							material: himlkarzenus
-							amount: 0.06129
-							snapping: 0.100
-							falloff: 1.088
-							loss: 0.820
-							ratio: 1.000
-							group: 0
-						}
-						{
-							type: work
-							work: cramming.solid
-							amount: 3.000
-							amount_min: 60.000
-							difficulty: 7
-							snapping: 5.000
-							falloff: 1.002
-							ratio: 1.000
-							group: 0
-							flags: stepped, conditional
-						}
-					]
 				}
 			]
 		}
@@ -300,11 +245,10 @@
 			options:
 			[
 				{
-					name: "Ferroscrap"
+					name: "Black Powder"
 					
 					type: undefined
 					flags: none
-					discard_damage_type_override: saw
 					
 					priority: 1.000
 					
@@ -313,38 +257,50 @@
 						{
 							type: resource
 							material: gunpowder
-							amount: 0.130435
+							amount: 0.091304
 							snapping: 0.100
 							loss: 0.067
-							ratio: 0.106
+							ratio: 1.000
 							group: 0
 						}
 						{
 							type: resource
-							material: scrap.ferrous
-							amount: 0.023276
+							material: mushroom
+							amount: 0.042672
 							snapping: 0.100
-							loss: 0.157
+							falloff: 0.943
+							loss: 0.212
 							ratio: 1.000
 							group: 0
 						}
 						{
 							type: work
-							work: filling.powder
-							amount: 17.000
-							amount_min: 100.000
-							difficulty: 4
-							snapping: 10.000
-							falloff: 0.834
-							ratio: 0.408
+							work: wadding
+							amount: 16.000
+							amount_min: 75.000
+							difficulty: 8
+							snapping: 5.000
+							falloff: 0.813
+							ratio: 1.000
 							group: 0
 							flags: stepped, conditional
 						}
 						{
 							type: resource
+							material: scrap.steel
+							amount: 0.039663
+							snapping: 1.000
+							falloff: 0.888
+							loss: 0.157
+							ratio: 1.000
+							group: 1
+						}
+						{
+							type: resource
 							material: glue
-							amount: 0.100
+							amount: 0.078
 							snapping: 0.100
+							falloff: 0.962
 							loss: 0.412
 							ratio: 1.000
 							group: 1
@@ -352,11 +308,11 @@
 						{
 							type: work
 							work: gluing
-							amount: 11.000
+							amount: 9.000
 							amount_min: 50.000
-							difficulty: 5
+							difficulty: 8
 							snapping: 5.000
-							falloff: 0.919
+							falloff: 0.945
 							ratio: 1.000
 							group: 1
 							flags: stepped, conditional

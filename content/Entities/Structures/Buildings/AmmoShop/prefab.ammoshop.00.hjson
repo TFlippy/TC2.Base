@@ -112,7 +112,7 @@ shop:
 	environment: workshop, stationary, scary, noisy, durable, sturdy, flammable, factory
 	
 	flags: embed_gui
-	menu_columns: 3
+	menu_columns: 4
 	recipe_type: workshop
 	
 	offset_spawn: [0.000, 0.500]
@@ -127,7 +127,9 @@ workshop:
 	tools: none
 	infrastructure: none
 	environment: none
-
+	
+	gui_info_size_x: 220.000
+	
 	h_sound_order_complete: effect.bell.ring.00
 
 	@inventory8:

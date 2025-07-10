@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.5"
+	$version: "0.1.64.0"
 	name: "Gluing"
 	name_short: "Gluing"
 	desc:
@@ -21,8 +21,8 @@
 	cooldown: 1.100
 	multiplier: 1.100
 	
-	amount_jitter: 0.230
-	cooldown_jitter: 0.165
+	amount_jitter: 0.338
+	cooldown_jitter: 0.215
 	color: "0xffdd4f60"
 	
 	tools_required: none
@@ -66,6 +66,7 @@
 	sounds_manual: []
 	sounds_crafter: []
 	sounds_passive: []
+	sounds_ambient: []
 	
 	sounds_start: []
 	sounds_end: []

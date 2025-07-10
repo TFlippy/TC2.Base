@@ -3,7 +3,7 @@
 	name: "SG-20.4mm Buckshot"
 	description:
 		'''
-		Buckshot 20.4mm shotgun shells.
+		Buckshot-type 20.4mm shotgun shells.
 		'''
 	
 	tips: []
@@ -15,19 +15,12 @@
 		frame: [3, 0]
 	}
 	
-	icon_extra:
-	{
-		texture: ui_icons_gunsmith.mini
-		size: [16, 16]
-		frame: [1, 0]
-	}
-	
 	type: ammo
 	flags: ammo, ammo_sg, granular, small, manufactured, solid
 	display_flags: hide_fraction
 	hints: none
 	
-	mass_per_unit: 0.086
+	mass_per_unit: 0.096
 	
 	quantity_max: 24.000
 	spawn_quantity_threshold: 1.000
@@ -48,7 +41,7 @@
 	ammo:
 	{
 		count: 4
-		mass: 0.080
+		mass: 0.056
 		heat: 50.000
 		velocity_min: 30.000
 		

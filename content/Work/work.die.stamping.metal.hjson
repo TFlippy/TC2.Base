@@ -18,7 +18,7 @@
 	tags: tools, complex, technical, construction, industrial
 	
 	amount_base: 5.000
-	cooldown: 1.000
+	cooldown: 0.900
 	multiplier: 1.000
 	
 	amount_jitter: 0.038

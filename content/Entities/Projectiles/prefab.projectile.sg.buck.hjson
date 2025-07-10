@@ -14,7 +14,7 @@ projectile:
 	ricochet_count: 1
 	tracer_length: 4.000
 	damp: 0.963
-	mass: 0.020
+	mass: 0.014
 }
 
 projectile.renderer:
