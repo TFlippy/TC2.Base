@@ -1,11 +1,10 @@
 ﻿{
-	$region_id: 0
 	$version: "0.1.64.0"
 	name: "Die-Swaging"
 	name_short: "D-Swaging"
 	desc:
 		'''
-		TODO: Desc
+		Die-swaging is a manufacturing process that uses a die to shape metal by applying pressure.
 		'''
 	
 	icon:
@@ -15,8 +14,8 @@
 		frame: [8, 0]
 	}
 	
-	flags: passive
-	tags: machine, automated, technical, construction, industrial, wip
+	flags: machine, crafter_only, time_independent, no_randomization
+	tags: tools, complex, technical, construction, industrial
 	
 	amount_base: 5.000
 	cooldown: 1.500
@@ -55,6 +54,7 @@
 	sounds_manual: []
 	sounds_crafter: []
 	sounds_passive: ["press.smash.00", "press.smash.01", "press.smash.02"]
+	sounds_ambient: []
 	
 	sounds_start: []
 	sounds_end: []

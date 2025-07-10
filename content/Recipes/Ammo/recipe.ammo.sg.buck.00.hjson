@@ -4,7 +4,6 @@
 	desc:
 		'''
 		Buckshot-type 20.4mm shotgun shells.
-
 		Suitable for general-purpose combat, with decent stopping power and effective range.
 		'''
 	tips: []
@@ -25,6 +24,52 @@
 			
 			options:
 			[
+				{
+					name: "Hand-made"
+					
+					type: undefined
+					flags: wip
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: copper.plate
+							amount: 0.00744
+							snapping: 0.500
+							loss: 0.153
+							ratio: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: snipping.metal
+							amount: 66.000
+							amount_min: 150.000
+							difficulty: 9
+							snapping: 5.000
+							falloff: 0.907
+							ratio: 1.000
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: die.swaging.metal
+							amount: 45.000
+							amount_min: 200.000
+							difficulty: 8
+							snapping: 10.000
+							falloff: 0.971
+							ratio: 1.000
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+					]
+					
+					advance_delay: 2.000
+				}
 				{
 					name: "Stamped"
 					
@@ -66,11 +111,6 @@
 					]
 					
 					advance_delay: 2.000
-					
-					filter_tools:
-					{
-						include: paintbrush, spatula
-					}
 				}
 			]
 		}
@@ -145,7 +185,16 @@
 					
 					filter_tools:
 					{
-						include: paintbrush, spatula
+						include: paper, ruler, cutters, tweezers, magnifying_glass, bucket, stapler, knife
+					}
+					filter_infrastructure:
+					{
+						include: table, chair, structure
+					}
+					filter_environment:
+					{
+						include: workshop, office, stationary, clean, cozy, organized
+						exclude: dry
 					}
 				}
 			]
@@ -193,15 +242,6 @@
 							group: 0
 						}
 					]
-					
-					filter_tools:
-					{
-						include: paintbrush, towel, spatula
-					}
-					filter_infrastructure:
-					{
-						include: table, chair
-					}
 				}
 				{
 					name: "Nitroglycerine"
@@ -222,11 +262,6 @@
 							group: 0
 						}
 					]
-					
-					filter_tools:
-					{
-						include: bucket, spatula, ladle
-					}
 				}
 			]
 		}
@@ -332,12 +367,16 @@
 					
 					filter_tools:
 					{
-						require: hammer, pliers
-						include: wrench, pliers, tweezers, bucket, spatula
+						include: paintbrush, file, towel, spatula
 					}
 					filter_infrastructure:
 					{
-						include: table, vise
+						include: table, chair
+					}
+					filter_environment:
+					{
+						include: clean, organized
+						exclude: wet
 					}
 				}
 			]

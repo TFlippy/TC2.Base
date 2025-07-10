@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.64.0"
-	name: "LC-9.4mm"
+	name: "HC-13.2mm"
 	desc:
 		'''
 		TODO: Desc
@@ -37,9 +37,9 @@
 						{
 							type: resource
 							material: copper.plate
-							amount: 0.033371
+							amount: 0.0309
 							snapping: 1.000
-							loss: 0.667
+							loss: 0.416
 							ratio: 1.000
 							group: 0
 							flags: prerequisite
@@ -61,7 +61,7 @@
 							amount: 10.000
 							difficulty: 8
 							snapping: 5.000
-							ratio: 0.573
+							ratio: 1.000
 							group: 0
 							flags: simultaneous, conditional
 						}
@@ -80,24 +80,22 @@
 						{
 							type: work
 							work: die.drawing.metal
-							amount: 17.72152
-							amount_min: 23.000
-							difficulty: 8
+							amount: 42.000
+							difficulty: 9
 							snapping: 10.000
-							falloff: 0.890
-							ratio: 0.722
+							falloff: 0.898
+							ratio: 1.000
 							group: 1
 							flags: conditional
 						}
 						{
 							type: work
 							work: die.stamping.metal
-							amount: 11.000
-							amount_min: 44.000
+							amount: 20.000
 							difficulty: 7
-							snapping: 3.000
-							falloff: 0.983
-							ratio: 0.773
+							snapping: 10.000
+							falloff: 1.015
+							ratio: 1.000
 							group: 1
 							flags: conditional
 						}
@@ -108,8 +106,8 @@
 						{
 							type: resource
 							material: oil
-							amount: 0.04218
-							amount_extra: 0.056237
+							amount: 0.03779
+							amount_extra: 0.054129
 							group: 0
 							flags: byproduct
 						}
@@ -136,9 +134,9 @@
 						{
 							type: resource
 							material: copper.plate
-							amount: 0.015588
+							amount: 0.021131
 							snapping: 0.250
-							loss: 0.518
+							loss: 0.424
 							ratio: 1.000
 							group: 0
 							flags: prerequisite
@@ -160,7 +158,7 @@
 							amount: 10.000
 							difficulty: 8
 							snapping: 5.000
-							ratio: 0.827
+							ratio: 0.824
 							group: 0
 							flags: simultaneous, conditional
 						}
@@ -172,18 +170,17 @@
 							difficulty: 5
 							snapping: 5.000
 							falloff: 0.579
-							ratio: 0.851
+							ratio: 1.000
 							group: 0
 							flags: simultaneous, conditional
 						}
 						{
 							type: work
 							work: die.drawing.metal
-							amount: 11.3175
-							amount_min: 50.000
-							difficulty: 6
+							amount: 30.000
+							difficulty: 7
 							snapping: 25.000
-							falloff: 0.954
+							falloff: 0.917
 							ratio: 0.922
 							group: 1
 							flags: conditional
@@ -191,11 +188,11 @@
 						{
 							type: work
 							work: die.stamping.metal
-							amount: 10.000
+							amount: 20.000
 							difficulty: 6
 							snapping: 10.000
-							falloff: 0.984
-							ratio: 0.973
+							falloff: 0.988
+							ratio: 1.000
 							group: 1
 							flags: conditional
 						}
@@ -226,7 +223,6 @@
 					
 					type: undefined
 					flags: wip
-					discard_damage_type_override: corrosion
 					
 					prefix: "Shiny "
 					priority: 1.000
@@ -236,10 +232,10 @@
 						{
 							type: resource
 							material: copper.plate
-							amount: 0.018192
+							amount: 0.019271
 							snapping: 0.500
-							loss: 0.322
-							ratio: 0.965
+							loss: 0.424
+							ratio: 1.000
 							group: 0
 							flags: prerequisite
 						}
@@ -260,7 +256,7 @@
 							amount: 10.000
 							difficulty: 8
 							snapping: 5.000
-							ratio: 0.671
+							ratio: 0.710
 							group: 0
 							flags: simultaneous, conditional
 						}
@@ -279,23 +275,22 @@
 						{
 							type: work
 							work: die.drawing.metal
-							amount: 6.000
-							amount_min: 40.000
-							difficulty: 5
+							amount: 20.000
+							difficulty: 6
 							snapping: 10.000
-							falloff: 0.967
-							ratio: 0.373
+							falloff: 0.947
+							ratio: 0.471
 							group: 1
 							flags: conditional
 						}
 						{
 							type: work
 							work: die.stamping.metal
-							amount: 9.000
-							difficulty: 4
+							amount: 20.000
+							difficulty: 5
 							snapping: 10.000
-							falloff: 0.977
-							ratio: 0.373
+							falloff: 0.964
+							ratio: 0.455
 							group: 1
 							flags: conditional
 						}
@@ -306,8 +301,8 @@
 						{
 							type: resource
 							material: water.toxic
-							amount: 0.013562
-							amount_extra: 0.009324
+							amount: 0.007662
+							amount_extra: 0.007424
 							group: 0
 							flags: pollutant, waste
 						}
@@ -320,6 +315,142 @@
 						require: towel
 						include: paintbrush, towel
 					}
+				}
+			]
+		}
+		{
+			name: "Primer"
+			
+			type: component
+			flags: part
+			tags: functional, small, flat, rounded, material, dangerous
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Nitrosugar"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: punch
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: nitrosugar
+							amount: 0.003209
+							snapping: 0.100
+							loss: 0.055
+							ratio: 1.000
+							group: 0
+						}
+						{
+							type: resource
+							material: alcohol
+							amount: 0.010
+							snapping: 0.100
+							falloff: 0.970
+							loss: 0.122
+							group: 0
+						}
+						{
+							type: work
+							work: wadding
+							amount: 35.000
+							amount_min: 48.000
+							difficulty: 4
+							snapping: 5.000
+							falloff: 0.838
+							ratio: 1.000
+							group: 0
+							flags: stepped, conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						include: paintbrush, towel, spatula
+					}
+					filter_infrastructure:
+					{
+						include: table, chair
+					}
+				}
+				{
+					name: "Nitroglycerine"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: wet
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: nitroglycerine
+							amount: 0.011196
+							snapping: 0.500
+							loss: 0.122
+							ratio: 1.000
+							group: 0
+						}
+						{
+							type: work
+							work: pouring
+							amount: 18.000
+							amount_min: 220.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.691
+							ratio: 1.000
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						include: bucket, spatula, ladle
+					}
+				}
+				{
+					name: "Himlkarzenus"
+					
+					type: undefined
+					flags: incomplete
+					discard_damage_type_override: sledgehammer
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: himlkarzenus
+							amount: 0.06129
+							snapping: 0.100
+							falloff: 1.088
+							loss: 0.820
+							ratio: 1.000
+							group: 0
+						}
+						{
+							type: work
+							work: cramming.solid
+							amount: 3.000
+							amount_min: 60.000
+							difficulty: 7
+							snapping: 5.000
+							falloff: 1.002
+							ratio: 1.000
+							group: 0
+							flags: stepped, conditional
+						}
+					]
 				}
 			]
 		}
@@ -352,40 +483,52 @@
 						{
 							type: resource
 							material: gunpowder
-							amount: 0.013813
-							snapping: 0.500
-							loss: 0.224
+							amount: 0.026087
+							snapping: 0.100
+							loss: 0.067
 							ratio: 0.106
 							group: 0
 						}
 						{
 							type: resource
-							material: ferrous.gravel
-							amount: 0.012727
+							material: scrap.niklajzner
+							amount: 0.015083
 							snapping: 0.100
-							loss: 0.373
+							loss: 0.624
 							ratio: 1.000
 							group: 0
 						}
 						{
 							type: work
-							work: mixing
-							amount: 8.000
-							amount_min: 80.000
-							difficulty: 6
+							work: filling.powder
+							amount: 7.000
+							amount_min: 50.000
+							difficulty: 4
 							snapping: 10.000
-							falloff: 0.982
+							falloff: 0.972
 							group: 0
-							flags: conditional
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: hammering
+							amount: 12.000
+							amount_min: 90.000
+							difficulty: 7
+							snapping: 5.000
+							falloff: 0.828
+							ratio: 1.000
+							group: 0
+							flags: stepped, simultaneous, conditional
 						}
 						{
 							type: work
 							work: crimping.metal
 							amount: 11.000
-							amount_min: 35.000
-							difficulty: 7
+							amount_min: 50.000
+							difficulty: 5
 							snapping: 5.000
-							falloff: 0.966
+							falloff: 0.919
 							ratio: 1.000
 							group: 1
 							flags: stepped, conditional
@@ -396,7 +539,7 @@
 					[
 						{
 							type: resource
-							material: ammo.lc.lv
+							material: ammo.hc.lv
 							amount: 1.000
 							group: 0
 							flags: primary, compact
@@ -425,7 +568,7 @@
 	
 	icon:
 	{
-		texture: resource.ammo.lc.lv
+		texture: resource.ammo.hc.lv
 		count: 4
 		size: [16, 16]
 		frame: [3, 0]
@@ -434,9 +577,9 @@
 	
 	icon_extra:
 	{
+		texture: ui_icons_gunsmith.mini
 		size: [16, 16]
 	}
-	icon_extra_offset: [3.000, -7.000]
 	
 	color_frame: "0xffcf392b"
 	color_button: "0xff9dd80f"
