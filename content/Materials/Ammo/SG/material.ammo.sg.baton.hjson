@@ -1,17 +1,16 @@
 ﻿{
-	$version: "0.1.63.8"
-	name: "SG-20.4mm LV Slug"
+	$version: "0.1.64.0"
+	name: "SG-20.4mm Baton"
 	description:
 		'''
-		Ammunition for shotguns. Fires single heavy projectile
-		with low velocity, which deals a large amount of damage.
+		Ammunition for shotguns.
 		'''
 	
 	tips: []
 	
 	icon:
 	{
-		texture: resource.ammo.sg.slug.lv
+		texture: resource.ammo.sg.baton
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -20,6 +19,7 @@
 	{
 		texture: ui_icons_gunsmith.mini
 		size: [16, 16]
+		frame: [1, 0]
 	}
 	
 	type: ammo
@@ -27,14 +27,14 @@
 	display_flags: hide_fraction
 	hints: none
 	
-	mass_per_unit: 0.100
+	mass_per_unit: 0.095
 	
 	quantity_max: 24.000
 	spawn_quantity_threshold: 1.000
 	snapping: 1.000
 	snapping_pickup: 1.000
 	
-	prefab: resource.ammo.sg.slug.lv
+	prefab: resource.ammo.sg.baton
 	h_substance: "null"
 	
 	color_icon: "0xffffffff"
@@ -50,23 +50,23 @@
 		count: 1
 		mass: 0.070
 		heat: 50.000
-		velocity_min: 50.000
+		velocity_min: 30.000
 		
 		speed_base: 0.000
-		speed_mult: 0.450
+		speed_mult: 0.900
 		speed_jitter: 0.020
-		spin_base: 0.020
+		spin_base: 0.010
 		spin_mult: 1.000
-		spread_mult: 0.500
-		recoil_mult: 1.300
+		spread_mult: 0.350
+		recoil_mult: 1.000
 		
 		failure_base: 0.000
-		failure_mult: 0.850
+		failure_mult: 0.700
 		
-		stability_base: 380.000
+		stability_base: 150.000
 		stability_mult: 1.000
 		
-		prefab: projectile.sg.slug.lv
+		prefab: projectile.sg.baton
 		
 		sprite_casing:
 		{

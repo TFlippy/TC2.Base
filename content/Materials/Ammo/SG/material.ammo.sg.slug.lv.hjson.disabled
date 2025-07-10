@@ -1,6 +1,6 @@
 ﻿{
-	$version: "0.1.63.8"
-	name: "SG-20.4mm HV Slug"
+	$version: "0.1.64.0"
+	name: "SG-20.4mm Slug"
 	description:
 		'''
 		Ammunition for shotguns. Fires single heavy projectile
@@ -11,7 +11,7 @@
 	
 	icon:
 	{
-		texture: resource.ammo.sg.slug.hv
+		texture: resource.ammo.sg.slug.lv
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -20,7 +20,6 @@
 	{
 		texture: ui_icons_gunsmith.mini
 		size: [16, 16]
-		frame: [1, 0]
 	}
 	
 	type: ammo
@@ -28,14 +27,14 @@
 	display_flags: hide_fraction
 	hints: none
 	
-	mass_per_unit: 0.120
+	mass_per_unit: 0.105
 	
 	quantity_max: 24.000
 	spawn_quantity_threshold: 1.000
 	snapping: 1.000
 	snapping_pickup: 1.000
 	
-	prefab: resource.ammo.sg.slug.hv
+	prefab: resource.ammo.sg.slug.lv
 	h_substance: "null"
 	
 	color_icon: "0xffffffff"
@@ -49,25 +48,25 @@
 	ammo:
 	{
 		count: 1
-		mass: 0.070
+		mass: 0.090
 		heat: 50.000
 		velocity_min: 50.000
 		
 		speed_base: 0.000
-		speed_mult: 0.850
+		speed_mult: 0.450
 		speed_jitter: 0.020
-		spin_base: 0.010
+		spin_base: 0.020
 		spin_mult: 1.000
-		spread_mult: 0.350
-		recoil_mult: 1.000
+		spread_mult: 0.500
+		recoil_mult: 1.300
 		
 		failure_base: 0.000
-		failure_mult: 0.700
+		failure_mult: 0.850
 		
-		stability_base: 550.000
+		stability_base: 380.000
 		stability_mult: 1.000
 		
-		prefab: projectile.sg.slug.hv
+		prefab: projectile.sg.slug.lv
 		
 		sprite_casing:
 		{

@@ -1,16 +1,17 @@
 ﻿{
 	$version: "0.1.64.0"
-	name: "SG-20.4mm Crapshot"
+	name: "SG-20.4mm Buckshot"
 	description:
 		'''
-		TODO: Desc
+		Ammunition for shotguns. Fires multiple medium-sized
+		projectiles, very good for general combat.
 		'''
 	
 	tips: []
 	
 	icon:
 	{
-		texture: resource.ammo.sg.crap
+		texture: resource.ammo.sg.buck.lv
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -19,7 +20,6 @@
 	{
 		texture: ui_icons_gunsmith.mini
 		size: [16, 16]
-		frame: [5, 0]
 	}
 	
 	type: ammo
@@ -27,14 +27,14 @@
 	display_flags: hide_fraction
 	hints: none
 	
-	mass_per_unit: 0.066
+	mass_per_unit: 0.086
 	
 	quantity_max: 24.000
 	spawn_quantity_threshold: 1.000
 	snapping: 1.000
 	snapping_pickup: 1.000
 	
-	prefab: resource.ammo.sg.crap
+	prefab: resource.ammo.sg.buck.lv
 	h_substance: "null"
 	
 	color_icon: "0xffffffff"
@@ -47,33 +47,33 @@
 	
 	ammo:
 	{
-		count: 8
-		mass: 0.061
+		count: 4
+		mass: 0.080
 		heat: 50.000
-		velocity_min: 20.000
+		velocity_min: 30.000
 		
 		speed_base: 0.000
-		speed_mult: 0.900
-		speed_jitter: 0.600
-		spin_base: 0.070
-		spin_mult: 1.600
-		spread_mult: 2.750
-		recoil_mult: 0.900
+		speed_mult: 0.650
+		speed_jitter: 0.240
+		spin_base: 0.020
+		spin_mult: 1.000
+		spread_mult: 1.400
+		recoil_mult: 1.400
 		
 		failure_base: 0.000
 		failure_mult: 1.000
 		
-		stability_base: 250.000
-		stability_mult: 1.100
+		stability_base: 410.000
+		stability_mult: 1.000
 		
-		prefab: projectile.sg.crap
+		prefab: projectile.sg.buck.lv
 		
 		sprite_casing:
 		{
 			texture: atlas.ammo.casings.00
 			mask: missing
 			size: [8, 8]
-			frame: [11, 0]
+			frame: [13, 0]
 		}
 	}
 }

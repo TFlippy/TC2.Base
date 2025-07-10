@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.4"
+	$version: "0.1.64.0"
 	name: "LC-9.4mm"
 	desc:
 		'''
@@ -39,7 +39,7 @@
 							material: copper.plate
 							amount: 0.033371
 							snapping: 1.000
-							loss: 0.668
+							loss: 0.667
 							ratio: 1.000
 							group: 0
 							flags: prerequisite
@@ -160,7 +160,7 @@
 							amount: 10.000
 							difficulty: 8
 							snapping: 5.000
-							ratio: 0.831
+							ratio: 0.827
 							group: 0
 							flags: simultaneous, conditional
 						}
@@ -443,7 +443,7 @@
 	rank: -55.800
 	
 	min: 10
-	max: 100
+	max: 200
 	step: 10
 	
 	version: 1

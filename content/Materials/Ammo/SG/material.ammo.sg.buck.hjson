@@ -1,6 +1,6 @@
 ﻿{
-	$version: "0.1.63.8"
-	name: "SG-20.4mm/HV Buckshot"
+	$version: "0.1.64.0"
+	name: "SG-20.4mm Buckshot"
 	description:
 		'''
 		Ammunition for shotguns. Fires multiple medium-sized
@@ -11,7 +11,7 @@
 	
 	icon:
 	{
-		texture: resource.ammo.sg.buck.hv
+		texture: resource.ammo.sg.buck
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -28,14 +28,14 @@
 	display_flags: hide_fraction
 	hints: none
 	
-	mass_per_unit: 0.100
+	mass_per_unit: 0.086
 	
 	quantity_max: 24.000
 	spawn_quantity_threshold: 1.000
 	snapping: 1.000
 	snapping_pickup: 1.000
 	
-	prefab: resource.ammo.sg.buck.hv
+	prefab: resource.ammo.sg.buck
 	h_substance: "null"
 	
 	color_icon: "0xffffffff"
@@ -49,7 +49,7 @@
 	ammo:
 	{
 		count: 4
-		mass: 0.050
+		mass: 0.080
 		heat: 50.000
 		velocity_min: 30.000
 		
@@ -67,7 +67,7 @@
 		stability_base: 550.000
 		stability_mult: 1.000
 		
-		prefab: projectile.sg.buck.hv
+		prefab: projectile.sg.buck
 		
 		sprite_casing:
 		{

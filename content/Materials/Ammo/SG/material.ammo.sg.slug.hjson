@@ -1,18 +1,17 @@
 ﻿{
-	$version: "0.1.63.8"
-	name: "SG-20.4mm/LV Buckshot"
+	$version: "0.1.64.0"
+	name: "SG-20.4mm HV Slug"
 	description:
 		'''
-		Ammunition for shotguns. Fires multiple medium-sized
-		projectiles, very good for general combat.
-		Gunpowder is weaker, but cheap.
+		Ammunition for shotguns. Fires single heavy projectile
+		with low velocity, which deals a large amount of damage.
 		'''
 	
 	tips: []
 	
 	icon:
 	{
-		texture: resource.ammo.sg.buck.lv
+		texture: resource.ammo.sg.slug
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -21,6 +20,7 @@
 	{
 		texture: ui_icons_gunsmith.mini
 		size: [16, 16]
+		frame: [1, 0]
 	}
 	
 	type: ammo
@@ -28,14 +28,14 @@
 	display_flags: hide_fraction
 	hints: none
 	
-	mass_per_unit: 0.090
+	mass_per_unit: 0.105
 	
 	quantity_max: 24.000
 	spawn_quantity_threshold: 1.000
 	snapping: 1.000
 	snapping_pickup: 1.000
 	
-	prefab: resource.ammo.sg.buck.lv
+	prefab: resource.ammo.sg.slug
 	h_substance: "null"
 	
 	color_icon: "0xffffffff"
@@ -48,33 +48,33 @@
 	
 	ammo:
 	{
-		count: 4
-		mass: 0.050
+		count: 1
+		mass: 0.090
 		heat: 50.000
-		velocity_min: 30.000
+		velocity_min: 50.000
 		
 		speed_base: 0.000
-		speed_mult: 0.650
-		speed_jitter: 0.240
-		spin_base: 0.020
+		speed_mult: 0.850
+		speed_jitter: 0.020
+		spin_base: 0.010
 		spin_mult: 1.000
-		spread_mult: 1.400
-		recoil_mult: 1.400
+		spread_mult: 0.350
+		recoil_mult: 1.000
 		
 		failure_base: 0.000
-		failure_mult: 1.000
+		failure_mult: 0.700
 		
-		stability_base: 410.000
+		stability_base: 550.000
 		stability_mult: 1.000
 		
-		prefab: projectile.sg.buck.lv
+		prefab: projectile.sg.slug
 		
 		sprite_casing:
 		{
 			texture: atlas.ammo.casings.00
 			mask: missing
 			size: [8, 8]
-			frame: [13, 0]
+			frame: [12, 0]
 		}
 	}
 }

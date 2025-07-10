@@ -1769,12 +1769,13 @@ namespace TC2.Base.Components
 							(
 								damage_mult: gun.damage_multiplier * random_multiplier,
 								vel: vel_base + vel,
-								ang_vel: random.NextFloatRange(-0.05f, 0.05f) * (angle_jitter + ammo.spin_base) * ammo.spin_mult * random_multiplier,
+								ang_vel: random.NextFloat(-0.08f) * (angle_jitter + ammo.spin_base) * ammo.spin_mult * random_multiplier,
 								ent_owner: ent_owner,
 								ent_gun: entity,
-								faction_id: h_faction,
+								h_faction: h_faction,
 								gun_flags: gun.flags,
-								drag_jitter: random.NextFloatExtra(1.00f, -ammo.speed_jitter * 0.04f * step_current).Clamp01()
+								drag_jitter: random.NextFloatExtra(1.00f, -ammo.speed_jitter * 0.04f * step_current).Clamp01(),
+								random: XorRandom.New() // random.NextUInt(),  //XorRandom.New(vel.GetProduct().ToUInt32BitCast(), random_multiplier.ToUInt32BitCast(), random)
 							);
 
 							if (gun.type == Gun.Type.Launcher)
@@ -1794,9 +1795,10 @@ namespace TC2.Base.Components
 										projectile.velocity = args.vel;
 										projectile.angular_velocity = args.ang_vel;
 										projectile.ent_owner = args.ent_owner;
-										projectile.faction_id = args.faction_id;
+										projectile.faction_id = args.h_faction;
 										projectile.damp *= args.drag_jitter;
-										projectile.random = XorRandom.New(args.vel.X.ToUInt32BitCast(), args.vel.Y.ToUInt32BitCast());
+										projectile.random = args.random;
+										//projectile.random = XorRandom.New(args.ToUInt32BitCast(), args.vel.Y.ToUInt32BitCast());
 										projectile.Sync(rec_projectile, true);
 									}
 

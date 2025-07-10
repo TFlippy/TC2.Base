@@ -158,7 +158,7 @@
 							amount: 10.000
 							difficulty: 8
 							snapping: 5.000
-							ratio: 0.827
+							ratio: 0.824
 							group: 0
 							flags: simultaneous, conditional
 						}
@@ -586,7 +586,7 @@
 	rank: -55.800
 	
 	min: 10
-	max: 100
+	max: 200
 	step: 10
 	
 	version: 1

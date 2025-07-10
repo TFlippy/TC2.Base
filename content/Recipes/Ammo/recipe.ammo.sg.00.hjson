@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.64.0"
-	name: "SG-20.4mm"
+	name: "SG-20.4mm Buckshot"
 	desc:
 		'''
 		TODO: Desc
@@ -10,11 +10,11 @@
 	stages:
 	[
 		{
-			name: "Casing"
+			name: "Base"
 			
-			type: container
+			type: part
 			flags: part
-			tags: chassis, shell, thin, metal, container, structural, flat, rounded, material
+			tags: thin, metal, structural, small, flat, rounded, material
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: shovel
 			
@@ -24,13 +24,10 @@
 			options:
 			[
 				{
-					name: "Greasy"
+					name: "Stamped"
 					
 					type: undefined
 					flags: wip
-					
-					prefix: "Greasy "
-					priority: 1.000
 					
 					requirements:
 					[
@@ -39,18 +36,7 @@
 							material: copper.plate
 							amount: 0.0309
 							snapping: 1.000
-							loss: 0.416
-							ratio: 1.000
-							group: 0
-							flags: prerequisite
-						}
-						{
-							type: resource
-							material: tallow
-							amount: 0.25087
-							snapping: 0.100
-							falloff: 0.939
-							loss: 0.212
+							loss: 0.322
 							ratio: 1.000
 							group: 0
 							flags: prerequisite
@@ -63,53 +49,17 @@
 							snapping: 5.000
 							ratio: 1.000
 							group: 0
-							flags: simultaneous, conditional
-						}
-						{
-							type: work
-							work: smearing
-							amount: 31.000
-							amount_min: 150.000
-							difficulty: 6
-							snapping: 5.000
-							falloff: 0.725
-							ratio: 0.816
-							group: 0
-							flags: simultaneous, conditional
-						}
-						{
-							type: work
-							work: die.drawing.metal
-							amount: 42.000
-							difficulty: 9
-							snapping: 10.000
-							falloff: 0.898
-							ratio: 1.000
-							group: 1
-							flags: conditional
+							flags: stepped, conditional
 						}
 						{
 							type: work
 							work: die.stamping.metal
 							amount: 20.000
-							difficulty: 7
+							difficulty: 6
 							snapping: 10.000
-							falloff: 1.015
 							ratio: 1.000
-							group: 1
-							flags: conditional
-						}
-					]
-					
-					products:
-					[
-						{
-							type: resource
-							material: oil
-							amount: 0.03779
-							amount_extra: 0.054129
 							group: 0
-							flags: byproduct
+							flags: stepped, conditional
 						}
 					]
 					
@@ -120,212 +70,16 @@
 						include: paintbrush, spatula
 					}
 				}
-				{
-					name: "Oiled"
-					
-					type: undefined
-					flags: wip
-					
-					prefix: "Oily "
-					priority: 1.000
-					
-					requirements:
-					[
-						{
-							type: resource
-							material: copper.plate
-							amount: 0.021131
-							snapping: 0.250
-							loss: 0.424
-							ratio: 1.000
-							group: 0
-							flags: prerequisite
-						}
-						{
-							type: resource
-							material: oil
-							amount: 0.06095
-							snapping: 0.100
-							falloff: 0.954
-							loss: 0.110
-							ratio: 1.000
-							group: 0
-							flags: prerequisite
-						}
-						{
-							type: work
-							work: die.cutting.metal
-							amount: 10.000
-							difficulty: 8
-							snapping: 5.000
-							ratio: 0.824
-							group: 0
-							flags: simultaneous, conditional
-						}
-						{
-							type: work
-							work: polishing.oil
-							amount: 54.000
-							amount_min: 100.000
-							difficulty: 5
-							snapping: 5.000
-							falloff: 0.579
-							ratio: 1.000
-							group: 0
-							flags: simultaneous, conditional
-						}
-						{
-							type: work
-							work: die.drawing.metal
-							amount: 30.000
-							difficulty: 7
-							snapping: 25.000
-							falloff: 0.917
-							ratio: 0.922
-							group: 1
-							flags: conditional
-						}
-						{
-							type: work
-							work: die.stamping.metal
-							amount: 20.000
-							difficulty: 6
-							snapping: 10.000
-							falloff: 0.988
-							ratio: 1.000
-							group: 1
-							flags: conditional
-						}
-					]
-					
-					products:
-					[
-						{
-							type: resource
-							material: oil
-							amount: 0.035737
-							amount_extra: 0.012811
-							group: 0
-							flags: residue
-						}
-					]
-					
-					advance_delay: 2.000
-					
-					filter_tools:
-					{
-						require: towel
-						include: paintbrush, towel
-					}
-				}
-				{
-					name: "Lubricated"
-					
-					type: undefined
-					flags: wip
-					
-					prefix: "Shiny "
-					priority: 1.000
-					
-					requirements:
-					[
-						{
-							type: resource
-							material: copper.plate
-							amount: 0.019271
-							snapping: 0.500
-							loss: 0.424
-							ratio: 1.000
-							group: 0
-							flags: prerequisite
-						}
-						{
-							type: resource
-							material: lubricant
-							amount: 0.538
-							snapping: 0.100
-							falloff: 0.344
-							loss: 0.075
-							ratio: 1.000
-							group: 0
-							flags: prerequisite
-						}
-						{
-							type: work
-							work: die.cutting.metal
-							amount: 10.000
-							difficulty: 8
-							snapping: 5.000
-							ratio: 0.710
-							group: 0
-							flags: simultaneous, conditional
-						}
-						{
-							type: work
-							work: polishing.oil
-							amount: 42.000
-							amount_min: 90.000
-							difficulty: 3
-							snapping: 5.000
-							falloff: 0.554
-							ratio: 0.722
-							group: 0
-							flags: simultaneous, conditional
-						}
-						{
-							type: work
-							work: die.drawing.metal
-							amount: 20.000
-							difficulty: 6
-							snapping: 10.000
-							falloff: 0.947
-							ratio: 0.471
-							group: 1
-							flags: conditional
-						}
-						{
-							type: work
-							work: die.stamping.metal
-							amount: 20.000
-							difficulty: 5
-							snapping: 10.000
-							falloff: 0.964
-							ratio: 0.455
-							group: 1
-							flags: conditional
-						}
-					]
-					
-					products:
-					[
-						{
-							type: resource
-							material: water.toxic
-							amount: 0.007662
-							amount_extra: 0.007424
-							group: 0
-							flags: pollutant, waste
-						}
-					]
-					
-					advance_delay: 2.000
-					
-					filter_tools:
-					{
-						require: towel
-						include: paintbrush, towel
-					}
-				}
 			]
 		}
 		{
-			name: "Primer"
+			name: "Shell"
 			
-			type: component
+			type: container
 			flags: part
-			tags: functional, small, flat, rounded, material, dangerous
+			tags: chassis, shell, thin, container, structural, flat, rounded, material
 			// Damage type used for discarding leftover resources.
-			discard_damage_type: none
+			discard_damage_type: shovel
 			
 			ratio: 0.000
 			mass_base: 0.000
@@ -333,124 +87,63 @@
 			options:
 			[
 				{
-					name: "Nitrosugar"
+					name: "Oiled Paper"
 					
 					type: undefined
-					flags: none
-					discard_damage_type_override: punch
+					flags: wip
 					
 					requirements:
 					[
 						{
 							type: resource
-							material: nitrosugar
-							amount: 0.003209
-							snapping: 0.100
-							loss: 0.055
+							material: paper
+							amount: 0.051522
+							snapping: 1.000
+							loss: 0.024
 							ratio: 1.000
 							group: 0
 						}
 						{
 							type: resource
-							material: alcohol
-							amount: 0.010
+							material: oil
+							amount: 0.039842
 							snapping: 0.100
-							falloff: 0.970
-							loss: 0.122
+							falloff: 0.957
+							loss: 0.161
+							ratio: 1.000
 							group: 0
 						}
 						{
 							type: work
-							work: wadding
-							amount: 35.000
-							amount_min: 48.000
+							work: soaking
+							amount: 20.000
+							amount_min: 140.000
 							difficulty: 4
 							snapping: 5.000
-							falloff: 0.838
-							ratio: 1.000
+							falloff: 0.725
 							group: 0
-							flags: stepped, conditional
-						}
-					]
-					
-					filter_tools:
-					{
-						include: paintbrush, towel, spatula
-					}
-					filter_infrastructure:
-					{
-						include: table, chair
-					}
-				}
-				{
-					name: "Nitroglycerine"
-					
-					type: undefined
-					flags: none
-					discard_damage_type_override: wet
-					
-					requirements:
-					[
-						{
-							type: resource
-							material: nitroglycerine
-							amount: 0.011196
-							snapping: 0.500
-							loss: 0.122
-							ratio: 1.000
-							group: 0
+							flags: simultaneous, conditional
 						}
 						{
 							type: work
-							work: pouring
-							amount: 18.000
-							amount_min: 220.000
-							difficulty: 6
+							work: papercraft
+							amount: 22.000
+							amount_min: 150.000
+							difficulty: 8
 							snapping: 5.000
-							falloff: 0.691
-							ratio: 1.000
+							falloff: 0.888
+							ratio: 0.702
 							group: 0
-							flags: conditional
+							flags: simultaneous, conditional
 						}
 					]
+					
+					advance_delay: 2.000
 					
 					filter_tools:
 					{
-						include: bucket, spatula, ladle
+						include: paintbrush, spatula
 					}
-				}
-				{
-					name: "Himlkarzenus"
-					
-					type: undefined
-					flags: incomplete
-					discard_damage_type_override: sledgehammer
-					
-					requirements:
-					[
-						{
-							type: resource
-							material: himlkarzenus
-							amount: 0.06129
-							snapping: 0.100
-							falloff: 1.088
-							loss: 0.820
-							ratio: 1.000
-							group: 0
-						}
-						{
-							type: work
-							work: cramming.solid
-							amount: 3.000
-							amount_min: 60.000
-							difficulty: 7
-							snapping: 5.000
-							falloff: 1.002
-							ratio: 1.000
-							group: 0
-							flags: stepped, conditional
-						}
-					]
 				}
 			]
 		}
@@ -475,7 +168,6 @@
 					flags: none
 					discard_damage_type_override: saw
 					
-					suffix: "/LV (Gunpowder)"
 					priority: 1.000
 					
 					requirements:
@@ -539,7 +231,7 @@
 					[
 						{
 							type: resource
-							material: ammo.sg.buck.lv
+							material: ammo.sg.buck
 							amount: 1.000
 							group: 0
 							flags: primary, compact
@@ -561,19 +253,19 @@
 	]
 	
 	type: workshop
-	flags: debug, production, manufacturing, wip
+	flags: production, manufacturing, wip
 	tags: manual, small, munitions, delicate, assembling, industrial, metalworking, military, dangerous
 	infrastructure: table, chair, surface, stamping_press, workbench
 	infrastructure_exclude: none
 	
 	icon:
 	{
-		texture: resource.ammo.sg.bird
+		texture: resource.ammo.sg.buck
 		count: 4
 		size: [16, 16]
 		frame: [3, 0]
 	}
-	icon_offset: [0.000, -3.000]
+	icon_offset: [-2.000, -1.000]
 	
 	icon_extra:
 	{
@@ -585,9 +277,9 @@
 	color_button: "0xff9dd80f"
 	rank: -55.800
 	
-	min: 10
-	max: 100
-	step: 10
+	min: 8
+	max: 200
+	step: 8
 	
 	version: 1
 }

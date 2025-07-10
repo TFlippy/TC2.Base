@@ -2,7 +2,7 @@ $tags: []
 
 body:
 {
-	fall_damage_multiplier: 13.000
+	fall_damage_multiplier: 25.000
 
 	@shape.circle:
 	{
@@ -13,7 +13,7 @@ body:
 		elasticity: 0.500
 		layer: entity, solid, resource, ignore_melee, ignore_bullet, flammable
 		mask: world
-		material: wax
+		material: ammo
 	}
 }
 
@@ -21,7 +21,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.ammo.sg.buck.hv"
+		texture: "resource.ammo.sg.slug"
 		count: 4
 		size: [16, 16]
 	}
@@ -34,7 +34,7 @@ transform:
 
 resource:
 {
-	material: "ammo.sg.buck.hv"
+	material: "ammo.sg.slug"
 }
 
 holdable:

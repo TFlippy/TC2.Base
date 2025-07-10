@@ -10,6 +10,7 @@ projectile:
 	size: 0.300
 	ricochet_count: 0
 	tracer_length: 4.000
+	mass: 0.020
 }
 
 projectile.renderer:

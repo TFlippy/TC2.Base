@@ -2,7 +2,7 @@ $tags: []
 
 body:
 {
-	fall_damage_multiplier: 25.000
+	fall_damage_multiplier: 10.000
 
 	@shape.circle:
 	{
@@ -21,7 +21,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.ammo.sg.slug.hv"
+		texture: "resource.ammo.sg.baton"
 		count: 4
 		size: [16, 16]
 	}
@@ -34,7 +34,7 @@ transform:
 
 resource:
 {
-	material: "ammo.sg.slug.hv"
+	material: "ammo.sg.baton"
 }
 
 holdable:

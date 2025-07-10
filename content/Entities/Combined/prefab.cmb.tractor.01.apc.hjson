@@ -27,7 +27,7 @@ $prefab: "tractor.01"
 						quantity: 1000.000
 					}
 					{
-						material: "ammo.sg.buck.hv"
+						material: "ammo.sg.buck"
 						quantity: 200.000
 					}
 				]

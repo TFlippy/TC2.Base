@@ -37,7 +37,7 @@ interactable:
 {
 	flags: no_tab
 	priority: 1.000
-	window_size: [706.000, 576.000]
+	window_size: [658.000, 688.000]
 	window_size_misc: [144.000, 0.000]
 }
 
@@ -175,10 +175,10 @@ personnel:
 
 heat:
 {
-	temperature_medium: 450.000
-	temperature_high: 650.000
-	temperature_operating: 698.150
-	temperature_breakdown: 800.000
+	temperature_medium: 550.000
+	temperature_high: 750.000
+	temperature_operating: 798.150
+	temperature_breakdown: 900.000
 	cool_rate: 8.000
 	heat_capacity_extra: 80.000
 	heat_capacity_mult: 3.000

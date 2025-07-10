@@ -8,7 +8,7 @@ projectile:
 	lifetime: 5.000
 	damage_type: sledgehammer
 	knockback_multiplier: 600.000
-	stun_multiplier: 1.500
+	stun_multiplier: 2.000
 	size: 0.025
 	gravity: 1.500
 	ricochet_count: 5
