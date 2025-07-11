@@ -11,7 +11,7 @@
 	[
 		{
 			type: resource
-			material: smirglum.ingot
+			material: smirglum.plate
 			amount: 3.000
 			group: 0
 			flags: prerequisite

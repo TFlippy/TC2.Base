@@ -607,18 +607,17 @@ namespace TC2.Base.Components
 				Allow_Edit_Frequency = 1 << 2
 			}
 
-			[IComponent.Data(Net.SendType.Reliable, IComponent.Scope.Region)]
-			public partial struct Data(): IComponent
+			[ITrait.Data(Net.SendType.Unreliable, IComponent.Scope.Region)]
+			public partial struct Data(): ITrait
 			{
+				[Net.Segment.A, Editor.Picker.Position(relative: true)] public required Vec2f offset;
+				[Net.Segment.A, Editor.Picker.Direction(normalize: true)] public required Vec2f direction = Vec2f.Down;
+
 				public Essence.Emitter.Type type;
 				public Essence.Emitter.Flags flags;
 
 				public float frequency;
 
-				[Editor.Slider.Clamped(-float.Tau, +float.Tau, float.Pi / 16.00f)]
-				public float rotation;
-				[Editor.Picker.Position(true)]
-				public Vec2f offset;
 
 				public float rate_speed = 0.10f;
 				public float rate_max;

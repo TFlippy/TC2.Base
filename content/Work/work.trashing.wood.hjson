@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.8"
+	$version: "0.1.64.0"
 	name: "Trashing (Wood)"
 	name_short: "Trashing"
 	desc:
@@ -17,7 +17,7 @@
 	flags: none
 	tags: manual, crude, leisure
 	
-	amount_base: 0.000
+	amount_base: 3.000
 	cooldown: 0.840
 	multiplier: 0.610
 	
@@ -64,6 +64,7 @@
 	sounds_manual: []
 	sounds_crafter: []
 	sounds_passive: []
+	sounds_ambient: []
 	
 	sounds_start: []
 	sounds_end: ["kobold.bleh.00"]

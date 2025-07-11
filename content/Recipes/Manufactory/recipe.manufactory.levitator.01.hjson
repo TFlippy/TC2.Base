@@ -19,7 +19,7 @@
 		}
 		{
 			type: resource
-			material: smirglum.ingot
+			material: smirglum.plate
 			amount: 25.000
 			group: 0
 		}

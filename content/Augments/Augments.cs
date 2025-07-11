@@ -486,13 +486,13 @@ namespace TC2.Base
 					}
 
 					amount = MathF.Ceiling(amount);
-					context.requirements_new.Merge(Crafting.Requirement.Resource("smirglum.ingot", amount).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
+					context.requirements_new.Merge(Crafting.Requirement.Resource("smirglum.plate", amount).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 					context.requirements_new.Merge(Crafting.Requirement.Resource("mushroom.green", 20.00f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 
 					ref var body = ref context.GetComponent<Body.Data>();
 					if (!body.IsNull())
 					{
-						ref var material = ref IMaterial.Database.GetData("smirglum.ingot");
+						ref var material = ref IMaterial.Database.GetData("smirglum.plate");
 						if (material.IsNotNull())
 						{
 							context.mass_new += amount * material.mass_per_unit;
@@ -3236,7 +3236,7 @@ namespace TC2.Base
 						//armor.protection 
 					}
 
-					var h_material = new IMaterial.Handle("smirglum.ingot");
+					var h_material = new IMaterial.Handle("smirglum.plate");
 
 					ref var material = ref h_material.GetData();
 					if (material.IsNotNull())
@@ -3524,7 +3524,7 @@ namespace TC2.Base
 						//armor.protection 
 					}
 
-					var h_material = new IMaterial.Handle("smirglum.ingot");
+					var h_material = new IMaterial.Handle("smirglum.plate");
 
 					ref var material = ref h_material.GetData();
 					if (material.IsNotNull())

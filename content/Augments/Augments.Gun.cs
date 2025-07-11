@@ -3504,7 +3504,7 @@ namespace TC2.Base
 						}
 
 						context.requirements_new.Merge(Crafting.Requirement.Resource("pellet.motion", pellet_count).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact), ref mass_added);
-						context.requirements_new.Merge(Crafting.Requirement.Resource("smirglum.ingot", smirglum_count).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact), ref mass_added);
+						context.requirements_new.Merge(Crafting.Requirement.Resource("smirglum.plate", smirglum_count).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact), ref mass_added);
 						context.requirements_new.Merge(Crafting.Requirement.Resource("phlogiston", Maths.SnapCeil(smirglum_count * 0.25f, 0.50f)).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 						context.requirements_new.Merge(Crafting.Requirement.Work("assembling", 150.00f * smirglum_count * (type + pellet_count) * 0.25f, (byte)(10 + ((type + pellet_count).Pow2()))));
 
@@ -3675,7 +3675,7 @@ namespace TC2.Base
 						}
 
 						context.requirements_new.Merge(Crafting.Requirement.Resource("pellet.motion", pellet_count).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact), ref mass_added);
-						context.requirements_new.Merge(Crafting.Requirement.Resource("smirglum.ingot", smirglum_count).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact), ref mass_added);
+						context.requirements_new.Merge(Crafting.Requirement.Resource("smirglum.plate", smirglum_count).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact), ref mass_added);
 						context.requirements_new.Merge(Crafting.Requirement.Resource("phlogiston", Maths.SnapCeil(smirglum_count * 0.25f, 0.50f)).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 						context.requirements_new.Merge(Crafting.Requirement.Work("assembling", 150.00f * smirglum_count * (type + pellet_count) * 0.25f, (byte)(10 + ((type + pellet_count).Pow2()))));
 

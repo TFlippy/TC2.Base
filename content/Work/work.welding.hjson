@@ -17,10 +17,11 @@
 	flags: none
 	tags: manual, machine, tools, technical, chemical, construction, industrial, dangerous, wip
 	
-	amount_base: 0.000
+	amount_base: 5.000
 	cooldown: 1.000
 	multiplier: 1.000
 	
+	amount_jitter: 0.643
 	color: "0xffff6200"
 	
 	tools_required: none
@@ -46,15 +47,16 @@
 	
 	}
 	
-	sound_volume: 0.500
-	sound_pitch: 1.000
-	sound_size: 0.500
-	sound_dist: 1.000
+	sound_volume: 0.710
+	sound_pitch: 1.150
+	sound_size: 0.750
+	sound_dist: 0.910
 	
 	sounds: ["effect.sizzle.small.00", "effect.crackle.fuse.01", "effect.sizzle.sparky.00", "effect.sizzle.low.00", "effect.sizzle.fry.00"]
 	sounds_manual: []
 	sounds_crafter: []
 	sounds_passive: []
+	sounds_ambient: []
 	
 	sounds_start: []
 	sounds_end: []

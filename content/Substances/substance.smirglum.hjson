@@ -88,7 +88,7 @@
 	form_to_material:
 	{
 		powder: smirglum.powder
-		ingot: smirglum.ingot
+		ingot: smirglum.plate
 		chunk: smirglum
 		gravel: smirglum.gravel
 		raw: smirglum

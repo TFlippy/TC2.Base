@@ -95,10 +95,10 @@ crafter:
 	
 	spawn_offset: [1.000, -0.375]
 
-	@inventory4:
+	@inventory8:
 	{		
 		type: workshop
-		flags: standalone, allow_ducts, ignore_mass, no_auto_pickup
+		flags: standalone, allow_ducts, ignore_mass, no_auto_pickup, vertical
 		stack_size_multiplier: 1.000
 		
 		filter:
@@ -109,7 +109,7 @@ crafter:
 		offset: [0.000, -0.375]
 	}
 
-	@inventory2:
+	@inventory4:
 	{
 		type: waste
 		flags: standalone, allow_ducts, ignore_mass, no_auto_pickup, vertical

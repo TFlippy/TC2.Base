@@ -126,12 +126,12 @@ namespace TC2.Base
 					}
 
 					var amount = 2.00f;
-					context.requirements_new.Merge(Crafting.Requirement.Resource("smirglum.ingot", amount).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
+					context.requirements_new.Merge(Crafting.Requirement.Resource("smirglum.plate", amount).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 
 					ref var body = ref context.GetComponent<Body.Data>();
 					if (!body.IsNull())
 					{
-						ref var material = ref IMaterial.Database.GetData("smirglum.ingot");
+						ref var material = ref IMaterial.Database.GetData("smirglum.plate");
 						if (material.IsNotNull())
 						{
 							body.mass_multiplier *= 1.10f;

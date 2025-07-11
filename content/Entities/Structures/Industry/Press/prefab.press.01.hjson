@@ -1,9 +1,7 @@
-$name: "E-MT Forging Press"
+$name: "E-MT Impulse Press"
 $desc:
 	'''
-	Small forging press utilizing hydraulics and E-MT actuators with a built-in E-TH preheater.
-
-	Used for shaping and forming metal, as well as sintering of low-temperature alloy powders.
+	Small E-MT impulse press designed for small-scale metalworking, low-temperature forging and sintering of metal powders.
 	'''
 $tags: []
 
@@ -129,8 +127,8 @@ shop:
 
 press:
 {
-	slider_offset: [0.000, -1.000]
-	slider_length: 0.500
+	slider_offset: [-0.250, -0.875]
+	slider_length: 0.750
 	speed: 2.200
 	load_multiplier: 1.000
 	
@@ -147,12 +145,21 @@ press:
 
 	@light:
 	{
-		color: [1.000, 0.400, 0.000, 2.000]
-		offset: [0.000, 1.250]
-		scale: [12.000, 3.000]
+		color: [2.000, 0.800, 0.533, 4.000]
+		offset: [-0.125, 1.000]
+		scale: [3.000, 15.000]
 		intensity: 0.000
-		texture: "light.box.00"
+		texture: light.box.01
 	}
+
+	// @light:
+	// {
+	// 	color: [1.000, 0.400, 0.000, 2.000]
+	// 	offset: [0.000, 1.250]
+	// 	scale: [12.000, 3.000]
+	// 	intensity: 0.000
+	// 	texture: "light.box.00"
+	// }
 }
 
 press.state:

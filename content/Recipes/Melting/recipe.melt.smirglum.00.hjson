@@ -129,7 +129,7 @@
 					[
 						{
 							type: resource
-							material: smirglum.ingot
+							material: smirglum.plate
 							amount: 0.065789
 							snapping: 1.000
 							group: 0

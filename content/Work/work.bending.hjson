@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.8"
+	$version: "0.1.64.0"
 	name: "Bending"
 	name_short: "Bending"
 	desc:
@@ -55,8 +55,9 @@
 	
 	sounds: ["effect.spring.machine.00", "effect.spring.machine.01", "effect.spring.machine.02"]
 	sounds_manual: []
-	sounds_crafter: []
+	sounds_crafter: ["conveyor.move.04"]
 	sounds_passive: []
+	sounds_ambient: []
 	
 	sounds_start: ["effect.clang.metal.00"]
 	sounds_end: ["effect.spring.erupt.00"]

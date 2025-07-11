@@ -1,6 +1,5 @@
 ﻿{
-	$region_id: 0
-	$version: "0.1.63.1"
+	$version: "0.1.64.0"
 	name: "Pyrolysis"
 	name_short: "Pyrolysis"
 	desc:
@@ -16,14 +15,14 @@
 	}
 	
 	flags: passive, ambient
-	tags: ambient, simple, passive, dangerous
+	tags: simple, industrial, dangerous
 	
 	amount_base: 1.000
 	cooldown: 3.000
 	multiplier: 10.000
 	
-	amount_jitter: 0.073
-	cooldown_jitter: 0.118
+	amount_jitter: 0.553
+	cooldown_jitter: 0.178
 	color: "0xff685f7b"
 	
 	tools_required: none
@@ -56,6 +55,7 @@
 	sounds_manual: []
 	sounds_crafter: []
 	sounds_passive: []
+	sounds_ambient: []
 	
 	sounds_start: []
 	sounds_end: []

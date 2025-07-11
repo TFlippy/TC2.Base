@@ -1,0 +1,84 @@
+$tags: []
+
+body:
+{
+	@shape.line:
+	{
+		a: [-0.125, 0.000]
+		b: [0.0625, 0.000]
+		
+		offset: [0.000, 0.050]
+		
+		mass: 1.000
+		radius: 0.925
+		friction: 0.550
+		elasticity: 0.450
+		
+		material: metal_sheet
+		
+		layer: entity, solid, resource, conductive, ignore_melee, ignore_bullet, magnetic
+		mask: world, essence
+	}
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "resource.smirglum.plate"
+		count: 4
+		size: [16, 16]
+	}
+	z: -70.000
+}
+
+transform:
+{
+
+}
+
+resource:
+{
+	material: "smirglum.plate"
+}
+
+holdable:
+{
+	offset: [-0.500, 0.500]
+	force_multiplier: 3.000
+	stress_multiplier: 0.600
+	flags: disable_parent_facing, disable_rotation, disable_control, full_rotate
+}
+
+norotate:
+{
+	speed: 2.000
+	multiplier: 0.500
+	mass_multiplier: 15.000
+	attached_multiplier: 0.300
+	flags: no_share
+}
+
+health:
+{
+	max: 278000.000
+}
+
+breakable:
+{
+	flags: splittable
+}
+
+despawn:
+{
+	sleep_count_max: 50
+	flags: no_despawn
+	
+	interval: 7.000
+	interval_extra: 14.000
+	threshold_delete: 0.000
+	threshold_despawning: 0.500
+
+	amount_ratio: 0.000
+	amount_ratio_extra: 0.000
+}

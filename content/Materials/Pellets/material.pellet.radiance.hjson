@@ -2,7 +2,7 @@
 	$version: "0.1.64.0"
 	name: "E-RD Pellets"
 	name_short: "E-RD Pellets"
-	name_imperial: "Radianz-Arkpelet"
+	name_imperial: "Radiant-Arkpelet"
 	description:
 		'''
 		Small arcanite pellets that can be infused with essences.

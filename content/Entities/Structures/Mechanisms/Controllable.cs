@@ -174,7 +174,7 @@
 
 								using (var group_row = GUI.Group.New(size: new Vector2(GUI.RmX, 40)))
 								{
-									if (GUI.DrawButton("LMB", size: new Vector2((GUI.RmX * 0.50f) - (picker_size.X * 0.50f), 40), color: GUI.col_button_yellow, keys: GUI.ButtonKeys.Left | GUI.ButtonKeys.Right))
+									if (GUI.DrawButton("LMB"u8, size: new Vector2((GUI.RmX * 0.50f) - (picker_size.X * 0.50f), 40), color: GUI.col_button_yellow, keys: GUI.ButtonKeys.Left | GUI.ButtonKeys.Right))
 									{
 										rpc.mouse.GetRefOrDefault().AddFlag(Mouse.Key.Left);
 										dirty = true;
@@ -183,7 +183,7 @@
 									GUI.SameLine();
 
 									var w_pos_target_tmp = w_pos_target;
-									if (GUI.Picker("mouse_pos", "Position", picker_size, ref w_pos_target_tmp, new Vector2(-4000, -4000), new Vector2(4000, 4000), sensitivity: 0.10f, absolute: true))
+									if (GUI.Picker("mouse_pos"u8, "Position"u8, picker_size, ref w_pos_target_tmp, new Vector2(-4000, -4000), new Vector2(4000, 4000), sensitivity: 0.10f, absolute: true))
 									{
 										rpc.mouse_position = w_pos_target_tmp.SnapFloor(0.125f);
 										dirty = true;
@@ -191,7 +191,7 @@
 
 									GUI.SameLine();
 
-									if (GUI.DrawButton("RMB", size: new Vector2(GUI.RmX, 40), color: GUI.col_button_yellow, keys: GUI.ButtonKeys.Left | GUI.ButtonKeys.Right))
+									if (GUI.DrawButton("RMB"u8, size: new Vector2(GUI.RmX, 40), color: GUI.col_button_yellow, keys: GUI.ButtonKeys.Left | GUI.ButtonKeys.Right))
 									{
 										rpc.mouse.GetRefOrDefault().AddFlag(Mouse.Key.Right);
 										dirty = true;

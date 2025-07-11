@@ -55,7 +55,7 @@
 					}
 
 					var total_amount = 3.00f + (ingot_amount * 0.30f);
-					context.requirements_new.Merge(Crafting.Requirement.Resource("smirglum.ingot", total_amount).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
+					context.requirements_new.Merge(Crafting.Requirement.Resource("smirglum.plate", total_amount).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 
 					data.max += total_amount * 1000.00f;
 
@@ -69,7 +69,7 @@
 					ref var body = ref context.GetComponent<Body.Data>();
 					if (!body.IsNull())
 					{
-						ref var material = ref IMaterial.Database.GetData("smirglum.ingot");
+						ref var material = ref IMaterial.Database.GetData("smirglum.plate");
 						if (material.IsNotNull())
 						{
 							context.mass_new += total_amount * material.mass_per_unit * 0.70f;
@@ -142,7 +142,7 @@
 
 				apply_1: static (ref Augment.Context context, ref Armor.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					context.requirements_new.Merge(Crafting.Requirement.Resource("smirglum.ingot", 0.50f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
+					context.requirements_new.Merge(Crafting.Requirement.Resource("smirglum.plate", 0.50f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 				}
 			));
 		}

@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.64.0"
-	name: "Forging Press"
-	name_short: "Forging Press"
+	name: "Impulse Press"
+	name_short: "Imp. Press"
 	desc:
 		'''
 		TODO: Desc
@@ -12,6 +12,7 @@
 		texture: press.01
 		size: [24, 40]
 	}
+	color: "0xffaeb59a"
 	
 	flags: wip
 	tags: none
@@ -47,6 +48,15 @@
 		}
 		{
 			h_work: shattering
+			flags: automated, wip
+			
+			work_multiplier: 40.000
+			switch_cooldown: 1.000
+			
+			h_sound_switch: lever.bell.00
+		}
+		{
+			h_work: bending
 			flags: automated, wip
 			
 			work_multiplier: 40.000
