@@ -22,7 +22,19 @@ namespace TC2.Base.Components
 		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Gyrochronatom.Data gyrochronatom,
 		[Source.Owned] in Control.Data control)
 		{
+			ref var relay = ref entity.GetComponent<Analog.Relay.Data>();
+			if (relay.IsNotNull())
+			{
+				if (info.Tick % 20 == 0)
+				{
+					relay.signal_input[Signal.Channel.Red] += 1.00f;
 
+#if SERVER
+					//relay.signal_input[Signal.Channel.Red] += 1.00f;
+					//relay.Modified(entity, true);
+#endif
+				}
+			}
 		}
 
 #if CLIENT
