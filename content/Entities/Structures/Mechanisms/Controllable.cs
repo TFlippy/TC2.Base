@@ -2,7 +2,7 @@
 {
 	public static partial class Controllable
 	{
-		[IComponent.Data(Net.SendType.Reliable, region_only: true)]
+		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region | IComponent.Scope.Global)]
 		public partial struct Data(): IComponent
 		{
 			[Flags]
@@ -10,10 +10,22 @@
 			{
 				None = 0u,
 
-				Mouse_Orthogonal = 1u << 0
+				No_GUI = 1u << 0,
+				Show_Misc = 1u << 1,
+
+				Disable_Mouse_Properties = 1u << 3,
+				Disable_Mouse_LMB = 1u << 4,
+				Disable_Mouse_RMB = 1u << 5,
+				Disable_Mouse_Pos = 1u << 6,
+				Disable_Keyboard = 1u << 7,
+
+				Hide_Cursor = 1u << 8,
+
+				Mouse_Orthogonal = 1u << 15,
 			}
 
 			[Asset.Ignore] public Vector2 target_pos;
+			public Vec2f gui_size = new Vec2f(48 * 3, 0);
 
 			public float speed = 5.00f;
 			public float speed_max = 15.00f;
@@ -34,8 +46,8 @@
 		//		[Source.Owned] ref Joint.Base joint_base)
 		//		{
 
-//		}
-//#endif
+		//		}
+		//#endif
 
 #if SERVER
 		// ensures target position isn't [0, 0] when spawned
@@ -130,7 +142,7 @@
 
 			public void Draw()
 			{
-				using (var window = GUI.Window.Interaction("Control"u8, this.ent_controllable, no_mouse_close: true))
+				using (var window = GUI.Window.InteractionMisc("Control"u8, entity: this.ent_controllable, size: this.controllable.gui_size, no_mouse_close: true, show_misc: this.controllable.flags.HasAny(Data.Flags.Show_Misc)))
 				{
 					this.StoreCurrentWindowTypeID(order: -100);
 					if (window.show)
@@ -138,11 +150,11 @@
 						ref var player = ref Client.GetPlayer();
 						ref var region = ref this.ent_controllable.GetRegion();
 
-						using (GUI.Group.New(size: new Vector2(GUI.RmX, GUI.RmY)))
+						using (var group = GUI.Group.New(size: GUI.Rm)) // new Vector2(GUI.RmX, GUI.RmY)))
 						{
-							using (var group = GUI.Group.New(size: new Vector2(GUI.RmX, GUI.RmY), padding: new Vector2(8, 8)))
+							//using (var group = GUI.Group.New(size: new Vector2(GUI.RmX, GUI.RmY), padding: new Vector2(8, 8)))
 							{
-								GUI.DrawBackground(GUI.tex_frame, group.GetOuterRect(), new(8));
+								//GUI.DrawBackground(GUI.tex_frame, group.GetOuterRect(), new(8));
 
 								var dirty = false;
 
@@ -172,53 +184,79 @@
 
 								var picker_size = new Vector2(64, 64);
 
-								using (var group_row = GUI.Group.New(size: new Vector2(GUI.RmX, 40)))
+								if (!this.controllable.flags.HasAll(Data.Flags.Disable_Mouse_Pos | Data.Flags.Disable_Mouse_LMB | Data.Flags.Disable_Mouse_RMB))
 								{
-									if (GUI.DrawButton("LMB"u8, size: new Vector2((GUI.RmX * 0.50f) - (picker_size.X * 0.50f), 40), color: GUI.col_button_yellow, keys: GUI.ButtonKeys.Left | GUI.ButtonKeys.Right))
+									using (var group_row = GUI.Group.New(size: new Vector2(GUI.RmX, 40)))
 									{
-										rpc.mouse.GetRefOrDefault().AddFlag(Mouse.Key.Left);
-										dirty = true;
+										var sameline = false;
+
+										if (this.controllable.flags.HasNone(Data.Flags.Disable_Mouse_LMB))
+										{
+											//new Vector2((GUI.RmX * 0.50f) - (picker_size.X * 0.50f), 48)
+											var button_size = GUI.Rm.ToVec2f();
+											if (this.controllable.flags.HasNone(Data.Flags.Disable_Mouse_RMB)) button_size.x *= 0.50f;
+											if (this.controllable.flags.HasNone(Data.Flags.Disable_Mouse_Pos)) button_size.x -= picker_size.X;
+
+											if (GUI.DrawButton("LMB"u8, size: button_size, color: GUI.col_button_yellow, keys: GUI.ButtonKeys.Left | GUI.ButtonKeys.Right))
+											{
+												rpc.mouse.GetRefOrDefault().AddFlag(Mouse.Key.Left);
+												dirty = true;
+											}
+
+											sameline = true;
+										}
+
+
+										if (this.controllable.flags.HasNone(Data.Flags.Disable_Mouse_Pos))
+										{
+											if (sameline.TryReset()) GUI.SameLine();
+
+											var w_pos_target_tmp = w_pos_target;
+											if (GUI.Picker("mouse_pos"u8, "Position"u8, picker_size, ref w_pos_target_tmp, new Vector2(-4000, -4000), new Vector2(4000, 4000), sensitivity: 0.10f, absolute: true))
+											{
+												rpc.mouse_position = w_pos_target_tmp.SnapFloor(0.125f);
+												dirty = true;
+											}
+
+											sameline = true;
+										}
+
+										if (this.controllable.flags.HasNone(Data.Flags.Disable_Mouse_RMB))
+										{
+											if (sameline.TryReset()) GUI.SameLine();
+
+											if (GUI.DrawButton("RMB"u8, size: new Vector2(GUI.RmX, 40), color: GUI.col_button_yellow, keys: GUI.ButtonKeys.Left | GUI.ButtonKeys.Right))
+											{
+												rpc.mouse.GetRefOrDefault().AddFlag(Mouse.Key.Right);
+												dirty = true;
+											}
+										}
 									}
 
-									GUI.SameLine();
-
-									var w_pos_target_tmp = w_pos_target;
-									if (GUI.Picker("mouse_pos"u8, "Position"u8, picker_size, ref w_pos_target_tmp, new Vector2(-4000, -4000), new Vector2(4000, 4000), sensitivity: 0.10f, absolute: true))
-									{
-										rpc.mouse_position = w_pos_target_tmp.SnapFloor(0.125f);
-										dirty = true;
-									}
-
-									GUI.SameLine();
-
-									if (GUI.DrawButton("RMB"u8, size: new Vector2(GUI.RmX, 40), color: GUI.col_button_yellow, keys: GUI.ButtonKeys.Left | GUI.ButtonKeys.Right))
-									{
-										rpc.mouse.GetRefOrDefault().AddFlag(Mouse.Key.Right);
-										dirty = true;
-									}
+									//GUI.SeparatorThick();
 								}
 
-								GUI.SeparatorThick();
-
-								using (var group_row = GUI.Group.New(size: new Vector2(GUI.RmX, 48)))
+								if (this.controllable.flags.HasNone(Data.Flags.Disable_Mouse_Properties))
 								{
-									if (GUI.Checkbox("Orthogonal"u8, this.controllable.flags, ref rpc.flags, Controllable.Data.Flags.Mouse_Orthogonal, size: new(0, 24)))
+									using (var group_row = GUI.Group.New(size: new Vector2(GUI.RmX, 48)))
 									{
-										dirty = true;
-									}
+										if (GUI.Checkbox("Orthogonal"u8, this.controllable.flags, ref rpc.flags, Controllable.Data.Flags.Mouse_Orthogonal, size: new(0, 24)))
+										{
+											dirty = true;
+										}
 
-									if (GUI.SliderFloat("Radius"u8, in this.controllable.radius, ref rpc.radius, 0.00f, this.controllable.radius_max, size: new(GUI.RmX, 24), snap: 0.500f))
-									{
-										rpc.mouse_position = w_pos_target.ClampRadius(this.transform.position, rpc.radius.Value);
-										dirty = true;
-									}
+										if (GUI.SliderFloat("Radius"u8, in this.controllable.radius, ref rpc.radius, 0.00f, this.controllable.radius_max, size: new(GUI.RmX, 24), snap: 0.500f))
+										{
+											rpc.mouse_position = w_pos_target.ClampRadius(this.transform.position, rpc.radius.Value);
+											dirty = true;
+										}
 
-									if (GUI.SliderFloat("Speed"u8, in this.controllable.speed, ref rpc.speed, 0.00f, this.controllable.speed_max, size: new(GUI.RmX, 24), snap: 0.100f))
-									{
-										dirty = true;
+										if (GUI.SliderFloat("Speed"u8, in this.controllable.speed, ref rpc.speed, 0.00f, this.controllable.speed_max, size: new(GUI.RmX, 24), snap: 0.100f))
+										{
+											dirty = true;
+										}
 									}
 								}
-
 
 								//if 
 
@@ -227,23 +265,26 @@
 									rpc.Send(this.ent_controllable);
 								}
 
-								GUI.DrawCircle(region.WorldToCanvas(this.transform.GetInterpolatedPosition()), this.controllable.radius * region.GetWorldToCanvasScale(), thickness: 2.00f, segments: 64, color: Color32BGRA.Orange.WithAlpha(50));
-
-								var delta = w_pos_mouse - w_pos_target;
-								if (this.controllable.flags.HasAny(Data.Flags.Mouse_Orthogonal))
+								if (!this.controllable.flags.HasAll(Data.Flags.Hide_Cursor | Data.Flags.Disable_Mouse_Pos))
 								{
-									var dir = delta.GetNormalized(out var dist);
-									GUI.DrawLine(c_pos_mouse, c_pos_target, color: GUI.col_button_yellow.WithAlpha(100), thickness: 4.00f);
-								}
-								else
-								{
-									var dir = delta.GetNormalized(out var dist);
-									GUI.DrawLine(c_pos_mouse, c_pos_target, color: GUI.col_button_yellow.WithAlpha(100), thickness: 4.00f);
-								}
+									GUI.DrawCircle(region.WorldToCanvas(this.transform.GetInterpolatedPosition()), this.controllable.radius * region.GetWorldToCanvasScale(), thickness: 2.00f, segments: 64, color: Color32BGRA.Orange.WithAlpha(50));
 
-								//GUI.DrawLine()
-								GUI.DrawRectFilled(region.WorldToCanvas(AABB.Centered(this.controllable.target_pos, new Vector2(0.250f))), Color32BGRA.Orange);
-								GUI.DrawRectFilled(region.WorldToCanvas(AABB.Centered(this.control.mouse.position, new Vector2(0.125f))), Color32BGRA.Green);
+									var delta = w_pos_mouse - w_pos_target;
+									if (this.controllable.flags.HasAny(Data.Flags.Mouse_Orthogonal))
+									{
+										var dir = delta.GetNormalized(out var dist);
+										GUI.DrawLine(c_pos_mouse, c_pos_target, color: GUI.col_button_yellow.WithAlpha(100), thickness: 4.00f);
+									}
+									else
+									{
+										var dir = delta.GetNormalized(out var dist);
+										GUI.DrawLine(c_pos_mouse, c_pos_target, color: GUI.col_button_yellow.WithAlpha(100), thickness: 4.00f);
+									}
+
+									//GUI.DrawLine()
+									GUI.DrawRectFilled(region.WorldToCanvas(AABB.Centered(this.controllable.target_pos, new Vector2(0.250f))), Color32BGRA.Orange);
+									GUI.DrawRectFilled(region.WorldToCanvas(AABB.Centered(this.control.mouse.position, new Vector2(0.125f))), Color32BGRA.Green);
+								}
 							}
 						}
 					}
@@ -252,11 +293,11 @@
 		}
 
 		[ISystem.EarlyGUI(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void OnGUI(Entity entity, 
+		public static void OnGUI(Entity entity,
 		[Source.Owned] in Control.Data control, [Source.Owned] in Transform.Data transform,
 		[Source.Owned] in Controllable.Data controllable, [Source.Owned] in Interactable.Data interactable)
 		{
-			if (interactable.IsActive())
+			if (controllable.flags.HasNone(Data.Flags.No_GUI) && interactable.IsActive())
 			{
 				var gui = new ControllableGUI()
 				{

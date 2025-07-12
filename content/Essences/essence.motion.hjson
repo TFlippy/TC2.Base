@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.8"
+	$version: "0.1.64.0"
 	name: "Motion"
 	desc:
 		'''
@@ -27,12 +27,12 @@
 	sound_emit_cycler_loop: levitator.loop.01
 	sound_emit_oscillator_loop: levitator.loop.00
 	sound_emit_ambient_loop: arcane_attractor.loop.01
-	sound_emit_projector_loop: missing
+	sound_emit_projector_loop: levitator.loop.00
 	
 	sound_collapse: essence.drain.zap.01
 	sound_zap: essence.drain.zap.01
 	sound_blast: essence.blast.00
-	sound_impulse: essence.drain.zap.00
+	sound_impulse: rivet_gun.shoot.01
 	sound_impact: gun.accelerator.arcane.02
 	sound_shatter: missing
 	

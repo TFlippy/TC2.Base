@@ -122,7 +122,7 @@ shop:
 	
 	offset_spawn: [0.125, 0.875]
 	
-	name: "E-MT Forging Press"
+	name: "E-MT Impulse Press"
 }
 
 press:
@@ -131,6 +131,7 @@ press:
 	slider_length: 0.750
 	speed: 2.200
 	load_multiplier: 1.000
+
 	
 	// @animated.renderer:
 	// {
@@ -278,7 +279,19 @@ piston:
 {
 	offset: [-0.250, -0.875]
 	length: 0.750
+	mass: 50.000
+	damping: 0.920
 	cylinder_volume: 0.200
+
+	@essence.emitter:
+	{
+		offset: [-0.250, -1.625]
+		direction: [0.000, 1.000]
+		type: pulser
+		h_essence: motion
+		h_sound_emit: rivet_gun.shoot.01
+		h_soundmix_test: press.01.emit
+	}
 
 	@animated.renderer:
 	{
@@ -388,8 +401,9 @@ control:
 
 controllable:
 {
-	speed: 7.200
+	gui_size: [96.000, 0.000]
+	speed: 7.100
 	radius: 1.500
 	radius_max: 2.000
-	flags: mouse_orthogonal
+	flags: show_misc, disable_mouse_properties, disable_mouse_rmb, disable_mouse_pos, disable_keyboard, hide_cursor, mouse_orthogonal
 }

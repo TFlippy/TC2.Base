@@ -602,9 +602,14 @@ namespace TC2.Base.Components
 			{
 				None = 0,
 
-				Show_GUI = 1 << 0,
-				Allow_Edit_Rate = 1 << 1,
-				Allow_Edit_Frequency = 1 << 2
+				Charging = 1 << 0,
+				Pulsed = 1 << 1,
+
+				Enable_Pulse_Event = 1 << 8,
+
+				//Show_GUI = 1 << 0,
+				//Allow_Edit_Rate = 1 << 1,
+				//Allow_Edit_Frequency = 1 << 2
 			}
 
 			[ITrait.Data(Net.SendType.Unreliable, IComponent.Scope.Region)]
@@ -613,17 +618,56 @@ namespace TC2.Base.Components
 				[Net.Segment.A, Editor.Picker.Position(relative: true)] public required Vec2f offset;
 				[Net.Segment.A, Editor.Picker.Direction(normalize: true)] public required Vec2f direction = Vec2f.Down;
 
-				public Essence.Emitter.Type type;
-				public Essence.Emitter.Flags flags;
+				[Net.Segment.A] public required Essence.Emitter.Type type;
+				[Net.Segment.A] private byte unused_a_00;
+				[Net.Segment.A] public Essence.Emitter.Flags flags;
+				[Net.Segment.A] private uint unused_a_01;
 
-				public float frequency;
+				[Net.Segment.B] public IEssence.Handle h_essence;
+				[Net.Segment.B] public Sound.Handle h_sound_emit;
+				[Net.Segment.B] public Sound.Handle h_sound_discharge;
+				[Net.Segment.B] public ISoundMix.Handle h_soundmix_test;
+
+				[Net.Segment.C, Asset.Ignore] public float current_charge;
+				[Net.Segment.C, Asset.Ignore] public float current_impulse;
+				[Net.Segment.C, Asset.Ignore] public float current_rate;
+				[Net.Segment.C, Asset.Ignore] private float unused_c_00;
 
 
-				public float rate_speed = 0.10f;
-				public float rate_max;
-				public float rate_target;
-				[Asset.Ignore] public float rate_current;
+
+
+				//public float frequency;
+
+
+				//public float rate_speed = 0.10f;
+				//public float rate_max;
+				//public float rate_target;
+				//[Asset.Ignore] public float rate_current;
 			}
+		}
+
+		[IEvent.Data]
+		public partial struct PulseEvent(): IEvent
+		{
+			public required IEssence.Handle h_essence;
+			public required Essence.Emitter.Type emitter_type;
+
+			public required float amount;
+
+			public required Vec2f pos;
+			public required Vec2f dir;
+			
+
+
+		}
+
+		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
+		public static void OnUpdate(ISystem.Info info, ref XorRandom random,
+		IComponent.Handle<Essence.Emitter.Data> h_essence_emitter, Entity ent_essence_emitter,
+		[Source.Owned] in Transform.Data transform,
+		[Source.Owned, Pair.Wildcard] ref Essence.Emitter.Data essence_emitter)
+		{
+			
 		}
 
 		//public interface IPowered: IComponent

@@ -8,17 +8,21 @@
 			None = 0,
 
 			Active = 1 << 0, // Piston is currently active and moving
+			Idle = 1 << 1, // Piston is idle and not moving
+			Extended = 1 << 2, // Piston is fully extended
+			Impacted = 1 << 3, // Piston has impacted
 		}
 
 		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region)]
 		public partial struct Data(): IComponent
 		{
-			[Net.Segment.A, Editor.Picker.Position(relative: true)] public required Vec2f offset;
-			[Net.Segment.A, Editor.Picker.Direction(normalize: true)] public required Vec2f direction = Vec2f.Down;
+			[Net.Segment.A, Save.Force, Editor.Picker.Position(relative: true)] public required Vec2f offset;
+			[Net.Segment.A, Save.Force, Editor.Picker.Direction(normalize: true)] public required Vec2f direction = Vec2f.Down;
 
-			[Net.Segment.A] public required float length;
-			//public float damping;
-			[Net.Segment.A] public Volume cylinder_volume;
+			[Net.Segment.A, Save.Force] public required float length = 1.00f;
+			[Net.Segment.A, Save.Force] public required Mass mass = 50.00f;
+			[Net.Segment.A, Save.Force] public float damping = 0.92f;
+			[Net.Segment.A, Save.Force] public Volume cylinder_volume;
 			//public Sound.Handle h_sound;
 
 			[Net.Segment.C, Asset.Ignore] public float current_distance;
@@ -28,7 +32,7 @@
 			[Net.Segment.D, Asset.Ignore] public Pressure current_pressure;
 		}
 
-		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
+		[ISystem.PostUpdate.E(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnUpdateRenderer(ISystem.Info info,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Piston.Data piston,
 		[Source.Owned, Pair.Component<Piston.Data>] ref Animated.Renderer.Data renderer)
@@ -45,19 +49,146 @@
 		{
 			//App.WriteLine("press");
 
-//#if SERVER
-//			if (control.mouse.GetKeyDown(Mouse.Key.Left))
-//			{
-//				App.WriteLine("press pressed");
-//			}
-//#endif
+			//region.Schedule((ref region) =>
+			//{
+			//	ref var control = ref ent_piston.GetComponent<Control.Data>();
+			//	if (control.mouse.GetKeyDown(Mouse.Key.Left))
+			//	{
+			//		App.WriteLine("press pressed", color: App.Color.Magenta);
+			//	}
+			//});
+
+			var distance_old = piston.current_distance;
+			var distance_tmp = distance_old;
+
+			if (distance_old > piston.length)
+			{
+				var energy_impact = Energy.GetKineticEnergy(50.00f, piston.current_speed);
+
+				App.WriteValue(energy_impact);
+				piston.current_speed *= -0.10f;
+				//piston.current_distance = piston.length;
+				distance_tmp = piston.length;
+			}
+			else if (distance_old < 0.00f)
+			{
+				piston.current_speed *= -0.30f; // -0.50f;
+												//piston.current_distance = 0.00f;
+				distance_tmp = 0.00f;
+			}
+			else
+			{
+				piston.current_speed -= piston.current_distance; // * info.DeltaTime;
+			}
+
+			crafter_state.flags.AddFlag(Crafter.State.Flags.Cycled);
+
+			var distance_new = Maths.FMA(piston.current_speed, App.fixed_update_interval_s_f32, distance_tmp);
+			piston.current_distance = distance_new;
+
+			piston.current_speed *= 0.92f;
 		}
 
-		[ISystem.PostUpdate.A(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void PostUpdate(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity ent_piston,
-		[Source.Owned] in Transform.Data transform,
-		[Source.Owned] ref Piston.Data piston)
+		[ISystem.Event<EssenceNode.CollapseEvent>(ISystem.Mode.Single, ISystem.Scope.Region)]
+		public static void OnEssencePulseEvent(ref Region.Data region, ISystem.Info info, Entity ent_piston, ref Essence.PulseEvent ev,
+		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Control.Data control,
+		[Source.Owned] ref Piston.Data piston, [Source.Owned, Pair.Component<Piston.Data>] ref Essence.Emitter.Data essence_emitter,
+		[Source.Owned] in Crafter.Data crafter, [Source.Owned] ref Crafter.State crafter_state)
 		{
+			App.WriteLine("essence pulse event", color: App.Color.Magenta);
+		}
+
+		[ISystem.PostUpdate.B(ISystem.Mode.Single, ISystem.Scope.Region)]
+		public static void OnUpdate_Essence(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity ent_piston,
+		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Control.Data control,
+		[Source.Owned] ref Piston.Data piston, [Source.Owned, Pair.Component<Piston.Data>] ref Essence.Emitter.Data essence_emitter,
+		[Source.Owned] in Crafter.Data crafter, [Source.Owned] ref Crafter.State crafter_state)
+		{
+			if (control.mouse.GetKey(Mouse.Key.Left))
+			{
+				App.WriteLine("press pressed", color: App.Color.Magenta);
+
+
+#if SERVER
+				piston.current_speed = 25.00f;
+				piston.Sync(ent_piston, true);
+			
+#endif
+
+#if CLIENT
+				var h_essence = essence_emitter.h_essence; // new IEssence.Handle("motion");
+				ref var essence_data = ref h_essence.GetData();
+				if (essence_data.IsNotNull())
+				{
+					var pos = transform.LocalToWorld(essence_emitter.offset);
+					var dir = transform.LocalToWorldDirection(essence_emitter.direction);
+
+					var intensity = 1.00f;
+					var color_a = ColorBGRA.Lerp(essence_data.color_emit, ColorBGRA.White, 0.50f);
+					var color_b = essence_data.color_emit.WithColorMult(0.20f).WithAlphaMult(0.00f);
+
+					App.WriteLine("essence");
+
+					//Sound.Play(region: ref region, sound: essence_emitter.h_sound_emit, world_position: pos, volume: 1.00f, pitch: 1.00f, size: 0.35f, dist_multiplier: 0.65f);
+					Sound.Play(region: ref region, h_soundmix: essence_emitter.h_soundmix_test, random: ref random, pos: pos); //, volume: 1.00f, pitch: 1.00f, size: 0.35f, dist_multiplier: 0.65f);
+					Shake.Emit(region: ref region, world_position: pos, trauma: 0.60f, max: 0.60f, radius: 10.00f);
+
+					Particle.Spawn(ref region, new Particle.Data()
+					{
+						texture = Light.tex_light_circle_00,
+						lifetime = 0.20f,
+						pos = pos - dir,
+						vel = dir * 20.00f,
+						drag = 0.20f,
+						frame_count = 1,
+						frame_count_total = 1,
+						frame_offset = 0,
+						scale = 1.00f,
+						stretch = new Vector2(1.00f, 0.50f),
+						face_dir_ratio = 1.00f,
+						growth = 50.00f,
+						color_a = color_a,
+						color_b = color_b,
+						glow = 20.00f * intensity
+					});
+
+					//Particle.Spawn(ref region, new Particle.Data()
+					//{
+					//	texture = Light.tex_light_circle_04,
+					//	lifetime = random.NextFloatRange(1.00f, 1.25f),
+					//	pos = data.world_position + (dir * 0.50f),
+					//	scale = random.NextFloatRange(1.00f, 1.50f),
+					//	growth = random.NextFloatRange(1.50f, 2.00f),
+					//	stretch = new Vector2(0.90f, 0.60f),
+					//	rotation = dir.GetAngleRadiansFast(),
+					//	face_dir_ratio = 1.00f,
+					//	color_a = new Vector4(1.00f, 0.70f, 0.40f, 30.00f),
+					//	color_b = new Vector4(0.20f, 0.00f, 0.00f, 0.00f),
+					//	glow = 1.00f
+					//});
+				}
+#endif
+			}
+		}
+
+		[ISystem.PreUpdate.C(ISystem.Mode.Single, ISystem.Scope.Region)]
+		public static void PostUpdate(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity ent_piston,
+		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Control.Data control,
+		[Source.Owned] ref Piston.Data piston,
+		[Source.Owned] in Crafter.Data crafter, [Source.Owned] ref Crafter.State crafter_state)
+		{
+			//#if SERVER
+			//			if (control.mouse.GetKey(Mouse.Key.Left))
+			//			{
+			//				App.WriteLine("press pressed", color: App.Color.Magenta);
+
+
+			//				piston.current_speed = 25.00f;
+
+			//				piston.Sync(ent_piston, true);
+			//			}
+			//#endif
+
 			//App.WriteLine("press");
 		}
 	}
@@ -192,7 +323,7 @@
 			}
 			else
 			{
-				light.intensity = Maths.Lerp(light.intensity, 0.00f, 0.10f);
+				light.intensity = Maths.Lerp(light.intensity, 0.00f, 0.15f);
 			}
 		}
 #endif
@@ -226,7 +357,7 @@
 #if SERVER
 			if (control.mouse.GetKey(Mouse.Key.Left))
 			{
-				press_state.flags.AddFlag(State.Flags.Smashed);
+				press_state.flags.AddFlag(State.Flags.Smashed | State.Flags.Success);
 				press_state.Sync(ent_press, true);
 				App.WriteLine("smash");
 			}
@@ -312,7 +443,7 @@
 					this.StoreCurrentWindowTypeID(order: 100);
 					if (window.show)
 					{
-						GUI.DrawFillBackground(GUI.tex_frame, new(8, 8, 8, 8));
+						GUI.DrawFillBackground(GUI.tex_frame, new(8));
 
 						//ref var player = ref Client.GetPlayer();
 						//ref var region = ref Client.GetRegion();
