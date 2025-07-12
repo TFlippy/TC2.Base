@@ -628,10 +628,15 @@ namespace TC2.Base.Components
 				[Net.Segment.B] public Sound.Handle h_sound_discharge;
 				[Net.Segment.B] public ISoundMix.Handle h_soundmix_test;
 
-				[Net.Segment.C, Asset.Ignore] public float current_charge;
-				[Net.Segment.C, Asset.Ignore] public float current_impulse;
-				[Net.Segment.C, Asset.Ignore] public float current_rate;
-				[Net.Segment.C, Asset.Ignore] private float unused_c_00;
+				[Net.Segment.C] public Signal.Channel channel_emit;
+				[Net.Segment.C] private byte unused_c_00;
+				[Net.Segment.C] private byte unused_c_01;
+				[Net.Segment.C] private byte unused_c_02;
+
+				[Net.Segment.D, Asset.Ignore] public float current_charge;
+				[Net.Segment.D, Asset.Ignore] public float current_impulse;
+				[Net.Segment.D, Asset.Ignore] public float current_rate;
+				[Net.Segment.D, Asset.Ignore] private float unused_d_00;
 
 
 
@@ -669,6 +674,16 @@ namespace TC2.Base.Components
 		{
 			
 		}
+
+		//[ISystem.PreUpdate.D(ISystem.Mode.Single, ISystem.Scope.Region)]
+		//public static void OnUpdateSignal(ISystem.Info info, ref XorRandom random,
+		//IComponent.Handle<Essence.Emitter.Data> h_essence_emitter, Entity ent_essence_emitter,
+		//[Source.Owned] in Transform.Data transform, [Source.Owned] in Analog.Relay.Data analog_relay,
+		//[Source.Owned, Pair.Wildcard] ref Essence.Emitter.Data essence_emitter)
+		//{
+		//	var signal_value = analog_relay.signal_current[essence_emitter.channel_emit];
+		//	essence_emitter.flags.SetFlag(Emitter.Flags.Pulsed, signal_value > 0.10f);
+		//}
 
 		//public interface IPowered: IComponent
 		//{

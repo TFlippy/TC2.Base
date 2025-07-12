@@ -3,17 +3,27 @@
 	public static partial class Piston
 	{
 		[Flags]
-		public enum Flags: uint
+		public enum Flags: ushort
 		{
 			None = 0,
 
-			Active = 1 << 0, // Piston is currently active and moving
-			Idle = 1 << 1, // Piston is idle and not moving
-			Extended = 1 << 2, // Piston is fully extended
+			//Active = 1 << 0, // Piston is currently active and moving
+			//Idle = 1 << 1, // Piston is idle and not moving
+			//Extended = 1 << 2, // Piston is fully extended
 			Impacted = 1 << 3, // Piston has impacted
 		}
 
-		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region)]
+		public enum Status: byte
+		{
+			Idle = 0, // Piston is idle and not moving
+			Impacted, // Piston has impacted
+			Retracting, // Piston is retracting
+			Moving, // Piston is currently moving
+			Retracted, // Piston is fully retracted
+			Pushing, // Piston is currently pushing
+		}
+
+	[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region)]
 		public partial struct Data(): IComponent
 		{
 			[Net.Segment.A, Save.Force, Editor.Picker.Position(relative: true)] public required Vec2f offset;
@@ -25,11 +35,15 @@
 			[Net.Segment.A, Save.Force] public Volume cylinder_volume;
 			//public Sound.Handle h_sound;
 
+			[Net.Segment.C, Asset.Ignore] public Piston.Status status;
+			[Net.Segment.C, Asset.Ignore] private byte unused_c_00;
+			[Net.Segment.C] public Piston.Flags flags;
 			[Net.Segment.C, Asset.Ignore] public float current_distance;
 
 			[Net.Segment.D, Asset.Ignore] public float current_force;
 			[Net.Segment.D, Asset.Ignore] public float current_speed;
 			[Net.Segment.D, Asset.Ignore] public Pressure current_pressure;
+			[Net.Segment.D, Asset.Ignore] public Energy current_kinetic_energy;
 		}
 
 		[ISystem.PostUpdate.E(ISystem.Mode.Single, ISystem.Scope.Region)]
@@ -43,9 +57,8 @@
 
 		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void Update(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity ent_piston,
-		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Control.Data control,
-		[Source.Owned] ref Piston.Data piston,
-		[Source.Owned] in Crafter.Data crafter, [Source.Owned] ref Crafter.State crafter_state)
+		[Source.Owned] in Transform.Data transform, /*[Source.Owned] ref Control.Data control,*/
+		[Source.Owned] ref Piston.Data piston/*, [Source.Owned] in Crafter.Data crafter, [Source.Owned] ref Crafter.State crafter_state*/)
 		{
 			//App.WriteLine("press");
 
@@ -61,14 +74,25 @@
 			var distance_old = piston.current_distance;
 			var distance_tmp = distance_old;
 
-			if (distance_old > piston.length)
-			{
-				var energy_impact = Energy.GetKineticEnergy(50.00f, piston.current_speed);
+			piston.current_kinetic_energy = 0.00f;
 
+			if (piston.status == Status.Impacted)
+			{
+				piston.status = Status.Retracting;
+				piston.flags.RemoveFlag(Flags.Impacted);
+			}
+			else if (distance_old > piston.length)
+			{
+				var energy_impact = Energy.GetKineticEnergy(piston.mass, piston.current_speed);
+				
 				App.WriteValue(energy_impact);
 				piston.current_speed *= -0.10f;
+				piston.current_kinetic_energy += energy_impact;
 				//piston.current_distance = piston.length;
 				distance_tmp = piston.length;
+
+				piston.flags.AddFlag(Flags.Impacted);
+				piston.status = Status.Impacted;
 			}
 			else if (distance_old < 0.00f)
 			{
@@ -79,9 +103,11 @@
 			else
 			{
 				piston.current_speed -= piston.current_distance; // * info.DeltaTime;
+				piston.status = Status.Idle;
+				//piston.current_kinetic_energy = 0.00f;
 			}
 
-			crafter_state.flags.AddFlag(Crafter.State.Flags.Cycled);
+			//crafter_state.flags.AddFlag(Crafter.State.Flags.Cycled);
 
 			var distance_new = Maths.FMA(piston.current_speed, App.fixed_update_interval_s_f32, distance_tmp);
 			piston.current_distance = distance_new;
@@ -91,20 +117,32 @@
 
 		[ISystem.Event<EssenceNode.CollapseEvent>(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnEssencePulseEvent(ref Region.Data region, ISystem.Info info, Entity ent_piston, ref Essence.PulseEvent ev,
-		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Control.Data control,
-		[Source.Owned] ref Piston.Data piston, [Source.Owned, Pair.Component<Piston.Data>] ref Essence.Emitter.Data essence_emitter,
-		[Source.Owned] in Crafter.Data crafter, [Source.Owned] ref Crafter.State crafter_state)
+		[Source.Owned] in Transform.Data transform, /*[Source.Owned] ref Control.Data control,*/
+		[Source.Owned] ref Piston.Data piston, [Source.Owned, Pair.Component<Piston.Data>] ref Essence.Emitter.Data essence_emitter
+		/*[Source.Owned] in Crafter.Data crafter, [Source.Owned] ref Crafter.State crafter_state*/)
 		{
 			App.WriteLine("essence pulse event", color: App.Color.Magenta);
 		}
 
+		[ISystem.PreUpdate.D(ISystem.Mode.Single, ISystem.Scope.Region)]
+		public static void OnUpdate_Signal(ISystem.Info info, ref XorRandom random,
+		IComponent.Handle<Essence.Emitter.Data> h_essence_emitter, Entity ent_essence_emitter,
+		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Analog.Relay.Data analog_relay,
+		[Source.Owned, Pair.Wildcard] ref Essence.Emitter.Data essence_emitter)
+		{
+			var signal_value = analog_relay.signal_current[essence_emitter.channel_emit];
+			essence_emitter.flags.SetFlag(Essence.Emitter.Flags.Pulsed, signal_value > 0.10f);
+		}
+
 		[ISystem.PostUpdate.B(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnUpdate_Essence(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity ent_piston,
-		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Control.Data control,
-		[Source.Owned] ref Piston.Data piston, [Source.Owned, Pair.Component<Piston.Data>] ref Essence.Emitter.Data essence_emitter,
-		[Source.Owned] in Crafter.Data crafter, [Source.Owned] ref Crafter.State crafter_state)
+		[Source.Owned] in Transform.Data transform, /*[Source.Owned] ref Control.Data control,*/
+		[Source.Owned] ref Piston.Data piston, [Source.Owned, Pair.Component<Piston.Data>] ref Essence.Emitter.Data essence_emitter
+		/*[Source.Owned] in Crafter.Data crafter, [Source.Owned] ref Crafter.State crafter_state*/)
 		{
-			if (control.mouse.GetKey(Mouse.Key.Left))
+			//if (control.mouse.GetKey(Mouse.Key.Left))
+
+			if (essence_emitter.flags.HasAny(Essence.Emitter.Flags.Pulsed))
 			{
 				App.WriteLine("press pressed", color: App.Color.Magenta);
 
@@ -352,16 +390,34 @@
 		[Source.Owned] ref Press.Data press, [Source.Owned] ref Press.State press_state,
 		[Source.Owned] in Crafter.Data crafter, [Source.Owned] ref Crafter.State crafter_state)
 		{
+			ref var piston = ref ent_press.GetComponent<Piston.Data>();
+			if (piston.IsNotNull())
+			{
+				if (piston.flags.HasAny(Piston.Flags.Impacted))
+				{
+#if SERVER
+					crafter_state.flags.AddFlag(Crafter.State.Flags.In_Contact | Crafter.State.Flags.Ready);
+
+					press_state.flags.AddFlag(State.Flags.Smashed | State.Flags.Success);
+					press_state.Sync(ent_press, true);
+					App.WriteLine("smash");
+#endif
+				}
+				else
+				{
+					crafter_state.flags.RemoveFlag(Crafter.State.Flags.In_Contact | Crafter.State.Flags.Ready);
+				}
+			}
 			//App.WriteLine("press");
 
-#if SERVER
-			if (control.mouse.GetKey(Mouse.Key.Left))
-			{
-				press_state.flags.AddFlag(State.Flags.Smashed | State.Flags.Success);
-				press_state.Sync(ent_press, true);
-				App.WriteLine("smash");
-			}
-#endif
+			//#if SERVER
+			//			if (control.mouse.GetKey(Mouse.Key.Left))
+			//			{
+			//				press_state.flags.AddFlag(State.Flags.Smashed | State.Flags.Success);
+			//				press_state.Sync(ent_press, true);
+			//				App.WriteLine("smash");
+			//			}
+			//#endif
 
 			//if (crafter.recipe.id != 0)
 			//{
@@ -532,6 +588,8 @@
 		[Source.Owned] in Crafter.Data crafter, [Source.Owned] in Crafter.State crafter_state,
 		[Source.Owned] in Interactable.Data interactable)
 		{
+			return;
+
 			if (interactable.IsActive())
 			{
 				var gui = new PressGUI()

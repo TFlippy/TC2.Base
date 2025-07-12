@@ -399,11 +399,30 @@ control:
 
 }
 
-controllable:
+// controllable:
+// {
+// 	gui_size: [96.000, 0.000]
+// 	speed: 7.100
+// 	radius: 1.500
+// 	radius_max: 2.000
+// 	flags: show_misc, disable_mouse_properties, disable_mouse_rmb, disable_mouse_pos, disable_keyboard, hide_cursor, mouse_orthogonal
+// }
+
+analog.relay:
 {
-	gui_size: [96.000, 0.000]
-	speed: 7.100
-	radius: 1.500
-	radius_max: 2.000
-	flags: show_misc, disable_mouse_properties, disable_mouse_rmb, disable_mouse_pos, disable_keyboard, hide_cursor, mouse_orthogonal
+
+}
+
+analog.button:
+{
+	channels: red, green, blue, yellow
+	flags: use_misc
+	signal_strength: 2.000
+}
+
+module.slots:
+{
+	slot_type: card
+	offset: [0.125, -0.500]
+	z: -4.000
 }
