@@ -166,7 +166,7 @@
 							type: resource
 							material: paper
 							amount: 0.019204
-							snapping: 1.000
+							snapping: 0.100
 							loss: 0.024
 							ratio: 1.000
 							group: 0
@@ -392,8 +392,8 @@
 						{
 							type: resource
 							material: scrap.steel
-							amount: 0.039663
-							snapping: 1.000
+							amount: 0.031283
+							snapping: 0.100
 							falloff: 0.888
 							loss: 0.157
 							ratio: 1.000

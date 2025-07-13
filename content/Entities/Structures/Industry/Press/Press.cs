@@ -387,93 +387,25 @@
 		//}
 
 		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void Update(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity ent_press,
+		public static void OnUpdate_Piston(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity ent_press,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Control.Data control,
-		[Source.Owned] ref Press.Data press, [Source.Owned] ref Press.State press_state,
+		[Source.Owned] ref Press.Data press, [Source.Owned] ref Press.State press_state, [Source.Owned] ref Piston.Data piston,
 		[Source.Owned] in Crafter.Data crafter, [Source.Owned] ref Crafter.State crafter_state)
 		{
-			ref var piston = ref ent_press.GetComponent<Piston.Data>();
-			if (piston.IsNotNull())
+			if (piston.flags.HasAny(Piston.Flags.Impacted))
 			{
-				if (piston.flags.HasAny(Piston.Flags.Impacted))
-				{
 #if SERVER
-					crafter_state.flags.AddFlag(Crafter.State.Flags.In_Contact | Crafter.State.Flags.Ready);
+				crafter_state.flags.AddFlag(Crafter.State.Flags.In_Contact | Crafter.State.Flags.Ready);
 
-					press_state.flags.AddFlag(State.Flags.Smashed | State.Flags.Success);
-					press_state.Sync(ent_press, true);
-					App.WriteLine("smash");
+				press_state.flags.AddFlag(State.Flags.Smashed | State.Flags.Success);
+				press_state.Sync(ent_press, true);
+				App.WriteLine("smash");
 #endif
-				}
-				else
-				{
-					crafter_state.flags.RemoveFlag(Crafter.State.Flags.In_Contact | Crafter.State.Flags.Ready);
-				}
 			}
-			//App.WriteLine("press");
-
-			//#if SERVER
-			//			if (control.mouse.GetKey(Mouse.Key.Left))
-			//			{
-			//				press_state.flags.AddFlag(State.Flags.Smashed | State.Flags.Success);
-			//				press_state.Sync(ent_press, true);
-			//				App.WriteLine("smash");
-			//			}
-			//#endif
-
-			//if (crafter.recipe.id != 0)
-			//{
-			//	if (press.recipe_cached.id != crafter.recipe.id)
-			//	{
-			//		ref var recipe = ref crafter.GetCurrentRecipe();
-			//		if (!recipe.IsNull())
-			//		{
-			//			var load = 0.00f;
-
-			//			foreach (ref var requirement in recipe.requirements.AsSpan())
-			//			{
-			//				if (requirement.type == Crafting.Requirement.Type.Work && requirement.work == Work.Type.Pressing)
-			//				{
-			//					load += requirement.difficulty;
-			//				}
-			//			}
-
-			//			press.load_multiplier = load;
-			//		}
-
-			//		press.recipe_cached = crafter.recipe;
-			//	}
-			//}
-
-			//switch (crafter_state.current_work_type)
-			//{
-			//	case Work.Type.Pressing:
-			//	{
-			//		press.load_multiplier = crafter_state.current_work_difficulty;
-
-			//		press_state.flags.SetFlag(Press.State.Flags.Success, false);
-
-			//		if (axle_state.flags.HasAny(Axle.State.Flags.Revolved))
-			//		{
-			//			if (MathF.Abs(axle_state.angular_velocity) >= 1.00f)
-			//			{
-			//				crafter_state.work += 1.00f;
-			//				press_state.flags.SetFlag(Press.State.Flags.Success, true);
-			//			}
-			//			else
-			//			{
-			//				crafter_state.work = 0.00f;
-			//			}
-
-			//			press_state.flags.SetFlag(Press.State.Flags.Smashed, true);
-
-			//			axle_state.Sync(entity, true);
-			//			//crafter_state.Sync(entity);
-			//			press_state.Sync(entity, true);
-			//		}
-			//	}
-			//	break;
-			//}
+			else
+			{
+				crafter_state.flags.RemoveFlag(Crafter.State.Flags.In_Contact | Crafter.State.Flags.Ready);
+			}
 		}
 
 #if CLIENT
