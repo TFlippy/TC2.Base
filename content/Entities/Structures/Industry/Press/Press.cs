@@ -39,6 +39,8 @@
 			[Net.Segment.C, Asset.Ignore] private byte unused_c_00;
 			[Net.Segment.C] public Piston.Flags flags;
 			[Net.Segment.C, Asset.Ignore] public float current_distance;
+			[Net.Segment.C, Asset.Ignore] private float unused_c_01;
+			[Net.Segment.C, Asset.Ignore] private float unused_c_02;
 
 			[Net.Segment.D, Asset.Ignore] public float current_force;
 			[Net.Segment.D, Asset.Ignore] public float current_speed;

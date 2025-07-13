@@ -173,6 +173,7 @@ namespace TC2.Base.Components
 				[Asset.Ignore, Save.Ignore, Net.Ignore] public float t_next_noise;
 				[Asset.Ignore, Save.Ignore, Net.Ignore] public float t_next_damage;
 				[Asset.Ignore, Save.Ignore, Net.Ignore] public float t_next_collapse;
+				[Asset.Ignore, Save.Ignore, Net.Ignore] private float unused;
 			}
 
 			[ISystem.VeryEarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
@@ -622,6 +623,8 @@ namespace TC2.Base.Components
 				[Net.Segment.A] private byte unused_a_00;
 				[Net.Segment.A] public Essence.Emitter.Flags flags;
 				[Net.Segment.A] private uint unused_a_01;
+				[Net.Segment.A] private uint unused_a_02;
+				[Net.Segment.A] private uint unused_a_03;
 
 				[Net.Segment.B] public IEssence.Handle h_essence;
 				[Net.Segment.B] public Sound.Handle h_sound_emit;
@@ -632,6 +635,7 @@ namespace TC2.Base.Components
 				[Net.Segment.C] private byte unused_c_00;
 				[Net.Segment.C] private byte unused_c_01;
 				[Net.Segment.C] private byte unused_c_02;
+				[Net.Segment.C] private uint unused_c_03;
 
 				[Net.Segment.D, Asset.Ignore] public float current_charge;
 				[Net.Segment.D, Asset.Ignore] public float current_impulse;

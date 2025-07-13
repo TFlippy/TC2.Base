@@ -41,6 +41,7 @@ namespace TC2.Base.Components
 			public Levitator.Data.Flags flags_editable;
 
 			public float particle_size = 1.00f;
+			private float unused_00;
 
 			[Editor.Picker.Position(true)] public Vector2 offset;
 		}

@@ -839,7 +839,8 @@ namespace TC2.Base.Components
 			public Gun.Stage stage;
 			public byte burst_rem;
 			public byte eject_rem;
-			public byte unused;
+			private byte unused_00;
+			private ushort unused_01;
 
 			public Resource.Data resource_ammo;
 
@@ -852,6 +853,9 @@ namespace TC2.Base.Components
 			[Save.Ignore, Net.Ignore] public float t_last_fired;
 			[Save.Ignore, Net.Ignore] public float t_next_cycle;
 			[Save.Ignore, Net.Ignore] public float t_next_reload;
+			[Save.Ignore, Net.Ignore] private float unused_02;
+			[Save.Ignore, Net.Ignore] private float unused_03;
+			[Save.Ignore, Net.Ignore] private float unused_04;
 		}
 
 		public static bool TryCalculateTrajectory(Vector2 pos_muzzle, Vector2 pos_target, float speed, float gravity, out float? angle_shallow, out float? angle_steep)

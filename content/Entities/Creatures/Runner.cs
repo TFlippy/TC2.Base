@@ -37,6 +37,8 @@ namespace TC2.Base.Components
 			public float jump_decay = 0.50f;
 			public float crouch_speed_modifier = 0.50f;
 			public float air_brake_modifier = 0.10f;
+			private float unused_00;
+			private float unused_01;
 		}
 
 		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
