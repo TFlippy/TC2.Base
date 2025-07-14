@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.5"
+	$version: "0.1.64.0"
 	name: "Knife"
 	tips: []
 	
@@ -112,10 +112,6 @@
 						require: file, knife
 						include: saw, hand_drill, file, knife, sandpaper
 					}
-					filter_machinery:
-					{
-						include: lathe, mill, sander, planer
-					}
 					filter_infrastructure:
 					{
 						include: table, chair, vise
@@ -134,7 +130,7 @@
 							material: wood.rod
 							amount: 0.186567
 							snapping: 1.000
-							loss: 0.082
+							loss: 0.078
 							group: 0
 							flags: prerequisite
 						}
@@ -154,10 +150,6 @@
 					{
 						require: saw
 						include: pencil, ruler, pliers, axe, towel, knife
-					}
-					filter_machinery:
-					{
-						include: lathe, planer
 					}
 					filter_infrastructure:
 					{
@@ -240,8 +232,9 @@
 	
 	type: workshop
 	flags: blueprintable, item
-	tags: workbench, manual, small, weapon, tool, metalworking
+	tags: workbench, manual, crafting, small, weapon, tool, metalworking
 	infrastructure: surface
+	infrastructure_exclude: none
 	
 	icon:
 	{

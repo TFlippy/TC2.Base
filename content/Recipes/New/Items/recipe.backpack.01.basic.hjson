@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.3"
+	$version: "0.1.64.0"
 	name: "Rucksack"
 	tips:
 	[
@@ -87,9 +87,6 @@
 						}
 					]
 					
-					quality: 1.000
-					precision: 1.000
-					
 					filter_tools:
 					{
 						require: knife, needle
@@ -160,9 +157,6 @@
 						}
 					]
 					
-					quality: 1.000
-					precision: 1.000
-					
 					filter_tools:
 					{
 						require: knife, needle
@@ -186,8 +180,9 @@
 	
 	type: workshop
 	flags: blueprintable, item, wip
-	tags: workbench, manual, simple, tailoring
+	tags: workbench, manual, crafting, simple, tailoring
 	infrastructure: table, chair, surface
+	infrastructure_exclude: none
 	
 	icon:
 	{

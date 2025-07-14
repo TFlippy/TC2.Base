@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.1"
+	$version: "0.1.64.0"
 	name: "Crate (Wood, Medium)"
 	tips: []
 	
@@ -128,7 +128,7 @@
 	
 	type: workshop
 	flags: no_amount_multiplier, blueprintable, item, wip, converted
-	tags: workbench, workshop, manual, simple, medium, furniture, woodworking, carpentry, construction
+	tags: workbench, workshop, manual, crafting, simple, medium, furniture, woodworking, carpentry, construction
 	infrastructure: workbench
 	infrastructure_exclude: none
 	

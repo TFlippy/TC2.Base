@@ -454,7 +454,7 @@
 	
 	type: workshop
 	flags: production, manufacturing, wip
-	tags: manual, small, munitions, delicate, assembling, industrial, metalworking, military, dangerous
+	tags: manual, crafting, small, munitions, delicate, assembling, industrial, metalworking, military, dangerous
 	infrastructure: anvil, surface, hard_surface, workbench
 	infrastructure_exclude: none
 	

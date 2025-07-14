@@ -1,27 +1,11 @@
 ﻿{
-	$version: "0.1.61.2"
+	$version: "0.1.64.0"
 	name: "Wheel (Rubber, Medium)"
 	desc:
 		'''
 		Medium high-friction wheel that can be attached to vehicles.
 		'''
 	tips: []
-	
-	icon:
-	{
-		texture: wheel.rubber.00.md
-	}
-	
-	min: 1
-	max: 8
-	step: 1
-	
-	type: workshop
-	flags: blueprintable, disabled, wip
-	tags: manual, large, vehicle, metalworking
-	
-	color_frame: "0xffaeb59a"
-	rank: -150.000
 	
 	requirements:
 	[
@@ -43,6 +27,7 @@
 			amount: 250.000
 			difficulty: 9
 			group: 0
+			flags: conditional
 		}
 		{
 			type: work
@@ -50,6 +35,7 @@
 			amount: 300.000
 			difficulty: 6
 			group: 0
+			flags: conditional
 		}
 	]
 	
@@ -62,4 +48,25 @@
 			group: 0
 		}
 	]
+	
+	type: workshop
+	flags: blueprintable, disabled, wip
+	tags: manual, crafting, large, vehicle, metalworking
+	infrastructure: none
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		texture: wheel.rubber.00.md
+	}
+	
+	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
+	rank: -150.000
+	
+	min: 1
+	max: 8
+	step: 1
+	
+	version: 0
 }

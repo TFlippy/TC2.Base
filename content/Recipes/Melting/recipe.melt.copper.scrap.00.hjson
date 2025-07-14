@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.5"
+	$version: "0.1.64.0"
 	name: "Melt: Copper (Scrap)"
 	desc:
 		'''
@@ -36,7 +36,7 @@
 							material: scrap.copper
 							amount: 0.980
 							snapping: 1.000
-							loss: 0.035
+							loss: 0.031
 							group: 0
 							flags: prerequisite
 						}
@@ -65,7 +65,7 @@
 							snapping: 5.000
 							falloff: 0.84948
 							group: 0
-							flags: conditional, add_amount_min
+							flags: conditional
 						}
 					]
 					
@@ -86,9 +86,10 @@
 	]
 	
 	type: workshop
-	flags: none
+	flags: debug, disabled
 	tags: metalworking, melting, heating, messy, dangerous
 	infrastructure: crucible
+	infrastructure_exclude: none
 	
 	icon:
 	{

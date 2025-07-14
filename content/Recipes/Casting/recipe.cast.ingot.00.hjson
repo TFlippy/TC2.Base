@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.64.0"
 	name: "Cast Copper Brick"
 	desc:
 		'''
@@ -14,6 +14,7 @@
 			
 			type: undefined
 			flags: none
+			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: none
 			
@@ -55,6 +56,7 @@
 			
 			type: undefined
 			flags: none
+			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: none
 			
@@ -78,6 +80,7 @@
 							difficulty: 7
 							falloff: 0.950
 							group: 0
+							flags: conditional
 						}
 					]
 					
@@ -107,6 +110,7 @@
 			
 			type: undefined
 			flags: none
+			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: none
 			
@@ -138,6 +142,7 @@
 							difficulty: 4
 							falloff: 0.350
 							group: 0
+							flags: conditional
 						}
 					]
 				}
@@ -146,9 +151,10 @@
 	]
 	
 	type: workshop
-	flags: hidden, disabled
+	flags: hidden, debug, disabled
 	tags: metalworking, heating, casting, messy, dangerous
 	infrastructure: casting_mould
+	infrastructure_exclude: none
 	
 	icon:
 	{
@@ -173,6 +179,7 @@
 	icon_c_offset: [-3.000, -3.000]
 	
 	color_frame: "0xffc0c09b"
+	color_button: "0xff9dd80f"
 	rank: -167.000
 	
 	min: 1

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.8"
+	$version: "0.1.64.0"
 	name: "Crate (Metal, Small)"
 	tips: []
 	
@@ -183,7 +183,7 @@
 	
 	type: workshop
 	flags: no_amount_multiplier, blueprintable, item, wip
-	tags: workbench, manual, simple, assembling, metalworking, carpentry, construction
+	tags: workbench, manual, crafting, simple, assembling, metalworking, carpentry, construction
 	infrastructure: workbench
 	infrastructure_exclude: none
 	

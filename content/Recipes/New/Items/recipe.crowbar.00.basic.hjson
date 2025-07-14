@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.4"
+	$version: "0.1.64.0"
 	name: "Crowbar"
 	tips: []
 	
@@ -271,7 +271,7 @@
 	
 	type: workshop
 	flags: blueprintable, item, wip
-	tags: manual, tool, metalworking
+	tags: manual, crafting, tool, metalworking
 	infrastructure: workbench
 	infrastructure_exclude: none
 	

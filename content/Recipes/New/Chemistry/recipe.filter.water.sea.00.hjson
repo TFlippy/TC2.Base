@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.64.0"
 	name: "Seawater Desalination"
 	desc:
 		'''
@@ -67,7 +67,7 @@
 	]
 	
 	type: workshop
-	flags: debug, wip
+	flags: debug, disabled, wip
 	tags: manual, simple, heating, processing
 	infrastructure: liquid_container, heater, condenser
 	infrastructure_exclude: none

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.64.0"
 	name: "Machete"
 	tips: []
 	
@@ -186,7 +186,7 @@
 							material: glue
 							amount: 1.840
 							snapping: 0.500
-							loss: 0.925
+							loss: 0.922
 							group: 0
 							flags: prerequisite
 						}
@@ -233,7 +233,7 @@
 	
 	type: workshop
 	flags: blueprintable, item, wip
-	tags: workbench, manual, weapon, blacksmithing, metalworking
+	tags: workbench, manual, crafting, weapon, blacksmithing, metalworking
 	infrastructure: surface, workbench
 	infrastructure_exclude: none
 	

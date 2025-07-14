@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.5"
+	$version: "0.1.64.0"
 	name: "Crate (Wood, Small)"
 	tips: []
 	
@@ -60,10 +60,6 @@
 					{
 						require: hammer, saw
 						include: pencil, ruler, pliers, axe, towel, knife
-					}
-					filter_machinery:
-					{
-						include: lathe, planer
 					}
 					filter_infrastructure:
 					{
@@ -132,8 +128,9 @@
 	
 	type: workshop
 	flags: no_amount_multiplier, blueprintable, item, wip, converted
-	tags: workbench, workshop, manual, simple, furniture, woodworking, carpentry, construction
+	tags: workbench, workshop, manual, crafting, simple, furniture, woodworking, carpentry, construction
 	infrastructure: surface, workbench
+	infrastructure_exclude: none
 	
 	icon:
 	{

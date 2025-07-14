@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.4"
+	$version: "0.1.64.0"
 	name: "Handsaw"
 	tips: []
 	
@@ -342,7 +342,7 @@
 	
 	type: workshop
 	flags: blueprintable, item, wip
-	tags: manual, simple, small, tool, assembling, metalworking
+	tags: manual, crafting, simple, small, tool, assembling, metalworking
 	infrastructure: surface, workbench
 	infrastructure_exclude: none
 	

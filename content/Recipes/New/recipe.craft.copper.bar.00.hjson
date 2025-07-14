@@ -105,7 +105,7 @@
 	
 	type: workshop
 	flags: production
-	tags: manual, simple, raw, metalworking, metallurgy, processing
+	tags: manual, crafting, simple, raw, metalworking, metallurgy, processing
 	infrastructure: hard_surface
 	infrastructure_exclude: none
 	

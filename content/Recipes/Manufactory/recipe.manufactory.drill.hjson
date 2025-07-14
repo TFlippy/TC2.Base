@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.64.0"
 	name: "Mining Drill"
 	desc:
 		'''
@@ -33,6 +33,7 @@
 			amount: 700.000
 			difficulty: 14
 			group: 0
+			flags: conditional
 		}
 		{
 			type: work
@@ -40,6 +41,7 @@
 			amount: 500.000
 			difficulty: 9
 			group: 0
+			flags: conditional
 		}
 	]
 	
@@ -55,8 +57,9 @@
 	
 	type: workshop
 	flags: blueprintable, disabled, wip
-	tags: manual, assembling, metalworking, engineering
+	tags: manual, crafting, assembling, metalworking, engineering
 	infrastructure: anvil, table, vise, surface, hard_surface, workbench
+	infrastructure_exclude: none
 	
 	icon:
 	{

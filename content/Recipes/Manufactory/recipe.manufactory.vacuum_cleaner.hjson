@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.64.0"
 	name: "Vacuum Cleaner [WIP]"
 	desc:
 		'''
@@ -67,7 +67,9 @@
 	
 	type: workshop
 	flags: blueprintable, disabled, wip
-	tags: workbench, workshop, manual, advanced, medium, tool, machinery, assembling, metalworking, engineering, construction
+	tags: workbench, workshop, manual, crafting, advanced, medium, tool, machinery, assembling, metalworking, engineering, construction
+	infrastructure: none
+	infrastructure_exclude: none
 	
 	icon:
 	{
@@ -75,6 +77,7 @@
 	}
 	
 	color_frame: "0xff19e2b1"
+	color_button: "0xff9dd80f"
 	rank: 0.000
 	
 	min: 1

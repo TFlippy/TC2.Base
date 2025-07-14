@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.5"
+	$version: "0.1.64.0"
 	name: "Arcane Infuser [WIP]"
 	desc:
 		'''
@@ -63,7 +63,7 @@
 	
 	type: workshop
 	flags: no_amount_multiplier, blueprintable, debug, disabled, wip
-	tags: manual, advanced, assembling, metalworking, engineering
+	tags: manual, crafting, advanced, assembling, metalworking, engineering
 	infrastructure: none
 	infrastructure_exclude: none
 	

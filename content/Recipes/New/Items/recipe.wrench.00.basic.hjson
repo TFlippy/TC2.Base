@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.4"
+	$version: "0.1.64.0"
 	name: "Wrench"
 	tips: []
 	
@@ -438,7 +438,7 @@
 	
 	type: workshop
 	flags: blueprintable, item, wip
-	tags: manual, complex, medium, tool, assembling, metalworking, engineering
+	tags: manual, crafting, complex, medium, tool, assembling, metalworking, engineering
 	infrastructure: workbench
 	infrastructure_exclude: none
 	

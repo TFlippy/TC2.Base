@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.5"
+	$version: "0.1.64.0"
 	name: "Melt: Steel"
 	desc:
 		'''
@@ -56,7 +56,7 @@
 							snapping: 5.000
 							falloff: 0.942913
 							group: 0
-							flags: conditional, add_amount_min
+							flags: conditional
 						}
 					]
 					
@@ -79,8 +79,6 @@
 							flags: waste, residue, parameter, use_temperature
 						}
 					]
-					
-					purity_mult: 0.9441
 				}
 				{
 					name: "Chunks"
@@ -115,7 +113,7 @@
 							snapping: 5.000
 							falloff: 0.937896
 							group: 0
-							flags: conditional, add_amount_min
+							flags: conditional
 						}
 					]
 					
@@ -163,7 +161,7 @@
 							snapping: 5.000
 							falloff: 0.93795
 							group: 0
-							flags: conditional, add_amount_min
+							flags: conditional
 						}
 					]
 					
@@ -211,7 +209,7 @@
 							snapping: 5.000
 							falloff: 0.938086
 							group: 0
-							flags: conditional, add_amount_min
+							flags: conditional
 						}
 					]
 					
@@ -259,7 +257,7 @@
 							snapping: 5.000
 							falloff: 0.937545
 							group: 0
-							flags: conditional, add_amount_min
+							flags: conditional
 						}
 					]
 					
@@ -279,9 +277,10 @@
 	]
 	
 	type: workshop
-	flags: none
+	flags: debug, disabled
 	tags: metalworking, melting, heating, messy, dangerous
 	infrastructure: crucible
+	infrastructure_exclude: none
 	
 	icon:
 	{

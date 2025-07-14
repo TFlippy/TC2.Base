@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.4"
+	$version: "0.1.64.0"
 	name: "Club"
 	tips: []
 	
@@ -109,7 +109,7 @@
 	
 	type: workshop
 	flags: blueprintable, item, wip, converted
-	tags: workbench, workshop, manual, dumb, crude, simple, small, weapon, tool, woodworking, construction
+	tags: workbench, workshop, manual, crafting, dumb, crude, simple, small, weapon, tool, woodworking, construction
 	infrastructure: surface
 	infrastructure_exclude: none
 	

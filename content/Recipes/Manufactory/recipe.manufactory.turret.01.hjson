@@ -1,27 +1,11 @@
 ﻿{
-	$version: "0.1.61.2"
+	$version: "0.1.64.0"
 	name: "Turret (Coaxial)"
 	desc:
 		'''
 		Light metal turret with a coaxial attachment slot and a gunner seat.
 		'''
 	tips: []
-	
-	icon:
-	{
-		texture: turret.01.fg
-	}
-	
-	min: 1
-	max: 1
-	step: 1
-	
-	type: workshop
-	flags: no_amount_multiplier, blueprintable, disabled, wip
-	tags: manual, large, vehicle, metalworking
-	
-	color_frame: "0xffaeb59a"
-	rank: 0.000
 	
 	requirements:
 	[
@@ -43,6 +27,7 @@
 			amount: 1000.000
 			difficulty: 10
 			group: 0
+			flags: conditional
 		}
 		{
 			type: work
@@ -50,6 +35,7 @@
 			amount: 700.000
 			difficulty: 8
 			group: 0
+			flags: conditional
 		}
 	]
 	
@@ -62,4 +48,25 @@
 			group: 0
 		}
 	]
+	
+	type: workshop
+	flags: no_amount_multiplier, blueprintable, disabled, wip
+	tags: manual, crafting, large, vehicle, metalworking
+	infrastructure: none
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		texture: turret.01.fg
+	}
+	
+	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
+	rank: 0.000
+	
+	min: 1
+	max: 1
+	step: 1
+	
+	version: 0
 }

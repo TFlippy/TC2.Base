@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.5"
+	$version: "0.1.64.0"
 	name: "Baton"
 	tips: []
 	
@@ -32,7 +32,7 @@
 							material: wood.rod
 							amount: 1.191153
 							snapping: 0.750
-							loss: 0.176
+							loss: 0.173
 							group: 0
 							flags: prerequisite
 						}
@@ -73,10 +73,6 @@
 						require: hammer, saw, file, knife, needle
 						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, tweezers, axe, stapler, file, chisel, knife, needle, pins
 					}
-					filter_machinery:
-					{
-						include: lathe
-					}
 					filter_infrastructure:
 					{
 						include: table, chair, vise
@@ -104,7 +100,7 @@
 			material: wood.rod
 			amount: 1.210
 			snapping: 0.750
-			loss: 0.176
+			loss: 0.173
 			group: 0
 			flags: prerequisite
 		}
@@ -152,8 +148,9 @@
 	
 	type: workshop
 	flags: blueprintable, item, wip, converted
-	tags: workbench, workshop, manual, simple, small, weapon, tool, woodworking
+	tags: workbench, workshop, manual, crafting, simple, small, weapon, tool, woodworking
 	infrastructure: surface
+	infrastructure_exclude: none
 	
 	icon:
 	{

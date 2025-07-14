@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.64.0"
 	name: "Convert to: Cast Brick Mould"
 	desc:
 		'''
@@ -14,8 +14,12 @@
 			
 			type: undefined
 			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
 			
 			ratio: 1.000
+			mass_base: 0.000
 			
 			options:
 			[
@@ -77,6 +81,7 @@
 							flags: residue
 						}
 					]
+					
 					advance_delay: 0.000
 					complete_delay: 0.000
 					
@@ -133,7 +138,7 @@
 							amount: 500.000
 							difficulty: 3
 							group: 1
-							flags: no_scaling, crafter_only, conditional
+							flags: conditional
 						}
 					]
 					
@@ -147,21 +152,18 @@
 							flags: parameter
 						}
 					]
+					
 					advance_delay: 1.000
 				}
 			]
-			
-			products: []
 		}
 	]
 	
-	requirements: []
-	
-	products: []
-	
 	type: workshop
-	flags: no_amount_multiplier, auto_complete
+	flags: no_amount_multiplier, debug, disabled, auto_complete
 	tags: casting
+	infrastructure: none
+	infrastructure_exclude: none
 	
 	icon:
 	{
@@ -188,12 +190,14 @@
 	icon_c_offset: [-8.000, -10.000]
 	
 	color_frame: "0xff4eadea"
+	color_button: "0xff9dd80f"
 	rank: -167.000
 	frame_size: [48.000, 24.000]
 	
 	min: 1
 	max: 1
 	step: 1
+	
 	advance_delay: 1.000
 	
 	on_complete:
@@ -208,4 +212,6 @@
 			capacity: 32.000
 		}
 	}
+	
+	version: 0
 }

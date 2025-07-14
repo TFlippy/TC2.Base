@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.64.0"
 	name: "Machine Parts"
 	desc:
 		'''
@@ -39,7 +39,7 @@
 							material: steel.frames
 							amount: 0.500
 							snapping: 0.100
-							loss: 0.278
+							loss: 0.275
 							ratio: 0.659
 							group: 0
 							flags: prerequisite
@@ -75,7 +75,7 @@
 							difficulty: 7
 							snapping: 5.000
 							falloff: 0.870
-							ratio: 0.576
+							ratio: 0.573
 							group: 1
 							flags: conditional
 						}

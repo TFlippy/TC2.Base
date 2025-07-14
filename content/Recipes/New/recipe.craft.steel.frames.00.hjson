@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.64.0"
 	name: "Steel Frames"
 	tips: []
 	
@@ -84,7 +84,7 @@
 	
 	type: workshop
 	flags: item, production, wip
-	tags: workbench, workshop, manual, simple, medium, metalworking, processing
+	tags: workbench, workshop, manual, crafting, simple, medium, metalworking, processing
 	infrastructure: workbench
 	infrastructure_exclude: none
 	

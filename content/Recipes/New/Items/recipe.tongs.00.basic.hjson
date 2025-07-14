@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.8"
+	$version: "0.1.64.0"
 	name: "Tongs"
 	tips: []
 	
@@ -186,7 +186,7 @@
 	
 	type: workshop
 	flags: blueprintable, item, wip
-	tags: workbench, manual, blacksmithing, metalworking
+	tags: workbench, manual, crafting, blacksmithing, metalworking
 	infrastructure: workbench
 	infrastructure_exclude: none
 	

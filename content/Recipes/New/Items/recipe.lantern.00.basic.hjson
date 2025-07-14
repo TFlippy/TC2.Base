@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.1"
+	$version: "0.1.64.0"
 	name: "Lantern"
 	tips: []
 	
@@ -77,9 +77,6 @@
 						}
 					]
 					
-					quality: 1.000
-					precision: 1.000
-					
 					filter_tools:
 					{
 						require: hammer, saw, file
@@ -152,9 +149,6 @@
 						}
 					]
 					
-					quality: 1.000
-					precision: 1.000
-					
 					filter_tools:
 					{
 						include: bucket
@@ -205,9 +199,6 @@
 						}
 					]
 					
-					quality: 1.000
-					precision: 1.000
-					
 					filter_tools:
 					{
 						include: bucket
@@ -247,9 +238,6 @@
 							flags: conditional
 						}
 					]
-					
-					quality: 1.000
-					precision: 1.000
 					
 					filter_tools:
 					{
@@ -302,9 +290,6 @@
 						}
 					]
 					
-					quality: 1.000
-					precision: 1.000
-					
 					filter_tools:
 					{
 						include: paintbrush, file
@@ -349,7 +334,7 @@
 	
 	type: workshop
 	flags: blueprintable, item, wip
-	tags: workbench, manual, simple, small, metalworking
+	tags: workbench, manual, crafting, simple, small, metalworking
 	infrastructure: surface, workbench
 	infrastructure_exclude: none
 	

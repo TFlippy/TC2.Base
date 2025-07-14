@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.1"
+	$version: "0.1.64.0"
 	name: "Crossbow"
 	tips: []
 	
@@ -110,9 +110,6 @@
 						}
 					]
 					
-					quality: 1.000
-					precision: 1.000
-					
 					filter_tools:
 					{
 						require: screwdriver, wrench, file, knife
@@ -136,7 +133,7 @@
 	
 	type: workshop
 	flags: item, production, wip, converted
-	tags: workbench, manual, simple, small, weapon, woodworking, assembling, metalworking
+	tags: workbench, manual, crafting, simple, small, weapon, woodworking, assembling, metalworking
 	infrastructure: table, surface
 	infrastructure_exclude: none
 	

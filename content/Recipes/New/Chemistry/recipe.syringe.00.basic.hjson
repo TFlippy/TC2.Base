@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.64.0"
 	name: "Syringe"
 	desc:
 		'''
@@ -45,8 +45,9 @@
 	
 	type: workshop
 	flags: blueprintable, hidden, wip
-	tags: manual, advanced, small, tool, chemistry, medical, science, biology
+	tags: manual, crafting, advanced, small, tool, chemistry, medical, science, biology
 	infrastructure: lab_glassware, dishes, bottle
+	infrastructure_exclude: none
 	
 	icon:
 	{
@@ -54,6 +55,7 @@
 	}
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	rank: 0.000
 	
 	min: 1

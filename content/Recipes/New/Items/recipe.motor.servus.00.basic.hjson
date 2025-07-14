@@ -316,7 +316,7 @@
 	
 	type: workshop
 	flags: no_amount_multiplier, item, wip
-	tags: workbench, manual, complex, medium, machinery, delicate, assembling, metalworking, engineering
+	tags: workbench, manual, crafting, complex, medium, machinery, delicate, assembling, metalworking, engineering
 	infrastructure: table
 	infrastructure_exclude: none
 	

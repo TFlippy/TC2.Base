@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.5"
+	$version: "0.1.64.0"
 	name: "Dismantle Magitronic Actuators"
 	desc:
 		'''
@@ -58,8 +58,9 @@
 	
 	type: workshop
 	flags: hidden, disabled, wip
-	tags: workbench, manual, simple, metalworking, research
+	tags: workbench, manual, simple, metalworking, salvaging, research
 	infrastructure: workbench
+	infrastructure_exclude: none
 	
 	icon:
 	{

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.4"
+	$version: "0.1.64.0"
 	name: "Arrowbolts"
 	desc:
 		'''
@@ -209,7 +209,7 @@
 	
 	type: workshop
 	flags: wip
-	tags: workbench, manual, crude, simple, small, munitions, delicate, woodworking, assembling
+	tags: workbench, manual, crafting, crude, simple, small, munitions, delicate, woodworking, assembling
 	infrastructure: surface
 	infrastructure_exclude: none
 	
