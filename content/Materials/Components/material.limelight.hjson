@@ -5,10 +5,10 @@
 	name_dumb: "Lightstick"
 	description:
 		'''
-		Small stackable cylinders of compacted quicklime with E-TH pellets embedded inside.
+		Small stackable cylinders of compacted quicklime with EC-TH pellets embedded inside.
 
 		Used as a light source in various devices, such as lamps and lanterns.
-		Some people with destructive tendencies break them down for the E-TH pellets inside.
+		Some people with destructive tendencies break them down for the EC-TH pellets inside.
 		'''
 	
 	tips: []

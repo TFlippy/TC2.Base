@@ -1,7 +1,7 @@
-$name: "E-MT Impulse Press"
+$name: "EC-MT Impulse Press"
 $desc:
 	'''
-	Small E-MT impulse press designed for small-scale metalworking, low-temperature forging and sintering of metal powders.
+	Small EC-MT impulse press designed for small-scale metalworking, low-temperature forging and sintering of metal powders.
 	'''
 $tags: []
 
@@ -122,7 +122,7 @@ shop:
 	
 	offset_spawn: [0.125, 0.875]
 	
-	name: "E-MT Impulse Press"
+	name: "EC-MT Impulse Press"
 }
 
 press:

@@ -1,5 +1,5 @@
 $name: "Zapper"
-$desc: "Area-denial device powered by ARC-EL pellets."
+$desc: "Area-denial device powered by EC-EL pellets."
 $tags: []
 
 body:

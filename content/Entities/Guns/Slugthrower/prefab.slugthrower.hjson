@@ -1,7 +1,7 @@
 $name: "Slugthrower"
 $desc: 
 	'''
-	Heavy weapon utilizing a built-in ARC-MT emitter to shoot projectiles.
+	Heavy weapon utilizing a built-in EC-MT emitter to shoot projectiles.
 	Inaccurate, but with high rate of fire and enormous ammo capacity - mostly used for suppressive fire.
 	'''
 $tags: []

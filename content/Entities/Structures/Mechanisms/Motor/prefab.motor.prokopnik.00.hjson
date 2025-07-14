@@ -1,7 +1,7 @@
 $name: "Motor (Prokopnik)"
 $desc:
 	'''
-	Portable Prokopnik-type ARC-MT motor.
+	Portable Prokopnik-type EC-MT motor.
 	'''
 $tags: []
 

@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.64.0"
-	name: "E-LF Pellets"
-	name_short: "E-LF Pellets"
+	name: "EC-LF Pellets"
+	name_short: "EC-LF Pellets"
 	name_imperial: "Lojf-Arkpelet"
 	description:
 		'''

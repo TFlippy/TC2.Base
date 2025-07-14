@@ -1,7 +1,7 @@
 $name: "Mining Drill"
 $desc: 
 	'''
-	Heavy mining drill powered by a high-torque ARC-MT motor.
+	Heavy mining drill powered by a high-torque EC-MT motor.
 
 	Considering the weight and size, it's more suited for giants or vehicles.
 	'''

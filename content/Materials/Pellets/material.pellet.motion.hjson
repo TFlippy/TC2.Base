@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.64.0"
-	name: "E-MT Pellets"
-	name_short: "E-MT Pellets"
+	name: "EC-MT Pellets"
+	name_short: "EC-MT Pellets"
 	name_imperial: "Motorik-Arkpelet"
 	description:
 		'''

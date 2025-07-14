@@ -3,7 +3,7 @@
 	name: "Majzl B-749"
 	description:
 		'''
-		Heavy MG-caliber gun with a scope, ARC-MT recoil compensator and an auto-loader.
+		Heavy MG-caliber gun with a scope, EC-MT recoil compensator and an auto-loader.
 		'''
 	
 	flags: hidden

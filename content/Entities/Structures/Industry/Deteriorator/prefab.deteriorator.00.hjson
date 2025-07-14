@@ -1,4 +1,4 @@
-$name: "E-FU Deteriorator"
+$name: "EC-FU Deteriorator"
 $desc:
 	'''
 	Machine utilizing failure essence emitters for controlled dilapidation of various objects and materials.
@@ -123,7 +123,7 @@ shop:
 	
 	offset_spawn: [0.000, 2.250]
 	
-	name: "E-FU Deteriorator"
+	name: "EC-FU Deteriorator"
 }
 
 crafter:

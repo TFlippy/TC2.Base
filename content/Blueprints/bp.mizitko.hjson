@@ -3,7 +3,7 @@
 	name: "Mizitko"
 	description:
 		'''
-		Heavy ARC-MT personal cannon capable of firing AC ammunition.
+		Heavy EC-MT personal cannon capable of firing AC ammunition.
 		'''
 	
 	flags: hidden

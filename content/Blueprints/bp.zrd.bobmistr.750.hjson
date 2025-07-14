@@ -3,7 +3,7 @@
 	name: "ZRD Bobmistr 750"
 	description:
 		'''
-		Heavy triple-barreled ARC-MT machine gun designed for giants.
+		Heavy triple-barreled EC-MT machine gun designed for giants.
 		'''
 	
 	flags: hidden

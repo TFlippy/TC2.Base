@@ -1,7 +1,7 @@
 $name: "Crane Arm (Articulated)"
 $desc:
 	'''
-	Advanced crane arm capable of more complex movement via ARC-MT rotary joints.
+	Advanced crane arm capable of more complex movement via EC-MT rotary joints.
 	'''
 $tags: []
 

@@ -1,9 +1,9 @@
 ﻿{
 	$version: "0.1.62.0"
-	name: "ARC-MT Levitator (Triple)"
+	name: "EC-MT Levitator (Triple)"
 	desc:
 		'''
-		More powerful ARC-MT levitator used for propulsion.
+		More powerful EC-MT levitator used for propulsion.
 		'''
 	tips: []
 	

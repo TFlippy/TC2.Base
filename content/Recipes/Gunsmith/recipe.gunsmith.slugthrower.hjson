@@ -3,7 +3,7 @@
 	name: "Slugthrower"
 	desc:
 		'''
-		Heavy weapon utilizing a built-in ARC-MT emitter to fire projectiles. 
+		Heavy weapon utilizing a built-in EC-MT emitter to fire projectiles. 
 		'''
 	tips: []
 	

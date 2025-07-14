@@ -3,7 +3,7 @@
 	name: "R750 Automat"
 	description:
 		'''
-		Cutting-edge automatic rifle with an unbelievable rate of fire utilizing an ARC-MT auto-loader.
+		Cutting-edge automatic rifle with an unbelievable rate of fire utilizing an EC-MT auto-loader.
 		'''
 	
 	flags: hidden
