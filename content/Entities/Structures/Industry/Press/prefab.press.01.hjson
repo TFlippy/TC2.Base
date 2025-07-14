@@ -326,7 +326,7 @@ essence.container:
 	{
 		type: essence
 		flags: ignore_mass, no_auto_pickup, faction
-		stack_size_multiplier: 0.200
+		stack_size_multiplier: 0.100
 		
 		filter:
 		{
@@ -335,16 +335,16 @@ essence.container:
 		offset: [0.125, -1.875]
 	}
 
-	// @sound.emitter:
-	// {
-	// 	flags: start_muted
-	// 	volume: 0.800
-	// 	pitch: 0.430
-	// 	size: 0.350
-	// 	size_max_modifier: 0.500
-	// 	spread: 80.000
-	// 	offset: [0.000, -1.875]
-	// }
+	@sound.emitter:
+	{
+		flags: start_muted
+		volume: 0.800
+		pitch: 0.430
+		size: 0.350
+		size_max_modifier: 0.500
+		spread: 80.000
+		offset: [0.000, -1.875]
+	}
 
 	// @light:
 	// {
@@ -359,12 +359,12 @@ heat:
 	temperature_medium: 800.000
 	temperature_high: 1200.000
 	temperature_ignite: 1337.000
-	temperature_operating: 1193.150
+	temperature_operating: 1243.150
 	temperature_breakdown: 1950.000
-	cool_rate: 20.000
-	heat_capacity_extra: 500.000
-	heat_capacity_mult: 2.000
-	heat_damage_mult: 0.200
+	cool_rate: 12.000
+	heat_capacity_extra: 200.000
+	heat_capacity_mult: 1.000
+	heat_damage_mult: 0.100
 	smoke_size_mult: 0.700
 	smoke_speed_mult: 0.300
 	smoke_rise_mult: 0.500

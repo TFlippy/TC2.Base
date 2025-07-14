@@ -1,0 +1,70 @@
+﻿{
+	$region_id: 0
+	$version: "0.1.64.0"
+	name: "Indoctrination"
+	name_short: "Indoctrination"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: ui.icons.work.00
+		size: [16, 16]
+		frame: [37, 0]
+	}
+	
+	flags: worker_only
+	tags: skilled, social, science, advanced, politics, careful, wip
+	
+	amount_base: 0.000
+	cooldown: 1.850
+	multiplier: 0.820
+	
+	amount_jitter: 0.463
+	cooldown_jitter: 0.322
+	color: "0xffac88d8"
+	
+	tools_required: towel
+	tools_optional: pencil, paper, bucket, towel, spatula, calculator
+	
+	infrastructure_required: none
+	infrastructure_optional: table, stationery, office
+	
+	character_traits:
+	{
+		include: scientist, educated, military, nobility, armed, law, social, insane, evil, politician, fanatic
+		exclude: lowlife, poor, illiterate, dumb, clumsy
+		weight: 1.000
+	}
+	
+	skills_min:
+	{
+		intellect: 9
+		charisma: 7
+	}
+	
+	skills_mult:
+	{
+		charisma: 0.660
+		leadership: 0.470
+		law: 0.200
+		intellect: 0.360
+	}
+	
+	sound_volume: 0.500
+	sound_pitch: 1.000
+	sound_size: 0.500
+	sound_dist: 0.600
+	
+	sounds: ["npc_talk_00", "npc_talk_01", "npc_talk_02"]
+	sounds_manual: []
+	sounds_crafter: []
+	sounds_passive: []
+	sounds_ambient: []
+	
+	sounds_start: []
+	sounds_end: []
+	sounds_fail: []
+}

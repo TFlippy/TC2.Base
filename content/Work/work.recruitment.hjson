@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.64.0"
 	name: "Recruitment"
 	name_short: "Recruitment"
 	desc:
@@ -16,18 +16,18 @@
 	
 	flags: passive
 	tags: skilled, social, politics, bureaucracy, wip
+	
+	amount_base: 0.000
 	cooldown: 3.000
 	multiplier: 1.000
+	
 	color: "0xff882ec2"
 	
 	tools_required: none
 	tools_optional: pencil, paper, towel
 	
-	machinery_required: none
-	machinery_optional: none
-	
-	equipment_required: none
-	equipment_optional: none
+	infrastructure_required: none
+	infrastructure_optional: none
 	
 	character_traits:
 	{
@@ -58,6 +58,7 @@
 	sounds_manual: []
 	sounds_crafter: []
 	sounds_passive: []
+	sounds_ambient: []
 	
 	sounds_start: []
 	sounds_end: []
