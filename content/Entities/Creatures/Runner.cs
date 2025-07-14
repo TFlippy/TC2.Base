@@ -68,6 +68,7 @@ namespace TC2.Base.Components
 			[Save.Ignore] public float surface_dot_current;
 			[Save.Ignore] public float modifier;
 			[Save.Ignore] public Runner.State.Flags flags;
+			[Save.Ignore] public uint unused_00;
 
 			[Save.Ignore, Net.Ignore] public float air_time;
 
@@ -77,10 +78,12 @@ namespace TC2.Base.Components
 			[Save.Ignore, Net.Ignore] public float last_air;
 			[Save.Ignore, Net.Ignore] public float last_move;
 			[Save.Ignore, Net.Ignore] public float last_swim;
+			[Save.Ignore, Net.Ignore] private float unused_01;
 
 			[Save.Ignore, Net.Ignore] public Vector2 last_normal;
 			[Save.Ignore, Net.Ignore] public Vector2 last_force;
 			[Save.Ignore, Net.Ignore] public Vector2 last_wallclimb_force;
+			[Save.Ignore, Net.Ignore] private Vector2 unused_02;
 		}
 
 		[ISystem.Monitor(ISystem.Mode.Single, ISystem.Scope.Region), HasRelation(Source.Modifier.Any, Relation.Type.Seat, true), HasTag("initialized", true, Source.Modifier.Owned)]

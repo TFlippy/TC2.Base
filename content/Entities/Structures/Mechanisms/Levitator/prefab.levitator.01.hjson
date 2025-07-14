@@ -85,6 +85,7 @@ holdable:
 
 interactable:
 {
+	flags: none
 	window_size: [200.000, 144.000]
 	window_size_misc: [48.000, 0.000]
 }

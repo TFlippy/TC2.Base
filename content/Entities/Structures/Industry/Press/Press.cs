@@ -146,7 +146,7 @@
 
 			if (essence_emitter.flags.HasAny(Essence.Emitter.Flags.Pulsed))
 			{
-				App.WriteLine("press pressed", color: App.Color.Magenta);
+				//App.WriteLine("press pressed", color: App.Color.Magenta);
 
 
 #if SERVER
@@ -167,7 +167,7 @@
 					var color_a = ColorBGRA.Lerp(essence_data.color_emit, ColorBGRA.White, 0.50f);
 					var color_b = essence_data.color_emit.WithColorMult(0.20f).WithAlphaMult(0.00f);
 
-					App.WriteLine("essence");
+					//App.WriteLine("essence");
 
 					//Sound.Play(region: ref region, sound: essence_emitter.h_sound_emit, world_position: pos, volume: 1.00f, pitch: 1.00f, size: 0.35f, dist_multiplier: 0.65f);
 					Sound.Play(region: ref region, h_soundmix: essence_emitter.h_soundmix_test, random: ref random, pos: pos); //, volume: 1.00f, pitch: 1.00f, size: 0.35f, dist_multiplier: 0.65f);

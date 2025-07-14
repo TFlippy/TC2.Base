@@ -263,7 +263,9 @@ workshop:
 
 interactable:
 {
-	window_size: [600.000, 488.000]
+	flags: none
+	priority: 1.000
+	window_size: [600.000, 528.000]
 	window_size_misc: [144.000, 0.000]
 }
 
@@ -329,7 +331,6 @@ essence.container:
 		filter:
 		{
 			require: essence, small, pellet, solid
-			exclude: gas
 		}
 		offset: [0.125, -1.875]
 	}
@@ -393,10 +394,10 @@ heat:
 	}
 }
 
-control:
-{
+// control:
+// {
 
-}
+// }
 
 // controllable:
 // {
@@ -414,14 +415,15 @@ analog.relay:
 
 analog.button:
 {
-	channels: red, green, blue, yellow
-	flags: use_misc
 	signal_strength: 2.000
+	channels: red, green
+	flags: use_misc
+	button_size: [72, 36]
 }
 
 vehicle:
 {
-
+	flags: use_misc_window
 }
 
 +slot.device.00|instance:
@@ -462,6 +464,7 @@ vehicle:
 			exclude: cabin, wheel, platform
 		}
 		rank: 1.000
+		gui_size: [72.000, 72.000]
 	}
 
 	analog.writer:

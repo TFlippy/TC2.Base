@@ -134,9 +134,9 @@ essence.container:
 
 interactable:
 {
-	window_size: [200.000, 128.000]
-	window_offset: [0.000, 0.000]
 	flags: none
+	window_size: [200.000, 128.000]
+	window_size_misc: [48.000, 0.000]
 }
 
 vehicle:

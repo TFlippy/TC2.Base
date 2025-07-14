@@ -492,7 +492,7 @@ namespace TC2.Base.Components
 								{
 									if (this.essence_container.flags.HasAny(Essence.Container.Flags.Allow_Edit_Rate))
 									{
-										if (GUI.SliderFloat("Rate"u8, ref this.essence_container.rate, 0.00f, 1.00f, snap: 0.001f, size: new Vector2(GUI.RmX, 24)))
+										if (GUI.SliderFloat(label: "Rate"u8, value: ref this.essence_container.rate, min: 0.00f, max: 1.00f, snap: 0.001f, size: new Vector2(GUI.RmX, 24)))
 										{
 											var rpc = new Essence.Container.ConfigureRPC()
 											{
@@ -513,10 +513,10 @@ namespace TC2.Base.Components
 
 										//GUI.Text($"{essence_color}");
 
-										GUI.DrawHorizontalGauge(this.essence_container.GetEmittedEssenceAmount(), 100 * Essence.essence_per_pellet * this.inventory.stack_size_multiplier, color: essence_color, size: GUI.Rm);
+										GUI.DrawHorizontalGauge(current: this.essence_container.GetEmittedEssenceAmount(), max: 100 * Essence.essence_per_pellet * this.inventory.stack_size_multiplier, color: essence_color, size: GUI.Rm);
 										//if (essence_data.IsNotNull())
 										{
-											GUI.DrawHoverTooltip(in this, draw: static (x) =>
+											GUI.DrawHoverTooltip(arg: in this, draw: static (x) =>
 											{
 												var max_width = 192.00f;
 												var h_essence = x.arg.essence_container.h_essence;
@@ -528,13 +528,18 @@ namespace TC2.Base.Components
 
 													var emitted_amount = x.arg.essence_container.GetEmittedEssenceAmount();
 
-													GUI.LabelShaded("Name:"u8, essence_data.name, width: max_width);
+													//GUI.LabelShaded("Name:"u8, essence_data.name, width: max_width);
+													GUI.Title($"{essence_data.name} Essence");
 													GUI.NewLine(4);
 
 													GUI.LabelShaded("Amount:"u8, emitted_amount, format: "0.00' Ef'", width: max_width);
 													GUI.LabelShaded("Thermal:"u8, essence_data.emit_power_thermal * emitted_amount, format: "0.00' kW'", width: max_width);
 													GUI.LabelShaded("Electric:"u8, essence_data.emit_power_electric * emitted_amount, format: "0.00' kW'", width: max_width);
 													GUI.LabelShaded("Force:"u8, essence_data.emit_force * emitted_amount * 0.001f, format: "0.00' kN'", width: max_width);
+												}
+												else
+												{
+													GUI.Title("<No Essence>"u8);
 												}
 											});
 										}
