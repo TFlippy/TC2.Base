@@ -1,0 +1,353 @@
+﻿{
+	$region_id: 0
+	$version: "0.1.64.0"
+	name: "Gyrochronatom"
+	
+	stages:
+	[
+		{
+			name: "Chassis"
+			
+			type: part
+			flags: wip
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Basic"
+					
+					type: undefined
+					flags: wip, incomplete
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.plate
+							amount: 0.640041
+							snapping: 0.100
+							loss: 0.157
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: steel.frames
+							amount: 0.656
+							snapping: 0.500
+							loss: 0.173
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: drilling
+							amount: 250.000
+							amount_min: 100.000
+							difficulty: 7
+							snapping: 5.000
+							falloff: 0.864
+							ratio: 1.000
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: bending
+							amount: 120.000
+							amount_min: 170.000
+							difficulty: 9
+							snapping: 5.000
+							falloff: 0.961
+							ratio: 0.722
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: screwdriver
+						include: screwdriver, wrench, spanner, pliers, towel
+					}
+					filter_infrastructure:
+					{
+						include: table, chair, vise, rack
+					}
+				}
+			]
+		}
+		{
+			name: "Time Control System"
+			
+			type: part
+			flags: wip, incomplete
+			tags: mechanism, assembly, functional, small, machinery
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "E-MT Gyrostat"
+					
+					type: undefined
+					flags: wip, incomplete
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: actuator
+							amount: 0.45875
+							snapping: 0.100
+							loss: 0.173
+							ratio: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: machine_parts
+							amount: 5.363883
+							snapping: 0.100
+							loss: 0.251
+							ratio: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: assembling
+							amount: 180.000
+							amount_min: 120.000
+							difficulty: 7
+							snapping: 5.000
+							falloff: 0.842
+							ratio: 0.863
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: crimping.metal
+							amount: 80.000
+							amount_min: 90.000
+							difficulty: 7
+							snapping: 5.000
+							falloff: 0.872
+							ratio: 1.000
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: calibration
+							amount: 500.000
+							amount_min: 90.000
+							difficulty: 13
+							snapping: 5.000
+							falloff: 0.746
+							ratio: 0.757
+							group: 1
+							flags: stepped, conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: screwdriver, wrench
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, stapler, towel, tongs, pick, crowbar, knife
+					}
+					filter_infrastructure:
+					{
+						require: table
+						include: anvil, table, chair, vise
+					}
+				}
+				{
+					name: "Rhytmic Pogometer"
+					
+					type: undefined
+					flags: wip, incomplete
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: pellet.cognition
+							amount: 0.500
+							snapping: 0.100
+							ratio: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: indoctrination
+							amount: 500.000
+							amount_min: 350.000
+							difficulty: 11
+							snapping: 5.000
+							falloff: 0.714
+							group: 0
+							flags: conditional
+						}
+						{
+							type: resource
+							material: machine_parts
+							amount: 4.39301
+							snapping: 0.100
+							loss: 0.122
+							ratio: 1.000
+							group: 1
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: arcanite.rod
+							amount: 0.1847
+							snapping: 0.100
+							loss: 0.118
+							ratio: 1.000
+							group: 1
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: assembling
+							amount: 180.000
+							amount_min: 120.000
+							difficulty: 7
+							snapping: 5.000
+							falloff: 0.842
+							ratio: 1.000
+							group: 1
+							flags: stepped, simultaneous, conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: screwdriver, wrench
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, stapler, towel, tongs, pick, crowbar, knife
+					}
+					filter_infrastructure:
+					{
+						require: table
+						include: anvil, table, chair, vise
+					}
+				}
+			]
+		}
+		{
+			name: "Assembly"
+			
+			type: part
+			flags: wip, incomplete
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Well-Oiled"
+					
+					type: undefined
+					flags: wip, incomplete
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: machine_parts
+							amount: 3.456311
+							snapping: 0.100
+							loss: 0.075
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: oil
+							amount: 0.897098
+							snapping: 0.100
+							loss: 0.322
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: bolting
+							amount: 340.000
+							amount_min: 140.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.967
+							ratio: 1.000
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: screwdriver
+						include: screwdriver, wrench, spanner, pliers, towel
+					}
+					filter_infrastructure:
+					{
+						include: table, chair, vise, rack
+					}
+				}
+			]
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: gyrochronatom.00
+			amount: 1.000
+			group: 0
+			flags: primary, compact
+		}
+	]
+	
+	type: workshop
+	flags: blueprintable, item, production, wip
+	tags: crafting, complex, small, device, machinery, delicate, assembling, metalworking, engineering
+	infrastructure: table
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		texture: gyrochronatom.00
+		size: [16, 16]
+	}
+	
+	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
+	button_name: "Craft"
+	rank: 0.000
+	
+	min: 1
+	max: 8
+	step: 1
+	
+	version: 1
+}
