@@ -84,7 +84,7 @@
 			]
 		}
 		{
-			name: "Time Control System"
+			name: "Temporal Regulator"
 			
 			type: part
 			flags: wip, incomplete
@@ -98,10 +98,13 @@
 			options:
 			[
 				{
-					name: "E-MT Gyrostat"
+					name: "Cyclic Chronostat"
 					
 					type: undefined
 					flags: wip, incomplete
+					
+					prefix: "Cyclic "
+					priority: 1.000
 					
 					requirements:
 					[
@@ -152,11 +155,11 @@
 						{
 							type: work
 							work: calibration
-							amount: 500.000
-							amount_min: 90.000
-							difficulty: 13
+							amount: 650.000
+							amount_min: 350.000
+							difficulty: 15
 							snapping: 5.000
-							falloff: 0.746
+							falloff: 0.903
 							ratio: 0.757
 							group: 1
 							flags: stepped, conditional
@@ -175,51 +178,34 @@
 					}
 				}
 				{
-					name: "Rhytmic Pogometer"
+					name: "Semantic Pogometer"
 					
 					type: undefined
 					flags: wip, incomplete
+					
+					prefix: "Semantic "
+					priority: 1.000
 					
 					requirements:
 					[
 						{
 							type: resource
-							material: pellet.cognition
-							amount: 0.500
-							snapping: 0.100
-							ratio: 1.000
-							group: 0
-							flags: prerequisite
-						}
-						{
-							type: work
-							work: indoctrination
-							amount: 500.000
-							amount_min: 350.000
-							difficulty: 11
-							snapping: 5.000
-							falloff: 0.714
-							group: 0
-							flags: conditional
-						}
-						{
-							type: resource
 							material: machine_parts
-							amount: 4.39301
+							amount: 4.820194
 							snapping: 0.100
 							loss: 0.122
 							ratio: 1.000
-							group: 1
+							group: 0
 							flags: prerequisite
 						}
 						{
 							type: resource
 							material: arcanite.rod
-							amount: 0.1847
+							amount: 0.187476
 							snapping: 0.100
-							loss: 0.118
+							loss: 0.106
 							ratio: 1.000
-							group: 1
+							group: 0
 							flags: prerequisite
 						}
 						{
@@ -231,8 +217,28 @@
 							snapping: 5.000
 							falloff: 0.842
 							ratio: 1.000
+							group: 0
+							flags: stepped, conditional
+						}
+						{
+							type: resource
+							material: pellet.cognition
+							amount: 0.200
+							snapping: 0.100
+							ratio: 1.000
 							group: 1
-							flags: stepped, simultaneous, conditional
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: indoctrination
+							amount: 500.000
+							amount_min: 350.000
+							difficulty: 11
+							snapping: 5.000
+							falloff: 0.714
+							group: 1
+							flags: conditional
 						}
 					]
 					

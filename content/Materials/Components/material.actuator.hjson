@@ -6,9 +6,10 @@
 	name_dumb: "Mushroom"
 	description:
 		'''
-		Advanced essence-infused actuators used in robotics and mechanics.
+		Advanced essence-powered actuators used in robotics and mechanics.
 
-		After the discovery of controlled essence manipulation in 739 S.D., these small devices have sparked a new industrial revolution and granted the Kordel Empire a massive technological edge.
+		After the discovery of controlled essence manipulation in 739 S.D., 
+		these small devices have sparked a new industrial revolution and granted the Kordel Empire a massive technological edge.
 		'''
 	
 	tips: []

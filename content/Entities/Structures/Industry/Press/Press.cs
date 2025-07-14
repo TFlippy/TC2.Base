@@ -117,23 +117,13 @@
 			piston.current_speed *= 0.92f;
 		}
 
-		[ISystem.Event<EssenceNode.CollapseEvent>(ISystem.Mode.Single, ISystem.Scope.Region)]
+		[ISystem.Event<Essence.PulseEvent>(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnEssencePulseEvent(ref Region.Data region, ISystem.Info info, Entity ent_piston, ref Essence.PulseEvent ev,
 		[Source.Owned] in Transform.Data transform, /*[Source.Owned] ref Control.Data control,*/
 		[Source.Owned] ref Piston.Data piston, [Source.Owned, Pair.Component<Piston.Data>] ref Essence.Emitter.Data essence_emitter
 		/*[Source.Owned] in Crafter.Data crafter, [Source.Owned] ref Crafter.State crafter_state*/)
 		{
 			App.WriteLine("essence pulse event", color: App.Color.Magenta);
-		}
-
-		[ISystem.PreUpdate.D(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void OnUpdate_Signal(ISystem.Info info, ref XorRandom random,
-		IComponent.Handle<Essence.Emitter.Data> h_essence_emitter, Entity ent_essence_emitter,
-		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Analog.Relay.Data analog_relay,
-		[Source.Owned, Pair.Wildcard] ref Essence.Emitter.Data essence_emitter)
-		{
-			var signal_value = analog_relay.signal_current[essence_emitter.channel_emit];
-			essence_emitter.flags.SetFlag(Essence.Emitter.Flags.Pulsed, signal_value > 0.10f);
 		}
 
 		[ISystem.PostUpdate.B(ISystem.Mode.Single, ISystem.Scope.Region)]

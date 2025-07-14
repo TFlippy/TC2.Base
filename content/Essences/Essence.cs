@@ -682,6 +682,16 @@ namespace TC2.Base.Components
 				//public float rate_target;
 				//[Asset.Ignore] public float rate_current;
 			}
+
+			[ISystem.PreUpdate.D(ISystem.Mode.Single, ISystem.Scope.Region)]
+			public static void OnUpdate_Signal(ISystem.Info info, ref XorRandom random,
+			IComponent.Handle<Essence.Emitter.Data> h_essence_emitter, Entity ent_essence_emitter,
+			[Source.Owned] in Transform.Data transform, [Source.Owned] ref Analog.Relay.Data analog_relay,
+			[Source.Owned, Pair.Wildcard] ref Essence.Emitter.Data essence_emitter)
+			{
+				var signal_value = analog_relay.signal_current[essence_emitter.channel_emit];
+				essence_emitter.flags.SetFlag(Essence.Emitter.Flags.Pulsed, signal_value > 0.10f);
+			}
 		}
 
 		[IEvent.Data]
@@ -699,14 +709,16 @@ namespace TC2.Base.Components
 
 		}
 
-		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void OnUpdate(ISystem.Info info, ref XorRandom random,
-		IComponent.Handle<Essence.Emitter.Data> h_essence_emitter, Entity ent_essence_emitter,
-		[Source.Owned] in Transform.Data transform,
-		[Source.Owned, Pair.Wildcard] ref Essence.Emitter.Data essence_emitter)
-		{
+		//[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
+		//public static void OnUpdate(ISystem.Info info, ref XorRandom random,
+		//IComponent.Handle<Essence.Emitter.Data> h_essence_emitter, Entity ent_essence_emitter,
+		//[Source.Owned] in Transform.Data transform,
+		//[Source.Owned, Pair.Wildcard] ref Essence.Emitter.Data essence_emitter)
+		//{
 			
-		}
+		//}
+
+
 
 		//[ISystem.PreUpdate.D(ISystem.Mode.Single, ISystem.Scope.Region)]
 		//public static void OnUpdateSignal(ISystem.Info info, ref XorRandom random,
