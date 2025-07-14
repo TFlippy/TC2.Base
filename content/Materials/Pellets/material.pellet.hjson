@@ -5,7 +5,8 @@
 	name_imperial: "Arkpelet"
 	description:
 		'''
-		Small arcanite pellets that can be infused with essences.
+		Essence infusion pellets.
+		These failed to capture anything.
 		'''
 	
 	tips: []
