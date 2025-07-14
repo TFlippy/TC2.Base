@@ -10,7 +10,7 @@
 	icon:
 	{
 		texture: deteriorator.00
-		size: [24, 40]
+		size: [40, 64]
 	}
 	color: "0xffaeb59a"
 	
@@ -20,51 +20,20 @@
 	modes:
 	[
 		{
-			h_work: die.swaging.metal
-			flags: automated, wip
-			
-			work_multiplier: 10.000
-			cooldown_multiplier: 0.200
-			crafter_state_required: in_contact
-			crafter_state_on_work:
-			{
-				add: working
-				rem: ready, in_contact, working
-			}
-			switch_cooldown: 1.000
-			
-			h_sound_switch: lever.bell.00
-		}
-		{
-			h_work: hammering
-			flags: automated, wip
-			
-			work_multiplier: 10.000
-			cooldown_multiplier: 0.200
-			crafter_state_required: in_contact
-			crafter_state_on_work:
-			{
-				add: working
-				rem: ready, in_contact, working
-			}
-			switch_cooldown: 1.000
-			
-			h_sound_switch: lever.bell.00
-		}
-		{
 			h_work: crushing
 			flags: automated, wip
 			
 			work_multiplier: 10.000
 			cooldown_multiplier: 0.200
+			
 			crafter_state_required: in_contact
 			crafter_state_on_work:
 			{
 				add: working
 				rem: ready, in_contact, working
 			}
-			switch_cooldown: 1.000
 			
+			switch_cooldown: 1.000
 			h_sound_switch: lever.bell.00
 		}
 		{
@@ -73,14 +42,15 @@
 			
 			work_multiplier: 10.000
 			cooldown_multiplier: 0.200
+			
 			crafter_state_required: in_contact
 			crafter_state_on_work:
 			{
 				add: working
 				rem: ready, in_contact, working
 			}
-			switch_cooldown: 1.000
 			
+			switch_cooldown: 1.000
 			h_sound_switch: lever.bell.00
 		}
 		{
@@ -89,14 +59,15 @@
 			
 			work_multiplier: 10.000
 			cooldown_multiplier: 0.200
+			
 			crafter_state_required: in_contact
 			crafter_state_on_work:
 			{
 				add: working
 				rem: ready, in_contact, working
 			}
-			switch_cooldown: 1.000
 			
+			switch_cooldown: 1.000
 			h_sound_switch: lever.bell.00
 		}
 	]

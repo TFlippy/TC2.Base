@@ -12,11 +12,11 @@ body:
 	@shape.line:
 	{
 		material: metal_frame
-		miss_chance: 0.839
+		miss_chance: 0.835
 		flags: none
 		tags: huge, thin, hard
 		
-		layer: entity, solid, building, support, no_overlapped_placement, ignore_melee
+		layer: entity, solid, building, storage, workshop, crafter, conductive, heatable, magnetic, ignore_melee
 		mask: world, building
 		exclude: none
 		
@@ -28,18 +28,18 @@ body:
 		cog_offset: [0.000, 0.000]
 		
 		a: [0.000, -1.875]
-		b: [0.000, 1.500]
+		b: [0.000, 2.125]
 		offset: [0.000, 0.000]
 	}
 
 	@shape.polygon:
 	{
 		material: building_reinforced
-		miss_chance: 0.000
+		miss_chance: 0.718
 		flags: none
 		tags: none
 		
-		layer: entity, solid, building, storage, workshop, crafter, ignore_melee
+		layer: entity, solid, building, storage, workshop, crafter, conductive, heatable, magnetic, ignore_melee
 		mask: world, building
 		exclude: none
 		
@@ -52,17 +52,17 @@ body:
 		
 		points:
 		[
-			[-1.750, 1.500]
-			[1.750, 1.500]
-			[1.625, 2.250]
-			[-1.625, 2.250]
+			[-1.750, 2.125]
+			[1.750, 2.125]
+			[1.625, 3.250]
+			[-1.625, 3.250]
 		]
 	}
 }
 
 health:
 {
-	max: 71500.000
+	max: 81500.000
 }
 
 // armor:
@@ -82,7 +82,7 @@ animated.renderer:
 	sprite:
 	{
 		texture: deteriorator.00
-		size: [40, 48]
+		size: [40, 64]
 		frame: [0, 0]
 	}
 	z: -200.000
@@ -93,7 +93,7 @@ animated.renderer|"foreground":
 	sprite:
 	{
 		texture: deteriorator.00
-		size: [40, 48]
+		size: [40, 64]
 		frame: [1, 0]
 	}
 	z: -150.000
@@ -108,19 +108,20 @@ shop:
 {
 	tags_filter:
 	{
-		include: industrial, metalworking, metallurgy, melting, heating, moulding
-		exclude: advanced, large, huge, social, forestry, fermenting, overworld
+		require: salvaging
+		include: dumb, crude, industrial, salvaging, processing, dangerous
+		exclude: crafting, huge, construction, heating, casting
 	}
 	
-	tools: ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, spanner, pliers, bucket, file, chisel, towel, tongs, crowbar, sandpaper
-	infrastructure: anvil, vise, shaping_mould, surface, hard_surface, heater, stamping_press, press, machine
-	environment: machine, stationary, dirty, scary, noisy, reinforced, fireproof, durable, sturdy, small
+	tools: hammer, screwdriver, spanner, pliers, bucket, shovel, towel, spatula, tongs, crowbar, knife, ladle
+	infrastructure: bucket, surface, large_surface, hard_surface, structure, machine
+	environment: machine, stationary, dirty, scary, noisy, reinforced, fireproof, durable, sturdy
 	
 	flags: embed_gui
-	menu_columns: 3
+	menu_columns: 4
 	recipe_type: workshop
 	
-	offset_spawn: [0.125, 0.875]
+	offset_spawn: [0.000, 2.250]
 	
 	name: "E-FU Deteriorator"
 }
@@ -129,22 +130,20 @@ crafter:
 {
 	h_crafter: deteriorator.00
 	flags: assignable
-	
-	tools: none
-	infrastructure: anvil, forge, vise, shaping_mould, hard_surface, heater, stamping_press, press, form, structure, machine
-	environment: machine, stationary, dirty, scary, noisy, reinforced, fireproof, durable, sturdy, form, waterproof
-	
 	distance_max: 6.000
 	temperature_max: 1200.000
-	pressure_max: 100.000
+	pressure_max: 5.000
 	
-	offset: [-0.250, 0.875]
+	tools: none
+	infrastructure: none
+	environment: machine, stationary, dirty, scary, noisy, reinforced, fireproof, durable, sturdy, large
+	offset: [0.000, -0.500]
 
-	@inventory4:
+	@inventory8:
 	{
 		type: output
-		flags: standalone, allow_ducts, ignore_mass, public, faction, vertical
-		stack_size_multiplier: 2.000
+		flags: standalone, ignore_mass, public, vertical
+		stack_size_multiplier: 4.000
 		
 		filter:
 		{
@@ -153,7 +152,7 @@ crafter:
 			exclude: gas
 		}
 		
-		offset: [0.000, 0.000]
+		offset: [0.000, 2.250]
 	}
 }
 
@@ -162,17 +161,14 @@ crafter.state:
 	@inventory4:
 	{
 		type: input
-		flags: standalone, allow_ducts, ignore_mass
+		flags: standalone, allow_ducts, ignore_mass, vertical
 		stack_size_multiplier: 2.000
 		
 		filter:
 		{
-			require: none
-			include: none
 			exclude: gas
 		}
-		
-		offset: [0.000, 0.000]
+		offset: [0.000, -0.500]
 	}
 
 	// @animated.renderer:
@@ -235,23 +231,25 @@ shipment:
 
 essence.container:
 {
-	stability: 0.970
-	health_threshold: 0.220
-	glow_modifier: 1.000
-	emit_type: pulser
-	flags: show_gui, allow_edit_rate
+	stability: 0.870
+	frequency: 50.000
+	emit_type: projector
+	flags: show_gui, allow_edit_rate, allow_edit_frequency
+	rate_speed: 0.400
+	health_threshold: 0.940
+	glow_modifier: 0.800
 
 	@inventory1:
 	{
 		type: essence
 		flags: ignore_mass, no_auto_pickup, faction
-		stack_size_multiplier: 0.100
+		stack_size_multiplier: 0.200
 		
 		filter:
 		{
 			require: essence, small, pellet, solid
 		}
-		offset: [0.125, -1.875]
+		offset: [0.000, -1.875]
 	}
 
 	@sound.emitter:
@@ -259,17 +257,18 @@ essence.container:
 		flags: start_muted
 		volume: 0.800
 		pitch: 0.430
-		size: 0.350
+		size: 8.000
 		size_max_modifier: 0.500
-		spread: 80.000
-		offset: [0.000, -1.875]
+		spread: 40.000
+		doppler: 2.000
+		offset: [0.000, -0.750]
 	}
 
 	@light:
 	{
-		offset: [0.125, -1.875]
-		scale: [11.000, 7.000]
-		texture: light.circle.00
+		offset: [0.000, -0.875]
+		scale: [24.000, 23.000]
+		texture: light.circle.04
 	}
 }
 
@@ -282,16 +281,15 @@ heat:
 	temperature_breakdown: 1950.000
 	cool_rate: 12.000
 	heat_capacity_extra: 200.000
-	heat_capacity_mult: 1.000
 	heat_damage_mult: 0.100
 	smoke_size_mult: 0.700
 	smoke_speed_mult: 0.300
 	smoke_rise_mult: 0.500
 	flags: exclude_body_mass, no_gui
 	fire_flags: none
-	offset: [-0.250, 1.000]
-	smoke_offset: [0.500, 1.375]
-	size: [1.250, 0.500]
+	offset: [0.000, -1.375]
+	smoke_offset: [0.000, -0.875]
+	size: [2.000, 1.000]
 
 	@light:
 	{
@@ -303,13 +301,12 @@ heat:
 
 	@sound.emitter:
 	{
-		file: furnace_loop
+		file: overheat_loop
 		flags: start_muted
-		volume: 1.100
-		pitch: 1.100
-		size_max_modifier: 0.850
-		priority: 0.550
-		offset: [-0.625, -0.125]
+		volume: 1.000
+		pitch: 0.680
+		size_max_modifier: 0.600
+		offset: [0.000, 0.500]
 	}
 }
 
@@ -329,7 +326,24 @@ heat:
 
 deteriorator:
 {
+	flags: use_misc
 
+	@essence.emitter:
+	{
+		offset: [0.000, -0.125]
+		type: projector
+		h_essence: failure
+		h_soundmix_test: deteriorator.00.emit
+	}
+
+	// @light:
+	// {
+	// 	color: [0.000, 1.000, 0.800, 1.500]
+	// 	offset: [0.125, -1.875]
+	// 	scale: [12.000, 14.000]
+	// 	intensity: 1.200
+	// 	texture: light.circle.00
+	// }
 }
 
 analog.relay:

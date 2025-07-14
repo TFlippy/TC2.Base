@@ -27,7 +27,7 @@
 	sound_emit_cycler_loop: mount.turn.loop.02
 	sound_emit_oscillator_loop: essence.emit.generic.loop.08
 	sound_emit_ambient_loop: wheel.metal_loop_03
-	sound_emit_projector_loop: missing
+	sound_emit_projector_loop: arcane_attractor.loop.01
 	
 	sound_collapse: essence.collapse.failure.01
 	sound_zap: essence.collapse.failure.00
