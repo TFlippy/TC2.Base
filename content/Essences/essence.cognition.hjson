@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.8"
+	$version: "0.1.64.0"
 	name: "Cognition"
 	desc:
 		'''
@@ -12,11 +12,11 @@
 	color_emit: [0.137, 0.353, 0.830, 1.000]
 	
 	emit_force: 10.000
-	emit_power_thermal: -35.000
+	emit_power_thermal: -17.500
 	emit_power_kinetic: -1.170
 	emit_power_radiant: 0.530
-	emit_power_electric: 14.020
-	emit_power_magnetic: 14.890
+	emit_power_electric: 7.010
+	emit_power_magnetic: 7.445
 	
 	sound_emit_loop: essence.emit.cognition.loop.00
 	sound_drain_loop: essence.drain.loop.00

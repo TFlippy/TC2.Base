@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.64.0"
 	name: "Heat"
 	desc:
 		'''
@@ -11,10 +11,10 @@
 	
 	color_emit: [1.000, 0.578, 0.000, 2.500]
 	
-	emit_force: 650.000
-	emit_power_thermal: 182.000
+	emit_force: 325.000
+	emit_power_thermal: 91.000
 	emit_power_kinetic: 2.760
-	emit_power_radiant: 14.280
+	emit_power_radiant: 7.140
 	emit_power_electric: 0.210
 	emit_power_magnetic: 0.560
 	

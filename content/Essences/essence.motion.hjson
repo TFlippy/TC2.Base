@@ -11,12 +11,12 @@
 	
 	color_emit: [0.000, 1.000, 0.800, 1.500]
 	
-	emit_force: 1100.000
-	emit_power_thermal: 32.010
+	emit_force: 550.000
+	emit_power_thermal: 16.005
 	emit_power_kinetic: 9.020
 	emit_power_radiant: 0.570
 	emit_power_electric: 0.180
-	emit_power_magnetic: 12.200
+	emit_power_magnetic: 6.100
 	
 	sound_emit_loop: essence.emit.motion.loop.00
 	sound_drain_loop: essence.drain.loop.00

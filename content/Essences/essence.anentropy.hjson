@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.3"
+	$version: "0.1.64.0"
 	name: "Anentropy"
 	desc:
 		'''
@@ -11,12 +11,12 @@
 	
 	color_emit: [14.318, 9.320, 13.531, 0.110]
 	
-	emit_force: -1750.000
-	emit_power_thermal: -100.000
+	emit_force: -875.000
+	emit_power_thermal: -50.000
 	emit_power_kinetic: -6.790
 	emit_power_radiant: -0.350
-	emit_power_electric: -28.350
-	emit_power_magnetic: 18.760
+	emit_power_electric: -14.175
+	emit_power_magnetic: 9.380
 	
 	sound_emit_loop: essence.emit.cognition.loop.00
 	sound_drain_loop: essence.drain.loop.00

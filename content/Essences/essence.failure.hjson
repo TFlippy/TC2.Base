@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.64.0"
 	name: "Failure"
 	desc:
 		'''
@@ -11,12 +11,12 @@
 	
 	color_emit: [1.043, 0.506, 0.372, 0.860]
 	
-	emit_force: -750.000
+	emit_force: -375.000
 	emit_power_thermal: 4.960
 	emit_power_kinetic: -6.790
 	emit_power_radiant: 0.650
-	emit_power_electric: -28.350
-	emit_power_magnetic: 18.760
+	emit_power_electric: -14.175
+	emit_power_magnetic: 9.380
 	
 	sound_emit_loop: essence.emit.cognition.loop.00
 	sound_drain_loop: essence.drain.loop.00

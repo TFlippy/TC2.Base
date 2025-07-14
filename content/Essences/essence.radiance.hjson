@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.8"
+	$version: "0.1.64.0"
 	name: "Radiance"
 	desc:
 		'''
@@ -11,12 +11,12 @@
 	
 	color_emit: [1.000, 0.968, 0.780, 1.500]
 	
-	emit_force: 380.000
-	emit_power_thermal: 56.730
+	emit_force: 190.000
+	emit_power_thermal: 28.365
 	emit_power_kinetic: 6.000
-	emit_power_radiant: 67.050
-	emit_power_electric: 6.650
-	emit_power_magnetic: 3.490
+	emit_power_radiant: 16.7625
+	emit_power_electric: 3.325
+	emit_power_magnetic: 1.745
 	
 	sound_emit_loop: essence.emit.generic.loop.12
 	sound_drain_loop: essence.drain.loop.00
