@@ -80,7 +80,7 @@ attachment:
 interactable:
 {
 	flags: none
-	priority: 0.600
+	priority: 0.000
 	window_size: [200.000, 144.000]
 	window_size_misc: [96.000, 0.000]
 }
@@ -138,5 +138,5 @@ analog.button:
 {
 	channels: red, green, blue, yellow
 	flags: use_misc
-	signal_strength: 0.500
+	button_size: [48, 32]
 }

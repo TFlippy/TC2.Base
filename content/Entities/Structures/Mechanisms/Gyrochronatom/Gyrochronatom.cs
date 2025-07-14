@@ -116,7 +116,7 @@ namespace TC2.Base.Components
 
 			public void Draw()
 			{
-				using (var window = GUI.Window.InteractionMisc("Gyrochronatom"u8, this.ent_gyrochronatom, size: new(48 * 2, 48)))
+				using (var window = GUI.Window.InteractionMisc("Gyrochronatom"u8, this.ent_gyrochronatom, size: new(48 * 2, 56)))
 				{
 					this.StoreCurrentWindowTypeID(order: -100);
 					if (window.show)
@@ -145,6 +145,15 @@ namespace TC2.Base.Components
 								var rpc = new Gyrochronatom.ConfigureRPC()
 								{
 									interval = (ushort)(interval_cur_s * App.tickrate_f32).RoundToUInt()
+								};
+								rpc.Send(this.ent_gyrochronatom);
+							}
+
+							if (GUI.Checkbox("Active"u8, target: ref this.gyrochronatom.flags, flag: Gyrochronatom.Flags.Active, size: GUI.Rm))
+							{
+								var rpc = new Gyrochronatom.ConfigureRPC()
+								{
+									flags = this.gyrochronatom.flags
 								};
 								rpc.Send(this.ent_gyrochronatom);
 							}

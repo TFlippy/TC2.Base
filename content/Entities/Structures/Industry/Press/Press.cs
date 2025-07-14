@@ -87,7 +87,7 @@
 			{
 				var energy_impact = Energy.GetKineticEnergy(piston.mass, piston.current_speed);
 				
-				App.WriteValue(energy_impact);
+				//App.WriteValue(energy_impact);
 				piston.current_speed *= -0.10f;
 				piston.current_kinetic_energy += energy_impact;
 				//piston.current_distance = piston.length;
@@ -213,7 +213,7 @@
 
 		[ISystem.PreUpdate.C(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void PostUpdate(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity ent_piston,
-		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Control.Data control,
+		[Source.Owned] in Transform.Data transform, /*[Source.Owned] ref Control.Data control,*/
 		[Source.Owned] ref Piston.Data piston,
 		[Source.Owned] in Crafter.Data crafter, [Source.Owned] ref Crafter.State crafter_state)
 		{
@@ -387,8 +387,8 @@
 		//}
 
 		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void OnUpdate_Piston(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity ent_press,
-		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Control.Data control,
+		public static void OnUpdate_Piston(/*ISystem.Info info, ref Region.Data region, ref XorRandom random, */Entity ent_press,
+		//[Source.Owned] in Transform.Data transform, [Source.Owned] ref Control.Data control,
 		[Source.Owned] ref Press.Data press, [Source.Owned] ref Press.State press_state, [Source.Owned] ref Piston.Data piston,
 		[Source.Owned] in Crafter.Data crafter, [Source.Owned] ref Crafter.State crafter_state)
 		{
@@ -399,7 +399,7 @@
 
 				press_state.flags.AddFlag(State.Flags.Smashed | State.Flags.Success);
 				press_state.Sync(ent_press, true);
-				App.WriteLine("smash");
+				//App.WriteLine("smash");
 #endif
 			}
 			else

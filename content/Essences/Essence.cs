@@ -575,6 +575,30 @@ namespace TC2.Base.Components
 #endif
 		}
 
+		public static partial class Charge
+		{
+			[Flags]
+			public enum Flags: byte
+			{
+				None = 0,
+
+
+			}
+
+			[ITrait.Data(Net.SendType.Unreliable, IComponent.Scope.Global | IComponent.Scope.Region)]
+			public partial struct Data(): ITrait
+			{
+				public IEssence.Handle h_essence;
+				public Essence.Charge.Flags flags;
+				private byte unused_00;
+
+				private uint unused_01;
+
+				public float amount;
+				public float capacity;
+			}
+		}
+
 		public static class Emitter
 		{
 			public enum Type: byte

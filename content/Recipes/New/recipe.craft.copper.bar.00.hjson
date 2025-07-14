@@ -1,6 +1,5 @@
 ﻿{
-	$region_id: 0
-	$version: "0.1.63.2"
+	$version: "0.1.64.0"
 	name: "Copper Bricks"
 	desc:
 		'''
@@ -61,7 +60,7 @@
 							amount_min: 200.000
 							difficulty: 10
 							snapping: 5.000
-							falloff: 0.944
+							falloff: 0.983
 							group: 0
 							flags: conditional
 						}
@@ -87,7 +86,7 @@
 							amount: 0.866552
 							amount_extra: 0.033
 							group: 0
-							flags: primary, spawn, compact, use_temperature
+							flags: primary, compact, use_temperature
 						}
 					]
 					

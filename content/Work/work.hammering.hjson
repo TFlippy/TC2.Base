@@ -43,7 +43,7 @@
 	
 	skills_mult:
 	{
-		strength: 0.730
+		strength: 0.570
 		blacksmithing: 0.280
 		clubs: 0.170
 		endurance: 0.330
@@ -58,6 +58,7 @@
 	sounds_manual: []
 	sounds_crafter: ["press.smash.00", "press.smash.01", "press.smash.02"]
 	sounds_passive: []
+	sounds_ambient: []
 	
 	sounds_start: []
 	sounds_end: []
