@@ -11,24 +11,24 @@ body:
 	
 	@shape.line:
 	{
-		material: machine
-		miss_chance: 0.659
+		material: metal_frame
+		miss_chance: 0.839
 		flags: none
-		tags: none
+		tags: huge, thin, hard
 		
 		layer: entity, solid, building, support, no_overlapped_placement, ignore_melee
 		mask: world, building
 		exclude: none
 		
 		mass: 140.000
-		radius: 0.750
+		radius: 1.625
 		friction: 0.600
 		elasticity: 0.500
 		
 		cog_offset: [0.000, 0.000]
 		
-		a: [0.125, -1.250]
-		b: [0.000, 1.375]
+		a: [0.000, -1.875]
+		b: [0.000, 1.500]
 		offset: [0.000, 0.000]
 	}
 

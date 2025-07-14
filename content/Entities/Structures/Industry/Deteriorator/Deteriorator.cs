@@ -106,12 +106,12 @@
 
 			public void Draw()
 			{
-				using (var window = GUI.Window.InteractionMisc("Deteriorator"u8, this.ent_deteriorator, size: new(48, 96 * 1)))
+				using (var window = GUI.Window.InteractionMisc("Deteriorator"u8, this.ent_deteriorator, size: new(48 * 3, 96 * 1)))
 				{
 					this.StoreCurrentWindowTypeID(order: -100);
 					if (window.show)
 					{
-						using (GUI.Group.New(size: new Vector2(GUI.RmX, GUI.RmY)))
+						using (GUI.Group.New(size: GUI.Rm))
 						{
 
 						}
@@ -120,7 +120,7 @@
 			}
 		}
 
-		[ISystem.GUI(ISystem.Mode.Single, ISystem.Scope.Region)]
+		[ISystem.LateGUI(ISystem.Mode.Single, ISystem.Scope.Region, order: 50)]
 		public static void OnGUI(Entity entity,
 		[Source.Owned] in Interactable.Data interactable, [Source.Owned] in Transform.Data transform,
 		[Source.Owned] in Crafter.Data crafter, [Source.Owned] in Crafter.State crafter_state,
