@@ -114,7 +114,7 @@ shop:
 	}
 	
 	tools: hammer, screwdriver, spanner, pliers, bucket, shovel, towel, spatula, tongs, crowbar, knife, ladle
-	infrastructure: bucket, surface, large_surface, hard_surface, structure, machine
+	infrastructure: rack, pulley, bucket, surface, large_surface, hard_surface, crane, essence_emitter, essence_projector, structure, machine
 	environment: machine, stationary, dirty, scary, noisy, reinforced, fireproof, durable, sturdy
 	
 	flags: embed_gui

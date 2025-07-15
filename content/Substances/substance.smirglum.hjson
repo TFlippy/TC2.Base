@@ -10,7 +10,7 @@
 	type: element
 	atomic_number: 158
 	flags: none
-	tags: oxide, unstable, pure, metallic, refractory, metal, solid
+	tags: pure, metallic, refractory, metal, solid
 	
 	icon:
 	{
@@ -55,13 +55,13 @@
 	triple_point_pressure: 0.000
 	
 	// K
-	ductile_temperature: 0.000
+	ductile_temperature: 2372.400
 	// K
 	forging_temperature_lower: 2522.500
 	// K
 	forging_temperature_upper: 2920.500
 	// K
-	sintering_temperature_lower: 1744.585
+	sintering_temperature_lower: 944.585
 	// K
 	sintering_temperature_upper: 3104.853
 	
@@ -88,7 +88,7 @@
 	form_to_material:
 	{
 		powder: smirglum.powder
-		ingot: smirglum.plate
+		plate: smirglum.plate
 		chunk: smirglum
 		gravel: smirglum.gravel
 		raw: smirglum
