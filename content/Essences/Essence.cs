@@ -193,7 +193,7 @@ namespace TC2.Base.Components
 					}
 				}
 
-				container.rate_current.LerpFMARef(Maths.Clamp01(container.rate + container.noise_current), container.rate_speed);
+				container.rate_current.LerpFMARef(Maths.ClampMin(0.00f, container.rate + container.noise_current), container.rate_speed);
 			}
 
 			[ISystem.Update.D(ISystem.Mode.Single, ISystem.Scope.Region)]
@@ -623,6 +623,7 @@ namespace TC2.Base.Components
 				Projector,
 				[Name("Explosive", desc: "Single-use emitter activated by an explosive charge.")]
 				Explosive,
+
 				//[Name("Thumper", desc: "")]
 				//Thumper,
 			}

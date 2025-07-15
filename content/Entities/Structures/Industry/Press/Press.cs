@@ -23,7 +23,7 @@
 			Pushing, // Piston is currently pushing
 		}
 
-	[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region)]
+		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region)]
 		public partial struct Data(): IComponent
 		{
 			[Net.Segment.A, Save.Force, Editor.Picker.Position(relative: true)] public required Vec2f offset;
@@ -86,7 +86,7 @@
 			else if (distance_old > piston.length)
 			{
 				var energy_impact = Energy.GetKineticEnergy(piston.mass, piston.current_speed);
-				
+
 				//App.WriteValue(energy_impact);
 				piston.current_speed *= -0.10f;
 				piston.current_kinetic_energy += energy_impact;
@@ -161,7 +161,7 @@
 
 					//Sound.Play(region: ref region, sound: essence_emitter.h_sound_emit, world_position: pos, volume: 1.00f, pitch: 1.00f, size: 0.35f, dist_multiplier: 0.65f);
 					Sound.Play(region: ref region, h_soundmix: essence_emitter.h_soundmix_test, random: ref random, pos: pos); //, volume: 1.00f, pitch: 1.00f, size: 0.35f, dist_multiplier: 0.65f);
-					Shake.Emit(region: ref region, world_position: pos, trauma: 0.60f, max: 0.60f, radius: 10.00f);
+					Shake.Emit(region: ref region, world_position: pos, trauma: 0.35f, max: 0.50f, radius: 10.00f);
 
 					Particle.Spawn(ref region, new Particle.Data()
 					{
@@ -251,9 +251,12 @@
 		{
 			[Net.Segment.A, Editor.Picker.Position(relative: true)] public Vec2f slider_offset;
 
-			[Net.Segment.A] public float slider_length;
-			[Net.Segment.A] public float speed;
+			//[Net.Segment.A] public float slider_length;
+			//[Net.Segment.A] public float speed;
 			[Net.Segment.A] public float load_multiplier;
+
+			[Net.Segment.A] public ISoundMix.Handle h_soundmix_stamp;
+			[Net.Segment.A] public ISoundMix.Handle h_soundmix_fail;
 
 			//[Net.Ignore, Save.Ignore] public uint current_sound_index;
 		}
@@ -279,18 +282,18 @@
 		private static readonly Texture.Handle metal_spark_01 = "metal_spark.01";
 
 		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void OnUpdateEffects(ISystem.Info info, ref Region.Data region, ref XorRandom random,
+		public static void OnUpdateEffects(ref Region.Data region, ref XorRandom random,
 		[Source.Owned] in Transform.Data transform,
 		[Source.Owned] ref Press.Data press, [Source.Owned] ref Press.State press_state,
-		[Source.Owned, Pair.Component<Press.Data>] ref Light.Data light, [Source.Owned] ref Crafter.State state)
+		[Source.Owned, Pair.Component<Press.Data>] ref Light.Data light, [Source.Owned] ref Crafter.State crafter_state)
 		{
 			if (press_state.flags.HasAny(Press.State.Flags.Smashed))
 			{
 				if (press_state.flags.HasAny(Press.State.Flags.Success))
 				{
 					//Sound.Play(snd_smash[(press.current_sound_index++) % snd_smash.Length], transform.position, volume: 1.00f, pitch: random.NextFloatRange(0.70f, 0.80f), size: 0.80f, priority: 0.60f, dist_multiplier: 0.70f);
-					Sound.Play(snd_stamp.GetNext(ref press_state.current_sound_index), transform.position, volume: 1.00f, pitch: random.NextFloatRange(0.95f, 1.05f), size: 1.00f, priority: 0.60f, dist_multiplier: 0.70f);
-					Shake.Emit(ref region, transform.position, 0.40f, 0.40f, radius: 24.00f);
+					Sound.Play(sound: snd_stamp.GetNext(ref press_state.current_sound_index), world_position: transform.position, volume: 0.60f, pitch: random.NextFloatExtra(0.95f, 0.10f), size: 4.00f, priority: 0.20f, dist_multiplier: 0.55f);
+					Shake.Emit(region: ref region, world_position: transform.position, trauma: 0.30f, max: 0.35f, radius: 14.00f);
 
 					light.intensity = 1.00f;
 
@@ -298,25 +301,25 @@
 					var dir = transform.GetDirection();
 
 					{
-						Particle.Spawn(ref region, new Particle.Data()
-						{
-							texture = bigger_smoke_light,
-							lifetime = random.NextFloatRange(0.50f, 1.00f),
-							pos = pos + random.NextVector2(0.50f),
-							vel = random.NextVector2Range(-1.00f, 1.00f),
-							fps = random.NextByteRange(5, 10),
-							frame_count = 64,
-							frame_count_total = 64,
-							frame_offset = random.NextByteRange(0, 64),
-							scale = random.NextFloatRange(0.50f, 0.80f),
-							rotation = random.NextFloat(10.00f),
-							angular_velocity = random.NextFloatRange(-1.00f, 1.00f),
-							growth = random.NextFloatRange(0.40f, 0.60f),
-							drag = random.NextFloatRange(0.01f, 0.03f),
-							force = new Vector2(0.00f, random.NextFloatRange(0, -2)),
-							color_a = random.NextColor32Range(0x80ffffff, 0xa0ffffff),
-							color_b = random.NextColor32Range(0x00ffffff, 0x00808080)
-						});
+						ref var particle = ref Particle.Reserve(ref region);
+
+						particle.texture = bigger_smoke_light;
+						particle.lifetime = random.NextFloatRange(0.50f, 1.00f);
+						particle.pos = pos + random.NextVector2(0.50f);
+						particle.vel = random.NextVector2Range(-1.00f, 1.00f);
+						particle.fps = random.NextByteRange(5, 10);
+						particle.frame_count = 64;
+						particle.frame_count_total = 64;
+						particle.frame_offset = random.NextByteRange(0, 64);
+						particle.scale = random.NextFloatRange(0.50f, 0.80f);
+						particle.rotation = random.NextFloat(10.00f);
+						particle.angular_velocity = random.NextFloatRange(-1.00f, 1.00f);
+						particle.growth = random.NextFloatRange(0.40f, 0.60f);
+						particle.drag = random.NextFloatRange(0.01f, 0.03f);
+						particle.force = new Vector2(0.00f, random.NextFloatRange(0, -2));
+						particle.color_a = random.NextColor32Range(0x80ffffff, 0xa0ffffff);
+						particle.color_b = random.NextColor32Range(0x00ffffff, 0x00808080);
+
 					}
 
 					//for (var i = 0; i < 10; i++)
@@ -345,8 +348,8 @@
 				}
 				else
 				{
-					Sound.Play(snd_fail.GetNext(ref press_state.current_sound_index), transform.position, volume: 1.20f, pitch: random.NextFloatRange(0.70f, 0.90f), size: 0.80f, priority: 0.60f, dist_multiplier: 0.80f);
-					Shake.Emit(ref region, transform.position, 0.30f, 0.30f, radius: 16.00f);
+					Sound.Play(sound: snd_fail.GetNext(ref press_state.current_sound_index), world_position: transform.position, volume: 1.20f, pitch: random.NextFloatRange(0.70f, 0.90f), size: 0.80f, priority: 0.60f, dist_multiplier: 0.80f);
+					Shake.Emit(region: ref region, world_position: transform.position, trauma: 0.30f, max: 0.30f, radius: 16.00f);
 				}
 
 				press_state.flags.RemoveFlag(Press.State.Flags.Smashed | Press.State.Flags.Success);
@@ -424,83 +427,6 @@
 					if (window.show)
 					{
 						GUI.DrawFillBackground(GUI.tex_frame, new(8));
-
-						//ref var player = ref Client.GetPlayer();
-						//ref var region = ref Client.GetRegion();
-						//ref var character = ref Client.GetCharacter(out var character_asset);
-
-						//Crafting.Context.NewFromCharacter(ref region.AsCommon(), character_asset, ent_producer: this.ent_press, out var context);
-
-						//var w_right = (48 * 4) + 24;
-
-						//using (GUI.Group.New(size: new Vector2(GUI.RmX - w_right, GUI.RmY)))
-						//{
-						//	using (GUI.Group.New(size: GUI.Rm))
-						//	{
-						//		GUI.DrawFillBackground(GUI.tex_frame, new(8, 8, 8, 8));
-
-						//		using (GUI.Group.New(size: GUI.Rm, padding: new(12, 12)))
-						//		{
-						//			//CrafterExt.DrawRecipe(ref region, ref this.crafter, ref this.crafter_state);
-						//			//CrafterExt.DrawRecipe(ref context, ref this.crafter, ref this.crafter_state);
-
-						//			//ref var recipe = ref this.crafter.GetCurrentRecipe();
-						//			//if (!recipe.IsNull())
-						//			//{
-						//			//	//ref var inventory_data = ref this.ent_press.GetTrait<Crafter.State, Inventory8.Data>();
-
-						//			//	//GUI.DrawShopRecipe(ref region, this.crafter.recipe, this.ent_press, player.ent_controlled, this.transform.position, default, default, inventory_data.GetHandle(), draw_button: false, draw_title: false, draw_description: false, search_radius: 0.00f);
-						//			//}
-
-						//			//using (GUI.Group.New(size: GUI.Rm, padding: new(12, 12)))
-						//			//{
-						//			//	GUI.DrawFillBackground(GUI.tex_panel, new(8, 8, 8, 8), margin: new(-12, 0, -12, -12));
-
-						//			//	load_graph[load_graph_index] = this.axle_state.force_load_old;
-						//			//	GUI.LineGraph("##load", load_graph, ref load_graph_index, size: GUI.Rm, scale_min: 0.00f, scale_max: 10000.00f);
-						//			//}
-						//		}
-						//	}
-						//}
-
-						//GUI.SameLine();
-
-						//using (GUI.Group.New(size: new Vector2(w_right, GUI.RmY)))
-						//{
-						//	using (GUI.Group.New(size: new Vector2(48 * 4, 48 * 2) + new Vector2(24, 24), padding: new(12)))
-						//	{
-						//		GUI.DrawFillBackground(GUI.tex_frame, new(8, 8, 8, 8));
-
-						//		ref var shipment = ref this.ent_press.GetComponent<Shipment.Data>();
-						//		if (shipment.IsNotNull())
-						//		{
-						//			var item_context = GUI.ItemContext.Begin(false);
-						//			GUI.DrawShipment(ref item_context, this.ent_press, ref shipment, new Vector2(96, 48));
-						//		}
-						//	}
-
-						//	using (GUI.Group.New(size: new Vector2(48 * 4, 48 * 2) + new Vector2(24, 24)))
-						//	{
-						//		GUI.DrawFillBackground(GUI.tex_frame, new(8, 8, 8, 8));
-
-						//		using (GUI.Group.New(size: GUI.Rm, padding: new(12, 12)))
-						//		{
-						//			GUI.DrawInventoryDock(Inventory.Type.Output, size: new(48 * 4, 48 * 2));
-						//		}
-						//	}
-
-						//	using (GUI.Group.New(size: new Vector2(48 * 4, GUI.RmY) + new Vector2(24, 0)))
-						//	{
-						//		GUI.DrawFillBackground(GUI.tex_frame, new(8, 8, 8, 8));
-
-						//		using (GUI.Group.New(size: GUI.Rm, padding: new(12, 12)))
-						//		{
-						//			GUI.DrawInventoryDock(Inventory.Type.Input, size: new(48 * 4, 48 * 2));
-						//			//GUI.DrawWorkH(Maths.Normalize(this.crafter_state.work, this.crafter.required_work), size: GUI.Rm with { Y = 32 } - new Vector2(48, 0));
-						//		}
-						//	}
-						//}
-
 					}
 				}
 			}
@@ -535,14 +461,14 @@
 			}
 		}
 
-		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void OnUpdate(ISystem.Info info,
-		[Source.Owned] in Transform.Data transform,
-		[Source.Owned] ref Press.Data press, // [Source.Owned] ref Axle.Data axle, [Source.Owned] ref Axle.State axle_state,
-		[Source.Owned, Pair.Component<Press.Data>] ref Animated.Renderer.Data renderer_slider)
-		{
-			//renderer_slider.offset = press.slider_offset + new Vector2(0.00f, MathF.Pow((MathF.Cos(axle_state.rotation) + 1.00f) * 0.50f, press.speed) * press.slider_length);
-		}
+		//[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region)]
+		//public static void OnUpdate(ISystem.Info info,
+		//[Source.Owned] in Transform.Data transform,
+		//[Source.Owned] ref Press.Data press, // [Source.Owned] ref Axle.Data axle, [Source.Owned] ref Axle.State axle_state,
+		//[Source.Owned, Pair.Component<Press.Data>] ref Animated.Renderer.Data renderer_slider)
+		//{
+		//	//renderer_slider.offset = press.slider_offset + new Vector2(0.00f, MathF.Pow((MathF.Cos(axle_state.rotation) + 1.00f) * 0.50f, press.speed) * press.slider_length);
+		//}
 #endif
 	}
 }

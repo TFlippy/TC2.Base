@@ -3,13 +3,13 @@
 	flags: none
 	tags: none
 	
-	volume: [1.460, 0.040]
-	pitch: [0.700, 0.040]
-	size: [4.000, 0.000]
-	dist_mult: [0.970, 0.000]
+	volume: [1.630, 0.130]
+	pitch: [0.680, 0.020]
+	size: [9.550, 0.170]
+	dist_mult: [0.590, 0.050]
 	
 	sounds:
 	[
-		gun.accelerator.arcane.02
+		gun.accelerator.arcane.01
 	]
 }

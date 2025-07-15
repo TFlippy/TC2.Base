@@ -23,7 +23,7 @@
 		}
 
 		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void OnUpdate(ISystem.Info info, ref XorRandom random, ref Region.Data region, Entity ent_deteriorator, 
+		public static void OnUpdate(ISystem.Info info, ref XorRandom random, ref Region.Data region, Entity ent_deteriorator,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Deteriorator.Data deteriorator)
 		{
 
@@ -54,32 +54,60 @@
 
 					var intensity = 1.00f;
 					var color_a = ColorBGRA.Lerp(essence_data.color_emit, ColorBGRA.White, 0.50f);
-					var color_b = essence_data.color_emit.WithColorMult(0.20f).WithAlphaMult(0.00f);
+					var color_b = essence_data.color_emit.WithColorMult(1.20f).WithAlphaMult(0.00f);
 
 					//App.WriteLine("essence");
 
 					//Sound.Play(region: ref region, sound: essence_emitter.h_sound_emit, world_position: pos, volume: 1.00f, pitch: 1.00f, size: 0.35f, dist_multiplier: 0.65f);
-					Sound.Play(region: ref region, h_soundmix: essence_emitter.h_soundmix_test, random: ref random, pos: pos); //, volume: 1.00f, pitch: 1.00f, size: 0.35f, dist_multiplier: 0.65f);
-					Shake.Emit(region: ref region, world_position: pos, trauma: 0.60f, max: 0.60f, radius: 10.00f);
+					Sound.Play(region: ref region, h_soundmix: essence_emitter.h_soundmix_test, random: ref random, pos: pos, size: 1.00f, dist_mult: 0.50f); //, volume: 1.00f, pitch: 1.00f, size: 0.35f, dist_multiplier: 0.65f);
 
-					Particle.Spawn(ref region, new Particle.Data()
+					for (var i = 0; i < 3; i++)
 					{
-						texture = Light.tex_light_circle_00,
-						lifetime = 0.20f,
-						pos = pos - dir,
-						vel = dir * 20.00f,
-						drag = 0.20f,
-						frame_count = 1,
-						frame_count_total = 1,
-						frame_offset = 0,
-						scale = 1.00f,
-						stretch = new Vector2(1.00f, 0.50f),
-						face_dir_ratio = 1.00f,
-						growth = 50.00f,
-						color_a = color_a,
-						color_b = color_b,
-						glow = 20.00f * intensity
-					});
+						Particle.Spawn(ref region, new Particle.Data()
+						{
+							texture = Light.tex_light_fire_00,
+							lifetime = random.NextFloatExtra(0.30f, 0.20f),
+							pos = pos, // + dir,
+									   //vel = (dir * 30.00f), // + random.NextUnitVector2Extra(0.50f, 4.00f),
+							vel = (dir * random.NextFloatExtra(30.00f, 5.00f)), // + random.NextUnitVector2Extra(0.50f, 4.00f),
+							drag = random.NextFloatExtra(0.10f, 0.15f),
+							frame_count = 1,
+							frame_count_total = 1,
+							frame_offset = 0,
+							scale = random.NextFloatExtra(1.20f, 0.80f),
+							stretch = new Vector2(1.00f, random.NextFloatExtra(0.40f, 0.20f)),
+							face_dir_ratio = 1.00f,
+							growth = random.NextFloatExtra(8.00f, 8.00f),
+							//rotation = random.NextFloat(3.00f),
+							angular_velocity = random.NextFloat(5.00f),
+							//force = new(random.NextFloat(4), 0.00f),
+							color_a = color_a,
+							color_b = color_b,
+							glow = 10.00f * intensity
+						});
+					}
+					
+					Shake.Emit(region: ref region, world_position: pos, trauma: 0.30f, max: 0.30f, radius: 18.00f);
+
+					//Particle.Spawn(ref region, new Particle.Data()
+					//{
+					//	texture = Light.tex_light_circle_04,
+					//	lifetime = 0.30f,
+					//	pos = pos - dir,
+					//	vel = dir * 30.00f,
+					//	drag = 0.15f,
+					//	frame_count = 1,
+					//	frame_count_total = 1,
+					//	frame_offset = 0,
+					//	scale = 1.20f,
+					//	stretch = new Vector2(1.00f, 0.80f),
+					//	face_dir_ratio = 1.00f,
+					//	growth = 40.00f,
+					//	force = new(random.NextFloat(25), 0.00f),
+					//	color_a = color_a,
+					//	color_b = color_b,
+					//	glow = 20.00f * intensity
+					//});
 				}
 #endif
 			}

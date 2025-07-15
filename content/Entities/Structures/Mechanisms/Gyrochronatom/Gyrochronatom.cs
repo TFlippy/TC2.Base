@@ -81,7 +81,7 @@ namespace TC2.Base.Components
 #if CLIENT
 				if (gyrochronatom.h_sound_pulse)
 				{
-					Sound.Play(gyrochronatom.h_sound_pulse, transform.position);
+					Sound.Play(gyrochronatom.h_sound_pulse, transform.position, volume: 0.65f, size: 0.40f, dist_multiplier: 0.35f, priority: 0.05f);
 				}
 #endif
 			}

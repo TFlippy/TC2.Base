@@ -3,10 +3,10 @@
 	flags: none
 	tags: none
 	
-	volume: [0.700, 0.100]
+	volume: [0.650, 0.100]
 	pitch: [0.950, 0.100]
-	size: [0.500, 0.000]
-	dist_mult: [0.750, 0.000]
+	size: [3.000, 0.000]
+	dist_mult: [0.450, 0.000]
 	
 	sounds:
 	[

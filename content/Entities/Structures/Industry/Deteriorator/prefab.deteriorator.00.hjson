@@ -330,11 +330,19 @@ deteriorator:
 
 	@essence.emitter:
 	{
-		offset: [0.000, -0.125]
+		offset: [0.000, -0.750]
 		type: projector
 		h_essence: failure
 		h_soundmix_test: deteriorator.00.emit
 	}
+
+	// @essence.emitter:
+	// {
+	// 	offset: [0.000, -0.125]
+	// 	type: projector
+	// 	h_essence: failure
+	// 	h_soundmix_test: deteriorator.00.emit
+	// }
 
 	// @light:
 	// {
@@ -368,7 +376,7 @@ vehicle:
 {
 	joint.base:
 	{
-		offset_a: [-0.250, -0.625]
+		offset_a: [0.000, -1.500]
 		max_force: 100000.000
 		max_torque: 100000.000
 		max_stress: 3.000

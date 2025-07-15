@@ -20,51 +20,29 @@
 	modes:
 	[
 		{
-			h_work: crushing
-			flags: automated, wip
+			h_work_supported:
+			[
+				"null"
+				"null"
+				"null"
+				"null"
+				"null"
+				"null"
+				"null"
+				"null"
+			]
+			
+			name: "Test"
 			
 			work_multiplier: 10.000
 			cooldown_multiplier: 0.200
 			
-			crafter_state_required: in_contact
-			crafter_state_on_work:
-			{
-				add: working
-				rem: ready, in_contact, working
-			}
-			
-			switch_cooldown: 1.000
-			h_sound_switch: lever.bell.00
-		}
-		{
-			h_work: shattering
 			flags: automated, wip
-			
-			work_multiplier: 10.000
-			cooldown_multiplier: 0.200
-			
-			crafter_state_required: in_contact
+			crafter_state_required: ready
 			crafter_state_on_work:
 			{
 				add: working
-				rem: ready, in_contact, working
-			}
-			
-			switch_cooldown: 1.000
-			h_sound_switch: lever.bell.00
-		}
-		{
-			h_work: bending
-			flags: automated, wip
-			
-			work_multiplier: 10.000
-			cooldown_multiplier: 0.200
-			
-			crafter_state_required: in_contact
-			crafter_state_on_work:
-			{
-				add: working
-				rem: ready, in_contact, working
+				rem: ready
 			}
 			
 			switch_cooldown: 1.000
