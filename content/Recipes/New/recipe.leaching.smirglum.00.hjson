@@ -1,0 +1,180 @@
+﻿{
+	$version: "0.1.63.8"
+	name: "Thinly Veiled Threads"
+	desc:
+		'''
+		Rummage through garbage in search for textiles, and then wash them (who knows who died in these).
+		'''
+	tips: []
+	
+	stages:
+	[
+		{
+			name: "Cleaning"
+			
+			type: cleaning
+			flags: subtractive, wip
+			tags: material, raw
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: wet
+			
+			ratio: 1.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Rinsed"
+					
+					type: undefined
+					flags: wip
+					
+					requirements:
+					[
+						{
+							type: work
+							work: scavenging
+							amount: 200.000
+							amount_min: 80.000
+							difficulty: 4
+							snapping: 15.000
+							falloff: 0.864
+							ratio: 0.424
+							group: 0
+							flags: conditional
+						}
+						{
+							type: resource
+							material: water
+							amount: 1.000
+							snapping: 0.010
+							group: 1
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: washing
+							amount: 150.000
+							amount_min: 45.000
+							difficulty: 5
+							snapping: 15.000
+							falloff: 0.859
+							ratio: 1.000
+							group: 1
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: cloth
+							amount: 2.400
+							amount_extra: 1.700
+							snapping: 0.010
+							group: 1
+							flags: primary, compact
+						}
+						{
+							type: resource
+							material: leather
+							amount: 0.400
+							amount_extra: 1.400
+							snapping: 0.010
+							group: 1
+							flags: byproduct, secondary, compact
+						}
+						{
+							type: resource
+							material: scrap.mixed
+							amount: 1.200
+							amount_extra: 0.200
+							snapping: 0.010
+							group: 1
+							flags: residue
+						}
+						{
+							type: resource
+							material: water.dirty
+							amount: 0.750
+							amount_extra: 0.195
+							snapping: 0.010
+							group: 1
+							flags: waste
+						}
+					]
+					
+					filter_tools:
+					{
+						require: hammer
+						include: hammer, cutters, hand_drill, screwdriver, wrench, tweezers, magnifying_glass, bucket, towel, tongs, pick, crowbar
+					}
+					filter_infrastructure:
+					{
+						include: cauldron, barrel, table, chair, vise, rack
+					}
+					filter_environment:
+					{
+						include: warm, container, disinfected, sterile, clean
+						exclude: polluted
+					}
+				}
+			]
+			
+			requirements:
+			[
+				{
+					type: resource
+					material: scrap.mixed
+					amount: 3.000
+					snapping: 0.500
+					loss: 0.110
+					group: 0
+					flags: primary, prerequisite
+				}
+			]
+		}
+	]
+	
+	type: workshop
+	flags: wip
+	tags: manual, simple, small, filtering, salvaging
+	infrastructure: barrel, surface
+	infrastructure_exclude: none
+	
+	h_company: common
+	
+	icon:
+	{
+		texture: resource.cloth
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	icon_offset: [-4.000, 3.000]
+	
+	icon_extra:
+	{
+		texture: ui_icons_crafting.mini
+		size: [16, 16]
+	}
+	icon_extra_offset: [0.000, -6.000]
+	
+	icon_c:
+	{
+		texture: resource.scrap.mixed
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	icon_c_offset: [-3.000, -16.000]
+	
+	color_frame: "0xffe3cb93"
+	color_button: "0xff9dd80f"
+	rank: -140.000
+	
+	min: 1
+	max: 10
+	step: 1
+	
+	version: 1
+}
