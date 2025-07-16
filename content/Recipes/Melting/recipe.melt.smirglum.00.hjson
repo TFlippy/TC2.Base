@@ -173,7 +173,7 @@
 	
 	type: workshop
 	flags: debug, disabled
-	tags: metalworking, melting, heating, messy, dangerous
+	tags: metalworking, heating, messy, dangerous
 	infrastructure: crucible
 	infrastructure_exclude: none
 	

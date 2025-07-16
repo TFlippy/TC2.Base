@@ -36,7 +36,7 @@
 							material: scrap.copper
 							amount: 0.980
 							snapping: 1.000
-							loss: 0.031
+							loss: 0.027
 							group: 0
 							flags: prerequisite
 						}
@@ -87,7 +87,7 @@
 	
 	type: workshop
 	flags: debug, disabled
-	tags: metalworking, melting, heating, messy, dangerous
+	tags: metalworking, heating, messy, dangerous
 	infrastructure: crucible
 	infrastructure_exclude: none
 	

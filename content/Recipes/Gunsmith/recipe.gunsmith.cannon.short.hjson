@@ -52,7 +52,7 @@
 	
 	type: workshop
 	flags: no_amount_multiplier, blueprintable, disabled, wip
-	tags: manual, crafting, complex, large, weapon, gun, blacksmithing, assembling, metalworking, engineering, military, construction, casting
+	tags: manual, crafting, complex, large, weapon, gun, blacksmithing, assembling, metalworking, engineering, military, construction
 	infrastructure: none
 	infrastructure_exclude: none
 	

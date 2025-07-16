@@ -186,7 +186,7 @@
 	
 	type: workshop
 	flags: blueprintable, item, wip
-	tags: workbench, manual, crafting, blacksmithing, metalworking
+	tags: workbench, manual, crafting, small, blacksmithing, metalworking
 	infrastructure: workbench
 	infrastructure_exclude: none
 	

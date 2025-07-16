@@ -152,7 +152,7 @@
 	
 	type: workshop
 	flags: hidden, debug, disabled
-	tags: metalworking, heating, casting, messy, dangerous
+	tags: metalworking, heating, messy, dangerous
 	infrastructure: casting_mould
 	infrastructure_exclude: none
 	

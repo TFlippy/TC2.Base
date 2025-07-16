@@ -52,7 +52,7 @@
 	
 	type: workshop
 	flags: blueprintable, debug, disabled, wip
-	tags: workbench, manual, crafting, simple, small, weapon, munitions, blacksmithing, metalworking, casting, explosive, dangerous
+	tags: workbench, manual, crafting, simple, small, weapon, munitions, blacksmithing, metalworking, explosive, dangerous
 	infrastructure: none
 	infrastructure_exclude: none
 	

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.5"
+	$version: "0.1.64.0"
 	name: "Porridge"
 	desc:
 		'''
@@ -153,7 +153,7 @@
 	
 	type: workshop
 	flags: production, wip
-	tags: manual, crafting, dumb, crude, simple, small, food, organic, blending, messy
+	tags: manual, crafting, dumb, crude, simple, small, organic, blending, messy
 	infrastructure: bucket
 	infrastructure_exclude: none
 	

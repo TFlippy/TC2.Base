@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.64.0"
 	name: "Universal Brown Sauce"
 	desc:
 		'''
@@ -54,7 +54,7 @@
 	
 	type: workshop
 	flags: no_amount_multiplier, disabled, production, wip, no_cancel
-	tags: simple, food, organic, agriculture, fermenting, processing
+	tags: simple, organic, agriculture, fermenting, processing
 	infrastructure: liquid_container, fermenter
 	infrastructure_exclude: none
 	

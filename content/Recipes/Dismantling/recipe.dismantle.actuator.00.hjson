@@ -58,7 +58,7 @@
 	
 	type: workshop
 	flags: hidden, disabled, wip
-	tags: workbench, manual, simple, metalworking, salvaging, research
+	tags: workbench, manual, simple, metalworking, salvaging
 	infrastructure: workbench
 	infrastructure_exclude: none
 	

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.64.0"
 	name: "Embiggen Pestilence"
 	desc:
 		'''
@@ -188,7 +188,7 @@
 	
 	type: workshop
 	flags: disabled, wip
-	tags: workbench, manual, complex, organic, essence, research, science, biology, messy, dangerous
+	tags: workbench, manual, complex, organic, essence, science, biology, messy, dangerous
 	infrastructure: lab_glassware, shaping_mould, hard_surface
 	infrastructure_exclude: none
 	

@@ -271,7 +271,7 @@
 	
 	type: workshop
 	flags: blueprintable, item, wip
-	tags: manual, crafting, tool, metalworking
+	tags: manual, crafting, simple, tool, metalworking
 	infrastructure: workbench
 	infrastructure_exclude: none
 	
