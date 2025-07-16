@@ -22,7 +22,7 @@ body:
 		rigidity_dynamic: 0.700
 		rigidity_static: 0.850
 		material: fabric
-		layer: entity, solid
+		layer: entity, solid, flammable
 		mask: world, solid
 		exclude: creature
 	}

@@ -14,8 +14,9 @@ body:
 		offset: [0.000, 0.000]
 		mass: 45.000
 		radius: 0.500
-		friction: 0.800
+		friction: 0.900
 		elasticity: 0.650
+		
 		material: metal
 		layer: entity, solid, wheel, item
 		mask: world, platform

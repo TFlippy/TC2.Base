@@ -16,6 +16,9 @@ body:
 		radius: 1.125
 		friction: 1.100
 		elasticity: 0.500
+		
+		rigidity_static: 0.950
+		rigidity_dynamic: 1.000
 		material: metal
 		layer: entity, solid, wheel, item
 		mask: world, platform

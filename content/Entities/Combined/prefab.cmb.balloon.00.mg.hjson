@@ -3,16 +3,16 @@
 	
 	storage:
 	{
-		@inventory8:
+		@inventory4:
 		{
 			resources:
 			[
 				{
-					material: "ammo.mg.hv"
+					material: "ammo.hc.hv"
 					quantity: 200.000
 				}
 				{
-					material: "ammo.mg.hv"
+					material: "ammo.hc.hv"
 					quantity: 200.000
 				}
 			]
@@ -40,7 +40,7 @@
 	{
 		+attached|child:
 		{
-			$prefab: "machine_gun"
+			$prefab: "lmg"
 		}
 	}
 	

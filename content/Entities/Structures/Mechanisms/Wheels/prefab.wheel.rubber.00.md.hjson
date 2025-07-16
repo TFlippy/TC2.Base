@@ -14,8 +14,11 @@ body:
 		offset: [0.000, 0.000]
 		mass: 40.000
 		radius: 0.700
-		friction: 1.500
-		elasticity: 0.800
+		friction: 1.850
+		elasticity: 0.850
+		
+		rigidity_static: 0.900
+		rigidity_dynamic: 0.900
 		material: rubber
 		layer: entity, solid, wheel, item
 		mask: world, platform

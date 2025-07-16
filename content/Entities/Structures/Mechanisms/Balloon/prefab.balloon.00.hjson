@@ -26,7 +26,7 @@ body:
 		miss_chance: 0.688
 		layer: entity, solid, vehicle, flammable
 		mask: world, solid, platform
-		exclude: tree, wheel, creature, held
+		exclude: tree, wheel, creature, held, item, background
 	}
 }
 
