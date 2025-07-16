@@ -114,6 +114,8 @@ shop:
 	menu_columns: 6
 	recipe_type: workshop
 	
+	offset_spawn: [1.750, 0.500]
+	
 	name: "Manufactory"
 }
 

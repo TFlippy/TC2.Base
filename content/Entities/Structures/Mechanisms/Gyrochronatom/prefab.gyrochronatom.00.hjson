@@ -81,7 +81,7 @@ attachment:
 interactable:
 {
 	flags: none
-	priority: 0.000
+	priority: -0.500
 	window_size: [200.000, 144.000]
 	window_size_misc: [96.000, 0.000]
 }

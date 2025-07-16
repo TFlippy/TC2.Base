@@ -123,7 +123,7 @@
 		[Source.Owned] ref Piston.Data piston, [Source.Owned, Pair.Component<Piston.Data>] ref Essence.Emitter.Data essence_emitter
 		/*[Source.Owned] in Crafter.Data crafter, [Source.Owned] ref Crafter.State crafter_state*/)
 		{
-			App.WriteLine("essence pulse event", color: App.Color.Magenta);
+			//App.WriteLine("essence pulse event", color: App.Color.Magenta);
 		}
 
 		[ISystem.PostUpdate.B(ISystem.Mode.Single, ISystem.Scope.Region)]
@@ -388,16 +388,26 @@
 			if (piston.flags.HasAny(Piston.Flags.Impacted))
 			{
 #if SERVER
-				crafter_state.flags.AddFlag(Crafter.State.Flags.In_Contact | Crafter.State.Flags.Ready);
+				scoped var ev = new Crafter.WorkEvent(amount: 10.00f, calculate_work: static (ref Region.Data.Common region, Vec2f pos, ref Crafter.WorkEvent ev, ref ICrafter.ModeInfo mode, ref Crafting.Order order, ref Crafting.Requirement req, ref IWork.Data work) =>
+				{
+					return Maths.NormalizeFast(ev.amount, req.difficulty);
+				});
 
-				press_state.flags.AddFlag(State.Flags.Smashed | State.Flags.Success);
-				press_state.Sync(ent_press, true);
+				//var ts = Timestamp.Now();
+				ev.Trigger(ent_press, h_component: IComponent.Handle.FromComponent<Crafter.Data>());
+				//crafter_state.flags.AddFlag(Crafter.State.Flags.In_Contact | Crafter.State.Flags.Ready);
+				//var ts_elapsed = ts.GetMilliseconds();
+
+				//App.WriteLine($"{ts_elapsed:0.00000} ms");
+
+				//press_state.flags.AddFlag(State.Flags.Smashed | State.Flags.Success);
+				//press_state.Sync(ent_press, true);
 				//App.WriteLine("smash");
 #endif
 			}
 			else
 			{
-				crafter_state.flags.RemoveFlag(Crafter.State.Flags.In_Contact | Crafter.State.Flags.Ready);
+				//crafter_state.flags.RemoveFlag(Crafter.State.Flags.In_Contact | Crafter.State.Flags.Ready);
 			}
 		}
 

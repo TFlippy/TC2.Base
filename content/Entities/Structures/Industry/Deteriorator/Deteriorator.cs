@@ -87,6 +87,7 @@
 						});
 					}
 					
+
 					Shake.Emit(region: ref region, world_position: pos, trauma: 0.30f, max: 0.30f, radius: 18.00f);
 
 					//Particle.Spawn(ref region, new Particle.Data()
