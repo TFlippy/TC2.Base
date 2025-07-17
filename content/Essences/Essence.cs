@@ -636,6 +636,8 @@ namespace TC2.Base.Components
 				Internal = 1 << 0,
 				External = 1 << 1,
 
+				Self_Discharging = 1 << 4,
+
 				Enable_Signal_Read = 1 << 7,
 				Enable_Pulse_Event = 1 << 8,
 
@@ -650,6 +652,7 @@ namespace TC2.Base.Components
 				None = 0,
 
 				Charging = 1 << 0,
+
 				Pulse = 1 << 1,
 			}
 
@@ -662,9 +665,9 @@ namespace TC2.Base.Components
 				[Net.Segment.A] public required Essence.Emitter.Type type;
 				[Net.Segment.A] private byte unused_a_00;
 				[Net.Segment.A] public Essence.Emitter.Flags flags;
-				[Net.Segment.A, Save.Force] public required float charge_capacity;
-				[Net.Segment.A, Save.Force] public required float charge_loss = 0.03f;
-				[Net.Segment.A, Save.Force] public required float efficiency = 1.00f;
+				[Net.Segment.A, Save.Force, Editor.Slider.Clamped(0.00f, 10000.00f, snap: 1.00f)] public required float charge_capacity;
+				[Net.Segment.A, Save.Force, Editor.Slider.Clamped(0.00f, 1.00f, snap: 0.001f)] public required float charge_loss = 0.03f;
+				[Net.Segment.A, Save.Force, Editor.Slider.Clamped(0.00f, 1.00f, snap: 0.001f)] public required float efficiency = 1.00f;
 
 				[Net.Segment.B] public IEssence.Handle h_essence;
 				[Net.Segment.B] public Sound.Handle h_sound_emit;
@@ -672,9 +675,10 @@ namespace TC2.Base.Components
 				[Net.Segment.B] public ISoundMix.Handle h_soundmix_test;
 
 				[Net.Segment.C] public Essence.Emitter.StateFlags state_flags;
-				[Net.Segment.C] private byte unused_c_02;
+				[Net.Segment.C] public IEssence.Handle h_essence_charge;
 				[Net.Segment.C] public Signal.Channel channel_emit;
-				[Net.Segment.C] private uint unused_c_03;
+				[Net.Segment.C] private byte unused_c_02;
+				[Net.Segment.C] private ushort unused_c_03;
 
 				[Net.Segment.D, Asset.Ignore] public float current_charge;
 				[Net.Segment.D, Asset.Ignore] public float current_charge_ratio;
@@ -693,12 +697,52 @@ namespace TC2.Base.Components
 				//[Asset.Ignore] public float rate_current;
 			}
 
+			[ISystem.Update.D(ISystem.Mode.Single, ISystem.Scope.Region)]
+			public static void OnUpdate_Charge(ISystem.Info info, ref XorRandom random,
+			//IComponent.Handle<Essence.Emitter.Data> h_essence_emitter, Entity ent_essence_emitter,
+			IComponent.Handle<Essence.Emitter.Data> h_essence_emitter, Entity ent_essence_emitter,
+			[Source.Owned] in Transform.Data transform, [Source.Owned] ref Essence.Container.Data essence_container,
+			[Source.Owned] ref Body.Data body,
+			//[Source.Owned, Pair.Wildcard] ref Essence.Emitter.Data essence_emitter)
+			[Source.Owned, Pair.Component<Piston.Data>] ref Essence.Emitter.Data essence_emitter)
+			{
+				if (essence_emitter.flags.HasAny(Essence.Emitter.Flags.Self_Discharging))
+				{
+					if (essence_emitter.current_charge_ratio >= 1.00f)
+					{
+						var amount_taken = essence_emitter.current_charge.MultSub(0.98f);
+#if SERVER
+						essence_emitter.current_emit += amount_taken;
+						if (essence_emitter.state_flags.TrySetFlag(Essence.Emitter.StateFlags.Pulse))
+						{
+							//App.WriteLine(h_essence_emitter);
+							essence_emitter.Sync(ent_essence_emitter, IComponent.Handle.FromComponentPair<Piston.Data, Essence.Emitter.Data>());
+						}
+#endif
+					}
+					else
+					{
+						essence_emitter.current_emit = 0.00f;
+						essence_emitter.state_flags.RemoveFlag(Essence.Emitter.StateFlags.Pulse);
+					}
+				}
+
+				essence_emitter.h_essence_charge = essence_container.h_essence;
+				essence_emitter.current_charge_ratio = Maths.NormalizeFastUnsafe(essence_emitter.current_charge, essence_emitter.charge_capacity);
+				var rate = essence_container.rate_current * essence_emitter.efficiency;
+				//essence_container.rate_current *= 1.00f - rate; // * App.fixed_update_interval_s_f32;
+
+				essence_emitter.current_charge += (rate * essence_container.available) * App.fixed_update_interval_s_f32;
+				essence_emitter.current_charge -= essence_emitter.current_charge * essence_emitter.charge_loss;
+			}
+
 			[ISystem.PreUpdate.D(ISystem.Mode.Single, ISystem.Scope.Region)]
 			public static void OnUpdate_Signal(ISystem.Info info, ref XorRandom random, Entity entity,
 			IComponent.Handle<Essence.Emitter.Data> h_essence_emitter, Entity ent_essence_emitter,
 			[Source.Owned] in Transform.Data transform, [Source.Owned] ref Analog.Relay.Data analog_relay,
 			[Source.Owned, Pair.Wildcard] ref Essence.Emitter.Data essence_emitter)
 			{
+				return;
 				if (essence_emitter.flags.HasNone(Flags.Enable_Signal_Read)) return;
 
 				var signal_value = analog_relay.signal_current[essence_emitter.channel_emit];
@@ -709,7 +753,7 @@ namespace TC2.Base.Components
 #if SERVER
 					//var rec = entity.GetRecord();
 
-			
+
 
 					//static void Func(ref PulseEvent ev)
 					//{
@@ -747,7 +791,7 @@ namespace TC2.Base.Components
 
 			public required Vec2f pos;
 			public required Vec2f dir;
-			
+
 
 
 		}
@@ -758,7 +802,7 @@ namespace TC2.Base.Components
 		//[Source.Owned] in Transform.Data transform,
 		//[Source.Owned, Pair.Wildcard] ref Essence.Emitter.Data essence_emitter)
 		//{
-			
+
 		//}
 
 

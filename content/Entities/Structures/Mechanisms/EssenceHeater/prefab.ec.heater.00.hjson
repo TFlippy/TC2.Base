@@ -13,15 +13,15 @@ body:
 	@shape.line:
 	{
 		material: metal_solid
-		miss_chance: 0.647
+		miss_chance: 0.643
 		flags: none
 		tags: none
 		
-		layer: entity, solid, item
+		layer: entity, solid, item, conductive, heatable, magnetic
 		mask: world, essence
 		exclude: none
 		
-		mass: 20.000
+		mass: 42.000
 		radius: 0.500
 		friction: 0.850
 		elasticity: 0.650
@@ -36,7 +36,7 @@ body:
 
 health:
 {
-	max: 4500.000
+	max: 7500.000
 }
 
 animated.renderer:

@@ -108,7 +108,7 @@
 			}
 			else
 			{
-				piston.current_speed *= 0.92f;
+				piston.current_speed *= 0.98f;
 				piston.current_speed -= piston.current_distance; // * info.DeltaTime;
 				piston.status = Status.Idle;
 				//piston.current_kinetic_energy = 0.00f;
@@ -146,11 +146,15 @@
 
 
 #if SERVER
+				var power = essence_emitter.current_emit * Essence.GetKineticPower(essence_emitter.h_essence_charge).m_value;
+				var speed_add = Energy.GetVelocity(power, piston.mass);
+
 				//piston.current_speed += Energy.GetVelocity(Essence.GetForce()
-				//piston.current_speed += 25.00f;
+				piston.current_speed += speed_add;
 				//var energy_impact = Energy.GetKineticEnergy(piston.mass, piston.current_speed);
 				//App.WriteValue(energy_impact);
 
+				//App.WriteValue(speed_add);
 				piston.Sync(ent_piston, true);
 			
 #endif
@@ -417,10 +421,11 @@
 				//var velocity = Maths.Sqrt(2.00f * energy / mass);
 
 				var velocity = Energy.GetVelocity(piston.current_kinetic_energy, piston.mass);
-				var mass = Energy.GetMass(piston.current_kinetic_energy, 25);
-				App.WriteValue(mass);
+				var amount = velocity * piston.mass;
+				//var mass = Energy.GetMass(piston.current_kinetic_energy, 25);
+				//App.WriteValue(velocity);
 
-				scoped var ev = new Crafter.WorkEvent(amount: 10.00f, 
+				scoped var ev = new Crafter.WorkEvent(amount: amount, 
 				calculate_work: static (ref Region.Data.Common region, Vec2f pos, ref Crafter.WorkEvent ev, 
 				ref ICrafter.ModeInfo mode, ref Crafting.Order order, ref Crafting.Requirement req, ref IWork.Data work) =>
 				{
