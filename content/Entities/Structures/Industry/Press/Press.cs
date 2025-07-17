@@ -43,8 +43,8 @@
 			[Net.Segment.C, Asset.Ignore] private float unused_c_02;
 
 			[Net.Segment.D, Asset.Ignore] public float current_force;
+			[Net.Segment.D, Asset.Ignore] public float prev_speed;
 			[Net.Segment.D, Asset.Ignore] public float current_speed;
-			[Net.Segment.D, Asset.Ignore] public Pressure current_pressure;
 			[Net.Segment.D, Asset.Ignore] public Energy current_kinetic_energy;
 		}
 
@@ -74,36 +74,41 @@
 			//});
 
 			var distance_old = piston.current_distance;
-			var distance_tmp = distance_old;
+			var distance_new = Maths.FMA(piston.current_speed, App.fixed_update_interval_s_f32, distance_old);
 
 			piston.current_kinetic_energy = 0.00f;
+
+			piston.prev_speed = piston.current_speed;
+
 
 			if (piston.status == Status.Impacted)
 			{
 				piston.status = Status.Retracting;
 				piston.flags.RemoveFlag(Flags.Impacted);
 			}
-			else if (distance_old > piston.length)
+			else if (distance_new > piston.length)
 			{
 				var energy_impact = Energy.GetKineticEnergy(piston.mass, piston.current_speed);
+				//App.WriteValue(piston.current_speed);
 
 				//App.WriteValue(energy_impact);
 				piston.current_speed *= -0.10f;
 				piston.current_kinetic_energy += energy_impact;
 				//piston.current_distance = piston.length;
-				distance_tmp = piston.length;
+				distance_new = piston.length;
 
 				piston.flags.AddFlag(Flags.Impacted);
 				piston.status = Status.Impacted;
 			}
-			else if (distance_old < 0.00f)
+			else if (distance_new < 0.00f)
 			{
-				piston.current_speed *= -0.30f; // -0.50f;
+				piston.current_speed *= -0.10f; // -0.50f;
 												//piston.current_distance = 0.00f;
-				distance_tmp = 0.00f;
+				distance_new = 0.00f;
 			}
 			else
 			{
+				piston.current_speed *= 0.92f;
 				piston.current_speed -= piston.current_distance; // * info.DeltaTime;
 				piston.status = Status.Idle;
 				//piston.current_kinetic_energy = 0.00f;
@@ -111,10 +116,11 @@
 
 			//crafter_state.flags.AddFlag(Crafter.State.Flags.Cycled);
 
-			var distance_new = Maths.FMA(piston.current_speed, App.fixed_update_interval_s_f32, distance_tmp);
+			//var distance_new = Maths.FMA(piston.current_speed, App.fixed_update_interval_s_f32, distance_tmp);
+
 			piston.current_distance = distance_new;
 
-			piston.current_speed *= 0.92f;
+			//piston.current_speed *= 0.92f;
 		}
 
 		[ISystem.Event<Essence.PulseEvent>(ISystem.Mode.Single, ISystem.Scope.Region)]
@@ -134,13 +140,17 @@
 		{
 			//if (control.mouse.GetKey(Mouse.Key.Left))
 
-			if (essence_emitter.flags.HasAny(Essence.Emitter.Flags.Pulsed))
+			if (essence_emitter.state_flags.HasAny(Essence.Emitter.StateFlags.Pulse))
 			{
 				//App.WriteLine("press pressed", color: App.Color.Magenta);
 
 
 #if SERVER
-				piston.current_speed = 25.00f;
+				//piston.current_speed += Energy.GetVelocity(Essence.GetForce()
+				//piston.current_speed += 25.00f;
+				//var energy_impact = Energy.GetKineticEnergy(piston.mass, piston.current_speed);
+				//App.WriteValue(energy_impact);
+
 				piston.Sync(ent_piston, true);
 			
 #endif
@@ -379,6 +389,12 @@
 		//	axle_state.force_load_new += val * press.load_multiplier * 200.00f;
 		//}
 
+		//public static float CalculateVelocity(Energy kinetic_energy, Mass mass)
+		//{
+		//	var velocity = Maths.Sqrt(2.00f * kinetic_energy / mass);
+		//	return velocity;
+		//}
+
 		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnUpdate_Piston(/*ISystem.Info info, ref Region.Data region, ref XorRandom random, */Entity ent_press,
 		//[Source.Owned] in Transform.Data transform, [Source.Owned] ref Control.Data control,
@@ -388,7 +404,25 @@
 			if (piston.flags.HasAny(Piston.Flags.Impacted))
 			{
 #if SERVER
-				scoped var ev = new Crafter.WorkEvent(amount: 10.00f, calculate_work: static (ref Region.Data.Common region, Vec2f pos, ref Crafter.WorkEvent ev, ref ICrafter.ModeInfo mode, ref Crafting.Order order, ref Crafting.Requirement req, ref IWork.Data work) =>
+				//var amount = piston.current_kinetic_energy;
+				////amount = Maths.NormalizeFast(amount, 16);
+				////amount *= App.fixed_update_interval_s_f32;
+				//amount *= 2;
+				//amount /= piston.mass;
+				//amount = Maths.Sqrt(amount);
+
+
+				//var energy = piston.current_kinetic_energy;
+				//var mass = piston.mass;
+				//var velocity = Maths.Sqrt(2.00f * energy / mass);
+
+				var velocity = Energy.GetVelocity(piston.current_kinetic_energy, piston.mass);
+				var mass = Energy.GetMass(piston.current_kinetic_energy, 25);
+				App.WriteValue(mass);
+
+				scoped var ev = new Crafter.WorkEvent(amount: 10.00f, 
+				calculate_work: static (ref Region.Data.Common region, Vec2f pos, ref Crafter.WorkEvent ev, 
+				ref ICrafter.ModeInfo mode, ref Crafting.Order order, ref Crafting.Requirement req, ref IWork.Data work) =>
 				{
 					return Maths.NormalizeFast(ev.amount, req.difficulty);
 				});

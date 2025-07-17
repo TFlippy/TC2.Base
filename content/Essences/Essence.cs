@@ -633,14 +633,24 @@ namespace TC2.Base.Components
 			{
 				None = 0,
 
-				Charging = 1 << 0,
-				Pulsed = 1 << 1,
+				Internal = 1 << 0,
+				External = 1 << 1,
 
+				Enable_Signal_Read = 1 << 7,
 				Enable_Pulse_Event = 1 << 8,
 
 				//Show_GUI = 1 << 0,
 				//Allow_Edit_Rate = 1 << 1,
 				//Allow_Edit_Frequency = 1 << 2
+			}
+
+			[Flags]
+			public enum StateFlags: ushort
+			{
+				None = 0,
+
+				Charging = 1 << 0,
+				Pulse = 1 << 1,
 			}
 
 			[ITrait.Data(Net.SendType.Unreliable, IComponent.Scope.Region)]
@@ -652,25 +662,24 @@ namespace TC2.Base.Components
 				[Net.Segment.A] public required Essence.Emitter.Type type;
 				[Net.Segment.A] private byte unused_a_00;
 				[Net.Segment.A] public Essence.Emitter.Flags flags;
-				[Net.Segment.A] private uint unused_a_01;
-				[Net.Segment.A] private uint unused_a_02;
-				[Net.Segment.A] private uint unused_a_03;
+				[Net.Segment.A, Save.Force] public required float charge_capacity;
+				[Net.Segment.A, Save.Force] public required float charge_loss = 0.03f;
+				[Net.Segment.A, Save.Force] public required float efficiency = 1.00f;
 
 				[Net.Segment.B] public IEssence.Handle h_essence;
 				[Net.Segment.B] public Sound.Handle h_sound_emit;
 				[Net.Segment.B] public Sound.Handle h_sound_discharge;
 				[Net.Segment.B] public ISoundMix.Handle h_soundmix_test;
 
-				[Net.Segment.C] public Signal.Channel channel_emit;
-				[Net.Segment.C] private byte unused_c_00;
-				[Net.Segment.C] private byte unused_c_01;
+				[Net.Segment.C] public Essence.Emitter.StateFlags state_flags;
 				[Net.Segment.C] private byte unused_c_02;
+				[Net.Segment.C] public Signal.Channel channel_emit;
 				[Net.Segment.C] private uint unused_c_03;
 
 				[Net.Segment.D, Asset.Ignore] public float current_charge;
-				[Net.Segment.D, Asset.Ignore] public float current_impulse;
-				[Net.Segment.D, Asset.Ignore] public float current_rate;
-				[Net.Segment.D, Asset.Ignore] private float unused_d_00;
+				[Net.Segment.D, Asset.Ignore] public float current_charge_ratio;
+				[Net.Segment.D, Asset.Ignore] public float current_emit;
+				[Net.Segment.D, Asset.Ignore] public float current_instability;
 
 
 
@@ -685,13 +694,46 @@ namespace TC2.Base.Components
 			}
 
 			[ISystem.PreUpdate.D(ISystem.Mode.Single, ISystem.Scope.Region)]
-			public static void OnUpdate_Signal(ISystem.Info info, ref XorRandom random,
+			public static void OnUpdate_Signal(ISystem.Info info, ref XorRandom random, Entity entity,
 			IComponent.Handle<Essence.Emitter.Data> h_essence_emitter, Entity ent_essence_emitter,
 			[Source.Owned] in Transform.Data transform, [Source.Owned] ref Analog.Relay.Data analog_relay,
 			[Source.Owned, Pair.Wildcard] ref Essence.Emitter.Data essence_emitter)
 			{
+				if (essence_emitter.flags.HasNone(Flags.Enable_Signal_Read)) return;
+
 				var signal_value = analog_relay.signal_current[essence_emitter.channel_emit];
-				essence_emitter.flags.SetFlag(Essence.Emitter.Flags.Pulsed, signal_value > 0.10f);
+				//essence_emitter.flags.SetFlag(Essence.Emitter.Flags.Pulsed, signal_value > 0.10f);
+
+				if (essence_emitter.state_flags.TrySetFlag(Essence.Emitter.StateFlags.Pulse, signal_value > 0.10f))
+				{
+#if SERVER
+					//var rec = entity.GetRecord();
+
+			
+
+					//static void Func(ref PulseEvent ev)
+					//{
+					//	ev.amount *= Maths.Atan2Fast(ev.dir.y, ev.dir.x); // (ev.amount); // -2, 2, ev.amount); // MathF.IEEERemainder(ev.amount, ev.dir.x);
+					//}
+
+					//var ts = Timestamp.Now();
+					////Func(ref ev);
+					//var ev = new PulseEvent()
+					//{
+					//	h_essence = essence_emitter.h_essence,
+					//	emitter_type = essence_emitter.type,
+					//	amount = signal_value,
+					//	pos = transform.position,
+					//	dir = essence_emitter.direction
+					//};
+					//ev.Trigger(entity);
+					////ev.Trigger(rec, IComponent.Handle.FromComponent<Piston.Data>());
+					////ev.TriggerDeferred(entity);
+					//var ts_elapsed = ts.GetMilliseconds();
+
+					//App.WriteLine($"{ts_elapsed:0.0000} ms");
+#endif
+				}
 			}
 		}
 

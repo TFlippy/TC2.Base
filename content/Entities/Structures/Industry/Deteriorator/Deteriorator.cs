@@ -42,7 +42,7 @@
 		[Source.Owned] in Transform.Data transform,
 		[Source.Owned] ref Deteriorator.Data deteriorator, [Source.Owned, Pair.Component<Deteriorator.Data>] ref Essence.Emitter.Data essence_emitter)
 		{
-			if (essence_emitter.flags.HasAny(Essence.Emitter.Flags.Pulsed))
+			if (essence_emitter.state_flags.HasAny(Essence.Emitter.StateFlags.Pulse))
 			{
 #if CLIENT
 				var h_essence = essence_emitter.h_essence; // new IEssence.Handle("motion");

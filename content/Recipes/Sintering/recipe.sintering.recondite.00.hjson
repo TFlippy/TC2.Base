@@ -1,0 +1,154 @@
+﻿{
+	$version: "0.1.61.4"
+	name: "Recondite Sintering"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	tips: []
+	
+	stages:
+	[
+		{
+			
+			type: undefined
+			flags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options: []
+			
+			requirements:
+			[
+				{
+					type: resource
+					material: smirglum.powder
+					amount: 0.590
+					group: 0
+					flags: prerequisite
+				}
+				{
+					type: resource
+					material: silver.powder
+					amount: 0.410
+					group: 0
+					flags: prerequisite
+				}
+			]
+			
+			products: []
+		}
+		{
+			
+			type: undefined
+			flags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options: []
+			
+			requirements:
+			[
+				{
+					type: work
+					work: mixing
+					amount: 40.000
+					difficulty: 7
+					snapping: 5.000
+					falloff: 0.550
+					group: 1
+					flags: conditional
+				}
+			]
+			
+			products:
+			[
+				{
+					type: resource
+					material: recondite.powder
+					amount: 1.000
+					group: 0
+				}
+			]
+		}
+	]
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: smirglum.powder
+			amount: 0.580
+			group: 0
+			flags: prerequisite
+		}
+		{
+			type: resource
+			material: silver.powder
+			amount: 0.420
+			group: 0
+			flags: prerequisite
+		}
+		{
+			type: work
+			work: mixing
+			amount: 40.000
+			difficulty: 7
+			snapping: 5.000
+			falloff: 0.550
+			group: 1
+			flags: conditional
+		}
+	]
+	
+	products:
+	[
+		{
+			type: resource
+			material: recondite.powder
+			amount: 1.000
+			group: 0
+		}
+	]
+	
+	type: workshop
+	flags: hidden, disabled
+	tags: workbench, manual, simple, metalworking
+	
+	icon:
+	{
+		texture: resource.recondite.powder
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	icon_offset: [6.000, -1.000]
+	
+	icon_extra:
+	{
+		texture: resource.smirglum.powder
+		size: [16, 16]
+		frame: [1, 0]
+	}
+	icon_extra_offset: [-22.000, -8.000]
+	
+	icon_c:
+	{
+		texture: resource.silver.powder
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	icon_c_offset: [-15.000, -12.000]
+	
+	color_button: "0xffffb629"
+	rank: 90.000
+	
+	min: 5
+	max: 100
+	step: 5
+}
