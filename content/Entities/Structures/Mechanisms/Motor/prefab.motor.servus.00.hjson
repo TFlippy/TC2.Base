@@ -1,4 +1,4 @@
-$name: "Motor (Servus)"
+$name: "EC Motor (Servus)"
 $desc:
 	'''
 	Servus-type magitronic radial engine.

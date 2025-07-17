@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.63.5"
-	name: "Magitronic Scrap"
-	name_short: "Arc. Scrap"
+	name: "EC-Scrap"
+	name_short: "EC-Scrap"
 	description:
 		'''
 		Wondrous cutting-edge high-tech garbage.

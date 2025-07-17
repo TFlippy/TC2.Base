@@ -1,7 +1,7 @@
-$name: "EC-MT Levitator"
+$name: "EC Levitator"
 $desc:
 	'''
-	Powerful EC-MT levitator used for propulsion.
+	Powerful EC levitator used for propulsion.
 	'''
 $tags: []
 

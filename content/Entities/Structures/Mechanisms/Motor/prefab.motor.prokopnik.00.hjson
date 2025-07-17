@@ -1,4 +1,4 @@
-$name: "Motor (Prokopnik)"
+$name: "EC Motor (Prokopnik)"
 $desc:
 	'''
 	Portable Prokopnik-type EC-MT motor.
