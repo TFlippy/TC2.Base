@@ -1,0 +1,176 @@
+$name: "EC Heater (Small)"
+$desc:
+	'''
+	Compact essence-powered heater.
+	'''
+$tags: []
+
+body:
+{
+	buoyancy: 0.280
+	fall_damage_multiplier: 2.500
+
+	@shape.line:
+	{
+		material: metal_solid
+		miss_chance: 0.647
+		flags: none
+		tags: none
+		
+		layer: entity, solid, item
+		mask: world, essence
+		exclude: none
+		
+		mass: 20.000
+		radius: 0.500
+		friction: 0.850
+		elasticity: 0.650
+		
+		cog_offset: [0.000, 0.000]
+		
+		a: [-0.375, 0.125]
+		b: [0.250, 0.000]
+		offset: [0.000, 0.000]
+	}
+}
+
+health:
+{
+	max: 4500.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "ec.heater.00"
+	}
+	z: -60.000
+}
+
+transform:
+{
+
+}
+
+interactable:
+{
+	flags: none
+	window_size: [200.000, 176.000]
+	window_size_misc: [96.000, 0.000]
+}
+
+// norotate:
+// {
+// 	bias: 0.000
+// 	multiplier: 2.500
+// 	mass_multiplier: 5.000
+// }
+
+holdable:
+{
+	stress_multiplier: 0.500
+	radius: 1.500
+	flags: storable
+}
+
+attachment:
+{
+	offset: [-0.125, 0.375]
+	tags: tiny, small, utility, device, fixed, handheld, harness
+}
+
+essence.container:
+{
+	stability: 0.950
+	h_essence: heat
+	emit_type: stressor
+	flags: show_gui, allow_edit_rate
+	glow_modifier: 0.800
+	rate_speed: 0.700
+	health_threshold: 0.750
+
+	@inventory1:
+	{
+		type: essence
+		flags: no_auto_pickup
+		stack_size_multiplier: 0.040
+		
+		filter:
+		{
+			require: small, pellet, solid, essence
+			include: none
+		}
+		
+		offset: [0.000, 0.000]
+	}
+
+	@sound.emitter:
+	{
+		flags: start_muted
+		volume: 0.700
+		pitch: 2.800
+		size: 0.750
+		size_max_modifier: 0.600
+		spread: 80.000
+		doppler: 3.000
+		priority: 0.150
+	}
+
+	@light:
+	{
+		scale: [7.000, 6.000]
+		intensity: 0.000
+		texture: "light.circle.00"
+		rotation: 0.000
+	}
+}
+
+heat:
+{
+	temperature_medium: 747.6115
+	temperature_high: 1459.373
+	temperature_ignite: 1491.970
+	temperature_operating: 1184.740
+	temperature_melt: 2065.970
+	temperature_breakdown: 1691.927
+	cool_rate: 6.000
+	heat_capacity_extra: 50.000
+	heat_capacity_mult: 8.000
+	heat_damage_mult: 0.080
+	smoke_size_mult: 0.460
+	smoke_speed_mult: 0.420
+	smoke_rise_mult: 1.100
+	size: [0.750, 0.500]
+
+	@light:
+	{
+		color: [1.000, 0.400, 0.100, 2.000]
+		offset: [0.000, 0.000]
+		scale: [17.000, 15.000]
+		intensity: 1.000
+		texture: "light.circle.00"
+	}
+	
+	@sound.emitter:
+	{
+		file: burner.gas.loop.02
+		flags: start_muted
+		volume: 0.800
+		pitch: 0.800
+		size: 0.375
+		size_max_modifier: 0.640
+		spread: 40.000
+	}
+}
+
+analog.relay:
+{
+
+}
+
+module:
+{
+	slot_type: controller
+	flags: share_interactable
+}
