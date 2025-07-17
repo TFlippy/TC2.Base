@@ -1,9 +1,9 @@
 ﻿{
 	$version: "0.1.64.0"
-	name: "Arcane Attractor [WIP]"
+	name: "EC Attractor [WIP]"
 	desc:
 		'''
-		Pulls essence nodes towards itself, which either collapse over time or can be harvested using an Arcane Infuser.
+		Pulls essence nodes towards itself, which either collapse over time or can be harvested using an EC Infuser.
 		'''
 	tips: []
 	

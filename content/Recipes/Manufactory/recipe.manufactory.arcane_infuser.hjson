@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.64.0"
-	name: "Arcane Infuser [WIP]"
+	name: "EC Infuser [WIP]"
 	desc:
 		'''
 		Harvests collapsing essence nodes into arcanite pellets when powered.
