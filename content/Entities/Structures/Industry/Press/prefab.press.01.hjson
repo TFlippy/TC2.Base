@@ -1,7 +1,7 @@
 $name: "EC-MT Impulse Press"
 $desc:
 	'''
-	Small EC-MT impulse press designed for small-scale metalworking, low-temperature forging and sintering of metal powders.
+	Small EC-MT impulse press designed for basic automated metalforming and as a support tool for manual metalworking.
 	'''
 $tags: []
 
@@ -291,7 +291,7 @@ piston:
 		flags: internal, self_discharging, enable_signal_read
 		charge_capacity: 150.000
 		charge_loss: 0.007
-		efficiency: 0.940
+		efficiency: 0.912
 		h_essence: motion
 		h_sound_emit: rivet_gun.shoot.01
 		h_soundmix_test: press.01.emit
@@ -337,7 +337,7 @@ essence.container:
 		{
 			require: essence, small, pellet, solid
 		}
-		offset: [-0.125, -1.875]
+		offset: [-0.250, -0.375]
 	}
 
 	@sound.emitter:

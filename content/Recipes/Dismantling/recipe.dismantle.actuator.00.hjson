@@ -1,9 +1,9 @@
 ﻿{
 	$version: "0.1.64.0"
-	name: "Dismantle Magitronic Actuators"
+	name: "Dismantle EC-MT Actuators"
 	desc:
 		'''
-		Scrap magitronic actuators for spare parts.
+		Tear down EC-MT actuators for spare parts.
 		'''
 	tips: []
 	

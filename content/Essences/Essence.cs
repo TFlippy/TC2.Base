@@ -180,6 +180,8 @@ namespace TC2.Base.Components
 			public static void OnUpdate(ISystem.Info info, ref XorRandom random,
 			[Source.Owned] ref Essence.Container.Data container, [Source.Owned, Optional] in Health.Data health)
 			{
+				if (!container.h_essence) return;
+
 				if (container.flags.HasNone(Essence.Container.Flags.No_Noise))
 				{
 					var time = info.WorldTime;
@@ -193,7 +195,7 @@ namespace TC2.Base.Components
 					}
 				}
 
-				container.rate_current.LerpFMARef(Maths.ClampMin(0.00f, container.rate + container.noise_current), container.rate_speed);
+				container.rate_current.LerpFMARef(Maths.ClampMin(0.00f, container.rate + container.noise_current.Abs()), container.rate_speed);
 			}
 
 			[ISystem.Update.D(ISystem.Mode.Single, ISystem.Scope.Region)]
@@ -201,6 +203,8 @@ namespace TC2.Base.Components
 			[Source.Owned] in Essence.Container.Data container,
 			[Source.Owned] in Heat.Data heat, [Source.Owned] ref Heat.State heat_state)
 			{
+				if (!container.h_essence) return;
+
 				heat_state.AddPower(container.GetThermalPower() * container.heat_modifier, info.DeltaTime);
 			}
 
@@ -436,7 +440,7 @@ namespace TC2.Base.Components
 					container.t_next_collapse = info.WorldTime + 10.00f;
 
 					var random = XorRandom.New(entity.lower, container.h_essence);
-					EssenceNode.Collapse(ref region, ref random, container.h_essence, entity, transform.position, container.available);
+					EssenceNode.Collapse(region: ref region, random: ref random, h_essence: container.h_essence, entity: entity, world_position: transform.position, amount: container.available);
 					//Essence.Explode(ref region, container.h_essence, container.available, transform.position);
 				}
 			}
@@ -886,13 +890,18 @@ namespace TC2.Base.Components
 
 				essence_emitter.h_essence_charge = essence_container.h_essence;
 				essence_emitter.current_charge_ratio = Maths.NormalizeFast(essence_emitter.current_charge, essence_emitter.charge_capacity);
-				var rate = essence_container.rate_current * essence_emitter.efficiency;
-				//essence_container.rate_current *= 1.00f - rate; // * App.fixed_update_interval_s_f32;
+				var rate = essence_container.rate_current; // * essence_emitter.efficiency;
+														   //essence_container.rate_current *= 1.00f - rate; // * App.fixed_update_interval_s_f32;
 
 				//essence_emitter.current_instability = Maths.FNMA(essence_container.stability, , 1.00f)Maths.Max(essence_emitter.current_charge_ratio, )
-				essence_emitter.current_instability = Maths.Max((essence_emitter.current_charge_ratio - 1.00f) * (1.00f - essence_container.stability), 0.00f);
-				essence_emitter.current_charge -= essence_emitter.current_charge * essence_emitter.charge_loss * essence_emitter.current_charge_ratio;
+				//essence_emitter.current_instability = Maths.Max((essence_emitter.current_charge_ratio - 1.00f) * (1.00f - essence_container.stability.Pow2()), 0.00f);
+				essence_emitter.current_instability = Maths.Max(essence_emitter.current_charge_ratio - essence_container.stability, 0.00f).Pow2();
+				//essence_emitter.current_instability = Maths.Max((essence_emitter.current_charge_ratio - (1.00f - essence_container.stability)), 0.00f).Pow2();
+
+				essence_emitter.current_charge -= essence_emitter.current_charge * essence_emitter.charge_loss; // * essence_emitter.current_charge_ratio; // * essence_emitter.current_instability;
 				essence_emitter.current_charge += (rate * essence_container.available) * App.fixed_update_interval_s_f32;
+				//essence_emitter.current_charge -= essence_emitter.current_charge * essence_emitter.charge_loss * essence_emitter.current_charge_ratio; // * essence_emitter.current_instability;
+
 				//essence_emitter.
 			}
 		}

@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.64.0"
-	name: "Magitronic Actuators"
+	name: "EC-MT Actuators"
 	desc:
 		'''
 		Advanced essence-infused actuators used to bring machines to motion.
