@@ -56,26 +56,38 @@
 						{
 							type: work
 							work: hammering
-							amount: 950.000
-							amount_min: 450.000
+							amount: 790.000
+							amount_min: 370.000
 							difficulty: 12
 							snapping: 5.000
-							falloff: 0.899
-							ratio: 0.251
+							falloff: 0.952
+							ratio: 0.388
 							group: 0
-							flags: conditional
+							flags: stepped, conditional
 						}
 						{
 							type: work
 							work: snipping.metal
-							amount: 240.000
+							amount: 220.000
 							amount_min: 150.000
 							difficulty: 5
 							snapping: 5.000
-							falloff: 0.819
-							ratio: 0.761
+							falloff: 0.880
+							ratio: 0.760
 							group: 1
-							flags: conditional
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: sanding
+							amount: 210.000
+							amount_min: 250.000
+							difficulty: 5
+							snapping: 5.000
+							falloff: 0.790
+							ratio: 1.000
+							group: 1
+							flags: simultaneous, conditional
 						}
 					]
 					

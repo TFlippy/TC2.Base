@@ -40,43 +40,55 @@
 							amount: 822.665
 							amount_min: 471.000
 							amount_max: 1106.136
-							falloff: 0.628
+							falloff: 0.888
 							group: 0
 							flags: no_scaling, always_evaluate, optional
 						}
 						{
 							type: resource
 							material: niklajzner
-							amount: 5.000
+							amount: 10.000
 							snapping: 0.100
-							loss: 0.059
-							ratio: 0.165
+							loss: 0.133
+							ratio: 0.169
 							group: 0
-							flags: primary, prerequisite
+							flags: argument, primary, prerequisite
 						}
 						{
 							type: work
 							work: hammering
-							amount: 510.000
+							amount: 950.000
 							amount_min: 250.000
-							difficulty: 14
+							difficulty: 16
 							snapping: 5.000
-							falloff: 0.794
-							ratio: 0.706
+							falloff: 0.969
+							ratio: 0.506
 							group: 0
-							flags: conditional
+							flags: stepped, conditional
 						}
 						{
 							type: work
 							work: snipping.metal
-							amount: 160.000
-							amount_min: 90.000
-							difficulty: 5
+							amount: 220.000
+							amount_min: 160.000
+							difficulty: 9
 							snapping: 5.000
-							falloff: 0.780
-							ratio: 0.804
+							falloff: 0.890
+							ratio: 0.835
 							group: 1
-							flags: conditional
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: sanding
+							amount: 220.000
+							amount_min: 260.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.790
+							ratio: 1.000
+							group: 1
+							flags: simultaneous, conditional
 						}
 					]
 					
@@ -85,8 +97,8 @@
 						{
 							type: resource
 							material: niklajzner.plate
-							amount: 3.1439
-							amount_extra: 0.187
+							amount: 4.4439
+							amount_extra: 1.187
 							snapping: 0.100
 							group: 0
 							flags: primary, compact, use_temperature

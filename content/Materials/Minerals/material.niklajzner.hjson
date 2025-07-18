@@ -46,6 +46,7 @@
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	
+	centroid_default: [0.000, 0.250]
 	colliders: []
 	
 	conversions:
@@ -90,6 +91,15 @@
 			flags_product: residue
 			
 			yield: [0.595, 0.380]
+		}
+		die.swaging.metal:
+		{
+			h_material: scrap.niklajzner
+			h_substance: "null"
+			flags: none
+			flags_product: residue
+			
+			yield: [0.662, 0.283]
 		}
 		drilling:
 		{

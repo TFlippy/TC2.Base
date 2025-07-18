@@ -40,7 +40,7 @@
 							amount: 781.665
 							amount_min: 495.000
 							amount_max: 1643.136
-							falloff: 0.500
+							falloff: 0.600
 							group: 0
 							flags: no_scaling, always_evaluate, optional
 						}
@@ -57,25 +57,26 @@
 						{
 							type: work
 							work: hammering
-							amount: 200.000
+							amount: 690.000
 							amount_min: 150.000
-							difficulty: 11
+							difficulty: 15
 							snapping: 5.000
-							falloff: 0.857
+							falloff: 0.973
+							ratio: 0.275
 							group: 0
-							flags: conditional
+							flags: stepped, conditional
 						}
 						{
 							type: work
 							work: filing
 							amount: 150.000
-							amount_min: 60.000
-							difficulty: 6
+							amount_min: 120.000
+							difficulty: 5
 							snapping: 5.000
-							falloff: 0.886
+							falloff: 0.951
 							ratio: 1.000
 							group: 1
-							flags: conditional
+							flags: stepped, conditional
 						}
 					]
 					
@@ -117,7 +118,7 @@
 							material: niklajzner
 							amount: 10.000
 							snapping: 0.100
-							loss: 0.122
+							loss: 0.157
 							ratio: 0.161
 							group: 0
 							flags: primary, prerequisite
@@ -125,9 +126,9 @@
 						{
 							type: temperature
 							amount: 954.665
-							amount_min: 565.000
+							amount_min: 415.000
 							amount_max: 1643.136
-							falloff: 0.500
+							falloff: 0.800
 							ratio: 0.204
 							group: 0
 							flags: no_scaling, always_evaluate
@@ -139,7 +140,8 @@
 							amount_min: 150.000
 							difficulty: 11
 							snapping: 5.000
-							falloff: 0.857
+							falloff: 0.968
+							ratio: 1.000
 							group: 0
 							flags: stepped, conditional
 						}
@@ -150,20 +152,17 @@
 						{
 							type: resource
 							material: niklajzner.ingot
-							amount: 1.173454
-							amount_extra: 0.128149
+							amount: 1.0895
+							amount_extra: 0.1831
 							group: 0
 							flags: primary, compact, use_temperature
 						}
 					]
 					
-					filter_tools:
+					filter_infrastructure:
 					{
-						require: hammer, file
-					}
-					filter_environment:
-					{
-						include: workshop, stationary, illuminated, dry
+						require: anvil, hard_surface
+						include: press
 					}
 				}
 			]

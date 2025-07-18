@@ -40,7 +40,7 @@
 							amount: 644.100
 							amount_min: 302.000
 							amount_max: 1309.136
-							falloff: 0.694
+							falloff: 0.544
 							group: 0
 							flags: no_scaling, always_evaluate, optional
 						}
@@ -61,8 +61,9 @@
 							difficulty: 10
 							snapping: 5.000
 							falloff: 0.983
+							ratio: 0.082
 							group: 0
-							flags: conditional
+							flags: stepped, conditional
 						}
 						{
 							type: work
@@ -72,9 +73,9 @@
 							difficulty: 6
 							snapping: 5.000
 							falloff: 0.886
-							ratio: 0.922
+							ratio: 1.000
 							group: 1
-							flags: conditional
+							flags: stepped, conditional
 						}
 					]
 					
