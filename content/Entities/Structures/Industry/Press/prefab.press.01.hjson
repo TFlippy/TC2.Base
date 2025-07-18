@@ -289,9 +289,9 @@ piston:
 		offset: [-0.250, -0.750]
 		type: pulser
 		flags: internal, self_discharging, enable_signal_read
-		charge_capacity: 100.000
+		charge_capacity: 150.000
 		charge_loss: 0.007
-		efficiency: 0.970
+		efficiency: 0.940
 		h_essence: motion
 		h_sound_emit: rivet_gun.shoot.01
 		h_soundmix_test: press.01.emit
@@ -320,10 +320,11 @@ piston:
 
 essence.container:
 {
-	stability: 0.970
-	health_threshold: 0.220
-	glow_modifier: 1.000
+	stability: 0.960
+	health_threshold: 0.820
+	glow_modifier: 0.850
 	emit_type: pulser
+	rate_speed: 0.400
 	flags: show_gui, allow_edit_rate
 
 	@inventory1:

@@ -654,7 +654,7 @@ namespace TC2.Base.Components
 				Charging = 1 << 0,
 
 				Pulsing = 1 << 1,
-				[Net.Ignore] Pulsed = 1 << 2,
+				/*[Net.Ignore] */Pulsed = 1 << 2,
 			}
 
 			[ITrait.Data(Net.SendType.Unreliable, IComponent.Scope.Region)]
@@ -756,7 +756,7 @@ namespace TC2.Base.Components
 					var power = (essence_emitter.current_emit * Essence.GetKineticPower(essence_emitter.h_essence_charge).m_value); //.Abs();
 					var speed_add = Maths.SqrtSigned((power + power) / piston.mass);
 
-					App.WriteLine($"press pressed {power}; {speed_add}; {essence_emitter.current_emit}", color: App.Color.Magenta);
+					//App.WriteLine($"press pressed {power}; {speed_add}; {essence_emitter.current_emit}", color: App.Color.Magenta);
 
 
 #if SERVER
@@ -858,11 +858,13 @@ namespace TC2.Base.Components
 #if SERVER
 				else if (essence_emitter.flags.HasAny(Essence.Emitter.Flags.Self_Discharging))
 				{
-					if (essence_emitter.current_charge_ratio >= 1.00f)
+					//if (essence_emitter.current_charge_ratio >= 1.00f)
+
+					if (random.NextBool(essence_emitter.current_instability))
 					{
 						//var amount_taken = essence_emitter.current_charge.MultSub(0.98f);
 						//if (random.NextBool(essence_emitter.current_charge_ratio * essence_container.rate_current * 0.20f))
-						if (random.NextBool(essence_emitter.current_charge_ratio - 1.00f))
+						//if (random.NextBool(essence_emitter.current_charge_ratio - 1.00f))
 						{
 
 							//essence_emitter.current_emit += amount_taken;
@@ -883,12 +885,15 @@ namespace TC2.Base.Components
 #endif
 
 				essence_emitter.h_essence_charge = essence_container.h_essence;
-				essence_emitter.current_charge_ratio = Maths.NormalizeFastUnsafe(essence_emitter.current_charge, essence_emitter.charge_capacity);
+				essence_emitter.current_charge_ratio = Maths.NormalizeFast(essence_emitter.current_charge, essence_emitter.charge_capacity);
 				var rate = essence_container.rate_current * essence_emitter.efficiency;
 				//essence_container.rate_current *= 1.00f - rate; // * App.fixed_update_interval_s_f32;
 
+				//essence_emitter.current_instability = Maths.FNMA(essence_container.stability, , 1.00f)Maths.Max(essence_emitter.current_charge_ratio, )
+				essence_emitter.current_instability = Maths.Max((essence_emitter.current_charge_ratio - 1.00f) * (1.00f - essence_container.stability), 0.00f);
+				essence_emitter.current_charge -= essence_emitter.current_charge * essence_emitter.charge_loss * essence_emitter.current_charge_ratio;
 				essence_emitter.current_charge += (rate * essence_container.available) * App.fixed_update_interval_s_f32;
-				essence_emitter.current_charge -= essence_emitter.current_charge * essence_emitter.charge_loss;
+				//essence_emitter.
 			}
 		}
 

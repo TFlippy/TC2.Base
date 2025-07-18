@@ -128,7 +128,7 @@
 							amount: 954.665
 							amount_min: 415.000
 							amount_max: 1643.136
-							falloff: 0.800
+							falloff: 0.500
 							ratio: 0.204
 							group: 0
 							flags: no_scaling, always_evaluate
@@ -136,11 +136,11 @@
 						{
 							type: work
 							work: die.swaging.metal
-							amount: 200.000
-							amount_min: 150.000
-							difficulty: 11
+							amount: 520.000
+							amount_min: 750.000
+							difficulty: 9
 							snapping: 5.000
-							falloff: 0.968
+							falloff: 0.978
 							ratio: 1.000
 							group: 0
 							flags: stepped, conditional
