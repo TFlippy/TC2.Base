@@ -513,7 +513,7 @@ namespace TC2.Base.Components
 
 										//GUI.Text($"{essence_color}");
 
-										GUI.DrawHorizontalGauge(current: this.essence_container.GetEmittedEssenceAmount(), max: 100 * Essence.essence_per_pellet * this.inventory.stack_size_multiplier, color: essence_color, size: GUI.Rm);
+										GUI.DrawHorizontalGauge(current: this.essence_container.GetEmittedEssenceAmount(), max: 250 * Essence.essence_per_pellet * this.inventory.stack_size_multiplier, color: essence_color, size: GUI.Rm);
 										//if (essence_data.IsNotNull())
 										{
 											GUI.DrawHoverTooltip(arg: in this, draw: static (x) =>
@@ -653,7 +653,8 @@ namespace TC2.Base.Components
 
 				Charging = 1 << 0,
 
-				Pulse = 1 << 1,
+				Pulsing = 1 << 1,
+				[Net.Ignore] Pulsed = 1 << 2,
 			}
 
 			[ITrait.Data(Net.SendType.Unreliable, IComponent.Scope.Region)]
@@ -697,60 +698,21 @@ namespace TC2.Base.Components
 				//[Asset.Ignore] public float rate_current;
 			}
 
-			[ISystem.Update.D(ISystem.Mode.Single, ISystem.Scope.Region)]
-			public static void OnUpdate_Charge(ISystem.Info info, ref XorRandom random,
-			//IComponent.Handle<Essence.Emitter.Data> h_essence_emitter, Entity ent_essence_emitter,
-			IComponent.Handle<Essence.Emitter.Data> h_essence_emitter, Entity ent_essence_emitter,
-			[Source.Owned] in Transform.Data transform, [Source.Owned] ref Essence.Container.Data essence_container,
-			[Source.Owned] ref Body.Data body,
-			//[Source.Owned, Pair.Wildcard] ref Essence.Emitter.Data essence_emitter)
-			[Source.Owned, Pair.Component<Piston.Data>] ref Essence.Emitter.Data essence_emitter)
-			{
-				if (essence_emitter.flags.HasAny(Essence.Emitter.Flags.Self_Discharging))
-				{
-					if (essence_emitter.current_charge_ratio >= 1.00f)
-					{
-						var amount_taken = essence_emitter.current_charge.MultSub(0.98f);
-#if SERVER
-						essence_emitter.current_emit += amount_taken;
-						if (essence_emitter.state_flags.TrySetFlag(Essence.Emitter.StateFlags.Pulse))
-						{
-							//App.WriteLine(h_essence_emitter);
-							essence_emitter.Sync(ent_essence_emitter, IComponent.Handle.FromComponentPair<Piston.Data, Essence.Emitter.Data>());
-						}
-#endif
-					}
-					else
-					{
-						essence_emitter.current_emit = 0.00f;
-						essence_emitter.state_flags.RemoveFlag(Essence.Emitter.StateFlags.Pulse);
-					}
-				}
-
-				essence_emitter.h_essence_charge = essence_container.h_essence;
-				essence_emitter.current_charge_ratio = Maths.NormalizeFastUnsafe(essence_emitter.current_charge, essence_emitter.charge_capacity);
-				var rate = essence_container.rate_current * essence_emitter.efficiency;
-				//essence_container.rate_current *= 1.00f - rate; // * App.fixed_update_interval_s_f32;
-
-				essence_emitter.current_charge += (rate * essence_container.available) * App.fixed_update_interval_s_f32;
-				essence_emitter.current_charge -= essence_emitter.current_charge * essence_emitter.charge_loss;
-			}
-
 			[ISystem.PreUpdate.D(ISystem.Mode.Single, ISystem.Scope.Region)]
 			public static void OnUpdate_Signal(ISystem.Info info, ref XorRandom random, Entity entity,
 			IComponent.Handle<Essence.Emitter.Data> h_essence_emitter, Entity ent_essence_emitter,
 			[Source.Owned] in Transform.Data transform, [Source.Owned] ref Analog.Relay.Data analog_relay,
 			[Source.Owned, Pair.Wildcard] ref Essence.Emitter.Data essence_emitter)
 			{
-				return;
+				//return;
 				if (essence_emitter.flags.HasNone(Flags.Enable_Signal_Read)) return;
+#if SERVER
 
 				var signal_value = analog_relay.signal_current[essence_emitter.channel_emit];
 				//essence_emitter.flags.SetFlag(Essence.Emitter.Flags.Pulsed, signal_value > 0.10f);
 
-				if (essence_emitter.state_flags.TrySetFlag(Essence.Emitter.StateFlags.Pulse, signal_value > 0.10f))
+				if (essence_emitter.state_flags.TryAddFlag(Essence.Emitter.StateFlags.Pulsing, signal_value > 0.10f))
 				{
-#if SERVER
 					//var rec = entity.GetRecord();
 
 
@@ -776,8 +738,157 @@ namespace TC2.Base.Components
 					//var ts_elapsed = ts.GetMilliseconds();
 
 					//App.WriteLine($"{ts_elapsed:0.0000} ms");
+				}
+#endif
+
+			}
+
+			[ISystem.PostUpdate.B(ISystem.Mode.Single, ISystem.Scope.Region)]
+			public static void OnUpdate_Essence(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity ent_piston,
+			[Source.Owned] in Transform.Data transform, /*[Source.Owned] ref Control.Data control,*/
+			[Source.Owned] ref Piston.Data piston, [Source.Owned, Pair.Component<Piston.Data>] ref Essence.Emitter.Data essence_emitter
+			/*[Source.Owned] in Crafter.Data crafter, [Source.Owned] ref Crafter.State crafter_state*/)
+			{
+				//if (control.mouse.GetKey(Mouse.Key.Left))
+
+				if (essence_emitter.state_flags.HasAny(Essence.Emitter.StateFlags.Pulsed))
+				{
+					var power = (essence_emitter.current_emit * Essence.GetKineticPower(essence_emitter.h_essence_charge).m_value); //.Abs();
+					var speed_add = Maths.SqrtSigned((power + power) / piston.mass);
+
+					App.WriteLine($"press pressed {power}; {speed_add}; {essence_emitter.current_emit}", color: App.Color.Magenta);
+
+
+#if SERVER
+					//var speed_add = Energy.GetVelocity(power, piston.mass);
+
+					//piston.current_speed += Energy.GetVelocity(Essence.GetForce()
+					piston.current_speed += speed_add;
+					//var energy_impact = Energy.GetKineticEnergy(piston.mass, piston.current_speed);
+					//App.WriteValue(energy_impact);
+
+					//App.WriteValue(speed_add);
+					piston.Sync(ent_piston, true);
+
+#endif
+
+#if CLIENT
+					var h_essence = essence_emitter.h_essence; // new IEssence.Handle("motion");
+					ref var essence_data = ref h_essence.GetData();
+					if (essence_data.IsNotNull())
+					{
+						var pos = transform.LocalToWorld(essence_emitter.offset);
+						var dir = transform.LocalToWorldDirection(essence_emitter.direction);
+
+						var intensity = 1.00f;
+						var color_a = ColorBGRA.Lerp(essence_data.color_emit, ColorBGRA.White, 0.50f);
+						var color_b = essence_data.color_emit.WithColorMult(0.20f).WithAlphaMult(0.00f);
+
+						//App.WriteLine("essence");
+
+						//Sound.Play(region: ref region, sound: essence_emitter.h_sound_emit, world_position: pos, volume: 1.00f, pitch: 1.00f, size: 0.35f, dist_multiplier: 0.65f);
+						Sound.Play(region: ref region, h_soundmix: essence_emitter.h_soundmix_test, random: ref random, pos: pos); //, volume: 1.00f, pitch: 1.00f, size: 0.35f, dist_multiplier: 0.65f);
+						Shake.Emit(region: ref region, world_position: pos, trauma: 0.35f, max: 0.50f, radius: 10.00f);
+
+						Particle.Spawn(ref region, new Particle.Data()
+						{
+							texture = Light.tex_light_circle_00,
+							lifetime = 0.20f,
+							pos = pos - dir,
+							vel = dir * 20.00f,
+							drag = 0.20f,
+							frame_count = 1,
+							frame_count_total = 1,
+							frame_offset = 0,
+							scale = 1.00f,
+							stretch = new Vector2(1.00f, 0.50f),
+							face_dir_ratio = 1.00f,
+							growth = 50.00f,
+							color_a = color_a,
+							color_b = color_b,
+							glow = 20.00f * intensity
+						});
+
+						//Particle.Spawn(ref region, new Particle.Data()
+						//{
+						//	texture = Light.tex_light_circle_04,
+						//	lifetime = random.NextFloatRange(1.00f, 1.25f),
+						//	pos = data.world_position + (dir * 0.50f),
+						//	scale = random.NextFloatRange(1.00f, 1.50f),
+						//	growth = random.NextFloatRange(1.50f, 2.00f),
+						//	stretch = new Vector2(0.90f, 0.60f),
+						//	rotation = dir.GetAngleRadiansFast(),
+						//	face_dir_ratio = 1.00f,
+						//	color_a = new Vector4(1.00f, 0.70f, 0.40f, 30.00f),
+						//	color_b = new Vector4(0.20f, 0.00f, 0.00f, 0.00f),
+						//	glow = 1.00f
+						//});
+					}
 #endif
 				}
+			}
+
+			[ISystem.PostUpdate.D(ISystem.Mode.Single, ISystem.Scope.Region)]
+			public static void OnUpdate_Charge(ISystem.Info info, ref XorRandom random,
+			//IComponent.Handle<Essence.Emitter.Data> h_essence_emitter, Entity ent_essence_emitter,
+			IComponent.Handle<Essence.Emitter.Data> h_essence_emitter, Entity ent_essence_emitter,
+			[Source.Owned] in Transform.Data transform, [Source.Owned] ref Essence.Container.Data essence_container,
+			[Source.Owned] ref Body.Data body,
+			//[Source.Owned, Pair.Wildcard] ref Essence.Emitter.Data essence_emitter)
+			[Source.Owned, Pair.Component<Piston.Data>] ref Essence.Emitter.Data essence_emitter)
+			{
+				if (essence_emitter.state_flags.HasAny(StateFlags.Pulsing | StateFlags.Pulsed))
+				{
+					if (essence_emitter.state_flags.HasAny(StateFlags.Pulsing))
+					{
+						essence_emitter.state_flags.AddRemFlags(StateFlags.Pulsed, Essence.Emitter.StateFlags.Pulsing);
+
+#if SERVER
+						var amount_taken = essence_emitter.current_charge.MultSub(0.98f);
+						essence_emitter.current_emit += amount_taken;
+						essence_emitter.Sync(ent_essence_emitter, IComponent.Handle<Essence.Emitter.Data>.FromComponentPair<Piston.Data>());
+#endif
+					}
+					else
+					{
+						essence_emitter.state_flags.RemoveFlag(StateFlags.Pulsed);
+						essence_emitter.current_emit = 0.00f;
+					}
+				}
+#if SERVER
+				else if (essence_emitter.flags.HasAny(Essence.Emitter.Flags.Self_Discharging))
+				{
+					if (essence_emitter.current_charge_ratio >= 1.00f)
+					{
+						//var amount_taken = essence_emitter.current_charge.MultSub(0.98f);
+						//if (random.NextBool(essence_emitter.current_charge_ratio * essence_container.rate_current * 0.20f))
+						if (random.NextBool(essence_emitter.current_charge_ratio - 1.00f))
+						{
+
+							//essence_emitter.current_emit += amount_taken;
+							if (essence_emitter.state_flags.TryAddFlag(Essence.Emitter.StateFlags.Pulsing))
+							{
+								//App.WriteLine(h_essence_emitter);
+								//essence_emitter.Sync(ent_essence_emitter, IComponent.Handle.FromComponentPair<Piston.Data, Essence.Emitter.Data>());
+							}
+						}
+					}
+
+					//else
+					//{
+					//	essence_emitter.current_emit = 0.00f;
+					//	essence_emitter.state_flags.RemoveFlag(Essence.Emitter.StateFlags.Pulse);
+					//}
+				}
+#endif
+
+				essence_emitter.h_essence_charge = essence_container.h_essence;
+				essence_emitter.current_charge_ratio = Maths.NormalizeFastUnsafe(essence_emitter.current_charge, essence_emitter.charge_capacity);
+				var rate = essence_container.rate_current * essence_emitter.efficiency;
+				//essence_container.rate_current *= 1.00f - rate; // * App.fixed_update_interval_s_f32;
+
+				essence_emitter.current_charge += (rate * essence_container.available) * App.fixed_update_interval_s_f32;
+				essence_emitter.current_charge -= essence_emitter.current_charge * essence_emitter.charge_loss;
 			}
 		}
 

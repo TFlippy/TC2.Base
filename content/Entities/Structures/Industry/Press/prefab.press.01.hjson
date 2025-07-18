@@ -286,7 +286,7 @@ piston:
 
 	@essence.emitter:
 	{
-		offset: [-0.250, -1.250]
+		offset: [-0.250, -0.750]
 		type: pulser
 		flags: internal, self_discharging, enable_signal_read
 		charge_capacity: 100.000

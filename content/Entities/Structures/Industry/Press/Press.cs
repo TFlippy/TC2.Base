@@ -48,7 +48,7 @@
 			[Net.Segment.D, Asset.Ignore] public Energy current_kinetic_energy;
 		}
 
-		[ISystem.PostUpdate.E(ISystem.Mode.Single, ISystem.Scope.Region)]
+		[ISystem.PostUpdate.A(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnUpdateRenderer(ISystem.Info info,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Piston.Data piston,
 		[Source.Owned, Pair.Component<Piston.Data>] ref Animated.Renderer.Data renderer)
@@ -57,7 +57,7 @@
 			//renderer_slider.offset = press.slider_offset + new Vector2(0.00f, MathF.Pow((MathF.Cos(axle_state.rotation) + 1.00f) * 0.50f, press.speed) * press.slider_length);
 		}
 
-		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region)]
+		[ISystem.PostUpdate.D(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void Update(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity ent_piston,
 		[Source.Owned] in Transform.Data transform, /*[Source.Owned] ref Control.Data control,*/
 		[Source.Owned] ref Piston.Data piston/*, [Source.Owned] in Crafter.Data crafter, [Source.Owned] ref Crafter.State crafter_state*/)
@@ -108,7 +108,7 @@
 			}
 			else
 			{
-				piston.current_speed *= 0.98f;
+				piston.current_speed *= piston.damping;
 				piston.current_speed -= piston.current_distance; // * info.DeltaTime;
 				piston.status = Status.Idle;
 				//piston.current_kinetic_energy = 0.00f;
@@ -132,88 +132,89 @@
 			//App.WriteLine("essence pulse event", color: App.Color.Magenta);
 		}
 
-		[ISystem.PostUpdate.B(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void OnUpdate_Essence(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity ent_piston,
-		[Source.Owned] in Transform.Data transform, /*[Source.Owned] ref Control.Data control,*/
-		[Source.Owned] ref Piston.Data piston, [Source.Owned, Pair.Component<Piston.Data>] ref Essence.Emitter.Data essence_emitter
-		/*[Source.Owned] in Crafter.Data crafter, [Source.Owned] ref Crafter.State crafter_state*/)
-		{
-			//if (control.mouse.GetKey(Mouse.Key.Left))
+//		[ISystem.PostUpdate.B(ISystem.Mode.Single, ISystem.Scope.Region)]
+//		public static void OnUpdate_Essence(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity ent_piston,
+//		[Source.Owned] in Transform.Data transform, /*[Source.Owned] ref Control.Data control,*/
+//		[Source.Owned] ref Piston.Data piston, [Source.Owned, Pair.Component<Piston.Data>] ref Essence.Emitter.Data essence_emitter
+//		/*[Source.Owned] in Crafter.Data crafter, [Source.Owned] ref Crafter.State crafter_state*/)
+//		{
+//			//if (control.mouse.GetKey(Mouse.Key.Left))
 
-			if (essence_emitter.state_flags.HasAny(Essence.Emitter.StateFlags.Pulse))
-			{
-				//App.WriteLine("press pressed", color: App.Color.Magenta);
+//			if (essence_emitter.state_flags.HasAny(Essence.Emitter.StateFlags.Pulse))
+//			{
+//				//App.WriteLine("press pressed", color: App.Color.Magenta);
 
 
-#if SERVER
-				var power = essence_emitter.current_emit * Essence.GetKineticPower(essence_emitter.h_essence_charge).m_value;
-				var speed_add = Energy.GetVelocity(power, piston.mass);
+//#if SERVER
+//				var power = (essence_emitter.current_emit * Essence.GetKineticPower(essence_emitter.h_essence_charge).m_value); //.Abs();
+//				//var speed_add = Energy.GetVelocity(power, piston.mass);
 
-				//piston.current_speed += Energy.GetVelocity(Essence.GetForce()
-				piston.current_speed += speed_add;
-				//var energy_impact = Energy.GetKineticEnergy(piston.mass, piston.current_speed);
-				//App.WriteValue(energy_impact);
+//				var speed_add = Maths.SqrtSigned((power + power) / piston.mass);
+//				//piston.current_speed += Energy.GetVelocity(Essence.GetForce()
+//				piston.current_speed += speed_add;
+//				//var energy_impact = Energy.GetKineticEnergy(piston.mass, piston.current_speed);
+//				//App.WriteValue(energy_impact);
 
-				//App.WriteValue(speed_add);
-				piston.Sync(ent_piston, true);
+//				//App.WriteValue(speed_add);
+//				piston.Sync(ent_piston, true);
 			
-#endif
+//#endif
 
-#if CLIENT
-				var h_essence = essence_emitter.h_essence; // new IEssence.Handle("motion");
-				ref var essence_data = ref h_essence.GetData();
-				if (essence_data.IsNotNull())
-				{
-					var pos = transform.LocalToWorld(essence_emitter.offset);
-					var dir = transform.LocalToWorldDirection(essence_emitter.direction);
+//#if CLIENT
+//				var h_essence = essence_emitter.h_essence; // new IEssence.Handle("motion");
+//				ref var essence_data = ref h_essence.GetData();
+//				if (essence_data.IsNotNull())
+//				{
+//					var pos = transform.LocalToWorld(essence_emitter.offset);
+//					var dir = transform.LocalToWorldDirection(essence_emitter.direction);
 
-					var intensity = 1.00f;
-					var color_a = ColorBGRA.Lerp(essence_data.color_emit, ColorBGRA.White, 0.50f);
-					var color_b = essence_data.color_emit.WithColorMult(0.20f).WithAlphaMult(0.00f);
+//					var intensity = 1.00f;
+//					var color_a = ColorBGRA.Lerp(essence_data.color_emit, ColorBGRA.White, 0.50f);
+//					var color_b = essence_data.color_emit.WithColorMult(0.20f).WithAlphaMult(0.00f);
 
-					//App.WriteLine("essence");
+//					//App.WriteLine("essence");
 
-					//Sound.Play(region: ref region, sound: essence_emitter.h_sound_emit, world_position: pos, volume: 1.00f, pitch: 1.00f, size: 0.35f, dist_multiplier: 0.65f);
-					Sound.Play(region: ref region, h_soundmix: essence_emitter.h_soundmix_test, random: ref random, pos: pos); //, volume: 1.00f, pitch: 1.00f, size: 0.35f, dist_multiplier: 0.65f);
-					Shake.Emit(region: ref region, world_position: pos, trauma: 0.35f, max: 0.50f, radius: 10.00f);
+//					//Sound.Play(region: ref region, sound: essence_emitter.h_sound_emit, world_position: pos, volume: 1.00f, pitch: 1.00f, size: 0.35f, dist_multiplier: 0.65f);
+//					Sound.Play(region: ref region, h_soundmix: essence_emitter.h_soundmix_test, random: ref random, pos: pos); //, volume: 1.00f, pitch: 1.00f, size: 0.35f, dist_multiplier: 0.65f);
+//					Shake.Emit(region: ref region, world_position: pos, trauma: 0.35f, max: 0.50f, radius: 10.00f);
 
-					Particle.Spawn(ref region, new Particle.Data()
-					{
-						texture = Light.tex_light_circle_00,
-						lifetime = 0.20f,
-						pos = pos - dir,
-						vel = dir * 20.00f,
-						drag = 0.20f,
-						frame_count = 1,
-						frame_count_total = 1,
-						frame_offset = 0,
-						scale = 1.00f,
-						stretch = new Vector2(1.00f, 0.50f),
-						face_dir_ratio = 1.00f,
-						growth = 50.00f,
-						color_a = color_a,
-						color_b = color_b,
-						glow = 20.00f * intensity
-					});
+//					Particle.Spawn(ref region, new Particle.Data()
+//					{
+//						texture = Light.tex_light_circle_00,
+//						lifetime = 0.20f,
+//						pos = pos - dir,
+//						vel = dir * 20.00f,
+//						drag = 0.20f,
+//						frame_count = 1,
+//						frame_count_total = 1,
+//						frame_offset = 0,
+//						scale = 1.00f,
+//						stretch = new Vector2(1.00f, 0.50f),
+//						face_dir_ratio = 1.00f,
+//						growth = 50.00f,
+//						color_a = color_a,
+//						color_b = color_b,
+//						glow = 20.00f * intensity
+//					});
 
-					//Particle.Spawn(ref region, new Particle.Data()
-					//{
-					//	texture = Light.tex_light_circle_04,
-					//	lifetime = random.NextFloatRange(1.00f, 1.25f),
-					//	pos = data.world_position + (dir * 0.50f),
-					//	scale = random.NextFloatRange(1.00f, 1.50f),
-					//	growth = random.NextFloatRange(1.50f, 2.00f),
-					//	stretch = new Vector2(0.90f, 0.60f),
-					//	rotation = dir.GetAngleRadiansFast(),
-					//	face_dir_ratio = 1.00f,
-					//	color_a = new Vector4(1.00f, 0.70f, 0.40f, 30.00f),
-					//	color_b = new Vector4(0.20f, 0.00f, 0.00f, 0.00f),
-					//	glow = 1.00f
-					//});
-				}
-#endif
-			}
-		}
+//					//Particle.Spawn(ref region, new Particle.Data()
+//					//{
+//					//	texture = Light.tex_light_circle_04,
+//					//	lifetime = random.NextFloatRange(1.00f, 1.25f),
+//					//	pos = data.world_position + (dir * 0.50f),
+//					//	scale = random.NextFloatRange(1.00f, 1.50f),
+//					//	growth = random.NextFloatRange(1.50f, 2.00f),
+//					//	stretch = new Vector2(0.90f, 0.60f),
+//					//	rotation = dir.GetAngleRadiansFast(),
+//					//	face_dir_ratio = 1.00f,
+//					//	color_a = new Vector4(1.00f, 0.70f, 0.40f, 30.00f),
+//					//	color_b = new Vector4(0.20f, 0.00f, 0.00f, 0.00f),
+//					//	glow = 1.00f
+//					//});
+//				}
+//#endif
+//			}
+//		}
 
 		[ISystem.PreUpdate.C(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void PostUpdate(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity ent_piston,
