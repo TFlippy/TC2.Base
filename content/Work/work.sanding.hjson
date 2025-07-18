@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.64.0"
 	name: "Sanding"
 	name_short: "Sanding"
 	desc:
@@ -14,15 +14,15 @@
 		frame: [4, 0]
 	}
 	
-	flags: none
-	tags: manual, tools, simple
+	flags: manual, wip
+	tags: tools, simple
 	
 	amount_base: 0.000
-	cooldown: 0.680
-	multiplier: 1.250
+	cooldown: 0.690
+	multiplier: 0.940
 	
-	amount_jitter: 0.416
-	cooldown_jitter: 0.161
+	amount_jitter: 0.402
+	cooldown_jitter: 0.303
 	color: "0xffffa200"
 	
 	tools_required: sandpaper
@@ -55,14 +55,15 @@
 	}
 	
 	sound_volume: 0.600
-	sound_pitch: 0.970
+	sound_pitch: 0.750
 	sound_size: 0.600
 	sound_dist: 0.620
 	
-	sounds: ["effect.cloth.shuffle.00", "effect.cloth.place.01", "effect.cloth.slide.00", "effect.cloth.place.03"]
+	sounds: ["walljump.00", "walljump.01", "walljump.02"]
 	sounds_manual: []
 	sounds_crafter: []
 	sounds_passive: []
+	sounds_ambient: []
 	
 	sounds_start: []
 	sounds_end: []

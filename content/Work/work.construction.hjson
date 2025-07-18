@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.64.0"
 	name: "Construction"
 	name_short: "Construct"
 	desc:
@@ -14,8 +14,8 @@
 		frame: [4, 0]
 	}
 	
-	flags: none
-	tags: manual, skilled, tools, construction, industrial, wip
+	flags: manual, wip
+	tags: skilled, tools, construction, industrial
 	
 	amount_base: 0.000
 	cooldown: 1.000
@@ -57,6 +57,7 @@
 	sounds_manual: []
 	sounds_crafter: []
 	sounds_passive: []
+	sounds_ambient: []
 	
 	sounds_start: []
 	sounds_end: []

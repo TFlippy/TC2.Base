@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.64.0"
 	name: "Scavenging"
 	name_short: "Scavenging"
 	desc:
@@ -14,20 +14,20 @@
 		frame: [9, 0]
 	}
 	
-	flags: none
-	tags: manual, simple, technical, industrial, leisure, wip
+	flags: manual, wip
+	tags: simple, technical, industrial, leisure
+	
+	amount_base: 0.000
 	cooldown: 1.100
 	multiplier: 1.000
+	
 	color: "0xffa94535"
 	
 	tools_required: hammer
 	tools_optional: hammer, cutters, hand_drill, screwdriver, wrench, tweezers, magnifying_glass, towel, tongs, pick, crowbar
 	
-	machinery_required: none
-	machinery_optional: none
-	
-	equipment_required: none
-	equipment_optional: table, chair, vise
+	infrastructure_required: none
+	infrastructure_optional: none
 	
 	character_traits:
 	{
@@ -58,6 +58,7 @@
 	sounds_manual: []
 	sounds_crafter: []
 	sounds_passive: []
+	sounds_ambient: []
 	
 	sounds_start: []
 	sounds_end: []

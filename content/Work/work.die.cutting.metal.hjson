@@ -14,7 +14,7 @@
 		frame: [7, 0]
 	}
 	
-	flags: machine, crafter_only, time_independent, no_randomization
+	flags: machine, crafter_only, time_independent, no_randomization, wip
 	tags: simple, construction, industrial
 	
 	amount_base: 10.000

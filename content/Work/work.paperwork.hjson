@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.64.0"
 	name: "Paperwork"
 	name_short: "Paperwork"
 	desc:
@@ -14,20 +14,20 @@
 		frame: [18, 0]
 	}
 	
-	flags: none
-	tags: manual, skilled, tools, simple, bureaucracy, wip
+	flags: manual, worker_only, wip
+	tags: skilled, tools, simple, bureaucracy
+	
+	amount_base: 0.000
 	cooldown: 2.310
 	multiplier: 1.000
+	
 	color: "0xff882ec2"
 	
 	tools_required: pencil, paper, stapler
 	tools_optional: pencil, paper, ruler, cutters, tweezers, magnifying_glass, stapler, knife
 	
-	machinery_required: none
-	machinery_optional: none
-	
-	equipment_required: table, chair
-	equipment_optional: table, chair, rack
+	infrastructure_required: none
+	infrastructure_optional: none
 	
 	filter_environment:
 	{
@@ -63,6 +63,7 @@
 	sounds_manual: []
 	sounds_crafter: []
 	sounds_passive: []
+	sounds_ambient: []
 	
 	sounds_start: []
 	sounds_end: []

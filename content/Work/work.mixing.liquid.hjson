@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.64.0"
 	name: "Mixing (Liquid)"
 	name_short: "Mixing"
 	desc:
@@ -14,17 +14,17 @@
 		frame: [23, 0]
 	}
 	
-	flags: none
-	tags: manual, machine, automated, simple, chemical, wip
+	flags: wip
+	tags: simple, chemical
+	
+	amount_base: 0.000
 	cooldown: 1.500
 	multiplier: 1.000
+	
 	color: "0xff5469ff"
 	
 	tools_required: none
 	tools_optional: shovel, spatula
-	
-	machinery_required: none
-	machinery_optional: blender, mixer
 	
 	infrastructure_required: none
 	infrastructure_optional: liquid_container
@@ -57,6 +57,7 @@
 	sounds_manual: []
 	sounds_crafter: []
 	sounds_passive: []
+	sounds_ambient: []
 	
 	sounds_start: []
 	sounds_end: []

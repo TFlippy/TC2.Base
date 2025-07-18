@@ -14,7 +14,7 @@
 		frame: [8, 0]
 	}
 	
-	flags: machine, crafter_only, time_independent
+	flags: machine, crafter_only, time_independent, wip
 	tags: technical, construction, industrial
 	
 	amount_base: 5.000

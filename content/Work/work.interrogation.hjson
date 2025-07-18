@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.7"
+	$version: "0.1.64.0"
 	name: "Interrogation"
 	name_short: "Interrogation"
 	desc:
@@ -14,19 +14,20 @@
 		frame: [37, 0]
 	}
 	
-	tags: skilled, social, advanced, careful, politics, wip
+	flags: wip
+	tags: skilled, social, advanced, politics, careful
+	
+	amount_base: 0.000
 	cooldown: 1.850
 	multiplier: 1.000
+	
 	color: "0xff4e5570"
 	
 	tools_required: none
 	tools_optional: pencil, paper, magnifying_glass, towel
 	
-	machinery_required: none
-	machinery_optional: none
-	
-	equipment_required: table, chair
-	equipment_optional: chair
+	infrastructure_required: none
+	infrastructure_optional: none
 	
 	character_traits:
 	{
@@ -45,24 +46,18 @@
 	
 	}
 	
-	sounds:
-	[
-		work.paperwork.page.00
-		work.paperwork.pencil.03
-		vo_give
-		work.paperwork.pencil.00
-		work.paperwork.pencil.01
-		vo_what
-		vo_bad
-		work.paperwork.page.01
-		vo_no
-		work.paperwork.page.02
-		vo_idiot
-		vo_huh
-		vo_okay
-		work.paperwork.page.02
-		work.paperwork.pencil.00
-		work.paperwork.pencil.01
-		vo_fire
-	]
+	sound_volume: 0.500
+	sound_pitch: 1.000
+	sound_size: 0.500
+	sound_dist: 0.600
+	
+	sounds: ["work.paperwork.page.00", "work.paperwork.pencil.03", "vo_give", "work.paperwork.pencil.00", "work.paperwork.pencil.01", "vo_what", "vo_bad", "work.paperwork.page.01", "vo_no", "work.paperwork.page.02", "vo_idiot", "vo_huh", "vo_okay", "work.paperwork.page.02", "work.paperwork.pencil.00", "work.paperwork.pencil.01", "vo_fire"]
+	sounds_manual: []
+	sounds_crafter: []
+	sounds_passive: []
+	sounds_ambient: []
+	
+	sounds_start: []
+	sounds_end: []
+	sounds_fail: []
 }

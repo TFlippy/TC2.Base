@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.64.0"
 	name: "Espionage"
 	name_short: "Espionage"
 	desc:
@@ -14,20 +14,20 @@
 		frame: [29, 0]
 	}
 	
-	flags: ambient
-	tags: skilled, social, dangerous, advanced, careful, politics, bureaucracy, wip
+	flags: wip
+	tags: skilled, social, advanced, politics, bureaucracy, dangerous, careful
+	
+	amount_base: 0.000
 	cooldown: 3.000
 	multiplier: 1.000
+	
 	color: "0xff4e5570"
 	
 	tools_required: none
 	tools_optional: pencil, paper, magnifying_glass, crowbar
 	
-	machinery_required: none
-	machinery_optional: none
-	
-	equipment_required: none
-	equipment_optional: none
+	infrastructure_required: none
+	infrastructure_optional: none
 	
 	character_traits:
 	{
@@ -58,6 +58,7 @@
 	sounds_manual: []
 	sounds_crafter: []
 	sounds_passive: []
+	sounds_ambient: []
 	
 	sounds_start: []
 	sounds_end: []

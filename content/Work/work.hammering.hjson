@@ -14,12 +14,12 @@
 		frame: [1, 0]
 	}
 	
-	flags: none
-	tags: manual, machine, tools, construction, industrial, dangerous, wip
+	flags: manual, wip
+	tags: tools, construction, industrial, dangerous
 	
 	amount_base: 0.000
 	cooldown: 1.000
-	multiplier: 1.000
+	multiplier: 0.730
 	
 	amount_jitter: 0.396
 	color: "0xffffa200"
@@ -43,10 +43,10 @@
 	
 	skills_mult:
 	{
-		strength: 0.570
-		blacksmithing: 0.280
-		clubs: 0.170
-		endurance: 0.330
+		strength: 0.500
+		blacksmithing: 0.190
+		clubs: 0.130
+		endurance: 0.370
 	}
 	
 	sound_volume: 0.500

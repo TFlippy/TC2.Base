@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.1"
+	$version: "0.1.64.0"
 	name: "Evaporation"
 	name_short: "Evaporation"
 	desc:
@@ -14,8 +14,8 @@
 		frame: [21, 0]
 	}
 	
-	flags: passive, ambient
-	tags: ambient, simple, passive, wip
+	flags: passive, ambient, wip
+	tags: simple
 	
 	amount_base: 1.000
 	cooldown: 1.000
@@ -54,6 +54,7 @@
 	sounds_manual: []
 	sounds_crafter: []
 	sounds_passive: []
+	sounds_ambient: []
 	
 	sounds_start: []
 	sounds_end: []

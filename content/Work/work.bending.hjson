@@ -14,8 +14,8 @@
 		frame: [40, 0]
 	}
 	
-	flags: none
-	tags: manual, machine, automated, simple, construction, wip
+	flags: manual, wip
+	tags: simple, construction
 	
 	amount_base: 0.000
 	cooldown: 2.000

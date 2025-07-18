@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.1"
+	$version: "0.1.64.0"
 	name: "Carburization"
 	name_short: "Carburization"
 	desc:
@@ -14,8 +14,8 @@
 		frame: [11, 0]
 	}
 	
-	flags: passive
-	tags: advanced, chemical, industrial, passive, toxic, dangerous, wip
+	flags: passive, wip
+	tags: advanced, chemical, industrial, toxic, dangerous
 	
 	amount_base: 1.000
 	cooldown: 1.000
@@ -53,6 +53,7 @@
 	sounds_manual: []
 	sounds_crafter: []
 	sounds_passive: []
+	sounds_ambient: []
 	
 	sounds_start: []
 	sounds_end: []

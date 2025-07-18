@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.64.0"
 	name: "Refining"
 	name_short: "Refining"
 	desc:
@@ -14,20 +14,20 @@
 		frame: [12, 0]
 	}
 	
-	flags: none
-	tags: manual, skilled, machine, automated, science, dangerous, technical, chemical, careful, industrial, wip
+	flags: wip
+	tags: skilled, science, technical, chemical, industrial, dangerous, careful
+	
+	amount_base: 0.000
 	cooldown: 1.000
 	multiplier: 1.000
+	
 	color: "0xff14d081"
 	
 	tools_required: none
 	tools_optional: syringe
 	
-	machinery_required: none
-	machinery_optional: centrifuge, condenser, heater
-	
-	equipment_required: none
-	equipment_optional: lab_glassware, bottle
+	infrastructure_required: none
+	infrastructure_optional: none
 	
 	filter_environment:
 	{
@@ -60,6 +60,7 @@
 	sounds_manual: []
 	sounds_crafter: []
 	sounds_passive: []
+	sounds_ambient: []
 	
 	sounds_start: []
 	sounds_end: []

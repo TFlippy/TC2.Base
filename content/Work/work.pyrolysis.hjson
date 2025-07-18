@@ -14,7 +14,7 @@
 		frame: [11, 0]
 	}
 	
-	flags: passive, ambient
+	flags: passive, ambient, wip
 	tags: simple, industrial, dangerous
 	
 	amount_base: 1.000

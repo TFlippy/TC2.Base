@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.1"
+	$version: "0.1.64.0"
 	name: "EC Biosynthesis"
 	name_short: "Biosynthesis"
 	desc:
@@ -14,10 +14,13 @@
 		frame: [24, 0]
 	}
 	
-	flags: none
-	tags: manual, skilled, machine, science, advanced, chemical, arcane, dangerous, careful
+	flags: wip
+	tags: skilled, science, advanced, chemical, arcane, dangerous, careful
+	
+	amount_base: 0.000
 	cooldown: 2.000
 	multiplier: 0.600
+	
 	color: "0xff14d081"
 	
 	tools_required: tongs
@@ -62,6 +65,7 @@
 	sounds_manual: []
 	sounds_crafter: []
 	sounds_passive: []
+	sounds_ambient: []
 	
 	sounds_start: []
 	sounds_end: []

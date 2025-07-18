@@ -14,8 +14,8 @@
 		frame: [27, 0]
 	}
 	
-	flags: passive
-	tags: skilled, social, politics, bureaucracy, wip
+	flags: manual, wip
+	tags: skilled, social, politics, bureaucracy
 	
 	amount_base: 0.000
 	cooldown: 3.000

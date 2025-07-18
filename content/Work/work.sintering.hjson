@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.1"
+	$version: "0.1.64.0"
 	name: "Sintering"
 	name_short: "Sintering"
 	desc:
@@ -14,8 +14,8 @@
 		frame: [10, 0]
 	}
 	
-	flags: passive
-	tags: simple, industrial, passive, dangerous, wip
+	flags: passive, wip
+	tags: simple, industrial, dangerous
 	
 	amount_base: 1.000
 	cooldown: 1.000
@@ -48,6 +48,7 @@
 	sounds_manual: []
 	sounds_crafter: []
 	sounds_passive: []
+	sounds_ambient: []
 	
 	sounds_start: []
 	sounds_end: []

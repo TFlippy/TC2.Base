@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.64.0"
 	name: "Egg Cracking"
 	name_short: "Cracking"
 	desc:
@@ -14,20 +14,20 @@
 		frame: [1, 0]
 	}
 	
-	flags: none
-	tags: manual, simple, careful, wip
+	flags: manual, wip
+	tags: simple, careful
+	
+	amount_base: 0.000
 	cooldown: 1.500
 	multiplier: 4.000
+	
 	color: "0xff719240"
 	
 	tools_required: none
 	tools_optional: none
 	
-	machinery_required: none
-	machinery_optional: none
-	
-	equipment_required: dishes
-	equipment_optional: none
+	infrastructure_required: none
+	infrastructure_optional: none
 	
 	filter_environment:
 	{
@@ -62,6 +62,7 @@
 	sounds_manual: []
 	sounds_crafter: []
 	sounds_passive: []
+	sounds_ambient: []
 	
 	sounds_start: []
 	sounds_end: []

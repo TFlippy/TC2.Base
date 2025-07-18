@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.64.0"
 	name: "Tailoring"
 	name_short: "Tailoring"
 	desc:
@@ -14,20 +14,20 @@
 		frame: [2, 0]
 	}
 	
-	flags: none
-	tags: manual, skilled, tools, careful, leisure, wip
+	flags: manual, wip
+	tags: skilled, tools, leisure, careful
+	
+	amount_base: 0.000
 	cooldown: 0.850
 	multiplier: 0.700
+	
 	color: "0xffdd4f60"
 	
 	tools_required: cutters, needle, pins
 	tools_optional: pencil, ruler, cutters, pliers, tweezers, knife, pins
 	
-	machinery_required: none
-	machinery_optional: none
-	
-	equipment_required: table
-	equipment_optional: table, chair, rack
+	infrastructure_required: none
+	infrastructure_optional: none
 	
 	character_traits:
 	{
@@ -53,6 +53,7 @@
 	sounds_manual: []
 	sounds_crafter: []
 	sounds_passive: []
+	sounds_ambient: []
 	
 	sounds_start: []
 	sounds_end: []

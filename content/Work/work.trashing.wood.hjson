@@ -14,8 +14,8 @@
 		frame: [9, 0]
 	}
 	
-	flags: none
-	tags: manual, crude, leisure
+	flags: manual, wip
+	tags: crude, leisure
 	
 	amount_base: 3.000
 	cooldown: 0.840

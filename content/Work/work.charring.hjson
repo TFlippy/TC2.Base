@@ -1,6 +1,5 @@
 ﻿{
-	$region_id: 0
-	$version: "0.1.63.1"
+	$version: "0.1.64.0"
 	name: "Charring"
 	name_short: "Charring"
 	desc:
@@ -15,8 +14,8 @@
 		frame: [11, 0]
 	}
 	
-	flags: passive, ambient
-	tags: ambient, simple, passive, dangerous
+	flags: passive, ambient, wip
+	tags: simple, dangerous
 	
 	amount_base: 1.000
 	cooldown: 3.000
@@ -56,6 +55,7 @@
 	sounds_manual: []
 	sounds_crafter: []
 	sounds_passive: []
+	sounds_ambient: []
 	
 	sounds_start: []
 	sounds_end: []

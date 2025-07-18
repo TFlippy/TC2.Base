@@ -14,7 +14,7 @@
 		frame: [9, 0]
 	}
 	
-	flags: passive, crafter_only
+	flags: passive, ambient, crafter_only, wip
 	tags: crude, simple, dangerous
 	
 	amount_base: 0.000

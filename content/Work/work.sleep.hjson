@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.64.0"
 	name: "Sleep"
 	name_short: "Sleep"
 	desc:
@@ -14,20 +14,20 @@
 		frame: [37, 0]
 	}
 	
-	flags: passive
-	tags: manual, simple, leisure, wip
+	flags: manual, worker_only, wip
+	tags: simple, leisure
+	
+	amount_base: 0.000
 	cooldown: 0.500
 	multiplier: 1.000
+	
 	color: "0xff4e5570"
 	
 	tools_required: none
 	tools_optional: tweezers, bucket, towel
 	
-	machinery_required: none
-	machinery_optional: heater
-	
-	equipment_required: bed
-	equipment_optional: none
+	infrastructure_required: none
+	infrastructure_optional: none
 	
 	filter_environment:
 	{
@@ -58,6 +58,7 @@
 	sounds_manual: []
 	sounds_crafter: []
 	sounds_passive: []
+	sounds_ambient: []
 	
 	sounds_start: []
 	sounds_end: []

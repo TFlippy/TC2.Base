@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.64.0"
 	name: "Woodworking"
 	name_short: "Woodworking"
 	desc:
@@ -14,20 +14,20 @@
 		frame: [4, 0]
 	}
 	
-	flags: none
-	tags: manual, skilled, machine, tools, construction, wip
+	flags: manual, wip
+	tags: skilled, tools, construction
+	
+	amount_base: 0.000
 	cooldown: 1.000
 	multiplier: 1.250
+	
 	color: "0xff719240"
 	
 	tools_required: hammer, saw, file, knife
 	tools_optional: pencil, ruler, hammer, saw, hand_drill, screwdriver, tweezers, axe, file, chisel, knife
 	
-	machinery_required: none
-	machinery_optional: lathe
-	
-	equipment_required: none
-	equipment_optional: table, chair, vise
+	infrastructure_required: none
+	infrastructure_optional: none
 	
 	character_traits:
 	{
@@ -57,6 +57,7 @@
 	sounds_manual: []
 	sounds_crafter: []
 	sounds_passive: []
+	sounds_ambient: []
 	
 	sounds_start: []
 	sounds_end: []

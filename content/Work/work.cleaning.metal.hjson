@@ -1,6 +1,5 @@
 ﻿{
-	$region_id: 0
-	$version: "0.1.63.1"
+	$version: "0.1.64.0"
 	name: "Cleaning (Metal)"
 	name_short: "Cleaning"
 	desc:
@@ -15,8 +14,8 @@
 		frame: [4, 0]
 	}
 	
-	flags: none
-	tags: manual, simple, leisure
+	flags: manual, wip
+	tags: simple, leisure
 	
 	amount_base: 0.000
 	cooldown: 0.950
@@ -62,6 +61,7 @@
 	sounds_manual: []
 	sounds_crafter: []
 	sounds_passive: []
+	sounds_ambient: []
 	
 	sounds_start: []
 	sounds_end: []

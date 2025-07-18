@@ -1,5 +1,4 @@
 ﻿{
-	$region_id: 0
 	$version: "0.1.64.0"
 	name: "Indoctrination"
 	name_short: "Indoctrination"
@@ -15,8 +14,8 @@
 		frame: [37, 0]
 	}
 	
-	flags: worker_only
-	tags: skilled, social, science, advanced, politics, careful, wip
+	flags: worker_only, wip
+	tags: skilled, social, science, advanced, politics, careful
 	
 	amount_base: 0.000
 	cooldown: 1.850
