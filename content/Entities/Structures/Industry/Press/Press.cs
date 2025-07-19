@@ -433,11 +433,11 @@
 					return Maths.NormalizeFast(ev.amount, req.difficulty) * mode.work_multiplier;
 				});
 
-				var ts = Timestamp.Now();
+				//var ts = Timestamp.Now();
 				ev.Trigger(ent_press, h_component: IComponent.Handle.FromComponent<Crafter.Data>());
 				//crafter_state.flags.AddFlag(Crafter.State.Flags.In_Contact | Crafter.State.Flags.Ready);
-				var ts_elapsed = ts.GetMilliseconds();
-				App.WriteLine($"{ev.work_result}; {ts_elapsed:0.00000} ms");
+				//var ts_elapsed = ts.GetMilliseconds();
+				//App.WriteLine($"{ev.work_result}; {ts_elapsed:0.00000} ms");
 
 				//press_state.flags.AddFlag(State.Flags.Smashed | State.Flags.Success);
 				//press_state.Sync(ent_press, true);

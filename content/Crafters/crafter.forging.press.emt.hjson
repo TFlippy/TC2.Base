@@ -22,11 +22,11 @@
 		{
 			h_work_supported:
 			[
+				die.forging.metal
 				die.cutting.metal
 				die.drawing.metal
 				die.stamping.metal
 				die.swaging.metal
-				"null"
 				"null"
 				"null"
 				"null"

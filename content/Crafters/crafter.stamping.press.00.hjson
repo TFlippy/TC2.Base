@@ -35,10 +35,15 @@
 			name: "Die-Forming"
 			
 			work_multiplier: 1.000
-			cooldown_multiplier: 1.000
+			cooldown_multiplier: 0.090
 			
 			flags: automated, wip
-			crafter_state_required: none
+			crafter_state_required: in_contact, impact
+			crafter_state_on_work:
+			{
+				add: working
+				rem: ready, in_contact, working
+			}
 			
 			switch_cooldown: 3.000
 			h_sound_switch: effect.mechanical.adjust.00

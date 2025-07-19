@@ -92,6 +92,15 @@
 			
 			yield: [0.595, 0.380]
 		}
+		die.forging.metal:
+		{
+			h_material: scrap.niklajzner
+			h_substance: "null"
+			flags: none
+			flags_product: residue
+			
+			yield: [0.662, 0.283]
+		}
 		die.swaging.metal:
 		{
 			h_material: scrap.niklajzner

@@ -102,13 +102,13 @@
 					}
 				}
 				{
-					name: "Pressed"
+					name: "Die-Forged"
 					
 					type: undefined
 					flags: none
 					discard_damage_type_override: sledgehammer
 					
-					suffix: " (Pressed)"
+					suffix: " (Die-Forged)"
 					priority: 1.000
 					
 					requirements:
@@ -135,7 +135,7 @@
 						}
 						{
 							type: work
-							work: die.swaging.metal
+							work: die.forging.metal
 							amount: 520.000
 							amount_min: 200.000
 							difficulty: 9
