@@ -137,7 +137,7 @@
 							type: work
 							work: die.swaging.metal
 							amount: 520.000
-							amount_min: 750.000
+							amount_min: 200.000
 							difficulty: 9
 							snapping: 5.000
 							falloff: 0.978

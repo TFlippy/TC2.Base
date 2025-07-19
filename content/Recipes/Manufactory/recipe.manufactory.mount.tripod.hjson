@@ -153,8 +153,8 @@
 	type: workshop
 	flags: no_amount_multiplier, blueprintable, item, wip, converted
 	tags: manual, crafting, complex, medium, tool, assembling, metalworking, engineering
-	infrastructure: none
-	infrastructure_exclude: none
+	infrastructure: surface
+	infrastructure_exclude: machine
 	
 	icon:
 	{

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.64.0"
 	name: "Arcanite Sintering"
 	desc:
 		'''
@@ -13,13 +13,12 @@
 			
 			type: undefined
 			flags: none
+			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: none
 			
 			ratio: 0.000
 			mass_base: 0.000
-			
-			options: []
 			
 			requirements:
 			[
@@ -38,20 +37,17 @@
 					flags: prerequisite
 				}
 			]
-			
-			products: []
 		}
 		{
 			
 			type: undefined
 			flags: none
+			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: none
 			
 			ratio: 0.000
 			mass_base: 0.000
-			
-			options: []
 			
 			requirements:
 			[
@@ -78,10 +74,12 @@
 			]
 		}
 	]
-
+	
 	type: workshop
 	flags: none
-	tags: workbench, manual, simple, metalworking
+	tags: complex, metalworking, metallurgy, heating
+	infrastructure: none
+	infrastructure_exclude: none
 	
 	icon:
 	{
@@ -107,10 +105,13 @@
 	}
 	icon_c_offset: [-15.000, -12.000]
 	
+	color_frame: "0xffaeb59a"
 	color_button: "0xffffb629"
 	rank: 90.000
 	
 	min: 5
 	max: 100
 	step: 5
+	
+	version: 0
 }

@@ -108,19 +108,19 @@ shop:
 {
 	tags_filter:
 	{
-		include: industrial, metalworking, metallurgy, melting, heating, moulding
-		exclude: advanced, large, huge, social, forestry, fermenting, overworld
+		include: automated, industrial, metalworking, metallurgy
+		exclude: advanced, large, huge, assembling, social, forestry, fermenting, overworld
 	}
 	
 	tools: ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, spanner, pliers, bucket, file, chisel, towel, tongs, crowbar, sandpaper
-	infrastructure: anvil, vise, shaping_mould, surface, hard_surface, heater, stamping_press, press, machine
+	infrastructure: anvil, hard_surface, compactor, stamping_press, press, dies, essence_emitter, structure, machine
 	environment: machine, stationary, dirty, scary, noisy, reinforced, fireproof, durable, sturdy, small
 	
 	flags: embed_gui
 	menu_columns: 3
 	recipe_type: workshop
 	
-	offset_spawn: [0.125, 0.875]
+	offset_spawn: [-0.375, 1.000]
 	
 	name: "EC-MT Impulse Press"
 }
@@ -287,15 +287,16 @@ piston:
 	@essence.emitter:
 	{
 		offset: [-0.250, -0.750]
-		type: pulser
+		direction: [0.000, 1.000]
+		
+		type: undefined
 		flags: internal, self_discharging, enable_signal_read
 		charge_capacity: 150.000
 		charge_loss: 0.007
 		efficiency: 0.912
+		
 		h_essence: motion
-		h_sound_emit: rivet_gun.shoot.01
-		h_soundmix_test: press.01.emit
-		h_essence_charge: motion
+		h_soundmix_pulse: press.01.emit
 	}
 
 	@animated.renderer:

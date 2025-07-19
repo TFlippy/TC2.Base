@@ -59,7 +59,7 @@
 					//App.WriteLine("essence");
 
 					//Sound.Play(region: ref region, sound: essence_emitter.h_sound_emit, world_position: pos, volume: 1.00f, pitch: 1.00f, size: 0.35f, dist_multiplier: 0.65f);
-					Sound.Play(region: ref region, h_soundmix: essence_emitter.h_soundmix_test, random: ref random, pos: pos, size: 1.00f, dist_mult: 0.50f); //, volume: 1.00f, pitch: 1.00f, size: 0.35f, dist_multiplier: 0.65f);
+					Sound.Play(region: ref region, h_soundmix: essence_emitter.h_soundmix_pulse, random: ref random, pos: pos, size: 1.00f, dist_mult: 0.50f); //, volume: 1.00f, pitch: 1.00f, size: 0.35f, dist_multiplier: 0.65f);
 
 					for (var i = 0; i < 3; i++)
 					{

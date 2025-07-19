@@ -61,7 +61,7 @@
 							difficulty: 10
 							snapping: 5.000
 							falloff: 0.983
-							ratio: 0.082
+							ratio: 0.078
 							group: 0
 							flags: stepped, conditional
 						}
@@ -106,7 +106,7 @@
 	
 	type: workshop
 	flags: production
-	tags: manual, crafting, simple, raw, metalworking, metallurgy, processing
+	tags: manual, crafting, simple, raw, industrial, metalworking, metallurgy, processing
 	infrastructure: hard_surface
 	infrastructure_exclude: none
 	

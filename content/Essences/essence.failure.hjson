@@ -21,7 +21,7 @@
 	sound_emit_loop: essence.emit.cognition.loop.00
 	sound_drain_loop: essence.drain.loop.00
 	
-	sound_emit_pulser_loop: essence.emit.generic.loop.13
+	sound_emit_pulser_loop: golem_loop_00
 	sound_emit_stressor_loop: arcane_attractor.loop.00
 	sound_emit_impactor_loop: shaft.loop.overload.00
 	sound_emit_cycler_loop: mount.turn.loop.02
@@ -32,7 +32,7 @@
 	sound_collapse: essence.collapse.failure.01
 	sound_zap: essence.collapse.failure.00
 	sound_blast: essence.blast.00
-	sound_impulse: effect.stupid.00
+	sound_impulse: essence.hit.bullet.00
 	sound_impact: snap
 	sound_shatter: missing
 	

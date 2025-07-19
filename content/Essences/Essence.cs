@@ -131,6 +131,45 @@ namespace TC2.Base.Components
 
 		public static partial class Container
 		{
+			//public enum Type: byte
+			//{
+			//	Undefined = 0,
+
+			//	Pile,
+			//	Single,
+			//	Stack,
+			//	Array,
+			//	Capacitor
+			//}
+
+
+			public enum Type: byte
+			{
+				Undefined,
+
+				[Name("Ambient", desc: "Passive emitter activated by surrounding environment.")]
+				Ambient,
+				[Name("Impactor", desc: "Simple discrete emitter activated by kinetic impulses.")]
+				Impactor,
+				[Name("Cycler", desc: "Reciprocating emitter activated by a pair of pellets interacting with eachother.")]
+				Cycler,
+				[Name("Pulser", desc: "Adjustable discrete emitter activated by short electrical pulses.")]
+				Pulser,
+				[Name("Stressor", desc: "Adjustable continuous emitter activated by compressive force.")]
+				Stressor,
+				[Name("Oscillator", desc: "Variable-frequency emitter activated by alternating electrical current.")]
+				Oscillator,
+				[Name("Fragmenter", desc: "Powerful single-use emitter activated by shattering the pellet.")]
+				Fragmenter,
+				[Name("Projector", desc: "Experimental emitter array capable of projecting effects of essences onto distant surfaces.")]
+				[Obsolete("")] Projector,
+				[Name("Explosive", desc: "Single-use emitter activated by an explosive charge.")]
+				Explosive,
+
+				//[Name("Thumper", desc: "")]
+				//Thumper,
+			}
+
 			[Flags]
 			public enum Flags: byte
 			{
@@ -152,28 +191,33 @@ namespace TC2.Base.Components
 				[Statistics.Info("Amount", format: "{0:0.##}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
 				[Net.Segment.A] public float available;
 				[Net.Segment.A] public float rate;
-				[Net.Segment.A, Asset.Ignore] public float rate_current;
 				[Net.Segment.A, Asset.Ignore] public float noise_current;
+				[Net.Segment.A, Asset.Ignore] public float rate_current;
 
-				[Statistics.Info("Stability", format: "{0:P2}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
-				[Net.Segment.B] public float stability = 1.00f;
-				[Net.Segment.B] public float available_modifier = 1.00f;
-				[Net.Segment.B] public float frequency;
-
+				[Save.NewLine]
 				[Statistics.Info("Type", description: "Essence type.", comparison: Statistics.Comparison.None, priority: Statistics.Priority.High)]
 				[Net.Segment.B] public IEssence.Handle h_essence;
-				[Net.Segment.B] public Essence.Emitter.Type emit_type;
+				[Net.Segment.B] public required Essence.Container.Type emit_type;
 				[Net.Segment.B] public Essence.Container.Flags flags;
 
+				[Save.NewLine]
+				[Statistics.Info("Stability", format: "{0:P2}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
+				[Net.Segment.B] public float stability = 1.00f;
+				[Net.Segment.B] public float rate_speed = 0.10f;
+				//[Net.Segment.B] public required float capacity;
+				[Net.Segment.B] private float unused_00;
+
+				[Save.NewLine]
 				[Net.Segment.C] public float glow_modifier = 1.00f;
 				[Net.Segment.C] public float heat_modifier = 1.00f;
-				[Net.Segment.C] public float rate_speed = 0.10f;
+				[Net.Segment.C] public float available_modifier = 1.00f;
 				[Net.Segment.C] public float health_threshold = 0.20f;
 
+				[Save.NewLine]
 				[Asset.Ignore, Save.Ignore, Net.Ignore] public float t_next_noise;
-				[Asset.Ignore, Save.Ignore, Net.Ignore] public float t_next_damage;
 				[Asset.Ignore, Save.Ignore, Net.Ignore] public float t_next_collapse;
-				[Asset.Ignore, Save.Ignore, Net.Ignore] private float unused;
+				[Asset.Ignore, Save.Ignore, Net.Ignore] public float available_ratio;
+				[Asset.Ignore, Save.Ignore, Net.Ignore] private float unused_01;
 			}
 
 			[ISystem.VeryEarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
@@ -201,7 +245,7 @@ namespace TC2.Base.Components
 			[ISystem.Update.D(ISystem.Mode.Single, ISystem.Scope.Region)]
 			public static void OnUpdateHeat(ISystem.Info info,
 			[Source.Owned] in Essence.Container.Data container,
-			[Source.Owned] in Heat.Data heat, [Source.Owned] ref Heat.State heat_state)
+			/*[Source.Owned] in Heat.Data heat, */[Source.Owned] ref Heat.State heat_state)
 			{
 				if (!container.h_essence) return;
 
@@ -259,15 +303,15 @@ namespace TC2.Base.Components
 				{
 					h_sound = container.emit_type switch
 					{
-						Essence.Emitter.Type.Undefined => essence_data.sound_emit_ambient_loop,
-						Essence.Emitter.Type.Ambient => essence_data.sound_emit_ambient_loop,
-						Essence.Emitter.Type.Impactor => essence_data.sound_emit_impactor_loop,
-						Essence.Emitter.Type.Cycler => essence_data.sound_emit_cycler_loop,
-						Essence.Emitter.Type.Pulser => essence_data.sound_emit_pulser_loop,
-						Essence.Emitter.Type.Stressor => essence_data.sound_emit_stressor_loop,
-						Essence.Emitter.Type.Oscillator => essence_data.sound_emit_oscillator_loop,
-						Essence.Emitter.Type.Fragmenter => essence_data.sound_emit_ambient_loop,
-						Essence.Emitter.Type.Projector => essence_data.sound_emit_projector_loop,
+						Essence.Container.Type.Undefined => essence_data.sound_emit_ambient_loop,
+						Essence.Container.Type.Ambient => essence_data.sound_emit_ambient_loop,
+						Essence.Container.Type.Impactor => essence_data.sound_emit_impactor_loop,
+						Essence.Container.Type.Cycler => essence_data.sound_emit_cycler_loop,
+						Essence.Container.Type.Pulser => essence_data.sound_emit_pulser_loop,
+						Essence.Container.Type.Stressor => essence_data.sound_emit_stressor_loop,
+						Essence.Container.Type.Oscillator => essence_data.sound_emit_oscillator_loop,
+						Essence.Container.Type.Fragmenter => essence_data.sound_emit_ambient_loop,
+						Essence.Container.Type.Projector => essence_data.sound_emit_projector_loop,
 						_ => essence_data.sound_emit_loop
 					};
 					//entity.MarkModified<Essence.Container.Data, Sound.Emitter>();
@@ -609,24 +653,33 @@ namespace TC2.Base.Components
 			{
 				Undefined,
 
-				[Name("Ambient", desc: "Passive emitter activated by surrounding environment.")]
+				//[Name("Contact-Plate", desc: "TODO: Desc")]
+				//Contact_Plate,
 				Ambient,
-				[Name("Impactor", desc: "Simple discrete emitter activated by kinetic impulses.")]
-				Impactor,
-				[Name("Cycler", desc: "Reciprocating emitter activated by a pair of pellets interacting with eachother.")]
-				Cycler,
-				[Name("Pulser", desc: "Adjustable discrete emitter activated by short electrical pulses.")]
-				Pulser,
-				[Name("Stressor", desc: "Adjustable continuous emitter activated by compressive force.")]
-				Stressor,
-				[Name("Oscillator", desc: "Variable-frequency emitter activated by alternating electrical current.")]
-				Oscillator,
-				[Name("Fragmenter", desc: "Powerful single-use emitter activated by shattering the pellet.")]
-				Fragmenter,
+				Needle,
+				Fork,
+				Actuator,
+
 				[Name("Projector", desc: "Experimental emitter array capable of projecting effects of essences onto distant surfaces.")]
 				Projector,
-				[Name("Explosive", desc: "Single-use emitter activated by an explosive charge.")]
-				Explosive,
+
+				//[Name("Thumper", desc: "")]
+				//Thumper,
+			}
+
+			public enum Kind: byte
+			{
+				Undefined,
+
+				[Name("Contact-Plate", desc: "TODO: Desc")]
+				Contact_Plate,
+				[Name("Electrical", desc: "TODO: Desc")]
+				Electrical,
+				[Name("Fragmentation", desc: "TODO: Desc")]
+				Fragmentation,
+
+				//[Name("Projector", desc: "Experimental emitter array capable of projecting effects of essences onto distant surfaces.")]
+				//Projector,
 
 				//[Name("Thumper", desc: "")]
 				//Thumper,
@@ -657,34 +710,41 @@ namespace TC2.Base.Components
 
 				Charging = 1 << 0,
 
-				Pulsing = 1 << 1,
-				/*[Net.Ignore] */Pulsed = 1 << 2,
+				[Asset.Ignore] Discharging = 1 << 4,
+				[Asset.Ignore] Discharged = 1 << 5,
+
+				[Asset.Ignore] Pulsing = 1 << 6,
+				[Asset.Ignore] Pulsed = 1 << 7,
 			}
 
 			[ITrait.Data(Net.SendType.Unreliable, IComponent.Scope.Region)]
 			public partial struct Data(): ITrait
 			{
-				[Net.Segment.A, Editor.Picker.Position(relative: true)] public required Vec2f offset;
-				[Net.Segment.A, Editor.Picker.Direction(normalize: true)] public required Vec2f direction = Vec2f.Down;
+				[Net.Segment.A, Save.Force, Editor.Picker.Position(relative: true)] public required Vec2f offset;
+				[Net.Segment.A, Save.Force, Editor.Picker.Direction(normalize: true)] public required Vec2f direction = Vec2f.Down;
 
-				[Net.Segment.A] public required Essence.Emitter.Type type;
+				[Save.NewLine]
+				[Net.Segment.A, Save.Force] public required Essence.Emitter.Type type;
 				[Net.Segment.A] private byte unused_a_00;
-				[Net.Segment.A] public Essence.Emitter.Flags flags;
+				[Net.Segment.A, Save.Force] public Essence.Emitter.Flags flags;
 				[Net.Segment.A, Save.Force, Editor.Slider.Clamped(0.00f, 10000.00f, snap: 1.00f)] public required float charge_capacity;
 				[Net.Segment.A, Save.Force, Editor.Slider.Clamped(0.00f, 1.00f, snap: 0.001f)] public required float charge_loss = 0.03f;
 				[Net.Segment.A, Save.Force, Editor.Slider.Clamped(0.00f, 1.00f, snap: 0.001f)] public required float efficiency = 1.00f;
 
-				[Net.Segment.B] public IEssence.Handle h_essence;
-				[Net.Segment.B] public Sound.Handle h_sound_emit;
-				[Net.Segment.B] public Sound.Handle h_sound_discharge;
-				[Net.Segment.B] public ISoundMix.Handle h_soundmix_test;
+				[Save.NewLine]
+				[Net.Segment.B, Save.Force] public required IEssence.Handle h_essence;
+				[Net.Segment.B, Save.Force] public required ISoundMix.Handle h_soundmix_pulse;
+				[Net.Segment.B] public ISoundMix.Handle h_soundmix_discharge;
+				[Net.Segment.B] public ISoundMix.Handle h_soundmix_unused_01;
 
+				[Save.NewLine]
 				[Net.Segment.C] public Essence.Emitter.StateFlags state_flags;
-				[Net.Segment.C] public IEssence.Handle h_essence_charge;
+				[Net.Segment.C, Asset.Ignore] public IEssence.Handle h_essence_charge;
 				[Net.Segment.C] public Signal.Channel channel_emit;
 				[Net.Segment.C] private byte unused_c_02;
 				[Net.Segment.C] private ushort unused_c_03;
 
+				[Save.NewLine]
 				[Net.Segment.D, Asset.Ignore] public float current_charge;
 				[Net.Segment.D, Asset.Ignore] public float current_charge_ratio;
 				[Net.Segment.D, Asset.Ignore] public float current_emit;
@@ -777,56 +837,73 @@ namespace TC2.Base.Components
 #endif
 
 #if CLIENT
-					var h_essence = essence_emitter.h_essence; // new IEssence.Handle("motion");
-					ref var essence_data = ref h_essence.GetData();
-					if (essence_data.IsNotNull())
+					//App.WriteValue(essence_emitter.current_charge_ratio);
+					var h_essence = essence_emitter.h_essence_charge;
+					if (h_essence)
 					{
-						var pos = transform.LocalToWorld(essence_emitter.offset);
-						var dir = transform.LocalToWorldDirection(essence_emitter.direction);
-
-						var intensity = 1.00f;
-						var color_a = ColorBGRA.Lerp(essence_data.color_emit, ColorBGRA.White, 0.50f);
-						var color_b = essence_data.color_emit.WithColorMult(0.20f).WithAlphaMult(0.00f);
-
-						//App.WriteLine("essence");
-
-						//Sound.Play(region: ref region, sound: essence_emitter.h_sound_emit, world_position: pos, volume: 1.00f, pitch: 1.00f, size: 0.35f, dist_multiplier: 0.65f);
-						Sound.Play(region: ref region, h_soundmix: essence_emitter.h_soundmix_test, random: ref random, pos: pos); //, volume: 1.00f, pitch: 1.00f, size: 0.35f, dist_multiplier: 0.65f);
-						Shake.Emit(region: ref region, world_position: pos, trauma: 0.35f, max: 0.50f, radius: 10.00f);
-
-						Particle.Spawn(ref region, new Particle.Data()
+						var intensity = essence_emitter.current_charge_ratio;
+						if (intensity > 0.10f)
 						{
-							texture = Light.tex_light_circle_00,
-							lifetime = 0.20f,
-							pos = pos - dir,
-							vel = dir * 20.00f,
-							drag = 0.20f,
-							frame_count = 1,
-							frame_count_total = 1,
-							frame_offset = 0,
-							scale = 1.00f,
-							stretch = new Vector2(1.00f, 0.50f),
-							face_dir_ratio = 1.00f,
-							growth = 50.00f,
-							color_a = color_a,
-							color_b = color_b,
-							glow = 20.00f * intensity
-						});
+							App.WriteValue(intensity);
 
-						//Particle.Spawn(ref region, new Particle.Data()
-						//{
-						//	texture = Light.tex_light_circle_04,
-						//	lifetime = random.NextFloatRange(1.00f, 1.25f),
-						//	pos = data.world_position + (dir * 0.50f),
-						//	scale = random.NextFloatRange(1.00f, 1.50f),
-						//	growth = random.NextFloatRange(1.50f, 2.00f),
-						//	stretch = new Vector2(0.90f, 0.60f),
-						//	rotation = dir.GetAngleRadiansFast(),
-						//	face_dir_ratio = 1.00f,
-						//	color_a = new Vector4(1.00f, 0.70f, 0.40f, 30.00f),
-						//	color_b = new Vector4(0.20f, 0.00f, 0.00f, 0.00f),
-						//	glow = 1.00f
-						//});
+							// new IEssence.Handle("motion");
+							ref var essence_data = ref h_essence.GetData();
+							if (essence_data.IsNotNull())
+							{
+								var pos = transform.LocalToWorld(essence_emitter.offset);
+								var dir = transform.LocalToWorldDirection(essence_emitter.direction);
+
+								var color_a = ColorBGRA.Lerp(essence_data.color_emit, ColorBGRA.White, 0.50f);
+								var color_b = essence_data.color_emit.WithColorMult(0.20f).WithAlphaMult(0.00f);
+
+								//App.WriteLine("essence");
+
+								//Sound.Play(region: ref region, sound: essence_emitter.h_sound_emit, world_position: pos, volume: 1.00f, pitch: 1.00f, size: 0.35f, dist_multiplier: 0.65f);
+								Sound.Play(region: ref region, h_soundmix: essence_emitter.h_soundmix_pulse, random: ref random, pos: pos,
+									volume: Maths.Lerp01(0.50f, 1.50f, intensity),
+									pitch: Maths.Lerp01(0.72f, 1.05f, intensity)); //, volume: 1.00f, pitch: 1.00f, size: 0.35f, dist_multiplier: 0.65f);
+
+								//Sound.Play(region: ref region, world_position: pos, sound: essence_data.sound_impulse,
+								//	volume: Maths.Lerp01(0.50f, 1.50f, intensity),
+								//	pitch: Maths.Lerp01(1.18f, 0.95f, intensity)); //, volume: 1.00f, pitch: 1.00f, size: 0.35f, dist_multiplier: 0.65f);
+								if (intensity > 0.30f) Shake.Emit(region: ref region, world_position: pos, trauma: 0.45f * intensity, max: 0.50f, radius: 10.00f);
+
+								Particle.Spawn(ref region, new Particle.Data()
+								{
+									texture = Light.tex_light_circle_00,
+									lifetime = 0.20f,
+									pos = pos - dir,
+									vel = dir * speed_add,
+									drag = 0.20f,
+									frame_count = 1,
+									frame_count_total = 1,
+									frame_offset = 0,
+									scale = 1.00f,
+									stretch = new Vector2(1.00f, 0.50f),
+									face_dir_ratio = 1.00f,
+									growth = 50.00f,
+									color_a = color_a,
+									color_b = color_b,
+									glow = 20.00f * intensity
+								});
+
+								//Particle.Spawn(ref region, new Particle.Data()
+								//{
+								//	texture = Light.tex_light_circle_04,
+								//	lifetime = random.NextFloatRange(1.00f, 1.25f),
+								//	pos = data.world_position + (dir * 0.50f),
+								//	scale = random.NextFloatRange(1.00f, 1.50f),
+								//	growth = random.NextFloatRange(1.50f, 2.00f),
+								//	stretch = new Vector2(0.90f, 0.60f),
+								//	rotation = dir.GetAngleRadiansFast(),
+								//	face_dir_ratio = 1.00f,
+								//	color_a = new Vector4(1.00f, 0.70f, 0.40f, 30.00f),
+								//	color_b = new Vector4(0.20f, 0.00f, 0.00f, 0.00f),
+								//	glow = 1.00f
+								//});
+
+							}
+						}
 					}
 #endif
 				}
@@ -847,14 +924,17 @@ namespace TC2.Base.Components
 					{
 						essence_emitter.state_flags.AddRemFlags(StateFlags.Pulsed, Essence.Emitter.StateFlags.Pulsing);
 
+
 #if SERVER
 						var amount_taken = essence_emitter.current_charge.MultSub(0.98f);
 						essence_emitter.current_emit += amount_taken;
-						essence_emitter.Sync(ent_essence_emitter, IComponent.Handle<Essence.Emitter.Data>.FromComponentPair<Piston.Data>());
+						essence_emitter.Sync(ent_essence_emitter, IComponent.Handle<Essence.Emitter.Data>.WithTargetComponent<Piston.Data>());
 #endif
 					}
 					else
 					{
+						//App.WriteValue(info.()[0]);
+
 						essence_emitter.state_flags.RemoveFlag(StateFlags.Pulsed);
 						essence_emitter.current_emit = 0.00f;
 					}
@@ -910,7 +990,7 @@ namespace TC2.Base.Components
 		public partial struct PulseEvent(): IEvent
 		{
 			public required IEssence.Handle h_essence;
-			public required Essence.Emitter.Type emitter_type;
+			//public required Essence.Emitter.Type emitter_type;
 
 			public required float amount;
 

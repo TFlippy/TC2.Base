@@ -1,0 +1,16 @@
+﻿{
+	$version: "0.1.64.0"
+	flags: none
+	tags: none
+	
+	volume: [0.650, 0.100]
+	pitch: [0.950, 0.100]
+	size: [3.000, 0.000]
+	dist_mult: [0.450, 0.000]
+	
+	sounds:
+	[
+		rivet_gun.shoot.00
+		rivet_gun.shoot.01
+	]
+}
