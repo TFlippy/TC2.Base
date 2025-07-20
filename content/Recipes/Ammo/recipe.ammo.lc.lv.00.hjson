@@ -63,7 +63,7 @@
 							snapping: 5.000
 							ratio: 0.573
 							group: 0
-							flags: simultaneous, conditional
+							flags: stepped, simultaneous, conditional
 						}
 						{
 							type: work
@@ -87,7 +87,7 @@
 							falloff: 0.890
 							ratio: 0.722
 							group: 1
-							flags: conditional
+							flags: stepped, conditional
 						}
 						{
 							type: work
@@ -99,7 +99,7 @@
 							falloff: 0.983
 							ratio: 0.773
 							group: 1
-							flags: conditional
+							flags: stepped, conditional
 						}
 					]
 					
@@ -167,7 +167,7 @@
 							snapping: 5.000
 							ratio: 0.824
 							group: 0
-							flags: simultaneous, conditional
+							flags: stepped, simultaneous, conditional
 						}
 						{
 							type: work
@@ -191,7 +191,7 @@
 							falloff: 0.954
 							ratio: 0.922
 							group: 1
-							flags: conditional
+							flags: stepped, conditional
 						}
 						{
 							type: work
@@ -202,7 +202,7 @@
 							falloff: 0.984
 							ratio: 0.973
 							group: 1
-							flags: conditional
+							flags: stepped, conditional
 						}
 					]
 					
@@ -272,7 +272,7 @@
 							snapping: 5.000
 							ratio: 0.671
 							group: 0
-							flags: simultaneous, conditional
+							flags: stepped, simultaneous, conditional
 						}
 						{
 							type: work
@@ -296,7 +296,7 @@
 							falloff: 0.967
 							ratio: 0.373
 							group: 1
-							flags: conditional
+							flags: stepped, conditional
 						}
 						{
 							type: work
@@ -307,7 +307,7 @@
 							falloff: 0.977
 							ratio: 0.373
 							group: 1
-							flags: conditional
+							flags: stepped, conditional
 						}
 					]
 					
