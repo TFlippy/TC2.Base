@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.8"
+	$version: "0.1.64.0"
 	name: "Arcanite"
 	description:
 		'''
@@ -82,7 +82,7 @@
 	specific_heat_capacity: 0.124478
 	
 	// kW/(m*K)
-	thermal_conductivity: 0.000
+	thermal_conductivity: 0.2019
 	
 	form_to_material:
 	{

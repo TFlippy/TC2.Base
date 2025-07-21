@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.62.3"
+	$version: "0.1.64.0"
 	name: "Gold Chunk"
 	name_short: "Gd. Chunk"
+	name_dumb: "Butter"
 	description:
 		'''
 		Standard beaten-up chunk of solid gold, an indicator of savagery.
@@ -21,7 +22,6 @@
 	display_flags: none
 	hints: materials, rare, heavy, expensive, fancy, civilian
 	
-	porosity: 0.066
 	purity: 0.986
 	mass_per_unit: 28.84192
 	volume_per_unit: 0.0016

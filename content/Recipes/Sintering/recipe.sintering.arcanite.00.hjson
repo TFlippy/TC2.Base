@@ -10,37 +10,53 @@
 	stages:
 	[
 		{
+			name: "Mixture"
 			
-			type: undefined
-			flags: none
-			tags: none
+			type: formula
+			flags: important
+			tags: material, formula, ingredient
 			// Damage type used for discarding leftover resources.
-			discard_damage_type: none
+			discard_damage_type: shovel
 			
 			ratio: 0.000
 			mass_base: 0.000
 			
-			requirements:
+			options:
 			[
 				{
-					type: resource
-					material: smirglum.powder
-					amount: 0.620
-					group: 0
-					flags: prerequisite
-				}
-				{
-					type: resource
-					material: gold.powder
-					amount: 0.380
-					group: 0
-					flags: prerequisite
+					name: "Basic"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: smirglum.powder
+							amount: 0.620
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: gold.powder
+							amount: 0.380
+							group: 0
+							flags: prerequisite
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
 				}
 			]
 		}
 		{
+			name: "Method"
 			
-			type: undefined
+			type: processing
 			flags: none
 			tags: none
 			// Damage type used for discarding leftover resources.
@@ -49,69 +65,106 @@
 			ratio: 0.000
 			mass_base: 0.000
 			
-			requirements:
+			options:
 			[
 				{
-					type: work
-					work: mixing
-					amount: 40.000
-					difficulty: 7
-					snapping: 5.000
-					falloff: 0.550
-					group: 1
-					flags: conditional
-				}
-			]
-			
-			products:
-			[
-				{
-					type: resource
-					material: arcanite.powder
-					amount: 1.000
-					group: 0
+					name: "Compaction"
+					
+					type: undefined
+					flags: crafter, wip
+					discard_damage_type_override: compression
+					
+					requirements:
+					[
+						{
+							type: pressure
+							amount: 500.000
+							amount_min: 100.000
+							snapping: 5.000
+							falloff: 0.757
+							group: 0
+							flags: no_scaling
+						}
+						{
+							type: temperature
+							amount: 1086.600
+							amount_min: 708.000
+							amount_max: 1238.000
+							snapping: 5.000
+							falloff: 0.816
+							group: 0
+							flags: no_scaling
+						}
+						{
+							type: work
+							work: sintering
+							amount: 300.000
+							amount_min: 450.000
+							difficulty: 7
+							snapping: 5.000
+							falloff: 0.885
+							ratio: 1.000
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: arcanite.ingot
+							amount: 1.000
+							group: 0
+							flags: primary, parameter, compact, use_temperature
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
 				}
 			]
 		}
 	]
 	
 	type: workshop
-	flags: none
-	tags: complex, metalworking, metallurgy, heating
-	infrastructure: none
+	flags: debug, manufacturing, wip
+	tags: complex, industrial, metalworking, metallurgy, heating, moulding
+	infrastructure: compactor, press
 	infrastructure_exclude: none
 	
 	icon:
 	{
-		texture: resource.arcanite.powder
-		size: [16, 16]
-		frame: [3, 0]
-	}
-	icon_offset: [6.000, -1.000]
-	
-	icon_extra:
-	{
-		texture: resource.smirglum.powder
-		size: [16, 16]
-		frame: [1, 0]
-	}
-	icon_extra_offset: [-22.000, -8.000]
-	
-	icon_c:
-	{
-		texture: resource.gold.powder
+		texture: resource.arcanite.ingot
 		size: [16, 16]
 		frame: [2, 0]
 	}
-	icon_c_offset: [-15.000, -12.000]
+	icon_offset: [-2.000, 1.000]
 	
-	color_frame: "0xffaeb59a"
-	color_button: "0xffffb629"
+	icon_extra:
+	{
+		texture: resource.gold.powder
+		size: [16, 16]
+		frame: [1, 0]
+	}
+	icon_extra_offset: [0.000, -8.000]
+	
+	icon_c:
+	{
+		texture: resource.smirglum.powder
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	icon_c_offset: [0.000, -13.000]
+	
+	color_frame: "0xffffb629"
+	color_button: "0xff9dd80f"
 	rank: 90.000
 	
-	min: 5
-	max: 100
-	step: 5
+	min: 1
+	max: 20
+	step: 1
 	
 	version: 0
 }

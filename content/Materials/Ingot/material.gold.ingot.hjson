@@ -3,6 +3,7 @@
 	name: "Gold Brick"
 	name_short: "Gd. Brick"
 	name_imperial: "Geld"
+	name_dumb: "Butter"
 	description:
 		'''
 		Standard 20x10x8 cm gold brick, an indicator of wealth and prosperity.

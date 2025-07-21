@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.8"
+	$version: "0.1.64.0"
 	name: "Gold Powder"
 	name_short: "Gd. Powder"
 	description:
@@ -17,7 +17,7 @@
 	}
 	
 	type: powder
-	flags: granular, metal, powder, solid
+	flags: granular, metal, small, powder, flexible, solid, processed, primary
 	display_flags: none
 	hints: materials
 	
@@ -26,7 +26,7 @@
 	volume_per_unit: 0.0001
 	
 	quantity_max: 1000.000
-	spawn_quantity_threshold: 0.500
+	spawn_quantity_threshold: 0.100
 	snapping: 0.100
 	snapping_pickup: 50.000
 	
@@ -42,42 +42,8 @@
 	centroid_default: [0.000, 0.250]
 	colliders: []
 	
-	commodity:
+	related:
 	{
-		availability: 1.000
-		rarity: 1.000
-		scalability: 1.000
-		reusability: 1.000
-		longevity: 1.000
-		complexity: 1.000
-		tech: 1.000
-		liquidity: 1.000
-		demand: 1.000
-		
-		flags: none
-		categories: none
-		
-		industries_produce: none
-		industries_consume: none
-		industries_buy: none
-		industries_sell: none
-		
-		buildings_produce: none
-		buildings_consume: none
-		buildings_buy: none
-		buildings_sell: none
-		
-		categories_produce: none
-		categories_consume: none
-		categories_buy: none
-		categories_sell: none
-		
-		market_price: 55.000
-		market_price_min: 0.000
-		market_price_max: 0.000
-		
-		quantity_retail: 0.000
-		quantity_wholesale: 0.000
-		quantity_industry: 0.000
+		arcanite: alloy, product
 	}
 }
