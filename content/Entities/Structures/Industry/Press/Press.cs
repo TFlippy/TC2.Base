@@ -482,13 +482,14 @@
 		{
 			if (piston.flags.HasAny(Piston.Flags.Impacted))
 			{
-				var velocity = Energy.GetVelocity(piston.impact_kinetic_energy, piston.mass);
-				var momentum = velocity * piston.mass;
+				//var velocity = Energy.GetVelocity(piston.impact_kinetic_energy, piston.mass);
+				//var momentum = velocity * piston.mass;
 				//var mass = Energy.GetMass(piston.current_kinetic_energy, 25);
 				//App.WriteValue(velocity);
 
 
-				var force = momentum * App.fixed_update_interval_s_inv; // * App.fixed_update_interval_s_f32;
+				//var force = momentum * App.fixed_update_interval_s_inv; // * App.fixed_update_interval_s_f32;
+				var force = piston.impact_momentum * App.fixed_update_interval_s_inv; // * App.fixed_update_interval_s_f32;
 				var pressure = Pressure.CalculateFromArea(Area.Square(Distance.cm(4.00f)), force);
 
 				crafter_state.pressure = pressure;
@@ -521,8 +522,8 @@
 
 #if SERVER
 
-				var velocity = Energy.GetVelocity(piston.impact_kinetic_energy, piston.mass);
-				var momentum = velocity * piston.mass;
+				//var velocity = Energy.GetVelocity(piston.impact_kinetic_energy, piston.mass);
+				//var momentum = velocity * piston.mass;
 				//var amount = piston.current_kinetic_energy;
 				////amount = Maths.NormalizeFast(amount, 16);
 				////amount *= App.fixed_update_interval_s_f32;
@@ -548,6 +549,7 @@
 
 				//App.WriteValue(Pressure.CalculateFromArea(Area.Square(Distance.cm(8.00f)), force));
 
+				var momentum = piston.impact_momentum;
 				scoped var ev = new Crafter.WorkEvent(amount: momentum,
 				calculate_work: static (ref Region.Data.Common region, Vec2f pos, ref Crafter.WorkEvent ev,
 				ref ICrafter.ModeInfo mode, ref Crafting.Order order, ref Crafting.Requirement req, ref IWork.Data work) =>

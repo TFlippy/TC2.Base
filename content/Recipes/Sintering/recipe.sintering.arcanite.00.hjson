@@ -148,7 +148,7 @@
 					h_sound_finalize: burner.bang.00
 				}
 				{
-					name: "Hot-Pressed"
+					name: "Compacted"
 					
 					type: undefined
 					flags: crafter, wip

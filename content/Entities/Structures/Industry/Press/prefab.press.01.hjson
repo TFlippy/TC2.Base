@@ -170,17 +170,15 @@ press.state:
 
 crafter:
 {
-	h_crafter: forging.press.emt
-	flags: assignable
+	h_crafter: impulse.press.00
+	flags: assignable, automatic, machine
+	distance_max: 6.000
+	temperature_max: 1200.000
+	pressure_max: 0.000
 	
 	tools: none
 	infrastructure: anvil, forge, vise, shaping_mould, hard_surface, heater, stamping_press, press, form, structure, machine
 	environment: machine, stationary, dirty, scary, noisy, reinforced, fireproof, durable, sturdy, form, waterproof
-	
-	distance_max: 6.000
-	temperature_max: 1200.000
-	pressure_max: 100.000
-	
 	offset: [-0.250, 0.875]
 
 	@inventory4:
@@ -239,6 +237,9 @@ workshop:
 	environment: none
 	
 	gui_info_size_x: 208.000
+
+	h_sound_order_begin: effect.buzzer.00
+	h_sound_order_complete: effect.buzzer.00
 }
 
 // axle:
