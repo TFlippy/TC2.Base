@@ -385,7 +385,9 @@ namespace TC2.Base.Components
 				heat_state.temperature_ambient = temperature_ambient = region.GetAmbientTemperature(transform.LocalToWorld(heat.offset));
 			}
 
-			Phys.TransferHeatAmbientSimpleFast(ref temperature_current, temperature_ambient, heat_state.heat_capacity_inv, heat.cool_rate * heat.cool_rate_mult * heat_state.modifier, info.DeltaTime);
+			Phys.TransferHeatAmbientSimpleFast(temperature: ref temperature_current, temperature_ambient: temperature_ambient,
+				heat_capacity_inv: heat_state.heat_capacity_inv, rate: heat.cool_rate * heat.cool_rate_mult * heat_state.modifier,
+				dt: info.DeltaTime);
 
 			if (!heat_state.flags.TryAddFlag(Heat.State.Flags.Overheated, temperature_current >= heat.temperature_operating))
 			{

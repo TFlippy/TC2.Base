@@ -162,7 +162,7 @@ threat:
 vehicle:
 {
 	inventory_type: ammo
-	flags: include_misc_window
+	flags: use_misc_window
 }
 
 +seat|instance:

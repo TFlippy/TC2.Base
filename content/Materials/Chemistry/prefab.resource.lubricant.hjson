@@ -46,7 +46,7 @@ norotate:
 	speed: 2.000
 	multiplier: 2.000
 	mass_multiplier: 20.000
-	flags: no_share
+	flags: no_share, disable_attached
 }
 
 health:

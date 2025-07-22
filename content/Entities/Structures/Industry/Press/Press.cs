@@ -264,13 +264,13 @@
 		[IComponent.Data(Net.SendType.Reliable, IComponent.Scope.Region), IComponent.With<Press.State>]
 		public partial struct Data(): IComponent
 		{
-			[Net.Segment.A, Editor.Picker.Position(relative: true)] public Vec2f slider_offset;
+			//[Net.Segment.A, Editor.Picker.Position(relative: true)] public Vec2f slider_offset;
 
 			//[Net.Segment.A] public float slider_length;
 			//[Net.Segment.A] public float speed;
-			[Net.Segment.A] public float load_multiplier;
+			//[Net.Segment.A] public float load_multiplier;
 
-			[Net.Segment.A] public ISoundMix.Handle h_soundmix_stamp;
+			[Net.Segment.A] public ISoundMix.Handle h_soundmix_hit;
 			[Net.Segment.A] public ISoundMix.Handle h_soundmix_fail;
 
 			//[Net.Ignore, Save.Ignore] public uint current_sound_index;
@@ -280,16 +280,16 @@
 		public partial struct State(): IComponent
 		{
 			[Flags]
-			public enum Flags: uint
+			public enum Flags: ushort
 			{
 				None = 0,
 
-				Smashed = 1 << 0,
+				Impacted = 1 << 0,
 				Success = 1 << 1
 			}
 
 			public Press.State.Flags flags;
-			[Net.Ignore, Save.Ignore] public uint current_sound_index;
+			[Net.Ignore, Save.Ignore] public ushort current_sound_index;
 		}
 
 #if CLIENT
@@ -302,7 +302,7 @@
 		[Source.Owned] ref Press.Data press, [Source.Owned] ref Press.State press_state,
 		[Source.Owned, Pair.Component<Press.Data>] ref Light.Data light, [Source.Owned] ref Crafter.State crafter_state)
 		{
-			if (press_state.flags.HasAny(Press.State.Flags.Smashed))
+			if (press_state.flags.HasAny(Press.State.Flags.Impacted))
 			{
 				if (press_state.flags.HasAny(Press.State.Flags.Success))
 				{
@@ -367,7 +367,7 @@
 					Shake.Emit(region: ref region, world_position: transform.position, trauma: 0.30f, max: 0.30f, radius: 16.00f);
 				}
 
-				press_state.flags.RemoveFlag(Press.State.Flags.Smashed | Press.State.Flags.Success);
+				press_state.flags.RemoveFlag(Press.State.Flags.Impacted | Press.State.Flags.Success);
 			}
 			else
 			{
@@ -400,9 +400,74 @@
 		//	return velocity;
 		//}
 
+		//		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region)]
+		//		public static void OnUpdate_Piston(/*ISystem.Info info, ref Region.Data region, ref XorRandom random, */Entity ent_press,
+		//		//[Source.Owned] in Transform.Data transform, [Source.Owned] ref Control.Data control,
+		//		[Source.Owned] ref Press.Data press, [Source.Owned] ref Press.State press_state, [Source.Owned] ref Piston.Data piston,
+		//		[Source.Owned] in Crafter.Data crafter, [Source.Owned] ref Crafter.State crafter_state)
+		//		{
+		//			if (piston.flags.HasAny(Piston.Flags.Impacted))
+		//			{
+		//#if SERVER
+		//				//var amount = piston.current_kinetic_energy;
+		//				////amount = Maths.NormalizeFast(amount, 16);
+		//				////amount *= App.fixed_update_interval_s_f32;
+		//				//amount *= 2;
+		//				//amount /= piston.mass;
+		//				//amount = Maths.Sqrt(amount);
+
+
+		//				//var energy = piston.current_kinetic_energy;
+		//				//var mass = piston.mass;
+		//				//var velocity = Maths.Sqrt(2.00f * energy / mass);
+
+		//				var velocity = Energy.GetVelocity(piston.current_kinetic_energy, piston.mass);
+		//				var amount = velocity * piston.mass;
+		//				//var mass = Energy.GetMass(piston.current_kinetic_energy, 25);
+		//				//App.WriteValue(velocity);
+
+		//				scoped var ev = new Crafter.WorkEvent(amount: amount, 
+		//				calculate_work: static (ref Region.Data.Common region, Vec2f pos, ref Crafter.WorkEvent ev, 
+		//				ref ICrafter.ModeInfo mode, ref Crafting.Order order, ref Crafting.Requirement req, ref IWork.Data work) =>
+		//				{
+		//					return Maths.NormalizeFast(ev.amount, req.difficulty) * mode.work_multiplier;
+		//				});
+
+		//				//var ts = Timestamp.Now();
+		//				ev.Trigger(ent_press, h_component: IComponent.Handle.FromComponent<Crafter.Data>());
+		//				//crafter_state.flags.AddFlag(Crafter.State.Flags.In_Contact | Crafter.State.Flags.Ready);
+		//				//var ts_elapsed = ts.GetMilliseconds();
+		//				//App.WriteLine($"{ev.work_result}; {ts_elapsed:0.00000} ms");
+
+		//				//press_state.flags.AddFlag(State.Flags.Smashed | State.Flags.Success);
+		//				//press_state.Sync(ent_press, true);
+		//				//App.WriteLine("smash");
+		//#endif
+		//			}
+		//			else
+		//			{
+		//				//crafter_state.flags.RemoveFlag(Crafter.State.Flags.In_Contact | Crafter.State.Flags.Ready);
+		//			}
+		//		}
+
 		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnUpdate_Piston(/*ISystem.Info info, ref Region.Data region, ref XorRandom random, */Entity ent_press,
 		//[Source.Owned] in Transform.Data transform, [Source.Owned] ref Control.Data control,
+		[Source.Owned] ref Press.Data press, [Source.Owned] ref Press.State press_state, [Source.Owned] ref Piston.Data piston,
+		[Source.Owned] in Crafter.Data crafter, [Source.Owned] ref Crafter.State crafter_state)
+		{
+			if (piston.flags.HasAny(Piston.Flags.Impacted))
+			{
+
+			}
+			else
+			{
+				//crafter_state.flags.RemoveFlag(Crafter.State.Flags.In_Contact | Crafter.State.Flags.Ready);
+			}
+		}
+
+		[ISystem.Update.B(ISystem.Mode.Single, ISystem.Scope.Region)]
+		public static void OnUpdate_B(Entity ent_press,
 		[Source.Owned] ref Press.Data press, [Source.Owned] ref Press.State press_state, [Source.Owned] ref Piston.Data piston,
 		[Source.Owned] in Crafter.Data crafter, [Source.Owned] ref Crafter.State crafter_state)
 		{
@@ -426,8 +491,8 @@
 				//var mass = Energy.GetMass(piston.current_kinetic_energy, 25);
 				//App.WriteValue(velocity);
 
-				scoped var ev = new Crafter.WorkEvent(amount: amount, 
-				calculate_work: static (ref Region.Data.Common region, Vec2f pos, ref Crafter.WorkEvent ev, 
+				scoped var ev = new Crafter.WorkEvent(amount: amount,
+				calculate_work: static (ref Region.Data.Common region, Vec2f pos, ref Crafter.WorkEvent ev,
 				ref ICrafter.ModeInfo mode, ref Crafting.Order order, ref Crafting.Requirement req, ref IWork.Data work) =>
 				{
 					return Maths.NormalizeFast(ev.amount, req.difficulty) * mode.work_multiplier;
@@ -443,10 +508,6 @@
 				//press_state.Sync(ent_press, true);
 				//App.WriteLine("smash");
 #endif
-			}
-			else
-			{
-				//crafter_state.flags.RemoveFlag(Crafter.State.Flags.In_Contact | Crafter.State.Flags.Ready);
 			}
 		}
 

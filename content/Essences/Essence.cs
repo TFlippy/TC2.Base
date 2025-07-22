@@ -844,7 +844,7 @@ namespace TC2.Base.Components
 						var intensity = essence_emitter.current_charge_ratio;
 						if (intensity > 0.10f)
 						{
-							App.WriteValue(intensity);
+							//App.WriteValue(intensity);
 
 							// new IEssence.Handle("motion");
 							ref var essence_data = ref h_essence.GetData();

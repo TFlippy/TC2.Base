@@ -108,11 +108,11 @@ essence.container:
 	@sound.emitter:
 	{
 		flags: start_muted
-		volume: 0.700
-		pitch: 2.800
-		size: 0.750
-		size_max_modifier: 0.600
-		spread: 80.000
+		volume: 0.600
+		pitch: 2.500
+		size: 0.350
+		size_max_modifier: 0.500
+		spread: 70.000
 		doppler: 3.000
 		priority: 0.150
 	}
@@ -129,9 +129,9 @@ essence.container:
 heat:
 {
 	temperature_medium: 747.6115
-	temperature_high: 1459.373
+	temperature_high: 1259.373
 	temperature_ignite: 1491.970
-	temperature_operating: 1184.740
+	temperature_operating: 1334.740
 	temperature_melt: 2065.970
 	temperature_breakdown: 1691.927
 	cool_rate: 6.000

@@ -35,7 +35,7 @@
 			name: "Die-Forming"
 			
 			work_multiplier: 1.000
-			cooldown_multiplier: 0.090
+			cooldown_multiplier: 0.100
 			
 			flags: automated, wip
 			crafter_state_required: in_contact, impact

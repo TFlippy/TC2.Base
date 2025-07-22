@@ -435,13 +435,14 @@ vehicle:
 {
 	joint.base:
 	{
-		offset_a: [-0.250, -0.625]
+		offset_a: [0.500, 1.750]
+		// rotation_origin: -1.5708
 		max_force: 100000.000
 		max_torque: 100000.000
 		max_stress: 3.000
 		z: -10.000
 		material_type: metal
-		flags: no_aiming, no_wrap, attachment, control_read, control_write, use_proxy_body
+		flags: no_aiming, no_wrap, attachment, control_read, control_write, force_facing, use_proxy_body, no_sync
 	}
 
 	joint.pivot:

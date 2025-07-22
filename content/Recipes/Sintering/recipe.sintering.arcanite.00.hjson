@@ -34,14 +34,14 @@
 						{
 							type: resource
 							material: smirglum.powder
-							amount: 0.620
+							amount: 9.843017
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: resource
 							material: gold.powder
-							amount: 0.380
+							amount: 6.299852
 							group: 0
 							flags: prerequisite
 						}
@@ -68,7 +68,7 @@
 			options:
 			[
 				{
-					name: "Compaction"
+					name: "Hot-Pressed"
 					
 					type: undefined
 					flags: crafter, wip
@@ -77,15 +77,6 @@
 					requirements:
 					[
 						{
-							type: pressure
-							amount: 500.000
-							amount_min: 100.000
-							snapping: 5.000
-							falloff: 0.757
-							group: 0
-							flags: no_scaling
-						}
-						{
 							type: temperature
 							amount: 1086.600
 							amount_min: 708.000
@@ -93,14 +84,23 @@
 							snapping: 5.000
 							falloff: 0.816
 							group: 0
-							flags: no_scaling
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: pressure
+							amount: 500.000
+							amount_min: 100.000
+							snapping: 5.000
+							falloff: 0.757
+							group: 0
+							flags: no_scaling, always_evaluate
 						}
 						{
 							type: work
 							work: sintering
-							amount: 300.000
-							amount_min: 450.000
-							difficulty: 7
+							amount: 340.000
+							amount_min: 400.000
+							difficulty: 8
 							snapping: 5.000
 							falloff: 0.885
 							ratio: 1.000

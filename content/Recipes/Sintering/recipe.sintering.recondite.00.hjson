@@ -68,7 +68,7 @@
 			options:
 			[
 				{
-					name: "Compaction"
+					name: "Hot-Pressed"
 					
 					type: undefined
 					flags: crafter, wip
@@ -77,30 +77,30 @@
 					requirements:
 					[
 						{
+							type: temperature
+							amount: 854.800
+							amount_min: 588.000
+							amount_max: 976.000
+							snapping: 5.000
+							falloff: 0.816
+							group: 0
+							flags: no_scaling, always_evaluate
+						}
+						{
 							type: pressure
 							amount: 500.000
 							amount_min: 100.000
 							snapping: 5.000
 							falloff: 0.757
 							group: 0
-							flags: no_scaling
-						}
-						{
-							type: temperature
-							amount: 1086.600
-							amount_min: 708.000
-							amount_max: 1238.000
-							snapping: 5.000
-							falloff: 0.816
-							group: 0
-							flags: no_scaling
+							flags: no_scaling, always_evaluate
 						}
 						{
 							type: work
 							work: sintering
 							amount: 300.000
 							amount_min: 450.000
-							difficulty: 7
+							difficulty: 5
 							snapping: 5.000
 							falloff: 0.885
 							ratio: 1.000
