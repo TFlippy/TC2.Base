@@ -466,6 +466,7 @@
 			}
 		}
 
+		[Shitcode]
 		[ISystem.Update.B(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnUpdate_B(Entity ent_press,
 		[Source.Owned] ref Press.Data press, [Source.Owned] ref Press.State press_state, [Source.Owned] ref Piston.Data piston,
@@ -473,6 +474,18 @@
 		{
 			if (piston.flags.HasAny(Piston.Flags.Impacted))
 			{
+				var velocity = Energy.GetVelocity(piston.current_kinetic_energy, piston.mass);
+				var momentum = velocity * piston.mass;
+				//var mass = Energy.GetMass(piston.current_kinetic_energy, 25);
+				//App.WriteValue(velocity);
+
+
+				var force = momentum * App.fixed_update_interval_s_inv; // * App.fixed_update_interval_s_f32;
+				var pressure = Pressure.CalculateFromArea(Area.Square(Distance.cm(4.00f)), force);
+
+				crafter_state.pressure = pressure;
+
+
 #if SERVER
 				//var amount = piston.current_kinetic_energy;
 				////amount = Maths.NormalizeFast(amount, 16);
@@ -486,12 +499,20 @@
 				//var mass = piston.mass;
 				//var velocity = Maths.Sqrt(2.00f * energy / mass);
 
-				var velocity = Energy.GetVelocity(piston.current_kinetic_energy, piston.mass);
-				var amount = velocity * piston.mass;
-				//var mass = Energy.GetMass(piston.current_kinetic_energy, 25);
-				//App.WriteValue(velocity);
+				//var velocity = Energy.GetVelocity(piston.current_kinetic_energy, piston.mass);
+				//var amount = velocity * piston.mass;
+				////var mass = Energy.GetMass(piston.current_kinetic_energy, 25);
+				////App.WriteValue(velocity);
 
-				scoped var ev = new Crafter.WorkEvent(amount: amount,
+
+				//var force = amount * App.fixed_update_interval_s_inv; // * App.fixed_update_interval_s_f32;
+				//var pressure = Pressure.CalculateFromArea(Area.Square(Distance.cm(8.00f)), force);
+
+				//crafter_state.pressure = pressure;
+
+				//App.WriteValue(Pressure.CalculateFromArea(Area.Square(Distance.cm(8.00f)), force));
+
+				scoped var ev = new Crafter.WorkEvent(amount: momentum,
 				calculate_work: static (ref Region.Data.Common region, Vec2f pos, ref Crafter.WorkEvent ev,
 				ref ICrafter.ModeInfo mode, ref Crafting.Order order, ref Crafting.Requirement req, ref IWork.Data work) =>
 				{
@@ -500,6 +521,17 @@
 
 				//var ts = Timestamp.Now();
 				ev.Trigger(ent_press, h_component: IComponent.Handle.FromComponent<Crafter.Data>());
+
+				var sync = false;
+
+				press_state.flags.AddFlag(State.Flags.Impacted);
+				sync |= press_state.flags.TrySetFlag(State.Flags.Success, ev.work_result == Worker.WorkResult.Progress);
+				sync |= ev.work_result != Worker.WorkResult.Idle;
+
+				if (sync)
+				{
+					press_state.Sync(ent_press, true);
+				}
 				//crafter_state.flags.AddFlag(Crafter.State.Flags.In_Contact | Crafter.State.Flags.Ready);
 				//var ts_elapsed = ts.GetMilliseconds();
 				//App.WriteLine($"{ev.work_result}; {ts_elapsed:0.00000} ms");

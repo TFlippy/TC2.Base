@@ -68,6 +68,86 @@
 			options:
 			[
 				{
+					name: "Rammed"
+					
+					type: undefined
+					flags: crafter, wip
+					discard_damage_type_override: impact
+					
+					requirements:
+					[
+						{
+							type: temperature
+							amount: 1086.600
+							amount_min: 708.000
+							amount_max: 1238.000
+							snapping: 5.000
+							falloff: 0.816
+							group: 0
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: pressure
+							amount: 100.000
+							amount_min: 10.000
+							snapping: 5.000
+							falloff: 0.757
+							group: 0
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: work
+							work: die.forging.metal
+							amount: 550.000
+							amount_min: 490.000
+							difficulty: 13
+							snapping: 5.000
+							falloff: 0.885
+							ratio: 1.000
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: heating
+							amount: 820.000
+							amount_min: 700.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.741
+							group: 0
+							flags: simultaneous, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: arcanite
+							amount: 0.813
+							amount_extra: 0.081
+							group: 0
+							flags: primary, parameter, compact, use_temperature
+						}
+						{
+							type: resource
+							material: arcanite.powder
+							amount: 1.558
+							amount_extra: 0.844
+							group: 0
+							flags: byproduct, secondary, compact
+						}
+					]
+					
+					start_delay: 1.000
+					advance_delay: 0.000
+					complete_delay: 1.000
+					
+					h_sound_begin: burner.bang.01
+					h_sound_finalize: burner.bang.00
+				}
+				{
 					name: "Hot-Pressed"
 					
 					type: undefined

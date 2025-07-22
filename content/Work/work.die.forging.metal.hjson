@@ -45,15 +45,15 @@
 	
 	}
 	
-	sound_volume: 0.500
-	sound_pitch: 0.950
-	sound_size: 1.000
-	sound_dist: 0.890
+	sound_volume: 0.740
+	sound_pitch: 1.130
+	sound_size: 1.790
+	sound_dist: 0.760
 	
 	sounds: []
 	sounds_manual: []
-	sounds_crafter: []
-	sounds_passive: ["press.smash.00", "press.smash.01", "press.smash.02"]
+	sounds_crafter: ["press.smash.00", "press.smash.01", "press.smash.02"]
+	sounds_passive: []
 	sounds_ambient: []
 	
 	sounds_start: []

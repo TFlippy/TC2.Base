@@ -14,13 +14,14 @@
 		frame: [10, 0]
 	}
 	
-	flags: passive, wip
-	tags: simple, industrial, dangerous
+	flags: passive, crafter_only, wip
+	tags: complex, technical, industrial, dangerous, thermal, slow
 	
 	amount_base: 1.000
 	cooldown: 1.000
-	multiplier: 50.000
+	multiplier: 10.000
 	
+	amount_jitter: 0.656
 	color: "0xffef3500"
 	
 	tools_required: none
