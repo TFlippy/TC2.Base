@@ -49,8 +49,8 @@
 		}
 
 		[ISystem.PostUpdate.A(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void OnUpdateRenderer(ISystem.Info info,
-		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Piston.Data piston,
+		public static void OnUpdateRenderer(/*ISystem.Info info,*/
+		/*[Source.Owned] in Transform.Data transform, */[Source.Owned] ref Piston.Data piston,
 		[Source.Owned, Pair.Component<Piston.Data>] ref Animated.Renderer.Data renderer)
 		{
 			renderer.offset = piston.offset.AddY(piston.current_distance);
@@ -58,21 +58,10 @@
 		}
 
 		[ISystem.PostUpdate.D(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void Update(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity ent_piston,
-		[Source.Owned] in Transform.Data transform, /*[Source.Owned] ref Control.Data control,*/
-		[Source.Owned] ref Piston.Data piston/*, [Source.Owned] in Crafter.Data crafter, [Source.Owned] ref Crafter.State crafter_state*/)
+		public static void Update(/*ISystem.Info info, */ref Region.Data region, /*ref XorRandom random, Entity ent_piston,*/
+		//[Source.Owned] in Transform.Data transform,
+		[Source.Owned] ref Piston.Data piston)
 		{
-			//App.WriteLine("press");
-
-			//region.Schedule((ref region) =>
-			//{
-			//	ref var control = ref ent_piston.GetComponent<Control.Data>();
-			//	if (control.mouse.GetKeyDown(Mouse.Key.Left))
-			//	{
-			//		App.WriteLine("press pressed", color: App.Color.Magenta);
-			//	}
-			//});
-
 			var distance_old = piston.current_distance;
 			var velocity_new = piston.current_velocity;
 
@@ -97,19 +86,9 @@
 				{
 					var energy_impact = Energy.GetKineticEnergy(piston.mass, piston.current_velocity);
 					piston.impact_momentum = piston.current_velocity * piston.mass;
-					//App.WriteValue(piston.current_speed);
-
-					//App.WriteValue(energy_impact);
-					//piston.current_velocity *= -0.10f;
-					//piston.current_velocity = 0.00f;
-					//velocity_new = 0.00f;
-
 					velocity_new -= Energy.GetVelocity(energy_impact, piston.mass); // * 0.05f;
 
 					piston.impact_kinetic_energy += energy_impact;
-					//piston.current_distance = piston.length;
-					//distance_new = piston.length;
-
 					piston.flags.AddFlag(Flags.Impacted);
 					piston.status = Status.Impacted;
 				}
@@ -118,33 +97,17 @@
 			else if (distance_new < 0.00f)
 			{
 				velocity_new *= -0.10f;
-
-				//piston.current_velocity *= -0.10f; // -0.50f;
-				//piston.current_distance = 0.00f;
-				//distance_new = 0.00f;
 			}
 			else
 			{
-
 				piston.status = Status.Idle;
-				//piston.current_kinetic_energy = 0.00f;
 			}
 
 			velocity_new *= piston.damping;
 
-
-			//crafter_state.flags.AddFlag(Crafter.State.Flags.Cycled);
-
-			//var distance_new = Maths.FMA(piston.current_speed, App.fixed_update_interval_s_f32, distance_tmp);
-
 			piston.prev_velocity = piston.current_velocity;
 			piston.current_velocity = velocity_new;
 			piston.current_distance = distance_new_clamped;
-
-;
-
-
-			//piston.current_speed *= 0.92f;
 		}
 
 		[ISystem.Event<Essence.PulseEvent>(ISystem.Mode.Single, ISystem.Scope.Region)]
@@ -240,26 +203,26 @@
 		//			}
 		//		}
 
-		[ISystem.PreUpdate.C(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void PostUpdate(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity ent_piston,
-		[Source.Owned] in Transform.Data transform, /*[Source.Owned] ref Control.Data control,*/
-		[Source.Owned] ref Piston.Data piston,
-		[Source.Owned] in Crafter.Data crafter, [Source.Owned] ref Crafter.State crafter_state)
-		{
-			//#if SERVER
-			//			if (control.mouse.GetKey(Mouse.Key.Left))
-			//			{
-			//				App.WriteLine("press pressed", color: App.Color.Magenta);
+		//[ISystem.PreUpdate.C(ISystem.Mode.Single, ISystem.Scope.Region)]
+		//public static void PostUpdate(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity ent_piston,
+		//[Source.Owned] in Transform.Data transform, /*[Source.Owned] ref Control.Data control,*/
+		//[Source.Owned] ref Piston.Data piston,
+		//[Source.Owned] in Crafter.Data crafter, [Source.Owned] ref Crafter.State crafter_state)
+		//{
+		//	//#if SERVER
+		//	//			if (control.mouse.GetKey(Mouse.Key.Left))
+		//	//			{
+		//	//				App.WriteLine("press pressed", color: App.Color.Magenta);
 
 
-			//				piston.current_speed = 25.00f;
+		//	//				piston.current_speed = 25.00f;
 
-			//				piston.Sync(ent_piston, true);
-			//			}
-			//#endif
+		//	//				piston.Sync(ent_piston, true);
+		//	//			}
+		//	//#endif
 
-			//App.WriteLine("press");
-		}
+		//	//App.WriteLine("press");
+		//}
 	}
 
 	public static partial class Press
@@ -400,80 +363,6 @@
 		}
 #endif
 
-		//public static readonly Gradient<float> gradient_work = new(0.00f, 0.00f, 0.00f, 0.00f, 0.00f, 1.00f, 1.00f);
-
-		//[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
-		//public static void UpdateWheel(ISystem.Info info, Entity entity,
-		//[Source.Owned] in Transform.Data transform, [Source.Owned] ref Press.Data press, [Source.Owned] ref Axle.Data axle, [Source.Owned] ref Axle.State axle_state)
-		//{
-		//	//var t = MathF.Pow((MathF.Cos(axle_state.rotation) + 1.00f) * 0.50f, 1.50f);
-		//	//if (MathF.Abs(axle_state.rotation) <= 1.00f)
-		//	//{
-		//	//	t = 1;
-		//	//}
-
-		//	var t = Maths.NormalizeClamp(MathF.Abs(axle_state.rotation), MathF.Tau);
-		//	var val = gradient_work.GetValue(t);
-
-		//	axle_state.force_load_new += val * press.load_multiplier * 200.00f;
-		//}
-
-		//public static float CalculateVelocity(Energy kinetic_energy, Mass mass)
-		//{
-		//	var velocity = Maths.Sqrt(2.00f * kinetic_energy / mass);
-		//	return velocity;
-		//}
-
-		//		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region)]
-		//		public static void OnUpdate_Piston(/*ISystem.Info info, ref Region.Data region, ref XorRandom random, */Entity ent_press,
-		//		//[Source.Owned] in Transform.Data transform, [Source.Owned] ref Control.Data control,
-		//		[Source.Owned] ref Press.Data press, [Source.Owned] ref Press.State press_state, [Source.Owned] ref Piston.Data piston,
-		//		[Source.Owned] in Crafter.Data crafter, [Source.Owned] ref Crafter.State crafter_state)
-		//		{
-		//			if (piston.flags.HasAny(Piston.Flags.Impacted))
-		//			{
-		//#if SERVER
-		//				//var amount = piston.current_kinetic_energy;
-		//				////amount = Maths.NormalizeFast(amount, 16);
-		//				////amount *= App.fixed_update_interval_s_f32;
-		//				//amount *= 2;
-		//				//amount /= piston.mass;
-		//				//amount = Maths.Sqrt(amount);
-
-
-		//				//var energy = piston.current_kinetic_energy;
-		//				//var mass = piston.mass;
-		//				//var velocity = Maths.Sqrt(2.00f * energy / mass);
-
-		//				var velocity = Energy.GetVelocity(piston.current_kinetic_energy, piston.mass);
-		//				var amount = velocity * piston.mass;
-		//				//var mass = Energy.GetMass(piston.current_kinetic_energy, 25);
-		//				//App.WriteValue(velocity);
-
-		//				scoped var ev = new Crafter.WorkEvent(amount: amount, 
-		//				calculate_work: static (ref Region.Data.Common region, Vec2f pos, ref Crafter.WorkEvent ev, 
-		//				ref ICrafter.ModeInfo mode, ref Crafting.Order order, ref Crafting.Requirement req, ref IWork.Data work) =>
-		//				{
-		//					return Maths.NormalizeFast(ev.amount, req.difficulty) * mode.work_multiplier;
-		//				});
-
-		//				//var ts = Timestamp.Now();
-		//				ev.Trigger(ent_press, h_component: IComponent.Handle.FromComponent<Crafter.Data>());
-		//				//crafter_state.flags.AddFlag(Crafter.State.Flags.In_Contact | Crafter.State.Flags.Ready);
-		//				//var ts_elapsed = ts.GetMilliseconds();
-		//				//App.WriteLine($"{ev.work_result}; {ts_elapsed:0.00000} ms");
-
-		//				//press_state.flags.AddFlag(State.Flags.Smashed | State.Flags.Success);
-		//				//press_state.Sync(ent_press, true);
-		//				//App.WriteLine("smash");
-		//#endif
-		//			}
-		//			else
-		//			{
-		//				//crafter_state.flags.RemoveFlag(Crafter.State.Flags.In_Contact | Crafter.State.Flags.Ready);
-		//			}
-		//		}
-
 		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnUpdate_Piston(/*ISystem.Info info, ref Region.Data region, ref XorRandom random, */Entity ent_press,
 		//[Source.Owned] in Transform.Data transform, [Source.Owned] ref Control.Data control,
@@ -493,10 +382,6 @@
 				var pressure = Pressure.CalculateFromArea(Area.Square(Distance.cm(4.00f)), force);
 
 				crafter_state.pressure = pressure;
-			}
-			else
-			{
-				//crafter_state.flags.RemoveFlag(Crafter.State.Flags.In_Contact | Crafter.State.Flags.Ready);
 			}
 		}
 

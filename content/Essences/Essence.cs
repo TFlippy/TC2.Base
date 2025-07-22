@@ -471,7 +471,7 @@ namespace TC2.Base.Components
 			[Source.Owned] in Transform.Data transform, [Source.Owned] ref Projectile.Data projectile, [Source.Owned] ref Essence.Container.Data container)
 			{
 				container.t_next_collapse = info.WorldTime + 10.00f;
-				EssenceNode.Collapse(ref region, ref projectile.random, container.h_essence, entity, transform.position, container.available);
+				EssenceNode.Collapse(region: ref region, random: ref projectile.random, h_essence: container.h_essence, entity: entity, world_position: transform.position, amount: container.available);
 				//Essence.Explode(ref region, container.h_essence, container.available, transform.position);
 			}
 
@@ -1042,7 +1042,7 @@ namespace TC2.Base.Components
 			{
 				var random = XorRandom.New(true);
 				//EssenceNode.Collapse(ref region, ref random, identifier, default, context.GetPlayer().control.mouse.position, amount);
-				Essence.SpawnCollapsingNode(ref region, identifier, amount, context.GetPlayerData().control.mouse.position, full_collapse: true);
+				Essence.SpawnCollapsingNode(region: ref region, h_essence: identifier, amount: amount, position: context.GetTargetPosition(), full_collapse: true);
 			}
 		}
 

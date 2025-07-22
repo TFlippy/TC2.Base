@@ -55,9 +55,9 @@ transform:
 
 interactable:
 {
-	flags: none
-	window_size: [200.000, 176.000]
-	window_size_misc: [96.000, 0.000]
+	flags: centered_inventory
+	priority: -0.500
+	window_size: [192.000, 96.000]
 }
 
 // norotate:
@@ -142,6 +142,7 @@ heat:
 	smoke_speed_mult: 0.420
 	smoke_rise_mult: 1.100
 	size: [0.750, 0.500]
+	flags: no_held_damage
 
 	@light:
 	{

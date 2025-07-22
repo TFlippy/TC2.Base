@@ -13,9 +13,9 @@
 	
 	emit_force: -875.000
 	emit_power_thermal: -50.000
-	emit_power_kinetic: -6.790
-	emit_power_radiant: -0.350
-	emit_power_electric: -14.175
+	emit_power_kinetic: -11.990
+	emit_power_radiant: -2.650
+	emit_power_electric: -35.275
 	emit_power_magnetic: 9.380
 	
 	sound_emit_loop: essence.emit.cognition.loop.00

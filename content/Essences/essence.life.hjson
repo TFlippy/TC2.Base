@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.64.0"
 	name: "Life"
 	desc:
 		'''
@@ -9,27 +9,32 @@
 	flags: none
 	type_tmp: life
 	
-	color_emit: [0.457356, 0.825688, 0.022725, 1.000]
+	color_emit: [0.457, 0.826, 0.023, 1.000]
+	
 	emit_force: 45.000
 	emit_power_thermal: -1.340
-	emit_power_kinetic: 0.590
+	emit_power_kinetic: 2.690
 	emit_power_radiant: 2.650
 	emit_power_electric: 0.860
 	emit_power_magnetic: 3.490
 	
 	sound_emit_loop: essence.emit.life.loop.00
+	sound_drain_loop: essence.drain.loop.00
+	
 	sound_emit_pulser_loop: essence.emit.life.loop.00
 	sound_emit_stressor_loop: essence.mumble.loop.02
 	sound_emit_impactor_loop: golem_loop_00
 	sound_emit_cycler_loop: refinery.loop.02
 	sound_emit_oscillator_loop: essence.mumble.loop.00
 	sound_emit_ambient_loop: essence.field.generic.loop.00
-	sound_drain_loop: essence.drain.loop.00
+	sound_emit_projector_loop: missing
+	
 	sound_collapse: essence.collapse.life.00
 	sound_zap: essence.collapse.life.00
 	sound_blast: essence.blast.00
 	sound_impulse: effect.inflate.00
 	sound_impact: effect.plunger.01
+	sound_shatter: missing
 	
 	h_prefab_node: essence_node.life
 	h_material_pellet: pellet.life

@@ -80,9 +80,9 @@ attachment:
 
 interactable:
 {
-	flags: none
+	flags: centered_inventory
 	priority: -0.500
-	window_size: [200.000, 144.000]
+	window_size: [192.000, 136.000]
 	window_size_misc: [96.000, 0.000]
 }
 
@@ -139,5 +139,5 @@ analog.button:
 {
 	channels: red, green, blue, yellow
 	flags: use_misc
-	button_size: [48, 32]
+	button_size: [48, 40]
 }

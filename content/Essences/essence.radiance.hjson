@@ -13,7 +13,7 @@
 	
 	emit_force: 190.000
 	emit_power_thermal: 28.365
-	emit_power_kinetic: 6.000
+	emit_power_kinetic: 6.700
 	emit_power_radiant: 16.7625
 	emit_power_electric: 3.325
 	emit_power_magnetic: 1.745
