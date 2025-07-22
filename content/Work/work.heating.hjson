@@ -15,12 +15,14 @@
 	}
 	
 	flags: passive, wip
-	tags: simple, industrial, dangerous
+	tags: simple, dangerous, thermal, slow
 	
 	amount_base: 1.000
 	cooldown: 1.000
 	multiplier: 20.000
 	
+	amount_jitter: 0.825
+	cooldown_jitter: 0.301
 	color: "0xffef3500"
 	
 	tools_required: none

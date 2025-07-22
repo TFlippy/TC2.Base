@@ -827,7 +827,7 @@ namespace TC2.Base.Components
 					//var speed_add = Energy.GetVelocity(power, piston.mass);
 
 					//piston.current_speed += Energy.GetVelocity(Essence.GetForce()
-					piston.current_speed += speed_add;
+					piston.current_velocity += speed_add;
 					//var energy_impact = Energy.GetKineticEnergy(piston.mass, piston.current_speed);
 					//App.WriteValue(energy_impact);
 
