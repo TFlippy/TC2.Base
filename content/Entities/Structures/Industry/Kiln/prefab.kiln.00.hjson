@@ -1,4 +1,10 @@
 $name: "Kiln (Small)"
+$desc:
+	'''
+	Small oven equipped with a liquid fuel burner.
+
+	Fit for simple heating-related tasks, can also double as an oven.
+	'''
 $tags: []
 
 body:

@@ -1,7 +1,7 @@
-$name: "Vat"
+$name: "Cauldron"
 $desc:
 	'''
-	TODO: Desc
+	Heavy-duty cauldron for all your brewing needs.
 	'''
 $tags: []
 
@@ -15,13 +15,13 @@ body:
 		b: [0.000, 0.750]
 		offset: [0.000, 0.000]
 		
-		mass: 120.000
+		mass: 95.000
 		radius: 0.750
 		friction: 0.850
 		elasticity: 0.400
 		
-		material: metal
-		miss_chance: 0.000
+		material: metal_solid
+		miss_chance: 0.344
 		
 		layer: entity, solid, building, crafter, ignore_melee, ignore_bullet, background
 		mask: world, building
@@ -31,14 +31,14 @@ body:
 
 health:
 {
-	max: 17500.000
+	max: 37500.000
 }
 
 animated.renderer:
 {
 	sprite:
 	{
-		texture: "vat.00"
+		texture: "cauldron.00"
 		size: [16, 24]
 		frame: [0, 0]
 	}
@@ -69,7 +69,7 @@ shop:
 	
 	offset_spawn: [0.000, -0.500]
 	
-	name: "Vat"
+	name: "Cauldron"
 }
 
 crafter:
@@ -116,6 +116,11 @@ crucible:
 {
 	flow_rate: 0.400
 	offset: [0.000, -0.375]
+}
+
+cauldron:
+{
+	
 }
 
 // crafter:

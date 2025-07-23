@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.63.2"
-	name: "Vat"
+	name: "Cauldron"
 	tips: []
 	
 	requirements:
@@ -32,7 +32,7 @@
 	[
 		{
 			type: prefab
-			prefab: vat.00
+			prefab: cauldron.00
 			amount: 1.000
 			group: 0
 			flags: primary
@@ -47,7 +47,7 @@
 	
 	icon:
 	{
-		texture: vat.00
+		texture: cauldron.00
 		size: [16, 24]
 	}
 	icon_offset: [0.000, 4.000]

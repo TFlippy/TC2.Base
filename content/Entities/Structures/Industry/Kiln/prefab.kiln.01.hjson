@@ -1,4 +1,10 @@
 $name: "Distillation Oven"
+$desc:
+	'''
+	Large oven-distillery hybrid equipped with a liquid fuel burner and a condenser.
+
+	Primarily used for destructive distillation of organic material into compounds such as turpentine, alcohol, rosin, oils and more.
+	'''
 $tags: []
 
 body:

@@ -1,0 +1,37 @@
+﻿{
+	$version: "0.1.64.0"
+	name: "Cauldron"
+	name_short: "Cauldron"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: cauldron.00
+	}
+	color: "0xffaeb59a"
+	
+	flags: wip
+	tags: none
+	
+	modes:
+	[
+		{
+			h_work_supported:
+			[
+	
+			]
+			
+			name: "Brewing"
+			
+			work_multiplier: 1.000
+			cooldown_multiplier: 1.000
+			
+			flags: wip
+
+			switch_cooldown: 1.000
+		}
+	]
+}
