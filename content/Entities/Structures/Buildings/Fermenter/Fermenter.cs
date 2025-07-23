@@ -2,7 +2,7 @@
 {
 	public static partial class Fermenter
 	{
-		[IComponent.Data(Net.SendType.Reliable, region_only: true), IComponent.With<Fermenter.State>]
+		[IComponent.Data(Net.SendType.Reliable, IComponent.Scope.Region)]
 		public partial struct Data(): IComponent
 		{
 			[Flags]
@@ -11,30 +11,30 @@
 				None = 0,
 			}
 
-			public float work_amount_base = 10.00f;
-			public float work_level_base = 4.00f;
+			//public float work_amount_base = 10.00f;
+			//public float work_level_base = 4.00f;
 
 			public Fermenter.Data.Flags flags;
 		}
 
-		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
-		public partial struct State(): IComponent
-		{
-			[Flags]
-			public enum Flags: uint
-			{
-				None = 0,
-			}
+		//[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
+		//public partial struct State(): IComponent
+		//{
+		//	[Flags]
+		//	public enum Flags: uint
+		//	{
+		//		None = 0,
+		//	}
 
-			public IRecipe.Handle h_recipe_cached;
-			public Fermenter.State.Flags flags;
-		}
+		//	public IRecipe.Handle h_recipe_cached;
+		//	public Fermenter.State.Flags flags;
+		//}
 
 #if CLIENT
-		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
+		[ISystem.Update.B(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnUpdate(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity,
 		[Source.Owned] in Transform.Data transform, 
-		[Source.Owned] ref Fermenter.Data fermenter, [Source.Owned] ref Fermenter.State fermenter_state,
+		[Source.Owned] ref Fermenter.Data fermenter,
 		[Source.Owned] ref Crafter.Data crafter, [Source.Owned] ref Crafter.State crafter_state)
 		{
 
@@ -122,7 +122,6 @@
 			public Transform.Data transform;
 
 			public Fermenter.Data fermenter;
-			public Fermenter.State fermenter_state;
 
 			public Crafter.Data crafter;
 			public Crafter.State crafter_state;
@@ -178,10 +177,10 @@
 			}
 		}
 
-		[ISystem.EarlyGUI(ISystem.Mode.Single, ISystem.Scope.Region)]
+		[ISystem.LateGUI(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnGUI(Entity ent_fermenter,
 		[Source.Owned] in Transform.Data transform,
-		[Source.Owned] in Fermenter.Data fermenter, [Source.Owned] in Fermenter.State fermenter_state,
+		[Source.Owned] in Fermenter.Data fermenter,
 		[Source.Owned] in Crafter.Data crafter, [Source.Owned] in Crafter.State crafter_state,
 		[Source.Owned] in Interactable.Data interactable)
 		{
@@ -196,7 +195,6 @@
 					transform = transform,
 
 					fermenter = fermenter,
-					fermenter_state = fermenter_state,
 
 					crafter = crafter,
 					crafter_state = crafter_state,

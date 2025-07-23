@@ -56,18 +56,18 @@ shop:
 	menu_columns: 4
 }
 
-furnace:
-{
-	batch_amount_min: 50
-	batch_amount_max: 500
-	batch_amount_step: 50
-	batch_amount_current: 100
-}
+// furnace:
+// {
+// 	batch_amount_min: 50
+// 	batch_amount_max: 500
+// 	batch_amount_step: 50
+// 	batch_amount_current: 100
+// }
 
-furnace.state:
-{
+// furnace.state:
+// {
 	
-}
+// }
 
 sound.emitter|"aux":
 {
