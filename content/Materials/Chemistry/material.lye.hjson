@@ -1,0 +1,47 @@
+﻿{
+	$version: "0.1.64.0"
+	name: "Lye"
+	name_short: "Lye"
+	name_imperial: "Lojz"
+	name_dumb: "Pearls"
+	description:
+		'''
+		Highly caustic blend of several alkaline compounds.
+
+		Used for saponification, cleaning, pretzels, and as a chemical reagent.
+		'''
+	
+	tips: []
+	
+	icon:
+	{
+		texture: resource.lye
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	type: chalk
+	flags: hard, granular, caustic, chemical, small, corrosive, gravel, solid, processed, primary
+	display_flags: none
+	hints: none
+	
+	purity: 0.746
+	mass_per_unit: 0.419
+	
+	quantity_max: 250.000
+	spawn_quantity_threshold: 0.100
+	snapping: 0.100
+	snapping_pickup: 1.000
+	
+	form_type: gravel
+	prefab: resource.lye
+	h_substance: "null"
+	
+	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
+	
+	centroid_default: [0.000, 0.250]
+	colliders: []
+}
