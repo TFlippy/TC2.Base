@@ -1,9 +1,9 @@
 ﻿{
-	$version: "0.1.63.8"
+	$version: "0.1.64.0"
 	name: "Prdex"
 	name_short: "PRD"
 	name_imperial: "Prdex"
-	name_dumb: "Dynamite"
+	name_dumb: "Kickbox"
 	description:
 		'''
 		Mighty explosive compound used for reliable excavation and demolition.
@@ -20,11 +20,11 @@
 	}
 	
 	type: clay
-	flags: soft, malleable, granular, explosive, toxic, chemical, manufactured, flammable, solid, primary
+	flags: soft, malleable, granular, explosive, toxic, viscous, chemical, manufactured, flammable, solid, processed, primary
 	display_flags: no_random_facing
 	hints: none
 	
-	purity: 0.875
+	purity: 0.967
 	mass_per_unit: 0.8666
 	
 	quantity_max: 500.000

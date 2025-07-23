@@ -1,0 +1,60 @@
+$tags: []
+
+body:
+{
+	@shape.line:
+	{
+		a: [0.000, -0.250]
+		b: [0.000, 0.250]
+		mass: 1.000
+		radius: 0.675
+		friction: 0.650
+		elasticity: 0.600
+		material: metal
+		layer: entity, solid, resource, ignore_melee, ignore_bullet
+		mask: world
+	}
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "resource.water.red"
+		count: 4
+		size: [16, 16]
+	}
+	scale: [0.950, 0.950]
+}
+
+transform:
+{
+
+}
+
+resource:
+{
+	material: "water.red"
+}
+
+holdable:
+{
+	offset: [0.000, 0.750]
+	force_multiplier: 1.400
+	torque_multiplier: 1.200
+	stress_multiplier: 0.300
+	hints: materials
+	flags: disable_control
+}
+
+norotate:
+{
+	bias: 0.001
+	mass_multiplier: 10.000
+	attached_multiplier: 0.500
+}
+
+health:
+{
+	max: 4000.000
+}

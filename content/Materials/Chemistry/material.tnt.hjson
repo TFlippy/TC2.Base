@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.1"
+	$version: "0.1.64.0"
 	name: "Trinitrotoluene"
 	name_short: "TNT"
 	name_imperial: "Trojnitol"
@@ -7,7 +7,7 @@
 	name_dumb: "Dynamite"
 	description:
 		'''
-		TODO: Desc
+		Powerful yet very stable blasting clay, allowing it to be safely handled both by children and mentally impaired adults alike.
 		'''
 	
 	tips: []
@@ -20,11 +20,11 @@
 	}
 	
 	type: clay
-	flags: soft, malleable, granular, explosive, toxic, chemical, manufactured, flammable, solid, primary
+	flags: soft, malleable, granular, explosive, toxic, chemical, manufactured, flammable, solid, processed, primary
 	display_flags: none
 	hints: none
 	
-	purity: 0.885
+	purity: 0.819
 	mass_per_unit: 0.5173
 	
 	quantity_max: 500.000

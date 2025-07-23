@@ -1,0 +1,56 @@
+﻿{
+	$version: "0.1.64.0"
+	name: "Redwater"
+	name_short: "R.Water"
+	name_dumb: "Wine"
+	description:
+		'''
+		Water, scarlet redwater.
+
+		Anytime you want it, day or night, free of charge and it tastes just like every other kind of cheap wine out there.
+		'''
+	
+	tips: []
+	
+	icon:
+	{
+		texture: resource.water.red
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	type: liquid
+	flags: liquid, toxic, chemical, bottled, manufactured, volatile, processed, acidic
+	display_flags: sprite_stack_linear
+	hints: none
+	
+	purity: 0.737
+	mass_per_unit: 1.246
+	
+	quantity_max: 200.000
+	spawn_quantity_threshold: 1.000
+	snapping: 0.100
+	snapping_pickup: 50.000
+	
+	form_type: packaged
+	prefab: resource.water.red
+	h_substance: "null"
+	
+	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
+	
+	colliders: []
+	
+	related:
+	{
+		nitrosugar: similar
+		red_sugar: raw, source
+		tnt: product
+		nitric_acid: none
+		oil: none
+		prdex: product
+		toluene: none
+	}
+}
