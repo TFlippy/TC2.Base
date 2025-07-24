@@ -20,19 +20,19 @@
 		frame: [14, 1]
 	}
 	
-	color_icon: "0xffd3f3e7"
-	color_gui: "0xffd3f3e7"
-	color_dust: "0xffd3f3e7"
-	color_gib: "0xffd3f3e7"
-	color_smoke: "0xffd3f3e7"
+	color_icon: "0xffb4c8c7"
+	color_gui: "0xffb4c8c7"
+	color_dust: "0xffb4c8c7"
+	color_gib: "0xffb4c8c7"
+	color_smoke: "0xffb4c8c7"
 	
-	color_liquid: [0.000, 0.000, 0.000, 0.000]
-	color_molten: [0.737, 0.908, 0.835, 1.000]
+	color_liquid: [0.706, 0.784, 0.780, 1.000]
+	color_molten: [0.706, 0.784, 0.780, 1.000]
 	color_flame: [0.000, 0.000, 0.000, 0.000]
 	color_spark: [0.000, 0.000, 0.000, 0.000]
 	
 	// kg/mol (use atomic mass for elements)
-	molar_mass: 0.20059 
+	molar_mass: 0.20059
 	// kg/m³ (STP)
 	density: 13546.000
 	// kg/m³ (STP)
@@ -90,5 +90,7 @@
 	{
 		chunk: mercury
 		raw: mercury
+		liquid: mercury
+		blob: mercury
 	}
 }

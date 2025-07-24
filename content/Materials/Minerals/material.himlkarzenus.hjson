@@ -35,7 +35,7 @@
 	
 	form_type: raw
 	prefab: resource.himlkarzenus
-	h_substance: "null"
+	h_substance: himlkarzenus
 	
 	color_icon: "0xffffffff"
 	color_item: "0xffffffff"
@@ -129,7 +129,10 @@
 	
 	related:
 	{
-		arsenic: none
-		arsine: none
+		arsenic: refined, residue, raw, purified, clean, element
+		arsine: residue, crushed, decomposition, filler, gas
+		hydrogen: reaction, decomposition, gas
+		kruskite: raw, ore, source, natural
+		mercury: component, refined, decomposition, alloy, element
 	}
 }

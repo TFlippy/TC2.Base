@@ -22,7 +22,7 @@ body:
 		cog_offset: [0.000, 0.125]
 		
 		material: slime
-		layer: entity, solid, resource, bulk, conductive, heatable, ignore_bullet
+		layer: entity, solid, resource, bulk, conductive, heatable, liquid, ignore_bullet
 		mask: world, bulk
 		exclude: held, stored
 	}
@@ -36,7 +36,7 @@ animated.renderer:
 		count: 4
 		size: [16, 16]
 	}
-	z: -70.300
+	z: -12.300
 }
 
 transform:
@@ -51,13 +51,13 @@ resource:
 
 holdable:
 {
-	offset: [0.000, 0.500]
-	force_multiplier: 0.100
+	offset: [0.125, 0.500]
+	force_multiplier: 0.060
 	torque_multiplier: 0.100
-	stress_multiplier: 0.100
+	stress_multiplier: 0.070
 	radius: 0.000
 	hints: materials, dangerous, heavy, fancy, industrial, fast
-	flags: disable_parent_facing, disable_rotation, disable_control
+	flags: disable_parent_facing, disable_rotation, full_rotate, force_edge_pickup
 }
 
 health:

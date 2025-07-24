@@ -1,7 +1,8 @@
 ﻿{
 	$version: "0.1.64.0"
-	name: "Mercury Blob"
-	name_short: "Mc.Blob"
+	name: "Mercury"
+	name_short: "Mercury"
+	name_imperial: "Merkur"
 	description:
 		'''
 		TODO: Desc
@@ -16,9 +17,9 @@
 		frame: [3, 0]
 	}
 	
-	type: metal_solid
+	type: metal
 	flags: soft, malleable, liquid, granular, toxic, metal, viscous, chemical, small, raw, primary
-	display_flags: none
+	display_flags: sprite_stack_linear
 	hints: materials, dangerous, heavy, fancy, industrial, fast
 	
 	purity: 0.991
@@ -39,6 +40,6 @@
 	color_dust: "0xfff4fbf8"
 	color_gib: "0xfff4fbf8"
 	
-	centroid_default: [-0.0625, 0.500]
+	centroid_default: [-0.0625, 0.625]
 	colliders: []
 }
