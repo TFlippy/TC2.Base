@@ -14,13 +14,15 @@
 		frame: [26, 0]
 	}
 	
-	flags: manual, wip
-	tags: simple
+	flags: passive, ambient
+	tags: simple, chemical, slow
 	
-	amount_base: 0.000
+	amount_base: 1.000
 	cooldown: 1.000
 	multiplier: 1.000
 	
+	amount_jitter: 0.419
+	cooldown_jitter: 0.355
 	color: "0xffaeb59a"
 	
 	tools_required: none
@@ -28,11 +30,6 @@
 	
 	infrastructure_required: none
 	infrastructure_optional: none
-	
-	character_traits:
-	{
-		weight: 1.000
-	}
 	
 	skills_min:
 	{
@@ -47,7 +44,7 @@
 	sound_volume: 0.500
 	sound_pitch: 1.000
 	sound_size: 0.500
-	sound_dist: 1.000
+	sound_dist: 0.600
 	
 	sounds: []
 	sounds_manual: []

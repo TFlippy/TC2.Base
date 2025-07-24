@@ -220,12 +220,24 @@
 						{
 							type: resource
 							material: lime
-							amount: 0.100
+							amount: 0.200
 							snapping: 0.100
 							loss: 0.173
 							ratio: 0.769
 							group: 0
 							flags: filler
+						}
+						{
+							type: work
+							work: dousing
+							amount: 25.000
+							amount_min: 100.000
+							difficulty: 8
+							snapping: 5.000
+							falloff: 0.891
+							ratio: 0.424
+							group: 0
+							flags: stepped, conditional
 						}
 						{
 							type: temperature
@@ -234,7 +246,7 @@
 							amount_max: 498.000
 							falloff: 0.834
 							group: 1
-							flags: no_scaling, always_evaluate
+							flags: no_scaling, always_evaluate, optional
 						}
 						{
 							type: work
@@ -253,9 +265,17 @@
 					[
 						{
 							type: resource
+							material: clinker
+							amount: 0.101524
+							amount_extra: 0.028039
+							group: 0
+							flags: waste
+						}
+						{
+							type: resource
 							material: lye
-							amount: 0.131
-							amount_extra: 0.0369
+							amount: 0.112472
+							amount_extra: 0.031681
 							group: 0
 							flags: byproduct, primary
 						}
@@ -304,7 +324,7 @@
 	}
 	icon_c_offset: [0.000, -8.000]
 	
-	color_frame: "0xffe3cb93"
+	color_frame: "0xff80dc7e"
 	color_button: "0xff9dd80f"
 	rank: -9.000
 	
