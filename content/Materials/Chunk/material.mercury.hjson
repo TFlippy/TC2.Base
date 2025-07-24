@@ -1,0 +1,44 @@
+﻿{
+	$version: "0.1.64.0"
+	name: "Mercury Blob"
+	name_short: "Mc.Blob"
+	description:
+		'''
+		TODO: Desc
+		'''
+	
+	tips: []
+	
+	icon:
+	{
+		texture: resource.mercury
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	type: metal_solid
+	flags: soft, malleable, liquid, granular, toxic, metal, viscous, chemical, small, raw, primary
+	display_flags: none
+	hints: materials, dangerous, heavy, fancy, industrial, fast
+	
+	purity: 0.991
+	mass_per_unit: 1.3546
+	volume_per_unit: 0.001
+	
+	quantity_max: 100.000
+	spawn_quantity_threshold: 0.100
+	snapping: 0.100
+	snapping_pickup: 0.100
+	
+	form_type: blob
+	prefab: resource.mercury
+	h_substance: mercury
+	
+	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
+	color_dust: "0xfff4fbf8"
+	color_gib: "0xfff4fbf8"
+	
+	centroid_default: [-0.0625, 0.500]
+	colliders: []
+}

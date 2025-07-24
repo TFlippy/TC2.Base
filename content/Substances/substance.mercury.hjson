@@ -1,0 +1,94 @@
+﻿{
+	$version: "0.1.64.0"
+	name: "Mercury"
+	description:
+		'''
+		TODO: Desc
+		'''
+	
+	formula: "Hg"
+	cas_number: "7439-97-6"
+	type: element
+	atomic_number: 80
+	flags: none
+	tags: pure, metallic, metal, liquid
+	
+	icon:
+	{
+		texture: ui_icons_widget
+		size: [16, 16]
+		frame: [14, 1]
+	}
+	
+	color_icon: "0xffd3f3e7"
+	color_gui: "0xffd3f3e7"
+	color_dust: "0xffd3f3e7"
+	color_gib: "0xffd3f3e7"
+	color_smoke: "0xffd3f3e7"
+	
+	color_liquid: [0.000, 0.000, 0.000, 0.000]
+	color_molten: [0.737, 0.908, 0.835, 1.000]
+	color_flame: [0.000, 0.000, 0.000, 0.000]
+	color_spark: [0.000, 0.000, 0.000, 0.000]
+	
+	// kg/mol (use atomic mass for elements)
+	molar_mass: 0.20059 
+	// kg/m³ (STP)
+	density: 13546.000
+	// kg/m³ (STP)
+	density_liquid: 13546.000
+	// kg/m³
+	density_solid: 13546.000
+	
+	// K (STP)
+	melting_point: 234.321
+	// K (STP)
+	boiling_point: 629.880
+	
+	// K
+	critical_point_temperature: 1750.000
+	// K
+	triple_point_temperature: 234.321
+	
+	// bar
+	critical_point_pressure: 0.000
+	// bar
+	triple_point_pressure: 0.000
+	
+	// K
+	ductile_temperature: 0.000
+	// K
+	forging_temperature_lower: 234.321
+	// K
+	forging_temperature_upper: 629.880
+	// K
+	sintering_temperature_lower: 0.000
+	// K
+	sintering_temperature_upper: 0.000
+	
+	// K
+	autoignition_temperature: 0.000
+	
+	// kJ/mol
+	heat_of_fusion: 2.290
+	// kJ/mol
+	heat_of_vaporization: 59.110
+	// kJ/(mol*K)
+	molar_heat_capacity: 0.02711
+	
+	// kJ/kg
+	specific_heat_of_fusion: 11.400
+	// kJ/kg
+	specific_heat_of_vaporization: 0.000
+	// kJ/(kg*K)
+	specific_heat_capacity: 0.140
+	
+	// kW/(m*K)
+	thermal_conductivity: 0.080
+	
+	form_to_material:
+	{
+		chunk: mercury
+		raw: mercury
+	}
+}
