@@ -9,7 +9,7 @@
 	type: mineral
 	atomic_number: 0
 	flags: none
-	tags: impure, unstable, metallic, mineral, solid
+	tags: impure, crytalline, metallic, mineral, solid
 	
 	icon:
 	{

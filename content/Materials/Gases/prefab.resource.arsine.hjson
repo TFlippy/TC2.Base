@@ -6,9 +6,9 @@ body:
 
 	@shape.circle:
 	{
-		radius: 1.250
-		friction: 0.210
-		elasticity: 0.520
+		radius: 1.500
+		friction: 0.810
+		elasticity: 0.120
 		rigidity_static: 0.700
 		rigidity_dynamic: 0.200
 		
@@ -20,8 +20,8 @@ body:
 		exclude: decoration, background, barbed
 	}
 
-	gravity: 1.010
-	damping: 0.762
+	gravity: 1.510
+	damping: 0.862
 	mass_multiplier: 275.000
 	fall_damage_multiplier: 0.000
 }
@@ -77,7 +77,10 @@ explosive:
 despawn:
 {
 	sleep_count_max: 3
-	interval: 30.000
-	threshold_delete: 0.010
-	threshold_despawning: 0.500
+	amount_ratio: 0.011
+	amount_ratio_extra: 0.017
+	interval: 2.000
+	interval_extra: 6.000
+	threshold_delete: 0.005
+	threshold_despawning: 1.100
 }

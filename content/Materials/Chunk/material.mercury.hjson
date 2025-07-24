@@ -22,7 +22,7 @@
 	display_flags: sprite_stack_linear
 	hints: materials, dangerous, heavy, fancy, industrial, fast
 	
-	purity: 0.991
+	purity: 0.965
 	mass_per_unit: 1.3546
 	volume_per_unit: 0.001
 	

@@ -20,7 +20,7 @@
 		frame: [3, 0]
 	}
 	
-	type: cermet
+	type: crystal
 	flags: hard, granular, toxic, mineral, small, fragile, raw, flammable, volatile, solid, smelly, primary
 	display_flags: none
 	hints: materials, dangerous, small, chemical, fancy, fast, unstable

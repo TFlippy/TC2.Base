@@ -9,7 +9,7 @@ body:
 		radius: 0.750
 		friction: 0.790
 		elasticity: 0.100
-		material: resin
+		material: crystal
 		layer: entity, solid, resource, ignore_melee, ignore_bullet, flammable
 		mask: world
 	}

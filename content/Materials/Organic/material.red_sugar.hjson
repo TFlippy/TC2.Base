@@ -18,7 +18,7 @@
 		frame: [3, 0]
 	}
 	
-	type: resin
+	type: crystal
 	flags: hard, sticky, food, granular, organic, chemical, small, fragile, raw, solid
 	display_flags: none
 	hints: none

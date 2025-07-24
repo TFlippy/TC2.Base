@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.64.0"
 	name: "Mithril"
 	name_short: "Mithril"
 	name_dumb: "Uranium"
@@ -17,7 +17,7 @@
 		frame: [3, 0]
 	}
 	
-	type: resin
+	type: crystal
 	flags: hard, granular, organic, raw, volatile, solid
 	display_flags: none
 	hints: materials, dangerous, illegal, advanced, destructive, expensive, arcane, contraband, unstable
@@ -37,5 +37,6 @@
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	
+	centroid_default: [0.000, 0.250]
 	colliders: []
 }

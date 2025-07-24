@@ -8,9 +8,9 @@
 		Makes you drop dead, but not before you admire its beauty.
 		'''
 	
-	material_type: cermet
+	material_type: crystal
 	tile_flags: non_empty
-	flags: raw, ore, uncommon, mineral
+	flags: raw, ore, rare, mineral
 	
 	max_health: 12000.000
 	smoothing: 0.134
@@ -19,8 +19,8 @@
 	strength_compressive: 2.800
 	
 	mass: 1.110
-	friction: 0.150
-	elasticity: 0.890
+	friction: 0.750
+	elasticity: 0.690
 	fall_damage_mult: 1.150
 	collision_layer: none
 	collision_mask: none
