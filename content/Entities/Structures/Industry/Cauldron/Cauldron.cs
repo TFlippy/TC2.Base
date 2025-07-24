@@ -48,7 +48,7 @@
 
 			public void Draw()
 			{
-				using (var window = GUI.Window.InteractionMisc("Cauldron"u8, this.ent_cauldron, size: new(48 * 3, 48 * 2)))
+				using (var window = GUI.Window.InteractionMisc("Cauldron"u8, this.ent_cauldron, size: new(48 * 2, 48 * 2)))
 				{
 					this.StoreCurrentWindowTypeID(order: -90);
 					if (window.show)

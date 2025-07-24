@@ -21,7 +21,14 @@
 		{
 			h_work_supported:
 			[
-	
+				brewing
+				leaching
+				cooking
+				soaking
+				boiling
+				"null"
+				"null"
+				"null"
 			]
 			
 			name: "Brewing"
@@ -30,7 +37,8 @@
 			cooldown_multiplier: 1.000
 			
 			flags: wip
-
+			crafter_state_required: none
+			
 			switch_cooldown: 1.000
 		}
 	]

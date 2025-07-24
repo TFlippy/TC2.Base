@@ -1,64 +1,78 @@
 ﻿{
-	$version: "0.1.63.8"
-	name: "Thinly Veiled Threads"
+	$version: "0.1.64.0"
+	name: "Smirglum Leaching"
 	desc:
 		'''
-		Rummage through garbage in search for textiles, and then wash them (who knows who died in these).
+		TODO: Desc
 		'''
 	tips: []
 	
 	stages:
 	[
 		{
-			name: "Cleaning"
+			name: "Base Formula"
 			
-			type: cleaning
-			flags: subtractive, wip
-			tags: material, raw
+			type: formula
+			flags: part, important
+			tags: material, formula, ingredient
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: wet
 			
-			ratio: 1.000
+			ratio: 0.000
 			mass_base: 0.000
 			
 			options:
 			[
 				{
-					name: "Rinsed"
+					name: "Ash"
 					
 					type: undefined
-					flags: wip
+					flags: none
+					discard_damage_type_override: wet
+					
+					suffix: " (Ash)"
 					
 					requirements:
 					[
 						{
-							type: work
-							work: scavenging
-							amount: 200.000
-							amount_min: 80.000
-							difficulty: 4
-							snapping: 15.000
-							falloff: 0.864
-							ratio: 0.424
+							type: resource
+							material: ash
+							amount: 2.500
+							snapping: 0.100
+							loss: 0.373
+							ratio: 0.224
 							group: 0
-							flags: conditional
+							flags: prerequisite
 						}
 						{
 							type: resource
 							material: water
 							amount: 1.000
-							snapping: 0.010
-							group: 1
+							snapping: 1.000
+							loss: 0.824
+							ratio: 0.075
+							group: 0
 							flags: prerequisite
 						}
 						{
 							type: work
-							work: washing
-							amount: 150.000
-							amount_min: 45.000
-							difficulty: 5
-							snapping: 15.000
-							falloff: 0.859
+							work: mixing.liquid
+							amount: 30.000
+							amount_min: 160.000
+							difficulty: 4
+							snapping: 10.000
+							falloff: 0.907
+							group: 0
+							flags: conditional
+						}
+						{
+							type: work
+							work: leaching
+							amount: 200.000
+							amount_min: 300.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.535
 							ratio: 1.000
 							group: 1
 							flags: conditional
@@ -69,106 +83,276 @@
 					[
 						{
 							type: resource
-							material: cloth
-							amount: 2.400
-							amount_extra: 1.700
-							snapping: 0.010
-							group: 1
-							flags: primary, compact
-						}
-						{
-							type: resource
-							material: leather
-							amount: 0.400
-							amount_extra: 1.400
-							snapping: 0.010
-							group: 1
-							flags: byproduct, secondary, compact
-						}
-						{
-							type: resource
-							material: scrap.mixed
-							amount: 1.200
-							amount_extra: 0.200
-							snapping: 0.010
-							group: 1
-							flags: residue
-						}
-						{
-							type: resource
-							material: water.dirty
-							amount: 0.750
-							amount_extra: 0.195
-							snapping: 0.010
-							group: 1
-							flags: waste
+							material: lye
+							amount: 0.1884
+							amount_extra: 0.0864
+							group: 0
+							flags: primary, parameter, compact
 						}
 					]
 					
 					filter_tools:
 					{
-						require: hammer
-						include: hammer, cutters, hand_drill, screwdriver, wrench, tweezers, magnifying_glass, bucket, towel, tongs, pick, crowbar
-					}
-					filter_infrastructure:
-					{
-						include: cauldron, barrel, table, chair, vise, rack
+						include: bucket, spatula
 					}
 					filter_environment:
 					{
-						include: warm, container, disinfected, sterile, clean
-						exclude: polluted
+						include: stationary, quiet
 					}
 				}
 			]
+		}
+		{
+			name: "Filtering"
 			
-			requirements:
+			type: cleaning
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: wet
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
 			[
 				{
-					type: resource
-					material: scrap.mixed
-					amount: 3.000
-					snapping: 0.500
-					loss: 0.110
-					group: 0
-					flags: primary, prerequisite
+					name: "Gritty"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: gravel
+							amount: 1.500
+							snapping: 0.100
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: sand
+							amount: 1.000
+							snapping: 0.100
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: filtering
+							amount: 30.000
+							amount_min: 300.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.647
+							group: 1
+							flags: stepped, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: gravel
+							amount: 1.390
+							amount_extra: 0.042
+							group: 0
+							flags: residue
+						}
+						{
+							type: resource
+							material: mortar
+							amount: 0.441
+							amount_extra: 0.241777
+							group: 0
+							flags: byproduct, secondary
+						}
+						{
+							type: resource
+							material: water.dirty
+							amount: 0.5416
+							amount_extra: 0.2572
+							group: 0
+							flags: pollutant, waste
+						}
+					]
+					
+					filter_tools:
+					{
+						include: bucket, spatula
+					}
+					filter_environment:
+					{
+						include: stationary, quiet
+					}
+				}
+			]
+		}
+		{
+			name: "Enrichment"
+			
+			type: refining
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: heat
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Caustic"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: corrosion
+					
+					prefix: "Caustic "
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: lime
+							amount: 0.200
+							snapping: 0.100
+							loss: 0.173
+							ratio: 0.769
+							group: 0
+							flags: filler
+						}
+						{
+							type: work
+							work: dousing
+							amount: 25.000
+							amount_min: 100.000
+							difficulty: 8
+							snapping: 5.000
+							falloff: 0.891
+							ratio: 0.424
+							group: 0
+							flags: stepped, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: clinker
+							amount: 0.101524
+							amount_extra: 0.028039
+							group: 0
+							flags: waste
+						}
+						{
+							type: resource
+							material: lye
+							amount: 0.112472
+							amount_extra: 0.031681
+							group: 0
+							flags: byproduct, primary
+						}
+					]
+					
+					filter_tools:
+					{
+						include: bucket, spatula
+					}
+					filter_environment:
+					{
+						include: stationary, quiet
+					}
+				}
+			]
+		}
+		{
+			name: "Extraction"
+			
+			type: refining
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: heat
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Evaporative"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: heat
+					
+					requirements:
+					[
+						{
+							type: temperature
+							amount: 422.800
+							amount_min: 373.000
+							amount_max: 498.000
+							falloff: 0.834
+							group: 0
+							flags: no_scaling, always_evaluate, optional
+						}
+						{
+							type: work
+							work: evaporation
+							amount: 13.000
+							amount_min: 350.000
+							difficulty: 5
+							snapping: 10.000
+							falloff: 1.0972
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						include: bucket, spatula
+					}
+					filter_environment:
+					{
+						include: stationary, quiet
+					}
 				}
 			]
 		}
 	]
 	
 	type: workshop
-	flags: wip
-	tags: manual, simple, small, filtering, salvaging
-	infrastructure: barrel, surface
+	flags: production, wip
+	tags: complex, raw, filtering, industrial, metallurgy, chemistry, processing
+	infrastructure: barrel, bucket, liquid_container
 	infrastructure_exclude: none
-	
-	h_company: common
 	
 	icon:
 	{
-		texture: resource.cloth
+		texture: resource.smirglum.powder
 		size: [16, 16]
 		frame: [2, 0]
 	}
 	icon_offset: [-4.000, 3.000]
 	
-	icon_extra:
-	{
-		texture: ui_icons_crafting.mini
-		size: [16, 16]
-	}
-	icon_extra_offset: [0.000, -6.000]
-	
 	icon_c:
 	{
-		texture: resource.scrap.mixed
+		texture: resource.smirglum.gravel
 		size: [16, 16]
 		frame: [3, 0]
 	}
 	icon_c_offset: [-3.000, -16.000]
 	
-	color_frame: "0xffe3cb93"
+	color_frame: "0xff80dc7e"
 	color_button: "0xff9dd80f"
 	rank: -140.000
 	

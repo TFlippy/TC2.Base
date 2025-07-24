@@ -18,11 +18,11 @@
 	tags: simple, chemical, industrial, delicate, dangerous, careful, thermal, slow
 	
 	amount_base: 0.000
-	cooldown: 3.000
+	cooldown: 1.910
 	multiplier: 1.250
 	
 	amount_jitter: 0.464
-	cooldown_jitter: 0.161
+	cooldown_jitter: 0.190
 	color: "0xff6aafcc"
 	
 	tools_required: bucket
@@ -50,10 +50,10 @@
 		chemistry: 0.230
 	}
 	
-	sound_volume: 1.100
+	sound_volume: 0.600
 	sound_pitch: 0.900
-	sound_size: 0.850
-	sound_dist: 0.700
+	sound_size: 4.120
+	sound_dist: 0.940
 	
 	sounds: ["effect.sizzle.fry.00", "effect.sizzle.sparky.00", "effect.sizzle.water.00"]
 	sounds_manual: []

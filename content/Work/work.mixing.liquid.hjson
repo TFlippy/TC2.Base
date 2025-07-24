@@ -21,6 +21,8 @@
 	cooldown: 1.500
 	multiplier: 1.000
 	
+	amount_jitter: 0.165
+	cooldown_jitter: 0.145
 	color: "0xff64b8fb"
 	
 	tools_required: none
@@ -50,8 +52,8 @@
 	
 	sound_volume: 0.500
 	sound_pitch: 1.000
-	sound_size: 0.500
-	sound_dist: 1.000
+	sound_size: 0.760
+	sound_dist: 0.750
 	
 	sounds: ["water.impact.soft.00", "water.impact.soft.01", "water.impact.soft.02"]
 	sounds_manual: []

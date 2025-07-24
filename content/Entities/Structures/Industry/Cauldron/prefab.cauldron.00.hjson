@@ -85,11 +85,25 @@ crafter:
 	
 	offset: [0.000, 0.000]
 
-	@inventory4:
+	@inventory8:
 	{
 		type: workshop
 		flags: standalone, allow_ducts, ignore_mass, no_auto_pickup, vertical
-		stack_size_multiplier: 1.000
+		stack_size_multiplier: 2.000
+		
+		filter:
+		{
+			include: soft, malleable, liquid, granular, viscous, small, gravel, powder
+			exclude: gas
+		}
+		offset: [0.000, -0.375]
+	}
+
+	@inventory4:
+	{
+		type: output
+		flags: standalone, allow_ducts, ignore_mass, no_auto_pickup, vertical
+		stack_size_multiplier: 2.000
 		
 		filter:
 		{
@@ -141,13 +155,15 @@ cauldron:
 
 workshop:
 {
+	flags: add_order_mass
+	orders_capacity: 1
+	
 	tools: none
 	infrastructure: none
 	environment: none
 	
-	gui_info_size_x: 220.000
+	gui_info_size_x: 256.000
 	
-	orders_capacity: 1
 	h_sound_order_complete: computer.bell.00
 }
 

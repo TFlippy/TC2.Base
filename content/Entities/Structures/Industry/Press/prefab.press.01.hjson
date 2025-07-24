@@ -433,7 +433,7 @@ vehicle:
 	flags: use_misc_window
 }
 
-+slot.device.00|instance:
++slot.utility.00|instance:
 {
 	joint.base:
 	{
@@ -464,8 +464,8 @@ vehicle:
 	{
 		flags: keyboard_read, mouse_read, brake
 		flags_editable: locked, disabled, keyboard_read, keyboard_write, mouse_read, mouse_write
-		name: "Device"
-		identifier: "device.00"
+		name: "Utility"
+		identifier: "utility.00"
 		tags_filter:
 		{
 			include: tiny, small, utility, device, fixed
