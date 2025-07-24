@@ -21,7 +21,7 @@
 	cooldown: 1.500
 	multiplier: 1.250
 	
-	color: "0xff5469ff"
+	color: "0xff64b8fb"
 	
 	tools_required: none
 	tools_optional: bucket, spatula, ladle

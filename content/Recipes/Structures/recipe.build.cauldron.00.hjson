@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.64.0"
 	name: "Cauldron"
 	tips: []
 	
@@ -40,7 +40,7 @@
 	]
 	
 	type: industry
-	flags: no_amount_multiplier, blueprintable, debug, disabled, wip
+	flags: no_amount_multiplier, blueprintable, wip
 	tags: construction
 	infrastructure: none
 	infrastructure_exclude: none
@@ -66,12 +66,12 @@
 		flags: allow_mirror_x, require_terrain, terrain_is_support
 		
 		size: [2.000, 2.000]
-		offset: [0.000, -1.000]
+		offset: [0.000, -0.500]
 		
-		rect_foundation: [-0.750, 0.000, 0.750, 0.500]
+		rect_foundation: [-0.750, 0.250, 0.750, 0.750]
 		tileflags_foundation: solid
 		
-		rect_clearance: [-0.875, -2.750, 0.875, 0.250]
+		rect_clearance: [-0.875, -2.000, 0.875, 0.250]
 		tileflags_clearance: solid
 		
 		cooldown: 1.000

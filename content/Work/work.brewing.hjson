@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.64.0"
-	name: "Boiling"
-	name_short: "Boiling"
+	name: "Brewing"
+	name_short: "Brewing"
 	desc:
 		'''
 		TODO: Desc
@@ -15,13 +15,13 @@
 	}
 	
 	flags: passive, wip
-	tags: simple, dangerous
+	tags: simple, chemical, thermal, slow
 	
 	amount_base: 1.000
 	cooldown: 1.220
 	multiplier: 2.750
 	
-	color: "0xfffc5b2b"
+	color: "0xffef3500"
 	
 	tools_required: none
 	tools_optional: none

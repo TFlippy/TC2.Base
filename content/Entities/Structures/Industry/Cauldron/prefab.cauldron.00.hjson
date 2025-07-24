@@ -11,21 +11,25 @@ body:
 
 	@shape.line:
 	{
-		a: [0.000, -0.250]
-		b: [0.000, 0.750]
-		offset: [0.000, 0.000]
+		material: metal_solid
+		miss_chance: 0.337
+		flags: none
+		tags: none
+		
+		layer: entity, solid, background, building, workshop, crafter, furniture, conductive, heatable, magnetic, ignore_melee
+		mask: world, building
+		exclude: none
 		
 		mass: 95.000
 		radius: 0.750
 		friction: 0.850
 		elasticity: 0.400
 		
-		material: metal_solid
-		miss_chance: 0.344
+		cog_offset: [0.000, 0.000]
 		
-		layer: entity, solid, building, crafter, ignore_melee, ignore_bullet, background
-		mask: world, building
-		exclude: none
+		a: [0.000, -0.500]
+		b: [0.000, 0.500]
+		offset: [0.000, 0.000]
 	}
 }
 
@@ -54,14 +58,13 @@ shop:
 {
 	tags_filter:
 	{
-		include: raw, filtering, chemistry, gathering, blending, drying, fermenting, processing
-		exclude: large, huge, weapon, gun, tool, vehicle, furniture, machinery, blacksmithing, woodworking, assembling, tailoring, metalworking, carpentry, architecture, construction, smelting, drying
+		include: food, agriculture, filtering, cooking, chemistry, gathering, blending, fermenting
+		exclude: advanced, large, huge, vehicle, furniture, blacksmithing, woodworking, assembling, carpentry, construction, smelting, drying, casting, moulding, overworld
 	}
 	
-	tools: bucket, shovel, spatula
-	infrastructure: crucible, casting_mould, shaping_mould, liquid_container
-	machinery: none
-	environment: container, waterproof, stationary, ugly, fireproof, durable, sturdy
+	tools: hammer, cleaver, bucket, paintbrush, axe, shovel, syringe, towel, spatula, tongs, crowbar, knife, scissors, ladle, utensils
+	infrastructure: cauldron, dishes, bottle, barrel, crucible, bucket, liquid_container, heater, blender, stove, fermenter, structure
+	environment: container, stationary, reinforced, fireproof, durable, sturdy, waterproof, small
 	
 	flags: embed_gui
 	menu_columns: 3
@@ -74,17 +77,13 @@ shop:
 
 crafter:
 {
-	flags: none
-	
-	tools: bucket, shovel, spatula
-	infrastructure: cauldron, crucible, casting_mould, shaping_mould, liquid_container
-	machinery: none
-	environment: container, mobile, dirty, contaminated, smelly, ugly, flammable
-	
-	temperature_max: 1479.000
+	h_crafter: cauldron.00
+	flags: assignable, manual
+	distance_max: 6.000
+	temperature_max: 939.100
 	pressure_max: 1.500
 	
-	spawn_offset: [0.000, -0.625]
+	offset: [0.000, 0.000]
 
 	@inventory4:
 	{
@@ -120,7 +119,7 @@ crucible:
 
 cauldron:
 {
-	
+
 }
 
 // crafter:
@@ -142,12 +141,11 @@ cauldron:
 
 workshop:
 {
-	flags: hidden_if_no_orders, add_order_mass
-	
 	tools: none
-	infrastructure: table, shaping_mould
-	machinery: none
-	environment: container, mobile, dirty, ugly, sturdy, flammable, large
+	infrastructure: none
+	environment: none
+	
+	gui_info_size_x: 220.000
 	
 	orders_capacity: 1
 	h_sound_order_complete: computer.bell.00
@@ -155,16 +153,17 @@ workshop:
 
 shipment:
 {
-	type: crafting
 	flags: keep_items, allow_deposit, use_misc, no_empty_deposit
+	type: crafting
+	layout: square
 }
 
 interactable:
 {
 	flags: none
 	priority: 2.000
-	window_size: [576.000, 472.000]
-	window_size_misc: [96.000, 0.000]
+	window_size: [632.000, 648.000]
+	window_size_misc: [144.000, 0.000]
 }
 
 // animated.renderer|"work":
@@ -243,14 +242,66 @@ heat:
 	}
 }
 
-fillable:
+// fillable:
+// {
+// 	flags: use_misc, reusable
+// 	form_type: chunk
+// 	max_tilt: 0.875
+// 	h_substance_mould: steel
+// 	volume_capacity: 0.300
+// 	capacity: 1.000
+// 	h_sound_dump: hatch.open.00
+// 	offset_drop: [0.000, -0.750]
+// }
+
+vehicle:
 {
-	flags: use_misc, reusable
-	form_type: chunk
-	max_tilt: 0.875
-	h_substance_mould: steel
-	volume_capacity: 0.300
-	capacity: 1.000
-	h_sound_dump: hatch.open.00
-	offset_drop: [0.000, -0.750]
+	flags: use_misc_window
+}
+
++slot.utility.00|instance:
+{
+	joint.base:
+	{
+		offset_a: [-0.250, -0.375]
+		max_force: 100000.000
+		max_torque: 100000.000
+		max_stress: 3.000
+		z: -160.000
+		material_type: metal
+		flags: no_aiming, no_wrap, attachment, control_read, control_write, force_facing, use_proxy_body, no_sync
+	}
+
+	joint.pivot:
+	{
+		max_bias: 8.000
+	}
+
+	joint.gear:
+	{
+		min: 0.000
+		max: 0.000
+		error_bias: 0.0000
+		max_bias: 1.250
+	}
+
+	attachment.slot:
+	{
+		flags: keyboard_read, mouse_read, brake
+		flags_editable: locked, disabled, keyboard_read, keyboard_write, mouse_read, mouse_write
+		name: "Utility"
+		identifier: "utility.00"
+		tags_filter:
+		{
+			include: tiny, small, utility, device, fixed
+			exclude: cabin, wheel, platform
+		}
+		rank: 1.000
+		gui_size: [96.000, 96.000]
+	}
+
+	analog.writer:
+	{
+		mask_read: red
+	}
 }
