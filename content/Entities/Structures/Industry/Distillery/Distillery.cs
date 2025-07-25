@@ -51,19 +51,21 @@
 
 			public void Draw()
 			{
-				using (var window = GUI.Window.InteractionMisc("Distillery"u8, this.ent_distillery, size: new(48 * 3, 48), show_misc: true))
+				using (var window = GUI.Window.InteractionMisc("Distillery"u8, this.ent_distillery, size: new(48 * 3, 48 * 2), show_misc: true))
 				{
-					this.StoreCurrentWindowTypeID(order: -100);
+					this.StoreCurrentWindowTypeID(order: -50);
 					if (window.show)
 					{
-						//ref var region = ref Client.GetRegionCommon();
-						//var h_character = Client.GetCharacterHandle();
+						using (var group = GUI.Group.New(size: GUI.Rm))
+						{
+							group.DrawBackground(GUI.tex_frame);
+						}
 					}
 				}
 			}
 		}
 
-		[ISystem.EarlyGUI(ISystem.Mode.Single, ISystem.Scope.Region)]
+		[ISystem.LateGUI(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnGUI(Entity ent_distillery, [Source.Owned] in Interactable.Data interactable,
 		[Source.Owned] in Distillery.Data distillery, [Source.Owned] in Crafter.Data crafter, [Source.Owned] in Crafter.State crafter_state)
 		{

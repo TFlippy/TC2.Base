@@ -80,12 +80,10 @@ transform:
 
 interactable:
 {
-	flags: no_tab
-	priority: 1.800
-	window_size: [576.000, 520.000]
-	window_size_min: [192.000, 96.000]
+	flags: none
+	priority: 2.000
+	window_size: [632.000, 648.000]
 	window_size_misc: [144.000, 0.000]
-	window_offset: [-192.000, 0.000]
 }
 
 shop:
@@ -112,6 +110,7 @@ shop:
 
 crafter:
 {
+	h_crafter: distillation.oven.00
 	flags: no_gui
 	
 	temperature_max: 1579.000

@@ -52,6 +52,15 @@ holdable:
 	flags: disable_parent_facing, disable_rotation, disable_control
 }
 
+norotate:
+{
+	bias: 0.000
+	speed: 3.500
+	multiplier: 3.500
+	mass_multiplier: 3.500
+	flags: no_share
+}
+
 essence.container:
 {
 	rate: 0.020
@@ -122,13 +131,4 @@ heat:
 heat.state:
 {
 	temperature_current: 335.000
-}
-
-norotate:
-{
-	bias: 0.000
-	speed: 3.500
-	multiplier: 3.500
-	mass_multiplier: 3.500
-	flags: no_share
 }

@@ -113,7 +113,7 @@ shop:
 	
 	tools: pencil, paper, ruler, hammer, cutters, saw, hand_drill, pliers, cleaver, tweezers, magnifying_glass, bucket, paintbrush, axe, syringe, towel, spatula, tongs, pick, knife
 	machinery: heater, blender, sprayer, mixer
-	infrastructure: tap, cauldron, lab_glassware, dishes, bottle, barrel, table, chair, rack
+	infrastructure: spigot, cauldron, lab_glassware, dishes, bottle, barrel, table, chair, rack
 	environment: indoor, warm, workshop, stationary, contaminated, smelly, scary
 	recipe_type: workshop
 	

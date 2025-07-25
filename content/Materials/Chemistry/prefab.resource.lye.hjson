@@ -7,7 +7,7 @@ body:
 		offset: [0.000, 0.250]
 		mass: 1.000
 		radius: 0.750
-		friction: 0.450
+		friction: 0.550
 		elasticity: 0.550
 		material: chalk
 		layer: entity, solid, resource, ignore_bullet
@@ -38,14 +38,17 @@ resource:
 holdable:
 {
 	offset: [0.000, 0.750]
+	radius: 0.000
+	stress_multiplier: 0.600
+	hints: materials
+	flags: disable_parent_facing, disable_rotation, disable_control
 }
 
 norotate:
 {
-	flags: no_share, disable_attached
-	speed: 3.000
 	bias: 0.000
-	
-	mass_multiplier: 25.000
-	attached_multiplier: 0.500
+	speed: 3.500
+	multiplier: 3.500
+	mass_multiplier: 3.500
+	flags: no_share
 }

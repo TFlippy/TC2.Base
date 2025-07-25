@@ -1,4 +1,8 @@
-$name: "Distillery"
+$name: "Hydrodistillation Unit"
+$desc:
+	'''
+	High-pressure distillery used for extraction of oils from organic matter and basic steam cracking.
+	'''
 $tags: []
 
 body:
@@ -63,7 +67,7 @@ control:
 
 health:
 {
-	max: 47000.000
+	max: 55000.000
 }
 
 transform:
@@ -73,12 +77,10 @@ transform:
 
 interactable:
 {
-	flags: no_tab
-	priority: 1.800
-	window_size: [576.000, 520.000]
-	window_size_min: [192.000, 96.000]
+	flags: none
+	priority: 2.000
+	window_size: [632.000, 648.000]
 	window_size_misc: [144.000, 0.000]
-	window_offset: [-192.000, 0.000]
 }
 
 shop:
@@ -86,11 +88,11 @@ shop:
 	tags_filter:
 	{
 		include: chemistry, fermenting, heating
-		exclude: workbench, large, huge, tool, vehicle, furniture, blacksmithing, assembling, tailoring, metalworking, gathering, carpentry, architecture, construction, casting, moulding
+		exclude: workbench, large, huge, tool, vehicle, furniture, blacksmithing, assembling, tailoring, metalworking, carpentry, architecture, construction, smelting, casting, moulding
 	}
 	
 	tools: hammer, screwdriver, spanner, magnifying_glass, bucket, shovel, towel, spatula, tongs, ladle
-	infrastructure: oven, lab_glassware, pressure_cooker, barrel, bucket, liquid_container, heater, stove, fermenter, kiln, still, condenser, structure, machine
+	infrastructure: spigot, cauldron, lab_glassware, pressure_cooker, dishes, bottle, barrel, rack, bucket, surface, liquid_container, heater, stove, fermenter, kiln, still, condenser, structure, machine
 	environment: machine, container, stationary, dirty, fireproof, durable, sturdy, waterproof
 	
 	flags: embed_gui
@@ -104,12 +106,16 @@ shop:
 
 crafter:
 {
-	flags: no_gui
+	h_crafter: distillery.00
+	flags: assignable, machine
+	distance_max: 6.000
+	temperature_max: 1037.900
+	pressure_max: 100.000
 	
-	temperature_max: 1579.000
-	pressure_max: 3.000
-	
-	spawn_offset: [1.000, -0.375]
+	tools: none
+	infrastructure: none
+	environment: none
+	offset: [0.000, 0.000]
 
 	@inventory1:
 	{
@@ -235,7 +241,7 @@ heat:
 	smoke_size_mult: 0.740
 	smoke_speed_mult: 0.150
 	smoke_rise_mult: 0.180
-	flags: exclude_body_mass
+	flags: exclude_body_mass, no_gui
 	fire_flags: none
 	offset: [-0.625, 0.625]
 	smoke_offset: [-0.500, 0.375]
@@ -259,5 +265,71 @@ heat:
 		size_max_modifier: 0.850
 		priority: 0.550
 		offset: [-0.750, 0.750]
+	}
+}
+
+analog.relay:
+{
+
+}
+
+analog.button:
+{
+	signal_strength: 2.000
+	channels: red, green
+	flags: use_misc
+	button_size: [72, 36]
+}
+
+vehicle:
+{
+	flags: use_misc_window
+}
+
++slot.utility.00|instance:
+{
+	joint.base:
+	{
+		offset_a: [0.750, 1.500]
+		// rotation_origin: -1.5708
+		max_force: 100000.000
+		max_torque: 100000.000
+		max_stress: 3.000
+		z: -160.000
+		material_type: metal
+		flags: no_aiming, no_wrap, attachment, control_read, control_write, force_facing, use_proxy_body, no_sync
+	}
+
+	joint.pivot:
+	{
+		max_bias: 8.000
+	}
+
+	joint.gear:
+	{
+		min: 0.000
+		max: 0.000
+		error_bias: 0.0000
+		max_bias: 1.250
+	}
+
+	attachment.slot:
+	{
+		flags: keyboard_read, mouse_read, brake
+		flags_editable: locked, disabled, keyboard_read, keyboard_write, mouse_read, mouse_write
+		name: "Utility"
+		identifier: "utility.00"
+		tags_filter:
+		{
+			include: tiny, small, utility, device, fixed
+			exclude: cabin, wheel, platform
+		}
+		rank: 1.000
+		gui_size: [72.000, 72.000]
+	}
+
+	analog.writer:
+	{
+		mask_read: red
 	}
 }
