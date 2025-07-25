@@ -1,7 +1,7 @@
-$name: "Kiln (Small)"
+$name: "Oven"
 $desc:
 	'''
-	Small oven equipped with a liquid fuel burner.
+	Large oven equipped with a liquid fuel burner.
 
 	Fit for simple heating-related tasks, can also double as an oven.
 	'''
@@ -89,7 +89,7 @@ shop:
 	
 	offset_spawn: [-0.500, 0.375]
 	
-	name: "Kiln"
+	name: "Oven"
 }
 
 crafter:

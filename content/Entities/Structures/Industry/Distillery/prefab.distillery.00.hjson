@@ -1,4 +1,4 @@
-$name: "Hydrodistillation Unit"
+$name: "Distillery"
 $desc:
 	'''
 	High-pressure distillery used for extraction of oils from organic matter and basic steam cracking.
@@ -110,7 +110,7 @@ crafter:
 	flags: assignable, machine
 	distance_max: 6.000
 	temperature_max: 1037.900
-	pressure_max: 100.000
+	pressure_max: 500.000
 	
 	tools: none
 	infrastructure: none
@@ -286,7 +286,7 @@ vehicle:
 	flags: use_misc_window
 }
 
-+slot.utility.00|instance:
++slot.device.00|instance:
 {
 	joint.base:
 	{
@@ -317,8 +317,8 @@ vehicle:
 	{
 		flags: keyboard_read, mouse_read, brake
 		flags_editable: locked, disabled, keyboard_read, keyboard_write, mouse_read, mouse_write
-		name: "Utility"
-		identifier: "utility.00"
+		name: "Device"
+		identifier: "device.00"
 		tags_filter:
 		{
 			include: tiny, small, utility, device, fixed

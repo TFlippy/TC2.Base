@@ -1,0 +1,192 @@
+﻿{
+	$region_id: 0
+	$version: "0.1.64.0"
+	name: "Himlkarzenus Decomposition"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	tips: []
+	
+	stages:
+	[
+		{
+			name: "Feedstock"
+			
+			type: formula
+			flags: part, important
+			tags: material, formula, ingredient
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: wet
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Standard"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: wet
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: himlkarzenus
+							amount: 1.000
+							snapping: 0.100
+							ratio: 1.000
+							group: 0
+							flags: argument, primary, prerequisite
+						}
+					]
+
+					filter_tools:
+					{
+						include: bucket, spatula
+					}
+					filter_environment:
+					{
+						include: stationary, quiet
+					}
+				}
+			]
+		}
+		{
+			name: "Arsine Breakdown"
+			
+			type: heating
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: wet
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "WIP"
+					
+					type: undefined
+					flags: none
+
+					filter_tools:
+					{
+						include: bucket, spatula
+					}
+					filter_environment:
+					{
+						include: stationary, quiet
+					}
+				}
+			]
+		}
+		{
+			name: "Mercury Vapor"
+			
+			type: refining
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: heat
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "WIP"
+					
+					type: undefined
+					flags: none
+					
+					filter_tools:
+					{
+						include: bucket, spatula
+					}
+					filter_environment:
+					{
+						include: stationary, quiet
+					}
+				}
+			]
+		}
+		{
+			name: "TODO"
+			
+			type: refining
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: heat
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "WIP"
+					
+					type: undefined
+					flags: none
+
+					filter_tools:
+					{
+						include: bucket, spatula
+					}
+					filter_environment:
+					{
+						include: stationary, quiet
+					}
+				}
+			]
+		}
+	]
+	
+	type: workshop
+	flags: debug, production, wip
+	tags: complex, raw, filtering, chemistry, heating, processing, dangerous
+	infrastructure: heater
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		texture: resource.himlkarzenus
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	icon_offset: [6.000, 0.000]
+	
+	icon_extra:
+	{
+		texture: resource.mercury
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	icon_extra_offset: [-6.000, -6.000]
+	
+	icon_c:
+	{
+		texture: resource.arsenic
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	icon_c_offset: [-20.000, -8.000]
+	
+	color_frame: "0xff80dc7e"
+	color_button: "0xff9dd80f"
+	rank: -140.000
+	
+	min: 1
+	max: 20
+	step: 1
+	
+	version: 1
+}

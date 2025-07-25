@@ -89,7 +89,7 @@ crafter:
 	{
 		type: workshop
 		flags: standalone, allow_ducts, ignore_mass, no_auto_pickup, vertical
-		stack_size_multiplier: 2.000
+		stack_size_multiplier: 1.000
 		
 		filter:
 		{
@@ -103,7 +103,7 @@ crafter:
 	{
 		type: output
 		flags: standalone, allow_ducts, ignore_mass, no_auto_pickup, vertical
-		stack_size_multiplier: 2.000
+		stack_size_multiplier: 1.000
 		
 		filter:
 		{
@@ -275,7 +275,7 @@ vehicle:
 	flags: use_misc_window
 }
 
-+slot.utility.00|instance:
++slot.device.00|instance:
 {
 	joint.base:
 	{
@@ -305,8 +305,8 @@ vehicle:
 	{
 		flags: keyboard_read, mouse_read, brake
 		flags_editable: locked, disabled, keyboard_read, keyboard_write, mouse_read, mouse_write
-		name: "Utility"
-		identifier: "utility.00"
+		name: "Device"
+		identifier: "device.00"
 		tags_filter:
 		{
 			include: tiny, small, utility, device, fixed

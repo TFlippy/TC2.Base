@@ -1,0 +1,45 @@
+﻿{
+	$version: "0.1.64.0"
+	name: "Distillation Oven"
+	name_short: "Distill. Oven"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: kiln.01
+	}
+	color: "0xffaeb59a"
+	
+	flags: wip
+	tags: none
+	
+	modes:
+	[
+		{
+			h_work_supported:
+			[
+				brewing
+				leaching
+				cooking
+				soaking
+				boiling
+				"null"
+				"null"
+				"null"
+			]
+			
+			name: "Brewing"
+			
+			work_multiplier: 1.000
+			cooldown_multiplier: 1.000
+			
+			flags: wip
+			crafter_state_required: none
+			
+			switch_cooldown: 1.000
+		}
+	]
+}

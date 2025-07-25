@@ -1,0 +1,147 @@
+﻿{
+	$version: "0.1.64.0"
+	name: "Pjerdelite"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	tips: []
+	
+	stages:
+	[
+		{
+			name: "Feedstock"
+			
+			type: formula
+			flags: part, important
+			tags: material, formula, ingredient
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: wet
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Standard"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: wet
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: pjerdelite
+							amount: 1.000
+							snapping: 0.100
+							ratio: 1.000
+							group: 0
+							flags: argument, primary, prerequisite
+						}
+					]
+				}
+			]
+		}
+		{
+			name: "Stage A"
+			
+			type: refining
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: heat
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "WIP"
+					
+					type: undefined
+					flags: none
+				}
+			]
+		}
+		{
+			name: "Stage B"
+			
+			type: refining
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: heat
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "WIP"
+					
+					type: undefined
+					flags: none
+				}
+			]
+		}
+		{
+			name: "Stage C"
+			
+			type: refining
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: heat
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "WIP"
+					
+					type: undefined
+					flags: none
+				}
+			]
+		}
+	]
+
+	type: workshop
+	flags: debug, production, wip
+	tags: complex, raw, filtering, industrial, metallurgy, chemistry, processing
+	infrastructure: barrel, bucket, liquid_container
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		texture: resource.smirglum.powder
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	icon_offset: [-4.000, 3.000]
+	
+	icon_c:
+	{
+		texture: resource.smirglum.gravel
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	icon_c_offset: [-3.000, -16.000]
+	
+	color_frame: "0xff80dc7e"
+	color_button: "0xff9dd80f"
+	rank: -140.000
+	
+	min: 1
+	max: 10
+	step: 1
+	
+	version: 1
+}
