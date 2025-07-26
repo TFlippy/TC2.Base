@@ -1,0 +1,93 @@
+﻿{
+	$version: "0.1.64.0"
+	name: "Amalgamated Smirglum"
+	description:
+		'''
+		Smiglum dissolved in mercury and mercury dissolved in smirglum.
+		'''
+	
+	flags: none
+	tags: pure, metallic, refractory, metal, solid
+	
+	icon:
+	{
+		texture: ui_icons_widget
+		size: [16, 16]
+		frame: [14, 1]
+	}
+	
+	color_icon: "0xffa37a69"
+	color_gui: "0xff6c584b"
+	color_dust: "0xff6c584b"
+	color_gib: "0xff6c584b"
+	color_smoke: "0xff6c584b"
+	
+	color_liquid: [0.583, 0.190, 0.265, 1.000]
+	color_molten: [0.592, 0.280, 0.242, 1.357]
+	color_flame: [0.583, 0.190, 0.265, 0.690]
+	color_spark: [0.853, 0.270, 0.382, 1.337]
+	
+	// kg/mol (use atomic mass for elements)
+	molar_mass: 0.452
+	// kg/m³ (STP)
+	density: 29921.200
+	// kg/m³ (STP)
+	density_liquid: 26929.080
+	// kg/m³
+	density_solid: 29921.200
+	
+	// K (STP)
+	melting_point: 3245.280
+	// K (STP)
+	boiling_point: 5841.000
+	
+	// K
+	critical_point_temperature: 0.000
+	// K
+	triple_point_temperature: 0.000
+	
+	// bar
+	critical_point_pressure: 0.000
+	// bar
+	triple_point_pressure: 0.000
+	
+	// K
+	ductile_temperature: 2372.400
+	// K
+	forging_temperature_lower: 2522.500
+	// K
+	forging_temperature_upper: 2920.500
+	// K
+	sintering_temperature_lower: 944.585
+	// K
+	sintering_temperature_upper: 3104.853
+	
+	// K
+	autoignition_temperature: 1715.560
+	
+	// kJ/mol
+	heat_of_fusion: 42.000
+	// kJ/mol
+	heat_of_vaporization: 528.000
+	// kJ/(mol*K)
+	molar_heat_capacity: 0.057404
+	
+	// kJ/kg
+	specific_heat_of_fusion: 92.92036
+	// kJ/kg
+	specific_heat_of_vaporization: 1168.141
+	// kJ/(kg*K)
+	specific_heat_capacity: 0.127
+	
+	// kW/(m*K)
+	thermal_conductivity: 0.097127
+	
+	form_to_material:
+	{
+		powder: smirglum.powder
+		plate: smirglum.plate
+		chunk: smirglum
+		gravel: smirglum.gravel
+		raw: smirglum
+	}
+}

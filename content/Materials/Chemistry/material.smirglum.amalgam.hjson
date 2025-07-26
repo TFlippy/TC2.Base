@@ -1,0 +1,57 @@
+﻿{
+	$version: "0.1.64.0"
+	name: "Amalgated Smirglum"
+	name_short: "Amg. Smirglum"
+	name_imperial: "Smirglmerkur"
+	description:
+		'''
+		Smiglum dissolved in mercury and mercury dissolved in smirglum.
+		'''
+	
+	tips:
+	[
+		"Contains roughly 64% of mercury"
+	]
+	
+	icon:
+	{
+		texture: resource.smirglum.amalgam
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	// Inventory material type.
+	type: metal
+	flags: soft, malleable, magnetic, liquid, granular, toxic, metal, viscous, chemical, heavy, small, raw, volatile, impure, primary
+	display_flags: sprite_stack_linear
+	hints: materials, dangerous, heavy, fancy, industrial, fast
+	
+	// General purity modifier.
+	purity: 0.924
+	// Mass of 1 unit in kg.
+	mass_per_unit: 17.13749
+	
+	// Volume occupied by 1 unit in m³.
+	volume_per_unit: 0.001
+	
+	// Maximum quantity (units) per stack.
+	quantity_max: 100.000
+	// Minimum spawnable quantity.
+	spawn_quantity_threshold: 0.100
+	// Preferred quantity snapping for recipes.
+	snapping: 0.100
+	// Preferred quantity snapping for inventories.
+	snapping_pickup: 0.100
+	
+	form_type: blob
+	prefab: resource.smirglum.amalgam
+	h_substance: smirglum.amalgam
+	
+	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
+	color_dust: "0xfff4fbf8"
+	color_gib: "0xfff4fbf8"
+	
+	centroid_default: [-0.0625, 0.625]
+	colliders: []
+}

@@ -1,0 +1,131 @@
+$tags: []
+
+body:
+{
+	type: dynamic
+	// flags: no_impact_effects
+	tags: thin, liquid, round, simple, irregular, soft, dense
+	
+	fall_damage_multiplier: 0.100
+	buoyancy: 0.010
+
+	@shape.line:
+	{
+		a: [-0.500, 0.125]
+		b: [0.375, 0.125]
+		
+		offset: [0.000, 0.375]
+		radius: 0.480
+		friction: 0.119
+		elasticity: 0.240
+		rigidity_dynamic: 1.000
+		cog_offset: [0.000, 0.125]
+		
+		material: slime
+		layer: entity, solid, resource, bulk, conductive, heatable, liquid, ignore_bullet
+		mask: world, bulk
+		exclude: held, stored
+	}
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "resource.smirglum.amalgam"
+		count: 4
+		size: [16, 16]
+	}
+	z: -12.300
+}
+
+transform:
+{
+
+}
+
+resource:
+{
+	material: "smirglum.amalgam"
+}
+
+holdable:
+{
+	offset: [0.125, 0.500]
+	force_multiplier: 0.060
+	torque_multiplier: 0.100
+	stress_multiplier: 0.070
+	radius: 0.000
+	hints: materials, dangerous, heavy, fancy, industrial, fast
+	flags: disable_parent_facing, disable_rotation, full_rotate, force_edge_pickup
+}
+
+health:
+{
+	max: 95000.000
+}
+
+breakable:
+{
+	flags: no_damage, splittable
+}
+
+// heat:
+// {
+// 	temperature_medium: 405.2835
+// 	temperature_high: 2014.976
+// 	temperature_operating: 729.9955
+// 	temperature_melt: 1234.930
+// 	temperature_breakdown: 2435.000
+// 	cool_rate: 2.000
+// 	smoke_speed_mult: 0.750
+// 	flags: meltable, formless
+// 	fire_flags: no_self_damage, always_contact_ignite
+// 	offset: [0.000, 0.500]
+// 	smoke_offset: [0.125, 0.250]
+// 	size: [2.000, 1.000]
+
+// 	@light:
+// 	{
+// 		offset: [0.125, 0.500]
+// 		scale: [50.000, 40.000]
+// 		intensity: 1.000
+// 		texture: light.circle.00
+// 	}
+
+// 	@sound.emitter:
+// 	{
+// 		file: burner.loop.00
+// 		flags: start_muted
+// 		volume: 1.000
+// 		pitch: 0.880
+// 		size: 1.000
+// 		size_max_modifier: 0.900
+// 		priority: 0.100
+// 		offset: [0.000, 0.500]
+// 	}
+// }
+
+norotate:
+{
+	flags: no_share
+	speed: 3.500
+	bias: 0.000
+	
+	multiplier: 3.500
+	mass_multiplier: 3.500
+}
+
+despawn:
+{
+	flags: no_despawn
+
+	sleep_count_max: 74
+	interval: 9.000
+	interval_extra: 14.000
+	threshold_delete: 0.010
+	threshold_despawning: 0.200
+
+	amount_ratio: 0.000
+	amount_ratio_extra: 0.000
+}

@@ -47,4 +47,13 @@
 	
 	centroid_default: [0.000, 0.250]
 	colliders: []
+	
+	// Info regarding relations of other materials towards this material.
+	related:
+	{
+		smirglum: component, refined, residue, decomposition, purified, clean, similar, element, solidified, product
+		gravel: residue, crushed, decomposition, dirty, waste, filler, natural
+		slag: ruined, burnt, residue, reaction, mangled, dirty, waste, solidified, slag
+		smirglum.powder: component, refined, residue, crushed, decomposition, purified, clean, similar, element, powdered
+	}
 }

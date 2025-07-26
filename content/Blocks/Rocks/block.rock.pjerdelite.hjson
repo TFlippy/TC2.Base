@@ -17,6 +17,7 @@
 	strength_compressive: 21.000
 	
 	mass: 3.770
+	density: 0.000
 	friction: 0.700
 	elasticity: 0.560
 	fall_damage_mult: 1.030
