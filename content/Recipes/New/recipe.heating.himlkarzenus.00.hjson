@@ -1,5 +1,4 @@
 ﻿{
-	$region_id: 0
 	$version: "0.1.64.0"
 	name: "Himlkarzenus Decomposition"
 	desc:
@@ -20,7 +19,7 @@
 			discard_damage_type: wet
 			
 			ratio: 0.000
-			mass_base: 0.000
+			mass_base: 1.000
 			
 			options:
 			[
@@ -29,29 +28,38 @@
 					
 					type: undefined
 					flags: none
-					discard_damage_type_override: wet
 					
 					requirements:
 					[
 						{
 							type: resource
 							material: himlkarzenus
-							amount: 1.000
+							amount: 0.971817
 							snapping: 0.100
 							ratio: 1.000
 							group: 0
 							flags: argument, primary, prerequisite
 						}
+						{
+							type: temperature
+							amount: 424.900
+							amount_min: 380.000
+							amount_max: 484.000
+							falloff: 0.477
+							group: 0
+							flags: no_scaling, prerequisite
+						}
+						{
+							type: volume
+							amount_min: 0.100
+							group: 0
+							flags: no_consume, prerequisite
+						}
 					]
-
-					filter_tools:
-					{
-						include: bucket, spatula
-					}
-					filter_environment:
-					{
-						include: stationary, quiet
-					}
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 1.000
 				}
 			]
 		}
@@ -59,37 +67,6 @@
 			name: "Arsine Breakdown"
 			
 			type: heating
-			flags: none
-			tags: none
-			// Damage type used for discarding leftover resources.
-			discard_damage_type: wet
-			
-			ratio: 0.000
-			mass_base: 0.000
-			
-			options:
-			[
-				{
-					name: "WIP"
-					
-					type: undefined
-					flags: none
-
-					filter_tools:
-					{
-						include: bucket, spatula
-					}
-					filter_environment:
-					{
-						include: stationary, quiet
-					}
-				}
-			]
-		}
-		{
-			name: "Mercury Vapor"
-			
-			type: refining
 			flags: none
 			tags: none
 			// Damage type used for discarding leftover resources.
@@ -106,14 +83,103 @@
 					type: undefined
 					flags: none
 					
-					filter_tools:
-					{
-						include: bucket, spatula
-					}
-					filter_environment:
-					{
-						include: stationary, quiet
-					}
+					requirements:
+					[
+						{
+							type: temperature
+							amount: 589.900
+							amount_min: 363.000
+							falloff: 1.402
+							group: 0
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: work
+							work: heating
+							amount: 185.000
+							amount_min: 260.000
+							difficulty: 9
+							snapping: 5.000
+							falloff: 0.916
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: arsine
+							amount: 0.000
+							group: 0
+							flags: pollutant, residue
+						}
+					]
+				}
+			]
+		}
+		{
+			name: "Mercury Vaporization"
+			
+			type: heating
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: heat
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "WIP"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: temperature
+							amount: 703.400
+							amount_min: 632.000
+							amount_max: 806.000
+							falloff: 0.802
+							group: 0
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: work
+							work: heating
+							amount: 75.000
+							amount_min: 160.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.766
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: arsenic
+							amount: 0.000
+							group: 0
+							flags: residue, byproduct, secondary
+						}
+						{
+							type: resource
+							material: hydrogen
+							amount: 0.000
+							group: 0
+							flags: residue, byproduct
+						}
+					]
 				}
 			]
 		}
@@ -136,15 +202,6 @@
 					
 					type: undefined
 					flags: none
-
-					filter_tools:
-					{
-						include: bucket, spatula
-					}
-					filter_environment:
-					{
-						include: stationary, quiet
-					}
 				}
 			]
 		}

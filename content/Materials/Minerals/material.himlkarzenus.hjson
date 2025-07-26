@@ -26,7 +26,8 @@
 	hints: materials, dangerous, small, chemical, fancy, fast, unstable
 	
 	purity: 0.885
-	mass_per_unit: 0.961
+	mass_per_unit: 1.029
+	volume_per_stack: 0.4701
 	
 	quantity_max: 500.000
 	spawn_quantity_threshold: 0.200

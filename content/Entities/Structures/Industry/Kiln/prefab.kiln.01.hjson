@@ -111,12 +111,15 @@ shop:
 crafter:
 {
 	h_crafter: distillation.oven.00
-	flags: no_gui
-	
+	flags: assignable
+	distance_max: 4.000
 	temperature_max: 1579.000
-	pressure_max: 3.000
+	pressure_max: 50.000
 	
-	spawn_offset: [1.000, -0.375]
+	tools: none
+	infrastructure: none
+	environment: none
+	offset: [0.000, 0.000]
 
 	// @inventory2:
 	// {
@@ -149,12 +152,15 @@ crafter:
 
 workshop:
 {
+	flags: none
+	orders_capacity: 1
+	
 	tools: hammer, bucket, shovel, tongs
 	infrastructure: oven, hard_surface
-	machinery: heater, burner
-	environment: container, waterproof, stationary, dirty, ugly, fireproof, durable, sturdy
-
-	orders_capacity: 1
+	environment: container, stationary, dirty, ugly, fireproof, durable, sturdy, waterproof
+	
+	gui_info_size_x: 224.000
+	
 	h_sound_order_complete: computer.bell.00
 
 	@inventory8:

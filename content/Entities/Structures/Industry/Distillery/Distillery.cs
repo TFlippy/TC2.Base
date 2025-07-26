@@ -11,9 +11,9 @@
 				None = 0u,
 			}
 
-			public Distillery.Data.Flags flags;
-
 			[Editor.Picker.Position(relative: true)] public Vec2f smoke_offset;
+
+			public Distillery.Data.Flags flags;
 
 			[Save.Ignore, Net.Ignore] public float t_next_smoke;
 			[Save.Ignore, Net.Ignore] public float t_next_edit;
