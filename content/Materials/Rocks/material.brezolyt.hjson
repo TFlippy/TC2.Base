@@ -28,7 +28,7 @@
 	mass_per_unit: 0.866
 	
 	// Maximum quantity (units) per stack.
-	quantity_max: 500.000
+	quantity_max: 1000.000
 	// Minimum spawnable quantity.
 	spawn_quantity_threshold: 2.000
 	// Preferred quantity snapping for recipes.
@@ -45,5 +45,6 @@
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	
+	centroid_default: [0.000, 0.250]
 	colliders: []
 }

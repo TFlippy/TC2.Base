@@ -5,7 +5,7 @@
 	name_imperial: "Merkur"
 	description:
 		'''
-		TODO: Desc
+		Shiny silvery metal with a unique property of being liquid at room temperature, making it especially popular among children.
 		'''
 	
 	tips: []
@@ -17,18 +17,27 @@
 		frame: [3, 0]
 	}
 	
+	// Inventory material type.
 	type: metal
-	flags: soft, malleable, liquid, granular, toxic, metal, viscous, chemical, small, raw, primary
+	flags: soft, malleable, liquid, granular, toxic, metal, viscous, chemical, small, raw, volatile, primary
 	display_flags: sprite_stack_linear
 	hints: materials, dangerous, heavy, fancy, industrial, fast
 	
+	// General purity modifier.
 	purity: 0.965
+	// Mass of 1 unit in kg.
 	mass_per_unit: 1.3546
+	
+	// Volume occupied by 1 unit in m³.
 	volume_per_unit: 0.001
 	
+	// Maximum quantity (units) per stack.
 	quantity_max: 100.000
+	// Minimum spawnable quantity.
 	spawn_quantity_threshold: 0.100
+	// Preferred quantity snapping for recipes.
 	snapping: 0.100
+	// Preferred quantity snapping for inventories.
 	snapping_pickup: 0.100
 	
 	form_type: blob

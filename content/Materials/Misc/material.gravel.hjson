@@ -26,11 +26,8 @@
 	// Mass of 1 unit in kg.
 	mass_per_unit: 1.122
 	
-	// Volume occupied by a stack in m³.
-	volume_per_stack: 0.9142
-	
 	// Maximum quantity (units) per stack.
-	quantity_max: 500.000
+	quantity_max: 1000.000
 	// Minimum spawnable quantity.
 	spawn_quantity_threshold: 1.200
 	// Preferred quantity snapping for recipes.

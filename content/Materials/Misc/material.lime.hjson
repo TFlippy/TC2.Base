@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.64.0"
 	name: "Lime"
 	name_short: "Lime"
 	name_dumb: "Flour"
@@ -19,17 +19,24 @@
 		frame: [3, 0]
 	}
 	
+	// Inventory material type.
 	type: chalk
-	flags: granular, mineral, chemical, corrosive, raw, powder, solid, primary
+	flags: granular, mineral, caustic, chemical, corrosive, raw, powder, solid, processed, primary
 	display_flags: none
 	hints: none
 	
+	// General purity modifier.
 	purity: 0.811
+	// Mass of 1 unit in kg.
 	mass_per_unit: 0.830
 	
+	// Maximum quantity (units) per stack.
 	quantity_max: 500.000
+	// Minimum spawnable quantity.
 	spawn_quantity_threshold: 2.000
+	// Preferred quantity snapping for recipes.
 	snapping: 1.000
+	// Preferred quantity snapping for inventories.
 	snapping_pickup: 50.000
 	
 	form_type: raw
