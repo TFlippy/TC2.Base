@@ -18,16 +18,22 @@
 		frame: [3, 0]
 	}
 	
+	// Inventory material type.
 	type: stone_metallic
-	flags: magnetic, granular, metal, raw, solid, primary
+	flags: hard, magnetic, granular, metal, rock, heavy, raw, solid, impure, primary
 	display_flags: none
 	hints: none
 	
+	// Mass of 1 unit in kg.
 	mass_per_unit: 3.170
 	
+	// Maximum quantity (units) per stack.
 	quantity_max: 500.000
+	// Minimum spawnable quantity.
 	spawn_quantity_threshold: 1.000
+	// Preferred quantity snapping for recipes.
 	snapping: 1.000
+	// Preferred quantity snapping for inventories.
 	snapping_pickup: 1.000
 	
 	form_type: chunk
@@ -39,5 +45,6 @@
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	
+	centroid_default: [0.000, 0.250]
 	colliders: []
 }

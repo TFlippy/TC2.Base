@@ -27,14 +27,14 @@
 	
 	// Inventory material type.
 	type: stone_porous
-	flags: hard, granular, rock, raw, gravel, solid, impure, primary
+	flags: granular, rock, fragile, raw, gravel, solid, impure, primary
 	display_flags: none
 	hints: materials, weak, mining, cheap, clumsy
 	
 	// General purity modifier.
 	purity: 0.671
 	// Mass of 1 unit in kg.
-	mass_per_unit: 1.714
+	mass_per_unit: 0.733
 	
 	// Volume occupied by 1 unit in m³.
 	volume_per_unit: 0.001328

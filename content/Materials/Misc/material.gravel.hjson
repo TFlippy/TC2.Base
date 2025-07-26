@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.8"
+	$version: "0.1.64.0"
 	name: "Gravel"
 	name_short: "Gravel"
 	name_dumb: "Stone"
@@ -17,17 +17,25 @@
 		frame: [3, 0]
 	}
 	
+	// Inventory material type.
 	type: gravel
-	flags: granular, raw, gravel, solid
+	flags: hard, granular, rock, small, raw, gravel, solid, impure
 	display_flags: none
 	hints: none
 	
+	// Mass of 1 unit in kg.
 	mass_per_unit: 1.122
+	
+	// Volume occupied by a stack in m³.
 	volume_per_stack: 0.9142
 	
+	// Maximum quantity (units) per stack.
 	quantity_max: 500.000
+	// Minimum spawnable quantity.
 	spawn_quantity_threshold: 1.200
+	// Preferred quantity snapping for recipes.
 	snapping: 1.000
+	// Preferred quantity snapping for inventories.
 	snapping_pickup: 1.000
 	
 	form_type: gravel
@@ -39,5 +47,6 @@
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	
+	centroid_default: [0.000, 0.250]
 	colliders: []
 }
