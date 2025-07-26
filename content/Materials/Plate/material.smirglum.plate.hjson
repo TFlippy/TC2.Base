@@ -17,18 +17,27 @@
 		frame: [3, 0]
 	}
 	
+	// Inventory material type.
 	type: metal_sheet
 	flags: metal, small, plate, flexible, solid, processed
 	display_flags: no_random_facing
 	hints: none
 	
+	// General purity modifier.
 	purity: 0.981
+	// Mass of 1 unit in kg.
 	mass_per_unit: 2.688
+	
+	// Volume occupied by 1 unit in m³.
 	volume_per_unit: 0.0003
 	
+	// Maximum quantity (units) per stack.
 	quantity_max: 250.000
+	// Minimum spawnable quantity.
 	spawn_quantity_threshold: 0.100
+	// Preferred quantity snapping for recipes.
 	snapping: 1.000
+	// Preferred quantity snapping for inventories.
 	snapping_pickup: 50.000
 	
 	form_type: plate
@@ -92,6 +101,7 @@
 		}
 	]
 	
+	// Damage-based conversions.
 	conversions:
 	{
 		sledgehammer:
@@ -102,7 +112,7 @@
 			ratio: 1.000
 			ratio_extra: 0.000
 			
-			h_material_waste: scrap.smirglum
+			h_material_waste: "null"
 			spawn_flags_waste: none
 			product_flags_waste: waste, residue
 			ratio_waste: 0.710
@@ -130,7 +140,7 @@
 			ratio: 1.000
 			ratio_extra: 0.000
 			
-			h_material_waste: scrap.smirglum
+			h_material_waste: "null"
 			spawn_flags_waste: none
 			product_flags_waste: waste, residue
 			ratio_waste: 0.710
@@ -152,11 +162,12 @@
 		}
 	}
 	
+	// Residues from crafting/work.
 	residues:
 	{
 		snipping.metal:
 		{
-			h_material: scrap.smirglum
+			h_material: "null"
 			h_substance: "null"
 			flags: none
 			flags_product: residue
@@ -174,7 +185,7 @@
 		}
 		cutting:
 		{
-			h_material: scrap.smirglum
+			h_material: "null"
 			h_substance: "null"
 			flags: none
 			flags_product: residue
@@ -192,7 +203,7 @@
 		}
 		smithing:
 		{
-			h_material: scrap.smirglum
+			h_material: "null"
 			h_substance: "null"
 			flags: none
 			flags_product: residue
@@ -219,7 +230,7 @@
 		}
 		die.cutting.metal:
 		{
-			h_material: scrap.smirglum
+			h_material: "null"
 			h_substance: "null"
 			flags: none
 			flags_product: residue
@@ -228,7 +239,7 @@
 		}
 		bending:
 		{
-			h_material: scrap.smirglum
+			h_material: "null"
 			h_substance: "null"
 			flags: none
 			flags_product: residue
@@ -237,7 +248,7 @@
 		}
 		melting:
 		{
-			h_material: scrap.smirglum
+			h_material: "null"
 			h_substance: "null"
 			flags: none
 			flags_product: pollutant, waste, use_temperature

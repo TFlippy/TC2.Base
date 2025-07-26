@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.64.0"
-	name: "Amalgated Smirglum"
-	name_short: "Amg. Smirglum"
+	name: "Smirglum Amalgam"
+	name_short: "Sg. Amalgam"
 	name_imperial: "Smirglmerkur"
 	description:
 		'''
@@ -22,12 +22,12 @@
 	
 	// Inventory material type.
 	type: metal
-	flags: soft, malleable, magnetic, liquid, granular, toxic, metal, viscous, chemical, heavy, small, raw, volatile, impure, primary
+	flags: soft, malleable, magnetic, liquid, granular, toxic, metal, viscous, chemical, heavy, small, raw, flexible, volatile, processed, impure, contaminated, primary
 	display_flags: sprite_stack_linear
-	hints: materials, dangerous, heavy, fancy, industrial, fast
+	hints: materials, dangerous, heavy, chemical, dumb, industrial, arcane, fast, clumsy
 	
 	// General purity modifier.
-	purity: 0.924
+	purity: 0.917
 	// Mass of 1 unit in kg.
 	mass_per_unit: 17.13749
 	
@@ -54,4 +54,11 @@
 	
 	centroid_default: [-0.0625, 0.625]
 	colliders: []
+	
+	// Info regarding relations of other materials towards this material.
+	related:
+	{
+		smirglum: component, raw, source, purified, similar, alloy, element, solidified, ingredient
+		mercury: component, raw, similar, chemical, alloy, element
+	}
 }

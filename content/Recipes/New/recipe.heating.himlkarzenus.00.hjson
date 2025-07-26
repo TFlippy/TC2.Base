@@ -193,9 +193,17 @@
 							type: resource
 							material: mercury
 							amount: 0.000
-							amount_extra: 0.241347
+							amount_extra: 0.1858
 							group: 0
 							flags: residue, byproduct, secondary, spawn, compact
+						}
+						{
+							type: resource
+							material: mercury.vapor
+							amount: 2.3039
+							amount_extra: 0.155
+							group: 0
+							flags: pollutant, waste, spawn
 						}
 						{
 							type: resource
@@ -255,8 +263,8 @@
 						{
 							type: resource
 							material: mercury
-							amount: 0.337448
-							amount_extra: 0.217734
+							amount: 0.4554
+							amount_extra: 0.1077
 							group: 0
 							flags: byproduct, secondary, compact
 						}
