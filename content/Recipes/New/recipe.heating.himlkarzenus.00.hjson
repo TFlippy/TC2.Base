@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.64.0"
-	name: "Himlkarzenus Roasting"
+	name: "Himlkarzenus Decomposition"
 	desc:
 		'''
 		TODO: Desc
@@ -288,33 +288,11 @@
 				}
 			]
 		}
-		{
-			name: "TODO"
-			
-			type: refining
-			flags: none
-			tags: none
-			// Damage type used for discarding leftover resources.
-			discard_damage_type: heat
-			
-			ratio: 0.000
-			mass_base: 0.000
-			
-			options:
-			[
-				{
-					name: "WIP"
-					
-					type: undefined
-					flags: none
-				}
-			]
-		}
 	]
 	
 	type: workshop
-	flags: debug, production, wip
-	tags: complex, raw, filtering, chemistry, heating, processing, dangerous
+	flags: production, manufacturing, wip, auto_complete
+	tags: complex, raw, filtering, industrial, chemistry, science, heating, processing, dangerous
 	infrastructure: heater
 	infrastructure_exclude: none
 	

@@ -15,12 +15,14 @@
 	}
 	
 	flags: passive, ambient, wip
-	tags: simple, chemical
+	tags: science, complex, chemical, industrial, dangerous, thermal, slow
 	
 	amount_base: 1.000
 	cooldown: 1.000
-	multiplier: 2.250
+	multiplier: 9.300
 	
+	amount_jitter: 0.683
+	cooldown_jitter: 0.554
 	color: "0xff5469ff"
 	
 	tools_required: none

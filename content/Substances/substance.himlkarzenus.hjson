@@ -98,5 +98,6 @@
 		hydrogen: decomposition, gas
 		arsine: residue, decomposition, similar, filler, gas
 		mercury: component, element
+		sulfur: component, element
 	}
 }
