@@ -26,7 +26,8 @@
 	hints: materials, dangerous, small, chemical, fancy, fast, unstable
 	
 	purity: 0.885
-	mass_per_unit: 1.029
+	mass_per_unit: 1.225
+	volume_per_unit: 0.00094
 	volume_per_stack: 0.4701
 	
 	quantity_max: 500.000

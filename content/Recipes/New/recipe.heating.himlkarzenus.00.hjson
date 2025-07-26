@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.64.0"
-	name: "Himlkarzenus Decomposition"
+	name: "Himlkarzenus Roasting"
 	desc:
 		'''
 		TODO: Desc
@@ -34,8 +34,9 @@
 						{
 							type: resource
 							material: himlkarzenus
-							amount: 0.971817
+							amount: 1.000
 							snapping: 0.100
+							loss: 0.275
 							ratio: 1.000
 							group: 0
 							flags: argument, primary, prerequisite
@@ -47,13 +48,19 @@
 							amount_max: 484.000
 							falloff: 0.477
 							group: 0
-							flags: no_scaling, prerequisite
+							flags: no_scaling, always_evaluate, prerequisite
 						}
+					]
+					
+					products:
+					[
 						{
-							type: volume
-							amount_min: 0.100
+							type: resource
+							material: arsenic
+							amount: 0.531544
+							amount_extra: 0.118001
 							group: 0
-							flags: no_consume, prerequisite
+							flags: primary, compact
 						}
 					]
 					
@@ -64,7 +71,7 @@
 			]
 		}
 		{
-			name: "Arsine Breakdown"
+			name: "Arsine Fumes"
 			
 			type: heating
 			flags: none
@@ -78,7 +85,7 @@
 			options:
 			[
 				{
-					name: "WIP"
+					name: "Vented"
 					
 					type: undefined
 					flags: none
@@ -96,13 +103,13 @@
 						{
 							type: work
 							work: heating
-							amount: 185.000
-							amount_min: 260.000
-							difficulty: 9
-							snapping: 5.000
-							falloff: 0.916
+							amount: 165.000
+							amount_min: 285.000
+							difficulty: 4
+							snapping: 25.000
+							falloff: 0.815
 							group: 0
-							flags: conditional
+							flags: stepped, conditional
 						}
 					]
 					
@@ -111,16 +118,25 @@
 						{
 							type: resource
 							material: arsine
-							amount: 0.000
+							amount: 1.624379
+							amount_extra: 0.534836
 							group: 0
-							flags: pollutant, residue
+							flags: pollutant, waste, spawn
+						}
+						{
+							type: resource
+							material: hydrogen
+							amount: 2.581455
+							amount_extra: 1.2155
+							group: 0
+							flags: residue, spawn
 						}
 					]
 				}
 			]
 		}
 		{
-			name: "Mercury Vaporization"
+			name: "Mercury Vapor"
 			
 			type: heating
 			flags: none
@@ -134,7 +150,7 @@
 			options:
 			[
 				{
-					name: "WIP"
+					name: "Vented"
 					
 					type: undefined
 					flags: none
@@ -143,21 +159,21 @@
 					[
 						{
 							type: temperature
-							amount: 703.400
+							amount: 826.800
 							amount_min: 632.000
-							amount_max: 806.000
-							falloff: 0.802
+							amount_max: 887.000
+							falloff: 0.557
 							group: 0
 							flags: no_scaling, always_evaluate
 						}
 						{
 							type: work
 							work: heating
-							amount: 75.000
-							amount_min: 160.000
+							amount: 110.000
+							amount_min: 335.000
 							difficulty: 6
 							snapping: 5.000
-							falloff: 0.766
+							falloff: 0.820
 							group: 0
 							flags: conditional
 						}
@@ -167,17 +183,106 @@
 					[
 						{
 							type: resource
-							material: arsenic
-							amount: 0.000
+							material: sulfur
+							amount: 0.0768
+							amount_extra: 0.1128
 							group: 0
-							flags: residue, byproduct, secondary
+							flags: residue, byproduct
 						}
 						{
 							type: resource
-							material: hydrogen
+							material: mercury
 							amount: 0.000
+							amount_extra: 0.061347
+							group: 0
+							flags: residue, byproduct, secondary, spawn, compact
+						}
+						{
+							type: resource
+							material: hydrogen_sulfide
+							amount: 2.0186
+							amount_extra: 0.6883
+							group: 0
+							flags: pollutant, waste, spawn
+						}
+					]
+				}
+				{
+					name: "Condensed"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: temperature
+							amount: 696.900
+							amount_min: 632.000
+							amount_max: 887.000
+							falloff: 1.173
+							group: 0
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: work
+							work: heating
+							amount: 183.000
+							amount_min: 325.000
+							difficulty: 9
+							snapping: 5.000
+							falloff: 0.850
+							ratio: 0.275
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: condensation
+							amount: 320.000
+							amount_min: 213.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.733
+							ratio: 1.000
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: mercury
+							amount: 0.207448
+							amount_extra: 0.097734
+							group: 0
+							flags: byproduct, secondary, compact
+						}
+						{
+							type: resource
+							material: arsenic
+							amount: 0.1432
+							amount_extra: 0.1012
+							group: 0
+							flags: residue, primary, compact
+						}
+						{
+							type: resource
+							material: sulfur
+							amount: 0.0973
+							amount_extra: 0.1416
 							group: 0
 							flags: residue, byproduct
+						}
+						{
+							type: resource
+							material: hydrogen_sulfide
+							amount: 0.285957
+							amount_extra: 0.770381
+							group: 0
+							flags: pollutant, waste, spawn
 						}
 					]
 				}
@@ -242,7 +347,7 @@
 	rank: -140.000
 	
 	min: 1
-	max: 20
+	max: 50
 	step: 1
 	
 	version: 1
