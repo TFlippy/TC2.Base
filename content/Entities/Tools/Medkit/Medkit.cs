@@ -2,8 +2,8 @@
 {
 	public static class Medkit
 	{
-		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
-		public struct Data: IComponent
+		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region)]
+		public struct Data(): IComponent
 		{
 			[Statistics.Info("Healing Amount", description: "Base amount of health this heals", format: "{0:0}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
 			public float power = 100.00f;
@@ -36,11 +36,6 @@
 			public float pain = 0.00f;
 
 			[Save.Ignore, Net.Ignore] public float next_use;
-
-			public Data()
-			{
-
-			}
 		}
 
 #if CLIENT

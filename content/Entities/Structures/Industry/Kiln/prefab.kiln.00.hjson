@@ -132,12 +132,14 @@ crafter:
 
 workshop:
 {
+	orders_capacity: 1
+	
 	tools: hammer, bucket, shovel, tongs
 	infrastructure: oven, hard_surface
-	machinery: heater, burner
-	environment: container, waterproof, stationary, dirty, ugly, fireproof, durable, sturdy
-
-	orders_capacity: 1
+	environment: container, stationary, dirty, ugly, fireproof, durable, sturdy, waterproof
+	
+	gui_info_size_x: 224.000
+	
 	h_sound_order_complete: computer.bell.00
 }
 
