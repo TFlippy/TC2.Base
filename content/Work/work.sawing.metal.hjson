@@ -21,6 +21,8 @@
 	cooldown: 0.940
 	multiplier: 0.650
 	
+	amount_jitter: 0.256
+	cooldown_jitter: 0.110
 	color: "0xffffa200"
 	
 	tools_required: saw

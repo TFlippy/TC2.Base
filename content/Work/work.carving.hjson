@@ -21,6 +21,8 @@
 	cooldown: 0.850
 	multiplier: 0.700
 	
+	amount_jitter: 0.194
+	cooldown_jitter: 0.135
 	color: "0xff719240"
 	
 	tools_required: hammer, file, chisel, knife

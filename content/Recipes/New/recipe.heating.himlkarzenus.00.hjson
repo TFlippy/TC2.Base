@@ -57,8 +57,8 @@
 						{
 							type: resource
 							material: arsenic
-							amount: 0.531544
-							amount_extra: 0.118001
+							amount: 0.151544
+							amount_extra: 0.098001
 							group: 0
 							flags: primary, compact
 						}
@@ -193,7 +193,7 @@
 							type: resource
 							material: mercury
 							amount: 0.000
-							amount_extra: 0.061347
+							amount_extra: 0.241347
 							group: 0
 							flags: residue, byproduct, secondary, spawn, compact
 						}
@@ -255,15 +255,15 @@
 						{
 							type: resource
 							material: mercury
-							amount: 0.207448
-							amount_extra: 0.097734
+							amount: 0.337448
+							amount_extra: 0.217734
 							group: 0
 							flags: byproduct, secondary, compact
 						}
 						{
 							type: resource
 							material: arsenic
-							amount: 0.1432
+							amount: 0.0732
 							amount_extra: 0.1012
 							group: 0
 							flags: residue, primary, compact

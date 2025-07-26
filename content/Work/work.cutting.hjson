@@ -21,6 +21,8 @@
 	cooldown: 1.000
 	multiplier: 1.000
 	
+	amount_jitter: 0.177
+	cooldown_jitter: 0.112
 	color: "0xffffa200"
 	
 	tools_required: cutters

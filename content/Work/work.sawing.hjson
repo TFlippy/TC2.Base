@@ -22,6 +22,7 @@
 	multiplier: 0.800
 	
 	amount_jitter: 0.139
+	cooldown_jitter: 0.107
 	color: "0xff719240"
 	
 	tools_required: saw

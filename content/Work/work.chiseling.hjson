@@ -21,6 +21,8 @@
 	cooldown: 1.000
 	multiplier: 1.000
 	
+	amount_jitter: 0.164
+	cooldown_jitter: 0.126
 	color: "0xffaeb59a"
 	
 	tools_required: hammer, chisel

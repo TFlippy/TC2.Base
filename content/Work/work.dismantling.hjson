@@ -21,6 +21,8 @@
 	cooldown: 1.150
 	multiplier: 1.000
 	
+	amount_jitter: 0.432
+	cooldown_jitter: 0.284
 	color: "0xffffa200"
 	
 	tools_required: screwdriver, spanner

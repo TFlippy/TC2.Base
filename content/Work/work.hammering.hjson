@@ -21,7 +21,8 @@
 	cooldown: 1.000
 	multiplier: 0.730
 	
-	amount_jitter: 0.396
+	amount_jitter: 0.233
+	cooldown_jitter: 0.117
 	color: "0xffffa200"
 	
 	tools_required: hammer

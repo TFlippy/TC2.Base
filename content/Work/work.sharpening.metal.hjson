@@ -22,6 +22,7 @@
 	multiplier: 1.870
 	
 	amount_jitter: 0.496
+	cooldown_jitter: 0.207
 	color: "0xffff6200"
 	
 	tools_required: hand_drill

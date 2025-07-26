@@ -21,6 +21,8 @@
 	cooldown: 1.750
 	multiplier: 1.350
 	
+	amount_jitter: 0.208
+	cooldown_jitter: 0.184
 	color: "0xffffa200"
 	
 	tools_required: knife

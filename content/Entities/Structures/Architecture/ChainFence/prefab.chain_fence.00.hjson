@@ -23,6 +23,7 @@ body:
 		material: wire
 		
 		layer: entity, background, building, no_overlapped_placement, ignore_melee, ignore_bullet
+		mask: world, no_overlapped_placement
 	}
 }
 

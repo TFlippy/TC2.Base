@@ -22,7 +22,7 @@
 	multiplier: 0.900
 	
 	amount_jitter: 0.215
-	cooldown_jitter: 0.090
+	cooldown_jitter: 0.264
 	color: "0xff14d081"
 	
 	tools_required: ruler, screwdriver

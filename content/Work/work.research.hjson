@@ -21,6 +21,8 @@
 	cooldown: 1.000
 	multiplier: 1.000
 	
+	amount_jitter: 0.790
+	cooldown_jitter: 0.513
 	color: "0xff14d081"
 	
 	tools_required: pencil, paper

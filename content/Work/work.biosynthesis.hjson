@@ -21,6 +21,8 @@
 	cooldown: 2.000
 	multiplier: 0.600
 	
+	amount_jitter: 0.701
+	cooldown_jitter: 0.522
 	color: "0xff14d081"
 	
 	tools_required: tongs

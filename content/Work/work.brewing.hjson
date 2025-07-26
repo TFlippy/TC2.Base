@@ -21,6 +21,8 @@
 	cooldown: 1.220
 	multiplier: 2.750
 	
+	amount_jitter: 0.240
+	cooldown_jitter: 0.149
 	color: "0xffef3500"
 	
 	tools_required: none

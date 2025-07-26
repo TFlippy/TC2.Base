@@ -22,6 +22,7 @@
 	multiplier: 1.550
 	
 	amount_jitter: 0.281
+	cooldown_jitter: 0.134
 	color: "0xffff6200"
 	
 	tools_required: hammer, pliers, tongs

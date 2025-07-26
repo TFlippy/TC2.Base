@@ -21,6 +21,8 @@
 	cooldown: 0.900
 	multiplier: 1.150
 	
+	amount_jitter: 0.396
+	cooldown_jitter: 0.145
 	color: "0xffdd4f60"
 	
 	tools_required: towel

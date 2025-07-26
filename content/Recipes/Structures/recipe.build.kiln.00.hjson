@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.64.0"
-	name: "Kiln"
+	name: "Oven"
 	tips: []
 	
 	requirements:
@@ -61,7 +61,7 @@
 	
 	color_frame: "0xffff5f11"
 	color_button: "0xff9dd80f"
-	rank: -397.000
+	rank: -553.000
 	frame_size: [56.000, 56.000]
 	
 	dismantle_work: 10.000

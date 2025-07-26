@@ -21,6 +21,8 @@
 	cooldown: 0.850
 	multiplier: 0.700
 	
+	amount_jitter: 0.379
+	cooldown_jitter: 0.196
 	color: "0xffdd4f60"
 	
 	tools_required: cutters, needle, pins

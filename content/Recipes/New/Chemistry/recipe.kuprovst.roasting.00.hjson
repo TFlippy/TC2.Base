@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.64.0"
 	name: "Kuprovst Roasting"
 	desc:
 		'''
@@ -221,7 +221,7 @@
 	]
 	
 	type: workshop
-	flags: debug, production, wip
+	flags: debug, disabled, production, wip
 	tags: simple, raw, smelting, heating, processing
 	infrastructure: oven, heater, kiln
 	infrastructure_exclude: none

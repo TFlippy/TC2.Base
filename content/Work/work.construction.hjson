@@ -21,6 +21,8 @@
 	cooldown: 1.000
 	multiplier: 1.500
 	
+	amount_jitter: 0.295
+	cooldown_jitter: 0.224
 	color: "0xffffa200"
 	
 	tools_required: ruler, hammer, saw, hand_drill, screwdriver

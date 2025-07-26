@@ -21,6 +21,8 @@
 	cooldown: 3.000
 	multiplier: 5.000
 	
+	amount_jitter: 0.191
+	cooldown_jitter: 0.132
 	color: "0xff5469ff"
 	
 	tools_required: bucket

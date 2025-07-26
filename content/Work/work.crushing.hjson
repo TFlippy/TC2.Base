@@ -22,7 +22,7 @@
 	multiplier: 0.640
 	
 	amount_jitter: 0.546
-	cooldown_jitter: 0.025
+	cooldown_jitter: 0.140
 	color: "0xffa94535"
 	
 	tools_required: none
