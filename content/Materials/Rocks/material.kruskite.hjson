@@ -6,12 +6,17 @@
 	name_dumb: "Stone"
 	description:
 		'''
-		Brittle silicate metamorphic rock.
+		Brittle, porous silicate igneous rock with a dull luster.
 
-		Commonly found bearing various sulfide minerals, in some cases as well native sulfur, silver and gold.
+		Often found as a host rock for various sulfide minerals, along with containing inclusions of amalgamated silver and gold.
 		'''
 	
-	tips: []
+	tips:
+	[
+		"Can be refined to extract trace amounts of mercury, silver, and gold."
+		"Useful as a filler material in construction, though its brittleness may lead to structural weaknesses."
+		"Can be crushed into gravel or sand for use in various recipes."
+	]
 	
 	icon:
 	{
@@ -20,17 +25,30 @@
 		frame: [3, 0]
 	}
 	
+	// Inventory material type.
 	type: stone_porous
-	flags: granular, raw, solid, primary
+	flags: hard, granular, rock, raw, gravel, solid, impure, primary
 	display_flags: none
-	hints: none
+	hints: materials, weak, mining, cheap, clumsy
 	
-	mass_per_unit: 0.714
+	// General purity modifier.
+	purity: 0.671
+	// Mass of 1 unit in kg.
+	mass_per_unit: 1.714
 	
+	// Volume occupied by 1 unit in m³.
+	volume_per_unit: 0.001328
+	// Volume occupied by a stack in m³.
+	volume_per_stack: 0.6642
+	
+	// Maximum quantity (units) per stack.
 	quantity_max: 500.000
+	// Minimum spawnable quantity.
 	spawn_quantity_threshold: 1.000
+	// Preferred quantity snapping for recipes.
 	snapping: 1.000
-	snapping_pickup: 1.000
+	// Preferred quantity snapping for inventories.
+	snapping_pickup: 5.000
 	
 	form_type: chunk
 	prefab: resource.kruskite
@@ -38,8 +56,22 @@
 	
 	color_icon: "0xffffffff"
 	color_item: "0xffffffff"
-	color_dust: "0xffffffff"
-	color_gib: "0xffffffff"
+	color_dust: "0xff9c9676"
+	color_gib: "0xff9c9676"
 	
+	centroid_default: [0.000, 0.250]
 	colliders: []
+	
+	// Info regarding relations of other materials towards this material.
+	related:
+	{
+		gravel: ruined, residue, crushed, mangled, decomposition, dirty, waste, similar
+		sand: residue, raw, crushed, decomposition, similar, filler, powdered
+		mercury: component, refined, residue, decomposition, purified, clean, element
+		gold.gravel: component, residue, raw, ore, crushed, decomposition, purified, similar, element, smelted
+		silver.gravel: component, residue, raw, ore, crushed, decomposition, purified, similar, element, smelted
+		silica: component, refined, residue, crushed, decomposition, purified, clean, similar, element, powdered
+		chalcopyrite: raw, ore, similar, filler, natural
+		sulfur: component, refined, residue, decomposition, purified, clean, chemical, element, powdered
+	}
 }

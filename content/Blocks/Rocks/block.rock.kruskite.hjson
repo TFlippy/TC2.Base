@@ -1,15 +1,16 @@
 ﻿{
-	$version: "0.1.63.8"
+	$version: "0.1.64.0"
 	name: "Kruskite"
 	desc:
 		'''
-		Brittle silicate metamorphic rock.
-		Commonly found bearing various sulfide minerals, in some cases as well native sulfur, silver and gold.
+		Brittle, porous silicate igneous rock with a dull luster.
+
+		Often found as a host rock for various sulfide minerals, along with containing inclusions of amalgamated silver and gold.
 		'''
 	
 	material_type: stone_porous
 	tile_flags: non_empty
-	flags: raw, ore, common, porous, rock, silicate, metamorphic
+	flags: raw, ore, common, porous, rock, silicate, igneous
 	
 	max_health: 15000.000
 	smoothing: 0.140
@@ -17,7 +18,7 @@
 	strength_tensile: 4.800
 	strength_compressive: 21.000
 	
-	mass: 0.800
+	mass: 1.800
 	friction: 0.900
 	elasticity: 0.200
 	fall_damage_mult: 0.880
@@ -49,4 +50,9 @@
 			tile_flags: solid, non_empty, become_background_on_break, ground, no_replace
 		}
 	]
+	
+	related:
+	{
+		kruskite: component, raw, crushed, similar, ingredient, natural
+	}
 }
