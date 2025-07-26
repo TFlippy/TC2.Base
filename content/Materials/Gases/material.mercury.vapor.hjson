@@ -1,0 +1,62 @@
+﻿{
+	$version: "0.1.64.0"
+	name: "Mercury Vapor"
+	name_short: "Mercury"
+	name_advanced: "Mercury Vapor"
+	name_dumb: "Funny"
+	description:
+		'''
+		TODO: Desc
+		'''
+	
+	tips: []
+	
+	icon:
+	{
+		texture: ui_icons_widget
+		count: 1
+		size: [16, 16]
+		frame: [14, 2]
+	}
+	
+	// Inventory material type.
+	type: gas
+	flags: gas, toxic, metal, chemical, raw, waste, volatile, impure, contaminated, primary
+	display_flags: sprite_stack_linear, no_random_facing
+	spawn_flags:
+	{
+		rem: pickup, allow_encumbered, show_notification
+	}
+	hints: none
+	
+	// General purity modifier.
+	purity: 0.885
+	// Mass of 1 unit in kg.
+	mass_per_unit: 0.20059
+	
+	// Maximum quantity (units) per stack.
+	quantity_max: 1000.000
+	// Minimum spawnable quantity.
+	spawn_quantity_threshold: 0.100
+	// Preferred quantity snapping for recipes.
+	snapping: 0.100
+	// Preferred quantity snapping for inventories.
+	snapping_pickup: 1.000
+	
+	form_type: gas
+	prefab: resource.mercury.vapor
+	h_substance: mercury
+	
+	color_icon: "0xe0b8c4c4"
+	color_item: "0xffffffff"
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
+	
+	colliders: []
+	
+	// Info regarding relations of other materials towards this material.
+	related:
+	{
+		mercury: source, purified, clean, similar, element, solidified
+	}
+}
