@@ -212,7 +212,7 @@ shop:
 	{
 		require: manual
 		include: manual, munitions, tailoring, engineering, salvaging, medical, research, social, science
-		exclude: advanced, medium, large, huge, vehicle, raw, blacksmithing, smelting, fermenting, melting, heating, casting, overworld
+		exclude: advanced, medium, large, huge, vehicle, raw, blacksmithing, smelting, fermenting, heating, overworld
 	}
 	
 	tools: pencil, paper, ruler, hammer, screwdriver, magnifying_glass, bucket, towel, knife, sandpaper, needle, pins, scissors
@@ -248,6 +248,6 @@ laboratory:
 	filter_tags:
 	{
 		include: construction, architecture
-		exclude: complex, advanced, vehicle, machinery, blacksmithing, smelting, melting, casting, processing
+		exclude: complex, advanced, vehicle, machinery, blacksmithing, smelting, processing
 	}
 }

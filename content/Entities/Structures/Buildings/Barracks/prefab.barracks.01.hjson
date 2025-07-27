@@ -136,8 +136,8 @@ shop:
 	tags_filter:
 	{
 		require: manual
-		include: manual, food, tailoring, cooking, research, social
-		exclude: advanced, small, huge, tailoring, cooking, gathering, architecture, smelting, drying, fermenting, melting, heating, casting
+		include: manual, tailoring, cooking, research, social
+		exclude: advanced, small, huge, tailoring, cooking, gathering, architecture, smelting, drying, fermenting, heating
 	}
 	
 	tools: hammer, magnifying_glass, bucket, shovel, towel, tongs, crowbar, sandpaper, scissors, ladle
@@ -234,7 +234,7 @@ minimap.marker:
 // 	filter_tags:
 // 	{
 // 		include: construction, architecture
-// 		exclude: complex, advanced, vehicle, machinery, blacksmithing, smelting, melting, casting, processing
+// 		exclude: complex, advanced, vehicle, machinery, blacksmithing, smelting, processing
 // 	}
 // }
 

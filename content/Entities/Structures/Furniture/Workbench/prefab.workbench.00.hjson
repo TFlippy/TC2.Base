@@ -117,7 +117,7 @@ shop:
 	{
 		require: manual
 		include: workbench, crafting, simple, gathering
-		exclude: advanced, large, huge, vehicle, blacksmithing, smelting, fermenting, heating, casting
+		exclude: advanced, large, huge, vehicle, blacksmithing, smelting, fermenting, heating
 	}
 	
 	tools: hammer, cutters, saw, hand_drill, screwdriver, wrench, bucket, axe, shovel, file, chisel, knife, sandpaper, ladle

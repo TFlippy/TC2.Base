@@ -110,7 +110,7 @@ shop:
 	{
 		require: salvaging
 		include: dumb, crude, industrial, salvaging, processing, dangerous
-		exclude: crafting, huge, construction, heating, casting
+		exclude: crafting, huge, construction, heating
 	}
 	
 	tools: hammer, screwdriver, spanner, pliers, bucket, shovel, towel, spatula, tongs, crowbar, knife, ladle

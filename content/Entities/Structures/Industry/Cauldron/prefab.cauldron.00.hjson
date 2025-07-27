@@ -59,7 +59,7 @@ shop:
 	tags_filter:
 	{
 		include: food, agriculture, filtering, cooking, chemistry, gathering, blending, fermenting
-		exclude: advanced, large, huge, vehicle, furniture, blacksmithing, woodworking, assembling, carpentry, construction, smelting, drying, casting, moulding, overworld
+		exclude: advanced, large, huge, vehicle, furniture, blacksmithing, woodworking, assembling, carpentry, construction, smelting, drying, moulding, overworld
 	}
 	
 	tools: hammer, cleaver, bucket, paintbrush, axe, shovel, syringe, towel, spatula, tongs, crowbar, knife, scissors, ladle, utensils

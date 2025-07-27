@@ -71,7 +71,7 @@ shop:
 	{
 		require: manual
 		include: workbench, workshop, blacksmithing, metalworking, salvaging, heating
-		exclude: advanced, large, huge, social, forestry, smelting, fermenting, casting, moulding, overworld
+		exclude: advanced, large, huge, social, forestry, smelting, fermenting, moulding, overworld
 	}
 	
 	tools: hammer, saw, hand_drill, screwdriver, spanner, pliers, bucket, axe, shovel, file, chisel, towel, tongs, pick, crowbar, knife, sandpaper, ladle

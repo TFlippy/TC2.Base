@@ -189,7 +189,7 @@ shop:
 	tags_filter:
 	{
 		include: manual, crafting, simple, small, medium, tailoring, research, social, science, military, architecture
-		exclude: advanced, large, huge, vehicle, blacksmithing, fermenting, melting, heating, casting
+		exclude: advanced, large, huge, vehicle, blacksmithing, fermenting, heating
 	}
 	
 	tools: pencil, paper, ruler, hammer, screwdriver, spanner, tweezers, magnifying_glass, stapler, towel, knife, needle, pins, scissors, utensils

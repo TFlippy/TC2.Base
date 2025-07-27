@@ -125,7 +125,7 @@ heat:
 // 	tags_filter:
 // 	{
 // 		require: casting
-// 		include: heating, casting, refining, smelting
+// 		include: heating, refining, smelting
 // 		exclude: assembling, tailoring, social
 // 	}
 	

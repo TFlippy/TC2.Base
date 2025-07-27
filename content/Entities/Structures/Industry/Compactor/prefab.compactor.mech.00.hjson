@@ -108,7 +108,7 @@ shop:
 	tags_filter:
 	{
 		require: heating
-		include: heating, casting, smelting
+		include: heating, smelting
 		exclude: assembling, tailoring, social, drying
 	}
 	

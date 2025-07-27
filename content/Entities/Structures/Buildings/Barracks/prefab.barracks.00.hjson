@@ -146,8 +146,8 @@ shop:
 	tags_filter:
 	{
 		require: manual
-		include: manual, food, tailoring, cooking, research, social
-		exclude: advanced, medium, large, huge, vehicle, blacksmithing, gathering, architecture, smelting, drying, fermenting, melting, heating, casting, moulding
+		include: manual, tailoring, cooking, research, social
+		exclude: advanced, medium, large, huge, vehicle, blacksmithing, gathering, architecture, smelting, drying, fermenting, heating, moulding
 	}
 	
 	tools: pencil, paper, hammer, screwdriver, tweezers, bucket, towel, spatula, knife, needle, pins, scissors, ladle
@@ -244,7 +244,7 @@ minimap.marker:
 // 	filter_tags:
 // 	{
 // 		include: construction, architecture
-// 		exclude: complex, advanced, vehicle, machinery, blacksmithing, smelting, melting, casting, processing
+// 		exclude: complex, advanced, vehicle, machinery, blacksmithing, smelting, processing
 // 	}
 // }
 

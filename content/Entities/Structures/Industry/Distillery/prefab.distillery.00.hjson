@@ -88,7 +88,7 @@ shop:
 	tags_filter:
 	{
 		include: chemistry, fermenting, heating
-		exclude: workbench, large, huge, tool, vehicle, furniture, blacksmithing, assembling, tailoring, metalworking, carpentry, architecture, construction, smelting, casting, moulding
+		exclude: workbench, large, huge, tool, vehicle, furniture, blacksmithing, assembling, tailoring, metalworking, carpentry, architecture, construction, smelting, moulding
 	}
 	
 	tools: hammer, screwdriver, spanner, magnifying_glass, bucket, shovel, towel, spatula, tongs, ladle

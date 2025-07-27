@@ -104,7 +104,7 @@ shop:
 	tags_filter:
 	{
 		include: munitions, explosive
-		exclude: large, huge, blacksmithing, smelting, drying, casting
+		exclude: large, huge, blacksmithing, smelting, drying
 	}
 	
 	tools: pencil, paper, ruler, hammer, cutters, hand_drill, screwdriver, spanner, pliers, tweezers, bucket, shovel, syringe, file, towel, spatula, knife, sandpaper, scissors, ladle

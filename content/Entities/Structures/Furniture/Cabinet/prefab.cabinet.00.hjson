@@ -88,8 +88,8 @@ shop:
 	tags_filter:
 	{
 		require: workbench
-		include: workbench, manual, simple, small, food, filtering, assembling, tailoring, engineering, research
-		exclude: advanced, large, huge, vehicle, agriculture, blacksmithing, metalworking, carpentry, forestry, smelting, fermenting, melting, heating, casting
+		include: workbench, manual, simple, small, filtering, assembling, tailoring, engineering, research
+		exclude: advanced, large, huge, vehicle, agriculture, blacksmithing, metalworking, carpentry, forestry, smelting, fermenting, heating
 	}
 	
 	tools: pencil, paper, ruler, hammer, screwdriver, tweezers, magnifying_glass, bucket, paintbrush, stapler, towel, spatula, tongs, knife, needle, pins

@@ -103,7 +103,7 @@ shop:
 	tags_filter:
 	{
 		include: workbench, workshop, weapon, gun, tool, munitions, machinery, assembling, metalworking, engineering, salvaging, explosive
-		exclude: huge, blacksmithing, social, science, biology, forestry, smelting, fermenting, melting, heating, casting, moulding, overworld
+		exclude: huge, blacksmithing, social, science, biology, forestry, smelting, fermenting, heating, moulding, overworld
 	}
 	
 	tools: pencil, paper, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, spanner, pliers, cleaver, tweezers, magnifying_glass, bucket, paintbrush, axe, shovel, syringe, stapler, file, chisel, towel, spatula, tongs, pick, crowbar, knife, sandpaper, needle, pins, scissors, ladle, calculator

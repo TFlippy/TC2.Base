@@ -76,7 +76,7 @@ shop:
 	{
 		require: heating
 		include: raw, filtering, cooking, smelting, drying, heating, processing
-		exclude: advanced, large, huge, assembling, blending, construction, fermenting, casting, moulding
+		exclude: advanced, large, huge, assembling, blending, construction, fermenting, moulding
 	}
 	
 	tools: hammer, bucket, shovel, tongs
