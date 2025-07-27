@@ -117,19 +117,27 @@
 					[
 						{
 							type: resource
-							material: arsine
-							amount: 1.624379
-							amount_extra: 0.534836
-							group: 0
-							flags: pollutant, waste, spawn
-						}
-						{
-							type: resource
 							material: hydrogen
 							amount: 2.581455
 							amount_extra: 1.2155
 							group: 0
-							flags: residue, spawn
+							flags: residue, spawn, hidden
+						}
+						{
+							type: resource
+							material: arsine
+							amount: 1.624379
+							amount_extra: 0.534836
+							group: 0
+							flags: pollutant, waste, spawn, hidden
+						}
+						{
+							type: resource
+							material: mercury.vapor
+							amount: 0.4182
+							amount_extra: 0.0599
+							group: 0
+							flags: pollutant, waste, spawn, hidden
 						}
 					]
 				}
@@ -203,7 +211,7 @@
 							amount: 2.3039
 							amount_extra: 0.155
 							group: 0
-							flags: pollutant, waste, spawn
+							flags: pollutant, waste, spawn, hidden
 						}
 						{
 							type: resource
@@ -211,7 +219,7 @@
 							amount: 2.0186
 							amount_extra: 0.6883
 							group: 0
-							flags: pollutant, waste, spawn
+							flags: pollutant, waste, spawn, hidden
 						}
 					]
 				}
@@ -290,7 +298,7 @@
 							amount: 0.285957
 							amount_extra: 0.770381
 							group: 0
-							flags: pollutant, waste, spawn
+							flags: pollutant, waste, spawn, hidden
 						}
 					]
 				}

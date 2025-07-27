@@ -19,6 +19,7 @@
 	strength_compressive: 2.800
 	
 	mass: 1.110
+	density: 0.000
 	friction: 0.750
 	elasticity: 0.690
 	fall_damage_mult: 1.150
@@ -38,11 +39,11 @@
 	[
 		{
 			material: himlkarzenus
-			quantity: 0.410
+			quantity: 0.4632
 		}
 		{
 			material: arsine
-			quantity: 2.180
+			quantity: 2.240
 		}
 	]
 	

@@ -20,19 +20,29 @@
 		frame: [3, 0]
 	}
 	
+	// Inventory material type.
 	type: crystal
 	flags: hard, granular, toxic, mineral, small, fragile, raw, flammable, volatile, solid, smelly, primary
 	display_flags: none
 	hints: materials, dangerous, small, chemical, fancy, fast, unstable
 	
+	// General purity modifier.
 	purity: 0.885
-	mass_per_unit: 1.225
+	// Mass of 1 unit in kg.
+	mass_per_unit: 1.317
+	
+	// Volume occupied by 1 unit in m³.
 	volume_per_unit: 0.00094
+	// Volume occupied by a stack in m³.
 	volume_per_stack: 0.4701
 	
+	// Maximum quantity (units) per stack.
 	quantity_max: 500.000
+	// Minimum spawnable quantity.
 	spawn_quantity_threshold: 0.200
+	// Preferred quantity snapping for recipes.
 	snapping: 0.100
+	// Preferred quantity snapping for inventories.
 	snapping_pickup: 25.000
 	
 	form_type: raw
@@ -47,6 +57,7 @@
 	centroid_default: [0.000, 0.250]
 	colliders: []
 	
+	// Damage-based conversions.
 	conversions:
 	{
 		heat:
@@ -107,6 +118,7 @@
 		}
 	}
 	
+	// Residues from crafting/work.
 	residues:
 	{
 		cramming.solid:
@@ -129,6 +141,7 @@
 		}
 	}
 	
+	// Info regarding relations of other materials towards this material.
 	related:
 	{
 		arsenic: refined, residue, raw, purified, clean, element

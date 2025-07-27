@@ -63,7 +63,7 @@ shop:
 	}
 	
 	tools: hammer, cleaver, bucket, paintbrush, axe, shovel, syringe, towel, spatula, tongs, crowbar, knife, scissors, ladle, utensils
-	infrastructure: cauldron, dishes, bottle, barrel, crucible, bucket, liquid_container, heater, blender, stove, fermenter, structure
+	infrastructure: spigot, cauldron, dishes, bottle, barrel, crucible, bucket, liquid_container, heater, blender, stove, fermenter, structure
 	environment: container, stationary, reinforced, fireproof, durable, sturdy, waterproof, small
 	
 	flags: embed_gui
