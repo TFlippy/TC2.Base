@@ -6,16 +6,16 @@
 	name_dumb: "Stone"
 	description:
 		'''
-		A dense, iron-rich metamorphic rock found deeper underground. 
+		Dense ferrous metamorphic rock with a dull metallic texture found deeper underground, forming a bedrock layer.
 
-		Often used as a low-grade source of smirglum, along with iron, silver, and chlorine.
+		Often contains inclusions of smirglum and various heavy metals.
 		'''
 	
 	tips:
 	[
 		"- Extremely heavy and dense."
+		"- Low-grade smirglum ore."
 		"- Can be used in durable masonry."
-		"- Refining releases toxic chlorine gas."
 	]
 	
 	icon:
@@ -27,12 +27,12 @@
 	
 	// Inventory material type.
 	type: stone_metallic
-	flags: hard, magnetic, granular, toxic, metal, rock, heavy, raw, solid, impure, primary
+	flags: hard, magnetic, granular, metal, rock, heavy, raw, solid, impure, primary
 	display_flags: none
 	hints: materials, heavy, mining, industrial, slow, clumsy
 	
 	// General purity modifier.
-	purity: 0.725
+	purity: 0.655
 	// Mass of 1 unit in kg.
 	mass_per_unit: 3.170
 	
@@ -57,17 +57,32 @@
 	centroid_default: [0.000, 0.250]
 	colliders: []
 	
+	// Residues from crafting/work.
+	residues:
+	{
+		amalgamation:
+		{
+			h_material: smirglum.amalgam
+			h_substance: "null"
+			flags: none
+			flags_product: residue, byproduct, compact
+			
+			yield: [0.460, 0.332]
+		}
+	}
+	
 	// Info regarding relations of other materials towards this material.
 	related:
 	{
 		smirglum: component, refined, residue, decomposition, purified, clean, similar, element, solidified, product
 		iron: component, refined, residue, decomposition, purified, clean, similar, element, solidified, product
-		silver: component, refined, residue, decomposition, purified, clean, similar, element, solidified, product
 		smirglum.powder: component, refined, residue, crushed, decomposition, purified, clean, similar, element, powdered
 		iron.powder: component, refined, residue, crushed, decomposition, purified, clean, similar, element, powdered
-		silver.powder: component, refined, residue, crushed, decomposition, purified, clean, similar, element, powdered
 		chlorine: component, refined, burnt, residue, reaction, decomposition, waste, chemical, element, roasted, gas, vapor
 		gravel: residue, crushed, decomposition, dirty, waste, filler, natural
 		slag: ruined, burnt, residue, melted, reaction, mangled, decomposition, dirty, waste, solidified, slag, corroded, roasted
+		silica: component, refined, residue, decomposition, purified, filler, element, ingredient, product
+		sand: component, residue, crushed, decomposition, similar, filler, element, powdered, natural, product, roasted
+		smirglum.amalgam: reaction, decomposition, similar, alloy, product
 	}
 }

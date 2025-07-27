@@ -93,11 +93,11 @@
 					
 					filter_tools:
 					{
-						include: bucket, spatula
+						include: shovel, spatula
 					}
-					filter_environment:
+					filter_infrastructure:
 					{
-						include: stationary, quiet
+						include: liquid_container
 					}
 				}
 			]
@@ -180,15 +180,6 @@
 							flags: pollutant, waste
 						}
 					]
-					
-					filter_tools:
-					{
-						include: bucket, spatula
-					}
-					filter_environment:
-					{
-						include: stationary, quiet
-					}
 				}
 			]
 		}
@@ -263,11 +254,7 @@
 					
 					filter_tools:
 					{
-						include: bucket, spatula
-					}
-					filter_environment:
-					{
-						include: stationary, quiet
+						require: bucket
 					}
 				}
 			]
@@ -316,15 +303,6 @@
 							flags: conditional
 						}
 					]
-					
-					filter_tools:
-					{
-						include: bucket, spatula
-					}
-					filter_environment:
-					{
-						include: stationary, quiet
-					}
 				}
 			]
 		}

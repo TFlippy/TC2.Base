@@ -3,9 +3,9 @@
 	name: "Pjerdelite"
 	desc:
 		'''
-		A dense, iron-rich metamorphic rock found deeper underground. 
+		Dense ferrous metamorphic rock with a dull metallic texture found deeper underground, forming a bedrock layer.
 
-		Often used as a low-grade source of smirglum, along with iron, silver, and chlorine.
+		Often contains inclusions of smirglum and various heavy metals.
 		'''
 	
 	material_type: stone_metallic

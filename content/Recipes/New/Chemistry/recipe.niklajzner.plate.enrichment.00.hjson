@@ -195,7 +195,7 @@
 	
 	type: workshop
 	flags: production, wip
-	tags: simple, metallurgy, heating, processing
+	tags: simple, metallurgy, refining, heating, processing
 	infrastructure: oven
 	infrastructure_exclude: none
 	

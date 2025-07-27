@@ -140,6 +140,15 @@
 							flags: pollutant, waste, spawn, hidden
 						}
 					]
+					
+					filter_infrastructure:
+					{
+						include: oven, forge, crucible
+					}
+					filter_environment:
+					{
+						include: container, airtight, stationary, dirty, ugly, cozy, fireproof, flammable, small
+					}
 				}
 			]
 		}
@@ -222,6 +231,15 @@
 							flags: pollutant, waste, spawn, hidden
 						}
 					]
+					
+					filter_infrastructure:
+					{
+						include: oven, forge, crucible
+					}
+					filter_environment:
+					{
+						include: container, airtight, stationary, dirty, ugly, cozy, fireproof, flammable, small
+					}
 				}
 				{
 					name: "Condensed"
@@ -301,6 +319,16 @@
 							flags: pollutant, waste, spawn, hidden
 						}
 					]
+					
+					filter_infrastructure:
+					{
+						require: lab_glassware, bottle, still, condenser
+						include: oven, forge, crucible
+					}
+					filter_environment:
+					{
+						include: container, airtight, stationary, dirty, ugly, cozy, fireproof, flammable, small
+					}
 				}
 			]
 		}
@@ -308,7 +336,7 @@
 	
 	type: workshop
 	flags: production, manufacturing, wip, auto_complete
-	tags: complex, raw, filtering, industrial, chemistry, science, heating, processing, dangerous
+	tags: complex, raw, filtering, industrial, chemistry, science, refining, heating, separation, processing, dangerous
 	infrastructure: heater
 	infrastructure_exclude: none
 	

@@ -13,10 +13,10 @@
 			name: "Feedstock"
 			
 			type: formula
-			flags: part, important
-			tags: material, formula, ingredient
+			flags: important
+			tags: material, raw, formula, ingredient
 			// Damage type used for discarding leftover resources.
-			discard_damage_type: wet
+			discard_damage_type: sledgehammer
 			
 			ratio: 0.000
 			mass_base: 0.000
@@ -28,7 +28,6 @@
 					
 					type: undefined
 					flags: none
-					discard_damage_type_override: wet
 					
 					requirements:
 					[
@@ -37,9 +36,43 @@
 							material: pjerdelite
 							amount: 1.000
 							snapping: 0.100
+							loss: 0.224
 							ratio: 1.000
 							group: 0
 							flags: argument, primary, prerequisite
+						}
+						{
+							type: resource
+							material: mercury
+							amount: 1.000
+							loss: 0.075
+							ratio: 0.322
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: amalgamation
+							amount: 800.000
+							amount_min: 400.000
+							difficulty: 11
+							snapping: 1.000
+							falloff: 0.682
+							loss: 0.067
+							ratio: 1.000
+							group: 0
+							flags: stepped, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: pjerdelite
+							amount: 0.231217
+							amount_extra: 0.080423
+							group: 0
 						}
 					]
 				}
@@ -64,6 +97,32 @@
 					
 					type: undefined
 					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: mercury
+							amount: 1.000
+							loss: 0.075
+							ratio: 0.322
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: amalgamation
+							amount: 800.000
+							amount_min: 400.000
+							difficulty: 11
+							snapping: 1.000
+							falloff: 0.682
+							loss: 0.067
+							ratio: 1.000
+							group: 0
+							flags: stepped, conditional
+						}
+					]
 				}
 			]
 		}
@@ -121,26 +180,34 @@
 	
 	icon:
 	{
-		texture: resource.smirglum.powder
-		size: [16, 16]
-		frame: [2, 0]
-	}
-	icon_offset: [-4.000, 3.000]
-	
-	icon_c:
-	{
-		texture: resource.smirglum.gravel
+		texture: resource.pjerdelite
 		size: [16, 16]
 		frame: [3, 0]
 	}
-	icon_c_offset: [-3.000, -16.000]
+	icon_offset: [8.000, 1.000]
+	
+	icon_extra:
+	{
+		texture: resource.smirglum.amalgam
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	icon_extra_offset: [-12.000, -7.000]
+	
+	icon_c:
+	{
+		texture: resource.pjerdelite
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	icon_c_offset: [-17.000, -8.000]
 	
 	color_frame: "0xff80dc7e"
 	color_button: "0xff9dd80f"
 	rank: -140.000
 	
 	min: 1
-	max: 10
+	max: 50
 	step: 1
 	
 	version: 1
