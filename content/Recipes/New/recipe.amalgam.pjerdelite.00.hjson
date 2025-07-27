@@ -112,10 +112,10 @@
 			]
 		}
 	]
-
+	
 	type: workshop
-	flags: debug, production, wip
-	tags: complex, raw, filtering, industrial, metallurgy, chemistry, processing
+	flags: debug, production, wip, auto_complete
+	tags: simple, complex, raw, filtering, industrial, metallurgy, chemistry, processing, messy
 	infrastructure: barrel, bucket, liquid_container
 	infrastructure_exclude: none
 	

@@ -6,10 +6,17 @@
 	name_dumb: "Stone"
 	description:
 		'''
-		Extremely hard metamorphic rock found deeper underground.
+		A dense, iron-rich metamorphic rock found deeper underground. 
+
+		Often used as a low-grade source of smirglum, along with iron, silver, and chlorine.
 		'''
 	
-	tips: []
+	tips:
+	[
+		"- Extremely heavy and dense."
+		"- Can be used in durable masonry."
+		"- Refining releases toxic chlorine gas."
+	]
 	
 	icon:
 	{
@@ -20,10 +27,12 @@
 	
 	// Inventory material type.
 	type: stone_metallic
-	flags: hard, magnetic, granular, metal, rock, heavy, raw, solid, impure, primary
+	flags: hard, magnetic, granular, toxic, metal, rock, heavy, raw, solid, impure, primary
 	display_flags: none
-	hints: none
+	hints: materials, heavy, mining, industrial, slow, clumsy
 	
+	// General purity modifier.
+	purity: 0.725
 	// Mass of 1 unit in kg.
 	mass_per_unit: 3.170
 	
@@ -36,7 +45,7 @@
 	// Preferred quantity snapping for inventories.
 	snapping_pickup: 1.000
 	
-	form_type: chunk
+	form_type: raw
 	prefab: resource.pjerdelite
 	h_substance: "null"
 	
@@ -52,8 +61,13 @@
 	related:
 	{
 		smirglum: component, refined, residue, decomposition, purified, clean, similar, element, solidified, product
-		gravel: residue, crushed, decomposition, dirty, waste, filler, natural
-		slag: ruined, burnt, residue, reaction, mangled, dirty, waste, solidified, slag
+		iron: component, refined, residue, decomposition, purified, clean, similar, element, solidified, product
+		silver: component, refined, residue, decomposition, purified, clean, similar, element, solidified, product
 		smirglum.powder: component, refined, residue, crushed, decomposition, purified, clean, similar, element, powdered
+		iron.powder: component, refined, residue, crushed, decomposition, purified, clean, similar, element, powdered
+		silver.powder: component, refined, residue, crushed, decomposition, purified, clean, similar, element, powdered
+		chlorine: component, refined, burnt, residue, reaction, decomposition, waste, chemical, element, roasted, gas, vapor
+		gravel: residue, crushed, decomposition, dirty, waste, filler, natural
+		slag: ruined, burnt, residue, melted, reaction, mangled, decomposition, dirty, waste, solidified, slag, corroded, roasted
 	}
 }
