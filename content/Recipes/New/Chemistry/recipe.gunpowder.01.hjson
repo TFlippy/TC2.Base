@@ -160,7 +160,12 @@
 					
 					filter_tools:
 					{
-						include: spatula
+						include: hammer, spatula, crowbar
+					}
+					filter_infrastructure:
+					{
+						require: surface
+						include: hard_surface
 					}
 				}
 			]
@@ -276,7 +281,7 @@
 	
 	type: workshop
 	flags: production, manufacturing
-	tags: workbench, manual, crafting, simple, blending, drying, moulding, explosive, dangerous
+	tags: manual, crafting, simple, blending, drying, moulding, explosive, dangerous
 	infrastructure: none
 	infrastructure_exclude: none
 	

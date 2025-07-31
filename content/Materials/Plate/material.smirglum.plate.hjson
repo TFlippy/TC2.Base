@@ -24,9 +24,9 @@
 	hints: none
 	
 	// General purity modifier.
-	purity: 0.981
+	purity: 0.994
 	// Mass of 1 unit in kg.
-	mass_per_unit: 2.688
+	mass_per_unit: 8.976358
 	
 	// Volume occupied by 1 unit in m³.
 	volume_per_unit: 0.0003
@@ -49,6 +49,7 @@
 	color_dust: "0xffdf873d"
 	color_gib: "0xffdf873d"
 	
+	centroid_default: [-0.03125, 0.050]
 	colliders:
 	[
 		{

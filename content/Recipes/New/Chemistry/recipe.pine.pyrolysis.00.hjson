@@ -112,7 +112,7 @@
 					
 					filter_tools:
 					{
-						include: hammer, saw, cleaver, axe, shovel, crowbar, knife
+						include: hammer, saw, cleaver, axe, shovel, crowbar
 					}
 					filter_environment:
 					{

@@ -104,7 +104,12 @@
 					
 					filter_tools:
 					{
-						include: bucket, spatula
+						include: hammer, bucket, spatula, crowbar
+					}
+					filter_infrastructure:
+					{
+						require: surface
+						include: hard_surface
 					}
 				}
 			]
@@ -176,7 +181,7 @@
 	
 	type: workshop
 	flags: production, manufacturing
-	tags: workbench, manual, crafting, simple, chemistry, blending, explosive, dangerous
+	tags: manual, crafting, simple, chemistry, blending, explosive, dangerous
 	infrastructure: none
 	infrastructure_exclude: none
 	

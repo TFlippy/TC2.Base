@@ -95,7 +95,7 @@ laboratory:
 	augments_capacity: 10
 	filter_tags:
 	{
-		include: food, munitions, chemistry, explosive
+		include: munitions, chemistry, explosive
 	}
 }
 

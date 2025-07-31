@@ -3,6 +3,7 @@
 	name: "Prdex"
 	name_short: "PRD"
 	name_imperial: "Prdex"
+	name_advanced: "Red Mercury"
 	name_dumb: "Kickbox"
 	description:
 		'''
@@ -19,17 +20,24 @@
 		frame: [3, 0]
 	}
 	
+	// Inventory material type.
 	type: clay
 	flags: soft, malleable, granular, explosive, toxic, viscous, chemical, manufactured, flammable, solid, processed, primary
 	display_flags: no_random_facing
 	hints: none
 	
+	// General purity modifier.
 	purity: 0.967
+	// Mass of 1 unit in kg.
 	mass_per_unit: 0.8666
 	
+	// Maximum quantity (units) per stack.
 	quantity_max: 500.000
+	// Minimum spawnable quantity.
 	spawn_quantity_threshold: 0.100
+	// Preferred quantity snapping for recipes.
 	snapping: 1.000
+	// Preferred quantity snapping for inventories.
 	snapping_pickup: 25.000
 	
 	form_type: chunk

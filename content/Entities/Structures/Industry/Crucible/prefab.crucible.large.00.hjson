@@ -151,8 +151,8 @@ shop:
 	
 	tags_filter:
 	{
-		require: heating, melting
-		include: metalworking, heating, smelting, melting
+		require: heating
+		include: metalworking, heating, smelting
 		exclude: assembling, tailoring, social, drying
 	}
 	

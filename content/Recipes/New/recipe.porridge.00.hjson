@@ -140,11 +140,12 @@
 					
 					filter_tools:
 					{
-						include: bucket, spatula
+						require: knife
+						include: saw, shovel, spatula, knife
 					}
-					filter_environment:
+					filter_infrastructure:
 					{
-						include: stationary, quiet
+						include: liquid_container
 					}
 				}
 			]

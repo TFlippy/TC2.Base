@@ -1,5 +1,4 @@
 ﻿{
-	$region_id: 0
 	$version: "0.1.64.0"
 	name: "Amalgamation"
 	name_short: "Amalgam"
@@ -18,19 +17,19 @@
 	flags: passive, ambient, wip
 	tags: simple, chemical, industrial, toxic, dangerous, slow
 	
-	amount_base: 1.000
+	amount_base: 2.500
 	cooldown: 1.000
-	multiplier: 1.000
+	multiplier: 3.670
 	
-	amount_jitter: 0.691
-	cooldown_jitter: 0.373
+	amount_jitter: 0.676
+	cooldown_jitter: 0.417
 	color: "0xfff9d7be"
 	
 	tools_required: none
 	tools_optional: none
 	
 	infrastructure_required: none
-	infrastructure_optional: none
+	infrastructure_optional: liquid_container, form
 	
 	skills_min:
 	{

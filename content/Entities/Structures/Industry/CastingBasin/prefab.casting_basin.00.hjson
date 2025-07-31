@@ -62,7 +62,6 @@ shop:
 	
 	tags_filter:
 	{
-		require: casting
 		include: metalworking
 	}
 	

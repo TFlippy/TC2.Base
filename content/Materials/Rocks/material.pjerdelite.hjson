@@ -34,7 +34,7 @@
 	// General purity modifier.
 	purity: 0.655
 	// Mass of 1 unit in kg.
-	mass_per_unit: 3.170
+	mass_per_unit: 3.1754
 	
 	// Maximum quantity (units) per stack.
 	quantity_max: 1000.000
@@ -67,7 +67,7 @@
 			flags: none
 			flags_product: residue, byproduct, compact
 			
-			yield: [0.460, 0.332]
+			yield: [0.732, 0.268]
 		}
 	}
 	

@@ -95,7 +95,7 @@ laboratory:
 	filter_tags:
 	{
 		require: manual, biology
-		include: food, organic, cooking, chemistry, medical, research, science, biology, agriculture
+		include: organic, cooking, chemistry, medical, research, science, biology, agriculture
 		exclude: large, vehicle, munitions, furniture, blacksmithing, social, smelting
 	}
 }
@@ -107,7 +107,7 @@ shop:
 	tags_filter:
 	{
 		require: manual, biology
-		include: food, organic, cooking, chemistry, medical, research, science, biology, agriculture
+		include: organic, cooking, chemistry, medical, research, science, biology, agriculture
 		exclude: large, vehicle, munitions, furniture, blacksmithing, social, smelting
 	}
 	

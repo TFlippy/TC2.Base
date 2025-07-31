@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.8"
+	$version: "0.1.64.0"
 	name: "Arcanite Sheet"
 	name_short: "Arc. Sheet"
 	description:
@@ -16,17 +16,27 @@
 		frame: [3, 0]
 	}
 	
+	// Inventory material type.
 	type: metal_sheet
 	flags: magnetic, metal, small, plate, solid
 	display_flags: sprite_stack_linear, no_random_facing
 	hints: none
 	
+	// General purity modifier.
+	purity: 0.993
+	// Mass of 1 unit in kg.
 	mass_per_unit: 7.007039
+	
+	// Volume occupied by 1 unit in m³.
 	volume_per_unit: 0.0003
 	
+	// Maximum quantity (units) per stack.
 	quantity_max: 250.000
+	// Minimum spawnable quantity.
 	spawn_quantity_threshold: 0.100
+	// Preferred quantity snapping for recipes.
 	snapping: 1.000
+	// Preferred quantity snapping for inventories.
 	snapping_pickup: 50.000
 	
 	form_type: plate

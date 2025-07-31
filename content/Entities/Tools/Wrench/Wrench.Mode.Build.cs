@@ -1489,7 +1489,7 @@ namespace TC2.Base.Components
 						Assert.IsRealNumberOrNull(this.pos_b_raw);
 						Assert.IsRealNumberOrNull(this.normal);
 
-						ref var region = ref rpc.entity.GetRegion();
+						ref var region = ref rpc.GetRegion();
 
 						var errors = Wrench.Mode.Build.Errors.None;
 
@@ -1507,10 +1507,13 @@ namespace TC2.Base.Components
 						if (recipe.IsNotNull() && transform_entity.IsNotNull() && character_data.IsNotNull())
 						{
 							//Crafting.Context.NewFromPlayer(ref region, ref player, entity, out var context);
-							Crafting.Context.NewFromCharacter(ref region.AsCommon(), h_character, rpc.entity, out var context);
+							Crafting.Context.NewFromCharacter(region: ref region.AsCommon(),
+								h_character: h_character,
+								ent_producer: rpc.entity,
+								context: out var context);
 							//var ent_character = connection.enti
 
-							if (recipe.type == Recipe.Type.Architecture || recipe.type == Recipe.Type.Industry || recipe.type == Recipe.Type.Buildings || recipe.type == Recipe.Type.Machinery)
+							if (recipe.type.EqualsAnyValue(Recipe.Type.Architecture, Recipe.Type.Industry, Recipe.Type.Buildings, Recipe.Type.Machinery))
 							{
 								ref var product = ref recipe.products[0];
 								if (recipe.placement.TryGetValue(out var placement))
@@ -1540,7 +1543,7 @@ namespace TC2.Base.Components
 									var transform = new Transform.Data(pos_final, rot_final, scale);
 									var matrix = transform.GetMatrix3x2();
 
-									var ent_parent = rpc.entity.GetParent(Relation.Type.Child);
+									//var ent_parent = rpc.entity.GetParent(Relation.Type.Child);
 									//var inventory = player.GetInventory();
 									var h_faction = character_data.faction;
 
@@ -1596,19 +1599,19 @@ namespace TC2.Base.Components
 													}
 													break;
 
-													case Placement.Type.Circle:
+													case Placement.Type.Line:
 													{
-														terrain.IterateCircle(world_position: pos, radius: placement.radius * App.pixels_per_unit, argument: ref args,
+														//App.WriteLine($"{pos}; {pos_a}; {pos_b}");
+														terrain.IterateLine(world_position_a: pos_a, world_position_b: pos_b, thickness: placement.size.X, argument: ref args,
 															func: placement.flags.HasAny(Placement.Flags.Replace) ? SetTileFuncReplace : SetTileFunc,
 															dirty_flags: Chunk.DirtyFlags.Sync | Chunk.DirtyFlags.Neighbours | Chunk.DirtyFlags.Collider,
 															iteration_flags: Terrain.IterationFlags.Create_If_Empty);
 													}
 													break;
 
-													case Placement.Type.Line:
+													case Placement.Type.Circle:
 													{
-														//App.WriteLine($"{pos}; {pos_a}; {pos_b}");
-														terrain.IterateLine(world_position_a: pos_a, world_position_b: pos_b, thickness: placement.size.X, argument: ref args,
+														terrain.IterateCircle(world_position: pos, radius: placement.radius * App.pixels_per_unit, argument: ref args,
 															func: placement.flags.HasAny(Placement.Flags.Replace) ? SetTileFuncReplace : SetTileFunc,
 															dirty_flags: Chunk.DirtyFlags.Sync | Chunk.DirtyFlags.Neighbours | Chunk.DirtyFlags.Collider,
 															iteration_flags: Terrain.IterationFlags.Create_If_Empty);
@@ -1653,7 +1656,7 @@ namespace TC2.Base.Components
 
 											Wrench.Mode.Build.EvaluatePrefab(region: ref region, placement: in placement, errors: ref errors, skip_support: ref skip_support, h_prefab: h_prefab, matrix: in matrix, pos_a: pos_a, pos_b: pos_b);
 											amount_multiplier = 1.00f;
-											Wrench.Mode.Build.Evaluate(region: ref region,  entity: rpc.entity, placement: in placement, errors: ref errors, skip_support: ref skip_support, support: out support, clearance: out clearance, bb: bb, transform: in transform, placement_range: build.placement_range, pos: pos_final, pos_a: pos_a, pos_b: pos_b, faction_id: h_faction);
+											Wrench.Mode.Build.Evaluate(region: ref region, entity: rpc.entity, placement: in placement, errors: ref errors, skip_support: ref skip_support, support: out support, clearance: out clearance, bb: bb, transform: in transform, placement_range: build.placement_range, pos: pos_final, pos_a: pos_a, pos_b: pos_b, faction_id: h_faction);
 
 											if (placement.type == Placement.Type.Line)
 											{
@@ -1843,12 +1846,12 @@ namespace TC2.Base.Components
 
 									if (success)
 									{
-										if (placement.sound.id != 0) Sound.Play(ref region, placement.sound, pos, volume: 1.00f, pitch: random.NextFloatRange(0.80f, 1.00f), priority: 0.35f);
-										Shake.Emit(ref region, pos, 0.20f, 0.20f);
+										if (placement.sound) Sound.Play(region: ref region, sound: placement.sound, world_position: pos, volume: 1.00f, pitch: random.NextFloatRange(0.80f, 1.00f), priority: 0.35f);
+										Shake.Emit(region: ref region, world_position: pos, trauma: 0.20f, max: 0.20f);
 									}
 									else
 									{
-										Notification.Push(ref rpc.connection, $"Cannot place: {errors.ToFormattedString()}", Color32BGRA.Red, sound: "error", volume: 0.60f);
+										Notification.Push(connection: ref rpc.connection, message: $"Cannot place: {errors.ToFormattedString()}", color: Color32BGRA.Red, sound: "error", volume: 0.60f);
 									}
 
 									build.next_place = region.GetFixedTime() + placement.cooldown;

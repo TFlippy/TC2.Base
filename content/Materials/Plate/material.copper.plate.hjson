@@ -19,18 +19,27 @@
 		frame: [3, 0]
 	}
 	
+	// Inventory material type.
 	type: metal_sheet
 	flags: metal, small, plate, flexible, solid, processed
 	display_flags: no_random_facing
 	hints: none
 	
-	purity: 0.981
+	// General purity modifier.
+	purity: 0.970
+	// Mass of 1 unit in kg.
 	mass_per_unit: 2.688
+	
+	// Volume occupied by 1 unit in m³.
 	volume_per_unit: 0.0003
 	
+	// Maximum quantity (units) per stack.
 	quantity_max: 250.000
+	// Minimum spawnable quantity.
 	spawn_quantity_threshold: 0.100
+	// Preferred quantity snapping for recipes.
 	snapping: 1.000
+	// Preferred quantity snapping for inventories.
 	snapping_pickup: 50.000
 	
 	form_type: plate
@@ -133,6 +142,7 @@
 		quantity_industry: 0.000
 	}
 	
+	// Damage-based conversions.
 	conversions:
 	{
 		sledgehammer:
@@ -193,6 +203,7 @@
 		}
 	}
 	
+	// Residues from crafting/work.
 	residues:
 	{
 		snipping.metal:
