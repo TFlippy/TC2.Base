@@ -45,7 +45,7 @@
 			]
 		}
 		{
-			name: "Stage A"
+			name: "Amalgamation"
 			
 			type: refining
 			flags: none
@@ -59,7 +59,7 @@
 			options:
 			[
 				{
-					name: "WIP"
+					name: "Simple"
 					
 					type: undefined
 					flags: merge_residue, merge_waste

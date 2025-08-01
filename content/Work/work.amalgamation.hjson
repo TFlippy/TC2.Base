@@ -17,11 +17,11 @@
 	flags: passive, ambient, wip
 	tags: simple, chemical, industrial, toxic, dangerous, slow
 	
-	amount_base: 2.500
-	cooldown: 1.000
-	multiplier: 3.670
+	amount_base: 1.000
+	cooldown: 3.000
+	multiplier: 1.220
 	
-	amount_jitter: 0.676
+	amount_jitter: 0.726
 	cooldown_jitter: 0.417
 	color: "0xfff9d7be"
 	

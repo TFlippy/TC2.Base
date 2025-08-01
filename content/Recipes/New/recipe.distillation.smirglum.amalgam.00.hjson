@@ -35,7 +35,7 @@
 							type: resource
 							material: smirglum.amalgam
 							amount: 1.000
-							loss: 1.000
+							loss: 0.973
 							group: 0
 							flags: argument, primary, prerequisite
 						}
@@ -58,10 +58,10 @@
 			options:
 			[
 				{
-					name: "WIP"
+					name: "Simple"
 					
 					type: undefined
-					flags: clear_residue
+					flags: merge_residue, merge_waste
 					discard_damage_type_override: heat
 					
 					requirements:
@@ -79,7 +79,7 @@
 							work: heating
 							amount: 165.000
 							amount_min: 200.000
-							difficulty: 5
+							difficulty: 6
 							snapping: 25.000
 							falloff: 0.773
 							ratio: 0.267
@@ -93,8 +93,10 @@
 						{
 							type: resource
 							material: smirglum.powder
-							amount: 1.000
+							amount: 0.853
+							amount_extra: 0.075
 							group: 0
+							ratio: 1.000
 							flags: residue, primary, compact, scale_to_mass
 						}
 					]

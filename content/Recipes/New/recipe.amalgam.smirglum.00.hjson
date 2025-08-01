@@ -1,5 +1,4 @@
 ﻿{
-	$region_id: 0
 	$version: "0.1.64.0"
 	name: "Smirglum Amalgamation"
 	desc:
@@ -46,7 +45,7 @@
 			]
 		}
 		{
-			name: "Stage A"
+			name: "Amalgamation"
 			
 			type: refining
 			flags: none
@@ -60,31 +59,31 @@
 			options:
 			[
 				{
-					name: "WIP"
+					name: "Simple"
 					
 					type: undefined
-					flags: none
+					flags: merge_residue, merge_waste
 					
 					requirements:
 					[
 						{
 							type: resource
 							material: mercury
-							amount: 0.500
-							loss: 0.910
+							amount: 1.500
+							snapping: 0.010
+							falloff: 1.391
+							loss: 0.824
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: work
 							work: amalgamation
-							amount: 200.000
-							amount_min: 500.000
-							difficulty: 11
-							snapping: 1.000
-							falloff: 0.566
-							loss: 0.110
-							ratio: 0.075
+							amount: 400.000
+							amount_min: 350.000
+							difficulty: 9
+							snapping: 5.000
+							falloff: 0.695
 							group: 0
 							flags: conditional
 						}
@@ -95,76 +94,38 @@
 						{
 							type: resource
 							material: smirglum.amalgam
-							amount: 0.000
+							amount: 0.203014
+							amount_extra: 0.049275
 							group: 0
-							flags: primary, compact
+							ratio: 0.122
+							flags: primary, compact, scale_to_mass
+						}
+						{
+							type: resource
+							material: smirglum.powder
+							amount: 0.1626
+							amount_extra: 0.0888
+							group: 0
+							ratio: 0.024
+							flags: residue, byproduct, secondary, scale_to_mass
 						}
 						{
 							type: resource
 							material: smirglum.gravel
-							amount: 0.000
+							amount: 0.2336
+							amount_extra: 0.0708
 							group: 0
-							flags: residue, byproduct
-						}
-						{
-							type: resource
-							material: ferrous.gravel
-							amount: 0.000
-							group: 0
-							flags: waste, residue
+							ratio: 0.016
+							flags: waste, scale_to_mass
 						}
 					]
-				}
-			]
-		}
-		{
-			name: "Stage B"
-			
-			type: refining
-			flags: none
-			tags: none
-			// Damage type used for discarding leftover resources.
-			discard_damage_type: heat
-			
-			ratio: 0.000
-			mass_base: 0.000
-			
-			options:
-			[
-				{
-					name: "WIP"
-					
-					type: undefined
-					flags: merge_residue, merge_waste
-				}
-			]
-		}
-		{
-			name: "Stage C"
-			
-			type: refining
-			flags: none
-			tags: none
-			// Damage type used for discarding leftover resources.
-			discard_damage_type: heat
-			
-			ratio: 0.000
-			mass_base: 0.000
-			
-			options:
-			[
-				{
-					name: "WIP"
-					
-					type: undefined
-					flags: merge_residue, merge_waste
 				}
 			]
 		}
 	]
 	
 	type: workshop
-	flags: debug, production, wip, auto_complete
+	flags: production, auto_complete
 	tags: simple, medium, raw, filtering, industrial, metallurgy, chemistry, blending, refining, separation, processing, messy, dangerous
 	infrastructure: barrel, bucket, liquid_container
 	infrastructure_exclude: none
@@ -175,15 +136,16 @@
 		size: [16, 16]
 		frame: [3, 0]
 	}
-	icon_offset: [2.000, -12.000]
+	icon_offset: [2.000, -7.000]
+	icon_scale: 1.500
 	
 	icon_extra:
 	{
 		texture: resource.smirglum.amalgam
 		size: [16, 16]
-		frame: [2, 0]
+		frame: [3, 0]
 	}
-	icon_extra_offset: [-1.000, -6.000]
+	icon_extra_offset: [-1.000, -7.000]
 	
 	icon_c:
 	{
@@ -191,14 +153,14 @@
 		size: [16, 16]
 		frame: [3, 0]
 	}
-	icon_c_offset: [-17.000, -10.000]
+	icon_c_offset: [-5.000, -19.000]
 	
 	color_frame: "0xff80dc7e"
 	color_button: "0xff9dd80f"
 	rank: -140.000
 	
 	min: 1
-	max: 100
+	max: 10
 	step: 1
 	
 	version: 1
