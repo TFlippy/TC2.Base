@@ -15,7 +15,7 @@
 	}
 	
 	flags: manual, wip
-	tags: simple
+	tags: impact, crude, simple, kinetic, slow
 	
 	amount_base: 0.000
 	cooldown: 2.000
@@ -26,10 +26,10 @@
 	color: "0xffa94535"
 	
 	tools_required: none
-	tools_optional: none
+	tools_optional: shovel, towel
 	
 	infrastructure_required: none
-	infrastructure_optional: none
+	infrastructure_optional: dishes, compactor, blender, press, form
 	
 	character_traits:
 	{

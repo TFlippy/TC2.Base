@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.5"
+	$version: "0.1.64.0"
 	name: "ISO Concrete Masonry Unit"
 	desc:
 		'''
@@ -76,7 +76,7 @@
 							amount_min: 100.000
 							difficulty: 7
 							snapping: 5.000
-							falloff: 0.722
+							falloff: 0.771
 							group: 0
 							flags: simultaneous, conditional
 						}
@@ -87,7 +87,7 @@
 							amount_min: 75.000
 							difficulty: 5
 							snapping: 5.000
-							falloff: 0.623
+							falloff: 0.640
 							group: 0
 							flags: simultaneous, conditional
 						}
@@ -98,7 +98,7 @@
 							amount_min: 200.000
 							difficulty: 7
 							snapping: 5.000
-							falloff: 0.818
+							falloff: 0.827
 							group: 1
 							flags: conditional
 						}
@@ -113,13 +113,17 @@
 							amount_extra: 0.029
 							snapping: 1.000
 							group: 0
-							flags: primary, spawn
+							flags: primary, spawn, compact
 						}
 					]
 					
 					filter_tools:
 					{
-						include: bucket, spatula
+						include: ruler, bucket, shovel, file, spatula, ladle, utensils
+					}
+					filter_infrastructure:
+					{
+						include: cauldron, dishes, barrel, bucket, liquid_container, blender, form
 					}
 				}
 			]
@@ -152,21 +156,12 @@
 							type: work
 							work: cement.curing
 							amount: 550.000
-							amount_min: 0.000
 							difficulty: 6
+							snapping: 25.000
 							group: 0
 							flags: no_scaling, no_residue, conditional
 						}
 					]
-					
-					filter_tools:
-					{
-						include: towel
-					}
-					filter_environment:
-					{
-						exclude: wet
-					}
 				}
 			]
 		}

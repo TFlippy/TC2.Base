@@ -15,7 +15,7 @@
 	}
 	
 	flags: manual, wip
-	tags: tools, simple
+	tags: tools, simple, culinary, fast
 	
 	amount_base: 0.000
 	cooldown: 1.750
@@ -26,7 +26,7 @@
 	color: "0xffffa200"
 	
 	tools_required: knife
-	tools_optional: saw, knife
+	tools_optional: saw, cleaver, axe, knife, scissors, utensils
 	
 	infrastructure_required: none
 	infrastructure_optional: none

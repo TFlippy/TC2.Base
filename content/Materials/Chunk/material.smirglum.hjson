@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.62.3"
+	$version: "0.1.64.0"
 	name: "Smirglum Chunk"
 	name_short: "Sg. Chunk"
+	name_imperial: "Smirglum"
 	description:
 		'''
 		Extremely dense metal with a unique property of being able to interact with essences.
@@ -17,19 +18,33 @@
 		frame: [3, 0]
 	}
 	
+	// Inventory material type.
 	type: metal_solid
-	flags: hard, magnetic, metal, small, raw, solid, primary
+	flags: hard, magnetic, metal, heavy, small, raw, solid, primary
 	display_flags: none
+	spawn_flags:
+	{
+		add: no_discard
+	}
 	hints: materials, heavy, advanced, powerful, construction, industrial, slow
 	
-	porosity: 0.066
+	// Ratio of the material volume to the total volume it occupies when stacked. A value of 1.0 means no empty space, while a value closer to 0.0 means a lot of empty space.
+	packing_fraction: 0.000
+	// General purity modifier.
 	purity: 0.969
+	// Mass of 1 unit in kg.
 	mass_per_unit: 44.71423
+	
+	// Volume occupied by 1 unit in m³.
 	volume_per_unit: 0.0016
 	
+	// Maximum quantity (units) per stack.
 	quantity_max: 50.000
+	// Minimum spawnable quantity.
 	spawn_quantity_threshold: 0.100
+	// Preferred quantity snapping for recipes.
 	snapping: 1.000
+	// Preferred quantity snapping for inventories.
 	snapping_pickup: 1.000
 	
 	form_type: chunk
@@ -41,10 +56,12 @@
 	color_dust: "0xff6c584b"
 	color_gib: "0xff6c584b"
 	
+	centroid_default: [0.000, 0.500]
 	colliders:
 	[
 		{
 			offset: [0.000, 0.700]
+			centroid: [0.000, 0.700]
 			radius: 0.260
 			values:
 			[
@@ -56,6 +73,7 @@
 		}
 		{
 			offset: [0.000, 0.700]
+			centroid: [0.000, 0.700]
 			radius: 0.260
 			values:
 			[
@@ -67,6 +85,7 @@
 		}
 		{
 			offset: [0.000, 0.550]
+			centroid: [0.000, 0.550]
 			radius: 0.400
 			values:
 			[
@@ -78,6 +97,7 @@
 		}
 		{
 			offset: [0.000, 0.550]
+			centroid: [-0.050, 0.550]
 			radius: 0.430
 			values:
 			[
@@ -89,34 +109,30 @@
 		}
 	]
 	
-	conversions:
+	// Residues from crafting/work.
+	residues:
 	{
-		sledgehammer:
+		amalgamation:
 		{
-			h_material: "null"
-			spawn_flags: merge
-			product_flags: none
-			ratio: 0.390
-			ratio_extra: 0.420
-			
-			h_material_waste: "null"
-			spawn_flags_waste: merge
-			product_flags_waste: none
-			ratio_waste: 0.650
-			ratio_waste_extra: 0.210
-			
-			yield: 0.855
-			yield_extra: 0.160
-			
-			h_sound: metal.snap.medium.02
-			sound_volume: 0.390
-			sound_pitch: 0.900
-			
-			chance: 0.450
-			type: undefined
+			h_material: smirglum.amalgam
+			h_substance: "null"
 			flags: none
-			merge_radius_mult: 1.000
-			velocity_mult: 1.000
+			flags_product: residue, byproduct
+			
+			yield: [0.859, 0.136]
 		}
+	}
+	
+	// Info regarding relations of other materials towards this material.
+	related:
+	{
+		scrap.smirgrafit: none
+		smirglum.amalgam: raw, reaction, decomposition, similar, alloy, product
+		smirglum.powder: none
+		smirglum.gravel: none
+		recondite: refined, similar, alloy, product
+		arcanite: refined, similar, alloy, product
+		pjerdelite: none
+		pellet: refined, purified, clean, similar, product
 	}
 }

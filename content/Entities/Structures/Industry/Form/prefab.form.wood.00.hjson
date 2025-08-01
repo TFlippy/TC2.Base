@@ -73,13 +73,12 @@ shop:
 {
 	tags_filter:
 	{
-		require: manual, drying
-		include: crude, drying, moulding
-		exclude: complex, advanced, assembling, metalworking, salvaging, smelting
+		include: crude, filtering, blending, drying, moulding
+		exclude: complex, advanced, furniture, blacksmithing, assembling, metalworking, salvaging, architecture, smelting
 	}
 	
-	tools: bucket, shovel, spatula, ladle
-	infrastructure: barrel, casting_mould, shaping_mould, bucket, liquid_container, form, structure
+	tools: hammer, bucket, shovel, spatula, knife, ladle
+	infrastructure: barrel, casting_mould, shaping_mould, bucket, liquid_container, form, dies, structure
 	environment: container, mobile, dirty, ugly, flammable, form
 	
 	flags: embed_gui
@@ -110,28 +109,27 @@ shop:
 
 workshop:
 {
-	flags: hidden_if_no_orders, add_order_mass
+	flags: add_order_mass
+	orders_capacity: 1
 	
 	tools: none
 	infrastructure: table, shaping_mould
-	machinery: none
 	environment: container, mobile, dirty, ugly, sturdy, flammable, large
-	
-	orders_capacity: 1
 }
 
 shipment:
 {
-	type: crafting
 	flags: keep_items, allow_deposit, use_misc, no_empty_deposit
+	type: crafting
+	layout: square
 }
 
 interactable:
 {
 	flags: none
 	priority: 1.500
-	window_size: [600.000, 472.000]
-	window_size_misc: [48.000, 0.000]
+	window_size: [616.000, 592.000]
+	window_size_misc: [96.000, 0.000]
 }
 
 animated.renderer|"work":

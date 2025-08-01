@@ -76,7 +76,7 @@
 				ref var req_explosive = ref arg.reqs.GetFirstOrNull((x) => x.type == Crafting.Requirement.Type.Resource && x.flags.HasAny(Crafting.Requirement.Flags.Argument));
 				if (req_explosive.IsNotNull())
 				{
-					this.resource_explosive = new(req_explosive.material, req_explosive.GetRequirementAmount(arg.amount_multiplier).amount);
+					this.resource_explosive = new(req_explosive.material, req_explosive.GetRequirementAmount(arg.amount_multiplier).amount_snapped);
 				}
 
 				//App.WriteLine($"Bind {this.ent_parent}; {this.h_substance}; {this.h_prefab}; {this.mass}");

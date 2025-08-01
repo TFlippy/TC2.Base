@@ -15,7 +15,7 @@
 	}
 	
 	flags: manual, wip
-	tags: crude, simple
+	tags: impact, crude, simple, dangerous, kinetic, fast
 	
 	amount_base: 0.000
 	cooldown: 1.000
@@ -26,10 +26,10 @@
 	color: "0xffa94535"
 	
 	tools_required: none
-	tools_optional: hammer, crowbar
+	tools_optional: hammer, wrench, spanner, axe, chisel, crowbar
 	
 	infrastructure_required: surface
-	infrastructure_optional: hard_surface
+	infrastructure_optional: hard_surface, compactor, press
 	
 	character_traits:
 	{

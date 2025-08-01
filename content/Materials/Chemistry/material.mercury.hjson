@@ -32,7 +32,7 @@
 	volume_per_unit: 0.001
 	
 	// Maximum quantity (units) per stack.
-	quantity_max: 100.000
+	quantity_max: 250.000
 	// Minimum spawnable quantity.
 	spawn_quantity_threshold: 0.100
 	// Preferred quantity snapping for recipes.
@@ -51,6 +51,53 @@
 	
 	centroid_default: [-0.0625, 0.625]
 	colliders: []
+	
+	// Damage-based conversions.
+	conversions:
+	{
+		heat:
+		{
+			h_material: "null"
+			spawn_flags: none
+			product_flags: none
+			ratio: 0.530
+			ratio_extra: 0.000
+			
+			h_material_waste: mercury.vapor
+			spawn_flags_waste: merge
+			product_flags_waste: pollutant, residue, byproduct, spawn
+			ratio_waste: 0.840
+			ratio_waste_extra: 0.100
+			
+			yield: 0.790
+			yield_extra: 0.130
+			
+			h_sound: missing
+			sound_volume: 0.500
+			sound_pitch: 1.000
+			
+			chance: 1.000
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.000
+			velocity_mult: 1.000
+			damage_mult: 1.000
+		}
+	}
+	
+	// Residues from crafting/work.
+	residues:
+	{
+		heating:
+		{
+			h_material: "null"
+			h_substance: "null"
+			flags: none
+			flags_product: none
+			
+			yield: [0.000, 0.000]
+		}
+	}
 	
 	// Info regarding relations of other materials towards this material.
 	related:

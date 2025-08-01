@@ -160,12 +160,12 @@
 					
 					filter_tools:
 					{
-						include: hammer, spatula, crowbar
+						include: ruler, hammer, wrench, spanner, axe, shovel, file, chisel, spatula, crowbar, ladle, utensils
 					}
 					filter_infrastructure:
 					{
 						require: surface
-						include: hard_surface
+						include: cauldron, dishes, barrel, bucket, hard_surface, liquid_container, compactor, blender, press, form
 					}
 				}
 			]

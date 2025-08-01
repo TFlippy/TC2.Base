@@ -10,7 +10,7 @@
 	
 	tips:
 	[
-		"Contains roughly 64% of mercury"
+		"- Roughly 65% smirglum, 30% mercury."
 	]
 	
 	icon:
@@ -22,20 +22,22 @@
 	
 	// Inventory material type.
 	type: metal
-	flags: soft, malleable, magnetic, liquid, granular, toxic, metal, viscous, chemical, heavy, small, raw, flexible, volatile, processed, impure, contaminated, primary
+	flags: soft, malleable, magnetic, granular, toxic, metal, viscous, chemical, heavy, small, raw, volatile, solid, processed, impure, contaminated, primary
 	display_flags: sprite_stack_linear
-	hints: materials, dangerous, heavy, chemical, dumb, industrial, arcane, fast, clumsy
+	hints: materials, dangerous, heavy, chemical, dumb, industrial, arcane, slow, clumsy
 	
+	// Ratio of the material volume to the total volume it occupies when stacked. A value of 1.0 means no empty space, while a value closer to 0.0 means a lot of empty space.
+	packing_fraction: 0.9865
 	// General purity modifier.
-	purity: 0.917
+	purity: 0.927
 	// Mass of 1 unit in kg.
-	mass_per_unit: 17.13749
+	mass_per_unit: 3.9637
 	
 	// Volume occupied by 1 unit in m³.
 	volume_per_unit: 0.001
 	
 	// Maximum quantity (units) per stack.
-	quantity_max: 100.000
+	quantity_max: 500.000
 	// Minimum spawnable quantity.
 	spawn_quantity_threshold: 0.100
 	// Preferred quantity snapping for recipes.
@@ -54,6 +56,74 @@
 	
 	centroid_default: [-0.0625, 0.625]
 	colliders: []
+	
+	// Damage-based conversions.
+	conversions:
+	{
+		heat:
+		{
+			h_material: smirglum.powder
+			spawn_flags: merge, no_discard
+			product_flags: residue, byproduct
+			ratio: 0.770
+			ratio_extra: 0.210
+			
+			h_material_waste: mercury.vapor
+			spawn_flags_waste: merge
+			product_flags_waste: pollutant, waste, residue
+			ratio_waste: 0.640
+			ratio_waste_extra: 0.330
+			
+			yield: 0.840
+			yield_extra: 0.100
+			
+			h_sound: missing
+			sound_volume: 0.500
+			sound_pitch: 1.000
+			
+			chance: 1.000
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.000
+			velocity_mult: 1.000
+			damage_mult: 1.000
+		}
+	}
+	
+	// Residues from crafting/work.
+	residues:
+	{
+		heating:
+		{
+			h_material: mercury.vapor
+			h_substance: "null"
+			
+			flags: none
+			flags_product: pollutant, residue
+			
+			yield: [0.924, 0.075]
+		}
+		evaporation:
+		{
+			h_material: "null"
+			h_substance: "null"
+			
+			flags: none
+			flags_product: none
+			
+			yield: [0.000, 0.000]
+		}
+		boiling:
+		{
+			h_material: "null"
+			h_substance: "null"
+			
+			flags: none
+			flags_product: none
+			
+			yield: [0.000, 0.000]
+		}
+	}
 	
 	// Info regarding relations of other materials towards this material.
 	related:

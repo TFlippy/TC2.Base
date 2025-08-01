@@ -1,6 +1,7 @@
 ﻿{
+	$region_id: 0
 	$version: "0.1.64.0"
-	name: "Pjerdelite Amalgamation"
+	name: "Smirglum Amalgamation"
 	desc:
 		'''
 		TODO: Desc
@@ -33,10 +34,10 @@
 					[
 						{
 							type: resource
-							material: pjerdelite
+							material: smirglum
 							amount: 1.000
 							snapping: 0.010
-							loss: 0.973
+							loss: 1.000
 							group: 0
 							flags: argument, primary, prerequisite
 						}
@@ -51,7 +52,7 @@
 			flags: none
 			tags: none
 			// Damage type used for discarding leftover resources.
-			discard_damage_type: heat
+			discard_damage_type: none
 			
 			ratio: 0.000
 			mass_base: 0.000
@@ -62,7 +63,7 @@
 					name: "WIP"
 					
 					type: undefined
-					flags: merge_residue, merge_waste
+					flags: none
 					
 					requirements:
 					[
@@ -70,7 +71,7 @@
 							type: resource
 							material: mercury
 							amount: 0.500
-							loss: 1.000
+							loss: 0.910
 							group: 0
 							flags: prerequisite
 						}
@@ -82,7 +83,8 @@
 							difficulty: 11
 							snapping: 1.000
 							falloff: 0.566
-							loss: 0.051
+							loss: 0.110
+							ratio: 0.075
 							group: 0
 							flags: conditional
 						}
@@ -93,29 +95,23 @@
 						{
 							type: resource
 							material: smirglum.amalgam
-							amount: 0.63804
-							amount_extra: 0.222344
+							amount: 0.000
 							group: 0
-							ratio: 0.075
-							flags: primary, compact, scale_to_mass
+							flags: primary, compact
 						}
 						{
 							type: resource
 							material: smirglum.gravel
-							amount: 0.122
-							amount_extra: 0.131
+							amount: 0.000
 							group: 0
-							ratio: 0.110
-							flags: residue, byproduct, scale_to_mass
+							flags: residue, byproduct
 						}
 						{
 							type: resource
 							material: ferrous.gravel
-							amount: 0.120
-							amount_extra: 0.053
+							amount: 0.000
 							group: 0
-							ratio: 0.067
-							flags: waste, residue, scale_to_mass
+							flags: waste, residue
 						}
 					]
 				}
@@ -139,7 +135,7 @@
 					name: "WIP"
 					
 					type: undefined
-					flags: none
+					flags: merge_residue, merge_waste
 				}
 			]
 		}
@@ -161,7 +157,7 @@
 					name: "WIP"
 					
 					type: undefined
-					flags: none
+					flags: merge_residue, merge_waste
 				}
 			]
 		}
@@ -169,33 +165,33 @@
 	
 	type: workshop
 	flags: debug, production, wip, auto_complete
-	tags: simple, medium, raw, filtering, industrial, metallurgy, chemistry, refining, separation, processing, messy, dangerous
+	tags: simple, medium, raw, filtering, industrial, metallurgy, chemistry, blending, refining, separation, processing, messy, dangerous
 	infrastructure: barrel, bucket, liquid_container
 	infrastructure_exclude: none
 	
 	icon:
 	{
-		texture: resource.pjerdelite
+		texture: resource.mercury
 		size: [16, 16]
 		frame: [3, 0]
 	}
-	icon_offset: [8.000, 1.000]
+	icon_offset: [2.000, -12.000]
 	
 	icon_extra:
 	{
 		texture: resource.smirglum.amalgam
 		size: [16, 16]
-		frame: [3, 0]
+		frame: [2, 0]
 	}
-	icon_extra_offset: [-12.000, -7.000]
+	icon_extra_offset: [-1.000, -6.000]
 	
 	icon_c:
 	{
-		texture: resource.pjerdelite
+		texture: resource.smirglum
 		size: [16, 16]
 		frame: [3, 0]
 	}
-	icon_c_offset: [-17.000, -8.000]
+	icon_c_offset: [-17.000, -10.000]
 	
 	color_frame: "0xff80dc7e"
 	color_button: "0xff9dd80f"

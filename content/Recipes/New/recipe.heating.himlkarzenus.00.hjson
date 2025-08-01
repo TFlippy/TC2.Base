@@ -27,7 +27,7 @@
 					name: "Standard"
 					
 					type: undefined
-					flags: none
+					flags: clear_residue
 					
 					requirements:
 					[
@@ -121,7 +121,7 @@
 							amount: 2.581455
 							amount_extra: 1.2155
 							group: 0
-							flags: residue, spawn, hidden
+							flags: residue, spawn
 						}
 						{
 							type: resource
@@ -129,7 +129,7 @@
 							amount: 1.624379
 							amount_extra: 0.534836
 							group: 0
-							flags: pollutant, waste, spawn, hidden
+							flags: pollutant, waste, spawn
 						}
 						{
 							type: resource
@@ -137,7 +137,7 @@
 							amount: 0.4182
 							amount_extra: 0.0599
 							group: 0
-							flags: pollutant, waste, spawn, hidden
+							flags: pollutant, waste, spawn
 						}
 					]
 					
@@ -220,7 +220,7 @@
 							amount: 2.3039
 							amount_extra: 0.155
 							group: 0
-							flags: pollutant, waste, spawn, hidden
+							flags: pollutant, waste, spawn
 						}
 						{
 							type: resource
@@ -228,7 +228,7 @@
 							amount: 2.0186
 							amount_extra: 0.6883
 							group: 0
-							flags: pollutant, waste, spawn, hidden
+							flags: pollutant, waste, spawn
 						}
 					]
 					
@@ -245,7 +245,7 @@
 					name: "Condensed"
 					
 					type: undefined
-					flags: none
+					flags: merge_residue
 					
 					requirements:
 					[
@@ -292,7 +292,7 @@
 							amount: 0.4554
 							amount_extra: 0.1077
 							group: 0
-							flags: byproduct, secondary, compact
+							flags: residue, byproduct, secondary, compact
 						}
 						{
 							type: resource
@@ -316,7 +316,7 @@
 							amount: 0.285957
 							amount_extra: 0.770381
 							group: 0
-							flags: pollutant, waste, spawn, hidden
+							flags: pollutant, waste, spawn
 						}
 					]
 					

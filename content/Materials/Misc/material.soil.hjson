@@ -57,13 +57,13 @@
 		wet:
 		{
 			h_material: mud
-			spawn_flags: merge, pickup
+			spawn_flags: merge, pickup, no_offset, no_discard
 			product_flags: byproduct
 			ratio: 0.800
 			ratio_extra: 0.200
 			
 			h_material_waste: "null"
-			spawn_flags_waste: merge, no_offset
+			spawn_flags_waste: none
 			product_flags_waste: none
 			ratio_waste: 0.000
 			ratio_waste_extra: 0.000
@@ -80,7 +80,7 @@
 			flags: no_mass_conversion, spawn_only_converted
 			merge_radius_mult: 1.300
 			velocity_mult: 0.100
-			damage_mult: 1.000
+			damage_mult: 1.340
 		}
 	}
 	
