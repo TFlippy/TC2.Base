@@ -45,9 +45,9 @@ resource:
 
 holdable:
 {
-	force_multiplier: 0.250
-	torque_multiplier: 0.400
-	stress_multiplier: 0.500
+	force_multiplier: 4.000
+	torque_multiplier: 1.400
+	stress_multiplier: 0.200
 	offset: [0.000, 0.750]
 	radius: 0.000
 	hints: materials, dumb, crappy, slow

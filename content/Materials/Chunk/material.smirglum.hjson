@@ -43,9 +43,9 @@
 	// Minimum spawnable quantity.
 	spawn_quantity_threshold: 0.100
 	// Preferred quantity snapping for recipes.
-	snapping: 1.000
+	snapping: 0.100
 	// Preferred quantity snapping for inventories.
-	snapping_pickup: 1.000
+	snapping_pickup: 0.100
 	
 	form_type: chunk
 	prefab: resource.smirglum
@@ -116,6 +116,7 @@
 		{
 			h_material: smirglum.amalgam
 			h_substance: "null"
+			
 			flags: none
 			flags_product: residue, byproduct
 			
