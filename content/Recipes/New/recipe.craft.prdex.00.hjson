@@ -1,0 +1,332 @@
+﻿{
+	$region_id: 0
+	$version: "0.1.64.0"
+	name: "Prdex"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	tips: []
+	
+	stages:
+	[
+		{
+			name: "Stage A"
+			
+			type: additives
+			flags: part
+			tags: material, dangerous, ingredient
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "WIP"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: mercury
+							amount: 0.381884
+							snapping: 0.100
+							loss: 0.824
+							group: 0
+						}
+						{
+							type: resource
+							material: nitroglycerine
+							amount: 0.974555
+							snapping: 0.100
+							loss: 0.969
+							group: 0
+						}
+						{
+							type: resource
+							material: tallow
+							amount: 0.63913
+							snapping: 0.100
+							loss: 0.275
+							group: 0
+						}
+						{
+							type: resource
+							material: silver.powder
+							amount: 0.203558
+							snapping: 0.100
+							loss: 0.824
+							group: 0
+						}
+						{
+							type: temperature
+							amount: 355.500
+							amount_min: 315.000
+							amount_max: 376.000
+							falloff: 0.918
+							group: 1
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: work
+							work: blending
+							amount: 42.000
+							amount_min: 475.000
+							difficulty: 10
+							snapping: 25.000
+							falloff: 1.113
+							group: 1
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: heating
+							amount: 650.000
+							amount_min: 530.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.681
+							group: 1
+							flags: stepped, simultaneous, conditional
+						}
+					]
+				}
+			]
+		}
+		{
+			name: "Stage B"
+			
+			type: formula
+			flags: part, important
+			tags: material, dangerous, formula, ingredient
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: wet
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Standard"
+					
+					type: undefined
+					flags: none
+					
+					priority: 1.000
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: alcohol
+							amount: 1.000
+							snapping: 0.100
+							loss: 0.075
+							group: 0
+						}
+						{
+							type: resource
+							material: nitrosugar
+							amount: 0.86631
+							snapping: 0.100
+							loss: 0.875
+							group: 0
+						}
+						{
+							type: work
+							work: dissolving
+							amount: 115.000
+							amount_min: 220.000
+							difficulty: 8
+							snapping: 5.000
+							falloff: 0.913
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: blending
+							amount: 50.000
+							amount_min: 200.000
+							difficulty: 6
+							snapping: 25.000
+							falloff: 0.895
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+					]
+				}
+			]
+		}
+		{
+			name: "Stage C"
+			
+			type: filler
+			flags: part
+			tags: material, ingredient
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: crush
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "WIP"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: temperature
+							amount: 228.400
+							amount_min: 213.000
+							amount_max: 263.000
+							falloff: 0.918
+							group: 0
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: work
+							work: cooling
+							amount: 100.000
+							amount_min: 350.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.655
+							group: 0
+							flags: stepped, conditional
+						}
+						{
+							type: resource
+							material: hydrazine
+							amount: 0.783282
+							loss: 0.863
+							group: 1
+						}
+						{
+							type: work
+							work: leaching
+							amount: 250.000
+							amount_min: 450.000
+							difficulty: 8
+							snapping: 5.000
+							falloff: 0.874
+							group: 1
+							flags: stepped, conditional
+						}
+					]
+				}
+			]
+		}
+		{
+			name: "Stage D"
+			
+			type: filler
+			flags: part
+			tags: material, ingredient
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: crush
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "WIP"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: pressure
+							amount: 0.100
+							amount_min: 0.010
+							amount_max: 0.400
+							falloff: 0.843
+							group: 0
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: work
+							work: evaporation
+							amount: 200.000
+							amount_min: 410.000
+							difficulty: 11
+							snapping: 5.000
+							falloff: 0.709
+							group: 0
+							flags: stepped, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: prdex
+							amount: 1.072563
+							amount_extra: 0.081372
+							group: 0
+							ratio: 1.000
+							flags: primary, compact, scale_to_mass
+						}
+					]
+				}
+			]
+		}
+	]
+	
+	type: workshop
+	flags: production, wip
+	tags: advanced, weapon, munitions, delicate, chemistry, science, military, blending, refining, messy, explosive, dangerous
+	infrastructure: lab_glassware, bottle, bucket, liquid_container
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		texture: resource.prdex
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	icon_offset: [10.000, 1.000]
+	
+	icon_extra:
+	{
+		texture: resource.mercury
+		size: [16, 16]
+		frame: [1, 0]
+	}
+	icon_extra_offset: [-10.000, -7.000]
+	
+	icon_c:
+	{
+		texture: resource.nitrosugar
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	icon_c_offset: [-13.000, -9.000]
+	
+	color_frame: "0xffcf392b"
+	color_button: "0xff9dd80f"
+	rank: 79.000
+	
+	min: 1
+	max: 25
+	step: 1
+	
+	version: 1
+}
