@@ -1,0 +1,58 @@
+﻿{
+	$version: "0.1.64.0"
+	name: "Vacuum Evaporation"
+	name_short: "Vacuum Ev."
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: ui.icons.work.00
+		size: [16, 16]
+		frame: [21, 0]
+	}
+	
+	flags: passive, wip, machine
+	tags: simple, dangerous, thermal, slow
+	
+	amount_base: 1.000
+	cooldown: 0.750
+	multiplier: 1.000
+	
+	amount_jitter: 0.463
+	cooldown_jitter: 0.465
+	color: "0xfff9d7be"
+	
+	tools_required: none
+	tools_optional: none
+	
+	infrastructure_required: none
+	infrastructure_optional: none
+	
+	skills_min:
+	{
+	
+	}
+	
+	skills_mult:
+	{
+	
+	}
+	
+	sound_volume: 0.500
+	sound_pitch: 1.000
+	sound_size: 0.500
+	sound_dist: 0.600
+	
+	sounds: []
+	sounds_manual: []
+	sounds_crafter: []
+	sounds_passive: []
+	sounds_ambient: []
+	
+	sounds_start: []
+	sounds_end: []
+	sounds_fail: []
+}

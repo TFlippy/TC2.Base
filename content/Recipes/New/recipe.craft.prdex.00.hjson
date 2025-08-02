@@ -97,6 +97,19 @@
 							flags: stepped, simultaneous, conditional
 						}
 					]
+					
+					filter_tools:
+					{
+						include: ruler, shovel, file, spatula, ladle, utensils
+					}
+					filter_infrastructure:
+					{
+						include: cauldron, oven, forge, dishes, barrel, crucible, bucket, liquid_container, blender, form
+					}
+					filter_environment:
+					{
+						include: container, airtight, stationary, dirty, ugly, cozy, fireproof, flammable, small
+					}
 				}
 			]
 		}
@@ -178,6 +191,12 @@
 							flags: pollutant, waste, residue, compact, scale_to_mass
 						}
 					]
+					
+					filter_infrastructure:
+					{
+						require: liquid_container
+						include: cauldron, lab_glassware, bucket, blender, form
+					}
 				}
 			]
 		}
@@ -207,7 +226,7 @@
 							type: temperature
 							amount: 228.400
 							amount_min: 213.000
-							amount_max: 263.000
+							amount_max: 288.000
 							falloff: 0.918
 							group: 0
 							flags: no_scaling, always_evaluate
@@ -242,6 +261,11 @@
 							flags: stepped, conditional
 						}
 					]
+					
+					filter_infrastructure:
+					{
+						include: lab_glassware, bottle, bucket, blender
+					}
 				}
 			]
 		}
@@ -271,7 +295,7 @@
 							type: pressure
 							amount: 0.100
 							amount_min: 0.010
-							amount_max: 0.400
+							amount_max: 1.040
 							falloff: 0.843
 							group: 0
 							flags: no_scaling, always_evaluate

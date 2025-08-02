@@ -1,7 +1,7 @@
-$name: "EC Heater (Small)"
+$name: "EC Thermo-Regulator"
 $desc:
 	'''
-	Compact essence-powered heater.
+	Essence-powered heat management device used to control the temperature of various systems.
 	'''
 $tags: []
 
@@ -36,7 +36,7 @@ body:
 
 health:
 {
-	max: 19500.000
+	max: 13500.000
 }
 
 animated.renderer:
@@ -87,7 +87,7 @@ essence.container:
 	emit_type: stressor
 	flags: show_gui, allow_edit_rate
 	glow_modifier: 0.800
-	rate_speed: 0.700
+	rate_speed: 0.900
 	health_threshold: 0.750
 
 	@inventory1:
@@ -129,9 +129,9 @@ essence.container:
 heat:
 {
 	temperature_medium: 747.6115
-	temperature_high: 1259.373
+	temperature_high: 1389.373
 	temperature_ignite: 1491.970
-	temperature_operating: 1334.740
+	temperature_operating: 1434.740
 	temperature_melt: 2065.970
 	temperature_breakdown: 1691.927
 	cool_rate: 6.000

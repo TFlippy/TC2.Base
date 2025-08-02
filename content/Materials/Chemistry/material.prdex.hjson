@@ -23,7 +23,7 @@
 	// Inventory material type.
 	type: clay
 	flags: soft, malleable, granular, explosive, toxic, viscous, chemical, corrosive, fragile, manufactured, flammable, flexible, volatile, solid, processed, smelly, primary
-	display_flags: no_random_facing
+	display_flags: sprite_stack_linear
 	spawn_flags:
 	{
 		add: no_discard

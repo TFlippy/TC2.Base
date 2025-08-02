@@ -15,7 +15,7 @@
 		frame: [11, 0]
 	}
 	
-	flags: passive, ambient, wip
+	flags: machine, passive, ambient, wip
 	tags: simple, chemical, slow
 	
 	amount_base: 1.000
@@ -47,15 +47,15 @@
 	
 	}
 	
-	sound_volume: 0.500
-	sound_pitch: 1.000
-	sound_size: 0.500
-	sound_dist: 1.000
+	sound_volume: 0.420
+	sound_pitch: 0.700
+	sound_size: 0.590
+	sound_dist: 0.450
 	
 	sounds: []
 	sounds_manual: []
 	sounds_crafter: []
-	sounds_passive: []
+	sounds_passive: ["effect.dump.steamy.00", "effect.bubbles.muffled.00", "effect.dump.steamy.01", "effect.bubbles.muffled.00"]
 	sounds_ambient: []
 	
 	sounds_start: []
