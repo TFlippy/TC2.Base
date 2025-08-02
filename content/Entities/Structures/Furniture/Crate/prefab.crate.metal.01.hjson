@@ -64,7 +64,7 @@ storage:
 	{
 		type: storage
 		flags: public, faction
-		stack_size_multiplier: 3.000
+		stack_size_multiplier: 5.000
 		
 		filter:
 		{

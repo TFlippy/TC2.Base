@@ -60,11 +60,11 @@ faction:
 
 storage:
 {
-	@inventory4:
+	@inventory8:
 	{
 		type: storage
 		flags: public, faction
-		stack_size_multiplier: 3.000
+		stack_size_multiplier: 2.000
 		
 		filter:
 		{

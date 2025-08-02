@@ -1,0 +1,64 @@
+﻿{
+	$region_id: 0
+	$version: "0.1.64.0"
+	name: "Dissolving"
+	name_short: "Dissolving"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: ui.icons.work.00
+		size: [16, 16]
+		frame: [11, 0]
+	}
+	
+	flags: passive, ambient, wip
+	tags: simple, chemical, slow
+	
+	amount_base: 1.000
+	cooldown: 2.000
+	multiplier: 2.540
+	
+	amount_jitter: 0.683
+	cooldown_jitter: 0.554
+	color: "0xff92e5e7"
+	
+	tools_required: none
+	tools_optional: none
+	
+	infrastructure_required: liquid_container
+	infrastructure_optional: cauldron, lab_glassware, bucket, blender, form
+	
+	character_traits:
+	{
+		weight: 1.000
+	}
+	
+	skills_min:
+	{
+	
+	}
+	
+	skills_mult:
+	{
+	
+	}
+	
+	sound_volume: 0.500
+	sound_pitch: 1.000
+	sound_size: 0.500
+	sound_dist: 1.000
+	
+	sounds: []
+	sounds_manual: []
+	sounds_crafter: []
+	sounds_passive: []
+	sounds_ambient: []
+	
+	sounds_start: []
+	sounds_end: []
+	sounds_fail: []
+}

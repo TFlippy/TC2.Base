@@ -150,7 +150,7 @@
 	]
 	
 	type: workshop
-	flags: debug, production, wip, auto_complete
+	flags: production, wip, auto_complete
 	tags: complex, small, medium, filtering, industrial, metallurgy, chemistry, blending, refining, separation, processing, messy, dangerous
 	infrastructure: heater
 	infrastructure_exclude: none

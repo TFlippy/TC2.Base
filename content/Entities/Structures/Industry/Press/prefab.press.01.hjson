@@ -266,7 +266,7 @@ interactable:
 {
 	flags: none
 	priority: 0.800
-	window_size: [600.000, 528.000]
+	window_size: [592.000, 592.000]
 	window_size_misc: [144.000, 0.000]
 }
 

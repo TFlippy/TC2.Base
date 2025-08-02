@@ -7,8 +7,8 @@ $tags: []
 
 body:
 {
-	buoyancy: 0.280
-	fall_damage_multiplier: 2.500
+	buoyancy: 0.520
+	fall_damage_multiplier: 1.400
 
 	@shape.line:
 	{
@@ -36,7 +36,7 @@ body:
 
 health:
 {
-	max: 7500.000
+	max: 19500.000
 }
 
 animated.renderer:
