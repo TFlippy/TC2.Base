@@ -11,13 +11,13 @@
 	stages:
 	[
 		{
-			name: "Stage A"
+			name: "Binding Mixture"
 			
 			type: additives
 			flags: part
 			tags: material, dangerous, ingredient
 			// Damage type used for discarding leftover resources.
-			discard_damage_type: sledgehammer
+			discard_damage_type: wet
 			
 			ratio: 0.000
 			mass_base: 0.000
@@ -25,10 +25,11 @@
 			options:
 			[
 				{
-					name: "WIP"
+					name: "Greasy Putty"
 					
 					type: undefined
 					flags: none
+					discard_damage_type_override: heat
 					
 					requirements:
 					[
@@ -36,8 +37,8 @@
 							type: resource
 							material: mercury
 							amount: 0.381884
-							snapping: 0.100
-							loss: 0.824
+							snapping: 1.000
+							loss: 1.000
 							group: 0
 						}
 						{
@@ -45,7 +46,7 @@
 							material: nitroglycerine
 							amount: 0.974555
 							snapping: 0.100
-							loss: 0.969
+							loss: 1.000
 							group: 0
 						}
 						{
@@ -53,7 +54,7 @@
 							material: tallow
 							amount: 0.63913
 							snapping: 0.100
-							loss: 0.275
+							loss: 1.000
 							group: 0
 						}
 						{
@@ -61,7 +62,7 @@
 							material: silver.powder
 							amount: 0.203558
 							snapping: 0.100
-							loss: 0.824
+							loss: 1.000
 							group: 0
 						}
 						{
@@ -100,11 +101,11 @@
 			]
 		}
 		{
-			name: "Stage B"
+			name: "Red Solvent"
 			
 			type: formula
 			flags: part, important
-			tags: material, dangerous, formula, ingredient
+			tags: material, dangerous, ingredient
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: wet
 			
@@ -114,10 +115,11 @@
 			options:
 			[
 				{
-					name: "Standard"
+					name: "NS-Alcohol"
 					
 					type: undefined
 					flags: none
+					discard_damage_type_override: corrosion
 					
 					priority: 1.000
 					
@@ -126,9 +128,10 @@
 						{
 							type: resource
 							material: alcohol
-							amount: 1.000
+							amount: 6.500
 							snapping: 0.100
-							loss: 0.075
+							falloff: 0.877
+							loss: 0.122
 							group: 0
 						}
 						{
@@ -136,7 +139,7 @@
 							material: nitrosugar
 							amount: 0.86631
 							snapping: 0.100
-							loss: 0.875
+							loss: 1.000
 							group: 0
 						}
 						{
@@ -152,7 +155,7 @@
 						}
 						{
 							type: work
-							work: blending
+							work: kneading
 							amount: 50.000
 							amount_min: 200.000
 							difficulty: 6
@@ -162,17 +165,30 @@
 							flags: stepped, simultaneous, conditional
 						}
 					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: water.red
+							amount: 0.669139
+							amount_extra: 0.13343
+							group: 0
+							ratio: 0.075
+							flags: pollutant, waste, residue, compact, scale_to_mass
+						}
+					]
 				}
 			]
 		}
 		{
-			name: "Stage C"
+			name: "Sensitizer"
 			
 			type: filler
 			flags: part
 			tags: material, ingredient
 			// Damage type used for discarding leftover resources.
-			discard_damage_type: crush
+			discard_damage_type: corrosion
 			
 			ratio: 0.000
 			mass_base: 0.000
@@ -180,7 +196,7 @@
 			options:
 			[
 				{
-					name: "WIP"
+					name: "Cooled Hydrazine"
 					
 					type: undefined
 					flags: none
@@ -216,7 +232,7 @@
 						}
 						{
 							type: work
-							work: leaching
+							work: synthesis
 							amount: 250.000
 							amount_min: 450.000
 							difficulty: 8
@@ -230,13 +246,13 @@
 			]
 		}
 		{
-			name: "Stage D"
+			name: "Solvent Removal"
 			
 			type: filler
 			flags: part
 			tags: material, ingredient
 			// Damage type used for discarding leftover resources.
-			discard_damage_type: crush
+			discard_damage_type: corrosion
 			
 			ratio: 0.000
 			mass_base: 0.000
@@ -244,7 +260,7 @@
 			options:
 			[
 				{
-					name: "WIP"
+					name: "Vacuum Evaporation"
 					
 					type: undefined
 					flags: none
@@ -263,8 +279,8 @@
 						{
 							type: work
 							work: evaporation
-							amount: 200.000
-							amount_min: 410.000
+							amount: 350.000
+							amount_min: 610.000
 							difficulty: 11
 							snapping: 5.000
 							falloff: 0.709
@@ -281,7 +297,7 @@
 							amount: 1.072563
 							amount_extra: 0.081372
 							group: 0
-							ratio: 1.000
+							ratio: 0.922
 							flags: primary, compact, scale_to_mass
 						}
 					]
