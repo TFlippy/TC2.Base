@@ -1,8 +1,7 @@
 $name: "Gyrochronatom"
 $desc:
 	'''
-	Intricate device used to measure and leverage the flow of time.	
-	Often employed in temporal control systems and cyclic processes.
+	Intricate device used to measure and leverage the flow of time. Often employed in temporal control systems and cyclic processes.
 	'''
 $tags: []
 

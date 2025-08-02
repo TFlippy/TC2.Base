@@ -6,20 +6,25 @@ body:
 
 	@shape.circle:
 	{
-		offset: [0.000, 0.000]
+		material: soil
+		miss_chance: 0.000
+		flags: none
+		tags: solid, soft
+		
+		layer: entity, solid, resource, ignore_melee, ignore_bullet
+		mask: world
+		exclude: none
 		
 		mass: 1.000
 		radius: 0.750
 		friction: 0.950
 		elasticity: 0.100
+		
 		rigidity_static: 0.850
 		rigidity_dynamic: 0.750
+		cog_offset: [0.000, 0.000]
 		
-		material: soil
-		miss_chance: 0.000
-		
-		layer: entity, solid, resource, ignore_melee, ignore_bullet
-		mask: world
+		offset: [0.000, 0.000]
 	}
 }
 
@@ -73,7 +78,7 @@ health:
 breakable:
 {
 	flags: no_damage
-	spawn_flags: merge, pickup, show_notification
+	spawn_flags: merge, pickup, no_discard
 	merge_radius: 2.000
 }
 

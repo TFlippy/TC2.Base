@@ -209,9 +209,9 @@
 	]
 	
 	type: workshop
-	flags: debug, manufacturing, wip
-	tags: complex, industrial, metalworking, metallurgy, heating, moulding
-	infrastructure: compactor, press
+	flags: manufacturing, wip
+	tags: complex, industrial, metalworking, metallurgy, heating, moulding, processing
+	infrastructure: shaping_mould, heater
 	infrastructure_exclude: none
 	
 	icon:

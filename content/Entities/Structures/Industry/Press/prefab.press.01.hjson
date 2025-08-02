@@ -113,7 +113,7 @@ shop:
 	}
 	
 	tools: ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, spanner, pliers, bucket, file, chisel, towel, tongs, crowbar, sandpaper
-	infrastructure: anvil, hard_surface, compactor, stamping_press, press, dies, essence_emitter, structure, machine
+	infrastructure: anvil, shaping_mould, hard_surface, compactor, heater, stamping_press, press, dies, essence_emitter, structure, machine
 	environment: machine, stationary, dirty, scary, noisy, reinforced, fireproof, durable, sturdy, small
 	
 	flags: embed_gui

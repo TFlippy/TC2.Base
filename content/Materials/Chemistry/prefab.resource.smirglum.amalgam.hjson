@@ -16,14 +16,14 @@ body:
 		
 		offset: [0.000, 0.375]
 		radius: 0.480
-		friction: 0.119
-		elasticity: 0.240
+		friction: 0.419
+		elasticity: 0.340
 		rigidity_dynamic: 1.000
 		cog_offset: [0.000, 0.125]
 		
-		material: slime
-		layer: entity, solid, resource, bulk, conductive, heatable, liquid, ignore_bullet
-		mask: world, bulk
+		material: tar
+		layer: entity, solid, resource, bulk, conductive, heatable, ignore_bullet, magnetic
+		mask: world, bulk, essence
 		exclude: held, stored
 	}
 }

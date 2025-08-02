@@ -18,7 +18,7 @@
 					[Asset.Ignore] public IRecipe.Handle selected_recipe;
 					//public Belt.Flags flags;
 
-					public static Sprite Icon { get; } = new Sprite("ui_icons.wrench", 24, 24, 1, 0);
+					public static Sprite Icon { get; } = new Sprite("ui_icons.wrench", 24, 24, 4, 0);
 					public static string Name { get; } = "Pipes";
 
 					public readonly Recipe.Type RecipeType => Recipe.Type.Pipe;

@@ -125,7 +125,7 @@
 	]
 	
 	type: workshop
-	flags: production, auto_complete
+	flags: production
 	tags: simple, medium, raw, filtering, industrial, metallurgy, chemistry, blending, refining, separation, processing, messy, dangerous
 	infrastructure: barrel, bucket, liquid_container
 	infrastructure_exclude: none

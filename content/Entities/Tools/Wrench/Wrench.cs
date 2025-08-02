@@ -629,7 +629,7 @@ namespace TC2.Base.Components
 		{
 			ref readonly var info = ref ECS.GetInfo<T>();
 
-			using (GUI.ID.Push(info.id))
+			using (GUI.ID<Wrench.Data>.Push(info.id))
 			{
 				if (GUI.DrawIconButton($"wrench.mode.{info.identifier}", T.Icon, new(64, 64), color: info.id == wrench.selected_component_id ? GUI.col_button_highlight : GUI.col_button))
 				{

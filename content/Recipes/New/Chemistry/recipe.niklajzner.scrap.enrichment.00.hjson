@@ -27,8 +27,7 @@
 					name: "Ferrous"
 					
 					type: undefined
-					flags: none
-					discard_damage_type_override: heat
+					flags: merge_waste
 					
 					prefix: "Ferrous "
 					
@@ -39,7 +38,7 @@
 							material: scrap.niklajzner
 							amount: 1.000
 							snapping: 0.100
-							loss: 0.118
+							loss: 1.000
 							ratio: 1.000
 							group: 0
 							flags: argument, primary
@@ -54,7 +53,8 @@
 							amount: 1.407962
 							amount_extra: 0.102383
 							group: 0
-							flags: primary, compact, use_temperature
+							ratio: 0.820
+							flags: primary, compact, use_temperature, scale_to_mass
 						}
 						{
 							type: resource
@@ -62,7 +62,8 @@
 							amount: 0.241288
 							amount_extra: 0.075485
 							group: 0
-							flags: residue, byproduct, compact, use_temperature
+							ratio: 0.173
+							flags: residue, byproduct, compact, use_temperature, scale_to_mass
 						}
 					]
 					
@@ -108,8 +109,8 @@
 							amount: 1.276191
 							snapping: 0.100
 							falloff: 0.633
-							loss: 0.671
-							ratio: 0.216
+							loss: 0.812
+							ratio: 0.204
 							group: 0
 						}
 						{
@@ -129,9 +130,23 @@
 							difficulty: 5
 							snapping: 25.000
 							falloff: 0.564
-							ratio: 0.165
+							loss: 0.122
+							ratio: 0.173
 							group: 0
 							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: ash
+							amount: 0.6062
+							amount_extra: 0.3611
+							group: 0
+							ratio: 0.325
+							flags: scale_to_mass
 						}
 					]
 					

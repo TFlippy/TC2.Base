@@ -350,7 +350,7 @@
 				}
 				else
 				{
-					Sound.Play(sound: snd_fail.GetNext(ref press_state.current_sound_index), world_position: transform.position, volume: 1.20f, pitch: random.NextFloatRange(0.70f, 0.90f), size: 0.80f, priority: 0.60f, dist_multiplier: 0.80f);
+					Sound.Play(sound: snd_fail.GetNext(ref press_state.current_sound_index), world_position: transform.position, volume: 1.20f, pitch: random.NextFloatRange(0.70f, 0.90f), size: 1.80f, priority: 0.20f, dist_multiplier: 0.50f);
 					Shake.Emit(region: ref region, world_position: transform.position, trauma: 0.30f, max: 0.30f, radius: 16.00f);
 				}
 

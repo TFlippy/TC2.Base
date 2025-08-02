@@ -317,6 +317,81 @@
 						include: screwdriver, wrench, spanner, pliers, towel
 					}
 				}
+				{
+					name: "Glued"
+					
+					type: undefined
+					flags: wip
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: machine_parts
+							amount: 2.2563
+							snapping: 0.400
+							loss: 0.067
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: rubber
+							amount: 1.3871
+							snapping: 0.500
+							loss: 0.200
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: glue
+							amount: 4.300
+							snapping: 0.100
+							loss: 0.369
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: gluing
+							amount: 400.000
+							amount_min: 140.000
+							difficulty: 7
+							snapping: 5.000
+							falloff: 0.980
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: assembling
+							amount: 650.000
+							amount_min: 300.000
+							difficulty: 8
+							snapping: 5.000
+							falloff: 0.954
+							ratio: 0.718
+							group: 0
+							flags: simultaneous, conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: screwdriver, wrench
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, paintbrush, stapler, file, towel, tongs, pick, crowbar, knife
+					}
+					filter_infrastructure:
+					{
+						include: table
+					}
+					filter_environment:
+					{
+						include: clean, organized
+						exclude: wet
+					}
+				}
 			]
 		}
 	]
