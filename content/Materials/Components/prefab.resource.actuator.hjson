@@ -50,11 +50,20 @@ resource:
 holdable:
 {
 	offset: [0.000, 0.750]
+	force_multiplier: 1.500
+	torque_multiplier: 0.900
+	stress_multiplier: 0.550
+	hints: materials, advanced, machine, construction, industrial, arcane, tech, clumsy
+	flags: disable_control
 }
 
 norotate:
 {
-
+	bias: 0.000
+	speed: 3.500
+	multiplier: 3.500
+	mass_multiplier: 3.500
+	flags: no_share
 }
 
 health:

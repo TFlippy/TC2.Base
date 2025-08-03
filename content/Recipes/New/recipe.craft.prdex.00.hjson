@@ -1,5 +1,4 @@
 ﻿{
-	$region_id: 0
 	$version: "0.1.64.0"
 	name: "Prdex"
 	desc:
@@ -332,8 +331,8 @@
 	
 	type: workshop
 	flags: production, wip
-	tags: advanced, weapon, munitions, delicate, chemistry, science, military, blending, refining, messy, explosive, dangerous
-	infrastructure: lab_glassware, bottle, bucket, liquid_container
+	tags: complex, advanced, delicate, industrial, chemistry, science, military, blending, refining, messy, explosive, dangerous
+	infrastructure: bucket, liquid_container
 	infrastructure_exclude: none
 	
 	icon:

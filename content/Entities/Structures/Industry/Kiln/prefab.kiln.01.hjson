@@ -90,20 +90,19 @@ shop:
 {
 	tags_filter:
 	{
-		require: heating
-		include: raw, filtering, cooking, smelting, drying, heating, processing
-		exclude: advanced, large, huge, assembling, construction, moulding
+		include: industrial, metallurgy, cooking, smelting, drying, refining, heating, separation
+		exclude: crafting, huge, assembling, architecture, construction, moulding
 	}
 	
 	tools: hammer, screwdriver, spanner, bucket, shovel, chisel, towel, spatula, tongs, crowbar, ladle
-	infrastructure: oven, barrel, bucket, liquid_container, heater, burner, stove, kiln, still, smokestack, condenser, structure, machine
+	infrastructure: oven, forge, bottle, barrel, rack, shaping_mould, bucket, surface, hard_surface, liquid_container, heater, burner, stove, kiln, still, smokestack, condenser, structure
 	environment: machine, container, watertight, stationary, dirty, scary, reinforced, fireproof, durable, sturdy, waterproof
 	
 	flags: embed_gui
 	menu_columns: 3
 	recipe_type: workshop
 	
-	offset_spawn: [1.500, -1.875]
+	offset_spawn: [1.500, 0.250]
 	
 	name: "Distillation Oven"
 }
@@ -134,6 +133,20 @@ crafter:
 	// 	}
 	// 	offset: [-0.500, 0.500]
 	// }
+
+	@inventory1:
+	{
+		type: gas
+		flags: standalone, allow_ducts, ignore_mass
+		stack_size_multiplier: 1.000
+		
+		filter:
+		{
+			require: gas
+			include: gas
+		}
+		offset: [1.625, -1.750]
+	}
 
 	@inventory4:
 	{

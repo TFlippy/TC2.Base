@@ -3,10 +3,10 @@
 	name: "Mercury Vapor"
 	name_short: "Mercury"
 	name_advanced: "Mercury Vapor"
-	name_dumb: "Funny"
+	name_dumb: "Shiny Cloud"
 	description:
 		'''
-		TODO: Desc
+		Cloud of vaporized mercury, not quite as fun as liquid mercury.
 		'''
 	
 	tips: []
