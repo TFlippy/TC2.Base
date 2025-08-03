@@ -4,7 +4,7 @@
 	name_short: "Heating"
 	desc:
 		'''
-		TODO: Desc
+		Raising the temperature of materials, typically to prepare them for further processing.
 		'''
 	
 	icon:
@@ -14,7 +14,7 @@
 		frame: [11, 0]
 	}
 	
-	flags: passive, wip
+	flags: machine, passive, crafter_only, wip
 	tags: simple, dangerous, thermal, slow
 	
 	amount_base: 1.000

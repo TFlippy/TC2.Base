@@ -4,7 +4,7 @@
 	name_short: "Sintering"
 	desc:
 		'''
-		TODO: Desc
+		Using heat and pressure to fuse materials together without melting them completely, often used in metalworking and ceramics.
 		'''
 	
 	icon:
@@ -14,7 +14,7 @@
 		frame: [10, 0]
 	}
 	
-	flags: passive, crafter_only, wip
+	flags: machine, passive, crafter_only, wip
 	tags: complex, technical, industrial, dangerous, thermal, slow
 	
 	amount_base: 1.000

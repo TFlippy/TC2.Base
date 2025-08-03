@@ -34,14 +34,16 @@
 						{
 							type: resource
 							material: smirglum.powder
-							amount: 10.462
+							amount: 11.539
+							loss: 0.973
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: resource
 							material: silver.powder
-							amount: 7.270021
+							amount: 7.791825
+							loss: 0.957
 							group: 0
 							flags: prerequisite
 						}
@@ -71,7 +73,7 @@
 					name: "Rammed"
 					
 					type: undefined
-					flags: crafter, wip
+					flags: crafter, merge_residue, wip
 					discard_damage_type_override: impact
 					
 					requirements:
@@ -103,7 +105,7 @@
 							difficulty: 13
 							snapping: 5.000
 							falloff: 0.874
-							ratio: 1.000
+							ratio: 0.812
 							group: 0
 							flags: simultaneous, conditional
 						}
@@ -115,6 +117,7 @@
 							difficulty: 6
 							snapping: 5.000
 							falloff: 0.836
+							ratio: 1.000
 							group: 0
 							flags: simultaneous, conditional
 						}
@@ -125,18 +128,20 @@
 						{
 							type: resource
 							material: recondite
-							amount: 0.813
-							amount_extra: 0.081
+							amount: 0.823
+							amount_extra: 0.104
 							group: 0
-							flags: primary, parameter, compact, use_temperature
+							ratio: 0.918
+							flags: primary, parameter, compact, use_temperature, scale_to_mass
 						}
 						{
 							type: resource
 							material: recondite.powder
 							amount: 1.558
-							amount_extra: 0.844
+							amount_extra: 0.264
 							group: 0
-							flags: byproduct, secondary, compact
+							ratio: 0.075
+							flags: byproduct, secondary, compact, scale_to_mass
 						}
 					]
 					
@@ -151,7 +156,7 @@
 					name: "Compacted"
 					
 					type: undefined
-					flags: crafter, wip
+					flags: crafter, merge_residue, merge_waste, wip
 					discard_damage_type_override: compression
 					
 					requirements:
@@ -195,8 +200,19 @@
 							type: resource
 							material: recondite.ingot
 							amount: 1.000
+							snapping: 1.000
 							group: 0
-							flags: primary, parameter, compact, use_temperature
+							ratio: 0.973
+							flags: primary, parameter, compact, use_temperature, scale_to_mass
+						}
+						{
+							type: resource
+							material: recondite.powder
+							amount: 0.411
+							amount_extra: 0.484
+							group: 0
+							ratio: 0.016
+							flags: residue, byproduct, secondary, compact, scale_to_mass
 						}
 					]
 					

@@ -4,7 +4,7 @@
 	name_short: "Hammering"
 	desc:
 		'''
-		TODO: Desc
+		Using a hammer to shape, join, or break materials through repeated striking.
 		'''
 	
 	icon:

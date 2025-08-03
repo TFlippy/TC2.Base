@@ -200,21 +200,21 @@ crafter:
 
 crafter.state:
 {
-	@inventory4:
-	{
-		type: input
-		flags: standalone, allow_ducts, ignore_mass
-		stack_size_multiplier: 2.000
+	// @inventory4:
+	// {
+	// 	type: input
+	// 	flags: standalone, allow_ducts, ignore_mass
+	// 	stack_size_multiplier: 2.000
 		
-		filter:
-		{
-			require: none
-			include: none
-			exclude: gas
-		}
+	// 	filter:
+	// 	{
+	// 		require: none
+	// 		include: none
+	// 		exclude: gas
+	// 	}
 		
-		offset: [0.000, 0.000]
-	}
+	// 	offset: [0.000, 0.000]
+	// }
 
 	// @animated.renderer:
 	// {
@@ -240,6 +240,22 @@ workshop:
 
 	h_sound_order_begin: effect.buzzer.00
 	h_sound_order_complete: effect.buzzer.00
+
+	@inventory4:
+	{
+		type: workshop
+		flags: standalone, allow_ducts, ignore_mass
+		stack_size_multiplier: 2.000
+		
+		filter:
+		{
+			require: none
+			include: none
+			exclude: gas
+		}
+		
+		offset: [0.000, 0.000]
+	}
 }
 
 // axle:
