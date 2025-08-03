@@ -1,0 +1,82 @@
+$tags: []
+
+body:
+{
+	buoyancy: 0.090
+
+	@shape.circle:
+	{
+		offset: [0.000, 0.250]
+		mass: 1.000
+		radius: 0.750
+		friction: 0.670
+		elasticity: 0.520
+		material: metal_solid
+		layer: entity, solid, resource, ignore_melee, ignore_bullet
+		mask: world, essence
+	}
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "resource.directors"
+		count: 4
+		size: [16, 16]
+	}
+	z: 1.500
+}
+
+transform:
+{
+
+}
+
+resource:
+{
+	material: "directors"
+}
+
+holdable:
+{
+	offset: [0.000, 0.750]
+	force_multiplier: 1.500
+	torque_multiplier: 0.900
+	stress_multiplier: 0.550
+	hints: materials, advanced, machine, construction, industrial, arcane, tech, clumsy
+	flags: disable_control
+}
+
+norotate:
+{
+	bias: 0.000
+	speed: 3.500
+	multiplier: 3.500
+	mass_multiplier: 3.500
+	flags: no_share
+}
+
+health:
+{
+	max: 112000.000
+}
+
+breakable:
+{
+	flags: no_damage, splittable
+}
+
+despawn:
+{
+	sleep_count_max: 50
+	flags: no_despawn
+	
+	interval: 7.000
+	interval_extra: 14.000
+	threshold_delete: 0.000
+	threshold_despawning: 0.500
+
+	amount_ratio: 0.000
+	amount_ratio_extra: 0.000
+}
