@@ -34,14 +34,14 @@
 						{
 							type: resource
 							material: smirglum.powder
-							amount: 0.590
+							amount: 10.462
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: resource
 							material: silver.powder
-							amount: 0.410
+							amount: 7.270021
 							group: 0
 							flags: prerequisite
 						}
@@ -68,7 +68,87 @@
 			options:
 			[
 				{
-					name: "Hot-Pressed"
+					name: "Rammed"
+					
+					type: undefined
+					flags: crafter, wip
+					discard_damage_type_override: impact
+					
+					requirements:
+					[
+						{
+							type: temperature
+							amount: 854.800
+							amount_min: 588.000
+							amount_max: 976.000
+							snapping: 5.000
+							falloff: 0.722
+							group: 0
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: pressure
+							amount: 100.000
+							amount_min: 10.000
+							snapping: 5.000
+							falloff: 0.615
+							group: 0
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: work
+							work: die.forging.metal
+							amount: 800.000
+							amount_min: 350.000
+							difficulty: 13
+							snapping: 5.000
+							falloff: 0.874
+							ratio: 1.000
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: heating
+							amount: 300.000
+							amount_min: 250.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.836
+							group: 0
+							flags: simultaneous, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: recondite
+							amount: 0.813
+							amount_extra: 0.081
+							group: 0
+							flags: primary, parameter, compact, use_temperature
+						}
+						{
+							type: resource
+							material: recondite.powder
+							amount: 1.558
+							amount_extra: 0.844
+							group: 0
+							flags: byproduct, secondary, compact
+						}
+					]
+					
+					start_delay: 1.000
+					advance_delay: 0.000
+					complete_delay: 1.000
+					
+					h_sound_begin: burner.bang.01
+					h_sound_finalize: burner.bang.00
+				}
+				{
+					name: "Compacted"
 					
 					type: undefined
 					flags: crafter, wip
@@ -78,9 +158,9 @@
 					[
 						{
 							type: temperature
-							amount: 854.800
+							amount: 754.800
 							amount_min: 588.000
-							amount_max: 976.000
+							amount_max: 876.000
 							snapping: 5.000
 							falloff: 0.816
 							group: 0
@@ -98,9 +178,9 @@
 						{
 							type: work
 							work: sintering
-							amount: 300.000
-							amount_min: 450.000
-							difficulty: 5
+							amount: 340.000
+							amount_min: 400.000
+							difficulty: 8
 							snapping: 5.000
 							falloff: 0.885
 							ratio: 1.000
@@ -129,7 +209,7 @@
 	]
 	
 	type: workshop
-	flags: debug, manufacturing, wip
+	flags: manufacturing, wip
 	tags: complex, industrial, metalworking, metallurgy, heating, moulding
 	infrastructure: compactor, press
 	infrastructure_exclude: none
