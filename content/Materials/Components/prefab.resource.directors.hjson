@@ -43,7 +43,7 @@ holdable:
 	offset: [0.000, 0.750]
 	force_multiplier: 1.500
 	torque_multiplier: 0.900
-	stress_multiplier: 0.550
+	stress_multiplier: 0.220
 	hints: materials, advanced, machine, construction, industrial, arcane, tech, clumsy
 	flags: disable_control
 }

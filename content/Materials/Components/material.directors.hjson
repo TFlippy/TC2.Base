@@ -6,9 +6,9 @@
 	name_dumb: "Toys"
 	description:
 		'''
-		Standard heap of modular components used in the construction of magitronics.
+		Standardized heap of modular components used in the construction of magitronics.
 
-		Their ISO-compliant design allows them to be easily assembled into essence emitters, conductors, amplifiers and more.
+		ISO-compliant design allows them to be easily assembled into essence emitters, conductors, amplifiers and more.
 		'''
 	
 	lore:

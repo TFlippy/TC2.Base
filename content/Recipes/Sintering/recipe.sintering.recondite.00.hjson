@@ -80,10 +80,9 @@
 					[
 						{
 							type: temperature
-							amount: 854.800
-							amount_min: 588.000
+							amount: 662.800
+							amount_min: 455.000
 							amount_max: 976.000
-							snapping: 5.000
 							falloff: 0.722
 							group: 0
 							flags: no_scaling, always_evaluate
@@ -92,7 +91,6 @@
 							type: pressure
 							amount: 100.000
 							amount_min: 10.000
-							snapping: 5.000
 							falloff: 0.615
 							group: 0
 							flags: no_scaling, always_evaluate
@@ -104,7 +102,7 @@
 							amount_min: 350.000
 							difficulty: 13
 							snapping: 5.000
-							falloff: 0.874
+							falloff: 0.939
 							ratio: 0.812
 							group: 0
 							flags: simultaneous, conditional
@@ -112,11 +110,11 @@
 						{
 							type: work
 							work: heating
-							amount: 300.000
+							amount: 364.000
 							amount_min: 250.000
 							difficulty: 6
 							snapping: 5.000
-							falloff: 0.836
+							falloff: 0.919
 							ratio: 1.000
 							group: 0
 							flags: simultaneous, conditional
@@ -128,19 +126,19 @@
 						{
 							type: resource
 							material: recondite
-							amount: 0.823
-							amount_extra: 0.104
+							amount: 0.822223
+							amount_extra: 0.149859
 							group: 0
-							ratio: 0.918
+							ratio: 0.769
 							flags: primary, parameter, compact, use_temperature, scale_to_mass
 						}
 						{
 							type: resource
 							material: recondite.powder
-							amount: 1.558
-							amount_extra: 0.264
+							amount: 1.544
+							amount_extra: 0.339
 							group: 0
-							ratio: 0.075
+							ratio: 0.071
 							flags: byproduct, secondary, compact, scale_to_mass
 						}
 					]
@@ -163,20 +161,18 @@
 					[
 						{
 							type: temperature
-							amount: 754.800
-							amount_min: 588.000
-							amount_max: 876.000
-							snapping: 5.000
-							falloff: 0.816
+							amount: 816.600
+							amount_min: 527.000
+							amount_max: 1786.000
+							falloff: 0.694
 							group: 0
 							flags: no_scaling, always_evaluate
 						}
 						{
 							type: pressure
-							amount: 500.000
-							amount_min: 100.000
-							snapping: 5.000
-							falloff: 0.757
+							amount: 246.800
+							amount_min: 12.000
+							falloff: 0.676
 							group: 0
 							flags: no_scaling, always_evaluate
 						}
@@ -185,9 +181,9 @@
 							work: sintering
 							amount: 340.000
 							amount_min: 400.000
-							difficulty: 8
+							difficulty: 7
 							snapping: 5.000
-							falloff: 0.885
+							falloff: 0.880
 							ratio: 1.000
 							group: 0
 							flags: conditional
