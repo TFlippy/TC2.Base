@@ -33,7 +33,7 @@
 	
 	character_traits:
 	{
-		include: construction, scientist, artisan, laborer, technician, chemist
+		include: construction, scientist, artisan, laborer, technician, alchemist
 		exclude: alcoholic, dumb, clumsy
 		weight: 1.000
 	}

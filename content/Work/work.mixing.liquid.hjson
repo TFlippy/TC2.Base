@@ -33,7 +33,7 @@
 	
 	character_traits:
 	{
-		include: slave, criminal, medical, farmer, laborer, poor, chemist, hunter, culinary, soldier, nomad, naval, outdoor, murderer, dumb
+		include: slave, criminal, medical, farmer, laborer, poor, alchemist, hunter, culinary, soldier, nomad, naval, outdoor, murderer, dumb
 		exclude: nobility, feral, upper_class, elite_class
 		weight: 1.000
 	}

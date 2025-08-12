@@ -97,7 +97,7 @@ laboratory:
 	augments_capacity: 8
 	filter_tags:
 	{
-		include: organic, agriculture, cooking, chemistry, medical, biology, forestry, fermenting, explosive
+		include: organic, agriculture, cooking, alchemistry, medical, biology, forestry, fermenting, explosive
 	}
 }
 
@@ -105,7 +105,7 @@ shop:
 {
 	tags_filter:
 	{
-		include: organic, delicate, agriculture, filtering, cooking, chemistry, medical, gathering, biology, blending, forestry, heating, moulding, messy
+		include: organic, delicate, agriculture, filtering, cooking, alchemistry, medical, gathering, biology, blending, forestry, heating, moulding, messy
 		exclude: advanced, medium, large, huge, gun, vehicle, furniture, blacksmithing, carpentry, architecture, smelting
 	}
 	

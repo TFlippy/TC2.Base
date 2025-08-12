@@ -40,7 +40,7 @@
 	
 	character_traits:
 	{
-		include: farmer, chemist, culinary, alcoholic, junkie
+		include: farmer, alchemist, culinary, alcoholic, junkie
 		weight: 1.000
 	}
 	

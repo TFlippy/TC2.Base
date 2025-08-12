@@ -33,7 +33,7 @@
 	
 	character_traits:
 	{
-		include: medical, artisan, farmer, laborer, chemist, culinary, insane, brawler, evil, dumb, clumsy
+		include: medical, artisan, farmer, laborer, alchemist, culinary, insane, brawler, evil, dumb, clumsy
 		weight: 1.000
 	}
 	

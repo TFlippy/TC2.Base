@@ -32,7 +32,7 @@
 	
 	character_traits:
 	{
-		include: slave, laborer, chemist, culinary, insane, brawler, strong, junkie, evil
+		include: slave, laborer, alchemist, culinary, insane, brawler, strong, junkie, evil
 		weight: 1.000
 	}
 	

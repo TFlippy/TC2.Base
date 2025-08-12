@@ -310,7 +310,7 @@
 	
 	type: workshop
 	flags: production, wip
-	tags: complex, filtering, chemistry, blending, processing, messy
+	tags: complex, filtering, alchemistry, blending, processing, messy
 	infrastructure: cauldron, barrel, bucket, liquid_container
 	infrastructure_exclude: none
 	

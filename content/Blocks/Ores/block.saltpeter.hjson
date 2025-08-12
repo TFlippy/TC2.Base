@@ -3,7 +3,7 @@
 	name: "Saltpeter"
 	desc:
 		'''
-		An uncommon mineral used in chemistry.
+		An uncommon mineral used in alchemistry.
 		'''
 	
 	material_type: chalk

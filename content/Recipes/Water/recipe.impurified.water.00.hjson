@@ -52,7 +52,7 @@
 	
 	type: workshop
 	flags: disabled, wip
-	tags: workbench, manual, dumb, crude, simple, chemistry, biology
+	tags: workbench, manual, dumb, crude, simple, alchemistry, biology
 	infrastructure: bucket
 	
 	h_company: common

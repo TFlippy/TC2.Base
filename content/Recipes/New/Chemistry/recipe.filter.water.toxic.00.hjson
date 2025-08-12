@@ -46,7 +46,7 @@
 	
 	type: workshop
 	flags: disabled, wip
-	tags: manual, simple, chemistry, science, biology, dangerous
+	tags: manual, simple, alchemistry, science, biology, dangerous
 	infrastructure: bucket
 	
 	icon:

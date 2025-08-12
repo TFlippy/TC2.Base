@@ -38,7 +38,7 @@
 	
 	character_traits:
 	{
-		include: construction, scientist, educated, medical, laborer, technician, engineer, chemist, culinary, arcane, junkie
+		include: construction, scientist, educated, medical, laborer, technician, engineer, alchemist, culinary, arcane, junkie
 		exclude: dumb
 		weight: 1.000
 	}

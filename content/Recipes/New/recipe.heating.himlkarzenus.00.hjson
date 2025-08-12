@@ -336,7 +336,7 @@
 	
 	type: workshop
 	flags: production, manufacturing, wip, auto_complete
-	tags: complex, raw, filtering, industrial, chemistry, science, refining, heating, separation, processing, dangerous
+	tags: complex, raw, filtering, industrial, alchemistry, science, refining, heating, separation, processing, dangerous
 	infrastructure: heater
 	infrastructure_exclude: none
 	

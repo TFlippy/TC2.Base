@@ -331,7 +331,7 @@
 	
 	type: workshop
 	flags: production, wip
-	tags: complex, advanced, delicate, industrial, chemistry, science, military, blending, refining, messy, explosive, dangerous
+	tags: complex, advanced, delicate, industrial, alchemistry, science, military, blending, refining, messy, explosive, dangerous
 	infrastructure: bucket, liquid_container
 	infrastructure_exclude: none
 	

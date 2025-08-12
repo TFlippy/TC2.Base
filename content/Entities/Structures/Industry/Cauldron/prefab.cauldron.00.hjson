@@ -58,7 +58,7 @@ shop:
 {
 	tags_filter:
 	{
-		include: food, agriculture, filtering, cooking, chemistry, gathering, blending, fermenting
+		include: food, agriculture, filtering, cooking, alchemistry, gathering, blending, fermenting
 		exclude: advanced, large, huge, vehicle, furniture, blacksmithing, woodworking, assembling, carpentry, construction, smelting, drying, moulding, overworld
 	}
 	

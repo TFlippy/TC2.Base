@@ -87,7 +87,7 @@ shop:
 {
 	tags_filter:
 	{
-		include: chemistry, fermenting, heating
+		include: alchemistry, fermenting, heating
 		exclude: workbench, large, huge, tool, vehicle, furniture, blacksmithing, assembling, tailoring, metalworking, carpentry, architecture, construction, smelting, moulding
 	}
 	

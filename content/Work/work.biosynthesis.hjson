@@ -39,7 +39,7 @@
 	
 	character_traits:
 	{
-		include: scientist, educated, farmer, professional, chemist, arcane
+		include: scientist, educated, farmer, professional, alchemist, arcane
 		weight: 1.000
 	}
 	

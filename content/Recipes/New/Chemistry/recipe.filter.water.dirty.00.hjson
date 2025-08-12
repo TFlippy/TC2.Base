@@ -75,7 +75,7 @@
 	
 	type: workshop
 	flags: disabled, wip
-	tags: manual, simple, chemistry, science, biology, messy
+	tags: manual, simple, alchemistry, science, biology, messy
 	infrastructure: bucket
 	
 	icon:

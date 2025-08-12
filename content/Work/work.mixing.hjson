@@ -33,7 +33,7 @@
 	
 	character_traits:
 	{
-		include: slave, construction, scientist, chemist, culinary, insane, entertainer, pest, junkie
+		include: slave, construction, scientist, alchemist, culinary, insane, entertainer, pest, junkie
 		weight: 1.000
 	}
 	

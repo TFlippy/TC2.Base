@@ -45,7 +45,7 @@
 	
 	type: workshop
 	flags: blueprintable, hidden, wip
-	tags: manual, crafting, complex, small, tool, chemistry, medical, science, biology
+	tags: manual, crafting, complex, small, tool, alchemistry, medical, science, biology
 	infrastructure: lab_glassware, dishes, bottle
 	infrastructure_exclude: none
 	

@@ -38,7 +38,7 @@
 	
 	character_traits:
 	{
-		include: scientist, medical, farmer, engineer, chemist, culinary, insane, entertainer, evil
+		include: scientist, medical, farmer, engineer, alchemist, culinary, insane, entertainer, evil
 		exclude: brawler, clumsy, huge
 		weight: 1.000
 	}

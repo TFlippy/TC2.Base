@@ -122,7 +122,7 @@
 	
 	type: workshop
 	flags: wip, auto_complete, converted
-	tags: workbench, manual, simple, small, chemistry, biology
+	tags: workbench, manual, simple, small, alchemistry, biology
 	infrastructure: bucket
 	infrastructure_exclude: none
 	

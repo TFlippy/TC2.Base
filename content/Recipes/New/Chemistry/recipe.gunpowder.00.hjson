@@ -181,7 +181,7 @@
 	
 	type: workshop
 	flags: production, manufacturing
-	tags: manual, crafting, simple, chemistry, blending, explosive, dangerous
+	tags: manual, crafting, simple, alchemistry, blending, explosive, dangerous
 	infrastructure: surface
 	infrastructure_exclude: none
 	

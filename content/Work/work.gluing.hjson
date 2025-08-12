@@ -53,7 +53,7 @@
 	skills_mult:
 	{
 		dexterity: 0.640
-		chemistry: 0.220
+		alchemistry: 0.220
 		intellect: 0.620
 		engineering: 0.340
 	}

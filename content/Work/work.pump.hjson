@@ -31,7 +31,7 @@
 	
 	character_traits:
 	{
-		include: slave, farmer, laborer, chemist, culinary, alcoholic, nomad, outdoor, strong
+		include: slave, farmer, laborer, alchemist, culinary, alcoholic, nomad, outdoor, strong
 		weight: 1.000
 	}
 	

@@ -143,7 +143,7 @@
 	
 	type: workshop
 	flags: blueprintable, item, wip, converted
-	tags: manual, crafting, simple, small, tool, assembling, tailoring, chemistry, medical, science, biology
+	tags: manual, crafting, simple, small, tool, assembling, tailoring, alchemistry, medical, science, biology
 	infrastructure: table, chair, surface
 	infrastructure_exclude: none
 	

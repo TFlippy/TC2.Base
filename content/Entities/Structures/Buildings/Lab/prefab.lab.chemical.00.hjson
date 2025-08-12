@@ -95,8 +95,8 @@ laboratory:
 	augments_capacity: 10
 	filter_tags:
 	{
-		require: manual, chemistry
-		include: explosive, chemistry, medical, research, science, smelting
+		require: manual, alchemistry
+		include: explosive, alchemistry, medical, research, science, smelting
 		exclude: large, furniture, organic, blacksmithing, salvaging, social, agriculture
 	}
 }
@@ -107,8 +107,8 @@ shop:
 	
 	tags_filter:
 	{
-		require: manual, chemistry
-		include: explosive, chemistry, medical, research, science, smelting
+		require: manual, alchemistry
+		include: explosive, alchemistry, medical, research, science, smelting
 		exclude: large, furniture, organic, agriculture, blacksmithing, cooking, salvaging, social, gathering
 	}
 	
@@ -177,13 +177,13 @@ personnel:
 	slots:
 	[
 		{
-			role: chemist
+			role: alchemist
 			tags: management, research, civil, industrial, production, dangerous, sedentary, technical, maintenance, operation
 			color: "0xff80dc7e"
 			multiplier: 2.000
 		}
 		{
-			role: chemist
+			role: alchemist
 			tags: management, research, civil, industrial, production, dangerous, sedentary, technical, maintenance, operation
 			color: "0xff80dc7e"
 			multiplier: 2.000

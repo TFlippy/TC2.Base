@@ -33,7 +33,7 @@
 	
 	character_traits:
 	{
-		include: scientist, medical, chemist, culinary, insane, entertainer, artist, junkie, dumb
+		include: scientist, medical, alchemist, culinary, insane, entertainer, artist, junkie, dumb
 		exclude: clumsy, huge
 		weight: 1.000
 	}
