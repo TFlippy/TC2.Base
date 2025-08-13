@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.64.1"
 	name: "Knife"
 	tips: []
 	
@@ -51,10 +51,6 @@
 					filter_tools:
 					{
 						require: file
-					}
-					filter_infrastructure:
-					{
-						include: table, chair, vise
 					}
 					filter_environment:
 					{
@@ -110,11 +106,7 @@
 					filter_tools:
 					{
 						require: file, knife
-						include: saw, hand_drill, file, knife, sandpaper
-					}
-					filter_infrastructure:
-					{
-						include: table, chair, vise
+						include: hand_drill, screwdriver, pliers, file, chisel, knife, sandpaper
 					}
 				}
 				{
@@ -149,11 +141,12 @@
 					filter_tools:
 					{
 						require: saw
-						include: pencil, ruler, pliers, axe, towel, knife
+						include: ruler, file, knife
 					}
 					filter_infrastructure:
 					{
-						include: table, chair
+						require: surface
+						include: workbench
 					}
 				}
 			]
@@ -207,11 +200,11 @@
 					}
 					filter_infrastructure:
 					{
-						require: table
-						include: chair, vise, rack
+						include: table
 					}
 					filter_environment:
 					{
+						include: clean, organized
 						exclude: wet
 					}
 				}
@@ -226,13 +219,13 @@
 			prefab: knife
 			amount: 1.000
 			group: 0
-			flags: primary
+			flags: primary, compact
 		}
 	]
 	
 	type: workshop
 	flags: blueprintable, item
-	tags: workbench, manual, crafting, simple, small, weapon, tool, metalworking
+	tags: manual, crafting, simple, small, weapon, tool, metalworking
 	infrastructure: surface
 	infrastructure_exclude: none
 	
@@ -250,5 +243,5 @@
 	max: 10
 	step: 1
 	
-	version: 0
+	version: 1
 }

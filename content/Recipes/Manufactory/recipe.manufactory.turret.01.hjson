@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.64.1"
 	name: "Turret (Coaxial)"
 	desc:
 		'''
@@ -51,7 +51,7 @@
 	
 	type: workshop
 	flags: no_amount_multiplier, blueprintable, disabled, wip
-	tags: manual, crafting, large, vehicle, metalworking
+	tags: crafting, complex, large, vehicle, assembling, metalworking, engineering, military
 	infrastructure: none
 	infrastructure_exclude: none
 	
