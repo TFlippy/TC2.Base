@@ -829,7 +829,15 @@ vehicle:
 {
 	toolbelt:
 	{
-	
+		capacity: 7
+		flags: none
+		
+		mass_max: 550.000
+		
+		filter_hints:
+		{
+			exclude: vehicle
+		}
 	}
 }
 

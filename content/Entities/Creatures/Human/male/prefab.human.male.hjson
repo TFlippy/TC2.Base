@@ -782,7 +782,15 @@ commandable:
 	
 	toolbelt:
 	{
-	
+		capacity: 5
+		flags: none
+		
+		mass_max: 100.000
+		
+		filter_hints:
+		{
+			exclude: vehicle, heavy, large
+		}
 	}
 }
 
