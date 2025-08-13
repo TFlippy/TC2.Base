@@ -10,6 +10,7 @@ body:
 		friction: 0.850
 		elasticity: 0.200
 		material: glass
+		cog_offset: [0.000, 0.250]
 		layer: entity, solid, resource, ignore_melee, ignore_bullet
 		mask: world
 	}
@@ -37,12 +38,15 @@ resource:
 
 holdable:
 {
-	offset: [0.000, 0.750]
+	offset: [0.000, 0.500]
+	force_multiplier: 1.750
+	torque_multiplier: 0.400
+	flags: disable_control, full_rotate
 }
 
 norotate:
 {
-	flags: disable_in_air, align_to_surface
+	flags: disable_in_air, no_share
 	speed: 3.000
 	bias: 0.010
 	min_surface_dot: 0.800
