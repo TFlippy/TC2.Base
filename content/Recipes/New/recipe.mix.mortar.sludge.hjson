@@ -3,83 +3,78 @@
 	name: "Evil Mortar"
 	desc:
 		'''
-		Dilute some perfectly decent mortar with random crap and hope nobody finds out.
+		Dilute some perfectly decent mortar with random crap.
 		'''
 	tips: []
 	
 	stages:
 	[
 		{
-			name: "Method"
+			name: "Sludge Slurry"
 			
-			type: processing
-			flags: wip, auto_generated
-			tags: none
+			type: feedstock
+			flags: important
+			tags: material, dangerous, formula, ingredient
 			// Damage type used for discarding leftover resources.
-			discard_damage_type: sledgehammer
+			discard_damage_type: corrosion
 			
-			ratio: 1.000
+			ratio: 0.885
 			mass_base: 0.000
 			
 			options:
 			[
 				{
-					name: "Simple"
+					name: "Slushy"
 					
 					type: undefined
-					flags: wip, auto_generated
+					flags: wip
+					discard_damage_type_override: corrosion
+					
+					prefix: "Slushy "
 					
 					requirements:
 					[
 						{
 							type: resource
-							material: mortar
-							amount: 8.767841
-							snapping: 0.250
-							falloff: 0.967
-							loss: 0.522
-							group: 0
-							flags: prerequisite
-						}
-						{
-							type: resource
 							material: sludge
-							amount: 20.56364
-							snapping: 0.2649
-							falloff: 1.038
+							amount: 4.618182
+							snapping: 0.431
+							falloff: 1.054
 							loss: 0.875
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: resource
-							material: ash
-							amount: 3.730769
-							snapping: 0.500
-							loss: 0.651
-							group: 0
-							flags: prerequisite
-						}
-						{
-							type: resource
 							material: water
-							amount: 3.000
-							snapping: 0.100
-							falloff: 1.071
-							loss: 0.522
+							amount: 3.390
+							snapping: 1.000
+							falloff: 1.032
+							loss: 0.973
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: work
-							work: blending
-							amount: 333.000
-							amount_min: 150.000
-							difficulty: 7
+							work: mashing
+							amount: 86.000
+							amount_min: 217.000
+							difficulty: 8
 							snapping: 5.000
-							falloff: 1.013
-							loss: 0.573
-							ratio: 0.722
+							falloff: 0.956
+							loss: 0.675
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: pouring
+							amount: 90.000
+							amount_min: 100.000
+							difficulty: 4
+							snapping: 25.000
+							falloff: 0.851
+							loss: 0.224
 							group: 0
 							flags: stepped, simultaneous, conditional
 						}
@@ -90,40 +85,225 @@
 						{
 							type: resource
 							material: oil
-							amount: 0.7951
-							amount_extra: 0.4332
+							amount: 0.4838
+							amount_extra: 0.7067
 							group: 0
-							ratio: 0.110
+							ratio: 0.122
 							flags: residue, secondary, scale_to_mass
 						}
 						{
 							type: resource
+							material: water.toxic
+							amount: 1.203941
+							amount_extra: 0.176059
+							group: 0
+							ratio: 0.424
+							flags: pollutant, waste, scale_to_mass
+						}
+					]
+					
+					filter_tools:
+					{
+						include: spatula
+					}
+				}
+			]
+		}
+		{
+			name: "Mortar"
+			
+			type: feedstock
+			flags: important
+			tags: material, ingredient
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: wet
+			
+			ratio: 0.885
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Dusty"
+					
+					type: undefined
+					flags: wip
+					discard_damage_type_override: sledgehammer
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: mortar
+							amount: 2.923216
+							snapping: 0.100
+							falloff: 0.935
+							loss: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: ash
+							amount: 5.7231
+							snapping: 0.100
+							falloff: 0.847
+							loss: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: blending
+							amount: 120.000
+							amount_min: 290.000
+							difficulty: 7
+							snapping: 5.000
+							falloff: 0.983
+							loss: 0.173
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: mortar
+							amount: 0.5801
+							amount_extra: 0.3353
+							group: 0
+							ratio: 0.808
+							flags: byproduct, primary, compact, scale_to_mass
+						}
+						{
+							type: resource
 							material: clinker
-							amount: 0.8191
-							amount_extra: 0.2092
+							amount: 0.850115
+							amount_extra: 0.217121
+							group: 0
+							ratio: 0.157
+							flags: waste, residue, scale_to_mass
+						}
+						{
+							type: resource
+							material: hydrogen_sulfide
+							amount: 17.46037
+							amount_extra: 11.88236
+							group: 0
+							chance: 0.353
+							ratio: 0.063
+							flags: pollutant, waste, spawn, scale_to_mass
+						}
+					]
+					
+					filter_tools:
+					{
+						include: spatula
+					}
+				}
+				{
+					name: "Thick"
+					
+					type: undefined
+					flags: wip
+					discard_damage_type_override: sledgehammer
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: mortar
+							amount: 2.923216
+							snapping: 0.100
+							falloff: 0.935
+							loss: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: ash
+							amount: 2.000
+							snapping: 0.500
+							loss: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: blending
+							amount: 120.000
+							amount_min: 290.000
+							difficulty: 7
+							snapping: 5.000
+							falloff: 0.983
+							loss: 0.173
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: mortar
+							amount: 0.499069
+							amount_extra: 0.404273
+							group: 0
+							ratio: 0.808
+							flags: byproduct, primary, compact, scale_to_mass
+						}
+						{
+							type: resource
+							material: clinker
+							amount: 0.850115
+							amount_extra: 0.217121
 							group: 0
 							ratio: 0.075
 							flags: waste, residue, scale_to_mass
 						}
 						{
 							type: resource
-							material: water.toxic
-							amount: 1.2391
-							amount_extra: 0.2112
+							material: hydrogen_sulfide
+							amount: 17.46037
+							amount_extra: 11.88236
 							group: 0
-							ratio: 0.173
-							flags: pollutant, waste, scale_to_mass
-						}
-						{
-							type: resource
-							material: mortar
-							amount: 5.9948
-							amount_extra: 6.0814
-							group: 0
-							ratio: 0.953
-							flags: byproduct, primary, compact, scale_to_mass
+							chance: 0.353
+							ratio: 0.063
+							flags: pollutant, waste, spawn, scale_to_mass
 						}
 					]
+					
+					filter_tools:
+					{
+						include: spatula
+					}
+				}
+			]
+		}
+		{
+			name: "Postprocessing"
+			
+			type: postprocessing
+			flags: optional
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: wet
+			
+			ratio: 0.908
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "None"
+					
+					type: undefined
+					flags: wip
+					discard_damage_type_override: sledgehammer
 					
 					filter_tools:
 					{
@@ -135,9 +315,9 @@
 	]
 	
 	type: workshop
-	flags: wip, converted
-	tags: workbench, manual, dumb, crude, simple, metalworking, blending, processing, messy, dangerous
-	infrastructure: barrel
+	flags: production, no_cancel
+	tags: manual, dumb, crude, simple, metalworking, blending, processing, messy, dangerous
+	infrastructure: barrel, bucket, surface
 	infrastructure_exclude: none
 	
 	h_company: common
@@ -166,12 +346,12 @@
 	}
 	icon_c_offset: [-8.000, -14.000]
 	
-	color_frame: "0xffe3cb93"
+	color_frame: "0xffe8f700"
 	color_button: "0xff9dd80f"
 	rank: -160.400
 	
 	min: 1
-	max: 10
+	max: 25
 	step: 1
 	
 	version: 1
