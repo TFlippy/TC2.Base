@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.64.1"
-	name: "Evil Mortar"
+	name: "Cursed Mortar"
 	desc:
 		'''
 		Dilute some perfectly decent mortar with random crap.
@@ -130,6 +130,8 @@
 					flags: wip
 					discard_damage_type_override: sledgehammer
 					
+					suffix: " Gum"
+					
 					requirements:
 					[
 						{
@@ -159,10 +161,22 @@
 							amount_min: 290.000
 							difficulty: 7
 							snapping: 5.000
-							falloff: 0.983
+							falloff: 0.959
 							loss: 0.173
 							group: 0
 							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: sedimentation
+							amount: 120.000
+							amount_min: 450.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.817
+							loss: 0.675
+							group: 1
+							flags: conditional
 						}
 					]
 					
@@ -171,8 +185,8 @@
 						{
 							type: resource
 							material: mortar
-							amount: 0.5801
-							amount_extra: 0.3353
+							amount: 0.572459
+							amount_extra: 0.330883
 							group: 0
 							ratio: 0.808
 							flags: byproduct, primary, compact, scale_to_mass
@@ -183,18 +197,26 @@
 							amount: 0.850115
 							amount_extra: 0.217121
 							group: 0
-							ratio: 0.157
+							ratio: 0.122
 							flags: waste, residue, scale_to_mass
 						}
 						{
 							type: resource
-							material: hydrogen_sulfide
-							amount: 17.46037
-							amount_extra: 11.88236
+							material: rubber
+							amount: 1.479629
+							amount_extra: 1.746178
 							group: 0
-							chance: 0.353
-							ratio: 0.063
-							flags: pollutant, waste, spawn, scale_to_mass
+							ratio: 0.067
+							flags: residue, byproduct, spawn, scale_to_mass
+						}
+						{
+							type: resource
+							material: syngas
+							amount: 13.16784
+							amount_extra: 6.062926
+							group: 0
+							ratio: 0.075
+							flags: pollutant, residue, spawn, scale_to_mass
 						}
 					]
 					
@@ -204,11 +226,13 @@
 					}
 				}
 				{
-					name: "Thick"
+					name: "Spicy"
 					
 					type: undefined
 					flags: wip
-					discard_damage_type_override: sledgehammer
+					discard_damage_type_override: fire
+					
+					suffix: " of the Phoenix"
 					
 					requirements:
 					[
@@ -216,7 +240,7 @@
 							type: resource
 							material: mortar
 							amount: 2.923216
-							snapping: 0.100
+							snapping: 1.000
 							falloff: 0.935
 							loss: 1.000
 							group: 0
@@ -224,23 +248,72 @@
 						}
 						{
 							type: resource
-							material: ash
-							amount: 2.000
+							material: sulfur
+							amount: 5.4609
 							snapping: 0.500
+							falloff: 0.844
 							loss: 1.000
 							group: 0
 							flags: prerequisite
 						}
 						{
-							type: work
-							work: blending
-							amount: 120.000
-							amount_min: 290.000
-							difficulty: 7
-							snapping: 5.000
-							falloff: 0.983
-							loss: 0.173
+							type: resource
+							material: vinegar
+							amount: 1.000
+							snapping: 0.100
+							falloff: 0.834
+							loss: 1.000
 							group: 0
+							flags: prerequisite
+						}
+						{
+							type: temperature
+							amount: 463.200
+							amount_min: 335.000
+							amount_max: 532.000
+							snapping: 5.000
+							falloff: 1.232
+							loss: 0.224
+							ratio: 0.722
+							group: 1
+							flags: no_scaling, simultaneous, conditional
+						}
+						{
+							type: work
+							work: brewing
+							amount: 145.000
+							amount_min: 350.000
+							difficulty: 8
+							snapping: 5.000
+							falloff: 0.819
+							loss: 0.224
+							group: 1
+							flags: stepped, conditional
+						}
+						{
+							type: work
+							work: dousing
+							amount: 180.000
+							amount_min: 100.000
+							difficulty: 9
+							snapping: 5.000
+							falloff: 0.780
+							loss: 0.373
+							ratio: 0.075
+							group: 2
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: filtering
+							amount: 200.000
+							amount_min: 150.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.847
+							loss: 0.624
+							ratio: 0.024
+							group: 2
 							flags: stepped, simultaneous, conditional
 						}
 					]
@@ -250,29 +323,40 @@
 						{
 							type: resource
 							material: mortar
-							amount: 0.499069
-							amount_extra: 0.404273
+							amount: 0.194008
+							amount_extra: 0.709335
 							group: 0
-							ratio: 0.808
+							ratio: 0.624
 							flags: byproduct, primary, compact, scale_to_mass
 						}
 						{
 							type: resource
-							material: clinker
-							amount: 0.850115
-							amount_extra: 0.217121
+							material: tnt
+							amount: 0.481118
+							amount_extra: 1.451997
 							group: 0
-							ratio: 0.075
-							flags: waste, residue, scale_to_mass
+							chance: 0.624
+							ratio: 0.067
+							flags: residue, byproduct, scale_to_mass
+						}
+						{
+							type: resource
+							material: water.red
+							amount: 0.477568
+							amount_extra: 0.325001
+							group: 0
+							chance: 0.718
+							ratio: 0.114
+							flags: pollutant, waste, spawn, scale_to_mass
 						}
 						{
 							type: resource
 							material: hydrogen_sulfide
-							amount: 17.46037
-							amount_extra: 11.88236
+							amount: 17.65037
+							amount_extra: 11.69235
 							group: 0
-							chance: 0.353
-							ratio: 0.063
+							chance: 0.824
+							ratio: 0.122
 							flags: pollutant, waste, spawn, scale_to_mass
 						}
 					]
@@ -326,9 +410,9 @@
 	{
 		texture: resource.mortar
 		size: [16, 16]
-		frame: [3, 0]
+		frame: [2, 0]
 	}
-	icon_offset: [-1.000, 1.000]
+	icon_offset: [8.000, 2.000]
 	
 	icon_extra:
 	{
@@ -336,7 +420,7 @@
 		size: [16, 16]
 		frame: [3, 0]
 	}
-	icon_extra_offset: [6.000, -6.000]
+	icon_extra_offset: [-21.000, -6.000]
 	
 	icon_c:
 	{
@@ -344,7 +428,7 @@
 		size: [16, 16]
 		frame: [2, 0]
 	}
-	icon_c_offset: [-8.000, -14.000]
+	icon_c_offset: [-12.000, -14.000]
 	
 	color_frame: "0xffe8f700"
 	color_button: "0xff9dd80f"
