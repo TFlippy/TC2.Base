@@ -17,7 +17,7 @@ body:
 		friction: 1.850
 		elasticity: 0.850
 		
-		rigidity_static: 0.900
+		rigidity_static: 0.950
 		rigidity_dynamic: 0.900
 		material: rubber
 		layer: entity, solid, wheel, item

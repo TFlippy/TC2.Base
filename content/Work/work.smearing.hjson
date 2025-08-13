@@ -33,7 +33,7 @@
 	
 	character_traits:
 	{
-		include: criminal, medical, laborer, lowlife, chemist, culinary, insane, entertainer, pest, brawler, junkie, evil, politician, murderer, terrorist, dumb, clumsy
+		include: criminal, medical, laborer, lowlife, alchemist, culinary, insane, entertainer, pest, brawler, junkie, evil, politician, murderer, terrorist, dumb, clumsy
 		weight: 1.000
 	}
 	

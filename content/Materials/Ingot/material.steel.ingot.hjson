@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.64.1"
 	name: "Steel Brick"
 	name_short: "St. Brick"
 	name_imperial: "Schtal"
@@ -18,18 +18,29 @@
 		frame: [7, 0]
 	}
 	
+	// Inventory material type.
 	type: metal_solid
 	flags: hard, magnetic, metal, small, ingot, solid
 	display_flags: sprite_stack_linear, no_random_facing
 	hints: none
 	
+	// Ratio of the material volume to the total volume it occupies when stacked. A value of 1.0 means no empty space, while a value closer to 0.0 means a lot of empty space.
+	packing_fraction: 0.000
+	// General purity modifier.
 	purity: 0.976
+	// Mass of 1 unit in kg.
 	mass_per_unit: 11.7605
+	
+	// Volume occupied by 1 unit in m³.
 	volume_per_unit: 0.0016
 	
+	// Maximum quantity (units) per stack.
 	quantity_max: 100.000
+	// Minimum spawnable quantity.
 	spawn_quantity_threshold: 0.100
+	// Preferred quantity snapping for recipes.
 	snapping: 1.000
+	// Preferred quantity snapping for inventories.
 	snapping_pickup: 10.000
 	
 	form_type: ingot
@@ -142,6 +153,7 @@
 		}
 	]
 	
+	// Damage-based conversions.
 	conversions:
 	{
 		bullet_ac:
@@ -230,12 +242,14 @@
 		}
 	}
 	
+	// Residues from crafting/work.
 	residues:
 	{
 		carving:
 		{
 			h_material: steel.powder
 			h_substance: "null"
+			
 			flags: none
 			flags_product: residue
 			
@@ -245,6 +259,7 @@
 		{
 			h_material: steel.powder
 			h_substance: "null"
+			
 			flags: none
 			flags_product: residue
 			
@@ -254,6 +269,7 @@
 		{
 			h_material: steel.powder
 			h_substance: "null"
+			
 			flags: none
 			flags_product: residue
 			
@@ -263,6 +279,7 @@
 		{
 			h_material: steel
 			h_substance: "null"
+			
 			flags: none
 			flags_product: residue
 			
@@ -272,6 +289,7 @@
 		{
 			h_material: steel.powder
 			h_substance: "null"
+			
 			flags: none
 			flags_product: residue
 			
@@ -281,6 +299,7 @@
 		{
 			h_material: steel.powder
 			h_substance: "null"
+			
 			flags: none
 			flags_product: residue
 			
@@ -290,6 +309,7 @@
 		{
 			h_material: steel.powder
 			h_substance: "null"
+			
 			flags: none
 			flags_product: residue
 			
@@ -299,6 +319,7 @@
 		{
 			h_material: ferronickel.powder
 			h_substance: "null"
+			
 			flags: none
 			flags_product: residue
 			
