@@ -1,9 +1,9 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.64.1"
 	name: "Evil Mortar"
 	desc:
 		'''
-		Dilute a perfectly decent mortar with something awful and hope nobody finds out.
+		Dilute some perfectly decent mortar with random crap and hope nobody finds out.
 		'''
 	tips: []
 	
@@ -34,48 +34,94 @@
 						{
 							type: resource
 							material: mortar
-							amount: 8.000
-							snapping: 0.500
-							loss: 0.016
+							amount: 8.767841
+							snapping: 0.250
+							falloff: 0.967
+							loss: 0.522
 							group: 0
-							flags: no_residue, prerequisite
+							flags: prerequisite
 						}
 						{
 							type: resource
 							material: sludge
-							amount: 30.000
-							snapping: 0.500
-							loss: 0.071
+							amount: 20.56364
+							snapping: 0.2649
+							falloff: 1.038
+							loss: 0.875
 							group: 0
-							flags: no_residue, prerequisite
+							flags: prerequisite
 						}
 						{
 							type: resource
 							material: ash
-							amount: 5.000
-							snapping: 1.000
-							loss: 0.024
+							amount: 3.730769
+							snapping: 0.500
+							loss: 0.651
 							group: 0
-							flags: no_residue, prerequisite
+							flags: prerequisite
 						}
 						{
 							type: resource
 							material: water
-							amount: 1.500
-							snapping: 0.010
+							amount: 3.000
+							snapping: 0.100
+							falloff: 1.071
+							loss: 0.522
 							group: 0
-							flags: no_residue, prerequisite
+							flags: prerequisite
 						}
 						{
 							type: work
 							work: blending
-							amount: 475.000
+							amount: 333.000
 							amount_min: 150.000
 							difficulty: 7
 							snapping: 5.000
-							falloff: 0.800
+							falloff: 1.013
+							loss: 0.573
+							ratio: 0.722
 							group: 0
-							flags: conditional
+							flags: stepped, simultaneous, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: oil
+							amount: 0.7951
+							amount_extra: 0.4362
+							group: 0
+							ratio: 0.122
+							flags: residue, secondary, scale_to_mass
+						}
+						{
+							type: resource
+							material: mush
+							amount: 0.8191
+							amount_extra: 0.2092
+							group: 0
+							ratio: 0.075
+							flags: waste, residue, scale_to_mass
+						}
+						{
+							type: resource
+							material: water.toxic
+							amount: 1.2391
+							amount_extra: 0.2112
+							group: 0
+							ratio: 0.212
+							flags: pollutant, waste, scale_to_mass
+						}
+						{
+							type: resource
+							material: mortar
+							amount: 8.8348
+							amount_extra: 5.9514
+							group: 0
+							ratio: 0.937
+							flags: byproduct, primary, compact, scale_to_mass
 						}
 					]
 					
@@ -85,31 +131,6 @@
 					}
 				}
 			]
-			
-			products:
-			[
-				{
-					type: resource
-					material: water.toxic
-					amount: 1.2391
-					amount_extra: 0.2112
-					snapping: 0.010
-					group: 0
-					flags: pollutant, waste, secondary
-				}
-			]
-		}
-	]
-	
-	products:
-	[
-		{
-			type: resource
-			material: mortar
-			amount: 13.878
-			amount_extra: 7.572
-			group: 0
-			flags: byproduct, primary
 		}
 	]
 	

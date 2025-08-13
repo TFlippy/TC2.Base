@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.1"
+	$version: "0.1.64.1"
 	name: "Purified Water"
 	desc:
 		'''
@@ -116,7 +116,7 @@
 			material: water.clean
 			amount: 1.000
 			group: 0
-			flags: primary
+			flags: primary, compact
 		}
 	]
 	

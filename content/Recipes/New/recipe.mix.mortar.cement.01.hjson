@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.64.1"
 	name: "Cement Mortar"
 	desc:
 		'''
@@ -264,7 +264,7 @@
 			amount: 16.178
 			amount_extra: 1.572
 			group: 0
-			flags: primary
+			flags: primary, compact
 		}
 	]
 	

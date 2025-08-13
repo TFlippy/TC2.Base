@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.64.1"
 	name: "Dynamite"
 	tips: []
 	
@@ -106,7 +106,7 @@
 					}
 					filter_environment:
 					{
-						include: workshop, office, stationary, clean, organized
+						include: workshop, office, stationary, clean, cozy, organized
 						exclude: wet
 					}
 				}
@@ -121,7 +121,7 @@
 			prefab: dynamite
 			amount: 1.000
 			group: 0
-			flags: primary
+			flags: primary, compact
 		}
 	]
 	
@@ -204,7 +204,7 @@
 	rank: 83.000
 	
 	min: 1
-	max: 20
+	max: 16
 	step: 1
 	
 	version: 1
