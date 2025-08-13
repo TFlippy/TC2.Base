@@ -1,5 +1,8 @@
 $name: "Loose Cannon"
-$desc: "An antiquated imperial cannon that isn't renowned for its reliability."
+$desc: 
+	'''
+	Antiquated model of an obsolete Imperial cannon that isn't renowned for its reliability.
+	'''
 $tags: []
 
 body:

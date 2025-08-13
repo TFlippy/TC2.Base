@@ -4,7 +4,11 @@
 	name_short: "Mulch"
 	description:
 		'''
-		TODO: Desc
+		Lump of redundant, mulched organic matter.
+		
+		Can be converted into fertilizer and returned to the earth to promote verdancy and growth.
+
+		It is a highly efficient means of organic renewal!
 		'''
 	
 	tips: []

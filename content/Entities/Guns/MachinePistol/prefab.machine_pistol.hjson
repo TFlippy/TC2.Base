@@ -1,8 +1,9 @@
 $name: "Machine Pistol"
 $desc:
 	'''
-	Compact automatic pistol.
-	Burns through ammunition rather quick.
+	Compact rapid-fire automatic pistol.
+
+	Burns through ammunition rather quickly.
 	'''
 $tags: []
 

@@ -1,7 +1,7 @@
 $name: "Revolver"
 $desc:
 	'''
-	Big iron designed for higher-caliber ammunition.
+	Big iron fit for higher-caliber ammunition.
 	'''
 $tags: []
 
@@ -17,7 +17,7 @@ body:
 		radius: 0.300
 		friction: 0.900
 		elasticity: 0.250
-		material: metal
+		material: metal_solid
 		layer: entity, solid, ignore_bullet, ignore_melee, item
 		mask: world
 	}

@@ -1,7 +1,7 @@
-$name: "Cmajzl"
+$name: "Cmajzl Colony"
 $desc: 
 	'''
-	TODO: Desc
+	Thick, tangled growth of Cmajzl, a common parasitic cereal grain of many uses that tastes terrible.
 	'''
 $tags: []
 
@@ -11,16 +11,28 @@ body:
 	
 	@shape.line:
 	{
-		a: [0.000, -1.000]
-		b: [0.000, 1.000]
-
-		radius: 1.000
-		friction: 0.950
-		elasticity: 0.500
-		mass: 23.000
 		material: foliage
-		layer: entity, plant, ignore_melee, ignore_bullet, organic, flammable
-		mask: world
+		miss_chance: 0.469
+		flags: none
+		tags: large, flammable, soft
+		
+		layer: entity, plant, organic, flammable, barbed, no_overlapped_placement, ignore_melee, ignore_bullet
+		mask: world, solid, building
+		exclude: none
+		
+		mass: 73.000
+		radius: 0.625
+		friction: 0.950
+		elasticity: 0.100
+		
+		rigidity_dynamic: 0.470
+		fall_damage_mult: 1.900
+		flammability: 0.640
+		cog_offset: [-0.1875, 0.6875]
+		
+		a: [-0.125, -1.250]
+		b: [0.000, 1.000]
+		offset: [0.000, 0.000]
 	}
 }
 
@@ -31,7 +43,7 @@ transform:
 
 health:
 {
-	max: 2500.000
+	max: 9500.000
 }
 
 foliage.renderer:
