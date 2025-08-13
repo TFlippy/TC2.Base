@@ -1,8 +1,7 @@
 $name: "Short Howitzer"
 $desc: 
 	'''
-	Short cannon based on an antiquated Imperial cannon model, 
-	which is cheaper, lighter and of worse performance.
+	Shorter and more lightweight howitzer variant.
 	'''
 $tags: []
 

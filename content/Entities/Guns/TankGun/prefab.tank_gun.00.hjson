@@ -1,7 +1,7 @@
-$name: "Tank Gun"
+$name: "Revolver Cannon"
 $desc: 
 	'''
-	Relatively lightweight artillery gun. 
+	Sturdy revolver-cannon favored by giants.
 	'''
 	
 $tags: []

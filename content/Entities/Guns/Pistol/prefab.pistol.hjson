@@ -1,8 +1,9 @@
 $name: "Pistol"
 $desc:
 	'''
-	Small semi-automatic pistol. 
-	Fires almost as fast as you can press the trigger.
+	Small semi-automatic pistol.
+
+	Shoots almost as fast as you can press the trigger.
 	'''
 $tags: []
 

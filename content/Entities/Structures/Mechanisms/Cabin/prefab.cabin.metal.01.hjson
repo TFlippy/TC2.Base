@@ -133,7 +133,6 @@ storage:
 {
 	@inventory4:
 	{
-		name: "Ammo"
 		stack_size_multiplier: 4.000
 		type: ammo
 		flags: standalone, allow_ducts

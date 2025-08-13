@@ -1,8 +1,7 @@
 $name: "Auto Shotgun"
 $desc:
 	'''
-	A semi-automatic shotgun.
-	Can use a wide range of ammunition.
+	Semi-automatic shotgun with a high rate of fire and a large magazine.
 	'''
 
 $tags: []
@@ -56,7 +55,6 @@ gun:
 	
 	@inventory1:
 	{
-		name: "Ammo"
 		stack_size_multiplier: 1.000
 		type: ammo
 		flags: hidden, ignore_mass, no_auto_pickup

@@ -1,7 +1,8 @@
 $name: "Scattergun"
 $desc:
 	'''
-	Break-action shotgun with a shorter barrel.
+	Simple and reliable break-action shotgun.
+	
 	Can use a wide range of ammunition.
 	'''
 $tags: []
@@ -57,7 +58,6 @@ gun:
 	
 	@inventory1:
 	{
-		name: "Ammo"
 		stack_size_multiplier: 1.000
 		type: ammo
 		flags: hidden, ignore_mass, no_auto_pickup

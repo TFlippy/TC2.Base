@@ -2,6 +2,7 @@ $name: "Machine Gun"
 $desc:
 	'''
 	High-powered machine gun.
+	
 	Very heavy and difficult to handle, usually wielded by giants or placed on mounts.
 	'''
 $tags: []
