@@ -221,7 +221,7 @@ sticky:
 		stiffness: 45000.000
 		damping: 800.000
 		axis_force: 400000.000
-		max_distance: 0.350
+		max_distance: 0.850
 	}
 
 	joint.gear:

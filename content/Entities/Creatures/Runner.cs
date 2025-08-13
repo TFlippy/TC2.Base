@@ -252,7 +252,7 @@ namespace TC2.Base.Components
 
 			var can_move = !kb.GetKey(Keyboard.Key.NoMove | Keyboard.Key.X) && !runner_state.flags.HasAny(Runner.State.Flags.Sitting);
 			var is_walking = can_move && kb.GetKey(Keyboard.Key.MoveLeft | Keyboard.Key.MoveRight);
-			var any = can_move && kb.GetKey(Keyboard.Key.MoveLeft | Keyboard.Key.MoveRight | Keyboard.Key.MoveUp | Keyboard.Key.MoveDown);
+			var any = can_move && kb.GetKey(Keyboard.Key.MoveLeft | Keyboard.Key.MoveRight | Keyboard.Key.MoveUp);
 			var is_swimming = false;
 			var is_climbing = runner_state.flags.HasAny(Runner.State.Flags.Climbing);
 			var stick_to_surface = runner.flags.HasAny(Runner.Data.Flags.Stick_To_Surface);
@@ -265,7 +265,8 @@ namespace TC2.Base.Components
 			var dir_r = stick_to_surface ? runner_state.last_normal.GetPerpendicular(true) : move_relative ? transform.Right : new(1.00f, 0.00f);
 
 
-			if (any || kb.GetKeyDown(Keyboard.Key.NoMove | Keyboard.Key.X))
+			//if (any || kb.GetKeyDown(Keyboard.Key.NoMove | Keyboard.Key.X | Keyboard.Key.MoveDown) || kb.GetKeyUp(Keyboard.Key.NoMove | Keyboard.Key.X | Keyboard.Key.MoveDown))
+			if (any || kb.GetKeyChanged(Keyboard.Key.NoMove | Keyboard.Key.X | Keyboard.Key.MoveDown))
 			{
 				body.Activate();
 			}

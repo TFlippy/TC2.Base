@@ -175,7 +175,7 @@ storage:
 		min: -2.000
 		max: 2.000
 		error_bias: 0.001
-		max_bias: 1.500
+		max_bias: 2.200
 	}
 
 	attachment.slot:
