@@ -91,14 +91,14 @@
 							type: resource
 							material: oil
 							amount: 0.7951
-							amount_extra: 0.4362
+							amount_extra: 0.4332
 							group: 0
-							ratio: 0.122
+							ratio: 0.110
 							flags: residue, secondary, scale_to_mass
 						}
 						{
 							type: resource
-							material: mush
+							material: clinker
 							amount: 0.8191
 							amount_extra: 0.2092
 							group: 0
@@ -111,16 +111,16 @@
 							amount: 1.2391
 							amount_extra: 0.2112
 							group: 0
-							ratio: 0.212
+							ratio: 0.173
 							flags: pollutant, waste, scale_to_mass
 						}
 						{
 							type: resource
 							material: mortar
-							amount: 8.8348
-							amount_extra: 5.9514
+							amount: 5.9948
+							amount_extra: 6.0814
 							group: 0
-							ratio: 0.937
+							ratio: 0.953
 							flags: byproduct, primary, compact, scale_to_mass
 						}
 					]
@@ -134,71 +134,9 @@
 		}
 	]
 	
-	requirements_old:
-	[
-		{
-			type: resource
-			material: mortar
-			amount: 8.000
-			group: 0
-			flags: prerequisite
-		}
-		{
-			type: resource
-			material: sludge
-			amount: 30.000
-			group: 0
-			flags: prerequisite
-		}
-		{
-			type: resource
-			material: ash
-			amount: 5.000
-			group: 0
-			flags: prerequisite
-		}
-		{
-			type: resource
-			material: water
-			amount: 1.500
-			snapping: 0.010
-			group: 0
-			flags: prerequisite
-		}
-		{
-			type: work
-			work: blending
-			amount: 350.000
-			difficulty: 7
-			snapping: 5.000
-			falloff: 0.800
-			group: 0
-			flags: conditional
-		}
-	]
-	
-	products_old:
-	[
-		{
-			type: resource
-			material: mortar
-			amount: 13.878
-			amount_extra: 7.572
-			group: 0
-		}
-		{
-			type: resource
-			material: water.toxic
-			amount: 1.2391
-			amount_extra: 0.2112
-			snapping: 0.010
-			group: 0
-		}
-	]
-	
 	type: workshop
 	flags: wip, converted
-	tags: workbench, manual, dumb, crude, simple, blending, messy, dangerous
+	tags: workbench, manual, dumb, crude, simple, metalworking, blending, processing, messy, dangerous
 	infrastructure: barrel
 	infrastructure_exclude: none
 	
