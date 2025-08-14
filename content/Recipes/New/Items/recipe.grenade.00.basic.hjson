@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.64.1"
 	name: "Grenade"
 	tips: []
 	
@@ -92,12 +92,11 @@
 					filter_tools:
 					{
 						require: hammer, screwdriver, wrench
-						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, pliers, bucket, stapler, towel, spatula, tongs, pick, crowbar, knife
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, pliers, bucket, stapler, chisel, towel, spatula, tongs, pick, crowbar, knife
 					}
 					filter_infrastructure:
 					{
-						require: table
-						include: anvil, dishes, table, chair, vise
+						include: anvil, vise, hard_surface, workbench
 					}
 				}
 			]
@@ -117,7 +116,7 @@
 	
 	type: workshop
 	flags: blueprintable, item, wip, converted
-	tags: workbench, manual, crafting, small, weapon, munitions, assembling, metalworking, engineering, military, construction, explosive, dangerous
+	tags: manual, crafting, small, weapon, munitions, assembling, metalworking, engineering, military, explosive, dangerous
 	infrastructure: table, chair, surface
 	infrastructure_exclude: none
 	

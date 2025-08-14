@@ -51,6 +51,11 @@
 					filter_tools:
 					{
 						require: file
+						include: chisel, knife, sandpaper, utensils
+					}
+					filter_infrastructure:
+					{
+						include: surface
 					}
 					filter_environment:
 					{

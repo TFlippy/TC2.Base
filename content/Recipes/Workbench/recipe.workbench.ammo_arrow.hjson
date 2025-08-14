@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.64.1"
 	name: "Arrowbolts"
 	desc:
 		'''
@@ -62,12 +62,8 @@
 					
 					filter_tools:
 					{
-						require: cutters
-						include: cutters, pliers, knife, scissors
-					}
-					filter_infrastructure:
-					{
-						include: table
+						require: hammer
+						include: hammer, cutters, hand_drill, screwdriver, wrench, tweezers, magnifying_glass, towel, tongs, pick, crowbar
 					}
 				}
 			]
@@ -209,7 +205,7 @@
 	
 	type: workshop
 	flags: wip
-	tags: workbench, manual, crafting, crude, simple, small, munitions, delicate, woodworking, assembling
+	tags: manual, crafting, crude, simple, small, munitions, delicate, woodworking, assembling
 	infrastructure: surface
 	infrastructure_exclude: none
 	

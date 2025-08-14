@@ -73,10 +73,6 @@
 						require: hammer, saw, file, knife, needle
 						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, tweezers, axe, stapler, file, chisel, knife, needle, pins
 					}
-					filter_infrastructure:
-					{
-						include: table, chair, vise
-					}
 				}
 			]
 		}
@@ -148,7 +144,7 @@
 	
 	type: workshop
 	flags: blueprintable, item, wip, converted
-	tags: workbench, workshop, manual, crafting, simple, small, weapon, tool, woodworking
+	tags: manual, crafting, simple, small, weapon, tool, woodworking
 	infrastructure: surface
 	infrastructure_exclude: none
 	

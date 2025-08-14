@@ -104,7 +104,11 @@
 					
 					filter_tools:
 					{
-						include: spatula
+						include: bucket, shovel, towel, spatula, ladle
+					}
+					filter_infrastructure:
+					{
+						include: dishes, compactor, blender, press, form
 					}
 				}
 			]
@@ -222,7 +226,15 @@
 					
 					filter_tools:
 					{
-						include: spatula
+						include: ruler, shovel, file, spatula, ladle, utensils
+					}
+					filter_infrastructure:
+					{
+						include: cauldron, dishes, barrel, bucket, liquid_container, blender, form
+					}
+					filter_environment:
+					{
+						include: stationary, cozy, quiet, waterproof
 					}
 				}
 				{
@@ -363,7 +375,7 @@
 					
 					filter_tools:
 					{
-						include: spatula
+						require: bucket
 					}
 				}
 			]
@@ -388,11 +400,6 @@
 					type: undefined
 					flags: wip
 					discard_damage_type_override: sledgehammer
-					
-					filter_tools:
-					{
-						include: spatula
-					}
 				}
 			]
 		}
