@@ -23,8 +23,8 @@
 	}
 	
 	// Inventory material type.
-	type: coin
-	flags: hard, magnetic, granular, metal, small, manufactured, pellet, ingot, solid, processed, primary
+	type: metal_solid
+	flags: hard, magnetic, granular, metal, small, manufactured, pellet, solid, processed, primary
 	display_flags: none
 	spawn_flags:
 	{

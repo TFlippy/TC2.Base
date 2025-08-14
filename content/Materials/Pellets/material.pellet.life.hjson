@@ -19,7 +19,7 @@
 	
 	// Inventory material type.
 	type: metal_solid
-	flags: hard, magnetic, essence, metal, small, manufactured, pellet, solid
+	flags: hard, sticky, magnetic, granular, essence, toxic, metal, small, corrosive, fragile, manufactured, pellet, solid, processed, smelly, primary
 	display_flags: none
 	spawn_flags:
 	{
@@ -55,8 +55,12 @@
 	
 	color_icon: "0xffffffff"
 	color_item: "0xffffffff"
-	color_dust: "0xffffffff"
-	color_gib: "0xffffffff"
+	color_dust: "0xff6c584b"
+	color_gib: "0xff6c584b"
+	color_spark: [0.853, 0.270, 0.382, 1.337]
+	color_flame: [0.583, 0.190, 0.265, 0.690]
+	color_liquid: [0.583, 0.190, 0.265, 1.000]
+	color_smoke: [0.424, 0.345, 0.294, 1.000]
 	
 	centroid_default: [0.000, 0.250]
 	colliders: []

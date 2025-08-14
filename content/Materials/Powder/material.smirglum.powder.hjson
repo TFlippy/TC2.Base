@@ -40,7 +40,7 @@
 	// Preferred quantity snapping for recipes.
 	snapping: 0.100
 	// Preferred quantity snapping for inventories.
-	snapping_pickup: 50.000
+	snapping_pickup: 0.100
 	
 	form_type: powder
 	prefab: resource.smirglum.powder
