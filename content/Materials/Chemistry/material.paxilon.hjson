@@ -32,7 +32,7 @@
 	// General purity modifier.
 	purity: 0.948
 	// Mass of 1 unit in kg.
-	mass_per_unit: 0.100
+	mass_per_unit: 0.639
 	
 	// Maximum quantity (units) per stack.
 	quantity_max: 500.000

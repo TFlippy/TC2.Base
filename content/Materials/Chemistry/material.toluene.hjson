@@ -33,10 +33,10 @@
 	// General purity modifier.
 	purity: 0.864
 	// Mass of 1 unit in kg.
-	mass_per_unit: 0.867
+	mass_per_unit: 0.730
 	
 	// Maximum quantity (units) per stack.
-	quantity_max: 250.000
+	quantity_max: 500.000
 	// Minimum spawnable quantity.
 	spawn_quantity_threshold: 1.000
 	// Preferred quantity snapping for recipes.
