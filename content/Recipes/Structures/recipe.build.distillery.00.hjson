@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.64.1"
 	name: "Distillery"
 	tips: []
 	
@@ -9,6 +9,14 @@
 			type: resource
 			material: brick.concrete
 			amount: 160.000
+			snapping: 0.500
+			group: 0
+			flags: prerequisite
+		}
+		{
+			type: resource
+			material: mortar
+			amount: 35.000
 			snapping: 0.500
 			group: 0
 			flags: prerequisite
@@ -45,6 +53,13 @@
 			type: resource
 			material: machine_parts
 			amount: 60.000
+			group: 0
+			flags: prerequisite
+		}
+		{
+			type: resource
+			material: thermopaste
+			amount: 10.000
 			group: 0
 			flags: prerequisite
 		}
