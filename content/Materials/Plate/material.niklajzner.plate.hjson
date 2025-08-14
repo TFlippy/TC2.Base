@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.64.1"
 	name: "Niklajzner Sheet"
 	name_short: "Nkz. Sheet"
 	name_dumb: "Tinfoil"
@@ -21,8 +21,14 @@
 	type: metal_sheet
 	flags: malleable, magnetic, metal, small, thin, plate, solid, processed
 	display_flags: sprite_stack_linear, no_random_facing
+	spawn_flags:
+	{
+		add: no_discard
+	}
 	hints: none
 	
+	// Ratio of the material volume to the total volume it occupies when stacked. A value of 1.0 means no empty space, while a value closer to 0.0 means a lot of empty space.
+	packing_fraction: 0.000
 	// General purity modifier.
 	purity: 0.964
 	// Mass of 1 unit in kg.
@@ -112,7 +118,6 @@
 			ratio: 0.820
 			ratio_extra: 0.100
 			
-			h_material_waste: "null"
 			spawn_flags_waste: none
 			product_flags_waste: none
 			ratio_waste: 0.000
@@ -140,7 +145,6 @@
 			ratio: 0.120
 			ratio_extra: 0.200
 			
-			h_material_waste: "null"
 			spawn_flags_waste: none
 			product_flags_waste: none
 			ratio_waste: 0.000
@@ -168,7 +172,6 @@
 			ratio: 0.180
 			ratio_extra: 0.300
 			
-			h_material_waste: "null"
 			spawn_flags_waste: none
 			product_flags_waste: none
 			ratio_waste: 0.000
@@ -196,7 +199,6 @@
 			ratio: 0.200
 			ratio_extra: 0.500
 			
-			h_material_waste: "null"
 			spawn_flags_waste: none
 			product_flags_waste: none
 			ratio_waste: 0.000
@@ -224,7 +226,6 @@
 			ratio: 0.220
 			ratio_extra: 0.400
 			
-			h_material_waste: "null"
 			spawn_flags_waste: none
 			product_flags_waste: none
 			ratio_waste: 0.000
@@ -252,7 +253,6 @@
 			ratio: 0.910
 			ratio_extra: 0.060
 			
-			h_material_waste: "null"
 			spawn_flags_waste: merge, no_offset
 			product_flags_waste: none
 			ratio_waste: 0.000
@@ -280,7 +280,7 @@
 		snipping.metal:
 		{
 			h_material: scrap.niklajzner
-			h_substance: "null"
+			
 			flags: none
 			flags_product: waste, residue
 			
@@ -289,7 +289,7 @@
 		carving:
 		{
 			h_material: scrap.niklajzner
-			h_substance: "null"
+			
 			flags: none
 			flags_product: residue
 			
@@ -298,7 +298,7 @@
 		cutting:
 		{
 			h_material: scrap.niklajzner
-			h_substance: "null"
+			
 			flags: none
 			flags_product: residue
 			
@@ -307,7 +307,7 @@
 		drilling:
 		{
 			h_material: scrap.niklajzner
-			h_substance: "null"
+			
 			flags: none
 			flags_product: residue
 			
@@ -316,7 +316,7 @@
 		smithing:
 		{
 			h_material: scrap.ferrous
-			h_substance: "null"
+			
 			flags: none
 			flags_product: residue
 			
@@ -325,7 +325,7 @@
 		machining:
 		{
 			h_material: ferronickel.powder
-			h_substance: "null"
+			
 			flags: none
 			flags_product: residue
 			
@@ -334,7 +334,7 @@
 		sawing:
 		{
 			h_material: steel.powder
-			h_substance: "null"
+			
 			flags: none
 			flags_product: residue
 			
@@ -343,7 +343,7 @@
 		bending:
 		{
 			h_material: scrap.steel
-			h_substance: "null"
+			
 			flags: none
 			flags_product: residue
 			
@@ -352,7 +352,7 @@
 		carpentry:
 		{
 			h_material: scrap.steel
-			h_substance: "null"
+			
 			flags: none
 			flags_product: residue
 			
@@ -361,7 +361,7 @@
 		filing:
 		{
 			h_material: steel.powder
-			h_substance: "null"
+			
 			flags: none
 			flags_product: residue
 			
@@ -370,7 +370,7 @@
 		carburization:
 		{
 			h_material: ferronickel.powder
-			h_substance: "null"
+			
 			flags: none
 			flags_product: waste, residue
 			

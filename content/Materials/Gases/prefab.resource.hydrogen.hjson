@@ -78,9 +78,11 @@ explosive:
 
 despawn:
 {
-	sleep_count: 0
-	sleep_count_max: 0
-	interval: 1.000
-	threshold_delete: 0.010
-	threshold_despawning: 1.500
+	sleep_count_max: 4
+	interval: 6.000
+	interval_extra: 16.000
+	threshold_delete: 0.001
+	threshold_despawning: 1.000
+	amount_ratio: 0.002
+	amount_ratio_extra: 0.011
 }

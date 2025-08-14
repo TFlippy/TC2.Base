@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.5"
+	$version: "0.1.64.1"
 	name: "Copper Scrap"
 	name_short: "Cop. Scrap"
 	description:
@@ -16,22 +16,34 @@
 		frame: [3, 0]
 	}
 	
+	// Inventory material type.
 	type: scrap
 	flags: scrap, granular, metal, waste, flexible, solid, processed
 	display_flags: none
 	spawn_flags:
 	{
+		add: merge, no_discard
 		rem: show_notification
 	}
 	hints: materials, junk, construction, cheap
 	
+	// Ratio of the material volume to the total volume it occupies when stacked. A value of 1.0 means no empty space, while a value closer to 0.0 means a lot of empty space.
+	packing_fraction: 0.000
+	// General purity modifier.
 	purity: 0.852
+	// Mass of 1 unit in kg.
 	mass_per_unit: 2.053157
+	
+	// Volume occupied by 1 unit in m³.
 	volume_per_unit: 0.00043
 	
+	// Maximum quantity (units) per stack.
 	quantity_max: 250.000
+	// Minimum spawnable quantity.
 	spawn_quantity_threshold: 1.000
+	// Preferred quantity snapping for recipes.
 	snapping: 1.000
+	// Preferred quantity snapping for inventories.
 	snapping_pickup: 1.000
 	
 	form_type: scrap
@@ -85,12 +97,13 @@
 		quantity_industry: 8000.000
 	}
 	
+	// Residues from crafting/work.
 	residues:
 	{
 		melting:
 		{
-			h_material: "null"
 			h_substance: slag
+			
 			flags: none
 			flags_product: pollutant, waste, spawn, use_temperature
 			

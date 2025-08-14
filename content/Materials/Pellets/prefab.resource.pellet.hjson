@@ -11,7 +11,7 @@ body:
 		radius: 0.750
 		friction: 0.850
 		elasticity: 0.500
-		material: metal_solid
+		material: coin
 		layer: entity, solid, resource, conductive, magnetic, heatable
 		mask: world, essence
 		miss_chance: 0.420
@@ -40,7 +40,7 @@ resource:
 
 health:
 {
-	max: 6500.000
+	max: 216500.000
 }
 
 holdable:

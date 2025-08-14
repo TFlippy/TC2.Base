@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.64.1"
 	name: "Copper Sheet"
 	name_short: "Cop. Sheet"
 	description:
@@ -23,8 +23,14 @@
 	type: metal_sheet
 	flags: metal, small, plate, flexible, solid, processed
 	display_flags: no_random_facing
+	spawn_flags:
+	{
+		add: no_discard
+	}
 	hints: none
 	
+	// Ratio of the material volume to the total volume it occupies when stacked. A value of 1.0 means no empty space, while a value closer to 0.0 means a lot of empty space.
+	packing_fraction: 0.000
 	// General purity modifier.
 	purity: 0.970
 	// Mass of 1 unit in kg.
@@ -147,7 +153,6 @@
 	{
 		sledgehammer:
 		{
-			h_material: "null"
 			spawn_flags: none
 			product_flags: none
 			ratio: 1.000
@@ -175,7 +180,6 @@
 		}
 		shovel:
 		{
-			h_material: "null"
 			spawn_flags: none
 			product_flags: none
 			ratio: 1.000
@@ -209,7 +213,7 @@
 		snipping.metal:
 		{
 			h_material: scrap.copper
-			h_substance: "null"
+			
 			flags: none
 			flags_product: residue
 			
@@ -218,7 +222,7 @@
 		carving:
 		{
 			h_material: copper.powder
-			h_substance: "null"
+			
 			flags: none
 			flags_product: residue
 			
@@ -227,7 +231,7 @@
 		cutting:
 		{
 			h_material: scrap.copper
-			h_substance: "null"
+			
 			flags: none
 			flags_product: residue
 			
@@ -236,7 +240,7 @@
 		drilling:
 		{
 			h_material: copper.powder
-			h_substance: "null"
+			
 			flags: none
 			flags_product: residue
 			
@@ -245,7 +249,7 @@
 		smithing:
 		{
 			h_material: scrap.copper
-			h_substance: "null"
+			
 			flags: none
 			flags_product: residue
 			
@@ -254,7 +258,7 @@
 		machining:
 		{
 			h_material: copper.powder
-			h_substance: "null"
+			
 			flags: none
 			flags_product: residue
 			
@@ -263,7 +267,7 @@
 		sawing:
 		{
 			h_material: copper.powder
-			h_substance: "null"
+			
 			flags: none
 			flags_product: residue
 			
@@ -272,7 +276,7 @@
 		die.cutting.metal:
 		{
 			h_material: scrap.copper
-			h_substance: "null"
+			
 			flags: none
 			flags_product: residue
 			
@@ -281,7 +285,7 @@
 		bending:
 		{
 			h_material: scrap.copper
-			h_substance: "null"
+			
 			flags: none
 			flags_product: residue
 			
@@ -290,7 +294,7 @@
 		melting:
 		{
 			h_material: scrap.copper
-			h_substance: "null"
+			
 			flags: none
 			flags_product: pollutant, waste, use_temperature
 			

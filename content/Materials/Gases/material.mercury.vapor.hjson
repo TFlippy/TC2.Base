@@ -25,6 +25,7 @@
 	display_flags: sprite_stack_linear, no_random_facing
 	spawn_flags:
 	{
+		add: no_discard
 		rem: pickup, allow_encumbered, show_notification
 	}
 	hints: none

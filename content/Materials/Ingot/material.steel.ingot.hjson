@@ -22,6 +22,10 @@
 	type: metal_solid
 	flags: hard, magnetic, metal, small, ingot, solid
 	display_flags: sprite_stack_linear, no_random_facing
+	spawn_flags:
+	{
+		add: no_discard
+	}
 	hints: none
 	
 	// Ratio of the material volume to the total volume it occupies when stacked. A value of 1.0 means no empty space, while a value closer to 0.0 means a lot of empty space.
@@ -164,7 +168,6 @@
 			ratio: 0.310
 			ratio_extra: 0.670
 			
-			h_material_waste: "null"
 			spawn_flags_waste: none
 			product_flags_waste: none
 			ratio_waste: 0.000
@@ -192,7 +195,6 @@
 			ratio: 0.120
 			ratio_extra: 0.500
 			
-			h_material_waste: "null"
 			spawn_flags_waste: none
 			product_flags_waste: none
 			ratio_waste: 0.000
@@ -248,7 +250,6 @@
 		carving:
 		{
 			h_material: steel.powder
-			h_substance: "null"
 			
 			flags: none
 			flags_product: residue
@@ -258,7 +259,6 @@
 		cutting:
 		{
 			h_material: steel.powder
-			h_substance: "null"
 			
 			flags: none
 			flags_product: residue
@@ -268,7 +268,6 @@
 		drilling:
 		{
 			h_material: steel.powder
-			h_substance: "null"
 			
 			flags: none
 			flags_product: residue
@@ -278,7 +277,6 @@
 		smithing:
 		{
 			h_material: steel
-			h_substance: "null"
 			
 			flags: none
 			flags_product: residue
@@ -288,7 +286,6 @@
 		machining:
 		{
 			h_material: steel.powder
-			h_substance: "null"
 			
 			flags: none
 			flags_product: residue
@@ -298,7 +295,6 @@
 		sawing:
 		{
 			h_material: steel.powder
-			h_substance: "null"
 			
 			flags: none
 			flags_product: residue
@@ -308,7 +304,6 @@
 		filing:
 		{
 			h_material: steel.powder
-			h_substance: "null"
 			
 			flags: none
 			flags_product: residue
@@ -318,7 +313,6 @@
 		grinding:
 		{
 			h_material: ferronickel.powder
-			h_substance: "null"
 			
 			flags: none
 			flags_product: residue

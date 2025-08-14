@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.5"
+	$version: "0.1.64.1"
 	name: "Wooden Debris"
 	name_short: "Wood Db."
 	description:
@@ -16,25 +16,33 @@
 		frame: [3, 0]
 	}
 	
+	// Inventory material type.
 	type: wood
 	flags: scrap, granular, small, flammable, waste, flexible, solid, impure
 	display_flags: none
 	spawn_flags:
 	{
+		add: merge, no_discard
 		rem: pickup, allow_encumbered, show_notification
 	}
 	hints: materials, junk, construction, cheap
 	
+	// Ratio of the material volume to the total volume it occupies when stacked. A value of 1.0 means no empty space, while a value closer to 0.0 means a lot of empty space.
+	packing_fraction: 0.000
+	// Mass of 1 unit in kg.
 	mass_per_unit: 0.468
 	
+	// Maximum quantity (units) per stack.
 	quantity_max: 500.000
+	// Minimum spawnable quantity.
 	spawn_quantity_threshold: 1.650
+	// Preferred quantity snapping for recipes.
 	snapping: 1.000
+	// Preferred quantity snapping for inventories.
 	snapping_pickup: 1.000
 	
 	form_type: scrap
 	prefab: resource.scrap.wood
-	h_substance: "null"
 	
 	color_icon: "0xffffffff"
 	color_item: "0xffffffff"
@@ -44,6 +52,7 @@
 	centroid_default: [0.000, 0.250]
 	colliders: []
 	
+	// Damage-based conversions.
 	conversions:
 	{
 		phlogiston:
@@ -104,6 +113,7 @@
 		}
 	}
 	
+	// Residues from crafting/work.
 	residues:
 	{
 	

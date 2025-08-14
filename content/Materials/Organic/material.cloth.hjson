@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.64.1"
 	name: "Cloth"
 	name_short: "Cloth"
 	name_dumb: "Linen Wool"
@@ -19,25 +19,32 @@
 		frame: [3, 0]
 	}
 	
+	// Inventory material type.
 	type: fabric
 	flags: soft, malleable, organic, thin, manufactured, flammable, flexible, solid, processed
 	display_flags: none
 	spawn_flags:
 	{
-		add: merge, show_notification
+		add: merge
 	}
 	hints: materials, civilian
 	
+	// Ratio of the material volume to the total volume it occupies when stacked. A value of 1.0 means no empty space, while a value closer to 0.0 means a lot of empty space.
+	packing_fraction: 0.000
+	// Mass of 1 unit in kg.
 	mass_per_unit: 0.360
 	
+	// Maximum quantity (units) per stack.
 	quantity_max: 250.000
+	// Minimum spawnable quantity.
 	spawn_quantity_threshold: 0.500
+	// Preferred quantity snapping for recipes.
 	snapping: 0.100
+	// Preferred quantity snapping for inventories.
 	snapping_pickup: 1.000
 	
 	form_type: plate
 	prefab: resource.cloth
-	h_substance: "null"
 	
 	color_icon: "0xffffffff"
 	color_item: "0xffffffff"
@@ -86,11 +93,11 @@
 		quantity_industry: 0.000
 	}
 	
+	// Damage-based conversions.
 	conversions:
 	{
 		fire:
 		{
-			h_material: "null"
 			spawn_flags: none
 			product_flags: none
 			ratio: 1.000
@@ -114,10 +121,10 @@
 			flags: none
 			merge_radius_mult: 1.200
 			velocity_mult: 0.100
+			damage_mult: 1.000
 		}
 		phlogiston:
 		{
-			h_material: "null"
 			spawn_flags: none
 			product_flags: none
 			ratio: 1.000
@@ -141,10 +148,10 @@
 			flags: none
 			merge_radius_mult: 1.400
 			velocity_mult: 0.100
+			damage_mult: 1.000
 		}
 		scratch:
 		{
-			h_material: "null"
 			spawn_flags: none
 			product_flags: none
 			ratio: 1.000
@@ -168,10 +175,10 @@
 			flags: none
 			merge_radius_mult: 1.700
 			velocity_mult: 0.640
+			damage_mult: 1.000
 		}
 		axe:
 		{
-			h_material: "null"
 			spawn_flags: none
 			product_flags: none
 			ratio: 0.090
@@ -195,10 +202,10 @@
 			flags: none
 			merge_radius_mult: 1.800
 			velocity_mult: 0.640
+			damage_mult: 1.000
 		}
 		handsaw:
 		{
-			h_material: "null"
 			spawn_flags: none
 			product_flags: none
 			ratio: 0.180
@@ -222,10 +229,10 @@
 			flags: none
 			merge_radius_mult: 1.400
 			velocity_mult: 0.640
+			damage_mult: 1.000
 		}
 		sledgehammer:
 		{
-			h_material: "null"
 			spawn_flags: none
 			product_flags: none
 			ratio: 0.120
@@ -249,10 +256,10 @@
 			flags: none
 			merge_radius_mult: 1.500
 			velocity_mult: 0.640
+			damage_mult: 1.000
 		}
 		shrapnel:
 		{
-			h_material: "null"
 			spawn_flags: none
 			product_flags: none
 			ratio: 0.100
@@ -276,10 +283,10 @@
 			flags: none
 			merge_radius_mult: 1.400
 			velocity_mult: 0.840
+			damage_mult: 1.000
 		}
 		explosion:
 		{
-			h_material: "null"
 			spawn_flags: none
 			product_flags: none
 			ratio: 0.400
@@ -303,15 +310,17 @@
 			flags: none
 			merge_radius_mult: 1.800
 			velocity_mult: 0.840
+			damage_mult: 1.000
 		}
 	}
 	
+	// Residues from crafting/work.
 	residues:
 	{
 		tailoring:
 		{
 			h_material: scrap.cloth
-			h_substance: "null"
+			
 			flags: none
 			flags_product: waste, residue
 			
@@ -320,7 +329,7 @@
 		sewing:
 		{
 			h_material: scrap.cloth
-			h_substance: "null"
+			
 			flags: none
 			flags_product: waste, residue
 			
@@ -329,7 +338,7 @@
 		assembling:
 		{
 			h_material: scrap.cloth
-			h_substance: "null"
+			
 			flags: none
 			flags_product: waste, residue
 			
@@ -338,7 +347,7 @@
 		cutting:
 		{
 			h_material: scrap.cloth
-			h_substance: "null"
+			
 			flags: none
 			flags_product: waste, residue
 			
@@ -347,7 +356,7 @@
 		slicing:
 		{
 			h_material: scrap.cloth
-			h_substance: "null"
+			
 			flags: none
 			flags_product: waste, residue
 			
@@ -356,7 +365,7 @@
 		wrapping.cloth:
 		{
 			h_material: scrap.cloth
-			h_substance: "null"
+			
 			flags: none
 			flags_product: waste, residue
 			
@@ -365,7 +374,7 @@
 		dismantling:
 		{
 			h_material: scrap.cloth
-			h_substance: "null"
+			
 			flags: none
 			flags_product: waste, residue
 			

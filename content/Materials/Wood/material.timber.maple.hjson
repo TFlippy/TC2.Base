@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.64.1"
 	name: "Timber (Maple)"
 	name_short: "Maple"
 	name_dumb: "Wood"
@@ -18,16 +18,28 @@
 		frame: [3, 0]
 	}
 	
+	// Inventory material type.
 	type: tree
 	flags: hard, long, organic, raw, fuel, flammable, flexible, solid, impure, primary
 	display_flags: none
+	spawn_flags:
+	{
+		add: no_discard
+	}
 	hints: none
 	
+	// Ratio of the material volume to the total volume it occupies when stacked. A value of 1.0 means no empty space, while a value closer to 0.0 means a lot of empty space.
+	packing_fraction: 0.000
+	// Mass of 1 unit in kg.
 	mass_per_unit: 6.957
 	
+	// Maximum quantity (units) per stack.
 	quantity_max: 100.000
+	// Minimum spawnable quantity.
 	spawn_quantity_threshold: 1.000
+	// Preferred quantity snapping for recipes.
 	snapping: 1.000
+	// Preferred quantity snapping for inventories.
 	snapping_pickup: 5.000
 	
 	form_type: raw
@@ -86,6 +98,7 @@
 		}
 	]
 	
+	// Damage-based conversions.
 	conversions:
 	{
 		handsaw:
@@ -152,7 +165,6 @@
 			ratio: 0.070
 			ratio_extra: 0.050
 			
-			h_material_waste: "null"
 			spawn_flags_waste: merge
 			product_flags_waste: waste
 			ratio_waste: 0.000
@@ -180,7 +192,6 @@
 			ratio: 0.130
 			ratio_extra: 0.640
 			
-			h_material_waste: "null"
 			spawn_flags_waste: merge
 			product_flags_waste: none
 			ratio_waste: 0.000
@@ -258,7 +269,6 @@
 		}
 		saw:
 		{
-			h_material: "null"
 			spawn_flags: none
 			product_flags: none
 			ratio: 1.000
@@ -286,12 +296,13 @@
 		}
 	}
 	
+	// Residues from crafting/work.
 	residues:
 	{
 		woodcarving:
 		{
 			h_material: woodchips
-			h_substance: "null"
+			
 			flags: none
 			flags_product: residue
 			
@@ -300,7 +311,7 @@
 		carpentry:
 		{
 			h_material: scrap.wood
-			h_substance: "null"
+			
 			flags: none
 			flags_product: waste
 			
@@ -309,7 +320,7 @@
 		construction:
 		{
 			h_material: scrap.wood
-			h_substance: "null"
+			
 			flags: none
 			flags_product: waste
 			
@@ -318,7 +329,7 @@
 		cutting:
 		{
 			h_material: sawdust
-			h_substance: "null"
+			
 			flags: none
 			flags_product: residue
 			
@@ -327,7 +338,7 @@
 		drilling:
 		{
 			h_material: sawdust
-			h_substance: "null"
+			
 			flags: none
 			flags_product: residue
 			
@@ -336,7 +347,7 @@
 		woodworking:
 		{
 			h_material: woodchips
-			h_substance: "null"
+			
 			flags: none
 			flags_product: residue
 			
@@ -345,7 +356,7 @@
 		sawing:
 		{
 			h_material: sawdust
-			h_substance: "null"
+			
 			flags: none
 			flags_product: residue
 			
@@ -354,7 +365,7 @@
 		machining:
 		{
 			h_material: sawdust
-			h_substance: "null"
+			
 			flags: none
 			flags_product: residue
 			
@@ -363,7 +374,7 @@
 		chiseling:
 		{
 			h_material: woodchips
-			h_substance: "null"
+			
 			flags: none
 			flags_product: residue
 			
@@ -372,7 +383,7 @@
 		trashing.wood:
 		{
 			h_material: scrap.wood
-			h_substance: "null"
+			
 			flags: none
 			flags_product: waste, residue
 			
@@ -381,7 +392,7 @@
 		charring:
 		{
 			h_material: scrap.charred
-			h_substance: "null"
+			
 			flags: none
 			flags_product: waste, residue
 			
@@ -390,7 +401,7 @@
 		pyrolysis:
 		{
 			h_material: scrap.charred
-			h_substance: "null"
+			
 			flags: none
 			flags_product: waste, residue
 			
@@ -399,7 +410,7 @@
 		carbonization:
 		{
 			h_material: charcoal
-			h_substance: "null"
+			
 			flags: none
 			flags_product: residue, byproduct
 			
@@ -408,7 +419,7 @@
 		coking:
 		{
 			h_material: charcoal
-			h_substance: "null"
+			
 			flags: none
 			flags_product: residue, byproduct
 			
@@ -417,7 +428,7 @@
 		roasting:
 		{
 			h_material: scrap.charred
-			h_substance: "null"
+			
 			flags: none
 			flags_product: waste, residue
 			

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.64.1"
 	name: "SG-20.4mm Birdshot"
 	description:
 		'''
@@ -21,20 +21,31 @@
 		size: [16, 16]
 	}
 	
+	// Inventory material type.
 	type: ammo
 	flags: ammo, ammo_sg, granular, small, manufactured, solid
 	display_flags: hide_fraction
+	spawn_flags:
+	{
+		add: no_discard
+	}
 	hints: none
 	
+	// Ratio of the material volume to the total volume it occupies when stacked. A value of 1.0 means no empty space, while a value closer to 0.0 means a lot of empty space.
+	packing_fraction: 0.000
+	// Mass of 1 unit in kg.
 	mass_per_unit: 0.067
 	
+	// Maximum quantity (units) per stack.
 	quantity_max: 24.000
+	// Minimum spawnable quantity.
 	spawn_quantity_threshold: 1.000
+	// Preferred quantity snapping for recipes.
 	snapping: 1.000
+	// Preferred quantity snapping for inventories.
 	snapping_pickup: 1.000
 	
 	prefab: resource.ammo.sg.bird
-	h_substance: "null"
 	
 	color_icon: "0xffffffff"
 	color_item: "0xffffffff"

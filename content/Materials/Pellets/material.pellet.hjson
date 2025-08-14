@@ -1,12 +1,11 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.64.1"
 	name: "Pellets"
 	name_short: "Pellets"
-	name_imperial: "Arkpelet"
+	name_imperial: "Smirglpelet"
 	description:
 		'''
-		Essence infusion pellets.
-		These failed to capture anything.
+		Small pellets of pure smirglum.
 		'''
 	
 	tips: []
@@ -18,65 +17,55 @@
 		frame: [3, 0]
 	}
 	
-	type: metal_solid
-	flags: hard, magnetic, metal, small, manufactured, pellet, solid
+	// Inventory material type.
+	type: coin
+	flags: hard, magnetic, granular, metal, small, manufactured, pellet, ingot, solid, processed, primary
 	display_flags: none
+	spawn_flags:
+	{
+		add: no_discard
+	}
 	hints: none
 	
+	// Ratio of the material volume to the total volume it occupies when stacked. A value of 1.0 means no empty space, while a value closer to 0.0 means a lot of empty space.
+	packing_fraction: 0.8432
+	// General purity modifier.
+	purity: 0.9847
+	// Mass of 1 unit in kg.
 	mass_per_unit: 0.500
 	
-	quantity_max: 250.000
-	spawn_quantity_threshold: 0.500
+	// Maximum quantity (units) per stack.
+	quantity_max: 500.000
+	// Minimum spawnable quantity.
+	spawn_quantity_threshold: 1.000
+	// Preferred quantity snapping for recipes.
 	snapping: 1.000
-	snapping_pickup: 10.000
+	// Preferred quantity snapping for inventories.
+	snapping_pickup: 1.000
 	
 	prefab: resource.pellet
-	h_substance: arcanite
+	h_substance: smirglum
 	
 	color_icon: "0xffffffff"
 	color_item: "0xffffffff"
-	color_dust: "0xffffffff"
-	color_gib: "0xffffffff"
+	color_dust: "0xff6c584b"
+	color_gib: "0xff6c584b"
+	color_spark: [0.853, 0.270, 0.382, 1.337]
+	color_flame: [0.583, 0.190, 0.265, 0.690]
+	color_liquid: [0.583, 0.190, 0.265, 1.000]
+	color_smoke: [0.424, 0.345, 0.294, 1.000]
 	
 	centroid_default: [0.000, 0.250]
 	colliders: []
 	
-	commodity:
+	// Info regarding relations of other materials towards this material.
+	related:
 	{
-		availability: 1.000
-		rarity: 1.000
-		scalability: 1.000
-		reusability: 1.000
-		longevity: 1.000
-		complexity: 1.000
-		tech: 1.000
-		liquidity: 1.000
-		demand: 1.000
-		
-		flags: none
-		categories: components, arcane
-		
-		industries_produce: none
-		industries_consume: none
-		industries_buy: none
-		industries_sell: none
-		
-		buildings_produce: none
-		buildings_consume: none
-		buildings_buy: none
-		buildings_sell: none
-		
-		categories_produce: none
-		categories_consume: none
-		categories_buy: none
-		categories_sell: none
-		
-		market_price: 25.000
-		market_price_min: 0.000
-		market_price_max: 0.000
-		
-		quantity_retail: 0.000
-		quantity_wholesale: 0.000
-		quantity_industry: 0.000
+		smirglum: ruined, raw, melted, source, mangled, similar, element
+		money: similar, casing, product
+		smirglum.amalgam: none
+		smirglum.powder: none
+		smirglum.plate: none
+		pellet.motion: refined, similar, product
 	}
 }

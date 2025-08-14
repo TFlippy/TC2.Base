@@ -49,14 +49,14 @@ resource:
 
 despawn:
 {
-	sleep_count_max: 4
+	sleep_count_max: 26
 	
-	interval: 10.000
+	interval: 7.000
 	interval_extra: 30.000
 
 	threshold_delete: 0.001
-	threshold_despawning: 1.000
+	threshold_despawning: 0.800
 
-	amount_ratio: 0.002
-	amount_ratio_extra: 0.005
+	amount_ratio: 0.001
+	amount_ratio_extra: 0.004
 }
