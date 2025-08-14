@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.64.1"
 	name: "Dousing"
 	name_short: "Dousing"
 	desc:
@@ -50,10 +50,10 @@
 		alchemistry: 0.230
 	}
 	
-	sound_volume: 0.600
-	sound_pitch: 0.900
-	sound_size: 4.120
-	sound_dist: 0.940
+	sound_volume: 0.680
+	sound_pitch: 0.810
+	sound_size: 0.600
+	sound_dist: 0.480
 	
 	sounds: ["effect.sizzle.fry.00", "effect.sizzle.sparky.00", "effect.sizzle.water.00"]
 	sounds_manual: []

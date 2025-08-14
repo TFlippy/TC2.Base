@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.64.1"
 	name: "Mashing"
 	name_short: "Mashing"
 	desc:
@@ -18,11 +18,11 @@
 	tags: impact, crude, simple, kinetic, slow
 	
 	amount_base: 0.000
-	cooldown: 2.000
+	cooldown: 0.930
 	multiplier: 1.000
 	
-	amount_jitter: 0.265
-	cooldown_jitter: 0.135
+	amount_jitter: 0.369
+	cooldown_jitter: 0.205
 	color: "0xffa94535"
 	
 	tools_required: none

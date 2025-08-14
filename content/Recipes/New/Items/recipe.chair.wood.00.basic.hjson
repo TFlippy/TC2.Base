@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.64.1"
 	name: "Chair (Wood)"
 	tips: []
 	
@@ -32,38 +32,70 @@
 							material: wood
 							amount: 5.324227
 							snapping: 0.500
-							loss: 0.122
+							loss: 0.263
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: wood.rod
+							amount: 0.790949
+							snapping: 4.000
+							loss: 0.267
+							ratio: 0.020
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: work
 							work: sawing
-							amount: 90.000
-							difficulty: 3
+							amount: 150.000
+							amount_min: 160.000
+							difficulty: 5
 							snapping: 25.000
+							falloff: 0.932
+							loss: 0.275
+							ratio: 0.322
 							group: 1
-							flags: conditional
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: trashing.wood
+							amount: 200.000
+							amount_min: 100.000
+							difficulty: 4
+							snapping: 25.000
+							falloff: 0.816
+							loss: 0.973
+							ratio: 0.404
+							group: 1
+							flags: stepped, simultaneous, conditional
 						}
 						{
 							type: work
 							work: carpentry
-							amount: 240.000
+							amount: 244.000
+							amount_min: 100.000
 							difficulty: 7
 							snapping: 25.000
-							group: 1
-							flags: conditional
+							falloff: 0.962
+							loss: 0.122
+							ratio: 0.424
+							group: 2
+							flags: stepped, conditional
 						}
 					]
 					
 					filter_tools:
 					{
 						require: hammer, saw
-						include: pencil, ruler, pliers, axe, towel, knife
+						include: ruler, file, knife
 					}
 					filter_infrastructure:
 					{
-						include: table, chair
+						require: surface
+						include: workbench
 					}
 				}
 			]
@@ -77,58 +109,13 @@
 			prefab: chair.wood.00
 			amount: 1.000
 			group: 0
-			flags: primary
-		}
-	]
-	
-	requirements_old:
-	[
-		{
-			type: resource
-			material: wood
-			amount: 20.000
-			group: 0
-			flags: prerequisite
-		}
-		{
-			type: work
-			work: sawing
-			amount: 90.000
-			difficulty: 3
-			group: 1
-			flags: conditional
-		}
-		{
-			type: work
-			work: carpentry
-			amount: 240.000
-			difficulty: 7
-			group: 1
-			flags: conditional
-		}
-	]
-	
-	products_old:
-	[
-		{
-			type: prefab
-			prefab: chair.wood.00
-			amount: 1.000
-			group: 0
-		}
-		{
-			type: resource
-			material: sawdust
-			amount: 5.200
-			amount_extra: 11.180
-			group: 1
-			flags: waste, residue
+			flags: primary, compact
 		}
 	]
 	
 	type: workshop
 	flags: blueprintable, item, wip, converted
-	tags: workbench, manual, crafting, simple, furniture, woodworking, carpentry, construction
+	tags: manual, crafting, simple, furniture, woodworking
 	infrastructure: surface, workbench
 	infrastructure_exclude: none
 	

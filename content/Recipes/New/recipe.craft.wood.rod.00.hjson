@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.4"
+	$version: "0.1.64.1"
 	name: "Wooden Rods"
 	desc:
 		'''
@@ -16,7 +16,7 @@
 			flags: wip, auto_generated
 			tags: material, raw
 			// Damage type used for discarding leftover resources.
-			discard_damage_type: sledgehammer
+			discard_damage_type: none
 			
 			ratio: 1.000
 			mass_base: 0.000
@@ -27,8 +27,8 @@
 					name: "Planks"
 					
 					type: undefined
-					flags: wip, auto_generated
-					discard_damage_type_override: axe
+					flags: none
+					discard_damage_type_override: handsaw
 					
 					priority: 1.000
 					
@@ -37,9 +37,9 @@
 						{
 							type: resource
 							material: wood
-							amount: 0.880
+							amount: 1.000
 							snapping: 1.000
-							loss: 0.024
+							loss: 0.969
 							group: 0
 							flags: prerequisite
 						}
@@ -51,21 +51,10 @@
 							difficulty: 5
 							snapping: 5.000
 							falloff: 0.915
-							ratio: 0.875
+							loss: 0.012
+							ratio: 0.020
 							group: 0
 							flags: conditional
-						}
-					]
-					
-					products:
-					[
-						{
-							type: resource
-							material: wood.rod
-							amount: 3.000
-							snapping: 1.000
-							group: 0
-							flags: primary, compact
 						}
 					]
 					
@@ -88,7 +77,7 @@
 			flags: subtractive, wip
 			tags: rod, rounded
 			// Damage type used for discarding leftover resources.
-			discard_damage_type: sledgehammer
+			discard_damage_type: none
 			
 			ratio: 1.000
 			mass_base: 0.000
@@ -110,10 +99,11 @@
 							work: carving
 							amount: 140.000
 							amount_min: 40.000
-							difficulty: 5
+							difficulty: 6
 							snapping: 5.000
 							falloff: 0.977
-							ratio: 0.008
+							loss: 0.075
+							ratio: 0.282
 							group: 0
 							flags: conditional
 						}
@@ -124,10 +114,60 @@
 						{
 							type: resource
 							material: woodchips
-							amount: 0.690
-							amount_extra: 0.374
+							amount: 4.506088
+							amount_extra: 2.390464
 							group: 0
-							flags: residue
+							ratio: 0.173
+							flags: residue, scale_to_mass
+						}
+					]
+					
+					filter_tools:
+					{
+						require: saw
+						include: pencil, ruler, pliers, axe, towel, knife
+					}
+					filter_infrastructure:
+					{
+						include: table, chair
+					}
+				}
+				{
+					name: "Sanded"
+					
+					type: undefined
+					flags: wip, auto_generated
+					discard_damage_type_override: handsaw
+					
+					priority: 1.000
+					
+					requirements:
+					[
+						{
+							type: work
+							work: sanding
+							amount: 140.000
+							amount_min: 100.000
+							difficulty: 4
+							snapping: 5.000
+							falloff: 0.878
+							loss: 0.357
+							ratio: 0.275
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: sawdust
+							amount: 0.762
+							amount_extra: 0.194
+							group: 0
+							ratio: 0.114
+							flags: scale_to_mass
 						}
 					]
 					
@@ -142,6 +182,19 @@
 					}
 				}
 			]
+		}
+	]
+	
+	products:
+	[
+		{
+			type: resource
+			material: wood.rod
+			amount: 1.000
+			snapping: 1.000
+			group: 0
+			ratio: 1.000
+			flags: primary, compact, scale_to_mass
 		}
 	]
 	

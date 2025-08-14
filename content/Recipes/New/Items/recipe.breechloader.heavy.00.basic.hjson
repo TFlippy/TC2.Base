@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.64.1"
 	name: "Heavy Breechloader"
 	tips: []
 	
@@ -74,7 +74,11 @@
 					filter_tools:
 					{
 						require: hand_drill, file
-						include: screwdriver, file, knife, scissors
+						include: screwdriver, file, chisel, knife, sandpaper, scissors, utensils
+					}
+					filter_infrastructure:
+					{
+						include: surface
 					}
 					filter_environment:
 					{
@@ -132,7 +136,7 @@
 					filter_tools:
 					{
 						require: file, knife
-						include: saw, hand_drill, file, knife, sandpaper
+						include: hand_drill, screwdriver, pliers, file, chisel, knife, sandpaper
 					}
 				}
 			]
@@ -271,7 +275,7 @@
 					material: steel.frames
 					amount: 0.440
 					snapping: 0.100
-					loss: 0.031
+					loss: 0.027
 					group: 0
 					flags: prerequisite
 				}

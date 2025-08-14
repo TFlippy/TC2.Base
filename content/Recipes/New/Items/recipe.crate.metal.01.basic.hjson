@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.64.1"
 	name: "Crate (Metal, Medium)"
 	tips: []
 	
@@ -148,8 +148,13 @@
 					{
 						include: paintbrush, file
 					}
+					filter_infrastructure:
+					{
+						include: table
+					}
 					filter_environment:
 					{
+						include: clean, organized
 						exclude: wet
 					}
 				}
@@ -183,7 +188,7 @@
 	
 	type: workshop
 	flags: no_amount_multiplier, blueprintable, item, wip
-	tags: workbench, manual, crafting, simple, assembling, metalworking, carpentry, construction
+	tags: manual, crafting, simple, assembling, metalworking
 	infrastructure: workbench
 	infrastructure_exclude: none
 	
