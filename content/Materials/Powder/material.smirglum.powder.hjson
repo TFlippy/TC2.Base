@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.64.1"
 	name: "Smirglum Powder"
 	name_short: "Sg. Powder"
 	name_imperial: "Smirglpulvr"
@@ -36,7 +36,7 @@
 	// Maximum quantity (units) per stack.
 	quantity_max: 1000.000
 	// Minimum spawnable quantity.
-	spawn_quantity_threshold: 0.500
+	spawn_quantity_threshold: 0.100
 	// Preferred quantity snapping for recipes.
 	snapping: 0.100
 	// Preferred quantity snapping for inventories.

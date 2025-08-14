@@ -230,7 +230,7 @@
 	
 	type: workshop
 	flags: blueprintable, item
-	tags: manual, crafting, simple, small, weapon, tool, metalworking
+	tags: manual, crafting, simple, small, weapon, tool, assembling, metalworking
 	infrastructure: surface
 	infrastructure_exclude: none
 	

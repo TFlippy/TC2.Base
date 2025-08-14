@@ -34,7 +34,7 @@
 	// Maximum quantity (units) per stack.
 	quantity_max: 250.000
 	// Minimum spawnable quantity.
-	spawn_quantity_threshold: 1.500
+	spawn_quantity_threshold: 0.500
 	// Preferred quantity snapping for recipes.
 	snapping: 1.000
 	// Preferred quantity snapping for inventories.

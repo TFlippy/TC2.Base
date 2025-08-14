@@ -112,8 +112,8 @@ shop:
 		exclude: advanced, large, huge, assembling, social, forestry, fermenting, overworld
 	}
 	
-	tools: ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, spanner, pliers, bucket, file, chisel, towel, tongs, crowbar, sandpaper
-	infrastructure: anvil, shaping_mould, hard_surface, compactor, heater, stamping_press, press, dies, essence_emitter, structure, machine
+	tools: ruler, hammer, cutters, screwdriver, wrench, spanner, pliers, bucket, file, towel, tongs, crowbar
+	infrastructure: anvil, forge, table, vise, rack, casting_mould, shaping_mould, bucket, surface, hard_surface, compactor, heater, stamping_press, press, dies, essence_emitter, structure, machine
 	environment: machine, stationary, dirty, scary, noisy, reinforced, fireproof, durable, sturdy, small
 	
 	flags: embed_gui

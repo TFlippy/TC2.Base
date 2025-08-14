@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.64.1"
 	name: "Smirglum Amalgam Distillation"
 	desc:
 		'''
@@ -151,8 +151,8 @@
 	
 	type: workshop
 	flags: production, wip, auto_complete
-	tags: complex, small, medium, filtering, industrial, metallurgy, alchemistry, blending, refining, separation, processing, messy, dangerous
-	infrastructure: heater
+	tags: simple, filtering, industrial, metallurgy, alchemistry, refining, heating, separation, processing, messy, dangerous
+	infrastructure: surface, heater
 	infrastructure_exclude: none
 	
 	icon:
