@@ -1,11 +1,16 @@
 ﻿{
 	$version: "0.1.64.1"
+	$note:
+		'''
+		- Hexagonal prism shape, roughly 4.3cm wide, 5cm high, with each side being about 2.15cm
+		- Pure, solid smirglum
+		'''
 	name: "Pellets"
 	name_short: "Pellets"
 	name_imperial: "Smirglpelet"
 	description:
 		'''
-		Small pellets of pure smirglum.
+		Small solid hexagonal-prism pellets made of pure smirglum.
 		'''
 	
 	tips: []
@@ -25,14 +30,21 @@
 	{
 		add: no_discard
 	}
-	hints: none
+	hints: materials, heavy, small, industrial, arcane, clumsy
 	
 	// Ratio of the material volume to the total volume it occupies when stacked. A value of 1.0 means no empty space, while a value closer to 0.0 means a lot of empty space.
-	packing_fraction: 0.8432
+	packing_fraction: 0.6283
 	// General purity modifier.
-	purity: 0.9847
+	purity: 0.9913
 	// Mass of 1 unit in kg.
-	mass_per_unit: 0.500
+	mass_per_unit: 1.781
+	
+	// Volume occupied by 1 unit in m³.
+	volume_per_unit: 0.00006
+	// Volume occupied by a stack in m³.
+	volume_per_stack: 0.047748
+	// Volume occupied by a compacted stack in m³.
+	volume_per_stack_compacted: 0.030
 	
 	// Maximum quantity (units) per stack.
 	quantity_max: 500.000

@@ -1,5 +1,11 @@
 ﻿{
 	$version: "0.1.64.1"
+	$note:
+		'''
+		- Hexagonal prism-shaped smirglum core, roughly 4.3cm wide, 0.139cm thick, with each side being about 2.15cm
+		- 0.0500 kg Smirglum
+		- 0.0125 kg Gold
+		'''
 	name: "Kordel Denar"
 	name_short: "Đk"
 	name_imperial: "Kordeldenar"
@@ -27,7 +33,7 @@
 	// Inventory material type.
 	type: coin
 	flags: hard, magnetic, granular, metal, currency, small, manufactured, pellet, solid, processed
-	display_flags: none
+	display_flags: hide_fraction
 	spawn_flags:
 	{
 		add: no_discard
@@ -35,20 +41,20 @@
 	hints: materials, small, expensive, fancy, civilian, imperial
 	
 	// Ratio of the material volume to the total volume it occupies when stacked. A value of 1.0 means no empty space, while a value closer to 0.0 means a lot of empty space.
-	packing_fraction: 0.8838
+	packing_fraction: 0.9325
 	// General purity modifier.
 	purity: 0.992
 	// Mass of 1 unit in kg.
-	mass_per_unit: 0.740
+	mass_per_unit: 0.0625
 	
 	// Maximum quantity (units) per stack.
-	quantity_max: 500.000
+	quantity_max: 5000.000
 	// Minimum spawnable quantity.
 	spawn_quantity_threshold: 1.000
 	// Preferred quantity snapping for recipes.
 	snapping: 1.000
 	// Preferred quantity snapping for inventories.
-	snapping_pickup: 1.000
+	snapping_pickup: 5.000
 	
 	prefab: resource.money
 	

@@ -9,12 +9,12 @@ body:
 		offset: [0.000, 0.250]
 		mass: 1.000
 		radius: 0.750
-		friction: 0.850
-		elasticity: 0.500
+		friction: 0.650
+		elasticity: 0.300
 		material: coin
 		layer: entity, solid, resource, conductive, magnetic, heatable
 		mask: world, essence
-		miss_chance: 0.420
+		miss_chance: 0.820
 	}
 }
 
@@ -40,7 +40,7 @@ resource:
 
 health:
 {
-	max: 216500.000
+	max: 41650.000
 }
 
 holdable:
