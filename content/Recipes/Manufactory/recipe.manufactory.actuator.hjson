@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.64.1"
 	name: "EC-MT Actuators"
 	desc:
 		'''
@@ -72,7 +72,7 @@
 	
 	color_frame: "0xffaeb59a"
 	color_button: "0xff9dd80f"
-	rank: -540.000
+	rank: 0.000
 	
 	min: 5
 	max: 100

@@ -275,7 +275,7 @@
 					material: steel.frames
 					amount: 0.440
 					snapping: 0.100
-					loss: 0.027
+					loss: 0.024
 					group: 0
 					flags: prerequisite
 				}
@@ -290,7 +290,7 @@
 			prefab: breechloader.heavy
 			amount: 1.000
 			group: 0
-			flags: primary
+			flags: primary, compact
 		}
 	]
 	

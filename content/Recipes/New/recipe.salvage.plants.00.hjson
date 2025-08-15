@@ -47,11 +47,11 @@
 							amount: 74.000
 							amount_min: 175.000
 							difficulty: 4
-							snapping: 25.000
-							falloff: 0.957
+							snapping: 5.000
+							falloff: 0.935
 							ratio: 0.514
 							group: 0
-							flags: stepped, simultaneous, conditional
+							flags: conditional
 						}
 					]
 					
@@ -67,14 +67,6 @@
 						}
 						{
 							type: resource
-							material: cmajzl
-							amount: 0.5201
-							amount_extra: 0.7154
-							group: 0
-							flags: byproduct, compact
-						}
-						{
-							type: resource
 							material: woodchips
 							amount: 0.955334
 							amount_extra: 0.769494
@@ -83,12 +75,30 @@
 						}
 						{
 							type: resource
+							material: cmajzl
+							amount: 0.223048
+							amount_extra: 0.322948
+							group: 0
+							chance: 0.675
+							flags: residue, stepped
+						}
+						{
+							type: resource
+							material: rot
+							amount: 0.2232
+							amount_extra: 0.1491
+							group: 0
+							chance: 0.573
+							flags: waste, stepped
+						}
+						{
+							type: resource
 							material: sugar
 							amount: 0.0833
 							amount_extra: 0.3159
 							group: 0
 							chance: 0.475
-							flags: residue
+							flags: residue, stepped
 						}
 						{
 							type: resource
@@ -98,16 +108,7 @@
 							snapping: 1.000
 							group: 0
 							chance: 0.122
-							flags: residue
-						}
-						{
-							type: resource
-							material: rot
-							amount: 0.2232
-							amount_extra: 0.1491
-							group: 0
-							chance: 0.573
-							flags: waste
+							flags: residue, stepped
 						}
 					]
 					

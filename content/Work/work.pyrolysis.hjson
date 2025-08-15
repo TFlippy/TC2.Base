@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.64.1"
 	name: "Pyrolysis"
 	name_short: "Pyrolysis"
 	desc:
@@ -19,7 +19,7 @@
 	
 	amount_base: 1.000
 	cooldown: 3.000
-	multiplier: 10.000
+	multiplier: 3.000
 	
 	amount_jitter: 0.553
 	cooldown_jitter: 0.178

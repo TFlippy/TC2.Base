@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.64.1"
 	name: "Chitin-based Hydrogen Peroxide"
 	desc:
 		'''
@@ -198,7 +198,7 @@
 			amount: 15.755
 			amount_extra: 14.410
 			group: 0
-			flags: primary
+			flags: primary, compact
 		}
 		{
 			type: resource
