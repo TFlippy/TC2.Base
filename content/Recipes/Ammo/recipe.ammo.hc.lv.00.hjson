@@ -368,9 +368,9 @@
 						{
 							type: resource
 							material: alcohol
-							amount: 0.022
+							amount: 0.012
 							snapping: 0.100
-							falloff: 0.970
+							falloff: 0.986
 							loss: 0.122
 							group: 0
 						}
@@ -446,7 +446,7 @@
 							material: himlkarzenus
 							amount: 0.030904
 							snapping: 0.100
-							falloff: 1.088
+							falloff: 0.817
 							loss: 0.820
 							ratio: 1.000
 							group: 0

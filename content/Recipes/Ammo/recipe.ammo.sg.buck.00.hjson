@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.64.1"
 	name: "SG-20.4mm Buckshot"
 	desc:
 		'''
@@ -174,9 +174,9 @@
 						{
 							type: resource
 							material: oil
-							amount: 0.016887
+							amount: 0.011513
 							snapping: 0.100
-							falloff: 0.957
+							falloff: 0.952
 							loss: 0.161
 							ratio: 1.000
 							group: 0
@@ -260,9 +260,9 @@
 						{
 							type: resource
 							material: alcohol
-							amount: 0.030
+							amount: 0.015179
 							snapping: 0.100
-							falloff: 0.970
+							falloff: 0.763
 							loss: 0.122
 							ratio: 1.000
 							group: 0
@@ -281,8 +281,8 @@
 						{
 							type: resource
 							material: nitroglycerine
-							amount: 0.011196
-							snapping: 0.500
+							amount: 0.0102
+							snapping: 0.100
 							loss: 0.122
 							ratio: 1.000
 							group: 0
@@ -301,7 +301,7 @@
 						{
 							type: resource
 							material: himlkarzenus
-							amount: 0.015088
+							amount: 0.04814
 							snapping: 0.100
 							falloff: 0.982
 							loss: 0.518
@@ -313,9 +313,9 @@
 							work: crushing
 							amount: 11.000
 							amount_min: 95.000
-							difficulty: 6
+							difficulty: 8
 							snapping: 5.000
-							falloff: 0.897
+							falloff: 0.787
 							ratio: 1.000
 							group: 0
 							flags: conditional
