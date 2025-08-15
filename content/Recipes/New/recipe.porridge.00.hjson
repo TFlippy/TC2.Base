@@ -186,7 +186,7 @@
 	
 	color_frame: "0xffe3cb93"
 	color_button: "0xff9dd80f"
-	rank: -8.000
+	rank: -18.000
 	
 	min: 1
 	max: 10

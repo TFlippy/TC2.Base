@@ -196,13 +196,13 @@
 	{
 		texture: crate.metal.01
 	}
-	icon_offset: [6.000, 0.000]
+	icon_offset: [2.000, 1.000]
 	
 	color_frame: "0xffaeb59a"
 	color_button: "0xff9dd80f"
 	button_name: "Craft"
-	rank: -5.100
-	frame_size: [40.000, 40.000]
+	rank: -6.100
+	frame_size: [64.000, 48.000]
 	
 	min: 1
 	max: 1
