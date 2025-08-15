@@ -60,8 +60,8 @@
 						{
 							type: resource
 							material: lime
-							amount: 1.35139
-							amount_extra: 0.198369
+							amount: 1.260723
+							amount_extra: 0.18506
 							group: 0
 							flags: waste, residue
 						}
@@ -110,7 +110,7 @@
 	]
 	
 	type: workshop
-	flags: dismantling, wip, converted
+	flags: dismantling
 	tags: workbench, workshop, manual, crude, simple, small, salvaging
 	infrastructure: surface
 	infrastructure_exclude: none

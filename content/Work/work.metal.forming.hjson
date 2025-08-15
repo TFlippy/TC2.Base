@@ -1,59 +1,66 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.64.1"
 	name: "Metal Forming"
-	name_short: "Forming"
+	name_short: "M.Forming"
 	desc:
 		'''
-		TODO: Desc
+		Manual metal forming into more complex shapes using a hammer or similar tool.
 		'''
 	
 	icon:
 	{
 		texture: ui.icons.work.00
 		size: [16, 16]
-		frame: [8, 0]
+		frame: [1, 0]
 	}
 	
-	flags: wip
-	tags: technical, construction, industrial
+	flags: manual, wip
+	tags: skilled, tools, complex, technical, construction, careful, kinetic
 	
-	amount_base: 5.000
-	cooldown: 1.500
-	multiplier: 1.000
+	amount_base: 0.000
+	cooldown: 1.000
+	multiplier: 0.730
 	
-	amount_jitter: 0.080
-	color: "0xffaeb59a"
+	amount_jitter: 0.254
+	cooldown_jitter: 0.117
+	color: "0xffff6200"
 	
-	tools_required: none
-	tools_optional: none
+	tools_required: hammer
+	tools_optional: cutters, pliers, file
 	
 	infrastructure_required: none
-	infrastructure_optional: none
+	infrastructure_optional: anvil, vise, surface
 	
 	character_traits:
 	{
+		include: construction, artisan, laborer, engineer, strong
 		weight: 1.000
 	}
 	
 	skills_min:
 	{
-	
+		construction: 4
+		blacksmithing: 3
+		metallurgy: 4
 	}
 	
 	skills_mult:
 	{
-	
+		strength: 0.460
+		blacksmithing: 0.250
+		engineering: 0.230
+		metallurgy: 0.210
 	}
 	
 	sound_volume: 0.500
-	sound_pitch: 0.950
-	sound_size: 1.000
-	sound_dist: 0.890
+	sound_pitch: 1.000
+	sound_size: 0.500
+	sound_dist: 0.600
 	
-	sounds: ["work_assembly_00", "work_assembly_01", "work_assembly_02", "work_assembly_03", "work_assembly_04"]
+	sounds: ["work_smithing_00", "work_smithing_01", "effect.spring.machine.00", "effect.clang.metal.00", "work_smithing_03", "work_smithing_01", "work_smithing_04", "effect.boink.metal.00", "effect.spring.machine.01", "work_smithing_01", "work_smithing_00", "effect.clunk.metal.00", "effect.tinker.components.02"]
 	sounds_manual: []
-	sounds_crafter: []
-	sounds_passive: ["press.smash.00", "press.smash.01", "press.smash.02"]
+	sounds_crafter: ["press.stamp.01", "press.stamp.00", "press.stamp.02", "press.stamp.00"]
+	sounds_passive: []
 	sounds_ambient: []
 	
 	sounds_start: []

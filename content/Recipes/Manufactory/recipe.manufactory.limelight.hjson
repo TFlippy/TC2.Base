@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.64.1"
 	name: "Limelight"
 	desc:
 		'''
@@ -12,10 +12,10 @@
 	stages:
 	[
 		{
-			name: "Construction"
+			name: "EC Emitter"
 			
-			type: construction
-			flags: wip, auto_generated
+			type: part
+			flags: none
 			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
@@ -29,32 +29,96 @@
 					name: "Standard"
 					
 					type: undefined
-					flags: wip, auto_generated
+					flags: none
 					
 					requirements:
 					[
 						{
 							type: resource
 							material: pellet.heat
-							amount: 0.200
-							snapping: 0.500
+							amount: 1.000
+							group: 0
+							flags: no_residue, prerequisite
+						}
+						{
+							type: resource
+							material: directors
+							amount: 0.131844
+							snapping: 0.100
+							loss: 0.173
 							group: 0
 							flags: prerequisite
 						}
 						{
-							type: resource
-							material: recondite.plate
-							amount: 0.041077
-							snapping: 0.250
+							type: work
+							work: metal.forming
+							amount: 140.000
+							amount_min: 155.000
+							difficulty: 6
+							snapping: 25.000
+							falloff: 0.818
+							loss: 0.024
+							ratio: 0.922
 							group: 0
-							flags: prerequisite
+							flags: stepped, simultaneous, conditional
 						}
+						{
+							type: work
+							work: assembling
+							amount: 110.000
+							amount_min: 155.000
+							difficulty: 4
+							snapping: 10.000
+							falloff: 0.769
+							loss: 0.059
+							ratio: 0.906
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: screwdriver, wrench
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, stapler, towel, tongs, pick, crowbar, knife
+					}
+					filter_infrastructure:
+					{
+						require: table
+						include: anvil, table, chair, vise
+					}
+				}
+			]
+		}
+		{
+			name: "Lime Cylinder"
+			
+			type: construction
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 1.000
+			mass_base: 1.150
+			
+			options:
+			[
+				{
+					name: "Glued"
+					
+					type: undefined
+					flags: merge_residue
+					
+					requirements:
+					[
 						{
 							type: resource
 							material: lime
-							amount: 0.891032
-							snapping: 0.500
+							amount: 1.646988
+							snapping: 0.100
 							loss: 0.024
+							oper: residue
 							group: 0
 							flags: prerequisite
 						}
@@ -63,19 +127,44 @@
 							material: glue
 							amount: 0.581557
 							snapping: 0.500
-							loss: 0.122
+							loss: 0.051
+							ratio: 1.000
+							oper: discard
 							group: 0
-							flags: prerequisite
+							flags: no_residue, prerequisite
 						}
 						{
 							type: work
-							work: assembling
-							amount: 125.000
-							amount_min: 50.000
-							difficulty: 7
-							snapping: 25.000
-							falloff: 0.700
+							work: sculpting
+							amount: 133.000
+							amount_min: 210.000
+							difficulty: 5
+							snapping: 5.000
+							falloff: 0.802
+							loss: 0.075
 							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: gluing
+							amount: 50.000
+							amount_min: 80.000
+							difficulty: 3
+							snapping: 5.000
+							falloff: 0.791
+							group: 0
+							flags: no_residue, simultaneous, conditional
+						}
+						{
+							type: work
+							work: drying
+							amount: 39.000
+							amount_min: 170.000
+							difficulty: 4
+							snapping: 5.000
+							falloff: 0.493
+							group: 1
 							flags: conditional
 						}
 					]
@@ -102,62 +191,12 @@
 			material: limelight
 			amount: 1.000
 			group: 0
-			flags: byproduct, primary
-		}
-	]
-	
-	requirements_old:
-	[
-		{
-			type: resource
-			material: pellet.heat
-			amount: 0.200
-			group: 0
-		}
-		{
-			type: resource
-			material: recondite.plate
-			amount: 0.050
-			group: 0
-			flags: prerequisite
-		}
-		{
-			type: resource
-			material: lime
-			amount: 1.000
-			group: 0
-			flags: prerequisite
-		}
-		{
-			type: resource
-			material: glue
-			amount: 0.500
-			group: 0
-			flags: prerequisite
-		}
-		{
-			type: work
-			work: assembling
-			amount: 75.000
-			difficulty: 7
-			falloff: 0.700
-			group: 0
-			flags: conditional
-		}
-	]
-	
-	products_old:
-	[
-		{
-			type: resource
-			material: limelight
-			amount: 1.000
-			group: 0
+			flags: primary, compact
 		}
 	]
 	
 	type: workshop
-	flags: item, wip, converted
+	flags: item
 	tags: workbench, workshop, manual, crafting, simple, small, assembling, metalworking, engineering, construction
 	infrastructure: workbench
 	infrastructure_exclude: none
@@ -173,9 +212,9 @@
 	color_button: "0xff9dd80f"
 	rank: -130.000
 	
-	min: 5
+	min: 1
 	max: 50
-	step: 5
+	step: 1
 	
 	version: 1
 }
