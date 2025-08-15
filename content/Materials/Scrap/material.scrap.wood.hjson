@@ -43,6 +43,7 @@
 	
 	form_type: scrap
 	prefab: resource.scrap.wood
+	h_substance: wood
 	
 	color_icon: "0xffffffff"
 	color_item: "0xffffffff"

@@ -1,14 +1,15 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.64.1"
 	name: "EC Directors"
 	name_short: "Directors"
 	name_imperial: "Direktor"
 	name_dumb: "Toys"
 	description:
 		'''
-		Standardized heap of modular components used in the construction of magitronics.
+		A standardized heap of modular components for advanced magitronics. 
 
-		ISO-compliant design allows them to be easily assembled into essence emitters, conductors, amplifiers and more.
+		Their clever ISO-compliant design facilitates the rapid assembly of complex devices such as essence emitters, conductors, and amplifiers, 
+		making them a cornerstone of modern technological and arcane engineering.
 		'''
 	
 	lore:
@@ -50,7 +51,6 @@
 	snapping_pickup: 5.000
 	
 	prefab: resource.directors
-	h_substance: "null"
 	
 	color_icon: "0xffffffff"
 	color_item: "0xffffffff"
@@ -66,7 +66,15 @@
 		assembling:
 		{
 			h_material: scrap.arcane
-			h_substance: "null"
+			
+			flags: none
+			flags_product: waste, residue
+			
+			yield: [0.617, 0.383]
+		}
+		metal.forming:
+		{
+			h_material: scrap.arcane
 			
 			flags: none
 			flags_product: waste, residue

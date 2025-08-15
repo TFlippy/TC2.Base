@@ -45,7 +45,6 @@
 	
 	form_type: packaged
 	prefab: resource.water.toxic
-	h_substance: water
 	
 	color_icon: "0xffffffff"
 	color_item: "0xffffffff"

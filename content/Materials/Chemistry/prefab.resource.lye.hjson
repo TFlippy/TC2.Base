@@ -38,10 +38,10 @@ resource:
 holdable:
 {
 	offset: [0.000, 0.750]
-	radius: 0.000
+	radius: 2.000
 	stress_multiplier: 0.600
 	hints: materials
-	flags: disable_parent_facing, disable_rotation, disable_control
+	flags: disable_control
 }
 
 norotate:
