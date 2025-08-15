@@ -780,15 +780,15 @@ vehicle:
 	joint.base:
 	{
 		offset_a: [0.000, 0.375]
-		max_force: 180000.000
-		max_torque: 40000.000
+		max_force: 110000.000
+		max_torque: 20000.000
 		attaching_time_max: 3.000
 		attaching_distance_max: 5.000
 		max_stress: 2.000
 		stress_threshold: 1.250
 		stress_damp: 0.500
 		z: 100.000
-		flags: control_write, facing_reset_pos, force_facing
+		flags: allow_dragging, control_write, facing_reset_pos, force_facing
 	}
 
 	arm:
@@ -806,13 +806,13 @@ vehicle:
 	
 	joint.piston:
 	{
-		error_bias: 0.000
+		error_bias: 0.001
 		max_bias: 10.000
 		stiffness: 15000.000
 		damping: 600.000
-		axis_force: 140000.000
+		axis_force: 90000.000
 		spring_max_bias: 5.000
-		max_distance: 0.750
+		max_distance: 1.350
 		rotation: 0.000
 		stress_mult_axis: 1.000
 	}
@@ -824,7 +824,7 @@ vehicle:
 		max: 2.000
 		step: 50.000
 		max_bias: 10.000
-		stress_mult: 0.100
+		stress_mult: 0.300
 	}
 	
 	interactor:
