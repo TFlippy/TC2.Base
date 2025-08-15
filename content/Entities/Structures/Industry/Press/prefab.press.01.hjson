@@ -350,7 +350,7 @@ essence.container:
 	{
 		type: essence
 		flags: ignore_mass, no_auto_pickup, faction
-		stack_size_multiplier: 0.100
+		stack_size_multiplier: 0.050
 		
 		filter:
 		{

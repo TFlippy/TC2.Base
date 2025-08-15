@@ -1,11 +1,6 @@
 ﻿{
 	$version: "0.1.64.1"
-	name: "Machine Gun"
-	desc:
-		'''
-		High-powered machine gun.
-		Very heavy and difficult to handle, usually wielded by giants or placed on mounts.
-		'''
+	name: "HMG"
 	tips: []
 	
 	stages:
@@ -14,7 +9,7 @@
 			name: "Barrel"
 			
 			type: part
-			flags: replaceable, part, important, wip, auto_generated
+			flags: replaceable, part, important, wip
 			tags: barrel, chassis, rod, metal, structural, rounded
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
@@ -42,16 +37,37 @@
 							flags: prerequisite
 						}
 						{
+							type: resource
+							material: steel.frames
+							amount: 4.50476
+							snapping: 0.200
+							loss: 0.157
+							group: 0
+							flags: prerequisite
+						}
+						{
 							type: work
 							work: bending
-							amount: 6750.000
-							amount_min: 1580.000
+							amount: 3375.000
+							amount_min: 790.000
 							difficulty: 12
 							snapping: 5.000
 							falloff: 0.880
-							ratio: 0.882
+							ratio: 0.475
 							group: 0
-							flags: conditional
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: hammering
+							amount: 4750.000
+							amount_min: 1100.000
+							difficulty: 9
+							snapping: 5.000
+							falloff: 0.829
+							ratio: 0.773
+							group: 0
+							flags: simultaneous, conditional
 						}
 					]
 					
@@ -77,7 +93,7 @@
 			discard_damage_type: sledgehammer
 			
 			ratio: 0.450
-			mass_base: 20.250
+			mass_base: 30.250
 			
 			options:
 			[
@@ -86,37 +102,71 @@
 					
 					type: undefined
 					flags: auto_generated
+					discard_damage_type_override: fracture
 					
 					requirements:
 					[
 						{
 							type: resource
+							material: steel.ingot
+							amount: 0.918371
+							snapping: 1.000
+							loss: 0.102
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
 							material: steel.frames
-							amount: 8.789362
+							amount: 12.78936
 							snapping: 0.100
 							loss: 0.075
 							group: 0
 							flags: prerequisite
 						}
 						{
-							type: resource
-							material: machine_parts
-							amount: 25.18784
-							snapping: 0.100
-							loss: 0.082
+							type: work
+							work: drilling
+							amount: 560.000
+							amount_min: 440.000
+							difficulty: 11
+							snapping: 5.000
+							falloff: 0.973
+							ratio: 0.322
 							group: 0
-							flags: prerequisite
+							flags: simultaneous, conditional
 						}
 						{
 							type: work
 							work: filing
-							amount: 1112.172
-							amount_min: 137.500
+							amount: 980.000
+							amount_min: 500.000
+							difficulty: 8
+							snapping: 5.000
+							falloff: 0.852
+							ratio: 0.702
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: resource
+							material: machine_parts
+							amount: 25.18784
+							snapping: 0.100
+							loss: 0.075
+							group: 1
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: metal.forming
+							amount: 850.000
+							amount_min: 350.000
 							difficulty: 12
 							snapping: 5.000
-							falloff: 0.880
-							ratio: 0.882
-							group: 0
+							falloff: 0.890
+							ratio: 0.714
+							group: 1
 							flags: simultaneous, conditional
 						}
 						{
@@ -126,10 +176,10 @@
 							amount_min: 940.000
 							difficulty: 16
 							snapping: 5.000
-							falloff: 0.880
-							ratio: 0.882
-							group: 0
-							flags: simultaneous, conditional
+							falloff: 0.874
+							ratio: 0.769
+							group: 1
+							flags: stepped, simultaneous, conditional
 						}
 					]
 					
@@ -146,7 +196,7 @@
 			]
 		}
 		{
-			name: "Stock"
+			name: "Grip"
 			
 			type: part
 			flags: replaceable, part, wip, auto_generated
@@ -164,29 +214,51 @@
 					
 					type: undefined
 					flags: auto_generated
+					discard_damage_type_override: sledgehammer
 					
 					requirements:
 					[
 						{
 							type: resource
-							material: wood
-							amount: 0.483981
-							snapping: 0.500
+							material: wood.rod
+							amount: 0.619
+							snapping: 1.000
 							loss: 0.122
 							group: 0
 							flags: prerequisite
 						}
 						{
+							type: resource
+							material: steel.rod
+							amount: 0.6594
+							snapping: 0.250
+							loss: 0.173
+							group: 0
+							flags: prerequisite
+						}
+						{
 							type: work
-							work: woodcarving
-							amount: 440.000
-							amount_min: 290.000
-							difficulty: 6
+							work: sanding
+							amount: 140.000
+							amount_min: 190.000
+							difficulty: 5
 							snapping: 5.000
 							falloff: 0.910
-							ratio: 0.882
+							ratio: 0.569
 							group: 0
-							flags: conditional
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: filing
+							amount: 440.000
+							amount_min: 250.000
+							difficulty: 8
+							snapping: 5.000
+							falloff: 0.834
+							ratio: 0.475
+							group: 0
+							flags: stepped, simultaneous, conditional
 						}
 					]
 					
@@ -211,64 +283,8 @@
 		}
 	]
 	
-	requirements_old:
-	[
-		{
-			type: resource
-			material: wood
-			amount: 6.000
-			group: 0
-		}
-		{
-			type: resource
-			material: steel.ingot
-			amount: 20.000
-			group: 0
-		}
-		{
-			type: resource
-			material: machine_parts
-			amount: 17.000
-			group: 0
-		}
-		{
-			type: work
-			work: smithing
-			amount: 600.000
-			difficulty: 18
-			group: 0
-			flags: conditional
-		}
-		{
-			type: work
-			work: woodworking
-			amount: 100.000
-			difficulty: 4
-			group: 0
-			flags: conditional
-		}
-		{
-			type: work
-			work: assembling
-			amount: 750.000
-			difficulty: 9
-			group: 0
-			flags: conditional
-		}
-	]
-	
-	products_old:
-	[
-		{
-			type: prefab
-			prefab: machine_gun
-			amount: 1.000
-			group: 0
-		}
-	]
-	
 	type: workshop
-	flags: blueprintable, item, wip, converted
+	flags: blueprintable, item, wip
 	tags: manual, crafting, complex, medium, weapon, gun, assembling, metalworking, engineering, military
 	infrastructure: table, vise, surface, hard_surface, workbench
 	infrastructure_exclude: none

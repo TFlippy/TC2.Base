@@ -324,7 +324,7 @@
 	]
 	
 	type: workshop
-	flags: wip
+	flags: debug, disabled, wip
 	tags: workbench, manual, simple, blending, processing, messy
 	infrastructure: none
 	infrastructure_exclude: none

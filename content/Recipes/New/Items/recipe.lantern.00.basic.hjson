@@ -328,7 +328,7 @@
 			prefab: lantern
 			amount: 1.000
 			group: 0
-			flags: primary
+			flags: primary, compact
 		}
 	]
 	

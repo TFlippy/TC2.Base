@@ -310,7 +310,7 @@
 			prefab: motor.servus.00
 			amount: 1.000
 			group: 0
-			flags: primary, spawn
+			flags: primary, spawn, compact
 		}
 	]
 	
