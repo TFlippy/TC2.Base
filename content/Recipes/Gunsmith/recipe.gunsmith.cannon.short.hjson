@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.64.1"
 	name: "Short Cannon"
 	desc:
 		'''
@@ -63,7 +63,7 @@
 	
 	color_frame: "0xffaeb59a"
 	color_button: "0xff9dd80f"
-	rank: 0.000
+	rank: 8.000
 	
 	min: 1
 	max: 1

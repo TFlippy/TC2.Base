@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.64.1"
 	name: "Pistol"
 	desc:
 		'''
@@ -48,7 +48,7 @@
 							difficulty: 9
 							snapping: 5.000
 							falloff: 0.940
-							ratio: 0.886
+							ratio: 0.882
 							group: 0
 							flags: conditional
 						}
@@ -98,7 +98,7 @@
 							material: machine_parts
 							amount: 1.683495
 							snapping: 0.100
-							loss: 0.086
+							loss: 0.082
 							group: 0
 							flags: prerequisite
 						}
@@ -110,7 +110,7 @@
 							difficulty: 9
 							snapping: 5.000
 							falloff: 0.880
-							ratio: 0.886
+							ratio: 0.882
 							group: 0
 							flags: simultaneous, conditional
 						}
@@ -122,7 +122,7 @@
 							difficulty: 9
 							snapping: 5.000
 							falloff: 0.880
-							ratio: 0.886
+							ratio: 0.882
 							group: 0
 							flags: simultaneous, conditional
 						}
@@ -179,7 +179,7 @@
 							difficulty: 6
 							snapping: 5.000
 							falloff: 0.910
-							ratio: 0.886
+							ratio: 0.882
 							group: 0
 							flags: conditional
 						}
@@ -275,7 +275,7 @@
 	
 	color_frame: "0xffaeb59a"
 	color_button: "0xff9dd80f"
-	rank: 0.000
+	rank: 8.000
 	
 	min: 1
 	max: 10
