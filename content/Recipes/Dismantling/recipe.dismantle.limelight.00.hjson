@@ -121,14 +121,14 @@
 		size: [16, 16]
 		frame: [3, 0]
 	}
-	icon_offset: [-6.000, -1.000]
+	icon_offset: [4.000, 1.000]
 	
 	icon_extra:
 	{
 		texture: ui_icons_crafting.mini
 		size: [16, 16]
 	}
-	icon_extra_offset: [0.000, -6.000]
+	icon_extra_offset: [-14.000, -26.000]
 	
 	color_frame: "0xffac7534"
 	color_button: "0xff9dd80f"

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.64.1"
 	name: "HC-13.2mm"
 	desc:
 		'''
@@ -410,9 +410,8 @@
 							type: resource
 							material: nitroglycerine
 							amount: 0.011196
-							snapping: 0.500
+							snapping: 0.100
 							loss: 0.122
-							ratio: 1.000
 							group: 0
 						}
 						{
@@ -423,7 +422,6 @@
 							difficulty: 6
 							snapping: 5.000
 							falloff: 0.691
-							ratio: 1.000
 							group: 0
 							flags: conditional
 						}
@@ -446,7 +444,7 @@
 						{
 							type: resource
 							material: himlkarzenus
-							amount: 0.06129
+							amount: 0.030904
 							snapping: 0.100
 							falloff: 1.088
 							loss: 0.820

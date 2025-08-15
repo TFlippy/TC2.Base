@@ -95,8 +95,8 @@
 						{
 							type: resource
 							material: gunpowder
-							amount: 3.192496
-							amount_extra: 0.997939
+							amount: 2.717975
+							amount_extra: 0.809562
 							group: 0
 							flags: primary, compact
 						}
@@ -113,69 +113,6 @@
 					}
 				}
 			]
-		}
-	]
-	
-	requirements_old:
-	[
-		{
-			type: resource
-			material: saltpeter
-			amount: 0.600
-			group: 0
-			flags: prerequisite
-		}
-		{
-			type: resource
-			material: charcoal
-			amount: 0.550
-			group: 0
-			flags: prerequisite
-		}
-		{
-			type: work
-			work: crushing
-			amount: 42.000
-			difficulty: 5
-			snapping: 5.000
-			falloff: 0.760
-			group: 0
-			flags: conditional
-		}
-		{
-			type: resource
-			material: sulfur
-			amount: 0.220
-			group: 1
-		}
-		{
-			type: work
-			work: mixing
-			amount: 40.000
-			difficulty: 7
-			snapping: 5.000
-			falloff: 0.550
-			group: 1
-			flags: conditional
-		}
-	]
-	
-	products_old:
-	[
-		{
-			type: resource
-			material: gunpowder
-			amount: 0.898
-			amount_extra: 0.187
-			group: 0
-		}
-		{
-			type: resource
-			material: scrap.charred
-			amount: 0.011
-			amount_extra: 0.037
-			group: 1
-			flags: waste, residue
 		}
 	]
 	
