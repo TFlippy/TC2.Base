@@ -72,7 +72,7 @@ harvestable:
 		{
 			material: "limelight"
 			flags: drop_on_break
-			quantity: 3.000
+			quantity: 5.000
 		}
 	]
 }

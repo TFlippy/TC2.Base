@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.64.1"
 	name: "Shattering"
 	name_short: "Shattering"
 	desc:
@@ -45,8 +45,10 @@
 	
 	skills_mult:
 	{
-		strength: 1.450
-		clubs: 1.200
+		strength: 0.610
+		mining: 0.330
+		scavenging: 0.470
+		endurance: 0.440
 	}
 	
 	sound_volume: 0.500

@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.64.1"
 	name: "EC-CG Pellets"
-	name_short: "EC-CG Pellets"
+	name_short: "EC-CG Pt."
 	name_imperial: "Cognito-Arkpelet"
 	description:
 		'''

@@ -60,9 +60,5 @@ harvestable:
 			material: steel.rod
 			quantity: 15.000
 		}
-		{
-			material: limelight
-			quantity: 4.000
-		}
 	]
 }

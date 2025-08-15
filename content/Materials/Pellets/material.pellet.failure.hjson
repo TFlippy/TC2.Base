@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.64.1"
 	name: "EC-FU Pellets"
-	name_short: "EC-FU Pellets"
+	name_short: "EC-FU Pt."
 	name_imperial: "Fug-Arkpelet"
 	description:
 		'''

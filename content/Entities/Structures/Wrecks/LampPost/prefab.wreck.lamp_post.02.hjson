@@ -56,9 +56,5 @@ harvestable:
 			material: steel.frames
 			quantity: 5.000
 		}
-		{
-			material: limelight
-			quantity: 2.000
-		}
 	]
 }
