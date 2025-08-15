@@ -1,10 +1,10 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.64.1"
 	name: "Air-Drying"
 	name_short: "Air-Drying"
 	desc:
 		'''
-		TODO: Desc
+		Letting the stuff dry on its own without any additional assistance.
 		'''
 	
 	icon:

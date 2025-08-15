@@ -26,9 +26,9 @@
 	color: "0xffff6200"
 	
 	tools_required: hammer
-	tools_optional: cutters, pliers, file
+	tools_optional: cutters, pliers, file, chisel
 	
-	infrastructure_required: none
+	infrastructure_required: vise, workbench
 	infrastructure_optional: anvil, vise, surface
 	
 	character_traits:

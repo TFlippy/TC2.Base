@@ -121,6 +121,7 @@
 		size: [16, 16]
 		frame: [3, 0]
 	}
+	icon_offset: [-6.000, -1.000]
 	
 	icon_extra:
 	{

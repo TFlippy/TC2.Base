@@ -3,9 +3,7 @@
 	name: "Limelight"
 	desc:
 		'''
-		Small stackable cylinders of compacted quicklime with a thermal pellet inside.
-
-		Commonly used for illumination.
+		Small stackable cylinders of compacted quicklime with EC-TH pellets embedded inside.
 		'''
 	tips: []
 	
@@ -79,13 +77,13 @@
 					
 					filter_tools:
 					{
-						require: screwdriver, wrench
-						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, stapler, towel, tongs, pick, crowbar, knife
+						require: hammer, screwdriver, wrench
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, pliers, stapler, file, chisel, towel, tongs, pick, crowbar, knife
 					}
 					filter_infrastructure:
 					{
-						require: table
-						include: anvil, table, chair, vise
+						require: vise, workbench
+						include: anvil, vise, surface
 					}
 				}
 			]
@@ -110,12 +108,14 @@
 					type: undefined
 					flags: merge_residue
 					
+					prefix: "Glued "
+					
 					requirements:
 					[
 						{
 							type: resource
 							material: lime
-							amount: 1.646988
+							amount: 1.562651
 							snapping: 0.100
 							loss: 0.024
 							oper: residue
@@ -125,8 +125,9 @@
 						{
 							type: resource
 							material: glue
-							amount: 0.581557
-							snapping: 0.500
+							amount: 2.382
+							snapping: 1.000
+							falloff: 0.886
 							loss: 0.051
 							ratio: 1.000
 							oper: discard
@@ -154,7 +155,7 @@
 							snapping: 5.000
 							falloff: 0.791
 							group: 0
-							flags: no_residue, simultaneous, conditional
+							flags: no_residue, stepped, simultaneous, conditional
 						}
 						{
 							type: work
@@ -171,13 +172,17 @@
 					
 					filter_tools:
 					{
-						require: screwdriver, wrench
-						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, stapler, towel, tongs, pick, crowbar, knife
+						include: paintbrush, shovel, file, spatula
 					}
 					filter_infrastructure:
 					{
-						require: table
-						include: anvil, table, chair, vise
+						require: shaping_mould
+						include: table, chair
+					}
+					filter_environment:
+					{
+						include: clean, organized
+						exclude: wet
 					}
 				}
 			]
@@ -197,7 +202,7 @@
 	
 	type: workshop
 	flags: item
-	tags: workbench, workshop, manual, crafting, simple, small, assembling, metalworking, engineering, construction
+	tags: manual, crafting, simple, small, assembling, metalworking, engineering
 	infrastructure: workbench
 	infrastructure_exclude: none
 	
