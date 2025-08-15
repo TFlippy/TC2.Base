@@ -44,7 +44,7 @@ interactable:
 
 health:
 {
-	max: 128000.000
+	max: 98000.000
 }
 
 faction.colorable:
@@ -104,9 +104,8 @@ shop:
 {
 	tags_filter:
 	{
-		require: manual
-		include: workbench, workshop, blacksmithing, metalworking, salvaging
-		exclude: advanced, huge, social, forestry, overworld
+		include: blacksmithing, industrial, metalworking, metallurgy, salvaging, smelting
+		exclude: advanced, huge, social, forestry, fermenting, overworld
 	}
 	
 	tools: ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, spanner, pliers, bucket, axe, shovel, file, chisel, towel, spatula, tongs, pick, crowbar, knife, sandpaper, ladle

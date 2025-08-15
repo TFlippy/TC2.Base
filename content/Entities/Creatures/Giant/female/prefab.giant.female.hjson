@@ -773,7 +773,9 @@ vehicle:
 		stress_threshold: 1.250
 		stress_damp: 0.500
 		z: 100.000
-		flags: allow_dragging, control_write, facing_reset_pos, force_facing
+		flags: control_write, facing_reset_pos, force_facing
+		displacement_stress_modifier: 0.200
+		displacement_force_modifier: 0.600
 	}
 	
 	arm:
@@ -783,7 +785,7 @@ vehicle:
 		pickup_distance: 5.000
 		max_pickup_weight: 5000.000
 		
-		aim_torque: 150000.000
+		aim_torque: 130000.000
 		throw_force: 85000.000
 		
 		flags: none
@@ -819,7 +821,7 @@ vehicle:
 	
 	drag:
 	{
-		max_force: 75000.000
+		max_force: 55000.000
 		max_distance: 5.000
 		layer_exclude: world, bounds, essence, water, fire, gas, powder, hot, liquid, stored, static
 	}

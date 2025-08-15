@@ -218,7 +218,7 @@
 	
 	color_frame: "0xffaeb59a"
 	color_button: "0xff9dd80f"
-	rank: 35.000
+	rank: 31.000
 	
 	min: 8
 	max: 64

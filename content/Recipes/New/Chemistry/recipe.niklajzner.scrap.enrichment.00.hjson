@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.64.1"
 	name: "Niklajzner Scrap"
 	desc:
 		'''
@@ -164,7 +164,7 @@
 	]
 	
 	type: workshop
-	flags: production, wip
+	flags: production
 	tags: simple, metallurgy, refining, heating, processing
 	infrastructure: oven
 	infrastructure_exclude: none

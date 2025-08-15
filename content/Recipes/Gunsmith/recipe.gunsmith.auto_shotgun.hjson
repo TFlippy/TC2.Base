@@ -49,7 +49,7 @@
 							difficulty: 12
 							snapping: 5.000
 							falloff: 0.880
-							ratio: 0.878
+							ratio: 0.875
 							group: 0
 							flags: conditional
 						}
@@ -103,7 +103,7 @@
 							material: machine_parts
 							amount: 4.779233
 							snapping: 0.100
-							loss: 0.078
+							loss: 0.075
 							group: 0
 							flags: prerequisite
 						}
@@ -115,7 +115,7 @@
 							difficulty: 11
 							snapping: 5.000
 							falloff: 0.880
-							ratio: 0.878
+							ratio: 0.875
 							group: 0
 							flags: simultaneous, conditional
 						}
@@ -127,7 +127,7 @@
 							difficulty: 13
 							snapping: 5.000
 							falloff: 0.880
-							ratio: 0.878
+							ratio: 0.875
 							group: 0
 							flags: simultaneous, conditional
 						}
@@ -184,7 +184,7 @@
 							difficulty: 6
 							snapping: 5.000
 							falloff: 0.910
-							ratio: 0.878
+							ratio: 0.875
 							group: 0
 							flags: conditional
 						}
@@ -278,7 +278,7 @@
 		texture: auto_shotgun
 	}
 	
-	color_frame: "0xffaeb59a"
+	color_frame: "0xff4f8350"
 	color_button: "0xff9dd80f"
 	rank: 8.000
 	frame_size: [64.000, 48.000]
