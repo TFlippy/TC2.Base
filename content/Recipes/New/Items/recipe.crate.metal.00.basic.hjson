@@ -196,7 +196,7 @@
 	color_frame: "0xffaeb59a"
 	color_button: "0xff9dd80f"
 	button_name: "Craft"
-	rank: -6.800
+	rank: 2000.000
 	frame_size: [48.000, 48.000]
 	
 	min: 1
