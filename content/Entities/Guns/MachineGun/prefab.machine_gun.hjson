@@ -9,11 +9,11 @@ $tags: []
 
 body:
 {
-	buoyancy: 0.120
+	buoyancy: 0.060
 
 	@shape.line:
 	{
-		material: metal
+		material: metal_solid
 		miss_chance: 0.000
 		flags: none
 		tags: none
@@ -22,53 +22,55 @@ body:
 		mask: world
 		exclude: none
 		
-		mass: 45.000
-		radius: 0.350
-		friction: 0.900
-		elasticity: 0.550
+		mass: 86.000
+		radius: 0.500
+		friction: 0.720
+		elasticity: 0.660
 		
-		cog_offset: [-0.625, 0.125]
+		cog_offset: [-0.625, -0.0625]
 		
-		a: [-1.000, 0.150]
-		b: [1.250, -0.050]
+		a: [-1.375, 0.250]
+		b: [1.375, 0.000]
 		offset: [0.000, 0.000]
 	}
 }
 
 gun:
 {
-	muzzle_offset: [1.750, -0.0625]
-	receiver_offset: [-0.750, 0.000]
-
+	muzzle_offset: [1.875, -0.125]
+	receiver_offset: [-1.125, -0.125]
+	
 	eject_direction: [-6.800, -7.400]
 	eject_angular_velocity: 16.000
-
-	sound_shoot: "machine_gun_shoot"
-	sound_reload: "machine_gun_reload"
+	
+	shake_amount: 0.300
+	
+	sound_volume: 1.300
+	sound_size: 8.875
+	sound_dist_multiplier: 3.500
+	
+	sound_shoot: machine_gun_shoot
+	sound_reload: machine_gun_reload
+	
+	damage_multiplier: 3.400
 	velocity_multiplier: 850.000
 	jitter_multiplier: 0.800
-	damage_multiplier: 3.400
 	recoil_multiplier: 1.150
 	reload_interval: 2.500
 	cycle_interval: 0.085
+	stability: 3750.000
 	failure_rate: 0.0017
-	max_ammo: 50.000
-	projectile_count: 1
-	flags: automatic, full_reload, cycle_on_shoot
+	
 	ammo_filter: ammo_mg
-	action: blowback
+	max_ammo: 50.000
+	
+	action: gas
 	type: machinegun
 	feed: drum
-
-	sound_volume: 1.000
-	sound_size: 5.000
-	sound_dist_multiplier: 3.500
-
-	heuristic_range: 30.000
-	stability: 3850.000
-
-	shake_amount: 0.300
 	
+	flags: automatic, full_reload, cycle_on_shoot
+	heuristic_range: 36.000
+
 	@inventory1:
 	{
 		stack_size_multiplier: 1.000
@@ -99,13 +101,13 @@ gun.state:
 
 holdable:
 {
-	offset: [-0.700, 0.100]
-	radius: 8.000
-	flags: storable, full_rotate
-
+	offset: [-0.750, 0.000]
 	force_multiplier: 0.500
 	torque_multiplier: 2.000
 	stress_multiplier: 4.500
+	radius: 8.000
+	hints: heavy, gun
+	flags: storable, full_rotate
 }
 
 attachment:
@@ -124,7 +126,7 @@ animated.renderer:
 
 health:
 {
-	max: 7500.000
+	max: 11500.000
 }
 
 armor:
