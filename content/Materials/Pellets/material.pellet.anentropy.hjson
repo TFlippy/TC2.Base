@@ -13,6 +13,7 @@
 	icon:
 	{
 		texture: resource.pellet.anentropy
+		count: 4
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -42,7 +43,7 @@
 	volume_per_stack_compacted: 0.030
 	
 	// Maximum quantity (units) per stack.
-	quantity_max: 500.000
+	quantity_max: 250.000
 	// Minimum spawnable quantity.
 	spawn_quantity_threshold: 0.500
 	// Preferred quantity snapping for recipes.

@@ -364,6 +364,10 @@ namespace TC2.Base.Components
 					{
 						intensity *= container.available * container.rate_current * 0.01f;
 					}
+					else
+					{
+
+					}
 
 					if (container.flags.HasNone(Essence.Container.Flags.No_Noise))
 					{

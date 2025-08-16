@@ -23,9 +23,10 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.pellet.radiance"
-		count: 4
+		texture: atlas.resource.pellet
+		count: 8
 		size: [16, 16]
+		frame: [7, 6]
 	}
 }
 
@@ -58,9 +59,10 @@ essence.container:
 	rate_speed: 0.900
 	stability: 0.850
 	health_threshold: 0.900
-	glow_modifier: 5.000
-	heat_modifier: 0.100
+	glow_modifier: 2.000
+	heat_modifier: 0.300
 	emit_type: ambient
+	flags: constant_glow, constant_heat
 
 	@light:
 	{
@@ -72,9 +74,9 @@ essence.container:
 	@sound.emitter:
 	{
 		flags: start_muted
-		volume: 4.000
+		volume: 2.000
 		volume_mult: 0.500
-		pitch: 5.000
+		pitch: 2.000
 		pitch_mult: 0.300
 		size: 4.000
 		size_max_modifier: 0.400

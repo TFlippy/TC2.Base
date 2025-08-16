@@ -23,9 +23,10 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.pellet.motion"
+		texture: atlas.resource.pellet
 		count: 4
 		size: [16, 16]
+		frame: [3, 1]
 	}
 }
 

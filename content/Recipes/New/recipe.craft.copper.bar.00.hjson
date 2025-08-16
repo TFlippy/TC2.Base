@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.64.1"
 	name: "Copper Bricks"
 	desc:
 		'''
@@ -61,7 +61,7 @@
 							difficulty: 10
 							snapping: 5.000
 							falloff: 0.983
-							ratio: 0.078
+							ratio: 0.075
 							group: 0
 							flags: stepped, conditional
 						}
@@ -137,6 +137,7 @@
 	color_frame: "0xffff851e"
 	color_button: "0xff9dd80f"
 	rank: -715.000
+	frame_size: [64.000, 48.000]
 	
 	min: 1
 	max: 10

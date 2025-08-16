@@ -31,9 +31,10 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.pellet.failure"
+		texture: atlas.resource.pellet
 		count: 4
 		size: [16, 16]
+		frame: [3, 4]
 	}
 	z: -50.000
 }

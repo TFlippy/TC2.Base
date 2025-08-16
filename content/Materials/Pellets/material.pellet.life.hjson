@@ -12,9 +12,10 @@
 	
 	icon:
 	{
-		texture: resource.pellet.life
+		texture: atlas.resource.pellet
+		count: 8
 		size: [16, 16]
-		frame: [3, 0]
+		frame: [7, 5]
 	}
 	
 	// Inventory material type.
@@ -42,7 +43,7 @@
 	volume_per_stack_compacted: 0.030
 	
 	// Maximum quantity (units) per stack.
-	quantity_max: 500.000
+	quantity_max: 250.000
 	// Minimum spawnable quantity.
 	spawn_quantity_threshold: 0.500
 	// Preferred quantity snapping for recipes.

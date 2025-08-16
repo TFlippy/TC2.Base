@@ -23,9 +23,10 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.pellet.electricity"
+		texture: atlas.resource.pellet
 		count: 4
 		size: [16, 16]
+		frame: [3, 3]
 	}
 }
 
@@ -75,7 +76,7 @@ essence.container:
 	@sound.emitter:
 	{
 		volume: 2.000
-		volume_mult: 0.500
+		volume_mult: 0.800
 		pitch: 4.000
 		pitch_mult: 0.300
 		size: 10.000

@@ -1,0 +1,73 @@
+﻿{
+	$version: "0.1.64.0"
+	name: "Scraping"
+	name_short: "Scraping"
+	desc:
+		'''
+		Using a tool to remove material from a surface, often to smooth or shape it.
+
+		Not to be confused with scrapping.
+		'''
+	
+	icon:
+	{
+		texture: ui.icons.work.00
+		size: [16, 16]
+		frame: [4, 0]
+	}
+	
+	flags: manual, wip
+	tags: tools, simple
+	
+	amount_base: 0.000
+	cooldown: 0.690
+	multiplier: 0.940
+	
+	amount_jitter: 0.402
+	cooldown_jitter: 0.303
+	color: "0xffffa200"
+	
+	tools_required: sandpaper
+	tools_optional: none
+	
+	infrastructure_required: none
+	infrastructure_optional: table, surface
+	
+	filter_environment:
+	{
+		include: workshop, stationary, illuminated, dry
+	}
+	
+	character_traits:
+	{
+		include: slave, criminal, medical, farmer, lowlife, poor, miner, insane, entertainer, pest, animal, outdoor, junkie, evil, dumb, clumsy
+		weight: 1.000
+	}
+	
+	skills_min:
+	{
+	
+	}
+	
+	skills_mult:
+	{
+		endurance: 0.410
+		scavenging: 0.170
+		carpentry: 0.220
+	}
+	
+	sound_volume: 0.600
+	sound_pitch: 0.750
+	sound_size: 0.600
+	sound_dist: 0.620
+	
+	sounds: ["walljump.00", "walljump.01", "walljump.02"]
+	sounds_manual: []
+	sounds_crafter: []
+	sounds_passive: []
+	sounds_ambient: []
+	
+	sounds_start: []
+	sounds_end: []
+	sounds_fail: []
+}

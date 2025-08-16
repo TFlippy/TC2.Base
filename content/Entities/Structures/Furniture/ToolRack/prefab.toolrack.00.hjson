@@ -63,6 +63,7 @@ interactable:
 {
 	flags: no_tab, centered_inventory
 	window_size: [192.000, 96.000]
+	priority: 1.000
 }
 
 shipment:
