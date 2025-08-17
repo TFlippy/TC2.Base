@@ -109,6 +109,17 @@ press:
 	speed: 2.200
 	load_multiplier: 1.000
 
+	@animated.renderer:
+	{
+		sprite:
+		{
+			texture: press.02.parts
+			size: [24, 32]
+		}
+		offset: [0.000, -3.000]
+		z: 500.000
+	}
+
 	
 	// @animated.renderer:
 	// {
@@ -264,49 +275,49 @@ shipment:
 	flags: keep_items, allow_deposit, use_misc, no_empty_deposit
 }
 
-piston:
-{
-	offset: [0.000, -2.625]
-	direction: [0.000, 1.000]
-	length: 3.000
-	mass: 100.000
-	damping: 0.600
-	spring_constant: 10000.000
+// piston:
+// {
+// 	offset: [0.000, -2.625]
+// 	direction: [0.000, 1.000]
+// 	length: 3.000
+// 	mass: 100.000
+// 	damping: 0.600
+// 	spring_constant: 10000.000
 
-	// @essence.emitter:
-	// {
-	// 	offset: [-0.250, -0.750]
-	// 	direction: [0.000, 1.000]
+// 	// @essence.emitter:
+// 	// {
+// 	// 	offset: [-0.250, -0.750]
+// 	// 	direction: [0.000, 1.000]
 		
-	// 	type: undefined
-	// 	flags: internal, self_discharging, enable_signal_read
-	// 	charge_capacity: 150.000
-	// 	charge_loss: 0.007
-	// 	efficiency: 0.912
+// 	// 	type: undefined
+// 	// 	flags: internal, self_discharging, enable_signal_read
+// 	// 	charge_capacity: 150.000
+// 	// 	charge_loss: 0.007
+// 	// 	efficiency: 0.912
 		
-	// 	h_essence: motion
-	// 	h_soundmix_pulse: press.01.emit
-	// }
+// 	// 	h_essence: motion
+// 	// 	h_soundmix_pulse: press.01.emit
+// 	// }
 
-	@animated.renderer:
-	{
-		sprite:
-		{
-			texture: press.02.parts
-			size: [24, 40]
-		}
-		z: 500.000
-	}
+// 	@animated.renderer:
+// 	{
+// 		sprite:
+// 		{
+// 			texture: press.02.parts
+// 			size: [24, 40]
+// 		}
+// 		z: 500.000
+// 	}
 
-	// @light:
-	// {
-	// 	color: [0.000, 1.000, 0.800, 1.500]
-	// 	offset: [-0.250, -1.750]
-	// 	scale: [12.000, 14.000]
-	// 	intensity: 1.200
-	// 	texture: light.circle.00
-	// }
-}
+// 	// @light:
+// 	// {
+// 	// 	color: [0.000, 1.000, 0.800, 1.500]
+// 	// 	offset: [-0.250, -1.750]
+// 	// 	scale: [12.000, 14.000]
+// 	// 	intensity: 1.200
+// 	// 	texture: light.circle.00
+// 	// }
+// }
 
 // essence.container:
 // {
