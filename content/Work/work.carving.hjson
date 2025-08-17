@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.64.1"
 	name: "Carving"
 	name_short: "Carving"
 	desc:
@@ -55,7 +55,7 @@
 	sound_size: 0.420
 	sound_dist: 0.590
 	
-	sounds: []
+	sounds: ["walljump.00", "walljump.02", "walljump.01"]
 	sounds_manual: []
 	sounds_crafter: []
 	sounds_passive: []

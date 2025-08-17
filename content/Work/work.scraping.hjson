@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.64.1"
 	name: "Scraping"
 	name_short: "Scraping"
 	desc:
@@ -17,7 +17,7 @@
 	}
 	
 	flags: manual, wip
-	tags: tools, simple
+	tags: tools, crude, simple, kinetic, fast
 	
 	amount_base: 0.000
 	cooldown: 0.690
@@ -27,20 +27,14 @@
 	cooldown_jitter: 0.303
 	color: "0xffffa200"
 	
-	tools_required: sandpaper
-	tools_optional: none
+	tools_required: file, pick, sandpaper
+	tools_optional: pick, knife
 	
 	infrastructure_required: none
 	infrastructure_optional: table, surface
 	
-	filter_environment:
-	{
-		include: workshop, stationary, illuminated, dry
-	}
-	
 	character_traits:
 	{
-		include: slave, criminal, medical, farmer, lowlife, poor, miner, insane, entertainer, pest, animal, outdoor, junkie, evil, dumb, clumsy
 		weight: 1.000
 	}
 	

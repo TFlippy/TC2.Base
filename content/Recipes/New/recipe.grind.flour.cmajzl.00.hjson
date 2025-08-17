@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.5"
+	$version: "0.1.64.1"
 	name: "Cmajzl Flour"
 	desc:
 		'''
@@ -69,7 +69,7 @@
 	]
 	
 	type: workshop
-	flags: debug, disabled, wip
+	flags: debug, wip
 	tags: workbench, manual, simple, organic, agriculture, messy
 	infrastructure: none
 	infrastructure_exclude: none

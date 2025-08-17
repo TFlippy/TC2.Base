@@ -1,13 +1,11 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.64.1"
 	name: "Earmuffs"
 	desc:
 		'''
 		Protects your hearing from loud factories and cannons.
 		'''
 	tips: []
-	
-	stages: []
 	
 	requirements:
 	[
@@ -62,7 +60,9 @@
 	
 	type: workshop
 	flags: blueprintable, disabled, wip
-	tags: workbench, manual, simple, small, assembling, tailoring
+	tags: workbench, manual, crafting, simple, small, assembling, tailoring
+	infrastructure: none
+	infrastructure_exclude: none
 	
 	icon:
 	{
@@ -71,9 +71,12 @@
 	}
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	rank: 0.000
 	
 	min: 1
 	max: 5
 	step: 1
+	
+	version: 0
 }

@@ -1,13 +1,11 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.64.1"
 	name: "Balloon"
 	desc:
 		'''
 		Basic hot-air balloon.
 		'''
 	tips: []
-	
-	stages: []
 	
 	requirements:
 	[
@@ -41,6 +39,7 @@
 			amount: 800.000
 			difficulty: 10
 			group: 0
+			flags: conditional
 		}
 		{
 			type: work
@@ -48,6 +47,7 @@
 			amount: 700.000
 			difficulty: 15
 			group: 0
+			flags: conditional
 		}
 		{
 			type: work
@@ -55,6 +55,7 @@
 			amount: 1000.000
 			difficulty: 10
 			group: 0
+			flags: conditional
 		}
 	]
 	
@@ -68,13 +69,11 @@
 		}
 	]
 	
-	requirements_old: []
-	
-	products_old: []
-	
 	type: workshop
 	flags: no_amount_multiplier, blueprintable, disabled, wip
-	tags: workshop, manual, simple, huge, vehicle, woodworking, assembling, engineering, carpentry, construction
+	tags: workshop, manual, crafting, simple, huge, vehicle, woodworking, assembling, engineering, carpentry, construction
+	infrastructure: none
+	infrastructure_exclude: none
 	
 	icon:
 	{
@@ -82,6 +81,7 @@
 	}
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	rank: -550.000
 	
 	min: 1

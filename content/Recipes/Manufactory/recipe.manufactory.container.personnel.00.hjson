@@ -1,13 +1,11 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.64.1"
 	name: "Container (Personnel)"
 	desc:
 		'''
 		Large shipping container for storing people and equipment.
 		'''
 	tips: []
-	
-	stages: []
 	
 	requirements:
 	[
@@ -35,6 +33,7 @@
 			amount: 500.000
 			difficulty: 8
 			group: 0
+			flags: conditional
 		}
 		{
 			type: work
@@ -42,6 +41,7 @@
 			amount: 700.000
 			difficulty: 6
 			group: 0
+			flags: conditional
 		}
 	]
 	
@@ -55,13 +55,11 @@
 		}
 	]
 	
-	requirements_old: []
-	
-	products_old: []
-	
 	type: workshop
 	flags: no_amount_multiplier, blueprintable, disabled, wip
-	tags: manual, huge, vehicle, metalworking, construction
+	tags: manual, crafting, huge, vehicle, metalworking, construction
+	infrastructure: none
+	infrastructure_exclude: none
 	
 	icon:
 	{
@@ -69,6 +67,7 @@
 	}
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	rank: 0.000
 	
 	min: 1

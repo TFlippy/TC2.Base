@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.64.1"
 	name: "Thermopaste"
 	desc:
 		'''
@@ -306,7 +306,7 @@
 	
 	type: workshop
 	flags: production, wip
-	tags: manual, crafting, complex, alchemistry, blending, messy, explosive, dangerous
+	tags: manual, complex, alchemistry, blending, messy, explosive, dangerous
 	infrastructure: bucket, surface
 	infrastructure_exclude: none
 	

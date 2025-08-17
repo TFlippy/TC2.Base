@@ -1,0 +1,95 @@
+﻿{
+	$region_id: 0
+	$version: "0.1.64.1"
+	name: "Screw Press"
+	tips: []
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: brick.concrete
+			amount: 75.000
+			snapping: 0.500
+			group: 0
+			flags: prerequisite
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: press.02
+			amount: 1.000
+			group: 0
+			flags: primary
+		}
+	]
+	
+	type: industry
+	flags: no_amount_multiplier, blueprintable, wip
+	tags: large, blacksmithing, industrial, metallurgy, engineering, architecture, construction, moulding
+	infrastructure: none
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		texture: press.02
+		size: [32, 48]
+	}
+	icon_offset: [2.000, -4.000]
+	
+	color_frame: "0xffffa200"
+	color_button: "0xff9dd80f"
+	rank: -391.000
+	frame_size: [80.000, 80.000]
+	
+	dismantle_work: 10.000
+	dismantle_yield: 0.800
+	
+	placement:
+	{
+		type: simple
+		flags: allow_mirror_x, require_terrain, terrain_is_support, no_solid_support, require_snapped
+		
+		size: [3.000, 1.000]
+		offset: [0.000, -0.500]
+		
+		rect_foundation: [-2.000, -0.500, 2.000, 0.500]
+		tileflags_foundation: solid
+		
+		rect_clearance: [-1.250, -3.000, 1.250, 1.500]
+		tileflags_clearance: solid
+		
+		cooldown: 2.000
+		min_support: 0.976
+		min_clearance: 0.700
+		min_claim: 1.000
+		max_range: 3.000
+		
+		rotation_max: 0.0491
+		
+		sound: projectile.strong.burrow.00
+		
+		physics_filter:
+		{
+			exclude: background, dynamic
+		}
+		
+		snapping_filter:
+		{
+			include: world
+			exclude: none
+		}
+		snapping_flags: snap_to_surface, use_collider_radius, add_size_to_snap_radius, use_raw_collider, inset_terrain
+		snapping_radius: 0.500
+		
+		mappings_replace:
+		{
+		
+		}
+	}
+	
+	version: 0
+}

@@ -281,7 +281,7 @@
 	
 	type: workshop
 	flags: production, manufacturing
-	tags: manual, crafting, simple, blending, drying, moulding, explosive, dangerous
+	tags: manual, simple, blending, drying, moulding, explosive, dangerous
 	infrastructure: none
 	infrastructure_exclude: none
 	

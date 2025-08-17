@@ -1,13 +1,11 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.64.1"
 	name: "Crane Arm (Articulated)"
 	desc:
 		'''
 		Advanced crane arm with a configurable articulated rotary joint.
 		'''
 	tips: []
-	
-	stages: []
 	
 	requirements:
 	[
@@ -35,6 +33,7 @@
 			amount: 850.000
 			difficulty: 15
 			group: 0
+			flags: conditional
 		}
 		{
 			type: work
@@ -42,6 +41,7 @@
 			amount: 600.000
 			difficulty: 11
 			group: 0
+			flags: conditional
 		}
 	]
 	
@@ -55,13 +55,11 @@
 		}
 	]
 	
-	requirements_old: []
-	
-	products_old: []
-	
 	type: workshop
 	flags: no_amount_multiplier, blueprintable, disabled, wip
-	tags: workshop, manual, advanced, huge, vehicle, machinery, assembling, metalworking, engineering, construction
+	tags: workshop, manual, crafting, advanced, huge, vehicle, machinery, assembling, metalworking, engineering, construction
+	infrastructure: none
+	infrastructure_exclude: none
 	
 	icon:
 	{
@@ -69,6 +67,7 @@
 	}
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	rank: -350.000
 	
 	min: 1

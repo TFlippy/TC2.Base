@@ -107,7 +107,7 @@
 	
 	type: workshop
 	flags: item, dismantling, wip, converted
-	tags: manual, simple, complex, engineering, salvaging
+	tags: manual, crafting, simple, complex, engineering, salvaging
 	infrastructure: table, chair, surface
 	infrastructure_exclude: none
 	

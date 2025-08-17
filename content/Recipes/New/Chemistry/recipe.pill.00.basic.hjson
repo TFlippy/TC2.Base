@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.64.1"
 	name: "Pill Box"
 	desc:
 		'''
@@ -45,7 +45,7 @@
 	
 	type: workshop
 	flags: blueprintable, hidden, wip
-	tags: manual, crafting, complex, small, tool, alchemistry, medical, science, biology
+	tags: manual, complex, small, tool, alchemistry, medical, science, biology
 	infrastructure: lab_glassware, dishes, bottle
 	infrastructure_exclude: none
 	

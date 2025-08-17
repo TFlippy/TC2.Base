@@ -1,13 +1,11 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.64.1"
 	name: "Cabin (Tank)"
 	desc:
 		'''
 		Heavily armored metal cabin with an attachment slot on top and a gunner seat.
 		'''
 	tips: []
-	
-	stages: []
 	
 	requirements:
 	[
@@ -29,6 +27,7 @@
 			amount: 2000.000
 			difficulty: 15
 			group: 0
+			flags: conditional
 		}
 		{
 			type: work
@@ -36,6 +35,7 @@
 			amount: 1200.000
 			difficulty: 8
 			group: 0
+			flags: conditional
 		}
 	]
 	
@@ -49,13 +49,11 @@
 		}
 	]
 	
-	requirements_old: []
-	
-	products_old: []
-	
 	type: workshop
 	flags: no_amount_multiplier, blueprintable, disabled, wip
-	tags: manual, huge, vehicle, metalworking, construction
+	tags: manual, crafting, huge, vehicle, metalworking, construction
+	infrastructure: none
+	infrastructure_exclude: none
 	
 	icon:
 	{
@@ -63,6 +61,7 @@
 	}
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	rank: 0.000
 	
 	min: 1

@@ -474,7 +474,7 @@
 	
 	type: workshop
 	flags: item, production, wip
-	tags: workbench, manual, crafting, dumb, crude, simple, small, blending, messy
+	tags: workbench, manual, dumb, crude, simple, small, blending, messy
 	infrastructure: bucket
 	infrastructure_exclude: none
 	

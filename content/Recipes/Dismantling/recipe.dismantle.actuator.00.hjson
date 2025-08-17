@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.64.1"
 	name: "Dismantle EC-MT Actuators"
 	desc:
 		'''
@@ -58,7 +58,7 @@
 	
 	type: workshop
 	flags: hidden, disabled, wip
-	tags: workbench, manual, simple, metalworking, salvaging
+	tags: workbench, manual, crafting, simple, metalworking, salvaging
 	infrastructure: workbench
 	infrastructure_exclude: none
 	

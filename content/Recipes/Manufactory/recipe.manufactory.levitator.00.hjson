@@ -1,13 +1,11 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.64.1"
 	name: "EC-MT Levitator (Single)"
 	desc:
 		'''
 		Powerful EC-MT levitator used for propulsion.
 		'''
 	tips: []
-	
-	stages: []
 	
 	requirements:
 	[
@@ -35,6 +33,7 @@
 			amount: 550.000
 			difficulty: 14
 			group: 0
+			flags: conditional
 		}
 		{
 			type: work
@@ -42,6 +41,7 @@
 			amount: 450.000
 			difficulty: 7
 			group: 0
+			flags: conditional
 		}
 	]
 	
@@ -55,13 +55,11 @@
 		}
 	]
 	
-	requirements_old: []
-	
-	products_old: []
-	
 	type: workshop
 	flags: no_amount_multiplier, blueprintable, disabled, wip
-	tags: manual, complex, advanced, large, assembling, metalworking, engineering
+	tags: manual, crafting, complex, advanced, large, assembling, metalworking, engineering
+	infrastructure: none
+	infrastructure_exclude: none
 	
 	icon:
 	{
@@ -69,6 +67,7 @@
 	}
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	rank: -541.000
 	
 	min: 1

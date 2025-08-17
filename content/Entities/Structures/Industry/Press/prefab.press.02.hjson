@@ -17,11 +17,11 @@ body:
 		tags: none
 		
 		layer: entity, solid, building, storage, workshop, crafter, ignore_melee
-		mask: world, building, solid
+		mask: world, solid, building
 		exclude: none
 		
 		mass: 220.000
-		radius: 0.500
+		radius: 0.8125
 		friction: 0.500
 		elasticity: 0.500
 		
@@ -31,8 +31,8 @@ body:
 		[
 			[-1.000, 0.000]
 			[1.000, 0.000]
-			[0.750, 1.500]
-			[-0.750, 1.500]
+			[1.000, 1.000]
+			[-1.000, 1.000]
 		]
 	}
 }
@@ -85,19 +85,19 @@ shop:
 {
 	tags_filter:
 	{
-		include: automated, industrial, metalworking, metallurgy
-		exclude: advanced, large, huge, assembling, social, forestry, fermenting, overworld
+		include: industrial, metalworking, metallurgy, moulding, processing
+		exclude: crafting, advanced, huge, carpentry, construction, smelting
 	}
 	
-	tools: ruler, hammer, cutters, screwdriver, wrench, spanner, pliers, bucket, file, towel, tongs, crowbar
-	infrastructure: anvil, forge, table, vise, rack, casting_mould, shaping_mould, bucket, surface, hard_surface, compactor, heater, stamping_press, press, dies, essence_emitter, structure, machine
-	environment: machine, stationary, dirty, scary, noisy, reinforced, fireproof, durable, sturdy, small
+	tools: hammer, screwdriver, spanner, bucket, shovel, chisel, pick, sandpaper
+	infrastructure: spigot, cauldron, anvil, barrel, shaping_mould, bucket, surface, hard_surface, liquid_container, compactor, press, form, dies, structure, machine
+	environment: machine, container, stationary, reinforced, fireproof, durable, sturdy, form, waterproof
 	
 	flags: embed_gui
 	menu_columns: 3
 	recipe_type: workshop
 	
-	offset_spawn: [-0.375, 1.000]
+	offset_spawn: [0.000, -1.375]
 	
 	name: "Screw Press"
 }
@@ -153,7 +153,7 @@ crafter:
 	temperature_max: 1200.000
 	pressure_max: 500.000
 
-	offset: [-0.250, 0.875]
+	offset: [0.000, -1.250]
 
 	@inventory4:
 	{

@@ -154,7 +154,7 @@
 	
 	type: workshop
 	flags: production, wip
-	tags: manual, crafting, dumb, crude, simple, small, organic, blending, messy
+	tags: manual, dumb, crude, simple, small, organic, blending, messy
 	infrastructure: bucket
 	infrastructure_exclude: none
 	
