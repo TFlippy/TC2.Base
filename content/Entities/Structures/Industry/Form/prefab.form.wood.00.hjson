@@ -116,7 +116,7 @@ workshop:
 	infrastructure: table, shaping_mould
 	environment: container, mobile, dirty, ugly, sturdy, flammable, large
 
-	max_order_mass: 400.000
+	max_order_mass: 350.000
 }
 
 shipment:

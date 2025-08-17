@@ -127,6 +127,7 @@ workshop:
 	orders_capacity: 2
 	
 	h_sound_order_complete: computer.bell.00
+	max_order_mass: 120.000
 
 	@inventory16:
 	{

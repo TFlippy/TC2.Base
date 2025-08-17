@@ -237,6 +237,7 @@ workshop:
 	environment: none
 	
 	gui_info_size_x: 208.000
+	max_order_mass: 200.000
 
 	h_sound_order_begin: effect.buzzer.00
 	h_sound_order_complete: effect.buzzer.00

@@ -124,6 +124,7 @@ workshop:
 {
 	orders_capacity: 2
 	h_sound_order_complete: effect.bell.ring.01
+	max_order_mass: 450.000
 
 	@inventory8:
 	{

@@ -131,6 +131,7 @@ workshop:
 {
 	flags: hidden_if_no_orders, add_order_mass
 	orders_capacity: 1
+	max_order_mass: 200.000
 }
 
 interactable:

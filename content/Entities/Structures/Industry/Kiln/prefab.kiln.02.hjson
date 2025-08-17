@@ -132,6 +132,7 @@ workshop:
 
 	orders_capacity: 1
 	h_sound_order_complete: computer.bell.00
+	max_order_mass: 80.000
 }
 
 kiln:

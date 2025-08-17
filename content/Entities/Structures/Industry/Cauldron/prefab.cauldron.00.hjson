@@ -58,7 +58,7 @@ shop:
 {
 	tags_filter:
 	{
-		include: food, agriculture, filtering, cooking, alchemistry, gathering, blending, fermenting
+		include: agriculture, filtering, cooking, alchemistry, gathering, blending, fermenting
 		exclude: advanced, large, huge, vehicle, furniture, blacksmithing, woodworking, assembling, carpentry, construction, smelting, drying, moulding, overworld
 	}
 	
@@ -163,6 +163,7 @@ workshop:
 	environment: none
 	
 	gui_info_size_x: 256.000
+	max_order_mass: 550.000
 	
 	h_sound_order_complete: computer.bell.00
 }

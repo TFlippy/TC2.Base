@@ -246,7 +246,7 @@ workshop:
 	environment: none
 	
 	gui_info_size_x: 208.000
-	max_order_mass: 500.000
+	max_order_mass: 600.000
 
 	@inventory4:
 	{

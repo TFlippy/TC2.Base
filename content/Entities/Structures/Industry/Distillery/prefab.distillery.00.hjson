@@ -156,6 +156,7 @@ workshop:
 	orders_capacity: 1
 	h_sound_order_complete: computer.bell.00
 	gui_info_size_x: 224.000
+	max_order_mass: 650.000
 
 	@inventory8:
 	{		

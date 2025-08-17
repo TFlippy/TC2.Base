@@ -136,6 +136,7 @@ workshop:
 	environment: machine, waterproof, stationary, scary, noisy, reinforced, fireproof, durable, sturdy
 	
 	orders_capacity: 2
+	max_order_mass: 450.000
 }
 
 animated.renderer:

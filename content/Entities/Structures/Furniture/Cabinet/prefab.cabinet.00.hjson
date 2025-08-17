@@ -121,6 +121,7 @@ crafter.state:
 workshop:
 {
 	orders_capacity: 1
+	max_order_mass: 90.000
 }
 
 
