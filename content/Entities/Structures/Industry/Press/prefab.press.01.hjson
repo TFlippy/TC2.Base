@@ -295,7 +295,7 @@ shipment:
 
 piston:
 {
-	offset: [-0.250, -0.875]
+	offset: [-0.250, -0.750]
 	direction: [0.000, 1.000]
 	length: 0.750
 	mass: 10.000
@@ -321,9 +321,10 @@ piston:
 	{
 		sprite:
 		{
-			texture: press.01.parts
-			size: [24, 24]
+			texture: atlas.press.parts.00
+			size: [8, 16]
 		}
+		offset: [-0.250, -0.750]
 		z: -165.000
 	}
 
@@ -350,7 +351,7 @@ essence.container:
 	{
 		type: essence
 		flags: ignore_mass, no_auto_pickup, faction
-		stack_size_multiplier: 0.050
+		stack_size_multiplier: 0.100
 		
 		filter:
 		{

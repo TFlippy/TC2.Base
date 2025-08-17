@@ -8,6 +8,29 @@ $tags: []
 body:
 {
 	type: static
+
+	@shape.line:
+	{
+		material: machine
+		miss_chance: 0.659
+		flags: none
+		tags: none
+		
+		layer: entity, solid, building, support, no_overlapped_placement, ignore_melee
+		mask: world, building
+		exclude: none
+		
+		mass: 140.000
+		radius: 0.750
+		friction: 0.600
+		elasticity: 0.500
+		
+		cog_offset: [0.000, 0.000]
+		
+		a: [0.125, -1.250]
+		b: [0.000, 1.375]
+		offset: [0.000, 0.000]
+	}
 	
 	@shape.polygon:
 	{
@@ -16,7 +39,7 @@ body:
 		flags: none
 		tags: none
 		
-		layer: entity, solid, building, storage, workshop, crafter, ignore_melee
+		layer: entity, solid, building, storage, workshop, crafter, ignore_melee, ignore_hover
 		mask: world, solid, building
 		exclude: none
 		
