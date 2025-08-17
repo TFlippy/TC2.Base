@@ -48,6 +48,7 @@
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	
+	centroid_default: [0.000, 0.250]
 	colliders: []
 	
 	commodity:
@@ -87,5 +88,37 @@
 		quantity_retail: 0.000
 		quantity_wholesale: 0.000
 		quantity_industry: 0.000
+	}
+	
+	// Damage-based conversions.
+	conversions:
+	{
+		sledgehammer:
+		{
+			spawn_flags: none
+			product_flags: none
+			ratio: 0.000
+			ratio_extra: 0.000
+			
+			h_material_waste: scrap.machine
+			spawn_flags_waste: merge
+			product_flags_waste: waste, residue
+			ratio_waste: 0.370
+			ratio_waste_extra: 0.480
+			
+			yield: 0.690
+			yield_extra: 0.250
+			
+			h_sound: missing
+			sound_volume: 0.500
+			sound_pitch: 1.000
+			
+			chance: 1.000
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.000
+			velocity_mult: 1.000
+			damage_mult: 1.000
+		}
 	}
 }

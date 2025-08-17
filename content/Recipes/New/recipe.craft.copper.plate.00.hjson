@@ -61,7 +61,7 @@
 							difficulty: 12
 							snapping: 5.000
 							falloff: 0.952
-							ratio: 0.384
+							ratio: 0.373
 							group: 0
 							flags: stepped, conditional
 						}
@@ -151,7 +151,7 @@
 	color_frame: "0xffff851e"
 	color_button: "0xff9dd80f"
 	rank: -715.000
-	frame_size: [64.000, 48.000]
+	frame_size: [48.000, 48.000]
 	
 	min: 1
 	max: 10

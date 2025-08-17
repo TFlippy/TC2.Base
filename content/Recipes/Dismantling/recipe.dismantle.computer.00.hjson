@@ -27,7 +27,7 @@
 					name: "Simple"
 					
 					type: undefined
-					flags: wip, auto_generated
+					flags: none
 					
 					requirements:
 					[
@@ -39,8 +39,63 @@
 							difficulty: 14
 							snapping: 50.000
 							falloff: 0.790
+							loss: 0.322
+							ratio: 0.675
 							group: 0
 							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: actuator
+							amount: 2.000
+							group: 0
+							flags: residue, primary, compact, add_to_residues
+						}
+						{
+							type: resource
+							material: directors
+							amount: 1.771024
+							amount_extra: 0.793217
+							group: 0
+							flags: residue, byproduct
+						}
+						{
+							type: resource
+							material: machine_parts
+							amount: 15.000
+							amount_extra: 12.000
+							group: 0
+							flags: residue, byproduct
+						}
+						{
+							type: resource
+							material: steel.frames
+							amount: 4.600
+							amount_extra: 1.300
+							group: 0
+							flags: residue
+						}
+						{
+							type: resource
+							material: scrap.machine
+							amount: 0.283296
+							amount_extra: 0.373
+							group: 0
+							ratio: 0.722
+							flags: waste, scale_to_mass
+						}
+						{
+							type: resource
+							material: scrap.arcane
+							amount: 0.283296
+							amount_extra: 0.373
+							group: 0
+							ratio: 1.000
+							flags: waste, scale_to_mass
 						}
 					]
 					
@@ -56,52 +111,18 @@
 				}
 			]
 			
-			products:
+			requirements:
 			[
 				{
 					type: resource
-					material: actuator
-					amount: 2.000
+					material: computer
+					amount: 1.000
+					snapping: 1.000
+					loss: 0.255
 					group: 0
-					flags: byproduct, primary, compact
-				}
-				{
-					type: resource
-					material: machine_parts
-					amount: 15.000
-					amount_extra: 12.000
-					group: 0
-					flags: byproduct, secondary, compact
-				}
-				{
-					type: resource
-					material: steel.plate
-					amount: 4.600
-					amount_extra: 1.300
-					group: 0
-					flags: residue, compact
-				}
-				{
-					type: resource
-					material: scrap.machine
-					amount: 26.700
-					amount_extra: 3.300
-					group: 0
-					flags: waste, compact
+					flags: argument, primary, prerequisite
 				}
 			]
-		}
-	]
-	
-	requirements:
-	[
-		{
-			type: resource
-			material: computer
-			amount: 1.000
-			snapping: 1.000
-			group: 0
-			flags: primary, prerequisite
 		}
 	]
 	

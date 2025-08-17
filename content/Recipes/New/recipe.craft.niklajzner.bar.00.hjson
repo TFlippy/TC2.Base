@@ -201,8 +201,8 @@
 	
 	color_frame: "0xffff851e"
 	color_button: "0xff9dd80f"
-	rank: -715.000
-	frame_size: [64.000, 48.000]
+	rank: -716.000
+	frame_size: [48.000, 48.000]
 	
 	min: 1
 	max: 10

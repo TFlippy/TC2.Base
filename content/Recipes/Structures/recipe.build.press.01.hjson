@@ -79,6 +79,7 @@
 			prefab: press.01
 			amount: 1.000
 			group: 0
+			flags: primary
 		}
 	]
 	
@@ -108,13 +109,13 @@
 		type: simple
 		flags: allow_mirror_x, require_terrain, terrain_is_support, no_solid_support
 		
-		size: [3.000, 6.000]
+		size: [3.000, 2.000]
 		offset: [0.000, -2.250]
 		
 		rect_foundation: [-1.000, 0.000, 1.000, 0.500]
 		tileflags_foundation: solid
 		
-		rect_clearance: [-1.250, -4.500, 1.250, 0.000]
+		rect_clearance: [-1.250, -4.000, 1.250, 0.000]
 		tileflags_clearance: solid
 		
 		cooldown: 1.000
