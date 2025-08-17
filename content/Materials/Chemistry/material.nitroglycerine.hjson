@@ -40,11 +40,11 @@
 	// Maximum quantity (units) per stack.
 	quantity_max: 500.000
 	// Minimum spawnable quantity.
-	spawn_quantity_threshold: 1.000
+	spawn_quantity_threshold: 0.500
 	// Preferred quantity snapping for recipes.
-	snapping: 1.000
+	snapping: 0.100
 	// Preferred quantity snapping for inventories.
-	snapping_pickup: 50.000
+	snapping_pickup: 1.000
 	
 	form_type: packaged
 	prefab: resource.nitroglycerine

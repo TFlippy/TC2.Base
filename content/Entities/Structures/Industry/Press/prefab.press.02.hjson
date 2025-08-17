@@ -12,26 +12,26 @@ body:
 	@shape.line:
 	{
 		material: metal
-		miss_chance: 0.667
+		miss_chance: 0.765
 		flags: none
 		tags: none
 		
-		layer: entity, solid, building, support, no_overlapped_placement, ignore_melee
-		mask: world, building
+		layer: entity, solid, background, building, workshop, crafter, conductive, magnetic, no_overlapped_placement, ignore_melee
+		mask: world, building, no_overlapped_placement
 		exclude: none
 		
 		mass: 140.000
-		radius: 1.250
+		radius: 0.750
 		friction: 0.600
 		elasticity: 0.700
 		
 		cog_offset: [0.000, 0.000]
 		
-		a: [0.000, -1.625]
-		b: [0.000, 1.000]
+		a: [0.000, -3.500]
+		b: [0.000, 1.750]
 		offset: [0.000, 0.000]
 	}
-	
+		
 	@shape.polygon:
 	{
 		material: building_reinforced
@@ -39,8 +39,8 @@ body:
 		flags: none
 		tags: none
 		
-		layer: entity, solid, building, storage, workshop, crafter, ignore_melee, ignore_hover
-		mask: world, solid, building
+		layer: entity, solid, building, workshop, crafter, ignore_melee, ignore_hover, no_overlapped_placement
+		mask: world, solid, building, no_overlapped_placement
 		exclude: none
 		
 		mass: 220.000

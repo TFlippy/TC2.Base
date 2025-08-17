@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.64.1"
 	name: "Smirglum Amalgamation"
 	desc:
 		'''
@@ -72,7 +72,7 @@
 							amount: 1.500
 							snapping: 0.010
 							falloff: 1.391
-							loss: 0.824
+							loss: 1.000
 							group: 0
 							flags: prerequisite
 						}
@@ -97,25 +97,27 @@
 							amount: 0.203014
 							amount_extra: 0.049275
 							group: 0
-							ratio: 0.122
+							ratio: 0.075
 							flags: primary, compact, scale_to_mass
 						}
 						{
 							type: resource
 							material: smirglum.powder
-							amount: 0.1626
+							amount: 0.1156
 							amount_extra: 0.0888
 							group: 0
-							ratio: 0.024
-							flags: residue, byproduct, secondary, scale_to_mass
+							chance: 0.655
+							ratio: 0.004
+							flags: residue, byproduct, secondary, stepped, scale_to_mass
 						}
 						{
 							type: resource
 							material: smirglum.gravel
-							amount: 0.2336
-							amount_extra: 0.0708
+							amount: 0.1496
+							amount_extra: 0.0818
+							snapping: 0.1319
 							group: 0
-							ratio: 0.016
+							ratio: 0.012
 							flags: waste, scale_to_mass
 						}
 					]

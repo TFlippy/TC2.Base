@@ -134,7 +134,7 @@
 					flags: wip
 					discard_damage_type_override: sledgehammer
 					
-					suffix: " Gum"
+					suffix: "-Gum"
 					
 					requirements:
 					[
