@@ -1,0 +1,530 @@
+$name: "Screw Press"
+$desc:
+	'''
+	TODO: Desc
+	'''
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.polygon:
+	{
+		material: building_reinforced
+		miss_chance: 0.000
+		flags: none
+		tags: none
+		
+		layer: entity, solid, building, storage, workshop, crafter, ignore_melee
+		mask: world, building, solid
+		exclude: none
+		
+		mass: 220.000
+		radius: 0.500
+		friction: 0.500
+		elasticity: 0.500
+		
+		cog_offset: [0.000, 0.000]
+		
+		points:
+		[
+			[-1.000, 0.000]
+			[1.000, 0.000]
+			[0.750, 1.500]
+			[-0.750, 1.500]
+		]
+	}
+}
+
+health:
+{
+	max: 53500.000
+}
+
+// armor:
+// {
+// 	toughness: 340.000
+// 	protection: 0.750
+	
+// 	knockback_modifier: 1.300
+// 	pain_modifier: 0.000
+
+// 	material_type: metal
+// 	flags: no_damage_type_conversion
+// }
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: press.02
+		size: [32, 48]
+		frame: [0, 0]
+	}
+	z: -250.000
+}
+
+animated.renderer|"foreground":
+{
+	sprite:
+	{
+		texture: press.02
+		size: [32, 48]
+		frame: [1, 0]
+	}
+	z: 1000.000
+}
+
+transform:
+{
+
+}
+
+shop:
+{
+	tags_filter:
+	{
+		include: automated, industrial, metalworking, metallurgy
+		exclude: advanced, large, huge, assembling, social, forestry, fermenting, overworld
+	}
+	
+	tools: ruler, hammer, cutters, screwdriver, wrench, spanner, pliers, bucket, file, towel, tongs, crowbar
+	infrastructure: anvil, forge, table, vise, rack, casting_mould, shaping_mould, bucket, surface, hard_surface, compactor, heater, stamping_press, press, dies, essence_emitter, structure, machine
+	environment: machine, stationary, dirty, scary, noisy, reinforced, fireproof, durable, sturdy, small
+	
+	flags: embed_gui
+	menu_columns: 3
+	recipe_type: workshop
+	
+	offset_spawn: [-0.375, 1.000]
+	
+	name: "Screw Press"
+}
+
+press:
+{
+	slider_offset: [-0.250, -0.875]
+	slider_length: 0.750
+	speed: 2.200
+	load_multiplier: 1.000
+
+	
+	// @animated.renderer:
+	// {
+	// 	sprite:
+	// 	{
+	// 		texture: press.01.parts
+	// 		size: [8, 24]
+	// 		frame: [4, 0]
+	// 	}
+	// 	z: -145.000
+	// }
+
+	// @light:
+	// {
+	// 	color: [2.000, 0.800, 0.533, 4.000]
+	// 	offset: [-0.125, 1.000]
+	// 	scale: [3.000, 15.000]
+	// 	intensity: 0.000
+	// 	texture: light.box.01
+	// }
+
+	// @light:
+	// {
+	// 	color: [1.000, 0.400, 0.000, 2.000]
+	// 	offset: [0.000, 1.250]
+	// 	scale: [12.000, 3.000]
+	// 	intensity: 0.000
+	// 	texture: "light.box.00"
+	// }
+}
+
+press.state:
+{
+
+}
+
+crafter:
+{
+	h_crafter: screw.press.00
+	flags: assignable, automatic, machine
+	distance_max: 6.000
+	temperature_max: 1200.000
+	pressure_max: 500.000
+
+	offset: [-0.250, 0.875]
+
+	@inventory4:
+	{
+		type: output
+		flags: standalone, allow_ducts, ignore_mass
+		stack_size_multiplier: 2.000
+		
+		filter:
+		{
+			require: none
+			include: none
+			exclude: gas
+		}
+		
+		offset: [0.000, 0.000]
+	}
+}
+
+crafter.state:
+{
+	// @inventory4:
+	// {
+	// 	type: input
+	// 	flags: standalone, allow_ducts, ignore_mass
+	// 	stack_size_multiplier: 2.000
+		
+	// 	filter:
+	// 	{
+	// 		require: none
+	// 		include: none
+	// 		exclude: gas
+	// 	}
+		
+	// 	offset: [0.000, 0.000]
+	// }
+
+	// @animated.renderer:
+	// {
+	// 	sprite:
+	// 	{
+	// 		texture: resource.steel.ingot
+	// 		size: [16, 16]
+	// 		frame: [0, 0]
+	// 	}
+	// 	z: -180.000
+	// }
+}
+
+workshop:
+{
+	orders_capacity: 1
+	
+	tools: none
+	infrastructure: none
+	environment: none
+	
+	gui_info_size_x: 208.000
+
+	@inventory4:
+	{
+		type: workshop
+		flags: standalone, allow_ducts, ignore_mass
+		stack_size_multiplier: 2.000
+		
+		filter:
+		{
+			require: none
+			include: none
+			exclude: gas
+		}
+		
+		offset: [0.000, 0.000]
+	}
+}
+
+// axle:
+// {
+// 	offset: [0.000, -1.500]
+// 	mass: 5.000
+// 	friction: 0.200
+// 	radius_a: 1.000
+// 	radius_b: 1.000
+// 	radius_inner: 0.750
+// 	radius_outer: 1.000
+	
+// 	@animated.renderer:
+// 	{
+// 		sprite:
+// 		{
+// 			texture: "wheel_1000.steel"
+// 		}
+// 		z: -200.000
+// 	}
+// }
+
+interactable:
+{
+	flags: none
+	priority: 0.800
+	window_size: [592.000, 592.000]
+	window_size_misc: [144.000, 0.000]
+}
+
+shipment:
+{
+	type: crafting
+	layout: square
+	flags: keep_items, allow_deposit, use_misc, no_empty_deposit
+}
+
+piston:
+{
+	offset: [-0.250, -0.875]
+	direction: [0.000, 1.000]
+	length: 0.750
+	mass: 10.000
+	damping: 0.900
+	spring_constant: 2000.000
+
+	// @essence.emitter:
+	// {
+	// 	offset: [-0.250, -0.750]
+	// 	direction: [0.000, 1.000]
+		
+	// 	type: undefined
+	// 	flags: internal, self_discharging, enable_signal_read
+	// 	charge_capacity: 150.000
+	// 	charge_loss: 0.007
+	// 	efficiency: 0.912
+		
+	// 	h_essence: motion
+	// 	h_soundmix_pulse: press.01.emit
+	// }
+
+	@animated.renderer:
+	{
+		sprite:
+		{
+			texture: press.02.parts
+			size: [24, 24]
+		}
+		z: -165.000
+	}
+
+	// @light:
+	// {
+	// 	color: [0.000, 1.000, 0.800, 1.500]
+	// 	offset: [-0.250, -1.750]
+	// 	scale: [12.000, 14.000]
+	// 	intensity: 1.200
+	// 	texture: light.circle.00
+	// }
+}
+
+// essence.container:
+// {
+// 	stability: 0.960
+// 	health_threshold: 0.820
+// 	glow_modifier: 0.850
+// 	emit_type: pulser
+// 	rate_speed: 0.400
+// 	flags: show_gui, allow_edit_rate
+
+// 	@inventory1:
+// 	{
+// 		type: essence
+// 		flags: ignore_mass, no_auto_pickup, faction
+// 		stack_size_multiplier: 0.050
+		
+// 		filter:
+// 		{
+// 			require: essence, small, pellet, solid
+// 		}
+// 		offset: [-0.250, -0.375]
+// 	}
+
+// 	@sound.emitter:
+// 	{
+// 		flags: start_muted
+// 		volume: 0.800
+// 		pitch: 0.430
+// 		size: 0.350
+// 		size_max_modifier: 0.500
+// 		spread: 80.000
+// 		offset: [-0.250, -1.875]
+// 	}
+
+// 	@light:
+// 	{
+// 		offset: [-0.250, -1.750]
+// 		scale: [15.000, 15.000]
+// 		texture: light.circle.00
+// 	}
+// }
+
+heat:
+{
+	temperature_medium: 800.000
+	temperature_high: 1200.000
+	temperature_ignite: 1337.000
+	temperature_operating: 1243.150
+	temperature_breakdown: 1950.000
+	cool_rate: 12.000
+	heat_capacity_extra: 200.000
+	heat_damage_mult: 0.100
+	smoke_size_mult: 0.700
+	smoke_speed_mult: 0.300
+	smoke_rise_mult: 0.500
+	flags: exclude_body_mass, no_gui
+	fire_flags: none
+	offset: [-0.250, -1.250]
+	smoke_offset: [-0.125, -1.500]
+	size: [0.625, 0.750]
+
+	@light:
+	{
+		offset: [-0.125, 1.125]
+		scale: [28.000, 32.000]
+		intensity: 1.000
+		texture: light.circle.00
+	}
+
+	@sound.emitter:
+	{
+		file: furnace_loop
+		flags: start_muted
+		volume: 1.100
+		pitch: 1.100
+		size_max_modifier: 0.850
+		priority: 0.450
+		offset: [-0.250, 0.625]
+	}
+}
+
+// control:
+// {
+
+// }
+
+// controllable:
+// {
+// 	gui_size: [96.000, 0.000]
+// 	speed: 7.100
+// 	radius: 1.500
+// 	radius_max: 2.000
+// 	flags: show_misc, disable_mouse_properties, disable_mouse_rmb, disable_mouse_pos, disable_keyboard, hide_cursor, mouse_orthogonal
+// }
+
+// analog.relay:
+// {
+
+// }
+
+// analog.button:
+// {
+// 	signal_strength: 2.000
+// 	channels: red, green
+// 	flags: use_misc
+// 	button_size: [72, 36]
+// }
+
+// vehicle:
+// {
+// 	flags: use_misc_window
+// }
+
+// +slot.device.00|instance:
+// {
+// 	joint.base:
+// 	{
+// 		offset_a: [0.750, 1.500]
+// 		// rotation_origin: -1.5708
+// 		max_force: 100000.000
+// 		max_torque: 100000.000
+// 		max_stress: 3.000
+// 		z: -160.000
+// 		material_type: metal
+// 		flags: no_aiming, no_wrap, attachment, control_read, control_write, force_facing, use_proxy_body, no_sync
+// 	}
+
+// 	joint.pivot:
+// 	{
+// 		max_bias: 8.000
+// 	}
+
+// 	joint.gear:
+// 	{
+// 		min: 0.000
+// 		max: 0.000
+// 		error_bias: 0.0000
+// 		max_bias: 1.250
+// 	}
+
+// 	attachment.slot:
+// 	{
+// 		flags: keyboard_read, mouse_read, brake
+// 		flags_editable: locked, disabled, keyboard_read, keyboard_write, mouse_read, mouse_write
+// 		name: "Device"
+// 		identifier: "device.00"
+// 		tags_filter:
+// 		{
+// 			include: tiny, small, utility, device, fixed
+// 			exclude: cabin, wheel, platform
+// 		}
+// 		rank: 1.000
+// 		gui_size: [72.000, 72.000]
+// 	}
+
+// 	analog.writer:
+// 	{
+// 		mask_read: red
+// 	}
+// }
+
+// module.slots:
+// {
+// 	slot_type: controller
+// 	offset: [-0.250, -0.625]
+// 	z: 60.000
+// }
+
+// +slot.device.00|instance:
+// {
+// 	joint.base:
+// 	{
+// 		offset_a: [-1.000, -0.125]
+// 		max_force: 100000.000
+// 		max_torque: 100000.000
+// 		max_stress: 3.000
+// 		stress_threshold: 1.500
+// 		z: -10.000
+// 		flags: no_aiming, no_wrap, attachment, allow_dragging, control_write, control_read, facing_reset_rot, force_facing, use_proxy_body
+// 		material_type: metal
+// 	}
+
+// 	joint.pivot:
+// 	{
+// 		max_bias: 8.000
+// 	}
+
+// 	joint.gear:
+// 	{
+// 		min: 0.000
+// 		max: 0.000
+// 		error_bias: 0.0001
+// 		max_bias: 0.350
+// 	}
+
+// 	attachment.slot:
+// 	{
+// 		radius: 1.000
+// 		flags: keyboard_write, mouse_write, brake
+// 		flags_editable: locked, disabled, invert, keyboard_read, keyboard_write, mouse_read, mouse_write, offset
+// 		name:
+// 			'''
+// 			Device
+// 			Back
+// 			'''
+// 		identifier: "device.00"
+// 		tags_filter:
+// 		{
+// 			require: none
+// 			include: small, medium, utility, fixed
+// 			exclude: cabin, wheel, mount, platform
+// 		}
+// 		cycle_interval: 0.000
+// 		cycle_offset: 0.000
+// 		rank: -2.000
+// 		rotation: 0.000
+// 		offset_bounds: [-0.500, -0.250, 0.500, 0.250]
+// 		offset: [0.000, 0.000]
+// 		gui_size: [128.000, 240.000]
+// 	}
+// }
