@@ -198,7 +198,7 @@
 							amount: 1.000
 							snapping: 1.000
 							group: 0
-							ratio: 0.973
+							ratio: 0.957
 							flags: primary, parameter, compact, use_temperature, scale_to_mass
 						}
 						{
@@ -206,8 +206,9 @@
 							material: recondite.powder
 							amount: 0.411
 							amount_extra: 0.484
+							snapping: 0.010
 							group: 0
-							ratio: 0.016
+							ratio: 0.102
 							flags: residue, byproduct, secondary, compact, scale_to_mass
 						}
 					]

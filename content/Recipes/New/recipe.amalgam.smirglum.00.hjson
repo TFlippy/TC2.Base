@@ -72,7 +72,7 @@
 							amount: 1.500
 							snapping: 0.010
 							falloff: 1.391
-							loss: 1.000
+							loss: 0.659
 							group: 0
 							flags: prerequisite
 						}
@@ -157,7 +157,7 @@
 	}
 	icon_c_offset: [-5.000, -19.000]
 	
-	color_frame: "0xff80dc7e"
+	color_frame: "0xffb5ddd4"
 	color_button: "0xff9dd80f"
 	rank: -140.000
 	

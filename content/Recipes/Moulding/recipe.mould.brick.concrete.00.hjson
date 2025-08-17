@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.64.1"
 	name: "ISO Concrete Masonry Unit"
 	desc:
 		'''
@@ -186,7 +186,7 @@
 	rank: 10.000
 	
 	min: 10
-	max: 200
+	max: 500
 	step: 10
 	
 	version: 1

@@ -1,4 +1,4 @@
-$name: "Screw Press"
+$name: "Compaction Press"
 $desc:
 	'''
 	TODO: Desc
@@ -62,7 +62,7 @@ body:
 
 health:
 {
-	max: 53500.000
+	max: 73500.000
 }
 
 // armor:
@@ -122,7 +122,7 @@ shop:
 	
 	offset_spawn: [0.000, -1.375]
 	
-	name: "Screw Press"
+	name: "Compaction Press"
 }
 
 press:
@@ -182,7 +182,7 @@ press.state:
 
 crafter:
 {
-	h_crafter: screw.press.00
+	h_crafter: compaction.press.00
 	flags: assignable, automatic, machine
 	distance_max: 6.000
 	temperature_max: 1200.000
@@ -246,6 +246,7 @@ workshop:
 	environment: none
 	
 	gui_info_size_x: 208.000
+	max_order_mass: 500.000
 
 	@inventory4:
 	{

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.64.1"
 	name: "Pjerdelite Amalgamation"
 	desc:
 		'''
@@ -197,7 +197,7 @@
 	}
 	icon_c_offset: [-17.000, -8.000]
 	
-	color_frame: "0xff80dc7e"
+	color_frame: "0xffb5ddd4"
 	color_button: "0xff9dd80f"
 	rank: -140.000
 	

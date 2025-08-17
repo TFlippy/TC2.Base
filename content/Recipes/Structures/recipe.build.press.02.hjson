@@ -1,7 +1,6 @@
 ﻿{
-	$region_id: 0
 	$version: "0.1.64.1"
-	name: "Screw Press"
+	name: "Compaction Press"
 	tips: []
 	
 	requirements:
@@ -38,7 +37,7 @@
 		texture: press.02
 		size: [32, 48]
 	}
-	icon_offset: [2.000, -4.000]
+	icon_offset: [2.000, 3.000]
 	
 	color_frame: "0xffffa200"
 	color_button: "0xff9dd80f"
@@ -70,7 +69,7 @@
 		
 		rotation_max: 0.0491
 		
-		sound: projectile.strong.burrow.00
+		sound: building_place
 		
 		physics_filter:
 		{
