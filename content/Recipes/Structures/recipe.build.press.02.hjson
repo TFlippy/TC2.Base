@@ -37,7 +37,8 @@
 		texture: press.02
 		size: [32, 48]
 	}
-	icon_offset: [2.000, 3.000]
+	icon_offset: [0.000, 20.000]
+	icon_scale: 1.125
 	
 	color_frame: "0xffffa200"
 	color_button: "0xff9dd80f"

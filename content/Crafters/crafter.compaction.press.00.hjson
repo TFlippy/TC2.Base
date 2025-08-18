@@ -1,0 +1,51 @@
+﻿{
+	$region_id: 0
+	$version: "0.1.64.1"
+	name: "Compaction Press"
+	name_short: "Comp.Press"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: press.02
+		size: [32, 48]
+	}
+	color: "0xffaeb59a"
+	
+	flags: wip
+	tags: none
+	
+	modes:
+	[
+		{
+			h_work_supported:
+			[
+				die.cutting.metal
+				null
+				null
+				null
+				null
+				null
+				null
+				null
+			]
+			
+			name: "TODO"
+			
+			work_multiplier: 1.000
+			cooldown_multiplier: 0.100
+			
+			flags: automated, wip
+			crafter_state_required: in_contact
+			crafter_state_on_work:
+			{
+				add: working
+			}
+			
+			switch_cooldown: 3.000
+		}
+	]
+}

@@ -108,12 +108,12 @@ shop:
 {
 	tags_filter:
 	{
-		include: industrial, metalworking, metallurgy, moulding, processing
-		exclude: crafting, advanced, huge, carpentry, construction, smelting
+		include: filtering, industrial, metalworking, metallurgy, moulding, processing
+		exclude: workbench, advanced, large, huge, carpentry, construction
 	}
 	
-	tools: hammer, screwdriver, spanner, bucket, shovel, chisel, pick, sandpaper
-	infrastructure: spigot, cauldron, anvil, barrel, shaping_mould, bucket, surface, hard_surface, liquid_container, compactor, press, form, dies, structure, machine
+	tools: hammer, hand_drill, screwdriver, spanner, bucket, shovel, towel, spatula, crowbar, knife, ladle
+	infrastructure: spigot, cauldron, barrel, shaping_mould, bucket, hard_surface, liquid_container, compactor, press, form, dies, structure, machine
 	environment: machine, container, stationary, reinforced, fireproof, durable, sturdy, form, waterproof
 	
 	flags: embed_gui
@@ -186,9 +186,12 @@ crafter:
 	flags: assignable, automatic, machine
 	distance_max: 6.000
 	temperature_max: 1200.000
-	pressure_max: 500.000
-
-	offset: [0.000, -1.250]
+	pressure_max: 5000.000
+	
+	tools: none
+	infrastructure: none
+	environment: none
+	offset: [0.000, -0.500]
 
 	@inventory4:
 	{
