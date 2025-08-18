@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.64.1"
 	name: "Simple Clay Bricks"
 	desc:
 		'''
@@ -64,11 +64,12 @@
 					
 					filter_tools:
 					{
-						include: towel
+						include: shovel, spatula
 					}
-					filter_environment:
+					filter_infrastructure:
 					{
-						exclude: wet
+						require: shaping_mould
+						include: table, chair
 					}
 				}
 			]
@@ -102,15 +103,12 @@
 							work: drying
 							amount: 130.000
 							difficulty: 5
+							snapping: 25.000
 							group: 0
 							flags: no_scaling, conditional
 						}
 					]
 					
-					filter_tools:
-					{
-						include: towel
-					}
 					filter_environment:
 					{
 						exclude: wet

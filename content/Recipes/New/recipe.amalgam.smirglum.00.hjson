@@ -121,6 +121,11 @@
 							flags: waste, scale_to_mass
 						}
 					]
+					
+					filter_infrastructure:
+					{
+						include: liquid_container, form
+					}
 				}
 			]
 		}
@@ -162,7 +167,7 @@
 	rank: -140.000
 	
 	min: 1
-	max: 10
+	max: 20
 	step: 1
 	
 	version: 1

@@ -16,7 +16,7 @@
 			flags: wip, auto_generated
 			tags: none
 			// Damage type used for discarding leftover resources.
-			discard_damage_type: sledgehammer
+			discard_damage_type: none
 			
 			ratio: 1.000
 			mass_base: 19.64925
@@ -35,28 +35,28 @@
 							type: resource
 							material: cement
 							amount: 2.700
-							snapping: 1.000
-							loss: 0.020
+							snapping: 0.100
+							loss: 0.973
 							group: 0
-							flags: no_residue, prerequisite
+							flags: prerequisite
 						}
 						{
 							type: resource
 							material: sand
 							amount: 9.400
-							snapping: 1.000
-							loss: 0.024
+							snapping: 0.100
+							loss: 0.973
 							group: 0
-							flags: no_residue, prerequisite
+							flags: prerequisite
 						}
 						{
 							type: work
 							work: mixing
-							amount: 225.000
-							amount_min: 75.000
+							amount: 300.000
+							amount_min: 150.000
 							difficulty: 5
 							snapping: 5.000
-							falloff: 0.700
+							falloff: 0.913
 							group: 0
 							flags: conditional
 						}
@@ -73,7 +73,7 @@
 			name: "Water"
 			
 			type: additives
-			flags: no_residue
+			flags: none
 			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: wet
@@ -92,33 +92,33 @@
 					requirements:
 					[
 						{
-							type: prefab
-							prefab: water
-							amount: 1.000
+							type: resource
+							material: water
+							amount: 5.000
+							snapping: 0.100
+							loss: 0.859
 							group: 0
-							flags: no_consume, no_scaling, prerequisite
-						}
-						{
-							type: work
-							work: draining
-							amount: 50.000
-							amount_min: 40.000
-							difficulty: 4
-							snapping: 5.000
-							falloff: 0.825
-							group: 0
-							flags: conditional
+							flags: prerequisite
 						}
 					]
+				}
+				{
+					name: "Wastewater"
 					
-					filter_tools:
-					{
-						include: bucket
-					}
-					filter_infrastructure:
-					{
-						include: cauldron, bottle, barrel
-					}
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: water.dirty
+							amount: 5.000
+							snapping: 0.100
+							group: 0
+							flags: prerequisite
+						}
+					]
 				}
 				{
 					name: "Wastewater"
@@ -166,14 +166,33 @@
 					requirements:
 					[
 						{
-							type: resource
-							material: water
-							amount: 5.000
-							snapping: 0.100
+							type: prefab
+							prefab: water
+							amount: 1.000
 							group: 0
-							flags: no_residue, prerequisite
+							flags: no_consume, no_scaling, prerequisite
+						}
+						{
+							type: work
+							work: draining
+							amount: 50.000
+							amount_min: 40.000
+							difficulty: 4
+							snapping: 5.000
+							falloff: 0.825
+							group: 0
+							flags: conditional
 						}
 					]
+					
+					filter_tools:
+					{
+						include: bucket
+					}
+					filter_infrastructure:
+					{
+						include: cauldron, bottle, barrel
+					}
 				}
 				{
 					name: "Freshwater2"
@@ -192,34 +211,16 @@
 						}
 					]
 				}
-				{
-					name: "Wastewater"
-					
-					type: undefined
-					flags: none
-					
-					requirements:
-					[
-						{
-							type: resource
-							material: water.dirty
-							amount: 5.000
-							snapping: 0.100
-							group: 0
-							flags: no_residue, prerequisite
-						}
-					]
-				}
 			]
 		}
 		{
 			name: "Mixing"
 			
 			type: postprocessing
-			flags: none
+			flags: wip
 			tags: none
 			// Damage type used for discarding leftover resources.
-			discard_damage_type: shovel
+			discard_damage_type: none
 			
 			ratio: 0.000
 			mass_base: 0.000
@@ -231,6 +232,7 @@
 					
 					type: undefined
 					flags: none
+					discard_damage_type_override: shovel
 					
 					requirements:
 					[
@@ -238,12 +240,25 @@
 							type: work
 							work: blending
 							amount: 450.000
-							amount_min: 150.000
-							difficulty: 5
+							amount_min: 310.000
+							difficulty: 6
 							snapping: 5.000
-							falloff: 0.600
+							falloff: 0.818
 							group: 0
 							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: mortar
+							amount: 0.82485
+							amount_extra: 0.078493
+							group: 0
+							ratio: 1.000
+							flags: primary, compact, scale_to_mass
 						}
 					]
 					
@@ -256,75 +271,8 @@
 		}
 	]
 	
-	products:
-	[
-		{
-			type: resource
-			material: mortar
-			amount: 16.178
-			amount_extra: 1.572
-			group: 0
-			flags: primary, compact
-		}
-	]
-	
-	requirements_old:
-	[
-		{
-			type: resource
-			material: cement
-			amount: 2.700
-			group: 0
-			flags: prerequisite
-		}
-		{
-			type: resource
-			material: sand
-			amount: 9.400
-			group: 0
-			flags: prerequisite
-		}
-		{
-			type: work
-			work: mixing
-			amount: 150.000
-			difficulty: 5
-			snapping: 5.000
-			falloff: 0.700
-			group: 0
-			flags: conditional
-		}
-		{
-			type: resource
-			material: water
-			amount: 50.000
-			group: 1
-		}
-		{
-			type: work
-			work: blending
-			amount: 320.000
-			difficulty: 5
-			snapping: 5.000
-			falloff: 0.600
-			group: 1
-			flags: conditional
-		}
-	]
-	
-	products_old:
-	[
-		{
-			type: resource
-			material: mortar
-			amount: 16.178
-			amount_extra: 1.572
-			group: 0
-		}
-	]
-	
 	type: workshop
-	flags: debug, disabled, wip
+	flags: wip
 	tags: workbench, manual, simple, blending, processing, messy
 	infrastructure: none
 	infrastructure_exclude: none

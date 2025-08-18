@@ -118,6 +118,11 @@
 							flags: waste, residue, scale_to_mass
 						}
 					]
+					
+					filter_infrastructure:
+					{
+						include: liquid_container, form
+					}
 				}
 			]
 		}

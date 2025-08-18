@@ -147,6 +147,16 @@
 					advance_delay: 0.000
 					complete_delay: 1.000
 					
+					filter_infrastructure:
+					{
+						require: anvil, hard_surface
+						include: oven, forge, crucible, press
+					}
+					filter_environment:
+					{
+						include: container, airtight, stationary, dirty, ugly, cozy, fireproof, flammable, small
+					}
+					
 					h_sound_begin: burner.bang.01
 					h_sound_finalize: burner.bang.00
 				}
@@ -223,7 +233,7 @@
 	
 	type: workshop
 	flags: manufacturing, wip
-	tags: complex, industrial, metalworking, metallurgy, heating, moulding
+	tags: complex, industrial, metallurgy, refining, moulding, processing
 	infrastructure: compactor, press
 	infrastructure_exclude: none
 	
@@ -260,5 +270,5 @@
 	max: 20
 	step: 1
 	
-	version: 0
+	version: 1
 }

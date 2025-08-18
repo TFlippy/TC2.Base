@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.5"
+	$version: "0.1.64.1"
 	name: "Holistic Mud Bricks"
 	desc:
 		'''
@@ -81,11 +81,12 @@
 					
 					filter_tools:
 					{
-						include: towel
+						include: shovel, spatula
 					}
-					filter_environment:
+					filter_infrastructure:
 					{
-						exclude: wet
+						require: shaping_mould
+						include: table, chair
 					}
 				}
 			]
@@ -119,15 +120,12 @@
 							work: drying
 							amount: 120.000
 							difficulty: 3
+							snapping: 25.000
 							group: 0
 							flags: no_scaling, no_residue, conditional
 						}
 					]
 					
-					filter_tools:
-					{
-						include: towel
-					}
 					filter_environment:
 					{
 						exclude: wet

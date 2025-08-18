@@ -210,8 +210,8 @@
 	
 	type: workshop
 	flags: manufacturing, wip
-	tags: complex, industrial, metalworking, metallurgy, heating, moulding, processing
-	infrastructure: shaping_mould, heater
+	tags: complex, industrial, metallurgy, refining, moulding, processing
+	infrastructure: shaping_mould, hard_surface
 	infrastructure_exclude: none
 	
 	icon:
