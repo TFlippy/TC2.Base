@@ -69,25 +69,63 @@ transform:
 
 shipment:
 {
-	flags: keep_items, allow_withdraw, allow_deposit, locked, faction
+	flags: keep_items, allow_withdraw, allow_deposit, use_misc, faction
+	type: supplies
+	layout: square
 }
 
 loot.container:
 {
+	rarity: 6.500
+	rarity_min: 1.000
+	rarity_max: 9.500
+	flags: no_duplicates
+	merge_flags: skip_resources
 	rolls: 4
 	rolls_extra: 0
-	merge_flags: skip_resources
-
 	tables:
 	[
-		"safe"
+		safe.00
+		null
+		null
+		null
 	]
+}
+
+storage:
+{
+	@loot.container:
+	{
+		rarity: 5.500
+		rarity_min: 1.000
+		rarity_max: 9.500
+		flags: no_duplicates
+		merge_flags: skip_prefabs
+		rolls: 6
+		rolls_extra: 12
+		amount_multiplier: 1.200
+
+		tables:
+		[
+			safe.00
+		]
+	}
+
+	@inventory16:
+	{
+		type: storage
+		flags: no_auto_pickup, faction
+		stack_size_multiplier: 1.000
+		
+		offset: [0.000, 0.000]
+	}
 }
 
 interactable:
 {
-	flags: no_tab
-	window_size: [192.000, 96.000]
+	flags: no_tab, centered_inventory
+	window_size: [192.000, 192.000]
+	window_size_misc: [96.000, 0.000]
 }
 
 lockable:
@@ -98,4 +136,14 @@ lockable:
 cover:
 {
 	threshold: 0.100
+}
+
+claimable:
+{
+	flags: allow_owner_unclaim
+}
+
+faction:
+{
+
 }

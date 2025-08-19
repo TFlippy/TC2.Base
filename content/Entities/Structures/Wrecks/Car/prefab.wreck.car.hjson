@@ -94,10 +94,12 @@ loot.container:
 	rolls: 3
 	rolls_extra: 2
 	merge_flags: skip_resources
+	flags: no_duplicates
 
 	tables:
 	[
 		car
+		items.misc.00
 	]
 }
 
@@ -110,6 +112,8 @@ storage:
 		rarity_min: 3.000
 		rarity_max: 9.000
 		amount_multiplier: 0.400
+		merge_flags: skip_prefabs
+		flags: no_duplicates
 
 		tables:
 		[
