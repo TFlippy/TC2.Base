@@ -36,7 +36,7 @@
 							material: lime
 							amount: 1.300
 							snapping: 0.500
-							loss: 0.031
+							loss: 0.027
 							group: 0
 							flags: no_residue, prerequisite
 						}
@@ -54,7 +54,7 @@
 							material: sand
 							amount: 12.000
 							snapping: 1.000
-							loss: 0.031
+							loss: 0.027
 							group: 0
 							flags: no_residue, prerequisite
 						}
@@ -156,7 +156,9 @@
 	
 	type: workshop
 	flags: wip, converted
-	tags: workbench, manual, simple, blending, processing, messy
+	tags: manual, simple, blending, processing, messy
+	hints: none
+	connotations: none
 	infrastructure: none
 	infrastructure_exclude: none
 	

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.64.1"
 	name: "Machine Parts"
 	desc:
 		'''
@@ -131,7 +131,9 @@
 	
 	type: workshop
 	flags: item, production, wip
-	tags: workbench, workshop, manual, crafting, complex, small, assembling, metalworking, engineering, processing
+	tags: workbench, manual, crafting, complex, small, assembling, metalworking, engineering, processing
+	hints: none
+	connotations: none
 	infrastructure: table, surface, workbench
 	infrastructure_exclude: none
 	

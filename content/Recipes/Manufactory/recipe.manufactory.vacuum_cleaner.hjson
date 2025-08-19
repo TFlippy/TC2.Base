@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.64.1"
 	name: "Vacuum Cleaner [WIP]"
 	desc:
 		'''
@@ -67,7 +67,9 @@
 	
 	type: workshop
 	flags: blueprintable, disabled, wip
-	tags: workbench, workshop, manual, crafting, advanced, medium, tool, machinery, assembling, metalworking, engineering, construction
+	tags: workbench, manual, crafting, advanced, medium, tool, machinery, assembling, metalworking, engineering, construction
+	hints: none
+	connotations: none
 	infrastructure: none
 	infrastructure_exclude: none
 	

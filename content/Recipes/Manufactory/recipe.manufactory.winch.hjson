@@ -53,7 +53,9 @@
 	
 	type: workshop
 	flags: no_amount_multiplier, blueprintable, disabled, wip
-	tags: workshop, manual, crafting, complex, large, tool, machinery, metalworking, engineering
+	tags: manual, crafting, complex, large, tool, machinery, metalworking, engineering
+	hints: none
+	connotations: none
 	infrastructure: none
 	infrastructure_exclude: none
 	

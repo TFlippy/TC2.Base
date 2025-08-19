@@ -103,7 +103,7 @@
 							snapping: 5.000
 							falloff: 0.977
 							loss: 0.075
-							ratio: 0.282
+							ratio: 0.278
 							group: 0
 							flags: conditional
 						}
@@ -200,7 +200,9 @@
 	
 	type: workshop
 	flags: item, production, wip
-	tags: workbench, manual, crafting, simple, woodworking
+	tags: manual, crafting, simple, woodworking
+	hints: none
+	connotations: none
 	infrastructure: surface, workbench
 	infrastructure_exclude: none
 	

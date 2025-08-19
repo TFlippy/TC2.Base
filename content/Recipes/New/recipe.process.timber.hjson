@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.5"
+	$version: "0.1.64.1"
 	name: "Manual Timber Processing"
 	desc:
 		'''
@@ -29,8 +29,6 @@
 					type: undefined
 					flags: none
 					discard_damage_type_override: axe
-					
-					purity_mult: 0.990
 				}
 				{
 					name: "Sawn"
@@ -53,8 +51,6 @@
 							flags: conditional
 						}
 					]
-					
-					purity_mult: 0.985
 				}
 				{
 					name: "Split"
@@ -62,8 +58,6 @@
 					type: undefined
 					flags: none
 					discard_damage_type_override: axe
-					
-					purity_mult: 0.830
 				}
 			]
 			
@@ -126,8 +120,6 @@
 							flags: primary
 						}
 					]
-					
-					purity_mult: 0.959
 				}
 			]
 		}
@@ -135,7 +127,9 @@
 	
 	type: workshop
 	flags: debug, disabled, wip
-	tags: workbench, workshop, manual, simple, large, raw, woodworking, forestry, processing, messy
+	tags: workbench, manual, simple, large, raw, woodworking, forestry, processing, messy
+	hints: none
+	connotations: none
 	infrastructure: large_surface
 	infrastructure_exclude: none
 	

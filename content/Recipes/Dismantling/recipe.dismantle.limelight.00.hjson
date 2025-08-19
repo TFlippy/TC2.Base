@@ -111,7 +111,9 @@
 	
 	type: workshop
 	flags: dismantling
-	tags: workbench, workshop, manual, crafting, crude, simple, small, salvaging
+	tags: manual, crafting, crude, simple, small, salvaging
+	hints: none
+	connotations: none
 	infrastructure: surface
 	infrastructure_exclude: none
 	

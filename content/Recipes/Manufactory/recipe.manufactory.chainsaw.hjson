@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.64.1"
 	name: "Chainsaw"
 	desc:
 		'''
@@ -57,7 +57,9 @@
 	
 	type: workshop
 	flags: blueprintable, disabled, wip
-	tags: workshop, manual, crafting, advanced, tool, machinery, assembling, metalworking, engineering
+	tags: manual, crafting, advanced, tool, machinery, assembling, metalworking, engineering
+	hints: none
+	connotations: none
 	infrastructure: none
 	infrastructure_exclude: none
 	

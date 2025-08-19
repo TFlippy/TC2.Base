@@ -149,7 +149,9 @@
 	
 	type: workshop
 	flags: blueprintable, item, wip, converted
-	tags: workbench, workshop, manual, crafting, simple, medium, weapon, blacksmithing, metalworking, construction
+	tags: workbench, manual, crafting, simple, medium, weapon, blacksmithing, metalworking, construction
+	hints: none
+	connotations: none
 	infrastructure: surface, workbench
 	infrastructure_exclude: none
 	

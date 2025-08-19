@@ -129,7 +129,9 @@
 	
 	type: workshop
 	flags: no_amount_multiplier, blueprintable, item, wip, converted
-	tags: manual, crafting, simple, medium, furniture, woodworking
+	tags: workbench, manual, crafting, simple, medium, furniture, woodworking, construction
+	hints: none
+	connotations: none
 	infrastructure: workbench
 	infrastructure_exclude: none
 	

@@ -188,7 +188,9 @@
 	
 	type: workshop
 	flags: no_amount_multiplier, blueprintable, item, wip
-	tags: manual, crafting, simple, assembling, metalworking
+	tags: workbench, manual, crafting, complex, large, assembling, metalworking, construction
+	hints: none
+	connotations: none
 	infrastructure: workbench
 	infrastructure_exclude: none
 	

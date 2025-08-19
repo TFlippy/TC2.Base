@@ -133,7 +133,7 @@
 	
 	type: workshop
 	flags: wip, converted
-	tags: workbench, manual, dumb, crude, simple, blending, messy
+	tags: manual, dumb, crude, simple, blending, messy
 	hints: none
 	connotations: none
 	infrastructure: dishes, surface

@@ -66,7 +66,9 @@
 	
 	type: workshop
 	flags: blueprintable, disabled, wip
-	tags: workbench, workshop, manual, crafting, complex, medium, weapon, gun, blacksmithing, assembling, metalworking, engineering, military, construction
+	tags: workbench, manual, crafting, complex, medium, weapon, gun, blacksmithing, assembling, metalworking, engineering, military, construction
+	hints: none
+	connotations: none
 	infrastructure: anvil, surface, hard_surface, workbench
 	infrastructure_exclude: none
 	

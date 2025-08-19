@@ -273,7 +273,9 @@
 	
 	type: workshop
 	flags: wip
-	tags: workbench, manual, simple, blending, processing, messy
+	tags: manual, simple, blending, processing, messy
+	hints: none
+	connotations: none
 	infrastructure: none
 	infrastructure_exclude: none
 	

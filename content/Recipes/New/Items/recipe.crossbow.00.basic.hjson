@@ -133,7 +133,9 @@
 	
 	type: workshop
 	flags: item, production, wip, converted
-	tags: workbench, manual, crafting, simple, small, weapon, woodworking, assembling, metalworking
+	tags: manual, crafting, simple, small, weapon, woodworking, assembling, metalworking
+	hints: none
+	connotations: none
 	infrastructure: table, surface
 	infrastructure_exclude: none
 	

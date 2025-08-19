@@ -180,7 +180,9 @@
 	
 	type: workshop
 	flags: blueprintable, item, wip
-	tags: workbench, manual, crafting, simple, tailoring
+	tags: manual, crafting, simple, tailoring
+	hints: none
+	connotations: none
 	infrastructure: table, chair, surface
 	infrastructure_exclude: none
 	

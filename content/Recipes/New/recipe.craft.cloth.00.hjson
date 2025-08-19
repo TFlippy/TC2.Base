@@ -56,7 +56,9 @@
 	
 	type: workshop
 	flags: debug, disabled, production, wip
-	tags: workbench, manual, dumb, crude, simple, small, blending, messy
+	tags: manual, dumb, crude, simple, small, blending, messy
+	hints: none
+	connotations: none
 	infrastructure: bucket, surface
 	infrastructure_exclude: none
 	
