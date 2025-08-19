@@ -77,12 +77,12 @@ shipment:
 loot.container:
 {
 	rarity: 6.500
-	rarity_min: 1.000
-	rarity_max: 9.500
+	rarity_min: 3.300
+	rarity_max: 9.000
 	flags: no_duplicates
 	merge_flags: skip_resources
-	rolls: 4
-	rolls_extra: 0
+	rolls: 3
+	rolls_extra: 1
 	tables:
 	[
 		safe.00
@@ -97,13 +97,13 @@ storage:
 	@loot.container:
 	{
 		rarity: 5.500
-		rarity_min: 1.000
-		rarity_max: 9.500
+		rarity_min: 1.500
+		rarity_max: 9.000
 		flags: no_duplicates
 		merge_flags: skip_prefabs
 		rolls: 6
-		rolls_extra: 12
-		amount_multiplier: 1.200
+		rolls_extra: 9
+		amount_multiplier: 0.800
 
 		tables:
 		[
