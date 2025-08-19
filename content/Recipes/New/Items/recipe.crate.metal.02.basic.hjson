@@ -191,7 +191,7 @@
 	tags: workbench, manual, crafting, complex, large, assembling, metalworking, construction
 	hints: none
 	connotations: none
-	infrastructure: workbench
+	infrastructure: vise, large_surface, workbench
 	infrastructure_exclude: none
 	
 	icon:

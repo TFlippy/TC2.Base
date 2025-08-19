@@ -212,12 +212,14 @@ shop:
 	{
 		require: manual
 		include: manual, munitions, tailoring, engineering, salvaging, medical, research, social, science
-		exclude: advanced, medium, large, huge, vehicle, raw, blacksmithing, smelting, fermenting, heating, overworld
+		exclude: advanced, medium, large, huge, vehicle, blacksmithing, smelting, fermenting, heating, overworld
 	}
+	tags_preferred: crafting, small, device, weapon, tool, munitions, delicate, assembling, tailoring, engineering, cooking, social, construction
 	
 	tools: pencil, paper, ruler, hammer, screwdriver, magnifying_glass, bucket, towel, knife, sandpaper, needle, pins, scissors
 	infrastructure: dishes, bottle, table, chair, bed, stationery, surface, office, building
 	environment: office, stationary, cozy, quiet, flammable
+	connotations: none
 	
 	flags: embed_gui
 	menu_columns: 4
@@ -230,15 +232,13 @@ workshop:
 {
 	orders_capacity: 2
 	h_sound_order_complete: computer.bell.00
-	max_order_mass: 100.000
+	max_order_mass: 70.000
+	gui_info_size_x: 252.000
 }
 
 crafter:
 {
 	flags: no_gui
-	tools: pencil, paper, ruler, hammer, screwdriver, bucket, knife
-	infrastructure: dishes, table, chair, bed, surface
-	environment: indoor, workshop, office, stationary
 	temperature_max: 493.150
 }
 

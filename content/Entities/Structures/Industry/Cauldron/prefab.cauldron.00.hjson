@@ -162,7 +162,7 @@ workshop:
 	infrastructure: none
 	environment: none
 	
-	gui_info_size_x: 256.000
+	gui_info_size_x: 252.000
 	max_order_mass: 550.000
 	
 	h_sound_order_complete: computer.bell.00

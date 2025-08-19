@@ -191,7 +191,7 @@
 	tags: workbench, manual, crafting, simple, medium, assembling, metalworking, construction
 	hints: none
 	connotations: none
-	infrastructure: workbench
+	infrastructure: vise, workbench
 	infrastructure_exclude: none
 	
 	icon:

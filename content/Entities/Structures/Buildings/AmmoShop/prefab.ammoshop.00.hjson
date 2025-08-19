@@ -128,7 +128,7 @@ workshop:
 	infrastructure: none
 	environment: none
 	
-	gui_info_size_x: 220.000
+	gui_info_size_x: 252.000
 	max_order_mass: 100.000
 	
 	h_sound_order_complete: effect.bell.ring.00

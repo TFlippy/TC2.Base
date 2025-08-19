@@ -128,7 +128,7 @@ workshop:
 	orders_capacity: 3
 	h_sound_order_complete: order_complete
 	max_order_mass: 250.000
-	gui_info_size_x: 224.000
+	gui_info_size_x: 252.000
 
 	@inventory8:
 	{	

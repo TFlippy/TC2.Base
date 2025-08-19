@@ -138,7 +138,7 @@ workshop:
 	infrastructure: oven, hard_surface
 	environment: container, stationary, dirty, ugly, fireproof, durable, sturdy, waterproof
 	
-	gui_info_size_x: 224.000
+	gui_info_size_x: 252.000
 	max_order_mass: 750.000
 	
 	h_sound_order_complete: computer.bell.00

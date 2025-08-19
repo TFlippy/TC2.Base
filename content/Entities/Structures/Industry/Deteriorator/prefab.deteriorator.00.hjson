@@ -191,7 +191,7 @@ workshop:
 	infrastructure: none
 	environment: none
 	
-	gui_info_size_x: 208.000
+	gui_info_size_x: 252.000
 }
 
 // axle:

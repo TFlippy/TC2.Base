@@ -132,7 +132,7 @@
 	tags: manual, crafting, simple, small, furniture, woodworking, construction
 	hints: none
 	connotations: none
-	infrastructure: surface, workbench
+	infrastructure: surface
 	infrastructure_exclude: none
 	
 	icon:
