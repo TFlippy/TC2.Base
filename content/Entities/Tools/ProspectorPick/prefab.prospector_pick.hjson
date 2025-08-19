@@ -33,7 +33,7 @@ melee:
 	sound_swing: "tool_swing_00"
 	damage_base: 150.000
 	damage_bonus: 350.000
-	terrain_damage_multiplier: 1.000
+	terrain_damage_multiplier: 2.000
 	cooldown: 1.750
 	max_distance: 1.750
 	thickness: 0.125

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.64.1"
 	name: "Grandma's Traditional Mortar"
 	desc:
 		'''
@@ -134,7 +134,9 @@
 	type: workshop
 	flags: wip, converted
 	tags: workbench, manual, dumb, crude, simple, blending, messy
-	infrastructure: dishes, table, surface
+	hints: none
+	connotations: none
+	infrastructure: dishes, surface
 	infrastructure_exclude: none
 	
 	h_company: common

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.5"
+	$version: "0.1.64.1"
 	name: "Collect Water"
 	desc:
 		'''
@@ -16,13 +16,14 @@
 			name: "Water Source"
 			
 			type: source
-			flags: none
-			tags: none
+			flags: important
+			tags: raw, formula
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: wet
 			
-			ratio: 0.000
+			ratio: 1.000
 			mass_base: 0.000
+			volume_base: 1.000
 			
 			options:
 			[
@@ -39,16 +40,16 @@
 							prefab: water
 							amount: 1.000
 							group: 0
-							flags: no_consume, no_scaling, prerequisite
+							flags: no_consume, no_scaling, primary, prerequisite
 						}
 						{
 							type: work
 							work: draining
-							amount: 40.000
-							amount_min: 5.000
+							amount: 45.000
+							amount_min: 90.000
 							difficulty: 4
-							snapping: 5.000
-							falloff: 0.825
+							snapping: 25.000
+							falloff: 0.876
 							group: 0
 							flags: conditional
 						}
@@ -61,9 +62,14 @@
 							material: water
 							amount: 1.000
 							group: 0
-							flags: primary
+							flags: primary, compact
 						}
 					]
+					
+					filter_tools:
+					{
+						include: bucket
+					}
 				}
 				{
 					name: "Clearwater"
@@ -103,6 +109,11 @@
 							flags: primary
 						}
 					]
+					
+					filter_tools:
+					{
+						include: bucket
+					}
 				}
 				{
 					name: "Seawater"
@@ -142,6 +153,11 @@
 							flags: primary
 						}
 					]
+					
+					filter_tools:
+					{
+						include: bucket
+					}
 				}
 				{
 					name: "Wastewater"
@@ -181,6 +197,11 @@
 							flags: primary
 						}
 					]
+					
+					filter_tools:
+					{
+						include: bucket
+					}
 				}
 				{
 					name: "Swampwater"
@@ -220,6 +241,11 @@
 							flags: primary
 						}
 					]
+					
+					filter_tools:
+					{
+						include: bucket
+					}
 				}
 				{
 					name: "Toxwater"
@@ -259,6 +285,11 @@
 							flags: primary
 						}
 					]
+					
+					filter_tools:
+					{
+						include: bucket
+					}
 				}
 			]
 		}
@@ -266,8 +297,11 @@
 	
 	type: workshop
 	flags: wip, auto_complete
-	tags: workbench, manual, simple, gathering
+	tags: manual, raw, gathering
+	hints: none
+	connotations: none
 	infrastructure: bucket
+	infrastructure_exclude: none
 	
 	icon:
 	{
@@ -284,8 +318,9 @@
 	max: 50
 	step: 1
 	
-	h_sound_complete: effect.use.machine.00
-	h_sound_finalize: effect.use.machine.00
+	h_sound_begin: effect.clang.metal.00
+	h_sound_complete: effect.bucket.00
+	h_sound_finalize: effect.bucket.00
 	
-	version: 0
+	version: 1
 }

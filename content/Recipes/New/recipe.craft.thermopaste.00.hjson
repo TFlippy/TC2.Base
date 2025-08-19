@@ -306,7 +306,9 @@
 	
 	type: workshop
 	flags: production, wip
-	tags: manual, complex, alchemistry, blending, messy, explosive, dangerous
+	tags: manual, crafting, metallurgy, blending, messy, explosive, dangerous
+	hints: none
+	connotations: none
 	infrastructure: bucket, surface
 	infrastructure_exclude: none
 	

@@ -6,14 +6,23 @@ body:
 
 	@shape.circle:
 	{
-		offset: [0.000, 0.250]
+		material: metal_solid
+		miss_chance: 0.000
+		flags: none
+		tags: none
+		
+		layer: entity, solid, resource, conductive, magnetic, ignore_melee, ignore_bullet
+		mask: world, essence
+		exclude: none
+		
 		mass: 1.000
 		radius: 0.750
 		friction: 0.670
 		elasticity: 0.520
-		material: metal_solid
-		layer: entity, solid, resource, ignore_melee, ignore_bullet
-		mask: world, essence
+		
+		cog_offset: [0.000, 0.000]
+		
+		offset: [0.000, 0.250]
 	}
 }
 
