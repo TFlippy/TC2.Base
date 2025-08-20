@@ -60,36 +60,38 @@
 						{
 							type: resource
 							material: plants
-							amount: 0.8651
-							amount_extra: 2.9064
+							amount: 0.665696
+							amount_extra: 2.236478
 							group: 0
-							flags: primary, compact
+							flags: residue, primary, compact
 						}
 						{
 							type: resource
-							material: woodchips
-							amount: 0.955334
-							amount_extra: 0.769494
+							material: scrap.wood
+							amount: 0.1255
+							amount_extra: 0.1703
 							group: 0
-							flags: residue
+							chance: 0.357
+							flags: waste
 						}
 						{
 							type: resource
 							material: cmajzl
-							amount: 0.223048
-							amount_extra: 0.322948
+							amount: 0.147
+							amount_extra: 0.3419
 							group: 0
-							chance: 0.675
+							chance: 0.412
 							flags: residue, stepped
 						}
 						{
 							type: resource
-							material: rot
-							amount: 0.2232
-							amount_extra: 0.1491
+							material: shite
+							amount: 0.113717
+							amount_extra: 1.091448
+							snapping: 0.2366
 							group: 0
-							chance: 0.573
-							flags: waste, stepped
+							chance: 0.173
+							flags: pollutant, waste, no_scaling, stepped
 						}
 						{
 							type: resource
@@ -97,18 +99,18 @@
 							amount: 0.0833
 							amount_extra: 0.3159
 							group: 0
-							chance: 0.475
+							chance: 0.157
 							flags: residue, stepped
 						}
 						{
 							type: resource
 							material: eggs
-							amount: 0.000
-							amount_extra: 0.2344
+							amount: 0.370709
+							amount_extra: 0.519791
 							snapping: 1.000
 							group: 0
 							chance: 0.122
-							flags: residue, stepped
+							flags: residue, no_scaling, stepped
 						}
 					]
 					
@@ -127,39 +129,42 @@
 	
 	type: workshop
 	flags: auto_complete
-	tags: manual, simple, small, organic, delicate, agriculture, filtering, salvaging, processing
-	infrastructure: table
+	tags: manual, simple, organic, raw, agriculture, biology, forestry, separation
+	hints: none
+	connotations: none
+	infrastructure: surface
 	infrastructure_exclude: none
 	
 	h_company: common
 	
 	icon:
 	{
-		texture: resource.plants
-		size: [16, 16]
-		frame: [3, 0]
+		texture: atlas.shrubbery.00
+		size: [24, 24]
+		frame: [4, 0]
 	}
-	icon_offset: [14.000, 1.000]
+	icon_offset: [10.000, 0.000]
 	
 	icon_extra:
 	{
-		texture: ui_icons_crafting.mini
+		texture: resource.cmajzl
 		size: [16, 16]
+		frame: [5, 0]
 	}
-	icon_extra_offset: [-38.000, -25.000]
+	icon_extra_offset: [-8.000, -4.000]
 	
 	icon_c:
 	{
-		texture: resource.cmajzl
+		texture: resource.scrap.wood
 		size: [16, 16]
-		frame: [2, 0]
+		frame: [1, 0]
 	}
-	icon_c_offset: [-22.000, -5.000]
+	icon_c_offset: [-18.000, -8.000]
 	
 	color_frame: "0xff71870a"
 	color_button: "0xff9dd80f"
-	rank: -154.000
-	frame_size: [64.000, 48.000]
+	rank: -50.000
+	frame_size: [48.000, 48.000]
 	
 	min: 1
 	max: 25

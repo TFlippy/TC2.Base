@@ -377,6 +377,11 @@
 					{
 						require: bucket
 					}
+					filter_infrastructure:
+					{
+						require: liquid_container, heater
+						include: cauldron
+					}
 				}
 			]
 		}
@@ -407,8 +412,10 @@
 	
 	type: workshop
 	flags: production, no_cancel
-	tags: manual, dumb, crude, simple, metalworking, blending, processing, messy, dangerous
-	infrastructure: barrel, bucket, surface
+	tags: manual, dumb, crude, simple, blending, processing, messy, dangerous
+	hints: none
+	connotations: none
+	infrastructure: bucket, surface
 	infrastructure_exclude: none
 	
 	h_company: carohrad
@@ -417,17 +424,17 @@
 	{
 		texture: resource.mortar
 		size: [16, 16]
-		frame: [2, 0]
+		frame: [3, 0]
 	}
-	icon_offset: [-15.000, 2.000]
+	icon_offset: [-6.000, 2.000]
 	
 	icon_extra:
 	{
 		texture: resource.sludge
 		size: [16, 16]
-		frame: [3, 0]
+		frame: [2, 0]
 	}
-	icon_extra_offset: [-2.000, -6.000]
+	icon_extra_offset: [2.000, -8.000]
 	
 	icon_c:
 	{
@@ -435,12 +442,12 @@
 		size: [16, 16]
 		frame: [2, 0]
 	}
-	icon_c_offset: [-15.000, -10.000]
+	icon_c_offset: [-2.000, -12.000]
 	
-	color_frame: "0xffe8f700"
+	color_frame: "0xffe3cb93"
 	color_button: "0xff9dd80f"
 	rank: -160.400
-	frame_size: [64.000, 48.000]
+	frame_size: [48.000, 48.000]
 	
 	min: 1
 	max: 25

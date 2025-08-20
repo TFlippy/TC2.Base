@@ -115,14 +115,15 @@ shop:
 {
 	tags_filter:
 	{
-		require: manual
-		include: workbench, crafting, simple, gathering
-		exclude: advanced, large, huge, vehicle, blacksmithing, smelting, fermenting, heating
+		include: crafting, basic, simple, furniture, woodworking, salvaging, gathering, architecture, construction
+		exclude: advanced, huge, vehicle, blacksmithing, smelting, fermenting, heating
 	}
+	tags_preferred: simple, tool, munitions, raw, assembling, tailoring, salvaging, gathering, forestry, construction, processing, messy
 	
-	tools: hammer, cutters, saw, hand_drill, screwdriver, wrench, bucket, axe, shovel, file, chisel, knife, sandpaper, ladle
+	tools: pencil, hammer, cutters, saw, hand_drill, screwdriver, spanner, bucket, axe, shovel, file, chisel, knife, sandpaper, pins, scissors
 	infrastructure: table, rack, bucket, surface, workbench
 	environment: mobile, dirty, sturdy, flammable
+	connotations: none
 	
 	flags: embed_gui
 	menu_columns: 4

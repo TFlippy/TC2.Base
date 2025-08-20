@@ -110,6 +110,8 @@ storage:
 		rarity_min: 0.000
 		rarity_max: 5.000
 		amount_multiplier: 1.000
+		merge_flags: skip_prefabs
+		flags: no_duplicates, shuffle_inventory
 
 		tables:
 		[

@@ -123,14 +123,23 @@
 		size: [16, 16]
 		frame: [3, 0]
 	}
-	icon_offset: [4.000, 1.000]
+	icon_offset: [7.000, -11.000]
 	
 	icon_extra:
 	{
-		texture: ui_icons_crafting.mini
+		texture: resource.scrap.arcane
 		size: [16, 16]
+		frame: [1, 0]
 	}
-	icon_extra_offset: [-14.000, -26.000]
+	icon_extra_offset: [-9.000, -8.000]
+	
+	icon_c:
+	{
+		texture: ui_icons_widget
+		size: [16, 16]
+		frame: [10, 5]
+	}
+	icon_c_offset: [-12.000, -12.000]
 	
 	color_frame: "0xffac7534"
 	color_button: "0xff9dd80f"

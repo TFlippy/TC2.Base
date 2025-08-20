@@ -203,6 +203,8 @@
 	type: workshop
 	flags: item
 	tags: manual, crafting, simple, small, assembling, metalworking, engineering
+	hints: none
+	connotations: none
 	infrastructure: workbench
 	infrastructure_exclude: none
 	
@@ -212,6 +214,15 @@
 		size: [16, 16]
 		frame: [3, 0]
 	}
+	icon_offset: [0.000, -4.000]
+	
+	icon_c:
+	{
+		texture: ui_icons_widget
+		size: [16, 16]
+		frame: [9, 9]
+	}
+	icon_c_offset: [-14.000, -14.000]
 	
 	color_frame: "0xffeabb3e"
 	color_button: "0xff9dd80f"

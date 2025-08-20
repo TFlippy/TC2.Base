@@ -123,8 +123,8 @@ storage:
 		rarity_max: 6.000
 		weight_multiplier: 1.000
 		amount_multiplier: 1.500
-		flags: none
 		merge_flags: skip_prefabs
+		flags: no_duplicates, shuffle_inventory
 		rolls: 7
 		rolls_extra: 6
 		tables:
