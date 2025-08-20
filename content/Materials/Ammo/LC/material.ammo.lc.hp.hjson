@@ -38,7 +38,7 @@
 	mass_per_unit: 0.009
 	
 	// Maximum quantity (units) per stack.
-	quantity_max: 60.000
+	quantity_max: 120.000
 	// Minimum spawnable quantity.
 	spawn_quantity_threshold: 1.000
 	// Preferred quantity snapping for recipes.
