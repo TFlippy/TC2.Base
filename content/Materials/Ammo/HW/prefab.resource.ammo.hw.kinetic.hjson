@@ -78,16 +78,17 @@ cluster:
 {
 	prefab: "projectile.hw.kinetic"
 	velocity: [0.000, -5.000]
-	offset: [0.250, -1.000]
+	offset: [0.250, -0.500]
 	radius: 0.010
-	spread: 4.000
+	spread: 2.000
 	speed: 200.000
 	count: 1
 	damage_modifier: 0.350
-	speed_modifier_min: 0.500
+	speed_modifier_min: 0.300
 	speed_modifier_max: 1.400
 	lifetime_modifier_min: 0.400
 	lifetime_modifier_max: 0.800
+	flags: align_normal
 	// flags: no_velocity_rotate
 }
 

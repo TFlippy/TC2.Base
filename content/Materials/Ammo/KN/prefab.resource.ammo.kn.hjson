@@ -82,12 +82,12 @@ cluster:
 	offset: [0.000, -1.000]
 	radius: 0.010
 	spread: 5.000
-	speed: 250.000
+	speed: 50.000
 	count: 6
 	damage_modifier: 0.750
 	speed_modifier_min: 0.800
 	speed_modifier_max: 1.400
 	lifetime_modifier_min: 0.200
 	lifetime_modifier_max: 0.400
-	flags: no_velocity_rotate
+	flags: no_velocity_rotate, align_normal
 }

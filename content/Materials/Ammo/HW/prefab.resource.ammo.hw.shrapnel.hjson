@@ -80,5 +80,5 @@ cluster:
 	damage_modifier: 0.250
 	speed_modifier_min: 0.200
 	speed_modifier_max: 0.800
-	flags: no_velocity_rotate
+	flags: no_velocity_rotate, align_normal
 }

@@ -149,7 +149,8 @@
 						projectile_init.vel *= -1.00f;
 					}
 
-					region.SpawnPrefab(cluster.prefab, transform.position + cluster.offset + random.NextUnitVector2Range(cluster.radius * 0.50f, cluster.radius)).ContinueWith(ent =>
+					region.SpawnPrefab(prefab: cluster.prefab, position: transform.position + cluster.offset + random.NextUnitVector2Range(cluster.radius * 0.50f, cluster.radius), 
+					rotation: Vector2Extensions.GetAngleRadiansFast(projectile_init.vel), velocity: projectile_init.vel).ContinueWith(ent =>
 					{
 						ref var projectile = ref ent.GetComponent<Projectile.Data>();
 						if (projectile.IsNotNull())

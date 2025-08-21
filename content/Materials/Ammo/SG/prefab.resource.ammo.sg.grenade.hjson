@@ -89,5 +89,5 @@ cluster:
 	speed_modifier_max: 0.900
 	lifetime_modifier_min: 0.800
 	lifetime_modifier_max: 0.900
-	flags: no_velocity_rotate
+	flags: no_velocity_rotate, align_normal
 }
