@@ -1,0 +1,104 @@
+$tags: []
+
+body:
+{
+	fall_damage_multiplier: 20.000
+
+	@shape.circle:
+	{
+		offset: [0.000, 0.250]
+		mass: 1.000
+		radius: 0.750
+		friction: 0.650
+		elasticity: 0.400
+		layer: entity, solid, resource
+		mask: world
+		material: metal_solid
+	}
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "resource.ammo.kn.aa"
+		count: 4
+		size: [16, 16]
+	}
+}
+
+transform:
+{
+
+}
+
+resource:
+{
+	material: "ammo.kn.aa"
+}
+
+holdable:
+{
+	offset: [0.000, 0.750]
+}
+
+norotate:
+{
+
+}
+
+health:
+{
+	max: 4000.000
+}
+
+explosive:
+{
+	damage_type: shockwave
+	damage_type_secondary: explosion
+
+	radius: 7.000
+	power: 4.100
+	damage_entity: 13000.000
+	damage_terrain: 26000.000
+	health_threshold: 10.800
+	detonate_chance: 0.950
+	smoke_amount: 0.780
+	smoke_lifetime_multiplier: 0.750
+	smoke_velocity_multiplier: 1.000
+	flash_duration_multiplier: 0.450
+	flash_intensity_multiplier: 1.100
+	shake_multiplier: 1.400
+	force_multiplier: 1.300
+	stun_multiplier: 1.500
+	fire_amount: 1.150
+	sparks_amount: 3.000
+	smoke_color: "0xffd8d8d8"
+	volume: 2.100
+	pitch: 0.800
+	flags: any_damage, explode_when_primed
+}
+
+cluster:
+{
+	prefab: "projectile.shrapnel.aa"
+
+	velocity: [0.000, -100.400]
+	offset: [0.000, -0.800]
+
+	radius: 0.010
+	spread: 6.000
+	speed: 30.000
+	count: 11
+
+	speed_modifier_min: 0.140
+	speed_modifier_max: 0.800
+
+	lifetime_modifier_min: 0.400
+	lifetime_modifier_max: 2.200
+
+	min_explode_lifetime: 0.121
+	// flags: reverse_direction, no_velocity_rotate
+	flags: no_velocity_rotate
+}
+

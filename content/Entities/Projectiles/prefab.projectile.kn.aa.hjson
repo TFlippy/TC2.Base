@@ -2,24 +2,25 @@ $tags: []
 
 projectile:
 {
-	damage_base: 250.000
+	damage_base: 750.000
 	damage_bonus: 1200.000
 	lifetime: 0.600
 	ignore_time: 0.100
-	damage_type: bullet_ac
+	damage_type: bullet_kn
 	size: 0.375
 	ricochet_count: 0
 	damp: 0.988
-	tracer_length: 2.000
-	mass: 0.350
+	tracer_length: 6.000
+	mass: 2.100
+	knockback_multiplier: 25.000
 	flags: no_miss
 }
 
 projectile.renderer:
 {	
-	intensity: 0.500
+	intensity: 2.000
 	thickness_a: 0.400
-	thickness_b: 0.250
+	thickness_b: 0.100
 }
 
 transform:

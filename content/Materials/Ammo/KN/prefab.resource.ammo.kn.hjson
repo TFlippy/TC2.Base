@@ -2,7 +2,7 @@ $tags: []
 
 body:
 {
-	fall_damage_multiplier: 8.000
+	fall_damage_multiplier: 2.700
 
 	@shape.circle:
 	{
@@ -10,7 +10,7 @@ body:
 		mass: 1.000
 		radius: 0.750
 		friction: 0.650
-		elasticity: 0.200
+		elasticity: 0.400
 		layer: entity, solid, resource
 		mask: world
 		material: metal_solid
@@ -49,7 +49,7 @@ norotate:
 
 health:
 {
-	max: 4850.000
+	max: 7850.000
 }
 
 explosive:
@@ -58,8 +58,8 @@ explosive:
 	power: 2.500
 	damage_entity: 4000.000
 	damage_terrain: 2000.000
-	health_threshold: 0.900
-	detonate_chance: 0.350
+	health_threshold: 0.400
+	detonate_chance: 0.224
 	damage_type: explosion
 	damage_type_secondary: shrapnel
 	force_multiplier: 0.200
