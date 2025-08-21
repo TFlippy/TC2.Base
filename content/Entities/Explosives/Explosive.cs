@@ -148,7 +148,7 @@ namespace TC2.Base.Components
 		[Source.Owned] ref Health.Data health, [Source.Owned] ref Explosive.Data explosive)
 		{
 			//App.WriteLine(health.integrity);
-			if (health.integrity <= explosive.health_threshold && (health.integrity <= 0.00f || explosive.detonate_chance.Evaluate(ref random, true)))
+			if (health.integrity <= explosive.health_threshold && (health.integrity <= 0.00f || explosive.detonate_chance.Evaluate(random: ref random, ignore_if_zero: true)))
 			{
 				if (explosive.flags.HasAny(Explosive.Flags.Any_Damage))
 				{

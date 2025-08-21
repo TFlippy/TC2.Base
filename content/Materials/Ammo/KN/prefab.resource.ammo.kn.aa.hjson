@@ -83,22 +83,22 @@ cluster:
 {
 	prefab: "projectile.shrapnel.aa"
 
-	velocity: [0.000, -100.400]
+	// velocity: [0.000, -100.000]
 	offset: [0.000, -0.800]
 
 	radius: 0.010
-	spread: 6.000
-	speed: 30.000
+	spread: 4.000
+	speed: 40.000
 	count: 11
 
 	speed_modifier_min: 0.140
-	speed_modifier_max: 0.800
+	speed_modifier_max: 0.500
 
 	lifetime_modifier_min: 0.400
 	lifetime_modifier_max: 2.200
 
 	min_explode_lifetime: 0.121
 	// flags: reverse_direction, no_velocity_rotate
-	flags: no_velocity_rotate
+	flags: no_velocity_rotate, align_normal
 }
 

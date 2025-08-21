@@ -8,12 +8,16 @@ projectile:
 	ignore_time: 0.100
 	damage_type: bullet_kn
 	size: 0.375
-	ricochet_count: 0
+	ricochet_count: 2
+	ricochet_threshold_multiplier: 1.500
+	ricochet_chance_multiplier: 1.000
+	ricochet_velocity_min: 0.000
+	ricochet_velocity_ratio: 0.811
 	damp: 0.988
 	tracer_length: 6.000
 	mass: 2.100
 	knockback_multiplier: 25.000
-	flags: no_miss
+	flags: no_miss, always_ricochet
 }
 
 projectile.renderer:

@@ -8,10 +8,15 @@ projectile:
 	ignore_time: 0.050
 	damage_type: bullet_musket
 	size: 0.950
-	ricochet_count: 0
+	ricochet_count: 5
+	ricochet_threshold_multiplier: 1.500
+	ricochet_chance_multiplier: 1.000
+	ricochet_velocity_min: 0.000
+	ricochet_velocity_ratio: 0.311
 	damp: 0.969
 	gravity: 0.950
 	tracer_length: 6.000
+	flags: always_ricochet
 }
 
 projectile.renderer:
