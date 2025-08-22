@@ -40,7 +40,7 @@
 							snapping: 0.500
 							ratio: 1.000
 							group: 0
-							flags: primary
+							flags: primary, prerequisite
 						}
 					]
 					
@@ -200,6 +200,8 @@
 	type: workshop
 	flags: production
 	tags: simple, raw, metallurgy, smelting, heating, separation, processing
+	hints: none
+	connotations: none
 	infrastructure: oven, kiln, smokestack
 	infrastructure_exclude: none
 	

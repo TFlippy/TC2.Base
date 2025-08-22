@@ -146,8 +146,10 @@
 	]
 	
 	type: workshop
-	flags: dismantling, wip
+	flags: debug, dismantling, wip
 	tags: dumb, crude, simple, filtering, metallurgy, alchemistry, salvaging, separation, processing, messy
+	hints: none
+	connotations: none
 	infrastructure: bucket, hard_surface
 	infrastructure_exclude: none
 	

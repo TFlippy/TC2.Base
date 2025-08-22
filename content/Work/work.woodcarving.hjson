@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.64.1"
 	name: "Woodcarving"
 	name_short: "Carving"
 	desc:
@@ -15,7 +15,7 @@
 	}
 	
 	flags: manual, wip
-	tags: skilled, tools, construction
+	tags: tools, simple, careful, slow
 	
 	amount_base: 0.000
 	cooldown: 0.850
@@ -25,8 +25,8 @@
 	cooldown_jitter: 0.142
 	color: "0xff719240"
 	
-	tools_required: file, knife
-	tools_optional: hand_drill, screwdriver, pliers, file, chisel, knife, sandpaper
+	tools_required: knife
+	tools_optional: screwdriver, file, chisel, knife, sandpaper
 	
 	infrastructure_required: none
 	infrastructure_optional: none

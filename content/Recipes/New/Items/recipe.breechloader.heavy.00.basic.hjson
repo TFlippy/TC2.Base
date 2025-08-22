@@ -296,10 +296,10 @@
 	
 	type: workshop
 	flags: blueprintable, item
-	tags: manual, crafting, simple, weapon, gun, assembling, metalworking, military
+	tags: manual, crafting, basic, simple, medium, weapon, gun, assembling, metalworking, military
 	hints: none
 	connotations: none
-	infrastructure: workbench
+	infrastructure: hard_surface, workbench
 	infrastructure_exclude: none
 	
 	icon:

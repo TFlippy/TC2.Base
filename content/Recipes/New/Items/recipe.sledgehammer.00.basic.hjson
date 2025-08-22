@@ -219,9 +219,16 @@
 	
 	type: workshop
 	flags: blueprintable, item
-	tags: manual, crafting, simple, medium, tool, metalworking
-	infrastructure: workbench
+	tags: manual, crafting, basic, simple, medium, tool, metalworking
+	hints: none
+	connotations: none
+	infrastructure: hard_surface, workbench
 	infrastructure_exclude: none
+	environment_filter:
+	{
+		require: sturdy
+		exclude: office, cramped
+	}
 	
 	icon:
 	{

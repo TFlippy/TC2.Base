@@ -148,8 +148,13 @@
 					{
 						include: paintbrush, file
 					}
+					filter_infrastructure:
+					{
+						include: table
+					}
 					filter_environment:
 					{
+						include: clean, organized
 						exclude: wet
 					}
 				}

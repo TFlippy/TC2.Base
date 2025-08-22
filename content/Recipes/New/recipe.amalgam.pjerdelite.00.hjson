@@ -175,24 +175,28 @@
 	type: workshop
 	flags: production
 	tags: simple, medium, raw, filtering, industrial, metallurgy, alchemistry, refining, separation, processing, messy, dangerous
+	hints: none
+	connotations: none
 	infrastructure: barrel, bucket, liquid_container
 	infrastructure_exclude: none
 	
-	icon:
-	{
-		texture: resource.pjerdelite
-		size: [16, 16]
-		frame: [3, 0]
-	}
-	icon_offset: [8.000, 1.000]
+	h_company: carohrad
 	
-	icon_extra:
+	icon:
 	{
 		texture: resource.smirglum.amalgam
 		size: [16, 16]
 		frame: [3, 0]
 	}
-	icon_extra_offset: [-12.000, -7.000]
+	icon_offset: [6.000, -2.000]
+	
+	icon_extra:
+	{
+		texture: resource.mercury
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	icon_extra_offset: [-12.000, -6.000]
 	
 	icon_c:
 	{
@@ -200,7 +204,7 @@
 		size: [16, 16]
 		frame: [3, 0]
 	}
-	icon_c_offset: [-17.000, -8.000]
+	icon_c_offset: [-14.000, -12.000]
 	
 	color_frame: "0xffb5ddd4"
 	color_button: "0xff9dd80f"

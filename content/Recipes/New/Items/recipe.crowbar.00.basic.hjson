@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.64.1"
 	name: "Crowbar"
 	tips: []
 	
@@ -182,6 +182,11 @@
 					filter_tools:
 					{
 						require: file
+						include: chisel, knife, sandpaper, utensils
+					}
+					filter_infrastructure:
+					{
+						include: surface
 					}
 					filter_environment:
 					{
@@ -272,6 +277,8 @@
 	type: workshop
 	flags: blueprintable, item, wip
 	tags: manual, crafting, simple, tool, metalworking
+	hints: none
+	connotations: none
 	infrastructure: workbench
 	infrastructure_exclude: none
 	

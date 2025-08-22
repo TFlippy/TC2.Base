@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.64.1"
 	name: "Prdex"
 	desc:
 		'''
@@ -39,6 +39,7 @@
 							snapping: 1.000
 							loss: 1.000
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: resource
@@ -47,6 +48,7 @@
 							snapping: 0.100
 							loss: 1.000
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: resource
@@ -55,6 +57,7 @@
 							snapping: 0.100
 							loss: 1.000
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: resource
@@ -63,6 +66,7 @@
 							snapping: 0.100
 							loss: 1.000
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: temperature
@@ -145,6 +149,7 @@
 							falloff: 0.877
 							loss: 0.122
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: resource
@@ -153,6 +158,7 @@
 							snapping: 0.100
 							loss: 1.000
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: work
@@ -247,6 +253,7 @@
 							amount: 0.783282
 							loss: 0.863
 							group: 1
+							flags: prerequisite
 						}
 						{
 							type: work
@@ -332,6 +339,8 @@
 	type: workshop
 	flags: production, wip
 	tags: complex, advanced, delicate, industrial, alchemistry, science, military, blending, refining, messy, explosive, dangerous
+	hints: none
+	connotations: none
 	infrastructure: bucket, liquid_container
 	infrastructure_exclude: none
 	

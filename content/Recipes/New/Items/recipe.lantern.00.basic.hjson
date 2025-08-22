@@ -80,12 +80,12 @@
 					filter_tools:
 					{
 						require: hammer, saw, file
-						include: file
+						include: file, chisel, knife, sandpaper, utensils
 					}
 					filter_infrastructure:
 					{
 						require: surface
-						include: workbench
+						include: vise, surface, workbench
 					}
 					filter_environment:
 					{
@@ -334,7 +334,9 @@
 	
 	type: workshop
 	flags: blueprintable, item, wip
-	tags: workbench, manual, crafting, simple, small, metalworking
+	tags: manual, crafting, simple, small, metalworking
+	hints: none
+	connotations: none
 	infrastructure: surface, workbench
 	infrastructure_exclude: none
 	

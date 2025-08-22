@@ -97,11 +97,6 @@
 					{
 						require: hammer
 					}
-					filter_infrastructure:
-					{
-						require: table
-						include: dishes, table, chair
-					}
 				}
 			]
 			

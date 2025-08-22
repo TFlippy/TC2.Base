@@ -1787,7 +1787,7 @@ namespace TC2.Base.Components
 								args.ang_vel += random.NextFloatRange(-30, 30) * failure_rate;
 							}
 
-							region.SpawnPrefab(ammo.prefab, pos_w_offset, rotation: args.vel.GetAngleRadians(), velocity: args.vel, angular_velocity: args.ang_vel, entity: ent_projectile_next, faction_id: h_faction).ContinueWith(ent =>
+							region.SpawnPrefab(ammo.prefab, pos_w_offset, rotation: args.vel.GetAngleRadiansFast(), velocity: args.vel, angular_velocity: args.ang_vel, entity: ent_projectile_next, faction_id: h_faction).ContinueWith(ent =>
 							{
 								if (ent.TryGetRecord(out var rec_projectile))
 								{

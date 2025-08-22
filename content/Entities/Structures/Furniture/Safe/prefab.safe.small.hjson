@@ -76,11 +76,11 @@ shipment:
 
 loot.container:
 {
-	rarity: 6.400
+	rarity_mid: 6.400
 	rarity_min: 1.400
 	rarity_max: 9.000
 	
-	rarity_falloff: 0.500
+	rarity_falloff: 0.900
 	
 	flags: no_duplicates
 	merge_flags: skip_resources, bias_weight
@@ -100,11 +100,11 @@ storage:
 {
 	@loot.container:
 	{
-		rarity: 3.200
+		rarity_mid: 3.200
 		rarity_min: 1.500
 		rarity_max: 9.000
 		
-		rarity_falloff: 0.350
+		rarity_falloff: 0.850
 		
 		amount_multiplier: 1.400
 		

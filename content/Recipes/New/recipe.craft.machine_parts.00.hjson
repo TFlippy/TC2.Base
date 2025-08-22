@@ -117,12 +117,16 @@
 					
 					filter_tools:
 					{
-						require: saw
-						include: pencil, ruler, pliers, axe, towel, knife
+						require: hammer, cutters
+						include: hammer, cutters, pliers, magnifying_glass, bucket, chisel, towel, spatula, crowbar, knife, scissors
 					}
 					filter_infrastructure:
 					{
-						include: table, chair
+						include: anvil, table, vise, surface, hard_surface, workbench
+					}
+					filter_environment:
+					{
+						include: office, stationary, clean, cozy, quiet, organized
 					}
 				}
 			]
@@ -131,7 +135,7 @@
 	
 	type: workshop
 	flags: item, production, wip
-	tags: workbench, manual, crafting, complex, small, assembling, metalworking, engineering, processing
+	tags: manual, crafting, complex, small, assembling, metalworking, engineering, processing
 	hints: none
 	connotations: none
 	infrastructure: table, surface, workbench

@@ -113,7 +113,16 @@
 					filter_tools:
 					{
 						require: screwdriver, wrench, file, knife
-						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, stapler, file, towel, tongs, pick, crowbar, knife, sandpaper
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, pliers, paintbrush, stapler, file, chisel, towel, tongs, pick, crowbar, knife, sandpaper
+					}
+					filter_infrastructure:
+					{
+						include: table
+					}
+					filter_environment:
+					{
+						include: clean, organized
+						exclude: wet
 					}
 				}
 			]

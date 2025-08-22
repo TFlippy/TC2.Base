@@ -195,7 +195,7 @@
 					filter_tools:
 					{
 						require: file
-						include: magnifying_glass, bucket, towel, spatula
+						include: magnifying_glass, bucket, chisel, towel, spatula, knife, sandpaper, utensils
 					}
 					filter_infrastructure:
 					{
@@ -252,11 +252,11 @@
 					filter_tools:
 					{
 						require: cutters, file
-						include: cutters, pliers, knife, scissors
+						include: cutters, pliers, chisel, knife, sandpaper, scissors, utensils
 					}
 					filter_infrastructure:
 					{
-						include: table
+						include: table, surface
 					}
 					filter_environment:
 					{
@@ -343,6 +343,8 @@
 	type: workshop
 	flags: blueprintable, item, wip
 	tags: manual, crafting, simple, small, tool, assembling, metalworking
+	hints: none
+	connotations: none
 	infrastructure: surface, workbench
 	infrastructure_exclude: none
 	

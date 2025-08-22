@@ -64,10 +64,6 @@
 						require: screwdriver
 						include: screwdriver, wrench, spanner, pliers, towel
 					}
-					filter_infrastructure:
-					{
-						include: table, chair, vise, rack
-					}
 				}
 			]
 		}
@@ -130,11 +126,6 @@
 						require: screwdriver, wrench
 						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, stapler, towel, tongs, pick, crowbar, knife
 					}
-					filter_infrastructure:
-					{
-						require: table
-						include: anvil, table, chair, vise
-					}
 				}
 				{
 					name: "Double"
@@ -181,11 +172,6 @@
 						require: screwdriver, wrench
 						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, stapler, towel, tongs, pick, crowbar, knife
 					}
-					filter_infrastructure:
-					{
-						require: table
-						include: anvil, table, chair, vise
-					}
 				}
 				{
 					name: "Triple"
@@ -231,11 +217,6 @@
 					{
 						require: screwdriver, wrench
 						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, stapler, towel, tongs, pick, crowbar, knife
-					}
-					filter_infrastructure:
-					{
-						require: table
-						include: anvil, table, chair, vise
 					}
 				}
 			]
@@ -294,10 +275,6 @@
 						require: screwdriver
 						include: screwdriver, wrench, spanner, pliers, towel
 					}
-					filter_infrastructure:
-					{
-						include: table, chair, vise, rack
-					}
 				}
 			]
 		}
@@ -316,7 +293,9 @@
 	
 	type: workshop
 	flags: no_amount_multiplier, item, wip
-	tags: workbench, manual, crafting, complex, medium, machinery, delicate, assembling, metalworking, engineering
+	tags: manual, crafting, complex, medium, machinery, delicate, assembling, metalworking, engineering
+	hints: none
+	connotations: none
 	infrastructure: table
 	infrastructure_exclude: none
 	

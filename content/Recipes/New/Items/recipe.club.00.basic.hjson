@@ -51,12 +51,8 @@
 					
 					filter_tools:
 					{
-						require: file, knife
-						include: saw, hand_drill, file, knife, sandpaper
-					}
-					filter_infrastructure:
-					{
-						include: table, chair, vise
+						require: knife
+						include: screwdriver, file, chisel, knife, sandpaper
 					}
 				}
 			]

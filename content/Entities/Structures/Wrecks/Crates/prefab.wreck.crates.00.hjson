@@ -90,6 +90,7 @@ loot.container:
 	rolls: 2
 	rolls_extra: 4
 	rarity_min: 0.000
+	rarity_mid: 2.000
 	rarity_max: 4.500
 	amount_multiplier: 1.000
 	merge_flags: skip_resources
@@ -108,6 +109,7 @@ storage:
 		rolls: 5
 		rolls_extra: 6
 		rarity_min: 0.000
+		rarity_mid: 2.500
 		rarity_max: 5.000
 		amount_multiplier: 1.000
 		merge_flags: skip_prefabs

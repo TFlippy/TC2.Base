@@ -134,8 +134,12 @@
 	type: workshop
 	flags: production
 	tags: simple, medium, raw, filtering, industrial, metallurgy, alchemistry, blending, refining, separation, processing, messy, dangerous
+	hints: none
+	connotations: none
 	infrastructure: barrel, bucket, liquid_container
 	infrastructure_exclude: none
+	
+	h_company: carohrad
 	
 	icon:
 	{
@@ -143,16 +147,16 @@
 		size: [16, 16]
 		frame: [3, 0]
 	}
-	icon_offset: [2.000, -7.000]
+	icon_offset: [-1.000, -6.000]
 	icon_scale: 1.500
 	
 	icon_extra:
 	{
 		texture: resource.smirglum.amalgam
 		size: [16, 16]
-		frame: [3, 0]
+		frame: [2, 0]
 	}
-	icon_extra_offset: [-1.000, -7.000]
+	icon_extra_offset: [0.000, -6.000]
 	
 	icon_c:
 	{
@@ -160,7 +164,7 @@
 		size: [16, 16]
 		frame: [3, 0]
 	}
-	icon_c_offset: [-5.000, -19.000]
+	icon_c_offset: [-12.000, -18.000]
 	
 	color_frame: "0xffb5ddd4"
 	color_button: "0xff9dd80f"

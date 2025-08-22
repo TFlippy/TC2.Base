@@ -337,8 +337,12 @@
 	type: workshop
 	flags: production, manufacturing, wip, auto_complete
 	tags: complex, raw, filtering, industrial, alchemistry, science, refining, heating, separation, processing, dangerous
+	hints: none
+	connotations: none
 	infrastructure: heater
 	infrastructure_exclude: none
+	
+	h_company: carohrad
 	
 	icon:
 	{

@@ -100,6 +100,15 @@
 							flags: residue, primary, compact, scale_to_mass
 						}
 					]
+					
+					filter_infrastructure:
+					{
+						include: oven, forge, crucible
+					}
+					filter_environment:
+					{
+						include: container, airtight, stationary, dirty, ugly, cozy, fireproof, flammable, small
+					}
 				}
 			]
 		}
@@ -152,8 +161,12 @@
 	type: workshop
 	flags: production, wip, auto_complete
 	tags: simple, filtering, industrial, metallurgy, alchemistry, refining, heating, separation, processing, messy, dangerous
+	hints: none
+	connotations: none
 	infrastructure: surface, heater
 	infrastructure_exclude: none
+	
+	h_company: carohrad
 	
 	icon:
 	{

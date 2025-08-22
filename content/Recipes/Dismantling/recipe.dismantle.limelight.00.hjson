@@ -86,12 +86,12 @@
 					
 					filter_tools:
 					{
-						require: hammer, screwdriver, wrench
-						include: cutters, hand_drill, wrench, tweezers, magnifying_glass, knife
+						require: hammer, screwdriver, spanner
+						include: cutters, hand_drill, screwdriver, wrench, spanner, pliers, tweezers, magnifying_glass, knife
 					}
 					filter_infrastructure:
 					{
-						include: table, chair, vise
+						include: table, chair, vise, workbench
 					}
 				}
 			]
@@ -104,6 +104,7 @@
 			type: resource
 			material: limelight
 			amount: 1.000
+			oper: residue
 			group: 0
 			flags: primary, prerequisite
 		}
@@ -141,7 +142,7 @@
 	}
 	icon_c_offset: [-12.000, -12.000]
 	
-	color_frame: "0xffac7534"
+	color_frame: "0xfff56700"
 	color_button: "0xff9dd80f"
 	rank: -131.000
 	
