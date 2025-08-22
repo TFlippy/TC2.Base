@@ -1,0 +1,335 @@
+﻿{
+	$region_id: 0
+	$version: "0.1.64.1"
+	name: "Detonator"
+	
+	stages:
+	[
+		{
+			name: "Activator"
+			
+			type: part
+			flags: part, important, wip
+			tags: mechanism, functional, small, machinery
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Clockwork"
+					
+					type: undefined
+					flags: wip, incomplete
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.frames
+							amount: 0.220
+							snapping: 0.500
+							loss: 0.216
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: machine_parts
+							amount: 3.883495
+							snapping: 0.100
+							loss: 0.173
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: snipping.metal
+							amount: 135.000
+							amount_min: 90.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.964
+							ratio: 0.475
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: assembling
+							amount: 120.000
+							amount_min: 150.000
+							difficulty: 5
+							snapping: 5.000
+							falloff: 0.956
+							ratio: 0.573
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: calibration
+							amount: 100.000
+							amount_min: 80.000
+							difficulty: 4
+							snapping: 5.000
+							falloff: 0.923
+							ratio: 0.475
+							group: 1
+							flags: stepped, conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: hammer, hand_drill
+						include: hammer, screwdriver, pliers, file, chisel, towel, crowbar, knife, scissors
+					}
+					filter_infrastructure:
+					{
+						include: anvil, vise, hard_surface, workbench
+					}
+				}
+			]
+		}
+		{
+			name: "Explosive Charge"
+			
+			type: payload
+			flags: wip, incomplete
+			tags: functional, small, material, dangerous, formula, ingredient
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Acid-Nitrosugar"
+					
+					type: undefined
+					flags: wip, incomplete
+					
+					suffix: " (Nitrosugar)"
+					priority: 1.000
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: nitrosugar
+							amount: 2.406417
+							snapping: 1.000
+							loss: 0.051
+							group: 0
+							flags: no_residue, prerequisite
+						}
+						{
+							type: resource
+							material: sulfuric_acid
+							amount: 0.764228
+							snapping: 1.000
+							group: 0
+							flags: no_residue, prerequisite
+						}
+						{
+							type: resource
+							material: glue
+							amount: 2.500
+							snapping: 0.500
+							loss: 0.322
+							group: 1
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: rubber
+							amount: 1.129032
+							snapping: 0.100
+							loss: 0.275
+							group: 1
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: gluing
+							amount: 120.000
+							amount_min: 100.000
+							difficulty: 4
+							snapping: 5.000
+							falloff: 0.963
+							ratio: 0.322
+							group: 1
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: assembling
+							amount: 120.000
+							amount_min: 100.000
+							difficulty: 4
+							snapping: 5.000
+							falloff: 0.963
+							ratio: 0.475
+							group: 1
+							flags: stepped, simultaneous, conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: ruler, screwdriver, wrench, pliers
+						include: pencil, paper, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, pliers, tweezers, magnifying_glass, syringe, stapler, file, towel, tongs, pick, crowbar, knife
+					}
+					filter_infrastructure:
+					{
+						include: table, vise
+					}
+					filter_environment:
+					{
+						include: workshop, office, stationary, clean, fancy, cozy, safe, illuminated, quiet, dry
+						exclude: scary
+					}
+				}
+				{
+					name: "Silver Fulminate"
+					
+					type: undefined
+					flags: none
+					
+					suffix: " (S-Fulminate)"
+					priority: 1.000
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: silver.powder
+							amount: 0.142119
+							snapping: 0.100
+							loss: 0.118
+							group: 0
+							flags: no_residue, prerequisite
+						}
+						{
+							type: resource
+							material: nitric_acid
+							amount: 0.578871
+							snapping: 0.500
+							loss: 0.102
+							group: 0
+							flags: no_residue, prerequisite
+						}
+						{
+							type: work
+							work: dissolving
+							amount: 85.000
+							amount_min: 115.000
+							difficulty: 5
+							snapping: 5.000
+							falloff: 0.623
+							ratio: 0.675
+							group: 0
+							flags: stepped, conditional
+						}
+						{
+							type: resource
+							material: machine_parts
+							amount: 0.970874
+							snapping: 0.100
+							loss: 0.608
+							group: 1
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: alcohol
+							amount: 0.892857
+							snapping: 0.500
+							loss: 0.122
+							group: 1
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: crimping.metal
+							amount: 80.000
+							amount_min: 65.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.870
+							loss: 0.224
+							ratio: 0.659
+							group: 1
+							flags: stepped, conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: ruler, screwdriver, wrench, pliers
+						include: pencil, paper, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, pliers, tweezers, magnifying_glass, syringe, stapler, file, towel, tongs, pick, crowbar, knife
+					}
+					filter_infrastructure:
+					{
+						include: table, vise
+					}
+					filter_environment:
+					{
+						include: workshop, office, stationary, clean, fancy, cozy, safe, illuminated, quiet, dry
+						exclude: scary
+					}
+				}
+			]
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: detonator.00
+			amount: 1.000
+			group: 0
+			flags: primary, compact
+		}
+	]
+	
+	type: workshop
+	flags: blueprintable, production, wip
+	tags: manual, crafting, complex, small, device, delicate, assembling, metalworking, engineering, alchemistry, explosive, dangerous
+	hints: none
+	connotations: none
+	infrastructure: table, rack, surface
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		texture: detonator.00
+		size: [16, 16]
+	}
+	
+	icon_extra:
+	{
+		texture: ui_icons_crafting.mini
+		size: [8, 8]
+		frame: [3, 2]
+	}
+	icon_extra_offset: [-5.000, -6.000]
+	
+	color_frame: "0xffcf392b"
+	color_button: "0xff9dd80f"
+	button_name: "Craft"
+	rank: 0.000
+	
+	min: 1
+	max: 10
+	step: 1
+	
+	version: 1
+}

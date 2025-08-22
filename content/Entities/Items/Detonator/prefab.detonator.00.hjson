@@ -1,3 +1,8 @@
+$name: "Detonator"
+$desc: 
+	'''
+	Small attachable explosive device with a timer used to detonate other explosives in a more controlled manner.
+	'''
 $tags: []
 
 body:
@@ -13,7 +18,7 @@ body:
 		mask: world
 		exclude: none
 		
-		mass: 2.000
+		mass: 2.700
 		radius: 0.375
 		friction: 0.980
 		elasticity: 0.140
