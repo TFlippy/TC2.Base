@@ -47,14 +47,14 @@ transform:
 
 }
 
-shop:
-{
-	name: "Recipes"
-	tags: smelting
-	flags: embed_gui
+// shop:
+// {
+// 	name: "Recipes"
+// 	tags: smelting
+// 	flags: embed_gui
 
-	menu_columns: 4
-}
+// 	menu_columns: 4
+// }
 
 // furnace:
 // {
@@ -139,35 +139,35 @@ air.container:
 // 	current_temperature: 300.000
 // }
 
-crafter:
-{
-	sound_produce: "furnace.produce.00"
+// crafter:
+// {
+// 	sound_produce: "furnace.produce.00"
 	
-	@inventory16:
-	{
-		filter_flags: none
-		offset: [-0.875, 2.500]
-		stack_size_multiplier: 4.000
-		flags: allow_ducts, ignore_mass, public, no_auto_pickup, faction
-		type: output
-		filter_type: none
-	}
-}
+// 	@inventory16:
+// 	{
+// 		filter_flags: none
+// 		offset: [-0.875, 2.500]
+// 		stack_size_multiplier: 4.000
+// 		flags: allow_ducts, ignore_mass, public, no_auto_pickup, faction
+// 		type: output
+// 		filter_type: none
+// 	}
+// }
 
-crafter.state:
-{
-	@inventory4:
-	{
-		offset: [-0.875, -1.375]
-		stack_size_multiplier: 4.000
-		flags: allow_ducts, ignore_mass
-		type: input
-		filter_type: none
-	}
-}
+// crafter.state:
+// {
+// 	@inventory4:
+// 	{
+// 		offset: [-0.875, -1.375]
+// 		stack_size_multiplier: 4.000
+// 		flags: allow_ducts, ignore_mass
+// 		type: input
+// 		filter_type: none
+// 	}
+// }
 
-interactable:
-{
-	flags: no_tab
-	window_size: [650.000, 480.000]
-}
+// interactable:
+// {
+// 	flags: no_tab
+// 	window_size: [650.000, 480.000]
+// }

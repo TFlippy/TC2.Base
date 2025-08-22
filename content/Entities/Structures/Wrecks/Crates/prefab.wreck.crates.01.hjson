@@ -27,14 +27,14 @@ body:
 		
 		material: wood
 		
-		layer: entity, solid, harvestable, flammable
+		layer: entity, solid, harvestable, flammable, ignore_melee, ignore_bullet, background
 		miss_chance: 0.350
 	}
 }
 
 health:
 {
-	max: 5500.000
+	max: 6500.000
 }
 
 animated.renderer:
@@ -56,29 +56,12 @@ cover:
 
 }
 
-shipment:
-{
-	type: crate
-	flags: keep_items, allow_withdraw, allow_deposit
-}
-
-loot.container:
-{
-	rolls: 4
-	rolls_extra: 0
-	merge_flags: skip_resources
-
-	tables:
-	[
-		"construction.00"
-	]
-}
-
 interactable:
 {
-	flags: no_tab
-	window_size: [192.000, 96.000]
-	window_offset: [32.000, 96.000]
+	flags: no_tab, centered_inventory
+	window_size: [192.000, 192.000]
+	window_size_min: [184.000, 144.000]
+	window_size_misc: [48.000, 0.000]
 }
 
 harvestable:
@@ -87,13 +70,70 @@ harvestable:
 	[
 		{
 			material: "scrap.mixed"
-			quantity: 50.000
-			chance: 0.680
+			quantity: 20.000
 		}
 		{
 			material: "wood"
-			quantity: 120.000
-			chance: 0.780
+			quantity: 75.000
 		}
 	]
+}
+
+shipment:
+{
+	type: crate
+	flags: keep_items, allow_withdraw, allow_deposit, public, use_misc
+}
+
+loot.container:
+{
+	rolls: 2
+	rolls_extra: 4
+	rarity_min: 0.000
+	rarity_mid: 2.000
+	rarity_max: 4.500
+	amount_multiplier: 1.000
+	merge_flags: skip_resources
+
+	tables:
+	[
+		construction.tools.00
+		guns.survival.00
+	]
+}
+
+storage:
+{
+	@loot.container:
+	{
+		rolls: 5
+		rolls_extra: 6
+		rarity_min: 0.000
+		rarity_mid: 2.500
+		rarity_max: 5.000
+		amount_multiplier: 1.000
+		merge_flags: skip_prefabs
+		flags: no_duplicates, shuffle_inventory
+
+		tables:
+		[
+			junk.00
+			trash.metal.00
+			bleh.00
+		]
+	}
+
+	@inventory16:
+	{
+		type: storage
+		flags: public, no_auto_pickup
+		stack_size_multiplier: 4.000
+		
+		offset: [0.000, 0.000]
+
+		filter:
+		{
+			exclude: gas
+		}
+	}
 }

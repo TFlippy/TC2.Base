@@ -29,8 +29,13 @@
 	type: industry
 	flags: no_amount_multiplier, blueprintable, wip
 	tags: large, blacksmithing, industrial, metallurgy, engineering, architecture, construction, moulding
+	hints: none
+	connotations: none
 	infrastructure: none
 	infrastructure_exclude: none
+	
+	dismantle_work: 10.000
+	dismantle_yield: 0.800
 	
 	icon:
 	{
@@ -44,9 +49,6 @@
 	color_button: "0xff9dd80f"
 	rank: -391.000
 	frame_size: [80.000, 80.000]
-	
-	dismantle_work: 10.000
-	dismantle_yield: 0.800
 	
 	placement:
 	{
@@ -68,7 +70,7 @@
 		min_claim: 1.000
 		max_range: 3.000
 		
-		rotation_max: 0.0491
+		rotation_max: 0.1964
 		
 		sound: building_place
 		
@@ -82,8 +84,8 @@
 			include: world
 			exclude: none
 		}
-		snapping_flags: snap_to_surface, use_collider_radius, add_size_to_snap_radius, use_raw_collider, inset_terrain
-		snapping_radius: 0.500
+		snapping_flags: snap_to_surface, use_collider_radius, use_raw_collider, inset_terrain
+		snapping_radius: 1.000
 		
 		mappings_replace:
 		{
