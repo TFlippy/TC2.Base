@@ -125,60 +125,6 @@
 		}
 	]
 	
-	requirements_old:
-	[
-		{
-			type: resource
-			material: nitroglycerine
-			amount: 10.000
-			group: 0
-			flags: prerequisite
-		}
-		{
-			type: resource
-			material: sawdust
-			amount: 5.000
-			group: 0
-			flags: prerequisite
-		}
-		{
-			type: work
-			work: kneading
-			amount: 220.000
-			difficulty: 4
-			snapping: 5.000
-			falloff: 0.400
-			group: 0
-			flags: conditional
-		}
-		{
-			type: resource
-			material: paper
-			amount: 3.000
-			group: 1
-		}
-		{
-			type: work
-			work: papercraft
-			amount: 50.000
-			difficulty: 4
-			snapping: 5.000
-			falloff: 0.800
-			group: 1
-			flags: conditional
-		}
-	]
-	
-	products_old:
-	[
-		{
-			type: prefab
-			prefab: dynamite
-			amount: 1.000
-			group: 0
-		}
-	]
-	
 	type: workshop
 	flags: blueprintable, item, production, wip, converted
 	tags: manual, crafting, simple, small, weapon, munitions, delicate, explosive, dangerous

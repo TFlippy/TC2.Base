@@ -12,7 +12,7 @@
 			flags: wip, auto_generated
 			tags: none
 			// Damage type used for discarding leftover resources.
-			discard_damage_type: sledgehammer
+			discard_damage_type: slash
 			
 			ratio: 1.000
 			mass_base: 4.500
@@ -29,52 +29,93 @@
 					[
 						{
 							type: resource
-							material: cloth
-							amount: 8.000
+							material: alcohol
+							amount: 1.366071
 							snapping: 0.500
+							loss: 0.075
 							group: 0
 							flags: prerequisite
 						}
 						{
-							type: work
-							work: tailoring
-							amount: 135.000
-							difficulty: 5
-							snapping: 25.000
+							type: resource
+							material: paper
+							amount: 0.936768
+							snapping: 1.000
+							loss: 0.129
 							group: 0
-							flags: conditional
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: cloth
+							amount: 6.333333
+							snapping: 0.500
+							loss: 0.271
+							group: 1
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: sewing
+							amount: 135.000
+							amount_min: 90.000
+							difficulty: 5
+							snapping: 5.000
+							falloff: 0.964
+							loss: 0.114
+							ratio: 0.710
+							group: 1
+							flags: stepped, conditional
 						}
 						{
 							type: resource
 							material: steel.frames
-							amount: 0.500
+							amount: 0.628
 							snapping: 0.500
-							group: 1
+							loss: 0.224
+							group: 2
 							flags: prerequisite
 						}
 						{
 							type: work
-							work: assembling
-							amount: 75.000
-							difficulty: 3
-							snapping: 25.000
-							group: 1
-							flags: conditional
+							work: filing
+							amount: 190.000
+							amount_min: 80.000
+							difficulty: 5
+							snapping: 5.000
+							falloff: 0.933
+							loss: 0.165
+							ratio: 0.463
+							group: 2
+							flags: stepped, simultaneous, conditional
 						}
 						{
-							type: resource
-							material: alcohol
-							amount: 4.000
-							snapping: 0.500
+							type: work
+							work: bending
+							amount: 125.000
+							amount_min: 50.000
+							difficulty: 4
+							snapping: 5.000
+							falloff: 0.963
+							loss: 0.271
+							ratio: 0.522
 							group: 2
-							flags: prerequisite
+							flags: stepped, simultaneous, conditional
 						}
 					]
 					
 					filter_tools:
 					{
-						require: cutters, screwdriver, wrench, needle, pins
-						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, pliers, tweezers, stapler, towel, tongs, pick, crowbar, knife, pins
+						require: hammer, file, knife, needle
+						include: hammer, cutters, pliers, tweezers, stapler, chisel, towel, crowbar, knife, sandpaper, needle, pins, utensils
+					}
+					filter_infrastructure:
+					{
+						include: anvil, vise, surface, hard_surface, workbench
+					}
+					filter_environment:
+					{
+						include: workshop, stationary, illuminated, dry
 					}
 				}
 			]
@@ -92,59 +133,12 @@
 		}
 	]
 	
-	requirements_old:
-	[
-		{
-			type: resource
-			material: cloth
-			amount: 8.000
-			group: 0
-			flags: prerequisite
-		}
-		{
-			type: work
-			work: tailoring
-			amount: 135.000
-			difficulty: 5
-			group: 0
-			flags: conditional
-		}
-		{
-			type: resource
-			material: steel.frames
-			amount: 0.500
-			group: 1
-		}
-		{
-			type: work
-			work: assembling
-			amount: 75.000
-			difficulty: 3
-			group: 1
-			flags: conditional
-		}
-		{
-			type: resource
-			material: alcohol
-			amount: 4.000
-			group: 2
-		}
-	]
-	
-	products_old:
-	[
-		{
-			type: prefab
-			prefab: medkit
-			amount: 1.000
-			group: 0
-		}
-	]
-	
 	type: workshop
-	flags: blueprintable, item, wip, converted
-	tags: manual, crafting, simple, small, tool, assembling, tailoring, alchemistry, medical, science, biology
-	infrastructure: table, chair, surface
+	flags: blueprintable, item, wip
+	tags: manual, crafting, simple, small, tool, delicate, tailoring, alchemistry, medical, science, biology
+	hints: none
+	connotations: none
+	infrastructure: table, surface
 	infrastructure_exclude: none
 	
 	icon:
