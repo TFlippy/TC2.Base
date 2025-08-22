@@ -11,31 +11,37 @@ namespace TC2.Base.Components
 		{
 			None = 0,
 
-			Sparkle = 1u << 0
+			Sparkle = 1u << 0,
+			No_Speedup = 1u << 1,
+			Activate_On_Interact = 1u << 2,
 		}
 
-		[IComponent.Data(Net.SendType.Reliable, region_only: true)]
+		[IComponent.Data(Net.SendType.Reliable, IComponent.Scope.Region)]
 		public partial struct Data(): IComponent
 		{
 			[Statistics.Info("Duration", description: "Burn time.", format: "{0:0.00} s", comparison: Statistics.Comparison.None, priority: Statistics.Priority.High)]
-			public float time;
+			[Save.Force] public required float time;
 			[Statistics.Info("Failure Chance", description: "Chance to stop burning when lit.", format: "{0:P2}", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.Low)]
-			public float failure_chance;
+			[Save.Force] public required float failure_chance;
 
+			[Save.NewLine]
 			public Sound.Handle sound;
 			public Sound.Handle sound_extinguish = Fuse.sound_extinguish_default;
 
+			[Save.NewLine]
 			[Editor.Picker.Position(true, true)] public Vector2 sparkle_offset;
 
-			public Fuse.Flags flags;
-			[Net.Ignore] public float failure_time;
+			[Save.NewLine]
+			[Save.Force] public Fuse.Flags flags;
+			[Net.Ignore, Asset.Ignore] public float failure_time;
 		}
 
 #if SERVER
 		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("lit", false, Source.Modifier.Owned)]
 		public static void OnUpdate(ISystem.Info info, Entity entity, ref XorRandom random, ref Region.Data region,
 		[Source.Owned] ref Fuse.Data fuse, [Source.Owned] ref Explosive.Data explosive,
-		[Source.Owned] in Control.Data control, [Source.Owned] in Transform.Data transform, [Source.Owned] in Body.Data body, [Source.Parent, Optional] in Player.Data player)
+		[Source.Owned] in Control.Data control, [Source.Owned] in Transform.Data transform, [Source.Owned] in Body.Data body, 
+		[Source.Parent, Optional] in Player.Data player)
 		{
 			if (control.keyboard.GetKeyDown(Keyboard.Key.Spacebar))
 			{
@@ -57,7 +63,8 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.Event<EssenceNode.FailureEvent>(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void OnFailure(ISystem.Info info, Entity entity, ref XorRandom random, ref Region.Data region, ref EssenceNode.FailureEvent data, [Source.Owned] ref Fuse.Data fuse)
+		public static void OnFailure(ISystem.Info info, Entity entity, ref XorRandom random, ref Region.Data region, ref EssenceNode.FailureEvent data, 
+		[Source.Owned] ref Fuse.Data fuse)
 		{
 			fuse.failure_time = fuse.time;
 			fuse.failure_chance += random.NextFloatRange(0.10f, 0.80f);
@@ -67,7 +74,8 @@ namespace TC2.Base.Components
 #endif
 
 		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("lit", true, Source.Modifier.Owned)]
-		public static void OnUpdate(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity, [Source.Owned] ref Fuse.Data fuse, [Source.Owned] in Transform.Data transform)
+		public static void OnUpdate(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity, 
+		[Source.Owned] ref Fuse.Data fuse, [Source.Owned] in Transform.Data transform)
 		{
 			fuse.time -= App.fixed_update_interval_s;
 
@@ -119,9 +127,9 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("lit", true, Source.Modifier.Owned)]
-		public static void OnUpdateLightLit(ref Region.Data region, ref XorRandom random, [Source.Owned] in Fuse.Data fuse, [Source.Owned, Pair.Component<Fuse.Data>] ref Light.Data light)
+		public static void OnUpdateLightLit(ref XorRandom random, [Source.Owned] in Fuse.Data fuse, [Source.Owned, Pair.Component<Fuse.Data>] ref Light.Data light)
 		{
-			if (fuse.flags.HasAll(Fuse.Flags.Sparkle))
+			if (fuse.flags.HasAny(Fuse.Flags.Sparkle))
 			{
 				light.intensity = random.NextFloatRange(0.50f, 1.00f);
 			}

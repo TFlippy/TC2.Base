@@ -74,48 +74,57 @@ namespace TC2.Base.Components
 			);
 
 			[Statistics.Info("Radius", description: "Size of the explosion.", format: "{0:0.##}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
-			public float radius = 2.00f;
+			[Save.Force] public float radius = 2.00f;
 
 			[Statistics.Info("Power", description: "Strength of the explosion.", format: "{0:0.##}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
-			public float power = 1.00f;
+			[Save.Force] public float power = 1.00f;
 
 			[Statistics.Info("Entity Damage", format: "{0:0.##}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Low)]
-			public float damage_entity;
+			[Save.Force] public float damage_entity;
 
 			[Statistics.Info("Terrain Damage", format: "{0:0.##}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Low)]
-			public float damage_terrain;
+			[Save.Force] public float damage_terrain;
 
 			[Statistics.Info("Primed Threshold", description: "Explosive becomes primed when its health drops under this value.", format: "{0:P2}", comparison: Statistics.Comparison.None, priority: Statistics.Priority.Low)]
-			public float health_threshold = 0.20f;
+			[Save.Force] public float health_threshold = 0.20f;
 
-			public Damage.Type damage_type = Damage.Type.Explosion;
-			public Damage.Type damage_type_secondary = Damage.Type.Shockwave;
-			public Explosive.Flags flags;
+			[Save.NewLine]
+			[Save.Force] public Damage.Type damage_type = Damage.Type.Explosion;
+			[Save.Force] public Damage.Type damage_type_secondary = Damage.Type.Shockwave;
+			[Save.Force] public Explosive.Flags flags;
+
+			[Save.NewLine]
 			public Chance detonate_chance;
 			public BitField<Damage.Type> detonate_damage_filter = Explosive.Data.detonate_damage_filter_default;
 
+			[Save.NewLine]
 			public float shake_multiplier = 1.00f;
 			public float force_multiplier = 1.00f;
 			public float stun_multiplier = 1.00f;
 			public float terrain_radius_multiplier = 1.00f;
 
+			[Save.NewLine]
 			public float smoke_amount = 1.00f;
 			public float smoke_lifetime_multiplier = 1.00f;
 			public float smoke_velocity_multiplier = 1.00f;
 			public Color32BGRA smoke_color = new Color32BGRA(220, 180, 180, 180);
 
+			[Save.NewLine]
 			public float flash_duration_multiplier = 1.00f;
 			public float flash_intensity_multiplier = 1.00f;
 
+			[Save.NewLine]
 			public float fire_amount = 1.00f;
 			public float sparks_amount = 0.00f;
 
+			[Save.NewLine]
 			public float volume = 1.00f;
 			public float pitch = 1.00f;
 
+			[Save.NewLine]
 			public float modifier = 1.00f;
 
-			[Net.Ignore] public Entity ent_owner;
+			[Net.Ignore, Asset.Ignore] public Entity ent_owner;
 		}
 
 		[ISystem.Add(ISystem.Mode.Single, ISystem.Scope.Region)]

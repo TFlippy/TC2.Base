@@ -318,25 +318,25 @@
 		size: [16, 16]
 		frame: [3, 0]
 	}
-	icon_offset: [8.000, 1.000]
+	icon_offset: [-2.000, 0.000]
 	
 	icon_extra:
 	{
-		texture: resource.copper.powder
+		texture: resource.mercury
 		size: [16, 16]
 		frame: [1, 0]
 	}
-	icon_extra_offset: [-19.000, -7.000]
+	icon_extra_offset: [0.000, -7.000]
 	
 	icon_c:
 	{
 		texture: resource.himlkarzenus
 		size: [16, 16]
-		frame: [3, 0]
+		frame: [2, 0]
 	}
-	icon_c_offset: [-16.000, -7.000]
+	icon_c_offset: [4.000, -12.000]
 	
-	color_frame: "0xffcf392b"
+	color_frame: "0xffeabb3e"
 	color_button: "0xff9dd80f"
 	rank: -156.000
 	

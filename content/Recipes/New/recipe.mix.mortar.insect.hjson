@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.64.1"
 	name: "Slimy Mortar"
 	desc:
 		'''
@@ -172,6 +172,8 @@
 	type: workshop
 	flags: production, wip, converted
 	tags: manual, dumb, crude, simple, blending, processing, messy, dangerous
+	hints: none
+	connotations: none
 	infrastructure: none
 	infrastructure_exclude: none
 	
@@ -203,7 +205,7 @@
 	
 	color_frame: "0xffe3cb93"
 	color_button: "0xff9dd80f"
-	rank: -160.500
+	rank: 11.500
 	
 	min: 1
 	max: 10

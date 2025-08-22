@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.8"
+	$version: "0.1.64.1"
 	name: "Thinly Veiled Threads"
 	desc:
 		'''
@@ -140,6 +140,8 @@
 	type: workshop
 	flags: wip
 	tags: manual, simple, small, filtering, salvaging
+	hints: none
+	connotations: none
 	infrastructure: barrel, surface
 	infrastructure_exclude: none
 	
@@ -149,16 +151,17 @@
 	{
 		texture: resource.cloth
 		size: [16, 16]
-		frame: [2, 0]
+		frame: [1, 0]
 	}
-	icon_offset: [-4.000, 3.000]
+	icon_offset: [-6.000, 1.000]
 	
 	icon_extra:
 	{
-		texture: ui_icons_crafting.mini
+		texture: ui_icons_widget
 		size: [16, 16]
+		frame: [10, 5]
 	}
-	icon_extra_offset: [0.000, -6.000]
+	icon_extra_offset: [-12.000, -12.000]
 	
 	icon_c:
 	{
@@ -166,9 +169,9 @@
 		size: [16, 16]
 		frame: [3, 0]
 	}
-	icon_c_offset: [-3.000, -16.000]
+	icon_c_offset: [5.000, -13.000]
 	
-	color_frame: "0xffe3cb93"
+	color_frame: "0xfff56700"
 	color_button: "0xff9dd80f"
 	rank: -140.000
 	

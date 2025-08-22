@@ -181,7 +181,9 @@
 	
 	type: workshop
 	flags: blueprintable, item, production, wip, converted
-	tags: manual, crafting, simple, small, weapon, munitions, assembling, explosive, dangerous
+	tags: manual, crafting, simple, small, weapon, munitions, delicate, explosive, dangerous
+	hints: none
+	connotations: none
 	infrastructure: surface
 	infrastructure_exclude: none
 	

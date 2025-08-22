@@ -100,7 +100,7 @@ sticky:
 	max_force: 4000.000
 	flags: attach_on_collide
 	mask: world, solid
-	exclude: dynamic, essence
+	exclude: essence, water, liquid, fire, gas
 
 	sound: "fabric.hit.generic.00"
 }
