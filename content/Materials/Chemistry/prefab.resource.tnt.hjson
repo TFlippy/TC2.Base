@@ -11,7 +11,7 @@ body:
 		radius: 0.750
 		friction: 0.850
 		elasticity: 0.600
-		material: mushroom
+		material: clay
 		layer: entity, solid, resource, flammable
 		mask: world
 	}
@@ -54,18 +54,18 @@ health:
 
 explosive:
 {
-	radius: 20.000
-	power: 4.180
-	damage_entity: 40000.000
-	damage_terrain: 48999.990
-	health_threshold: 0.990
+	radius: 18.000
+	power: 5.180
+	damage_entity: 50000.000
+	damage_terrain: 100000.000
+	health_threshold: 0.150
 	flags: explode_when_primed
-	detonate_chance: 0.110
-	detonate_damage_filter: bullet_mg, bullet_ac, bullet_kn, bullet_hw, rivet, explosion, deflagration, electricity, shockwave, stress, phlogiston
+	detonate_chance: 0.950
+	detonate_damage_filter: bullet_ac, bullet_kn, bullet_hw, rivet, explosion, electricity, shockwave
 	shake_multiplier: 1.350
 	force_multiplier: 1.030
 	stun_multiplier: 1.140
-	terrain_radius_multiplier: 1.350
+	terrain_radius_multiplier: 1.150
 	smoke_amount: 1.200
 	smoke_lifetime_multiplier: 1.000
 	smoke_velocity_multiplier: 1.800
