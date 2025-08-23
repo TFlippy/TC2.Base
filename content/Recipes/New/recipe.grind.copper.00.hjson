@@ -27,7 +27,7 @@
 					type: undefined
 					flags: none
 					
-					suffix: " Chunk"
+					suffix: " Chunk Powder"
 					priority: 1.000
 					
 					requirements:
@@ -41,15 +41,30 @@
 							flags: argument, primary, prerequisite
 						}
 					]
+				}
+				{
+					name: "Brick"
+					desc: "Copper brick "
 					
-					filter_tools:
-					{
-						require: hammer, file
-					}
-					filter_environment:
-					{
-						include: workshop, stationary, illuminated, dry
-					}
+					type: undefined
+					flags: none
+					discard_damage_type_override: sledgehammer
+					
+					suffix: " Brick Powder"
+					priority: 1.000
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: copper.ingot
+							amount: 0.074136
+							snapping: 0.100
+							loss: 0.973
+							group: 0
+							flags: argument, primary, prerequisite
+						}
+					]
 				}
 			]
 		}
@@ -73,7 +88,7 @@
 					
 					type: undefined
 					flags: merge_residue, merge_waste
-					discard_damage_type_override: pickaxe
+					discard_damage_type_override: slash
 					
 					prefix: "Hand-Filed "
 					priority: 1.000
@@ -81,13 +96,21 @@
 					requirements:
 					[
 						{
+							type: temperature
+							amount: 253.300
+							amount_max: 319.000
+							falloff: 2.152
+							group: 0
+							flags: no_scaling, optional
+						}
+						{
 							type: work
 							work: filing
-							amount: 257.000
+							amount: 77.000
 							amount_min: 79.000
-							difficulty: 12
+							difficulty: 11
 							snapping: 5.000
-							falloff: 0.987
+							falloff: 0.795
 							group: 0
 							flags: conditional
 						}
@@ -98,31 +121,110 @@
 						{
 							type: resource
 							material: copper.powder
-							amount: 1.2423
-							amount_extra: 0.0225
+							amount: 1.1293
+							amount_extra: 0.1355
 							snapping: 0.010
 							group: 0
-							ratio: 0.075
+							ratio: 0.055
 							flags: residue, primary, compact, scale_to_mass
 						}
 						{
 							type: resource
 							material: scrap.copper
-							amount: 0.000
-							amount_extra: 0.142
+							amount: 0.138417
+							amount_extra: 0.123618
 							group: 0
-							ratio: 0.012
+							ratio: 0.024
 							flags: waste, scale_to_mass
 						}
 					]
 					
+					start_delay: 0.000
+					
 					filter_tools:
 					{
-						require: hammer, file
+						require: file
+						include: chisel, knife, sandpaper, utensils
+					}
+					filter_infrastructure:
+					{
+						include: surface
 					}
 					filter_environment:
 					{
 						include: workshop, stationary, illuminated, dry
+					}
+				}
+				{
+					name: "Drilled"
+					desc: "ravaged with a hand drill, leaving behind some powderswarf and mangled metal."
+					
+					type: undefined
+					flags: merge_residue, merge_waste
+					discard_damage_type_override: sledgehammer
+					
+					prefix: "Drilled "
+					priority: 1.000
+					
+					requirements:
+					[
+						{
+							type: temperature
+							amount: 193.400
+							amount_max: 325.000
+							falloff: 2.000
+							group: 0
+							flags: no_scaling, optional
+						}
+						{
+							type: work
+							work: drilling
+							amount: 417.000
+							amount_min: 210.000
+							difficulty: 13
+							snapping: 5.000
+							falloff: 0.935
+							loss: 0.561
+							ratio: 0.220
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: copper.powder
+							amount: 0.7284
+							amount_extra: 0.1711
+							snapping: 0.010
+							group: 0
+							ratio: 0.522
+							flags: residue, primary, compact, scale_to_mass
+						}
+						{
+							type: resource
+							material: scrap.copper
+							amount: 0.129257
+							amount_extra: 0.166483
+							group: 0
+							ratio: 0.973
+							flags: waste, scale_to_mass
+						}
+					]
+					
+					start_delay: 0.000
+					
+					filter_tools:
+					{
+						require: hand_drill
+						include: screwdriver, chisel, pick, knife
+					}
+					filter_infrastructure:
+					{
+						require: vise
+						include: vise, rack, workbench
 					}
 				}
 			]
@@ -134,7 +236,7 @@
 	tags: manual, dumb, crude, basic, simple, metalworking, metallurgy, salvaging, processing
 	hints: none
 	connotations: none
-	infrastructure: surface
+	infrastructure: table, surface
 	infrastructure_exclude: none
 	
 	h_company: common

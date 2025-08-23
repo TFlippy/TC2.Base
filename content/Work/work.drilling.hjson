@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.64.1"
 	name: "Drilling"
 	name_short: "Drill"
 	desc:
@@ -15,21 +15,21 @@
 	}
 	
 	flags: wip
-	tags: tools, simple, technical, construction, industrial, dangerous, careful
+	tags: tools, simple, technical, construction, industrial, careful, kinetic, fast
 	
 	amount_base: 0.000
 	cooldown: 1.800
-	multiplier: 1.870
+	multiplier: 1.550
 	
 	amount_jitter: 0.496
 	cooldown_jitter: 0.123
 	color: "0xffff6200"
 	
 	tools_required: hand_drill
-	tools_optional: screwdriver, file, knife, scissors
+	tools_optional: screwdriver, chisel, pick, knife
 	
-	infrastructure_required: none
-	infrastructure_optional: none
+	infrastructure_required: vise
+	infrastructure_optional: vise, rack, workbench
 	
 	character_traits:
 	{
@@ -44,10 +44,10 @@
 	
 	skills_mult:
 	{
-		metallurgy: 0.100
-		endurance: 0.150
-		engineering: 0.300
-		construction: 0.400
+		dexterity: 0.240
+		endurance: 0.240
+		construction: 0.210
+		strength: 0.190
 	}
 	
 	sound_volume: 0.900
