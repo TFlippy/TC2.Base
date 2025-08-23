@@ -1,7 +1,7 @@
 ﻿{
 	$region_id: 0
 	$version: "0.1.64.1"
-	name: "Copper"
+	name: "Gold"
 	tips: []
 	
 	stages:
@@ -22,10 +22,10 @@
 			[
 				{
 					name: "Chunk"
-					desc: "Copper chunk "
+					desc: "Gold chunk "
 					
 					type: undefined
-					flags: none
+					flags: merge_waste
 					
 					suffix: "-Chunk Powder"
 					priority: 1.000
@@ -34,9 +34,9 @@
 					[
 						{
 							type: resource
-							material: copper
-							amount: 0.079961
-							loss: 0.973
+							material: gold
+							amount: 0.034672
+							loss: 0.957
 							group: 0
 							flags: argument, primary, prerequisite
 						}
@@ -44,11 +44,10 @@
 				}
 				{
 					name: "Brick"
-					desc: "Copper brick "
+					desc: "Gold brick "
 					
 					type: undefined
-					flags: none
-					discard_damage_type_override: sledgehammer
+					flags: merge_waste
 					
 					suffix: "-Brick Powder"
 					priority: 1.000
@@ -57,10 +56,10 @@
 					[
 						{
 							type: resource
-							material: copper.ingot
-							amount: 0.074136
+							material: gold.ingot
+							amount: 0.033385
 							snapping: 0.100
-							loss: 0.973
+							loss: 0.922
 							group: 0
 							flags: argument, primary, prerequisite
 						}
@@ -88,7 +87,7 @@
 					
 					type: undefined
 					flags: merge_residue, merge_waste
-					discard_damage_type_override: slash
+					discard_damage_type_override: handsaw
 					
 					prefix: "Hand-Filed "
 					priority: 1.000
@@ -97,8 +96,8 @@
 					[
 						{
 							type: temperature
-							amount: 253.300
-							amount_max: 319.000
+							amount: 231.100
+							amount_max: 317.000
 							falloff: 2.152
 							group: 0
 							flags: no_scaling, optional
@@ -106,11 +105,11 @@
 						{
 							type: work
 							work: filing
-							amount: 77.000
-							amount_min: 79.000
-							difficulty: 11
+							amount: 93.000
+							amount_min: 113.000
+							difficulty: 7
 							snapping: 5.000
-							falloff: 0.795
+							falloff: 0.879
 							group: 0
 							flags: conditional
 						}
@@ -120,21 +119,21 @@
 					[
 						{
 							type: resource
-							material: copper.powder
-							amount: 1.1293
-							amount_extra: 0.1355
+							material: gold.powder
+							amount: 0.8333
+							amount_extra: 0.4315
 							snapping: 0.010
 							group: 0
-							ratio: 0.055
+							ratio: 0.133
 							flags: residue, primary, compact, scale_to_mass
 						}
 						{
 							type: resource
-							material: scrap.copper
+							material: gold.gravel
 							amount: 0.138417
-							amount_extra: 0.123618
+							amount_extra: 0.1536
 							group: 0
-							ratio: 0.024
+							ratio: 0.027
 							flags: waste, scale_to_mass
 						}
 					]
@@ -160,7 +159,7 @@
 					desc: "ravaged with a hand drill, leaving behind some powderswarf and mangled metal."
 					
 					type: undefined
-					flags: merge_residue, merge_waste
+					flags: none
 					discard_damage_type_override: sledgehammer
 					
 					prefix: "Drilled "
@@ -170,22 +169,22 @@
 					[
 						{
 							type: temperature
-							amount: 193.400
-							amount_max: 325.000
-							falloff: 2.000
+							amount: 231.100
+							amount_max: 317.000
+							falloff: 2.152
 							group: 0
 							flags: no_scaling, optional
 						}
 						{
 							type: work
 							work: drilling
-							amount: 417.000
-							amount_min: 210.000
-							difficulty: 13
+							amount: 217.000
+							amount_min: 129.000
+							difficulty: 8
 							snapping: 5.000
-							falloff: 0.935
-							loss: 0.561
-							ratio: 0.220
+							falloff: 0.845
+							loss: 0.227
+							ratio: 0.420
 							group: 0
 							flags: conditional
 						}
@@ -195,21 +194,30 @@
 					[
 						{
 							type: resource
-							material: copper.powder
-							amount: 0.7284
-							amount_extra: 0.1711
+							material: gold.powder
+							amount: 0.3194
+							amount_extra: 0.2051
 							snapping: 0.010
 							group: 0
-							ratio: 0.522
+							ratio: 0.624
 							flags: residue, primary, compact, scale_to_mass
 						}
 						{
 							type: resource
-							material: scrap.copper
-							amount: 0.129257
-							amount_extra: 0.166483
+							material: gold
+							amount: 0.1733
+							amount_extra: 0.0465
 							group: 0
-							ratio: 0.973
+							ratio: 0.459
+							flags: residue, scale_to_mass
+						}
+						{
+							type: resource
+							material: gold.gravel
+							amount: 0.2063
+							amount_extra: 0.1685
+							group: 0
+							ratio: 0.929
 							flags: waste, scale_to_mass
 						}
 					]
@@ -243,7 +251,7 @@
 	
 	icon:
 	{
-		texture: resource.copper.powder
+		texture: resource.gold.powder
 		size: [16, 16]
 		frame: [2, 0]
 	}
@@ -259,7 +267,7 @@
 	
 	icon_c:
 	{
-		texture: resource.copper.ingot
+		texture: resource.gold.ingot
 		size: [16, 16]
 		frame: [1, 0]
 	}
@@ -267,7 +275,7 @@
 	
 	color_frame: "0xffac7534"
 	color_button: "0xff9dd80f"
-	rank: -100.000
+	rank: -96.000
 	frame_size: [48.000, 48.000]
 	
 	min: 1
