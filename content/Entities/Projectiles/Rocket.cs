@@ -59,7 +59,7 @@ namespace TC2.Base.Components
 					stun: projectile.stun_multiplier * ev.hit_applied_ratio,
 					pain: projectile.pain_multiplier, // * ev.hit_applied_ratio,				
 					faction_id: projectile.faction_id, 
-					flags: Damage.Flags.No_Loot_Pickup);
+					flags: Damage.Flags.No_Loot_Pickup | Damage.Flags.No_Loot_Notification);
 			}
 #endif
 

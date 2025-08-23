@@ -50,15 +50,15 @@ namespace TC2.Base.Components
 
 							if (this.state == -1)
 							{
-								WorldNotification.Push(ref region, "* Reverse *", Color32BGRA.Red, position: transform.position, velocity: new(0.00f, 4.00f), lifetime: 0.70f);
+								WorldNotification.Push(ref region, "* Reverse *"u8, Color32BGRA.Red, position: transform.position, velocity: new(0.00f, 4.00f), lifetime: 0.70f);
 							}
 							else if (this.state == 0)
 							{
-								WorldNotification.Push(ref region, "* Neutral *", Color32BGRA.Yellow, position: transform.position, velocity: new(0.00f, 4.00f), lifetime: 0.70f);
+								WorldNotification.Push(ref region, "* Neutral *"u8, Color32BGRA.Yellow, position: transform.position, velocity: new(0.00f, 4.00f), lifetime: 0.70f);
 							}
 							else
 							{
-								WorldNotification.Push(ref region, "* Forward *", Color32BGRA.Green, position: transform.position, velocity: new(0.00f, -4.00f), lifetime: 0.70f);
+								WorldNotification.Push(ref region, "* Forward *"u8, Color32BGRA.Green, position: transform.position, velocity: new(0.00f, -4.00f), lifetime: 0.70f);
 							}
 						}
 

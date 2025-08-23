@@ -110,12 +110,12 @@ namespace TC2.Base.Components
 					if (door.flags.HasAny(Door.Flags.Locked))
 					{
 						Sound.Play(ref region, door.sound_lock, transform.position, volume: 0.70f, pitch: random.NextFloatRange(0.95f, 1.05f), priority: 0.70f);
-						WorldNotification.Push(ref region, "* Locks *", 0xffffda00, transform.position);
+						WorldNotification.Push(ref region, "* Locks *"u8, 0xffffda00, transform.position);
 					}
 					else
 					{
 						Sound.Play(ref region, door.sound_unlock, transform.position, volume: 0.70f, pitch: random.NextFloatRange(0.95f, 1.05f), priority: 0.70f);
-						WorldNotification.Push(ref region, "* Unlocks *", 0xffffda00, transform.position);
+						WorldNotification.Push(ref region, "* Unlocks *"u8, 0xffffda00, transform.position);
 					}
 
 					door.Sync(entity);
@@ -126,7 +126,7 @@ namespace TC2.Base.Components
 				if (door.flags.HasAll(Door.Flags.Lockable | Door.Flags.Locked) && (!is_same_faction || faction.id == 0))
 				{
 					Sound.Play(ref region, door.sound_locked, transform.position, volume: 0.70f, pitch: random.NextFloatRange(0.95f, 1.05f), priority: 0.40f);
-					WorldNotification.Push(ref region, "* Locked *", 0xffff0000, transform.position);
+					WorldNotification.Push(ref region, "* Locked *"u8, 0xffff0000, transform.position);
 				}
 				else
 				{
@@ -145,7 +145,7 @@ namespace TC2.Base.Components
 						require: Physics.Layer.Dynamic,
 						exclude: Physics.Layer.World | Physics.Layer.Building | Physics.Layer.Door | Physics.Layer.Gas | Physics.Layer.Essence | Physics.Layer.Fire | Physics.Layer.Water | Physics.Layer.Static))
 						{
-							WorldNotification.Push(ref region, "* DOOR STUCK! *", 0xffff0000, transform.position);
+							WorldNotification.Push(ref region, "* DOOR STUCK! *"u8, 0xffff0000, transform.position);
 							Sound.Play(ref region, door.sound_stuck, transform.position, volume: 1.00f, pitch: random.NextFloatRange(0.95f, 1.05f), priority: 0.40f);
 							Shake.Emit(ref region, transform.position, 0.30f, 0.30f, 6.00f);
 
@@ -170,7 +170,7 @@ namespace TC2.Base.Components
 					{
 						if (door.flags.HasAny(Door.Flags.Giant_Only) & ev.self_hints.HasNone(NPC.SelfHints.Is_Giant))
 						{
-							WorldNotification.Push(ref region, "* TOO SMALL! *", 0xffff0000, transform.position);
+							WorldNotification.Push(ref region, "* TOO SMALL! *"u8, 0xffff0000, transform.position);
 							Sound.Play(ref region, door.sound_stuck, transform.position, volume: 1.00f, pitch: random.NextFloatExtra(1.25f, 0.35f), priority: 0.32f);
 
 							stuck = true;

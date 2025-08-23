@@ -317,13 +317,13 @@ namespace TC2.Base.Components
 						complexity += 1.90f;
 					}
 					break;
-					
+
 					case Action.Manual:
 					{
 
 					}
 					break;
-					
+
 					case Action.Bolt:
 					{
 						complexity += 1.00f;
@@ -858,6 +858,7 @@ namespace TC2.Base.Components
 			[Save.Ignore, Net.Ignore] private float unused_04;
 		}
 
+		[Shitcode]
 		public static bool TryCalculateTrajectory(Vector2 pos_muzzle, Vector2 pos_target, float speed, float gravity, out float? angle_shallow, out float? angle_steep)
 		{
 			angle_shallow = null;
@@ -914,7 +915,7 @@ namespace TC2.Base.Components
 				}
 			}
 
-			return angle_shallow.HasValue || angle_steep.HasValue;
+			return angle_shallow.HasValue | angle_steep.HasValue;
 		}
 
 #if CLIENT
@@ -1436,6 +1437,7 @@ namespace TC2.Base.Components
 		}
 #endif
 
+		[Shitcode]
 		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateReload(ref Region.Data region, ISystem.Info info, Entity entity,
 		[Source.Owned] ref Gun.Data gun, [Source.Owned] ref Gun.State gun_state,
@@ -1582,6 +1584,7 @@ namespace TC2.Base.Components
 			}
 		}
 
+		[Shitcode]
 		[ISystem.Update.B(ISystem.Mode.Single, ISystem.Scope.Region)]
 		[MethodImpl(MethodImplOptions.NoInlining)]
 		public static void OnUpdate(ISystem.Info info, Entity entity, ref Region.Data region, ref XorRandom random,
@@ -1779,7 +1782,7 @@ namespace TC2.Base.Components
 								h_faction: h_faction,
 								gun_flags: gun.flags,
 								drag_jitter: random.NextFloatExtra(1.00f, -ammo.speed_jitter * 0.04f * step_current).Clamp01(),
-								random: XorRandom.New() // random.NextUInt(),  //XorRandom.New(vel.GetProduct().ToUInt32BitCast(), random_multiplier.ToUInt32BitCast(), random)
+								random: XorRandom.New(unchecked(random.NextUInt() * XorRandom.magix_mul)) // random.NextUInt(),  //XorRandom.New(vel.GetProduct().ToUInt32BitCast(), random_multiplier.ToUInt32BitCast(), random)
 							);
 
 							if (gun.type == Gun.Type.Launcher)
@@ -1900,7 +1903,7 @@ namespace TC2.Base.Components
 					gun_state.Sync(entity, true);
 
 					Sound.Play(region: ref region, sound: gun.sound_jam, world_position: pos_w_offset, volume: 1.10f, pitch: 1.00f, size: 1.50f);
-					WorldNotification.Push(region: ref region, message: "* Jammed *", color: 0xffff0000, position: transform.position, lifetime: 1.00f);
+					WorldNotification.Push(region: ref region, message: "* Jammed *"u8, color: 0xffff0000, position: transform.position, lifetime: 1.00f);
 				}
 #endif
 
@@ -2071,6 +2074,7 @@ namespace TC2.Base.Components
 			}
 		}
 
+		[Shitcode]
 		[ISystem.Update.B(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.50f)]
 		public static void UpdateAimable([Source.Owned] in Gun.Data gun, [Source.Owned] ref Aimable.Data aimable)
 		{
@@ -2102,6 +2106,7 @@ namespace TC2.Base.Components
 			holdable.hints.SetFlag(NPC.ItemHints.Junk, gun.failure_rate >= 0.10f || gun.jitter_multiplier >= 5.00f);
 		}
 
+		[Shitcode]
 		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnReady(ISystem.Info info, ref Region.Data region, Entity entity, ref XorRandom random,
 		[Source.Owned] ref Gun.Data gun, [Source.Owned] ref Gun.State gun_state,
@@ -2164,7 +2169,7 @@ namespace TC2.Base.Components
 
 #if SERVER
 						Sound.Play(ref region, gun.sound_empty, transform.position, volume: 0.50f);
-						WorldNotification.Push(ref region, "* No ammo *", 0xffff0000, transform.position);
+						WorldNotification.Push(ref region, "* No ammo *"u8, 0xffff0000, transform.position);
 #endif
 					}
 
@@ -2189,7 +2194,7 @@ namespace TC2.Base.Components
 						gun_state.Sync(entity, true);
 
 						Sound.Play(ref region, gun.sound_jam, transform.position, volume: 0.50f, pitch: random.NextFloatRange(0.70f, 0.95f), size: 1.10f);
-						WorldNotification.Push(ref region, "* Unjammed *", 0xff00ff00, transform.position);
+						WorldNotification.Push(ref region, "* Unjammed *"u8, 0xff00ff00, transform.position);
 					}
 					else
 					{
@@ -2198,7 +2203,7 @@ namespace TC2.Base.Components
 						gun_state.Sync(entity, true);
 
 						Sound.Play(ref region, gun.sound_jam, transform.position, volume: 0.50f, pitch: random.NextFloatRange(0.70f, 0.95f), size: 1.10f);
-						WorldNotification.Push(ref region, "* Jammed *", 0xffff0000, transform.position);
+						WorldNotification.Push(ref region, "* Jammed *"u8, 0xffff0000, transform.position);
 					}
 #endif
 				}

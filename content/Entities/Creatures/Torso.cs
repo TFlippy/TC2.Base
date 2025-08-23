@@ -81,7 +81,7 @@
 		{
 			if (random.NextBool(data.power * 0.20f))
 			{
-				WorldNotification.Push(ref region, $"* Sudden Heart Failure! *", Color32BGRA.Red, transform.position, lifetime: 3.00f, velocity: Vector2.Zero);
+				WorldNotification.Push(ref region, "* Sudden Heart Failure! *"u8, Color32BGRA.Red, transform.position, lifetime: 3.00f, velocity: Vector2.Zero);
 
 				organic_state.pain += 10000.00f;
 				organic_state.Sync(entity);

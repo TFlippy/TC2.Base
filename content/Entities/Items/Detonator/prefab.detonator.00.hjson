@@ -14,7 +14,7 @@ body:
 		flags: none
 		tags: none
 		
-		layer: entity, solid
+		layer: entity, solid, item, conductive, magnetic, ignore_melee
 		mask: world
 		exclude: none
 		
@@ -23,7 +23,8 @@ body:
 		friction: 0.980
 		elasticity: 0.140
 		
-		cog_offset: [0.000, 0.000]
+		fall_damage_mult: 1.350
+		cog_offset: [0.000, 0.1875]
 		
 		a: [0.000, -0.125]
 		b: [0.000, 0.125]
@@ -38,12 +39,18 @@ control:
 
 health:
 {
-	max: 1500.000
+	max: 800.000
 }
 
 holdable:
 {
-	
+	hints: dangerous, explosive, destructive
+	flags: storable
+}
+
+packable:
+{
+
 }
 
 animated.renderer:
@@ -68,7 +75,7 @@ fuse:
 
 	@sound.emitter:
 	{
-		file: effect.timer.loop.02
+		file: effect.timer.loop.03
 		flags: start_muted
 		volume: 0.500
 		pitch: 1.000
@@ -78,31 +85,41 @@ fuse:
 explosive:
 {
 	radius: 1.400
-	power: 2.100
-	damage_entity: 8000.000
-	damage_terrain: 4000.000
+	power: 1.800
+	damage_entity: 3000.000
+	damage_terrain: 3500.000
+	health_threshold: 0.850
+	
 	damage_type: bullet_hw
 	damage_type_secondary: shrapnel
+	flags: none
+	
+	detonate_chance: 0.592
+	
 	shake_multiplier: 1.870
 	force_multiplier: 1.140
 	stun_multiplier: 1.310
 	terrain_radius_multiplier: 0.690
+	
 	smoke_amount: 0.900
 	smoke_lifetime_multiplier: 0.890
 	smoke_velocity_multiplier: 2.190
-	flash_duration_multiplier: 0.190
-	flash_intensity_multiplier: 0.840
+	
+	flash_duration_multiplier: 0.110
+	flash_intensity_multiplier: 0.890
+	
 	fire_amount: 0.100
 	sparks_amount: 1.600
+	
 	volume: 2.200
-	pitch: 1.000
+	pitch: 1.100
 }
 
 sticky:
 {
 	min_contact_count: 1
 	min_contact_distance: 0.000
-	max_force: 4000.000
+	max_force: 5000.000
 	flags: attach_on_collide
 	mask: world, solid
 	exclude: essence, water, liquid, fire, gas

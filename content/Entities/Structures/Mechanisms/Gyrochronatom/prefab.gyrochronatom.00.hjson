@@ -37,7 +37,7 @@ body:
 
 health:
 {
-	max: 900.000
+	max: 1900.000
 }
 
 animated.renderer:
@@ -75,6 +75,11 @@ attachment:
 {
 	offset: [-0.125, 0.375]
 	tags: tiny, small, utility, device, fixed, handheld, harness
+}
+
+packable:
+{
+	
 }
 
 interactable:
