@@ -53,6 +53,7 @@ melee:
 	hit_mask: destructible
 	hit_exclude: ignore_melee, background, tree, climbable
 	damage_flags_add: no_loot_discard
+	damage_flags_rem: no_loot_notification
 }
 
 melee.state:

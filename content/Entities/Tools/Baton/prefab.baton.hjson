@@ -63,6 +63,8 @@ melee:
 	hit_mask: world, creature, organic
 	hit_exclude: bounds, background, tree, climbable, ignore_melee
 	hit_ignore: resource
+	damage_flags_add: no_loot_discard
+	damage_flags_rem: no_loot_notification
 }
 
 melee.state:

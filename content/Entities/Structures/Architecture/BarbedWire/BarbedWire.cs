@@ -58,7 +58,7 @@ namespace TC2.Base.Components
 										position: arbiter.GetBodyPosition(), velocity: -arbiter.GetNormal() * 2.00f, normal: arbiter.GetNormal(),
 										damage_integrity: damage, damage_durability: damage, damage_terrain: damage,
 										target_material_type: material_type, damage_type: barbed_wire.damage_type,
-										yield: 0.00f, size: 0.50f, impulse: 0.00f, flags: Damage.Flags.No_Loot_Pickup);
+										yield: 0.00f, size: 0.50f, impulse: 0.00f, flags: Damage.Flags.No_Loot_Pickup | Damage.Flags.No_Loot_Notification);
 
 
 									can_hit = false;

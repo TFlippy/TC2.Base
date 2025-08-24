@@ -64,6 +64,7 @@ melee:
 	category: pointed
 	
 	damage_flags_add: no_loot_discard
+	damage_flags_rem: no_loot_notification
 	
 	hit_mask: world, destructible
 	hit_exclude: building, water, fire, gas, powder, liquid, stored

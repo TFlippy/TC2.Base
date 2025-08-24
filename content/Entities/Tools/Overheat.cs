@@ -283,7 +283,7 @@ namespace TC2.Base.Components
 						yield: 0.90f,
 						xp_modifier: 0.00f,
 						impulse: 0.00f,
-						flags: Damage.Flags.No_Loot_Pickup);
+						flags: Damage.Flags.No_Loot_Pickup | Damage.Flags.No_Loot_Notification);
 
 					if (temperature_celsius >= temperature_holdable_max && random.NextBool(temperature_celsius * 0.005f))
 					{
@@ -570,7 +570,7 @@ namespace TC2.Base.Components
 						yield: 0.90f,
 						xp_modifier: 0.00f,
 						impulse: 0.00f,
-						flags: Damage.Flags.No_Loot_Pickup);
+						flags: Damage.Flags.No_Loot_Pickup | Damage.Flags.No_Loot_Notification);
 				}
 			}
 		}

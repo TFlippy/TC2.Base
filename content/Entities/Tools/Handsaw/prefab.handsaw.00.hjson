@@ -84,6 +84,7 @@ melee:
 	category: bladed
 	flags: no_handle, use_aim_direction
 	damage_flags_add: no_loot_discard
+	damage_flags_rem: no_loot_notification
 	
 	hit_mask: tree, destructible
 	hit_exclude: world, building, water, fire, gas, powder, liquid, held, stored

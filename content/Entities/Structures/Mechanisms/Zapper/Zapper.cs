@@ -232,7 +232,7 @@ namespace TC2.Base.Components
 						position: result.world_position, velocity: random.NextUnitVector2Range(2.00f, 8.00f) + (dir * random.NextFloatRange(4.00f, 6.00f)), normal: -dir,
 						damage_integrity: damage, damage_durability: damage, damage_terrain: 0.00f,
 						target_material_type: result.material_type, damage_type: Damage.Type.Electricity,
-						yield: 0.50f, size: 1.50f, impulse: random.NextFloatRange(1000.00f, 1800.00f), flags: Damage.Flags.No_Loot_Pickup);
+						yield: 0.50f, size: 1.50f, impulse: random.NextFloatRange(1000.00f, 1800.00f), flags: Damage.Flags.No_Loot_Pickup | Damage.Flags.No_Loot_Notification);
 
 
 					if (random.NextBool(0.10f))
