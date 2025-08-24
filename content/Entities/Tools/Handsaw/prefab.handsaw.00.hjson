@@ -109,7 +109,7 @@ holdable:
 	force_multiplier: 0.200
 	torque_multiplier: 0.100
 	stress_multiplier: 0.200
-	hints: tools, melee, short_range, usable, small, construction, cheap, fast
+	hints: tools, weak, usable, inaccurate, small, construction, gathering, cheap, civilian, fast, clumsy
 	flags: storable
 }
 

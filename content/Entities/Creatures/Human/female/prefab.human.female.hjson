@@ -703,7 +703,7 @@ commandable:
 	joint.base:
 	{
 		offset_a: [0.100, -0.050]
-		max_force: 3500.000
+		max_force: 3800.000
 		max_torque: 9000.000
 		max_stress: 2.000
 		stress_threshold: 1.250
@@ -724,11 +724,11 @@ commandable:
 	{
 		error_bias: 0.000
 		max_bias: 8.000
-		stiffness: 1000.000
-		damping: 90.000
+		stiffness: 1400.000
+		damping: 130.000
 		axis_force: 9000.000
 		spring_max_bias: 3.700
-		max_distance: 0.220
+		max_distance: 0.200
 		stress_mult_axis: 1.000
 	}
 

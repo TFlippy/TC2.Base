@@ -1,9 +1,9 @@
 ﻿{
 	$version: "0.1.64.1"
-	name: "Dismantle Computer"
+	name: "Dismantle Computron"
 	desc:
 		'''
-		Scrap a computer for parts.
+		Scrap a computron for parts.
 		'''
 	tips: []
 	
@@ -129,6 +129,8 @@
 	type: workshop
 	flags: item, dismantling, wip, converted
 	tags: manual, crafting, simple, complex, engineering, salvaging
+	hints: none
+	connotations: none
 	infrastructure: table, chair, surface
 	infrastructure_exclude: none
 	
