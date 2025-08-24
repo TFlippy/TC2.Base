@@ -136,7 +136,7 @@ storage:
 	{
 		stack_size_multiplier: 4.000
 		type: ammo
-		flags: standalone, allow_ducts, vertical
+		flags: standalone, allow_ducts, vertical, faction, no_auto_pickup
 		offset: [-1.000, 0.375]
 
 		filter:
@@ -196,8 +196,8 @@ mount:
 
 		max_displacement: 0.750
 		
-		displacement_stress_modifier: 0.500
-		displacement_force_modifier: 0.000
+		displacement_stress_modifier: 0.200
+		displacement_force_modifier: 0.700
 		
 		max_stress: 3.000
 		stress_threshold: 1.500
@@ -238,7 +238,7 @@ mount:
 		spring_max_bias: 1.400
 		max_distance: 3.000
 		rotation: 0.000
-		stress_mult_axis: 1.000
+		stress_mult_axis: 0.800
 	}
 
 

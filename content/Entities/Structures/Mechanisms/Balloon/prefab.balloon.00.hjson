@@ -197,7 +197,7 @@ burner.state:
 		filter_flags: fuel
 		filter_type: liquid
 		type: input
-		flags: ignore_mass
+		flags: ignore_mass, no_auto_pickup
 		offset: [-0.250, 1.125]
 	}
 }

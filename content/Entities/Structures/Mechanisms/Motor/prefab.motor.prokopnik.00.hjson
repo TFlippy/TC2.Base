@@ -192,7 +192,7 @@ essence.container:
 		stack_size_multiplier: 0.400
 		filter_flags: essence
 		type: essence
-		flags: standalone, ignore_mass
+		flags: standalone, ignore_mass, no_auto_pickup
 
 		filter:
 		{

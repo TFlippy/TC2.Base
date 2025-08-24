@@ -82,7 +82,7 @@ burner:
 		stack_size_multiplier: 3.000
 		filter_flags: fuel
 		type: fuel
-		flags: allow_ducts, ignore_mass
+		flags: allow_ducts, ignore_mass, no_auto_pickup
 		offset: [-0.250, 1.625]
 	}
 
@@ -130,7 +130,7 @@ crafter.state:
 		name: "Input"
 		stack_size_multiplier: 4.000
 		type: input
-		flags: allow_ducts, ignore_mass
+		flags: allow_ducts, ignore_mass, no_auto_pickup
 		offset: [0.375, -0.875]
 	}
 }

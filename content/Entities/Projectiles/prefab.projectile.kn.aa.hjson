@@ -5,18 +5,18 @@ projectile:
 	damage_base: 750.000
 	damage_bonus: 1200.000
 	lifetime: 0.600
-	ignore_time: 0.100
+	ignore_time: 0.020
 	damage_type: bullet_kn
 	size: 0.375
 	ricochet_count: 2
 	ricochet_threshold_multiplier: 1.200
 	ricochet_chance_multiplier: 1.000
 	ricochet_velocity_min: 0.000
-	ricochet_velocity_ratio: 0.711
+	ricochet_velocity_ratio: 0.511
 	damp: 0.988
 	tracer_length: 6.000
 	mass: 2.100
-	knockback_multiplier: 25.000
+	knockback_multiplier: 5.000
 	flags: no_miss
 }
 
@@ -47,7 +47,7 @@ explosive:
 	flash_duration_multiplier: 0.150
 	flash_intensity_multiplier: 0.500
 	shake_multiplier: 0.400
-	force_multiplier: 0.500
+	force_multiplier: 0.200
 	stun_multiplier: 1.500
 	fire_amount: 0.150
 	sparks_amount: 2.000

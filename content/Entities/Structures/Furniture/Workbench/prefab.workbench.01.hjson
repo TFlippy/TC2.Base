@@ -144,7 +144,7 @@ workshop:
 	{
 		stack_size_multiplier: 1.000
 		type: workshop
-		flags: standalone, public, vertical, no_auto_pickup
+		flags: ignore_mass, standalone, public, vertical, no_auto_pickup
 
 		filter:
 		{
@@ -156,7 +156,7 @@ workshop:
 	{
 		stack_size_multiplier: 1.000
 		type: waste
-		flags: standalone, public, no_auto_pickup
+		flags: ignore_mass, standalone, public, no_auto_pickup
 
 		filter:
 		{

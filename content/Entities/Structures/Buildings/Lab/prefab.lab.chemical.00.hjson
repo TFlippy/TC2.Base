@@ -310,7 +310,7 @@ essence.container:
 	@inventory1:
 	{
 		type: essence
-		flags: ignore_mass
+		flags: ignore_mass, no_auto_pickup
 		stack_size_multiplier: 0.050
 		
 		filter:
@@ -464,7 +464,7 @@ burner.state:
 	{
 		stack_size_multiplier: 0.500
 		type: input
-		flags: allow_ducts, ignore_mass
+		flags: allow_ducts, ignore_mass, no_auto_pickup
 		offset: [-0.250, 1.125]
 		filter:
 		{

@@ -132,7 +132,7 @@ burner:
 		stack_size_multiplier: 0.500
 		filter_flags: fuel
 		type: fuel
-		flags: allow_ducts, ignore_mass
+		flags: allow_ducts, ignore_mass, no_auto_pickup
 		offset: [-1.000, 1.500]
 	}
 	

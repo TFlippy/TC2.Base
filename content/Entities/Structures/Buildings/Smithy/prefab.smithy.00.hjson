@@ -227,7 +227,7 @@ essence.container:
 	@inventory1:
 	{
 		type: essence
-		flags: ignore_mass
+		flags: ignore_mass, no_auto_pickup
 		stack_size_multiplier: 0.200
 		
 		filter:

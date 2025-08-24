@@ -138,7 +138,7 @@ storage:
 	{
 		stack_size_multiplier: 8.000
 		type: ammo
-		flags: standalone, allow_ducts, ignore_mass, faction
+		flags: standalone, allow_ducts, ignore_mass, faction, no_auto_pickup
 		filter_flags: ammo
 
 		filter:

@@ -188,7 +188,7 @@ storage:
 	@inventory4:
 	{
 		type: storage
-		flags: standalone, public, faction, vertical
+		flags: standalone, public, faction, vertical, no_auto_pickup
 		stack_size_multiplier: 4.000
 		
 		offset: [0.000, 0.000]

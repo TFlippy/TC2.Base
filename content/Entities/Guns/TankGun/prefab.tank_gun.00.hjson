@@ -126,6 +126,7 @@ holdable:
 attachment:
 {
 	force_multiplier: 4.000
+	torque_multiplier: 2.500
 	offset: [-1.375, -0.125]
 	flags: mirror_rotate, full_rotate
 	tags: large, weapon, rotary, long

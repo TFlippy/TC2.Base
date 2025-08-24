@@ -1,0 +1,107 @@
+$name: "Flaktraktor"
+$prefab: "tractor.00"
+
++slot_cab|instance:
+{
+	+attached|child:
+	{
+		$prefab: "cabin.metal.02"
+
+		storage:
+		{
+			@inventory4:
+			{
+				resources:
+				[
+					{
+						material: "ammo.kn.aa"
+						quantity: 40.000
+					}
+					{
+						material: "ammo.kn.aa"
+						quantity: 40.000
+					}
+					{
+						material: "ammo.kn.aa"
+						quantity: 40.000
+					}
+					{
+						material: "ammo.kn.aa"
+						quantity: 40.000
+					}
+				]
+			}
+		}
+
+		+mount|instance:
+		{
+			attachment_slot:
+			{
+				flags: hold, keyboard_write, mouse_write
+			}
+			
+			+attached|child:
+			{
+				$prefab: "tank_gun.00"	
+			}
+		}
+	}
+}
+
++slot_motor|instance:
+{
+	+attached|child:
+	{
+		$prefab: "motor.prokopnik.00"
+
+		essence.container:
+		{
+			@inventory1:
+			{
+				resource:
+				{
+					material: "pellet.motion"
+					quantity: 8.000
+				}
+			}
+		}
+
+		motor:
+		{
+			speed_target_ratio: 1.000
+		}
+	}
+}
+
++slot_wheel_0|instance:
+{
+	+attached|child:
+	{
+		$prefab: "wheel.rubber.00.lg"
+	}
+}
+
++slot_wheel_1|instance:
+{
+	+attached|child:
+	{
+		$prefab: "wheel.rubber.00.lg"
+	}
+}
+
++slot_wheel_2|instance:
+{
+	+attached|child:
+	{
+		$prefab: "wheel.metal.00.md"
+	}
+}
+
++slot_wheel_3|instance:
+{
+	+attached|child:
+	{
+		$prefab: "wheel.metal.00.md"
+	}
+}
+

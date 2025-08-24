@@ -83,7 +83,7 @@ gun:
 	@inventory1:
 	{
 		type: ammo
-		flags: hidden, no_auto_pickup
+		flags: hidden, ignore_mass, no_auto_pickup
 		stack_size_multiplier: 1.000
 		
 		filter:

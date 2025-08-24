@@ -260,7 +260,7 @@ burner.state:
 	@inventory1:
 	{
 		type: fuel
-		flags: allow_ducts, ignore_mass
+		flags: allow_ducts, ignore_mass, no_auto_pickup
 		stack_size_multiplier: 1.000
 		
 		filter:

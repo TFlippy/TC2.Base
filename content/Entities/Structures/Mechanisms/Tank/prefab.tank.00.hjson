@@ -161,7 +161,7 @@ storage:
 		stack_size_multiplier: 4.000
 		type: storage
 		layout: vertical
-		flags: standalone, public, faction
+		flags: standalone, public, faction, no_auto_pickup
 
 		filter:
 		{

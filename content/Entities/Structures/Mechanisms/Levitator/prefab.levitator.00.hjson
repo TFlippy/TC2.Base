@@ -1,4 +1,4 @@
-$name: "EC Levitator"
+$name: "EC-Levitator"
 $desc:
 	'''
 	Powerful EC levitator used for propulsion.
@@ -118,7 +118,7 @@ essence.container:
 	@inventory1:
 	{
 		type: essence
-		flags: standalone
+		flags: standalone, no_auto_pickup
 		stack_size_multiplier: 0.150
 		
 		filter:

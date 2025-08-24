@@ -107,7 +107,7 @@ storage:
 	@inventory1:
 	{
 		type: ammo
-		flags: standalone, allow_ducts, ignore_mass
+		flags: standalone, allow_ducts, no_auto_pickup
 		stack_size_multiplier: 4.000
 		
 		filter:
