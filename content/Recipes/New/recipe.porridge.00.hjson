@@ -28,6 +28,7 @@
 					
 					type: undefined
 					flags: none
+					discard_damage_type_override: wet
 					
 					prefix: "Half-Assed "
 					
@@ -39,7 +40,26 @@
 							amount: 1.000
 							snapping: 1.000
 							falloff: 0.890
-							loss: 0.216
+							loss: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: mushroom.brown
+							amount: 3.550847
+							snapping: 0.500
+							loss: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: tallow
+							amount: 2.1826
+							snapping: 0.100
+							falloff: 0.606
+							loss: 1.000
 							group: 0
 							flags: prerequisite
 						}
@@ -49,16 +69,7 @@
 							amount: 0.300
 							snapping: 0.100
 							falloff: 0.844
-							loss: 0.024
-							group: 0
-							flags: prerequisite
-						}
-						{
-							type: resource
-							material: mushroom.brown
-							amount: 3.550847
-							snapping: 0.500
-							loss: 0.024
+							loss: 1.000
 							group: 0
 							flags: prerequisite
 						}
@@ -76,7 +87,7 @@
 						{
 							type: work
 							work: slicing
-							amount: 30.000
+							amount: 90.000
 							amount_min: 70.000
 							difficulty: 5
 							snapping: 5.000
@@ -86,31 +97,21 @@
 						}
 						{
 							type: resource
-							material: tallow
-							amount: 2.1826
-							snapping: 0.100
-							falloff: 0.606
-							loss: 0.024
-							group: 1
-							flags: prerequisite
-						}
-						{
-							type: resource
 							material: sawdust
 							amount: 1.673684
 							snapping: 0.100
 							falloff: 1.067
-							loss: 0.024
+							loss: 1.000
 							group: 1
 							flags: prerequisite
 						}
 						{
 							type: work
 							work: blending
-							amount: 27.000
+							amount: 100.000
 							amount_min: 140.000
 							difficulty: 7
-							snapping: 10.000
+							snapping: 5.000
 							falloff: 1.018
 							group: 1
 							flags: stepped, conditional
@@ -121,20 +122,39 @@
 					[
 						{
 							type: resource
-							material: porridge
-							amount: 4.8647
-							amount_extra: 0.4043
-							group: 0
-							flags: primary, compact
-						}
-						{
-							type: resource
 							material: oil
 							amount: 0.085
 							amount_extra: 0.2023
 							group: 0
-							chance: 0.675
-							flags: byproduct
+							ratio: 0.122
+							flags: residue, byproduct, secondary, compact, scale_to_mass
+						}
+						{
+							type: resource
+							material: mushroom.juice
+							amount: 0.117
+							amount_extra: 0.1033
+							group: 0
+							ratio: 0.216
+							flags: residue, scale_to_mass
+						}
+						{
+							type: resource
+							material: porridge
+							amount: 4.8647
+							amount_extra: 0.4043
+							group: 0
+							ratio: 0.906
+							flags: primary, compact, scale_to_mass
+						}
+						{
+							type: resource
+							material: mush
+							amount: 0.117
+							amount_extra: 0.0733
+							group: 0
+							ratio: 0.973
+							flags: waste, scale_to_mass
 						}
 					]
 					
@@ -155,6 +175,8 @@
 	type: workshop
 	flags: production, wip
 	tags: manual, dumb, crude, simple, small, organic, blending, messy
+	hints: none
+	connotations: none
 	infrastructure: bucket
 	infrastructure_exclude: none
 	
@@ -162,27 +184,27 @@
 	
 	icon:
 	{
-		texture: resource.porridge
+		texture: resource.oil
 		size: [16, 16]
-		frame: [3, 0]
+		frame: [2, 0]
 	}
-	icon_offset: [-4.000, 1.000]
+	icon_offset: [8.000, 0.000]
 	
 	icon_extra:
 	{
-		texture: resource.mushroom.brown
+		texture: resource.porridge
 		size: [16, 16]
-		frame: [1, 0]
+		frame: [2, 0]
 	}
-	icon_extra_offset: [0.000, -6.000]
+	icon_extra_offset: [-12.000, -4.000]
 	
 	icon_c:
 	{
-		texture: resource.flour
+		texture: resource.mushroom.brown
 		size: [16, 16]
 		frame: [3, 0]
 	}
-	icon_c_offset: [-8.000, -14.000]
+	icon_c_offset: [-14.000, -10.000]
 	
 	color_frame: "0xffe3cb93"
 	color_button: "0xff9dd80f"

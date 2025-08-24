@@ -38,7 +38,7 @@
 		{
 			type: resource
 			material: steel.ingot
-			amount: 2.000
+			amount: 8.000
 			group: 0
 			flags: prerequisite
 		}
@@ -65,8 +65,8 @@
 		}
 		{
 			type: resource
-			material: thermopaste
-			amount: 8.000
+			material: directors
+			amount: 3.000
 			group: 0
 			flags: prerequisite
 		}
@@ -86,8 +86,13 @@
 	type: industry
 	flags: no_amount_multiplier, blueprintable, wip
 	tags: large, industrial, engineering, construction
+	hints: none
+	connotations: none
 	infrastructure: none
 	infrastructure_exclude: none
+	
+	dismantle_work: 10.000
+	dismantle_yield: 0.800
 	
 	icon:
 	{
@@ -100,9 +105,6 @@
 	color_button: "0xff9dd80f"
 	rank: -397.000
 	frame_size: [56.000, 56.000]
-	
-	dismantle_work: 10.000
-	dismantle_yield: 0.800
 	
 	placement:
 	{

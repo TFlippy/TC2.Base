@@ -27,7 +27,7 @@
 	]
 	
 	type: industry
-	flags: no_amount_multiplier, blueprintable, wip
+	flags: no_amount_multiplier, blueprintable, debug, wip
 	tags: large, blacksmithing, industrial, metallurgy, engineering, architecture, construction, moulding
 	hints: none
 	connotations: none

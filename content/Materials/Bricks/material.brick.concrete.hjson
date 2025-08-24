@@ -21,7 +21,7 @@
 	
 	// Inventory material type.
 	type: concrete
-	flags: hard, granular, large, heavy, manufactured, ingot, solid, processed
+	flags: hard, granular, heavy, manufactured, ingot, solid, processed
 	display_flags: sprite_stack_linear
 	spawn_flags:
 	{

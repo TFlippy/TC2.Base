@@ -1,11 +1,12 @@
 ﻿{
 	$version: "0.1.64.1"
-	name: "Magitronic Computer"
-	name_short: "Computer"
+	name: "Magitronic Computron"
+	name_short: "Computron"
+	name_imperial: "Linuks"
 	name_dumb: "Box"
 	description:
 		'''
-		General-purpose magitronic computer capable of performing advanced calculations.
+		Multi-functional magitronic Turing machines capable of good computing.
 		'''
 	
 	tips: []
@@ -20,12 +21,12 @@
 	// Inventory material type.
 	type: machine
 	flags: hard, magnetic, metal, large, heavy, fragile, manufactured, device, solid
-	display_flags: hide_fraction
+	display_flags: hide_fraction, sprite_stack_linear
 	spawn_flags:
 	{
 		add: no_discard
 	}
-	hints: materials, rare, heavy, advanced, machine, device, expensive, fancy, civilian, arcane, tech, office
+	hints: materials, rare, heavy, advanced, powerful, machine, device, expensive, fancy, civilian, industrial, arcane, tech, office, imperial
 	
 	// Ratio of the material volume to the total volume it occupies when stacked. A value of 1.0 means no empty space, while a value closer to 0.0 means a lot of empty space.
 	packing_fraction: 0.000
@@ -50,45 +51,6 @@
 	
 	centroid_default: [0.000, 0.250]
 	colliders: []
-	
-	commodity:
-	{
-		availability: 1.000
-		rarity: 1.000
-		scalability: 1.000
-		reusability: 1.000
-		longevity: 1.000
-		complexity: 1.000
-		tech: 1.000
-		liquidity: 1.000
-		demand: 1.000
-		
-		flags: none
-		categories: machinery, components, technology, consumer, industrial, military, toys
-		
-		industries_produce: none
-		industries_consume: none
-		industries_buy: none
-		industries_sell: none
-		
-		buildings_produce: none
-		buildings_consume: none
-		buildings_buy: none
-		buildings_sell: none
-		
-		categories_produce: none
-		categories_consume: none
-		categories_buy: none
-		categories_sell: none
-		
-		market_price: 1150.000
-		market_price_min: 0.000
-		market_price_max: 0.000
-		
-		quantity_retail: 0.000
-		quantity_wholesale: 0.000
-		quantity_industry: 0.000
-	}
 	
 	// Damage-based conversions.
 	conversions:
@@ -120,5 +82,17 @@
 			velocity_mult: 1.000
 			damage_mult: 1.000
 		}
+	}
+	
+	// Info regarding relations of other materials towards this material.
+	related:
+	{
+		pellet.cognition: none
+		scrap.arcane: none
+		actuator: none
+		directors: none
+		machine_parts: none
+		scrap.machine: none
+		steel.frames: none
 	}
 }

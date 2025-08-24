@@ -1,9 +1,9 @@
 ﻿{
 	$version: "0.1.64.1"
-	name: "Slimy Mortar"
+	name: "Porridge-based Mortar"
 	desc:
 		'''
-		While this slop barely even counts as mortar, at least it doesn't need water.
+		TODO: Desc
 		'''
 	tips: []
 	
@@ -33,9 +33,9 @@
 					[
 						{
 							type: resource
-							material: insect
-							amount: 18.000
-							snapping: 0.500
+							material: porridge
+							amount: 9.414634
+							snapping: 0.100
 							loss: 0.071
 							group: 0
 							flags: no_residue, prerequisite
@@ -77,8 +77,8 @@
 						}
 						{
 							type: resource
-							material: soil
-							amount: 5.000
+							material: cement
+							amount: 0.871212
 							snapping: 0.500
 							loss: 0.020
 							group: 1
@@ -86,9 +86,9 @@
 						}
 						{
 							type: resource
-							material: lime
-							amount: 2.000
-							snapping: 0.500
+							material: sawdust
+							amount: 16.05263
+							snapping: 0.100
 							group: 1
 							flags: no_residue, prerequisite
 						}
@@ -107,6 +107,34 @@
 						}
 					]
 					
+					products:
+					[
+						{
+							type: resource
+							material: oil
+							amount: 0.668336
+							amount_extra: 1.13272
+							group: 0
+							flags: residue, byproduct
+						}
+						{
+							type: resource
+							material: mush
+							amount: 4.270857
+							amount_extra: 1.8651
+							group: 0
+							flags: waste, residue
+						}
+						{
+							type: resource
+							material: water.toxic
+							amount: 0.648145
+							amount_extra: 0.542392
+							group: 0
+							flags: pollutant, waste
+						}
+					]
+					
 					filter_tools:
 					{
 						require: knife
@@ -116,42 +144,6 @@
 					{
 						include: dishes, compactor, blender, press, form
 					}
-				}
-			]
-			
-			products:
-			[
-				{
-					type: resource
-					material: sludge
-					amount: 2.894
-					amount_extra: 4.226
-					group: 0
-					flags: pollutant, waste, secondary, spawn
-				}
-				{
-					type: resource
-					material: water.toxic
-					amount: 0.648145
-					amount_extra: 0.542392
-					group: 0
-					flags: pollutant, waste
-				}
-				{
-					type: resource
-					material: mush
-					amount: 4.270857
-					amount_extra: 1.8651
-					group: 0
-					flags: waste, residue
-				}
-				{
-					type: resource
-					material: oil
-					amount: 0.668336
-					amount_extra: 1.13272
-					group: 0
-					flags: residue, byproduct
 				}
 			]
 		}

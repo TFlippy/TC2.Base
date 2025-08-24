@@ -20,7 +20,7 @@
 	
 	// Inventory material type.
 	type: metal_pole
-	flags: hard, long, magnetic, metal, small, thin, flexible, solid, processed
+	flags: hard, magnetic, metal, small, thin, manufactured, flexible, solid, processed
 	display_flags: sprite_stack_linear, no_random_facing
 	spawn_flags:
 	{

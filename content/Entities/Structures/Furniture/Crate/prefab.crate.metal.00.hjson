@@ -7,9 +7,9 @@ $tags: []
 
 body:
 {
-	buoyancy: 0.300
+	buoyancy: 0.500
 	fall_damage_multiplier: 0.200
-	inventory_weight_multiplier: 0.400
+	inventory_weight_multiplier: 0.350
 	
 	@shape.box:
 	{

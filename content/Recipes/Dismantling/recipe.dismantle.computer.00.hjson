@@ -3,7 +3,7 @@
 	name: "Dismantle Computron"
 	desc:
 		'''
-		Scrap a computron for parts.
+		Break down an immensely valuable marvel of magitronic engineering into a large pile of spare parts.
 		'''
 	tips: []
 	
@@ -28,6 +28,7 @@
 					
 					type: undefined
 					flags: none
+					discard_damage_type_override: sledgehammer
 					
 					requirements:
 					[
@@ -37,12 +38,12 @@
 							amount: 1250.000
 							amount_min: 550.000
 							difficulty: 14
-							snapping: 50.000
-							falloff: 0.790
+							snapping: 25.000
+							falloff: 0.891
 							loss: 0.322
-							ratio: 0.675
+							ratio: 0.722
 							group: 0
-							flags: conditional
+							flags: stepped, conditional
 						}
 					]
 					
@@ -50,16 +51,27 @@
 					[
 						{
 							type: resource
+							material: pellet.cognition
+							amount: 3.000
+							snapping: 1.000
+							group: 0
+							flags: byproduct, primary, compact
+						}
+						{
+							type: resource
 							material: actuator
 							amount: 2.000
+							amount_extra: 0.444
+							snapping: 0.500
 							group: 0
-							flags: residue, primary, compact, add_to_residues
+							flags: residue, byproduct, add_to_residues
 						}
 						{
 							type: resource
 							material: directors
 							amount: 1.771024
 							amount_extra: 0.793217
+							snapping: 0.250
 							group: 0
 							flags: residue, byproduct
 						}
@@ -67,16 +79,18 @@
 							type: resource
 							material: machine_parts
 							amount: 15.000
-							amount_extra: 12.000
-							group: 0
-							flags: residue, byproduct
+							amount_extra: 4.000
+							snapping: 0.100
+							group: 1
+							flags: residue
 						}
 						{
 							type: resource
 							material: steel.frames
-							amount: 4.600
-							amount_extra: 1.300
-							group: 0
+							amount: 3.118644
+							amount_extra: 0.881356
+							snapping: 0.090
+							group: 1
 							flags: residue
 						}
 						{
@@ -84,8 +98,8 @@
 							material: scrap.machine
 							amount: 0.283296
 							amount_extra: 0.373
-							group: 0
-							ratio: 0.722
+							group: 2
+							ratio: 0.522
 							flags: waste, scale_to_mass
 						}
 						{
@@ -93,7 +107,7 @@
 							material: scrap.arcane
 							amount: 0.283296
 							amount_extra: 0.373
-							group: 0
+							group: 2
 							ratio: 1.000
 							flags: waste, scale_to_mass
 						}
@@ -127,12 +141,14 @@
 	]
 	
 	type: workshop
-	flags: item, dismantling, wip, converted
-	tags: manual, crafting, simple, complex, engineering, salvaging
+	flags: item, dismantling, wip
+	tags: manual, crafting, dumb, simple, complex, engineering, salvaging
 	hints: none
 	connotations: none
 	infrastructure: table, chair, surface
 	infrastructure_exclude: none
+	
+	h_company: common
 	
 	icon:
 	{
@@ -140,22 +156,23 @@
 		size: [16, 16]
 		frame: [3, 0]
 	}
-	icon_offset: [6.000, 2.000]
+	icon_offset: [12.000, -4.000]
 	
 	icon_extra:
 	{
-		texture: ui_icons_crafting.mini
+		texture: ui_icons_widget
 		size: [16, 16]
+		frame: [10, 5]
 	}
-	icon_extra_offset: [-14.000, -26.000]
+	icon_extra_offset: [-12.000, -12.000]
 	
 	icon_c:
 	{
-		texture: resource.scrap.machine
+		texture: resource.scrap.arcane
 		size: [16, 16]
-		frame: [1, 0]
+		frame: [2, 0]
 	}
-	icon_c_offset: [-17.000, -6.000]
+	icon_c_offset: [-14.000, -8.000]
 	
 	color_frame: "0xffac7534"
 	color_button: "0xff9dd80f"

@@ -68,7 +68,9 @@
 						{
 							type: resource
 							material: hydrogen_peroxide
-							amount: 0.250
+							amount: 0.143678
+							snapping: 0.100
+							falloff: 0.700
 							group: 0
 							flags: prerequisite
 						}
@@ -88,11 +90,11 @@
 							work: mixing.liquid
 							amount: 170.000
 							amount_min: 125.000
-							difficulty: 3
+							difficulty: 5
 							snapping: 5.000
 							falloff: 0.616
 							group: 1
-							flags: stepped, conditional
+							flags: conditional
 						}
 					]
 					
@@ -121,12 +123,14 @@
 	]
 	
 	type: workshop
-	flags: wip, auto_complete, converted
-	tags: manual, simple, small, alchemistry, biology
+	flags: production, wip
+	tags: manual, basic, simple, raw, alchemistry, refining
 	hints: none
 	connotations: none
 	infrastructure: bucket
 	infrastructure_exclude: none
+	
+	h_company: carohrad
 	
 	icon:
 	{
@@ -152,16 +156,7 @@
 	max: 100
 	step: 1
 	
-	construction:
-	{
-		
-		requirements:
-		[
-			null
-		]
-	}
-	
-	h_sound_complete: effect.use.machine.00
+	h_sound_complete: effect.flush.slimy.00
 	
 	version: 1
 }
