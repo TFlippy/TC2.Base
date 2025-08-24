@@ -41,7 +41,17 @@ body:
 
 health:
 {
-	max: 210000.000
+	max: 110000.000
+}
+
+armor:
+{
+	toughness: 120.000
+	protection: 0.500
+	coverage: 0.350
+	integrity_damage_mult: 0.940
+	material_type: metal
+	flags: no_damage_type_conversion
 }
 
 animated.renderer:

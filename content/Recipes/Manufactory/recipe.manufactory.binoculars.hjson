@@ -260,8 +260,10 @@
 	]
 	
 	type: workshop
-	flags: blueprintable, item, production, manufacturing, wip
+	flags: blueprintable, item, production, manufacturing
 	tags: manual, crafting, complex, small, delicate, assembling, metalworking, engineering
+	hints: none
+	connotations: none
 	infrastructure: table, chair
 	infrastructure_exclude: none
 	

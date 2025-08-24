@@ -481,7 +481,7 @@
 	]
 	
 	type: workshop
-	flags: item, production, wip
+	flags: item, production
 	tags: manual, dumb, crude, simple, small, blending, messy
 	hints: none
 	connotations: none

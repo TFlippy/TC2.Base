@@ -204,8 +204,10 @@
 	]
 	
 	type: workshop
-	flags: wip
+	flags: production
 	tags: manual, crafting, crude, simple, small, munitions, delicate, woodworking, assembling
+	hints: none
+	connotations: none
 	infrastructure: surface
 	infrastructure_exclude: none
 	

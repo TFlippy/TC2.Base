@@ -421,6 +421,12 @@ namespace TC2.Base.Components
 						Material.Type.Device => true,
 						Material.Type.Egg => true,
 						Material.Type.Fur => true,
+						Material.Type.Brick_Metallic => true,
+						Material.Type.Ammo => false,
+						Material.Type.Crystal => true,
+						Material.Type.Building_Wood => false,
+						Material.Type.Building_Masonry => true,
+						Material.Type.Building_Reinforced => true,
 						_ => false
 					};
 				}

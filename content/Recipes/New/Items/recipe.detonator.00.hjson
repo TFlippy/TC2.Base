@@ -1,5 +1,4 @@
 ﻿{
-	$region_id: 0
 	$version: "0.1.64.1"
 	name: "Detonator"
 	
@@ -301,7 +300,7 @@
 	]
 	
 	type: workshop
-	flags: blueprintable, production, wip
+	flags: blueprintable, production
 	tags: manual, crafting, complex, small, device, delicate, assembling, metalworking, engineering, alchemistry, explosive, dangerous
 	hints: none
 	connotations: none

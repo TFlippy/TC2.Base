@@ -333,7 +333,7 @@
 	]
 	
 	type: workshop
-	flags: blueprintable, item, wip
+	flags: blueprintable, item
 	tags: manual, crafting, simple, small, metalworking
 	hints: none
 	connotations: none
