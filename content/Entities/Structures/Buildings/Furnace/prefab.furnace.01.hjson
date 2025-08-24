@@ -1,7 +1,9 @@
-$name: "Furnace (Large)"
+$name: "Derelict Furnace"
 $desc:
 	'''
-	Large metalworking furnace.
+	It used to be a huge mighty metalworking furnace, but its hubris led to its downfall.
+
+	The firebox got clogged up with runaway slag and it died in agony.
 	'''
 $tags: []
 
@@ -11,26 +13,35 @@ body:
 	
 	@shape.polygon:
 	{
-		points: 
-		[
-			[-1.875, -2.500]
-			[1.125, -2.500]
-			[2.000, 4.000]
-			[-2.000, 4.000]
-		]
-		offset: [0.000, 0.000]
+		material: building_masonry
+		miss_chance: 0.000
+		flags: none
+		tags: none
+		
+		layer: entity, building, ignore_melee, ignore_bullet
+		mask: world
+		exclude: none
+		
 		mass: 4500.000
+		radius: 0.500
 		friction: 0.500
 		elasticity: 0.500
-		material: concrete
-		layer: entity, building, storage, support, ignore_melee
-		mask: world
+		
+		cog_offset: [0.000, 0.000]
+		
+		points:
+		[
+			[-1.250, -2.250]
+			[0.750, -2.375]
+			[1.750, 3.750]
+			[-1.750, 3.750]
+		]
 	}
 }
 
 health:
 {
-	max: 350000.000
+	max: 210000.000
 }
 
 animated.renderer:
@@ -45,6 +56,102 @@ animated.renderer:
 transform:
 {
 
+}
+
+interactable:
+{
+	flags: no_tab, centered_inventory
+	window_size: [192.000, 96.000]
+	window_size_misc: [48.000, 0.000]
+}
+
+harvestable:
+{
+	resources:
+	[
+		{
+			material: scrap.rubble
+			quantity: 1110.000
+		}
+		{
+			material: scrap.metal
+			quantity: 480.000
+		}
+		{
+			material: steel.ingot
+			quantity: 18.47263
+		}
+		{
+			material: tar
+			quantity: 132.500
+		}
+	]
+	
+	thresholds: [0.892, 0.980, 0.868, 0.738]
+	
+	pct_damage_mult: [0.976, 0.910, 0.971, 0.964]
+	pct_quantity_min: [0.031, 0.039, 0.062, 0.080]
+	
+	chance_base: [0.322, 0.192, 0.102, 0.149]
+}
+
+storage:
+{
+	@loot.container:
+	{
+		rarity_min: 0.350
+		rarity_mid: 3.250
+		rarity_max: 7.500
+		rarity_falloff: 0.880
+		
+		weight_multiplier: 1.000
+		amount_multiplier: 1.300
+		
+		flags: no_duplicates, shuffle_inventory
+		merge_flags: skip_prefabs, bias_weight
+		
+		rolls: 5
+		rolls_extra: 3
+		
+		tables:
+		[
+			trash.metal.00
+			junk.ruins.00
+		]
+	}
+
+	@inventory8:
+	{		
+		type: wreckage
+		flags: ignore_mass, no_auto_pickup
+		stack_size_multiplier: 4.000
+		
+		offset: [-1.000, 2.375]
+
+		filter:
+		{
+			exclude: gas
+		}
+	}
+
+	@inventory1:
+	{
+		type: fuel
+		flags: standalone, ignore_mass, no_auto_pickup, locked
+		stack_size_multiplier: 2.000
+		
+		filter:
+		{
+			exclude: gas
+		}
+		offset: [1.000, 2.750]
+		
+		resource:
+		{
+			material: slag
+			quantity: 112.23
+		}
+	}
 }
 
 // shop:
@@ -69,36 +176,36 @@ transform:
 	
 // }
 
-sound.emitter|"aux":
-{
-	file: "burner.gas.loop.02"
-	flags: start_muted
-	volume: 0.300
-	pitch: 0.500
-	size: 1.000
-	size_max_modifier: 0.500
-}
+// sound.emitter|"aux":
+// {
+// 	file: "burner.gas.loop.02"
+// 	flags: start_muted
+// 	volume: 0.300
+// 	pitch: 0.500
+// 	size: 1.000
+// 	size_max_modifier: 0.500
+// }
 
-air.vent|"exhaust":
-{
-	type: exhaust
-	offset: [-0.250, -3.500]
-	rotation: -1.571
-	cross_section: 1.000
-}
+// air.vent|"exhaust":
+// {
+// 	type: exhaust
+// 	offset: [-0.250, -3.500]
+// 	rotation: -1.571
+// 	cross_section: 1.000
+// }
 
-air.vent|"intake":
-{
-	type: intake
-	offset: [0.000, 1.000]
-	rotation: 1.571
-	cross_section: 0.900
-}
+// air.vent|"intake":
+// {
+// 	type: intake
+// 	offset: [0.000, 1.000]
+// 	rotation: 1.571
+// 	cross_section: 0.900
+// }
 
-air.container:
-{
-	volume: 5.000
-}
+// air.container:
+// {
+// 	volume: 5.000
+// }
 
 // burner:
 // {
