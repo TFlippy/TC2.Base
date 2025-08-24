@@ -12,27 +12,35 @@ body:
 	
 	@shape.polygon:
 	{
-		points:
-		[
-			[2.500, 2.500]
-			[-3.000, 2.500]
-			[-2.250, -2.500]
-			[2.250, -0.000]
-		]
-		offset: [0.000, 0.000]
+		material: wreck
+		miss_chance: 0.835
+		flags: none
+		tags: none
+		
+		layer: entity, background, building
+		mask: world
+		exclude: none
+		
+		mass: 3260.000
+		radius: 0.500
 		friction: 0.500
 		elasticity: 0.500
-		mass: 1260.000
-		material: wreck
-		layer: entity, building, background
-		mask: world
-		miss_chance: 0.835
+		
+		cog_offset: [0.000, 0.000]
+		
+		points:
+		[
+			[2.000, 2.125]
+			[-2.500, 2.000]
+			[-2.000, -2.000]
+			[1.500, 0.500]
+		]
 	}
 }
 
 health:
 {
-	max: 72000.000
+	max: 98000.000
 }
 
 animated.renderer:

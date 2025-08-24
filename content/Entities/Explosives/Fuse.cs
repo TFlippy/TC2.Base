@@ -37,6 +37,31 @@ namespace TC2.Base.Components
 		}
 
 #if SERVER
+		// TODO: merge this with OnUpdate()
+		[ISystem.Event<Interactable.InteractEvent>(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("lit", false, Source.Modifier.Owned)]
+		public static void OnInteract(Entity entity, ref XorRandom random, ref Region.Data region, [Source.Owned] ref Interactable.InteractEvent ev,
+		[Source.Owned] ref Fuse.Data fuse, [Source.Owned] ref Explosive.Data explosive, 
+		[Source.Owned] ref Interactable.Data interactable, [Source.Owned] in Transform.Data transform)
+		{
+			if (fuse.flags.HasAny(Fuse.Flags.Activate_On_Interact))
+			{
+				entity.SetTag("lit", true);
+				explosive.flags |= Explosive.Flags.Primed;
+				//explosive.ent_owner = body.GetParent();
+
+				//Notification.Push(in player, "Lit a fuse.", Color32BGRA.Yellow, 5.00f);
+				Sound.Play(ref region, fuse.sound, transform.position, priority: 0.65f);
+
+				if (fuse.failure_chance > Maths.epsilon && random.NextBool(fuse.failure_chance))
+				{
+					fuse.failure_time = fuse.time * random.NextFloatRange(0.30f, 0.70f);
+				}
+
+				explosive.Sync(entity, true);
+				fuse.Sync(entity, true);
+			}
+		}
+
 		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("lit", false, Source.Modifier.Owned)]
 		public static void OnUpdate(ISystem.Info info, Entity entity, ref XorRandom random, ref Region.Data region,
 		[Source.Owned] ref Fuse.Data fuse, [Source.Owned] ref Explosive.Data explosive,
@@ -47,7 +72,7 @@ namespace TC2.Base.Components
 			{
 				entity.SetTag("lit", true);
 				explosive.flags |= Explosive.Flags.Primed;
-				explosive.ent_owner = body.GetParent();
+				//explosive.ent_owner = body.GetParent();
 
 				Notification.Push(in player, "Lit a fuse.", Color32BGRA.Yellow, 5.00f);
 				Sound.Play(ref region, fuse.sound, transform.position, priority: 0.65f);

@@ -94,7 +94,7 @@
 	
 	type: workshop
 	flags: no_amount_multiplier, blueprintable, item, wip, converted
-	tags: manual, crafting, complex, medium, tool, assembling, metalworking, engineering, construction
+	tags: crafting, complex, medium, machinery, assembling, metalworking, engineering, construction
 	hints: none
 	connotations: none
 	infrastructure: surface
@@ -108,7 +108,7 @@
 	
 	color_frame: "0xffaeb59a"
 	color_button: "0xff9dd80f"
-	rank: 2000.000
+	rank: 1.000
 	frame_size: [64.000, 64.000]
 	
 	min: 1

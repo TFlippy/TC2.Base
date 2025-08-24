@@ -124,7 +124,7 @@ namespace TC2.Base.Components
 			[Save.NewLine]
 			public float modifier = 1.00f;
 
-			[Net.Ignore, Asset.Ignore] public Entity ent_owner;
+			[Net.Ignore, Asset.Ignore, Obsolete] public Entity ent_owner;
 		}
 
 		[ISystem.Add(ISystem.Mode.Single, ISystem.Scope.Region)]
