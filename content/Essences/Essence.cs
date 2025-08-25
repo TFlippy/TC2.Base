@@ -292,6 +292,7 @@ namespace TC2.Base.Components
 			//	[0] = 7, 4, 4, 4
 			//};
 
+			[Shitcode]
 			[ISystem.Modified(ISystem.Mode.Single, ISystem.Scope.Region, order: 50)]
 			public static void OnModified_Sound([Source.Owned] ref Essence.Container.Data container,
 			[Source.Owned, Pair.Component<Essence.Container.Data>] ref Sound.Emitter sound_emitter)

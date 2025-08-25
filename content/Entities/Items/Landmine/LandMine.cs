@@ -40,7 +40,7 @@ namespace TC2.Base.Components
 #if SERVER
 		[ISystem.Event<Interactable.InteractEvent>(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnInteract(ISystem.Info info, Entity entity, ref Region.Data region, ref XorRandom random, [Source.Owned] ref Interactable.InteractEvent data,
-		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Interactable.Data interactable, [Source.Owned] ref Body.Data body, [Source.Owned] ref LandMine.Data landmine)
+		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Interactable.Data interactable, [Source.Owned] ref LandMine.Data landmine)
 		{
 			Sound.Play(ref region, landmine.sound_arm, transform.position, volume: 0.60f, pitch: 1.00f, priority: 0.60f, size: 0.90f);
 			landmine.flags.SetFlag(LandMine.Flags.Armed, !landmine.flags.HasAny(LandMine.Flags.Armed));
@@ -66,9 +66,9 @@ namespace TC2.Base.Components
 						{
 							if (landmine.flags.HasAny(LandMine.Flags.Faction) && faction.id != 0 && arbiter.GetFaction() == faction.id) continue;
 
-							Sound.Play(ref region, landmine.sound_trigger, transform.position, volume: 0.70f, pitch: 0.80f, priority: 0.60f);
+							Sound.Play(region: ref region, sound: landmine.sound_trigger, world_position: transform.position, volume: 0.70f, pitch: 0.80f, priority: 0.60f);
 
-							explosive.flags.SetFlag(Explosive.Flags.Primed, true);
+							explosive.flags.AddFlag(Explosive.Flags.Primed);
 							entity.Delete();
 
 							//arbiter.SetIgnored();

@@ -30,8 +30,9 @@
 						{
 							type: resource
 							material: nitroglycerine
-							amount: 3.816794
+							amount: 5.089058
 							snapping: 0.100
+							falloff: 0.964
 							loss: 0.075
 							group: 0
 							flags: prerequisite
@@ -41,7 +42,7 @@
 							material: sawdust
 							amount: 2.812105
 							snapping: 0.100
-							loss: 0.012
+							loss: 0.063
 							group: 0
 							flags: prerequisite
 						}
@@ -79,7 +80,7 @@
 							amount_min: 55.000
 							difficulty: 5
 							snapping: 5.000
-							falloff: 0.930
+							falloff: 0.915
 							group: 1
 							flags: stepped, simultaneous, conditional
 						}
@@ -127,7 +128,7 @@
 	
 	type: workshop
 	flags: blueprintable, item, production, wip, converted
-	tags: manual, crafting, simple, small, weapon, munitions, delicate, explosive, dangerous
+	tags: manual, crafting, simple, small, weapon, munitions, delicate, blending, explosive, dangerous
 	hints: none
 	connotations: none
 	infrastructure: surface

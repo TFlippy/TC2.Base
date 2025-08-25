@@ -13,6 +13,7 @@ namespace TC2.Base.Components
 			Explode_When_Primed = 1 << 2,
 			No_Self_Damage = 1 << 3,
 			Repeatable = 1 << 4,
+			Primed_When_Destroyed = 1 << 5,
 		}
 
 		[IEvent.Data]
@@ -159,7 +160,7 @@ namespace TC2.Base.Components
 			//App.WriteLine(health.integrity);
 			if (health.integrity <= explosive.health_threshold && (health.integrity <= 0.00f || explosive.detonate_chance.Evaluate(random: ref random, ignore_if_zero: true)))
 			{
-				if (explosive.flags.HasAny(Explosive.Flags.Any_Damage))
+				if (explosive.flags.HasAny(Explosive.Flags.Any_Damage) || (explosive.flags.HasAny(Explosive.Flags.Primed_When_Destroyed) && health.integrity <= 0.00f))
 				{
 					explosive.flags |= Explosive.Flags.Primed;
 				}
@@ -187,7 +188,8 @@ namespace TC2.Base.Components
 			ref var material = ref resource.material.GetData();
 			if (material.IsNotNull())
 			{
-				explosive.modifier = Maths.Sqrt(Maths.Normalize01(resource.quantity, material.quantity_max)).Clamp01();
+				//explosive.modifier = Maths.Sqrt(resource.GetQuantityNormalized()).Clamp01();
+				explosive.modifier = Maths.Cbrt(resource.GetQuantityNormalized().Clamp01());
 			}
 			//explosive.modifier = Maths.NormalizeClamp(resource.quantity, resource.material.GetDefinition().quantity_max);
 			//explosive.modifier = MathF.Log2(resource.quantity / Maths.Max(resource.material.GetDefinition().quantity_max, 1.00f));
@@ -228,11 +230,17 @@ namespace TC2.Base.Components
 					{
 						var random = XorRandom.New(true);
 
-						explosion.radius = Maths.Max(3.00f, Maths.Lerp01(explosive_tmp.radius * 0.25f, explosive_tmp.radius, explosive_tmp.modifier) * random.NextFloatExtra(0.80f, 0.20f));
-						explosion.power = Maths.Max(2.50f, Maths.Lerp01(explosive_tmp.power * 0.50f, explosive_tmp.power, explosive_tmp.modifier) * random.NextFloatExtra(0.80f, 0.20f));
+						App.WriteValue(explosive_tmp.modifier);
 
-						explosion.damage_entity = explosive_tmp.damage_entity * explosive_tmp.modifier * random.NextFloatExtra(0.85f, 0.18f);
-						explosion.damage_terrain = explosive_tmp.damage_terrain * explosive_tmp.modifier * random.NextFloatExtra(0.84f, 0.17f);
+						//explosion.radius = Maths.Max(3.00f, Maths.Lerp01(explosive_tmp.radius * 0.25f, explosive_tmp.radius, explosive_tmp.modifier) * random.NextFloatExtra(0.90f, 0.15f));
+						//explosion.radius = Maths.Max(3.00f, (explosive_tmp.radius * explosive_tmp.modifier) * random.NextFloatExtra(0.90f, 0.15f));
+						explosion.radius = Maths.Max(2.00f, (explosive_tmp.radius * explosive_tmp.modifier) * random.NextFloatExtra(0.90f, 0.15f));
+						//explosion.power = Maths.Max(2.50f, Maths.Lerp01(explosive_tmp.power * 0.50f, explosive_tmp.power, explosive_tmp.modifier) * random.NextFloatExtra(0.90f, 0.15f));
+						explosion.power = Maths.Max(1.50f, Maths.Lerp01(explosive_tmp.power * 0.50f, explosive_tmp.power, explosive_tmp.modifier) * random.NextFloatExtra(0.90f, 0.15f));
+
+						explosion.damage_entity = explosive_tmp.damage_entity * explosive_tmp.modifier * random.NextFloatExtra(0.90f, 0.18f);
+						//explosion.damage_terrain = explosive_tmp.damage_terrain * explosive_tmp.modifier * random.NextFloatExtra(0.90f, 0.17f);
+						explosion.damage_terrain = Maths.Lerp01(explosive_tmp.damage_terrain * 0.50f, explosive_tmp.damage_terrain, explosive_tmp.modifier) * random.NextFloatExtra(0.90f, 0.17f);
 
 						explosion.damage_type = explosive_tmp.damage_type;
 						explosion.damage_type_secondary = explosive_tmp.damage_type_secondary;

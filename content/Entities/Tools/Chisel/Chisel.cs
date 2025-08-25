@@ -52,7 +52,16 @@
 
 				//GUI.DrawChunkRect(ref region, w_pos_new);
 
-				terrain.Hit(rpc.entity, rpc.entity, rect: rect, world_position: this.world_position, direction: this.direction, damage: data.power * 100.00f, yield: 0.00f, mask: TileFlags.Non_Empty, no_loot_pickup: true);
+				terrain.Hit(ent_attacker: rpc.entity,
+					ent_owner: rpc.entity,
+					rect: rect,
+					world_position: this.world_position,
+					world_position_spawn: this.world_position,
+					direction: this.direction,
+					damage: data.power * 100.00f,
+					yield: 0.00f,
+					mask: TileFlags.Non_Empty,
+					no_loot_pickup: true);
 				//region.DrawDebugRect(rect, Color32BGRA.Magenta);
 
 				//{

@@ -117,7 +117,7 @@
 			{
 				var pos = transform.LocalToWorld(crafter.offset);
 				var purity = material_explosive.purity;
-				var explosive_mass = ev.resource_explosive.GetMassNormalized();
+				var explosive_mass = ev.resource_explosive.GetMass().m_value;
 
 				var (gas_mass, particulates_mass) = explosive_mass.Split(purity);
 
