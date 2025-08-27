@@ -11,21 +11,31 @@ body:
 	
 	@shape.line:
 	{
-		a: [-0.125, 0.000]
-		b: [0.375, 0.000]
-		radius: 0.625
+		material: metal
+		miss_chance: 0.251
+		flags: none
+		tags: none
+		
+		layer: entity, solid, item, magnetic, no_overlapped_placement, ignore_melee
+		mask: world
+		exclude: none
+		
 		mass: 20.000
+		radius: 0.625
 		friction: 0.750
 		elasticity: 0.400
-		material: metal
-		layer: entity, solid, ignore_melee, ignore_bullet, item
-		mask: world
+		
+		cog_offset: [0.000, 0.000]
+		
+		a: [-0.125, 0.000]
+		b: [0.375, 0.000]
+		offset: [0.000, 0.000]
 	}
 }
 
 health:
 {
-	max: 5500.000
+	max: 12500.000
 }
 
 animated.renderer:
@@ -85,14 +95,16 @@ rope.renderer:
 
 holdable:
 {
+	force_multiplier: 3.000
+	torque_multiplier: 0.500
+	stress_multiplier: 1.300
 	radius: 4.000
-	offset: [0.000, 0.000]
-	flags: none
+	flags: full_rotate
 }
 
 attachment:
 {
-	offset: [0.000, 0.000]
+	tags: medium, tool, utility, device, fixed, short, controllable
 }
 
 joint.base:
@@ -123,20 +135,21 @@ joint.rope2:
 		{
 			a: [-0.700, 0.000]
 			b: [0.700, 0.000]
+			miss_chance: 0.790
 			mass: 4.000
 			radius: 0.250
 			friction: 0.450
 			elasticity: 0.500
-			material: metal
-			layer: entity, solid
+			material: metal_pole
+			layer: entity, solid, item, no_overlapped_placement, magnetic, conductive
 			mask: world
-			exclude: dynamic
+			exclude: attached
 		}
 	}
 	
 	health:
 	{
-		max: 50000.000
+		max: 10000.000
 	}
 
 	animated.renderer:
@@ -180,7 +193,8 @@ joint.rope2:
 	{
 		max_force: 50000.000
 		offset: [0.625, 0.000]
-		mask: solid, item, creature, vehicle, attachable, crate, resource, shipment, holdable
-		exclude: bounds, belt, pipe, essence, water, gas
+		mask: solid, item, creature, vehicle, crate, resource, shipment, attachable, holdable
+		exclude: bounds, belt, pipe, conveyor, essence, water, fire, gas, powder, liquid, no_overlapped_placement, ignore_hover
+		sound: swish.00
 	}
 }
