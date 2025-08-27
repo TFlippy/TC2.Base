@@ -4,7 +4,7 @@
 	name_short: "Blending"
 	desc:
 		'''
-		TODO: Desc
+		Mixing of multiple materials into a uniform composition.
 		'''
 	
 	icon:

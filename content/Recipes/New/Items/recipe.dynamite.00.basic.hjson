@@ -1,12 +1,207 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.65.1"
 	name: "Dynamite"
 	tips: []
 	
 	stages:
 	[
 		{
-			name: "Construction"
+			name: "Formula"
+			
+			type: formula
+			flags: wip, auto_generated
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 1.000
+			mass_base: 2.500
+			
+			options:
+			[
+				{
+					name: "Nitro-Sawdust"
+					
+					type: undefined
+					flags: wip, auto_generated
+					
+					suffix: " (Sawdust)"
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: nitroglycerine
+							amount: 5.089058
+							snapping: 0.100
+							falloff: 0.980
+							loss: 0.075
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: sawdust
+							amount: 2.631579
+							snapping: 0.100
+							loss: 0.063
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: blending
+							amount: 350.000
+							amount_min: 150.000
+							difficulty: 5
+							snapping: 5.000
+							falloff: 0.794
+							group: 0
+							flags: stepped, conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						include: paper, ruler, cutters, tweezers, magnifying_glass, paintbrush, stapler, file, knife
+					}
+					filter_infrastructure:
+					{
+						include: table, chair, structure
+					}
+					filter_environment:
+					{
+						include: workshop, office, stationary, clean, cozy, organized
+						exclude: wet
+					}
+				}
+				{
+					name: "Trinitroigelit"
+					
+					type: undefined
+					flags: wip, auto_generated
+					
+					suffix: " (TNG)"
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: nitroglycerine
+							amount: 1.272265
+							snapping: 0.100
+							falloff: 0.967
+							loss: 0.075
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: tnt
+							amount: 3.866228
+							snapping: 0.100
+							falloff: 0.978
+							loss: 0.063
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: kneading
+							amount: 270.000
+							amount_min: 150.000
+							difficulty: 7
+							snapping: 5.000
+							falloff: 0.768
+							group: 0
+							flags: stepped, conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						include: paper, ruler, cutters, tweezers, magnifying_glass, paintbrush, stapler, file, knife
+					}
+					filter_infrastructure:
+					{
+						include: table, chair, structure
+					}
+					filter_environment:
+					{
+						include: workshop, office, stationary, clean, cozy, organized
+						exclude: wet
+					}
+				}
+				{
+					name: "D-Porridge"
+					
+					type: undefined
+					flags: wip, auto_generated
+					
+					suffix: " (D-Porridge)"
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: nitroglycerine
+							amount: 2.442748
+							snapping: 0.100
+							falloff: 0.997
+							loss: 0.075
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: nitrocellulose
+							amount: 2.942363
+							snapping: 0.100
+							falloff: 0.974
+							loss: 0.063
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: porridge
+							amount: 1.243902
+							snapping: 0.500
+							loss: 0.063
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: mashing
+							amount: 400.000
+							amount_min: 300.000
+							difficulty: 9
+							snapping: 5.000
+							falloff: 0.768
+							group: 0
+							flags: stepped, conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						include: paper, ruler, cutters, tweezers, magnifying_glass, paintbrush, stapler, file, knife
+					}
+					filter_infrastructure:
+					{
+						include: table, chair, structure
+					}
+					filter_environment:
+					{
+						include: workshop, office, stationary, clean, cozy, organized
+						exclude: wet
+					}
+				}
+			]
+		}
+		{
+			name: "Assembly"
 			
 			type: construction
 			flags: wip, auto_generated
@@ -20,7 +215,7 @@
 			options:
 			[
 				{
-					name: "Standard"
+					name: "Glued Paper"
 					
 					type: undefined
 					flags: wip, auto_generated
@@ -29,40 +224,10 @@
 					[
 						{
 							type: resource
-							material: nitroglycerine
-							amount: 5.089058
-							snapping: 0.100
-							falloff: 0.964
-							loss: 0.075
-							group: 0
-							flags: prerequisite
-						}
-						{
-							type: resource
-							material: sawdust
-							amount: 2.812105
-							snapping: 0.100
-							loss: 0.063
-							group: 0
-							flags: prerequisite
-						}
-						{
-							type: work
-							work: kneading
-							amount: 350.000
-							amount_min: 150.000
-							difficulty: 7
-							snapping: 5.000
-							falloff: 0.719
-							group: 0
-							flags: conditional
-						}
-						{
-							type: resource
 							material: paper
 							amount: 0.499297
 							snapping: 0.500
-							group: 1
+							group: 0
 							flags: prerequisite
 						}
 						{
@@ -70,7 +235,7 @@
 							material: glue
 							amount: 0.550
 							snapping: 0.500
-							group: 1
+							group: 0
 							flags: prerequisite
 						}
 						{
@@ -81,7 +246,7 @@
 							difficulty: 5
 							snapping: 5.000
 							falloff: 0.915
-							group: 1
+							group: 0
 							flags: stepped, simultaneous, conditional
 						}
 						{
@@ -92,7 +257,7 @@
 							difficulty: 4
 							snapping: 5.000
 							falloff: 0.800
-							group: 1
+							group: 0
 							flags: stepped, simultaneous, conditional
 						}
 					]
