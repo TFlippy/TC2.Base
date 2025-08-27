@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.8"
+	$version: "0.1.65.1"
 	name: "Hortspargl"
 	desc:
 		'''
@@ -8,7 +8,7 @@
 	
 	material_type: stone_metallic
 	tile_flags: non_empty
-	flags: raw, ore, uncommon, mineral, rock, igneous
+	flags: raw, ore, common, mineral, rock, igneous
 	
 	max_health: 82000.000
 	smoothing: 0.134
@@ -16,7 +16,8 @@
 	strength_tensile: 8.500
 	strength_compressive: 15.800
 	
-	mass: 2.160
+	mass: 3.460
+	density: 0.000
 	friction: 0.650
 	elasticity: 0.790
 	fall_damage_mult: 1.020
