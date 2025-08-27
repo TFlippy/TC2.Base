@@ -176,7 +176,7 @@
 							work: mashing
 							amount: 400.000
 							amount_min: 300.000
-							difficulty: 9
+							difficulty: 11
 							snapping: 5.000
 							falloff: 0.768
 							group: 0

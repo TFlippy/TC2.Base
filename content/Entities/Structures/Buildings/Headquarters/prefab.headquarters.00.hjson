@@ -80,7 +80,7 @@ storage:
 		
 		filter:
 		{
-			exclude: gas, large, heavy
+			exclude: gas, large
 		}
 		offset: [2.000, 0.875]
 	}
@@ -112,7 +112,7 @@ interactable:
 {
 	flags: no_tab
 	priority: 1.500
-	window_size: [624.000, 536.000]
+	window_size: [664.000, 560.000]
 	window_size_misc: [192.000, 0.000]
 }
 
@@ -142,7 +142,7 @@ armory:
 	{
 		type: ammo
 		flags: ignore_mass, public, faction, vertical
-		stack_size_multiplier: 4.000
+		stack_size_multiplier: 8.000
 		
 		filter:
 		{
@@ -188,28 +188,35 @@ shop:
 {
 	tags_filter:
 	{
-		include: manual, crafting, simple, small, medium, tailoring, research, social, science, military, architecture
-		exclude: advanced, large, huge, vehicle, blacksmithing, fermenting, heating
+		include: manual, munitions, tailoring, engineering, salvaging, medical, research, social, science
+		exclude: advanced, medium, large, huge, vehicle, blacksmithing, smelting, fermenting, heating, overworld
 	}
+	tags_preferred: crafting, small, device, weapon, tool, munitions, delicate, assembling, tailoring, engineering, cooking, social, construction
 	
-	tools: pencil, paper, ruler, hammer, screwdriver, spanner, tweezers, magnifying_glass, stapler, towel, knife, needle, pins, scissors, utensils
-	infrastructure: dishes, bottle, table, chair, rack, bed, stationery, surface, office, building
-	environment: indoor, warm, office, stationary, fancy, cozy
+	tools: pencil, paper, ruler, hammer, screwdriver, magnifying_glass, bucket, towel, knife, sandpaper, needle, pins, scissors
+	infrastructure: dishes, bottle, table, chair, bed, stationery, bucket, surface, office, building
+	environment: office, stationary, cozy, quiet, flammable, cramped, small
+	connotations: none
 	
 	flags: embed_gui
 	menu_columns: 4
 	recipe_type: workshop
-	
-	offset_spawn: [-1.000, 0.625]
 	
 	name: "Headquarters"
 }
 
 workshop:
 {
-	orders_capacity: 2
+	orders_capacity: 3
 	h_sound_order_complete: computer.bell.00
-	max_order_mass: 150.000
+	max_order_mass: 70.000
+	gui_info_size_x: 252.000
+}
+
+crafter:
+{
+	flags: no_gui
+	temperature_max: 493.150
 }
 
 stockpile:
@@ -255,4 +262,55 @@ company:
 office:
 {
 	flags: force_faction_company
+}
+
+personnel:
+{
+	flags: store_characters
+
+	slots:
+	[
+		{
+			role: officer
+			tags: management, administrative, military, paperwork, sedentary
+			color: "0xff719240"
+			multiplier: 3.000
+		}
+		{
+			role: clerk
+			tags: administrative, civil, paperwork, sedentary
+			color: "0x8f005ec2"
+			multiplier: 2.000
+		}
+		{
+			role: clerk
+			tags: administrative, civil, paperwork, sedentary
+			color: "0x8f005ec2"
+			multiplier: 2.000
+		}
+		{
+			role: clerk
+			tags: administrative, civil, paperwork, sedentary
+			color: "0x8f005ec2"
+			multiplier: 2.000
+		}
+		{
+			role: guard
+			tags: security, combat, military
+			color: "0xff719240"
+			multiplier: 1.000
+		}
+	]
+	characters_capacity: 5
+}
+
+laboratory:
+{
+	blueprints_capacity: 3
+	augments_capacity: 9
+	filter_tags:
+	{
+		include: device, weapon, tool, munitions, furniture, tailoring, engineering, cooking, medical, research, social, science, military, architecture, explosive
+		exclude: vehicle
+	}
 }

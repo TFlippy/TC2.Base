@@ -38,7 +38,7 @@ namespace TC2.Base.Components
 #if SERVER
 			if (ev.damage > 0.00f && ev.flags.HasNone(Projectile.ImpactEvent.Flags.No_Damage))
 			{
-				//App.WriteLine($"hit {ev.hit_dot} {ev.damage_type} {ev.hit_material_type}");
+				//App.WriteLine($"hit {ev.hit_dot} {ev.damage_type} {ev.hit_material_type}; {ev.ent_hit.GetFullName()}");
 
 				var impulse = projectile.mass * ev.speed * projectile.knockback_multiplier * ev.hit_dot;
 

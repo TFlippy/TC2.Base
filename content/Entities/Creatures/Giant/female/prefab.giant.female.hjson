@@ -793,15 +793,11 @@ vehicle:
 
 	joint.piston:
 	{
-		error_bias: 0.001
-		max_bias: 10.000
-		stiffness: 15000.000
-		damping: 600.000
-		axis_force: 90000.000
+		stiffness: 20000.000
+		damping: 1000.000
+		axis_force: 150000.000
 		spring_max_bias: 5.000
 		max_distance: 1.350
-		rotation: 0.000
-		stress_mult_axis: 1.000
 	}
 
 	joint.gear:

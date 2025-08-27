@@ -92,7 +92,7 @@ storage:
 	{
 		type: storage
 		flags: standalone, ignore_mass, no_auto_pickup, public, faction
-		stack_size_multiplier: 4.000
+		stack_size_multiplier: 2.000
 		
 		filter:
 		{
@@ -245,7 +245,7 @@ crafter:
 laboratory:
 {
 	blueprints_capacity: 2
-	augments_capacity: 8
+	augments_capacity: 6
 	filter_tags:
 	{
 		include: construction, architecture

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.65.1"
 	name: "Mashing"
 	name_short: "Mashing"
 	desc:
@@ -18,8 +18,8 @@
 	tags: impact, crude, simple, kinetic, slow
 	
 	amount_base: 0.000
-	cooldown: 0.930
-	multiplier: 1.000
+	cooldown: 0.960
+	multiplier: 0.780
 	
 	amount_jitter: 0.369
 	cooldown_jitter: 0.205
@@ -43,14 +43,15 @@
 	
 	skills_mult:
 	{
-		strength: 0.700
-		clubs: 1.300
+		strength: 0.610
+		clubs: 0.660
+		farming: 0.480
 	}
 	
 	sound_volume: 0.500
 	sound_pitch: 0.850
 	sound_size: 0.500
-	sound_dist: 0.800
+	sound_dist: 0.580
 	
 	sounds: ["effect.plunger.00", "effect.smack.meaty.00", "effect.plunger.01", "effect.plunger.02", "effect.smack.meaty.01"]
 	sounds_manual: []
