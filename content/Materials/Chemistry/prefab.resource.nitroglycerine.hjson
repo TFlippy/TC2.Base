@@ -49,7 +49,7 @@ norotate:
 
 health:
 {
-	max: 2500.000
+	max: 8500.000
 }
 
 explosive:
@@ -58,19 +58,29 @@ explosive:
 	power: 6.400
 	damage_entity: 95000.000
 	damage_terrain: 130000.000
+	health_threshold: 0.763
+	
+	damage_type: explosion
+	damage_type_secondary: shockwave
+	flags: explode_when_primed, primed_when_destroyed
+	
+	detonate_chance: 0.788
+	detonate_damage_filter: bullet_lc, bullet_hc, bullet_mg, bullet_ac, bullet_sg, bullet_kn, bullet_hw, bullet_musket, rivet, impact, crush, pickaxe, sledgehammer, explosion, deflagration, motion_impulse, fire, electricity, shockwave, corrosion, heat, phlogiston
+	
 	shake_multiplier: 1.650
+	force_multiplier: 1.500
 	stun_multiplier: 1.640
+	
 	smoke_amount: 0.900
-	sparks_amount: 0.500
-	fire_amount: 0.100
-	detonate_chance: 0.789
 	smoke_lifetime_multiplier: 0.500
 	smoke_velocity_multiplier: 2.500
+	
 	flash_duration_multiplier: 0.050
 	flash_intensity_multiplier: 2.500
-	force_multiplier: 1.500
+	
+	fire_amount: 0.100
+	sparks_amount: 0.500
+	
 	volume: 3.000
 	pitch: 2.000
-	health_threshold: 0.963
-	flags: any_damage, explode_when_primed, primed_when_destroyed
 }

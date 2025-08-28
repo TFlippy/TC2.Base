@@ -123,7 +123,7 @@ namespace TC2.Base.Components
 			public float pitch = 1.00f;
 
 			[Save.NewLine]
-			public float modifier = 1.00f;
+			[Asset.Ignore] public float modifier = 1.00f;
 
 			[Net.Ignore, Asset.Ignore, Obsolete] public Entity ent_owner;
 		}

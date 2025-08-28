@@ -8,7 +8,7 @@
 		{
 			type: resource
 			material: brick.concrete
-			amount: 75.000
+			amount: 70.000
 			snapping: 0.500
 			group: 0
 			flags: prerequisite
@@ -16,7 +16,7 @@
 		{
 			type: resource
 			material: mortar
-			amount: 20.000
+			amount: 15.000
 			snapping: 0.500
 			group: 0
 			flags: prerequisite
@@ -24,7 +24,7 @@
 		{
 			type: resource
 			material: steel.frames
-			amount: 25.000
+			amount: 30.000
 			group: 0
 			flags: prerequisite
 		}
@@ -45,7 +45,7 @@
 		{
 			type: resource
 			material: machine_parts
-			amount: 30.000
+			amount: 50.000
 			group: 0
 			flags: prerequisite
 		}

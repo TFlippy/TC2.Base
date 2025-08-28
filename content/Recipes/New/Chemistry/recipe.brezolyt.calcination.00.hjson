@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.65.1"
 	$note: "Needs to be updated to reflect the changes made to Brezolyt's composition."
 	name: "Brezolyt Calcination"
 	desc:
@@ -17,7 +17,7 @@
 			flags: important
 			tags: material, raw
 			// Damage type used for discarding leftover resources.
-			discard_damage_type: heat
+			discard_damage_type: sledgehammer
 			
 			ratio: 0.000
 			mass_base: 0.000
@@ -29,7 +29,6 @@
 					
 					type: undefined
 					flags: none
-					discard_damage_type_override: heat
 					
 					requirements:
 					[
@@ -100,8 +99,8 @@
 						{
 							type: resource
 							material: lime
-							amount: 0.145
-							amount_extra: 0.093
+							amount: 0.088887
+							amount_extra: 0.087016
 							group: 0
 							flags: primary, compact
 						}
@@ -235,7 +234,7 @@
 	frame_size: [64.000, 48.000]
 	
 	min: 10
-	max: 250
+	max: 500
 	step: 10
 	
 	h_sound_begin: burner.bang.01

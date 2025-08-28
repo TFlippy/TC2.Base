@@ -1,5 +1,10 @@
 ﻿{
 	$version: "0.1.65.1"
+	$note:
+		'''
+		- Dark igneous rock, looks similar to obsidian
+		- Contains silver sulfide and mercury sulfide
+		'''
 	name: "Hortspargl"
 	desc:
 		'''
