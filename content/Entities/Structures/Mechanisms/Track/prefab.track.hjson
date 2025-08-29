@@ -97,8 +97,8 @@ axle:
 
 interactable:
 {
-	flags: none
-	window_size: [192.000, 200.000]
+	flags: centered_inventory
+	window_size: [200.000, 224.000]
 	window_size_misc: [48.000, 0.000]
 	window_offset: [48.000, 128.000]
 }

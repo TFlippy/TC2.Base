@@ -704,6 +704,9 @@ commandable:
 		interact_distance: 3.000
 		pickup_distance: 3.000
 		max_pickup_weight: 320.000
+
+		spin_torque: 650.000
+		max_spin_speed: 6.000
 		
 		aim_torque: 3900.000
 		throw_force: 600.000

@@ -723,6 +723,8 @@ commandable:
 	arm:
 	{
 		aim_torque: 2500.000
+		spin_torque: 180.000
+		max_spin_speed: 7.000
 		max_pickup_weight: 150.000
 	}
 

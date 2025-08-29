@@ -799,6 +799,9 @@ vehicle:
 		interact_distance: 5.000
 		pickup_distance: 5.000
 		max_pickup_weight: 5000.000
+
+		spin_torque: 3500.000
+		max_spin_speed: 8.000
 		
 		aim_torque: 130000.000
 		throw_force: 85000.000
