@@ -130,10 +130,10 @@ sticky:
 {
 	min_contact_count: 1
 	min_contact_distance: 0.000
-	max_force: 5000.000
+	max_force: 8000.000
 	flags: attach_on_collide
 	mask: world, solid, destructible
-	exclude: essence, water, liquid, fire, gas, ignore_hover, stored, bounds, conveyor, belt, pipe, no_overlapped_placement
+	exclude: essence, water, liquid, fire, gas, ignore_hover, stored, bounds, conveyor, belt, pipe, no_overlapped_placement, powder
 
 	sound: "fabric.hit.generic.00"
 }

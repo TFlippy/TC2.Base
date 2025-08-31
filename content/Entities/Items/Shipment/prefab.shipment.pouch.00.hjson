@@ -39,27 +39,31 @@ transform:
 
 }
 
-faction:
-{
+// faction:
+// {
 	
-}
+// }
 
-claimable:
-{
-	flags: allow_enemy_unclaim, allow_owner_unclaim
-}
+// claimable:
+// {
+// 	flags: allow_enemy_unclaim, allow_owner_unclaim
+// }
 
 interactable:
 {
-	flags: no_tab
+	flags: no_tab, centered_inventory
 	priority: 0.500
 	window_size: [192.000, 96.000]
-	window_size_misc: [48.000, 0.000]
 }
 
 nameable:
 {
 	flags: no_rename
+}
+
+shipment:
+{	
+	layout: large
 }
 
 holdable:
