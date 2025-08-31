@@ -24,6 +24,9 @@
 			[Net.Segment.A, Save.Force, Editor.Slider.Clamped(0.001f, 8.00f, snap: 0.001f)] public required float ratio = 1.00f;
 			[Net.Segment.A, Save.Force, Editor.Slider.Clamped(0.01f, 10000.00f, snap: 0.125f)] public required Mass mass = 1.00f;
 
+			[Net.Segment.A, Save.Force, Editor.Slider.Clamped(0.001f, 1.00f, snap: 0.001f)] public required float efficiency = 0.20f;
+			[Net.Segment.A, Save.Force, Editor.Slider.Clamped(0.001f, 1.00f, snap: 0.001f)] public required float thread_pitch = 0.005f;
+
 			[Net.Segment.C] public Screw.Flags flags;
 			[Net.Segment.C, Asset.Ignore] public Screw.Status status;
 			[Net.Segment.C, Asset.Ignore, Editor.Slider.Clamped(0, 0, snap: 0.01f)] public float current_displacement;
@@ -40,6 +43,9 @@
 
 			current_displacement = Maths.Clamp(current_displacement, screw.length_outer, screw.length_inner);
 			screw.current_displacement = current_displacement;
+
+			var ratio_inside = Maths.Normalize01Fast(screw.current_displacement, screw.length_inner);
+			axle_state.force_load_new += ratio_inside * 80;
 		}
 
 		[ISystem.PostUpdate.A(ISystem.Mode.Single, ISystem.Scope.Region)]
