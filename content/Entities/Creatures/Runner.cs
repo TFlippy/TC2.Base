@@ -457,7 +457,7 @@ namespace TC2.Base.Components
 			//			WorldNotification.Push(ref region, $"{runner.max_speed:0.00}", Color32BGRA.Green, body.GetPosition(), lifetime: 0.30f);
 			//#endif
 
-			force = Physics.LimitForce(ref body, force, max_speed);
+			force = Physics.LimitForce2B(ref body, force, max_speed);
 
 			runner_state.flags.SetFlag(State.Flags.Falling, !is_swimming && velocity.Y > 0.10f && runner_state.air_time > 0.040f);
 			runner_state.flags.SetFlag(State.Flags.Jumping, runner_state.jump_force_current > 1.00f);

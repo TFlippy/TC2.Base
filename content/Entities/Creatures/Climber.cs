@@ -139,7 +139,7 @@ namespace TC2.Base.Components
 							if (vel.LengthSquared() > 0.01f) body.Activate();
 
 							var swim_force = vel * swim_force_modifier;
-							swim_force = Physics.LimitForce(ref body, swim_force, new Vector2(5, 15));
+							swim_force = Physics.LimitForce2B(ref body, swim_force, new Vector2(5, 15));
 
 							body.AddForce(swim_force);
 						}
@@ -186,7 +186,7 @@ namespace TC2.Base.Components
 					}
 
 					force.Y += -climb_force;
-					force = Physics.LimitForce(ref body, force, max_speed);
+					force = Physics.LimitForce2B(ref body, force, max_speed);
 
 					//App.WriteLine("climb");
 

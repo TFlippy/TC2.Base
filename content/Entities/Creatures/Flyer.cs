@@ -62,7 +62,7 @@ namespace TC2.Base.Components
 
 				max_speed *= flyer.speed_modifier;
 				force *= flyer.force_modifier;
-				force = Physics.LimitForce(ref body, force, max_speed);
+				force = Physics.LimitForce2B(ref body, force, max_speed);
 			}
 
 			if (flyer.lift_modifier > 0.50f)

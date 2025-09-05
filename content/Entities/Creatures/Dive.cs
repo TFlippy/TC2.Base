@@ -59,7 +59,7 @@ namespace TC2.Base.Components
 				var dir = (control.mouse.position - pos).GetNormalized();
 
 				var force = dir * body.GetMass() * dive.speed * App.tickrate * organic_state.efficiency;
-				force = Physics.LimitForce(ref body, force, new Vector2(dive.speed, dive.speed));
+				force = Physics.LimitForce2B(ref body, force, new Vector2(dive.speed));
 
 				body.AddForceWorld(force, pos + (dir * 0.50f));
 				body.AddVelocity(new Vector2(0, -5 * MathF.Abs(dir.X)));
