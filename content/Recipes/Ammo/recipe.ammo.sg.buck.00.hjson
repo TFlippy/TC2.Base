@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.65.2"
 	name: "SG-20.4mm Buckshot"
 	desc:
 		'''
@@ -47,6 +47,18 @@
 						}
 						{
 							type: work
+							work: hammering
+							amount: 45.000
+							amount_min: 200.000
+							difficulty: 8
+							snapping: 10.000
+							falloff: 0.971
+							ratio: 1.000
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
 							work: snipping.metal
 							amount: 66.000
 							amount_min: 150.000
@@ -57,37 +69,18 @@
 							group: 0
 							flags: stepped, simultaneous, conditional
 						}
-						{
-							type: work
-							work: smithing
-							amount: 45.000
-							amount_min: 200.000
-							difficulty: 8
-							snapping: 10.000
-							falloff: 0.971
-							ratio: 1.000
-							group: 0
-							flags: stepped, simultaneous, conditional
-						}
 					]
 					
 					advance_delay: 2.000
 					
 					filter_tools:
 					{
-						require: hammer, cutters, pliers, tongs
-						include: cutters, pliers, towel, knife, scissors
+						require: hammer, cutters
+						include: cutters, pliers, knife, scissors
 					}
 					filter_infrastructure:
 					{
-						require: anvil, forge, hard_surface, heater
-						include: table, vise
-					}
-					filter_environment:
-					{
-						require: sturdy, smithy
-						include: workshop
-						exclude: office, fragile
+						include: table, surface
 					}
 				}
 				{
@@ -324,12 +317,12 @@
 					
 					filter_tools:
 					{
-						include: hammer, crowbar
+						include: hammer, wrench, spanner, axe, chisel, crowbar
 					}
 					filter_infrastructure:
 					{
 						require: surface
-						include: hard_surface
+						include: hard_surface, compactor, press
 					}
 				}
 			]
@@ -455,7 +448,9 @@
 	type: workshop
 	flags: production, manufacturing, wip
 	tags: manual, crafting, complex, small, munitions, delicate, assembling, industrial, metalworking, military, dangerous
-	infrastructure: anvil, surface, hard_surface, workbench
+	hints: none
+	connotations: none
+	infrastructure: table, surface
 	infrastructure_exclude: none
 	
 	icon:

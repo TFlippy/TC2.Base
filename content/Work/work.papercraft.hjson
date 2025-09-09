@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.65.1"
 	name: "Papercraft"
 	name_short: "Paper cft."
 	desc:
@@ -18,8 +18,8 @@
 	tags: simple, leisure, careful
 	
 	amount_base: 0.000
-	cooldown: 1.630
-	multiplier: 1.310
+	cooldown: 0.990
+	multiplier: 0.670
 	
 	amount_jitter: 0.237
 	cooldown_jitter: 0.218

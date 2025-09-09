@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.65.2"
 	name: "Snipping (Metal)"
 	name_short: "Snipping"
 	desc:
@@ -29,7 +29,7 @@
 	tools_optional: cutters, pliers, knife, scissors
 	
 	infrastructure_required: none
-	infrastructure_optional: table
+	infrastructure_optional: table, surface
 	
 	character_traits:
 	{

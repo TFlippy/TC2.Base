@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.65.1"
 	name: "Kneading"
 	name_short: "Kneading"
 	desc:
@@ -18,7 +18,7 @@
 	tags: simple
 	
 	amount_base: 0.000
-	cooldown: 1.210
+	cooldown: 1.120
 	multiplier: 0.780
 	
 	amount_jitter: 0.365
