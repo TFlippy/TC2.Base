@@ -83,7 +83,7 @@
 			[
 				{
 					name: "Hand-Filed"
-					desc: "laboriously ground into a powderswarf using a file."
+					desc: "with some powderswarf filed off it."
 					
 					type: undefined
 					flags: merge_residue, merge_waste

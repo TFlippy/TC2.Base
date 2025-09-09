@@ -1,16 +1,16 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.65.2"
 	name: "Porridge-based Mortar"
 	desc:
 		'''
-		TODO: Desc
+		Traditional mortar recipe devised by the grandmothers of kobold masons as a way to use up surplus porridge.
 		'''
 	tips: []
 	
 	stages:
 	[
 		{
-			name: "Method"
+			name: "Base Slop Mix"
 			
 			type: processing
 			flags: wip, auto_generated
@@ -24,7 +24,7 @@
 			options:
 			[
 				{
-					name: "Simple"
+					name: "Cemented"
 					
 					type: undefined
 					flags: wip, auto_generated
@@ -42,10 +42,53 @@
 						}
 						{
 							type: resource
+							material: cement
+							amount: 0.871212
+							snapping: 0.500
+							loss: 0.020
+							group: 0
+							flags: no_residue, prerequisite
+						}
+					]
+				}
+			]
+		}
+		{
+			name: "Seasoning"
+			
+			type: processing
+			flags: wip, auto_generated
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 1.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Lumberjack's"
+					
+					type: undefined
+					flags: wip, auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
 							material: plants
 							amount: 35.000
 							snapping: 0.500
 							loss: 0.075
+							group: 0
+							flags: no_residue, prerequisite
+						}
+						{
+							type: resource
+							material: sawdust
+							amount: 16.05263
+							snapping: 0.100
 							group: 0
 							flags: no_residue, prerequisite
 						}
@@ -74,23 +117,6 @@
 							ratio: 0.224
 							group: 0
 							flags: simultaneous, conditional
-						}
-						{
-							type: resource
-							material: cement
-							amount: 0.871212
-							snapping: 0.500
-							loss: 0.020
-							group: 1
-							flags: no_residue, prerequisite
-						}
-						{
-							type: resource
-							material: sawdust
-							amount: 16.05263
-							snapping: 0.100
-							group: 1
-							flags: no_residue, prerequisite
 						}
 						{
 							type: work
