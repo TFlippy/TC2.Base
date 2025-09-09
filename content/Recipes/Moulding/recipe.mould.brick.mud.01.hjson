@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.65.2"
 	name: "Holistic Mud Bricks"
 	desc:
 		'''
@@ -58,23 +58,23 @@
 						{
 							type: work
 							work: kneading
-							amount: 30.000
-							amount_min: 35.000
+							amount: 31.000
+							amount_min: 70.000
 							difficulty: 4
 							snapping: 5.000
-							falloff: 0.750
+							falloff: 0.795
 							group: 1
 							flags: conditional
 						}
 						{
 							type: work
 							work: sculpting
-							amount: 4.000
-							amount_min: 17.000
+							amount: 16.000
+							amount_min: 60.000
 							difficulty: 5
 							snapping: 5.000
-							falloff: 0.922
-							group: 2
+							falloff: 0.889
+							group: 1
 							flags: conditional
 						}
 					]
@@ -118,9 +118,9 @@
 						{
 							type: work
 							work: drying
-							amount: 120.000
+							amount: 170.000
 							difficulty: 3
-							snapping: 25.000
+							snapping: 5.000
 							group: 0
 							flags: no_scaling, no_residue, conditional
 						}
@@ -149,12 +149,14 @@
 	]
 	
 	type: workshop
-	flags: production, wip, converted
-	tags: manual, dumb, crude, simple, medium, blending, drying, moulding, messy
+	flags: production, wip
+	tags: manual, dumb, crude, basic, simple, small, agriculture, blending, drying, moulding, messy
+	hints: none
+	connotations: none
 	infrastructure: shaping_mould, form
 	infrastructure_exclude: none
 	
-	h_company: common
+	h_company: common.kobold
 	
 	icon:
 	{

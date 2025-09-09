@@ -10,7 +10,7 @@ body:
 	@shape.line:
 	{
 		material: device
-		miss_chance: 0.000
+		miss_chance: 0.543
 		flags: none
 		tags: none
 		
@@ -39,7 +39,18 @@ control:
 
 health:
 {
-	max: 800.000
+	max: 2800.000
+}
+
+armor:
+{
+	toughness: 320.000
+	protection: 0.900
+	coverage: 0.800
+	knockback_modifier: 1.160
+	stun_modifier: 0.910
+	material_type: metal
+	flags: no_damage_type_conversion
 }
 
 holdable:
@@ -95,32 +106,31 @@ fuse:
 
 explosive:
 {
-	radius: 1.800
-	power: 2.000
-	damage_entity: 3000.000
-	damage_terrain: 3500.000
+	radius: 2.500
+	power: 4.500
+	damage_entity: 10000.000
+	damage_terrain: 12500.000
 	health_threshold: 0.850
 	
 	damage_type: bullet_kn
-	damage_type_secondary: shrapnel
+	damage_type_secondary: shockwave
 	flags: explode_when_primed, primed_when_destroyed
 	
 	detonate_chance: 0.592
 	
-	shake_multiplier: 1.870
+	shake_multiplier: 1.000
 	force_multiplier: 1.240
-	stun_multiplier: 1.410
-	terrain_radius_multiplier: 0.900
+	stun_multiplier: 1.510
+	terrain_radius_multiplier: 1.500
 	
-	smoke_amount: 1.200
-	smoke_lifetime_multiplier: 0.890
-	smoke_velocity_multiplier: 2.190
+	smoke_amount: 1.800
+	smoke_lifetime_multiplier: 0.400
+	smoke_velocity_multiplier: 4.950
 	
-	flash_duration_multiplier: 0.140
-	flash_intensity_multiplier: 1.000
+	flash_duration_multiplier: 0.100
 	
-	fire_amount: 0.400
-	sparks_amount: 1.800
+	fire_amount: 0.200
+	sparks_amount: 1.300
 	
 	volume: 2.200
 	pitch: 0.700

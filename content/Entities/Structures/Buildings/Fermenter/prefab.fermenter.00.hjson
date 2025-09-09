@@ -7,18 +7,39 @@ $tags: []
 
 body:
 {
+	type: dynamic
+	flags: none
+	tags: none
+	
+	fall_damage_multiplier: 2.850
 	buoyancy: 0.550
-	fall_damage_multiplier: 0.950
+	damping: 0.988
 
-	@shape.box:
+	@shape.polygon:
 	{
-		size: [1.375, 2.000]
+		material: wood
+		miss_chance: 0.245
+		flags: none
+		tags: none
+		
+		layer: entity, solid, background, crafter, furniture, flammable, ignore_melee, ignore_bullet
+		mask: world
+		exclude: none
+		
 		mass: 84.000
 		radius: 0.480
 		friction: 0.750
 		elasticity: 0.410
-		material: wood
-		layer: entity, solid, furniture, flammable, ignore_melee, ignore_bullet, background
+		
+		cog_offset: [0.000, 0.3125]
+		
+		points:
+		[
+			[-0.750, -0.375]
+			[0.750, -0.375]
+			[0.625, 1.000]
+			[-0.625, 1.000]
+		]
 	}
 }
 
@@ -61,9 +82,12 @@ attachment:
 
 norotate:
 {
-	bias: 0.000
+	flags: no_share
+	speed: 2.200
+	bias: 0.001
+	
 	multiplier: 2.000
-	mass_multiplier: 7.000
+	mass_multiplier: 5.000
 	attached_multiplier: 0.600
 }
 
@@ -79,7 +103,7 @@ shop:
 	environment: container, mobile, dirty, contaminated, smelly, ugly, scary, flammable
 	
 	flags: embed_gui
-	menu_columns: 3
+	menu_columns: 4
 	recipe_type: workshop
 	
 	offset_spawn: [0.000, -1.000]
@@ -89,18 +113,12 @@ shop:
 
 crafter:
 {
+	h_crafter: fermenter.00
 	flags: no_gui
-	
-	tools: bucket, shovel, towel, spatula
-	infrastructure: rack, liquid_container
-	machinery: none
-	environment: container, mobile, dirty, contaminated, smelly, ugly, flammable
-	
-	temperature_max: 360.000
+	distance_max: 4.000
+	temperature_max: 340.000
 	pressure_max: 1.500
 	
-	spawn_offset: [-0.125, -1.000]
-
 	@inventory8:
 	{
 		type: workshop
@@ -129,7 +147,7 @@ crafter.state:
 
 workshop:
 {
-	flags: hidden_if_no_orders, add_order_mass
+	flags: add_order_mass
 	orders_capacity: 1
 	max_order_mass: 200.000
 }
@@ -138,7 +156,7 @@ interactable:
 {
 	flags: none
 	priority: 1.300
-	window_size: [584.000, 480.000]
+	window_size: [624.000, 584.000]
 	window_size_misc: [96.000, 0.000]
 }
 

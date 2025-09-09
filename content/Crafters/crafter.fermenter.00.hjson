@@ -1,0 +1,45 @@
+﻿{
+	$version: "0.1.64.0"
+	name: "Fermenter"
+	name_short: "Fermenter"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: fermenter.00
+	}
+	color: "0xffaeb59a"
+	
+	flags: wip
+	tags: none
+	
+	modes:
+	[
+		{
+			h_work_supported:
+			[
+				brewing
+				leaching
+				cooking
+				soaking
+				boiling
+				"null"
+				"null"
+				"null"
+			]
+			
+			name: "Fermenting"
+			
+			work_multiplier: 1.000
+			cooldown_multiplier: 1.000
+			
+			flags: wip
+			crafter_state_required: none
+			
+			switch_cooldown: 1.000
+		}
+	]
+}

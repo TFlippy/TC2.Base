@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.65.1"
 	name: "Recondite Sintering"
 	desc:
 		'''
@@ -234,6 +234,8 @@
 	type: workshop
 	flags: manufacturing, wip
 	tags: complex, industrial, metallurgy, refining, moulding, processing
+	hints: none
+	connotations: none
 	infrastructure: compactor, press
 	infrastructure_exclude: none
 	

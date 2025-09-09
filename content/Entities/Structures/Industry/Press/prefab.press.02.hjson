@@ -188,8 +188,10 @@ screw:
 	direction: [0.000, 1.000]
 	length_outer: -1.000
 	length_inner: 0.750
-	ratio: 0.020
+	ratio: 0.010
 	mass: 80.000
+	efficiency: 0.200
+	thread_pitch: 0.005
 
 	@animated.renderer:
 	{
@@ -202,7 +204,6 @@ screw:
 		offset: [0.000, -3.000]
 		z: 500.000
 	}
-
 }
 
 crafter:

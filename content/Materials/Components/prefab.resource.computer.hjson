@@ -40,9 +40,18 @@ resource:
 holdable:
 {
 	offset: [0.000, 0.750]
+	force_multiplier: 2.500
+	stress_multiplier: 0.800
+	priority: 0.500
+	hints: materials, rare, heavy, advanced, machine, device, expensive, civilian, arcane, tech, office, slow, clumsy, large
+	flags: disable_control
 }
 
 norotate:
 {
-
+	flags: none
+	speed: 4.000
+	bias: 0.010
+	
+	mass_multiplier: 10.000
 }

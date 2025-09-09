@@ -47,27 +47,39 @@
 						}
 						{
 							type: work
+							work: snipping.metal
+							amount: 40.000
+							amount_min: 150.000
+							difficulty: 6
+							snapping: 25.000
+							falloff: 0.768
+							ratio: 1.000
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
 							work: hammering
-							amount: 45.000
-							amount_min: 200.000
-							difficulty: 8
+							amount: 8.000
+							amount_min: 40.000
+							difficulty: 4
 							snapping: 10.000
-							falloff: 0.971
+							falloff: 0.986
 							ratio: 1.000
 							group: 0
 							flags: stepped, simultaneous, conditional
 						}
 						{
 							type: work
-							work: snipping.metal
-							amount: 66.000
-							amount_min: 150.000
-							difficulty: 9
-							snapping: 5.000
-							falloff: 0.907
+							work: crimping.metal
+							amount: 9.000
+							amount_min: 10.000
+							difficulty: 7
+							snapping: 10.000
+							falloff: 0.992
 							ratio: 1.000
 							group: 0
-							flags: stepped, simultaneous, conditional
+							flags: stepped, conditional
 						}
 					]
 					
@@ -75,12 +87,12 @@
 					
 					filter_tools:
 					{
-						require: hammer, cutters
-						include: cutters, pliers, knife, scissors
+						require: hammer, cutters, pliers
+						include: cutters, wrench, pliers, tweezers, knife, scissors
 					}
 					filter_infrastructure:
 					{
-						include: table, surface
+						include: table, vise, surface
 					}
 				}
 				{

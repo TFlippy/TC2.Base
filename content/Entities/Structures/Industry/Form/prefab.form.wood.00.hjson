@@ -132,6 +132,7 @@ interactable:
 	priority: 1.500
 	window_size: [616.000, 592.000]
 	window_size_misc: [96.000, 0.000]
+	window_offset: [48.000, -64.000]
 }
 
 animated.renderer|"work":
