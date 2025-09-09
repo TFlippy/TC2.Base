@@ -826,6 +826,7 @@ vehicle:
 		step: 50.000
 		max_bias: 10.000
 		stress_mult: 0.300
+		damping_loose: 0.300
 	}
 	
 	interactor:
