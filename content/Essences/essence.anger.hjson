@@ -1,0 +1,40 @@
+﻿{
+	$version: "0.1.65.2"
+	name: "Anger"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	flags: none
+	type_tmp: anger
+	
+	color_emit: [1.052, 0.244, 0.132, 1.180]
+	
+	emit_force: 650.000
+	emit_power_thermal: 66.600
+	emit_power_kinetic: 31.000
+	emit_power_radiant: 0.350
+	emit_power_electric: -14.175
+	emit_power_magnetic: 4.280
+	
+	sound_emit_loop: essence.emit.cognition.loop.00
+	sound_drain_loop: essence.drain.loop.00
+	
+	sound_emit_pulser_loop: golem_loop_00
+	sound_emit_stressor_loop: arcane_attractor.loop.00
+	sound_emit_impactor_loop: shaft.loop.overload.00
+	sound_emit_cycler_loop: mount.turn.loop.02
+	sound_emit_oscillator_loop: essence.emit.generic.loop.08
+	sound_emit_ambient_loop: essence.imply.scream.00
+	sound_emit_projector_loop: arcane_attractor.loop.01
+	
+	sound_collapse: missing
+	sound_zap: missing
+	sound_blast: essence.blast.00
+	sound_impulse: essence.hit.bullet.00
+	sound_impact: snap
+	sound_shatter: missing
+	
+	h_material_pellet: pellet.anger
+}

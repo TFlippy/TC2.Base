@@ -1086,6 +1086,7 @@ namespace TC2.Base.Components
 			[Source.Owned] ref EssenceNode.Data essence_node, [Source.Owned] in Transform.Data transform, [Source.Owned] ref Body.Data body);
 
 		// TODO: temporary, will be removed
+		[Obsolete]
 		public enum Type: uint
 		{
 			Undefined,
@@ -1097,7 +1098,7 @@ namespace TC2.Base.Components
 			Cognition,
 			Electricity,
 			Failure,
-			Anentropy
+			Anger
 		}
 
 		//[Obsolete] public static readonly Dictionary<IMaterial.Handle, IEssence.Handle> material_to_essence = new();
