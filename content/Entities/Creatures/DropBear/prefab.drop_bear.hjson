@@ -143,7 +143,7 @@ ai.behavior:
 {
 	type: attack
 	movement_flags: wander
-	combat_flags: attack_visible, attack_when_hit, flee, chase, charge
+	combat_flags: attack_visible, attack_when_hit, flee, chase, charge, form_groups
 }
 
 runner:

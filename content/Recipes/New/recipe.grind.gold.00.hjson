@@ -35,7 +35,7 @@
 							type: resource
 							material: gold
 							amount: 0.034672
-							snapping: 0.500
+							snapping: 0.010
 							loss: 0.957
 							group: 0
 							flags: argument, primary, prerequisite

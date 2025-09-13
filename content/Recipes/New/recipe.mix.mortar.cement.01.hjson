@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.65.2"
 	name: "Cement Mortar"
 	desc:
 		'''
@@ -152,10 +152,6 @@
 					{
 						include: bucket
 					}
-					filter_infrastructure:
-					{
-						include: cauldron, bottle, barrel
-					}
 				}
 				{
 					name: "Freshwater"
@@ -188,10 +184,6 @@
 					filter_tools:
 					{
 						include: bucket
-					}
-					filter_infrastructure:
-					{
-						include: cauldron, bottle, barrel
 					}
 				}
 				{
@@ -264,7 +256,11 @@
 					
 					filter_tools:
 					{
-						include: spatula
+						include: ruler, shovel, file, spatula, ladle, utensils
+					}
+					filter_infrastructure:
+					{
+						include: cauldron, dishes, barrel, bucket, liquid_container, blender, form
 					}
 				}
 			]

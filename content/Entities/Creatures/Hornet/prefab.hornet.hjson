@@ -127,7 +127,7 @@ ai.movement:
 ai.behavior:
 {
 	movement_flags: wander
-	combat_flags: attack_visible, attack_when_hit, chase, charge
+	combat_flags: attack_visible, attack_when_hit, chase, charge, flee, evade
 }
 
 ai.search:
@@ -233,7 +233,7 @@ melee:
 	damage_type: sting
 	category: pointed
 	flags: no_handle, no_material_filter
-	damage_flags_add: no_loot_pickup, no_loot_drop
+	damage_flags_add: no_loot_pickup, no_loot_drop, no_loot_notification
 	hit_mask: destructible
 	hit_exclude: background, tree, ignore_melee
 }

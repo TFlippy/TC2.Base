@@ -81,7 +81,11 @@
 					
 					filter_tools:
 					{
-						include: spatula
+						include: ruler, shovel, file, spatula, ladle, utensils
+					}
+					filter_infrastructure:
+					{
+						include: cauldron, dishes, barrel, bucket, liquid_container, blender, form
 					}
 				}
 			]

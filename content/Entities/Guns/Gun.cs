@@ -800,6 +800,7 @@ namespace TC2.Base.Components
 			public float stability = 100.00f;
 			[Statistics.Info("Failure Rate", description: "Chance of malfunction, such as jamming after being fired.", format: "{0:P2}", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.Low)]
 			public float failure_rate = 0.00f;
+			private float unused_00;
 
 			[Save.NewLine]
 			[Statistics.Info("Ammo", description: "Ammunition type.", comparison: Statistics.Comparison.None, priority: Statistics.Priority.High)]
@@ -829,6 +830,7 @@ namespace TC2.Base.Components
 			public Gun.Flags flags;
 
 			public float heuristic_range = 30.00f;
+			private float unused_01;
 		}
 
 		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]

@@ -163,7 +163,7 @@ ai.behavior:
 {
 	type: attack
 	movement_flags: wander
-	combat_flags: attack_visible, attack_when_hit, flee, chase, charge
+	combat_flags: attack_visible, attack_when_hit, flee, chase, charge, evade, form_groups
 }
 
 ai.search:
@@ -610,7 +610,7 @@ faction:
 			damage_type: bite
 			category: blunt
 			flags: no_handle, no_material_filter
-			damage_flags_add: no_loot_pickup, no_loot_drop
+			damage_flags_add: no_loot_pickup, no_loot_drop, no_loot_notification
 			hit_mask: creature, door, organic
 			hit_require: destructible
 			hit_exclude: world, background, tree, essence, water, gas, ignore_melee

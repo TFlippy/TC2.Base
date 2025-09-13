@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.65.2"
 	name: "Knife"
 	tips: []
 	
@@ -110,8 +110,8 @@
 					
 					filter_tools:
 					{
-						require: file, knife
-						include: hand_drill, screwdriver, pliers, file, chisel, knife, sandpaper
+						require: knife
+						include: screwdriver, file, chisel, knife, sandpaper
 					}
 				}
 				{
@@ -231,6 +231,8 @@
 	type: workshop
 	flags: blueprintable, item
 	tags: manual, crafting, simple, small, weapon, tool, assembling, metalworking
+	hints: none
+	connotations: none
 	infrastructure: surface
 	infrastructure_exclude: none
 	

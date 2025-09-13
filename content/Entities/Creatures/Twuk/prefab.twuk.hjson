@@ -659,7 +659,7 @@ faction:
 			category: pointed
 			flags: no_handle, no_material_filter
 			
-			damage_flags_add: no_loot_pickup, no_loot_drop
+			damage_flags_add: no_loot_pickup, no_loot_drop, no_loot_notification
 			
 			hit_mask: world, item, creature, vehicle, door, organic, wheel, shield, held, attached
 			hit_exclude: background, tree, resource, essence, water, gas, ignore_melee

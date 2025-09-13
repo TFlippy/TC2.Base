@@ -673,7 +673,7 @@ faction:
 			damage_type: slash
 			category: misc
 			flags: no_handle, no_material_filter
-			damage_flags_add: no_loot_pickup, no_loot_drop
+			damage_flags_add: no_loot_pickup, no_loot_drop, no_loot_notification
 			hit_mask: item, creature, vehicle, door, organic, wheel, shield, held, attached
 			hit_require: destructible
 			hit_exclude: world, background, tree, essence, water, gas, ignore_melee

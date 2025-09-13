@@ -35,7 +35,7 @@
 							type: resource
 							material: copper
 							amount: 0.079961
-							snapping: 0.500
+							snapping: 0.010
 							loss: 0.973
 							group: 0
 							flags: argument, primary, prerequisite
