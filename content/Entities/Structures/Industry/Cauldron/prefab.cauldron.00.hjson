@@ -170,7 +170,7 @@ workshop:
 
 shipment:
 {
-	flags: keep_items, allow_deposit, use_misc, no_empty_deposit
+	flags: keep_items, allow_deposit, use_misc, no_empty_deposit, crafting
 	type: crafting
 	layout: square
 }
