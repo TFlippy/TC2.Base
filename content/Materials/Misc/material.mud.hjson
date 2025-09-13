@@ -1,11 +1,11 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.65.2"
 	name: "Mud"
 	name_short: "Mud"
 	name_dumb: "Shite"
 	description:
 		'''
-		Sticky lump of mud.
+		Funny lump of mud.
 		'''
 	
 	tips:

@@ -7,7 +7,7 @@ $tags: []
 
 body:
 {
-	fall_damage_multiplier: 0.320
+	fall_damage_multiplier: 8.520
 
 	@shape.line:
 	{
@@ -98,13 +98,13 @@ explosive:
 	power: 6.500
 	damage_entity: 13000.000
 	damage_terrain: 200000.000
-	health_threshold: 0.180
+	health_threshold: 0.980
 	
 	damage_type: explosion
 	damage_type_secondary: shockwave
 	flags: explode_when_primed, primed_when_destroyed
 	
-	detonate_chance: 0.596
+	detonate_chance: 1.000
 	detonate_damage_filter: bullet_lc, bullet_hc, bullet_mg, bullet_ac, bullet_sg, bullet_kn, bullet_hw, bullet_musket, rivet, impact, crush, sledgehammer, explosion, deflagration, fire, electricity, shockwave, corrosion, heat, phlogiston, compression
 	
 	shake_multiplier: 1.310

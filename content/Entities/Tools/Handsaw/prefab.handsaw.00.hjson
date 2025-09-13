@@ -67,7 +67,7 @@ melee:
 	aoe: 0.375
 	thickness: 0.500
 	knockback_speed: 1.000
-	yield: 2.250
+	yield: 2.450
 	penetration_falloff: 1.000
 	
 	hit_offset: [-0.250, 0.125]

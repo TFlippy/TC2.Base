@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.65.2"
 	name: "Grenade"
 	tips: []
 	
@@ -117,6 +117,8 @@
 	type: workshop
 	flags: blueprintable, item, wip, converted
 	tags: manual, crafting, small, weapon, munitions, assembling, metalworking, engineering, military, explosive, dangerous
+	hints: none
+	connotations: none
 	infrastructure: table, chair, surface
 	infrastructure_exclude: none
 	

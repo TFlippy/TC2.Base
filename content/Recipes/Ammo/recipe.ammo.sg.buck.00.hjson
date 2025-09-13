@@ -163,7 +163,7 @@
 					name: "Oiled Paper"
 					
 					type: undefined
-					flags: wip
+					flags: requires_shipment, wip
 					
 					requirements:
 					[
@@ -248,7 +248,7 @@
 					name: "Nitrosugar"
 					
 					type: undefined
-					flags: none
+					flags: requires_shipment
 					discard_damage_type_override: punch
 					
 					requirements:
@@ -278,7 +278,7 @@
 					name: "Nitroglycerine"
 					
 					type: undefined
-					flags: none
+					flags: requires_shipment
 					discard_damage_type_override: wet
 					
 					requirements:
@@ -298,7 +298,7 @@
 					name: "Himlkarzenus"
 					
 					type: undefined
-					flags: incomplete
+					flags: requires_shipment, incomplete
 					discard_damage_type_override: sledgehammer
 					
 					requirements:
@@ -357,7 +357,7 @@
 					name: "Black Powder"
 					
 					type: undefined
-					flags: none
+					flags: requires_shipment
 					
 					priority: 1.000
 					
