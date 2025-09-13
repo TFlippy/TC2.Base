@@ -213,6 +213,11 @@ axle:
 	}
 }
 
+crank:
+{
+
+}
+
 +slot.side.left|instance:
 {
 	joint.base:

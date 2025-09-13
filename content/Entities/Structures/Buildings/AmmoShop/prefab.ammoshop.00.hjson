@@ -313,6 +313,11 @@ axle:
 	}
 }
 
+crank:
+{
+
+}
+
 shipment:
 {
 	type: crafting

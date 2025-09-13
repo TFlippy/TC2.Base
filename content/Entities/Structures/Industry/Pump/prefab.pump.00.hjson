@@ -99,11 +99,6 @@ pump:
 	}
 }
 
-pump.state:
-{
-
-}
-
 axle:
 {
 	offset: [0.750, 1.250]
@@ -122,6 +117,11 @@ axle:
 		}
 		z: -149.000
 	}
+}
+
+crank:
+{
+
 }
 
 sound.emitter:

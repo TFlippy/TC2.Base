@@ -95,6 +95,11 @@ axle:
 	}
 }
 
+crank:
+{
+
+}
+
 interactable:
 {
 	window_size: [268.000, 128.000]

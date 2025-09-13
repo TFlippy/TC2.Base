@@ -230,6 +230,11 @@ axle:
 	}
 }
 
+crank:
+{
+
+}
+
 +slot_motor|instance:
 {
 	joint.base:
