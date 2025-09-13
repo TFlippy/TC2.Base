@@ -27,7 +27,7 @@
 					name: "Basic"
 					
 					type: undefined
-					flags: wip, auto_generated
+					flags: requires_shipment, wip, auto_generated
 					
 					color: "0xff724421"
 					

@@ -27,7 +27,7 @@
 					name: "Muddy"
 					
 					type: undefined
-					flags: wip, auto_generated
+					flags: requires_shipment, wip, auto_generated
 					
 					color: "0xff6c4c3d"
 					
@@ -76,7 +76,7 @@
 					name: "Drenched"
 					
 					type: undefined
-					flags: wip, auto_generated
+					flags: requires_shipment, wip, auto_generated
 					
 					color: "0xff4b2a19"
 					

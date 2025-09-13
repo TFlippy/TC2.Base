@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.65.2"
 	name: "Beer"
 	desc:
 		'''
@@ -46,6 +46,8 @@
 	type: workshop
 	flags: blueprintable, hidden, wip
 	tags: crafting, simple, small, alchemistry, biology, fermenting
+	hints: none
+	connotations: none
 	infrastructure: none
 	infrastructure_exclude: none
 	
@@ -62,5 +64,5 @@
 	max: 40
 	step: 4
 	
-	version: 0
+	version: 1
 }

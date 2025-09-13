@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.65.1"
+	$version: "0.1.65.2"
 	name: "Pine"
 	desc:
 		'''
@@ -27,7 +27,7 @@
 					name: "Handsawn"
 					
 					type: undefined
-					flags: none
+					flags: requires_shipment
 					
 					requirements:
 					[
@@ -76,7 +76,7 @@
 					name: "Trashed"
 					
 					type: undefined
-					flags: none
+					flags: requires_shipment
 					discard_damage_type_override: crush
 					
 					requirements:

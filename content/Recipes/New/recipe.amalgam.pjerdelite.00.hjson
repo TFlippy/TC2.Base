@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.65.2"
 	name: "Pjerdelite Amalgamation"
 	desc:
 		'''
@@ -70,6 +70,7 @@
 							type: resource
 							material: mercury
 							amount: 0.500
+							snapping: 0.500
 							loss: 1.000
 							group: 0
 							flags: prerequisite

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.65.2"
 	name: "Copper Sheets"
 	desc:
 		'''
@@ -106,12 +106,16 @@
 					
 					filter_tools:
 					{
-						require: hammer, cutters
+						require: hammer, cutters, sandpaper
 						include: cutters, pliers, knife, scissors
 					}
 					filter_infrastructure:
 					{
-						include: table
+						include: table, surface
+					}
+					filter_environment:
+					{
+						include: workshop, stationary, illuminated, dry
 					}
 				}
 			]
@@ -121,6 +125,8 @@
 	type: workshop
 	flags: production
 	tags: manual, crafting, simple, raw, metalworking, metallurgy, processing
+	hints: none
+	connotations: none
 	infrastructure: hard_surface
 	infrastructure_exclude: none
 	

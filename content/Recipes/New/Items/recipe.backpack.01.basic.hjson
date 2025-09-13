@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.65.2"
 	name: "Rucksack"
 	tips:
 	[
@@ -90,7 +90,7 @@
 					filter_tools:
 					{
 						require: knife, needle
-						include: cutters, saw, tweezers, paintbrush, stapler, file, knife, needle, pins
+						include: cutters, saw, cleaver, tweezers, paintbrush, axe, stapler, file, knife, needle, pins, scissors, utensils
 					}
 					filter_infrastructure:
 					{

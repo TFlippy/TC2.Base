@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.65.2"
 	name: "Prdex"
 	desc:
 		'''
@@ -251,6 +251,7 @@
 							type: resource
 							material: hydrazine
 							amount: 0.783282
+							snapping: 0.500
 							loss: 0.863
 							group: 1
 							flags: prerequisite

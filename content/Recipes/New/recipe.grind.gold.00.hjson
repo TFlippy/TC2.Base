@@ -1,6 +1,5 @@
 ﻿{
-	$region_id: 0
-	$version: "0.1.64.1"
+	$version: "0.1.65.2"
 	name: "Gold"
 	tips: []
 	
@@ -36,6 +35,7 @@
 							type: resource
 							material: gold
 							amount: 0.034672
+							snapping: 0.500
 							loss: 0.957
 							group: 0
 							flags: argument, primary, prerequisite

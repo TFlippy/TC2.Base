@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.65.2"
 	name: "Copper Bricks"
 	desc:
 		'''
@@ -94,6 +94,11 @@
 					filter_tools:
 					{
 						require: hammer, file
+						include: chisel, knife, sandpaper, utensils
+					}
+					filter_infrastructure:
+					{
+						include: surface
 					}
 					filter_environment:
 					{
@@ -107,6 +112,8 @@
 	type: workshop
 	flags: production
 	tags: manual, crafting, simple, raw, industrial, metalworking, metallurgy, processing
+	hints: none
+	connotations: none
 	infrastructure: hard_surface
 	infrastructure_exclude: none
 	

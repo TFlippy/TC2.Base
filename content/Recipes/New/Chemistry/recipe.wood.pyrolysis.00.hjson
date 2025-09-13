@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.65.1"
+	$version: "0.1.65.2"
 	name: "Wood"
 	desc:
 		'''
@@ -27,7 +27,7 @@
 					name: "Sawdust"
 					
 					type: undefined
-					flags: none
+					flags: requires_shipment
 					
 					requirements:
 					[
@@ -53,7 +53,7 @@
 					name: "Woodchips"
 					
 					type: undefined
-					flags: none
+					flags: requires_shipment
 					
 					requirements:
 					[
@@ -79,7 +79,7 @@
 					name: "Debris"
 					
 					type: undefined
-					flags: none
+					flags: requires_shipment
 					
 					requirements:
 					[
@@ -105,7 +105,7 @@
 					name: "Rods"
 					
 					type: undefined
-					flags: none
+					flags: requires_shipment
 					
 					requirements:
 					[

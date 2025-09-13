@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.65.2"
 	name: "Thermopaste"
 	desc:
 		'''
@@ -129,11 +129,12 @@
 					
 					filter_tools:
 					{
-						include: bucket, spatula
+						include: hammer, wrench, spanner, bucket, axe, chisel, spatula, crowbar
 					}
-					filter_environment:
+					filter_infrastructure:
 					{
-						include: stationary, quiet
+						require: surface
+						include: hard_surface, compactor, press
 					}
 				}
 			]
@@ -206,10 +207,6 @@
 					filter_tools:
 					{
 						include: bucket, spatula
-					}
-					filter_environment:
-					{
-						include: stationary, quiet
 					}
 				}
 			]
@@ -290,15 +287,6 @@
 					quality_modifier: -0.111
 					yield_modifier: 0.922
 					failure_chance: 0.059
-					
-					filter_tools:
-					{
-						include: bucket, spatula
-					}
-					filter_environment:
-					{
-						include: stationary, quiet
-					}
 				}
 			]
 		}

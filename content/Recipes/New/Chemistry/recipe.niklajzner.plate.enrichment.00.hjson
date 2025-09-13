@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.65.2"
 	name: "Niklajzner Sheet"
 	desc:
 		'''
@@ -27,7 +27,7 @@
 					name: "Sheets"
 					
 					type: undefined
-					flags: none
+					flags: requires_shipment
 					discard_damage_type_override: sledgehammer
 					
 					suffix: "s"
@@ -64,7 +64,7 @@
 					name: "Frames"
 					
 					type: undefined
-					flags: none
+					flags: requires_shipment
 					discard_damage_type_override: handsaw
 					
 					suffix: " Frames"
@@ -115,7 +115,7 @@
 					}
 					filter_infrastructure:
 					{
-						include: table
+						include: table, surface
 					}
 					
 					h_sound_complete: burner.bang.00
@@ -140,7 +140,7 @@
 					name: "Black Coal"
 					
 					type: undefined
-					flags: none
+					flags: requires_shipment
 					discard_damage_type_override: heat
 					
 					prefix: "Sooty "
@@ -196,6 +196,8 @@
 	type: workshop
 	flags: production
 	tags: simple, metallurgy, refining, heating, processing
+	hints: none
+	connotations: none
 	infrastructure: oven
 	infrastructure_exclude: none
 	

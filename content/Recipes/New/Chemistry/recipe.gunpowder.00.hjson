@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.65.2"
 	name: "Dry Gunpowder"
 	desc:
 		'''
@@ -119,6 +119,8 @@
 	type: workshop
 	flags: production, manufacturing
 	tags: manual, simple, alchemistry, blending, explosive, dangerous
+	hints: none
+	connotations: none
 	infrastructure: surface
 	infrastructure_exclude: none
 	

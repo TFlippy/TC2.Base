@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.65.2"
 	name: "Niklajzner Scrap"
 	desc:
 		'''
@@ -27,7 +27,7 @@
 					name: "Ferrous"
 					
 					type: undefined
-					flags: merge_waste
+					flags: requires_shipment, merge_waste
 					
 					prefix: "Ferrous "
 					
@@ -67,15 +67,6 @@
 						}
 					]
 					
-					filter_infrastructure:
-					{
-						include: oven, forge, crucible
-					}
-					filter_environment:
-					{
-						include: container, airtight, stationary, dirty, ugly, cozy, fireproof, flammable, small
-					}
-					
 					h_sound_complete: burner.bang.00
 				}
 			]
@@ -98,7 +89,7 @@
 					name: "Black Coal"
 					
 					type: undefined
-					flags: none
+					flags: requires_shipment
 					discard_damage_type_override: heat
 					
 					requirements:
@@ -166,6 +157,8 @@
 	type: workshop
 	flags: production
 	tags: simple, metallurgy, refining, heating, processing
+	hints: none
+	connotations: none
 	infrastructure: oven
 	infrastructure_exclude: none
 	

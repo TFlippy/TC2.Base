@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.65.2"
 	name: "Niklajzner Brick"
 	desc:
 		'''
@@ -27,7 +27,7 @@
 					name: "Bricks"
 					
 					type: undefined
-					flags: none
+					flags: requires_shipment
 					
 					suffix: "s"
 					
@@ -77,7 +77,7 @@
 					name: "Black Coal"
 					
 					type: undefined
-					flags: none
+					flags: requires_shipment
 					discard_damage_type_override: heat
 					
 					prefix: "Sooty "
@@ -133,6 +133,8 @@
 	type: workshop
 	flags: production
 	tags: simple, metallurgy, refining, heating, processing
+	hints: none
+	connotations: none
 	infrastructure: oven
 	infrastructure_exclude: none
 	

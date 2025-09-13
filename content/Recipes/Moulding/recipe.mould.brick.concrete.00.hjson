@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.65.2"
 	name: "ISO Concrete Masonry Unit"
 	desc:
 		'''
@@ -27,7 +27,7 @@
 					name: "Standard"
 					
 					type: undefined
-					flags: wip
+					flags: requires_shipment, wip
 					
 					color: "0xff675f5d"
 					
@@ -170,6 +170,8 @@
 	type: workshop
 	flags: production, wip
 	tags: manual, simple, medium, blending, drying, moulding, messy
+	hints: none
+	connotations: none
 	infrastructure: shaping_mould, form
 	infrastructure_exclude: none
 	

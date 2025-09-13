@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.65.2"
 	name: "Simple Clay Bricks"
 	desc:
 		'''
@@ -27,7 +27,7 @@
 					name: "Basic"
 					
 					type: undefined
-					flags: wip, auto_generated
+					flags: requires_shipment, wip, auto_generated
 					
 					color: "0xff5f6463"
 					
@@ -134,6 +134,8 @@
 	type: workshop
 	flags: wip, converted
 	tags: manual, crude, simple, drying, moulding, messy
+	hints: none
+	connotations: none
 	infrastructure: shaping_mould, form
 	infrastructure_exclude: none
 	

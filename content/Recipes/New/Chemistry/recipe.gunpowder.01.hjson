@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.65.2"
 	name: "Wet Gunpowder"
 	desc:
 		'''
@@ -282,6 +282,8 @@
 	type: workshop
 	flags: production, manufacturing
 	tags: manual, simple, blending, drying, moulding, explosive, dangerous
+	hints: none
+	connotations: none
 	infrastructure: none
 	infrastructure_exclude: none
 	
