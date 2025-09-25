@@ -8,14 +8,41 @@ namespace TC2.Base.Components
 		public enum Flags: uint
 		{
 			None = 0,
+
+
+		}
+
+		[Flags]
+		public enum Tags: uint
+		{
+			None = 0,
+
+			Kinetic = 1 << 0,
+			Thermal = 1 << 1,
+			Primary = 1 << 2,
+			Secondary = 1 << 3,
+			Tertiary = 1 << 4,
+			Violent = 1 << 5,
+			Destructive = 1 << 6,
+			Illegal = 1 << 7,
+			Rare = 1 << 8,
+			Physical = 1 << 9,
+			Abstract = 1 << 10,
 		}
 
 		[FixedAddressValueType] public static FixedArray256<IEssence.Handle> material_to_essence;
 		[FixedAddressValueType] public static FixedArray256<IMaterial.Handle> essence_to_material;
 
+		[FixedAddressValueType] public static FixedArray256<IEssence.Flags> essence_to_flags;
+		[FixedAddressValueType] public static FixedArray256<IEssence.Tags> essence_to_tags;
+
 		[FixedAddressValueType] public static FixedArray256<ColorBGRA> essence_to_color_emit;
 
+		[FixedAddressValueType] public static FixedArray256<float> essence_to_stability_mult;
+		[FixedAddressValueType] public static FixedArray256<float> essence_to_discharge_mult;
+
 		[FixedAddressValueType] public static FixedArray256<float> essence_to_emit_force;
+
 		[FixedAddressValueType] public static FixedArray256<Power> essence_to_emit_power_thermal;
 		[FixedAddressValueType] public static FixedArray256<Power> essence_to_emit_power_kinetic;
 		[FixedAddressValueType] public static FixedArray256<Power> essence_to_emit_power_radiant;
@@ -37,9 +64,16 @@ namespace TC2.Base.Components
 				material_to_essence[h_material.id] = h_essence;
 			}
 
+			IEssence.essence_to_flags[index] = data.flags;
+			IEssence.essence_to_tags[index] = data.tags;
+
 			IEssence.essence_to_color_emit[index] = data.color_emit;
 
+			IEssence.essence_to_stability_mult[index] = data.stability_mult;
+			IEssence.essence_to_discharge_mult[index] = data.discharge_mult;
+
 			IEssence.essence_to_emit_force[index] = data.emit_force;
+
 			IEssence.essence_to_emit_power_thermal[index] = data.emit_power_thermal;
 			IEssence.essence_to_emit_power_kinetic[index] = data.emit_power_kinetic;
 			IEssence.essence_to_emit_power_radiant[index] = data.emit_power_radiant;
@@ -49,27 +83,35 @@ namespace TC2.Base.Components
 
 		public struct Data(): IName, IDescription
 		{
-			[Save.Force] public string name;
-			[Save.Force, Save.MultiLine] public string desc;
+			[Save.Force] public required string name;
+			[Save.Force, Save.MultiLine] public required string desc;
 
 			[Save.NewLine]
-			[Save.Force] public IEssence.Flags flags;
+			[Save.MultiLine] public string lore;
+
+			[Save.NewLine]
+			[Save.Force] public required IEssence.Flags flags;
+			[Save.Force] public required IEssence.Tags tags;
 			[Obsolete] public Essence.Type type_tmp;
 
 			[Save.NewLine]
-			[Save.Force] public ColorBGRA color_emit;
+			[Save.Force] public required ColorBGRA color_emit;
 
 			//[Save.NewLine]
 			//[Save.Force, Obsolete] public float force_emit;
 			//[Save.Force, Obsolete] public float heat_emit;
 
 			[Save.NewLine]
-			[Save.Force] public float emit_force;
-			[Save.Force] public Power emit_power_thermal;
-			[Save.Force] public Power emit_power_kinetic;
-			[Save.Force] public Power emit_power_radiant;
-			[Save.Force] public Power emit_power_electric;
-			[Save.Force] public Power emit_power_magnetic;
+			[Save.Force, Editor.Slider.Clamped(0.00f, 4.00f, snap: 0.01f, sensitivity: 0.01f)] public required float stability_mult = 1.00f;
+			[Save.Force, Editor.Slider.Clamped(0.00f, 4.00f, snap: 0.01f, sensitivity: 0.01f)] public required float discharge_mult = 1.00f;
+
+			[Save.NewLine]
+			[Save.Force] public required float emit_force;
+			[Save.Force] public required Power emit_power_thermal;
+			[Save.Force] public required Power emit_power_kinetic;
+			[Save.Force] public required Power emit_power_radiant;
+			[Save.Force] public required Power emit_power_electric;
+			[Save.Force] public required Power emit_power_magnetic;
 
 			[Save.NewLine]
 			[Obsolete] public Sound.Handle sound_emit_loop;
@@ -93,8 +135,8 @@ namespace TC2.Base.Components
 			[Save.Force] public Sound.Handle sound_shatter;
 
 			[Save.NewLine]
-			[Save.Force] public Prefab.Handle h_prefab_node;
-			[Save.Force] public IMaterial.Handle h_material_pellet;
+			[Save.Force] public required Prefab.Handle h_prefab_node;
+			[Save.Force] public required IMaterial.Handle h_material_pellet;
 
 			[Save.NewLine]
 			[Save.Force] public IEvent.Info on_collapse;
@@ -114,8 +156,11 @@ namespace TC2.Base.Components
 		public static Power GetRadiantPower(this IEssence.Handle h_essence) => IEssence.essence_to_emit_power_radiant[h_essence.id];
 		public static Power GetElectricPower(this IEssence.Handle h_essence) => IEssence.essence_to_emit_power_electric[h_essence.id];
 		public static Power GetMagneticPower(this IEssence.Handle h_essence) => IEssence.essence_to_emit_power_magnetic[h_essence.id];
+
 		public static ColorBGRA GetEmitColor(this IEssence.Handle h_essence) => IEssence.essence_to_color_emit[h_essence.id];
 
+		public static float GetStabilityMult(this IEssence.Handle h_essence) => IEssence.essence_to_stability_mult[h_essence.id];
+		public static float GetDischargeMult(this IEssence.Handle h_essence) => IEssence.essence_to_discharge_mult[h_essence.id];
 
 		public static float GetForce(this Essence.Container.Data container) => container.GetEmittedEssenceAmount() * container.h_essence.GetForce();
 		public static Power GetThermalPower(this Essence.Container.Data container) => container.GetEmittedEssenceAmount() * container.h_essence.GetThermalPower();
@@ -476,7 +521,12 @@ namespace TC2.Base.Components
 			[Source.Owned] in Transform.Data transform, [Source.Owned] ref Projectile.Data projectile, [Source.Owned] ref Essence.Container.Data container)
 			{
 				container.t_next_collapse = info.WorldTime + 10.00f;
-				EssenceNode.Collapse(region: ref region, random: ref projectile.random, h_essence: container.h_essence, entity: entity, world_position: transform.position, amount: container.available);
+				EssenceNode.Collapse(region: ref region,
+					random: ref projectile.random,
+					h_essence: container.h_essence,
+					entity: entity,
+					world_position: transform.position,
+					amount: container.available);
 				//Essence.Explode(ref region, container.h_essence, container.available, transform.position);
 			}
 
@@ -489,7 +539,12 @@ namespace TC2.Base.Components
 					container.t_next_collapse = info.WorldTime + 10.00f;
 
 					var random = XorRandom.New(entity.lower, container.h_essence);
-					EssenceNode.Collapse(region: ref region, random: ref random, h_essence: container.h_essence, entity: entity, world_position: transform.position, amount: container.available);
+					EssenceNode.Collapse(region: ref region,
+						random: ref random,
+						h_essence: container.h_essence,
+						entity: entity,
+						world_position: transform.position,
+						amount: container.available);
 					//Essence.Explode(ref region, container.h_essence, container.available, transform.position);
 				}
 			}
@@ -545,7 +600,12 @@ namespace TC2.Base.Components
 								{
 									if (this.essence_container.flags.HasAny(Essence.Container.Flags.Allow_Edit_Rate))
 									{
-										if (GUI.SliderFloat(label: "Rate"u8, value: ref this.essence_container.rate, min: 0.00f, max: 1.00f, snap: 0.001f, size: new Vector2(GUI.RmX, 24)))
+										if (GUI.SliderFloat(label: "Rate"u8,
+											value: ref this.essence_container.rate,
+											min: 0.00f,
+											max: 1.00f,
+											snap: 0.001f,
+											size: new Vector2(GUI.RmX, 24)))
 										{
 											var rpc = new Essence.Container.ConfigureRPC()
 											{
@@ -566,7 +626,10 @@ namespace TC2.Base.Components
 
 										//GUI.Text($"{essence_color}");
 
-										GUI.DrawHorizontalGauge(current: this.essence_container.GetEmittedEssenceAmount(), max: 250 * Essence.essence_per_pellet * this.inventory.stack_size_multiplier, color: essence_color, size: GUI.Rm);
+										GUI.DrawHorizontalGauge(current: this.essence_container.GetEmittedEssenceAmount(),
+											max: 250 * Essence.essence_per_pellet * this.inventory.stack_size_multiplier,
+											color: essence_color,
+											size: GUI.Rm);
 										//if (essence_data.IsNotNull())
 										{
 											GUI.DrawHoverTooltip(arg: in this, draw: static (x) =>
@@ -975,12 +1038,12 @@ namespace TC2.Base.Components
 
 				essence_emitter.h_essence_charge = essence_container.h_essence;
 				essence_emitter.current_charge_ratio = Maths.NormalizeFast(essence_emitter.current_charge, essence_emitter.charge_capacity);
-				var rate = essence_container.rate_current; // * essence_emitter.efficiency;
+				var rate = essence_container.rate_current * essence_container.h_essence.GetDischargeMult(); // * essence_emitter.efficiency;
 														   //essence_container.rate_current *= 1.00f - rate; // * App.fixed_update_interval_s_f32;
 
 				//essence_emitter.current_instability = Maths.FNMA(essence_container.stability, , 1.00f)Maths.Max(essence_emitter.current_charge_ratio, )
 				//essence_emitter.current_instability = Maths.Max((essence_emitter.current_charge_ratio - 1.00f) * (1.00f - essence_container.stability.Pow2()), 0.00f);
-				essence_emitter.current_instability = Maths.Max(essence_emitter.current_charge_ratio - essence_container.stability, 0.00f).Pow2();
+				essence_emitter.current_instability = Maths.Max((essence_emitter.current_charge_ratio) - (essence_container.stability * essence_container.h_essence.GetStabilityMult()), 0.00f).Pow2();
 				//essence_emitter.current_instability = Maths.Max((essence_emitter.current_charge_ratio - (1.00f - essence_container.stability)), 0.00f).Pow2();
 
 				essence_emitter.current_charge -= essence_emitter.current_charge * essence_emitter.charge_loss; // * essence_emitter.current_charge_ratio; // * essence_emitter.current_instability;

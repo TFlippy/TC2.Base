@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.65.3"
 	name: "Radiance"
 	desc:
 		'''
@@ -7,9 +7,13 @@
 		'''
 	
 	flags: none
+	tags: thermal, primary, physical
 	type_tmp: radiance
 	
 	color_emit: [1.000, 0.968, 0.780, 1.500]
+	
+	stability_mult: 0.850
+	discharge_mult: 1.000
 	
 	emit_force: 190.000
 	emit_power_thermal: 28.365

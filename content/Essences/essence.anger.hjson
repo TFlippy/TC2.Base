@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.65.2"
+	$version: "0.1.65.3"
 	name: "Anger"
 	desc:
 		'''
@@ -7,9 +7,13 @@
 		'''
 	
 	flags: none
+	tags: kinetic, thermal, tertiary, violent, destructive, physical, abstract
 	type_tmp: anger
 	
-	color_emit: [1.052, 0.244, 0.132, 1.180]
+	color_emit: [1.426, 0.080, 0.149, 1.528]
+	
+	stability_mult: 0.340
+	discharge_mult: 2.290
 	
 	emit_force: 650.000
 	emit_power_thermal: 66.600
@@ -21,20 +25,21 @@
 	sound_emit_loop: essence.emit.cognition.loop.00
 	sound_drain_loop: essence.drain.loop.00
 	
-	sound_emit_pulser_loop: golem_loop_00
-	sound_emit_stressor_loop: arcane_attractor.loop.00
+	sound_emit_pulser_loop: levitator.loop.01
+	sound_emit_stressor_loop: essence.emit.electricity.loop.00
 	sound_emit_impactor_loop: shaft.loop.overload.00
-	sound_emit_cycler_loop: mount.turn.loop.02
-	sound_emit_oscillator_loop: essence.emit.generic.loop.08
+	sound_emit_cycler_loop: levitator.loop.02
+	sound_emit_oscillator_loop: essence.machine.loop.00
 	sound_emit_ambient_loop: essence.imply.scream.00
-	sound_emit_projector_loop: arcane_attractor.loop.01
+	sound_emit_projector_loop: levitator.loop.00
 	
-	sound_collapse: missing
-	sound_zap: missing
+	sound_collapse: essence.collapse.failure.01
+	sound_zap: projectile.small.explode.00
 	sound_blast: essence.blast.00
 	sound_impulse: essence.hit.bullet.00
-	sound_impact: snap
-	sound_shatter: missing
+	sound_impact: explosion.metal.00
+	sound_shatter: explosion.steam.00
 	
+	h_prefab_node: essence_node.anger
 	h_material_pellet: pellet.anger
 }

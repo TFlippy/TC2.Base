@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.65.3"
 	name: "Life"
 	desc:
 		'''
@@ -7,9 +7,13 @@
 		'''
 	
 	flags: none
+	tags: secondary, violent, illegal, abstract
 	type_tmp: life
 	
 	color_emit: [0.457, 0.826, 0.023, 1.000]
+	
+	stability_mult: 0.860
+	discharge_mult: 1.000
 	
 	emit_force: 45.000
 	emit_power_thermal: -1.340

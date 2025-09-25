@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.65.3"
 	name: "Electricity"
 	desc:
 		'''
@@ -7,9 +7,13 @@
 		'''
 	
 	flags: none
+	tags: kinetic, thermal, primary, violent, destructive, physical
 	type_tmp: electricity
 	
 	color_emit: [0.736, 0.760, 1.078, 2.164]
+	
+	stability_mult: 0.790
+	discharge_mult: 1.000
 	
 	emit_force: 500.000
 	emit_power_thermal: 2.650
