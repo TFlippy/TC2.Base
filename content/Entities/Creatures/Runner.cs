@@ -37,7 +37,7 @@ namespace TC2.Base.Components
 			public float jump_decay = 0.50f;
 			public float crouch_speed_modifier = 0.50f;
 			public float air_brake_modifier = 0.10f;
-			private float unused_00;
+			public float no_rotate_blend = 1.00f;
 			private float unused_01;
 		}
 

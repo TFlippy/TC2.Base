@@ -22,7 +22,8 @@ namespace TC2.Base.Components
 			{
 				None = 0,
 
-				Underwater_Breathing = 1 << 0
+				Underwater_Breathing = 1 << 0,
+				Displacement_Rigidity = 1 << 1
 			}
 
 			[Editor.Picker.Position(true, true)]
@@ -34,6 +35,9 @@ namespace TC2.Base.Components
 			public float breath_amount = 0.100f;
 
 			public float voice_pitch = 1.00f;
+
+			public float displacement_mult = 0.40f;
+			public float displacement_rigidity = 0.50f;
 
 			public Head.Data.Flags flags;
 			public byte frame_pain;
@@ -87,6 +91,20 @@ namespace TC2.Base.Components
 			});
 		}
 #endif
+
+		[ISystem.PostUpdate.C(ISystem.Mode.Single, ISystem.Scope.Region)]
+		public static void OnUpdateShape<T>([Source.Owned] in Head.Data head,
+		[Source.Owned] in Body.Data body, [Source.Owned, Pair.Component<Body.Data>] ref T shape) where T : unmanaged, IShape
+		{
+			if (head.flags.HasAny(Head.Data.Flags.Displacement_Rigidity))
+			{
+				//var modifier = Maths.InvLerp( 1.00f; body.displacement_joint - head.displacement_threshold;
+				//if (mod)
+
+				var modifier = Maths.Lerp01Fast(1.00f, head.displacement_rigidity, body.displacement_joint * head.displacement_mult);
+				shape.SetRawRigidityStaticMult(modifier);
+			}
+		}
 
 		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned)]
 		public static void OnUpdateAir(ISystem.Info info, ref Region.Data region, Entity entity,

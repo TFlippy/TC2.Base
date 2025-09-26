@@ -471,6 +471,10 @@ commandable:
 
 			frame_pain: 1
 			frame_dead: 2
+
+			flags: displacement_rigidity
+			displacement_mult: 2.000
+			displacement_rigidity: 0.600
 		}
 		
 		human:
@@ -490,7 +494,9 @@ commandable:
 
 		lookat:
 		{
-			deadzone: 1.000
+			head_modifier: 0.600
+			body_modifier: 0.400
+			deadzone: [1.000, 8.000]
 		}
 
 		// norotate:

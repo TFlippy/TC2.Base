@@ -120,7 +120,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region, flags: ISystem.Flags.Unchecked | ISystem.Flags.SkipLocalsInit), 
+		[ISystem.PreUpdate.B(ISystem.Mode.Single, ISystem.Scope.Region, flags: ISystem.Flags.Unchecked | ISystem.Flags.SkipLocalsInit),
 		HasTag("dead", true, Source.Modifier.Owned), HasComponent<Organic.Data>(Source.Modifier.Owned, true)]
 		public static void UpdateNoRotate([Source.Owned, Override] ref NoRotate.Data no_rotate)
 		{
@@ -160,13 +160,22 @@ namespace TC2.Base.Components
 			facing.flags.SetFlag(Facing.Flags.Disabled, organic_state.consciousness_shared < 0.50f || organic_state.stun_norm >= 0.50f);
 		}
 
-		[ISystem.Update.D(ISystem.Mode.Single, ISystem.Scope.Region)]
-		[HasTag("dead", true, Source.Modifier.Parent), HasComponent<Organic.Data>(Source.Modifier.Parent, true)]
-		public static void OnAddArmDead([Source.Owned] ref Holdable.Data holdable, [Source.Parent] ref Arm.Data arm, [Source.Parent] ref Joint.Base joint_base)
+		//[ISystem.Update.B(ISystem.Mode.Single, ISystem.Scope.Region)]
+		//[HasTag("dead", true, Source.Modifier.Parent), HasComponent<Organic.Data>(Source.Modifier.Parent, true)]
+		//public static void OnUpdateArmDead([Source.Owned] ref Holdable.Data holdable, [Source.Parent] ref Arm.Data arm, 
+		//[Source.Parent] ref Joint.Base joint_base)
+		//{
+		//	//joint_base.force_modifier_attached = 0.00f;
+		//	joint_base.stress_modifier_attached *= 10.00f;
+		//	joint_base.stress_accumulator = 4.00f;
+		//	//joint_base.torque_modifier_attached = 0.00f;
+		//}
+
+		[ISystem.Add(ISystem.Mode.Single, ISystem.Scope.Region)]
+		[HasTag("dead", true, Source.Modifier.Shared), HasComponent<Organic.Data>(Source.Modifier.Shared, true), HasComponent<Arm.Data>(Source.Modifier.Owned, true)]
+		public static void OnAddArmDead([Source.Owned] ref Joint.Base joint_base)
 		{
-			joint_base.force_modifier_attached = 0.00f;
-			joint_base.stress_modifier_attached *= 3.00f;
-			joint_base.torque_modifier_attached = 0.00f;
+			joint_base.state.AddFlag(Joint.State.Force_Detach);
 		}
 
 		[ISystem.Add(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", true, Source.Modifier.Owned)]
@@ -238,14 +247,17 @@ namespace TC2.Base.Components
 		}
 #endif
 
-		[HasComponent<Health.Data>(Source.Modifier.Shared, true), HasComponent<Organic.Data>(Source.Modifier.Shared, true)]
-		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region, flags: ISystem.Flags.Unchecked)]
+		//[HasComponent<Health.Data>(Source.Modifier.Shared, true)]
+		//[ISystem.PreUpdate.D(ISystem.Mode.Single, ISystem.Scope.Region, flags: ISystem.Flags.Unchecked)]
+		[ISystem.PostUpdate.A(ISystem.Mode.Single, ISystem.Scope.Region, flags: ISystem.Flags.Unchecked)]
 		public static void UpdateJoint1A(ISystem.Info info, ref Region.Data region, ref XorRandom random,
-		[Source.Shared] in Transform.Data transform, [Source.Shared] ref Organic.State organic_state,
+		[Source.Shared] in Transform.Data transform, [Source.Shared] in Health.Data health, [Source.Shared] ref Organic.State organic_state,
 		[Source.Owned] ref Joint.Base joint)
 		{
 			if (joint.flags.HasAny(Joint.Flags.Organic))
 			{
+
+
 				//joint.torque_modifier = organic.consciousness;
 
 				//joint.max_stress_force_modifier = (health.integrity * health.integrity * health.integrity); // * (health.durability * health.durability);
@@ -269,43 +281,64 @@ namespace TC2.Base.Components
 				//joint.max_stress_force_modifier *= rotten_modifier * rotten_modifier * rotten_modifier;
 				//joint.max_stress *= rotten_modifier * rotten_modifier * rotten_modifier;
 
-				if (!joint.state.HasAny(Joint.State.Attached | Joint.State.Attaching))
+				//if (!joint.state.HasAny(Joint.State.Attached | Joint.State.Attaching))
+				if (joint.state.HasNone(Joint.State.Attached | Joint.State.Attaching))
 				{
 					organic_state.pain += 30.00f;
 
 #if CLIENT
 					//if (organic_state.consciousness_shared_new > 0.30f)
-
-					if (Camera.IsVisible(Camera.CullType.Rect1x, transform.position))
+					var rotten_15x = organic_state.rotten * 15.00f;
+					if (rotten_15x < 1.00f)
 					{
-						//App.WriteLine("bleed");
-
-						if (random.NextBool(Maths.Lerp01(0.30f, 0.00f, organic_state.rotten * 15.00f)))
+						if (Camera.IsVisible(Camera.CullType.Rect1x, transform.position))
 						{
-							Particle.Spawn(ref region, new Particle.Data()
+							//App.WriteLine("bleed");
+
+							if (random.NextBool(Maths.Lerp(0.30f, 0.00f, rotten_15x)))
 							{
-								texture = Organic.tex_blood,
-								lifetime = random.NextFloatRange(0.50f, 0.80f),
-								pos = transform.LocalToWorld(joint.offset_a) + random.NextVector2(0.20f),
-								vel = new Vector2(0, 1) + random.NextUnitVector2Range(0.20f, 4.50f), // (transform.GetDirection() + random.NextVector2(0.50f)) * random.NextFloatRange(0.00f, 1.00f),
-								fps = random.NextByteRange(4, 8),
-								frame_count = 16,
-								frame_count_total = 16,
-								frame_offset = random.NextByteRange(0, 4),
-								scale = random.NextFloatRange(1.00f, 1.50f),
-								//rotation = random.NextFloat(10.00f),
-								//angular_velocity = random.NextFloat(0.50f),
-								growth = random.NextFloatRange(-0.50f, 0.20f),
-								drag = random.NextFloatRange(0.10f, 0.20f),
-								color_a = new Color32BGRA(0xcc900000),
-								color_b = new Color32BGRA(0x00900000),
-								force = new Vector2(0.00f, 20.00f),
-								stretch = new Vector2(random.NextFloatRange(0.20f, 0.50f), random.NextFloatRange(0.80f, 1.00f)),
-								face_dir_ratio = 1.00f
-							});
+								Particle.Spawn(ref region, new Particle.Data()
+								{
+									texture = Organic.tex_blood,
+									lifetime = random.NextFloatRange(0.50f, 0.80f),
+									pos = transform.LocalToWorld(joint.offset_a) + random.NextVector2(0.20f),
+									vel = new Vector2(0, 1) + random.NextUnitVector2Range(0.20f, 4.50f), // (transform.GetDirection() + random.NextVector2(0.50f)) * random.NextFloatRange(0.00f, 1.00f),
+									fps = random.NextByteRange(4, 8),
+									frame_count = 16,
+									frame_count_total = 16,
+									frame_offset = random.NextByteRange(0, 4),
+									scale = random.NextFloatRange(1.00f, 1.50f),
+									//rotation = random.NextFloat(10.00f),
+									//angular_velocity = random.NextFloat(0.50f),
+									growth = random.NextFloatRange(-0.50f, 0.20f),
+									drag = random.NextFloatRange(0.10f, 0.20f),
+									color_a = new Color32BGRA(0xcc900000),
+									color_b = new Color32BGRA(0x00900000),
+									force = new Vector2(0.00f, 20.00f),
+									stretch = new Vector2(random.NextFloatRange(0.20f, 0.50f), random.NextFloatRange(0.80f, 1.00f)),
+									face_dir_ratio = 1.00f
+								});
+							}
 						}
 					}
 #endif
+				}
+				else
+				{
+					const float health_threshold = 0.80f;
+
+					//var mult = (1.00f - health.GetHealthNormalized()).Pow2();
+					var mult = (1.00f - health.GetHealthNormalized().Pow2()).Pow2();
+					joint.stress += joint.max_stress * mult;
+
+					//var health_norm = health.GetHealthNormalized();
+					//if (health_norm < health_threshold)
+					//{
+					//	var mult = health_norm.NormalizeFastUnsafe(health_threshold).Pow2();
+					//	joint.force_modifier_attached *= mult;
+					//}
+						//joint.stress *= 1.00f + stress_mult;
+					//joint.stress_accumulator += joint.displacement_smoothed * (1.50f + stress_mult);
 				}
 
 				//var health_norm = health.integrity * health.durability;

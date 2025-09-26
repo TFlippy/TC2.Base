@@ -459,6 +459,10 @@ commandable:
 			offset_mouth: [0.250, 0.450]
 			frame_pain: 1
 			frame_dead: 2
+
+			flags: displacement_rigidity
+			displacement_mult: 2.000
+			displacement_rigidity: 0.600
 		}
 		
 		human:
@@ -487,7 +491,7 @@ commandable:
 		{
 			head_modifier: 0.500
 			body_modifier: 0.400
-			deadzone: 1.000
+			deadzone: [1.000, 8.000]
 		}
 
 		lootable:

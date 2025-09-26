@@ -19,7 +19,7 @@ body:
 
 		material: flesh
 		layer: entity, solid, creature, organic, flammable
-		mask: world, vehicle, creature
+		mask: world, vehicle
 		exclude: barbed, dead
 	}
 }
@@ -173,7 +173,7 @@ ai.search:
 
 pathfinding:
 {
-	flags: land, climber
+	flags: land
 }
 
 pathfinding.state:
@@ -188,10 +188,11 @@ commandable:
 
 norotate:
 {
-	bias: 0.100
+	flags: no_share 
+	speed: 3.000
+	
 	multiplier: 2.000
 	mass_multiplier: 35.000
-	flags: no_share
 }
 
 runner:
@@ -205,7 +206,7 @@ runner:
 	max_grounded_dot: 0.900
 	propagate_ratio: 1.000
 	no_rotate_air_mult: 0.000
-	flags: no_rotate_align_surface
+	// flags: no_rotate_align_surface
 	walk_lerp: 0.150
 	jump_decay: 0.500
 	crouch_speed_modifier: 0.500
@@ -222,7 +223,7 @@ climber:
 	max_speed: [4.000, 4.000]
 	climb_speed: 16.000
 	climb_force: 3200.000
-	cling_force: 4000.000
+	cling_force: 2000.000
 
 	@shape.circle:
 	{
@@ -360,7 +361,7 @@ faction:
 				elasticity: 0.150
 				material: flesh
 				layer: entity, solid, creature, flammable
-				mask: world, vehicle, creature
+				mask: world, vehicle
 				exclude: barbed, dead
 			}
 		}
@@ -437,9 +438,9 @@ faction:
 
 		norotate:
 		{
-			rotation: 0.000
-			bias: 0.100
+			flags: no_share
 			speed: 5.000
+			
 			multiplier: 7.000
 			mass_multiplier: 240.000
 		}
@@ -447,12 +448,15 @@ faction:
 		runner:
 		{
 			walk_force: 6000.000
-			jump_force: 1000.000
+			jump_force: 15000.000
 			max_speed: 10.000
+			max_jump_speed: 10.000
 			max_jump_time: 0.100
-			max_air_time: 0.700
+			max_air_time: 0.300
 			propagate_ratio: 0.500
 			air_brake_modifier: 0.000
+			no_rotate_air_mult: 0.000
+			jump_decay: 0.500
 		}
 		
 		runner.state:
@@ -559,7 +563,7 @@ faction:
 				elasticity: 0.350
 				material: flesh
 				layer: entity, solid, creature, organic, flammable
-				mask: world, vehicle, creature
+				mask: world, vehicle
 				exclude: barbed, dead
 
 				miss_chance: 0.360
@@ -568,9 +572,9 @@ faction:
 		
 		lookat:
 		{
-			head_modifier: 0.900
+			head_modifier: 1.000
 			body_modifier: 0.000
-			deadzone: 0.350
+			deadzone: [0.125, 1.000]
 		}
 		
 		// biter:
@@ -591,29 +595,39 @@ faction:
 
 		melee:
 		{
-			swing_offset: [0.000, 0.000]
-			swing_rotation: 0.000
-			attack_type: thrust
 			damage_base: 60.000
 			damage_bonus: 115.000
+			armor_pierce: 25.000
+			
+			terrain_damage_multiplier: 2.500
 			pain_multiplier: 0.900
 			stun_multiplier: 0.800
+			
 			disarm_chance: 0.050
 			cooldown: 1.000
 			max_distance: 1.250
 			aoe: 1.400
-			thickness: 1.000
+			thickness: 0.500
 			knockback: 2250.000
+			knockback_speed: 4.000
 			yield: 0.500
 			penetration_falloff: 0.600
 			penetration: 2
+			
+			hit_offset: [0.375, -0.250]
+			
+			swing_offset: [0.000, 0.000]
+			swing_rotation: 0.000
+			
+			attack_type: thrust
 			damage_type: bite
-			category: blunt
+			category: misc
 			flags: no_handle, no_material_filter
+			
 			damage_flags_add: no_loot_pickup, no_loot_drop, no_loot_notification
-			hit_mask: creature, door, organic
-			hit_require: destructible
-			hit_exclude: world, background, tree, essence, water, gas, ignore_melee
+			
+			hit_mask: world, creature, door, organic
+			hit_exclude: background, tree, resource, essence, water, gas, stored, ignore_melee
 		}
 
 		melee.state:
@@ -702,6 +716,10 @@ faction:
 			offset_mouth: [0.500, 0.150]
 			frame_pain: 1
 			frame_dead: 2
+
+			flags: displacement_rigidity
+			displacement_mult: 2.000
+			displacement_rigidity: 0.600
 		}
 		
 		control:

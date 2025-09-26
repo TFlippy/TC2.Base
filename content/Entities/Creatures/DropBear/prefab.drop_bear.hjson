@@ -315,7 +315,7 @@ faction:
 		{
 			head_modifier: 0.900
 			body_modifier: 0.000
-			deadzone: 0.350
+			deadzone: [0.350, 4.000]
 		}
 		
 		organic:
@@ -385,6 +385,7 @@ faction:
 
 			offset_mouth: [0.500, 0.150]
 
+			flags: displacement_rigidity
 			frame_pain: 1
 			frame_dead: 2
 		}
