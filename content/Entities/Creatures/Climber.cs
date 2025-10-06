@@ -10,6 +10,19 @@ namespace TC2.Base.Components
 			"walljump.02"
 		};
 
+		[ISystem.Update.F(ISystem.Mode.Single, ISystem.Scope.Region)]
+		public static void OnUpdateNoRotate(ISystem.Info info,
+		[Source.Owned] ref Climber.Data climber, [Source.Owned, Override] ref NoRotate.Data no_rotate)
+		{
+			if (climber.flags.HasAny(Climber.Flags.Align_Direction))
+			{
+				if (climber.cling_entity != default)
+				{
+					no_rotate.rotation = climber.current_climb_dir.GetAngleRad();
+				}
+			}
+		}
+
 		// Crappily exposed Climber.cs for now, since it interacts with physics constraint pointers
 		[ISystem.Update.E(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnUpdate(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity,
@@ -149,11 +162,24 @@ namespace TC2.Base.Components
 
 			var climb_vel_norm = climb_vel.GetNormalizedFast();
 
-//#if CLIENT
-//			region.DrawDebugDir(body.GetPosition(), normal.GetPerpendicularAligned(climb_vel_norm), Color32BGRA.Red);
-//#endif
+			//#if CLIENT
+			//			region.DrawDebugDir(body.GetPosition(), normal.GetPerpendicularAligned(climb_vel_norm), Color32BGRA.Red);
+			//#endif
 
-			if (is_climbing && normal != default) climber.OffsetA += normal.GetPerpendicularAligned(climb_vel_norm);
+			if (is_climbing)
+			{
+				if (normal != default)
+				{
+					climber.OffsetA += normal.GetPerpendicularAligned(climb_vel_norm);
+				}
+
+				//if (climber.flags.HasAny(Climber.Flags.Align_Direction))
+				//{
+				//	no_ro
+				//}
+			}
+
+			climber.current_climb_dir = climb_vel_norm;
 
 			if (can_wallclimb & is_wallclimbing)
 			{

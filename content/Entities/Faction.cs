@@ -11,7 +11,11 @@ namespace TC2.Base.Components
 
 			public void Draw()
 			{
-				using (var widget = Sidebar.Widget.New("faction", "Faction", new Sprite(GUI.tex_icons_widget, 16, 16, 3, 0), size: new Vector2(48 * 6, 48 * 8), order: -20.00f))
+				using (var widget = Sidebar.Widget.New(identifier: "faction",
+				name: "Faction",
+				icon: new Sprite(GUI.tex_icons_widget, 16, 16, 3, 0),
+				size: new Vector2(48 * 6, 48 * 8),
+				order: -20.00f))
 				{
 					if (widget.state_flags.HasAny(Sidebar.Widget.StateFlags.Show))
 					{

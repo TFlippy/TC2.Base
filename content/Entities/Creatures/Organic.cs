@@ -120,8 +120,8 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.PreUpdate.B(ISystem.Mode.Single, ISystem.Scope.Region, flags: ISystem.Flags.Unchecked | ISystem.Flags.SkipLocalsInit),
-		HasTag("dead", true, Source.Modifier.Owned), HasComponent<Organic.Data>(Source.Modifier.Owned, true)]
+		[HasTag("dead", true, Source.Modifier.Owned), HasComponent<Organic.Data>(Source.Modifier.Owned, true)]
+		[ISystem.PreUpdate.B(ISystem.Mode.Single, ISystem.Scope.Region, flags: ISystem.Flags.Unchecked | ISystem.Flags.SkipLocalsInit)]
 		public static void UpdateNoRotate([Source.Owned, Override] ref NoRotate.Data no_rotate)
 		{
 			no_rotate.multiplier = 0.00f;
@@ -196,7 +196,7 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.Remove(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", true, Source.Modifier.Owned)]
-		public static void OnRemoveBodyDead([Source.Owned, Original] in Organic.Data organic, [Source.Owned] ref Body.Data body)
+		public static void OnRemove_BodyDead([Source.Owned, Original] in Organic.Data organic, [Source.Owned] ref Body.Data body)
 		{
 			//App.WriteLine("remove body layer dead");
 
@@ -205,7 +205,7 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.50f, flags: ISystem.Flags.Unchecked), HasTag("dead", true, Source.Modifier.Owned)]
-		public static void UpdateRotting(ISystem.Info info, Entity entity,
+		public static void OnUpdate_Rotting(ISystem.Info info, Entity entity,
 		[Source.Owned, Override] in Organic.Data organic, [Source.Owned] ref Organic.State organic_state)
 		{
 			organic_state.rotten = Maths.Max(organic_state.rotten + (info.DeltaTime * Constants.Organic.rotting_speed * 0.005f), 0.00f);
@@ -222,7 +222,7 @@ namespace TC2.Base.Components
 
 #if SERVER
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.20f, flags: ISystem.Flags.Unchecked)]
-		public static void UpdateDead(Entity entity, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] ref Organic.State organic_state, [Source.Owned] bool dead)
+		public static void OnUpdate_Dead(Entity entity, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] ref Organic.State organic_state, [Source.Owned] bool dead)
 		{
 			if (dead)
 			{
@@ -235,7 +235,7 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.Add(ISystem.Mode.Single, ISystem.Scope.Region, order: 25), HasTag("dead", true, Source.Modifier.Parent)]
-		public static void OnAddParentDead(Entity ent_organic_state_child, Entity ent_organic_state_parent,
+		public static void OnAdd_ParentDead(Entity ent_organic_state_child, Entity ent_organic_state_parent,
 		[Source.Owned] ref Organic.State organic_state_child,
 		[Source.Parent] ref Organic.State organic_state_parent,
 		[Source.Parent] in Joint.Base joint)
@@ -249,39 +249,13 @@ namespace TC2.Base.Components
 
 		//[HasComponent<Health.Data>(Source.Modifier.Shared, true)]
 		//[ISystem.PreUpdate.D(ISystem.Mode.Single, ISystem.Scope.Region, flags: ISystem.Flags.Unchecked)]
-		[ISystem.PostUpdate.A(ISystem.Mode.Single, ISystem.Scope.Region, flags: ISystem.Flags.Unchecked)]
-		public static void UpdateJoint1A(ISystem.Info info, ref Region.Data region, ref XorRandom random,
+		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region, flags: ISystem.Flags.Unchecked)]
+		public static void OnUpdate_JointPain(ISystem.Info info, ref Region.Data region, ref XorRandom random,
 		[Source.Shared] in Transform.Data transform, [Source.Shared] in Health.Data health, [Source.Shared] ref Organic.State organic_state,
 		[Source.Owned] ref Joint.Base joint)
 		{
 			if (joint.flags.HasAny(Joint.Flags.Organic))
 			{
-
-
-				//joint.torque_modifier = organic.consciousness;
-
-				//joint.max_stress_force_modifier = (health.integrity * health.integrity * health.integrity); // * (health.durability * health.durability);
-				//joint.max_stress = (health.integrity * health.integrity * health.integrity * health.integrity);
-
-				//if (organic_state.rotten > 0.80f)
-				//{
-				//	joint.max_stress_force_modifier *= 0.00f;
-				//	joint.max_stress *= 0.00f;
-				//}
-
-				//var rotten_modifier = 1.00f - organic_state.rotten;
-
-				//joint.torque_modifier = Maths.Clamp(modifier, 0.00f, 1.00f);
-
-				//rotary_limit.min = Maths.Lerp(-MathF.PI * 0.20f, 0.00f, modifier);
-				//rotary_limit.max = Maths.Lerp(+MathF.PI * 0.20f, 0.00f, modifier);
-
-				//if (rotten_modifier)
-
-				//joint.max_stress_force_modifier *= rotten_modifier * rotten_modifier * rotten_modifier;
-				//joint.max_stress *= rotten_modifier * rotten_modifier * rotten_modifier;
-
-				//if (!joint.state.HasAny(Joint.State.Attached | Joint.State.Attaching))
 				if (joint.state.HasNone(Joint.State.Attached | Joint.State.Attaching))
 				{
 					organic_state.pain += 30.00f;
@@ -323,26 +297,33 @@ namespace TC2.Base.Components
 					}
 #endif
 				}
-				else
-				{
-					const float health_threshold = 0.80f;
+			}
+		}
 
-					//var mult = (1.00f - health.GetHealthNormalized()).Pow2();
-					var mult = (1.00f - health.GetHealthNormalized().Pow2()).Pow2();
-					joint.stress += joint.max_stress * mult;
+		[ISystem.PostUpdate.A(ISystem.Mode.Single, ISystem.Scope.Region, flags: ISystem.Flags.Unchecked)]
+		public static void OnUpdate_JointHealth([Source.Owned] ref Organic.State organic_state, [Source.Owned] in Health.Data health_child, 
+		[Source.Parent] in Health.Data health_parent, [Source.Parent] ref Joint.Base joint)
+		{
+			if (joint.flags.HasAny(Joint.Flags.Organic))
+			{
 
-					//var health_norm = health.GetHealthNormalized();
-					//if (health_norm < health_threshold)
-					//{
-					//	var mult = health_norm.NormalizeFastUnsafe(health_threshold).Pow2();
-					//	joint.force_modifier_attached *= mult;
-					//}
-						//joint.stress *= 1.00f + stress_mult;
-					//joint.stress_accumulator += joint.displacement_smoothed * (1.50f + stress_mult);
-				}
+				const float health_threshold = 0.80f;
 
-				//var health_norm = health.integrity * health.durability;
-				//joint.max_stress_modifier = (health_norm + 0.20f).Clamp01().Pow2().Pow2();
+				//var mult = (1.00f - health.GetHealthNormalized()).Pow2();
+
+				var health_norm = Maths.Min(health_child.GetHealthNormalized(), health_parent.GetHealthNormalized());
+				var mult = (1.00f - health_norm.Pow2()).Pow2();
+				joint.stress += joint.max_stress * mult;
+
+				//var health_norm = health.GetHealthNormalized();
+				//if (health_norm < health_threshold)
+				//{
+				//	var mult = health_norm.NormalizeFastUnsafe(health_threshold).Pow2();
+				//	joint.force_modifier_attached *= mult;
+				//}
+				//joint.stress *= 1.00f + stress_mult;
+				//joint.stress_accumulator += joint.displacement_smoothed * (1.50f + stress_mult);
+
 			}
 		}
 	}

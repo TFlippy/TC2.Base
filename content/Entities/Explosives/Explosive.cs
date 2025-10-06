@@ -230,7 +230,7 @@ namespace TC2.Base.Components
 					{
 						var random = XorRandom.New(true);
 
-						App.WriteValue(explosive_tmp.modifier);
+						//App.WriteValue(explosive_tmp.modifier);
 
 						//explosion.radius = Maths.Max(3.00f, Maths.Lerp01(explosive_tmp.radius * 0.25f, explosive_tmp.radius, explosive_tmp.modifier) * random.NextFloatExtra(0.90f, 0.15f));
 						//explosion.radius = Maths.Max(3.00f, (explosive_tmp.radius * explosive_tmp.modifier) * random.NextFloatExtra(0.90f, 0.15f));
