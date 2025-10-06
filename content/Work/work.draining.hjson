@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.65.2"
 	name: "Draining"
 	name_short: "Draining"
 	desc:
@@ -18,11 +18,10 @@
 	tags: simple
 	
 	amount_base: 0.000
-	cooldown: 1.500
+	cooldown: 1.300
 	multiplier: 1.000
 	
 	amount_jitter: 0.164
-	cooldown_jitter: 0.125
 	color: "0xff64b8fb"
 	
 	tools_required: none
@@ -49,10 +48,10 @@
 		endurance: 0.600
 	}
 	
-	sound_volume: 0.500
+	sound_volume: 0.450
 	sound_pitch: 1.000
-	sound_size: 0.500
-	sound_dist: 1.000
+	sound_size: 0.700
+	sound_dist: 0.750
 	
 	sounds: ["water.impact.soft.00", "water.impact.soft.01", "water.impact.soft.02"]
 	sounds_manual: []

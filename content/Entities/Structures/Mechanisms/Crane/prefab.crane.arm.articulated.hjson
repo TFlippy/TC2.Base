@@ -231,6 +231,7 @@ heat:
 		max_bias: 1.500
 		min: -2.062
 		max: 1.374
+		damping_loose: 0.100
 	}
 
 	joint_motor:

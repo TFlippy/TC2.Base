@@ -324,7 +324,7 @@ faction:
 		{
 			bias: 0.0001
 			speed: 8.000
-			multiplier: 50.000
+			multiplier: 90.000
 			mass_multiplier: 300.000
 			flags: no_share
 		}
@@ -567,7 +567,7 @@ faction:
 				elasticity: 0.740
 				
 				material: flesh
-				miss_chance: 0.529
+				miss_chance: 0.219
 				
 				layer: entity, solid, creature, organic, flammable
 				mask: world, creature, vehicle
@@ -706,8 +706,8 @@ faction:
 
 		armor:
 		{
-			toughness: 258.000
-			protection: 0.980
+			toughness: 658.000
+			protection: 0.990
 			coverage: 0.650
 			knockback_modifier: 1.530
 			stun_modifier: 0.320

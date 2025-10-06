@@ -159,7 +159,7 @@ flyer:
 {
 	max_speed: 25.000
 	force: 175.000
-	brake_modifier: 0.070
+	brake_modifier: 0.240
 	sound_speed_modifier: 0.025
 	sound_volume: 1.400
 }

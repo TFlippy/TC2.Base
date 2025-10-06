@@ -12,16 +12,24 @@ body:
 
 	@shape.box:
 	{
-		size: [1.500, 1.500]
-		offset: [0.000, 0.000]
+		material: metal_solid
+		miss_chance: 0.000
+		flags: none
+		tags: none
+		
+		layer: entity, solid, crate
+		mask: world, creature, crate
+		exclude: tree, resource, essence
+		
 		mass: 950.000
 		radius: 0.250
 		friction: 0.750
 		elasticity: 0.400
-		material: metal_solid
-		layer: entity, solid, crate
-		mask: world, creature, crate
-		exclude: tree, resource, essence
+		
+		cog_offset: [-0.0625, 0.375]
+		
+		size: [1.500, 1.500]
+		offset: [0.000, 0.000]
 	}
 }
 

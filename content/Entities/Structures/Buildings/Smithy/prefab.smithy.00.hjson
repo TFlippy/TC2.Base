@@ -92,12 +92,15 @@ claimable:
 
 laboratory:
 {
-	blueprints_capacity: 2
 	filter_tags:
 	{
-		require: metalworking
-		include: metalworking
+		include: furniture, blacksmithing, metalworking
+		exclude: advanced, huge
 	}
+	
+	blueprints_capacity: 2
+	augments_capacity: 10
+	flags: none
 }
 
 shop:

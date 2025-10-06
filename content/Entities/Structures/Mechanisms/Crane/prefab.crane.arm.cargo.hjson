@@ -217,6 +217,7 @@ heat:
 		error_bias: 0.010
 		max_bias: 2.000
 		step: 4.000
+		damping_loose: 0.300
 	}
 
 	joint.rotarylimit:

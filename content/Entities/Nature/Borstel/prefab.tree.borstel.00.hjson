@@ -115,6 +115,14 @@ faction:
 	id: drevokocur
 }
 
+nameable:
+{
+	tags: dangerous, homely, food
+	type: location
+	flags: randomize, no_rename
+	max_length: 16
+}
+
 claimer:
 {
 	radius: 16.000
