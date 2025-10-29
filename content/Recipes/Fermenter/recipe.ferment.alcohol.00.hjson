@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.65.2"
 	name: "Alcoholic"
 	desc:
 		'''
@@ -81,16 +81,16 @@
 						{
 							type: resource
 							material: alcohol
-							amount: 32.800
-							amount_extra: 10.259
+							amount: 6.547048
+							amount_extra: 2.047745
 							group: 0
 							flags: byproduct, primary, compact
 						}
 						{
 							type: resource
 							material: mulch
-							amount: 14.35036
-							amount_extra: 1.909398
+							amount: 15.2114
+							amount_extra: 2.023964
 							group: 0
 							flags: waste, residue, compact
 						}
@@ -111,6 +111,15 @@
 							flags: pollutant, waste, byproduct, spawn, hidden
 						}
 					]
+					
+					filter_tools:
+					{
+						include: shovel, towel
+					}
+					filter_infrastructure:
+					{
+						include: dishes, compactor, blender, press, form
+					}
 				}
 			]
 		}
@@ -168,6 +177,8 @@
 	type: workshop
 	flags: production, no_cancel
 	tags: simple, organic, agriculture, fermenting, processing, dangerous
+	hints: none
+	connotations: none
 	infrastructure: liquid_container, fermenter
 	infrastructure_exclude: none
 	

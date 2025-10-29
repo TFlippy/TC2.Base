@@ -2117,7 +2117,8 @@ namespace TC2.Base.Components
 		{
 			gun_state.hints.SetFlag(Gun.Hints.Loaded, inventory_magazine.resource.IsValid());
 			gun_state.hints.SetFlag(Gun.Hints.Supressive_Fire, gun.max_ammo >= 20.00f && (gun.cycle_interval > 0.09f && (gun.cycle_interval <= 0.15f || (gun.cycle_interval <= 0.40f && gun.flags.HasAny(Gun.Flags.Automatic)))));
-			gun_state.hints.SetFlag(Gun.Hints.Long_Range, gun.heuristic_range > 15.00f && gun.jitter_multiplier <= 0.05f);
+			//gun_state.hints.SetFlag(Gun.Hints.Long_Range, gun.heuristic_range > 15.00f && (gun.jitter_multiplier)) <= 0.05f);
+			gun_state.hints.SetFlag(Gun.Hints.Long_Range, gun.heuristic_range > 15.00f && (gun.velocity_multiplier.NormalizeFastUnsafe(1.00f + gun.jitter_multiplier) > 150.00f));
 			gun_state.hints.SetFlag(Gun.Hints.Close_Range, gun.type == Gun.Type.Shotgun || gun_state.hints.HasNone(Gun.Hints.Long_Range));
 
 			if (gun_state.stage == Gun.Stage.Ready)

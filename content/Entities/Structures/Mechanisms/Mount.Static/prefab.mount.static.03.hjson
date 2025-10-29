@@ -56,9 +56,9 @@ interactable:
 {
 	flags: none
 	priority: 1.800
-	window_size: [120.000, 200.000]
+	window_size: [200.000, 192.000]
 	window_size_min: [192.000, 96.000]
-	window_size_misc: [48.000, 0.000]
+	window_size_misc: [96.000, 0.000]
 	window_offset: [0.000, 178.000]
 }
 

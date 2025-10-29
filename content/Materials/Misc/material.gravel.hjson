@@ -2,9 +2,11 @@
 	$version: "0.1.64.0"
 	name: "Gravel"
 	name_short: "Gravel"
-	name_dumb: "Stone"
+	name_dumb: "Gravy"
 	description:
 		'''
+		Small bits of rock predominantly used for building foundations and concrete. 
+
 		Many wars were fought over gravel.
 		'''
 	
