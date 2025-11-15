@@ -1,7 +1,7 @@
 $name: "Pickaxe"
 $desc:
 	'''
-	Basic mining tool.
+	Pointed tool used digging through hard materials.
 	'''
 $tags: []
 

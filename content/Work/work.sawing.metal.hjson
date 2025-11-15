@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.65.3"
 	name: "Sawing (Metal)"
 	name_short: "Sawing"
 	desc:
@@ -17,9 +17,9 @@
 	flags: manual, wip
 	tags: tools, crude, simple, construction
 	
-	amount_base: 0.000
-	cooldown: 0.940
-	multiplier: 0.650
+	amount_base: 1.500
+	cooldown: 0.630
+	multiplier: 0.740
 	
 	amount_jitter: 0.256
 	cooldown_jitter: 0.110
@@ -44,11 +44,10 @@
 	
 	skills_mult:
 	{
-		strength: 0.730
-		blacksmithing: 0.190
-		mining: 0.210
-		endurance: 0.430
-		woodcutting: 0.490
+		strength: 0.220
+		carpentry: 0.240
+		endurance: 0.240
+		construction: 0.210
 	}
 	
 	sound_volume: 0.660
