@@ -47,7 +47,7 @@ explosive:
 	flash_duration_multiplier: 0.150
 	flash_intensity_multiplier: 0.500
 	shake_multiplier: 0.400
-	force_multiplier: 0.200
+	force_multiplier: 0.100
 	stun_multiplier: 1.500
 	fire_amount: 0.150
 	sparks_amount: 2.000
