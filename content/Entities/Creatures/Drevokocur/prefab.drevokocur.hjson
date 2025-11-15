@@ -653,20 +653,20 @@ faction:
 			hit_offset: [0.875, 0.375]
 			swing_offset: [0.625, -0.875]
 			swing_rotation: -1.600
-			damage_base: 450.000
-			damage_bonus: 700.000
-			primary_damage_multiplier: 1.300
-			secondary_damage_multiplier: 0.800
+			damage_base: 50.000
+			damage_bonus: 200.000
+			primary_damage_multiplier: 0.800
+			secondary_damage_multiplier: 1.000
 			terrain_damage_multiplier: 0.500
-			pain_multiplier: 0.200
-			stun_multiplier: 0.150
-			disarm_chance: 0.450
+			pain_multiplier: 0.400
+			stun_multiplier: 0.450
+			disarm_chance: 0.050
 			cooldown: 0.260
 			max_distance: 1.400
 			aoe: 1.350
 			thickness: 1.700
 			knockback: -5650.000
-			knockback_speed: 2.000
+			knockback_speed: 4.000
 			yield: 0.800
 			penetration_falloff: 0.800
 			penetration: 3
