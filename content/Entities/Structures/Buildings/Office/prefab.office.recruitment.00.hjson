@@ -1,0 +1,198 @@
+$name: "Recruitment Office"
+$desc:
+	'''
+	TODO: Desc
+	'''
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.box:
+	{
+		size: [5.250, 3.750]
+		offset: [0.000, -0.125]
+		
+		mass: 500.000
+		radius: 0.500
+		friction: 0.750
+		elasticity: 0.250
+		
+		material: building_masonry
+		
+		layer: entity, building, support, ignore_melee, ignore_bullet, storage
+		mask: world, building
+	}
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "office.recruitment.00"
+		mask: "office.recruitment.00.mask"
+	}
+	z: -300.000
+}
+
+interactable:
+{
+	flags: no_tab
+	priority: 1.100
+	window_size: [644.000, 528.000]
+	window_size_misc: [96.000, 0.000]
+}
+
+health:
+{
+	max: 37500.000
+}
+
+faction.colorable:
+{
+	intensity_a: 0.600
+}
+
+faction:
+{
+
+}
+
+company:
+{
+
+}
+
+transform:
+{
+
+}
+
+building:
+{
+
+}
+
+nameable:
+{
+	tags: homely, fancy, market
+	flags: randomize
+	type: location
+	max_length: 16
+}
+
+address:
+{
+	
+}
+
+entrance.linkable:
+{
+
+}
+
+storage:
+{
+	@inventory8:
+	{
+		type: storage
+		flags: standalone, ignore_mass, faction, vertical
+		stack_size_multiplier: 2.000
+		
+		filter:
+		{
+			require: none
+			include: soft, hard, granular, large, small, bottled
+			exclude: gas
+		}
+		
+		offset: [0.500, 0.750]
+	}
+}
+
+personnel:
+{
+	flags: store_characters
+	slots:
+	[
+		{
+			role: clerk
+			tags: administrative, civil, paperwork, sedentary
+			color: "0x8f005ec2"
+			multiplier: 2.000
+		}
+	]
+	characters_capacity: 1
+}
+
+shop:
+{
+	tags_filter:
+	{
+		include: research, social, science, military
+		exclude: large, huge, blacksmithing, architecture, smelting, heating
+	}
+	
+	tools: pencil, paper, ruler, screwdriver, magnifying_glass, stapler, knife, pins, scissors
+	infrastructure: table, chair, stationery, surface, structure, office, building
+	environment: office, stationary, cozy, flammable, building
+	connotations: none
+	
+	flags: embed_gui
+	menu_columns: 4
+	recipe_type: workshop
+	
+	name: "Recruitment Office"
+}
+
+workshop:
+{
+	orders_capacity: 2
+	h_sound_order_complete: computer.bell.00
+	max_order_mass: 80.000
+}
+
+minimap.marker:
+{
+	sprite:
+	{
+		texture: "ui_icons_minimap"
+		size: [16, 16]
+		frame: [1, 0]
+	}
+	flags: faction, spawner
+}
+
+spawn:
+{
+	flags: faction
+}
+
+dormitory:
+{
+	flags: no_kit_selection, no_kit_requirements, repopulate_needs_faction, region_only
+	species: human
+	
+	characters_capacity: 4
+	characters_initial_count: 0
+	
+	repopulate_interval: 120.000
+	repopulate_interval_extra: 300.000
+	repopulate_max: 2
+	repopulate_num: 1
+	repopulate_num_extra: 1
+	repopulate_character_flags_add: recruitable
+	
+	asset_flags: recycle
+	character_flags_filter:
+	{
+		include: construction, artisan, farmer, laborer, civillian, nomad, culinary, entertainer, artist, lower_class, lower_middle_class, middle_class
+		exclude: upper_middle_class, upper_class, elite_class
+	}
+}
+
+recruitment:
+{
+
+}
