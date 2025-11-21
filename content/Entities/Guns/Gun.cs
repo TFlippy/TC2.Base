@@ -728,7 +728,7 @@ namespace TC2.Base.Components
 
 		//}
 
-		[IComponent.Data(Net.SendType.Reliable, region_only: true), IComponent.With<Gun.State>]
+		[IComponent.Data(Net.SendType.Reliable, IComponent.Scope.Region), IComponent.With<Gun.State>]
 		public partial struct Data(): IComponent
 		{
 			public static readonly Sound.Handle sound_jam_default = "gun.jam.00";
@@ -784,13 +784,16 @@ namespace TC2.Base.Components
 			[Save.NewLine]
 			[Statistics.Info("Damage", description: "Damage dealt by the fired projectile.", format: "{0:0.##}x", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
 			public float damage_multiplier;
-			[Statistics.Info("Muzzle Velocity", description: "Velocity of the fired projectile.", format: "{0:0.##} m/s", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
+			[Statistics.Info("Muzzle Velocity", description: "Base speed of the fired projectile.", format: "{0:0.##} m/s", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
 			public float velocity_multiplier;
+			[Statistics.Info("Muzzle Velocity (Max)", description: "Maximum speed of the fired projectile.", format: "{0:0.##}x", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.Medium)]
+			public float velocity_max = 700.00f;
 			[Statistics.Info("Spread", description: "Spread of the fired projectiles.", format: "{0:0.##}x", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.High)]
 			public float jitter_multiplier;
 			[Statistics.Info("Recoil", description: "Force applied after firing the weapon.", format: "{0:0.##}x", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.Medium)]
 			public float recoil_multiplier;
-			public float velocity_max = 700.00f;
+			[Statistics.Info("Muzzle Blast", description: "Strength of the muzzle blast after firing the weapon.", format: "{0:0.##}x", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.Medium)]
+			public float muzzle_blast_mult = 1.00f;
 
 			[Statistics.Info("Reload Speed", description: "Time to reload the weapon.", format: "{0:0.##}s", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.Medium)]
 			public float reload_interval;
@@ -800,7 +803,6 @@ namespace TC2.Base.Components
 			public float stability = 100.00f;
 			[Statistics.Info("Failure Rate", description: "Chance of malfunction, such as jamming after being fired.", format: "{0:P2}", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.Low)]
 			public float failure_rate = 0.00f;
-			private float unused_00;
 
 			[Save.NewLine]
 			[Statistics.Info("Ammo", description: "Ammunition type.", comparison: Statistics.Comparison.None, priority: Statistics.Priority.High)]
@@ -831,9 +833,10 @@ namespace TC2.Base.Components
 
 			public float heuristic_range = 30.00f;
 			private float unused_01;
+			private float unused_02;
 		}
 
-		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
+		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region)]
 		public partial struct State(): IComponent
 		{
 			public Gun.Hints hints;
@@ -888,7 +891,7 @@ namespace TC2.Base.Components
 					var g = gravity; /// region.GetGravity().Y * projectile.gravity;
 					//var d = projectile.damp;
 
-					var sqrt = MathF.Sqrt((v * v * v * v) - (g * (g * (p.X * p.X) + (2.00f * p.Y * (v * v)))));
+					var sqrt = Maths.Sqrt((v * v * v * v) - (g * (g * (p.X * p.X) + (2.00f * p.Y * (v * v)))));
 
 					var a = MathF.Atan(((v * v) - sqrt) / (g * p.X));
 					var b = MathF.Atan(((v * v) + sqrt) / (g * p.X));
@@ -1628,7 +1631,7 @@ namespace TC2.Base.Components
 
 					var recoil_mass = ammo.mass * gun.ammo_per_shot;
 					var recoil_speed = Maths.Min(gun.velocity_max, gun.velocity_multiplier * ammo.speed_mult);
-					var recoil_force = -dir * ((recoil_mass * recoil_speed) * gun.recoil_multiplier * ammo.recoil_mult * App.tickrate * 20.00f);
+					var recoil_force = -dir * ((recoil_mass * recoil_speed) * gun.recoil_multiplier * ammo.recoil_mult * App.tickrate_f32 * 20.00f);
 
 					//recoil_force = Physics.LimitForce(ref body, recoil_force, new Vector2(50, 50));
 
@@ -1714,7 +1717,7 @@ namespace TC2.Base.Components
 							pitch = 1.50f,
 							flash_duration_multiplier = 1.20f,
 							flash_intensity_multiplier = 2.70f,
-							ent_owner = body.GetParent()
+							//ent_owner = body.GetParent()
 						};
 
 						region.SpawnPrefab("explosion", pos_w_offset).ContinueWith(ent =>
@@ -1728,7 +1731,7 @@ namespace TC2.Base.Components
 								explosion.radius = explosion_data.radius;
 								explosion.damage_entity = explosion_data.damage_entity;
 								explosion.damage_terrain = explosion_data.damage_terrain;
-								explosion.ent_owner = explosion_data.ent_owner;
+								//explosion.ent_owner = explosion_data.ent_owner;
 								explosion.smoke_amount = explosion_data.smoke_amount;
 								explosion.sparks_amount = explosion_data.sparks_amount;
 								explosion.pitch = explosion_data.pitch;
@@ -1792,7 +1795,7 @@ namespace TC2.Base.Components
 								args.ang_vel += random.NextFloatRange(-30, 30) * failure_rate;
 							}
 
-							region.SpawnPrefab(ammo.prefab, pos_w_offset, rotation: args.vel.GetAngleRadiansFast(), velocity: args.vel, angular_velocity: args.ang_vel, entity: ent_projectile_next, faction_id: h_faction).ContinueWith(ent =>
+							region.SpawnPrefab(prefab: ammo.prefab, position: pos_w_offset, rotation: args.vel.GetAngleRadiansFast(), velocity: args.vel, angular_velocity: args.ang_vel, entity: ent_projectile_next, faction_id: h_faction).ContinueWith(ent =>
 							{
 								if (ent.TryGetRecord(out var rec_projectile))
 								{
@@ -1811,12 +1814,12 @@ namespace TC2.Base.Components
 										projectile.Sync(rec_projectile, true);
 									}
 
-									ref var explosive = ref rec_projectile.GetComponent<Explosive.Data>();
-									if (explosive.IsNotNull())
-									{
-										explosive.ent_owner = args.ent_owner;
-										explosive.Sync(rec_projectile, true);
-									}
+									//ref var explosive = ref rec_projectile.GetComponent<Explosive.Data>();
+									//if (explosive.IsNotNull())
+									//{
+									//	explosive.ent_owner = args.ent_owner;
+									//	explosive.Sync(rec_projectile, true);
+									//}
 
 									if (args.gun_flags.HasAny(Gun.Flags.Child_Projectiles))
 									{
@@ -1849,16 +1852,18 @@ namespace TC2.Base.Components
 							if (shockwave_radius >= 4.00f)
 							{
 								var shake_amount = gun.shake_amount * 0.50f;
+								var shockwave_damage = shockwave_radius * 10.00f * gun.muzzle_blast_mult;
+
 								//App.WriteLine(shockwave_radius);
 								Explosion.Spawn(ref region, pos_w_offset + (dir * 1.75f), (ent_explosion, ref explosion) =>
 								{
 									explosion.power = 2.00f;
 									explosion.radius = shockwave_radius;
-									explosion.damage_entity = 10.00f * shockwave_radius;
-									explosion.damage_terrain = 10.00f * shockwave_radius;
+									explosion.damage_entity = shockwave_damage;
+									explosion.damage_terrain = shockwave_damage;
 									explosion.damage_type = Damage.Type.Shockwave;
 									explosion.damage_type_secondary = Damage.Type.Shockwave;
-									explosion.ent_owner = entity;
+									//explosion.ent_owner = entity;
 									explosion.fire_amount = 0.00f;
 									explosion.smoke_amount = 0.00f;
 									explosion.smoke_lifetime_multiplier = 1.00f;
@@ -1870,7 +1875,7 @@ namespace TC2.Base.Components
 									explosion.pitch = 0.00f;
 									explosion.stun_multiplier = 1.40f;
 									explosion.shake_multiplier = shake_amount;
-									explosion.force_multiplier = 0.20f;
+									explosion.force_multiplier = 0.25f;
 									explosion.flags |= Explosion.Flags.No_Split;
 									explosion.ent_ignored = entity;
 

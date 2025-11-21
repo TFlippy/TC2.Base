@@ -116,7 +116,7 @@ mount:
 			texture: "mount.heavy.fg"
 			mask: "mount.heavy.fg.mask"
 		}
-		z: 10.000
+		z: -70.000
 	}
 }
 
@@ -163,6 +163,7 @@ vehicle:
 		stress_threshold: 2.000
 		flags: control_write, no_wrap, force_facing
 		material_type: metal
+		z: -90.000
 		
 		@sound.emitter:
 		{

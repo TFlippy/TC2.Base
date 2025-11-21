@@ -15,63 +15,68 @@ body:
 		material: metal_solid
 		miss_chance: 0.220
 		flags: none
-		tags: none
+		tags: heavy, huge, solid, hard
 		
 		layer: entity, solid, item, ignore_melee
 		mask: world
 		exclude: none
 		
-		mass: 1450.000
+		mass: 2150.000
 		radius: 0.550
 		friction: 0.800
 		elasticity: 0.450
 		
 		cog_offset: [-1.1875, 0.125]
 		
-		a: [-3.000, 0.125]
-		b: [3.250, -0.125]
+		a: [-3.500, 0.125]
+		b: [3.375, -0.125]
 		offset: [0.000, 0.000]
 	}
 }
 
 gun:
 {
-	muzzle_offset: [3.500, -0.050]
-	receiver_offset: [-3.375, 0.000]
-
-	eject_direction: [-1.800, -9.400]
-	eject_angular_velocity: 2.000
-
-	sound_shoot: "cannon_shoot"
-	sound_eject: "cannon.eject.00"
-	sound_reload: "cannon_reload"
-	velocity_multiplier: 220.000
-	jitter_multiplier: 0.350
-	damage_multiplier: 9.400
-	recoil_multiplier: 1.700
-	reload_interval: 5.000
-	cycle_interval: 1.500
-	failure_rate: 0.010
-	max_ammo: 1.000
-	sound_volume: 6.000
-	sound_size: 16.000
-	sound_empty: "press.fail.02"
-	sound_jam: "clang.00"
-	sound_dist_multiplier: 15.000
+	muzzle_offset: [3.875, -0.100]
+	receiver_offset: [-3.500, 0.000]
+	
+	eject_direction: [-1.800, -3.400]
+	eject_angular_velocity: 2.400
+	flash_size: 2.000
+	
 	smoke_size: 10.000
 	smoke_amount: 5.000
-	flash_size: 2.000
-	projectile_count: 1
-	flags: manual_cycle
+	
+	shake_amount: 1.000
+	shake_radius: 100.000
+	
+	sound_volume: 6.000
+	sound_size: 18.000
+	sound_dist_multiplier: 15.000
+	
+	sound_shoot: cannon_shoot
+	sound_reload: cannon_reload
+	sound_empty: press.stamp.01
+	sound_eject: cannon.eject.00
+	sound_jam: clang.00
+	
+	damage_multiplier: 9.400
+	velocity_multiplier: 220.000
+	jitter_multiplier: 0.300
+	recoil_multiplier: 2.200
+	reload_interval: 5.000
+	cycle_interval: 1.500
+	stability: 51000.000
+	failure_rate: 0.009
+	
 	ammo_filter: ammo_hw
+	max_ammo: 1.000
+	
 	action: manual
 	type: cannon
 	feed: breech
-
-	stability: 49000.000
-
-	shake_amount: 1.000
-	shake_radius: 100.000
+	
+	flags: manual_cycle
+	heuristic_range: 64.000
 	
 	@inventory1:
 	{
@@ -90,7 +95,7 @@ gun:
 	@light:
 	{
 		color: [1.000, 0.400, 0.100, 5.000]
-		offset: [4.000, -0.250]
+		offset: [4.000, -0.125]
 		scale: [75.000, 75.000]
 		intensity: 0.000
 		texture: "light.circle.00"
@@ -125,11 +130,11 @@ holdable:
 
 attachment:
 {
-	force_multiplier: 6.000
-	torque_multiplier: 3.000
-	offset: [-1.875, 0.000]
+	offset: [-2.250, 0.125]
+	force_multiplier: 7.000
+	torque_multiplier: 2.000
 	flags: full_rotate
-	tags: large, huge, weapon, rotary, long
+	tags: large, huge, weapon, gun, rotary, long, heavy
 }
 
 animated.renderer:
