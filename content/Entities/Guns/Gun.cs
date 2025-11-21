@@ -1852,10 +1852,13 @@ namespace TC2.Base.Components
 							if (shockwave_radius >= 4.00f)
 							{
 								var shake_amount = gun.shake_amount * 0.50f;
-								var shockwave_damage = shockwave_radius * 10.00f * gun.muzzle_blast_mult;
+								//var shockwave_damage = Maths.Sqrt(shockwave_radius * 10.00f) * gun.muzzle_blast_mult;
+								var shockwave_damage = shockwave_radius * 0.05f * gun.muzzle_blast_mult * ((ammo.speed_base + gun.velocity_multiplier) * ammo.speed_mult);
+								//App.WriteValue(shockwave_damage);
+								//App.WriteValue(shockwave_radius);
 
 								//App.WriteLine(shockwave_radius);
-								Explosion.Spawn(ref region, pos_w_offset + (dir * 1.75f), (ent_explosion, ref explosion) =>
+								Explosion.Spawn(ref region, pos_w_offset + (dir * 0.75f), (ent_explosion, ref explosion) =>
 								{
 									explosion.power = 2.00f;
 									explosion.radius = shockwave_radius;
@@ -1875,7 +1878,7 @@ namespace TC2.Base.Components
 									explosion.pitch = 0.00f;
 									explosion.stun_multiplier = 1.40f;
 									explosion.shake_multiplier = shake_amount;
-									explosion.force_multiplier = 0.25f;
+									explosion.force_multiplier = 0.05f;
 									explosion.flags |= Explosion.Flags.No_Split;
 									explosion.ent_ignored = entity;
 
