@@ -1,6 +1,7 @@
 ﻿{
 	$version: "0.1.65.3"
 	name: "Recruitment Office"
+	tips: []
 	
 	stages:
 	[
@@ -29,7 +30,7 @@
 						{
 							type: resource
 							material: gravel
-							amount: 760.000
+							amount: 540.000
 							loss: 0.039
 							group: 0
 							flags: compact, primary
@@ -37,7 +38,7 @@
 						{
 							type: work
 							work: filling.gravel
-							amount: 950.000
+							amount: 675.000
 							difficulty: 6
 							group: 0
 							flags: conditional
@@ -55,7 +56,7 @@
 						{
 							type: resource
 							material: soil
-							amount: 840.000
+							amount: 600.000
 							loss: 0.067
 							group: 0
 							flags: compact, primary
@@ -63,7 +64,7 @@
 						{
 							type: work
 							work: filling.soil
-							amount: 725.000
+							amount: 500.000
 							difficulty: 4
 							group: 0
 							flags: conditional
@@ -71,7 +72,7 @@
 						{
 							type: work
 							work: compaction.soil
-							amount: 390.000
+							amount: 270.000
 							difficulty: 7
 							group: 1
 							flags: conditional
@@ -89,7 +90,7 @@
 						{
 							type: resource
 							material: scrap.rubble
-							amount: 540.000
+							amount: 380.000
 							loss: 0.020
 							group: 0
 							flags: compact, primary
@@ -97,7 +98,7 @@
 						{
 							type: resource
 							material: soil
-							amount: 180.000
+							amount: 120.000
 							loss: 0.059
 							group: 0
 							flags: compact, primary
@@ -105,7 +106,7 @@
 						{
 							type: work
 							work: filling.rubble
-							amount: 675.000
+							amount: 475.000
 							difficulty: 12
 							group: 0
 							flags: simultaneous, conditional
@@ -113,7 +114,7 @@
 						{
 							type: work
 							work: filling.soil
-							amount: 160.000
+							amount: 100.000
 							difficulty: 4
 							group: 0
 							flags: simultaneous, conditional
@@ -170,7 +171,7 @@
 						{
 							type: resource
 							material: water
-							amount: 15.000
+							amount: 25.000
 							snapping: 1.000
 							group: 2
 						}
@@ -260,8 +261,8 @@
 	]
 	
 	type: buildings
-	flags: no_amount_multiplier, blueprintable, construction, building, ignore_tools, ignore_equipment, ignore_machinery, ignore_environment, wip, no_cancel, auto_complete
-	tags: simple, large, architecture, construction
+	flags: no_amount_multiplier, blueprintable, disabled, construction, building, ignore_tools, ignore_equipment, ignore_machinery, ignore_environment, wip, no_cancel, auto_complete
+	tags: complex, large, architecture, construction
 	hints: none
 	connotations: none
 	infrastructure: none
@@ -273,13 +274,13 @@
 	icon:
 	{
 		texture: office.recruitment.00
-		size: [56, 48]
+		size: [48, 48]
 	}
 	
 	color_frame: "0xffc54e5e"
 	color_button: "0xff9dd80f"
 	button_name: "Build"
-	rank: -659.000
+	rank: -650.000
 	
 	min: 1
 	max: 1
@@ -288,23 +289,23 @@
 	placement:
 	{
 		type: simple
-		flags: allow_mirror_x, require_terrain, terrain_is_support
+		flags: allow_mirror_x
 		
-		size: [7.000, 6.000]
+		size: [6.000, 6.000]
 		offset: [0.000, -2.000]
 		
-		rect_foundation: [-3.500, 0.000, 3.500, 1.000]
+		rect_foundation: [-3.000, 0.000, 3.000, 1.000]
 		tileflags_foundation: solid
 		
-		rect_clearance: [-3.125, -4.500, 3.125, 0.000]
+		rect_clearance: [-2.625, -4.500, 2.625, 0.000]
 		tileflags_clearance: solid
 		
 		cooldown: 1.000
 		min_support: 0.750
-		min_clearance: 0.950
+		min_clearance: 1.000
 		min_claim: 1.000
 		
-		rotation_max: 0.100
+		rotation_max: 0.200
 		
 		sound: building_place
 		
@@ -324,14 +325,14 @@
 	
 	construction:
 	{
-		prefab: construction.7x6
+		prefab: construction.6x6
 		
 		requirements:
 		[
 			{
 				type: resource
 				material: wood
-				amount: 21.000
+				amount: 20.000
 				loss: 0.110
 				group: 0
 				flags: compact, no_scaling, prerequisite
@@ -339,7 +340,7 @@
 			{
 				type: resource
 				material: brick.concrete
-				amount: 60.000
+				amount: 55.000
 				loss: 0.027
 				group: 0
 				flags: compact, no_scaling, prerequisite

@@ -73,10 +73,10 @@ explosive:
 	force_multiplier: 1.950
 	stun_multiplier: 1.400
 	terrain_radius_multiplier: 3.000
-	smoke_amount: 2.000
+	smoke_amount: 2.500
 	smoke_lifetime_multiplier: 1.000
 	smoke_velocity_multiplier: 5.500
-	smoke_color: "0xeaf09797"
+	smoke_color: "0xeac7b8bf"
 	flash_duration_multiplier: 0.120
 	flash_intensity_multiplier: 2.500
 	fire_amount: 0.000
@@ -86,10 +86,11 @@ explosive:
 
 despawn:
 {
-	sleep_count_max: 6
+	sleep_count_max: 13
 	interval: 14.000
-	threshold_delete: 0.010
-	threshold_despawning: 0.050
+	threshold_delete: 0.001
+	threshold_despawning: 0.005
+	flags: no_despawn
 }
 
 // breakable:

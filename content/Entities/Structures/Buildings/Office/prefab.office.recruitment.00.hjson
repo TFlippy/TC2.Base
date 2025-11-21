@@ -11,7 +11,7 @@ body:
 	
 	@shape.box:
 	{
-		size: [5.250, 3.750]
+		size: [4.250, 3.750]
 		offset: [0.000, -0.125]
 		
 		mass: 500.000
@@ -19,7 +19,7 @@ body:
 		friction: 0.750
 		elasticity: 0.250
 		
-		material: building_masonry
+		material: building_wood
 		
 		layer: entity, building, support, ignore_melee, ignore_bullet, storage
 		mask: world, building
@@ -46,7 +46,7 @@ interactable:
 
 health:
 {
-	max: 37500.000
+	max: 30000.000
 }
 
 faction.colorable:
@@ -61,7 +61,28 @@ faction:
 
 company:
 {
+	logo_type: sign_2x1
 
+	@light:
+	{
+		// color: [1.000, 0.750, 0.100, 2.000]
+		color: [1.000, 0.750, 0.100, 2.500]
+		offset: [0.875, -2.250]
+		scale: [32.000, 12.000]
+		intensity: 1.000
+		texture: "light.circle.04"
+	}
+
+	@animated.renderer:
+	{
+		offset: [0.875, -1.375]
+		z: -295.000
+	}
+}
+
+office:
+{
+	flags: force_faction_company
 }
 
 transform:
@@ -89,8 +110,18 @@ address:
 
 entrance.linkable:
 {
-
+	radius: 24.000
 }
+
+claimable:
+{
+	
+}
+
+// headquarters:
+// {
+// 	flags: enable_join, enable_leave, manage_members, manage_leader, manage_style, show_members, allow_create_faction
+// }
 
 storage:
 {
