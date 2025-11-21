@@ -46,7 +46,7 @@ namespace TC2.Base.Components
 				var dir = (control.mouse.position - transform.position).GetNormalized(out var len);
 				len = Maths.Min(len, biter.max_distance);
 
-				body.AddForce(dir * body.GetMass() * App.tickrate * biter.velocity);
+				body.AddForce(dir * body.GetMass() * App.tickrate_f32 * biter.velocity);
 
 				Span<LinecastResult> results = FixedArray.CreateSpan16NoInit<LinecastResult>(out var buffer); // stackalloc LinecastResult[16];
 				if (region.TryLinecastAll(transform.position, transform.position + (dir * len), biter.thickness, ref results, mask: biter.hit_mask, exclude: biter.hit_exclude))

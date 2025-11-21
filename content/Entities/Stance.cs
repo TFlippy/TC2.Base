@@ -69,6 +69,9 @@ namespace TC2.Conquest
 				flags: GUI.Window.Flags.No_Appear_Focus))
 				{
 					var h_stance_selected = this.stance.h_stance;
+					//var ent_hovered = GUI.ent
+
+					//GUI.DrawTextCentered(ent_hovered.GetName(), position: window.GetWindowPos(), pivot: new(0.50f, 1.00f), font: GUI.Font.Superstar, size: 16, layer: GUI.Layer.Background);
 
 					static void Inner_DrawButton(Entity ent_stance, Utf8String identifier, Utf8String name, ushort h_stance, ushort h_stance_selected, Sprite sprite)
 					{
@@ -86,16 +89,19 @@ namespace TC2.Conquest
 						GUI.DrawHoverTooltip(name);
 					}
 
-					Inner_DrawButton(ent_stance: this.ent_stance, identifier: "bt.move"u8, name: "Move"u8, h_stance: 0, h_stance_selected: h_stance_selected, sprite: GUI.spr_icons_widget.WithFrame(1, 6));
+					Inner_DrawButton(ent_stance: this.ent_stance, identifier: "bt.passive"u8, name: "Passive"u8, 
+						h_stance: 0, h_stance_selected: h_stance_selected, sprite: GUI.spr_icons_widget.WithFrame(1, 6));
+					
 					GUI.SameLine();
-
-					Inner_DrawButton(ent_stance: this.ent_stance, identifier: "bt.work"u8, name: "Work"u8, h_stance: 1, h_stance_selected: h_stance_selected, sprite: GUI.spr_icons_widget.WithFrame(2, 6));
+					Inner_DrawButton(ent_stance: this.ent_stance, identifier: "bt.worker"u8, name: "Worker"u8, 
+						h_stance: 1, h_stance_selected: h_stance_selected, sprite: GUI.spr_icons_widget.WithFrame(8, 6));
+					
+					//GUI.SameLine();
+					//Inner_DrawButton(ent_stance: this.ent_stance, identifier: "bt.harvest"u8, name: "Harvest"u8, h_stance: 2, h_stance_selected: h_stance_selected, sprite: GUI.spr_icons_widget.WithFrame(5, 6));
+					
 					GUI.SameLine();
-
-					Inner_DrawButton(ent_stance: this.ent_stance, identifier: "bt.harvest"u8, name: "Harvest"u8, h_stance: 2, h_stance_selected: h_stance_selected, sprite: GUI.spr_icons_widget.WithFrame(5, 6));
-					GUI.SameLine();
-
-					Inner_DrawButton(ent_stance: this.ent_stance, identifier: "bt.combat"u8, name: "Combat"u8, h_stance: 3, h_stance_selected: h_stance_selected, sprite: GUI.spr_icons_widget.WithFrame(3, 6));
+					Inner_DrawButton(ent_stance: this.ent_stance, identifier: "bt.combat"u8, name: "Combat"u8, 
+						h_stance: 2, h_stance_selected: h_stance_selected, sprite: GUI.spr_icons_widget.WithFrame(3, 6));
 
 					ref readonly var kb = ref Control.GetKeyboard();
 					if (kb.GetKeyDown(Keyboard.Key.Tab))
@@ -122,6 +128,8 @@ namespace TC2.Conquest
 		public static void OnGUI(ISystem.Info.Common info, ref Region.Data.Common region, Entity ent_stance,
 		[Source.Owned] in Stance.Data stance)
 		{
+			return;
+
 			var gui = new Stance.StanceGUI()
 			{
 				ent_stance = ent_stance,

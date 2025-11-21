@@ -433,7 +433,7 @@ namespace TC2.Base.Components
 
 			if (!stick_to_surface && !is_walking && can_move && (velocity - rv).LengthSquared() > 0.10f) // && !is_on_vehicle && (time - runner_state.last_move) <= 0.50f)
 			{
-				var required_force_dir = ((velocity - rv) * mass * App.tickrate) - force;
+				var required_force_dir = ((velocity - rv) * mass * App.tickrate_f32) - force;
 				required_force_dir = required_force_dir.GetNormalized(out var required_force_magnitude);
 				required_force_dir *= Maths.Clamp(runner.walk_force * 0.50f, -required_force_magnitude, required_force_magnitude);
 				required_force_dir.Y = 0.00f;

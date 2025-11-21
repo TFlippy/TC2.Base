@@ -84,7 +84,7 @@
 					region.SpawnPrefab(cluster.prefab, transform.position).ContinueWith(ent =>
 					{
 						ref var projectile = ref ent.GetComponent<Projectile.Data>();
-						if (!projectile.IsNull())
+						if (projectile.IsNotNull())
 						{
 							projectile.damage_base *= projectile_init.damage_mult;
 							projectile.damage_bonus *= projectile_init.damage_mult;
@@ -95,12 +95,12 @@
 							projectile.Sync(ent, true);
 						}
 
-						ref var explosive = ref ent.GetComponent<Explosive.Data>();
-						if (!explosive.IsNull())
-						{
-							explosive.ent_owner = projectile_init.owner;
-							explosive.Sync(ent, true);
-						}
+						//ref var explosive = ref ent.GetComponent<Explosive.Data>();
+						//if (!explosive.IsNull())
+						//{
+						//	//explosive.ent_owner = projectile_init.owner;
+						//	explosive.Sync(ent, true);
+						//}
 					});
 				}
 			}
@@ -164,12 +164,12 @@
 							projectile.Sync(ent, true);
 						}
 
-						ref var explosive = ref ent.GetComponent<Explosive.Data>();
-						if (explosive.IsNotNull())
-						{
-							explosive.ent_owner = projectile_init.owner;
-							explosive.Sync(ent, true);
-						}
+						//ref var explosive = ref ent.GetComponent<Explosive.Data>();
+						//if (explosive.IsNotNull())
+						//{
+						//	explosive.ent_owner = projectile_init.owner;
+						//	explosive.Sync(ent, true);
+						//}
 					});
 				}
 			}

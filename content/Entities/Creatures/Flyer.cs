@@ -54,7 +54,7 @@ namespace TC2.Base.Components
 				var dir = force.GetNormalized(out var len);
 				if (len == 0.00f)
 				{
-					var required_force_dir = (body.GetVelocity() * body.GetMass() * App.tickrate) - force;
+					var required_force_dir = (body.GetVelocity() * body.GetMass() * App.tickrate_f32) - force;
 					required_force_dir = required_force_dir.GetNormalized(out var required_force_magnitude);
 					required_force_dir *= Maths.Clamp(flyer.force * flyer.brake_modifier, -required_force_magnitude, required_force_magnitude);
 					force -= required_force_dir;

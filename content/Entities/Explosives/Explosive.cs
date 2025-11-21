@@ -125,7 +125,7 @@ namespace TC2.Base.Components
 			[Save.NewLine]
 			[Asset.Ignore] public float modifier = 1.00f;
 
-			[Net.Ignore, Asset.Ignore, Obsolete] public Entity ent_owner;
+			//[Net.Ignore, Asset.Ignore, Obsolete] public Entity ent_owner;
 		}
 
 		[ISystem.Add(ISystem.Mode.Single, ISystem.Scope.Region)]
@@ -265,7 +265,7 @@ namespace TC2.Base.Components
 						explosion.pitch = explosive_tmp.pitch;
 						explosion.delay = random.NextFloatExtra(0.01f, 0.05f);
 
-						explosion.ent_owner = explosive_tmp.ent_owner;
+						//explosion.ent_owner = explosive_tmp.ent_owner;
 						if (explosive_tmp.flags.HasAny(Explosive.Flags.No_Self_Damage)) explosion.ent_ignored = entity;
 
 						explosion.Sync(ent, true);
