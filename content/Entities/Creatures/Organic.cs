@@ -28,7 +28,7 @@ namespace TC2.Base.Components
 
 			if (organic_original.tags.HasAny(Organic.Tags.Brain))
 			{
-				var p = (dead || organic_state.pain_shared > pain_cutoff) ? 0.00f : Maths.Pow(Maths.Max(0.00f, organic_state.pain_shared - pain_cutoff) * 0.002f, 1.20f) * 0.12f;
+				var p = (dead || organic_state.pain_shared < pain_cutoff) ? 0.00f : Maths.Pow(Maths.Max(0.00f, organic_state.pain_shared - pain_cutoff) * 0.002f, 1.20f) * 0.12f;
 				//organic_original.consciousness = Maths.Lerp(organic_original.consciousness, 1.00f - Maths.Clamp01(p), 0.02f); // player.flags.HasAll(Player.Flags.Alive) ? 1.00f : 0.30f;
 				organic_original.consciousness = Maths.Lerp2(organic_original.consciousness, Maths.Min(1.00f - Maths.Clamp01(p), 1.00f - (organic_state.stun_norm * 0.60f)), 0.10f, 0.02f); // player.flags.HasAll(Player.Flags.Alive) ? 1.00f : 0.30f;
 

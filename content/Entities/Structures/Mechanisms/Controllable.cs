@@ -37,6 +37,7 @@
 
 			[Net.Ignore, Save.Ignore] public float t_last_sync;
 			[Net.Ignore, Save.Ignore] public float t_last_flip;
+			[Net.Ignore, Save.Ignore] private float unused_00;
 		}
 
 		//#if SERVER

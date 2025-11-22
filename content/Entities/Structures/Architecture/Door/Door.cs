@@ -19,33 +19,31 @@ namespace TC2.Base.Components
 			public Sound.Handle sound_locked = Door.Data.default_sound_locked;
 			public Sound.Handle sound_stuck = Door.Data.default_sound_stuck;
 
+			public Door.Direction direction;
+			public Door.Flags flags;
+			public byte frame_closed = 0;
+			public byte frame_open = 4;
+
 			public Vector2 size_open;
 			public Vector2 size_closed;
 
 			public Vector2 offset_open;
 			public Vector2 offset_closed;
 
-			public Door.Direction direction;
-			public Door.Flags flags;
-
-			public uint frame_closed = 0;
-			public uint frame_open = 4;
-
 			public float fps_close = 10.00f;
 			public float fps_open = 10.00f;
-
 			[Asset.Ignore] public float animation_progress;
 			[Asset.Ignore, Net.Ignore, Save.Ignore] public float last_use_time;
 		}
 
-		public enum Direction: uint
+		public enum Direction: byte
 		{
 			Horizontal,
 			Vertical
 		}
 
 		[Flags]
-		public enum Flags: uint
+		public enum Flags: byte
 		{
 			None = 0,
 

@@ -833,7 +833,7 @@ namespace TC2.Base.Components
 
 			public float heuristic_range = 30.00f;
 			private float unused_01;
-			private float unused_02;
+			//private float unused_02;
 		}
 
 		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region)]
@@ -1848,12 +1848,12 @@ namespace TC2.Base.Components
 
 						if (gun.shake_amount > 0.50f)
 						{
-							var shockwave_radius = Maths.Clamp(((gun.shake_amount * gun.shake_radius) * 0.12f), 0.00f, 24.00f);
+							var shockwave_radius = Maths.Clamp(((gun.shake_amount * gun.shake_radius) * 0.12f), 0.00f, 24.00f) * gun.muzzle_blast_mult;
 							if (shockwave_radius >= 4.00f)
 							{
 								var shake_amount = gun.shake_amount * 0.50f;
 								//var shockwave_damage = Maths.Sqrt(shockwave_radius * 10.00f) * gun.muzzle_blast_mult;
-								var shockwave_damage = shockwave_radius * 0.05f * gun.muzzle_blast_mult * ((ammo.speed_base + gun.velocity_multiplier) * ammo.speed_mult);
+								var shockwave_damage = shockwave_radius * 0.05f * ((ammo.speed_base + gun.velocity_multiplier) * ammo.speed_mult);
 								//App.WriteValue(shockwave_damage);
 								//App.WriteValue(shockwave_radius);
 

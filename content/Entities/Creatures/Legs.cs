@@ -19,6 +19,8 @@ namespace TC2.Base.Components
 			public byte frame_air = 0;
 
 			[Net.Ignore, Save.Ignore] public float next_step;
+			[Save.Ignore, Net.Ignore] private float unused_00;
+			[Save.Ignore, Net.Ignore] private Vec4f unused_01;
 		}
 
 		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned), HasComponent<Legs.Data>(Source.Modifier.Owned, true)]

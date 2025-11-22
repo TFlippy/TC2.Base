@@ -470,6 +470,7 @@ namespace TC2.Base.Components
 		{
 			public float merge_radius = 2.50f;
 			public float spawn_radius = 1.50f;
+			private ulong unused_00;
 
 			[Save.TrimEmpty]
 			public FixedArray4<Lootable.Item> items;
