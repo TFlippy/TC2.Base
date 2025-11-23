@@ -71,7 +71,7 @@ namespace TC2.Base.Components
 
 			[Save.Ignore, Asset.Ignore, Net.Ignore] public float t_next_sound;
 			[Save.Ignore, Asset.Ignore, Net.Ignore] public float t_next_pain;
-			[Save.Ignore, Asset.Ignore, Net.Ignore] public float t_next_talk;
+			//[Save.Ignore, Asset.Ignore, Net.Ignore] public float t_next_talk;
 		}
 
 #if CLIENT
@@ -517,19 +517,21 @@ namespace TC2.Base.Components
 			head_global.tinnitus_volume = 0.00f;
 		}
 
+		[Shitcode]
 		[ISystem.PreUpdate.Reset(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("local", true, Source.Modifier.Parent), HasComponent<Head.Data>(Source.Modifier.Owned, true)]
 		public static void OnUpdateConcussionEffects(/*ISystem.Info info, */ref XorRandom random, 
 		/*[Source.Owned] in Head.Data head,*/ [Source.Owned] in Head.State head_state,
 		[Source.Singleton] ref Head.Singleton head_global, [Source.Singleton] ref Camera.Singleton camera)
 		{
-			var modifier = Maths.Clamp01(head_state.concussion);
+			if (Camera.disable_effects) return;
 
+			var modifier = Maths.Clamp01(head_state.concussion);
 			head_global.tinnitus_volume = Maths.Lerp01(0.00f, 0.07f, modifier * modifier);
 
 			Drunk.Color.a = Drunk.Color.a.ClampMin(Maths.Lerp01(0.00f, 0.95f, modifier * 1.50f));
 
 			ref var low_pass = ref Audio.LowPass;
-			low_pass.frequency = Maths.Lerp01(low_pass.frequency, 800.00f, Maths.PowFast(Maths.Max(modifier * 1.80f, 0.00f), 0.50f));
+			low_pass.frequency = Maths.Lerp01(low_pass.frequency, 800.00f, Maths.Sqrt(Maths.Max(modifier * 1.80f, 0.00f)));
 			low_pass.resonance = Maths.Lerp01(low_pass.resonance, 1.50f, Maths.Max(Maths.PowFast(modifier * 4.50f, 0.75f), 0.707f));
 
 			camera.rotation = random.NextFloatRange(-0.10f, 0.10f) * Maths.Lerp01(0.00f, 0.50f, modifier * modifier);

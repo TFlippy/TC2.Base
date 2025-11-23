@@ -25,7 +25,7 @@ body:
 		mass: 76.000
 		radius: 0.500
 		friction: 0.720
-		elasticity: 0.660
+		elasticity: 0.560
 		
 		cog_offset: [-0.625, 0.0625]
 		

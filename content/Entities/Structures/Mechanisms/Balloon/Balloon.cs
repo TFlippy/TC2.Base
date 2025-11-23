@@ -78,6 +78,8 @@
 			public Height envelope_height_bottom;
 			public Width envelope_thickness = Units.mm(0.40f);
 			public Power envelope_thermal_conductivity = Power.W(0.021f); // kW/m*K
+
+			private float unused_00;
 		}
 
 		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region)]

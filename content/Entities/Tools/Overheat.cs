@@ -62,6 +62,8 @@ namespace TC2.Base.Components
 			public Vector2 size = new(0.50f, 0.25f);
 
 			public Color32BGRA flame_tint;
+
+			[Save.Ignore, Net.Ignore] private ulong unused_00;
 		}
 
 		[IComponent.Data(Net.SendType.Unreliable, region_only: true, sync_table_capacity: 256)]

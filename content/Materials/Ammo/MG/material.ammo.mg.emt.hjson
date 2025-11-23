@@ -72,10 +72,10 @@
 		recoil_mult: 3.000
 		
 		failure_base: 0.008
-		failure_mult: 1.370
+		failure_mult: 1.970
 		
-		stability_base: 1950.000
-		stability_mult: 1.000
+		stability_base: 2950.000
+		stability_mult: 0.740
 		
 		prefab: projectile.mg.emt
 		

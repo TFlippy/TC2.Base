@@ -18,6 +18,10 @@ projectile:
 		file: "shell_whistle"
 		volume: 1.000
 		pitch: 1.000
+		size: 4.000
+		size_max_modifier: 0.500
+		doppler: 0.500
+		spread: 120.000
 	}
 }
 

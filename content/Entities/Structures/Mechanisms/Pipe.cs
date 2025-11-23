@@ -351,18 +351,18 @@ namespace TC2.Base.Components
 				public const bool dev_is_debug = false;
 #endif
 
-				[Flags]
-				public enum Flags: uint
-				{
-					None = 0u,
-				}
+				//[Flags]
+				//public enum Flags: uint
+				//{
+				//	None = 0u,
+				//}
 
 				public Air.Composition air;
 				public Air.Particulates particulates;
 
 				public Volume volume = 1.00f.m3();
 
-				public Air.Container.Data.Flags flags;
+				//public Air.Container.Data.Flags flags;
 
 				public Temperature temperature = Temperature.Ambient;
 
@@ -1776,6 +1776,8 @@ namespace TC2.Base.Components
 				[Editor.Slider.Clamped(0.00f, 1.00f, snap: 0.01f)] public float leak_ratio = 0.10f;
 				public Vent.Data.Flags flags;
 				public Vent.Type type;
+
+				public uint reserved;
 
 				[Save.Ignore, Net.Ignore] public Color32BGRA color_smoke;
 

@@ -174,8 +174,10 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.PreUpdate.Reset(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("local", true, Source.Modifier.Shared)]
-		public static void UpdateCamera(ISystem.Info info, Entity entity, [Source.Singleton] ref Camera.Singleton camera, [Source.Shared] in Player.Data player, [Source.Owned] in Food.Effect food)
+		public static void UpdateCamera(ISystem.Info info, Entity entity, [Source.Singleton] ref Camera.Singleton camera, 
+		[Source.Shared] in Player.Data player, [Source.Owned] in Food.Effect food)
 		{
+			if (Camera.disable_effects) return;
 			var modifier = MathF.Pow(food.modifier_current, 1.30f);
 
 			var rot = 0.00f;

@@ -179,6 +179,7 @@ namespace TC2.Base.Components
 		[Source.Singleton] ref Camera.Singleton camera, [Source.Shared] in Player.Data player, 
 		[Source.Owned] in Meth.Effect meth, [Source.Singleton] ref Head.Singleton head_global)
 		{
+			if (Camera.disable_effects) return;
 			var modifier = MathF.Pow(meth.modifier_current, 1.40f);
 
 			var pos_modifier = MathF.Pow((meth.modifier_current - 0.20f).Clamp0X(), 1.20f);

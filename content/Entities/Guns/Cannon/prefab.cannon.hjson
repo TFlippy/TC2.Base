@@ -36,7 +36,7 @@ body:
 
 gun:
 {
-	muzzle_offset: [3.875, -0.100]
+	muzzle_offset: [3.875, 0.000]
 	receiver_offset: [-3.500, 0.000]
 	
 	eject_direction: [-1.800, -3.400]
@@ -67,6 +67,7 @@ gun:
 	cycle_interval: 1.500
 	stability: 51000.000
 	failure_rate: 0.009
+	muzzle_blast_mult: 0.900
 	
 	ammo_filter: ammo_hw
 	max_ammo: 1.000

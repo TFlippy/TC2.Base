@@ -3,7 +3,7 @@ namespace TC2.Base.Components
 {
 	public static partial class Alcohol
 	{
-		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
+		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region)]
 		public partial struct Effect: IComponent
 		{
 			[Statistics.Info("Alcohol", description: "TODO: Desc", format: "{0:0.##} ml", comparison: Statistics.Comparison.None, priority: Statistics.Priority.High)]
@@ -21,6 +21,9 @@ namespace TC2.Base.Components
 			public float hiccup_current;
 
 			[Save.Ignore, Net.Ignore] public float next_sound;
+			[Save.Ignore, Net.Ignore] private float unused_00;
+			[Save.Ignore, Net.Ignore] private float unused_01;
+			[Save.Ignore, Net.Ignore] private float unused_02;
 		}
 
 		public static Sound.Handle[] sounds_drunk =
@@ -191,8 +194,10 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("local", true, Source.Modifier.Shared)]
-		public static void UpdateCamera(ISystem.Info info, Entity entity, [Source.Singleton] ref Camera.Singleton camera, [Source.Shared] in Player.Data player, [Source.Owned] in Alcohol.Effect alcohol)
+		public static void UpdateCamera(ISystem.Info info, Entity entity, [Source.Singleton] ref Camera.Singleton camera, 
+		[Source.Shared] in Player.Data player, [Source.Owned] in Alcohol.Effect alcohol)
 		{
+			if (Camera.disable_effects) return;
 			var modifier = MathF.Pow(alcohol.modifier_current, 1.30f);
 
 			var rot = 0.00f;

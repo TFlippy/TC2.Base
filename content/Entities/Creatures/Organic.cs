@@ -314,7 +314,8 @@ namespace TC2.Base.Components
 
 				//var mult = (1.00f - health.GetHealthNormalized()).Pow2();
 
-				var health_norm = Maths.Min(health_child.GetHealthNormalized(), health_parent.GetHealthNormalized());
+				//var health_norm = Maths.Min(health_child.GetHealthNormalizedAvg(), health_parent.GetHealthNormalizedAvg());
+				var health_norm = Maths.Min(Maths.LerpFMA(health_child.integrity, health_child.durability, 0.25f), Maths.LerpFMA(health_parent.integrity, health_parent.durability, 0.25f));
 				var mult = (1.00f - health_norm.Pow2()).Pow2();
 				joint.stress += joint.max_stress * mult;
 
