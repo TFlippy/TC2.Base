@@ -3701,8 +3701,8 @@ namespace TC2.Base
 						}
 
 						data.velocity_multiplier += MathF.Pow(100 * (1 + type), 1.15f);
-						data.recoil_multiplier += MathF.Pow((1 + type) * 0.75f, 0.75f);
-						data.damage_multiplier += MathF.Pow((1 + type) * 0.75f, 1.50f);
+						data.recoil_multiplier += Maths.PowFast((1 + type) * 0.75f, 0.75f);
+						data.damage_multiplier += Maths.PowFast((1 + type) * 0.75f, 1.50f);
 
 						//data.recoil_multiplier -= Maths.Normalize(force * dist_mult, context.mass_new * 20.00f);
 					}

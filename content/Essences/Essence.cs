@@ -441,7 +441,7 @@ namespace TC2.Base.Components
 				var health_norm = health.GetHealthNormalized();
 				if (health_norm <= 0.00f || (health_norm <= container.health_threshold && (info.WorldTime >= container.t_next_collapse)))
 				{
-					var modifier = (container.stability * health_norm) <= 0.00f ? 1.00f : MathF.Pow(Maths.Clamp01(Maths.Max(1.00f - (health_norm * container.stability), Maths.Lerp01(0.50f, container.rate_current * 0.30f, container.stability))), 1.50f);
+					var modifier = (container.stability * health_norm) <= 0.00f ? 1.00f : Maths.PowFast(Maths.Clamp01(Maths.Max(1.00f - (health_norm * container.stability), Maths.Lerp01(0.50f, container.rate_current * 0.30f, container.stability))), 1.50f);
 					//App.WriteLine($"modifier: {modifier}");
 
 					if (modifier >= 0.25f && (health_norm <= 0.00f || random.NextBool(modifier * 0.50f)))

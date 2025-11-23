@@ -529,8 +529,8 @@ namespace TC2.Base.Components
 			Drunk.Color.a = Drunk.Color.a.ClampMin(Maths.Lerp01(0.00f, 0.95f, modifier * 1.50f));
 
 			ref var low_pass = ref Audio.LowPass;
-			low_pass.frequency = Maths.Lerp01(low_pass.frequency, 800.00f, MathF.Pow(Maths.Max(modifier * 1.80f, 0.00f), 0.50f));
-			low_pass.resonance = Maths.Lerp01(low_pass.resonance, 1.50f, Maths.Max(MathF.Pow(modifier * 4.50f, 0.70f), 0.707f));
+			low_pass.frequency = Maths.Lerp01(low_pass.frequency, 800.00f, Maths.PowFast(Maths.Max(modifier * 1.80f, 0.00f), 0.50f));
+			low_pass.resonance = Maths.Lerp01(low_pass.resonance, 1.50f, Maths.Max(Maths.PowFast(modifier * 4.50f, 0.75f), 0.707f));
 
 			camera.rotation = random.NextFloatRange(-0.10f, 0.10f) * Maths.Lerp01(0.00f, 0.50f, modifier * modifier);
 		}

@@ -612,7 +612,7 @@ namespace TC2.Base.Components
 
 									req_work.work = "assembling";
 									req_work.flags.AddFlag(Crafting.Requirement.Flags.Conditional | Crafting.Requirement.Flags.Simultaneous);
-									req_work.amount = (req.amount * mass_prefab * complexity * work_multiplier).Pow(0.72f).SnapCeil(10);
+									req_work.amount = (req.amount * mass_prefab * complexity * work_multiplier).PowFast(0.75f).SnapCeil(10);
 									req_work.amount_min = (complexity * 25.00f * work_multiplier).SnapCeil(5.00f);
 									req_work.difficulty = (byte)complexity.CeilToUInt();
 									req_work.snapping = 5;

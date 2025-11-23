@@ -199,7 +199,7 @@ namespace TC2.Base.Components
 								frame_count = 1,
 								frame_count_total = 1,
 								frame_offset = 0,
-								scale = random.NextFloatRange(0.40f, 0.90f) * (MathF.Pow(node_amount, 0.50f) * 0.50f) * node_rate * levitator.particle_size, //random.NextFloatRange(0.10f, 0.90f) * levitator.particle_size,
+								scale = random.NextFloatRange(0.40f, 0.90f) * (Maths.PowFast(node_amount, 0.50f) * 0.50f) * node_rate * levitator.particle_size, //random.NextFloatRange(0.10f, 0.90f) * levitator.particle_size,
 								angular_velocity = random.NextFloat(4.00f),
 								growth = random.NextFloatRange(2.00f, 6.00f) * levitator.particle_size,
 								drag = random.NextFloatRange(0.15f, 0.25f),

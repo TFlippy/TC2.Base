@@ -189,7 +189,7 @@
 		[Source.Owned] in Balloon.Data balloon, [Source.Owned] in Balloon.State balloon_state, 
 		[Source.Owned] ref Transform.Data transform)
 		{
-			var size = MathF.Pow(Maths.Max(balloon_state.lift_modifier - 0.80f, 0.10f) * 2.00f, 0.50f) * 0.30f;
+			var size = Maths.Sqrt(Maths.Max(balloon_state.lift_modifier - 0.80f, 0.10f) * 2.00f) * 0.30f;
 			var sign = transform.GetScaleOld().GetParity();
 
 			transform.scale = Vector2.Lerp(transform.scale, new Vector2((0.90f + (size * 0.60f)) * sign, 0.80f + (size * 0.70f)), 0.05f);
@@ -281,7 +281,7 @@
 			//Phys.TransferHeatAmbient2(ref test, temperature_ambient, balloon_state.air_mass, Phys.air_specific_heat, balloon_state.envelope_surface_area, htc_envelope, dt);
 
 
-			var health_modifier = MathF.Pow(MathF.Sin(Maths.Min(health.integrity, health.durability) * MathF.PI * 0.50f), 1.20f);
+			var health_modifier = Maths.PowFast(MathF.Sin(Maths.Min(health.integrity, health.durability) * MathF.PI * 0.50f), 1.25f);
 
 			balloon_state.buoyant_force = buoyant_force;
 			balloon_state.lift_modifier = Maths.Normalize(balloon_state.current_volume, balloon_state.envelope_volume) * health_modifier;

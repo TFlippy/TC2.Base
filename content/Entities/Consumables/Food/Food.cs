@@ -189,7 +189,7 @@ namespace TC2.Base.Components
 			Drunk.Color.a = Drunk.Color.a.ClampMin(Maths.Clamp(modifier, 0.00f, 0.95f));
 
 			ref var low_pass = ref Audio.LowPass;
-			low_pass.frequency = Maths.Lerp01(low_pass.frequency, 1000.00f, MathF.Pow(Maths.Max(food.modifier_current - 0.20f, 0.00f), 0.50f));
+			low_pass.frequency = Maths.Lerp01(low_pass.frequency, 1000.00f, Maths.PowFast(Maths.Max(food.modifier_current - 0.20f, 0.00f), 0.50f));
 			low_pass.resonance = Maths.Lerp01(low_pass.resonance, 0.200f, MathF.Pow(food.modifier_current, 0.30f));
 		}
 #endif

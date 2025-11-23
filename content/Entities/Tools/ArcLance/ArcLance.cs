@@ -954,7 +954,8 @@ namespace TC2.Base.Components
 			Sound.Play(ref region, arcer.sound_hit, data.world_position, volume: 1.00f, pitch: random.NextFloatRange(0.70f, 0.85f), size: 1.00f);
 			Shake.Emit(ref region, data.world_position, 0.50f, 0.80f, 20.00f);
 
-			var multiplier = 0.50f + (MathF.Pow(random.NextFloatRange(0.00f, 1.00f), 2.00f) * 0.50f);
+			//var multiplier = 0.50f + (Maths.Pow2(random.NextFloat01()) * 0.50f);
+			var multiplier = Maths.FMA(Maths.Pow2(random.NextFloat01()), 0.50f, 0.50f);
 
 			Damage.Hit(ent_attacker: entity, ent_owner: data.ent_owner, ent_target: data.ent_target,
 				position: data.world_position, velocity: data.direction * 8.00f, normal: -data.direction,

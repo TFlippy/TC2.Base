@@ -163,11 +163,11 @@ namespace TC2.Base.Components
 
 			ref var low_pass = ref Audio.LowPass;
 			low_pass.frequency = 10000.00f;
-			low_pass.resonance = MathF.Pow(0.70f + (modifier * 8.50f), 2.50f);
+			low_pass.resonance = Maths.PowFast(0.70f + (modifier * 8.50f), 2.50f);
 
 			ref var high_pass = ref Audio.HighPass;
 			high_pass.frequency = 150.00f;
-			high_pass.resonance = MathF.Pow(0.70f + (modifier * 5.50f), 1.50f);
+			high_pass.resonance = Maths.PowFast(0.70f + (modifier * 5.50f), 1.50f);
 
 			Postprocess.Contrast = Maths.Lerp(Postprocess.Contrast, Postprocess.Contrast + 0.25f, (modifier * 8.50f).Clamp01());
 			Postprocess.Brightness = Maths.Lerp(Postprocess.Brightness, Postprocess.Brightness + 0.55f, (modifier * 4.00f).Clamp01());

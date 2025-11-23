@@ -193,18 +193,18 @@ namespace TC2.Base.Components
 
 			ref var low_pass = ref Audio.LowPass;
 			low_pass.frequency = Maths.Lerp01(low_pass.frequency, 10000.00f, modifier * 2.50f);
-			low_pass.resonance = MathF.Pow(0.70f + (Maths.Clamp01((modifier - 0.20f) * 2.00f) * 8.50f), 2.50f);
+			low_pass.resonance = Maths.PowFast(0.70f + (Maths.Clamp01((modifier - 0.20f) * 2.00f) * 8.50f), 2.50f);
 
 			ref var high_pass = ref Audio.HighPass;
 			high_pass.frequency = Maths.Lerp01(high_pass.frequency, 150.00f, modifier * 2.50f);
-			high_pass.resonance = MathF.Pow(0.70f + (Maths.Clamp01((modifier - 0.30f) * 2.00f) * 5.50f), 1.50f);
+			high_pass.resonance = Maths.PowFast(0.70f + (Maths.Clamp01((modifier - 0.30f) * 2.00f) * 5.50f), 1.50f);
 
 			if (meth.modifier_current < meth.modifier_withdrawal)
 			{
 				Drunk.Color.a = Maths.Max(Drunk.Color.a, Maths.Clamp(meth.modifier_withdrawal * 1.50f, 0.00f, 0.90f));
 			}
 
-			head_global.tinnitus_volume = MathF.Pow(Maths.Clamp01(modifier - 0.25f) * 2.00f, 2.00f);
+			head_global.tinnitus_volume = Maths.PowFast(Maths.Clamp01(modifier - 0.25f) * 2.00f, 2.00f);
 
 			Postprocess.Contrast = Maths.Lerp(Postprocess.Contrast, Postprocess.Contrast + 0.25f, (modifier * 2.50f).Clamp01());
 			Postprocess.Brightness = Maths.Lerp(Postprocess.Brightness, Postprocess.Brightness + 0.55f, (modifier * 1.10f).Clamp01());

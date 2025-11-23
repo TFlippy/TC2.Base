@@ -202,7 +202,7 @@ namespace TC2.Base.Components
 				//App.WriteLine($"boom {chance}");
 				if (health_min <= steam_engine.burst_threshold && random.NextBool(chance))
 				{
-					var power = MathF.Pow(steam_engine.force * modifier * 0.001f, 0.50f);
+					var power = Maths.Sqrt(steam_engine.force * modifier * 0.001f);
 
 					var ev = new SteamEngine.ExplodeEvent()
 					{
