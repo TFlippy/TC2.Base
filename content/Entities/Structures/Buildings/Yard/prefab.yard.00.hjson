@@ -1,0 +1,259 @@
+$name: "Construction Yard"
+$desc:
+	'''
+	TODO: Desc
+	'''
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.box:
+	{
+		size: [8.250, 7.750]
+		offset: [0.000, -0.125]
+		
+		mass: 1200.000
+		radius: 0.500
+		
+		material: building_reinforced
+		
+		layer: entity, building, support, ignore_melee, ignore_bullet, background
+		mask: world, building
+	}
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: yard.00
+	}
+	z: -300.000
+}
+
+interactable:
+{
+	priority: 1.000
+	window_size: [658.000, 648.000]
+	window_size_misc: [144.000, 0.000]
+}
+
+health:
+{
+	max: 88000.000
+}
+
+faction.colorable:
+{
+
+}
+
+faction:
+{
+
+}
+
+transform:
+{
+
+}
+
+building:
+{
+
+}
+
+nameable:
+{
+	tags: dangerous, industrial, tool, factory
+	type: gun
+	flags: randomize
+	max_length: 16
+}
+
+// address:
+// {
+	
+// }
+
+// entrance.linkable:
+// {
+
+// }
+
+claimable:
+{
+	flags: allow_owner_unclaim
+}
+
+laboratory:
+{
+	blueprints_capacity: 2
+	augments_capacity: 10
+	filter_tags:
+	{
+		include: munitions, alchemistry, explosive
+	}
+}
+
+shop:
+{
+	tags_filter:
+	{
+		include: munitions, explosive
+		exclude: large, huge, blacksmithing, smelting, drying
+	}
+	
+	tools: pencil, paper, ruler, hammer, cutters, hand_drill, screwdriver, spanner, pliers, tweezers, bucket, shovel, syringe, file, towel, spatula, knife, sandpaper, scissors, ladle
+	infrastructure: anvil, lab_glassware, dishes, bottle, table, chair, vise, rack, shaping_mould, bucket, surface, hard_surface, stamping_press, press, structure, machine, building, workbench
+	environment: workshop, stationary, scary, noisy, durable, sturdy, flammable, factory
+	
+	flags: embed_gui
+	menu_columns: 4
+	recipe_type: workshop
+	
+	offset_spawn: [0.000, 0.500]
+	
+	name: "Construction Yard"
+}
+
+workshop:
+{
+	orders_capacity: 3
+	
+	tools: none
+	infrastructure: none
+	environment: none
+	
+	gui_info_size_x: 252.000
+	max_order_mass: 100.000
+	
+	h_sound_order_complete: effect.bell.ring.00
+
+	@inventory8:
+	{
+		type: workshop
+		flags: standalone, ignore_mass, public, no_auto_pickup, faction, vertical
+		stack_size_multiplier: 2.000
+		
+		filter:
+		{
+			exclude: gas
+		}
+	}
+}
+
+personnel:
+{
+	flags: store_characters
+	slots:
+	[
+		{
+			role: engineer
+			tags: management, civil, industrial, logistics, production, paperwork, sedentary, technical
+			color: "0xffff8333"
+			multiplier: 1.000
+		}
+		{
+			role: technician
+			tags: civil, industrial, production, dangerous, manual_labor, technical, operation
+			color: "0xffffa800"
+			multiplier: 1.000
+		}
+		{
+			role: technician
+			tags: civil, industrial, production, dangerous, manual_labor, technical, operation
+			color: "0xffffa800"
+			multiplier: 1.000
+		}
+		null
+		null
+		null
+	]
+	characters_capacity: 3
+}
+
+crafter:
+{
+	h_crafter: stamping.press.00
+	flags: self_only, assignable
+	
+	tools: none
+	infrastructure: none
+	environment: none
+	
+	distance_max: 2.000
+	temperature_max: 900.000
+	pressure_max: 0.000
+	
+	offset: [-0.250, 0.750]
+
+
+	// @inventory4:
+	// {
+	// 	type: output
+	// 	flags: standalone, allow_ducts, ignore_mass, public, faction, vertical
+	// 	stack_size_multiplier: 2.000
+		
+	// 	filter:
+	// 	{
+	// 		require: none
+	// 		include: none
+	// 		exclude: gas
+	// 	}
+		
+	// 	offset: [0.000, 0.000]
+	// }
+}
+
+crafter.state:
+{
+	@inventory4:
+	{
+		type: waste
+		flags: standalone, allow_ducts, ignore_mass, vertical
+		stack_size_multiplier: 4.000
+		
+		filter:
+		{
+			require: none
+			include: none
+			exclude: gas
+		}
+		
+		offset: [0.000, 0.000]
+	}
+}
+
+axle:
+{
+	offset: [-0.375, -1.625]
+	
+	friction: 0.200
+	radius_inner: 0.500
+	radius_outer: 0.750
+	z: -310.000
+	
+	@animated.renderer:
+	{
+		sprite:
+		{
+			texture: "wheel_0750.steel"
+		}
+		z: -200.000
+	}
+}
+
+crank:
+{
+
+}
+
+shipment:
+{
+	type: crafting
+	layout: square
+	flags: keep_items, allow_deposit, use_misc, no_empty_deposit, crafting
+}
