@@ -35,7 +35,7 @@ animated.renderer:
 
 interactable:
 {
-	priority: 1.000
+	priority: -1.000
 	window_size: [658.000, 648.000]
 	window_size_misc: [144.000, 0.000]
 }
@@ -121,7 +121,7 @@ shop:
 
 workshop:
 {
-	orders_capacity: 3
+	orders_capacity: 1
 	
 	tools: none
 	infrastructure: none
@@ -184,11 +184,11 @@ crafter:
 	infrastructure: none
 	environment: none
 	
-	distance_max: 2.000
+	distance_max: 4.000
 	temperature_max: 900.000
 	pressure_max: 0.000
 	
-	offset: [-0.250, 0.750]
+	offset: [0.000, 0.750]
 
 
 	// @inventory4:
@@ -229,12 +229,15 @@ crafter.state:
 
 axle:
 {
-	offset: [-0.375, -1.625]
+	offset: [3.750, 3.000]
 	
-	friction: 0.200
-	radius_inner: 0.500
-	radius_outer: 0.750
+	mass: 20.000
+	friction: 0.000
+	radius: 1.000
+	radius_inner: 0.750
+	radius_outer: 1.000
 	z: -310.000
+	flags: no_wrap
 	
 	@animated.renderer:
 	{
@@ -268,7 +271,7 @@ control:
 
 vehicle:
 {
-
+	flags: use_misc_window
 }
 
 track:
@@ -290,7 +293,7 @@ track.state:
 
 mount:
 {
-	flags: slider_vertical
+
 }
 
 +mount|instance:
@@ -298,10 +301,13 @@ mount:
 	attachment.slot:
 	{
 		radius: 3.000
-		flags: keyboard_write, mouse_write
-		flags_editable: use_center_of_gravity, locked, disabled, hold, invert, keyboard_read, keyboard_write, mouse_read, mouse_write, brake, manual_aim, offset
-		offset_bounds: [0.000, -0.750, 0.000, 0.750]
-		gui_size: [0.000, 200.000]
+		flags: keyboard_write, mouse_write, brake, rotation
+		flags_editable: locked, disabled, keyboard_read, keyboard_write, mouse_read, mouse_write, brake, loose, offset, rotation
+		tags_filter:
+		{
+			include: small, medium, large, huge, cabin, platform, box, heavy
+		}
+		gui_size: [144.000, 120.000]
 		name: "Mount"
 	}
 
@@ -348,11 +354,11 @@ mount:
 
 	joint.slider:
 	{
-		a: [0.000, 3.000]
-		b: [0.000, -3.000]
-		max_force: 100000.000
-		max_bias: 50.000
-		error_bias: 0.000
+		a: [0.000, 0.000]
+		b: [0.000, 6.000]
+		max_force: 1000000.000
+		max_bias: 100.000
+		error_bias: 0.00001
 		stress_mult: 1.000
 	}
 

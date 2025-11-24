@@ -57,25 +57,49 @@
 
 			var dist = Vector2.Distance(joint_slider.a, joint_slider.b);
 
-			//joint_slider.min = 0.00f;
-			//joint_slider.max = dist;
-			joint_distance.distance = dist * ratio;
+			////joint_slider.min = 0.00f;
+			////joint_slider.max = dist;
+			//joint_distance.distance = dist * ratio;
 		}
 
 		[Shitcode]
 		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateAxle(/*ISystem.Info info, Entity entity, [Source.Shared] in Control.Data control,*/
 		[Source.Shared] in Track.Data track, [Source.Shared] ref Track.State track_state,
-		/*[Source.Shared] ref Axle.Data axle,*/ [Source.Shared] ref Axle.State axle_state,
-		[Source.Owned] ref Joint.Base joint_base, [Source.Owned, Override] ref Joint.Distance joint_distance/*, [Source.Shared] in Resizable.Data resizable*/)
+		[Source.Shared] ref Axle.Data axle, [Source.Shared] ref Axle.State axle_state,
+		[Source.Owned] ref Joint.Base joint_base, 
+		[Source.Owned, Original] ref Joint.Distance joint_distance, [Source.Owned, Original] ref Joint.Slider joint_slider)
 		{
-			//axle_state.new_tmp_load += MathF.Abs(joint_distance.GetImpulseRaw()) + joint_distance.GetMass();
-			axle_state.ApplyTorque(MathF.Abs(joint_distance.GetImpulseRaw()) + joint_distance.GetMass(), -joint_distance.GetBias());
-			joint_distance.step = MathF.Abs(axle_state.angular_velocity) * 0.50f;
-			joint_distance.max_bias = MathF.Abs(axle_state.angular_velocity) * 0.50f;
-			joint_distance.max_force = MathF.Abs(axle_state.angular_momentum * 2000.00f);
+			if (joint_base.state.HasNone(Joint.State.Attached)) return;
 
-			//axle_state.new_tmp_impulse -= joint_distance.GetImpulse() * info.DeltaTime;
+			var len = Vector2.Distance(joint_slider.a, joint_slider.b);
+			var vel = (Maths.Normalize(joint_distance.GetImpulseRaw(), joint_distance.GetImpulse()) - 0.00f).WithSign(joint_distance.GetImpulseRaw()) * Maths.pi;
+			//axle_state.new_tmp_load += MathF.Abs(joint_distance.GetImpulseRaw()) + joint_distance.GetMass();
+			//axle_state.ApplyTorque(MathF.Abs(joint_distance.GetImpulse()) + joint_distance.GetMass(), joint_distance.GetBias() * 0.90f);
+			//axle_state.ApplyTorque(MathF.Abs(joint_distance.GetImpulseRaw()) * 50, vel); // joint_distance.GetBias());
+			axle_state.ApplyTorque(MathF.Abs(joint_distance.GetImpulse()) * 50, joint_distance.GetBias());
+			//axle_state.ApplyTorque(MathF.Abs(joint_distance.GetImpulseRaw()), 0.00f);
+			//axle_state.ApplyTorque(MathF.Abs(joint_distance.GetImpulseRaw()), joint_distance.GetBias());
+			joint_distance.distance = axle_state.rotation; // Axle.CalculateAngularDistance(0.10f, axle_state.rotation); // Axle.CalculateAngularDistance(1.00f, -axle_state.rotation_delta);
+																								 //joint_distance.distance = Maths.Clamp(joint_distance.distance - Axle.CalculateAngularDistance(1.00f, axle_state.rotation_delta), 0.00f, len); // Axle.CalculateAngularDistance(1.00f, -axle_state.rotation_delta);
+																								 //joint_distance.distance = Maths.Clamp(joint_distance.distance + axle_state.rotation_delta, 0.00f, len); // Axle.CalculateAngularDistance(1.00f, -axle_state.rotation_delta);
+																								 //joint_distance.distance = Axle.CalculateAngularDistance(axle.radius_outer, axle_state.rotation); // Maths.Clamp(joint_distance.distance - Axle.CalculateAngularDistance(axle.radius_outer, axle_state.rotation_delta), -10.10f, len + 10.10f); // Axle.CalculateAngularDistance(1.00f, -axle_state.rotation_delta);
+																								 //joint_distance.step = 1000.00f;
+																								 //joint_distance.max_bias = 1000.00f;
+																								 //joint_distance.error_bias = 0.0000f;
+			joint_base.state.AddFlag(Joint.State.Roused);
+			joint_distance.error_bias = 0.0001f;
+			joint_distance.distance.ClampRef(0.10f, len - 0.10f);
+
+			//axle_state.del
+			//joint_distance.step = 1000000.00f; // MathF.Abs(axle_state.angular_velocity) * 0.50f;
+			joint_distance.step = 100000.00f; // MathF.Abs(axle_state.angular_velocity) * 0.50f;
+			joint_distance.max_bias = 100.00f; // MathF.Abs(axle_state.angular_velocity) * 0.50f;
+			//joint_distance.max_force = MathF.Abs(axle_state.angular_momentum * 2000.00f);
+			joint_distance.max_force = 10000.00f; // axle_state.moment_of_inertia;
+												  //axle_state.new_tmp_impulse -= joint_distance.GetImpulse() * info.DeltaTime;
+
+			axle_state.rotation.ClampRef(0.10f, len - 0.10f);
 
 			//if (axle_state.old_tmp_torque <= axle.mass * 2.00f) joint_distance.max_force = 0.00f;
 			//joint_distance.modifier = 1.00f - Maths.NormalizeClamp(axle_state.old_tmp_load, axle_state.old_tmp_torque, fallback: 1.00f);
