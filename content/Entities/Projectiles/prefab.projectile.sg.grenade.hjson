@@ -4,7 +4,7 @@ projectile:
 {
 	damage_base: 150.000
 	damage_bonus: 300.000
-	lifetime: 10.000
+	lifetime: 7.000
 	ignore_time: 0.020
 	damage_type: punch
 	size: 0.120
