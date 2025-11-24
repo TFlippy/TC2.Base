@@ -37,7 +37,7 @@
 			renderer.rotation = -(joint_slider.b - joint_slider.a).GetAngleRadiansFast();
 			//renderer.offset = Vector2.Lerp(renderer.offset, joint_distance.GetDelta().RotateByRad(-transform.GetInterpolatedRotation()), 0.40f);
 			//renderer.offset = Vector2.Lerp(renderer.offset, joint_distance.GetDelta().RotateByRad(-transform.GetInterpolatedRotation()), 0.50f);
-			renderer.offset = Vector2.Lerp(joint_distance.GetDelta(), (joint_distance.GetDelta() + (joint_distance.GetVelocity() * App.fixed_update_interval_s)), Vulkan.GetCurrentLerp()).RotateByRad(-transform.GetInterpolatedRotation());
+			renderer.offset = joint_slider.GetCurrentRelativeOffset(); // = Vector2.Lerp(joint_distance.GetDelta(), (joint_distance.GetDelta() + (joint_distance.GetVelocity() * App.fixed_update_interval_s)), Vulkan.GetCurrentLerp()).RotateByRad(-transform.GetInterpolatedRotation());
 		}
 #endif
 

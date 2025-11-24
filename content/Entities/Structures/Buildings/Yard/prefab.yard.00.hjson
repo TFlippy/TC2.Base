@@ -257,3 +257,135 @@ shipment:
 	layout: square
 	flags: keep_items, allow_deposit, use_misc, no_empty_deposit, crafting
 }
+
+control:
+{
+	@net.synchronized:
+	{
+		interval: 0.000
+	}
+}
+
+vehicle:
+{
+
+}
+
+track:
+{
+	@animated.renderer:
+	{
+		sprite:
+		{
+			texture: "track.mover"
+		}
+		z: -190.000
+	}
+}
+
+track.state:
+{
+
+}
+
+mount:
+{
+	flags: slider_vertical
+}
+
++mount|instance:
+{
+	attachment.slot:
+	{
+		radius: 3.000
+		flags: keyboard_write, mouse_write
+		flags_editable: use_center_of_gravity, locked, disabled, hold, invert, keyboard_read, keyboard_write, mouse_read, mouse_write, brake, manual_aim, offset
+		offset_bounds: [0.000, -0.750, 0.000, 0.750]
+		gui_size: [0.000, 200.000]
+		name: "Mount"
+	}
+
+	joint.base:
+	{
+		max_force: 1000000.000
+		max_torque: 500000.000
+		max_stress: 4.000
+		material_type: metal
+		flags: no_wrap, attachment, allow_dragging, control_read, control_write, force_facing, no_resizable_offset
+	}
+
+	joint.gear:
+	{
+		error_bias: 0.001
+		max_bias: 1.000
+		max_bias_bounce: 5.000
+		stress_mult: 1.000
+		min: -3.140
+		max: 3.140
+		step: 5.000
+		bounce: 0.900
+		max_torque: 10000.000
+
+		// @sound.emitter:
+		// {
+		// 	file: "crane_loop_b"
+		// 	volume: 1.000
+		// 	pitch: 1.000
+		// }
+
+		// @sound.mixer:
+		// {
+		// 	volume_modifier: 0.400
+		// 	pitch_modifier: 0.400
+		// 	volume_min: 0.000
+		// 	pitch_min: 0.400
+		// 	volume_lerp_a: 0.100
+		// 	volume_lerp_b: 0.100
+		// 	pitch_lerp_a: 0.050
+		// 	pitch_lerp_b: 0.030
+		// }
+	}
+
+	joint.slider:
+	{
+		a: [0.000, 3.000]
+		b: [0.000, -3.000]
+		max_force: 100000.000
+		max_bias: 50.000
+		error_bias: 0.000
+		stress_mult: 1.000
+	}
+
+	joint.distance:
+	{
+		distance: 5.997
+		max_force: 500000.000
+		step: 4.000
+		max_bias: 5.000
+		max_bias_bounce: 1.000
+		error_bias: 0.000
+		stress_mult: 0.000
+		bounce: 1.000
+
+		@sound.emitter:
+		{
+			file: "track.move.loop.00"
+			flags: start_muted
+			volume: 1.000
+			pitch: 1.000
+			size: 0.750
+		}
+		
+		@sound.mixer:
+		{
+			volume_modifier: 0.700
+			pitch_modifier: 0.250
+			volume_min: 0.000
+			pitch_min: 0.500
+			volume_lerp_a: 0.050
+			volume_lerp_b: 0.100
+			pitch_lerp_a: 0.020
+			pitch_lerp_b: 0.050
+		}
+	}
+}
