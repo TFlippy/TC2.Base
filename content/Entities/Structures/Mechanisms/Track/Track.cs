@@ -1,5 +1,6 @@
 ﻿namespace TC2.Base.Components
 {
+	// TODO: this is absolute shitcode, needs a complete rewrite
 	public static partial class Track
 	{
 		[IComponent.Data(Net.SendType.Reliable, region_only: true), IComponent.With<Track.State>]
@@ -24,24 +25,27 @@
 		}
 
 #if CLIENT
+		[Shitcode]
 		[ISystem.Render(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateSprite(ISystem.Info info, Entity entity,
 		[Source.Shared] in Transform.Data transform,
 		[Source.Shared] in Track.Data track, [Source.Shared] ref Track.State track_state,
-		[Source.Shared] in Resizable.Data resizable, [Source.Owned, Original] ref Joint.Distance joint_distance,
+		/*[Source.Shared] in Resizable.Data resizable,*/ 
+		[Source.Owned, Original] ref Joint.Distance joint_distance, [Source.Owned, Original] ref Joint.Slider joint_slider,
 		[Source.Shared, Pair.Component<Track.Data>] ref Animated.Renderer.Data renderer)
 		{
-			renderer.rotation = -(resizable.b - resizable.a).GetAngleRadiansFast();
+			renderer.rotation = -(joint_slider.b - joint_slider.a).GetAngleRadiansFast();
 			//renderer.offset = Vector2.Lerp(renderer.offset, joint_distance.GetDelta().RotateByRad(-transform.GetInterpolatedRotation()), 0.40f);
 			//renderer.offset = Vector2.Lerp(renderer.offset, joint_distance.GetDelta().RotateByRad(-transform.GetInterpolatedRotation()), 0.50f);
 			renderer.offset = Vector2.Lerp(joint_distance.GetDelta(), (joint_distance.GetDelta() + (joint_distance.GetVelocity() * App.fixed_update_interval_s)), Vulkan.GetCurrentLerp()).RotateByRad(-transform.GetInterpolatedRotation());
 		}
 #endif
 
+		[Shitcode]
 		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateSlider(ISystem.Info info, Entity entity,
 		[Source.Shared] in Track.Data track, [Source.Shared] ref Track.State track_state,
-		[Source.Owned, Original] ref Joint.Distance joint_distance, [Source.Shared] in Resizable.Data resizable)
+		[Source.Owned, Original] ref Joint.Distance joint_distance, [Source.Owned, Original] ref Joint.Slider joint_slider)
 		{
 			var ratio = Maths.Clamp(track_state.slider_ratio, 0.0005f, 0.9995f); // TODO: hack to prevent max impulse when at 0.00f or 1.00f
 
@@ -51,14 +55,19 @@
 				ratio = 1.00f - ratio;
 			}
 
-			joint_distance.distance = Vector2.Distance(resizable.a, resizable.b) * ratio;
+			var dist = Vector2.Distance(joint_slider.a, joint_slider.b);
+
+			//joint_slider.min = 0.00f;
+			//joint_slider.max = dist;
+			joint_distance.distance = dist * ratio;
 		}
 
+		[Shitcode]
 		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void UpdateAxle(ISystem.Info info, Entity entity, [Source.Shared] in Control.Data control,
+		public static void UpdateAxle(/*ISystem.Info info, Entity entity, [Source.Shared] in Control.Data control,*/
 		[Source.Shared] in Track.Data track, [Source.Shared] ref Track.State track_state,
-		[Source.Shared] ref Axle.Data axle, [Source.Shared] ref Axle.State axle_state,
-		[Source.Owned] ref Joint.Base joint_base, [Source.Owned, Override] ref Joint.Distance joint_distance, [Source.Shared] in Resizable.Data resizable)
+		/*[Source.Shared] ref Axle.Data axle,*/ [Source.Shared] ref Axle.State axle_state,
+		[Source.Owned] ref Joint.Base joint_base, [Source.Owned, Override] ref Joint.Distance joint_distance/*, [Source.Shared] in Resizable.Data resizable*/)
 		{
 			//axle_state.new_tmp_load += MathF.Abs(joint_distance.GetImpulseRaw()) + joint_distance.GetMass();
 			axle_state.ApplyTorque(MathF.Abs(joint_distance.GetImpulseRaw()) + joint_distance.GetMass(), -joint_distance.GetBias());
@@ -76,7 +85,8 @@
 			//App.WriteLine($"{eps.ToFormattedBinary()} vs {eps2.ToFormattedBinary()}");
 		}
 
-		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region)]
+		[Shitcode]
+		[ISystem.Update.D(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateControls(ISystem.Info info, Entity entity, [Source.Owned] in Control.Data control,
 		[Source.Owned] in Track.Data track, [Source.Owned] ref Track.State track_state)
 		{
@@ -103,8 +113,8 @@
 		{
 			joint_slider.a = resizable.a;
 			joint_slider.b = resizable.b;
-			joint_slider.min = 0.00f;
-			joint_slider.max = Vector2.Distance(resizable.a, resizable.b);
+			//joint_slider.min = 0.00f;
+			//joint_slider.max = Vector2.Distance(resizable.a, resizable.b);
 		}
 
 		public struct ConfigureRPC: Net.IRPC<Track.Data>
@@ -173,16 +183,16 @@
 
 								var dirty = false;
 								
-								if (GUI.SliderFloat("Ratio", ref this.track_state.slider_ratio, 0.00f, 1.00f, size: new Vector2(GUI.RmX, 32)))
+								if (GUI.SliderFloat("Ratio"u8, ref this.track_state.slider_ratio, 0.00f, 1.00f, size: new Vector2(GUI.RmX, 32)))
 								{
 									dirty = true;
 								}
 
-								if (GUI.Checkbox("Reverse Direction", ref this.track.flags, Track.Data.Flags.Invert, size: new Vector2(GUI.RmX, 32)))
+								if (GUI.Checkbox("Reverse Direction"u8, ref this.track.flags, Track.Data.Flags.Invert, size: new Vector2(GUI.RmX, 32)))
 								{
 									dirty = true;
 								}
-								GUI.DrawHoverTooltip("Reverse direction of the track.");
+								GUI.DrawHoverTooltip("Reverse direction of the track."u8);
 
 								if (dirty)
 								{
@@ -201,7 +211,7 @@
 		}
 
 		[ISystem.EarlyGUI(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void OnGUI(Entity entity, [Source.Owned] in Track.Data track, [Source.Owned] in Track.State track_state, [Source.Owned] in Interactable.Data interactable)
+		public static void OnGUI(Entity entity, [Source.Owned] in Interactable.Data interactable, [Source.Owned] in Track.Data track, [Source.Owned] in Track.State track_state)
 		{
 			if (interactable.IsActive())
 			{
