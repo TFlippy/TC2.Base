@@ -12,21 +12,29 @@ body:
 
 	@shape.polygon:
 	{
-		points:
-		[
-			[1.000, 1.000]
-			[-1.000, 1.000]
-			[-1.750, -1.000]
-			[1.750, -1.000]
-		]
-		mass: 180.000
-		friction: 0.450
-		elasticity: 0.750
 		material: wood
-		miss_chance: 0.688
+		miss_chance: 0.686
+		flags: none
+		tags: none
+		
 		layer: entity, solid, vehicle, flammable
 		mask: world, solid, platform
-		exclude: tree, wheel, creature, held, item, background
+		exclude: item, creature, background, tree, wheel, held
+		
+		mass: 180.000
+		radius: 0.375
+		friction: 0.450
+		elasticity: 0.750
+		
+		cog_offset: [0.000, 0.000]
+		
+		points:
+		[
+			[0.625, 0.500]
+			[-0.625, 0.500]
+			[-1.250, -0.500]
+			[1.250, -0.500]
+		]
 	}
 }
 
@@ -96,7 +104,7 @@ storage:
 interactable:
 {
 	flags: none
-	priority: 2.000
+	priority: 3.500
 	window_size: [200.000, 288.000]
 	window_size_misc: [144.000, 0.000]
 	window_offset: [-256.000, -128.000]
@@ -193,7 +201,7 @@ burner.state:
 
 	@inventory1:
 	{
-		stack_size_multiplier: 4.000
+		stack_size_multiplier: 1.000
 		filter_flags: fuel
 		filter_type: liquid
 		type: input

@@ -79,13 +79,13 @@ faction:
 claimable:
 {
 	// flags: no_menu
-	requirements:
-	[
-		{
-			type: money
-			amount: 749.990
-		}
-	]
+	// requirements:
+	// [
+	// 	{
+	// 		type: money
+	// 		amount: 749.990
+	// 	}
+	// ]
 }
 
 // mine:

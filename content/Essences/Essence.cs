@@ -669,9 +669,9 @@ namespace TC2.Base.Components
 			}
 
 			[ISystem.GUI(ISystem.Mode.Single, ISystem.Scope.Region)]
-			public static void OnGUI(ISystem.Info info, ref Region.Data region,
+			public static void OnGUI(/*ISystem.Info info, ref Region.Data region,*/
 			Entity ent_interactable, Entity ent_essence_container,
-			[Source.Owned, Pair.Component<Essence.Container.Data>] ref Inventory1.Data inventory,
+			[Source.Owned, Pair.Component<Essence.Container.Data>] in Inventory1.Data inventory,
 			[Source.Owned] in Interactable.Data interactable, [Source.Owned] in Essence.Container.Data essence_container)
 			{
 				if (interactable.IsActive() && essence_container.flags.HasAny(Essence.Container.Flags.Show_GUI))

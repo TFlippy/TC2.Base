@@ -180,7 +180,7 @@ namespace TC2.Base.Components
 		[Source.Owned] in Interactable.Data interactable, [Source.Owned] in Transform.Data transform,
 		[Source.Owned] in Heat.Data heat, [Source.Owned] in Heat.State heat_state)
 		{
-			if (heat.flags.HasNone(Data.Flags.No_GUI) && interactable.IsActive())
+			if (interactable.IsActive() && heat.flags.HasNone(Data.Flags.No_GUI))
 			{
 				var gui = new HeatGUI()
 				{

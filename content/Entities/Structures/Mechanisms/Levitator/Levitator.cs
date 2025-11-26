@@ -622,8 +622,8 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.EarlyGUI(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void OnGUI(Entity entity, [Source.Owned] in Levitator.Data levitator, [Source.Owned] in Levitator.State levitator_state,
-		[Source.Owned] in Interactable.Data interactable)
+		public static void OnGUI([Source.Owned] in Interactable.Data interactable, Entity entity, 
+		[Source.Owned] in Levitator.Data levitator, [Source.Owned] in Levitator.State levitator_state)
 		{
 			if (interactable.IsActive())
 			{

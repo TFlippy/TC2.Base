@@ -1,0 +1,85 @@
+$tags: []
+
+body:
+{
+	@shape.line:
+	{
+		size: [0.500, 0.250]
+		offset: [0.000, 0.000]
+		mass: 2.000
+		radius: 0.375
+		friction: 0.680
+		elasticity: 0.340
+		material: device
+		layer: entity, solid
+		mask: world
+	}
+}
+
+control:
+{
+
+}
+
+health:
+{
+	max: 1500.000
+}
+
+holdable:
+{
+	
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "detonator.00"
+	}
+	z: 100.000
+}
+
+transform:
+{
+
+}
+
+fuse:
+{
+	time: 10.000
+	failure_chance: 0.010
+	sound: "fuse_set"
+	flags: sparkle
+
+	@sound.emitter:
+	{
+		file: "fuse_loop"
+		flags: start_muted
+		volume: 1.000
+		pitch: 1.000
+	}
+}
+
+explosive:
+{
+	radius: 1.400
+	power: 3.500
+	damage_entity: 4000.000
+	damage_terrain: 5000.000
+
+	smoke_amount: 0.700
+	pitch: 1.200
+}
+
+sticky:
+{
+	min_contact_count: 1
+	min_contact_distance: 0.000
+	max_force: 4000.000
+	flags: attach_on_collide
+	mask: world, solid
+	exclude: dynamic, essence
+
+	sound: "fabric.hit.generic.00"
+}

@@ -298,7 +298,7 @@
 		[Source.Owned] in Control.Data control, [Source.Owned] in Transform.Data transform,
 		[Source.Owned] in Controllable.Data controllable, [Source.Owned] in Interactable.Data interactable)
 		{
-			if (controllable.flags.HasNone(Data.Flags.No_GUI) && interactable.IsActive())
+			if (interactable.IsActive() && controllable.flags.HasNone(Data.Flags.No_GUI))
 			{
 				var gui = new ControllableGUI()
 				{

@@ -950,93 +950,94 @@ namespace TC2.Base.Components
 		[Source.Owned] in Melee.Data melee, [Source.Owned] ref Melee.State melee_state,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control, [Source.Owned] in Body.Data body, [Source.Parent, Optional] in Faction.Data faction)
 		{
-			if (!GUI.IsHovered)
+			if (GUI.IsHovered) return;
+			if (GUI.IsHidden) return;
+
+			var parent = body.GetParent();
+
+			var pos = transform.LocalToWorld(melee.hit_offset);
+			//var dir = default(Vector2);
+
+			//switch (melee.attack_type)
+			//{
+			//	default:
+			//	case Melee.AttackType.Swing:
+			//	{
+			//		dir = transform.LocalToWorldDirection(melee.hit_direction.RotateByRad(-melee.swing_rotation * 0.25f));
+			//	}
+			//	break;
+
+			//	case Melee.AttackType.Thrust:
+			//	{
+			//		dir = (control.mouse.position - transform.position).GetNormalized();
+			//	}
+			//	break;
+			//}
+
+			Vector2 dir;
+			Vector2 pos_target; // = control.mouse.position;
+
+			if (melee.flags.HasAny(Melee.Flags.Use_Aim_Direction))
 			{
-				var parent = body.GetParent();
-
-				var pos = transform.LocalToWorld(melee.hit_offset);
-				//var dir = default(Vector2);
-
-				//switch (melee.attack_type)
-				//{
-				//	default:
-				//	case Melee.AttackType.Swing:
-				//	{
-				//		dir = transform.LocalToWorldDirection(melee.hit_direction.RotateByRad(-melee.swing_rotation * 0.25f));
-				//	}
-				//	break;
-
-				//	case Melee.AttackType.Thrust:
-				//	{
-				//		dir = (control.mouse.position - transform.position).GetNormalized();
-				//	}
-				//	break;
-				//}
-
-				Vector2 dir;
-				Vector2 pos_target; // = control.mouse.position;
-
-				if (melee.flags.HasAny(Melee.Flags.Use_Aim_Direction))
-				{
-					dir = transform.Right;
-					pos_target = pos + (dir * melee.max_distance);
-				}
-				else
-				{
-					dir = (control.mouse.position - transform.position).GetNormalized();
-					pos_target = Maths.ClampRadius(control.mouse.position, pos, melee.max_distance);
-
-					//melee.flags.HasAny(Melee.Flags.Use_Aim_Direction) ?
-					//pos + (dir * melee.max_distance) :
-					//Maths.ClampRadius(control.mouse.position, pos, melee.max_distance); //  pos + (dir * len);
-				}
-
-				//var pos_target = Maths.ClampRadius(control.mouse.position, pos, melee.max_distance);
-				var len = Vector2.Distance(pos, pos_target);
-
-				//var override_has_material_filter = default(bool?);
-				//if (melee.flags.HasNone(Melee.Flags.No_Material_Filter) && (control.mouse.GetKey(Mouse.Key.Right) != melee.flags.HasAny(Melee.Flags.Invert_RMB_Material_Filter))) override_has_material_filter = false;
-
-				Melee.IterateHit(region: ref region,
-					random: ref random,
-					ent_melee: entity,
-					ent_parent: parent,
-					pos: pos,
-					pos_target: pos_target,
-					dir: dir,
-					len: len,
-					h_faction: faction.id,
-					melee: in melee,
-					melee_state: ref melee_state,
-					pos_hit: out var pos_hit,
-					modifier: out var modifier,
-					hit_results: out var hit_results,
-					dist_max: out var dist_max,
-					draw_gui: true,
-					do_hit: false,
-					disable_hit_filter: melee.flags.HasNone(Melee.Flags.No_Material_Filter | Melee.Flags.Use_RMB) && control.mouse.GetKey(Mouse.Key.Right) != melee.flags.HasAny(Melee.Flags.Invert_RMB_Material_Filter));
-
-				var gui = new BlockGUI()
-				{
-					entity = entity,
-					transform = transform,
-					melee = melee,
-					melee_state = melee_state,
-					pos_target = pos_target.ClampRadius(pos, dist_max + melee.thickness),
-					pos_hit = pos_hit,
-					//valid = hit_any
-				};
-
-				if (hit_results.HasAny(Melee.HitResults.Terrain)) gui.color = Color32BGRA.Yellow;
-				else if (hit_results.HasAny(Melee.HitResults.Any)) gui.color = Color32BGRA.Red;
-				else gui.color = Color32BGRA.Grey;
-
-				gui.Submit();
+				dir = transform.Right;
+				pos_target = pos + (dir * melee.max_distance);
 			}
+			else
+			{
+				dir = (control.mouse.position - transform.position).GetNormalized();
+				pos_target = Maths.ClampRadius(control.mouse.position, pos, melee.max_distance);
+
+				//melee.flags.HasAny(Melee.Flags.Use_Aim_Direction) ?
+				//pos + (dir * melee.max_distance) :
+				//Maths.ClampRadius(control.mouse.position, pos, melee.max_distance); //  pos + (dir * len);
+			}
+
+			//var pos_target = Maths.ClampRadius(control.mouse.position, pos, melee.max_distance);
+			var len = Vector2.Distance(pos, pos_target);
+
+			//var override_has_material_filter = default(bool?);
+			//if (melee.flags.HasNone(Melee.Flags.No_Material_Filter) && (control.mouse.GetKey(Mouse.Key.Right) != melee.flags.HasAny(Melee.Flags.Invert_RMB_Material_Filter))) override_has_material_filter = false;
+
+			Melee.IterateHit(region: ref region,
+				random: ref random,
+				ent_melee: entity,
+				ent_parent: parent,
+				pos: pos,
+				pos_target: pos_target,
+				dir: dir,
+				len: len,
+				h_faction: faction.id,
+				melee: in melee,
+				melee_state: ref melee_state,
+				pos_hit: out var pos_hit,
+				modifier: out var modifier,
+				hit_results: out var hit_results,
+				dist_max: out var dist_max,
+				draw_gui: true,
+				do_hit: false,
+				disable_hit_filter: melee.flags.HasNone(Melee.Flags.No_Material_Filter | Melee.Flags.Use_RMB) && control.mouse.GetKey(Mouse.Key.Right) != melee.flags.HasAny(Melee.Flags.Invert_RMB_Material_Filter));
+
+			var gui = new BlockGUI()
+			{
+				entity = entity,
+				transform = transform,
+				melee = melee,
+				melee_state = melee_state,
+				pos_target = pos_target.ClampRadius(pos, dist_max + melee.thickness),
+				pos_hit = pos_hit,
+				//valid = hit_any
+			};
+
+			if (hit_results.HasAny(Melee.HitResults.Terrain)) gui.color = Color32BGRA.Yellow;
+			else if (hit_results.HasAny(Melee.HitResults.Any)) gui.color = Color32BGRA.Red;
+			else gui.color = Color32BGRA.Grey;
+
+			gui.Submit();
+
 		}
 
 		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region), HasRelation(Source.Modifier.Owned, Relation.Type.Stored, false), HasRelation(Source.Modifier.Owned, Relation.Type.Child, true)]
-		public static void OnSpriteUpdate(ISystem.Info info, Entity entity, 
+		public static void OnSpriteUpdate(ISystem.Info info, Entity entity,
 		[Source.Owned] in Melee.Data melee, [Source.Owned] in Melee.State melee_state, [Source.Owned] ref Animated.Renderer.Data renderer)
 		{
 			var elapsed = info.WorldTime - melee_state.t_last_hit;
@@ -1138,8 +1139,8 @@ namespace TC2.Base.Components
 
 		[ISystem.Add(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnAddHolder(ISystem.Info info,
-		[Source.Owned] in Melee.Data melee, [Source.Owned] ref Melee.State melee_state, 
-		[Source.Owned] in Holdable.Data holdable, 
+		[Source.Owned] in Melee.Data melee, [Source.Owned] ref Melee.State melee_state,
+		[Source.Owned] in Holdable.Data holdable,
 		[Source.Parent] in Joint.Base joint_base)
 		{
 			melee_state.t_next_hit = info.WorldTime + Maths.Clamp(melee_state.t_next_hit - melee_state.t_last_hit, melee.cooldown * 0.35f, melee.cooldown);

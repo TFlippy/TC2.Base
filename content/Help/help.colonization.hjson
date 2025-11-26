@@ -1,0 +1,14 @@
+﻿{
+	$region_id: 0
+	$version: "0.1.65.3"
+	name: "Getting Started"
+	
+	flags: none
+	
+	entries:
+	[
+		{
+			text: "Aaa"
+		}
+	]
+}

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.65.2"
+	$version: "0.1.65.3"
 	name: "Recondite Sintering"
 	desc:
 		'''
@@ -189,6 +189,14 @@
 							flags: no_scaling, always_evaluate
 						}
 						{
+							type: force
+							amount: 25.000
+							amount_min: 1.000
+							amount_max: 100.000
+							group: 0
+							flags: no_scaling, always_evaluate
+						}
+						{
 							type: work
 							work: sintering
 							amount: 340.000
@@ -197,6 +205,75 @@
 							snapping: 5.000
 							falloff: 0.880
 							ratio: 1.000
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: recondite.ingot
+							amount: 1.000
+							snapping: 1.000
+							group: 0
+							ratio: 0.957
+							flags: primary, parameter, compact, use_temperature, scale_to_mass
+						}
+						{
+							type: resource
+							material: recondite.powder
+							amount: 0.411
+							amount_extra: 0.484
+							snapping: 0.010
+							group: 0
+							ratio: 0.102
+							flags: residue, byproduct, secondary, compact, scale_to_mass
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+				}
+				{
+					name: "Pressed"
+					
+					type: undefined
+					flags: crafter, merge_residue, merge_waste, wip
+					discard_damage_type_override: compression
+					
+					requirements:
+					[
+						{
+							type: temperature
+							amount: 816.600
+							amount_min: 527.000
+							amount_max: 1786.000
+							falloff: 0.694
+							ratio: 0.180
+							group: 0
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: force
+							amount: 25.000
+							amount_min: 1.000
+							amount_max: 100.000
+							ratio: 0.161
+							group: 0
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: work
+							work: sintering
+							amount: 340.000
+							amount_min: 10.000
+							difficulty: 7
+							snapping: 5.000
+							falloff: 0.880
+							ratio: 0.976
 							group: 0
 							flags: conditional
 						}
