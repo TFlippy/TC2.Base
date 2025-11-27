@@ -155,15 +155,17 @@
 		}
 
 		[ISystem.EarlyGUI(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void OnGUI(Entity entity, Entity ent_interactable,
-		[Source.Owned] in Balloon.Data balloon, [Source.Owned] in Balloon.State balloon_state, [Source.Owned] in Transform.Data transform, [Source.Parent] in Interactable.Data interactable,
+		public static void OnGUI([Source.Parent] in Interactable.Data interactable, 
+		Entity ent_balloon, Entity ent_interactable,
+		[Source.Owned] in Balloon.Data balloon, [Source.Owned] in Balloon.State balloon_state, 
+		[Source.Owned] in Transform.Data transform,
 		[Source.Parent] in Burner.Data burner, [Source.Parent] in Burner.State burner_state)
 		{
 			if (interactable.IsActive())
 			{
 				var gui = new BalloonGUI()
 				{
-					ent_balloon = entity,
+					ent_balloon = ent_balloon,
 					ent_interactable = ent_interactable,
 					balloon = balloon,
 					balloon_state = balloon_state,

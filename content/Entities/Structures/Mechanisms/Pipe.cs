@@ -1728,7 +1728,7 @@ namespace TC2.Base.Components
 			[ISystem.GUI(ISystem.Mode.Single, ISystem.Scope.Region)]
 			public static void System_OnVentGUI(/*ISystem.Info info, ref Region.Data region, */Entity ent_vent, /*ref XorRandom random,*/
 			[Source.Owned] in Interactable.Data interactable, [Source.Owned] in Transform.Data transform, 
-			[Source.Owned] in Air.Container.Data container,
+			//[Source.Owned] in Air.Container.Data container,
 			[Source.Owned, Pair.Wildcard] in Vent.Data vent, IComponent.Handle h_vent)
 			{
 				if (interactable.IsActive() && vent.flags.HasNone(Data.Flags.No_GUI))
