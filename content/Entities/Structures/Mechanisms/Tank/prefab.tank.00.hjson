@@ -26,6 +26,7 @@ body:
 		miss_chance: 0.135
 		
 		layer: entity, solid, vehicle
+		cog_offset: [0.8125, 0.375]
 	}
 }
 
@@ -192,12 +193,11 @@ axle:
 
 	@sound.emitter:
 	{
-		file: "flywheel.loop.01"
+		file: flywheel.loop.01
 		flags: start_muted
 		volume: 1.000
-		pitch: 1.000
-		size: 1.000
-		size_max_modifier: 0.800
+		size: 2.000
+		size_max_modifier: 0.350
 	}
 	
 	@sound.mixer:

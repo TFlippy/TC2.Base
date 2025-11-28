@@ -11,6 +11,23 @@ body:
 {
 	@shape.complex:
 	{
+		material: machine
+		miss_chance: 0.384
+		flags: none
+		tags: none
+		
+		layer: entity, solid, vehicle
+		mask: world
+		exclude: none
+		
+		mass: 1100.000
+		radius: 0.625
+		friction: 0.500
+		elasticity: 0.450
+		
+		cog_offset: [1.000, 0.500]
+		
+		count: 5
 		points:
 		[
 			[-2.500, -0.125]
@@ -19,16 +36,6 @@ body:
 			[-1.875, 0.625]
 			[-2.625, 0.250]
 		]
-		count: 5
-		
-		mass: 1100.000
-		radius: 0.625
-		elasticity: 0.450
-		
-		material: machine
-		miss_chance: 0.384
-		
-		layer: entity, solid, vehicle
 	}
 }
 
@@ -171,7 +178,7 @@ norotate:
 {
 	bias: 0.200
 	multiplier: 0.750
-	mass_multiplier: 150.000
+	mass_multiplier: 80.000
 	flags: no_share
 }
 
@@ -224,14 +231,16 @@ axle:
 
 	@sound.emitter:
 	{
-		file: "flywheel.loop.01"
+		file: flywheel.loop.01
 		flags: start_muted
-		volume: 1.000
-		pitch: 1.000
-		size: 1.000
-		size_max_modifier: 0.800
+		volume: 0.900
+		pitch: 1.122
+		offset: [-0.750, 0.250]
+		size: 2.250
+		size_max_modifier: 0.620
+		doppler: 1.300
 	}
-	
+		
 	@sound.mixer:
 	{
 		volume_modifier: 1.000
@@ -390,7 +399,7 @@ axle:
 {
 	wheel.slot:
 	{
-
+		force_multiplier: 20.000
 	}
 
 	joint.base:
@@ -436,7 +445,7 @@ axle:
 {
 	wheel.slot:
 	{
-
+		force_multiplier: 20.000
 	}
 
 	joint.base:

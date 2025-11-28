@@ -1,8 +1,13 @@
-$name: "Tractor"
+$name: "Kontraktor MGT"
 $prefab: "tractor.00"
 
 +slot_cab|instance:
 {
+	attachment_slot:
+	{
+		offset: [0.875, -0.625]
+	}
+
 	+attached|child:
 	{
 		$prefab: "cabin.metal.02"
@@ -37,7 +42,7 @@ $prefab: "tractor.00"
 		{
 			attachment_slot:
 			{
-				flags: hold, keyboard_write, mouse_write
+				flags: keyboard_write, mouse_write
 			}
 			
 			+attached|child:
@@ -61,7 +66,7 @@ $prefab: "tractor.00"
 				resource:
 				{
 					material: "pellet.motion"
-					quantity: 5.000
+					quantity: 14.000
 				}
 			}
 		}

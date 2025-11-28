@@ -11,6 +11,23 @@ body:
 {
 	@shape.complex:
 	{
+		material: machine
+		miss_chance: 0.204
+		flags: none
+		tags: none
+		
+		layer: entity, solid, vehicle
+		mask: world
+		exclude: none
+		
+		mass: 2600.000
+		radius: 0.500
+		friction: 0.500
+		elasticity: 0.450
+		
+		cog_offset: [0.625, 0.500]
+		
+		count: 5
 		points:
 		[
 			[-3.000, -0.375]
@@ -19,16 +36,6 @@ body:
 			[-2.125, 0.875]
 			[-3.250, 0.375]
 		]
-		count: 5
-		
-		mass: 2600.000
-		radius: 0.500
-		elasticity: 0.450
-		
-		material: machine
-		miss_chance: 0.204
-		
-		layer: entity, solid, vehicle
 	}
 }
 
