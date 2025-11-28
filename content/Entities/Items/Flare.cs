@@ -10,7 +10,7 @@ namespace TC2.Base.Components
 		public static readonly Texture.Handle texture_metal_spark = "Metal_Spark";
 
 		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
-		public partial struct Data: IComponent
+		public partial struct Data(): IComponent
 		{
 			public float lifetime = 8.00f;
 			public float smoke_amount = 1.00f;
@@ -27,13 +27,8 @@ namespace TC2.Base.Components
 			[Net.Ignore, Save.Ignore] public float intensity_target;
 			[Net.Ignore, Save.Ignore] public float next_flicker_time;
 
-			[Net.Ignore, Save.Ignore] public float smoke_accumulator = 0.00f;
-			[Net.Ignore, Save.Ignore] public float sparks_accumulator = 0.00f;
-
-			public Data()
-			{
-
-			}
+			[Net.Ignore, Save.Ignore] public float smoke_accumulator;
+			[Net.Ignore, Save.Ignore] public float sparks_accumulator;
 		}
 
 #if CLIENT

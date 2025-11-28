@@ -32,35 +32,35 @@
 			public Vector2 offset;
 		}
 
-#if CLIENT
-		public struct TelescopeGUI: IGUICommand
-		{
-			public Transform.Data transform;
-			public Control.Data control;
-			public Telescope.Data telescope;
-			public Entity entity;
+//#if CLIENT
+//		public struct TelescopeGUI: IGUICommand
+//		{
+//			public Transform.Data transform;
+//			public Control.Data control;
+//			public Telescope.Data telescope;
+//			public Entity entity;
 
-			public void Draw()
-			{
-				ref var region = ref Client.GetRegion();
-			}
-		}
+//			public void Draw()
+//			{
+//				ref var region = ref Client.GetRegion();
+//			}
+//		}
 
-		[ISystem.GUI(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("local", true, Source.Modifier.Parent)]
-		public static void OnGUI(ISystem.Info info, Entity entity,
-		[Source.Parent] in Interactor.Data interactor, [Source.Owned] ref Telescope.Data telescope, [Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control,
-		[Source.Parent] in Player.Data player)
-		{
-			var gui = new TelescopeGUI()
-			{
-				entity = entity,
-				transform = transform,
-				telescope = telescope,
-				control = control
-			};
-			gui.Submit();
-		}
-#endif
+//		[ISystem.GUI(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("local", true, Source.Modifier.Parent)]
+//		public static void OnGUI(ISystem.Info info, Entity entity,
+//		[Source.Parent] in Interactor.Data interactor, [Source.Owned] ref Telescope.Data telescope, [Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control,
+//		[Source.Parent] in Player.Data player)
+//		{
+//			var gui = new TelescopeGUI()
+//			{
+//				entity = entity,
+//				transform = transform,
+//				telescope = telescope,
+//				control = control
+//			};
+//			gui.Submit();
+//		}
+//#endif
 
 		//#if CLIENT
 		//		[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region)]

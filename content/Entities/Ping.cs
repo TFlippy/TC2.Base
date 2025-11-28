@@ -59,6 +59,14 @@ namespace TC2.Base.Components
 		}
 
 #if CLIENT
+
+		private static bool skipped;
+		public static void Skip()
+		{
+			Ping.skipped = true;
+		}
+
+		[Shitcode]
 		public partial struct PingGUI: IGUICommand
 		{
 			public Entity ent_ping;
@@ -66,10 +74,11 @@ namespace TC2.Base.Components
 
 			public void Draw()
 			{
-				var pos = this.ping.pos;
-				var rect_canvas = GUI.GetCanvasRect().Pad(16, 16, 16, 16);
 				ref var region_common = ref this.ent_ping.GetRegionCommon();
 				if (region_common.IsNull()) return;
+
+				var pos = this.ping.pos;
+				var rect_canvas = GUI.GetCanvasRect().Pad(new(16));
 
 				var c_pos = region_common.WorldToCanvas(pos);
 				c_pos = rect_canvas.ClipPoint(c_pos);
@@ -156,7 +165,14 @@ namespace TC2.Base.Components
 		public static void OnUpdateLocal(ISystem.Info info, Entity entity, [Source.Owned] ref Ping.Data ping, [Source.Owned] in Control.Data control)
 		{
 			//if (faction.IsNull() || faction.id == Client.GetFaction())
-			if (!Editor.is_window_open && !Editor.IsActive && info.WorldTime >= ping.next_ping)
+
+			if (Ping.skipped)
+			{
+				Ping.skipped = false;
+				return;
+			}
+
+			if (!GUI.IsHidden && !Editor.is_window_open && !Editor.IsActive && info.WorldTime >= ping.next_ping)
 			{
 				if (control.mouse.GetKeyDown(Mouse.Key.Middle))
 				{

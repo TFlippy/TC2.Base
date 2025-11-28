@@ -1,6 +1,7 @@
 ﻿
 namespace TC2.Base.Components
 {
+	[Shitcode]
 	public static partial class ProspectorPick
 	{
 		[IComponent.Data(Net.SendType.Reliable, region_only: true), IComponent.With<ProspectorPick.State>]
@@ -144,13 +145,14 @@ namespace TC2.Base.Components
 
 #if SERVER
 		[ISystem.Event<Melee.HitEvent>(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void OnHit(ISystem.Info info, Entity entity, ref Region.Data region, ref Melee.HitEvent data, [Source.Owned] ref ProspectorPick.Data prospector_pick, [Source.Owned] ref ProspectorPick.State prospector_pick_state)
+		public static void OnHit(ISystem.Info info, Entity entity, ref Region.Data region, ref Melee.HitEvent data, 
+		[Source.Owned] ref ProspectorPick.Data prospector_pick, [Source.Owned] ref ProspectorPick.State prospector_pick_state)
 		{
 			ref var terrain = ref region.GetTerrain();
 
 			var arg = (a: 0, samples: new FixedArray8<OreSample>());
 
-			terrain.IterateLine(data.world_position, data.world_position + data.direction * prospector_pick.max_depth, 0.10f, ref arg, Func, iteration_flags: Terrain.IterationFlags.None);
+			terrain.IterateLine(world_position_a: data.world_position, world_position_b: data.world_position + data.direction * prospector_pick.max_depth, thickness: 0.10f, argument: ref arg, func: Func, iteration_flags: Terrain.IterationFlags.None);
 			static void Func(Tile tile, ref (int a, FixedArray8<OreSample> samples) arg, int x, int y, byte mask)
 			{
 				var h_block = tile.GetBlockHandle();
