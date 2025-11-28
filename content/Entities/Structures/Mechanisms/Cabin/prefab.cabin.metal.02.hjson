@@ -13,7 +13,7 @@ body:
 	@shape.polygon:
 	{
 		material: metal
-		miss_chance: 0.145
+		miss_chance: 0.290
 		flags: none
 		tags: none
 		
@@ -187,7 +187,7 @@ mount:
 {
 	joint.base:
 	{
-		offset_a: [-0.500, -1.250]
+		offset_a: [-0.250, -1.500]
 		
 		max_force: 700000.000
 		max_torque: 100000.000
@@ -265,6 +265,7 @@ mount:
 		flags: keyboard_write, mouse_write
 		flags_editable: locked, disabled, hold, invert, keyboard_read, keyboard_write, mouse_read, mouse_write, manual_aim
 
+		radius: 2.500
 		gui_size: [0.000, 96.000]
 	}
 }

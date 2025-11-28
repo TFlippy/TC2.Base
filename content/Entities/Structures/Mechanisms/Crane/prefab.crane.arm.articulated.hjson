@@ -40,7 +40,7 @@ animated.renderer:
 		texture: "crane.arm.articulated"
 		mask: "crane.arm.articulated.mask"
 	}
-	z: -72.000
+	z: -45.000
 }
 
 faction.colorable:
@@ -244,18 +244,16 @@ heat:
 
 	attachment.slot:
 	{
-		name: "Mount"
-
+		radius: 4.000
 		flags: keyboard_write, mouse_write
-		flags_editable: locked, keyboard_write, mouse_write, keyboard_read, mouse_read
-
-		gui_size: [0.000, 128.000]
-
+		flags_editable: locked, keyboard_read, keyboard_write, mouse_read, mouse_write
 		tags_filter:
 		{
 			require: rotary
 			include: small, medium, large
 			exclude: wheel
 		}
+		gui_size: [0.000, 128.000]
+		name: "Mount"
 	}
 }
