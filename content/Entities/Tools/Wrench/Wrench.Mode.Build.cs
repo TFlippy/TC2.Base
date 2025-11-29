@@ -479,7 +479,7 @@ namespace TC2.Base.Components
 												flags.SetFlag(Wrench.Mode.Build.Flags.Snap, !kb.GetKey(Keyboard.Key.LeftShift));
 
 												var scale = new Vector2(1, 1);
-												if (placement.flags.HasAny(Placement.Flags.Allow_Mirror_X)) scale.X.ToggleSign(pos_raw.X < pos_origin.X);
+												if (placement.flags.HasAny(Placement.Flags.Allow_Mirror_X)) scale.X.SetSign(pos_raw.X < pos_origin.X);
 
 												Wrench.Mode.Build.GetPlacementInfo(placement: ref placement,
 													flags: flags,
@@ -1521,7 +1521,7 @@ namespace TC2.Base.Components
 									var scale = new Vector2(1, 1);
 									var normal_surface = this.normal.GetNormalized(out var normal_distance) ?? new Vector2(0.00f, -1.00f);
 
-									if (placement.flags.HasAny(Placement.Flags.Allow_Mirror_X)) scale.X.ToggleSign(this.pos_raw.X < this.pos_origin.X);
+									if (placement.flags.HasAny(Placement.Flags.Allow_Mirror_X)) scale.X.SetSign(this.pos_raw.X < this.pos_origin.X);
 
 									var random = XorRandom.New(true);
 

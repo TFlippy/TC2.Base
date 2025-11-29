@@ -50,6 +50,7 @@ explosive:
 	flash_duration_multiplier: 0.550
 	flash_intensity_multiplier: 0.700
 	terrain_radius_multiplier: 0.800
+	force_multiplier: 0.200
 	volume: 1.500
 	pitch: 2.200
 	flags: primed

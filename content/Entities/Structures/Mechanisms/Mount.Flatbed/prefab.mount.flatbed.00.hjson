@@ -157,13 +157,13 @@ storage:
 		}
 	}
 
-	facing:
-	{
-		flags: use_rotation
-		offset: 0.000
-		threshold: -0.100
-		flip_interval: 0.200
-	}
+	// facing:
+	// {
+	// 	flags: use_rotation
+	// 	offset: 0.000
+	// 	threshold: 0.050
+	// 	flip_interval: 0.500
+	// }
 
 	joint.pivot:
 	{

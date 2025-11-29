@@ -80,12 +80,12 @@ namespace TC2.Base.Components
 
 #if SERVER
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("wrecked", false, Source.Modifier.Owned)]
-		public static void UpdateControlsB(ISystem.Info info, Entity entity, ref Region.Data region, [Source.Owned] ref Transform.Data transform,
+		public static void UpdateControlsB(Entity entity, ref Region.Data region, [Source.Owned] ref Transform.Data transform,
 		[Source.Owned] ref Tractor.Data tractor, [Source.Owned] ref Tractor.State tractor_state, [Source.Owned] in Control.Data control)
 		{
 			if (control.keyboard.GetKeyDown(Keyboard.Key.Spacebar))
 			{
-				transform.scale.X *= -1.00f;
+				transform.scale.X.FlipSign(); // *= -1.00f;
 				transform.Modified(entity, true);
 			}
 		}

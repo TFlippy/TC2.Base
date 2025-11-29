@@ -140,13 +140,13 @@ controllable:
 		max_bias_bounce: 1.000
 	}
 
-	facing:
-	{
-		flags: none
-		offset: 0.000
-		threshold: 0.500
-		flip_interval: 1.000
-	}
+	// facing:
+	// {
+	// 	flags: none
+	// 	offset: 0.000
+	// 	threshold: 0.500
+	// 	flip_interval: 1.000
+	// }
 
 	attachment.slot:
 	{

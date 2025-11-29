@@ -1,4 +1,5 @@
-﻿using TC2.Base.Components;
+﻿using System.Text;
+using TC2.Base.Components;
 
 namespace TC2.Base
 {
@@ -50,14 +51,34 @@ namespace TC2.Base
 		[ChatCommand.Region("origin", "", creative: true)]
 		public static void OriginCommand(ref ChatCommand.Context context, IOrigin.Handle h_origin, bool force_new = false)
 		{
-			ref var region = ref context.GetRegion();
+			ref var region = ref context.GetRegionCommon();
 			Assert.IsNotNull(ref region);
 
-			ref var player = ref context.GetPlayerData();
-			Assert.IsNotNull(ref player);
+			//ref var player = ref context.GetPlayerData();
+			//Assert.IsNotNull(ref player);
 
 			ref var origin_data = ref h_origin.GetData(out var origin_asset);
-			Assert.IsNotNull(ref origin_data);
+			//Assert.IsNotNull(ref origin_data);
+
+			if (origin_data.IsNull())
+			{
+				var origins_span = IOrigin.Database.GetAssetsSpan();
+				var sb = new StringBuilder();
+
+				sb.AppendLine("Invalid origin, use one of these:");
+				foreach (var origin in origins_span)
+				{
+					sb.AppendPrefixed(origin.identifier, "- ");
+					sb.AppendLine();
+				}
+
+				context.text_out = sb.ToString();
+				return;
+			}
+
+
+			ref var player_data = ref context.GetPlayer(out var player_asset);
+			Assert.IsNotNull(ref player_data);
 
 			var random = XorRandom.New(true);
 
@@ -66,7 +87,15 @@ namespace TC2.Base
 			//ref var character = ref player.GetControlledCharacter().data;
 			if (!force_new) // && character.IsNotNull() && character.ent_controlled.IsAlive())
 			{
-				throw new NotImplementedException();
+				ref var current_character_data = ref context.GetCharacter(out var current_character_asset);
+				Assert.IsNotNull(ref current_character_data);
+
+				context.text_out = $"Changing current character's origin from \"{current_character_data.origin}\" to \"{h_origin}\"...";
+
+				current_character_data.origin = origin_asset;
+				current_character_asset.Sync();
+
+				//throw new NotImplementedException();
 				//ref var character_data = ref character.character_id.GetData(out var character_asset);
 				//Assert.NotNull(ref character_data);
 
@@ -78,19 +107,24 @@ namespace TC2.Base
 			else
 			{
 				var h_faction = origin_data.faction;
-				var h_character = Spawner.CreateCharacter(region: ref region.AsCommon(), random: ref random, h_origin: h_origin, scope: Asset.Scope.Region, asset_flags: Asset.Flags.Recycle, h_player: player.h_player, h_faction: h_faction);
+				var h_character = Spawner.CreateCharacter(region: ref region, random: ref random, h_origin: h_origin, scope: Asset.Scope.Region, asset_flags: Asset.Flags.Recycle, h_player: player_asset, h_faction: h_faction);
+				context.text_out = $"Created new character \"{h_character}\" with \"{h_origin}\" origin.";
+
 				if (Assert.Check(h_character.IsValid(), Assert.Level.Warn))
 				{
 					Spawner.TryGenerateKits(ref random, h_character);
 
-					Spawner.SpawnCharacter(ref region, h_character, position: player.control.mouse.position, h_player: player.h_player, h_faction: h_faction, control: true).ContinueWith((ent) =>
+					if (!region.IsGlobal())
 					{
-						ref var character = ref h_character.GetData();
-						if (character.IsNotNull())
+						Spawner.SpawnCharacter(ref region.AsRegion(), h_character, position: context.GetTargetPosition(), h_player: player_asset, h_faction: h_faction, control: true).ContinueWith((ent) =>
 						{
-							Loadout.Spawn(ent, character.kits, money: character.money);
-						}
-					});
+							ref var character = ref h_character.GetData();
+							if (character.IsNotNull())
+							{
+								Loadout.Spawn(ent, character.kits, money: character.money);
+							}
+						});
+					}
 				}
 			}
 		}

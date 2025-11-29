@@ -47,8 +47,8 @@ explosive:
 	smoke_lifetime_multiplier: 1.100
 	smoke_velocity_multiplier: 4.500
 	smoke_color: "0xffd8d8d8"
-	flash_duration_multiplier: 0.050
-	flash_intensity_multiplier: 0.900
+	flash_duration_multiplier: 0.450
+	flash_intensity_multiplier: 0.100
 	terrain_radius_multiplier: 0.450
 	fire_amount: 0.200
 	sparks_amount: 0.400
