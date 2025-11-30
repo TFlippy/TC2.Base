@@ -12,15 +12,24 @@ body:
 	
 	@shape.box:
 	{
-		size: [0.875, 1.375]
-		radius: 0.250
-		mass: 30.000
-		friction: 0.750
-		elasticity: 0.700
 		material: metal_sheet
+		miss_chance: 0.835
+		flags: none
+		tags: none
+		
 		layer: entity, solid, furniture, ignore_melee
 		mask: world
-		miss_chance: 0.835
+		exclude: none
+		
+		mass: 30.000
+		radius: 0.250
+		friction: 0.750
+		elasticity: 0.700
+		
+		cog_offset: [0.000, 0.250]
+		
+		size: [0.875, 1.375]
+		offset: [0.000, 0.000]
 	}
 }
 

@@ -12,6 +12,22 @@ body:
 	
 	@shape.polygon:
 	{
+		material: wreck
+		miss_chance: 0.624
+		flags: none
+		tags: none
+		
+		layer: entity, solid, background, conductive, harvestable, magnetic
+		mask: world
+		exclude: none
+		
+		mass: 1134.000
+		radius: 0.500
+		friction: 0.980
+		elasticity: 0.500
+		
+		cog_offset: [-0.125, 0.250]
+		
 		points:
 		[
 			[-1.125, -0.375]
@@ -19,16 +35,6 @@ body:
 			[1.500, 0.250]
 			[-2.125, 0.375]
 		]
-		
-		mass: 1134.000
-		radius: 0.500
-		friction: 0.980
-		elasticity: 0.500
-		
-		material: wreck
-		miss_chance: 0.624
-		
-		layer: entity, solid, conductive, harvestable, magnetic, background
 	}
 }
 

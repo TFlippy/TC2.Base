@@ -13,20 +13,28 @@ body:
 	
 	@shape.box:
 	{
-		size: [2.000, 2.500]
-		offset: [0.000, 0.500]
+		material: machine
+		miss_chance: 0.000
+		flags: none
+		tags: none
+		
+		layer: entity, solid, furniture, ignore_bullet
+		mask: world
+		exclude: none
 		
 		mass: 420.000
 		radius: 0.250
 		friction: 0.400
 		elasticity: 0.850
 		
-		material: machine
-		miss_chance: 0.000
+		rigidity_static: 1.000
+		rigidity_dynamic: 1.000
+		fall_damage_mult: 1.000
+		flammability: 0.000
+		cog_offset: [0.0625, 0.3125]
 		
-		layer: entity, solid, furniture, ignore_bullet
-		mask: world
-		exclude: none
+		size: [2.000, 2.500]
+		offset: [0.000, 0.500]
 	}
 }
 

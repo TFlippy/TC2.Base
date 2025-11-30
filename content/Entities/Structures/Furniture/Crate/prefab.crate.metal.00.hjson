@@ -13,18 +13,24 @@ body:
 	
 	@shape.box:
 	{
-		size: [1.375, 1.000]
+		material: metal
+		miss_chance: 0.000
+		flags: none
+		tags: none
+		
+		layer: entity, solid, crate, storage, furniture, ignore_bullet
+		mask: world, crate
+		exclude: held
 		
 		mass: 31.000
 		radius: 0.250
 		friction: 0.880
 		elasticity: 0.680
 		
-		material: metal
+		cog_offset: [-0.125, 0.1875]
 		
-		layer: entity, solid, crate, storage, furniture, ignore_bullet
-		mask: world, crate
-		exclude: held
+		size: [1.375, 1.000]
+		offset: [0.000, 0.000]
 	}
 }
 

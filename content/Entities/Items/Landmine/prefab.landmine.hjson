@@ -9,24 +9,32 @@ body:
 {
 	@shape.line:
 	{
-		a: [-0.200, 0.000]
-		b: [0.200, 0.000]
-		offset: [0.000, 0.125]
+		material: metal
+		miss_chance: 0.000
+		flags: none
+		tags: none
+		
+		layer: entity, solid
+		mask: world, item, creature
+		exclude: tree
+		
 		mass: 3.600
 		radius: 0.300
 		friction: 0.700
 		elasticity: 0.020
-		rigidity_dynamic: 0.01
-		material: metal
-		layer: entity, solid
-		mask: world, creature, item
-		exclude: tree
+		
+		rigidity_dynamic: 0.010
+		cog_offset: [0.000, 0.125]
+		
+		a: [-0.200, 0.000]
+		b: [0.200, 0.000]
+		offset: [0.000, 0.125]
 	}
 }
 
 health:
 {
-	max: 400.000
+	max: 1000.000
 }
 
 holdable:

@@ -9,16 +9,25 @@ body:
 {
 	@shape.line:
 	{
-		a: [-0.750, 0.000]
-		b: [0.875, 0.000]
+		material: machine
+		miss_chance: 0.000
+		flags: none
+		tags: none
+		
+		layer: entity, solid, vehicle
+		mask: world, essence
+		exclude: none
+		
 		mass: 660.000
 		radius: 0.900
 		friction: 0.850
 		elasticity: 0.450
-		material: machine
-		layer: entity, solid, vehicle
-		mask: world, essence
-		exclude: none
+		
+		cog_offset: [0.250, 0.3125]
+		
+		a: [-0.750, 0.000]
+		b: [0.875, 0.000]
+		offset: [0.000, 0.000]
 	}
 }
 

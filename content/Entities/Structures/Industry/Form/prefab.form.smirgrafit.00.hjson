@@ -12,18 +12,25 @@ body:
 
 	@shape.line:
 	{
-		a: [-1.500, 0.000]
-		b: [1.500, 0.000]
+		material: cermet
+		miss_chance: 0.000
+		flags: none
+		tags: none
+		
+		layer: entity, solid, platform
+		mask: world, platform, bulk, liquid
+		exclude: none
 		
 		mass: 220.000
 		radius: 0.500
 		friction: 0.750
 		elasticity: 0.470
 		
-		material: cermet
+		cog_offset: [-0.250, 0.125]
 		
-		layer: entity, solid, platform
-		mask: world, bulk, liquid, platform
+		a: [-1.500, 0.000]
+		b: [1.500, 0.000]
+		offset: [0.000, 0.000]
 	}
 }
 

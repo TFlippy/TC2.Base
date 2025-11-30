@@ -12,21 +12,25 @@ body:
 
 	@shape.line:
 	{
-		a: [-1.275, 0.000]
-		b: [1.275, 0.000]
-		offset: [0.000, 0.050]
+		material: wood
+		miss_chance: 0.463
+		flags: none
+		tags: none
+		
+		layer: entity, solid, background, platform, furniture, flammable, ignore_melee
+		mask: world, platform
+		exclude: held, attached
 		
 		mass: 40.000
 		radius: 0.425
 		friction: 0.850
 		elasticity: 0.410
 		
-		material: wood
-		miss_chance: 0.463
+		cog_offset: [-0.1875, 0.0625]
 		
-		layer: entity, solid, background, platform, furniture, flammable, ignore_melee
-		mask: world, platform
-		exclude: held, attached
+		a: [-1.275, 0.000]
+		b: [1.275, 0.000]
+		offset: [0.000, 0.050]
 	}
 }
 
