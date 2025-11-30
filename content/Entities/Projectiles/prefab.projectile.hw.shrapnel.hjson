@@ -2,9 +2,9 @@ $tags: []
 
 projectile:
 {
-	damage_base: 5000.000
-	damage_bonus: 10000.000
-	lifetime: 2.000
+	damage_base: 2500.000
+	damage_bonus: 2800.000
+	lifetime: 1.400
 	ignore_time: 0.040
 	damage_type: bullet_ac
 	size: 0.250
@@ -33,30 +33,32 @@ animated.renderer:
 explosive:
 {
 	damage_type: shrapnel
-	damage_type_secondary: shrapnel
+	damage_type_secondary: bullet_hc
 
-	radius: 12.000
-	power: 2.000
+	radius: 14.000
+	power: 3.500
 	damage_entity: 12000.000
-	damage_terrain: 6000.000
-	smoke_amount: 3.000
-	smoke_velocity_multiplier: 4.000
+	damage_terrain: 4000.000
+	smoke_amount: 0.400
+	smoke_velocity_multiplier: 1.000
 	smoke_lifetime_multiplier: 0.550
 	flash_duration_multiplier: 0.150
-	flash_intensity_multiplier: 1.500
+	flash_intensity_multiplier: 0.300
+	fire_amount: 0.100
 	sparks_amount: 2.500
-	volume: 1.500
-	pitch: 1.500
+	force_multiplier: 0.300
+	volume: 1.100
+	pitch: 3.000
 	flags: primed
 }
 
 cluster:
 {
 	prefab: "projectile.shrapnel"
-	spread: 2.000
+	spread: 0.500
 	speed: 0.000
 	count: 60
 
-	speed_modifier_min: 0.500
-	speed_modifier_max: 1.000
+	speed_modifier_min: 0.700
+	speed_modifier_max: 2.400
 }

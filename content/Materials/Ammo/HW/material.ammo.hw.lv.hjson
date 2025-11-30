@@ -61,8 +61,8 @@
 		velocity_min: 20.000
 		
 		speed_base: 0.000
-		speed_mult: 1.000
-		speed_jitter: 0.020
+		speed_mult: 0.900
+		speed_jitter: 0.030
 		spin_base: 0.020
 		spin_mult: 1.000
 		spread_mult: 1.100

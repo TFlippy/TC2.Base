@@ -72,7 +72,7 @@
 		failure_base: 0.000
 		failure_mult: 0.100
 		
-		stability_base: 15550.000
+		stability_base: 16550.000
 		stability_mult: 1.000
 		
 		prefab: projectile.hw.kinetic

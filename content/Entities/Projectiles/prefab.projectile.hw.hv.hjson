@@ -2,9 +2,10 @@ $tags: []
 
 projectile:
 {
-	damage_base: 750.000
-	damage_bonus: 300.000
-	damage_type: bullet_ac
+	damage_base: 3000.000
+	damage_bonus: 1500.000
+	knockback_multiplier: 3.000
+	damage_type: bullet_hw
 	flags: no_miss
 
 	lifetime: 20.000
@@ -47,16 +48,17 @@ explosive:
 	damage_type: explosion
 	damage_type_secondary: shrapnel
 
-	radius: 7.000
+	radius: 5.500
 	power: 6.000
-	damage_entity: 21000.000
+	damage_entity: 25000.000
 	damage_terrain: 45000.000
-	smoke_amount: 1.300
-	smoke_velocity_multiplier: 1.500
-	smoke_lifetime_multiplier: 1.200
+	smoke_amount: 1.500
+	smoke_velocity_multiplier: 1.800
+	smoke_lifetime_multiplier: 1.000
 	flash_duration_multiplier: 0.300
 	flash_intensity_multiplier: 1.000
 	sparks_amount: 2.500
+	force_multiplier: 0.700
 	volume: 2.000
 	pitch: 1.000
 	flags: primed
