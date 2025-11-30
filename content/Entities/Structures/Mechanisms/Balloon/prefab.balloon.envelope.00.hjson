@@ -25,6 +25,7 @@ body:
 		layer: entity, solid, flammable
 		mask: world, solid
 		exclude: creature
+		cog_offset: [0.000, 1.400]
 	}
 }
 

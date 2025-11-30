@@ -12,18 +12,27 @@ body:
 	
 	@shape.line:
 	{
-		a: [0.000, -1.500]
-		b: [-0.125, 1.500]
+		material: foliage
+		miss_chance: 0.000
+		flags: none
+		tags: flammable, soft
+		
+		layer: entity, background, plant, climbable, flammable, ignore_melee, ignore_bullet
+		mask: world
+		exclude: none
 		
 		mass: 25.000
-		radius: 0.875
+		radius: 1.000
 		friction: 0.950
+		elasticity: 0.500
+		
 		rigidity_static: 0.000
 		rigidity_dynamic: 0.000
-
-		material: foliage	
-		layer: entity, climbable, ignore_bullet, ignore_melee, flammable, plant, background
-		mask: world
+		cog_offset: [0.000, 0.000]
+		
+		a: [-0.125, -1.625]
+		b: [-0.125, 1.500]
+		offset: [0.000, 0.000]
 	}
 }
 

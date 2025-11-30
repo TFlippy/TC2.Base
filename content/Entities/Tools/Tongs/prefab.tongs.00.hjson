@@ -12,6 +12,22 @@ body:
 
 	@shape.polygon:
 	{
+		material: metal_pole
+		miss_chance: 0.000
+		flags: none
+		tags: none
+		
+		layer: entity, solid, item, conductive, heatable, magnetic, ignore_bullet
+		mask: world
+		exclude: none
+		
+		mass: 4.200
+		radius: 0.175
+		friction: 0.500
+		elasticity: 0.650
+		
+		cog_offset: [0.125, 0.000]
+		
 		points:
 		[
 			[-1.000, -0.250]
@@ -19,15 +35,6 @@ body:
 			[1.125, 0.250]
 			[-1.000, 0.000]
 		]
-		
-		mass: 4.200
-		radius: 0.175
-		friction: 0.500
-		elasticity: 0.650
-		
-		material: metal_pole
-		
-		layer: entity, solid, ignore_bullet, item, heatable, conductive, magnetic
 	}
 }
 

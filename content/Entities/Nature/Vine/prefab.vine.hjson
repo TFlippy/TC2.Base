@@ -22,7 +22,7 @@ body:
 		exclude: none
 		
 		mass: 30.000
-		radius: 0.750
+		radius: 1.0625
 		friction: 0.950
 		elasticity: 0.500
 		

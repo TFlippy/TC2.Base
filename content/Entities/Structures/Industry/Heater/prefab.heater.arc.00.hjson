@@ -26,6 +26,7 @@ body:
 		
 		material: machine
 		miss_chance: 0.161
+		cog_offset: [0.3125, 0.000]
 		
 		layer: entity, solid, item, conductive, heatable, magnetic
 		exclude: held, attached

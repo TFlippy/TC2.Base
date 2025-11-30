@@ -17,7 +17,7 @@ body:
 		flags: none
 		tags: none
 		
-		layer: entity, solid, furniture, ignore_melee
+		layer: entity, solid, furniture, conductive, magnetic, ignore_melee
 		mask: world
 		exclude: none
 		

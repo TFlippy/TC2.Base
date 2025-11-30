@@ -22,7 +22,7 @@ body:
 		exclude: none
 		
 		mass: 12.000
-		radius: 0.625
+		radius: 1.0625
 		friction: 0.950
 		elasticity: 0.500
 		
@@ -30,8 +30,8 @@ body:
 		rigidity_dynamic: 0.000
 		cog_offset: [0.000, 0.000]
 		
-		a: [0.000, 0.625]
-		b: [0.125, 4.500]
+		a: [-0.125, 0.750]
+		b: [0.125, 4.625]
 		offset: [0.000, 0.000]
 	}
 }

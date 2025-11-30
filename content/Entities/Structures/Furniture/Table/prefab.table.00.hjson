@@ -9,17 +9,24 @@ body:
 	
 	@shape.box:
 	{
-		size: [3.250, 0.875]
+		material: wood
+		miss_chance: 0.549
+		flags: none
+		tags: none
+		
+		layer: entity, solid, background, building, platform, furniture, flammable
+		mask: world, solid
+		exclude: creature, wheel, held, attached
+		
 		mass: 50.000
 		radius: 0.125
 		friction: 0.900
 		elasticity: 0.400
-		material: wood
-		layer: entity, building, solid, platform, background, furniture, flammable
-		mask: world, solid
-		exclude: held, attached, creature, wheel
-
-		miss_chance: 0.550
+		
+		cog_offset: [0.125, -0.125]
+		
+		size: [3.250, 0.875]
+		offset: [0.000, 0.000]
 	}
 }
 

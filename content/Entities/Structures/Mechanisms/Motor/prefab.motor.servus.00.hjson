@@ -24,6 +24,7 @@ body:
 		miss_chance: 0.114
 		layer: entity, solid, item
 		mask: world, essence
+		cog_offset: [0.000, 0.1875]
 	}
 }
 

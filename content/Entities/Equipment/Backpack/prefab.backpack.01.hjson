@@ -27,7 +27,7 @@ body:
 		
 		rigidity_static: 0.950
 		rigidity_dynamic: 0.750
-		cog_offset: [0.000, 0.000]
+		cog_offset: [0.000, 0.061]
 		
 		a: [-0.250, 0.000]
 		b: [0.250, 0.000]

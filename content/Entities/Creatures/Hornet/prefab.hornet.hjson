@@ -21,6 +21,7 @@ body:
 		layer: entity, solid, creature, flammable
 		mask: world, vehicle, creature
 		exclude: plant, tree
+		cog_offset: [-0.125, 0.250]
 	}
 }
 

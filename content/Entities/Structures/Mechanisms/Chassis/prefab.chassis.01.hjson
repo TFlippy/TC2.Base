@@ -24,7 +24,7 @@ body:
 		friction: 0.380
 		elasticity: 0.580
 		
-		cog_offset: [0.000, -0.1875]
+		cog_offset: [-0.125, 0.250]
 		
 		points:
 		[
