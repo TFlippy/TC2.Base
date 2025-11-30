@@ -5,6 +5,22 @@ body:
 {
 	@shape.polygon:
 	{
+		material: wreck
+		miss_chance: 0.600
+		flags: none
+		tags: none
+		
+		layer: entity, background, construction, ignore_melee, ignore_bullet
+		mask: world, construction
+		exclude: none
+		
+		mass: 50.000
+		radius: 0.500
+		friction: 0.750
+		elasticity: 0.750
+		
+		cog_offset: [-0.125, 0.250]
+		
 		points:
 		[
 			[-0.375, 0.500]

@@ -9,14 +9,24 @@ body:
 	
 	@shape.box:
 	{
-		size: [1.500, 2.500]
+		material: wood
+		miss_chance: 0.000
+		flags: none
+		tags: none
+		
+		layer: entity, background, furniture, flammable, ignore_bullet
+		mask: world
+		exclude: none
+		
 		mass: 80.000
 		radius: 0.175
 		friction: 0.700
 		elasticity: 0.400
-		material: wood
-		layer: entity, background, furniture, flammable, ignore_bullet
-		mask: world
+		
+		cog_offset: [0.0625, 0.4375]
+		
+		size: [1.500, 2.500]
+		offset: [0.000, -0.125]
 	}
 }
 

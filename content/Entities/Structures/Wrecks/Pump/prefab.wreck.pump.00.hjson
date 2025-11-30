@@ -9,21 +9,27 @@ body:
 {
 	type: static
 	
-	@shape.polygon:
+	@shape.line:
 	{
-		points: 
-		[
-			[-0.375, -0.875]
-			[0.375, -0.875]
-			[1.000, 1.500]
-			[-1.000, 1.500]
-		]
-		friction: 0.500
-		elasticity: 0.500
-		mass: 130.000
 		material: wreck
-		layer: entity, building, background
+		miss_chance: 0.341
+		flags: none
+		tags: none
+		
+		layer: entity, background, building
 		mask: world
+		exclude: none
+		
+		mass: 93.000
+		radius: 0.500
+		friction: 0.770
+		elasticity: 0.460
+		
+		cog_offset: [0.000, 0.000]
+		
+		a: [0.000, -0.500]
+		b: [0.000, 1.000]
+		offset: [0.000, 0.000]
 	}
 }
 
@@ -52,12 +58,12 @@ harvestable:
 	[
 		{
 			material: "scrap.ferrous"
-			quantity: 77.000
+			quantity: 60.000
 			chance: 0.500
 		}
 		{
 			material: "steel.frames"
-			quantity: 15.000
+			quantity: 8.000
 			chance: 0.420
 		}
 		{
