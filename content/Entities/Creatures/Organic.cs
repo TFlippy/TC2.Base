@@ -24,16 +24,16 @@ namespace TC2.Base.Components
 		[Source.Owned] ref Organic.State organic_state,
 		[Source.Owned] in Health.Data health, [Source.Owned] bool dead)
 		{
-			const float pain_cutoff = 100.00f;
+			const float pain_cutoff = 150.00f;
 
 			if (organic_original.tags.HasAny(Organic.Tags.Brain))
 			{
-				var p = (dead || organic_state.pain_shared < pain_cutoff) ? 0.00f : Maths.PowFast(Maths.Max(0.00f, organic_state.pain_shared - pain_cutoff) * 0.002f, 1.50f) * 0.12f;
+				var p = (dead || organic_state.pain_shared < pain_cutoff) ? 0.00f : Maths.PowFast(Maths.Max(0.00f, organic_state.pain_shared - pain_cutoff) * 0.0018f, 1.50f) * 0.10f;
 				//organic_original.consciousness = Maths.Lerp(organic_original.consciousness, 1.00f - Maths.Clamp01(p), 0.02f); // player.flags.HasAll(Player.Flags.Alive) ? 1.00f : 0.30f;
-				organic_original.consciousness = Maths.Lerp2(organic_original.consciousness, Maths.Min(1.00f - Maths.Clamp01(p), 1.00f - (organic_state.stun_norm * 0.60f)), 0.10f, 0.02f); // player.flags.HasAll(Player.Flags.Alive) ? 1.00f : 0.30f;
+				organic_original.consciousness = Maths.Lerp2(organic_original.consciousness, Maths.Min(1.00f - (Maths.Clamp01(p) * 0.70f), 1.00f - (organic_state.stun_norm * 0.60f)), 0.10f, 0.02f); // player.flags.HasAll(Player.Flags.Alive) ? 1.00f : 0.30f;
 
 				var health_norm = health.GetHealthNormalized();
-				if (dead || health_norm < 0.50f)
+				if (dead || health_norm < 0.40f)
 				{
 					organic_original.consciousness = 0.00f;
 					organic_state.unconscious_time = 20.00f;
@@ -315,9 +315,13 @@ namespace TC2.Base.Components
 				//var mult = (1.00f - health.GetHealthNormalized()).Pow2();
 
 				//var health_norm = Maths.Min(health_child.GetHealthNormalizedAvg(), health_parent.GetHealthNormalizedAvg());
-				var health_norm = Maths.Min(Maths.LerpFMA(health_child.integrity, health_child.durability, 0.25f), Maths.LerpFMA(health_parent.integrity, health_parent.durability, 0.25f));
-				var mult = (1.00f - health_norm.Pow2()).Pow2();
-				joint.stress += joint.max_stress * mult;
+				var health_norm = Maths.Max(Maths.LerpFMA(health_child.integrity, health_child.durability, 0.25f), Maths.LerpFMA(health_parent.integrity, health_parent.durability, 0.25f));
+				//var mult = (1.00f - health_norm.Pow2()).Pow2();
+				var mult = health_norm; //.Pow2();
+				//joint.stress += joint.max_stress * mult;
+				//joint.stress += joint.stress_threshold * mult * 0.80f; // * 1.05f;
+				joint.stress_threshold_modifier *= mult;
+				//joint.stress
 
 				//var health_norm = health.GetHealthNormalized();
 				//if (health_norm < health_threshold)

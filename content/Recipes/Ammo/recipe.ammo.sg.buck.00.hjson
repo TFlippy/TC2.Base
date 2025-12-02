@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.65.2"
+	$version: "0.1.66.1"
 	name: "SG-20.4mm Buckshot"
 	desc:
 		'''
@@ -163,7 +163,7 @@
 					name: "Oiled Paper"
 					
 					type: undefined
-					flags: requires_shipment, wip
+					flags: wip
 					
 					requirements:
 					[
@@ -175,6 +175,7 @@
 							loss: 0.024
 							ratio: 1.000
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: resource
@@ -185,6 +186,7 @@
 							loss: 0.161
 							ratio: 1.000
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: work
@@ -248,7 +250,7 @@
 					name: "Nitrosugar"
 					
 					type: undefined
-					flags: requires_shipment
+					flags: none
 					discard_damage_type_override: punch
 					
 					requirements:
@@ -261,6 +263,7 @@
 							loss: 0.055
 							ratio: 1.000
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: resource
@@ -271,6 +274,7 @@
 							loss: 0.122
 							ratio: 1.000
 							group: 0
+							flags: prerequisite
 						}
 					]
 				}
@@ -278,7 +282,7 @@
 					name: "Nitroglycerine"
 					
 					type: undefined
-					flags: requires_shipment
+					flags: none
 					discard_damage_type_override: wet
 					
 					requirements:
@@ -291,6 +295,7 @@
 							loss: 0.122
 							ratio: 1.000
 							group: 0
+							flags: prerequisite
 						}
 					]
 				}
@@ -298,7 +303,7 @@
 					name: "Himlkarzenus"
 					
 					type: undefined
-					flags: requires_shipment, incomplete
+					flags: incomplete
 					discard_damage_type_override: sledgehammer
 					
 					requirements:
@@ -312,6 +317,7 @@
 							loss: 0.518
 							ratio: 1.000
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: work
@@ -357,7 +363,7 @@
 					name: "Black Powder"
 					
 					type: undefined
-					flags: requires_shipment
+					flags: none
 					
 					priority: 1.000
 					
@@ -371,6 +377,7 @@
 							loss: 0.067
 							ratio: 1.000
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: resource
@@ -381,6 +388,7 @@
 							loss: 0.212
 							ratio: 1.000
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: work
@@ -403,6 +411,7 @@
 							loss: 0.157
 							ratio: 1.000
 							group: 1
+							flags: prerequisite
 						}
 						{
 							type: resource
@@ -413,6 +422,7 @@
 							loss: 0.412
 							ratio: 1.000
 							group: 1
+							flags: prerequisite
 						}
 						{
 							type: work

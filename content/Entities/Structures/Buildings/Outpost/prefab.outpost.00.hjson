@@ -216,7 +216,7 @@ shop:
 	}
 	tags_preferred: crafting, small, device, weapon, tool, munitions, delicate, assembling, tailoring, engineering, cooking, social, construction
 	
-	tools: pencil, paper, ruler, hammer, screwdriver, magnifying_glass, bucket, towel, knife, sandpaper, needle, pins, scissors
+	tools: pencil, paper, ruler, hammer, hand_drill, screwdriver, magnifying_glass, bucket, towel, knife, sandpaper, needle, pins, scissors
 	infrastructure: dishes, bottle, table, chair, bed, stationery, bucket, surface, office, building
 	environment: office, stationary, cozy, quiet, flammable, cramped, small
 	connotations: none

@@ -1,0 +1,207 @@
+$name: "Workcabin (Wood)"
+$desc:
+	'''
+	Portable roofed workshop that can be mounted on vehicles.
+	'''
+$tags: []
+
+body:
+{
+	inventory_weight_multiplier: 0.400
+	fall_damage_multiplier: 2.700
+
+	@shape.polygon:
+	{
+		material: wood
+		miss_chance: 0.357
+		flags: none
+		tags: none
+		
+		layer: entity, solid, vehicle, workshop, flammable
+		mask: world
+		exclude: none
+		
+		mass: 100.000
+		radius: 0.750
+		friction: 0.750
+		elasticity: 0.350
+		
+		cog_offset: [0.000, 0.750]
+		
+		points:
+		[
+			[-1.000, -0.875]
+			[1.000, -0.875]
+			[0.750, 1.125]
+			[-0.750, 1.125]
+		]
+	}
+}
+
+health:
+{
+	max: 22500.000
+}
+
+damage.effects:
+{
+	threshold_wreck: 0.400
+}
+
+holdable:
+{
+	force_multiplier: 1.100
+	torque_multiplier: 1.000
+	stress_multiplier: 0.500
+	offset: [0.000, 0.000]
+	radius: 0.000
+	flags: disable_parent_facing, disable_rotation, disable_control
+}
+
+attachment:
+{
+	offset: [0.000, 1.500]
+	force_multiplier: 2.000
+	torque_multiplier: 2.000
+	tags: medium, cabin, utility, seat, fixed
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "cabin.wood.01.fg"
+	}
+	offset: [0.000, 0.000]
+	z: 70.000
+}
+
+vehicle:
+{
+	flags: use_misc_window
+	
+	@animated.renderer:
+	{
+		sprite:
+		{
+			texture: "cabin.wood.01.bg"
+		}
+		z: -100.000
+	}
+}
+
+transform:
+{
+
+}
+
+interactable:
+{
+	flags: none
+	window_size: [648, 524]
+	window_size_misc: [96, 0]
+	priority: 3.000
+}
+
+control:
+{
+
+}
+
+shop:
+{
+	tags_filter:
+	{
+		include: manual, crafting, basic, simple, woodworking, assembling, salvaging, gathering
+		exclude: automated, complex, advanced, small, huge, delicate, metallurgy, cooking, architecture, smelting, fermenting, heating
+	}
+	
+	tools: hammer, saw, hand_drill, screwdriver, spanner, bucket, paintbrush, axe, shovel, towel, knife, needle, pins
+	infrastructure: table, rack, bucket, surface, workbench
+	environment: mobile, sturdy, flammable, cramped, building
+	connotations: none
+	
+	flags: embed_gui
+	menu_columns: 4
+	recipe_type: workshop
+	
+	name: "Workcabin"
+}
+
+workshop:
+{
+	orders_capacity: 2
+	h_sound_order_complete: computer.bell.00
+	max_order_mass: 90.000
+	gui_info_size_x: 252.000
+
+	@inventory8:
+	{
+		stack_size_multiplier: 1.000
+		type: workshop
+		flags: standalone, public, vertical, no_auto_pickup
+
+		filter:
+		{
+			exclude: gas
+		}
+	}
+
+	offset: [0.250, 0.000]
+}
+
++seat|instance:
+{
+	$tags: []
+	
+	seat:
+	{
+		flags: covered, open
+		offset: [0.125, 0.250]
+		max_tilt: 5.000
+		damage_mult: 0.680
+		stun_mult: 0.400
+	}
+}
+
++slot.device|instance:
+{
+	joint.base:
+	{
+		offset_a: [0.000, -1.000]
+		max_force: 100000.000
+		max_torque: 100000.000
+		max_stress: 3.000
+		stress_threshold: 1.500
+		z: -10.000
+		flags: no_aiming, no_wrap, attachment, allow_dragging, control_write, control_read, facing_reset_rot, force_facing, use_proxy_body
+		material_type: metal
+	}
+
+	joint.pivot:
+	{
+		max_bias: 8.000
+	}
+
+	joint.gear:
+	{
+		min: 0.000
+		max: 0.000
+		error_bias: 0.0001
+		max_bias: 1.350
+	}
+
+	attachment.slot:
+	{
+		flags: keyboard_write, mouse_write
+		flags_editable: locked, disabled, invert, keyboard_read, keyboard_write, mouse_read, mouse_write, offset
+		tags_filter:
+		{
+			exclude: large, huge, cabin, wheel
+		}
+		offset_bounds: [-0.500, -0.250, 0.500, 0.250]
+		gui_size: [96.000, 72.000]
+		name: "Device"
+		identifier: "device"
+	}
+}

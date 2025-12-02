@@ -13,10 +13,11 @@ body:
 	@shape.circle:
 	{
 		mass: 3.500
-		radius: 0.700
+		radius: 0.590
 		friction: 0.300
 		elasticity: 0.890
 		rigidity_dynamic: 0.400
+		rigidity_static: 0.900
 		material: insect
 		layer: entity, solid, creature, flammable
 		mask: world, vehicle, creature
@@ -217,10 +218,10 @@ melee:
 	swing_rotation: 2.000
 	attack_type: swing
 	damage_base: 35.000
-	damage_bonus: 200.000
+	damage_bonus: 100.000
 	primary_damage_multiplier: 0.700
 	terrain_damage_multiplier: 0.200
-	pain_multiplier: 1.150
+	pain_multiplier: 1.350
 	stun_multiplier: 1.050
 	disarm_chance: 0.000
 	cooldown: 0.300

@@ -65,7 +65,7 @@ namespace TC2.Base.Components
 				body.AddVelocity(new Vector2(0, -5 * MathF.Abs(dir.X)));
 
 #if SERVER
-				Sound.Play(ref region, dive.sound, pos, volume: 0.80f, pitch: 1.00f, size: 2.00f, priority: 0.60f);
+				Sound.Play(ref region, dive.sound, pos, volume: 0.70f, pitch: 1.00f, size: 1.00f, priority: 0.40f);
 #endif
 			}
 		}

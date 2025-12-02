@@ -32,6 +32,31 @@ transform:
 
 // explosive:
 // {
+// 	damage_type: shrapnel
+// 	damage_type_secondary: bullet_hc
+// 	stun_multiplier: 0.450
+
+// 	radius: 3.000
+// 	power: 2.500
+// 	damage_entity: 400.000
+// 	damage_terrain: 500.000
+// 	smoke_amount: 0.200
+// 	smoke_velocity_multiplier: 1.500
+// 	smoke_lifetime_multiplier: 0.800
+// 	fire_amount: 0.000
+// 	flash_duration_multiplier: 0.100
+// 	flash_intensity_multiplier: 0.200
+// 	sparks_amount: 1.000
+// 	force_multiplier: 0.200
+// 	terrain_radius_multiplier: 1.250
+// 	volume: 1.000
+// 	pitch: 1.000
+
+// 	flags: primed
+// }
+
+// explosive:
+// {
 // 	radius: 2.000
 // 	power: 2.000
 // 	damage_type: bullet_musket

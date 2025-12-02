@@ -15,7 +15,7 @@ body:
 		elasticity: 0.500
 		material: chalk
 		layer: entity, no_overlapped_placement, ignore_melee, background, furniture
-		mask: world, support, no_overlapped_placement, essence
+		mask: world, no_overlapped_placement, essence
 	}
 }
 

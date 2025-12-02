@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.66.1"
 	name: "Picked Plants"
 	desc:
 		'''
@@ -128,7 +128,7 @@
 	]
 	
 	type: workshop
-	flags: auto_complete
+	flags: none
 	tags: manual, simple, organic, raw, agriculture, biology, forestry, separation
 	hints: none
 	connotations: none

@@ -19,7 +19,7 @@ body:
 		miss_chance: 0.000
 		
 		layer: entity, background, furniture, no_overlapped_placement, ignore_melee
-		mask: world, support, no_overlapped_placement, essence
+		mask: world, no_overlapped_placement, essence
 		exclude: none
 	}
 }

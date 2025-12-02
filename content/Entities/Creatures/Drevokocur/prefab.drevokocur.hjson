@@ -204,7 +204,7 @@ norotate:
 runner:
 {
 	walk_force: 14000.000
-	jump_force: 28000.000
+	jump_force: 38000.000
 	max_speed: 18.000
 	max_jump_speed: 20.000
 	max_jump_time: 0.500
@@ -222,6 +222,27 @@ runner:
 runner.state:
 {
 	
+}
+
+climber:
+{
+	max_speed: [8.000, 8.000]
+	climb_speed: 20.000
+	climb_force: 6200.000
+	cling_force: 4000.000
+
+	@shape.circle:
+	{
+		mass: 0.001
+		radius: 0.375
+		friction: 0.000
+		elasticity: 0.000
+		rigidity_dynamic: 0.000
+		rigidity_static: 0.000
+		layer: entity, ignore_hover, ignore_melee, ignore_bullet
+		mask: climbable
+		// flags: no_mass
+	}
 }
 
 threat:
