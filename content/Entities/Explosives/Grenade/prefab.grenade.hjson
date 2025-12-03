@@ -73,7 +73,7 @@ fuse:
 
 explosive:
 {
-	radius: 10.000
+	radius: 12.000
 	power: 2.500
 	damage_entity: 6000.000
 	damage_terrain: 2000.000

@@ -61,7 +61,7 @@ explosive:
 	power: 4.100
 	damage_entity: 13000.000
 	damage_terrain: 26000.000
-	health_threshold: 10.800
+	health_threshold: 0.950
 	detonate_chance: 0.950
 	smoke_amount: 0.780
 	smoke_lifetime_multiplier: 0.750

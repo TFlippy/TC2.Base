@@ -36,7 +36,7 @@ transform:
 
 health:
 {
-	max: 37000.000
+	max: 24000.000
 }
 
 animated.renderer:

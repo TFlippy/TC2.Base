@@ -344,6 +344,10 @@ control:
 		radius: 1.000
 		flags: keyboard_write, mouse_write
 		flags_editable: locked, disabled, invert, keyboard_write, mouse_write, keyboard_read, mouse_read, offset
+		tags_filter:
+		{
+			exclude: large, huge, cabin, wheel
+		}
 		name: "Device"
 		identifier: "device"
 		gui_size: [120.000, 120.000]
