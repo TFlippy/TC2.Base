@@ -117,7 +117,7 @@ entrance.linkable:
 
 dormitory:
 {
-	flags: no_reject, no_kit_selection, no_kit_requirements, region_only
+	flags: no_reject, no_kit_selection, no_kit_requirements, region_only, no_gui
 	species: human
 	
 	characters_capacity: 3

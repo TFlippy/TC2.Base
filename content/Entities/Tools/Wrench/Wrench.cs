@@ -728,7 +728,7 @@ namespace TC2.Base.Components
 
 						using (GUI.Group.New(size: GUI.Av))
 						{
-							using (var dock = GUI.Dock.New(Wrench.dock_identifier))
+							using (var dock = GUI.Dock.New(this.ent_wrench, Wrench.dock_identifier))
 							{
 								dock.SetSpace(size: GUI.Rm);
 							}
@@ -750,7 +750,7 @@ namespace TC2.Base.Components
 			{
 				ref readonly var info = ref ECS.GetInfo<T>();
 
-				using (var window = GUI.Window.Docked(info.identifier, dock_identifier: Wrench.dock_identifier))
+				using (var window = GUI.Window.Docked(info.identifier, dock_identifier: Wrench.dock_identifier, entity: this.ent_wrench))
 				{
 					if (window.show)
 					{

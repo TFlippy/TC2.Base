@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.65.3"
+	$version: "0.1.66.1"
 	name: "Compaction Press"
 	tips: []
 	
@@ -27,7 +27,7 @@
 	]
 	
 	type: industry
-	flags: no_amount_multiplier, blueprintable, debug, wip
+	flags: no_amount_multiplier, blueprintable, debug, disabled, wip
 	tags: complex, huge, machinery, blacksmithing, industrial, metalworking, metallurgy, engineering, architecture, construction
 	hints: none
 	connotations: none

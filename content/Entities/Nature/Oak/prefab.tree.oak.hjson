@@ -19,7 +19,7 @@ body:
 		elasticity: 0.080
 		
 		material: tree
-		miss_chance: 0.808
+		miss_chance: 0.888
 		
 		layer: entity, solid, background, tree, plant, organic, flammable
 		mask: world, tree

@@ -34,14 +34,14 @@ animated.renderer:
 explosive:
 {
 	damage_type: shockwave
-	damage_type_secondary: shrapnel
+	damage_type_secondary: explosion
 
 	radius: 4.000
-	power: 2.500
+	power: 3.500
 	damage_entity: 2800.000
 	damage_terrain: 4000.000
-	sparks_amount: 1.800
-	smoke_amount: 0.600
+	sparks_amount: 0.500
+	smoke_amount: 0.800
 	stun_multiplier: 1.150
 	force_multiplier: 0.200
 	smoke_lifetime_multiplier: 0.600

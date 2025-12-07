@@ -247,59 +247,6 @@
 			options:
 			[
 				{
-					name: "Nitrosugar"
-					
-					type: undefined
-					flags: none
-					discard_damage_type_override: punch
-					
-					requirements:
-					[
-						{
-							type: resource
-							material: nitrosugar
-							amount: 0.012032
-							snapping: 0.100
-							loss: 0.055
-							ratio: 1.000
-							group: 0
-							flags: prerequisite
-						}
-						{
-							type: resource
-							material: alcohol
-							amount: 0.015179
-							snapping: 0.100
-							falloff: 0.763
-							loss: 0.122
-							ratio: 1.000
-							group: 0
-							flags: prerequisite
-						}
-					]
-				}
-				{
-					name: "Nitroglycerine"
-					
-					type: undefined
-					flags: none
-					discard_damage_type_override: wet
-					
-					requirements:
-					[
-						{
-							type: resource
-							material: nitroglycerine
-							amount: 0.0102
-							snapping: 0.100
-							loss: 0.122
-							ratio: 1.000
-							group: 0
-							flags: prerequisite
-						}
-					]
-				}
-				{
 					name: "Himlkarzenus"
 					
 					type: undefined
@@ -342,6 +289,59 @@
 						require: surface
 						include: hard_surface, compactor, press
 					}
+				}
+				{
+					name: "Nitroglycerine"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: wet
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: nitroglycerine
+							amount: 0.0102
+							snapping: 0.100
+							loss: 0.122
+							ratio: 1.000
+							group: 0
+							flags: prerequisite
+						}
+					]
+				}
+				{
+					name: "Nitrosugar"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: punch
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: nitrosugar
+							amount: 0.012032
+							snapping: 0.100
+							loss: 0.055
+							ratio: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: alcohol
+							amount: 0.015179
+							snapping: 0.100
+							falloff: 0.763
+							loss: 0.122
+							ratio: 1.000
+							group: 0
+							flags: prerequisite
+						}
+					]
 				}
 			]
 		}

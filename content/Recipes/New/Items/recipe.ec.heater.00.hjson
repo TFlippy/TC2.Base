@@ -1,6 +1,5 @@
 ﻿{
-	$region_id: 0
-	$version: "0.1.64.0"
+	$version: "0.1.66.1"
 	name: "EC-Heater"
 	
 	stages:
@@ -409,8 +408,10 @@
 	]
 	
 	type: workshop
-	flags: blueprintable, debug, item, production, wip
+	flags: blueprintable, debug, disabled, item, production, wip
 	tags: manual, crafting, complex, small, device, delicate, assembling, metalworking, engineering
+	hints: none
+	connotations: none
 	infrastructure: table, surface, workbench
 	infrastructure_exclude: none
 	

@@ -44,7 +44,7 @@ gun:
 	
 	shake_amount: 0.250
 	
-	sound_volume: 1.000
+	sound_volume: 1.300
 	sound_size: 3.000
 	sound_dist_multiplier: 3.000
 	sound_pitch: 1.070

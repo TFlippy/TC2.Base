@@ -202,7 +202,7 @@
 	]
 	
 	type: buildings
-	flags: no_amount_multiplier, blueprintable, construction, building, ignore_tools, ignore_equipment, ignore_machinery, ignore_environment, wip, no_cancel, auto_complete
+	flags: no_amount_multiplier, blueprintable, debug, disabled, construction, building, ignore_tools, ignore_equipment, ignore_machinery, ignore_environment, wip, no_cancel, auto_complete
 	tags: complex, huge, engineering, architecture, construction
 	hints: none
 	connotations: none
