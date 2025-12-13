@@ -1,10 +1,10 @@
 ﻿{
-	$version: "0.1.65.3"
+	$version: "0.1.67.1"
 	name: "Sawing (Metal)"
 	name_short: "Sawing"
 	desc:
 		'''
-		TODO: Desc
+		Cutting metal pieces using a saw blade.
 		'''
 	
 	icon:
@@ -17,7 +17,7 @@
 	flags: manual, wip
 	tags: tools, crude, simple, construction
 	
-	amount_base: 1.500
+	amount_base: 3.000
 	cooldown: 0.630
 	multiplier: 0.740
 	
@@ -44,10 +44,10 @@
 	
 	skills_mult:
 	{
-		strength: 0.220
-		carpentry: 0.240
-		endurance: 0.240
-		construction: 0.210
+		strength: 0.170
+		metallurgy: 0.320
+		endurance: 0.350
+		dexterity: 0.580
 	}
 	
 	sound_volume: 0.660

@@ -4,7 +4,7 @@
 	name_short: "Sawing"
 	desc:
 		'''
-		TODO: Desc
+		Cutting wood pieces using a saw blade.
 		'''
 	
 	icon:

@@ -1,10 +1,10 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.67.1"
 	name: "Air-Drying"
 	name_short: "Air-Drying"
 	desc:
 		'''
-		Letting the stuff dry on its own without any additional assistance.
+		Letting the stuff dry on its own in open air.
 		'''
 	
 	icon:
