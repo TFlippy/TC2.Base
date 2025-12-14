@@ -1,12 +1,12 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.67.1"
 	color: "0xff8ab62d"
 	
 	sounds_looped:
 	[
 		{
 			sound: amb.forest.day.loop.00
-			volume: 0.130
+			volume: 0.110
 			pitch: 0.850
 			
 			daytime_range: [0.170, 0.950]
@@ -24,7 +24,7 @@
 		}
 		{
 			sound: amb.forest.night.loop.00
-			volume: 0.050
+			volume: 0.045
 			pitch: 1.000
 			
 			daytime_range: [0.920, 0.180]

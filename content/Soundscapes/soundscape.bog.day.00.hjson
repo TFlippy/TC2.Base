@@ -1,15 +1,15 @@
 ﻿{
-	$version: "0.1.65.3"
+	$version: "0.1.67.1"
 	color: "0xffdbd421"
 	
 	sounds_looped:
 	[
 		{
 			sound: amb.bog.day.loop.00
-			volume: 0.050
+			volume: 0.035
 			pitch: 0.900
 			
-			daytime_range: [0.170, 0.950]
+			daytime_range: [0.180, 0.920]
 			
 			mix:
 			{
@@ -24,20 +24,20 @@
 		}
 		{
 			sound: amb.forest.night.loop.00
-			volume: 0.034
-			pitch: 0.760
+			volume: 0.040
+			pitch: 0.820
 			
 			daytime_range: [0.900, 0.200]
 			
 			mix:
 			{
-				front_left: 0.800
-				front_right: 0.800
-				center: 0.200
-				side_left: 0.700
-				side_right: 0.700
-				back_left: 1.000
-				back_right: 1.000
+				front_left: 0.150
+				front_right: 0.150
+				center: 0.050
+				side_left: 0.150
+				side_right: 0.150
+				back_left: 0.400
+				back_right: 0.400
 			}
 		}
 	]

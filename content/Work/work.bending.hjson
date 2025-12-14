@@ -4,7 +4,7 @@
 	name_short: "Bending"
 	desc:
 		'''
-		TODO: Desc
+		Curving materials into a desired shape by force.
 		'''
 	
 	icon:

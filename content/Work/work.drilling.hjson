@@ -4,7 +4,7 @@
 	name_short: "Drill"
 	desc:
 		'''
-		TODO: Desc
+		Creating holes in materials using a drill.
 		'''
 	
 	icon:

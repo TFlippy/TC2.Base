@@ -95,7 +95,8 @@ interactable:
 
 sound.emitter:
 {
-	file: "windmill.blade.metal.loop.00"
-	volume: 1.000
-	pitch: 1.000
+	file: windmill.blade.metal.loop.00
+	volume: 0.650
+	size: 3.875
+	size_max_modifier: 0.680
 }

@@ -1,10 +1,10 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.67.1"
 	name: "Rummaging (Components)"
 	name_short: "Rummaging"
 	desc:
 		'''
-		TODO: Desc
+		Searching through a pile of items to find something useful.
 		'''
 	
 	icon:

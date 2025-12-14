@@ -45,7 +45,8 @@ control:
 
 holdable:
 {
-	offset: [0.000, 0.000]
+	offset: [0.125, -0.125]
+	hints: dangerous, explosive, destructive
 	flags: storable
 }
 
