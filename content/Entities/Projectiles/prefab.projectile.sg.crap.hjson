@@ -17,10 +17,16 @@ projectile:
 	mass: 0.007625
 }
 
-projectile.renderer:
+animated.renderer:
 {
-	thickness_a: 0.075
-	thickness_b: 0.100
+	sprite:
+	{
+		texture: atlas.projectile.sg
+		size: [4, 3]
+		frame: [2, 0]
+	}
+	scale: [0.500, 0.500]
+	z: -40.000
 }
 
 transform:

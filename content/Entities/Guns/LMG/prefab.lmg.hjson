@@ -46,7 +46,7 @@ gun:
 	
 	sound_volume: 1.300
 	sound_size: 3.000
-	sound_dist_multiplier: 3.000
+	sound_dist_multiplier: 2.000
 	sound_pitch: 1.070
 	
 	sound_shoot: machine_gun_shoot.old

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.67.1"
 	name: "SG-20.4mm Crapshot"
 	description:
 		'''
@@ -24,7 +24,7 @@
 	
 	// Inventory material type.
 	type: ammo
-	flags: ammo, ammo_sg, granular, small, manufactured, solid
+	flags: ammo, ammo_sg, granular, small, manufactured, solid, impure
 	display_flags: hide_fraction
 	spawn_flags:
 	{
@@ -71,11 +71,11 @@
 		spread_mult: 2.750
 		recoil_mult: 0.900
 		
-		failure_base: 0.000
-		failure_mult: 1.000
+		failure_base: 0.001
+		failure_mult: 1.337
 		
 		stability_base: 250.000
-		stability_mult: 1.100
+		stability_mult: 0.930
 		
 		prefab: projectile.sg.crap
 		
@@ -84,7 +84,7 @@
 			texture: atlas.ammo.casings.00
 			mask: missing
 			size: [8, 8]
-			frame: [11, 0]
+			frame: [12, 0]
 		}
 	}
 }

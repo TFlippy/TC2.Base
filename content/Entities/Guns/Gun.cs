@@ -581,7 +581,7 @@ namespace TC2.Base.Components
 
 									req_work.work = "filing";
 									req_work.flags.AddFlag(Crafting.Requirement.Flags.Conditional | Crafting.Requirement.Flags.Simultaneous);
-									req_work.amount = (req.GetMass().mass * 180.00f * complexity).m_value.Sqrt().SnapCeil(15) * ratio_receiver * work_multiplier * complexity.Sqrt();
+									req_work.amount = (req.GetMass().mass * 180.00f * complexity).m_value.SqrtToOne().SnapCeil(15) * ratio_receiver * work_multiplier * complexity.SqrtToOne();
 									req_work.amount_min = 55.00f * work_multiplier;
 									req_work.difficulty = (byte)(4 + (complexity * 0.50f).CeilToUInt());
 									req_work.snapping = 5;
@@ -660,7 +660,7 @@ namespace TC2.Base.Components
 									req.snapping = req.material.DEV_GetDefaultSnapping();
 
 									req_work.work = "woodcarving";
-									req_work.amount = (((req.material.GetMassFromQuantity(req.amount) * req.loss * 1000).Ceil() * mass_grip * 10).Sqrt() * 5 * work_multiplier).SnapCeil(10);
+									req_work.amount = (((req.material.GetMassFromQuantity(req.amount) * req.loss * 1000).Ceil() * mass_grip * 10).SqrtToOne() * 5 * work_multiplier).SnapCeil(10);
 									req_work.amount_min = ((req_work.amount * 0.13f).Ceil() * 2 * work_multiplier).SnapCeil(5);
 									req_work.difficulty = 6;
 									req_work.snapping = 5;
@@ -1604,7 +1604,7 @@ namespace TC2.Base.Components
 				gun_state.t_last_fired = time;
 
 				var pos_w_offset = transform.LocalToWorld(gun.muzzle_offset);
-				var pos_w_offset_particle = transform.LocalToWorld(gun.muzzle_offset + gun.particle_offset);
+				//var pos_w_offset_particle = transform.LocalToWorld(gun.muzzle_offset + gun.particle_offset);
 				var dir = transform.GetDirection();
 				var dir_particle = dir.RotateByRad(gun.particle_rotation);
 				var vel_base = body.GetVelocity();
@@ -1708,8 +1708,8 @@ namespace TC2.Base.Components
 					{
 						var explosion_data = new Explosion.Data()
 						{
-							power = 3.50f + (Maths.Sqrt(ammo.stability_base * (1.00f + ((count - 1) * 0.35f))) * 0.05f), // + (count * 0.80f),
-							radius = (5.00f + (Maths.Sqrt(ammo.stability_base * (1.00f + ((count - 1) * 0.40f))) * 0.05f)) * stability_ratio_sub, // + (count * 2.50f),
+							power = 3.50f + (Maths.SqrtToOne(ammo.stability_base * (1.00f + ((count - 1) * 0.35f))) * 0.05f), // + (count * 0.80f),
+							radius = (5.00f + (Maths.SqrtToOne(ammo.stability_base * (1.00f + ((count - 1) * 0.40f))) * 0.05f)) * stability_ratio_sub, // + (count * 2.50f),
 							damage_entity = ammo.stability_base * ((1.00f + ((count - 1) * 1.10f))) * stability_ratio_sub * 2.50f,
 							damage_terrain = ammo.stability_base * (1.00f + (count * 0.80f)) * stability_ratio_sub,
 							smoke_amount = 2.10f,
@@ -1918,6 +1918,8 @@ namespace TC2.Base.Components
 #endif
 
 #if CLIENT
+				var pos_w_offset_particle = transform.LocalToWorldInterpolated(gun.muzzle_offset + gun.particle_offset);
+
 				if (gun.flags.HasNone(Gun.Flags.No_Particles))
 				{
 					if (gun.flash_size > Maths.epsilon)
@@ -1940,6 +1942,7 @@ namespace TC2.Base.Components
 					if (gun.smoke_size > Maths.epsilon && gun.smoke_amount > Maths.epsilon)
 					{
 						var smoke_count = (int)gun.smoke_amount;
+
 						for (var i = 0; i < smoke_count; i++)
 						{
 							Particle.Spawn(ref region, new Particle.Data()
@@ -1970,9 +1973,9 @@ namespace TC2.Base.Components
 				{
 					pitch_modifier += Maths.InvLerp01(heat.temperature_medium, heat.temperature_high, heat_state.temperature_current) * 0.08f;
 				}
-				pitch_modifier *= random.NextFloatRange(0.98f, 1.02f);
+				pitch_modifier *= random.NextFloatExtra(0.98f, 0.04f);
 
-				Sound.Play(gun.sound_shoot, pos_w_offset, volume: gun.sound_volume, pitch: gun.sound_pitch * pitch_modifier, size: gun.sound_size, priority: 0.70f, dist_multiplier: gun.sound_dist_multiplier);
+				Sound.Play(gun.sound_shoot, pos_w_offset_particle, volume: gun.sound_volume, pitch: gun.sound_pitch * pitch_modifier, size: gun.sound_size, priority: 0.70f, dist_multiplier: gun.sound_dist_multiplier);
 #endif
 			}
 

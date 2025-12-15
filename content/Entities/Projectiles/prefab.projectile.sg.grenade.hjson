@@ -36,7 +36,7 @@ explosive:
 	damage_type: shockwave
 	damage_type_secondary: explosion
 
-	radius: 4.000
+	radius: 3.000
 	power: 3.500
 	damage_entity: 2800.000
 	damage_terrain: 4000.000
