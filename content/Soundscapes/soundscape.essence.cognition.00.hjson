@@ -1,0 +1,68 @@
+﻿{
+	$version: "0.1.67.1"
+	color: "0xffb444f2"
+	
+	sounds_looped: []
+	
+	sounds_random:
+	[
+		{
+			time_minmax: [0.100, 0.500]
+			volume_minmax: [0.200, 1.300]
+			pitch_minmax: [0.400, 1.550]
+			
+			sounds:
+			[
+				essence.mumble.loop.00
+				essence.mumble.loop.01
+				essence.mumble.loop.02
+				amb_badger_00
+				arcane.stabilizer.00
+				cat.meow.01
+				essence.emit.generic.loop.11
+				explosion.rumble.00
+				flesh_gib_02
+				giant.death.00
+				giant.cough.01
+				gun.break.01
+				gun.reload.arcane.00
+				kobold.bleh.00
+				kobold.hiss.00
+				npc_talk_00
+				npc_talk_01
+				projectile.heavy.hit.00
+				projectile.strong.burrow.00
+				projectile.strong.hit.01
+				propeller.powerdown.00
+				ship_horn_00
+				specializationlearn
+				structural.metal.creak.02
+				structural.metal.creak.00
+				structural.metal.tension.02
+				structural.metal.tension.00
+				twuk.screech.00
+				tumor.human.moan.00
+				ui.alert.09
+				ui.alert.bwoing.01
+				ui.alert.04
+				ui.alert.bwoing.00
+				ui.alert.bwoing.02
+				vo_idiot
+				vo_chicken
+				vo_kill
+				vo_neutral
+				vo_rip
+				vo_lag
+				vo_join
+				effect.machine.move.00
+				effect.metal.ram.01
+				effect.stupid.00
+				human.death.00
+				essence.field.generic.loop.00
+				essence.imply.scream.00
+				essence.blast.00
+				essence.blast.00
+			]
+		}
+	]
+}
