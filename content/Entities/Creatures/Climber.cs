@@ -1,6 +1,7 @@
 ﻿
 namespace TC2.Base.Components
 {
+	[Shitcode]
 	public static partial class Climber_DEV
 	{
 		public static Sound.Handle[] snd_walljump =
@@ -10,6 +11,7 @@ namespace TC2.Base.Components
 			"walljump.02"
 		};
 
+		[Shitcode]
 		[ISystem.Update.F(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnUpdateNoRotate(ISystem.Info info,
 		[Source.Owned] ref Climber.Data climber, [Source.Owned, Override] ref NoRotate.Data no_rotate)
@@ -24,11 +26,12 @@ namespace TC2.Base.Components
 		}
 
 		// Crappily exposed Climber.cs for now, since it interacts with physics constraint pointers
+		[Shitcode]
 		[ISystem.Update.E(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnUpdate(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity,
 		[Source.Owned] in Transform.Data transform,
 		[Source.Owned, Override] in Organic.Data organic, [Source.Owned] in Organic.State organic_state,
-		[Source.Owned] ref Climber.Data climber, [Source.Owned] in Health.Data health, [Source.Owned] ref Body.Data body, 
+		[Source.Owned] ref Climber.Data climber, [Source.Owned] in Health.Data health, [Source.Owned] ref Body.Data body,
 		[Source.Owned] ref Control.Data control, [Source.Parent, Optional] in Joint.Base joint_base,
 		[Source.Owned] in Physics.Data physics, [Source.Owned, Pair.Component<Physics.Data>, Optional] in Net.Synchronized synchronized)
 		{
@@ -55,10 +58,10 @@ namespace TC2.Base.Components
 
 			//App.WriteLine(climber.wallclimb_timer);
 
-//#if CLIENT
-//			region.DrawDebugCircle(climber.OffsetA, 0.125f, Color32BGRA.Yellow, filled: true); // arbiter.GetContact(0), 1.00f, Color32BGRA.Green);
-//			region.DrawDebugDir(body.GetPosition(), body.GetVelocity(), Color32BGRA.Yellow); // arbiter.GetContact(0), 1.00f, Color32BGRA.Green);
-//#endif
+			//#if CLIENT
+			//			region.DrawDebugCircle(climber.OffsetA, 0.125f, Color32BGRA.Yellow, filled: true); // arbiter.GetContact(0), 1.00f, Color32BGRA.Green);
+			//			region.DrawDebugDir(body.GetPosition(), body.GetVelocity(), Color32BGRA.Yellow); // arbiter.GetContact(0), 1.00f, Color32BGRA.Green);
+			//#endif
 
 			var is_climbing = false;
 			var is_wallclimbing = false;
@@ -75,10 +78,10 @@ namespace TC2.Base.Components
 				foreach (var arbiter in body.GetArbiters())
 				{
 
-//#if CLIENT
-//					//region.DrawLine(arbiter.GetContact(0), arbiter.GetContact(0) + arbiter.GetNormal(), Color32BGRA.Green);
-//					region.DrawDebugCircle(arbiter.GetContactPosition(0), 0.125f, Color32BGRA.Green, filled: true);
-//#endif
+					//#if CLIENT
+					//					//region.DrawLine(arbiter.GetContact(0), arbiter.GetContact(0) + arbiter.GetNormal(), Color32BGRA.Green);
+					//					region.DrawDebugCircle(arbiter.GetContactPosition(0), 0.125f, Color32BGRA.Green, filled: true);
+					//#endif
 
 					var layer = arbiter.GetLayer();
 					if (layer.HasNone(Physics.Layer.Bounds))
@@ -118,21 +121,22 @@ namespace TC2.Base.Components
 						//else if (!is_wallclimbing && can_wallclimb && arbiter.GetRigidityDynamic() > 0.90f)
 						else if (can_wallclimb && arbiter.GetRigidityDynamic() > 0.90f)
 						{
+							// TODO: this is severely dumb
 							normal += arbiter.GetNormal();
 							normal = normal.GetNormalizedFast();
 
-							var dot = Maths.Abs(normal.X);
-							if (dot >= 0.90f)
+							var dot_horizontal_abs = Maths.Abs(normal.X);
+							if (dot_horizontal_abs >= 0.90f)
 							{
 								//var f = dot * arbiter.GetFriction() * climber.climb_force;
-								climb_force = Maths.Max(climb_force, dot * arbiter.GetFriction() * climber.climb_force);
+								climb_force = Maths.Max(climb_force, dot_horizontal_abs * arbiter.GetFriction() * climber.climb_force);
 								is_wallclimbing = true;
 							}
 
-//#if CLIENT
-//							region.DrawDebugText(arbiter.GetContactPosition(0), $"{dot:0.00}", Color32BGRA.Green);
-//							region.DrawDebugLine(arbiter.GetContactPosition(0), arbiter.GetContactPosition(0) + arbiter.GetNormal(), Color32BGRA.Green);
-//#endif
+							//#if CLIENT
+							//							region.DrawDebugText(arbiter.GetContactPosition(0), $"{dot:0.00}", Color32BGRA.Green);
+							//							region.DrawDebugLine(arbiter.GetContactPosition(0), arbiter.GetContactPosition(0) + arbiter.GetNormal(), Color32BGRA.Green);
+							//#endif
 						}
 						else if (!is_climbing && layer.HasAny(Physics.Layer.Water))
 						{
@@ -237,9 +241,9 @@ namespace TC2.Base.Components
 				climber.wallclimb_timer = Maths.MoveTowards(climber.wallclimb_timer, 0.00f, info.DeltaTime * 0.70f);
 			}
 
-//#if CLIENT
-//			region.DrawText(body.GetPosition(), $"{climber.wallclimb_timer:0.00}", Color32BGRA.White);
-//#endif
+			//#if CLIENT
+			//			region.DrawText(body.GetPosition(), $"{climber.wallclimb_timer:0.00}", Color32BGRA.White);
+			//#endif
 		}
 	}
 }

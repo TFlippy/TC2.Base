@@ -19,7 +19,7 @@ namespace TC2.Base.Components
 	public static partial class OrganicExt
 	{
 		[Shitcode]
-		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region, order: 5, flags: ISystem.Flags.Unchecked)]
+		[ISystem.PostUpdate.A(ISystem.Mode.Single, ISystem.Scope.Region, order: 5, flags: ISystem.Flags.Unchecked)]
 		public static void UpdateBrain([Source.Owned, Original] ref Organic.Data organic_original, [Source.Owned, Override] in Organic.Data organic_override,
 		[Source.Owned] ref Organic.State organic_state,
 		[Source.Owned] in Health.Data health, [Source.Owned] bool dead)
@@ -30,7 +30,7 @@ namespace TC2.Base.Components
 			{
 				var p = (dead || organic_state.pain_shared < pain_cutoff) ? 0.00f : Maths.PowFast(Maths.Max(0.00f, organic_state.pain_shared - pain_cutoff) * 0.0018f, 1.50f) * 0.10f;
 				//organic_original.consciousness = Maths.Lerp(organic_original.consciousness, 1.00f - Maths.Clamp01(p), 0.02f); // player.flags.HasAll(Player.Flags.Alive) ? 1.00f : 0.30f;
-				organic_original.consciousness = Maths.Lerp2(organic_original.consciousness, Maths.Min(1.00f - (Maths.Clamp01(p) * 0.70f), 1.00f - (organic_state.stun_norm * 0.60f)), 0.10f, 0.02f); // player.flags.HasAll(Player.Flags.Alive) ? 1.00f : 0.30f;
+				organic_original.consciousness = Maths.Lerp2(organic_original.consciousness, Maths.Min(1.00f - (Maths.Clamp01(p) * 0.85f), 1.00f - (organic_state.stun_norm * 0.60f)), 0.10f, 0.02f); // player.flags.HasAll(Player.Flags.Alive) ? 1.00f : 0.30f;
 
 				var health_norm = health.GetHealthNormalized();
 				if (dead || health_norm < 0.40f)
@@ -53,7 +53,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region, order: 10, flags: ISystem.Flags.Unchecked), HasComponent<Head.Data>(Source.Modifier.Owned, false)]
+		[ISystem.PreUpdate.C(ISystem.Mode.Single, ISystem.Scope.Region, order: 10, flags: ISystem.Flags.Unchecked), HasComponent<Head.Data>(Source.Modifier.Owned, false)]
 		public static void UpdateConnected(Entity ent_organic_parent, Entity ent_organic_child,
 		[Source.Parent, Override] in Organic.Data organic_parent, [Source.Parent] ref Organic.State organic_state_parent,
 		[Source.Owned, Override] in Organic.Data organic_child, [Source.Owned] ref Organic.State organic_state_child,
@@ -70,7 +70,7 @@ namespace TC2.Base.Components
 		}
 
 		// TODO: Shitcoded workaround so head always updates after other body parts (otherwise it won't affect consciousness, in case the system runs on the head first)
-		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region, order: 15, flags: ISystem.Flags.Unchecked), HasComponent<Head.Data>(Source.Modifier.Owned, true)]
+		[ISystem.PreUpdate.D(ISystem.Mode.Single, ISystem.Scope.Region, order: 15, flags: ISystem.Flags.Unchecked), HasComponent<Head.Data>(Source.Modifier.Owned, true)]
 		public static void UpdateConnectedHead(Entity ent_organic_parent, Entity ent_organic_child,
 		[Source.Parent, Override] in Organic.Data organic_parent, [Source.Parent] ref Organic.State organic_state_parent,
 		[Source.Owned, Override] in Organic.Data organic_child, [Source.Owned] ref Organic.State organic_state_child,
@@ -87,8 +87,9 @@ namespace TC2.Base.Components
 		}
 
 
-		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region, flags: ISystem.Flags.Unchecked)]
-		public static void Update2(ISystem.Info info, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] ref Organic.State organic_state, [Source.Owned] in Health.Data health, [Source.Owned] bool dead)
+		[ISystem.PostUpdate.B(ISystem.Mode.Single, ISystem.Scope.Region, flags: ISystem.Flags.Unchecked)]
+		public static void Update2(ISystem.Info info, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] ref Organic.State organic_state, 
+		[Source.Owned] in Health.Data health, [Source.Owned] bool dead)
 		{
 			organic_state.consciousness_shared = Maths.Lerp(organic_state.consciousness_shared, organic_state.consciousness_shared_new, 0.20f);
 			organic_state.motorics_shared = Maths.Lerp(organic_state.motorics_shared, organic_state.motorics_shared_new, 0.20f);
@@ -100,7 +101,7 @@ namespace TC2.Base.Components
 			organic_state.efficiency = organic_state.motorics_shared.Clamp01() * health.GetHealthNormalized();
 		}
 
-		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region, flags: ISystem.Flags.Unchecked)]
+		[ISystem.Update.D(ISystem.Mode.Single, ISystem.Scope.Region, flags: ISystem.Flags.Unchecked)]
 		public static void UpdateConsciousness(ISystem.Info info, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] ref Organic.State organic_state)
 		{
 			if (organic_state.consciousness_shared > 0.20f)
@@ -109,7 +110,7 @@ namespace TC2.Base.Components
 			}
 			else
 			{
-				organic_state.unconscious_time += App.fixed_update_interval_s * ((1.00f - Maths.Normalize01Fast(organic_state.consciousness_shared, 0.50f)) * 5.00f);
+				organic_state.unconscious_time += App.fixed_update_interval_s * ((1.00f - Maths.Normalize01Fast(organic_state.consciousness_shared, 0.20f)) * 4.50f);
 			}
 		}
 
@@ -139,7 +140,7 @@ namespace TC2.Base.Components
 		}
 
 		// TODO: this is bad
-		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
+		[ISystem.Update.F(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateArmAimable(
 		[Source.Parent, Override] in Organic.Data organic, [Source.Parent] ref Arm.Data arm, [Source.Parent, Override] ref Joint.Gear joint_gear,
 		[Source.Owned] in Aimable.Data aimable, [Source.Parent] in Body.Data body_parent, [Source.Owned] in Body.Data body_child)
@@ -157,7 +158,7 @@ namespace TC2.Base.Components
 			joint_gear.step = Maths.Clamp(body_child.GetAngularMassInv() * aim_torque * App.fixed_update_interval_s, 0.50f, joint_gear.step);
 		}
 
-		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region, flags: ISystem.Flags.Unchecked)]
+		[ISystem.Update.E(ISystem.Mode.Single, ISystem.Scope.Region, flags: ISystem.Flags.Unchecked)]
 		public static void UpdateFacing([Source.Owned, Override] in Organic.Data organic, [Source.Owned] ref Organic.State organic_state, [Source.Owned] ref Facing.Data facing)
 		{
 			facing.flags.SetFlag(Facing.Flags.Disabled, organic_state.consciousness_shared < 0.50f || organic_state.stun_norm >= 0.50f);
