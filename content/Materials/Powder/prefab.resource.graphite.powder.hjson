@@ -5,6 +5,7 @@ body:
 	@shape.circle:
 	{
 		offset: [0.000, 0.250]
+		cog_offset: [0.000, 0.500]
 		mass: 1.000
 		radius: 0.750
 		friction: 0.950
@@ -13,7 +14,8 @@ body:
 		layer: entity, solid, resource, ignore_melee, ignore_bullet, powder
 		mask: world
 	}
-		damping: 0.965
+	
+	damping: 0.965
 }
 
 animated.renderer:

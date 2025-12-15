@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.65.1"
+	$version: "0.1.67.1"
 	name: "Steel Powder"
 	name_short: "St. Powder"
 	name_dumb: "Shiny Dust"
@@ -51,7 +51,7 @@
 	color_dust: "0xffc0c6ac"
 	color_gib: "0xffc0c6ac"
 	
-	centroid_default: [0.000, 0.250]
+	centroid_default: [0.000, 0.750]
 	colliders: []
 	
 	// Damage-based conversions.
