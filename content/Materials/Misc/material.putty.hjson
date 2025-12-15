@@ -1,19 +1,18 @@
 ﻿{
 	$version: "0.1.63.8"
-	name: "Thermopaste"
-	name_short: "Thermopaste"
-	name_imperial: "Termoplastelin"
-	name_dumb: "Putty"
+	name: "Putty"
+	name_short: "Putty"
+	name_imperial: "Plastelin"
 	description:
 		'''
-		Standard metalworking putty used for brazing and cermet production.
+		TODO: Desc
 		'''
 	
 	tips: []
 	
 	icon:
 	{
-		texture: resource.thermopaste
+		texture: resource.putty
 		size: [16, 16]
 		frame: [3, 0]
 	}
@@ -27,12 +26,12 @@
 	mass_per_unit: 0.957
 	
 	quantity_max: 250.000
-	spawn_quantity_threshold: 0.500
-	snapping: 1.000
+	spawn_quantity_threshold: 0.100
+	snapping: 0.100
 	snapping_pickup: 25.000
 	
 	form_type: chunk
-	prefab: resource.thermopaste
+	prefab: resource.putty
 	h_substance: "null"
 	
 	color_icon: "0xffffffff"

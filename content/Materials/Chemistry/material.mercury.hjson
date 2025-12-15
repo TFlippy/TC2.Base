@@ -110,6 +110,6 @@
 		smirglum.amalgam: reaction, similar, alloy, product
 		kruskite: raw, ore, source, similar, natural
 		himlkarzenus: ore, source, similar, chemical, natural
-		thermopaste: similar, chemical, alloy, product
+		putty: similar, chemical, alloy, product
 	}
 }

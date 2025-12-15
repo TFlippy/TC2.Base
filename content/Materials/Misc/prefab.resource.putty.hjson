@@ -33,7 +33,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.thermopaste"
+		texture: "resource.putty"
 		count: 4
 		size: [16, 16]
 	}
@@ -47,7 +47,7 @@ transform:
 
 resource:
 {
-	material: "thermopaste"
+	material: "putty"
 }
 
 holdable:

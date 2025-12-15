@@ -106,7 +106,7 @@
 					[
 						{
 							type: resource
-							material: thermopaste
+							material: putty
 							amount: 5.160426
 							amount_extra: 0.391507
 							group: 0
@@ -191,7 +191,7 @@
 					[
 						{
 							type: resource
-							material: thermopaste
+							material: putty
 							amount: 0.842299
 							amount_extra: 0.08257
 							group: 0
@@ -275,7 +275,7 @@
 					[
 						{
 							type: resource
-							material: thermopaste
+							material: putty
 							amount: 1.855215
 							amount_extra: 0.072162
 							group: 0
@@ -302,7 +302,7 @@
 	
 	icon:
 	{
-		texture: resource.thermopaste
+		texture: resource.putty
 		size: [16, 16]
 		frame: [3, 0]
 	}

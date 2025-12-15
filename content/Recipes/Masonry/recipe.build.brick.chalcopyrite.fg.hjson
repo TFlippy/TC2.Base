@@ -19,7 +19,7 @@
 		}
 		{
 			type: resource
-			material: thermopaste
+			material: putty
 			amount: 0.013
 			group: 0
 			flags: prerequisite

@@ -313,7 +313,7 @@
 						}
 						{
 							type: resource
-							material: thermopaste
+							material: putty
 							amount: 8.683176
 							snapping: 0.500
 							falloff: 0.927
