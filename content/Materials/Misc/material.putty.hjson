@@ -19,7 +19,7 @@
 	
 	// Inventory material type.
 	type: tar
-	flags: soft, malleable, sticky, granular, toxic, metal, viscous, chemical, small, corrosive, manufactured, flammable, flexible, volatile, processed, smelly
+	flags: soft, malleable, sticky, magnetic, granular, toxic, metal, viscous, chemical, small, corrosive, manufactured, flexible, volatile, processed, smelly
 	display_flags: none
 	hints: materials, dangerous, advanced, chemical, construction, civilian, industrial, slow, unstable, clumsy
 	

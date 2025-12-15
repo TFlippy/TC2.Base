@@ -20,7 +20,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.alkahest"
+		texture: "resource.smrad"
 		count: 4
 		size: [16, 16]
 	}
@@ -34,7 +34,7 @@ transform:
 
 resource:
 {
-	material: "alkahest"
+	material: "smrad"
 }
 
 holdable:
