@@ -58,7 +58,7 @@ essence.container:
 	rate_speed: 0.200
 	stability: 0.820
 	health_threshold: 0.500
-	glow_modifier: 4.000
+	glow_modifier: 1.300
 	heat_modifier: 1.700
 	frequency: 0.000
 	flags: show_gui, allow_edit_rate

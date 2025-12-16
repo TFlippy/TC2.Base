@@ -2,6 +2,7 @@ $name: "Tired Pallet (Steel Brick)"
 $desc:
 	'''
 	An old shipping pallet with a bunch of stacked weathered nickelsteel bricks on it.
+	
 	For reasons unknown, they're welded together, which may explain why they still haven't been stolen.
 	'''
 $tags: []
@@ -28,7 +29,7 @@ body:
 		layer: entity, solid, ignore_melee, harvestable, bulk, conductive, magnetic
 		mask: world
 
-		miss_chance: 0.350
+		miss_chance: 0.850
 	}
 }
 

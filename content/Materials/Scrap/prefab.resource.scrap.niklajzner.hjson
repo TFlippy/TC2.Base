@@ -13,7 +13,7 @@ body:
 		friction: 0.890
 		elasticity: 0.260
 		
-		material: scrap
+		material: metal
 		miss_chance: 0.000
 		
 		layer: entity, solid, resource, conductive, magnetic, ignore_melee, ignore_bullet

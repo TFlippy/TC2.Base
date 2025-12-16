@@ -86,8 +86,8 @@ namespace TC2.Base
 
 						if (has_any)
 						{
-							data.radius += MathF.Sqrt(data.radius * 1.50f);
-							data.power += MathF.Sqrt(data.power * 2.50f);
+							data.radius += Maths.SqrtToOne(data.radius * 1.50f);
+							data.power += Maths.SqrtToOne(data.power * 2.50f);
 							data.damage_terrain += MathF.Pow(data.damage_terrain * 3.50f, 0.75f);
 							data.damage_entity += MathF.Pow(data.damage_entity * 2.50f, 0.75f);
 						}
