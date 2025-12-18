@@ -39,6 +39,7 @@ namespace TC2.Base.Components
 
 		//}
 
+		[Shitcode]
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned)]
 		public static void Update(ISystem.Info info, ref Region.Data region, ref XorRandom random,
 		[Source.Owned] in Dive.Data dive, [Source.Owned] ref Dive.State dive_state,
@@ -62,7 +63,7 @@ namespace TC2.Base.Components
 				force = Physics.LimitForce2B(ref body, force, new Vector2(dive.speed));
 
 				body.AddForceWorld(force, pos + (dir * 0.50f));
-				body.AddVelocity(new Vector2(0, -5 * MathF.Abs(dir.X)));
+				body.AddVelocity(new Vector2(0, -5 * Maths.Abs(dir.X)));
 
 #if SERVER
 				Sound.Play(ref region, dive.sound, pos, volume: 0.70f, pitch: 1.00f, size: 1.00f, priority: 0.40f);

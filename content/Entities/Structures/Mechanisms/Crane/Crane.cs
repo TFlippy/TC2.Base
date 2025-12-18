@@ -286,19 +286,19 @@
 		}
 
 		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void UpdateB(ISystem.Info info, Entity entity, [Source.Owned] ref Joint.Base joint_base,
+		public static void UpdateB(/*ISystem.Info info, Entity entity, */[Source.Owned] ref Joint.Base joint_base,
 		[Source.Owned, Override] ref Joint.Gear gear, [Source.Shared] ref Crane.State crane_state)
 		{
 			gear.rotation = Maths.NormalizeAngle(crane_state.rotation_b - joint_base.rotation_origin);
 		}
 
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void UpdateSound(ISystem.Info info, Entity entity,
+		public static void UpdateSound(/*ISystem.Info info, Entity entity,*/
 		[Source.Owned] in Crane.Data crane, [Source.Owned] ref Sound.Mixer sound_mix,
 		[Source.Owned, Override] in Joint.Gear gear)
 		{
 			var max = 0.50f;
-			sound_mix.modifier = Maths.Clamp(MathF.Abs(gear.GetCurrentSpeed()) - 0.10f, 0.00f, max) / max;
+			sound_mix.modifier = Maths.Clamp(Maths.Abs(gear.GetCurrentSpeed()) - 0.10f, 0.00f, max) / max;
 		}
 	}
 }

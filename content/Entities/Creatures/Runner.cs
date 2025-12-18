@@ -342,7 +342,7 @@ namespace TC2.Base.Components
 				//is_grounded = MathF.Abs(normal.X) < 0.35f;
 
 
-				var dot = MathF.Abs(runner_state.last_normal.X);
+				var dot = Maths.Abs(runner_state.last_normal.X);
 				is_grounded = dot <= runner.max_grounded_dot;
 				is_on_vehicle = dot <= 0.75f && layers.HasAny(Physics.Layer.Vehicle | Physics.Layer.Platform);
 				runner_state.surface_dot_current = dot;
@@ -355,7 +355,7 @@ namespace TC2.Base.Components
 				}
 				else
 				{
-					runner_state.uphill_force_current = -MathF.Abs(dot * force.X);
+					runner_state.uphill_force_current = -Maths.Abs(dot * force.X);
 					force.Y = runner_state.uphill_force_current;
 					force.X *= (1.00f - dot);
 				}

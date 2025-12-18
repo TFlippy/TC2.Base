@@ -1450,7 +1450,7 @@ namespace TC2.Base.Components
 
 								dir = Vector2.Lerp(normal, dir, Maths.Clamp((len - 0.25f) * 2.00f, 0.00f, 1.00f));
 
-								var rot_max = Maths.Snap(MathF.Abs(placement.rotation_max), placement.rotation_step);
+								var rot_max = Maths.Snap(Maths.Abs(placement.rotation_max), placement.rotation_step);
 								var rot = Maths.Clamp(Maths.Snap(dir.GetAngleRadians() + (MathF.PI * 0.50f), placement.rotation_step), -rot_max, +rot_max);
 
 								pos_final = pos_a + (offset.RotateByRad(rot)); // - offset;

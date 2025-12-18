@@ -131,7 +131,7 @@ namespace TC2.Base.Components
 		{
 			//tractor_state.current_motor_force = axle_state.angular_momentum + axle_state.sum_torque;
 			tractor_state.current_motor_force = axle_state.angular_momentum + axle_state.sum_torque;
-			tractor_state.current_motor_speed = Maths.Clamp(Maths.MoveTowards(tractor_state.current_motor_speed, tractor_state.target_wheel_speed, ((Maths.SignEquals(tractor_state.current_motor_speed, tractor_state.target_wheel_speed) || MathF.Abs(tractor_state.target_wheel_speed) < 0.01f) ? tractor.speed_step : tractor.brake_step) * info.DeltaTime), -MathF.Abs(axle_state.angular_velocity), MathF.Abs(axle_state.angular_velocity));
+			tractor_state.current_motor_speed = Maths.Clamp(Maths.MoveTowards(tractor_state.current_motor_speed, tractor_state.target_wheel_speed, ((Maths.SignEquals(tractor_state.current_motor_speed, tractor_state.target_wheel_speed) || Maths.Abs(tractor_state.target_wheel_speed) < 0.01f) ? tractor.speed_step : tractor.brake_step) * info.DeltaTime), -Maths.Abs(axle_state.angular_velocity), Maths.Abs(axle_state.angular_velocity));
 
 			tractor_state.current_wheel_torque_load = 0.00f;
 			tractor_state.current_wheel_torque_brake = 0.00f;

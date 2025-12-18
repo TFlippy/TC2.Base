@@ -162,14 +162,14 @@ namespace TC2.Base.Components
 		public static float GetStabilityMult(this IEssence.Handle h_essence) => IEssence.essence_to_stability_mult[h_essence.id];
 		public static float GetDischargeMult(this IEssence.Handle h_essence) => IEssence.essence_to_discharge_mult[h_essence.id];
 
-		public static float GetForce(this Essence.Container.Data container) => container.GetEmittedEssenceAmount() * container.h_essence.GetForce();
-		public static Power GetThermalPower(this Essence.Container.Data container) => container.GetEmittedEssenceAmount() * container.h_essence.GetThermalPower();
-		public static Power GetKineticPower(this Essence.Container.Data container) => container.GetEmittedEssenceAmount() * container.h_essence.GetKineticPower();
-		public static Power GetRadiantPower(this Essence.Container.Data container) => container.GetEmittedEssenceAmount() * container.h_essence.GetRadiantPower();
-		public static Power GetElectricPower(this Essence.Container.Data container) => container.GetEmittedEssenceAmount() * container.h_essence.GetElectricPower();
-		public static Power GetMagneticPower(this Essence.Container.Data container) => container.GetEmittedEssenceAmount() * container.h_essence.GetMagneticPower();
+		public static float GetForce(in this Essence.Container.Data container) => container.GetEmittedEssenceAmount() * container.h_essence.GetForce();
+		public static Power GetThermalPower(in this Essence.Container.Data container) => container.GetEmittedEssenceAmount() * container.h_essence.GetThermalPower();
+		public static Power GetKineticPower(in this Essence.Container.Data container) => container.GetEmittedEssenceAmount() * container.h_essence.GetKineticPower();
+		public static Power GetRadiantPower(in this Essence.Container.Data container) => container.GetEmittedEssenceAmount() * container.h_essence.GetRadiantPower();
+		public static Power GetElectricPower(in this Essence.Container.Data container) => container.GetEmittedEssenceAmount() * container.h_essence.GetElectricPower();
+		public static Power GetMagneticPower(in this Essence.Container.Data container) => container.GetEmittedEssenceAmount() * container.h_essence.GetMagneticPower();
 
-		public static float GetEmittedEssenceAmount(this Essence.Container.Data container)
+		public static float GetEmittedEssenceAmount(in this Essence.Container.Data container)
 		{
 			return container.available * container.rate_current;
 		}
@@ -316,7 +316,8 @@ namespace TC2.Base.Components
 #endif
 			}
 
-			[ISystem.Modified.Pair<Essence.Container.Data, Inventory1.Data>(ISystem.Mode.Single, ISystem.Scope.Region, order: -100), HasComponent<Resource.Data>(Source.Modifier.Owned, false)]
+			[HasComponent<Resource.Data>(Source.Modifier.Owned, false)]
+			[ISystem.Modified.Pair<Essence.Container.Data, Inventory1.Data>(ISystem.Mode.Single, ISystem.Scope.Region, order: -100)] 
 			public static void OnInventoryModified(Entity entity,
 			[Source.Owned, Pair.Component<Essence.Container.Data>] ref Inventory1.Data inventory, [Source.Owned] ref Essence.Container.Data container)
 			{
