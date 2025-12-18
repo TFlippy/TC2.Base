@@ -101,7 +101,7 @@ namespace TC2.Base.Components
 				//var modifier = Maths.InvLerp( 1.00f; body.displacement_joint - head.displacement_threshold;
 				//if (mod)
 
-				var modifier = Maths.Lerp01Fast(1.00f, head.displacement_rigidity, body.displacement_joint * head.displacement_mult);
+				var modifier = Maths.Lerp01(1.00f, head.displacement_rigidity, body.displacement_joint * head.displacement_mult);
 				shape.SetRawRigidityStaticMult(modifier);
 			}
 		}

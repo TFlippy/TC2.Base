@@ -1169,6 +1169,7 @@ namespace TC2.Base.Components
 		//[Obsolete] public static readonly Dictionary<IEssence.Handle, IMaterial.Handle> essence_to_material = new();
 
 		public const float essence_per_pellet = 10.00f;
+		public const float essence_per_pellet_inv = 1.00f / Essence.essence_per_pellet;
 
 		public static readonly Texture.Handle texture_smoke = "BiggerSmoke_Light";
 		public static readonly Texture.Handle texture_spark = "essence.spark";

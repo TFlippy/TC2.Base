@@ -2001,7 +2001,7 @@ namespace TC2.Base
 					if (gun.IsNotNull())
 					{
 						var mult_receiver = 1.00f - Maths.Normalize01(Vector2.Distance(offset, gun.receiver_offset) - 0.25f * size, 0.75f * size).Pow2();
-						var mult_barrel = (1.00f - Maths.Normalize01(MathF.Abs(offset.Y - gun.muzzle_offset.Y) - 0.50f * size, 0.60f)) * Maths.MidBias(gun.receiver_offset.X - 0.10f, (gun.receiver_offset.X + gun.muzzle_offset.X) * 0.50f, gun.muzzle_offset.X + 1.25f, offset.X);
+						var mult_barrel = (1.00f - Maths.Normalize01(Maths.Abs(offset.Y - gun.muzzle_offset.Y) - 0.50f * size, 0.60f)) * Maths.MidBias(gun.receiver_offset.X - 0.10f, (gun.receiver_offset.X + gun.muzzle_offset.X) * 0.50f, gun.muzzle_offset.X + 1.25f, offset.X);
 						var mult_muzzle = 1.00f - Maths.Normalize01(Vector2.Distance(offset, new Vector2(Maths.Lerp(gun.muzzle_offset.X, gun.receiver_offset.X, 0.25f), gun.muzzle_offset.Y)) - 0.25f * size, 0.50f);
 
 						gun.stability += stability_base + (stability * Maths.Lerp(mult_receiver, mult_barrel, 0.90f) * 0.50f * robustness * size);
