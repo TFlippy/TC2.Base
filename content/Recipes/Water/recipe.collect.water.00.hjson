@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.66.1"
+	$version: "0.1.67.1"
 	name: "Collect Water"
 	desc:
 		'''
@@ -40,7 +40,7 @@
 							prefab: water
 							amount: 1.000
 							group: 0
-							flags: no_consume, no_scaling, primary, prerequisite
+							flags: no_consume, no_scaling, argument, primary, prerequisite
 						}
 						{
 							type: work
@@ -318,9 +318,7 @@
 	max: 50
 	step: 1
 	
-	h_sound_begin: effect.clang.metal.00
-	h_sound_complete: effect.bucket.00
-	h_sound_finalize: effect.bucket.00
+	h_sound_complete: water.impact.hard.00
 	
 	version: 1
 }

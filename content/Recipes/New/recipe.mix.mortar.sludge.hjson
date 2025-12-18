@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.65.2"
+	$version: "0.1.67.1"
 	name: "Cursed Mortar"
 	desc:
 		'''
@@ -234,7 +234,9 @@
 					}
 					filter_environment:
 					{
-						include: stationary, cozy, quiet, waterproof
+						require: stationary
+						include: cozy, quiet, waterproof
+						exclude: mobile
 					}
 				}
 				{

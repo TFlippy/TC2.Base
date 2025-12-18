@@ -44,7 +44,7 @@
 						}
 						{
 							type: work
-							work: dismantling
+							work: trashing.metal
 							amount: 38.000
 							amount_min: 63.000
 							difficulty: 4
@@ -86,12 +86,12 @@
 					
 					filter_tools:
 					{
-						require: hammer, screwdriver, spanner
-						include: cutters, hand_drill, screwdriver, wrench, spanner, pliers, tweezers, magnifying_glass, knife
+						require: hammer
+						include: hammer, wrench, cleaver, bucket, axe, shovel, spatula, crowbar, knife, scissors
 					}
-					filter_infrastructure:
+					filter_environment:
 					{
-						include: table, chair, vise, workbench
+						include: dirty, smelly, ugly, scary, noisy, reinforced, durable, sturdy
 					}
 				}
 			]

@@ -1,6 +1,5 @@
 ﻿{
-	$region_id: 0
-	$version: "0.1.64.1"
+	$version: "0.1.67.1"
 	name: "Sedimentation"
 	name_short: "Sedimentation"
 	desc:
@@ -34,7 +33,9 @@
 	
 	filter_environment:
 	{
-		include: stationary, cozy, quiet, waterproof
+		require: stationary
+		include: cozy, quiet, waterproof
+		exclude: mobile
 	}
 	
 	skills_min:

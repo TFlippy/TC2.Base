@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.65.2"
+	$version: "0.1.67.1"
 	name: "Backpack"
 	tips: []
 	
@@ -20,7 +20,7 @@
 			options:
 			[
 				{
-					name: "<TODO>"
+					name: "Standard"
 					
 					type: undefined
 					flags: wip, incomplete, auto_generated
@@ -32,7 +32,7 @@
 							material: cloth
 							amount: 2.925413
 							snapping: 0.500
-							loss: 0.075
+							loss: 0.224
 							group: 0
 							flags: prerequisite
 						}
@@ -41,7 +41,7 @@
 							material: leather
 							amount: 7.764706
 							snapping: 0.500
-							loss: 0.102
+							loss: 0.282
 							group: 0
 							flags: prerequisite
 						}
@@ -53,6 +53,8 @@
 							difficulty: 4
 							snapping: 5.000
 							falloff: 0.880
+							loss: 0.090
+							ratio: 0.184
 							group: 0
 							flags: conditional
 						}
@@ -62,20 +64,9 @@
 							amount: 0.850
 							snapping: 0.500
 							falloff: 0.910
-							loss: 0.075
+							loss: 0.275
 							group: 1
-							flags: no_residue, prerequisite
-						}
-						{
-							type: work
-							work: gluing
-							amount: 200.000
-							amount_min: 175.000
-							difficulty: 5
-							snapping: 5.000
-							falloff: 0.830
-							group: 1
-							flags: conditional
+							flags: prerequisite
 						}
 						{
 							type: work
@@ -85,8 +76,21 @@
 							difficulty: 8
 							snapping: 5.000
 							falloff: 0.950
-							group: 2
-							flags: conditional
+							ratio: 0.769
+							group: 1
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: gluing
+							amount: 200.000
+							amount_min: 175.000
+							difficulty: 7
+							snapping: 5.000
+							falloff: 0.830
+							ratio: 0.753
+							group: 1
+							flags: simultaneous, conditional
 						}
 					]
 					
@@ -122,7 +126,7 @@
 			options:
 			[
 				{
-					name: "<TODO>"
+					name: "Standard"
 					
 					type: undefined
 					flags: wip, incomplete, auto_generated
@@ -143,7 +147,7 @@
 							material: steel.frames
 							amount: 0.119216
 							snapping: 0.100
-							loss: 0.075
+							loss: 0.063
 							group: 0
 							flags: prerequisite
 						}
@@ -155,6 +159,7 @@
 							difficulty: 4
 							snapping: 5.000
 							falloff: 0.800
+							ratio: 0.910
 							group: 0
 							flags: conditional
 						}
@@ -183,11 +188,15 @@
 	
 	type: workshop
 	flags: blueprintable, item, wip
-	tags: manual, crafting, simple, tailoring
+	tags: manual, crafting, basic, simple, tailoring
 	hints: none
 	connotations: none
-	infrastructure: table, chair, surface
+	infrastructure: surface
 	infrastructure_exclude: none
+	environment_filter:
+	{
+		exclude: form, enclosed, sealed
+	}
 	
 	icon:
 	{

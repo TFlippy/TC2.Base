@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.67.1"
 	name: "Baton"
 	tips: []
 	
@@ -70,8 +70,8 @@
 					
 					filter_tools:
 					{
-						require: hammer, saw, file, knife, needle
-						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, tweezers, axe, stapler, file, chisel, knife, needle, pins
+						require: knife, needle
+						include: hammer, cutters, saw, screwdriver, tweezers, axe, stapler, file, chisel, knife, sandpaper, needle, pins
 					}
 				}
 			]
@@ -145,6 +145,8 @@
 	type: workshop
 	flags: blueprintable, item, wip, converted
 	tags: manual, crafting, simple, small, weapon, tool, woodworking
+	hints: none
+	connotations: none
 	infrastructure: surface
 	infrastructure_exclude: none
 	

@@ -1,10 +1,10 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.67.1"
 	name: "Woodworking"
 	name_short: "Woodworking"
 	desc:
 		'''
-		TODO: Desc
+		Basic wood-based construction and crafting work.
 		'''
 	
 	icon:
@@ -19,14 +19,14 @@
 	
 	amount_base: 0.000
 	cooldown: 1.000
-	multiplier: 1.250
+	multiplier: 1.140
 	
 	amount_jitter: 0.241
 	cooldown_jitter: 0.153
 	color: "0xff719240"
 	
-	tools_required: hammer, saw, file, knife
-	tools_optional: pencil, ruler, hammer, saw, hand_drill, screwdriver, tweezers, axe, file, chisel, knife
+	tools_required: none
+	tools_optional: hammer, saw, screwdriver, axe, file, chisel, knife, sandpaper
 	
 	infrastructure_required: none
 	infrastructure_optional: none
@@ -44,10 +44,11 @@
 	
 	skills_mult:
 	{
-		blades: 0.400
-		carpentry: 0.500
-		construction: 0.300
-		strength: 0.350
+		blades: 0.300
+		carpentry: 0.310
+		construction: 0.330
+		strength: 0.120
+		dexterity: 0.310
 	}
 	
 	sound_volume: 0.400
