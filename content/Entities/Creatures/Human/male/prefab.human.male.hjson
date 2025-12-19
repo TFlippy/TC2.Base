@@ -176,14 +176,6 @@ facing:
 	flags: rotate_on_flip
 }
 
-interactable:
-{
-	flags: centered_inventory
-	priority: -4.000
-	window_size: [208.000, 288.000]
-	window_size_misc: [96.000, 0.000]
-}
-
 equipment.slot:
 {
 	type: chest
@@ -293,6 +285,48 @@ pathfinding.state:
 commandable:
 {
 	
+}
+
+interactable:
+{
+	flags: centered_inventory
+	window_size: [600, 480]
+	window_size_misc: [96, 0]
+	priority: -4.000
+}
+
+shop:
+{
+	tags_filter:
+	{
+		include: dumb, crude, agriculture, woodworking, tailoring, salvaging, gathering, forestry, messy, dangerous
+		exclude: automated, complex, advanced, medium, large, huge, blacksmithing, industrial, metallurgy, architecture, smelting, fermenting, heating
+	}
+	
+	tools: bucket, towel, spatula, knife, needle, pins
+	infrastructure: bottle, bucket, surface
+	environment: mobile, dirty, smelly, ugly, scary, crappy, cramped, open, small
+	connotations: none
+	
+	flags: no_sorting, embed_gui, self_only
+	menu_columns: 3
+	recipe_type: workshop
+	
+	name: "Crafting"
+}
+
+workshop:
+{
+	flags: self_only
+	orders_capacity: 1
+	
+	gui_info_size_x: 216.000
+	max_order_mass: 30.000
+	
+	draw_order_flags:
+	{
+		rem: temperature, pressure
+	}
 }
 
 +slot.head|instance:
