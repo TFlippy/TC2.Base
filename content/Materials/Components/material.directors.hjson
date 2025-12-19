@@ -1,7 +1,7 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.67.1"
 	name: "EC-Directors"
-	name_short: "Directors"
+	name_short: "EC-Directors"
 	name_imperial: "Direktor"
 	name_dumb: "Toys"
 	description:

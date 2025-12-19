@@ -1,9 +1,9 @@
 ﻿{
-	$version: "0.1.66.1"
-	name: "Picked Plants"
+	$version: "0.1.67.1"
+	name: "Chosen Plantstuff"
 	desc:
 		'''
-		TODO: Desc
+		Random stuff carefully selected from captured wild plant trimmings to serve the Kordel Empire.
 		'''
 	tips: []
 	

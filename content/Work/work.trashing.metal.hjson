@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.67.1"
 	name: "Trashing (Metal)"
 	name_short: "Trashing"
 	desc:
@@ -54,12 +54,12 @@
 		endurance: 0.200
 	}
 	
-	sound_volume: 0.890
+	sound_volume: 0.600
 	sound_pitch: 0.980
 	sound_size: 0.840
-	sound_dist: 1.040
+	sound_dist: 0.600
 	
-	sounds: ["hatch.open.00", "metal.gib.lg.00", "metal.hit.bullet.heavy.00", "metal.hit.bullet.heavy.01", "metal.stress.long.strong.00", "flesh_hit_blunt_01", "scrap.gib.lg.01", "burner.lid.clang.00", "drunk.02", "effect.clang.metal.00", "effect.spring.erupt.01", "effect.stupid.00", "conveyor.move.02", "flesh_hit_blunt_00"]
+	sounds: ["hatch.open.00", "metal.gib.lg.00", "metal.hit.bullet.heavy.00", "metal.hit.bullet.heavy.01", "flesh_hit_blunt_01", "scrap.gib.lg.01", "burner.lid.clang.00", "drunk.02", "effect.clang.metal.00", "effect.spring.erupt.01", "effect.stupid.00", "conveyor.move.02", "flesh_hit_blunt_00"]
 	sounds_manual: []
 	sounds_crafter: []
 	sounds_passive: []

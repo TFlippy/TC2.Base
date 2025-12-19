@@ -60,7 +60,7 @@ motor:
 {
 	vibration: 0.500
 	interval: 0.200
-	flags: constant_speed
+	flags: constant_speed, control_power
 }
 
 actuator:
@@ -158,4 +158,9 @@ vibrate:
 	rotation_mult: 0.030
 	position_mult: [0.040, 0.010]
 	flags: shared
+}
+
+control:
+{
+
 }
