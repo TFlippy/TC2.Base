@@ -79,7 +79,6 @@
 							amount: 1.000
 							snapping: 1.000
 							group: 1
-							chance: 0.675
 							flags: residue, primary, stepped, compact
 						}
 					]

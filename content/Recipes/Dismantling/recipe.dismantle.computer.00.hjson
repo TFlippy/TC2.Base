@@ -62,7 +62,7 @@
 							material: actuator
 							amount: 2.000
 							amount_extra: 0.444
-							snapping: 0.500
+							snapping: 0.250
 							group: 0
 							flags: residue, byproduct, add_to_residues
 						}

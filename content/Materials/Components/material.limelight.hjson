@@ -1,15 +1,15 @@
 ﻿{
-	$version: "0.1.64.1"
-	name: "Limelight"
-	name_short: "Limelight"
-	name_dumb: "Lightstick"
+	$version: "0.1.67.1"
+	name: "Limelights"
+	name_short: "Limelights"
+	name_dumb: "Lightsticks"
 	description:
 		'''
 		Small stackable cylinders of compacted quicklime with EC-TH pellets embedded inside.
 
 		Used as a light source in various devices, such as lamps and lanterns.
-		
-		Some people with destructive tendencies break them down for the EC-TH pellets inside.
+
+		Some people with destructive tendencies break them down for the EC-TH pellets embedded inside.
 		'''
 	
 	tips: []
@@ -27,7 +27,7 @@
 	display_flags: none
 	spawn_flags:
 	{
-		add: no_discard
+		add: show_notification, no_discard
 	}
 	hints: none
 	
@@ -52,6 +52,7 @@
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	
+	centroid_default: [0.000, 0.200]
 	colliders: []
 	
 	commodity:

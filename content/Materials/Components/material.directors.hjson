@@ -32,7 +32,7 @@
 	display_flags: none
 	spawn_flags:
 	{
-		add: no_discard
+		add: show_notification, no_discard
 	}
 	hints: materials, advanced, machine, construction, industrial, arcane, tech, clumsy
 	

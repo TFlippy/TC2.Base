@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.67.1"
 	name: "Shovel"
 	tips: []
 	
@@ -288,6 +288,31 @@
 			options:
 			[
 				{
+					name: "Staked"
+					
+					type: undefined
+					flags: wip, incomplete
+					
+					requirements:
+					[
+						{
+							type: work
+							work: doweling
+							amount: 200.000
+							difficulty: 6
+							snapping: 20.000
+							falloff: 0.985
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: hammer
+					}
+				}
+				{
 					name: "Glued"
 					
 					type: undefined
@@ -392,6 +417,8 @@
 	type: workshop
 	flags: blueprintable, item
 	tags: manual, crafting, simple, medium, tool, woodworking, assembling, metalworking
+	hints: none
+	connotations: none
 	infrastructure: workbench
 	infrastructure_exclude: none
 	

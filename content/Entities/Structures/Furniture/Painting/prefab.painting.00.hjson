@@ -11,21 +11,30 @@ body:
 	
 	@shape.box:
 	{
-		size: [2.125, 2.750]
-		offset: [-0.0625, -0.0625]
-		mass: 25.000
-		radius: 0.000
+		material: metal
+		miss_chance: 0.000
+		flags: none
+		tags: none
+		
+		layer: entity, decoration, background, furniture, flammable, ignore_bullet
+		mask: world
+		exclude: none
+		
+		mass: 10.000
+		radius: 0.500
 		friction: 0.500
 		elasticity: 0.500
-		material: metal
-		layer: entity, ignore_melee, ignore_bullet, background, furniture
-		mask: world
+		
+		cog_offset: [0.000, 0.000]
+		
+		size: [0.875, 1.500]
+		offset: [-0.0625, -0.0625]
 	}
 }
 
 health:
 {
-	max: 500.000
+	max: 900.000
 }
 
 animated.renderer:
@@ -41,4 +50,28 @@ animated.renderer:
 transform:
 {
 
+}
+
+harvestable:
+{
+	resources:
+	[
+		{
+			material: steel.plate
+			quantity: 3.000
+		}
+		{
+			material: paper
+			quantity: 5.000
+		}
+		null
+		null
+	]
+	
+	thresholds: [0.214, 0.860, 0.000, 0.000]
+	
+	pct_damage_mult: [1.000, 1.000, 0.000, 0.000]
+	pct_quantity_min: [0.380, 0.260, 0.026, 0.000]
+	
+	chance_base: [0.784, 0.820, 0.000, 0.000]
 }

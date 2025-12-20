@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.67.1"
 	name: "EC-TH Pellets"
 	name_short: "EC-TH Pt."
 	name_imperial: "Termhal-Arkpelet"
@@ -24,7 +24,7 @@
 	display_flags: none
 	spawn_flags:
 	{
-		add: no_discard
+		add: allow_encumbered, no_discard
 	}
 	hints: materials, dangerous, heavy, explosive, advanced, powerful, destructive, small, construction, device, military, industrial, arcane, tech, fast, unstable, clumsy
 	
