@@ -13,6 +13,8 @@ namespace TC2.Base.Components
 		[IComponent.Data(Net.SendType.Reliable, IComponent.Scope.Region)]
 		public struct Data(): IComponent
 		{
+			public float charge;
+
 			public Amplitron.Flags flags;
 		}
 

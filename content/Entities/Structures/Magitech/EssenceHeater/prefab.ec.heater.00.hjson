@@ -12,7 +12,7 @@ body:
 
 	@shape.line:
 	{
-		material: metal_solid
+		material: device
 		miss_chance: 0.643
 		flags: none
 		tags: none
@@ -36,7 +36,15 @@ body:
 
 health:
 {
-	max: 13500.000
+	max: 7500.000
+}
+
+armor:
+{
+	toughness: 950.000
+	coverage: 0.900
+	protection: 0.980
+	material_type: metal_solid
 }
 
 animated.renderer:

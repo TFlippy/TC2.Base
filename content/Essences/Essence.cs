@@ -692,6 +692,103 @@ namespace TC2.Base.Components
 #endif
 		}
 
+		public static partial class Director
+		{
+			[Flags]
+			public enum Flags: ushort
+			{
+				None = 0,
+
+
+			}
+
+			[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Global | IComponent.Scope.Region)]
+			public partial struct Data(): IComponent
+			{
+				[Save.Force, Editor.Picker.Position(relative: true)] public required Vec2f offset;
+				[Save.Force, Editor.Picker.Direction(normalize: true)] public required Vec2f direction = Vec2f.Up;
+
+				[Editor.Slider.Clamped(min: 0.00f, max: 16.00f, snap: 0.001f)]
+				public float radius;
+			}
+
+			[ISystem.Update.B(ISystem.Mode.Single, ISystem.Scope.Region)]
+			public static void OnUpdate_B(ISystem.Info info, ref XorRandom random, ref Region.Data region, Entity entity,
+			[Source.Owned] ref Transform.Data transform,
+			[Source.Owned] ref Essence.Director.Data director)
+			{
+
+			}
+
+			[ISystem.Update.C(ISystem.Mode.Single, ISystem.Scope.Region)]
+			public static void OnUpdate_C(ISystem.Info info, ref XorRandom random, ref Region.Data region, Entity entity,
+			[Source.Owned] ref Transform.Data transform,
+			[Source.Owned] ref Essence.Director.Data director,
+			[Source.Owned, Pair.Component<Essence.Director.Data>] ref Essence.Charge.Data charge)
+			{
+
+			}
+
+#if CLIENT
+			[ISystem.Render(ISystem.Mode.Single, ISystem.Scope.Region)]
+			public static void OnRender_A(ISystem.Info info, ref XorRandom random, ref Region.Data region, Entity entity,
+			[Source.Owned] in Transform.Data transform,
+			[Source.Owned] ref Essence.Director.Data director,
+			[Source.Owned, Pair.Component<Essence.Director.Data>] ref Essence.Charge.Data charge)
+			{
+
+			}
+#endif
+		}
+
+		public static partial class Beam
+		{
+			[Flags]
+			public enum Flags: byte
+			{
+				None = 0,
+
+
+			}
+
+			[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Global | IComponent.Scope.Region)]
+			public partial struct Data(): IComponent
+			{
+				public IEssence.Handle h_essence;
+				public Essence.Beam.Flags flags;
+				public byte unused_00;
+				public uint unused_01;
+
+				public float intensity;
+				public float curl;
+				public float amount;
+				[Editor.Slider.Clamped(min: 0.00f, max: 16.00f, snap: 0.001f)]
+				public float radius;
+
+				[Save.Force, Editor.Picker.Direction(normalize: true)] public Vec2f direction;
+				public float unused_02;
+				public float unused_03;
+			}
+
+			[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region)]
+			public static void OnUpdate_A(ISystem.Info info, ref XorRandom random, ref Region.Data region, Entity entity,
+			[Source.Owned] ref Transform.Data transform,
+			[Source.Owned] ref Essence.Beam.Data beam)
+			{
+
+			}
+
+#if CLIENT
+			[ISystem.Render(ISystem.Mode.Single, ISystem.Scope.Region)]
+			public static void OnRender_A(ISystem.Info info, ref XorRandom random, ref Region.Data region, Entity entity,
+			[Source.Owned] in Transform.Data transform,
+			[Source.Owned] ref Essence.Beam.Data beam)
+			{
+
+			}
+#endif
+		}
+
 		public static partial class Charge
 		{
 			[Flags]
@@ -707,13 +804,32 @@ namespace TC2.Base.Components
 			{
 				public IEssence.Handle h_essence;
 				public Essence.Charge.Flags flags;
-				private byte unused_00;
+				public byte unused_00;
 
-				private uint unused_01;
+				public float unused_01;
 
 				public float amount;
-				public float capacity;
+				[Editor.Slider.Clamped(min: 0.00f, max: 16.00f, snap: 0.001f)]
+				public float radius;
 			}
+
+			[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region)]
+			public static void OnUpdate_A(ISystem.Info info, ref XorRandom random, ref Region.Data region, Entity entity,
+			[Source.Owned] ref Transform.Data transform,
+			[Source.Owned, Pair.Wildcard] ref Essence.Charge.Data charge)
+			{
+
+			}
+
+#if CLIENT
+			[ISystem.Render(ISystem.Mode.Single, ISystem.Scope.Region)]
+			public static void OnRender_A(ISystem.Info info, ref XorRandom random, ref Region.Data region, Entity entity,
+			[Source.Owned] in Transform.Data transform,
+			[Source.Owned, Pair.Wildcard] ref Essence.Charge.Data charge)
+			{
+
+			}
+#endif
 		}
 
 		public static class Emitter
