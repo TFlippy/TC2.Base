@@ -41,7 +41,7 @@
 	// K (STP)
 	melting_point: 2412.397
 	// K (STP)
-	boiling_point: 3551.504
+	boiling_point: 4051.504
 	
 	// K
 	critical_point_temperature: 0.000
@@ -68,21 +68,21 @@
 	autoignition_temperature: 2518.397
 	
 	// kJ/mol
-	heat_of_fusion: 0.000
+	heat_of_fusion: 29.000
 	// kJ/mol
-	heat_of_vaporization: 0.000
+	heat_of_vaporization: 415.000
 	// kJ/(mol*K)
-	molar_heat_capacity: 0.051331
+	molar_heat_capacity: 0.044331
 	
 	// kJ/kg
-	specific_heat_of_fusion: 0.000
+	specific_heat_of_fusion: 93.700
 	// kJ/kg
-	specific_heat_of_vaporization: 0.000
+	specific_heat_of_vaporization: 1341.000
 	// kJ/(kg*K)
 	specific_heat_capacity: 0.165877
 	
 	// kW/(m*K)
-	thermal_conductivity: 0.000
+	thermal_conductivity: 0.160
 	
 	form_to_material:
 	{

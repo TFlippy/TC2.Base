@@ -114,8 +114,7 @@
 		[ISystem.Event<Essence.PulseEvent>(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnEssencePulseEvent(ref Region.Data region, ISystem.Info info, Entity ent_piston, ref Essence.PulseEvent ev,
 		[Source.Owned] in Transform.Data transform, /*[Source.Owned] ref Control.Data control,*/
-		[Source.Owned] ref Piston.Data piston, [Source.Owned, Pair.Component<Piston.Data>] ref Essence.Emitter.Data essence_emitter
-		/*[Source.Owned] in Crafter.Data crafter, [Source.Owned] ref Crafter.State crafter_state*/)
+		[Source.Owned] ref Piston.Data piston, [Source.Owned] ref Essence.Emitter.Data essence_emitter)
 		{
 			//App.WriteLine("essence pulse event", color: App.Color.Magenta);
 		}

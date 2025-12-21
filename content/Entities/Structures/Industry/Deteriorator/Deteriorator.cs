@@ -32,7 +32,7 @@
 		[ISystem.Event<EssenceNode.FailureEvent>(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnEssenceFailureEvent(ISystem.Info info, ref XorRandom random, ref Region.Data region, Entity ent_deteriorator, ref EssenceNode.FailureEvent ev,
 		[Source.Owned] in Transform.Data transform,
-		[Source.Owned] ref Deteriorator.Data deteriorator, [Source.Owned, Pair.Component<Deteriorator.Data>] ref Essence.Emitter.Data essence_emitter)
+		[Source.Owned] ref Deteriorator.Data deteriorator, [Source.Owned] ref Essence.Emitter.Data essence_emitter)
 		{
 			App.WriteLine("essence failure event", color: App.Color.Magenta);
 		}
@@ -40,7 +40,7 @@
 		[ISystem.PostUpdate.B(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnUpdate_Essence(ISystem.Info info, ref XorRandom random, ref Region.Data region, Entity ent_deteriorator,
 		[Source.Owned] in Transform.Data transform,
-		[Source.Owned] ref Deteriorator.Data deteriorator, [Source.Owned, Pair.Component<Deteriorator.Data>] ref Essence.Emitter.Data essence_emitter)
+		[Source.Owned] ref Deteriorator.Data deteriorator, [Source.Owned] ref Essence.Emitter.Data essence_emitter)
 		{
 			if (essence_emitter.state_flags.HasAny(Essence.Emitter.StateFlags.Pulsed))
 			{

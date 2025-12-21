@@ -1,0 +1,68 @@
+$name: "EC-Amplitron"
+$desc:
+	'''
+	TODO: Desc
+	'''
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.line:
+	{
+		a: [-0.750, 0.000]
+		b: [0.500, 0.000]
+		offset: [0.000, 0.000]
+		mass: 400.000
+		radius: 0.475
+		friction: 0.640
+		elasticity: 0.600
+		material: metal_solid
+		layer: entity, solid
+		mask: world
+	}
+}
+
+health:
+{
+	max: 9000.000
+}
+
+armor:
+{
+	toughness: 900.000
+	protection: 0.810
+	
+	material_type: metal_solid
+	flags: no_damage_type_conversion
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "ec.amplitron.00"
+	}
+}
+
+control:
+{
+
+}
+
+transform:
+{
+
+}
+
+interactable:
+{
+	window_size: [240.000, 144.000]
+	priority: 0.500
+}
+
+amplitron:
+{
+
+}

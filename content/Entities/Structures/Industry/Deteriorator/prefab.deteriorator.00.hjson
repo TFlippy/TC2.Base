@@ -324,17 +324,17 @@ heat:
 // 	flags: show_misc, disable_mouse_properties, disable_mouse_rmb, disable_mouse_pos, disable_keyboard, hide_cursor, mouse_orthogonal
 // }
 
+essence.emitter:
+{
+	offset: [0.000, -0.750]
+	type: projector
+	h_essence: failure
+	h_soundmix_test: deteriorator.00.emit
+}
+
 deteriorator:
 {
 	flags: use_misc
-
-	@essence.emitter:
-	{
-		offset: [0.000, -0.750]
-		type: projector
-		h_essence: failure
-		h_soundmix_test: deteriorator.00.emit
-	}
 
 	// @essence.emitter:
 	// {

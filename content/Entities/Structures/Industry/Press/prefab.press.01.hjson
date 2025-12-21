@@ -294,6 +294,21 @@ shipment:
 	flags: keep_items, allow_deposit, use_misc, no_empty_deposit, crafting
 }
 
+essence.emitter:
+{
+	offset: [-0.250, -0.750]
+	direction: [0.000, 1.000]
+	
+	type: undefined
+	flags: internal, self_discharging, enable_signal_read
+	charge_capacity: 150.000
+	charge_loss: 0.007
+	efficiency: 0.912
+	
+	h_essence: motion
+	h_soundmix_pulse: press.01.emit
+}
+
 piston:
 {
 	offset: [-0.250, -0.750]
@@ -302,21 +317,6 @@ piston:
 	mass: 10.000
 	damping: 0.900
 	spring_constant: 2000.000
-
-	@essence.emitter:
-	{
-		offset: [-0.250, -0.750]
-		direction: [0.000, 1.000]
-		
-		type: undefined
-		flags: internal, self_discharging, enable_signal_read
-		charge_capacity: 150.000
-		charge_loss: 0.007
-		efficiency: 0.912
-		
-		h_essence: motion
-		h_soundmix_pulse: press.01.emit
-	}
 
 	@animated.renderer:
 	{

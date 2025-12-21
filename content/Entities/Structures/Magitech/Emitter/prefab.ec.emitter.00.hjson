@@ -1,0 +1,233 @@
+$name: "EC-Emitter"
+$desc:
+	'''
+	TODO: Desc
+	'''
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.line:
+	{
+		a: [-0.750, 0.000]
+		b: [0.500, 0.000]
+		offset: [0.000, 0.000]
+		mass: 400.000
+		radius: 0.475
+		friction: 0.640
+		elasticity: 0.600
+		material: metal_solid
+		layer: entity, solid
+		mask: world
+	}
+}
+
+health:
+{
+	max: 9000.000
+}
+
+armor:
+{
+	toughness: 900.000
+	protection: 0.810
+	
+	material_type: metal_solid
+	flags: no_damage_type_conversion
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "ec.emitter.00"
+	}
+}
+
+control:
+{
+
+}
+
+transform:
+{
+
+}
+
+interactable:
+{
+	flags: none
+	window_size: [336, 336]
+	window_size_misc: [192, 0]
+	priority: 0.800
+}
+
+essence.beam:
+{
+	h_essence: motion
+	intensity: 0.700
+	amount: 1.000
+	radius: 0.099
+	direction: [1.000, 0.000]
+	unused_02: 43.000
+}
+
+essence.emitter:
+{
+	direction: [1.000, 0.000]
+	
+	type: projector
+	flags: internal, enable_signal_read
+	charge_capacity: 150.000
+	charge_loss: 0.007
+	efficiency: 0.912
+	
+	h_soundmix_pulse: press.01.emit
+}
+
+essence.container:
+{
+	stability: 0.960
+	health_threshold: 0.820
+	glow_modifier: 0.850
+	emit_type: projector
+	rate_speed: 0.400
+	flags: show_gui, allow_edit_rate
+
+	@essence.charge:
+	{
+
+	}
+
+	@inventory1:
+	{
+		type: essence
+		flags: ignore_mass, no_auto_pickup, faction
+		stack_size_multiplier: 0.100
+		
+		filter:
+		{
+			require: essence, small, pellet, solid
+		}
+	}
+
+	@sound.emitter:
+	{
+		flags: start_muted
+		volume: 0.800
+		pitch: 0.430
+		size: 0.350
+		size_max_modifier: 0.500
+		spread: 80.000
+	}
+
+	@light:
+	{
+		scale: [15.000, 15.000]
+		texture: light.circle.00
+	}
+}
+
+heat:
+{
+	temperature_medium: 800.000
+	temperature_high: 1200.000
+	temperature_ignite: 1337.000
+	temperature_operating: 1243.150
+	temperature_breakdown: 1950.000
+	cool_rate: 12.000
+	heat_capacity_extra: 200.000
+	heat_damage_mult: 0.100
+	smoke_size_mult: 0.930
+	smoke_speed_mult: 0.060
+	smoke_rise_mult: 0.530
+	flags: exclude_body_mass
+	fire_flags: none
+	smoke_offset: [0.500, 0.000]
+	size: [1.000, 0.625]
+
+	@light:
+	{
+		scale: [28.000, 32.000]
+		intensity: 1.000
+		texture: light.circle.00
+	}
+
+	@sound.emitter:
+	{
+		file: furnace_loop
+		flags: start_muted
+		volume: 1.100
+		pitch: 1.100
+		size_max_modifier: 0.850
+		priority: 0.450
+	}
+}
+
+analog.relay:
+{
+
+}
+
+analog.button:
+{
+	signal_strength: 2.000
+	channels: red, green
+	flags: use_misc
+	button_size: [72, 36]
+}
+
+vehicle:
+{
+	flags: use_misc_window
+}
+
++slot.device.00|instance:
+{
+	joint.base:
+	{
+		offset_a: [0.750, 1.500]
+		// rotation_origin: -1.5708
+		max_force: 100000.000
+		max_torque: 100000.000
+		max_stress: 3.000
+		z: -160.000
+		material_type: metal
+		flags: no_aiming, no_wrap, attachment, control_read, control_write, force_facing, use_proxy_body, no_sync
+	}
+
+	joint.pivot:
+	{
+		max_bias: 8.000
+	}
+
+	joint.gear:
+	{
+		min: 0.000
+		max: 0.000
+		error_bias: 0.0000
+		max_bias: 1.250
+	}
+
+	attachment.slot:
+	{
+		flags: keyboard_read, mouse_read, brake
+		flags_editable: locked, disabled, keyboard_read, keyboard_write, mouse_read, mouse_write
+		name: "Device"
+		identifier: "device.00"
+		tags_filter:
+		{
+			include: tiny, small, utility, device, fixed
+			exclude: cabin, wheel, platform
+		}
+		rank: 1.000
+		gui_size: [72.000, 72.000]
+	}
+
+	analog.writer:
+	{
+		mask_read: red
+	}
+}

@@ -187,10 +187,23 @@ namespace TC2.Base.Components
 			//	Capacitor
 			//}
 
-
 			public enum Type: byte
 			{
-				Undefined,
+				Undefined = 0,
+
+				Pellet_Magazine,
+				Conduit,
+				Director,
+
+
+				//[Name("Thumper", desc: "")]
+				//Thumper,
+			}
+
+			// TODO: rework this
+			public enum EmitType: byte
+			{
+				Undefined = 0,
 
 				[Name("Ambient", desc: "Passive emitter activated by surrounding environment.")]
 				Ambient,
@@ -206,8 +219,8 @@ namespace TC2.Base.Components
 				Oscillator,
 				[Name("Fragmenter", desc: "Powerful single-use emitter activated by shattering the pellet.")]
 				Fragmenter,
-				[Name("Projector", desc: "Experimental emitter array capable of projecting effects of essences onto distant surfaces.")]
-				[Obsolete("")] Projector,
+				[Obsolete("Moved to Emitter.Type"), Name("Projector", desc: "Experimental emitter array capable of projecting effects of essences onto distant surfaces.")]
+				Projector,
 				[Name("Explosive", desc: "Single-use emitter activated by an explosive charge.")]
 				Explosive,
 
@@ -216,7 +229,7 @@ namespace TC2.Base.Components
 			}
 
 			[Flags]
-			public enum Flags: byte
+			public enum Flags: ushort
 			{
 				None = 0,
 
@@ -242,15 +255,18 @@ namespace TC2.Base.Components
 				[Save.NewLine]
 				[Statistics.Info("Type", description: "Essence type.", comparison: Statistics.Comparison.None, priority: Statistics.Priority.High)]
 				[Net.Segment.B] public IEssence.Handle h_essence;
-				[Net.Segment.B] public required Essence.Container.Type emit_type;
 				[Net.Segment.B] public Essence.Container.Flags flags;
+
+				[Save.NewLine]
+				[Net.Segment.B] public required Essence.Container.Type type;
+				[Net.Segment.B] public required Essence.Container.EmitType emit_type;
+				[Net.Segment.B] public ushort unused_01;
 
 				[Save.NewLine]
 				[Statistics.Info("Stability", format: "{0:P2}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
 				[Net.Segment.B] public float stability = 1.00f;
 				[Net.Segment.B] public float rate_speed = 0.10f;
 				//[Net.Segment.B] public required float capacity;
-				[Net.Segment.B] private float unused_00;
 
 				[Save.NewLine]
 				[Net.Segment.C] public float glow_modifier = 1.00f;
@@ -262,7 +278,7 @@ namespace TC2.Base.Components
 				[Asset.Ignore, Save.Ignore, Net.Ignore] public float t_next_noise;
 				[Asset.Ignore, Save.Ignore, Net.Ignore] public float t_next_collapse;
 				[Asset.Ignore, Save.Ignore, Net.Ignore] public float available_ratio;
-				[Asset.Ignore, Save.Ignore, Net.Ignore] private float unused_01;
+				[Asset.Ignore, Save.Ignore, Net.Ignore] public float unused_02;
 			}
 
 			[ISystem.VeryEarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
@@ -317,7 +333,7 @@ namespace TC2.Base.Components
 			}
 
 			[HasComponent<Resource.Data>(Source.Modifier.Owned, false)]
-			[ISystem.Modified.Pair<Essence.Container.Data, Inventory1.Data>(ISystem.Mode.Single, ISystem.Scope.Region, order: -100)] 
+			[ISystem.Modified.Pair<Essence.Container.Data, Inventory1.Data>(ISystem.Mode.Single, ISystem.Scope.Region, order: -100)]
 			public static void OnInventoryModified(Entity entity,
 			[Source.Owned, Pair.Component<Essence.Container.Data>] ref Inventory1.Data inventory, [Source.Owned] ref Essence.Container.Data container)
 			{
@@ -350,15 +366,15 @@ namespace TC2.Base.Components
 				{
 					h_sound = container.emit_type switch
 					{
-						Essence.Container.Type.Undefined => essence_data.sound_emit_ambient_loop,
-						Essence.Container.Type.Ambient => essence_data.sound_emit_ambient_loop,
-						Essence.Container.Type.Impactor => essence_data.sound_emit_impactor_loop,
-						Essence.Container.Type.Cycler => essence_data.sound_emit_cycler_loop,
-						Essence.Container.Type.Pulser => essence_data.sound_emit_pulser_loop,
-						Essence.Container.Type.Stressor => essence_data.sound_emit_stressor_loop,
-						Essence.Container.Type.Oscillator => essence_data.sound_emit_oscillator_loop,
-						Essence.Container.Type.Fragmenter => essence_data.sound_emit_ambient_loop,
-						Essence.Container.Type.Projector => essence_data.sound_emit_projector_loop,
+						Essence.Container.EmitType.Undefined => essence_data.sound_emit_ambient_loop,
+						Essence.Container.EmitType.Ambient => essence_data.sound_emit_ambient_loop,
+						Essence.Container.EmitType.Impactor => essence_data.sound_emit_impactor_loop,
+						Essence.Container.EmitType.Cycler => essence_data.sound_emit_cycler_loop,
+						Essence.Container.EmitType.Pulser => essence_data.sound_emit_pulser_loop,
+						Essence.Container.EmitType.Stressor => essence_data.sound_emit_stressor_loop,
+						Essence.Container.EmitType.Oscillator => essence_data.sound_emit_oscillator_loop,
+						Essence.Container.EmitType.Fragmenter => essence_data.sound_emit_ambient_loop,
+						Essence.Container.EmitType.Projector => essence_data.sound_emit_projector_loop,
 						_ => essence_data.sound_emit_loop
 					};
 					//entity.MarkModified<Essence.Container.Data, Sound.Emitter>();
@@ -450,7 +466,12 @@ namespace TC2.Base.Components
 						container.t_next_collapse = info.WorldTime + random.NextFloatRange(0.50f, 1.00f);
 						var full_collapse = modifier >= 1.00f; // (1.00f - health_norm) >= container.stability;
 
-						Essence.SpawnCollapsingNode(ref region, container.h_essence, container.available * Maths.Max(container.rate_current, modifier.Pow2()) * modifier, transform.position, full_collapse: full_collapse);
+						Essence.SpawnCollapsingNode(region: ref region,
+						h_essence: container.h_essence,
+						amount: container.available * Maths.Max(container.rate_current, modifier.Pow2()) * modifier,
+						position: transform.position,
+						full_collapse: full_collapse);
+
 						if (full_collapse)
 						{
 							entity.Delete();
@@ -692,55 +713,6 @@ namespace TC2.Base.Components
 #endif
 		}
 
-		public static partial class Director
-		{
-			[Flags]
-			public enum Flags: ushort
-			{
-				None = 0,
-
-
-			}
-
-			[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Global | IComponent.Scope.Region)]
-			public partial struct Data(): IComponent
-			{
-				[Save.Force, Editor.Picker.Position(relative: true)] public required Vec2f offset;
-				[Save.Force, Editor.Picker.Direction(normalize: true)] public required Vec2f direction = Vec2f.Up;
-
-				[Editor.Slider.Clamped(min: 0.00f, max: 16.00f, snap: 0.001f)]
-				public float radius;
-			}
-
-			[ISystem.Update.B(ISystem.Mode.Single, ISystem.Scope.Region)]
-			public static void OnUpdate_B(ISystem.Info info, ref XorRandom random, ref Region.Data region, Entity entity,
-			[Source.Owned] ref Transform.Data transform,
-			[Source.Owned] ref Essence.Director.Data director)
-			{
-
-			}
-
-			[ISystem.Update.C(ISystem.Mode.Single, ISystem.Scope.Region)]
-			public static void OnUpdate_C(ISystem.Info info, ref XorRandom random, ref Region.Data region, Entity entity,
-			[Source.Owned] ref Transform.Data transform,
-			[Source.Owned] ref Essence.Director.Data director,
-			[Source.Owned, Pair.Component<Essence.Director.Data>] ref Essence.Charge.Data charge)
-			{
-
-			}
-
-#if CLIENT
-			[ISystem.Render(ISystem.Mode.Single, ISystem.Scope.Region)]
-			public static void OnRender_A(ISystem.Info info, ref XorRandom random, ref Region.Data region, Entity entity,
-			[Source.Owned] in Transform.Data transform,
-			[Source.Owned] ref Essence.Director.Data director,
-			[Source.Owned, Pair.Component<Essence.Director.Data>] ref Essence.Charge.Data charge)
-			{
-
-			}
-#endif
-		}
-
 		public static partial class Beam
 		{
 			[Flags]
@@ -779,12 +751,82 @@ namespace TC2.Base.Components
 			}
 
 #if CLIENT
-			[ISystem.Render(ISystem.Mode.Single, ISystem.Scope.Region)]
-			public static void OnRender_A(ISystem.Info info, ref XorRandom random, ref Region.Data region, Entity entity,
+			[ISystem.PostUpdate.A(ISystem.Mode.Single, ISystem.Scope.Region)]
+			public static void OnPostUpdate_A(ISystem.Info info, ref XorRandom random, ref Region.Data region, Entity entity,
 			[Source.Owned] in Transform.Data transform,
 			[Source.Owned] ref Essence.Beam.Data beam)
 			{
+				var h_essence = beam.h_essence;
+				if (h_essence)
+				{
+					var intensity = beam.intensity;
+					if (intensity > 0.10f)
+					{
+						//App.WriteValue(intensity);
 
+						// new IEssence.Handle("motion");
+						ref var essence_data = ref h_essence.GetData();
+						if (essence_data.IsNotNull())
+						{
+							var pos = transform.position;
+							var dir = transform.LocalToWorldDirection(beam.direction);
+
+							var color_a = ColorBGRA.Lerp(essence_data.color_emit, ColorBGRA.White, 0.50f);
+							var color_b = essence_data.color_emit.WithColorMult(0.20f).WithAlphaMult(0.00f);
+
+							//App.WriteLine("essence");
+
+							//Sound.Play(region: ref region, sound: essence_emitter.h_sound_emit, world_position: pos, volume: 1.00f, pitch: 1.00f, size: 0.35f, dist_multiplier: 0.65f);
+							//Sound.Play(region: ref region, h_soundmix: essence_emitter.h_soundmix_pulse, random: ref random, pos: pos,
+							//	volume: Maths.Lerp01(0.50f, 1.50f, intensity),
+							//	pitch: Maths.Lerp01(0.72f, 1.05f, intensity)); //, volume: 1.00f, pitch: 1.00f, size: 0.35f, dist_multiplier: 0.65f);
+
+							//Sound.Play(region: ref region, world_position: pos, sound: essence_data.sound_impulse,
+							//	volume: Maths.Lerp01(0.50f, 1.50f, intensity),
+							//	pitch: Maths.Lerp01(1.18f, 0.95f, intensity)); //, volume: 1.00f, pitch: 1.00f, size: 0.35f, dist_multiplier: 0.65f);
+							//if (intensity > 0.30f) Shake.Emit(region: ref region, world_position: pos, trauma: 0.45f * intensity, max: 0.50f, radius: 10.00f);
+
+							//if (random.NextBool(0.40f))
+							{
+								Particle.Spawn(ref region, new Particle.Data()
+								{
+									texture = Light.tex_light_circle_00,
+									lifetime = 0.20f,
+									pos = pos + dir,
+									vel = dir * beam.unused_02,
+									drag = 0.0020f,
+									frame_count = 1,
+									frame_count_total = 1,
+									frame_offset = 0,
+									scale = beam.radius * 40,
+									stretch = new Vector2(2.00f, 0.50f),
+									face_dir_ratio = 1.00f,
+									growth = 10.00f,
+									color_a = color_a,
+									color_b = color_b,
+									force = dir.GetPerpendicular() * beam.curl * 100, //.RotateByRad(beam.curl) * beam.unused_02 * 1000,
+									glow = 20.00f * intensity
+								});
+							}
+
+							//Particle.Spawn(ref region, new Particle.Data()
+							//{
+							//	texture = Light.tex_light_circle_04,
+							//	lifetime = random.NextFloatRange(1.00f, 1.25f),
+							//	pos = data.world_position + (dir * 0.50f),
+							//	scale = random.NextFloatRange(1.00f, 1.50f),
+							//	growth = random.NextFloatRange(1.50f, 2.00f),
+							//	stretch = new Vector2(0.90f, 0.60f),
+							//	rotation = dir.GetAngleRadiansFast(),
+							//	face_dir_ratio = 1.00f,
+							//	color_a = new Vector4(1.00f, 0.70f, 0.40f, 30.00f),
+							//	color_b = new Vector4(0.20f, 0.00f, 0.00f, 0.00f),
+							//	glow = 1.00f
+							//});
+
+						}
+					}
+				}
 			}
 #endif
 		}
@@ -799,15 +841,22 @@ namespace TC2.Base.Components
 
 			}
 
+			public enum Type: byte
+			{
+				Undefined = 0,
+
+
+			}
+
 			[ITrait.Data(Net.SendType.Unreliable, IComponent.Scope.Global | IComponent.Scope.Region)]
 			public partial struct Data(): ITrait
 			{
 				public IEssence.Handle h_essence;
 				public Essence.Charge.Flags flags;
-				public byte unused_00;
+				public Essence.Charge.Type type;
 
+				[Save.NewLine]
 				public float unused_01;
-
 				public float amount;
 				[Editor.Slider.Clamped(min: 0.00f, max: 16.00f, snap: 0.001f)]
 				public float radius;
@@ -822,8 +871,8 @@ namespace TC2.Base.Components
 			}
 
 #if CLIENT
-			[ISystem.Render(ISystem.Mode.Single, ISystem.Scope.Region)]
-			public static void OnRender_A(ISystem.Info info, ref XorRandom random, ref Region.Data region, Entity entity,
+			[ISystem.PostUpdate.A(ISystem.Mode.Single, ISystem.Scope.Region)]
+			public static void OnPostUpdate_A(ISystem.Info info, ref XorRandom random, ref Region.Data region, Entity entity,
 			[Source.Owned] in Transform.Data transform,
 			[Source.Owned, Pair.Wildcard] ref Essence.Charge.Data charge)
 			{
@@ -902,8 +951,8 @@ namespace TC2.Base.Components
 				[Asset.Ignore] Pulsed = 1 << 7,
 			}
 
-			[ITrait.Data(Net.SendType.Unreliable, IComponent.Scope.Region)]
-			public partial struct Data(): ITrait
+			[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region)]
+			public partial struct Data(): IComponent
 			{
 				[Net.Segment.A, Save.Force, Editor.Picker.Position(relative: true)] public required Vec2f offset;
 				[Net.Segment.A, Save.Force, Editor.Picker.Direction(normalize: true)] public required Vec2f direction = Vec2f.Down;
@@ -948,10 +997,9 @@ namespace TC2.Base.Components
 			}
 
 			[ISystem.PreUpdate.D(ISystem.Mode.Single, ISystem.Scope.Region)]
-			public static void OnUpdate_Signal(ISystem.Info info, ref XorRandom random, Entity entity,
-			IComponent.Handle<Essence.Emitter.Data> h_essence_emitter, Entity ent_essence_emitter,
+			public static void OnUpdate_Signal(ISystem.Info info, ref XorRandom random, Entity entity, Entity ent_essence_emitter,
 			[Source.Owned] in Transform.Data transform, [Source.Owned] ref Analog.Relay.Data analog_relay,
-			[Source.Owned, Pair.Wildcard] ref Essence.Emitter.Data essence_emitter)
+			[Source.Owned] ref Essence.Emitter.Data essence_emitter)
 			{
 				//return;
 				if (essence_emitter.flags.HasNone(Flags.Enable_Signal_Read)) return;
@@ -995,8 +1043,7 @@ namespace TC2.Base.Components
 			[ISystem.PostUpdate.B(ISystem.Mode.Single, ISystem.Scope.Region)]
 			public static void OnUpdate_Essence(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity ent_piston,
 			[Source.Owned] in Transform.Data transform, /*[Source.Owned] ref Control.Data control,*/
-			[Source.Owned] ref Piston.Data piston, [Source.Owned, Pair.Component<Piston.Data>] ref Essence.Emitter.Data essence_emitter
-			/*[Source.Owned] in Crafter.Data crafter, [Source.Owned] ref Crafter.State crafter_state*/)
+			[Source.Owned] ref Piston.Data piston, [Source.Owned] ref Essence.Emitter.Data essence_emitter)
 			{
 				//if (control.mouse.GetKey(Mouse.Key.Left))
 
@@ -1094,14 +1141,11 @@ namespace TC2.Base.Components
 				}
 			}
 
-			[ISystem.PostUpdate.D(ISystem.Mode.Single, ISystem.Scope.Region)]
-			public static void OnUpdate_Charge(ISystem.Info info, ref XorRandom random,
-			//IComponent.Handle<Essence.Emitter.Data> h_essence_emitter, Entity ent_essence_emitter,
-			IComponent.Handle<Essence.Emitter.Data> h_essence_emitter, Entity ent_essence_emitter,
+			// TODO: move to piston
+			[ISystem.PostUpdate.C(ISystem.Mode.Single, ISystem.Scope.Region)]
+			public static void OnPostUpdate_Piston(ISystem.Info info, ref XorRandom random, Entity ent_essence_emitter,
 			[Source.Owned] in Transform.Data transform, [Source.Owned] ref Essence.Container.Data essence_container,
-			[Source.Owned] ref Body.Data body,
-			//[Source.Owned, Pair.Wildcard] ref Essence.Emitter.Data essence_emitter)
-			[Source.Owned, Pair.Component<Piston.Data>] ref Essence.Emitter.Data essence_emitter)
+			[Source.Owned] ref Body.Data body, [Source.Owned] ref Essence.Emitter.Data essence_emitter)
 			{
 				if (essence_emitter.state_flags.HasAny(StateFlags.Pulsing | StateFlags.Pulsed))
 				{
@@ -1113,7 +1157,7 @@ namespace TC2.Base.Components
 #if SERVER
 						var amount_taken = essence_emitter.current_charge.MultSub(0.98f);
 						essence_emitter.current_emit += amount_taken;
-						essence_emitter.Sync(ent_essence_emitter, IComponent.Handle<Essence.Emitter.Data>.WithTargetComponent<Piston.Data>());
+						essence_emitter.Sync(ent_essence_emitter);
 #endif
 					}
 					else
@@ -1152,22 +1196,22 @@ namespace TC2.Base.Components
 					//}
 				}
 #endif
+			}
 
+			[ISystem.PostUpdate.D(ISystem.Mode.Single, ISystem.Scope.Region)]
+			public static void OnPostUpdate_Charge([Source.Owned] ref Essence.Container.Data essence_container,
+			[Source.Owned] ref Essence.Emitter.Data essence_emitter)
+			{
 				essence_emitter.h_essence_charge = essence_container.h_essence;
 				essence_emitter.current_charge_ratio = Maths.NormalizeFast(essence_emitter.current_charge, essence_emitter.charge_capacity);
-				var rate = essence_container.rate_current * essence_container.h_essence.GetDischargeMult(); // * essence_emitter.efficiency;
-														   //essence_container.rate_current *= 1.00f - rate; // * App.fixed_update_interval_s_f32;
+				var rate = essence_container.rate_current * essence_container.h_essence.GetDischargeMult();
 
-				//essence_emitter.current_instability = Maths.FNMA(essence_container.stability, , 1.00f)Maths.Max(essence_emitter.current_charge_ratio, )
-				//essence_emitter.current_instability = Maths.Max((essence_emitter.current_charge_ratio - 1.00f) * (1.00f - essence_container.stability.Pow2()), 0.00f);
-				essence_emitter.current_instability = Maths.Max((essence_emitter.current_charge_ratio) - (essence_container.stability * essence_container.h_essence.GetStabilityMult()), 0.00f).Pow2();
-				//essence_emitter.current_instability = Maths.Max((essence_emitter.current_charge_ratio - (1.00f - essence_container.stability)), 0.00f).Pow2();
+				essence_emitter.current_instability = Maths.Max((essence_emitter.current_charge_ratio) -
+					(essence_container.stability * essence_container.h_essence.GetStabilityMult()), 0.00f).Pow2();
 
-				essence_emitter.current_charge -= essence_emitter.current_charge * essence_emitter.charge_loss; // * essence_emitter.current_charge_ratio; // * essence_emitter.current_instability;
+				var current_charge = essence_emitter.current_charge;
+				essence_emitter.current_charge -= essence_emitter.current_charge * essence_emitter.charge_loss;
 				essence_emitter.current_charge += (rate * essence_container.available) * App.fixed_update_interval_s_f32;
-				//essence_emitter.current_charge -= essence_emitter.current_charge * essence_emitter.charge_loss * essence_emitter.current_charge_ratio; // * essence_emitter.current_instability;
-
-				//essence_emitter.
 			}
 		}
 
@@ -1231,7 +1275,7 @@ namespace TC2.Base.Components
 			}
 		}
 
-		public static void SpawnCollapsingNode(ref Region.Data region, IEssence.Handle h_essence, float amount, Vector2 position, bool full_collapse = true)
+		public static UniTask<Entity> SpawnCollapsingNode(ref Region.Data region, IEssence.Handle h_essence, float amount, Vector2 position, bool full_collapse = true)
 		{
 			ref var essence_data = ref h_essence.GetData();
 			if (essence_data.IsNotNull())
@@ -1241,9 +1285,9 @@ namespace TC2.Base.Components
 				{
 					if (amount >= 1.00f)
 					{
-						region.SpawnPrefab(prefab, position).ContinueWith(x =>
+						return region.SpawnPrefab(prefab, position).ContinueWith(ent_essence =>
 						{
-							ref var essence_node = ref x.GetComponent<EssenceNode.Data>();
+							ref var essence_node = ref ent_essence.GetComponent<EssenceNode.Data>();
 							if (essence_node.IsNotNull())
 							{
 								essence_node.h_essence = h_essence;
@@ -1252,12 +1296,16 @@ namespace TC2.Base.Components
 								essence_node.volatility = 1.00f;
 								essence_node.flags.AddFlag(EssenceNode.Flags.Full_Collapse, full_collapse);
 
-								essence_node.Sync(x, true);
+								essence_node.Sync(ent_essence, true);
 							}
+
+							return ent_essence;
 						});
 					}
 				}
 			}
+
+			return default;
 		}
 #endif
 
