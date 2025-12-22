@@ -2417,7 +2417,7 @@ namespace TC2.Base.Components
 
 									ai_original.anger -= Maths.Min(ai_original.anger, random.NextFloatRange(50.00f, 1500.00f));
 
-									Sound.Play(ref region, Kobold.snd_insults.GetRandom(), transform.position, pitch: random.NextFloatRange(0.90f, 1.10f) * head.voice_pitch);
+									Sound.Play(ref region, Kobold.snd_insults.GetRandom(ref random), transform.position, pitch: random.NextFloatRange(0.90f, 1.10f) * head.voice_pitch);
 
 									kobold.next_talk = time + random.NextFloatRange(2.00f, 10.00f - Maths.Clamp(ai_original.anger * 0.02f, 0.00f, 7.00f));
 									head_state.t_next_sound = time + 1.50f;

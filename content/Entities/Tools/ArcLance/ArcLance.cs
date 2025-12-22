@@ -308,7 +308,7 @@ namespace TC2.Base.Components
 			if (sound_emitter.IsNotNull())
 			{
 				sound_emitter.volume_mult.LerpFMARef(discharge_modifier * 1.70f, 0.02f);
-				sound_emitter.pitch_mult.LerpFMARef(Maths.Lerp01Fast(0.40f, 2.75f, discharge_modifier * 2.10f), 0.05f);
+				sound_emitter.pitch_mult.LerpFMARef(Maths.Lerp01(0.40f, 2.75f, discharge_modifier * 2.10f), 0.05f);
 			}
 
 			if (electrode_state.charge.MJ() > 0.50f && random.NextBool(discharge_modifier * 4.00f))
@@ -372,6 +372,7 @@ namespace TC2.Base.Components
 			return Maths.Clamp01((Maths.Pow(i, energy_mj * j) * k) - k);
 		}
 
+		[Shitcode]
 		[ISystem.Update.C(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnUpdate(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Essence.Container.Data essence_container,
@@ -404,7 +405,7 @@ namespace TC2.Base.Components
 				if (random.NextBool(chance))
 				{
 					var energy_discharged = electrode_state.charge.m_value.MultSub(random.NextFloatExtra(0.70f, 0.25f));
-					var radius = 16.00f * discharge_modifier * random.NextFloatExtra(0.50f, 0.35f);
+					var radius = Maths.Clamp(16.00f * discharge_modifier * random.NextFloatExtra(0.50f, 0.35f), 1.00f, 64.00f);
 					var pos = transform.LocalToWorld(random.NextBool(0.50f) ? electrode.offset_a : electrode.offset_b);
 
 					var ev = new Electrode.DischargeEvent

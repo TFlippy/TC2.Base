@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.67.1"
 	name: "Dissolved Money"
 	desc:
 		'''
@@ -146,7 +146,7 @@
 	]
 	
 	type: workshop
-	flags: debug, dismantling, wip
+	flags: debug, disabled, dismantling, wip
 	tags: dumb, crude, simple, filtering, metallurgy, alchemistry, salvaging, separation, processing, messy
 	hints: none
 	connotations: none

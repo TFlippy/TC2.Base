@@ -40,9 +40,9 @@
 						{
 							type: work
 							work: sawing.metal
-							amount: 40.000
+							amount: 160.000
 							amount_min: 50.000
-							difficulty: 16
+							difficulty: 13
 							snapping: 5.000
 							falloff: 0.936
 							loss: 0.137
@@ -53,13 +53,13 @@
 						{
 							type: work
 							work: filing
-							amount: 320.000
+							amount: 300.000
 							amount_min: 200.000
 							difficulty: 9
 							snapping: 5.000
 							falloff: 0.891
 							ratio: 0.816
-							group: 1
+							group: 0
 							flags: stepped, simultaneous, conditional
 						}
 						{
@@ -71,7 +71,7 @@
 							snapping: 5.000
 							falloff: 0.911
 							ratio: 0.761
-							group: 1
+							group: 0
 							flags: stepped, simultaneous, conditional
 						}
 					]
@@ -342,6 +342,31 @@
 			options:
 			[
 				{
+					name: "Staked"
+					
+					type: undefined
+					flags: wip, incomplete
+					
+					requirements:
+					[
+						{
+							type: work
+							work: doweling
+							amount: 200.000
+							difficulty: 6
+							snapping: 20.000
+							falloff: 0.985
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: hammer
+					}
+				}
+				{
 					name: "Glued"
 					
 					type: undefined
@@ -393,31 +418,6 @@
 					{
 						include: clean, organized
 						exclude: wet
-					}
-				}
-				{
-					name: "Staked"
-					
-					type: undefined
-					flags: wip, incomplete
-					
-					requirements:
-					[
-						{
-							type: work
-							work: hammering
-							amount: 200.000
-							difficulty: 6
-							snapping: 20.000
-							falloff: 0.985
-							group: 0
-							flags: conditional
-						}
-					]
-					
-					filter_tools:
-					{
-						require: hammer
 					}
 				}
 			]

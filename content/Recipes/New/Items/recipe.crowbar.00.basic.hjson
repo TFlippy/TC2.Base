@@ -37,36 +37,15 @@
 							flags: prerequisite
 						}
 						{
-							type: temperature
-							amount: 802.0699
-							amount_min: 468.000
-							amount_max: 946.849
-							falloff: 0.752
-							group: 0
-							flags: no_scaling, always_evaluate, optional
-						}
-						{
 							type: work
 							work: bending
-							amount: 480.000
-							amount_min: 300.000
-							difficulty: 13
-							snapping: 25.000
-							falloff: 0.970
+							amount: 210.000
+							amount_min: 50.000
+							difficulty: 14
+							snapping: 10.000
+							falloff: 0.980
 							ratio: 0.475
 							group: 0
-							flags: stepped, conditional
-						}
-						{
-							type: work
-							work: sanding
-							amount: 200.000
-							amount_min: 150.000
-							difficulty: 5
-							snapping: 25.000
-							falloff: 0.852
-							ratio: 0.702
-							group: 1
 							flags: stepped, conditional
 						}
 					]

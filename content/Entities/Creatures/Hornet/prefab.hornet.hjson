@@ -219,6 +219,7 @@ melee:
 	attack_type: swing
 	damage_base: 35.000
 	damage_bonus: 100.000
+	armor_pierce: 70.000
 	primary_damage_multiplier: 0.700
 	terrain_damage_multiplier: 0.200
 	pain_multiplier: 1.350

@@ -43,11 +43,11 @@
 						{
 							type: work
 							work: bending
-							amount: 550.000
-							amount_min: 130.000
+							amount: 650.000
+							amount_min: 200.000
 							difficulty: 12
 							snapping: 5.000
-							falloff: 0.880
+							falloff: 0.950
 							ratio: 0.878
 							group: 0
 							flags: conditional

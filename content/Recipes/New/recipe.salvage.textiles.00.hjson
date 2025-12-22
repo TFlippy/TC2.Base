@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.67.1"
 	name: "Thinly Veiled Threads"
 	desc:
 		'''
@@ -107,12 +107,7 @@
 					
 					filter_tools:
 					{
-						require: hammer
-						include: hammer, cutters, hand_drill, screwdriver, wrench, tweezers, magnifying_glass, bucket, towel, tongs, pick, crowbar
-					}
-					filter_infrastructure:
-					{
-						include: cauldron, barrel, table, chair, vise, rack
+						include: cutters, screwdriver, pliers, bucket, towel, knife
 					}
 					filter_environment:
 					{
@@ -139,10 +134,10 @@
 	
 	type: workshop
 	flags: wip
-	tags: manual, simple, small, filtering, salvaging
+	tags: manual, basic, simple, small, filtering, salvaging
 	hints: none
 	connotations: none
-	infrastructure: barrel, surface
+	infrastructure: bucket, surface
 	infrastructure_exclude: none
 	
 	h_company: common

@@ -61,7 +61,7 @@ essence.container:
 	glow_modifier: 1.350
 	heat_modifier: 1.500
 	frequency: 0.000
-	flags: show_gui, allow_edit_rate
+	flags: show_gui, allow_edit_rate, constant_glow
 	emit_type: stressor
 
 	@inventory1:

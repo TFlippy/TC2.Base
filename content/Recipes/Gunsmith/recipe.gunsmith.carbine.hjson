@@ -44,7 +44,7 @@
 						{
 							type: work
 							work: bending
-							amount: 900.000
+							amount: 800.000
 							amount_min: 210.000
 							difficulty: 12
 							snapping: 5.000

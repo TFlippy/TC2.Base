@@ -1,25 +1,26 @@
 ﻿{
-	$version: "0.1.63.8"
-	name: "Scrap"
+	$version: "0.1.67.1"
+	name: "Compacted Garbage"
 	desc:
 		'''
-		Assorted garbage.
+		Thick layer of scrap metal, broken tools, and miscellaneous junk fused together by many years of neglect.
 		'''
 	
 	material_type: scrap
 	tile_flags: non_empty
-	flags: artificial, magnetic, metal
+	flags: artificial, common, magnetic, metal
 	
-	max_health: 19500.000
+	max_health: 16500.000
 	smoothing: 0.160
 	stability: 0.180
 	strength_tensile: 0.100
 	strength_compressive: 7.000
 	
 	mass: 1.700
+	density: 0.000
 	friction: 0.950
-	elasticity: 0.100
-	fall_damage_mult: 1.090
+	elasticity: 0.270
+	fall_damage_mult: 1.210
 	collision_layer: none
 	collision_mask: none
 	

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.65.1"
+	$version: "0.1.67.1"
 	name: "Prospector Pick"
 	tips: []
 	
@@ -214,6 +214,31 @@
 			options:
 			[
 				{
+					name: "Staked"
+					
+					type: undefined
+					flags: wip, incomplete
+					
+					requirements:
+					[
+						{
+							type: work
+							work: hammering
+							amount: 200.000
+							difficulty: 6
+							snapping: 20.000
+							falloff: 0.985
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: hammer
+					}
+				}
+				{
 					name: "Glued"
 					
 					type: undefined
@@ -256,31 +281,6 @@
 					{
 						include: clean, organized
 						exclude: wet
-					}
-				}
-				{
-					name: "Staked"
-					
-					type: undefined
-					flags: wip, incomplete
-					
-					requirements:
-					[
-						{
-							type: work
-							work: hammering
-							amount: 200.000
-							difficulty: 6
-							snapping: 20.000
-							falloff: 0.985
-							group: 0
-							flags: conditional
-						}
-					]
-					
-					filter_tools:
-					{
-						require: hammer
 					}
 				}
 			]
