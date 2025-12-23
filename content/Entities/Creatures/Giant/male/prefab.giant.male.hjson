@@ -287,14 +287,6 @@ facing:
 	flip_interval: 0.250
 }
 
-interactable:
-{
-	flags: no_tab
-	priority: -3.000
-	window_size: [288.000, 244.000]
-	window_size_misc: [96.000, 0.000]
-}
-
 norotate:
 {
 	bias: 0.030
@@ -327,7 +319,49 @@ lootable:
 
 vehicle:
 {
+	flags: use_misc_window
+}
 
+interactable:
+{
+	flags: centered_inventory
+	window_size: [600, 480]
+	window_size_misc: [96, 0]
+	priority: -3.000
+}
+
+shop:
+{
+	tags_filter:
+	{
+		include: dumb, crude, agriculture, woodworking, metalworking, salvaging, gathering, forestry, messy, dangerous
+		exclude: automated, complex, advanced, huge, delicate, smelting, fermenting, heating
+	}
+	
+	tools: pliers, magnifying_glass, bucket, file, chisel, towel, tongs, sandpaper, ladle
+	infrastructure: barrel, bucket, surface, large_surface, giant, personal
+	environment: mobile, dirty, smelly, ugly, scary, noisy, sturdy, crappy, cramped, open, large
+	connotations: none
+	
+	flags: no_sorting, embed_gui, self_only
+	menu_columns: 3
+	recipe_type: workshop
+	
+	name: "Crafting"
+}
+
+workshop:
+{
+	flags: self_only
+	orders_capacity: 1
+	
+	gui_info_size_x: 216.000
+	max_order_mass: 250.000
+	
+	draw_order_flags:
+	{
+		rem: temperature, pressure
+	}
 }
 
 +slot.head|instance:
@@ -895,9 +929,9 @@ vehicle:
 	{
 		flags: use_center_of_gravity, keyboard_write, mouse_write
 		flags_editable: use_center_of_gravity, locked, disabled, keyboard_read, keyboard_write, mouse_read, mouse_write, manual_aim, loose, offset, rotation
+		gui_size: [96.000, 120.000]
 		name: "Back"
 		identifier: "back"
-		gui_size: [168.000, 120.000]
 	}
 }
 
