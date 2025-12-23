@@ -19,7 +19,7 @@ body:
 		rigidity_dynamic: 0.400
 		rigidity_static: 0.900
 		material: insect
-		layer: entity, solid, creature, flammable
+		layer: entity, solid, creature, flammable, organic
 		mask: world, vehicle, creature
 		exclude: plant, tree
 		cog_offset: [-0.125, 0.250]
@@ -134,7 +134,7 @@ ai.behavior:
 
 ai.search:
 {
-	radius: 20.000
+	radius: 24.000
 }
 
 pathfinding:
@@ -200,8 +200,8 @@ sound.emitter:
 	flags: start_muted
 	volume: 0.500
 	pitch: 1.000
-	size: 0.750
-	size_max_modifier: 0.900
+	size: 1.750
+	size_max_modifier: 0.850
 	spread: 90.000
 	priority: 0.100
 	doppler: 1.500

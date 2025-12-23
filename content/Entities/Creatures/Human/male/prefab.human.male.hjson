@@ -57,7 +57,7 @@ human:
 
 regen:
 {
-	amount: 100.000
+	amount: 75.000
 	interval: 5.000
 }
 
@@ -467,7 +467,7 @@ workshop:
 
 		regen:
 		{
-			amount: 60.000
+			amount: 40.000
 			interval: 5.000
 		}
 		
@@ -699,7 +699,7 @@ workshop:
 
 		regen:
 		{
-			amount: 80.000
+			amount: 50.000
 			interval: 5.000
 		}
 		
