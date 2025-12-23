@@ -169,11 +169,6 @@ tractor:
 	// }
 }
 
-tractor.state:
-{
-
-}
-
 norotate:
 {
 	bias: 0.200

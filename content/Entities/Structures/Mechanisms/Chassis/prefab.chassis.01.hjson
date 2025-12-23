@@ -151,11 +151,6 @@ tractor:
 	smoke_offset: [0.750, -2.125]
 }
 
-tractor.state:
-{
-
-}
-
 // axle:
 // {
 // 	offset: [-0.250, -0.125]

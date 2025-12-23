@@ -136,11 +136,6 @@ tractor:
 	speed_step: 15.000
 }
 
-tractor.state:
-{
-
-}
-
 norotate:
 {
 	multiplier: 0.400
