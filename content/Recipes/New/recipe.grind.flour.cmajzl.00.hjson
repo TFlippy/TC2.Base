@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.67.1"
+	$version: "0.1.67.2"
 	name: "Cmajzl Flour"
 	desc:
 		'''
@@ -74,7 +74,7 @@
 	hints: none
 	connotations: none
 	infrastructure: none
-	infrastructure_exclude: none
+	infrastructure_exclude: personal
 	
 	h_company: common
 	

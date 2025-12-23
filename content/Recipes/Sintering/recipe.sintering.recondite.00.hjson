@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.65.3"
+	$version: "0.1.67.2"
 	name: "Recondite Sintering"
 	desc:
 		'''
@@ -316,7 +316,7 @@
 	hints: none
 	connotations: none
 	infrastructure: compactor, press
-	infrastructure_exclude: none
+	infrastructure_exclude: personal
 	
 	icon:
 	{

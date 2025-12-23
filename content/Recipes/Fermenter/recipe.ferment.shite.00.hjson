@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.67.2"
 	name: "Shite"
 	desc:
 		'''
@@ -319,8 +319,10 @@
 	type: workshop
 	flags: debug, production, wip, no_cancel
 	tags: simple, organic, agriculture, fermenting, processing, dangerous
+	hints: none
+	connotations: none
 	infrastructure: liquid_container, fermenter
-	infrastructure_exclude: none
+	infrastructure_exclude: personal
 	
 	h_company: common
 	

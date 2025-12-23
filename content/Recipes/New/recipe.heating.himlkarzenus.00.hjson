@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.65.2"
+	$version: "0.1.67.2"
 	name: "Himlkarzenus Decomposition"
 	desc:
 		'''
@@ -340,7 +340,7 @@
 	hints: none
 	connotations: none
 	infrastructure: heater
-	infrastructure_exclude: none
+	infrastructure_exclude: personal
 	
 	h_company: carohrad
 	

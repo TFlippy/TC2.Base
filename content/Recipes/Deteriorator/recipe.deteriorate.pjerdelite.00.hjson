@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.67.2"
 	name: "Pjerdelite Deterioration"
 	desc:
 		'''
@@ -156,8 +156,10 @@
 	type: workshop
 	flags: wip, auto_complete
 	tags: essence, raw, salvaging, processing, messy
+	hints: none
+	connotations: none
 	infrastructure: essence_emitter, essence_projector
-	infrastructure_exclude: none
+	infrastructure_exclude: personal
 	
 	icon:
 	{

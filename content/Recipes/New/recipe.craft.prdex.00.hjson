@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.65.2"
+	$version: "0.1.67.2"
 	name: "Prdex"
 	desc:
 		'''
@@ -343,7 +343,7 @@
 	hints: none
 	connotations: none
 	infrastructure: bucket, liquid_container
-	infrastructure_exclude: none
+	infrastructure_exclude: personal
 	
 	icon:
 	{

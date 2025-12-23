@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.66.1"
+	$version: "0.1.67.2"
 	name: "Thermopaste"
 	desc:
 		'''
@@ -298,7 +298,7 @@
 	hints: none
 	connotations: none
 	infrastructure: bucket, surface
-	infrastructure_exclude: none
+	infrastructure_exclude: personal
 	
 	icon:
 	{

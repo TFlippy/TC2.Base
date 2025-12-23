@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.67.1"
+	$version: "0.1.67.2"
 	name: "Backpack"
 	tips: []
 	
@@ -192,7 +192,7 @@
 	hints: none
 	connotations: none
 	infrastructure: surface
-	infrastructure_exclude: none
+	infrastructure_exclude: giant
 	environment_filter:
 	{
 		exclude: form, enclosed, sealed

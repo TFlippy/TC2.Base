@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.65.2"
+	$version: "0.1.67.2"
 	name: "Copper Sheets"
 	desc:
 		'''
@@ -128,7 +128,7 @@
 	hints: none
 	connotations: none
 	infrastructure: hard_surface
-	infrastructure_exclude: none
+	infrastructure_exclude: personal
 	
 	icon:
 	{

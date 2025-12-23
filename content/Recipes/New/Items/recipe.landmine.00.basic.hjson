@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.65.2"
+	$version: "0.1.67.2"
 	name: "Landmine"
 	tips: []
 	
@@ -272,7 +272,7 @@
 	hints: none
 	connotations: none
 	infrastructure: table, surface
-	infrastructure_exclude: none
+	infrastructure_exclude: giant
 	
 	icon:
 	{

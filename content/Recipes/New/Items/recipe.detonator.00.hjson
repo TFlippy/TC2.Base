@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.65.2"
+	$version: "0.1.67.2"
 	name: "Detonator"
 	
 	stages:
@@ -306,7 +306,7 @@
 	hints: none
 	connotations: none
 	infrastructure: table, rack, surface
-	infrastructure_exclude: none
+	infrastructure_exclude: giant
 	
 	icon:
 	{

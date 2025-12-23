@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.67.2"
 	name: "LC-9.4mm"
 	desc:
 		'''
@@ -435,8 +435,10 @@
 	type: workshop
 	flags: production, manufacturing, wip
 	tags: manual, crafting, complex, small, munitions, delicate, assembling, industrial, metalworking, military, dangerous
+	hints: none
+	connotations: none
 	infrastructure: table, chair, surface, stamping_press, workbench
-	infrastructure_exclude: none
+	infrastructure_exclude: giant
 	
 	icon:
 	{

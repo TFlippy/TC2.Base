@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.67.2"
 	name: "Pump Shotgun"
 	desc:
 		'''
@@ -270,8 +270,10 @@
 	type: workshop
 	flags: blueprintable, item, wip, converted
 	tags: manual, crafting, simple, medium, weapon, gun, assembling, metalworking, engineering, military
+	hints: none
+	connotations: none
 	infrastructure: table, rack, surface, hard_surface, workbench
-	infrastructure_exclude: none
+	infrastructure_exclude: personal
 	
 	icon:
 	{

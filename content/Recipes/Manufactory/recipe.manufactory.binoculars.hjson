@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.67.2"
 	name: "Binoculars"
 	tips: []
 	
@@ -265,7 +265,7 @@
 	hints: none
 	connotations: none
 	infrastructure: table, chair
-	infrastructure_exclude: none
+	infrastructure_exclude: giant
 	
 	icon:
 	{

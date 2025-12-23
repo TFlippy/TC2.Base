@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.67.2"
 	name: "Pistol"
 	desc:
 		'''
@@ -265,8 +265,10 @@
 	type: workshop
 	flags: blueprintable, item, wip, converted
 	tags: manual, crafting, complex, small, weapon, gun, assembling, metalworking, engineering, military
+	hints: none
+	connotations: none
 	infrastructure: table, rack, surface, workbench
-	infrastructure_exclude: none
+	infrastructure_exclude: giant, personal
 	
 	icon:
 	{

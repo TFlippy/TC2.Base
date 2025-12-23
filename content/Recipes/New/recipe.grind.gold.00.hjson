@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.65.2"
+	$version: "0.1.67.2"
 	name: "Gold"
 	tips: []
 	
@@ -245,7 +245,7 @@
 	hints: none
 	connotations: none
 	infrastructure: table, surface
-	infrastructure_exclude: none
+	infrastructure_exclude: personal
 	
 	h_company: common
 	

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.67.2"
 	name: "HW-106.7mm"
 	desc:
 		'''
@@ -155,6 +155,8 @@
 	type: workshop
 	flags: debug, production, wip
 	tags: manual, crafting, complex, small, munitions, delicate, assembling, metalworking, military, explosive, dangerous
+	hints: none
+	connotations: none
 	infrastructure: table, chair, surface, machine, workbench
 	infrastructure_exclude: none
 	

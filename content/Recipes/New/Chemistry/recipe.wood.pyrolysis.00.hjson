@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.65.2"
+	$version: "0.1.67.2"
 	name: "Wood"
 	desc:
 		'''
@@ -250,7 +250,7 @@
 	hints: none
 	connotations: none
 	infrastructure: oven, heater
-	infrastructure_exclude: none
+	infrastructure_exclude: personal
 	
 	h_company: carohrad
 	

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.67.1"
+	$version: "0.1.67.2"
 	name: "HMG"
 	tips: []
 	
@@ -289,7 +289,7 @@
 	hints: none
 	connotations: none
 	infrastructure: table, vise, surface, hard_surface, workbench
-	infrastructure_exclude: none
+	infrastructure_exclude: personal
 	
 	icon:
 	{

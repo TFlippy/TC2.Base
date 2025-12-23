@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.67.2"
 	name: "Explosive Smirgrafit Compaction"
 	desc:
 		'''
@@ -183,8 +183,10 @@
 	type: compactor
 	flags: wip
 	tags: metalworking, explosive, dangerous
+	hints: none
+	connotations: none
 	infrastructure: none
-	infrastructure_exclude: none
+	infrastructure_exclude: personal
 	
 	icon:
 	{

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.67.2"
 	name: "Pocket Breechloader"
 	tips: []
 	
@@ -277,8 +277,10 @@
 	type: workshop
 	flags: blueprintable, item
 	tags: manual, crafting, simple, small, weapon, gun, assembling, metalworking, military
+	hints: none
+	connotations: none
 	infrastructure: workbench
-	infrastructure_exclude: none
+	infrastructure_exclude: giant
 	
 	icon:
 	{

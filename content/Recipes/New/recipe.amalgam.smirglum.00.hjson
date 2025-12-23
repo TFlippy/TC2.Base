@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.65.2"
+	$version: "0.1.67.2"
 	name: "Smirglum Amalgamation"
 	desc:
 		'''
@@ -137,7 +137,7 @@
 	hints: none
 	connotations: none
 	infrastructure: barrel, bucket, liquid_container
-	infrastructure_exclude: none
+	infrastructure_exclude: personal
 	
 	h_company: carohrad
 	

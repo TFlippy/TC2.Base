@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.65.2"
+	$version: "0.1.67.2"
 	$note: "Needs to be updated to reflect the changes made to Brezolyt's composition."
 	name: "Brezolyt Calcination"
 	desc:
@@ -202,7 +202,7 @@
 	hints: none
 	connotations: none
 	infrastructure: oven, kiln, smokestack
-	infrastructure_exclude: none
+	infrastructure_exclude: personal
 	
 	icon:
 	{

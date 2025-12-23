@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.65.2"
+	$version: "0.1.67.2"
 	name: "Niklajzner Sheet"
 	desc:
 		'''
@@ -199,7 +199,7 @@
 	hints: none
 	connotations: none
 	infrastructure: oven
-	infrastructure_exclude: none
+	infrastructure_exclude: personal
 	
 	icon:
 	{
