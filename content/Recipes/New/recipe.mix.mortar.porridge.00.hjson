@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.65.2"
+	$version: "0.1.67.2"
 	name: "Porridge-based Mortar"
 	desc:
 		'''
@@ -164,11 +164,11 @@
 					filter_tools:
 					{
 						require: knife
-						include: saw, cleaver, axe, shovel, towel, knife, scissors, utensils
+						include: ruler, cutters, cleaver, shovel, file, towel, knife, scissors, utensils
 					}
 					filter_infrastructure:
 					{
-						include: dishes, compactor, blender, press, form
+						include: dishes, surface, hard_surface, compactor, blender, press, form
 					}
 				}
 			]

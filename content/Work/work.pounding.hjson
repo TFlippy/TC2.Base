@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.67.2"
 	name: "Pounding"
 	name_short: "Pounding"
 	desc:
@@ -29,7 +29,7 @@
 	tools_optional: none
 	
 	infrastructure_required: none
-	infrastructure_optional: none
+	infrastructure_optional: surface, hard_surface
 	
 	character_traits:
 	{
@@ -46,7 +46,7 @@
 	{
 		strength: 0.550
 		dexterity: 0.150
-		endurance: 0.600
+		endurance: 0.550
 	}
 	
 	sound_volume: 0.500

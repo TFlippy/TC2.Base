@@ -1,0 +1,62 @@
+$tags: []
+
+body:
+{
+	type: dynamic
+
+	@shape.circle:
+	{
+		radius: 1.500
+		friction: 0.150
+		elasticity: 0.200
+		rigidity_static: 0.750
+		rigidity_dynamic: 0.500
+		
+		material: gas
+		miss_chance: 0.000
+		
+		layer: entity, solid, resource, gas, ignore_melee, ignore_hover, ignore_bullet
+		mask: world, essence
+		exclude: decoration, background, barbed, gas
+	}
+
+	gravity: 0.060
+	damping: 0.960
+	mass_multiplier: 100.000
+	fall_damage_multiplier: 0.000
+}
+
+transform:
+{
+
+}
+
+gas:
+{
+	radius: 1.750
+	size: 1.250
+	lifetime: 1.000
+	speed: 0.700
+	interval: 0.100
+	color_a: "0x7de65d9d"
+	color_b: "0x1e18c86e"
+}
+
+resource:
+{
+	material: "smrad.dust"
+}
+
+despawn:
+{
+	sleep_count_max: 0
+	
+	interval: 1.000
+	interval_extra: 6.000
+
+	threshold_delete: 0.001
+	threshold_despawning: 1.500
+
+	amount_ratio: 0.010
+	amount_ratio_extra: 0.050
+}

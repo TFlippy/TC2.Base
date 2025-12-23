@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.67.1"
+	$version: "0.1.67.2"
 	$note:
 		'''
 		- Strange, ultrafine powder with anomalous properties
@@ -60,8 +60,8 @@
 	
 	color_icon: "0xffffffff"
 	color_item: "0xffffffff"
-	color_dust: "0xfff4fbf8"
-	color_gib: "0xfff4fbf8"
+	color_dust: "0xffe6ade4"
+	color_gib: "0xff18c86e"
 	
 	// Residues from crafting/work.
 	residues:

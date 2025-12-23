@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.65.2"
+	$version: "0.1.67.2"
 	name: "Knife"
 	tips: []
 	
@@ -234,7 +234,7 @@
 	hints: none
 	connotations: none
 	infrastructure: surface
-	infrastructure_exclude: none
+	infrastructure_exclude: giant
 	
 	icon:
 	{

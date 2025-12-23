@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.67.2"
 	name: "Slicing"
 	name_short: "Slicing"
 	desc:
@@ -26,7 +26,7 @@
 	color: "0xffffa200"
 	
 	tools_required: knife
-	tools_optional: saw, cleaver, axe, knife, scissors, utensils
+	tools_optional: ruler, cutters, cleaver, file, knife, scissors, utensils
 	
 	infrastructure_required: none
 	infrastructure_optional: none
@@ -43,9 +43,9 @@
 	
 	skills_mult:
 	{
-		blades: 1.400
-		dexterity: 0.500
-		strength: 0.300
+		blades: 1.250
+		dexterity: 0.430
+		strength: 0.100
 	}
 	
 	sound_volume: 0.500

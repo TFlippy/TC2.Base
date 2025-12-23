@@ -129,7 +129,7 @@
 	
 	type: workshop
 	flags: no_amount_multiplier, blueprintable, item, wip, converted
-	tags: manual, crafting, simple, small, furniture, woodworking, construction
+	tags: manual, crafting, basic, simple, small, furniture, woodworking, construction
 	hints: none
 	connotations: none
 	infrastructure: surface

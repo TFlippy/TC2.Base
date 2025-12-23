@@ -414,7 +414,7 @@
 	
 	type: workshop
 	flags: production, no_cancel
-	tags: manual, dumb, crude, simple, blending, processing, messy, dangerous
+	tags: dumb, crude, simple, medium, blending, processing, messy, dangerous
 	hints: none
 	connotations: none
 	infrastructure: bucket, surface

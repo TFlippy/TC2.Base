@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.65.2"
+	$version: "0.1.67.2"
 	name: "Porridge"
 	desc:
 		'''
@@ -161,7 +161,7 @@
 					filter_tools:
 					{
 						require: knife
-						include: ruler, saw, cleaver, axe, shovel, file, spatula, knife, scissors, ladle, utensils
+						include: ruler, cutters, cleaver, shovel, file, spatula, knife, scissors, ladle, utensils
 					}
 					filter_infrastructure:
 					{
