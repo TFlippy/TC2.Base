@@ -586,7 +586,8 @@ workshop:
 		flags: organic, control_write, force_facing, facing_reset_pos, no_sync
 		material_type: flesh
 
-		max_displacement: 0.400
+		attaching_distance_max: 4.000
+		max_displacement: 2.500
 		displacement_stress_modifier: 0.500
 		displacement_force_modifier: 0.500
 
