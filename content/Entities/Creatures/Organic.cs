@@ -16,6 +16,7 @@ namespace TC2.Base.Components
 		}
 	}
 
+	[Shitcode] // TODO: this is a mess
 	public static partial class OrganicExt
 	{
 		[Shitcode]
@@ -228,6 +229,8 @@ namespace TC2.Base.Components
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.20f, flags: ISystem.Flags.Unchecked)]
 		public static void OnUpdate_Dead(Entity entity, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] ref Organic.State organic_state, [Source.Owned] bool dead)
 		{
+			if (organic.flags.HasAny(Organic.Flags.No_Dead_Tag)) return;
+
 			if (dead)
 			{
 				//if (organic_state.unconscious_time < 10.00f) entity.SetTag("dead", false);
@@ -239,14 +242,16 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.Add(ISystem.Mode.Single, ISystem.Scope.Region, order: 25), HasTag("dead", true, Source.Modifier.Parent)]
-		public static void OnAdd_ParentDead(Entity ent_organic_state_child, Entity ent_organic_state_parent,
-		[Source.Owned] ref Organic.State organic_state_child,
-		[Source.Parent] ref Organic.State organic_state_parent,
+		public static void OnAdd_ParentDead(Entity ent_organic_child, /*Entity ent_organic_state_parent,*/
+		[Source.Owned, Original] in Organic.Data organic_child,
+		[Source.Parent] in Organic.State organic_state_parent,
 		[Source.Parent] in Joint.Base joint)
 		{
+			if (organic_child.flags.HasAny(Organic.Flags.No_Dead_Tag)) return;
+
 			if (joint.flags.HasAny(Joint.Flags.Organic))
 			{
-				ent_organic_state_child.AddTag("dead");
+				ent_organic_child.AddTag("dead");
 			}
 		}
 #endif

@@ -75,12 +75,14 @@ actuator:
 
 	@sound.emitter:
 	{
-		file: "essence.device.loop.01"
+		file: essence.device.loop.01
 		flags: start_muted
 		volume: 0.850
 		pitch: 0.850
-		size: 2.000
-		size_max_modifier: 0.370
+		size: 3.000
+		size_max_modifier: 0.450
+		doppler: 1.000
+		priority: 0.400
 	}
 
 	@light:

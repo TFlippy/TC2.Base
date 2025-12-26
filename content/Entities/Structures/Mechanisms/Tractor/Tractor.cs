@@ -123,7 +123,7 @@ namespace TC2.Base.Components
 				joint.speed = tractor.current_motor_speed;
 				joint.force = tractor.current_motor_force * wheel_slot.force_multiplier * wheel_slot.ratio; // * 2; // * wheel_slot.force_multiplier;
 				//joint.force = tractor_state.target_wheel_speed.IsNotNil() ? tractor_state.current_motor_force * wheel_slot.force_multiplier * wheel_slot.ratio : 0.00f; // * 2; // * wheel_slot.force_multiplier;
-				joint.brake = 0.00f;
+				//joint.brake = 0.00f;
 
 				if (joint.speed.Abs() > 0.01f) joint_base.Activate();
 				tractor.current_wheel_torque_load += joint.GetMotorReactionTorqueRaw().Abs();
