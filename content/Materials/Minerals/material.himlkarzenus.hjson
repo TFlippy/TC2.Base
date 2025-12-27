@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.67.2"
 	name: "Himlkarzenus"
 	name_short: "Himlkarzenus"
 	name_imperial: "Himlkarzenus"
@@ -134,7 +134,7 @@
 			flags: none
 			flags_product: pollutant, waste, spawn, hidden
 			
-			yield: [0.397, 0.544]
+			yield: [0.691, 0.294]
 		}
 		crushing:
 		{
@@ -143,7 +143,16 @@
 			flags: none
 			flags_product: pollutant, waste, spawn, hidden
 			
-			yield: [0.541, 0.400]
+			yield: [0.785, 0.215]
+		}
+		hammering:
+		{
+			h_material: arsine
+			
+			flags: none
+			flags_product: pollutant, waste, spawn, hidden
+			
+			yield: [0.785, 0.215]
 		}
 	}
 	

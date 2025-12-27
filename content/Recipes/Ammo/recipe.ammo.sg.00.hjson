@@ -58,7 +58,7 @@
 						{
 							type: work
 							work: metal.forming
-							amount: 60.000
+							amount: 50.000
 							amount_min: 45.000
 							difficulty: 7
 							snapping: 5.000
@@ -284,6 +284,139 @@
 							group: 0
 							ratio: 1.000
 							flags: waste, scale_to_mass
+						}
+					]
+					
+					filter_tools:
+					{
+						include: paintbrush, file, towel, spatula
+					}
+					filter_infrastructure:
+					{
+						include: table, chair
+					}
+					filter_environment:
+					{
+						include: clean, organized
+						exclude: wet
+					}
+				}
+				{
+					name: "Rodshot"
+					
+					type: undefined
+					flags: none
+					
+					priority: 1.000
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: gunpowder
+							amount: 0.145652
+							snapping: 0.100
+							loss: 0.620
+							ratio: 0.275
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: steel.rod
+							amount: 0.020537
+							snapping: 0.100
+							falloff: 0.888
+							loss: 0.514
+							ratio: 0.863
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: filling.powder
+							amount: 34.000
+							amount_min: 20.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.861
+							loss: 0.227
+							ratio: 0.314
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: sawing.metal
+							amount: 40.000
+							amount_min: 100.000
+							difficulty: 12
+							snapping: 5.000
+							falloff: 0.902
+							loss: 0.294
+							ratio: 0.820
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: gluing
+							amount: 11.000
+							amount_min: 25.000
+							difficulty: 5
+							snapping: 5.000
+							falloff: 0.951
+							loss: 0.329
+							ratio: 1.000
+							group: 0
+							flags: stepped, conditional
+						}
+						{
+							type: work
+							work: drying
+							amount: 65.000
+							amount_min: 12.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.572
+							group: 1
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: ammo.sg.slug
+							amount: 0.544
+							amount_extra: 0.256
+							snapping: 1.000
+							group: 0
+							chance: 0.906
+							flags: primary, stepped, compact
+						}
+						{
+							type: resource
+							material: machine_parts
+							amount: 0.443
+							amount_extra: 1.0633
+							snapping: 0.100
+							group: 0
+							chance: 0.361
+							ratio: 0.302
+							flags: byproduct, stepped, scale_to_mass
+						}
+						{
+							type: resource
+							material: scrap.machine
+							amount: 0.3391
+							amount_extra: 0.7436
+							snapping: 0.100
+							group: 0
+							chance: 0.612
+							ratio: 0.506
+							flags: waste, residue, stepped, scale_to_mass
 						}
 					]
 					

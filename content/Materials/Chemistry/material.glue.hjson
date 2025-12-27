@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.67.1"
+	$version: "0.1.67.2"
 	name: "Glue"
 	name_short: "Glue"
 	name_imperial: "Lepik"
@@ -61,7 +61,7 @@
 			flags: none
 			flags_product: waste
 			
-			yield: [0.144, 0.187]
+			yield: [0.797, 0.203]
 		}
 	}
 }

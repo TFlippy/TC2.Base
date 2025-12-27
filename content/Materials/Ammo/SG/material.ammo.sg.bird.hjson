@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.67.2"
 	name: "SG-20.4mm Birdshot"
 	description:
 		'''
@@ -17,7 +17,6 @@
 	
 	icon_extra:
 	{
-		texture: ui_icons_gunsmith.mini
 		size: [16, 16]
 	}
 	

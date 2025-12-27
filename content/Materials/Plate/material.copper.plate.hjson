@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.67.2"
 	name: "Copper Sheet"
 	name_short: "Cop. Sheet"
 	description:
@@ -57,6 +57,7 @@
 	color_dust: "0xffdf873d"
 	color_gib: "0xffdf873d"
 	
+	centroid_default: [-0.03125, 0.050]
 	colliders:
 	[
 		{
@@ -299,6 +300,15 @@
 			flags_product: pollutant, waste, use_temperature
 			
 			yield: [0.574, 0.223]
+		}
+		metal.forming:
+		{
+			h_material: scrap.copper
+			
+			flags: none
+			flags_product: waste
+			
+			yield: [0.922, 0.078]
 		}
 	}
 }
