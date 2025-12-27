@@ -292,7 +292,7 @@ commandable:
 	
 }
 
-+slot_head|instance:
++slot.head|instance:
 {
 	joint.base:
 	{
@@ -519,7 +519,7 @@ commandable:
 	}
 }
 
-+slot_waist|instance:
++slot.waist|instance:
 {
 	joint.base:
 	{
@@ -529,7 +529,7 @@ commandable:
 		max_stress: 3.000
 		stress_threshold: 1.250
 		stress_damp: 0.300
-		flags: organic, control_write, force_facing, facing_reset_pos, no_sync
+		flags: organic, control_write, force_facing, facing_reset_pos
 		material_type: flesh
 
 		max_displacement: 0.400

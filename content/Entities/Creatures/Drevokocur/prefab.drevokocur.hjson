@@ -361,7 +361,7 @@ faction:
 		stress_threshold: 1.500
 		z: 15.000
 		material_type: flesh
-		flags: organic, no_wrap, allow_dragging, control_write, facing_reset_pos, force_facing, no_sync
+		flags: organic, no_wrap, allow_dragging, control_write, facing_reset_pos, force_facing
 
 		@animated.renderer:
 		{

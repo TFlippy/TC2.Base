@@ -564,7 +564,7 @@ workshop:
 		max_stress: 3.000
 		stress_threshold: 1.500
 		stress_damp: 0.300
-		flags: organic, control_write, force_facing, facing_reset_pos, no_sync
+		flags: organic, control_write, force_facing, facing_reset_pos
 		material_type: flesh
 
 		max_displacement: 0.400

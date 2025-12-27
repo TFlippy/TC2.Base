@@ -258,7 +258,7 @@ faction:
 		max_stress: 3.500
 		stress_threshold: 1.500
 		stress_damp: 0.300
-		flags: organic, no_wrap, control_write, force_facing, facing_reset_pos, no_sync
+		flags: organic, no_wrap, control_write, force_facing, facing_reset_pos
 		material_type: flesh
 
 		@animated.renderer:

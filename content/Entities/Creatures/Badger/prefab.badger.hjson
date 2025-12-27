@@ -311,7 +311,7 @@ faction:
 		offset_a: [-0.375, -0.125]
 		max_force: 20000.000
 		max_torque: 1500.000
-		flags: organic, no_wrap, control_write, facing_reset_pos, force_facing, no_sync
+		flags: organic, no_wrap, control_write, facing_reset_pos, force_facing
 		material_type: flesh
 
 		@animated.renderer:

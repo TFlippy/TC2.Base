@@ -583,7 +583,7 @@ workshop:
 		max_stress: 3.500
 		stress_threshold: 1.250
 		stress_damp: 0.300
-		flags: organic, control_write, force_facing, facing_reset_pos, no_sync
+		flags: organic, control_write, force_facing, facing_reset_pos
 		material_type: flesh
 
 		attaching_distance_max: 4.000

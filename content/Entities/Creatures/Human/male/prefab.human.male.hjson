@@ -583,7 +583,7 @@ workshop:
 		offset_b_modifier: 1.000
 		z: -5.000
 		material_type: flesh
-		flags: organic, control_write, facing_reset_pos, force_facing, no_sync
+		flags: organic, control_write, facing_reset_pos, force_facing
 
 		@animated.renderer:
 		{
