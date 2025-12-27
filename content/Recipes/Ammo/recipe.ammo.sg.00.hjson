@@ -1,0 +1,349 @@
+﻿{
+	$version: "0.1.67.2"
+	name: "Glued SG-20.4mm"
+	desc:
+		'''
+		Highly streamlined formula for 20.4mm shotgun shells, 
+		with most of the process replaced by aggressive gluing.
+		'''
+	tips: []
+	
+	stages:
+	[
+		{
+			name: "Shell"
+			
+			type: part
+			flags: part
+			tags: thin, metal, structural, small, flat, rounded, material
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: shovel
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Standard"
+					
+					type: undefined
+					flags: wip
+					
+					priority: 1.000
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: copper.plate
+							amount: 0.020126
+							snapping: 0.500
+							loss: 0.855
+							ratio: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: himlkarzenus
+							amount: 0.04814
+							snapping: 0.100
+							falloff: 0.881
+							loss: 0.827
+							ratio: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: metal.forming
+							amount: 60.000
+							amount_min: 45.000
+							difficulty: 7
+							snapping: 5.000
+							falloff: 0.856
+							loss: 0.655
+							ratio: 0.816
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: cramming.solid
+							amount: 20.000
+							amount_min: 40.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.857
+							loss: 0.361
+							ratio: 0.765
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: resource
+							material: paper
+							amount: 0.029977
+							snapping: 1.000
+							loss: 0.557
+							ratio: 1.000
+							group: 1
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: glue
+							amount: 0.386
+							snapping: 0.100
+							falloff: 0.951
+							loss: 0.549
+							ratio: 1.000
+							group: 1
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: papercraft
+							amount: 22.000
+							amount_min: 25.000
+							difficulty: 7
+							snapping: 5.000
+							falloff: 0.822
+							loss: 0.400
+							ratio: 0.525
+							group: 1
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: gluing
+							amount: 22.000
+							amount_min: 50.000
+							difficulty: 8
+							snapping: 5.000
+							falloff: 0.945
+							loss: 0.400
+							ratio: 1.000
+							group: 1
+							flags: stepped, simultaneous, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: scrap.mixed
+							amount: 0.5755
+							amount_extra: 0.1752
+							snapping: 0.100
+							group: 0
+							ratio: 0.361
+							flags: waste, scale_to_mass
+						}
+					]
+					
+					advance_delay: 2.000
+					
+					filter_tools:
+					{
+						require: hammer, cutters, pliers
+						include: cutters, wrench, pliers, tweezers, knife, scissors
+					}
+					filter_infrastructure:
+					{
+						include: table, vise, surface
+					}
+				}
+			]
+		}
+		{
+			name: "Formula"
+			
+			type: formula
+			flags: important
+			tags: container, assembly, functional, material, dangerous, formula
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Crummy"
+					
+					type: undefined
+					flags: none
+					
+					priority: 1.000
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: gunpowder
+							amount: 0.127536
+							snapping: 0.100
+							loss: 0.620
+							ratio: 0.275
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: scrap.steel
+							amount: 0.025697
+							snapping: 0.100
+							falloff: 0.888
+							loss: 0.682
+							ratio: 0.878
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: filling.powder
+							amount: 34.000
+							amount_min: 20.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.861
+							loss: 0.227
+							ratio: 0.314
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: gluing
+							amount: 11.000
+							amount_min: 25.000
+							difficulty: 4
+							snapping: 5.000
+							falloff: 0.951
+							loss: 0.329
+							ratio: 1.000
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: drying
+							amount: 60.000
+							amount_min: 10.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.572
+							group: 1
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: ammo.sg.buck
+							amount: 0.270
+							amount_extra: 0.105
+							snapping: 1.000
+							group: 0
+							chance: 0.827
+							flags: primary, stepped, compact
+						}
+						{
+							type: resource
+							material: ammo.sg.bird
+							amount: 0.4251
+							amount_extra: 0.3726
+							snapping: 1.000
+							group: 0
+							chance: 0.678
+							ratio: 0.345
+							flags: byproduct, secondary, stepped, scale_to_mass
+						}
+						{
+							type: resource
+							material: ammo.sg.crap
+							amount: 1.037
+							amount_extra: 0.215282
+							snapping: 1.000
+							group: 0
+							ratio: 0.635
+							flags: residue, stepped, scale_to_mass
+						}
+						{
+							type: resource
+							material: scrap.mixed
+							amount: 0.3965
+							amount_extra: 0.5772
+							snapping: 0.100
+							group: 0
+							ratio: 1.000
+							flags: waste, scale_to_mass
+						}
+					]
+					
+					filter_tools:
+					{
+						include: paintbrush, file, towel, spatula
+					}
+					filter_infrastructure:
+					{
+						include: table, chair
+					}
+					filter_environment:
+					{
+						include: clean, organized
+						exclude: wet
+					}
+				}
+			]
+		}
+	]
+	
+	type: workshop
+	flags: production, manufacturing, wip
+	tags: manual, crafting, complex, small, munitions, delicate, assembling, industrial, metalworking, military, dangerous
+	hints: none
+	connotations: none
+	infrastructure: table, surface
+	infrastructure_exclude: giant
+	
+	icon:
+	{
+		texture: resource.ammo.sg.crap
+		count: 4
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	icon_offset: [6.000, 0.000]
+	
+	icon_extra:
+	{
+		texture: resource.mush
+		size: [16, 16]
+		frame: [1, 0]
+	}
+	icon_extra_offset: [-8.000, -6.000]
+	
+	icon_c:
+	{
+		texture: resource.glue
+		size: [16, 16]
+	}
+	icon_c_offset: [-20.000, -8.000]
+	
+	color_frame: "0xffcf392b"
+	color_button: "0xff9dd80f"
+	rank: -55.800
+	
+	min: 8
+	max: 80
+	step: 1
+	
+	version: 1
+}
