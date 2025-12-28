@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.67.1"
+	$version: "0.1.67.2"
 	name: "Dismantle Limelight"
 	desc:
 		'''
@@ -10,7 +10,7 @@
 	stages:
 	[
 		{
-			name: "Method"
+			name: "Disassembly"
 			
 			type: disassembly
 			flags: subtractive, wip, auto_generated
@@ -59,27 +59,27 @@
 					[
 						{
 							type: resource
-							material: lime
-							amount: 1.260723
-							amount_extra: 0.18506
+							material: pellet.heat
+							amount: 1.000
+							snapping: 1.000
 							group: 0
-							flags: waste, residue
+							flags: primary, stepped, compact
 						}
 						{
 							type: resource
 							material: directors
 							amount: 0.100
 							snapping: 0.100
-							group: 1
-							flags: residue, byproduct, secondary, compact
+							group: 0
+							flags: byproduct, secondary, compact
 						}
 						{
 							type: resource
-							material: pellet.heat
-							amount: 1.000
-							snapping: 1.000
-							group: 1
-							flags: residue, primary, stepped, compact
+							material: lime
+							amount: 1.260723
+							amount_extra: 0.18506
+							group: 0
+							flags: residue
 						}
 					]
 					

@@ -259,11 +259,11 @@
 						{
 							type: work
 							work: synthesis
-							amount: 250.000
-							amount_min: 450.000
-							difficulty: 8
+							amount: 300.000
+							amount_min: 180.000
+							difficulty: 9
 							snapping: 5.000
-							falloff: 0.874
+							falloff: 0.774
 							group: 1
 							flags: stepped, conditional
 						}
@@ -303,16 +303,16 @@
 							amount: 0.100
 							amount_min: 0.010
 							amount_max: 1.040
-							falloff: 0.843
+							falloff: 0.500
 							group: 0
 							flags: no_scaling, always_evaluate
 						}
 						{
 							type: work
 							work: evaporation
-							amount: 350.000
-							amount_min: 610.000
-							difficulty: 11
+							amount: 250.000
+							amount_min: 110.000
+							difficulty: 7
 							snapping: 5.000
 							falloff: 0.709
 							group: 0

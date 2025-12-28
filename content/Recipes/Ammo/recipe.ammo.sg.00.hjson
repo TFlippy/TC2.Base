@@ -3,7 +3,7 @@
 	name: "Glued SG-20.4mm"
 	desc:
 		'''
-		Highly streamlined formula for 20.4mm shotgun shells, 
+			Highly streamlined formula for 20.4mm shotgun shells, 
 		with most of the process replaced by aggressive gluing.
 		'''
 	tips: []
@@ -148,12 +148,18 @@
 					
 					filter_tools:
 					{
-						require: hammer, cutters, pliers
-						include: cutters, wrench, pliers, tweezers, knife, scissors
+						require: hammer
+						include: paper, ruler, cutters, pliers, tweezers, magnifying_glass, paintbrush, stapler, file, chisel, knife
 					}
 					filter_infrastructure:
 					{
-						include: table, vise, surface
+						require: surface, hard_surface
+						include: anvil, table, chair, vise, structure, workbench
+					}
+					filter_environment:
+					{
+						include: workshop, office, stationary, clean, cozy, organized
+						exclude: wet
 					}
 				}
 			]
@@ -173,11 +179,12 @@
 			options:
 			[
 				{
-					name: "Crummy"
+					name: "Scrapshot"
 					
 					type: undefined
 					flags: none
 					
+					suffix: " Scrapshot"
 					priority: 1.000
 					
 					requirements:
@@ -289,11 +296,11 @@
 					
 					filter_tools:
 					{
-						include: paintbrush, file, towel, spatula
+						include: bucket, paintbrush, file, spatula
 					}
 					filter_infrastructure:
 					{
-						include: table, chair
+						include: table
 					}
 					filter_environment:
 					{
@@ -307,6 +314,7 @@
 					type: undefined
 					flags: none
 					
+					suffix: " Rodshot"
 					priority: 1.000
 					
 					requirements:
@@ -422,11 +430,13 @@
 					
 					filter_tools:
 					{
-						include: paintbrush, file, towel, spatula
+						require: saw
+						include: bucket, paintbrush, file, spatula
 					}
 					filter_infrastructure:
 					{
-						include: table, chair
+						require: surface
+						include: table, vise, workbench
 					}
 					filter_environment:
 					{
@@ -440,10 +450,10 @@
 	
 	type: workshop
 	flags: production, manufacturing, wip
-	tags: manual, crafting, complex, small, munitions, delicate, assembling, industrial, metalworking, military, dangerous
-	hints: none
-	connotations: none
-	infrastructure: table, surface
+	tags: manual, crafting, dumb, crude, basic, simple, small, munitions, assembling, military, construction, messy, dangerous
+	hints: dangerous, junk, gun, primitive, weak, inaccurate, small, construction, cheap, dumb, civilian, military, crappy, outlaw, unstable, ranged, clumsy
+	connotations: danger, junk, gun, inaccurate, small, construction, funny, cheap, dumb, civilian, crappy, ugly, sus, crude
+	infrastructure: surface
 	infrastructure_exclude: giant
 	
 	icon:
@@ -475,7 +485,7 @@
 	rank: -55.800
 	
 	min: 8
-	max: 80
+	max: 40
 	step: 1
 	
 	version: 1

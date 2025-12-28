@@ -317,7 +317,7 @@
 	]
 	
 	type: workshop
-	flags: debug, production, wip, no_cancel
+	flags: debug, disabled, production, wip, no_cancel
 	tags: simple, organic, agriculture, fermenting, processing, dangerous
 	hints: none
 	connotations: none

@@ -1,4 +1,5 @@
 ﻿{
+	$region_id: 0
 	$version: "0.1.67.2"
 	name: "SG-20.4mm Buckshot"
 	desc:
@@ -472,7 +473,7 @@
 	tags: manual, crafting, complex, small, munitions, delicate, assembling, industrial, metalworking, military, dangerous
 	hints: none
 	connotations: none
-	infrastructure: table, surface
+	infrastructure: table, surface, workbench
 	infrastructure_exclude: giant
 	
 	icon:

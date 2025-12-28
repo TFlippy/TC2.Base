@@ -69,7 +69,7 @@
 							work: crushing
 							amount: 190.000
 							amount_min: 175.000
-							difficulty: 7
+							difficulty: 4
 							snapping: 5.000
 							falloff: 0.870
 							ratio: 1.000

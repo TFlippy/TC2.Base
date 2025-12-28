@@ -18,8 +18,8 @@
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: none
 			
-			ratio: 1.000
-			mass_base: 19.64925
+			ratio: 0.000
+			mass_base: 0.000
 			
 			options:
 			[
@@ -34,7 +34,7 @@
 						{
 							type: resource
 							material: cement
-							amount: 2.700
+							amount: 0.270
 							snapping: 0.100
 							loss: 0.973
 							group: 0
@@ -43,7 +43,7 @@
 						{
 							type: resource
 							material: sand
-							amount: 9.400
+							amount: 0.940
 							snapping: 0.100
 							loss: 0.973
 							group: 0
@@ -52,8 +52,8 @@
 						{
 							type: work
 							work: mixing
-							amount: 300.000
-							amount_min: 150.000
+							amount: 30.000
+							amount_min: 15.000
 							difficulty: 5
 							snapping: 5.000
 							falloff: 0.913
@@ -94,7 +94,7 @@
 						{
 							type: resource
 							material: water
-							amount: 5.000
+							amount: 0.500
 							snapping: 0.100
 							loss: 0.859
 							group: 0
@@ -106,14 +106,14 @@
 					name: "Wastewater"
 					
 					type: undefined
-					flags: none
+					flags: disabled
 					
 					requirements:
 					[
 						{
 							type: resource
 							material: water.dirty
-							amount: 5.000
+							amount: 0.500
 							snapping: 0.100
 							group: 0
 							flags: prerequisite
@@ -124,7 +124,7 @@
 					name: "Wastewater"
 					
 					type: undefined
-					flags: none
+					flags: disabled
 					
 					requirements:
 					[
@@ -138,8 +138,8 @@
 						{
 							type: work
 							work: draining
-							amount: 50.000
-							amount_min: 40.000
+							amount: 20.000
+							amount_min: 30.000
 							difficulty: 5
 							snapping: 5.000
 							falloff: 0.865
@@ -157,7 +157,7 @@
 					name: "Freshwater"
 					
 					type: undefined
-					flags: none
+					flags: disabled
 					
 					requirements:
 					[
@@ -171,8 +171,8 @@
 						{
 							type: work
 							work: draining
-							amount: 50.000
-							amount_min: 40.000
+							amount: 30.000
+							amount_min: 20.000
 							difficulty: 4
 							snapping: 5.000
 							falloff: 0.825
@@ -190,14 +190,14 @@
 					name: "Freshwater2"
 					
 					type: undefined
-					flags: none
+					flags: disabled
 					
 					requirements:
 					[
 						{
 							type: substance
 							h_substance: water
-							amount: 5.000
+							amount: 0.500
 							group: 0
 							flags: no_residue, filler, prerequisite
 						}
@@ -231,8 +231,8 @@
 						{
 							type: work
 							work: blending
-							amount: 450.000
-							amount_min: 310.000
+							amount: 45.000
+							amount_min: 31.000
 							difficulty: 6
 							snapping: 5.000
 							falloff: 0.818
@@ -246,8 +246,7 @@
 						{
 							type: resource
 							material: mortar
-							amount: 0.82485
-							amount_extra: 0.078493
+							amount: 0.090334
 							group: 0
 							ratio: 1.000
 							flags: primary, compact, scale_to_mass
@@ -305,7 +304,7 @@
 	rank: -160.900
 	
 	min: 1
-	max: 10
+	max: 50
 	step: 1
 	
 	version: 1
