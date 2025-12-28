@@ -339,7 +339,7 @@ shop:
 	}
 	
 	tools: pliers, magnifying_glass, bucket, file, chisel, towel, tongs, sandpaper, ladle
-	infrastructure: barrel, bucket, surface, large_surface, giant, personal
+	infrastructure: barrel, bucket, surface, hard_surface, large_surface, giant, personal
 	environment: mobile, dirty, smelly, ugly, scary, noisy, sturdy, crappy, cramped, open, large
 	connotations: none
 	

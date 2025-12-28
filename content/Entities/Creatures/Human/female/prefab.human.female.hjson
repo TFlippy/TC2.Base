@@ -303,8 +303,8 @@ shop:
 		exclude: automated, complex, advanced, medium, large, huge, blacksmithing, industrial, metallurgy, architecture, smelting, fermenting, heating
 	}
 	
-	tools: bucket, towel, spatula, knife, needle, pins
-	infrastructure: bottle, bucket, surface
+	tools: tweezers, bucket, towel, spatula, knife, needle, pins, scissors, utensils
+	infrastructure: dishes, bucket, surface, hard_surface, personal
 	environment: mobile, dirty, smelly, ugly, scary, crappy, cramped, open, small
 	connotations: none
 	
