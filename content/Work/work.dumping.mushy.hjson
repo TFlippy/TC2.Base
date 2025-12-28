@@ -1,0 +1,71 @@
+﻿{
+	$region_id: 0
+	$version: "0.1.67.2"
+	name: "Dumping"
+	name_short: "Dumping"
+	desc:
+		'''
+		Carelessly dumping contents of a container onto the ground.
+		'''
+	
+	icon:
+	{
+		texture: ui.icons.work.00
+		size: [16, 16]
+		frame: [26, 0]
+	}
+	
+	flags: wip
+	tags: crude, simple, kinetic
+	
+	amount_base: 1.000
+	cooldown: 1.300
+	multiplier: 1.250
+	
+	amount_jitter: 0.359
+	cooldown_jitter: 0.171
+	color: "0xffa94535"
+	
+	tools_required: none
+	tools_optional: bucket, shovel
+	
+	infrastructure_required: none
+	infrastructure_optional: none
+	
+	filter_environment:
+	{
+		exclude: enclosed, sealed
+	}
+	
+	character_traits:
+	{
+		include: criminal, laborer, insane, feral, brawler, strong, evil, murderer, terrorist, fanatic, dumb, clumsy
+		weight: 1.000
+	}
+	
+	skills_min:
+	{
+	
+	}
+	
+	skills_mult:
+	{
+		strength: 0.610
+		endurance: 0.320
+	}
+	
+	sound_volume: 0.600
+	sound_pitch: 0.680
+	sound_size: 0.820
+	sound_dist: 0.730
+	
+	sounds: ["effect.squish.muddy.00", "effect.smack.meaty.00", "effect.squish.slimy.01", "effect.smack.meaty.01", "effect.knead.slimy.00", "effect.smack.meaty.00", "effect.plunger.02", "effect.smack.meaty.01"]
+	sounds_manual: []
+	sounds_crafter: []
+	sounds_passive: []
+	sounds_ambient: []
+	
+	sounds_start: []
+	sounds_end: []
+	sounds_fail: []
+}

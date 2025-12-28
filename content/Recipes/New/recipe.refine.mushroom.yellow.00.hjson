@@ -1,0 +1,399 @@
+﻿{
+	$region_id: 0
+	$version: "0.1.67.2"
+	name: "Sejrus Mushroom"
+	desc:
+		'''
+		Test
+
+		'''
+	tips: []
+	
+	stages:
+	[
+		{
+			name: "Base Formula"
+			desc:
+				'''
+				Test
+				'''
+			
+			type: formula
+			flags: part, important
+			tags: material, formula, ingredient
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: wet
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Leached"
+					desc: "Desc"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: wet
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: mushroom.yellow
+							amount: 1.351351
+							snapping: 0.100
+							loss: 0.988
+							ratio: 1.000
+							group: 0
+							flags: argument, primary, prerequisite
+						}
+						{
+							type: resource
+							material: water
+							amount: 1.000
+							snapping: 1.000
+							loss: 0.906
+							ratio: 1.000
+							group: 0
+							flags: filler, prerequisite
+						}
+						{
+							type: work
+							work: mixing.liquid
+							amount: 30.000
+							amount_min: 160.000
+							difficulty: 4
+							snapping: 10.000
+							falloff: 0.907
+							group: 0
+							flags: conditional
+						}
+						{
+							type: temperature
+							amount: 353.000
+							amount_min: 285.000
+							amount_max: 375.000
+							falloff: 0.884
+							group: 1
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: work
+							work: leaching
+							amount: 200.000
+							amount_min: 300.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.535
+							group: 1
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						include: shovel, spatula
+					}
+					filter_infrastructure:
+					{
+						require: liquid_container
+						include: cauldron, liquid_container
+					}
+				}
+			]
+		}
+		{
+			name: "Separation"
+			
+			type: cleaning
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Decanted"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: work
+							work: decanting
+							amount: 40.000
+							amount_min: 70.000
+							difficulty: 5
+							snapping: 5.000
+							falloff: 0.871
+							group: 0
+							flags: stepped, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: sludge
+							amount: 0.924
+							amount_extra: 0.185
+							snapping: 0.100
+							group: 0
+							ratio: 0.310
+							flags: waste, residue, spawn, compact, scale_to_mass
+						}
+						{
+							type: resource
+							material: water.toxic
+							amount: 0.929
+							amount_extra: 0.140
+							snapping: 0.100
+							group: 0
+							ratio: 0.310
+							flags: waste, scale_to_mass
+						}
+					]
+				}
+				{
+					name: "Filtered"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: work
+							work: filter.squeezing
+							amount: 60.000
+							amount_min: 50.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.803
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: filtering
+							amount: 40.000
+							amount_min: 60.000
+							difficulty: 5
+							snapping: 5.000
+							falloff: 0.648
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: mush
+							amount: 0.665
+							amount_extra: 0.274
+							snapping: 0.100
+							group: 0
+							ratio: 0.196
+							flags: residue, scale_to_mass
+						}
+						{
+							type: resource
+							material: water.swamp
+							amount: 0.929
+							amount_extra: 0.140
+							snapping: 0.100
+							group: 0
+							ratio: 0.212
+							flags: waste, scale_to_mass
+						}
+					]
+				}
+			]
+		}
+		{
+			name: "Solid Residue"
+			
+			type: cleaning
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Dumped"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: work
+							work: dumping.mushy
+							amount: 50.000
+							amount_min: 80.000
+							difficulty: 6
+							snapping: 25.000
+							falloff: 0.721
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: sludge
+							amount: 0.924
+							amount_extra: 0.185
+							snapping: 0.100
+							group: 0
+							ratio: 0.255
+							flags: waste, residue, spawn, compact, scale_to_mass
+						}
+					]
+				}
+				{
+					name: "Washed"
+					
+					type: undefined
+					flags: disabled
+					
+					requirements:
+					[
+						{
+							type: work
+							work: washing
+							amount: 40.000
+							amount_min: 70.000
+							difficulty: 5
+							snapping: 5.000
+							falloff: 0.871
+							group: 0
+							flags: stepped, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: mush
+							amount: 0.665
+							amount_extra: 0.274
+							snapping: 0.100
+							group: 0
+							ratio: 0.196
+							flags: residue, scale_to_mass
+						}
+						{
+							type: resource
+							material: water.swamp
+							amount: 0.929
+							amount_extra: 0.140
+							snapping: 0.100
+							group: 0
+							ratio: 0.212
+							flags: waste, scale_to_mass
+						}
+					]
+				}
+			]
+		}
+		{
+			name: "C"
+			
+			type: postprocessing
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "TODO"
+					
+					type: undefined
+					flags: none
+					
+					products:
+					[
+						{
+							type: resource
+							material: sulfuric_acid
+							amount: 1.000
+							snapping: 0.100
+							group: 0
+							ratio: 1.000
+							flags: primary, parameter, compact, scale_to_mass
+						}
+					]
+				}
+			]
+		}
+	]
+	
+	type: workshop
+	flags: production, wip
+	tags: complex, filtering, alchemistry, blending, refining, separation, processing, messy
+	hints: none
+	connotations: none
+	infrastructure: cauldron, barrel, bucket, liquid_container
+	infrastructure_exclude: personal
+	
+	h_company: carohrad
+	
+	icon:
+	{
+		texture: resource.sulfuric_acid
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	icon_offset: [-8.000, 0.000]
+	
+	icon_extra:
+	{
+		size: [16, 16]
+		frame: [1, 0]
+	}
+	icon_extra_offset: [-4.000, -8.000]
+	
+	icon_c:
+	{
+		texture: resource.mushroom.yellow
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	icon_c_offset: [-4.000, -12.000]
+	
+	color_frame: "0xff80dc7e"
+	color_button: "0xff9dd80f"
+	rank: -9.000
+	
+	min: 1
+	max: 50
+	step: 1
+	
+	version: 1
+}

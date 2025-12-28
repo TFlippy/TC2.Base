@@ -1,6 +1,5 @@
 ﻿{
-	$region_id: 0
-	$version: "0.1.64.0"
+	$version: "0.1.67.2"
 	name: "Leaching"
 	name_short: "Leaching"
 	desc:
@@ -29,8 +28,8 @@
 	tools_required: none
 	tools_optional: none
 	
-	infrastructure_required: none
-	infrastructure_optional: none
+	infrastructure_required: liquid_container
+	infrastructure_optional: cauldron, liquid_container
 	
 	skills_min:
 	{

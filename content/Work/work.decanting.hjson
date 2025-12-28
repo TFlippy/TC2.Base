@@ -1,0 +1,68 @@
+﻿{
+	$region_id: 0
+	$version: "0.1.67.2"
+	name: "Decanting"
+	name_short: "Decanting"
+	desc:
+		'''
+		Pouring or scooping off a liquid layer from the top of a mixture, leaving the heavier solids or denser liquids behind.
+		'''
+	
+	icon:
+	{
+		texture: ui.icons.work.00
+		size: [16, 16]
+		frame: [26, 0]
+	}
+	
+	flags: wip
+	tags: simple, chemical, culinary, careful
+	
+	amount_base: 0.000
+	cooldown: 1.450
+	multiplier: 1.000
+	
+	amount_jitter: 0.206
+	cooldown_jitter: 0.050
+	color: "0xff64b8fb"
+	
+	tools_required: none
+	tools_optional: bucket, ladle
+	
+	infrastructure_required: none
+	infrastructure_optional: bottle, liquid_container
+	
+	character_traits:
+	{
+		include: scientist, medical, artisan, alchemist, culinary, junkie
+		exclude: feral, clumsy
+		weight: 1.000
+	}
+	
+	skills_min:
+	{
+	
+	}
+	
+	skills_mult:
+	{
+		dexterity: 0.460
+		alchemistry: 0.260
+		intellect: 0.280
+	}
+	
+	sound_volume: 0.480
+	sound_pitch: 1.000
+	sound_size: 0.700
+	sound_dist: 0.670
+	
+	sounds: ["effect.water.small.00", "effect.pour.small.00", "effect.water.small.01", "effect.pour.small.00"]
+	sounds_manual: []
+	sounds_crafter: []
+	sounds_passive: []
+	sounds_ambient: []
+	
+	sounds_start: []
+	sounds_end: []
+	sounds_fail: []
+}
