@@ -1,5 +1,4 @@
 ﻿{
-	$region_id: 0
 	$version: "0.1.67.2"
 	name: "Sejrus Mushroom"
 	desc:
@@ -107,7 +106,7 @@
 		{
 			name: "Separation"
 			
-			type: cleaning
+			type: separation
 			flags: none
 			tags: none
 			// Damage type used for discarding leftover resources.
@@ -123,6 +122,7 @@
 					
 					type: undefined
 					flags: none
+					discard_damage_type_override: shovel
 					
 					requirements:
 					[
@@ -143,22 +143,11 @@
 					[
 						{
 							type: resource
-							material: sludge
-							amount: 0.924
-							amount_extra: 0.185
-							snapping: 0.100
-							group: 0
-							ratio: 0.310
-							flags: waste, residue, spawn, compact, scale_to_mass
-						}
-						{
-							type: resource
 							material: water.toxic
 							amount: 0.929
-							amount_extra: 0.140
+							amount_extra: 0.130
 							snapping: 0.100
 							group: 0
-							ratio: 0.310
 							flags: waste, scale_to_mass
 						}
 					]
@@ -168,6 +157,7 @@
 					
 					type: undefined
 					flags: none
+					discard_damage_type_override: crush
 					
 					requirements:
 					[
@@ -199,23 +189,13 @@
 					[
 						{
 							type: resource
-							material: mush
-							amount: 0.665
-							amount_extra: 0.274
-							snapping: 0.100
-							group: 0
-							ratio: 0.196
-							flags: residue, scale_to_mass
-						}
-						{
-							type: resource
-							material: water.swamp
+							material: sulfuric_acid
 							amount: 0.929
 							amount_extra: 0.140
 							snapping: 0.100
 							group: 0
-							ratio: 0.212
-							flags: waste, scale_to_mass
+							ratio: 0.208
+							flags: primary, parameter, compact, scale_to_mass
 						}
 					]
 				}
@@ -240,6 +220,7 @@
 					
 					type: undefined
 					flags: none
+					discard_damage_type_override: shovel
 					
 					requirements:
 					[
@@ -261,12 +242,12 @@
 						{
 							type: resource
 							material: sludge
-							amount: 0.924
-							amount_extra: 0.185
+							amount: 0.925
+							amount_extra: 0.122
 							snapping: 0.100
 							group: 0
-							ratio: 0.255
-							flags: waste, residue, spawn, compact, scale_to_mass
+							ratio: 0.475
+							flags: waste, spawn, compact, scale_to_mass
 						}
 					]
 				}
@@ -274,10 +255,20 @@
 					name: "Washed"
 					
 					type: undefined
-					flags: disabled
+					flags: none
+					discard_damage_type_override: wet
 					
 					requirements:
 					[
+						{
+							type: resource
+							material: water
+							amount: 0.500
+							snapping: 0.100
+							loss: 1.000
+							group: 0
+							flags: prerequisite
+						}
 						{
 							type: work
 							work: washing
@@ -297,20 +288,20 @@
 							type: resource
 							material: mush
 							amount: 0.665
-							amount_extra: 0.274
+							amount_extra: 0.099
 							snapping: 0.100
 							group: 0
-							ratio: 0.196
-							flags: residue, scale_to_mass
+							ratio: 0.263
+							flags: residue, compact, scale_to_mass
 						}
 						{
 							type: resource
-							material: water.swamp
-							amount: 0.929
-							amount_extra: 0.140
+							material: water.toxic
+							amount: 0.335571
+							amount_extra: 0.119
 							snapping: 0.100
 							group: 0
-							ratio: 0.212
+							ratio: 0.427
 							flags: waste, scale_to_mass
 						}
 					]
@@ -318,9 +309,9 @@
 			]
 		}
 		{
-			name: "C"
+			name: "Concentration"
 			
-			type: postprocessing
+			type: concentration
 			flags: none
 			tags: none
 			// Damage type used for discarding leftover resources.
@@ -332,20 +323,46 @@
 			options:
 			[
 				{
-					name: "TODO"
+					name: "Boiled"
 					
 					type: undefined
 					flags: none
+					discard_damage_type_override: heat
+					
+					requirements:
+					[
+						{
+							type: temperature
+							amount: 402.800
+							amount_min: 354.000
+							amount_max: 439.000
+							falloff: 0.878
+							group: 0
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: work
+							work: boiling
+							amount: 190.000
+							amount_min: 140.000
+							difficulty: 6
+							snapping: 25.000
+							falloff: 0.723
+							group: 0
+							flags: conditional
+						}
+					]
 					
 					products:
 					[
 						{
 							type: resource
 							material: sulfuric_acid
-							amount: 1.000
+							amount: 0.964
+							amount_extra: 0.104
 							snapping: 0.100
 							group: 0
-							ratio: 1.000
+							ratio: 0.749
 							flags: primary, parameter, compact, scale_to_mass
 						}
 					]
