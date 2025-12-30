@@ -37,14 +37,14 @@ resource:
 {
 	material: "limelight"
 	
-	@light:
-	{
-		color: [1.000, 0.412844, 0.000, 1.000]
-		offset: [0.000, 0.250]
-		scale: [16.000, 16.000]
-		intensity: 1.000
-		texture: light.circle.03
-	}
+	// @light:
+	// {
+	// 	color: [1.000, 0.412844, 0.000, 1.000]
+	// 	offset: [0.000, 0.250]
+	// 	scale: [16.000, 16.000]
+	// 	intensity: 1.000
+	// 	texture: light.circle.03
+	// }
 }
 
 holdable:
@@ -59,13 +59,83 @@ norotate:
 	attached_multiplier: 0.500
 }
 
-// health:
-// {
-// 	max: 3500.000
-// }
+health:
+{
+	max: 35000.000
+}
 
-// essence.container:
-// {
-// 	stability: 1.000
-// 	health_threshold: 0.200
-// }
+essence.container:
+{
+	rate: 0.050
+	
+	h_essence: heat
+	flags: ignore_resource_essence, constant_glow, constant_heat
+	
+	emit_type: ambient
+	
+	stability: 0.820
+	rate_speed: 0.500
+	
+	glow_modifier: 0.500
+	health_threshold: 0.500
+
+	@light:
+	{
+		color: [1.000, 0.578, 0.000, 2.500]
+		offset: [0.000, 0.500]
+		scale: [8.000, 8.000]
+		intensity: 0.500
+		texture: light.circle.00
+	}
+
+	// @sound.emitter:
+	// {
+	// 	volume: 1.000
+	// 	pitch: 4.000
+	// 	size: 4.000
+	// 	size_max_modifier: 0.230
+	// 	spread: 70.000
+	// 	priority: 0.100
+	// 	flags: start_muted
+	// }
+}
+
+heat:
+{
+	temperature_medium: 620.996
+	temperature_high: 1032.985
+	temperature_breakdown: 1438.483
+	heat_damage_mult: 0.800
+	heat_capacity_extra: 2.000
+	cool_rate_mult: 5.000
+	cool_rate: 20.000
+	smoke_speed_mult: 0.700
+	flags: no_ignite
+	offset: [0.000, 0.250]
+	smoke_offset: [0.000, 0.250]
+	size: [0.500, 0.500]
+	
+	@light:
+	{
+		offset: [0.000, 0.500]
+		scale: [25.000, 22.000]
+		intensity: 1.500
+		texture: light.circle.04
+	}
+
+	@sound.emitter:
+	{
+		file: overheat_loop
+		flags: start_muted
+		volume: 1.000
+		pitch: 0.680
+		size_max_modifier: 0.600
+		priority: 0.100
+		offset: [0.000, 0.500]
+	}
+}
+
+heat.state:
+{
+	temperature_current: 335.000
+}

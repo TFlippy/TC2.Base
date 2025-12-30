@@ -174,7 +174,7 @@
 	]
 	
 	type: workshop
-	flags: production
+	flags: production, wip
 	tags: simple, medium, raw, filtering, industrial, metallurgy, alchemistry, refining, separation, processing, messy, dangerous
 	hints: none
 	connotations: none

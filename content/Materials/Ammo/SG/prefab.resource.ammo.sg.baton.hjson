@@ -51,3 +51,50 @@ despawn:
 {
 
 }
+
+health:
+{
+	max: 2250.000
+}
+
+explosive:
+{
+	radius: 3.500
+	power: 4.000
+	damage_entity: 650.000
+	damage_terrain: 250.000
+	health_threshold: 0.700
+	detonate_chance: 0.300
+	damage_type: deflagration
+	damage_type_secondary: punch
+	force_multiplier: 0.450
+	stun_multiplier: 0.150
+	smoke_amount: 1.300
+	shake_multiplier: 0.100
+	smoke_lifetime_multiplier: 1.050
+	smoke_velocity_multiplier: 2.000
+	flash_duration_multiplier: 0.300
+	flash_intensity_multiplier: 0.500
+	sparks_amount: 0.100
+	fire_amount: 0.000
+	volume: 1.100
+	pitch: 1.400
+	flags: any_damage, explode_when_primed
+}
+
+cluster:
+{
+	prefab: "projectile.sg.baton"
+	velocity: [0.000, 0.000]
+	offset: [0.000, -1.000]
+	radius: 0.010
+	spread: 5.000
+	speed: 30.000
+	count: 10
+	damage_modifier: 0.750
+	speed_modifier_min: 0.200
+	speed_modifier_max: 0.900
+	lifetime_modifier_min: 0.800
+	lifetime_modifier_max: 1.000
+	flags: no_velocity_rotate, align_normal
+}

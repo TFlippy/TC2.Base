@@ -3,8 +3,7 @@
 	name: "Sejrus Mushroom"
 	desc:
 		'''
-		Test
-
+		Extract mediocre sulfuric acid and other useful byproducts from yellow Sejrus mushrooms.
 		'''
 	tips: []
 	
@@ -12,10 +11,6 @@
 	[
 		{
 			name: "Base Formula"
-			desc:
-				'''
-				Test
-				'''
 			
 			type: formula
 			flags: part, important
@@ -30,11 +25,12 @@
 			[
 				{
 					name: "Leached"
-					desc: "Desc"
 					
 					type: undefined
 					flags: none
 					discard_damage_type_override: wet
+					
+					suffix: " Leaching"
 					
 					requirements:
 					[
@@ -112,7 +108,7 @@
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: none
 			
-			ratio: 0.000
+			ratio: 0.005
 			mass_base: 0.000
 			
 			options:
@@ -143,14 +139,34 @@
 					[
 						{
 							type: resource
+							material: glue
+							amount: 0.628
+							amount_extra: 0.305
+							snapping: 0.100
+							group: 0
+							ratio: 0.012
+							flags: byproduct, secondary, scale_to_mass
+						}
+						{
+							type: resource
 							material: water.toxic
 							amount: 0.929
 							amount_extra: 0.130
 							snapping: 0.100
 							group: 0
+							ratio: 0.075
 							flags: waste, scale_to_mass
 						}
 					]
+					
+					filter_tools:
+					{
+						include: bucket, ladle
+					}
+					filter_infrastructure:
+					{
+						include: bottle, liquid_container
+					}
 				}
 				{
 					name: "Filtered"
@@ -194,7 +210,7 @@
 							amount_extra: 0.140
 							snapping: 0.100
 							group: 0
-							ratio: 0.208
+							ratio: 0.235
 							flags: primary, parameter, compact, scale_to_mass
 						}
 					]
@@ -227,11 +243,11 @@
 						{
 							type: work
 							work: dumping.mushy
-							amount: 50.000
-							amount_min: 80.000
+							amount: 30.000
+							amount_min: 10.000
 							difficulty: 6
-							snapping: 25.000
-							falloff: 0.721
+							snapping: 5.000
+							falloff: 0.814
 							group: 0
 							flags: conditional
 						}
@@ -246,10 +262,19 @@
 							amount_extra: 0.122
 							snapping: 0.100
 							group: 0
-							ratio: 0.475
-							flags: waste, spawn, compact, scale_to_mass
+							ratio: 0.510
+							flags: waste, spawn, scale_to_mass
 						}
 					]
+					
+					filter_tools:
+					{
+						include: bucket, shovel
+					}
+					filter_environment:
+					{
+						exclude: enclosed, sealed
+					}
 				}
 				{
 					name: "Washed"
@@ -286,25 +311,45 @@
 					[
 						{
 							type: resource
-							material: mush
-							amount: 0.665
-							amount_extra: 0.099
-							snapping: 0.100
-							group: 0
-							ratio: 0.263
-							flags: residue, compact, scale_to_mass
-						}
-						{
-							type: resource
 							material: water.toxic
 							amount: 0.335571
 							amount_extra: 0.119
 							snapping: 0.100
 							group: 0
-							ratio: 0.427
+							ratio: 0.255
 							flags: waste, scale_to_mass
 						}
+						{
+							type: resource
+							material: glue
+							amount: 0.459
+							amount_extra: 0.167
+							snapping: 0.100
+							group: 0
+							ratio: 0.106
+							flags: byproduct, secondary, scale_to_mass
+						}
+						{
+							type: resource
+							material: mush
+							amount: 0.665
+							amount_extra: 0.099
+							snapping: 0.100
+							group: 0
+							ratio: 0.380
+							flags: residue, scale_to_mass
+						}
 					]
+					
+					filter_tools:
+					{
+						include: bucket, towel
+					}
+					filter_environment:
+					{
+						include: warm, container, disinfected, sterile, clean
+						exclude: polluted
+					}
 				}
 			]
 		}
@@ -359,10 +404,10 @@
 							type: resource
 							material: sulfuric_acid
 							amount: 0.964
-							amount_extra: 0.104
+							amount_extra: 0.213
 							snapping: 0.100
 							group: 0
-							ratio: 0.749
+							ratio: 0.706
 							flags: primary, parameter, compact, scale_to_mass
 						}
 					]
@@ -372,7 +417,7 @@
 	]
 	
 	type: workshop
-	flags: production, wip
+	flags: production
 	tags: complex, filtering, alchemistry, blending, refining, separation, processing, messy
 	hints: none
 	connotations: none
@@ -387,7 +432,7 @@
 		size: [16, 16]
 		frame: [2, 0]
 	}
-	icon_offset: [-8.000, 0.000]
+	icon_offset: [-8.000, 2.000]
 	
 	icon_extra:
 	{
@@ -402,7 +447,7 @@
 		size: [16, 16]
 		frame: [2, 0]
 	}
-	icon_c_offset: [-4.000, -12.000]
+	icon_c_offset: [-4.000, -8.000]
 	
 	color_frame: "0xff80dc7e"
 	color_button: "0xff9dd80f"

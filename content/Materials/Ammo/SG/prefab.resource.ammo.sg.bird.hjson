@@ -51,3 +51,49 @@ despawn:
 {
 
 }
+
+health:
+{
+	max: 2250.000
+}
+
+explosive:
+{
+	radius: 2.500
+	power: 2.200
+	damage_entity: 650.000
+	damage_terrain: 250.000
+	health_threshold: 0.700
+	detonate_chance: 0.300
+	damage_type: bullet_sg
+	damage_type_secondary: shrapnel
+	force_multiplier: 0.450
+	stun_multiplier: 0.150
+	smoke_amount: 1.300
+	smoke_lifetime_multiplier: 1.050
+	smoke_velocity_multiplier: 2.000
+	flash_duration_multiplier: 0.100
+	flash_intensity_multiplier: 0.300
+	sparks_amount: 2.800
+	fire_amount: 0.000
+	volume: 1.500
+	pitch: 1.500
+	flags: any_damage, explode_when_primed
+}
+
+cluster:
+{
+	prefab: "projectile.sg.bird"
+	velocity: [0.000, 0.000]
+	offset: [0.000, -1.000]
+	radius: 0.010
+	spread: 5.000
+	speed: 320.000
+	count: 18
+	damage_modifier: 0.750
+	speed_modifier_min: 0.800
+	speed_modifier_max: 1.400
+	lifetime_modifier_min: 0.200
+	lifetime_modifier_max: 0.400
+	flags: no_velocity_rotate, align_normal
+}

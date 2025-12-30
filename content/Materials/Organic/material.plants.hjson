@@ -1,11 +1,11 @@
 ﻿{
 	$version: "0.1.63.5"
-	name: "Plant Trimmings"
+	name: "Plantstuff"
 	name_short: "Plants"
 	name_dumb: "Grass"
 	description:
 		'''
-		Miscellaneous plant waste composed of leaves, vines, twigs and other plantstuff.
+		Miscellaneous plant waste composed of leaves, vines, twigs, shrubs, scrubs, birds, herbs, flowers, beetles, rot, ferns, brambles, seeds, roots, bees, vegetables, grains, ants, fruits, fynbos and other plantstuff.
 		'''
 	
 	tips: []

@@ -51,3 +51,8 @@ despawn:
 {
 
 }
+
+health:
+{
+	max: 2250.000
+}

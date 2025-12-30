@@ -335,7 +335,7 @@
 	]
 	
 	type: workshop
-	flags: production, manufacturing, wip, auto_complete
+	flags: production, manufacturing, auto_complete
 	tags: complex, raw, filtering, industrial, alchemistry, science, refining, heating, separation, processing, dangerous
 	hints: none
 	connotations: none

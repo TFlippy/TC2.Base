@@ -552,7 +552,7 @@ namespace TC2.Base.Components
 				} 
 			}
 
-			if (heat.flags.HasNone(Heat.Data.Flags.No_Self_Damage) && temperature_current > heat.temperature_high)
+			if (heat.flags.HasNone(Heat.Data.Flags.No_Self_Damage) && temperature_current > heat.temperature_high && heat.heat_damage_mult > 0.00f)
 			{
 				var modifier = Maths.InvLerp(heat.temperature_high, heat.temperature_breakdown, temperature_current).Pow2();
 				if (random.NextBool(modifier))
@@ -562,8 +562,8 @@ namespace TC2.Base.Components
 						ent_owner: default,
 						ent_target: entity,
 						position: transform.LocalToWorld(heat.offset),
-						velocity: random.NextUnitVector2Range(1, 1),
-						normal: random.NextUnitVector2Range(1, 1),
+						velocity: random.NextUnitVector2(),
+						normal: random.NextUnitVector2(),
 						damage_integrity: damage,
 						damage_durability: damage,
 						damage_terrain: damage,

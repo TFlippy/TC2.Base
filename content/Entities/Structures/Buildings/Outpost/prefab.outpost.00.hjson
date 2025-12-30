@@ -33,9 +33,9 @@ animated.renderer:
 interactable:
 {
 	flags: no_tab
+	window_size: [648, 576]
+	window_size_misc: [192, 0]
 	priority: 1.000
-	window_size: [644.000, 528.000]
-	window_size_misc: [192.000, 0.000]
 }
 
 health:

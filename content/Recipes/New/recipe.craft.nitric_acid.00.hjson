@@ -1,0 +1,98 @@
+﻿{
+	$version: "0.1.67.2"
+	name: "Nitric Acid"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	tips: []
+	
+	stages:
+	[
+		{
+			name: "Base Formula"
+			
+			type: formula
+			flags: part, important
+			tags: material, formula, ingredient
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "TODO"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: sulfuric_acid
+							amount: 1.000
+							snapping: 0.100
+							loss: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: saltpeter
+							amount: 1.000
+							snapping: 0.100
+							loss: 1.000
+							group: 0
+							flags: prerequisite
+						}
+					]
+				}
+			]
+		}
+	]
+	
+	type: workshop
+	flags: disabled, production, wip
+	tags: complex, alchemistry, blending, refining, processing, dangerous
+	hints: none
+	connotations: none
+	infrastructure: cauldron, bucket, liquid_container
+	infrastructure_exclude: personal
+	
+	icon:
+	{
+		texture: resource.nitric_acid
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	icon_offset: [-8.000, 2.000]
+	
+	icon_extra:
+	{
+		size: [16, 16]
+		frame: [1, 0]
+	}
+	icon_extra_offset: [-4.000, -8.000]
+	
+	icon_c:
+	{
+		texture: resource.sulfuric_acid
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	icon_c_offset: [-4.000, -8.000]
+	
+	color_frame: "0xff80dc7e"
+	color_button: "0xff9dd80f"
+	rank: 79.000
+	
+	min: 1
+	max: 25
+	step: 1
+	
+	version: 1
+}

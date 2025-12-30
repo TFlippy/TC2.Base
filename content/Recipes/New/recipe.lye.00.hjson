@@ -97,7 +97,8 @@
 					}
 					filter_infrastructure:
 					{
-						include: liquid_container
+						require: liquid_container
+						include: cauldron, liquid_container
 					}
 				}
 			]
