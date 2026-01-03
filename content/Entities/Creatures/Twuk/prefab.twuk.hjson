@@ -127,9 +127,9 @@ npc:
 	avoid_distance_base: [1.000, 1.000]
 	idle_distance_base: [1.200, 3.000]
 	
-	wander_radius: 16.000
-	wander_interval: 2.000
-	wander_interval_extra: 6.000
+	wander_radius: 20.000
+	wander_interval: 4.000
+	wander_interval_extra: 8.000
 	
 	pain_modifier: 0.600
 	min_consciousness: 0.300
@@ -403,14 +403,15 @@ faction:
 		{
 			walk_force: 10000.000
 			jump_force: 35000.000
+			jump_decay: 0.600
 			max_speed: 18.000
 			max_jump_speed: 30.000
 			max_jump_time: 0.300
 			max_air_time: 0.500
-			max_grounded_dot: 0.850
+			max_grounded_dot: 0.900
 			propagate_ratio: 0.800
 			no_rotate_air_mult: 0.200
-			flags: jump_align_surface
+			flags: none
 			walk_lerp: 0.050
 			crouch_speed_modifier: 0.750
 			air_brake_modifier: 0.300
@@ -561,13 +562,13 @@ faction:
 			{
 				offset: [0.125, 0.125]
 				
-				mass: 6.000
+				mass: 6.800
 				radius: 0.5875
 				friction: 0.620
 				elasticity: 0.740
 				
 				material: flesh
-				miss_chance: 0.219
+				miss_chance: 0.129
 				
 				layer: entity, solid, creature, organic, flammable
 				mask: world, creature, vehicle
@@ -673,7 +674,7 @@ faction:
 		organic:
 		{
 			tags: brain
-			h_species: "twuk"
+			h_species: twuk
 
 			@animated.renderer:
 			{
@@ -710,8 +711,8 @@ faction:
 			protection: 0.990
 			coverage: 0.650
 			knockback_modifier: 1.530
-			stun_modifier: 0.320
-			pain_modifier: 0.620
+			stun_modifier: 1.120
+			pain_modifier: 0.520
 			material_type: bone
 			flags: no_damage_type_conversion, no_sound, no_particles
 		}
