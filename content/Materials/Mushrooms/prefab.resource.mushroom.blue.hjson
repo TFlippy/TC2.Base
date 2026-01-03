@@ -12,7 +12,7 @@ body:
 		friction: 0.120
 		elasticity: 0.300
 		material: mushroom
-		layer: entity, solid, resource, ignore_melee, ignore_bullet, flammable
+		layer: entity, solid, resource, ignore_melee, ignore_bullet, flammable, organic
 		mask: world
 	}
 }

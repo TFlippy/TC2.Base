@@ -23,7 +23,7 @@ body:
 		
 		material: mushroom
 		
-		layer: entity, solid, tree, plant, ignore_bullet
+		layer: entity, solid, tree, plant, organic, ignore_bullet
 		exclude: tree
 	}
 
@@ -38,7 +38,7 @@ body:
 		
 		material: mushroom
 		
-		layer: entity, solid, tree, plant, ignore_bullet
+		layer: entity, solid, tree, plant, organic, ignore_bullet
 		exclude: tree
 	}
 }
