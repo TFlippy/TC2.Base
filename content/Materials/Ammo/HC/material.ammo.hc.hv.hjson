@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.67.2"
 	name: "HC-13.2mm/HV Ammo"
 	description:
 		'''
@@ -59,7 +59,7 @@
 	ammo:
 	{
 		count: 1
-		mass: 0.015
+		mass: 0.018
 		heat: 25.000
 		velocity_min: 80.000
 		

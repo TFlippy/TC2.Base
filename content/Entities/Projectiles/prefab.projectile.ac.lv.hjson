@@ -13,7 +13,7 @@ projectile:
 	ricochet_threshold_multiplier: 0.500
 	damp: 0.980
 	tracer_length: 8.000
-	mass: 0.370
+	mass: 0.450
 	knockback_multiplier: 20.000
 	flags: no_miss
 }

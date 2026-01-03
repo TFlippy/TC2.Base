@@ -1,0 +1,46 @@
+$tags: []
+
+body:
+{
+	@shape.circle:
+	{
+		offset: [0.000, 0.000]
+		mass: 1.000
+		radius: 0.750
+		friction: 0.650
+		elasticity: 0.500
+		layer: entity, solid, resource, ignore_melee, ignore_bullet
+		mask: world
+		material: metal_solid
+	}
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "resource.ammo.hr.spike"
+		count: 4
+		size: [16, 16]
+	}
+}
+
+transform:
+{
+
+}
+
+resource:
+{
+	material: "ammo.hr.spike"
+}
+
+holdable:
+{
+	offset: [0.000, 0.750]
+}
+
+norotate:
+{
+
+}

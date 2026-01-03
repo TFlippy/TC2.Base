@@ -12,7 +12,7 @@ projectile:
 	ricochet_count: 2
 	ricochet_threshold_multiplier: 0.700
 	tracer_length: 4.000
-	mass: 0.060
+	mass: 0.050
 }
 
 projectile.renderer:

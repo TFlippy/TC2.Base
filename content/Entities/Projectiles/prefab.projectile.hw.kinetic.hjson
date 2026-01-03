@@ -15,7 +15,7 @@ projectile:
 	ricochet_count: 0
 	damp: 0.998
 
-	mass: 17.000
+	mass: 13.000
 	hit_mask: world, solid, essence
 }
 

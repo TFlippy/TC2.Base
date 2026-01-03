@@ -1,47 +1,32 @@
 ﻿{
 	$version: "0.1.67.2"
-	name: "HC-13.2mm/LV Ammo"
+	name: "Grappling Gun Ammo"
 	description:
 		'''
-		Low-velocity 13.2mm ammunition.
+		A self-propelled grappling hook.
 		'''
 	
-	tips:
-	[
-		"- Straight-walled case"
-		"- Rimfire"
-	]
+	tips: []
 	
 	icon:
 	{
-		texture: resource.ammo.hc.lv
-		size: [16, 16]
-		frame: [3, 0]
-	}
-	
-	icon_extra:
-	{
-		texture: ui_icons_gunsmith.mini
+		texture: resource.ammo.hr.spike
 		size: [16, 16]
 	}
 	
 	// Inventory material type.
 	type: ammo
-	flags: ammo, ammo_hc, magnetic, granular, small, manufactured, solid
+	flags: ammo, ammo_harpoon, hard, long, magnetic, granular, metal, solid
 	display_flags: hide_fraction
-	spawn_flags:
-	{
-		add: no_discard
-	}
 	hints: none
 	
 	// Ratio of the material volume to the total volume it occupies when stacked. A value of 1.0 means no empty space, while a value closer to 0.0 means a lot of empty space.
 	packing_fraction: 0.000
 	// Mass of 1 unit in kg.
-	mass_per_unit: 0.038
+	mass_per_unit: 5.000
 	
 	// Maximum quantity (units) per stack.
-	quantity_max: 80.000
+	quantity_max: 1.000
 	// Minimum spawnable quantity.
 	spawn_quantity_threshold: 1.000
 	// Preferred quantity snapping for recipes.
@@ -49,46 +34,36 @@
 	// Preferred quantity snapping for inventories.
 	snapping_pickup: 1.000
 	
-	prefab: resource.ammo.hc.lv
+	prefab: resource.ammo.hr.spike
 	
 	color_icon: "0xffffffff"
 	color_item: "0xffffffff"
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	
-	centroid_default: [0.000, 0.250]
 	colliders: []
 	
 	ammo:
 	{
 		count: 1
-		mass: 0.018
-		heat: 25.000
-		velocity_min: 80.000
+		mass: 4.200
+		heat: 1000.000
+		velocity_min: 5.000
 		
 		speed_base: 0.000
-		speed_mult: 0.720
+		speed_mult: 1.000
 		speed_jitter: 0.020
-		spin_base: 0.000
+		spin_base: 0.050
 		spin_mult: 1.000
-		spread_mult: 1.100
-		recoil_mult: 1.100
+		spread_mult: 1.000
+		recoil_mult: 0.100
 		
-		failure_base: 0.001
-		failure_mult: 1.200
+		failure_base: 0.000
+		failure_mult: 1.000
 		
-		stability_base: 550.000
+		stability_base: 50.000
 		stability_mult: 1.000
 		
-		prefab: projectile.hc.lv
-		
-		sprite_casing:
-		{
-			texture: atlas.ammo.casings.00
-			mask: missing
-			size: [8, 8]
-			frame: [1, 0]
-		}
-		casing_scale: 0.850
+		prefab: projectile.hr.spike
 	}
 }

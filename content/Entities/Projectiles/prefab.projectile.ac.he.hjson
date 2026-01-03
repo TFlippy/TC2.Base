@@ -10,7 +10,7 @@ projectile:
 	ricochet_count: 0
 	damp: 0.990
 	tracer_length: 1.700
-	mass: 0.300
+	mass: 0.600
 	flags: no_miss
 }
 

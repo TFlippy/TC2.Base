@@ -12,6 +12,7 @@ projectile:
 	size: 0.350
 	ricochet_count: 0
 	damp: 0.992
+	mass: 4.000
 
 	tracer_length: 1.700
 

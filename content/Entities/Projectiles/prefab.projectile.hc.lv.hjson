@@ -5,7 +5,7 @@ projectile:
 	damage_base: 200.000
 	damage_bonus: 330.000
 	knockback_multiplier: 5.000
-	armor_pierce: 72.000
+	armor_pierce: 112.000
 	lifetime: 2.000
 	damage_type: bullet_hc
 	size: 0.000
