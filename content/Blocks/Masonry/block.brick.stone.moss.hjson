@@ -1,24 +1,26 @@
 ﻿{
-	$version: "0.1.63.5"
-	name: "Stone Bricks (Moss)"
+	$version: "0.1.67.2"
+	name: "Old Stone Bricks (Moss)"
 	desc:
 		'''
-		Stone bricks of varying sizes covered in moss.
+		Ancient stone bricks of varying sizes covered in moss.
 		'''
 	
 	material_type: stone_slab
 	tile_flags: non_empty
 	flags: artificial, overgrown, masonry, construction
 	
-	max_health: 19500.000
+	max_health: 14600.000
 	smoothing: 0.170
 	stability: 0.500
 	strength_tensile: 1.100
 	strength_compressive: 7.000
 	
 	mass: 1.120
+	density: 0.000
 	friction: 0.900
 	elasticity: 0.520
+	fall_damage_mult: 1.000
 	collision_layer: none
 	collision_mask: none
 	

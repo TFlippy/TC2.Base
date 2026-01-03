@@ -71,10 +71,10 @@ spawn:
 spawner:
 {
 	group_size: 1
-	group_size_extra: 1
-	interval: 35.000
-	interval_extra: 200.000
-	interval_count_modifier: 60.000
+	group_size_extra: 2
+	interval: 95.000
+	interval_extra: 600.000
+	interval_count_modifier: 40.000
 	ai_stance: aggressive
 	flags: none
 	max_count: 3

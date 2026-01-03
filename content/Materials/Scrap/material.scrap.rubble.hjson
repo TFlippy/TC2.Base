@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.67.2"
 	name: "Rubble"
 	name_short: "Rubble"
 	description:
@@ -19,7 +19,7 @@
 	// Inventory material type.
 	type: rubble
 	flags: scrap, hard, granular, large, heavy, gravel, waste, solid, impure
-	display_flags: none
+	display_flags: sprite_stack_linear
 	spawn_flags:
 	{
 		add: merge, no_discard

@@ -1,9 +1,9 @@
 ﻿{
 	$version: "0.1.63.8"
-	name: "Stone Bricks"
+	name: "Old Stone Bricks"
 	desc:
 		'''
-		Stone bricks of varying sizes.
+		Ancient stone bricks of varying sizes.
 		'''
 	
 	icon:
@@ -16,7 +16,7 @@
 	tile_flags: non_empty
 	flags: artificial, masonry, construction
 	
-	max_health: 22500.000
+	max_health: 16500.000
 	smoothing: 0.160
 	stability: 0.500
 	strength_tensile: 1.100

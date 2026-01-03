@@ -8,21 +8,29 @@ body:
 	
 	@shape.polygon:
 	{
-		points:
-		[
-			[0.500, -0.125]
-			[2.125, -0.625]
-			[2.375, 2.500]
-			[-2.250, 2.625]
-		]
+		material: rubble
+		miss_chance: 0.000
+		flags: none
+		tags: none
+		
+		layer: entity, building, storage, ignore_melee
+		mask: world
+		exclude: none
 		
 		mass: 3540.000
 		radius: 0.600
 		friction: 0.950
+		elasticity: 0.500
 		
-		material: rubble
+		cog_offset: [0.000, 0.000]
 		
-		layer: entity, building, ignore_melee, storage
+		points:
+		[
+			[-1.750, -0.250]
+			[1.750, -1.125]
+			[2.375, 2.500]
+			[-2.250, 2.625]
+		]
 	}
 }
 
