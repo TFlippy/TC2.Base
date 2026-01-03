@@ -234,7 +234,7 @@ heat:
 		damping_loose: 0.100
 	}
 
-	joint_motor:
+	joint.motor:
 	{
 		force: 100.000
 		speed: 0.000

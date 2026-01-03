@@ -40,7 +40,7 @@ $prefab: "tank.00"
 
 		+mount|instance:
 		{
-			attachment_slot:
+			attachment.slot:
 			{
 				flags: hold, keyboard_write, mouse_write
 			}

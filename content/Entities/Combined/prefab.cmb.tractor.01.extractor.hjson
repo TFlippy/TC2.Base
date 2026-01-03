@@ -31,7 +31,7 @@ $prefab: "tractor.01"
 
 						+mount|instance:
 						{
-							attachment_slot:
+							attachment.slot:
 							{
 								flags: keyboard_write, mouse_write, loose
 							}
@@ -40,7 +40,7 @@ $prefab: "tractor.01"
 							{
 								$prefab: "arcane_infuser"
 							
-								arcaneinfuser_state:
+								arcaneinfuser.state:
 								{											
 									@inventory1:
 									{

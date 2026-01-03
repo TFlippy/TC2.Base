@@ -3,7 +3,7 @@ $prefab: "tractor.00"
 
 +slot_cab|instance:
 {
-	attachment_slot:
+	attachment.slot:
 	{
 		offset: [1.500, 0.250]
 	}
@@ -40,7 +40,7 @@ $prefab: "tractor.00"
 
 		+mount|instance:
 		{
-			attachment_slot:
+			attachment.slot:
 			{
 				flags: hold, keyboard_write, mouse_write
 			}

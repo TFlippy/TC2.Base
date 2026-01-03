@@ -36,7 +36,7 @@ $prefab: "tractor.01"
 
 						+mount|instance:
 						{
-							attachment_slot:
+							attachment.slot:
 							{
 								flags: keyboard_write, mouse_write, loose
 							}

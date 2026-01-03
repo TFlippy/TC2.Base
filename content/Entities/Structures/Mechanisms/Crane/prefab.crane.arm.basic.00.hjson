@@ -113,7 +113,7 @@ attachment:
 // 	flags: keyboard_write, mouse_write
 // }
 
-interactable_data:
+interactable:
 {
 	window_size: [192.000, 136.000]
 	window_offset: [0.000, 0.000]
@@ -179,7 +179,7 @@ vehicle:
 		error_bias: 0.0001
 	}
 
-	joint_motor:
+	joint.motor:
 	{
 		force: 100.000
 		speed: 0.000
