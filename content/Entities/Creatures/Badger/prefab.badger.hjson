@@ -26,7 +26,7 @@ body:
 
 organic:
 {
-	h_species: "badger"
+	h_species: badger
 }
 
 organic.state:
@@ -41,8 +41,10 @@ health:
 
 regen:
 {
-	amount: 85.000
+	amount: 65.000
 	interval: 10.000
+	min_a: 0.500
+	min_b: 0.400
 }
 
 armor:
@@ -127,9 +129,9 @@ npc:
 	avoid_distance_base: [0.500, 0.000]
 	idle_distance_base: [2.000, 2.000]
 
-	wander_radius: 12.000
-	wander_interval: 2.000
-	wander_interval_extra: 6.000
+	wander_radius: 20.000
+	wander_interval: 5.000
+	wander_interval_extra: 9.000
 
 	pain_modifier: 0.400
 	min_consciousness: 0.250
@@ -138,7 +140,7 @@ npc:
 npc.emotions:
 {
 	hostility: 0.600
-	courage: 0.750
+	courage: 0.550
 	cruelty: 1.250
 	irritability: 2.730
 	apathy: 5.500
@@ -152,6 +154,7 @@ npc.emotions.state:
 ai:
 {
 	stance: aggressive
+	courage: 200.000
 }
 
 ai.movement:
@@ -163,12 +166,12 @@ ai.behavior:
 {
 	type: attack
 	movement_flags: wander
-	combat_flags: attack_visible, attack_when_hit, flee, chase, charge, evade, form_groups
+	combat_flags: attack_visible, attack_when_hit, flee, evade, charge, prefer_melee, form_groups
 }
 
 ai.search:
 {
-	radius: 16.000
+	radius: 12.000
 }
 
 pathfinding:
@@ -203,7 +206,7 @@ runner:
 	max_jump_speed: 10.000
 	max_jump_time: 0.000
 	max_air_time: 0.200
-	max_grounded_dot: 0.600
+	max_grounded_dot: 0.900
 	propagate_ratio: 1.000
 	no_rotate_air_mult: 0.000
 	// flags: no_rotate_align_surface
@@ -407,8 +410,10 @@ faction:
 
 		regen:
 		{
-			amount: 85.000
+			amount: 65.000
 			interval: 10.000
+			min_a: 0.500
+			min_b: 0.400
 		}
 		
 		holdable:
@@ -453,7 +458,7 @@ faction:
 			max_jump_speed: 10.000
 			max_jump_time: 0.100
 			max_air_time: 0.300
-			max_grounded_dot: 0.600
+			max_grounded_dot: 0.900
 			propagate_ratio: 0.500
 			air_brake_modifier: 0.000
 			no_rotate_air_mult: 0.000
@@ -666,8 +671,12 @@ faction:
 
 		regen:
 		{
-			amount: 75.000
-			interval: 10.000
+			amount: 60.000
+			interval: 9.000
+			min_a: 0.500
+			max_a: 0.900
+			min_b: 0.400
+			max_b: 1.000
 		}
 
 		armor:
