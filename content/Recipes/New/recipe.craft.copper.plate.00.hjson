@@ -127,8 +127,8 @@
 	tags: manual, crafting, simple, raw, metalworking, metallurgy, processing
 	hints: none
 	connotations: none
-	infrastructure: hard_surface
-	infrastructure_exclude: personal
+	infrastructure: surface
+	infrastructure_exclude: none
 	
 	icon:
 	{

@@ -5,7 +5,7 @@ namespace TC2.Base.Components
 	{
 		public static readonly Texture.Handle texture_smoke = "BiggerSmoke_Light";
 
-		[IComponent.Data(Net.SendType.Reliable, name: "Heatable", region_only: true, sync_table_capacity: 256), IComponent.With<Heat.State>()]
+		[IComponent.Data(Net.SendType.Reliable, name: "Heatable", scope: IComponent.Scope.Region, sync_table_capacity: 256), IComponent.With<Heat.State>()]
 		public partial struct Data(): IComponent
 		{
 			[Flags]
@@ -66,7 +66,7 @@ namespace TC2.Base.Components
 			[Save.Ignore, Net.Ignore] private ulong unused_00;
 		}
 
-		[IComponent.Data(Net.SendType.Unreliable, region_only: true, sync_table_capacity: 256)]
+		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region, sync_table_capacity: 256)]
 		public partial struct State(): IComponent
 		{
 			[Flags]
@@ -497,9 +497,10 @@ namespace TC2.Base.Components
 #endif
 
 #if SERVER
+		[HasComponent<Body.Data>(Source.Modifier.Owned)]
+		[HasComponent<Transform.Data>(Source.Modifier.Owned)]
 		[ISystem.Event<Crafting.SpawnEvent>(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void OnSpawnEvent(ISystem.Info info, ref Region.Data region, Entity entity, ref Crafting.SpawnEvent ev,
-		[Source.Owned] ref Transform.Data transform, [Source.Owned] ref Body.Data body,
+		public static void OnSpawnEvent(Entity entity, ref Crafting.SpawnEvent ev,
 		[Source.Owned] ref Heat.Data heat, [Source.Owned] ref Heat.State heat_state)
 		{
 			//App.WriteLine($"spawn {data.temperature} {data.product.flags}");
@@ -511,9 +512,10 @@ namespace TC2.Base.Components
 			}
 		}
 
+		[HasComponent<Resource.Data>(Source.Modifier.Owned)]
 		[ISystem.Event<Resource.SpawnEvent>(ISystem.Mode.Single, ISystem.Scope.Region, order: 5)]
-		public static void OnSpawnResource(ISystem.Info info, ref Region.Data region, Entity entity, ref Resource.SpawnEvent ev,
-		[Source.Owned] in Resource.Data resource, [Source.Owned] ref Heat.State heat_state)
+		public static void OnSpawnResource(Entity entity, ref Resource.SpawnEvent ev,
+		[Source.Owned] ref Heat.State heat_state)
 		{
 			heat_state.temperature_current.TrySet(ev.temperature);
 			heat_state.flags.RemoveFlag(Heat.State.Flags.Cached);
@@ -521,7 +523,7 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.Event<Resource.MergeEvent>(ISystem.Mode.Single, ISystem.Scope.Region, order: 10)]
-		public static void OnMergeResource(ISystem.Info info, ref Region.Data region, Entity entity, ref Resource.MergeEvent ev,
+		public static void OnMergeResource(Entity entity, ref Resource.MergeEvent ev,
 		[Source.Owned] in Resource.Data resource, [Source.Owned] ref Heat.State heat_state)
 		{
 			var amount_rem = Maths.Min(resource.GetMaxQuantity() - resource.quantity, ev.resource.quantity);
@@ -538,7 +540,7 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.PostUpdate.F(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.38f), HasTag("initialized", true, Source.Modifier.Owned)]
-		public static void OnUpdate_HeatDamage(ISystem.Info info, Entity entity, ref XorRandom random,
+		public static void OnUpdate_HeatDamage(Entity entity, ref XorRandom random,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Health.Data health,
 		[Source.Owned] ref Heat.Data heat, [Source.Owned] ref Heat.State heat_state, [Source.Owned] ref Body.Data body)
 		{
@@ -580,7 +582,7 @@ namespace TC2.Base.Components
 
 #if CLIENT
 		[ISystem.Event<Interactor.HoverEvent>(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void OnHover(ref Region.Data region, ISystem.Info info, Entity ent_heatable, [Source.Owned] ref Interactor.HoverEvent ev,
+		public static void OnHover([Source.Owned] ref Interactor.HoverEvent ev,
 		[Source.Owned] in Heat.State heat_state)
 		{
 			if (heat_state.temperature_current >= temperature_holdable_max)

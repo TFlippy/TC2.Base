@@ -212,7 +212,7 @@ runner:
 	max_grounded_dot: 0.900
 	propagate_ratio: 1.000
 	no_rotate_air_mult: 0.020
-	flags: no_rotate_align_surface
+	flags: none
 	walk_lerp: 0.250
 	jump_decay: 0.600
 	crouch_speed_modifier: 0.500
@@ -252,7 +252,7 @@ threat:
 
 dive:
 {
-	sound: "drevokocur.pissed.00"
+	h_soundmix: drevokocur.dive.00
 	offset: [1.125, -0.125]
 	cooldown: 1.500
 	speed: 25.000

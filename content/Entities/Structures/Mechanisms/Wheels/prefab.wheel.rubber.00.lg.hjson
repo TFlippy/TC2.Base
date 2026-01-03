@@ -12,7 +12,7 @@ body:
 	@shape.circle:
 	{
 		material: rubber
-		miss_chance: 0.000
+		miss_chance: 0.810
 		flags: none
 		tags: none
 		

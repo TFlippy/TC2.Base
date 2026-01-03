@@ -13,7 +13,7 @@ body:
 	@shape.box:
 	{
 		material: wood
-		miss_chance: 0.635
+		miss_chance: 0.835
 		flags: none
 		tags: none
 		

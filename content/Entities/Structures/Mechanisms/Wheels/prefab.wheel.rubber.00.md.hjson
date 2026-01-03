@@ -11,7 +11,15 @@ body:
 
 	@shape.circle:
 	{
-		offset: [0.000, 0.000]
+		material: rubber
+		miss_chance: 0.859
+		flags: none
+		tags: none
+		
+		layer: entity, solid, item, wheel
+		mask: world, platform
+		exclude: vehicle, wheel
+		
 		mass: 40.000
 		radius: 0.700
 		friction: 1.850
@@ -19,10 +27,9 @@ body:
 		
 		rigidity_static: 0.950
 		rigidity_dynamic: 0.900
-		material: rubber
-		layer: entity, solid, wheel, item
-		mask: world, platform
-		exclude: vehicle, wheel
+		cog_offset: [0.000, 0.000]
+		
+		offset: [0.000, 0.000]
 	}
 }
 

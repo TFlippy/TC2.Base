@@ -410,7 +410,7 @@ faction:
 			max_grounded_dot: 0.850
 			propagate_ratio: 0.800
 			no_rotate_air_mult: 0.200
-			flags: jump_align_surface, no_rotate_align_surface
+			flags: jump_align_surface
 			walk_lerp: 0.050
 			crouch_speed_modifier: 0.750
 			air_brake_modifier: 0.300
@@ -516,7 +516,7 @@ faction:
 		stress_damp: 0.300
 		z: -10.000
 		material_type: flesh
-		flags: organic, no_wrap, allow_dragging, control_write, facing_reset_pos, force_facing, no_sync
+		flags: organic, no_wrap, allow_dragging, control_write, facing_reset_pos, force_facing
 
 		@animated.renderer:
 		{

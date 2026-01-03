@@ -1,0 +1,20 @@
+﻿{
+	$version: "0.1.67.2"
+	flags: none
+	chance: 0.000
+	tags: none
+	
+	volume: [0.860, 0.050]
+	pitch: [0.950, 0.110]
+	size: [1.200, 0.000]
+	dist_mult: [0.700, 0.000]
+	
+	shake_radius: [0.000, 0.000]
+	shake_magnitude: [0.000, 0.000]
+	
+	sounds:
+	[
+		badger_pounce
+		tool_swing_00
+	]
+}

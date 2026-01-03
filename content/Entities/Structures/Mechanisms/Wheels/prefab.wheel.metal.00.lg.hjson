@@ -7,22 +7,29 @@ $tags: []
 
 body:
 {
-	fall_damage_multiplier: 0.600
+	fall_damage_multiplier: 0.300
 
 	@shape.circle:
 	{
-		offset: [0.000, 0.000]
-		mass: 250.000
+		material: metal
+		miss_chance: 0.839
+		flags: none
+		tags: none
+		
+		layer: entity, solid, item, wheel
+		mask: world, platform
+		exclude: vehicle, wheel
+		
+		mass: 350.000
 		radius: 1.125
 		friction: 1.100
 		elasticity: 0.500
 		
 		rigidity_static: 0.950
-		rigidity_dynamic: 1.000
-		material: metal
-		layer: entity, solid, wheel, item
-		mask: world, platform
-		exclude: vehicle, wheel
+		fall_damage_mult: 1.720
+		cog_offset: [0.000, 0.000]
+		
+		offset: [0.000, 0.000]
 	}
 }
 
