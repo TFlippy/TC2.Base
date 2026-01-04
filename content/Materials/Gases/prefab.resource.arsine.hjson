@@ -7,7 +7,7 @@ body:
 	@shape.circle:
 	{
 		radius: 1.500
-		friction: 0.810
+		friction: 0.970
 		elasticity: 0.120
 		rigidity_static: 0.700
 		rigidity_dynamic: 0.200

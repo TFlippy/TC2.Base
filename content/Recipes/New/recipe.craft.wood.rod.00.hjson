@@ -1,9 +1,9 @@
 ﻿{
-	$version: "0.1.64.1"
-	name: "Wooden Rods"
+	$version: "0.1.67.2"
+	name: "Wooden Bars"
 	desc:
 		'''
-		TODO: Desc
+		Turn bigger wood into smaller wooden bars.
 		'''
 	tips: []
 	
@@ -61,11 +61,12 @@
 					filter_tools:
 					{
 						require: saw
-						include: pencil, ruler, pliers, axe, towel, knife
+						include: ruler, file, knife
 					}
 					filter_infrastructure:
 					{
-						include: table, chair
+						require: surface
+						include: workbench
 					}
 				}
 			]
@@ -124,12 +125,8 @@
 					
 					filter_tools:
 					{
-						require: saw
-						include: pencil, ruler, pliers, axe, towel, knife
-					}
-					filter_infrastructure:
-					{
-						include: table, chair
+						require: hammer, file, chisel, knife
+						include: pencil, ruler, hammer, saw, hand_drill, screwdriver, tweezers, axe, file, chisel, knife
 					}
 				}
 				{
@@ -173,12 +170,15 @@
 					
 					filter_tools:
 					{
-						require: saw
-						include: pencil, ruler, pliers, axe, towel, knife
+						require: sandpaper
 					}
 					filter_infrastructure:
 					{
-						include: table, chair
+						include: table, surface
+					}
+					filter_environment:
+					{
+						include: workshop, stationary, illuminated, dry
 					}
 				}
 			]
@@ -200,10 +200,10 @@
 	
 	type: workshop
 	flags: item, production, wip
-	tags: manual, crafting, simple, woodworking
+	tags: manual, crafting, basic, simple, woodworking
 	hints: none
 	connotations: none
-	infrastructure: table, surface
+	infrastructure: surface
 	infrastructure_exclude: none
 	
 	icon:

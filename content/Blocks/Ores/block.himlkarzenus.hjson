@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.67.2"
 	name: "Himlkarzenus"
 	desc:
 		'''
@@ -20,7 +20,7 @@
 	
 	mass: 1.110
 	density: 0.000
-	friction: 0.750
+	friction: 0.840
 	elasticity: 0.690
 	fall_damage_mult: 1.150
 	collision_layer: none

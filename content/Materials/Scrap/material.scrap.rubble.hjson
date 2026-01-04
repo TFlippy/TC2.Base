@@ -19,7 +19,7 @@
 	// Inventory material type.
 	type: rubble
 	flags: scrap, hard, granular, large, heavy, gravel, waste, solid, impure
-	display_flags: sprite_stack_linear
+	display_flags: none
 	spawn_flags:
 	{
 		add: merge, no_discard

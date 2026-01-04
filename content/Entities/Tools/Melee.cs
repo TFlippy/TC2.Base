@@ -106,7 +106,7 @@ namespace TC2.Base.Components
 			public Vector2 swing_offset = new(1.00f, 1.00f);
 			public float swing_rotation = -2.50f;
 
-			[Save.NewLine]
+			[Save.NewLine] // TODO: replace with ISoundMix
 			public Sound.Handle sound_swing = sound_swing_default;
 			public float sound_volume = 0.75f;
 			public float sound_size = 1.00f;

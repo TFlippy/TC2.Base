@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.67.2"
 	name: "Sanding"
 	name_short: "Sanding"
 	desc:
@@ -54,10 +54,10 @@
 		carpentry: 0.220
 	}
 	
-	sound_volume: 0.600
-	sound_pitch: 0.750
+	sound_volume: 0.610
+	sound_pitch: 0.820
 	sound_size: 0.600
-	sound_dist: 0.620
+	sound_dist: 0.580
 	
 	sounds: ["walljump.00", "walljump.01", "walljump.02"]
 	sounds_manual: []

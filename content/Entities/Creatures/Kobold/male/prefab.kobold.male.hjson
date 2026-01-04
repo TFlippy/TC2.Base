@@ -782,6 +782,11 @@ commandable:
 
 		frame: [9, 0]
 		offset: [0.250, -0.125]
+
+		damage_flags:
+		{
+			add: no_loot_discard
+		}
 	}
 }
 

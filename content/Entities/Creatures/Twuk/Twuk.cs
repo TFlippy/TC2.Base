@@ -34,7 +34,7 @@
 			{
 				if (npc.self_hints.HasAny(NPC.SelfHints.Is_Alerted))
 				{
-					Sound.Play(ref region, sounds_screech.GetRandom(ref random), transform.position, volume: random.NextFloatRange(0.60f, 0.90f), pitch: random.NextFloatRange(0.80f, 1.20f) * head.voice_pitch, size: 1.40f, dist_multiplier: random.NextFloatRange(0.90f, 1.40f));
+					Sound.Play(ref region, sounds_screech.GetRandom(ref random), transform.position, volume: random.NextFloatRange(0.60f, 0.90f), pitch: random.NextFloatRange(0.80f, 1.20f) * head.voice_pitch, size: 0.50f, dist_multiplier: random.NextFloatRange(0.90f, 1.10f));
 					twuk.t_next_sound = info.WorldTime + random.NextFloatRange(1.04f, 1.92f);
 				}
 				else
