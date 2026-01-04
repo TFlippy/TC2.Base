@@ -24,12 +24,12 @@
 			options:
 			[
 				{
-					name: "Recycled"
+					name: "Restored"
 					
 					type: undefined
 					flags: wip, auto_generated
 					
-					prefix: "Recycled "
+					prefix: "Restored "
 					priority: 1.000
 					
 					requirements:
@@ -39,8 +39,9 @@
 							material: steel.frames
 							amount: 0.500
 							snapping: 0.100
-							loss: 0.275
-							ratio: 0.659
+							falloff: 0.972
+							loss: 1.000
+							ratio: 1.000
 							group: 0
 							flags: prerequisite
 						}
@@ -49,9 +50,8 @@
 							material: scrap.machine
 							amount: 1.500
 							snapping: 0.100
-							falloff: 0.932
-							loss: 0.224
-							ratio: 0.655
+							loss: 1.000
+							ratio: 1.000
 							group: 0
 							flags: prerequisite
 						}
@@ -63,7 +63,7 @@
 							difficulty: 6
 							snapping: 5.000
 							falloff: 0.741
-							ratio: 0.408
+							ratio: 0.141
 							group: 0
 							flags: conditional
 						}
@@ -75,7 +75,244 @@
 							difficulty: 7
 							snapping: 5.000
 							falloff: 0.870
-							ratio: 0.573
+							ratio: 0.133
+							group: 1
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: bending
+							amount: 80.000
+							amount_min: 40.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.924
+							ratio: 0.122
+							group: 1
+							flags: simultaneous, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: machine_parts
+							amount: 1.395
+							amount_extra: 0.574
+							snapping: 0.100
+							group: 0
+							ratio: 0.808
+							flags: primary, compact, scale_to_mass
+						}
+						{
+							type: resource
+							material: scrap.machine
+							amount: 0.445
+							amount_extra: 0.3084
+							snapping: 0.100
+							group: 0
+							ratio: 0.882
+							flags: residue, secondary, scale_to_mass
+						}
+						{
+							type: resource
+							material: scrap.arcane
+							amount: 0.445
+							amount_extra: 0.3084
+							snapping: 0.100
+							group: 0
+							chance: 0.745
+							ratio: 0.635
+							flags: byproduct, scale_to_mass
+						}
+					]
+					
+					filter_tools:
+					{
+						require: hammer, cutters
+						include: hammer, cutters, pliers, magnifying_glass, bucket, chisel, towel, spatula, crowbar, knife, scissors
+					}
+					filter_infrastructure:
+					{
+						include: anvil, table, vise, surface, hard_surface, workbench
+					}
+					filter_environment:
+					{
+						include: office, stationary, clean, cozy, quiet, organized
+					}
+				}
+				{
+					name: "Matched"
+					
+					type: undefined
+					flags: wip, auto_generated
+					
+					prefix: "Matched "
+					priority: 1.000
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: machine_parts
+							amount: 1.514563
+							snapping: 0.100
+							falloff: 0.870
+							loss: 0.988
+							ratio: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: scrap.mixed
+							amount: 1.1543
+							snapping: 0.100
+							falloff: 1.080
+							loss: 0.961
+							ratio: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: search.components
+							amount: 60.000
+							amount_min: 50.000
+							difficulty: 7
+							snapping: 5.000
+							falloff: 1.228
+							loss: 0.012
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: machine_parts
+							amount: 1.2545
+							amount_extra: 1.519
+							snapping: 0.100
+							group: 0
+							ratio: 0.388
+							flags: primary, compact, scale_to_mass
+						}
+						{
+							type: resource
+							material: scrap.machine
+							amount: 0.5893
+							amount_extra: 0.299
+							snapping: 0.100
+							group: 0
+							ratio: 0.341
+							flags: residue, scale_to_mass
+						}
+						{
+							type: resource
+							material: copper.plate
+							amount: 0.3683
+							amount_extra: 0.108
+							snapping: 0.100
+							group: 0
+							chance: 0.663
+							ratio: 0.145
+							flags: residue, byproduct, scale_to_mass
+						}
+						{
+							type: resource
+							material: scrap.arcane
+							amount: 0.3033
+							amount_extra: 0.286
+							snapping: 0.100
+							group: 0
+							chance: 0.431
+							ratio: 0.016
+							flags: residue, byproduct, scale_to_mass
+						}
+						{
+							type: resource
+							material: scrap.mixed
+							amount: 0.7303
+							amount_extra: 0.344
+							snapping: 0.100
+							group: 0
+							ratio: 0.945
+							flags: residue, scale_to_mass
+						}
+					]
+					
+					filter_tools:
+					{
+						require: hammer, cutters
+						include: hammer, cutters, pliers, magnifying_glass, bucket, chisel, towel, spatula, crowbar, knife, scissors
+					}
+					filter_infrastructure:
+					{
+						include: anvil, table, vise, surface, hard_surface, workbench
+					}
+					filter_environment:
+					{
+						include: office, stationary, clean, cozy, quiet, organized
+					}
+				}
+				{
+					name: "Recovered"
+					
+					type: undefined
+					flags: disabled, merge_residue, merge_waste, wip, auto_generated
+					
+					prefix: "Recovered "
+					priority: 1.000
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: scrap.mixed
+							amount: 0.833333
+							snapping: 0.100
+							falloff: 0.929
+							loss: 0.906
+							ratio: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: search.components
+							amount: 120.000
+							amount_min: 170.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.741
+							loss: 0.008
+							group: 0
+							flags: conditional
+						}
+						{
+							type: work
+							work: cleaning.metal
+							amount: 120.000
+							amount_min: 170.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.741
+							loss: 0.008
+							group: 1
+							flags: conditional
+						}
+						{
+							type: work
+							work: snipping.metal
+							amount: 75.000
+							amount_min: 50.000
+							difficulty: 7
+							snapping: 5.000
+							falloff: 0.870
 							group: 1
 							flags: conditional
 						}
@@ -87,7 +324,7 @@
 							difficulty: 5
 							snapping: 5.000
 							falloff: 0.924
-							ratio: 0.808
+							ratio: 0.012
 							group: 1
 							flags: conditional
 						}
@@ -102,16 +339,18 @@
 							amount_extra: 2.730
 							snapping: 0.100
 							group: 0
-							flags: primary, compact
+							ratio: 0.310
+							flags: primary, compact, scale_to_mass
 						}
 						{
 							type: resource
-							material: scrap.machine
+							material: scrap.metal
 							amount: 0.368
 							amount_extra: 0.4774
 							snapping: 0.100
 							group: 0
-							flags: residue, secondary
+							ratio: 0.216
+							flags: residue, secondary, scale_to_mass
 						}
 					]
 					
@@ -135,13 +374,11 @@
 	
 	type: workshop
 	flags: item, production, wip
-	tags: manual, crafting, complex, small, assembling, metalworking, engineering, processing
+	tags: manual, crafting, basic, small, assembling, metalworking, engineering, salvaging, processing
 	hints: none
 	connotations: none
-	infrastructure: table, surface, workbench
+	infrastructure: surface
 	infrastructure_exclude: giant
-	
-	h_company: common
 	
 	icon:
 	{
