@@ -1,11 +1,16 @@
 ﻿{
-	$version: "0.1.65.2"
+	$version: "0.1.68.0"
 	name: "Purified Water"
 	desc:
 		'''
 		Pour some hydrogen peroxide into impure freshwater to cure it of disease.
 		'''
 	tips: []
+	
+	related_materials:
+	{
+		water.clean: product, result
+	}
 	
 	stages:
 	[

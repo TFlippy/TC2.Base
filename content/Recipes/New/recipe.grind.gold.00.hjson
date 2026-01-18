@@ -1,7 +1,12 @@
 ﻿{
-	$version: "0.1.67.2"
+	$version: "0.1.68.0"
 	name: "Gold"
 	tips: []
+	
+	related_materials:
+	{
+		gold.powder: residue, powdered, product, result
+	}
 	
 	stages:
 	[

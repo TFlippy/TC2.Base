@@ -1,11 +1,16 @@
 ﻿{
-	$version: "0.1.67.2"
+	$version: "0.1.68.0"
 	name: "Wooden Bars"
 	desc:
 		'''
 		Turn bigger wood into smaller wooden bars.
 		'''
 	tips: []
+	
+	related_materials:
+	{
+		wood.rod: refined, product, result
+	}
 	
 	stages:
 	[

@@ -1,11 +1,17 @@
 ﻿{
-	$version: "0.1.67.1"
+	$version: "0.1.68.0"
 	name: "Thinly Veiled Threads"
 	desc:
 		'''
 		Rummage through garbage in search for textiles, and then wash them (who knows who died in these).
 		'''
 	tips: []
+	
+	related_materials:
+	{
+		cloth: residue, product, result
+		leather: residue, product, result
+	}
 	
 	stages:
 	[

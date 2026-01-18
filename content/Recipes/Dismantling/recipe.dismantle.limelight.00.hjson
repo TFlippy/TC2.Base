@@ -1,11 +1,18 @@
 ﻿{
-	$version: "0.1.67.2"
+	$version: "0.1.68.0"
 	name: "Dismantle Limelight"
 	desc:
 		'''
 		Smash a limelight into spare parts.
 		'''
 	tips: []
+	
+	related_materials:
+	{
+		pellet.heat: product, result
+		directors: residue, product, result
+		lime: residue, powdered, result
+	}
 	
 	stages:
 	[
@@ -117,7 +124,7 @@
 	infrastructure: surface
 	infrastructure_exclude: none
 	
-	h_company: common
+	h_company: common.kobold
 	
 	icon:
 	{

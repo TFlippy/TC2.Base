@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.67.1"
+	$version: "0.1.68.0"
 	name: "Collect Water"
 	desc:
 		'''
@@ -9,6 +9,15 @@
 	[
 		"Requires to be near a body of water"
 	]
+	
+	related_materials:
+	{
+		water: wet, raw, product, result
+		water.clean: wet, raw, clean, product, result
+		water.dirty: wet, raw, dirty, product, result
+		water.swamp: wet, raw, dirty, product, result
+		water.toxic: wet, raw, dirty, chemical, product, result
+	}
 	
 	stages:
 	[
@@ -46,10 +55,10 @@
 							type: work
 							work: draining
 							amount: 45.000
-							amount_min: 90.000
+							amount_min: 25.000
 							difficulty: 4
-							snapping: 25.000
-							falloff: 0.876
+							snapping: 5.000
+							falloff: 0.823
 							group: 0
 							flags: conditional
 						}

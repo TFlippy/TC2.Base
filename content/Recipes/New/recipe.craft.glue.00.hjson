@@ -1,11 +1,18 @@
 ﻿{
-	$version: "0.1.65.2"
+	$version: "0.1.68.0"
 	name: "Homemade Glue"
 	desc:
 		'''
 		Mix some random things together and pretend it's glue.
 		'''
 	tips: []
+	
+	related_materials:
+	{
+		glue: product, result
+		mortar: residue, impure, result
+		nitrocellulose: residue, impure, result
+	}
 	
 	stages:
 	[

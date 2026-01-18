@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.67.2"
+	$version: "0.1.68.0"
 	name: "Glued SG-20.4mm"
 	desc:
 		'''
@@ -7,6 +7,11 @@
 		with most of the process replaced by aggressive gluing.
 		'''
 	tips: []
+	
+	related_materials:
+	{
+		ammo.sg.buck: product, result
+	}
 	
 	stages:
 	[

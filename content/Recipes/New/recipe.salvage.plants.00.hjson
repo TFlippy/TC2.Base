@@ -1,11 +1,20 @@
 ﻿{
-	$version: "0.1.67.1"
+	$version: "0.1.68.0"
 	name: "Chosen Plantstuff"
 	desc:
 		'''
 		Random stuff carefully selected from captured wild plant trimmings to serve the Kordel Empire.
 		'''
 	tips: []
+	
+	related_materials:
+	{
+		plants: residue, raw, ingredient, natural, product, result
+		cmajzl: residue, raw, natural, result
+		sugar: residue, raw, natural, result
+		eggs: residue, raw, natural, result
+		shite: residue, raw, natural, result
+	}
 	
 	stages:
 	[

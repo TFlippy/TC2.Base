@@ -1,11 +1,21 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.68.0"
 	name: "Dismantle Computron"
 	desc:
 		'''
 		Break down an immensely valuable marvel of magitronic engineering into a large pile of spare parts.
 		'''
 	tips: []
+	
+	related_materials:
+	{
+		pellet.cognition: product, result
+		directors: residue, result
+		actuator: residue, result
+		machine_parts: residue, result
+		steel.frames: residue, result
+		scrap.arcane: residue, waste, result
+	}
 	
 	stages:
 	[

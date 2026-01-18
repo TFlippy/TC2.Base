@@ -1,11 +1,17 @@
 ﻿{
-	$version: "0.1.67.2"
+	$version: "0.1.68.0"
 	name: "Porridge-based Mortar"
 	desc:
 		'''
 		Traditional mortar recipe devised by the grandmothers of kobold masons as a way to use up surplus porridge.
 		'''
 	tips: []
+	
+	related_materials:
+	{
+		mortar: product, result
+		oil: residue, dirty, impure, result
+	}
 	
 	stages:
 	[

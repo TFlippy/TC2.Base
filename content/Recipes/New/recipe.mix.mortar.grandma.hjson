@@ -1,11 +1,17 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.68.0"
 	name: "Grandma's Traditional Mortar"
 	desc:
 		'''
 		Traditional porridge recipe passed down from generation to generation, only for it to be used as a mortar substitute.
 		'''
 	tips: []
+	
+	related_materials:
+	{
+		mortar: product, result
+		glue: residue, dirty, impure, result
+	}
 	
 	stages:
 	[

@@ -1,11 +1,16 @@
 ﻿{
-	$version: "0.1.67.2"
+	$version: "0.1.68.0"
 	name: "Copper Sheets"
 	desc:
 		'''
 		TODO: Desc
 		'''
 	tips: []
+	
+	related_materials:
+	{
+		copper.plate: product, result
+	}
 	
 	stages:
 	[

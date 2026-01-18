@@ -1,11 +1,16 @@
 ﻿{
-	$version: "0.1.67.2"
+	$version: "0.1.68.0"
 	name: "Cement Mortar"
 	desc:
 		'''
 		Simpler mortar mixed from cement, sand and water, with the higher amount of cement making up for the lack of lime.
 		'''
 	tips: []
+	
+	related_materials:
+	{
+		mortar: product, result
+	}
 	
 	stages:
 	[

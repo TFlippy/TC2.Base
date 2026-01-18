@@ -1,11 +1,17 @@
 ﻿{
-	$version: "0.1.65.2"
+	$version: "0.1.68.0"
 	name: "Dry Gunpowder"
 	desc:
 		'''
 		TODO: Desc
 		'''
 	tips: []
+	
+	related_materials:
+	{
+		gunpowder: product, result
+		coal.powder: residue, powdered, result
+	}
 	
 	stages:
 	[

@@ -1,11 +1,16 @@
 ﻿{
-	$version: "0.1.65.2"
+	$version: "0.1.68.0"
 	name: "Cement-lime Mortar"
 	desc:
 		'''
 		Quality mortar mixed from lime, cement, sand and water. Efficient, but somewhat complex to make. 
 		'''
 	tips: []
+	
+	related_materials:
+	{
+		mortar: product, result
+	}
 	
 	stages:
 	[

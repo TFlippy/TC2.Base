@@ -1,11 +1,21 @@
 ﻿{
-	$version: "0.1.67.2"
+	$version: "0.1.68.0"
 	name: "Machine Parts"
 	desc:
 		'''
 		TODO: Desc
 		'''
 	tips: []
+	
+	related_materials:
+	{
+		machine_parts: component, residue, product, result
+		scrap.machine: residue, result
+		scrap.arcane: residue, result
+		scrap.metal: residue, result
+		scrap.mixed: residue, result
+		copper.plate: residue, product, result
+	}
 	
 	stages:
 	[
