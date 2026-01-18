@@ -17,7 +17,7 @@ body:
 		flags: none
 		tags: none
 		
-		layer: entity, solid, flammable
+		layer: entity, solid, flammable, vehicle
 		mask: world
 		exclude: none
 		
