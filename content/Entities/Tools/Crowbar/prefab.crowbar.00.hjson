@@ -47,12 +47,12 @@ melee:
 	
 	cooldown: 0.800
 	max_distance: 1.350
-	aoe: 0.500
-	thickness: 0.900
+	aoe: 0.700
+	thickness: 0.700
 	knockback: 300.000
 	yield: 1.280
 	penetration_falloff: 0.900
-	penetration: 1
+	penetration: 0
 	
 	hit_offset: [0.375, 0.000]
 	
@@ -65,7 +65,7 @@ melee:
 	damage_flags_rem: no_loot_notification
 	
 	hit_mask: world, destructible
-	hit_exclude: tree, background, water, fire, gas, climbable, stored, ignore_melee
+	hit_exclude: background, tree, water, fire, gas, climbable, stored, ignore_melee
 	hit_ignore: water, fire, gas, liquid, stored
 }
 

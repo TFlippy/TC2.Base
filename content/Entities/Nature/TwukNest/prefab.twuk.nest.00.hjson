@@ -11,13 +11,25 @@ body:
 	
 	@shape.line:
 	{
-		a: [-1.625, 0.750]
-		b: [1.500, 0.750]
+		material: bramble
+		miss_chance: 0.000
+		flags: none
+		tags: none
+		
+		layer: entity, solid, background, building, harvestable, flammable, no_overlapped_placement, ignore_bullet
+		mask: world
+		exclude: none
+		
 		mass: 160.000
 		radius: 1.100
 		friction: 0.750
-		material: bramble
-		layer: entity, solid, harvestable, flammable, ignore_bullet
+		elasticity: 0.100
+		
+		cog_offset: [0.000, 0.000]
+		
+		a: [-1.625, 0.750]
+		b: [1.500, 0.750]
+		offset: [0.000, 0.000]
 	}
 }
 
@@ -54,9 +66,9 @@ faction:
 
 claimer:
 {
-	radius: 24.000
-	strength: 2.000
-	falloff: 0.500
+	radius: 40.000
+	strength: 5.000
+	falloff: 1.000
 }
 
 spawn:
