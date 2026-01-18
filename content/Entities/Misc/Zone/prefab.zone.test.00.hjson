@@ -1,0 +1,66 @@
+$tags: []
+
+body:
+{
+	type: static
+	flags: no_impact_damage, no_impact_effects
+	tags: none
+	
+	fall_damage_multiplier: 1.000
+	inventory_weight_multiplier: 0.000
+	gravity: 0.000
+}
+
+transform:
+{
+
+}
+
+zone:
+{
+	rect: [-0.600, -0.800, 2.700, 2.200]
+
+	@shape.complex:
+	{
+		material: none
+		miss_chance: 0.000
+		flags: no_mass, no_inventory_mass
+		tags: none
+		
+		layer: entity, zone, interactable
+		mask: none
+		exclude: none
+		
+		mass: 1.000
+		radius: 0.500
+		friction: 0.500
+		elasticity: 0.500
+		
+		cog_offset: [0.000, 0.000]
+		
+		count: 5
+		points:
+		[
+			[-3.375, -2.500]
+			[2.500, -0.625]
+			[2.500, 2.000]
+			[-3.000, 1.750]
+			[-4.500, 0.875]
+			[0.000, 0.000]
+			[0.000, 0.000]
+			[0.000, 0.000]
+		]
+	}
+}
+
+nameable:
+{
+
+}
+
+interactable:
+{
+	flags: no_tab, centered_inventory
+	window_size: [200, 192]
+	window_size_misc: [48, 0]
+}

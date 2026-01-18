@@ -1,7 +1,9 @@
-$name: "Uniform (Heavy Infantry)"
+$name: "Crayfish-Class Armor"
 $desc:
 	'''
-	Military uniform consisting of a trenchcoat, thick ballistic vest, shoulderpads and faulds.
+	Standard heavy armor consisting of an extra-thick brigandine and large padded shoulderpads.
+
+	Typically worn by frontline infantry, foresters and ice-hockey players.
 	'''
 $tags: []
 

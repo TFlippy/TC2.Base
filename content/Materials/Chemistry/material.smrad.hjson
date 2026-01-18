@@ -11,6 +11,7 @@
 	name: "Smrad"
 	name_short: "Smrad"
 	name_imperial: "Smrad"
+	name_dumb: "Fairy Dust"
 	description:
 		'''
 		Strange, ultrafine dusty residue produced by overstrained essence emitters.
