@@ -168,7 +168,7 @@ ai.behavior:
 
 ai.search:
 {
-	radius: 32.000
+	radius: 18.000
 }
 
 pathfinding:
