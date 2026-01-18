@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.8"
+	$version: "0.1.67.2"
 	name: "Grass"
 	desc:
 		'''
@@ -16,7 +16,8 @@
 	strength_tensile: 0.000
 	strength_compressive: 0.000
 	
-	mass: 1.000
+	mass: 2.300
+	density: 0.000
 	friction: 0.900
 	elasticity: 0.330
 	fall_damage_mult: 0.910
@@ -36,9 +37,12 @@
 	[
 		{
 			material: soil
-			quantity: 2.213889
+			quantity: 2.616666
 		}
-		null
+		{
+			material: cmajzl
+			quantity: 0.633867
+		}
 	]
 	
 	mappings:
