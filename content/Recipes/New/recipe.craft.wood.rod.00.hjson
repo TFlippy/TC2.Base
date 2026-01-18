@@ -219,7 +219,7 @@
 	}
 	icon_offset: [0.000, -2.000]
 	
-	color_frame: "0xff906e4a"
+	color_frame: "0xffe3cb93"
 	color_button: "0xff9dd80f"
 	rank: -18.000
 	

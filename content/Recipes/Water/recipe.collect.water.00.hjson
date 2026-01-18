@@ -319,7 +319,7 @@
 		frame: [2, 0]
 	}
 	
-	color_frame: "0xffaeb59a"
+	color_frame: "0xffe3cb93"
 	color_button: "0xff88b31f"
 	rank: -10.000
 	
