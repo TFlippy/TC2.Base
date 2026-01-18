@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.67.2"
 	name: "Helmet (Standard)"
 	tips: []
 	
@@ -137,6 +137,8 @@
 	type: workshop
 	flags: blueprintable, item, wip, converted
 	tags: manual, crafting, simple, small, tailoring, metalworking
+	hints: none
+	connotations: none
 	infrastructure: table, surface, workbench
 	infrastructure_exclude: none
 	
@@ -145,6 +147,7 @@
 		texture: helmet.00
 		size: [16, 16]
 	}
+	icon_offset: [0.000, 4.000]
 	
 	color_frame: "0xffaeb59a"
 	color_button: "0xff9dd80f"

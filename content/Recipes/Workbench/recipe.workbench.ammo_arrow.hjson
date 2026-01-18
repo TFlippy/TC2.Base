@@ -212,6 +212,7 @@
 		size: [16, 16]
 		frame: [3, 0]
 	}
+	icon_offset: [2.000, -4.000]
 	
 	color_frame: "0xffaeb59a"
 	color_button: "0xff9dd80f"

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.67.2"
 	name: "Handsaw"
 	tips: []
 	
@@ -353,7 +353,7 @@
 		texture: handsaw.00
 		size: [20, 12]
 	}
-	icon_offset: [2.000, 4.000]
+	icon_offset: [-2.000, 2.000]
 	
 	color_frame: "0xffaeb59a"
 	color_button: "0xff9dd80f"

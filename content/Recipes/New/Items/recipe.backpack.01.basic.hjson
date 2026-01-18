@@ -191,6 +191,7 @@
 		texture: backpack.01
 		size: [16, 16]
 	}
+	icon_offset: [0.000, 2.000]
 	
 	color_frame: "0xffaeb59a"
 	color_button: "0xff9dd80f"
