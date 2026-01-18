@@ -48,7 +48,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "wrench"
+		texture: "wrench.00"
 	}
 }
 

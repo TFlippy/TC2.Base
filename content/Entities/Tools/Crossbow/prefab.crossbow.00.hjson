@@ -100,7 +100,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "crossbow"
+		texture: "crossbow.00"
 	}
 }
 

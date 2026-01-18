@@ -428,7 +428,7 @@
 	[
 		{
 			type: prefab
-			prefab: pickaxe
+			prefab: pickaxe.00
 			amount: 1.000
 			group: 0
 			flags: primary, compact
@@ -445,7 +445,7 @@
 	
 	icon:
 	{
-		texture: pickaxe
+		texture: pickaxe.00
 	}
 	
 	color_frame: "0xffaeb59a"

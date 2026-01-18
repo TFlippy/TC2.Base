@@ -314,7 +314,7 @@
 	[
 		{
 			type: prefab
-			prefab: axe
+			prefab: axe.00
 			amount: 1.000
 			group: 0
 			flags: primary, compact
@@ -329,7 +329,7 @@
 	
 	icon:
 	{
-		texture: axe
+		texture: axe.00
 	}
 	
 	color_frame: "0xffaeb59a"

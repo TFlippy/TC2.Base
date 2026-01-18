@@ -429,7 +429,7 @@
 	[
 		{
 			type: prefab
-			prefab: wrench
+			prefab: wrench.00
 			amount: 1.000
 			group: 0
 			flags: primary, compact
@@ -444,7 +444,7 @@
 	
 	icon:
 	{
-		texture: wrench
+		texture: wrench.00
 	}
 	
 	color_frame: "0xffaeb59a"

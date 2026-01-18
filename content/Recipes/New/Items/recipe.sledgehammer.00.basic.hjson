@@ -210,7 +210,7 @@
 	[
 		{
 			type: prefab
-			prefab: sledgehammer
+			prefab: sledgehammer.00
 			amount: 1.000
 			group: 0
 			flags: primary, compact
@@ -232,7 +232,7 @@
 	
 	icon:
 	{
-		texture: sledgehammer
+		texture: sledgehammer.00
 	}
 	
 	color_frame: "0xffaeb59a"
