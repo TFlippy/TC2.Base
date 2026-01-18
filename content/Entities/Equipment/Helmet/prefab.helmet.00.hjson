@@ -15,7 +15,7 @@ body:
 		friction: 0.500
 		elasticity: 0.450
 		material: metal
-		layer: entity, solid
+		layer: entity, solid, item
 		mask: world
 	}
 }
@@ -23,7 +23,7 @@ body:
 holdable:
 {
 	offset: [0.000, 0.000]
-	flags: storable
+	flags: none
 }
 
 animated.renderer:
@@ -68,9 +68,9 @@ equipment:
 
 armor:
 {
-	toughness: 500.000
-	protection: 0.970
-	coverage: 0.650
+	toughness: 570.000
+	protection: 0.990
+	coverage: 0.700
 
 	knockback_modifier: 1.500
 	pain_modifier: 0.600

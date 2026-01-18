@@ -18,7 +18,7 @@ body:
 holdable:
 {
 	offset: [0.000, 0.000]
-	flags: storable
+	flags: none
 }
 
 animated.renderer:

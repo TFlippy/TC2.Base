@@ -11,7 +11,7 @@ body:
 {
 	@shape.circle:
 	{
-		mass: 24.700
+		mass: 21.700
 		radius: 0.400
 		friction: 0.500
 		elasticity: 0.050
@@ -70,15 +70,15 @@ equipment:
 
 armor:
 {
-	toughness: 700.000
+	toughness: 600.000
 	protection: 0.990
-	coverage: 0.880
+	coverage: 0.910
 	
 	knockback_modifier: 1.400
-	pain_modifier: 0.500
+	pain_modifier: 0.800
 
-	material_type: metal_solid
-	flags: no_sound, no_particles
+	material_type: metal
+	// flags: no_sound, no_particles
 }
 
 norotate:

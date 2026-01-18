@@ -14,9 +14,9 @@ body:
 		material: leather
 		miss_chance: 0.608
 		flags: none
-		tags: light, medium, flammable, soft
+		tags: light, medium, soft
 		
-		layer: entity, solid, item, storage, flammable
+		layer: entity, solid, item, storage
 		mask: world
 		exclude: none
 		
