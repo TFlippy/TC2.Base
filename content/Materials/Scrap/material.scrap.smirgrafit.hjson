@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.68.0"
 	name: "Smirgrafit Scrap"
 	name_short: "Sgft. Scrap"
 	description:
@@ -23,7 +23,7 @@
 	spawn_flags:
 	{
 		add: merge, no_discard
-		rem: allow_encumbered, show_notification
+		rem: allow_encumbered
 	}
 	hints: materials, junk, heavy, construction, industrial, wrecked, crappy, slow, clumsy
 	

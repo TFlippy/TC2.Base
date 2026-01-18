@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.68.0"
 	name: "Ferrous Scrap"
 	name_short: "Ferr. Scrap"
 	description:
@@ -23,7 +23,6 @@
 	spawn_flags:
 	{
 		add: merge, no_discard
-		rem: show_notification
 	}
 	hints: materials, junk, construction, cheap
 	
