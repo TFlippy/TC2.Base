@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.61.2"
 	tag: "GKS-BP"
-	name: "Krumpelsuter-Borduspolicejz"
+	name: "Krumpelstejn-Borduspolicejz"
 	
 	color_a: "0xffba974a"
 	color_b: "0xff639417"
@@ -11,7 +11,7 @@
 	
 	scout_count: 0
 	
-	h_company: krumpelsuter.guard
+	h_company: krumpelstejn.guard
 	
 	players:
 	{

@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.60.4"
 	tag: "GKS"
-	name: "Guvernorat-Krumpelsuter"
+	name: "Guvernorat-Krumpelstejn"
 	
 	color_a: "0xffba974a"
 	color_b: "0xff639417"
@@ -13,5 +13,5 @@
 	
 	scout_count: 0
 	
-	h_company: "krumpelsuter"
+	h_company: "krumpelstejn"
 }
