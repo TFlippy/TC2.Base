@@ -86,7 +86,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "pickaxe"
+		texture: pickaxe.00
 	}
 }
 

@@ -91,7 +91,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "axe"
+		texture: axe.00
 	}
 }
 

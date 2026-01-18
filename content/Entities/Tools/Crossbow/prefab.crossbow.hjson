@@ -1,0 +1,115 @@
+$name: "Crossbow"
+$desc:
+	'''
+	Ranged weapon similar to bow, although more advanced.
+	
+	Cleverly designed to use arrows instead of bolts.
+	'''
+$tags: []
+
+body:
+{
+	@shape.line:
+	{
+		a: [-0.800, 0.000]
+		b: [0.800, 0.000]
+		mass: 3.500
+		radius: 0.250
+		friction: 0.600
+		elasticity: 0.350
+		material: wood
+		layer: entity, solid, flammable
+		mask: world
+	}
+}
+
+control:
+{
+
+}
+
+aimable:
+{
+	min: -1.000
+	max: 0.800
+}
+
+gun:
+{
+	muzzle_offset: [0.875, -0.125]
+	receiver_offset: [0.000, -0.250]
+	
+	sound_volume: 0.550
+	sound_size: 0.625
+	sound_dist_multiplier: 0.640
+	sound_pitch: 1.270
+	
+	sound_shoot: crossbow_shoot
+	sound_cycle: item.adjust.02
+	sound_reload: effect.spring.machine.01
+	sound_jam: gun_jam
+	
+	damage_multiplier: 2.850
+	velocity_multiplier: 65.000
+	jitter_multiplier: 0.040
+	recoil_multiplier: 1.100
+	velocity_max: 160.000
+	reload_interval: 1.700
+	cycle_interval: 0.300
+	
+	ammo_filter: ammo_arrow
+	max_ammo: 1.000
+	
+	action: manual
+	type: launcher
+	feed: single
+	
+	flags: full_reload, no_particles
+	heuristic_range: 22.000
+
+	@inventory1:
+	{
+		type: ammo
+		flags: hidden, ignore_mass, no_auto_pickup
+		stack_size_multiplier: 1.000
+		
+		filter:
+		{
+			require: ammo_arrow
+			exclude: gas
+		}
+		offset: [0.000, -0.250]
+	}
+}
+
+gun.state:
+{
+
+}
+
+holdable:
+{
+	offset: [-0.250, -0.125]
+	force_multiplier: 1.100
+	torque_multiplier: 0.600
+	hints: weapon, gun, usable
+	flags: storable
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "crossbow"
+	}
+}
+
+transform:
+{
+
+}
+
+packable:
+{
+
+}

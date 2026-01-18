@@ -47,7 +47,7 @@ melee:
 	
 	cooldown: 0.900
 	max_distance: 2.000
-	aoe: 0.750
+	aoe: 0.820
 	thickness: 0.500
 	knockback: 140.000
 	yield: 0.900
@@ -91,7 +91,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "shovel"
+		texture: shovel.00
 	}
 }
 

@@ -89,7 +89,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "crowbar"
+		texture: crowbar.00
 	}
 }
 
