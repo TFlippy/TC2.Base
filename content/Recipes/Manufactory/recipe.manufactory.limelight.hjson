@@ -1,11 +1,16 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.68.0"
 	name: "Limelight"
 	desc:
 		'''
 		Small stackable cylinders of compacted quicklime with EC-TH pellets embedded inside.
 		'''
 	tips: []
+	
+	related_materials:
+	{
+		limelight: product, result
+	}
 	
 	stages:
 	[

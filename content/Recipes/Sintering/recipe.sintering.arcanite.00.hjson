@@ -1,11 +1,18 @@
 ﻿{
-	$version: "0.1.67.2"
+	$version: "0.1.68.0"
 	name: "Arcanite Sintering"
 	desc:
 		'''
 		TODO: Desc
 		'''
 	tips: []
+	
+	related_materials:
+	{
+		arcanite.ingot: refined, solidified, product, result
+		arcanite.plate: refined, flattened, solidified, product, result
+		arcanite: refined, ruined, residue, solidified, product, result
+	}
 	
 	stages:
 	[

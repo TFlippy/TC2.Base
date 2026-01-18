@@ -1,0 +1,206 @@
+﻿{
+	$region_id: 0
+	$version: "0.1.68.0"
+	name: "Steel Frames"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	tips: []
+	
+	related_materials:
+	{
+		steel.frames: component, product, result, processed
+		steel.rod: residue, result, byproduct, processed
+		steel.plate: residue, flattened, result, byproduct, processed
+		scrap.ferrous: residue, mangled, dirty, waste, impure, result, scrap
+	}
+	
+	stages:
+	[
+		{
+			name: "Method"
+			
+			type: processing
+			flags: wip, auto_generated
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 1.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Assorted"
+					
+					type: undefined
+					flags: merge_residue, auto_generated
+					discard_damage_type_override: handsaw
+					
+					prefix: "Assorted "
+					priority: 1.000
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: scrap.steel
+							amount: 2.483107
+							snapping: 0.100
+							falloff: 1.044
+							loss: 0.957
+							ratio: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: scavenging
+							amount: 25.000
+							amount_min: 20.000
+							difficulty: 8
+							snapping: 5.000
+							falloff: 1.154
+							group: 0
+							flags: conditional
+						}
+						{
+							type: work
+							work: sawing.metal
+							amount: 140.000
+							amount_min: 60.000
+							difficulty: 9
+							snapping: 5.000
+							falloff: 0.901
+							ratio: 0.212
+							group: 1
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: crimping.metal
+							amount: 75.000
+							amount_min: 50.000
+							difficulty: 7
+							snapping: 5.000
+							falloff: 0.815
+							ratio: 0.141
+							group: 1
+							flags: simultaneous, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: steel.frames
+							amount: 0.3218
+							amount_extra: 0.2132
+							snapping: 0.100
+							group: 0
+							ratio: 0.620
+							flags: primary, compact, scale_to_mass
+						}
+						{
+							type: resource
+							material: steel.rod
+							amount: 0.445
+							amount_extra: 0.2634
+							snapping: 0.100
+							group: 0
+							chance: 0.451
+							ratio: 0.412
+							flags: residue, byproduct, scale_to_mass
+						}
+						{
+							type: resource
+							material: steel.plate
+							amount: 0.373
+							amount_extra: 0.1814
+							snapping: 0.400
+							group: 0
+							chance: 0.306
+							ratio: 0.506
+							flags: residue, byproduct, scale_to_mass
+						}
+						{
+							type: resource
+							material: steel.powder
+							amount: 0.373
+							amount_extra: 0.0914
+							snapping: 0.010
+							group: 0
+							ratio: 0.082
+							flags: residue, scale_to_mass
+						}
+						{
+							type: resource
+							material: scrap.ferrous
+							amount: 0.378382
+							amount_extra: 0.349377
+							snapping: 0.100
+							group: 0
+							ratio: 0.643
+							flags: waste, scale_to_mass
+						}
+					]
+					
+					filter_tools:
+					{
+						require: saw, pliers
+						include: cutters, screwdriver, wrench, pliers, tweezers, file, towel, knife
+					}
+					filter_infrastructure:
+					{
+						require: surface
+						include: table, vise, workbench
+					}
+				}
+			]
+		}
+	]
+	
+	type: workshop
+	flags: item, production, wip
+	tags: manual, crafting, crude, basic, simple, small, assembling, metalworking, salvaging, construction, processing
+	hints: none
+	connotations: none
+	infrastructure: surface
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		texture: resource.steel.frames
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	icon_offset: [-8.000, 2.000]
+	
+	icon_extra:
+	{
+		texture: ui_icons_crafting.mini
+		size: [16, 16]
+	}
+	icon_extra_offset: [0.000, -6.000]
+	
+	icon_c:
+	{
+		texture: resource.scrap.steel
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	icon_c_offset: [-2.000, -16.000]
+	
+	color_frame: "0xffeabb3e"
+	color_button: "0xff9dd80f"
+	rank: -18.000
+	
+	min: 1
+	max: 25
+	step: 1
+	
+	version: 1
+}

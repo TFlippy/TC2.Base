@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.67.2"
+	$version: "0.1.68.0"
 	name: "Helmet (Standard)"
 	tips: []
 	
@@ -30,40 +30,42 @@
 						{
 							type: resource
 							material: steel.plate
-							amount: 0.753457
-							snapping: 0.250
-							ratio: 0.125
+							amount: 0.774791
+							snapping: 0.400
+							loss: 0.078
+							ratio: 0.165
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: resource
 							material: steel.frames
-							amount: 0.075346
-							snapping: 0.500
-							ratio: 0.075
+							amount: 0.08336
+							snapping: 0.250
+							loss: 0.157
+							ratio: 0.220
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: resource
 							material: leather
-							amount: 0.783294
-							snapping: 0.500
-							loss: 0.020
-							ratio: 0.227
+							amount: 0.564688
+							snapping: 0.100
+							ratio: 0.016
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: work
 							work: hammering
-							amount: 750.000
-							amount_min: 225.000
+							amount: 500.000
+							amount_min: 100.000
 							difficulty: 7
 							snapping: 25.000
-							falloff: 0.690
-							ratio: 0.161
+							falloff: 0.837
+							loss: 0.271
+							ratio: 0.176
 							group: 0
 							flags: conditional
 						}
@@ -89,54 +91,9 @@
 		}
 	]
 	
-	requirements_old:
-	[
-		{
-			type: resource
-			material: steel.plate
-			amount: 2.000
-			group: 0
-			flags: prerequisite
-		}
-		{
-			type: resource
-			material: steel.frames
-			amount: 0.200
-			group: 0
-			flags: prerequisite
-		}
-		{
-			type: resource
-			material: leather
-			amount: 2.000
-			group: 0
-			flags: prerequisite
-		}
-		{
-			type: work
-			work: smithing
-			amount: 550.000
-			difficulty: 7
-			falloff: 0.690
-			group: 0
-			flags: conditional
-		}
-	]
-	
-	products_old:
-	[
-		{
-			type: prefab
-			prefab: helmet.00
-			amount: 1.000
-			group: 0
-			flags: primary
-		}
-	]
-	
 	type: workshop
 	flags: blueprintable, item, wip, converted
-	tags: manual, crafting, simple, small, tailoring, metalworking
+	tags: manual, crafting, basic, simple, small, tailoring, metalworking
 	hints: none
 	connotations: none
 	infrastructure: table, surface, workbench

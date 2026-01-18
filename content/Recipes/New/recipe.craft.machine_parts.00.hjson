@@ -10,17 +10,19 @@
 	related_materials:
 	{
 		machine_parts: component, residue, product, result
-		scrap.machine: residue, result
-		scrap.arcane: residue, result
-		scrap.metal: residue, result
-		scrap.mixed: residue, result
-		copper.plate: residue, product, result
+		scrap.machine: residue, result, scrap
+		scrap.arcane: residue, result, byproduct, scrap
+		scrap.metal: residue, result, scrap
+		scrap.mixed: residue, result, scrap
+		copper.plate: residue, result, byproduct
+		scrap.steel: residue, clean, result, scrap
+		copper.rod: residue, result, byproduct
 	}
 	
 	stages:
 	[
 		{
-			name: "Processing"
+			name: "Method"
 			
 			type: processing
 			flags: wip, auto_generated
@@ -223,13 +225,24 @@
 						}
 						{
 							type: resource
+							material: copper.rod
+							amount: 0.3963
+							amount_extra: 0.116
+							snapping: 0.040
+							group: 0
+							chance: 0.675
+							ratio: 0.384
+							flags: residue, byproduct, scale_to_mass
+						}
+						{
+							type: resource
 							material: copper.plate
 							amount: 0.3683
 							amount_extra: 0.108
 							snapping: 0.100
 							group: 0
-							chance: 0.663
-							ratio: 0.145
+							chance: 0.506
+							ratio: 0.157
 							flags: residue, byproduct, scale_to_mass
 						}
 						{
@@ -257,12 +270,11 @@
 					
 					filter_tools:
 					{
-						require: hammer, cutters
-						include: hammer, cutters, pliers, magnifying_glass, bucket, chisel, towel, spatula, crowbar, knife, scissors
+						include: magnifying_glass, bucket, towel, spatula
 					}
 					filter_infrastructure:
 					{
-						include: anvil, table, vise, surface, hard_surface, workbench
+						include: table, surface
 					}
 					filter_environment:
 					{
@@ -366,7 +378,7 @@
 					
 					filter_tools:
 					{
-						require: hammer, cutters
+						require: hammer, cutters, sandpaper
 						include: hammer, cutters, pliers, magnifying_glass, bucket, chisel, towel, spatula, crowbar, knife, scissors
 					}
 					filter_infrastructure:
@@ -375,7 +387,7 @@
 					}
 					filter_environment:
 					{
-						include: office, stationary, clean, cozy, quiet, organized
+						include: workshop, office, stationary, clean, cozy, illuminated, quiet, dry, organized
 					}
 				}
 			]

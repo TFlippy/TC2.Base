@@ -1,7 +1,12 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.68.0"
 	name: "Steel Frames"
 	tips: []
+	
+	related_materials:
+	{
+		steel.frames: refined, product, result
+	}
 	
 	stages:
 	[

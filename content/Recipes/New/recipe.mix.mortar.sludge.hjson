@@ -1,11 +1,17 @@
 ﻿{
-	$version: "0.1.67.1"
+	$version: "0.1.68.0"
 	name: "Cursed Mortar"
 	desc:
 		'''
 		Dilute some perfectly decent mortar with random crap.
 		'''
 	tips: []
+	
+	related_materials:
+	{
+		mortar: product, result
+		sludge: residue, dirty, impure, result
+	}
 	
 	stages:
 	[

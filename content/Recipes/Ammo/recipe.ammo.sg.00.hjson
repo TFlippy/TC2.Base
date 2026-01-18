@@ -11,6 +11,10 @@
 	related_materials:
 	{
 		ammo.sg.buck: product, result
+		ammo.sg.bird: product, result
+		ammo.sg.crap: product, result
+		ammo.sg.baton: product, result
+		ammo.sg.slug: product, result
 	}
 	
 	stages:

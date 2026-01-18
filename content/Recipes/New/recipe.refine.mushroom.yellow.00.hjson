@@ -1,11 +1,16 @@
 ﻿{
-	$version: "0.1.67.2"
+	$version: "0.1.68.0"
 	name: "Sejrus Mushroom"
 	desc:
 		'''
 		Extract mediocre sulfuric acid and other useful byproducts from yellow Sejrus mushrooms.
 		'''
 	tips: []
+	
+	related_materials:
+	{
+		sulfuric_acid: chemical, product, result
+	}
 	
 	stages:
 	[

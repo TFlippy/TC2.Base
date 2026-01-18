@@ -1,12 +1,18 @@
 ﻿{
-	$version: "0.1.67.2"
+	$version: "0.1.68.0"
 	name: "Club"
 	tips: []
+	
+	related_materials:
+	{
+		sawdust: residue, powdered, result
+		woodchips: residue, waste, result
+	}
 	
 	stages:
 	[
 		{
-			name: "Construction"
+			name: "Wood"
 			
 			type: part
 			flags: wip, auto_generated
@@ -20,7 +26,7 @@
 			options:
 			[
 				{
-					name: "Standard"
+					name: "Maple"
 					
 					type: undefined
 					flags: wip, auto_generated
@@ -30,7 +36,83 @@
 						{
 							type: resource
 							material: timber.maple
-							amount: 0.455297
+							amount: 0.432298
+							snapping: 0.010
+							loss: 0.063
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: woodcarving
+							amount: 40.000
+							amount_min: 25.000
+							difficulty: 9
+							snapping: 5.000
+							falloff: 0.986
+							ratio: 0.525
+							group: 0
+							flags: stepped, conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: knife
+						include: screwdriver, file, chisel, knife, sandpaper
+					}
+				}
+				{
+					name: "Pine"
+					
+					type: undefined
+					flags: wip, auto_generated
+					discard_damage_type_override: saw
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: timber.pine
+							amount: 0.662796
+							snapping: 0.100
+							loss: 0.094
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: woodcarving
+							amount: 100.000
+							amount_min: 50.000
+							difficulty: 3
+							snapping: 5.000
+							falloff: 0.989
+							ratio: 0.835
+							group: 0
+							flags: stepped, conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: knife
+						include: screwdriver, file, chisel, knife, sandpaper
+					}
+				}
+				{
+					name: "Oak"
+					
+					type: undefined
+					flags: wip, auto_generated
+					discard_damage_type_override: saw
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: timber.oak
+							amount: 0.335825
 							snapping: 0.500
 							loss: 0.075
 							group: 0
@@ -39,13 +121,14 @@
 						{
 							type: work
 							work: woodcarving
-							amount: 50.000
-							amount_min: 35.000
-							difficulty: 3
-							snapping: 25.000
-							falloff: 0.901
+							amount: 120.000
+							amount_min: 100.000
+							difficulty: 7
+							snapping: 5.000
+							falloff: 0.911
+							ratio: 0.816
 							group: 0
-							flags: conditional
+							flags: stepped, conditional
 						}
 					]
 					
@@ -104,8 +187,8 @@
 	]
 	
 	type: workshop
-	flags: blueprintable, item, wip, converted
-	tags: manual, crafting, dumb, crude, simple, weapon, woodworking
+	flags: blueprintable, item
+	tags: manual, crafting, dumb, crude, basic, simple, weapon, woodworking
 	hints: none
 	connotations: none
 	infrastructure: surface
@@ -124,7 +207,7 @@
 	rank: 0.000
 	
 	min: 1
-	max: 5
+	max: 10
 	step: 1
 	
 	version: 1

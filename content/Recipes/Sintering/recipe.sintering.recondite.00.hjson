@@ -1,11 +1,18 @@
 ﻿{
-	$version: "0.1.67.2"
+	$version: "0.1.68.0"
 	name: "Recondite Sintering"
 	desc:
 		'''
 		TODO: Desc
 		'''
 	tips: []
+	
+	related_materials:
+	{
+		recondite.ingot: refined, solidified, product, result
+		recondite.plate: refined, flattened, solidified, product, result
+		recondite: refined, ruined, residue, solidified, product, result
+	}
 	
 	stages:
 	[
