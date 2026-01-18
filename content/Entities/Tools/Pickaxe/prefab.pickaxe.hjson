@@ -67,7 +67,7 @@ melee:
 	damage_flags_rem: no_loot_notification
 	
 	hit_mask: world, destructible
-	hit_exclude: building, water, fire, gas, powder, liquid, stored
+	hit_exclude: plant, water, fire, gas, powder, liquid, stored, ignore_melee
 	hit_ignore: water, fire, gas, powder, liquid, stored
 }
 

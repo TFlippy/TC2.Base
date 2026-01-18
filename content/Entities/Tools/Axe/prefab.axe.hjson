@@ -57,7 +57,8 @@ melee:
 	
 	damage_type: axe
 	category: bladed
-	damage_flags_add: no_loot_discard
+	
+	damage_flags_add: no_loot_discard, force_loot_notification
 	damage_flags_rem: no_loot_notification
 	
 	hit_mask: world, creature, tree, door, plant

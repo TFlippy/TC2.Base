@@ -108,9 +108,9 @@ namespace TC2.Base.Components
 
 			[Save.NewLine] // TODO: replace with ISoundMix
 			public Sound.Handle sound_swing = sound_swing_default;
-			public float sound_volume = 0.75f;
-			public float sound_size = 1.00f;
-			public float sound_pitch = 1.00f;
+			[Editor.Slider.Clamped(0.01f, 16.00f, 0.01f)] public float sound_volume = 0.75f;
+			[Editor.Slider.Clamped(0.10f, 64.00f, 0.10f)] public float sound_size = 1.00f;
+			[Editor.Slider.Clamped(0.01f, 16.00f, 0.01f)] public float sound_pitch = 1.00f;
 
 			[Save.NewLine]
 			public Melee.AttackType attack_type = AttackType.Swing;
@@ -333,6 +333,7 @@ namespace TC2.Base.Components
 				{
 					return material_type switch
 					{
+						Material.Type.None => false,
 						Material.Type.Wood => true,
 						Material.Type.Stone => false,
 						Material.Type.Gravel => false,
@@ -356,6 +357,45 @@ namespace TC2.Base.Components
 						Material.Type.Scrap => true,
 						Material.Type.Wreck => true,
 						Material.Type.Tool => false,
+						Material.Type.Stone_Porous => true,
+						Material.Type.Stone_Slab => true,
+						Material.Type.Stone_Dense => true,
+						Material.Type.Stone_Metallic => true,
+						Material.Type.Concrete => true,
+						Material.Type.Metal_Pole => true,
+						Material.Type.Metal_Sheet => true,
+						Material.Type.Metal_Frame => true,
+						Material.Type.Metal_Solid => true,
+						Material.Type.Clay => false,
+						Material.Type.Brick => true,
+						Material.Type.Brick_Metallic => true,
+						Material.Type.Essence => false,
+						Material.Type.Gas => false,
+						Material.Type.Machine => true,
+						Material.Type.Coin => false,
+						Material.Type.Coal => true,
+						Material.Type.Cermet => true,
+						Material.Type.Sand => false,
+						Material.Type.Resin => false,
+						Material.Type.Slime => false,
+						Material.Type.Tar => false,
+						Material.Type.Chalk => true,
+						Material.Type.Asphalt => true,
+						Material.Type.Mud => false,
+						Material.Type.Peat => false,
+						Material.Type.Wax => true,
+						Material.Type.Tree => false,
+						Material.Type.Wood_Powder => false,
+						Material.Type.Bramble => false,
+						Material.Type.Components => true,
+						Material.Type.Device => true,
+						Material.Type.Egg => true,
+						Material.Type.Fur => true,
+						Material.Type.Ammo => true,
+						Material.Type.Crystal => true,
+						Material.Type.Building_Wood => true,
+						Material.Type.Building_Masonry => true,
+						Material.Type.Building_Reinforced => true,
 						_ => false
 					};
 				}

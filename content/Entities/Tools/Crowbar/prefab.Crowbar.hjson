@@ -11,15 +11,25 @@ body:
 
 	@shape.line:
 	{
-		a: [0.000, 0.500]
-		b: [0.000, -0.500]
+		material: metal_solid
+		miss_chance: 0.000
+		flags: none
+		tags: none
+		
+		layer: entity, solid, item, ignore_bullet
+		mask: world
+		exclude: none
+		
 		mass: 5.200
 		radius: 0.200
 		friction: 0.750
-		elasticity: 0.450
-		material: metal_solid
-		layer: entity, solid, ignore_bullet, item
-		mask: world
+		elasticity: 0.600
+		
+		cog_offset: [-0.117, -0.287]
+		
+		a: [-0.125, -0.500]
+		b: [0.125, 0.625]
+		offset: [0.000, 0.000]
 	}
 }
 
@@ -46,13 +56,17 @@ melee:
 	
 	hit_offset: [0.375, 0.000]
 	
+	sound_pitch: 0.700
+	
 	damage_type: club
 	category: blunt
 	
-	hit_mask: world, destructible
-	hit_exclude: tree, climbable, ignore_melee
-	damage_flags_add: no_loot_discard
+	damage_flags_add: no_loot_discard, force_loot_notification
 	damage_flags_rem: no_loot_notification
+	
+	hit_mask: world, destructible
+	hit_exclude: tree, background, water, fire, gas, climbable, stored, ignore_melee
+	hit_ignore: water, fire, gas, liquid, stored
 }
 
 melee.state:

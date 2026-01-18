@@ -40,26 +40,31 @@ aimable:
 
 melee:
 {
-	sound_swing: "tool_swing_00"
 	damage_base: 100.000
 	damage_bonus: 150.000
+	
 	terrain_damage_multiplier: 2.500
+	
 	cooldown: 0.900
 	max_distance: 2.000
-	thickness: 0.500
-	hit_offset: [0.500, 0.000]
 	aoe: 0.750
+	thickness: 0.500
 	knockback: 140.000
 	yield: 0.900
 	penetration_falloff: 0.500
 	penetration: 1
-	damage_type: shovel
+	
+	hit_offset: [0.500, 0.000]
+	
 	attack_type: thrust
+	damage_type: shovel
 	category: misc
-	hit_mask: world, destructible
-	hit_exclude: ignore_melee, furniture, climbable, background, tree
-	damage_flags_add: no_loot_discard
+	
+	damage_flags_add: no_loot_discard, force_loot_notification
 	damage_flags_rem: no_loot_notification
+	
+	hit_mask: world, destructible
+	hit_exclude: background, tree, furniture, climbable, ignore_melee
 }
 
 melee.state:
