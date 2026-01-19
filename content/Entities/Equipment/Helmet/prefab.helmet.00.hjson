@@ -9,21 +9,30 @@ body:
 {
 	@shape.circle:
 	{
-		mass: 2.200
-		radius: 0.600
-		offset: [0.010, 0.050]
-		friction: 0.500
-		elasticity: 0.450
 		material: metal
+		miss_chance: 0.000
+		flags: none
+		tags: none
+		
 		layer: entity, solid, item
 		mask: world
+		exclude: none
+		
+		mass: 2.200
+		radius: 0.600
+		friction: 0.500
+		elasticity: 0.450
+		
+		cog_offset: [-0.029, -0.167]
+		
+		offset: [0.010, 0.050]
 	}
 }
 
 holdable:
 {
 	offset: [0.000, 0.000]
-	flags: none
+	flags: storable
 }
 
 animated.renderer:

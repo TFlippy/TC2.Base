@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.67.2"
+	$version: "0.1.68.0"
 	name: "Pistol"
 	desc:
 		'''
@@ -274,6 +274,7 @@
 	{
 		texture: pistol
 	}
+	icon_offset: [4.000, 0.000]
 	
 	color_frame: "0xffaeb59a"
 	color_button: "0xff9dd80f"

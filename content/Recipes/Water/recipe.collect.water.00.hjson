@@ -306,7 +306,7 @@
 	
 	type: workshop
 	flags: wip, auto_complete
-	tags: manual, raw, gathering
+	tags: manual, basic, raw, gathering
 	hints: none
 	connotations: none
 	infrastructure: bucket

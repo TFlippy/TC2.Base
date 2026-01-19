@@ -165,7 +165,7 @@
 	
 	type: workshop
 	flags: item, production, wip
-	tags: manual, crafting, crude, basic, simple, small, assembling, metalworking, salvaging, construction, processing
+	tags: manual, crafting, basic, simple, small, assembling, metalworking, salvaging, construction, processing
 	hints: none
 	connotations: none
 	infrastructure: surface

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.68.0"
 	name: "Uniform (Heavy Infantry)"
 	tips: []
 	
@@ -184,7 +184,9 @@
 	
 	type: workshop
 	flags: blueprintable, item, wip, converted
-	tags: workbench, manual, crafting, blacksmithing, tailoring, metalworking, construction
+	tags: workbench, manual, crafting, complex, medium, blacksmithing, tailoring, metalworking, construction
+	hints: none
+	connotations: none
 	infrastructure: table, surface, heater, workbench
 	infrastructure_exclude: none
 	

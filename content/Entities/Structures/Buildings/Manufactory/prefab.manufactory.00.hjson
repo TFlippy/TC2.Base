@@ -125,11 +125,11 @@ workshop:
 	h_sound_order_complete: effect.bell.ring.01
 	max_order_mass: 650.000
 
-	@inventory16:
+	@inventory32:
 	{
 		type: workshop
-		flags: standalone, allow_ducts, ignore_mass, public, faction
-		stack_size_multiplier: 5.000
+		flags: standalone, ignore_mass, public, faction, vertical
+		stack_size_multiplier: 4.000
 		
 		offset: [0.000, 0.000]
 
@@ -240,8 +240,8 @@ crafter:
 	@inventory8:
 	{
 		type: waste
-		flags: standalone, allow_ducts, ignore_mass, vertical
-		stack_size_multiplier: 4.000
+		flags: standalone, allow_ducts, ignore_mass, public
+		stack_size_multiplier: 6.000
 		
 		offset: [0.000, 0.000]
 

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.67.1"
+	$version: "0.1.68.0"
 	name: "Sedimentation"
 	name_short: "Sedimentation"
 	desc:
@@ -33,9 +33,7 @@
 	
 	filter_environment:
 	{
-		require: stationary
-		include: cozy, quiet, waterproof
-		exclude: mobile
+		include: container, cozy, quiet, waterproof
 	}
 	
 	skills_min:
