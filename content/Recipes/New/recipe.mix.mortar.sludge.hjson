@@ -10,7 +10,14 @@
 	related_materials:
 	{
 		mortar: product, result
-		sludge: residue, dirty, impure, result
+		sludge: residue, source, dirty, waste, ingredient, impure, result
+		rubber: residue, reaction, solidified, impure, result, byproduct
+		lubricant: refined, reaction, chemical, impure, result, byproduct, liquid
+		lye: reaction, impure, result, byproduct
+		clinker: residue, dirty, waste, impure, result
+		water.red: reaction, dirty, waste, chemical, impure, result, byproduct, liquid
+		tnt: chemical, impure, result, byproduct
+		water.toxic: dirty, waste, chemical, impure, result, liquid
 	}
 	
 	stages:
@@ -56,7 +63,7 @@
 							amount: 3.390
 							snapping: 1.000
 							falloff: 1.032
-							loss: 0.973
+							loss: 0.871
 							group: 0
 							flags: prerequisite
 						}
@@ -90,21 +97,23 @@
 					[
 						{
 							type: resource
-							material: oil
-							amount: 0.4838
-							amount_extra: 0.7067
-							group: 0
-							ratio: 0.122
-							flags: residue, secondary, scale_to_mass
-						}
-						{
-							type: resource
 							material: water.toxic
 							amount: 1.203941
 							amount_extra: 0.176059
+							snapping: 0.010
 							group: 0
-							ratio: 0.424
+							ratio: 0.471
 							flags: pollutant, waste, scale_to_mass
+						}
+						{
+							type: resource
+							material: hydrogen_sulfide
+							amount: 0.9199
+							amount_extra: 0.1871
+							snapping: 0.010
+							group: 0
+							ratio: 0.267
+							flags: pollutant, waste, spawn, scale_to_mass
 						}
 					]
 					
@@ -168,8 +177,8 @@
 							type: work
 							work: blending
 							amount: 120.000
-							amount_min: 290.000
-							difficulty: 7
+							amount_min: 300.000
+							difficulty: 11
 							snapping: 5.000
 							falloff: 0.959
 							loss: 0.173
@@ -179,12 +188,12 @@
 						{
 							type: work
 							work: sedimentation
-							amount: 120.000
-							amount_min: 450.000
+							amount: 3.000
+							amount_min: 45.000
 							difficulty: 6
-							snapping: 5.000
-							falloff: 0.817
-							loss: 0.675
+							snapping: 15.000
+							falloff: 1.563
+							loss: 0.510
 							group: 1
 							flags: conditional
 						}
@@ -198,8 +207,35 @@
 							amount: 0.572459
 							amount_extra: 0.330883
 							group: 0
-							ratio: 0.808
+							ratio: 0.635
 							flags: byproduct, primary, compact, scale_to_mass
+						}
+						{
+							type: resource
+							material: rubber
+							amount: 1.4076
+							amount_extra: 1.746178
+							group: 0
+							ratio: 0.282
+							flags: residue, byproduct, scale_to_mass
+						}
+						{
+							type: resource
+							material: lubricant
+							amount: 0.3265
+							amount_extra: 0.8451
+							group: 0
+							ratio: 0.243
+							flags: residue, byproduct, scale_to_mass
+						}
+						{
+							type: resource
+							material: lye
+							amount: 0.9025
+							amount_extra: 0.7831
+							group: 0
+							ratio: 0.318
+							flags: residue, scale_to_mass
 						}
 						{
 							type: resource
@@ -207,26 +243,8 @@
 							amount: 0.850115
 							amount_extra: 0.217121
 							group: 0
-							ratio: 0.122
-							flags: waste, residue, scale_to_mass
-						}
-						{
-							type: resource
-							material: rubber
-							amount: 1.479629
-							amount_extra: 1.746178
-							group: 0
-							ratio: 0.067
-							flags: residue, byproduct, spawn, scale_to_mass
-						}
-						{
-							type: resource
-							material: syngas
-							amount: 13.16784
-							amount_extra: 6.062926
-							group: 0
-							ratio: 0.075
-							flags: pollutant, residue, spawn, scale_to_mass
+							ratio: 0.984
+							flags: waste, residue, spawn, scale_to_mass
 						}
 					]
 					
@@ -240,9 +258,7 @@
 					}
 					filter_environment:
 					{
-						require: stationary
-						include: cozy, quiet, waterproof
-						exclude: mobile
+						include: container, cozy, quiet, waterproof
 					}
 				}
 				{
