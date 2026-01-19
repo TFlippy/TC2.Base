@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.65.3"
+	$version: "0.1.68.0"
 	name: "Life"
 	desc:
 		'''
@@ -7,7 +7,7 @@
 		'''
 	
 	flags: none
-	tags: secondary, violent, illegal, abstract
+	tags: secondary, destructive, illegal, physical, abstract
 	type_tmp: life
 	
 	color_emit: [0.457, 0.826, 0.023, 1.000]

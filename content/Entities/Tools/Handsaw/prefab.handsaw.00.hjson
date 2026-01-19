@@ -51,11 +51,11 @@ health:
 
 melee:
 {
-	damage_base: 42.000
-	damage_bonus: 11.000
-	armor_pierce: 65.000
+	damage_base: 43.100
+	damage_bonus: 13.800
+	armor_pierce: 145.600
 	
-	primary_damage_multiplier: 1.200
+	primary_damage_multiplier: 1.230
 	secondary_damage_multiplier: 0.600
 	terrain_damage_multiplier: 0.000
 	pain_multiplier: 1.800
@@ -64,11 +64,12 @@ melee:
 	disarm_chance: 0.000
 	cooldown: 0.250
 	max_distance: 1.250
-	aoe: 0.375
+	aoe: 0.675
 	thickness: 0.500
 	knockback_speed: 1.000
 	yield: 2.450
-	penetration_falloff: 1.000
+	penetration_falloff: 0.900
+	penetration: 1
 	
 	hit_offset: [-0.250, 0.125]
 	
@@ -83,6 +84,7 @@ melee:
 	damage_type: handsaw
 	category: bladed
 	flags: no_handle, use_aim_direction
+	
 	damage_flags_add: no_loot_discard, force_loot_notification
 	damage_flags_rem: no_loot_notification
 	

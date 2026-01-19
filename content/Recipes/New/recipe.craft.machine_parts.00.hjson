@@ -10,12 +10,8 @@
 	related_materials:
 	{
 		machine_parts: component, residue, product, result
-		scrap.machine: residue, result, scrap
 		scrap.arcane: residue, result, byproduct, scrap
-		scrap.metal: residue, result, scrap
-		scrap.mixed: residue, result, scrap
 		copper.plate: residue, result, byproduct
-		scrap.steel: residue, clean, result, scrap
 		copper.rod: residue, result, byproduct
 	}
 	

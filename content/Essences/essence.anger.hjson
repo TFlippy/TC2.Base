@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.65.3"
+	$version: "0.1.68.0"
 	name: "Anger"
 	desc:
 		'''
@@ -7,7 +7,7 @@
 		'''
 	
 	flags: none
-	tags: kinetic, thermal, tertiary, violent, destructive, physical, abstract
+	tags: kinetic, tertiary, violent, destructive, physical, abstract
 	type_tmp: anger
 	
 	color_emit: [1.426, 0.080, 0.149, 1.528]

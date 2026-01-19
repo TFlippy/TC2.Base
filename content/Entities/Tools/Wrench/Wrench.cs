@@ -651,7 +651,7 @@ namespace TC2.Base.Components
 		}
 
 		public const string dock_identifier = "wrench.mode.dock";
-		public static Sprite sprite_wrench = new Sprite("wrench", 8, 16, 0, 0);
+		public static Sprite sprite_wrench = new Sprite("wrench.00", 8, 16, 0, 0);
 
 		public struct WrenchGUI: IGUICommand
 		{

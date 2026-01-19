@@ -55,7 +55,7 @@ namespace TC2.Base.Components
 									var damage = barbed_wire.damage;
 
 									Damage.Hit(ent_attacker: entity, ent_owner: entity, ent_target: ent_hit,
-										position: arbiter.GetBodyPosition(), velocity: -arbiter.GetNormal() * 2.00f, normal: arbiter.GetNormal(),
+										position: arbiter.GetBodyPosition(), velocity: arbiter.GetRelativeVelocity(), normal: arbiter.GetNormal(),
 										damage_integrity: damage, damage_durability: damage, damage_terrain: damage,
 										target_material_type: material_type, damage_type: barbed_wire.damage_type,
 										yield: 0.00f, size: 0.50f, impulse: 0.00f, flags: Damage.Flags.No_Loot_Pickup | Damage.Flags.No_Loot_Notification);

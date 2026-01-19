@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.65.3"
+	$version: "0.1.68.0"
 	name: "Failure"
 	desc:
 		'''
@@ -7,7 +7,7 @@
 		'''
 	
 	flags: none
-	tags: tertiary, abstract
+	tags: tertiary, violent, destructive, physical, abstract
 	type_tmp: failure
 	
 	color_emit: [1.043, 0.506, 0.372, 0.860]

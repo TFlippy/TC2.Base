@@ -118,12 +118,12 @@ gun.state:
 
 holdable:
 {
+	offset: [-0.500, 0.0625]
 	force_multiplier: 2.200
 	torque_multiplier: 1.100
 	stress_multiplier: 0.650
-	offset: [-0.500, 0.000]
 	radius: 4.000
-	hints: weapon, cheap, heavy, gun, powerful, usable, inaccurate, industrial, arcane, slow, clumsy, long
+	hints: melee, gun, powerful, inaccurate, cheap, industrial, arcane, slow, clumsy, long
 	flags: storable
 }
 
@@ -152,8 +152,10 @@ control:
 
 aimable:
 {
-	min: -0.750
-	max: 0.600
+	deadzone: 1.256234
+	min: -1.450
+	max: 0.900
+	offset: [1.250, -0.125]
 }
 
 packable:
@@ -163,13 +165,18 @@ packable:
 
 essence.container:
 {
-	h_essence: heat
 	available: 5.000
-	rate: 0.500
-	stability: 0.800
-	health_threshold: 0.150
-	glow_modifier: 20.000
+	rate: 0.600
+	
+	h_essence: heat
+	flags: constant_glow, no_noise
+	
 	emit_type: impactor
+	
+	stability: 0.700
+	rate_speed: 0.800
+	
+	health_threshold: 0.250
 
 	@light:
 	{
