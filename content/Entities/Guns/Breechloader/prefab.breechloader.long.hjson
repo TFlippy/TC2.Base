@@ -13,16 +13,25 @@ body:
 
 	@shape.line:
 	{
-		a: [-1.000, 0.125]
-		b: [1.000, -0.125]
+		material: metal_solid
+		miss_chance: 0.000
+		flags: none
+		tags: none
+		
+		layer: entity, solid, item, ignore_bullet
+		mask: world
+		exclude: none
+		
 		mass: 17.000
 		radius: 0.250
 		friction: 0.600
-		elasticity: 0.650
+		elasticity: 0.550
 		
-		material: metal_solid
+		cog_offset: [0.125, 0.0625]
 		
-		layer: entity, solid, item, ignore_melee, ignore_bullet
+		a: [-1.000, 0.125]
+		b: [1.000, -0.125]
+		offset: [0.000, 0.000]
 	}
 }
 
@@ -35,9 +44,9 @@ gun:
 	
 	eject_direction: [40.000, -3.000]
 	eject_angular_velocity: 40.000
-	flash_size: 1.200
+	flash_size: 1.000
 	
-	smoke_size: 5.000
+	smoke_size: 4.000
 	smoke_amount: 6.000
 	
 	shake_amount: 0.600
@@ -65,7 +74,7 @@ gun:
 	stability: 6950.000
 	failure_rate: 0.011
 	
-	ammo_filter: ammo_mg, ammo_sg, ammo_ac, ammo_kn, ammo_musket
+	ammo_filter: ammo_mg, ammo_sg, ammo_ac, ammo_hc, ammo_musket
 	ammo_per_shot: 1.000
 	max_ammo: 1.000
 	barrel_count: 1
@@ -128,7 +137,7 @@ animated.renderer:
 
 health:
 {
-	max: 7500.000
+	max: 8700.000
 }
 
 transform:
@@ -165,8 +174,8 @@ essence.container:
 	@light:
 	{
 		offset: [-0.375, 0.000]
-		scale: [1.000, 4.000]
-		texture: light.box.01
+		scale: [5.000, 4.000]
+		texture: light.circle.04
 	}
 }
 
@@ -178,28 +187,29 @@ melee:
 	primary_damage_multiplier: 0.850
 	terrain_damage_multiplier: 0.700
 	pain_multiplier: 1.650
-	stun_multiplier: 1.700
+	stun_multiplier: 1.800
 	
-	disarm_chance: 0.095
-	cooldown: 2.200
-	max_distance: 0.350
-	aoe: 0.900
-	thickness: 0.800
+	disarm_chance: 0.295
+	cooldown: 1.400
+	max_distance: 1.350
+	aoe: 0.500
+	thickness: 0.500
 	knockback: 850.000
-	knockback_speed: 4.000
+	knockback_speed: 5.500
 	yield: 1.050
 	penetration_falloff: 0.800
 	penetration: 1
 	
-	hit_offset: [1.125, 0.250]
+	hit_offset: [0.625, 0.000]
 	
 	swing_offset: [0.125, 0.500]
 	swing_rotation: -0.700
 	
 	sound_volume: 0.850
 	sound_size: 1.125
-	sound_pitch: 0.500
+	sound_pitch: 0.840
 	
+	attack_type: thrust
 	damage_type: club
 	category: blunt
 	flags: no_handle, use_rmb, no_material_filter, use_aim_direction

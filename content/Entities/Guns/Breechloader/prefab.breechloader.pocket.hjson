@@ -34,8 +34,9 @@ gun:
 	
 	eject_direction: [30.000, -3.000]
 	eject_angular_velocity: 25.000
+	flash_size: 0.775
 	
-	smoke_size: 4.000
+	smoke_size: 3.000
 	smoke_amount: 4.000
 	
 	shake_amount: 0.300
@@ -48,13 +49,13 @@ gun:
 	sound_shoot: breechloader.pocket.shoot
 	sound_cycle: breechloader.pocket.cycle
 	sound_reload: revolver_reload
-	sound_jam: metal.hit.dense.weak.01
+	sound_jam: clutch.angry.00
 	
 	damage_multiplier: 1.600
 	velocity_multiplier: 160.000
+	velocity_max: 160.000
 	jitter_multiplier: 3.400
 	recoil_multiplier: 1.900
-	velocity_max: 160.000
 	reload_interval: 0.400
 	cycle_interval: 0.200
 	stability: 2240.000

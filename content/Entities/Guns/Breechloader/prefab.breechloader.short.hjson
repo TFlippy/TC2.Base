@@ -21,7 +21,7 @@ body:
 		
 		material: tool
 		
-		layer: entity, solid, item, ignore_melee, ignore_bullet
+		layer: entity, solid, item, ignore_bullet
 	}
 }
 
@@ -32,7 +32,7 @@ gun:
 	
 	eject_direction: [25.000, -3.000]
 	eject_angular_velocity: 30.000
-	flash_size: 1.200
+	flash_size: 1.000
 	
 	smoke_size: 4.000
 	smoke_amount: 3.000
@@ -119,7 +119,7 @@ animated.renderer:
 
 health:
 {
-	max: 4500.000
+	max: 5750.000
 }
 
 transform:
@@ -170,7 +170,7 @@ melee:
 	stun_multiplier: 1.400
 	
 	disarm_chance: 0.065
-	cooldown: 1.100
+	cooldown: 0.700
 	max_distance: 0.350
 	aoe: 0.600
 	thickness: 0.600

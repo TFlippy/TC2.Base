@@ -13,30 +13,35 @@ body:
 
 	@shape.line:
 	{
-		a: [-0.750, 0.125]
-		b: [0.750, 0.000]
+		material: metal_solid
+		miss_chance: 0.720
+		flags: none
+		tags: none
+		
+		layer: entity, solid, item
+		mask: world
+		exclude: none
 		
 		mass: 36.000
 		radius: 0.375
 		friction: 0.600
-		elasticity: 0.650
+		elasticity: 0.450
 		
-		material: metal_solid
+		cog_offset: [0.375, 0.0085]
 		
-		layer: entity, solid, item, ignore_melee, ignore_bullet
+		a: [-0.750, 0.125]
+		b: [0.750, 0.000]
+		offset: [0.000, 0.000]
 	}
 }
 
 gun:
 {
-	muzzle_offset: [1.250, 0.000]
+	muzzle_offset: [1.250, -0.0625]
 	receiver_offset: [-0.125, -0.125]
-	
-	particle_offset: [0.000, 0.000]
 	
 	eject_direction: [22.000, -3.000]
 	eject_angular_velocity: 40.000
-	particle_rotation: 0.000
 	flash_size: 1.400
 	
 	smoke_size: 7.000
@@ -53,32 +58,27 @@ gun:
 	sound_shoot: breechloader.heavy.shoot
 	sound_cycle: gun.cycle.00
 	sound_reload: grapple_gun.reload
-	sound_empty: missing
 	sound_eject: press.smash.02
 	sound_jam: effect.clang.metal.00
 	
 	damage_multiplier: 2.100
-	velocity_multiplier: 210.000
+	velocity_multiplier: 150.000
+	velocity_max: 300.000
 	jitter_multiplier: 3.700
-	recoil_multiplier: 2.200
-	velocity_max: 330.000
+	recoil_multiplier: 1.800
 	reload_interval: 3.000
 	cycle_interval: 0.750
 	stability: 12800.000
 	failure_rate: 0.014
 	
-	ammo_filter: ammo_mg, ammo_ac, ammo_sg, ammo_musket
-	ammo_per_shot: 2.000
-	max_ammo: 2.000
-	barrel_count: 1
-	burst_count: 1
+	ammo_filter: ammo_mg, ammo_ac, ammo_kn, ammo_musket
+	max_ammo: 1.000
 	
 	action: manual
 	type: cannon
 	feed: breech
 	
 	flags: full_reload, cycle_on_shoot, eject_on_shoot, eject_from_muzzle
-	heuristic_range: 30.000
 
 	@inventory1:
 	{
@@ -111,11 +111,11 @@ gun.state:
 holdable:
 {
 	force_multiplier: 2.600
-	torque_multiplier: 0.900
-	stress_multiplier: 0.750
+	torque_multiplier: 1.400
+	stress_multiplier: 0.950
 	offset: [-0.375, 0.000]
 	radius: 4.000
-	hints: weapon, junk, heavy, gun, powerful, usable, inaccurate, industrial, arcane, slow
+	hints: weapon, junk, heavy, gun, powerful, usable, inaccurate, industrial, arcane, slow, clumsy
 	flags: storable
 }
 
@@ -129,7 +129,7 @@ animated.renderer:
 
 health:
 {
-	max: 9500.000
+	max: 15500.000
 }
 
 transform:
