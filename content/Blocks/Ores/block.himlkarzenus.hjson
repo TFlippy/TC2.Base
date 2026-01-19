@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.67.2"
+	$version: "0.1.68.0"
 	name: "Himlkarzenus"
 	desc:
 		'''
@@ -12,7 +12,7 @@
 	tile_flags: non_empty
 	flags: raw, ore, rare, mineral
 	
-	max_health: 12000.000
+	max_health: 4800.000
 	smoothing: 0.134
 	stability: 3.660
 	strength_tensile: 8.500

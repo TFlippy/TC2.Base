@@ -171,16 +171,16 @@ melee:
 	
 	disarm_chance: 0.065
 	cooldown: 0.700
-	max_distance: 0.350
+	max_distance: 0.250
 	aoe: 0.600
-	thickness: 0.600
+	thickness: 0.900
 	knockback: 350.000
 	knockback_speed: 4.000
 	yield: 1.180
 	penetration_falloff: 0.800
 	penetration: 1
 	
-	hit_offset: [0.750, 0.000]
+	hit_offset: [0.500, 0.125]
 	
 	swing_offset: [0.375, 0.375]
 	swing_rotation: -1.000
@@ -192,7 +192,7 @@ melee:
 	category: blunt
 	flags: no_handle, use_rmb, no_material_filter, use_aim_direction
 	
-	hit_mask: world, destructible
+	hit_mask: destructible
 	hit_exclude: background, tree, climbable, ignore_melee
 	hit_ignore: background, tree, climbable, ignore_melee
 }
