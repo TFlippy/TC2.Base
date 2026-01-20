@@ -637,7 +637,7 @@ faction:
 		{
 			damage_base: 90.000
 			damage_bonus: 220.000
-			armor_pierce: 150.000
+			armor_pierce: 180.000
 			
 			primary_damage_multiplier: 0.780
 			terrain_damage_multiplier: 0.650

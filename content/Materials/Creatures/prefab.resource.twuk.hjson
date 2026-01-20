@@ -1,0 +1,56 @@
+$tags: []
+
+body:
+{
+	@shape.circle:
+	{
+		offset: [0.000, 0.250]
+		mass: 1.000
+		radius: 0.750
+		friction: 0.580
+		elasticity: 0.450
+		material: flesh
+		layer: entity, solid, resource, ignore_melee, ignore_bullet, flammable
+		mask: world
+	}
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "resource.twuk"
+		count: 4
+		size: [16, 16]
+	}
+}
+
+transform:
+{
+
+}
+
+resource:
+{
+	material: "twuk"
+}
+
+holdable:
+{
+	offset: [0.000, 0.750]
+}
+
+norotate:
+{
+	bias: 0.000
+	mass_multiplier: 25.000
+	attached_multiplier: 0.500
+}
+
+despawn:
+{
+	sleep_count_max: 17
+	interval: 20.000
+	threshold_delete: 0.010
+	threshold_despawning: 0.250
+}

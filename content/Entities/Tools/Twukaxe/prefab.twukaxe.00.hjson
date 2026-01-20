@@ -1,0 +1,101 @@
+$name: "Twukaxe"
+$desc:
+	'''
+	Twuk converted into a sturdy mining tool.
+	'''
+$tags: []
+
+control:
+{
+
+}
+
+body:
+{
+	buoyancy: 0.300
+
+	@shape.line:
+	{
+		a: [0.000, 0.600]
+		b: [0.000, -0.600]
+		mass: 6.500
+		radius: 0.200
+		friction: 0.950
+		elasticity: 0.150
+		material: cermet
+		layer: entity, solid, ignore_bullet, ignore_melee, item, flammable
+		mask: world
+	}
+}
+
+health:
+{
+	max: 5100.000
+}
+
+aimable:
+{
+
+}
+
+melee:
+{
+	damage_base: 120.000
+	damage_bonus: 400.000
+	armor_pierce: 180.000
+	
+	primary_damage_multiplier: 0.910
+	secondary_damage_multiplier: 1.230
+	terrain_damage_multiplier: 5.000
+	pain_multiplier: 1.000
+	stun_multiplier: 1.190
+	
+	cooldown: 0.740
+	max_distance: 1.450
+	aoe: 1.000
+	thickness: 0.200
+	knockback: 70.000
+	yield: 1.100
+	penetration_falloff: 0.800
+	
+	hit_offset: [0.750, -0.500]
+	
+	damage_type: pickaxe
+	category: pointed
+	
+	damage_flags_add: no_loot_discard, force_loot_notification
+	damage_flags_rem: no_loot_notification
+	
+	hit_mask: world, destructible
+	hit_exclude: plant, water, fire, gas, powder, liquid, stored, ignore_melee
+	hit_ignore: water, fire, gas, powder, liquid, stored
+}
+
+melee.state:
+{
+
+}
+
+holdable:
+{
+	offset: [0.000, 0.500]
+	flags: storable
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: twukaxe.00
+	}
+}
+
+transform:
+{
+
+}
+
+packable:
+{
+
+}
