@@ -16,21 +16,31 @@ body:
 
 	@shape.line:
 	{
-		a: [0.000, 0.600]
-		b: [0.000, -0.600]
-		mass: 6.500
-		radius: 0.200
+		material: cermet
+		miss_chance: 0.000
+		flags: none
+		tags: none
+		
+		layer: entity, solid, item, flammable, ignore_bullet
+		mask: world
+		exclude: none
+		
+		mass: 6.000
+		radius: 0.2625
 		friction: 0.950
 		elasticity: 0.150
-		material: cermet
-		layer: entity, solid, ignore_bullet, ignore_melee, item, flammable
-		mask: world
+		
+		cog_offset: [0.000, 0.000]
+		
+		a: [0.000, -0.475]
+		b: [0.000, 0.600]
+		offset: [0.000, 0.000]
 	}
 }
 
 health:
 {
-	max: 5100.000
+	max: 6100.000
 }
 
 aimable:
@@ -41,24 +51,23 @@ aimable:
 melee:
 {
 	damage_base: 120.000
-	damage_bonus: 400.000
-	armor_pierce: 180.000
+	damage_bonus: 250.000
+	armor_pierce: 140.000
 	
-	primary_damage_multiplier: 0.910
-	secondary_damage_multiplier: 1.230
+	secondary_damage_multiplier: 0.940
 	terrain_damage_multiplier: 5.000
-	pain_multiplier: 1.000
 	stun_multiplier: 1.190
 	
-	cooldown: 0.740
-	max_distance: 1.450
-	aoe: 1.000
-	thickness: 0.200
-	knockback: 70.000
+	cooldown: 0.300
+	max_distance: 0.800
+	aoe: 0.850
+	thickness: 0.400
+	knockback: 170.000
+	knockback_speed: 5.000
 	yield: 1.100
 	penetration_falloff: 0.800
 	
-	hit_offset: [0.750, -0.500]
+	hit_offset: [0.625, -0.125]
 	
 	damage_type: pickaxe
 	category: pointed
@@ -67,7 +76,7 @@ melee:
 	damage_flags_rem: no_loot_notification
 	
 	hit_mask: world, destructible
-	hit_exclude: plant, water, fire, gas, powder, liquid, stored, ignore_melee
+	hit_exclude: water, fire, gas, powder, liquid, stored, ignore_melee
 	hit_ignore: water, fire, gas, powder, liquid, stored
 }
 
