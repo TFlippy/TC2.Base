@@ -23,7 +23,7 @@ body:
 		layer: entity, solid, background
 		mask: world
 
-		miss_chance: 0.235
+		miss_chance: 0.265
 	}
 }
 

@@ -22,7 +22,7 @@ body:
 		
 		material: tree
 		
-		layer: entity, solid, tree, flammable, ignore_bullet
+		layer: entity, solid, tree, flammable, ignore_bullet, organic
 		mask: world, tree
 		exclude: held
 	}

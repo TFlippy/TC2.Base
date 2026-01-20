@@ -17,7 +17,7 @@ body:
 		flags: none
 		tags: flammable, soft
 		
-		layer: entity, background, plant, climbable, flammable, ignore_melee, ignore_bullet
+		layer: entity, background, plant, organic, climbable, flammable, ignore_melee, ignore_bullet
 		mask: world
 		exclude: none
 		

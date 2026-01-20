@@ -25,7 +25,7 @@ body:
 		
 		material: tree
 		
-		layer: entity, plant, flammable, barbed, no_overlapped_placement, ignore_bullet
+		layer: entity, plant, organic, flammable, barbed, no_overlapped_placement, ignore_bullet
 		mask: creature
 		exclude: vehicle, tree, wheel
 	}

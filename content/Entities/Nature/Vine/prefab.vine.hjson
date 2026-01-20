@@ -17,12 +17,12 @@ body:
 		flags: none
 		tags: flammable, soft
 		
-		layer: entity, background, plant, climbable, flammable, ignore_melee, ignore_bullet
+		layer: entity, background, plant, organic, climbable, flammable, ignore_melee, ignore_bullet
 		mask: world
 		exclude: none
 		
 		mass: 30.000
-		radius: 1.125
+		radius: 1.000
 		friction: 0.950
 		elasticity: 0.500
 		

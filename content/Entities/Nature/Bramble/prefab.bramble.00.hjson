@@ -16,7 +16,7 @@ body:
 		rigidity_dynamic: 0.150
 		rigidity_static: 0.150
 		material: bramble
-		layer: entity, ignore_bullet, no_overlapped_placement, barbed, flammable, plant
+		layer: entity, ignore_bullet, no_overlapped_placement, barbed, flammable, plant, organic
 		mask: creature
 		exclude: tree, vehicle, wheel
 	}
