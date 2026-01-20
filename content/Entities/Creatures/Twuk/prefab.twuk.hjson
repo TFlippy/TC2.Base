@@ -12,19 +12,25 @@ body:
 
 	@shape.circle:
 	{
-		offset: [0.125, 0.250]
+		material: flesh
+		miss_chance: 0.078
+		flags: none
+		tags: none
+		
+		layer: entity, solid, creature, organic, flammable
+		mask: world, vehicle
+		exclude: dead, held
 		
 		mass: 40.000
 		radius: 0.750
 		friction: 0.500
 		elasticity: 0.350
 		
-		material: flesh
-		miss_chance: 0.078
+		rigidity_static: 0.750
+		rigidity_dynamic: 0.800
+		// cog_offset: [-0.197, 0.038]
 		
-		layer: entity, solid, creature, organic, flammable
-		mask: world, vehicle
-		exclude: dead, held
+		offset: [0.125, 0.250]
 	}
 }
 
@@ -303,9 +309,10 @@ faction:
 			@shape.circle:
 			{
 				offset: [0.125, -0.0625]
+				// cog_offset: [-0.234, -0.207]
 				
-				mass: 32.000
-				radius: 0.875
+				mass: 42.000
+				radius: 0.830
 				friction: 0.650
 				elasticity: 0.850
 				rigidity_static: 0.875
@@ -322,11 +329,12 @@ faction:
 		
 		norotate:
 		{
-			bias: 0.0001
+			flags: none
 			speed: 8.000
+			bias: 0.0001
+			
 			multiplier: 90.000
 			mass_multiplier: 300.000
-			flags: no_share
 		}
 				
 		organic:
@@ -403,18 +411,16 @@ faction:
 		{
 			walk_force: 10000.000
 			jump_force: 35000.000
-			jump_decay: 0.600
 			max_speed: 18.000
-			max_jump_speed: 30.000
-			max_jump_time: 0.300
-			max_air_time: 0.500
-			max_grounded_dot: 0.900
-			propagate_ratio: 0.800
-			no_rotate_air_mult: 0.200
-			flags: none
-			walk_lerp: 0.050
+			max_jump_speed: 27.000
+			max_jump_time: 0.100
+			max_air_time: 0.100
+			propagate_ratio: 0.500
+			no_rotate_air_mult: 0.050
+			jump_decay: 0.600
 			crouch_speed_modifier: 0.750
-			air_brake_modifier: 0.300
+			air_brake_modifier: 0.580
+			no_rotate_blend: 0.800
 		}
 
 		runner.state:
@@ -539,8 +545,8 @@ faction:
 	
 	joint.rotaryspring:
 	{
-		stiffness: 650.000
-		damping: 15.000
+		stiffness: 1450.000
+		damping: 45.000
 	}
 	
 	joint.rotarylimit:
@@ -562,13 +568,13 @@ faction:
 			{
 				offset: [0.125, 0.125]
 				
-				mass: 6.800
+				mass: 19.800
 				radius: 0.5875
 				friction: 0.620
 				elasticity: 0.740
 				
 				material: flesh
-				miss_chance: 0.129
+				miss_chance: 0.101
 				
 				layer: entity, solid, creature, organic, flammable
 				mask: world, creature, vehicle
@@ -578,11 +584,11 @@ faction:
 		
 		lookat:
 		{
-			head_modifier: 0.350
-			body_modifier: 0.600
-			deadzone: [0.500, 4.000]
+			head_modifier: 0.670
+			body_modifier: 0.750
+			deadzone: [0.500, 2.000]
 		}
-		
+						
 		// biter:
 		// {
 		// 	sound: "badger_attack"
@@ -644,7 +650,7 @@ faction:
 			aoe: 1.400
 			thickness: 0.420
 			knockback: -2520.000
-			knockback_speed: 2.000
+			knockback_speed: 4.000
 			yield: 0.650
 			penetration_falloff: 0.850
 			

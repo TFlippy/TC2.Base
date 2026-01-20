@@ -17,7 +17,7 @@ body:
 		radius: 1.000
 		friction: 0.590
 		elasticity: 0.780
-		rigidity_static: 0.875
+		// rigidity_static: 0.875
 		rigidity_dynamic: 0.820
 
 		material: flesh
@@ -414,7 +414,7 @@ faction:
 				radius: 1.000
 				friction: 0.750
 				elasticity: 0.310
-				rigidity_static: 0.800
+				// rigidity_static: 0.800
 				rigidity_dynamic: 0.820
 
 				material: flesh

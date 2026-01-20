@@ -19,7 +19,7 @@ body:
 		radius: 0.625
 		friction: 1.000
 		elasticity: 0.000
-		rigidity_static: 0.800
+		// rigidity_static: 0.800
 		
 		material: flesh
 		layer: entity, solid, creature, flammable
