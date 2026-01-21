@@ -230,22 +230,42 @@ lootable:
 	items:
 	[
 		{
-			material: "meat"
-			min: 30.000
-			max: 50.000
+			material: meat
+			chance: 0.000
+			min: 29.000
+			max: 35.000
 		}
 		{
-			material: "cloth"
-			min: 10.000
-			max: 20.000
+			material: scrap.cloth
+			chance: 0.000
+			min: 20.000
+			max: 30.000
 		}
-		{
-			material: "eggs"
-			min: 9.000
-			max: 19.000
-		}
+		null
+		null
 	]
 }
+
+// harvestable:
+// {
+// 	resources:
+// 	[
+// 		{
+// 			material: twuk
+// 			quantity: 47.000
+// 		}
+// 		null
+// 		null
+// 		null
+// 	]
+	
+// 	thresholds: [0.952, 0.000, 0.000, 0.000]
+	
+// 	pct_damage_mult: [0.892, 0.000, 0.000, 0.000]
+// 	pct_quantity_min: [0.075, 0.000, 0.000, 0.000]
+	
+// 	chance_base: [0.686, 0.000, 0.000, 0.000]
+// }
 
 faction:
 {
@@ -494,16 +514,36 @@ faction:
 			items:
 			[
 				{
-					material: "meat"
+					material: meat
+					chance: 0.000
 					min: 30.000
-					max: 50.000
+					max: 38.000
 				}
-				{
-					material: "cloth"
-					min: 5.000
-					max: 20.000
-				}
+				null
+				null
+				null
 			]
+		}
+		
+		harvestable:
+		{
+			resources:
+			[
+				{
+					material: twuk
+					quantity: 8.705881
+				}
+				null
+				null
+				null
+			]
+			
+			thresholds: [0.558, 0.000, 0.000, 0.000]
+			
+			pct_damage_mult: [0.891, 0.000, 0.000, 0.000]
+			pct_quantity_min: [0.084, 0.000, 0.000, 0.000]
+			
+			chance_base: [0.827, 0.000, 0.000, 0.000]
 		}
 	}
 }
@@ -793,16 +833,36 @@ faction:
 			items:
 			[
 				{
-					material: "meat"
-					min: 10.000
-					max: 25.000
-				}
-				{
-					material: "cloth"
-					min: 5.000
+					material: meat
+					chance: 0.000
+					min: 7.000
 					max: 15.000
 				}
+				null
+				null
+				null
 			]
+		}
+
+		harvestable:
+		{
+			resources:
+			[
+				{
+					material: twuk
+					quantity: 8.7466
+				}
+				null
+				null
+				null
+			]
+			
+			thresholds: [0.738, 0.000, 0.000, 0.000]
+			
+			pct_damage_mult: [0.891, 0.000, 0.000, 0.000]
+			pct_quantity_min: [0.094, 0.000, 0.000, 0.000]
+			
+			chance_base: [0.720, 0.000, 0.000, 0.000]
 		}
 	}
 }

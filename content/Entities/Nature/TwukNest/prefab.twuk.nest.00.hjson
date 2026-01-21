@@ -20,7 +20,7 @@ body:
 		mask: world
 		exclude: none
 		
-		mass: 160.000
+		mass: 180.000
 		radius: 1.100
 		friction: 0.750
 		elasticity: 0.100
@@ -40,7 +40,7 @@ transform:
 
 health:
 {
-	max: 11000.000
+	max: 22000.000
 }
 
 animated.renderer:

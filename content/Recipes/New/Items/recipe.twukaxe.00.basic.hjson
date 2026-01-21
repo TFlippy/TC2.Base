@@ -1,0 +1,345 @@
+﻿{
+	$region_id: 0
+	$version: "0.1.68.0"
+	name: "Twuk-Axe"
+	tips: []
+	
+	stages:
+	[
+		{
+			name: "Head"
+			
+			type: part
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 0.000
+			mass_base: 5.200
+			
+			options:
+			[
+				{
+					name: "Crimped"
+					
+					type: undefined
+					flags: wip, incomplete
+					discard_damage_type_override: blunt
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: twuk
+							amount: 4.41629
+							snapping: 1.000
+							loss: 0.090
+							group: 0
+							flags: primary, prerequisite
+						}
+						{
+							type: resource
+							material: machine_parts
+							amount: 1.553398
+							snapping: 0.250
+							loss: 0.141
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: cramming.solid
+							amount: 100.000
+							amount_min: 20.000
+							difficulty: 9
+							snapping: 5.000
+							falloff: 0.981
+							loss: 0.137
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: metal.forming
+							amount: 80.000
+							amount_min: 60.000
+							difficulty: 6
+							snapping: 25.000
+							falloff: 0.973
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: crimping.metal
+							amount: 110.000
+							amount_min: 80.000
+							difficulty: 7
+							snapping: 5.000
+							falloff: 0.956
+							group: 1
+							flags: stepped, conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: hammer, pliers
+						include: cutters, wrench, pliers, tweezers, file, chisel
+					}
+					filter_infrastructure:
+					{
+						require: surface, hard_surface
+						include: anvil, table, vise, workbench
+					}
+				}
+			]
+		}
+		{
+			name: "Handle"
+			
+			type: part
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: axe
+			
+			ratio: 0.000
+			mass_base: 0.400
+			
+			options:
+			[
+				{
+					name: "Trashed"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: wood
+							amount: 0.263998
+							snapping: 1.000
+							loss: 0.322
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: trashing.wood
+							amount: 65.000
+							amount_min: 80.000
+							difficulty: 5
+							snapping: 5.000
+							falloff: 0.781
+							loss: 0.176
+							ratio: 0.353
+							group: 0
+							flags: conditional
+						}
+						{
+							type: work
+							work: woodcarving
+							amount: 400.000
+							amount_min: 150.000
+							difficulty: 8
+							snapping: 25.000
+							falloff: 0.940
+							loss: 0.184
+							ratio: 1.000
+							group: 0
+							flags: stepped, conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: knife
+						include: screwdriver, file, chisel, knife, sandpaper
+					}
+				}
+				{
+					name: "Sawed"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: wood.rod
+							amount: 0.750483
+							snapping: 1.000
+							loss: 0.012
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: sawing
+							amount: 85.000
+							amount_min: 65.000
+							difficulty: 4
+							snapping: 5.000
+							falloff: 0.782
+							ratio: 1.000
+							group: 0
+							flags: stepped, conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: saw
+						include: ruler, file, knife
+					}
+					filter_infrastructure:
+					{
+						require: surface
+						include: workbench
+					}
+				}
+			]
+		}
+		{
+			name: "Assembly"
+			
+			type: assembly
+			flags: wip, incomplete
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Staked"
+					
+					type: undefined
+					flags: wip, incomplete
+					discard_damage_type_override: club
+					
+					requirements:
+					[
+						{
+							type: work
+							work: doweling
+							amount: 400.000
+							difficulty: 8
+							snapping: 5.000
+							falloff: 0.989
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						include: hammer, towel
+					}
+				}
+				{
+					name: "Glued"
+					
+					type: undefined
+					flags: wip, incomplete
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: glue
+							amount: 1.160
+							snapping: 0.010
+							falloff: 0.956
+							loss: 0.157
+							ratio: 0.200
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: gluing
+							amount: 30.000
+							amount_min: 30.000
+							difficulty: 4
+							snapping: 5.000
+							falloff: 0.962
+							ratio: 1.000
+							group: 0
+							flags: stepped, conditional
+						}
+						{
+							type: work
+							work: drying
+							amount: 90.000
+							difficulty: 5
+							snapping: 5.000
+							group: 1
+							flags: no_scaling, conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						include: paintbrush, file
+					}
+					filter_infrastructure:
+					{
+						include: table
+					}
+					filter_environment:
+					{
+						include: clean, organized
+						exclude: wet
+					}
+				}
+			]
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: twukaxe.00
+			amount: 1.000
+			group: 0
+			flags: primary, compact
+		}
+	]
+	
+	type: workshop
+	flags: blueprintable, item
+	tags: manual, crafting, basic, simple, small, tool, assembling
+	hints: tools, weapon, melee, mining, gathering, civilian, fast
+	connotations: tool, weapon, melee, interesting, decent, mining, funny, cheap, civilian, sus, wild
+	infrastructure: surface
+	infrastructure_exclude: none
+	
+	h_company: common
+	
+	icon:
+	{
+		texture: twukaxe.00
+		size: [16, 16]
+	}
+	
+	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
+	button_name: "Craft"
+	rank: 13.000
+	
+	min: 1
+	max: 4
+	step: 1
+	
+	version: 1
+}

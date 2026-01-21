@@ -1,7 +1,7 @@
-$name: "Twukaxe"
+$name: "Twuk-Axe"
 $desc:
 	'''
-	Twuk converted into a sturdy mining tool.
+	Twuk repurposed as a sturdy mining tool.
 	'''
 $tags: []
 
@@ -25,7 +25,7 @@ body:
 		mask: world
 		exclude: none
 		
-		mass: 6.000
+		mass: 5.600
 		radius: 0.2625
 		friction: 0.950
 		elasticity: 0.150
