@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.67.2"
+	$version: "0.1.68.0"
 	name: "Wooden Bar"
 	name_short: "Wd. Bar"
 	name_dumb: "Stick"
@@ -367,6 +367,15 @@
 			flags_product: residue
 			
 			yield: [0.849, 0.144]
+		}
+		trashing.wood:
+		{
+			h_material: scrap.wood
+			
+			flags: none
+			flags_product: waste, residue
+			
+			yield: [0.830, 0.150]
 		}
 	}
 }

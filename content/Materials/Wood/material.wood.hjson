@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.68.0"
 	name: "Planks"
 	name_short: "Planks"
 	name_dumb: "Wood"
@@ -502,6 +502,15 @@
 			flags_product: residue
 			
 			yield: [0.733, 0.214]
+		}
+		trashing.wood:
+		{
+			h_material: scrap.wood
+			
+			flags: none
+			flags_product: waste, residue
+			
+			yield: [0.670, 0.309]
 		}
 	}
 }

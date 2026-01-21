@@ -2,18 +2,37 @@ $tags: []
 
 body:
 {
+	type: dynamic
+	flags: none
+	tags: solid, angular, irregular, dense
+	
+	fall_damage_multiplier: 2.500
 	buoyancy: 0.030
 
 	@shape.circle:
 	{
-		offset: [0.000, 0.250]
-		mass: 1.000
-		radius: 0.750
-		friction: 0.850
-		elasticity: 0.200
 		material: concrete
-		layer: entity, solid, resource, ignore_melee, ignore_bullet
-		mask: world
+		miss_chance: 0.000
+		flags: none
+		tags: heavy, large, solid, hard
+		
+		layer: entity, solid, resource, rubble, bulk, ignore_melee, ignore_bullet
+		mask: world, rubble, bulk, solid
+		exclude: attached, stored, tree, background
+		
+		radius: 0.750
+		friction: 4.000
+		elasticity: 0.000
+		
+		// rigidity_dynamic: 1.800
+		// rigidity_static: 0.750
+
+		cog_offset: [0.000, 0.250]
+		fall_damage_mult: 1.500
+		
+		// offset: [0.000, 0.250]
+
+		fall_damage_mult: 2.000
 	}
 }
 
@@ -40,21 +59,34 @@ resource:
 
 holdable:
 {
-	offset: [0.000, 0.750]
+	offset: [0.000, 0.500]
 }
 
-norotate:
-{
-	bias: 0.000
-	mass_multiplier: 25.000
-	attached_multiplier: 0.500
-}
+// health:
+// {
+// 	max: 4500.000
+// }
+
+// norotate:
+// {
+// 	bias: 0.000
+// 	mass_multiplier: 25.000
+// 	attached_multiplier: 0.500
+// }
 
 despawn:
 {
-	sleep_count_max: 39
-	interval: 25.000
-	interval_extra: 30.000
-	threshold_delete: 0.010
+	product_ratio: 0.500
+	amount_ratio: 0.010
+	amount_ratio_extra: 0.050
+	
+	threshold_delete: 0.002
 	threshold_despawning: 0.100
+	
+	interval: 1.000
+	interval_extra: 12.000
+	
+	sleep_count_max: 39
+	flags: none
+	state_flags: none
 }

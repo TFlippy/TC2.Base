@@ -1,11 +1,13 @@
 ﻿{
 	$version: "0.1.63.2"
-	name: "Leather"
+	name: "Bonded Leather"
 	name_short: "Leather"
-	name_dumb: "Fur"
+	name_dumb: "Genuine Leather"
 	description:
 		'''
-		Fairly durable leather.
+		Standard multi-purpose bonded leather composite material.
+		
+		Introduced by ISO as an ingenious way to replace the inefficient, needlessly complicated traditional leatherworking processes.
 		'''
 	
 	tips: []

@@ -1,0 +1,65 @@
+$tags: []
+
+body:
+{
+	buoyancy: 0.650
+
+	@shape.circle:
+	{
+		offset: [0.000, 0.250]
+		mass: 1.000
+		radius: 0.700
+		friction: 0.890
+		elasticity: 0.150
+		material: fur
+		layer: entity, solid, resource, ignore_melee, ignore_bullet, flammable
+		mask: world
+	}
+	damping: 0.976
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "resource.scrap.fur"
+		count: 4
+		size: [16, 16]
+	}
+	z: -73.900
+}
+
+transform:
+{
+
+}
+
+resource:
+{
+	material: "scrap.fur"
+}
+
+holdable:
+{
+	offset: [0.000, 0.750]
+}
+
+// breakable:
+// {
+// 	flags: no_damage
+// }
+
+norotate:
+{
+	bias: 0.000
+	mass_multiplier: 25.000
+	attached_multiplier: 0.500
+}
+
+despawn:
+{
+	sleep_count_max: 27
+	interval: 30.000
+	threshold_delete: 0.010
+	threshold_despawning: 0.650
+}
