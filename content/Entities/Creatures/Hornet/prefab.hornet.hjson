@@ -61,6 +61,7 @@ organic:
 {
 	tags: brain
 	h_species: "hornet"
+	pain_base: 2000.000
 }
 
 organic.state:

@@ -32,7 +32,25 @@ body:
 
 organic:
 {
-	h_species: "human"
+	h_species: human
+	tags: heart, torso, arms, hands, lungs
+	flags: none
+	pain_base: 2000.000
+	pain_modifier: 1.000
+	
+	consciousness: 1.000
+	unused_00: 0.000
+	water_ratio: 0.600
+	work_speed: 1.000
+	
+	smartness: 1.000
+	motorics: 1.000
+	strength: 1.000
+	endurance: 1.000
+	dexterity: 1.000
+	coordination: 1.000
+	absorption: 1.000
+	regeneration: 1.000
 }
 
 organic.state:
@@ -439,8 +457,25 @@ workshop:
 		
 		organic:
 		{
-			tags: brain
-			h_species: "human"
+			h_species: human
+			tags: brain, head, eyes, mouth
+			flags: none
+			pain_base: 1000.000
+			pain_modifier: 1.000
+			
+			consciousness: 1.000
+			unused_00: 0.000
+			water_ratio: 0.600
+			work_speed: 1.000
+			
+			smartness: 1.000
+			motorics: 1.000
+			strength: 1.000
+			endurance: 1.000
+			dexterity: 1.000
+			coordination: 1.000
+			absorption: 1.000
+			regeneration: 1.000
 
 			@animated.renderer:
 			{
@@ -669,7 +704,25 @@ workshop:
 		
 		organic:
 		{
-			h_species: "human"
+			h_species: human
+			tags: waist, legs, butt
+			flags: none
+			pain_base: 1500.000
+			pain_modifier: 1.000
+			
+			consciousness: 1.000
+			unused_00: 0.000
+			water_ratio: 0.600
+			work_speed: 1.000
+			
+			smartness: 1.000
+			motorics: 1.000
+			strength: 1.000
+			endurance: 1.000
+			dexterity: 1.000
+			coordination: 1.000
+			absorption: 1.000
+			regeneration: 1.000
 
 			@animated.renderer:
 			{
@@ -805,19 +858,25 @@ workshop:
 
 	puncher:
 	{
-		sound: swish.00
 		damage_base: 40.000
 		damage_bonus: 180.000
+		
 		max_distance: 1.300
-		aoe: 0.400
+		thickness: 0.150
 		knockback: 3.000
+		stun_multiplier: 1.200
+		
 		frame: [9, 0]
 		offset: [0.250, -0.125]
+		
+		sound: swish.00
+		hit_mask: world, item, creature, vehicle, door, shield, harvestable
 		hit_exclude: background, essence, water, fire, gas, climbable, stored
 		
 		damage_flags:
 		{
 			add: no_loot_discard, force_loot_notification
+			rem: no_loot_notification
 		}
 	}
 }

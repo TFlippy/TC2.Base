@@ -3,22 +3,69 @@ namespace TC2.Base.Components
 {
 	public static partial class Brain
 	{
+		[Flags]
+		public enum Flags: uint
+		{
+			None = 0,
+
+			Alive = 1u << 0
+		}
+
 		[IComponent.Data(Net.SendType.Reliable, IComponent.Scope.Region)]
 		public partial struct Data(): IComponent
 		{
-			[Flags]
-			public enum Flags: ushort
-			{
-				None = 0,
-			}
+			[Save.Force] public Brain.Flags flags;
 
-
+			[Save.NewLine]
+			[Asset.Ignore] public float consciousness;
+			[Asset.Ignore] public float efficiency;
+			[Asset.Ignore] public float pain;
 		}
 	}
 
 	[Shitcode] // TODO: this is a mess
 	public static partial class OrganicExt
 	{
+		[ISystem.PreUpdate.Reset(ISystem.Mode.Single, ISystem.Scope.Region)]
+		public static void UpdateReset([Source.Owned] ref Organic.State organic)
+		{
+			organic.consciousness_shared_new = 0.00f;
+			organic.motorics_shared_new = 0.00f;
+			organic.pain_shared_new = organic.pain;
+		}
+
+		[Shitcode]
+		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region, flags: ISystem.Flags.Unchecked)]
+		public static void UpdateConsciousness(Entity entity, [Source.Shared] ref Character.Data character,
+		[Source.Owned, Override] in Organic.Data organic, [Source.Owned] in Organic.State organic_state,
+		[Source.Owned, Optional(true)] ref NPC.Data npc, [Source.Owned] bool dead)
+		{
+			//player.consciousness = 1.00f;
+
+			if (entity == character.ent_controlled)
+			{
+				if (dead)
+				{
+					character.unconscious_time = 0.00f;
+					character.consciousness = 0.00f;
+					character.pain = 0.00f;
+				}
+				else
+				{
+					character.unconscious_time = organic_state.unconscious_time;
+					character.consciousness = organic_state.consciousness_shared;
+					character.pain = organic_state.pain_shared_old;
+				}
+
+				if (npc.IsNotNull())
+				{
+					npc.unconscious_time = character.unconscious_time;
+					npc.consciousness = character.consciousness;
+					npc.pain = character.pain;
+				}
+			}
+		}
+
 		[Shitcode]
 		[ISystem.PostUpdate.A(ISystem.Mode.Single, ISystem.Scope.Region, order: 5, flags: ISystem.Flags.Unchecked)]
 		public static void UpdateBrain([Source.Owned, Original] ref Organic.Data organic_original, [Source.Owned, Override] in Organic.Data organic_override,
@@ -29,7 +76,7 @@ namespace TC2.Base.Components
 
 			if (organic_original.tags.HasAny(Organic.Tags.Brain))
 			{
-				var p = (dead || organic_state.pain_shared < pain_cutoff) ? 0.00f : Maths.PowFast(Maths.Max(0.00f, organic_state.pain_shared - pain_cutoff) * 0.0018f, 1.50f) * 0.10f;
+				var p = (dead || organic_state.pain_shared_old < pain_cutoff) ? 0.00f : Maths.PowFast(Maths.Max(0.00f, organic_state.pain_shared_old - pain_cutoff) * 0.0018f, 1.50f) * 0.10f;
 				//organic_original.consciousness = Maths.Lerp(organic_original.consciousness, 1.00f - Maths.Clamp01(p), 0.02f); // player.flags.HasAll(Player.Flags.Alive) ? 1.00f : 0.30f;
 				organic_original.consciousness = Maths.Lerp2(organic_original.consciousness, Maths.Min(1.00f - (Maths.Clamp01(p) * 0.85f), 1.00f - (organic_state.stun_norm * 0.60f)), 0.10f, 0.02f); // player.flags.HasAll(Player.Flags.Alive) ? 1.00f : 0.30f;
 
@@ -94,8 +141,9 @@ namespace TC2.Base.Components
 		{
 			organic_state.consciousness_shared = Maths.Lerp(organic_state.consciousness_shared, organic_state.consciousness_shared_new, 0.20f);
 			organic_state.motorics_shared = Maths.Lerp(organic_state.motorics_shared, organic_state.motorics_shared_new, 0.20f);
-			organic_state.pain_shared = Maths.Lerp(organic_state.pain_shared, organic_state.pain_shared_new * organic.pain_modifier, 0.20f);
-			organic_state.pain = Maths.Lerp(organic_state.pain, organic_state.pain * (0.15f + (Maths.Max(0.00f, 0.60f - Maths.Pow6(health.GetHealthNormalized()) * 0.90f))).Clamp01() * organic.pain_modifier, 0.008f);
+			organic_state.pain_shared_old = Maths.Lerp(organic_state.pain_shared_old, organic_state.pain_shared_new * organic.pain_modifier, 0.20f);
+			//organic_state.pain = Maths.Lerp(organic_state.pain, organic_state.pain * (0.15f + (Maths.Max(0.00f, 0.60f - Maths.Pow6(health.GetHealthNormalized()) * 0.90f))).Clamp01() * organic.pain_modifier, 0.008f);
+			organic_state.pain = Maths.Lerp(organic_state.pain, organic.pain_base * (1.00f - health.GetHealthNormalizedAvg()) * organic.pain_modifier, 0.008f);
 			organic_state.stun = Maths.MoveTowards(organic_state.stun, 0.00f, info.DeltaTime * 50.00f);
 
 			organic_state.stun_norm = Maths.Normalize01(organic_state.stun, 500.00f).Pow2();

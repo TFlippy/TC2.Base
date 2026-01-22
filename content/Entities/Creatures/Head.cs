@@ -176,7 +176,7 @@ namespace TC2.Base.Components
 		public static void OnUpdateSprite(/*ISystem.Info info,*/
 		[Source.Owned] ref Organic.State organic_state, [Source.Owned] in Head.Data head, [Source.Owned] ref Animated.Renderer.Data renderer)
 		{
-			renderer.sprite.frame.x = organic_state.pain_shared > 200.00f ? head.frame_pain : 0u;
+			renderer.sprite.frame.x = organic_state.pain_shared_old > 200.00f ? head.frame_pain : 0u;
 		}
 
 		[ISystem.AddFirst(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", true, Source.Modifier.Owned)]
@@ -246,7 +246,7 @@ namespace TC2.Base.Components
 				head_state.t_next_sound = Maths.Min(head_state.t_next_sound, time + 2.50f);
 			}
 
-			var pain_delta = Maths.Max(organic_state.pain_shared, 0.00f);
+			var pain_delta = Maths.Max(organic_state.pain_shared_old, 0.00f);
 			if (time >= head_state.t_next_pain && organic_state.consciousness_shared > 0.40f)
 			{
 				//if (pain_delta >= 800.00f)

@@ -32,6 +32,7 @@ body:
 organic:
 {
 	h_species: "drevokocur"
+	pain_base: 2000.000
 }
 
 organic.state:
@@ -429,6 +430,7 @@ faction:
 		organic:
 		{
 			h_species: "drevokocur"
+			pain_base: 2000.000
 
 			@animated.renderer:
 			{
@@ -709,6 +711,7 @@ faction:
 		{
 			tags: brain
 			h_species: "drevokocur"
+			pain_base: 2000.000
 
 			@animated.renderer:
 			{

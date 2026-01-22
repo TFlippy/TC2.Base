@@ -30,6 +30,7 @@ body:
 organic:
 {
 	h_species: "drop_bear"
+	pain_base: 2000.000
 }
 
 organic.state:
@@ -322,6 +323,7 @@ faction:
 		{
 			tags: brain
 			h_species: "drop_bear"
+			pain_base: 2000.000
 
 			@animated.renderer:
 			{

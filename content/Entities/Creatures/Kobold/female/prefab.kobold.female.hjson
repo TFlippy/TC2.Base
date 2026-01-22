@@ -33,6 +33,7 @@ body:
 organic:
 {
 	h_species: "kobold"
+	pain_base: 2000.000
 }
 
 organic.state:
@@ -224,7 +225,7 @@ ai.movement:
 
 ai.behavior:
 {
-	movement_flags: wander
+	movement_flags: wander, open_doors
 	combat_flags: attack_visible, attack_when_hit, cover, flee, defend, evade, chase, charge
 }
 
@@ -389,6 +390,7 @@ commandable:
 		{
 			tags: brain
 			h_species: "kobold"
+			pain_base: 2000.000
 
 			@animated.renderer:
 			{
@@ -613,6 +615,7 @@ commandable:
 		organic:
 		{
 			h_species: "kobold"
+			pain_base: 2000.000
 
 			@animated.renderer:
 			{

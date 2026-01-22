@@ -27,6 +27,24 @@ body:
 organic:
 {
 	h_species: badger
+	tags: torso, legs
+	flags: none
+	pain_base: 1500.000
+	pain_modifier: 1.000
+	
+	consciousness: 1.000
+	unused_00: 0.000
+	water_ratio: 0.600
+	work_speed: 1.000
+	
+	smartness: 1.000
+	motorics: 1.000
+	strength: 1.000
+	endurance: 1.000
+	dexterity: 1.000
+	coordination: 1.000
+	absorption: 1.000
+	regeneration: 1.000
 }
 
 organic.state:
@@ -372,6 +390,24 @@ faction:
 		organic:
 		{
 			h_species: badger
+			tags: waist, legs
+			flags: none
+			pain_base: 1500.000
+			pain_modifier: 1.000
+			
+			consciousness: 1.000
+			unused_00: 0.000
+			water_ratio: 0.600
+			work_speed: 1.000
+			
+			smartness: 1.000
+			motorics: 1.000
+			strength: 1.000
+			endurance: 1.000
+			dexterity: 1.000
+			coordination: 1.000
+			absorption: 1.000
+			regeneration: 1.000
 
 			@animated.renderer:
 			{
@@ -643,8 +679,25 @@ faction:
 		
 		organic:
 		{
-			tags: brain
 			h_species: badger
+			tags: brain, head, eyes, mouth
+			flags: none
+			pain_base: 1800.000
+			pain_modifier: 1.000
+			
+			consciousness: 0.999999
+			unused_00: 0.000
+			water_ratio: 0.600
+			work_speed: 1.000
+			
+			smartness: 1.000
+			motorics: 1.000
+			strength: 1.000
+			endurance: 1.000
+			dexterity: 1.000
+			coordination: 1.000
+			absorption: 1.000
+			regeneration: 1.000
 
 			@animated.renderer:
 			{

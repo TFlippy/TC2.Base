@@ -40,6 +40,7 @@ body:
 organic:
 {
 	consciousness: 1.000
+	pain_base: 2000.000
 	motorics: 1.000
 	strength: 4.000
 	endurance: 3.000
@@ -470,6 +471,7 @@ workshop:
 		organic:
 		{
 			consciousness: 1.000
+			pain_base: 2000.000
 			motorics: 1.000
 			strength: 4.000
 			endurance: 3.000
@@ -692,6 +694,7 @@ workshop:
 		organic:
 		{
 			consciousness: 1.000
+			pain_base: 2000.000
 			motorics: 1.000
 			strength: 4.000
 			endurance: 3.000
