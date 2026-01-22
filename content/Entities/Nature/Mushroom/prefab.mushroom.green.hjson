@@ -20,7 +20,7 @@ body:
 		material: mushroom
 		miss_chance: 0.847
 		
-		layer: entity, solid, organic, background, no_overlapped_placement, ignore_bullet
+		layer: entity, solid, organic, no_overlapped_placement, ignore_bullet
 		mask: world
 		exclude: none
 	}

@@ -64,7 +64,7 @@ armor:
 	stun_modifier: 0.880
 	pain_modifier: 0.920
 	material_type: fabric
-	flags: no_damage_type_conversion, no_sound, no_particles
+	flags: no_damage_type_conversion
 }
 
 animated.renderer:
@@ -399,7 +399,7 @@ faction:
 			stun_modifier: 0.420
 			pain_modifier: 0.620
 			material_type: leather
-			flags: no_damage_type_conversion, no_sound, no_particles
+			flags: no_damage_type_conversion
 		}
 
 		holdable:
@@ -755,12 +755,12 @@ faction:
 		{
 			toughness: 658.000
 			protection: 0.990
-			coverage: 0.650
+			coverage: 0.350
 			knockback_modifier: 1.530
 			stun_modifier: 1.120
 			pain_modifier: 0.520
-			material_type: bone
-			flags: no_damage_type_conversion, no_sound, no_particles
+			material_type: cermet
+			flags: no_damage_type_conversion
 		}
 
 		// armor:

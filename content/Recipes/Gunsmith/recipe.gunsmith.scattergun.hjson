@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.68.0"
 	name: "Scattergun"
 	desc:
 		'''
@@ -43,10 +43,10 @@
 						}
 						{
 							type: work
-							work: bending
-							amount: 920.000
+							work: metal.forming
+							amount: 400.000
 							amount_min: 220.000
-							difficulty: 12
+							difficulty: 11
 							snapping: 5.000
 							falloff: 0.880
 							ratio: 0.886
@@ -270,6 +270,8 @@
 	type: workshop
 	flags: blueprintable, item, wip, converted
 	tags: manual, crafting, simple, medium, weapon, gun, assembling, metalworking, engineering, military
+	hints: none
+	connotations: none
 	infrastructure: rack, surface, workbench
 	infrastructure_exclude: none
 	

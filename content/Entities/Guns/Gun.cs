@@ -1086,6 +1086,8 @@ namespace TC2.Base.Components
 				var pos_a = pos_muzzle;
 				var pos_b = this.world_position_target;
 
+				//GUI.DrawCircleFilled(region.WorldToCanvas(pos_a), 4, color: GUI.font_color_red, layer: GUI.Layer.Foreground);
+
 				//var dist = Vector2.Distance(pos_a, pos_b);
 
 				//GUI.DrawArc(region.WorldToCanvas(pos_a), dir_a, dir_b, radius: dist * region.GetWorldToCanvasScale(), thickness: 8, color: GUI.font_color_red.WithAlpha(50));
@@ -1093,7 +1095,16 @@ namespace TC2.Base.Components
 				//Gun.DrawTrajectory(ref region, gun_state.resource_ammo.material, in gun, in transform);
 				//Gun.DrawCrosshair(ref region, ref this.gun, ref this.gun_state, pos_a, pos_b, Vector2.Lerp(dir_a, dir_b, 0.00f), this.gun.jitter_multiplier, this.inventory[0].quantity, this.gun.max_ammo);
 				//Gun.DrawCrosshair(ref region, ref this.gun, ref this.gun_state, pos_a, pos_b, Maths.Slerp(dir_a, dir_b, 0.75f), this.gun.jitter_multiplier, this.inventory[0].quantity, this.gun.max_ammo);
-				Gun.DrawCrosshair(ref region, ref this.gun, ref this.gun_state, pos_a, pos_b, dir_a, dir_b, this.gun.jitter_multiplier, this.inventory[0].quantity, this.gun.max_ammo);
+				Gun.DrawCrosshair(region: ref region,
+					  gun: ref this.gun,
+					  gun_state: ref this.gun_state,
+					  position_a: pos_a,
+					  position_b: pos_b,
+					  dir_a: dir_a,
+					  dir_b: dir_b,
+					  radius: this.gun.jitter_multiplier,
+					  ammo_count: this.inventory.resource.quantity,
+					  ammo_count_max: this.gun.max_ammo);
 			}
 		}
 
@@ -1108,7 +1119,14 @@ namespace TC2.Base.Components
 			//var dir_smooth = Maths.Slerp(dir_a, dir_b, 0.90f);
 
 			var position_actual = position_a + (dir_b * dist);
-			var is_los = region.IsInLineOfSight(position_a, position_actual, out var position_actual_los, out var hit_normal, radius: 0.00f, mask: Physics.Layer.World | Physics.Layer.Solid, exclude: Physics.Layer.Ignore_Bullet | Physics.Layer.Creature | Physics.Layer.Background | Physics.Layer.Item | Physics.Layer.Organic | Physics.Layer.Ignore_Hover);
+			var is_los = region.IsInLineOfSight(pos_a: position_a,
+			pos_b: position_actual,
+			hit_pos: out var position_actual_los,
+			hit_normal: out var hit_normal,
+			radius: 0.00f,
+			query_flags: Physics.QueryFlag.Static,
+			mask: Physics.Layer.World | Physics.Layer.Solid,
+			exclude: Physics.Layer.Dynamic | Physics.Layer.Ignore_Bullet | Physics.Layer.Creature | Physics.Layer.Background | Physics.Layer.Item | Physics.Layer.Organic | Physics.Layer.Ignore_Hover);
 
 			var dist_los = Vector2.Distance(position_a, position_actual_los);
 
@@ -1209,10 +1227,10 @@ namespace TC2.Base.Components
 
 				GUI.DrawLine2(
 					a: cpos_target_los,
-					b: cpos_target_los + (dir_b * Maths.Clamp(dist * 0.50f, 6, 12) * region.GetWorldToCanvasScale()),
-					color_a: Color32BGRA.Gray.WithAlpha(250),
-					color_b: Color32BGRA.Gray.WithAlpha(50),
-					thickness_a: 1.00f,
+					b: cpos_target_los + (dir_b * Maths.Clamp(dist * 0.750f, 1, dist - dist_los) * region.GetWorldToCanvasScale()),
+					color_a: Color32BGRA.Red.WithAlpha(250),
+					color_b: Color32BGRA.Red.WithAlpha(50),
+					thickness_a: 3.00f,
 					thickness_b: 1.00f);
 
 				GUI.DrawLine2(
@@ -1227,7 +1245,8 @@ namespace TC2.Base.Components
 				//GUI.DrawLine2(cpos_target_los, cpos_target + (dir_b * Maths.Clamp(dist * 0.50f, 6, 12) * region.GetWorldToCanvasScale()), color_line_a.WithAlpha(50), color_line_b.WithAlpha(150), thickness_a: 1.00f, thickness_b: 1.00f);
 
 				//GUI.DrawLine2(cpos_target_los - (dir_b * ((dist_los * 0.35f) - 0.25f).Clamp0X() * region.GetWorldToCanvasScale()), cpos_target_los, color_line_a.WithAlpha(150), color_line_b.WithAlpha(240), thickness_a: 1.00f, thickness_b: 1.00f);
-				GUI.DrawCircleFilled(a: cpos_target_los + new Vector2(0.50f), radius: 4.00f, color: Color32BGRA.Gray, segments: 4);
+				//GUI.DrawCircleFilled(a: cpos_target_los + new Vector2(0.50f), radius: 4.00f, color: Color32BGRA.Gray, segments: 4);
+				GUI.DrawCircleFilled(a: cpos_target_los + new Vector2(0.50f), radius: 4.00f, color: GUI.col_button_yellow, segments: 4);
 			}
 
 			GUI.DrawCircleFilled(cpos_target + new Vector2(0.50f), 3.00f, color, segments: 4);
@@ -1606,6 +1625,7 @@ namespace TC2.Base.Components
 				var pos_w_offset = transform.LocalToWorld(gun.muzzle_offset);
 				//var pos_w_offset_particle = transform.LocalToWorld(gun.muzzle_offset + gun.particle_offset);
 				var dir = transform.GetDirection();
+				//var dir_recoil = transform.LocalToWorld((gun.receiver_offset - gun.muzzle_offset).GetNormalizedFast(), position: false);
 				var dir_particle = dir.RotateByRad(gun.particle_rotation);
 				var vel_base = body.GetVelocity();
 
@@ -1632,6 +1652,7 @@ namespace TC2.Base.Components
 					var recoil_mass = ammo.mass * gun.ammo_per_shot;
 					var recoil_speed = Maths.Min(gun.velocity_max, gun.velocity_multiplier * ammo.speed_mult);
 					var recoil_force = -dir * ((recoil_mass * recoil_speed) * gun.recoil_multiplier * ammo.recoil_mult * App.tickrate_f32 * 20.00f);
+					//var recoil_force = dir_recoil * ((recoil_mass * recoil_speed) * gun.recoil_multiplier * ammo.recoil_mult * App.tickrate_f32 * 20.00f);
 
 					//recoil_force = Physics.LimitForce(ref body, recoil_force, new Vector2(50, 50));
 
@@ -1649,7 +1670,10 @@ namespace TC2.Base.Components
 
 					failure_rate = Maths.Clamp01(failure_rate + ((1.00f - stability_ratio) * 0.10f)); // Maths.Lerp01(failure_rate, 1.00f - stability_ratio, )
 
+					//App.WriteValue(recoil_force);
+
 					body.AddForceWorld(recoil_force, pos_w_offset); // TODO: use impulse instead
+																	//body.AddForceWorld(recoil_force, transform.LocalToWorld(gun.receiver_offset)); // TODO: use impulse instead
 					gun_state.last_recoil = recoil_force;
 
 					//App.WriteLine($"ratio: {stability_ratio}; failure: {failure_rate}; stability: {stability}/{stability_req}");

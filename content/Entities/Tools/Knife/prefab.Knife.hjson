@@ -43,25 +43,35 @@ health:
 
 melee:
 {
-	sound_swing: "tool_swing_00"
 	damage_base: 50.000
 	damage_bonus: 250.000
+	armor_pierce: 150.000
+	
+	primary_damage_multiplier: 1.050
+	pain_multiplier: 1.210
+	
 	cooldown: 0.300
 	max_distance: 1.250
-	thickness: 0.500
-	hit_offset: [0.250, 0.000]
 	aoe: 0.250
+	thickness: 0.500
 	knockback: 80.000
 	yield: 1.500
 	penetration_falloff: 0.900
-	penetration: 0
-	damage_type: stab
+	
+	hit_offset: [0.250, 0.000]
+	
+	sound_volume: 0.690
+	sound_pitch: 1.400
+	
 	attack_type: thrust
+	damage_type: stab
 	category: bladed
-	hit_mask: world, destructible
-	hit_exclude: ignore_melee, background, tree
+	
 	damage_flags_add: no_loot_discard
 	damage_flags_rem: no_loot_notification
+	
+	hit_mask: world, destructible
+	hit_exclude: background, tree, ignore_melee
 }
 
 melee.state:

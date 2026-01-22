@@ -44,9 +44,9 @@ namespace TC2.Base.Components
 			public Entity ent_target;
 			public Entity ent_owner;
 			public XorRandom random;
-			public Material.Type target_material_type;
 			public Vector2 world_position;
 			public Vector2 direction;
+			public Material.Type target_material_type;
 		}
 
 		[IComponent.Data(Net.SendType.Reliable, IComponent.Scope.Region), IComponent.With<Melee.State>]
@@ -783,7 +783,8 @@ namespace TC2.Base.Components
 			layers_exclude.AddFlag(melee.hit_ignore);
 
 			Span<LinecastResult> results = FixedArray.CreateSpan16NoInit<LinecastResult>(out var buffer); // LinecastResult[16];
-			if (region.TryLinecastAll(pos, pos_target, melee.thickness, ref results, mask: melee.hit_mask, require: melee.hit_require, exclude: layers_exclude))
+			if (region.TryLinecastAll(world_position_start: pos, world_position_end: pos_target, 
+			radius: melee.thickness, hits: ref results, mask: melee.hit_mask, require: melee.hit_require, exclude: layers_exclude))
 			{
 				results.SortByDistance();
 
@@ -826,9 +827,12 @@ namespace TC2.Base.Components
 					for (var i = 0; i < results.Length && penetration >= 0; i++)
 					{
 						ref var result = ref results[i];
+						var ent_result = result.entity;
+
 						//if (!result.layer.HasAny(Physics.Layer.Solid | Physics.Layer.World))
 						{
-							if (result.entity == ent_parent || result.entity_parent == ent_parent || result.entity == ent_melee) continue;
+
+							if (ent_result == ent_parent || ent_result == ent_melee || result.entity_parent == ent_parent) continue;
 							if (result.mask.HasNone(Physics.Layer.Solid))
 							{
 								if (h_faction && melee.flags.HasNone(Melee.Flags.Friendly_Fire) && result.GetFactionHandle() == h_faction) continue;
@@ -837,17 +841,30 @@ namespace TC2.Base.Components
 
 							var closest_result = result.GetClosestPoint(pos_target, true);
 							if (!(result.layer.HasAny(Physics.Layer.Solid | Physics.Layer.World) && result.mask.HasAny(Physics.Layer.Solid) && result.layer.HasNone(Physics.Layer.Ignore_Melee)) && Vector2.DistanceSquared(closest_result.world_position, pos_target) > (melee.thickness * melee.thickness)) continue;
-
-							hit_results.AddFlag(Melee.HitResults.Terrain, !result.entity.IsValid());
-							hit_results.AddFlag(Melee.HitResults.Any);
-
 							pos_hit = closest_result.world_position;
 
-#if CLIENT
-							if (draw_gui && result.entity.IsValid())
+							var is_terrain = result.layer.HasAny(Physics.Layer.World) || !ent_result.IsValid();
+							if (!is_terrain)
 							{
-								//GUI.DrawEntityOutline(result.entity, color: Color32BGRA.Red.WithAlphaMult(0.40f), thickness: 2.00f);
-								GUI.DrawEntity(result.entity, color: Color32BGRA.Red.WithAlphaMult(0.25f));
+								// TODO: make ignored damage types cached inside the internal physics body to avoid expensive component lookups
+								ref var body_result = ref result.GetBody();
+								if (body_result.IsNotNull())
+								{
+									if (body_result.damage_ignore.Has(melee.damage_type))
+									{
+										continue;
+									}
+								}
+							}
+
+							hit_results.AddFlag(Melee.HitResults.Terrain, is_terrain);
+							hit_results.AddFlag(Melee.HitResults.Any);
+
+#if CLIENT
+							if (draw_gui && ent_result.IsValid())
+							{
+								//GUI.DrawEntityOutline(ent_result, color: Color32BGRA.Red.WithAlphaMult(0.40f), thickness: 2.00f);
+								GUI.DrawEntity(ent_result, color: Color32BGRA.Red.WithAlphaMult(0.25f));
 								GUI.SetCursor(App.CursorType.Attack, 1000);
 							}
 #endif
@@ -857,7 +874,7 @@ namespace TC2.Base.Components
 								Melee.Hit(region: ref region,
 									ent_attacker: ent_melee,
 									ent_owner: ent_parent,
-									ent_target: result.entity,
+									ent_target: ent_result,
 									hit_pos: pos_hit,
 									dir: dir,
 									normal: result.normal, // (closest_result.normal_raw - dir).GetNormalizedFast(),
@@ -884,6 +901,7 @@ namespace TC2.Base.Components
 					hit_results.AddFlag(Melee.HitResults.Terrain, is_terrain);
 					hit_results.AddFlag(Melee.HitResults.Any | HitResults.Solid);
 
+					// wtf?
 					var closest_result = result.GetClosestPoint(pos: result.world_position, allow_inside: true);
 
 					//pos_target = result.world_position;
@@ -1103,7 +1121,9 @@ namespace TC2.Base.Components
 		}
 #endif
 
-		public static void Hit(ref Region.Data region, Entity ent_attacker, Entity ent_owner, Entity ent_target, Vector2 hit_pos, Vector2 dir, Vector2 normal, Material.Type material_type, in Melee.Data melee, ref Melee.State melee_state, ref XorRandom random, float damage_multiplier = 1.00f, IFaction.Handle h_faction = default)
+		public static void Hit(ref Region.Data region, Entity ent_attacker, Entity ent_owner, Entity ent_target, 
+		Vector2 hit_pos, Vector2 dir, Vector2 normal, Material.Type material_type, 
+		in Melee.Data melee, ref Melee.State melee_state, ref XorRandom random, float damage_multiplier = 1.00f, IFaction.Handle h_faction = default)
 		{
 			var random_det = XorRandom.New(ent_target.GetLower(), dir.GetProduct().ToUInt32BitCast(), random);
 			var random_local = random_det;

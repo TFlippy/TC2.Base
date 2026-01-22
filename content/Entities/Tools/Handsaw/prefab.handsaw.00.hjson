@@ -52,10 +52,10 @@ health:
 melee:
 {
 	damage_base: 43.100
-	damage_bonus: 13.800
-	armor_pierce: 145.600
+	damage_bonus: 35.700
+	armor_pierce: 56.600
 	
-	primary_damage_multiplier: 1.230
+	primary_damage_multiplier: 1.520
 	secondary_damage_multiplier: 0.600
 	terrain_damage_multiplier: 0.000
 	pain_multiplier: 1.800
@@ -76,9 +76,9 @@ melee:
 	swing_rotation: 0.000
 	
 	sound_swing: swish.00
-	sound_volume: 0.400
-	sound_size: 1.500
-	sound_pitch: 0.600
+	sound_volume: 0.300
+	sound_size: 0.800
+	sound_pitch: 0.620
 	
 	attack_type: thrust
 	damage_type: handsaw

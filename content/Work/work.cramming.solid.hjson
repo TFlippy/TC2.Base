@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.68.0"
 	name: "Cramming (Solid)"
 	name_short: "Cramming"
 	desc:
@@ -15,9 +15,9 @@
 	}
 	
 	flags: manual, wip
-	tags: crude, leisure, dangerous
+	tags: crude, simple, dangerous, kinetic, fast
 	
-	amount_base: 0.000
+	amount_base: 1.000
 	cooldown: 0.720
 	multiplier: 0.970
 	

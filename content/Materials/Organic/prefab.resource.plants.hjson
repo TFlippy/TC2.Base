@@ -3,19 +3,29 @@ $tags: []
 body:
 {
 	buoyancy: 0.650
+	damping: 0.982
 
 	@shape.circle:
 	{
-		offset: [0.000, 0.250]
+		material: foliage
+		miss_chance: 0.000
+		flags: none
+		tags: light, thin, soft
+		
+		layer: entity, solid, resource, plant, organic, flammable, ignore_melee, ignore_bullet
+		mask: world
+		exclude: none
+		
 		mass: 1.000
 		radius: 0.750
 		friction: 0.850
 		elasticity: 0.550
-		material: foliage
-		layer: entity, solid, resource, ignore_melee, ignore_bullet, flammable
-		mask: world
+		
+		fall_damage_mult: 0.900
+		cog_offset: [0.000, 0.375]
+		
+		offset: [0.000, 0.250]
 	}
-	damping: 0.982
 }
 
 animated.renderer:
@@ -53,10 +63,16 @@ norotate:
 
 despawn:
 {
-	sleep_count_max: 20
-	interval: 12.000
-	threshold_delete: 0.050
+	amount_ratio: 0.004
+	amount_ratio_extra: 0.040
+	
+	threshold_delete: 0.010
 	threshold_despawning: 0.450
+	
+	interval: 12.000
+	interval_extra: 20.000
+	
+	sleep_count_max: 20
 }
 
 health:

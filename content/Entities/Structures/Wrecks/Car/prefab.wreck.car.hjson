@@ -8,16 +8,16 @@ $tags: []
 body:
 {
 	type: dynamic
-	buoyancy: 0.400
+	buoyancy: 0.600
 	
 	@shape.polygon:
 	{
 		material: wreck
 		miss_chance: 0.624
 		flags: none
-		tags: none
+		tags: heavy, large
 		
-		layer: entity, solid, background, conductive, harvestable, magnetic
+		layer: entity, solid, vehicle, conductive, harvestable, magnetic
 		mask: world
 		exclude: none
 		
@@ -26,6 +26,7 @@ body:
 		friction: 0.980
 		elasticity: 0.500
 		
+		fall_damage_mult: 1.280
 		cog_offset: [-0.125, 0.250]
 		
 		points:
@@ -64,28 +65,28 @@ harvestable:
 	[
 		{
 			material: scrap.metal
-			quantity: 480.000
+			quantity: 440.000
 		}
 		{
 			material: scrap.mixed
-			quantity: 375.000
+			quantity: 329.000
 		}
 		{
-			material: rubber
-			quantity: 175.000
+			material: steel.plate
+			quantity: 81.000
 		}
 		{
 			material: machine_parts
-			quantity: 190.000
+			quantity: 206.200
 		}
 	]
 	
 	thresholds: [0.980, 0.982, 0.857, 0.974]
 	
-	pct_damage_mult: [0.750, 0.813, 0.530, 0.985]
+	pct_damage_mult: [0.750, 0.813, 0.920, 0.985]
 	pct_quantity_min: [0.095, 0.032, 0.069, 0.040]
 	
-	chance_base: [0.100, 0.043, 0.182, 0.267]
+	chance_base: [0.102, 0.043, 0.180, 0.267]
 }
 
 shipment:
