@@ -26,10 +26,10 @@
 	color: "0xffff6200"
 	
 	tools_required: hammer
-	tools_optional: cutters, pliers, file, chisel
+	tools_optional: hammer, cutters, pliers, file, chisel
 	
 	infrastructure_required: surface, hard_surface
-	infrastructure_optional: anvil, table, vise, workbench
+	infrastructure_optional: anvil, table, chair, vise, rack, dies, workbench
 	
 	character_traits:
 	{

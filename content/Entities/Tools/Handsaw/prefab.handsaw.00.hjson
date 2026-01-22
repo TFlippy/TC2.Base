@@ -55,7 +55,7 @@ melee:
 	damage_bonus: 35.700
 	armor_pierce: 56.600
 	
-	primary_damage_multiplier: 1.520
+	primary_damage_multiplier: 1.220
 	secondary_damage_multiplier: 0.600
 	terrain_damage_multiplier: 0.000
 	pain_multiplier: 1.800

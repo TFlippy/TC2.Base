@@ -2,6 +2,12 @@ $tags: []
 
 body:
 {
+	type: dynamic
+	flags: none
+	tags: none
+	damage_ignore: slash, axe, pickaxe, shovel, punch, handsaw
+	
+	fall_damage_multiplier: 0.800
 	buoyancy: 0.650
 	damping: 0.982
 

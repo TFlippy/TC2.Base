@@ -1,0 +1,196 @@
+﻿{
+	$region_id: 0
+	$version: "0.1.68.0"
+	name: "Badger-Class Armor"
+	tips: []
+	
+	stages:
+	[
+		{
+			name: "Trenchcoat"
+			
+			type: part
+			flags: wip, incomplete
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: slash
+			
+			ratio: 0.000
+			mass_base: 5.200
+			
+			options:
+			[
+				{
+					name: "Standard"
+					
+					type: undefined
+					flags: wip, incomplete
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: cloth
+							amount: 8.333333
+							snapping: 0.400
+							loss: 0.106
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: leather
+							amount: 6.5625
+							snapping: 0.400
+							loss: 0.173
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: tailoring
+							amount: 160.000
+							amount_min: 65.000
+							difficulty: 8
+							snapping: 5.000
+							falloff: 0.946
+							ratio: 0.914
+							group: 0
+							flags: simultaneous, conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: knife, needle
+						include: cutters, saw, cleaver, tweezers, paintbrush, axe, stapler, file, knife, needle, pins, scissors, utensils
+					}
+					filter_infrastructure:
+					{
+						include: table
+					}
+					filter_environment:
+					{
+						include: clean, organized
+						exclude: wet
+					}
+				}
+			]
+		}
+		{
+			name: "Ballistic Vest"
+			
+			type: part
+			flags: wip, incomplete
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: club
+			
+			ratio: 0.000
+			mass_base: 7.100
+			
+			options:
+			[
+				{
+					name: "Standard"
+					
+					type: undefined
+					flags: wip, incomplete
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.plate
+							amount: 2.645503
+							snapping: 0.500
+							loss: 0.141
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: steel.frames
+							amount: 0.240
+							snapping: 0.100
+							loss: 0.063
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: metal.forming
+							amount: 200.000
+							amount_min: 50.000
+							difficulty: 8
+							snapping: 5.000
+							falloff: 0.976
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: gluing
+							amount: 200.000
+							amount_min: 50.000
+							difficulty: 8
+							snapping: 5.000
+							falloff: 0.976
+							group: 0
+							flags: simultaneous, conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: knife, needle
+						include: cutters, tweezers, stapler, knife, needle, pins
+					}
+				}
+			]
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: armor.02
+			amount: 1.000
+			group: 0
+			flags: primary
+		}
+	]
+	
+	type: workshop
+	flags: blueprintable, item, production, wip
+	tags: manual, crafting, basic, simple, tailoring, metalworking, construction
+	hints: none
+	connotations: none
+	infrastructure: table, surface
+	infrastructure_exclude: none
+	environment_filter:
+	{
+		exclude: form, sealed
+	}
+	
+	icon:
+	{
+		texture: armor.02
+		mask: armor.02.mask
+		size: [16, 16]
+		frame: [0, 1]
+	}
+	
+	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
+	button_name: "Craft"
+	rank: 0.000
+	frame_size: [48.000, 48.000]
+	
+	min: 1
+	max: 8
+	step: 1
+	
+	version: 1
+}

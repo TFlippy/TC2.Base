@@ -1,5 +1,4 @@
 ﻿{
-	$region_id: 0
 	$version: "0.1.68.0"
 	name: "Twuk-Axe"
 	tips: []
@@ -86,12 +85,12 @@
 					filter_tools:
 					{
 						require: hammer, pliers
-						include: cutters, wrench, pliers, tweezers, file, chisel
+						include: hammer, cutters, wrench, pliers, tweezers, file, chisel
 					}
 					filter_infrastructure:
 					{
 						require: surface, hard_surface
-						include: anvil, table, vise, workbench
+						include: anvil, table, chair, vise, rack, dies, workbench
 					}
 				}
 			]
@@ -158,7 +157,11 @@
 					filter_tools:
 					{
 						require: knife
-						include: screwdriver, file, chisel, knife, sandpaper
+						include: hammer, saw, screwdriver, cleaver, axe, shovel, file, chisel, crowbar, knife, sandpaper
+					}
+					filter_environment:
+					{
+						include: workshop, stationary, ugly, scary, durable, sturdy
 					}
 				}
 				{
