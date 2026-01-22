@@ -64,7 +64,16 @@ harvestable:
 		{
 			material: "plants"
 			quantity: 98.000
-			flags: no_autopickup
 		}
+		null
+		null
+		null
 	]
+	
+	thresholds: [0.533, 0.000, 0.000, 0.000]
+	
+	pct_damage_mult: [0.820, 0.000, 0.000, 0.000]
+	pct_quantity_min: [0.077, 0.000, 0.000, 0.000]
+	
+	chance_base: [0.647, 0.000, 0.000, 0.000]
 }

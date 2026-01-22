@@ -852,27 +852,26 @@ workshop:
 
 	puncher:
 	{
-		sound: "swish.00"
 		damage_base: 15.000
 		damage_bonus: 90.000
-
+		
 		cooldown: 0.250
 		max_distance: 1.400
-		aoe: 0.500
-		thickness: 1.500
-		damage_type: punch
-		hit_mask: world, item, creature, vehicle, door, shield, harvestable
-		hit_exclude: background, essence, water, fire, gas, climbable, stored
-		knockback: 1.400
-		penetration: 0
+		aoe: 0.600
+		thickness: 0.600
 		force: 300.000
-
+		knockback: 1.400
+		
 		frame: [9, 0]
 		offset: [0.250, -0.125]
-
+		
+		sound: swish.00
+		hit_mask: world, item, creature, vehicle, door, shield, harvestable
+		hit_exclude: background, essence, water, fire, gas, climbable, stored
+		
 		damage_flags:
 		{
-			add: no_loot_discard, force_loot_notification
+			add: no_loot_discard, allow_encumbered, force_loot_notification
 			rem: no_loot_notification
 		}
 	}

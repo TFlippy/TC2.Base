@@ -17,7 +17,7 @@ body:
 		material: wood
 		layer: entity, solid, storage, furniture, flammable, ignore_melee, no_overlapped_placement, background
 		mask: world, furniture, door
-		exclude: held
+		exclude: held, dynamic
 
 		miss_chance: 0.550
 	}

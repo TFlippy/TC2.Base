@@ -103,7 +103,7 @@ storage:
 
 interactable:
 {
-	flags: no_tab, centered_inventory
-	priority: -5.500
+	flags: centered_inventory
+	priority: -9.500
 	window_size: [192.000, 48.000]
 }

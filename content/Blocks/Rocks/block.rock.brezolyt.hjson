@@ -17,7 +17,7 @@
 	strength_tensile: 6.500
 	strength_compressive: 8.100
 	
-	mass: 1.581
+	mass: 1.681
 	density: 0.000
 	friction: 0.840
 	elasticity: 0.580
@@ -38,11 +38,11 @@
 	[
 		{
 			material: brezolyt
-			quantity: 1.161663
+			quantity: 1.057737
 		}
 		{
 			material: gravel
-			quantity: 0.491979
+			quantity: 0.768271
 		}
 	]
 	

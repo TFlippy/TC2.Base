@@ -19,7 +19,7 @@ body:
 			[-2.125, 1.500]
 		]
 		
-		mass: 38.000
+		mass: 53.000
 		radius: 0.500
 		friction: 0.850
 		elasticity: 0.100
@@ -57,8 +57,21 @@ harvestable:
 	resources:
 	[
 		{
-			material: "scrap.ferrous"
-			quantity: 32.000
+			material: scrap.ferrous
+			quantity: 19.55173
 		}
+		{
+			material: steel.rod
+			quantity: 5.000
+		}
+		null
+		null
 	]
+	
+	thresholds: [0.937, 0.318, 0.000, 0.000]
+	
+	pct_damage_mult: [1.000, 0.810, 0.000, 0.000]
+	pct_quantity_min: [0.111, 0.362, 0.000, 0.000]
+	
+	chance_base: [0.620, 0.922, 0.000, 0.000]
 }

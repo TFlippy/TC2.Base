@@ -57,8 +57,21 @@ harvestable:
 	resources:
 	[
 		{
-			material: "scrap.ferrous"
-			quantity: 56.000
+			material: scrap.ferrous
+			quantity: 25.000
 		}
+		{
+			material: steel.rod
+			quantity: 6.000
+		}
+		null
+		null
 	]
+	
+	thresholds: [0.937, 0.318, 0.000, 0.000]
+	
+	pct_damage_mult: [1.000, 0.810, 0.000, 0.000]
+	pct_quantity_min: [0.111, 0.362, 0.000, 0.000]
+	
+	chance_base: [0.620, 0.922, 0.000, 0.000]
 }

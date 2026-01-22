@@ -40,30 +40,30 @@ aimable:
 
 melee:
 {
-	damage_base: 250.000
+	damage_base: 450.000
 	damage_bonus: 300.000
-	armor_pierce: 195.000
+	armor_pierce: 220.000
 	
 	primary_damage_multiplier: 0.910
 	secondary_damage_multiplier: 1.230
-	terrain_damage_multiplier: 6.000
+	terrain_damage_multiplier: 8.000
 	pain_multiplier: 1.200
 	stun_multiplier: 0.790
 	
 	cooldown: 0.900
 	max_distance: 1.750
-	aoe: 1.000
-	thickness: 0.250
-	knockback: 125.000
-	yield: 1.400
-	penetration_falloff: 0.500
+	aoe: 0.625
+	thickness: 0.450
+	knockback: 50.000
+	yield: 1.500
+	penetration_falloff: 0.800
 	
-	hit_offset: [0.750, -0.500]
+	hit_offset: [0.125, -0.500]
 	
 	damage_type: pickaxe
 	category: pointed
 	
-	damage_flags_add: no_loot_discard, force_loot_notification
+	damage_flags_add: no_loot_discard, allow_encumbered, force_loot_notification
 	damage_flags_rem: no_loot_notification
 	
 	hit_mask: world, destructible

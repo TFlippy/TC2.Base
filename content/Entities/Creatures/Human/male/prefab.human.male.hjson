@@ -875,7 +875,7 @@ workshop:
 		
 		damage_flags:
 		{
-			add: no_loot_discard, force_loot_notification
+			add: no_loot_discard, allow_encumbered, force_loot_notification
 			rem: no_loot_notification
 		}
 	}

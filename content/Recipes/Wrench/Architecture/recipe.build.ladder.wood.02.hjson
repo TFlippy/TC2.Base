@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.68.0"
 	name: "Ladder (Shoddy)"
 	desc:
 		'''
@@ -33,10 +33,15 @@
 	type: architecture
 	flags: no_amount_multiplier, no_cancel
 	tags: construction
+	hints: none
+	connotations: none
 	infrastructure: none
 	infrastructure_exclude: none
 	
 	h_company: common
+	
+	dismantle_work: 1.000
+	dismantle_yield: 0.800
 	
 	icon:
 	{
@@ -48,9 +53,6 @@
 	color_frame: "0xffaeb59a"
 	color_button: "0xff9dd80f"
 	rank: -4614.500
-	
-	dismantle_work: 1.000
-	dismantle_yield: 0.800
 	
 	placement:
 	{

@@ -152,12 +152,12 @@ harvestable:
 {
 	joint.base:
 	{
-		offset_a: [0.000, 0.000]
+		z: -40.000
 		max_force: 250000.000
 		max_torque: 100000.000
-		flags: control_write, no_stress, no_wrap, force_facing
 		material_type: metal
-		
+		flags: no_wrap, no_stress, attachment, control_write, force_facing
+
 		@sound.emitter:
 		{
 			file: "attachment_rotate_loop_01"

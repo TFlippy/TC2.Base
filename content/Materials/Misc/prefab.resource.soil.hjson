@@ -2,6 +2,12 @@ $tags: []
 
 body:
 {
+	type: dynamic
+	flags: none
+	tags: none
+	damage_ignore: arrow, impact, crush, pickaxe, shovel, club, blunt, sledgehammer, punch, ram, sting, handsaw, radiation
+	
+	fall_damage_multiplier: 1.000
 	buoyancy: 0.100
 
 	@shape.circle:

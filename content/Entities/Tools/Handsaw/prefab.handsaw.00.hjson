@@ -53,9 +53,8 @@ melee:
 {
 	damage_base: 43.100
 	damage_bonus: 35.700
-	armor_pierce: 56.600
+	armor_pierce: 76.600
 	
-	primary_damage_multiplier: 1.220
 	secondary_damage_multiplier: 0.600
 	terrain_damage_multiplier: 0.000
 	pain_multiplier: 1.800
@@ -67,7 +66,7 @@ melee:
 	aoe: 0.675
 	thickness: 0.500
 	knockback_speed: 1.000
-	yield: 2.450
+	yield: 3.450
 	penetration_falloff: 0.900
 	penetration: 1
 	
@@ -85,7 +84,7 @@ melee:
 	category: bladed
 	flags: no_handle, use_aim_direction
 	
-	damage_flags_add: no_loot_discard, force_loot_notification
+	damage_flags_add: no_loot_discard, allow_encumbered, force_loot_notification
 	damage_flags_rem: no_loot_notification
 	
 	hit_mask: tree, destructible

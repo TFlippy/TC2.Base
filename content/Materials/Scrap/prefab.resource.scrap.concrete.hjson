@@ -16,9 +16,12 @@ body:
 		flags: none
 		tags: heavy, large, solid, hard
 		
-		layer: entity, solid, resource, rubble, bulk, ignore_melee, ignore_bullet
-		mask: world, rubble, bulk, solid
-		exclude: attached, stored, tree, background
+		// layer: entity, solid, resource, rubble, bulk, ignore_melee, ignore_bullet
+		// mask: world, rubble, bulk, solid
+		// exclude: attached, stored, tree, background
+
+		layer: entity, solid, resource, ignore_melee, ignore_bullet
+		mask: world
 		
 		radius: 0.750
 		friction: 4.000
