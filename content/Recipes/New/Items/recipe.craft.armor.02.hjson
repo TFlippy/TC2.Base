@@ -1,5 +1,4 @@
 ﻿{
-	$region_id: 0
 	$version: "0.1.68.0"
 	name: "Badger-Class Armor"
 	tips: []
@@ -62,17 +61,8 @@
 					
 					filter_tools:
 					{
-						require: knife, needle
-						include: cutters, saw, cleaver, tweezers, paintbrush, axe, stapler, file, knife, needle, pins, scissors, utensils
-					}
-					filter_infrastructure:
-					{
-						include: table
-					}
-					filter_environment:
-					{
-						include: clean, organized
-						exclude: wet
+						require: cutters, needle, pins
+						include: pencil, ruler, cutters, pliers, tweezers, knife, pins
 					}
 				}
 			]
@@ -143,8 +133,18 @@
 					
 					filter_tools:
 					{
-						require: knife, needle
-						include: cutters, tweezers, stapler, knife, needle, pins
+						require: hammer
+						include: hammer, cutters, pliers, paintbrush, file, chisel
+					}
+					filter_infrastructure:
+					{
+						require: surface, hard_surface
+						include: anvil, table, chair, vise, rack, dies, workbench
+					}
+					filter_environment:
+					{
+						include: clean, organized
+						exclude: wet
 					}
 				}
 			]
@@ -164,7 +164,7 @@
 	
 	type: workshop
 	flags: blueprintable, item, production, wip
-	tags: manual, crafting, basic, simple, tailoring, metalworking, construction
+	tags: manual, crafting, basic, simple, tailoring, metalworking, construction, assembling
 	hints: none
 	connotations: none
 	infrastructure: table, surface

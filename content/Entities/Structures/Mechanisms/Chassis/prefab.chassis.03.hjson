@@ -122,12 +122,10 @@ norotate:
 
 interactable:
 {
+	flags: none
+	window_size: [512, 376]
 	priority: 1.500
-	flags: centered_inventory
-	window_size: [336.000, 232.000]
-	window_size_min: [192.000, 144.000]
-	window_size_misc: [0.000, 0.000]
-	window_offset: [0.000, 200.000]
+	window_offset: [0.000, -200.000]
 }
 
 tractor:
@@ -219,13 +217,13 @@ crank:
 	{
 		rotation_origin: -1.5708
 		offset_a: [-2.500, -0.250]
-		max_force: 1000000.000
+		max_force: 1500000.000
 		max_torque: 500000.000
 		flags: no_wrap, attachment, control_read, control_write, force_facing
 		z: -60.000
 
 		max_stress: 3.000
-		stress_threshold: 1.500
+		stress_threshold: 2.500
 		material_type: metal
 	}
 
@@ -273,13 +271,13 @@ crank:
 	{
 		rotation_origin: -0.8836
 		offset_a: [2.500, -0.250]
-		max_force: 1000000.000
+		max_force: 1500000.000
 		max_torque: 500000.000
 		flags: no_wrap, attachment, control_read, control_write, force_facing, mirror_x
 		z: -60.000
 
 		max_stress: 3.000
-		stress_threshold: 1.500
+		stress_threshold: 2.500
 		material_type: metal
 	}
 

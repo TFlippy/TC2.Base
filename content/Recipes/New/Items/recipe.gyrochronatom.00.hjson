@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.67.2"
+	$version: "0.1.68.0"
 	name: "Gyrochronatom"
 	
 	stages:
@@ -203,9 +203,9 @@
 						}
 						{
 							type: resource
-							material: arcanite.rod
-							amount: 0.187476
-							snapping: 0.100
+							material: directors
+							amount: 1.000
+							snapping: 1.000
 							loss: 0.106
 							ratio: 1.000
 							group: 0
@@ -235,9 +235,9 @@
 						{
 							type: work
 							work: indoctrination
-							amount: 500.000
-							amount_min: 350.000
-							difficulty: 11
+							amount: 100.000
+							amount_min: 250.000
+							difficulty: 9
 							snapping: 5.000
 							falloff: 0.714
 							group: 1

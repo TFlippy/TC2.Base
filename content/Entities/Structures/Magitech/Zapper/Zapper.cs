@@ -39,6 +39,7 @@ namespace TC2.Base.Components
 			public float charge_current;
 			public Zapper.State.Flags flags;
 			[Save.Ignore, Net.Ignore] public float next_hit;
+			[Net.Ignore, Asset.Ignore, Save.Ignore] private uint unused_00;
 		}
 
 		[IEvent.Data]

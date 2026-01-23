@@ -3,27 +3,37 @@ $tags: []
 body:
 {
 	type: dynamic
+	flags: none
+	tags: none
+	
+	fall_damage_multiplier: 0.000
+	mass_multiplier: 100.000
+	gravity: 0.080
+	damping: 1.005
 
 	@shape.circle:
 	{
-		radius: 1.500
-		friction: 0.150
-		elasticity: 0.200
-		rigidity_static: 0.750
-		rigidity_dynamic: 0.500
-		
 		material: gas
 		miss_chance: 0.000
+		flags: none
+		tags: none
 		
 		layer: entity, solid, resource, gas, ignore_melee, ignore_hover, ignore_bullet
-		mask: world, essence
-		exclude: decoration, background, barbed, gas
+		mask: world, essence, gas
+		exclude: decoration, background, barbed
+		
+		mass: 1.000
+		radius: 3.000
+		friction: 0.000
+		elasticity: 1.1199
+		
+		rigidity_static: 0.815
+		rigidity_dynamic: 0.120
+		fall_damage_mult: 0.010
+		// cog_offset: [-0.057, 0.016]
+		
+		// offset: [0.010, 0.100]
 	}
-
-	gravity: 0.060
-	damping: 0.960
-	mass_multiplier: 100.000
-	fall_damage_multiplier: 0.000
 }
 
 transform:
@@ -33,13 +43,13 @@ transform:
 
 gas:
 {
-	radius: 1.750
-	size: 1.250
-	lifetime: 1.000
-	speed: 0.700
-	interval: 0.100
-	color_a: "0x7de65d9d"
-	color_b: "0x1e18c86e"
+	radius: 5.250
+	size: 1.575
+	lifetime: 4.800
+	speed: 0.300
+	interval: 0.800
+	color_a: "0x5eff63aa"
+	color_b: "0x1e50ffa8"
 }
 
 resource:
@@ -49,7 +59,7 @@ resource:
 
 despawn:
 {
-	sleep_count_max: 0
+	sleep_count_max: 15
 	
 	interval: 1.000
 	interval_extra: 6.000

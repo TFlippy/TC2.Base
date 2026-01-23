@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.68.0"
 	name: "EC-MT Actuators"
 	desc:
 		'''
@@ -58,8 +58,10 @@
 	]
 	
 	type: workshop
-	flags: disabled, wip
+	flags: disabled, production, manufacturing, wip
 	tags: manual, crafting, assembling, metalworking, engineering
+	hints: none
+	connotations: none
 	infrastructure: none
 	infrastructure_exclude: none
 	

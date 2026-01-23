@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.67.2"
+	$version: "0.1.68.0"
 	name: "Detonator"
 	
 	stages:
@@ -46,7 +46,7 @@
 						}
 						{
 							type: work
-							work: snipping.metal
+							work: metal.forming
 							amount: 135.000
 							amount_min: 90.000
 							difficulty: 6

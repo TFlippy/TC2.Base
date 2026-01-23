@@ -63,7 +63,7 @@ namespace TC2.Base.Components
 
 			public Color32BGRA flame_tint;
 
-			[Save.Ignore, Net.Ignore] private ulong unused_00;
+			[Save.Ignore, Net.Ignore] private uint unused_00;
 		}
 
 		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region, sync_table_capacity: 256)]

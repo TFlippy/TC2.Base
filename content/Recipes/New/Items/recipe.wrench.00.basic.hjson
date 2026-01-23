@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.68.0"
 	name: "Wrench"
 	tips: []
 	
@@ -106,6 +106,11 @@
 					filter_tools:
 					{
 						require: file
+						include: chisel, knife, sandpaper, utensils
+					}
+					filter_infrastructure:
+					{
+						include: surface
 					}
 					filter_environment:
 					{
@@ -144,6 +149,11 @@
 					filter_tools:
 					{
 						require: file
+						include: chisel, knife, sandpaper, utensils
+					}
+					filter_infrastructure:
+					{
+						include: surface
 					}
 					filter_environment:
 					{
@@ -218,8 +228,8 @@
 					
 					filter_tools:
 					{
-						require: hammer, screwdriver, wrench
-						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, tweezers, magnifying_glass, stapler, towel, tongs, pick, crowbar, knife
+						require: screwdriver, wrench
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, pliers, stapler, towel, tongs, pick, crowbar, knife
 					}
 				}
 				{
@@ -254,6 +264,11 @@
 					filter_tools:
 					{
 						require: file
+						include: chisel, knife, sandpaper, utensils
+					}
+					filter_infrastructure:
+					{
+						include: surface
 					}
 					filter_environment:
 					{
@@ -311,12 +326,12 @@
 					filter_tools:
 					{
 						require: saw
-						include: ruler, file, knife
+						include: file
 					}
 					filter_infrastructure:
 					{
 						require: surface
-						include: workbench
+						include: vise, workbench
 					}
 				}
 			]
@@ -439,6 +454,8 @@
 	type: workshop
 	flags: blueprintable, item, wip
 	tags: manual, crafting, complex, medium, tool, assembling, metalworking, engineering
+	hints: none
+	connotations: none
 	infrastructure: workbench
 	infrastructure_exclude: none
 	

@@ -7,6 +7,7 @@ namespace TC2.Base.Components
 		public partial struct Data(): IComponent
 		{
 			public Sound.Handle sound;
+			public Damage.Type damage_type;
 
 			public float damage_base;
 			public float damage_bonus;
@@ -21,8 +22,6 @@ namespace TC2.Base.Components
 
 			public float penetration_falloff = 0.75f;
 			public int penetration = 1;
-
-			public Damage.Type damage_type;
 
 			public Physics.Layer hit_mask;
 			public Physics.Layer hit_exclude;

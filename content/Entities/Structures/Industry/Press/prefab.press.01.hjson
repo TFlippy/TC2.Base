@@ -482,15 +482,18 @@ vehicle:
 	{
 		flags: keyboard_read, mouse_read, brake
 		flags_editable: locked, disabled, keyboard_read, keyboard_write, mouse_read, mouse_write
-		name: "Device"
-		identifier: "device.00"
 		tags_filter:
 		{
 			include: tiny, small, utility, device, fixed
-			exclude: cabin, wheel, platform
+			exclude: large, huge, cabin, wheel, platform
 		}
+		
 		rank: 1.000
+		
 		gui_size: [72.000, 72.000]
+		
+		identifier: "device.00"
+		name: "Device"
 	}
 
 	analog.writer:

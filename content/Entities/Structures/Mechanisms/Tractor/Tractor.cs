@@ -43,6 +43,7 @@ namespace TC2.Base.Components
 			[Save.Ignore, Net.Ignore] public float current_wheel_torque_load;
 			[Save.Ignore, Net.Ignore] public float current_wheel_torque_brake;
 			[Save.Ignore, Net.Ignore] public float t_next_sync;
+			[Net.Ignore, Asset.Ignore, Save.Ignore] private float unused_00;
 		}
 
 		//[IComponent.Data(Net.SendType.Unreliable, region_only: true)]

@@ -116,17 +116,18 @@ shop:
 {
 	tags_filter:
 	{
-		require: manual
-		include: workbench, crafting, woodworking, assembling, metalworking, salvaging, gathering
-		exclude: advanced, large, huge, vehicle, smelting, fermenting, heating
+		include: crafting, basic, simple, woodworking, assembling, metalworking, salvaging, gathering
+		exclude: advanced, huge, vehicle, smelting, fermenting, heating
 	}
+	tags_preferred: simple, munitions, raw, filtering, salvaging, gathering, forestry, processing
 	
-	tools: hammer, cutters, saw, hand_drill, screwdriver, spanner, pliers, bucket, axe, file, chisel, towel, knife, sandpaper
+	tools: hammer, cutters, saw, hand_drill, screwdriver, spanner, pliers, bucket, axe, file, chisel, towel, knife, sandpaper, needle, scissors
 	infrastructure: table, rack, bucket, surface, hard_surface, workbench
-	environment: fireproof, stationary, dirty, reinforced, durable, sturdy
+	environment: stationary, dirty, reinforced, fireproof, durable, sturdy
+	connotations: none
 	
 	flags: embed_gui
-	menu_columns: 4
+	menu_columns: 5
 	recipe_type: workshop
 	
 	offset_spawn: [0.125, -0.625]

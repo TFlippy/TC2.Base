@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.68.0"
 	name: "Pjerdelite"
 	desc:
 		'''
@@ -18,7 +18,7 @@
 	strength_tensile: 4.800
 	strength_compressive: 21.000
 	
-	mass: 3.770
+	mass: 3.870
 	density: 0.000
 	friction: 0.700
 	elasticity: 0.560
@@ -39,9 +39,12 @@
 	[
 		{
 			material: pjerdelite
-			quantity: 1.000
+			quantity: 1.170057
 		}
-		null
+		{
+			material: smrad.dust
+			quantity: 5.203366
+		}
 	]
 	
 	mappings:

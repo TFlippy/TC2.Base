@@ -87,8 +87,8 @@
 					}
 					filter_infrastructure:
 					{
-						require: vise, workbench
-						include: anvil, vise, surface
+						require: surface, hard_surface
+						include: anvil, table, chair, vise, rack, dies, workbench
 					}
 				}
 			]

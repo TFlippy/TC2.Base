@@ -152,6 +152,8 @@ namespace TC2.Base.Components
 
 			public byte frame_reloading;
 			public byte frame_jammed;
+
+			[Net.Ignore, Asset.Ignore, Save.Ignore] private ushort unused_00;
 		}
 
 		[Flags]

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.68.0"
 	name: "Indoctrination"
 	name_short: "Indoctrination"
 	desc:
@@ -46,10 +46,10 @@
 	
 	skills_mult:
 	{
-		charisma: 0.660
-		leadership: 0.470
-		law: 0.200
-		intellect: 0.360
+		charisma: 0.750
+		leadership: 0.900
+		law: 0.350
+		intellect: 0.300
 	}
 	
 	sound_volume: 0.500
