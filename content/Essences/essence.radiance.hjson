@@ -12,7 +12,7 @@
 	
 	color_emit: [1.025, 0.974, 0.780, 2.113]
 	
-	stability_mult: 0.900
+	stability_mult: 1.020
 	discharge_mult: 1.110
 	
 	emit_force: 190.000

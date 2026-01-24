@@ -12,8 +12,8 @@
 	
 	color_emit: [1.043, 0.506, 0.372, 0.860]
 	
-	stability_mult: 1.180
-	discharge_mult: 1.000
+	stability_mult: 1.230
+	discharge_mult: 0.710
 	
 	emit_force: -375.000
 	emit_power_thermal: 17.260

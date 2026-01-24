@@ -7,13 +7,13 @@
 		'''
 	
 	flags: none
-	tags: kinetic, tertiary, violent, destructive, physical, abstract
+	tags: kinetic, tertiary, violent, destructive, illegal, physical, abstract
 	type_tmp: anger
 	
 	color_emit: [1.426, 0.080, 0.149, 1.528]
 	
 	stability_mult: 0.340
-	discharge_mult: 2.290
+	discharge_mult: 1.930
 	
 	emit_force: 650.000
 	emit_power_thermal: 66.600
@@ -30,12 +30,12 @@
 	sound_emit_impactor_loop: shaft.loop.overload.00
 	sound_emit_cycler_loop: levitator.loop.02
 	sound_emit_oscillator_loop: essence.machine.loop.00
-	sound_emit_ambient_loop: essence.imply.scream.00
+	sound_emit_ambient_loop: clutch.angry.00
 	sound_emit_projector_loop: levitator.loop.00
 	
-	sound_collapse: essence.collapse.failure.01
+	sound_collapse: essence.collapse.heat.00
 	sound_zap: projectile.small.explode.00
-	sound_blast: essence.blast.00
+	sound_blast: clutch.angry.02
 	sound_impulse: essence.hit.bullet.00
 	sound_impact: explosion.metal.00
 	sound_shatter: explosion.steam.00
