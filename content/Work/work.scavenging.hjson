@@ -14,10 +14,10 @@
 		frame: [9, 0]
 	}
 	
-	flags: manual, wip
-	tags: crude, simple, leisure
+	flags: manual, worker_only, wip
+	tags: crude, simple, technical, industrial, slow
 	
-	amount_base: 0.000
+	amount_base: 0.800
 	cooldown: 1.100
 	multiplier: 0.650
 	

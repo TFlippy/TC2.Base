@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.67.2"
+	$version: "0.1.68.0"
 	name: "Arrowbolts"
 	desc:
 		'''
@@ -50,10 +50,10 @@
 							type: work
 							work: scavenging
 							amount: 10.000
-							amount_min: 25.000
-							difficulty: 7
+							amount_min: 10.000
+							difficulty: 3
 							snapping: 5.000
-							falloff: 0.889
+							falloff: 0.779
 							ratio: 1.000
 							group: 0
 							flags: conditional
@@ -219,7 +219,7 @@
 	rank: 31.000
 	
 	min: 8
-	max: 64
+	max: 80
 	step: 8
 	
 	version: 1

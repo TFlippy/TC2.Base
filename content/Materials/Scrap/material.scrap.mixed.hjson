@@ -1,12 +1,12 @@
 ﻿{
-	$version: "0.1.65.2"
+	$version: "0.1.68.0"
 	name: "Mixed Scrap"
 	name_short: "Mix. Scrap"
 	description:
 		'''
 		Extremely unsorted pile of assorted garbage. 
 
-		Contains probably everything in the world.
+		Probably contains anything in the world.
 		'''
 	
 	tips: []
@@ -20,13 +20,13 @@
 	
 	// Inventory material type.
 	type: scrap
-	flags: scrap, magnetic, granular, metal, small, waste, solid, processed, impure
+	flags: scrap, magnetic, granular, metal, small, waste, solid, processed, impure, smelly
 	display_flags: none
 	spawn_flags:
 	{
 		add: merge, no_discard
 	}
-	hints: materials, junk, construction, cheap
+	hints: materials, junk, inaccurate, construction, cheap, dumb, civilian, industrial, crappy, stolen
 	
 	// Ratio of the material volume to the total volume it occupies when stacked. A value of 1.0 means no empty space, while a value closer to 0.0 means a lot of empty space.
 	packing_fraction: 0.000
@@ -38,7 +38,7 @@
 	// Minimum spawnable quantity.
 	spawn_quantity_threshold: 1.000
 	// Preferred quantity snapping for recipes.
-	snapping: 1.000
+	snapping: 0.100
 	// Preferred quantity snapping for inventories.
 	snapping_pickup: 1.000
 	

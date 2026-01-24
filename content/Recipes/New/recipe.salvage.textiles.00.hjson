@@ -3,7 +3,7 @@
 	name: "Thinly Veiled Threads"
 	desc:
 		'''
-		Rummage through garbage in search for textiles, and then wash them (who knows who died in these).
+		Rummage through garbage in search for textiles, and then wash them (because who knows who died in these).
 		'''
 	tips: []
 	
@@ -44,7 +44,7 @@
 							amount_min: 80.000
 							difficulty: 4
 							snapping: 15.000
-							falloff: 0.864
+							falloff: 0.981
 							ratio: 0.424
 							group: 0
 							flags: conditional
@@ -52,7 +52,7 @@
 						{
 							type: resource
 							material: water
-							amount: 1.000
+							amount: 8.000
 							snapping: 0.010
 							group: 1
 							flags: prerequisite
@@ -60,11 +60,11 @@
 						{
 							type: work
 							work: washing
-							amount: 150.000
-							amount_min: 45.000
+							amount: 200.000
+							amount_min: 100.000
 							difficulty: 5
 							snapping: 15.000
-							falloff: 0.859
+							falloff: 0.906
 							ratio: 1.000
 							group: 1
 							flags: conditional
@@ -76,38 +76,63 @@
 						{
 							type: resource
 							material: cloth
-							amount: 2.400
-							amount_extra: 1.700
+							amount: 0.8959
+							amount_extra: 1.0439
 							snapping: 0.010
-							group: 1
-							flags: primary, compact
+							group: 0
+							chance: 0.545
+							ratio: 0.188
+							flags: primary, stepped, compact, scale_to_mass
 						}
 						{
 							type: resource
 							material: leather
-							amount: 0.400
-							amount_extra: 1.400
+							amount: 0.7373
+							amount_extra: 0.5537
 							snapping: 0.010
-							group: 1
-							flags: byproduct, secondary, compact
+							group: 0
+							chance: 0.361
+							ratio: 0.184
+							flags: byproduct, stepped, scale_to_mass
+						}
+						{
+							type: resource
+							material: scrap.cloth
+							amount: 2.1397
+							amount_extra: 0.4656
+							snapping: 0.010
+							group: 0
+							ratio: 0.329
+							flags: residue, scale_to_mass
+						}
+						{
+							type: resource
+							material: scrap.fur
+							amount: 1.3773
+							amount_extra: 0.209
+							snapping: 0.010
+							group: 0
+							ratio: 0.294
+							flags: residue, scale_to_mass
 						}
 						{
 							type: resource
 							material: scrap.mixed
-							amount: 1.200
-							amount_extra: 0.200
+							amount: 0.571694
+							amount_extra: 0.0949
 							snapping: 0.010
-							group: 1
-							flags: residue
+							group: 0
+							ratio: 0.980
+							flags: waste, scale_to_mass
 						}
 						{
 							type: resource
 							material: water.dirty
-							amount: 0.750
-							amount_extra: 0.195
+							amount: 5.915916
+							amount_extra: 0.8175
 							snapping: 0.010
 							group: 1
-							flags: waste
+							flags: waste, spawn
 						}
 					]
 					
@@ -128,9 +153,9 @@
 				{
 					type: resource
 					material: scrap.mixed
-					amount: 3.000
+					amount: 5.000
 					snapping: 0.500
-					loss: 0.110
+					loss: 0.988
 					group: 0
 					flags: primary, prerequisite
 				}
@@ -169,14 +194,14 @@
 		size: [16, 16]
 		frame: [3, 0]
 	}
-	icon_c_offset: [4.000, -14.000]
+	icon_c_offset: [-2.000, -18.000]
 	
 	color_frame: "0xff71870a"
 	color_button: "0xff9dd80f"
 	rank: -140.000
 	
 	min: 1
-	max: 10
+	max: 20
 	step: 1
 	
 	version: 1
