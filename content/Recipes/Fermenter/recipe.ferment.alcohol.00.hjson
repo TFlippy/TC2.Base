@@ -1,11 +1,17 @@
 ﻿{
-	$version: "0.1.67.2"
+	$version: "0.1.68.0"
 	name: "Alcoholic"
 	desc:
 		'''
 		TODO: Desc
 		'''
 	tips: []
+	
+	related_materials:
+	{
+		alcohol: product, result
+		mulch: product, result
+	}
 	
 	stages:
 	[
@@ -64,11 +70,11 @@
 						{
 							type: work
 							work: mashing
-							amount: 220.000
-							amount_min: 150.000
+							amount: 120.000
+							amount_min: 25.000
 							difficulty: 4
 							snapping: 5.000
-							falloff: 0.964
+							falloff: 0.839
 							loss: 0.212
 							ratio: 0.314
 							group: 1
@@ -148,12 +154,12 @@
 						{
 							type: work
 							work: fermenting
-							amount: 340.000
-							amount_min: 400.000
+							amount: 200.000
+							amount_min: 250.000
 							difficulty: 5
 							snapping: 50.000
-							falloff: 0.902
-							loss: 0.110
+							falloff: 0.698
+							loss: 0.102
 							group: 0
 							flags: conditional
 						}
