@@ -41,10 +41,7 @@
 			material: pjerdelite
 			quantity: 1.170057
 		}
-		{
-			material: smrad.dust
-			quantity: 5.203366
-		}
+		null
 	]
 	
 	mappings:

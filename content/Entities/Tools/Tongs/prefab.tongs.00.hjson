@@ -96,6 +96,11 @@ holdable:
 	flags: storable
 }
 
+packable:
+{
+	
+}
+
 aimable:
 {
 	deadzone: 0.400

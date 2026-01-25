@@ -30,7 +30,7 @@
 	sound_emit_impactor_loop: shaft.loop.overload.00
 	sound_emit_cycler_loop: levitator.loop.02
 	sound_emit_oscillator_loop: essence.machine.loop.00
-	sound_emit_ambient_loop: clutch.angry.00
+	sound_emit_ambient_loop: essence.imply.scream.00
 	sound_emit_projector_loop: levitator.loop.00
 	
 	sound_collapse: essence.collapse.heat.00

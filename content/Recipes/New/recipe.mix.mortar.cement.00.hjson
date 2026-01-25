@@ -105,7 +105,8 @@
 			amount: 19.478
 			amount_extra: 0.372
 			group: 0
-			flags: byproduct, primary, compact
+			flags: primary, compact
+			spawn_flags: pickup, allow_encumbered, show_notification, no_discard
 		}
 	]
 	
