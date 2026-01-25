@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.68.0"
-	name: "Dry Gunpowder"
+	name: "Gunpowder"
 	desc:
 		'''
 		TODO: Desc
@@ -35,7 +35,7 @@
 					type: undefined
 					flags: wip, auto_generated
 					
-					prefix: "Traditional "
+					prefix: "Traditional Dry "
 					priority: 1.000
 					
 					requirements:
@@ -43,9 +43,9 @@
 						{
 							type: resource
 							material: saltpeter
-							amount: 1.136364
-							snapping: 0.500
-							loss: 0.075
+							amount: 1.0364
+							snapping: 0.100
+							loss: 0.937
 							ratio: 1.000
 							group: 0
 							flags: prerequisite
@@ -53,9 +53,9 @@
 						{
 							type: resource
 							material: charcoal
-							amount: 0.625
-							snapping: 0.500
-							loss: 0.204
+							amount: 0.6667
+							snapping: 0.100
+							loss: 0.980
 							ratio: 1.000
 							group: 0
 							flags: prerequisite
@@ -63,9 +63,9 @@
 						{
 							type: resource
 							material: sulfur
-							amount: 0.434783
+							amount: 0.4783
 							snapping: 0.100
-							loss: 0.024
+							loss: 0.953
 							ratio: 1.000
 							group: 0
 							flags: prerequisite
@@ -75,10 +75,11 @@
 							work: crushing
 							amount: 190.000
 							amount_min: 175.000
-							difficulty: 4
+							difficulty: 6
+							step_max: 80
 							snapping: 5.000
-							falloff: 0.870
-							ratio: 1.000
+							falloff: 0.856
+							ratio: 0.431
 							group: 0
 							flags: conditional
 						}
@@ -86,10 +87,11 @@
 							type: work
 							work: mixing
 							amount: 300.000
-							amount_min: 220.000
+							amount_min: 110.000
 							difficulty: 6
+							step_max: 15
 							snapping: 5.000
-							falloff: 0.807
+							falloff: 0.804
 							ratio: 1.000
 							group: 1
 							flags: conditional
@@ -103,8 +105,176 @@
 							material: gunpowder
 							amount: 2.717975
 							amount_extra: 0.809562
+							snapping: 0.010
 							group: 0
-							flags: primary, compact
+							ratio: 0.945
+							flags: primary, compact, scale_to_mass
+							spawn_flags: merge, pickup, allow_encumbered, show_notification, no_discard
+						}
+						{
+							type: resource
+							material: graphite.powder
+							amount: 0.418
+							amount_extra: 0.8736
+							snapping: 0.010
+							group: 0
+							chance: 0.831
+							ratio: 0.220
+							flags: byproduct, secondary, stepped, compact, scale_to_mass
+							spawn_flags: merge, pickup, allow_encumbered, show_notification, no_discard
+						}
+						{
+							type: resource
+							material: ash
+							amount: 0.886
+							amount_extra: 0.1556
+							snapping: 0.010
+							group: 0
+							ratio: 0.949
+							flags: residue, scale_to_mass
+						}
+					]
+					
+					filter_tools:
+					{
+						include: hammer, wrench, spanner, bucket, axe, chisel, spatula, crowbar
+					}
+					filter_infrastructure:
+					{
+						require: surface
+						include: hard_surface, compactor, press
+					}
+				}
+				{
+					name: "Cremated"
+					
+					type: undefined
+					flags: wip, auto_generated
+					discard_damage_type_override: crush
+					
+					prefix: "Cremated "
+					priority: 1.000
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: saltpeter
+							amount: 1.257576
+							snapping: 0.100
+							loss: 0.949
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: scrap.charred
+							amount: 2.136752
+							snapping: 0.100
+							loss: 0.929
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: crushing
+							amount: 220.000
+							amount_min: 120.000
+							difficulty: 5
+							step_max: 25
+							snapping: 5.000
+							falloff: 0.870
+							group: 0
+							flags: conditional
+						}
+						{
+							type: work
+							work: sieving
+							amount: 100.000
+							amount_min: 65.000
+							difficulty: 4
+							step_max: 10
+							snapping: 5.000
+							falloff: 0.955
+							group: 0
+							flags: conditional
+						}
+						{
+							type: resource
+							material: sulfur
+							amount: 0.434783
+							snapping: 0.100
+							loss: 0.961
+							group: 1
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: mixing
+							amount: 300.000
+							amount_min: 220.000
+							difficulty: 5
+							step_max: 40
+							snapping: 5.000
+							falloff: 0.685
+							group: 1
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: gunpowder
+							amount: 0.539
+							amount_extra: 0.790
+							snapping: 0.010
+							group: 0
+							ratio: 0.259
+							flags: primary, compact, scale_to_mass
+							spawn_flags: merge, pickup, show_notification, no_discard
+						}
+						{
+							type: resource
+							material: charcoal
+							amount: 0.572
+							amount_extra: 0.398
+							snapping: 0.010
+							group: 0
+							chance: 0.522
+							ratio: 0.184
+							flags: residue, byproduct, stepped, compact, scale_to_mass
+						}
+						{
+							type: resource
+							material: tar
+							amount: 0.859
+							amount_extra: 0.335
+							snapping: 0.010
+							group: 0
+							ratio: 0.184
+							flags: residue, scale_to_mass
+						}
+						{
+							type: resource
+							material: ash
+							amount: 0.940
+							amount_extra: 0.145
+							snapping: 0.010
+							group: 0
+							ratio: 0.145
+							flags: residue, scale_to_mass
+						}
+						{
+							type: resource
+							material: scrap.charred
+							amount: 0.940
+							amount_extra: 0.229
+							snapping: 0.010
+							group: 0
+							ratio: 0.447
+							flags: waste, scale_to_mass
 						}
 					]
 					
@@ -123,12 +293,14 @@
 	]
 	
 	type: workshop
-	flags: production, manufacturing
+	flags: production
 	tags: manual, simple, alchemistry, blending, explosive, dangerous
 	hints: none
 	connotations: none
 	infrastructure: surface
 	infrastructure_exclude: none
+	
+	h_company: carohrad
 	
 	icon:
 	{
