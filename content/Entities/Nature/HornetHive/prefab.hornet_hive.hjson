@@ -156,7 +156,8 @@ claimer:
 			
 			characters_capacity: 10
 			characters_initial_count: 4
-			
+			characters_reserved_count: 2
+
 			repopulate_interval: 15.000
 			repopulate_interval_extra: 30.000
 			repopulate_max: 10

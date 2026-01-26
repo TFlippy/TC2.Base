@@ -89,8 +89,9 @@ dormitory:
 	flags: no_hiring, no_reject, no_kit_selection, no_kit_requirements, repopulate_needs_faction, region_only, hide_xp, hide_kits
 	species: capybara
 	
-	characters_capacity: 4
+	characters_capacity: 5
 	characters_initial_count: 2
+	characters_reserved_count: 1
 	
 	repopulate_interval: 60.000
 	repopulate_interval_extra: 240.000

@@ -100,6 +100,7 @@ dormitory:
 	asset_flags: recycle
 	characters_capacity: 4
 	characters_initial_count: 2
+	characters_reserved_count: 1
 }
 
 // faction.new:

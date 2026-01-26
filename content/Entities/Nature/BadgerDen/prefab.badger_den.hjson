@@ -71,10 +71,10 @@ spawn:
 spawner:
 {
 	group_size: 1
-	group_size_extra: 2
-	interval: 95.000
-	interval_extra: 600.000
-	interval_count_modifier: 40.000
+	group_size_extra: 1
+	interval: 45.000
+	interval_extra: 300.000
+	interval_count_modifier: 60.000
 	ai_stance: aggressive
 	flags: none
 	max_count: 3
@@ -87,17 +87,17 @@ dormitory:
 	
 	characters_capacity: 5
 	characters_initial_count: 2
+	characters_reserved_count: 2
 	
-	repopulate_interval: 60.000
-	repopulate_interval_extra: 240.000
 	repopulate_max: 5
 	repopulate_num: 1
 	repopulate_num_extra: 1
+	repopulate_interval: 90.000
+	repopulate_interval_extra: 240.000
 	repopulate_character_flags_add: npc, public
 	
 	asset_flags: recycle
 }
-
 minimap.marker:
 {
 	sprite:
