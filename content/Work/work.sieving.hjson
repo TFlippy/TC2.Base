@@ -1,0 +1,66 @@
+﻿{
+	$region_id: 0
+	$version: "0.1.68.0"
+	name: "Sieving"
+	name_short: "Sieving"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: ui.icons.work.00
+		size: [16, 16]
+		frame: [13, 0]
+	}
+	
+	flags: wip
+	tags: tools, simple, careful, kinetic, fast
+	
+	amount_base: 0.500
+	cooldown: 0.940
+	multiplier: 1.000
+	
+	amount_jitter: 0.011
+	color: "0xffffa200"
+	
+	tools_required: none
+	tools_optional: paper, towel, utensils
+	
+	infrastructure_required: none
+	infrastructure_optional: dishes, rack, filter, kitchen
+	
+	character_traits:
+	{
+		include: farmer, poor, miner, alchemist, culinary, insane, pest, junkie, evil, clumsy
+		weight: 1.000
+	}
+	
+	skills_min:
+	{
+	
+	}
+	
+	skills_mult:
+	{
+		dexterity: 0.800
+		geology: 0.250
+		commerce: 0.280
+	}
+	
+	sound_volume: 0.380
+	sound_pitch: 0.720
+	sound_size: 0.560
+	sound_dist: 0.460
+	
+	sounds: ["work_mix_00", "work_mix_01", "work_mix_00", "work_mix_01", "work_mix_00", "work_mix_00", "work_mix_01"]
+	sounds_manual: []
+	sounds_crafter: []
+	sounds_passive: []
+	sounds_ambient: []
+	
+	sounds_start: []
+	sounds_end: []
+	sounds_fail: []
+}

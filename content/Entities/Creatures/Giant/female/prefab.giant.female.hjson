@@ -49,7 +49,7 @@ organic:
 	absorption: 0.700
 	regeneration: 1.000
 	smartness: 1.000
-	pain_modifier: 0.100
+	pain_modifier: 0.500
 	water_ratio: 0.600
 	h_species: "giant"
 }
@@ -200,8 +200,8 @@ holdable:
 
 npc:
 {
-	pain_modifier: 0.150
-	min_consciousness: 0.300
+	pain_modifier: 0.200
+	min_consciousness: 0.100
 	avoid_distance_base: [1.000, 0.000]
 	idle_distance_base: [3.000, 1.000]
 
@@ -480,7 +480,7 @@ workshop:
 			absorption: 0.700
 			regeneration: 1.000
 			smartness: 1.000
-			pain_modifier: 0.100
+			pain_modifier: 0.500
 			water_ratio: 0.600
 			tags: brain
 			h_species: "giant"
@@ -703,7 +703,7 @@ workshop:
 			absorption: 0.700
 			regeneration: 1.000
 			smartness: 1.000
-			pain_modifier: 0.100
+			pain_modifier: 0.500
 			water_ratio: 0.600
 			h_species: "giant"
 

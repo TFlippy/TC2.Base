@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.0"
+	$version: "0.1.68.1"
 	name: "Badger-Class Armor"
 	tips: []
 	
@@ -163,8 +163,8 @@
 	]
 	
 	type: workshop
-	flags: blueprintable, item, production, wip
-	tags: manual, crafting, basic, simple, tailoring, metalworking, construction, assembling
+	flags: item, production, wip
+	tags: manual, crafting, basic, simple, assembling, tailoring, metalworking, construction
 	hints: none
 	connotations: none
 	infrastructure: table, surface

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.0"
+	$version: "0.1.68.1"
 	name: "Backpack"
 	tips: []
 	
@@ -187,7 +187,7 @@
 	]
 	
 	type: workshop
-	flags: blueprintable, item, wip
+	flags: item, wip
 	tags: manual, crafting, basic, simple, tailoring
 	hints: none
 	connotations: none

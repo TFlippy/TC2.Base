@@ -112,8 +112,9 @@ namespace TC2.Base.Components
 		[Source.Owned] in Body.Data body, [Source.Owned] in Transform.Data transform,
 		[Source.Owned, Override] ref Organic.Data organic_override, [Source.Owned] ref Organic.State organic_state)
 		{
-			var time = info.WorldTime;
 			head_state.air_stored.MoveTowards(0.00f, head.air_usage * info.DeltaTime);
+
+			var time = info.WorldTime;
 			if (time >= head_state.t_next_air_check)
 			{
 				head_state.t_next_air_check = time + 0.50f;

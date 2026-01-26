@@ -73,7 +73,7 @@ harvestable:
 			quantity: 10.000
 		}
 		{
-			material: phosphorus
+			material: putty
 			quantity: 17.000
 		}
 		null

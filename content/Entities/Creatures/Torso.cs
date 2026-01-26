@@ -3,7 +3,7 @@
 	public static class Torso
 	{
 		[Flags]
-		public enum Flags: uint
+		public enum Flags: ushort
 		{
 			None = 0,
 
@@ -13,31 +13,31 @@
 		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
 		public struct Data(): IComponent
 		{
+			public Torso.Flags flags;
+			public byte frame_count = 4;
+			public byte fps = 12;
+
+			public Vec2u16 frames_air;
+
+			public float unused_00;
 			public float crouch_offset_modifier = 0.50f;
 
-			public Torso.Flags flags;
-
-			public uint frame_count = 4;
-			public uint fps = 12;
-
-			public Vec2u32 frames_air;
-
-			[Save.Ignore, Net.Ignore] public Vector2 offset;
 			[Save.Ignore, Net.Ignore] public float lerp;
 			[Save.Ignore, Net.Ignore] public float air_time;
+			[Save.Ignore, Net.Ignore] public Vector2 offset;
 		}
 
 		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned), HasComponent<Arm.Data>(Source.Modifier.Owned, true)]
-		public static void UpdateArmDrag(ISystem.Info info, [Source.Shared] in Torso.Data torso, [Source.Owned, Override] ref Drag.Data drag_override)
+		public static void UpdateArmDrag([Source.Shared] in Torso.Data torso, [Source.Owned, Override] ref Drag.Data drag_override)
 		{
 			drag_override.max_force *= Maths.Lerp01(1.00f, 0.00f, (torso.air_time * 1.50f) - 1.00f).Pow2();
 		}
 
 		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned)]
-		public static void UpdateNoRotate(ISystem.Info info, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] in Organic.State organic_state, 
+		public static void UpdateNoRotate([Source.Owned, Override] in Organic.Data organic, [Source.Owned] in Organic.State organic_state, 
 		[Source.Owned, Override] ref NoRotate.Data no_rotate, [Source.Owned] in Torso.Data torso)
 		{
-			var mult = (organic_state.consciousness_shared * organic_state.efficiency * Maths.Lerp(0.20f, 1.00f, organic.motorics * organic.motorics));
+			var mult = (organic_state.consciousness_shared * organic_state.efficiency * Maths.Lerp(0.20f, 1.00f, organic.motorics.Pow2()));
 
 			//no_rotate.multiplier = MathF.Round(organic_state.consciousness_shared * organic_state.efficiency * Maths.Lerp(0.20f, 1.00f, organic.motorics * organic.motorics)) * organic.coordination * organic.motorics;
 			no_rotate.multiplier *= Maths.Clamp01(Maths.Clamp01(mult + 0.40f) * organic.coordination * organic.motorics);
@@ -120,76 +120,73 @@
 			walking:
 			{
 				//var offset = new Vector2(-bob_amplitude.X * ((MathF.Cos(info.WorldTime * bob_speed) + 1.00f) * 0.50f), -bob_amplitude.Y * ((MathF.Sin(info.WorldTime * bob_speed) + 1.00f) * 0.50f));
+				
+				renderer.sprite.fps = Maths.Round(torso.fps * (0.30f + (0.70f * organic_state.efficiency)));
+				renderer.sprite.frame.x = 1;
+				renderer.sprite.count = torso.frame_count;
+
 				var offset = new Vector2(-bob_amplitude.X * Maths.HvCos(info.WorldTime * bob_speed), -bob_amplitude.Y * Maths.HvSin(info.WorldTime * bob_speed));
 
+				renderer.offset = offset;
 				if (headbob.IsNotNull())
 				{
 					headbob.offset = Vector2.Lerp(headbob.offset, offset, 0.75f);
 				}
-
-				renderer.sprite.fps = Maths.Round(torso.fps * (0.30f + (0.70f * organic_state.efficiency)));
-				renderer.sprite.frame.x = 1;
-				renderer.sprite.count = torso.frame_count;
-				renderer.offset = offset;
-
 				return;
 			}
 
 			idle:
 			{
 				//var pain_mult = 1.00f + (organic.pain_shared / 10000.00f);
-				var offset = new Vector2(-bob_amplitude.X * ((MathF.Cos((info.WorldTime + (float)entity.GetShortID()) * 2.50f) + 1.00f) * 0.20f), -bob_amplitude.Y * ((MathF.Sin((info.WorldTime + (float)entity.GetShortID()) * 2.50f) + 1.00f) * 0.20f));
-
-				if (headbob.IsNotNull())
-				{
-					//headbob.offset = Vector2.Lerp(headbob.offset, offset, 0.50f);
-					headbob.offset.AvgRef(offset);
-				}
 
 				renderer.sprite.fps = 0;
 				renderer.sprite.frame.x = 0;
 				renderer.sprite.count = 0;
 				//renderer.offset = Vector2.Lerp(renderer.offset, offset, 0.50f);
-				renderer.offset.AvgRef(offset);
 
+				var offset = new Vector2(-bob_amplitude.X * ((MathF.Cos((info.WorldTime + (float)entity.GetShortID()) * 2.50f) + 1.00f) * 0.20f), -bob_amplitude.Y * ((MathF.Sin((info.WorldTime + (float)entity.GetShortID()) * 2.50f) + 1.00f) * 0.20f));
+				
+				renderer.offset.AvgRef(offset);
+				if (headbob.IsNotNull())
+				{
+					//headbob.offset = Vector2.Lerp(headbob.offset, offset, 0.50f);
+					headbob.offset.AvgRef(offset);
+				}
 				return;
 			}
 
 			air:
 			{
-				var t = Maths.Clamp01((torso.air_time) * 6.00f);
+				//var t = Maths.Clamp01((torso.air_time) * 6.00f);
+				//var offset = Vector2.Zero;
 
-				var offset = Vector2.Zero;
-
+				renderer.sprite.fps = 0;
+				renderer.sprite.frame.x = Maths.LerpUInt(torso.frames_air.x, torso.frames_air.y, Maths.Clamp01((torso.air_time) * 6.00f));
+				renderer.sprite.count = 0;
+				//renderer.offset = Vector2.Lerp(renderer.offset, offset, 0.50f);
+				
+				renderer.offset.AvgRef(Vector2.Zero);
 				if (headbob.IsNotNull())
 				{
 					//headbob.offset = Vector2.Lerp(headbob.offset, new Vector2(0, 0.10f * Maths.Clamp01((torso.air_time) * 3.00f)), 0.50f);
 					headbob.offset.AvgRef(new Vector2(0, 0.10f * Maths.Clamp01((torso.air_time) * 3.00f)));
 				}
-
-				renderer.sprite.fps = 0;
-				renderer.sprite.frame.x = (uint)Maths.FloorToUInt(Maths.Lerp(torso.frames_air.x, torso.frames_air.y, t));
-				renderer.sprite.count = 0;
-				//renderer.offset = Vector2.Lerp(renderer.offset, offset, 0.50f);
-				renderer.offset.AvgRef(offset);
-
 				return;
 			}
 
 			dead:
 			{
-				var offset = Vector2.Zero;
-
-				if (headbob.IsNotNull())
-				{
-					headbob.offset = offset;
-				}
+				//var offset = Vector2.Zero;
 
 				renderer.sprite.fps = 0;
 				renderer.sprite.frame.x = 2;
 				renderer.sprite.count = 0;
-				renderer.offset = offset;
-
+				
+				renderer.offset = Vector2.Zero;
+				if (headbob.IsNotNull())
+				{
+					headbob.offset = Vector2.Zero;
+				}
 				return;
 			}
 		}
