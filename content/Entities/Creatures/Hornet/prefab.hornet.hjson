@@ -59,9 +59,25 @@ damage.effects:
 
 organic:
 {
-	tags: brain
-	h_species: "hornet"
+	h_species: hornet
+	tags: brain, heart, head, torso, eyes, mouth, lungs, butt
+	flags: none
 	pain_base: 2000.000
+	pain_modifier: 0.500
+	
+	consciousness: 1.000
+	unused_00: 0.000
+	water_ratio: 0.600
+	work_speed: 1.000
+	
+	smartness: 1.000
+	motorics: 1.000
+	strength: 1.000
+	endurance: 1.000
+	dexterity: 1.000
+	coordination: 1.000
+	absorption: 1.000
+	regeneration: 1.000
 }
 
 organic.state:

@@ -120,12 +120,14 @@ namespace TC2.Base.Components
 		// TODO: Shitcoded workaround so head always updates after other body parts (otherwise it won't affect consciousness, in case the system runs on the head first)
 		[ISystem.PreUpdate.D(ISystem.Mode.Single, ISystem.Scope.Region, order: 15, flags: ISystem.Flags.Unchecked), HasComponent<Head.Data>(Source.Modifier.Owned, true)]
 		public static void UpdateConnectedHead(Entity ent_organic_parent, Entity ent_organic_child,
-		[Source.Parent, Override] in Organic.Data organic_parent, [Source.Parent] ref Organic.State organic_state_parent,
-		[Source.Owned, Override] in Organic.Data organic_child, [Source.Owned] ref Organic.State organic_state_child,
+		[Source.Parent, Override] ref Organic.Data organic_parent, [Source.Parent] ref Organic.State organic_state_parent,
+		[Source.Owned, Override] ref Organic.Data organic_child, [Source.Owned] ref Organic.State organic_state_child,
 		[Source.Parent] in Joint.Base joint)
 		{
 			if (joint.flags.HasAny(Joint.Flags.Organic))
 			{
+				organic_child.tags |= organic_parent.tags;
+
 				organic_state_parent.consciousness_shared_new = organic_state_child.consciousness_shared;
 				organic_state_parent.motorics_shared_new = organic_state_child.motorics_shared;
 				organic_state_parent.unconscious_time = organic_state_child.unconscious_time;

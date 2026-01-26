@@ -146,8 +146,14 @@ namespace TC2.Base.Components
 				if (head_state.t_next_breath == 0.00f) head_state.air_stored = head.air_capacity;
 
 				head_state.t_next_breath = time + head.breath_interval;
-				head_state.air_stored += head.breath_amount;
-				head_state.air_stored.ClampMaxRef(head.air_capacity * 1.50f);
+				//App.WriteValue(organic_override.tags);
+
+				// TODO: add a proper Lungs component later
+				if (organic_override.tags.HasAll(Organic.Tags.Brain | Organic.Tags.Mouth | Organic.Tags.Lungs))
+				{
+					head_state.air_stored += head.breath_amount;
+					head_state.air_stored.ClampMaxRef(head.air_capacity * 1.50f);
+				}
 			}
 
 			head_state.air_current_norm = Maths.Avg(head_state.air_current_norm, Maths.Normalize01Fast(head_state.air_stored, head.air_capacity));

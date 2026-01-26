@@ -52,6 +52,7 @@ organic:
 	pain_modifier: 0.500
 	water_ratio: 0.600
 	h_species: "giant"
+	tags: heart, torso, arms, hands, lungs
 }
 
 organic.state:
@@ -482,8 +483,8 @@ workshop:
 			smartness: 1.000
 			pain_modifier: 0.500
 			water_ratio: 0.600
-			tags: brain
 			h_species: "giant"
+			tags: brain, head, eyes, mouth
 		}
 		
 		organic.state:
@@ -706,6 +707,7 @@ workshop:
 			pain_modifier: 0.500
 			water_ratio: 0.600
 			h_species: "giant"
+			tags: waist, legs, butt
 
 			@animated.renderer:
 			{

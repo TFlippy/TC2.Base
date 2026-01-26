@@ -32,6 +32,7 @@ body:
 organic:
 {
 	h_species: "drevokocur"
+	tags: heart, torso, legs, lungs
 	pain_base: 2000.000
 }
 
@@ -430,6 +431,7 @@ faction:
 		organic:
 		{
 			h_species: "drevokocur"
+			tags: butt, waist, torso, legs
 			pain_base: 2000.000
 
 			@animated.renderer:
@@ -709,8 +711,8 @@ faction:
 		
 		organic:
 		{
-			tags: brain
 			h_species: "drevokocur"
+			tags: brain, head, eyes, mouth
 			pain_base: 2000.000
 
 			@animated.renderer:

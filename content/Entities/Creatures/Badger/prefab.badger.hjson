@@ -27,7 +27,7 @@ body:
 organic:
 {
 	h_species: badger
-	tags: torso, legs
+	tags: heart, torso, legs, lungs
 	flags: none
 	pain_base: 1500.000
 	pain_modifier: 1.000

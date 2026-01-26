@@ -33,6 +33,7 @@ body:
 organic:
 {
 	h_species: "kobold"
+	tags: heart, torso, arms, hands, lungs
 	pain_base: 2000.000
 }
 
@@ -399,7 +400,7 @@ commandable:
 		
 		organic:
 		{
-			tags: brain
+			tags: brain, head, eyes, mouth
 			h_species: "kobold"
 			pain_base: 2000.000
 
@@ -626,6 +627,7 @@ commandable:
 		organic:
 		{
 			h_species: "kobold"
+			tags: waist, legs, butt
 			pain_base: 2000.000
 
 			@animated.renderer:
