@@ -18,19 +18,19 @@ body:
 	{
 		a: [0.000, 0.900]
 		b: [0.000, -0.900]
-		mass: 8.280
+		mass: 6.880
 		radius: 0.330
 		friction: 0.750
 		elasticity: 0.450
-		material: metal
-		layer: entity, solid, ignore_bullet, ignore_melee, item
+		material: tool
+		layer: entity, solid, ignore_bullet, item
 		mask: world
 	}
 }
 
 health:
 {
-	max: 3000.000
+	max: 7000.000
 }
 
 melee:
@@ -47,7 +47,7 @@ melee:
 	hit_offset: [0.250, 0.000]
 	aoe: 1.500
 	knockback: 175.000
-	yield: 0.820
+	yield: 1.120
 	penetration_falloff: 0.900
 	penetration: 4
 	damage_type: slash

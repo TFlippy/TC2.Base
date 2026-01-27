@@ -1,73 +1,77 @@
 ﻿{
-	$version: "0.1.68.0"
+	$version: "0.1.68.1"
 	name: "Longsword"
 	tips: []
+	
+	related_materials:
+	{
+	
+	}
 	
 	stages:
 	[
 		{
-			name: "Construction"
+			name: "Head"
 			
-			type: construction
-			flags: wip, auto_generated
+			type: part
+			flags: wip, incomplete, auto_generated
 			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
 			
-			ratio: 1.000
-			mass_base: 8.280
+			ratio: 0.000
+			mass_base: 0.000
 			
 			options:
 			[
 				{
-					name: "Standard"
+					name: "Forged"
 					
 					type: undefined
-					flags: wip, auto_generated
+					flags: wip, incomplete, auto_generated
 					
 					requirements:
 					[
 						{
 							type: resource
-							material: wood
-							amount: 0.367014
+							material: steel.rod
+							amount: 1.000
 							snapping: 0.500
-							loss: 0.122
+							loss: 0.078
+							ratio: 0.173
 							group: 0
 							flags: prerequisite
 						}
 						{
-							type: work
-							work: woodworking
-							amount: 330.000
-							difficulty: 6
-							snapping: 25.000
-							group: 0
-							flags: conditional
-						}
-						{
 							type: resource
-							material: steel.ingot
-							amount: 0.645438
-							snapping: 1.000
-							group: 1
+							material: steel.frames
+							amount: 0.400
+							snapping: 0.100
+							loss: 0.224
+							ratio: 0.267
+							group: 0
 							flags: prerequisite
 						}
 						{
 							type: temperature
-							amount: 1315.200
-							amount_min: 822.000
-							amount_max: 1578.240
+							amount: 1239.200
+							amount_min: 602.000
+							amount_max: 1478.240
+							falloff: 0.680
 							group: 0
-							flags: no_scaling, always_evaluate
+							flags: no_scaling, always_evaluate, prerequisite
 						}
 						{
 							type: work
 							work: smithing
-							amount: 710.000
-							difficulty: 6
-							snapping: 25.000
-							group: 1
+							amount: 350.000
+							amount_min: 100.000
+							difficulty: 9
+							step_max: 19
+							snapping: 5.000
+							falloff: 0.926
+							ratio: 0.267
+							group: 0
 							flags: conditional
 						}
 					]
@@ -75,7 +79,7 @@
 					filter_tools:
 					{
 						require: hammer, pliers, tongs
-						include: hammer, saw, screwdriver, axe, file, chisel, towel, knife, sandpaper
+						include: towel
 					}
 					filter_infrastructure:
 					{
@@ -87,6 +91,164 @@
 						require: sturdy, smithy
 						include: workshop
 						exclude: office, fragile
+					}
+				}
+			]
+		}
+		{
+			name: "Grip"
+			
+			type: part
+			flags: wip, incomplete, auto_generated
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: axe
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Hand-Carved"
+					
+					type: undefined
+					flags: wip, incomplete, auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: wood
+							amount: 0.1836
+							snapping: 0.500
+							loss: 0.173
+							ratio: 0.008
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: woodcarving
+							amount: 135.000
+							amount_min: 80.000
+							difficulty: 5
+							snapping: 5.000
+							falloff: 0.970
+							loss: 1.000
+							ratio: 0.357
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: knife
+						include: screwdriver, file, chisel, knife, sandpaper
+					}
+				}
+				{
+					name: "Sawed"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: handsaw
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: wood.rod
+							amount: 0.300
+							snapping: 0.500
+							loss: 0.161
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: sawing
+							amount: 200.000
+							amount_min: 50.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.805
+							loss: 0.031
+							ratio: 0.129
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: saw
+						include: ruler, file, knife
+					}
+					filter_infrastructure:
+					{
+						require: surface
+						include: workbench
+					}
+				}
+			]
+		}
+		{
+			name: "Assembly"
+			
+			type: assembly
+			flags: wip, incomplete, auto_generated
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Glued"
+					
+					type: undefined
+					flags: wip, incomplete, auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: glue
+							amount: 1.840
+							snapping: 0.500
+							loss: 0.922
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: gluing
+							amount: 150.000
+							difficulty: 5
+							snapping: 25.000
+							falloff: 0.920
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						include: paintbrush, file
+					}
+					filter_infrastructure:
+					{
+						include: table
+					}
+					filter_environment:
+					{
+						include: clean, organized
+						exclude: wet
 					}
 				}
 			]
@@ -104,55 +266,12 @@
 		}
 	]
 	
-	requirements_old:
-	[
-		{
-			type: resource
-			material: wood
-			amount: 1.000
-			group: 0
-			flags: prerequisite
-		}
-		{
-			type: work
-			work: woodworking
-			amount: 330.000
-			difficulty: 6
-			group: 0
-			flags: conditional
-		}
-		{
-			type: resource
-			material: steel.ingot
-			amount: 2.000
-			group: 1
-		}
-		{
-			type: work
-			work: smithing
-			amount: 710.000
-			difficulty: 6
-			group: 1
-			flags: conditional
-		}
-	]
-	
-	products_old:
-	[
-		{
-			type: prefab
-			prefab: longsword
-			amount: 1.000
-			group: 0
-		}
-	]
-	
 	type: workshop
-	flags: blueprintable, item, wip, converted
-	tags: manual, crafting, simple, medium, weapon, blacksmithing, metalworking, construction
+	flags: blueprintable, item, production, wip
+	tags: manual, crafting, basic, simple, medium, weapon, tool, blacksmithing, metalworking, metallurgy, construction, heating
 	hints: none
 	connotations: none
-	infrastructure: surface, workbench
+	infrastructure: anvil, surface, hard_surface, workbench
 	infrastructure_exclude: none
 	
 	icon:

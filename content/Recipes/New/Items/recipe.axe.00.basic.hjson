@@ -96,17 +96,19 @@
 						}
 						{
 							type: temperature
-							amount: 1315.200
-							amount_min: 822.000
-							amount_max: 1578.240
+							amount: 1239.200
+							amount_min: 602.000
+							amount_max: 1478.240
+							falloff: 0.680
 							group: 0
-							flags: no_scaling, always_evaluate
+							flags: no_scaling, always_evaluate, prerequisite
 						}
 						{
 							type: work
 							work: smithing
 							amount: 500.000
 							difficulty: 6
+							step_max: 18
 							snapping: 5.000
 							falloff: 0.970
 							group: 0

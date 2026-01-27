@@ -104,7 +104,7 @@
 							amount: 802.0699
 							amount_min: 468.000
 							amount_max: 946.849
-							falloff: 0.752
+							falloff: 0.680
 							group: 0
 							flags: no_scaling, always_evaluate, optional
 						}

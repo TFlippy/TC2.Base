@@ -110,10 +110,10 @@
 						}
 						{
 							type: temperature
-							amount: 1134.100
-							amount_min: 743.000
-							amount_max: 1481.240
-							falloff: 0.715
+							amount: 1239.200
+							amount_min: 602.000
+							amount_max: 1478.240
+							falloff: 0.680
 							group: 0
 							flags: no_scaling, always_evaluate, prerequisite
 						}
@@ -123,7 +123,8 @@
 							amount: 250.000
 							amount_min: 200.000
 							difficulty: 8
-							snapping: 25.000
+							step_max: 25
+							snapping: 5.000
 							falloff: 0.874
 							ratio: 0.800
 							group: 0

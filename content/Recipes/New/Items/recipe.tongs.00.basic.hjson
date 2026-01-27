@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.68.1"
 	name: "Tongs"
 	tips: []
 	
@@ -58,12 +58,11 @@
 					filter_tools:
 					{
 						require: hammer
-						include: hammer, pliers
+						include: hammer, pliers, chisel, towel, crowbar
 					}
 					filter_infrastructure:
 					{
-						require: hard_surface
-						include: vise
+						include: anvil, vise, hard_surface, workbench
 					}
 				}
 				{
@@ -85,19 +84,20 @@
 						}
 						{
 							type: temperature
-							amount: 1315.200
-							amount_min: 822.000
-							amount_max: 1578.240
-							falloff: 0.500
+							amount: 1239.200
+							amount_min: 602.000
+							amount_max: 1478.240
+							falloff: 0.680
 							group: 0
-							flags: no_scaling, always_evaluate
+							flags: no_scaling, always_evaluate, prerequisite
 						}
 						{
 							type: work
 							work: smithing
 							amount: 475.000
-							difficulty: 6
-							snapping: 25.000
+							difficulty: 7
+							step_max: 18
+							snapping: 5.000
 							group: 0
 							flags: conditional
 						}
@@ -105,19 +105,19 @@
 					
 					filter_tools:
 					{
-						require: hammer, tongs
-						include: pliers, chisel
+						require: hammer, pliers, tongs
+						include: towel
 					}
 					filter_infrastructure:
 					{
-						require: anvil, forge, heater
+						require: anvil, forge, hard_surface, heater
 						include: vise
 					}
 					filter_environment:
 					{
-						require: sturdy
-						include: workshop, stationary, fireproof
-						exclude: fragile
+						require: sturdy, smithy
+						include: workshop
+						exclude: office, fragile
 					}
 				}
 			]
@@ -186,7 +186,9 @@
 	
 	type: workshop
 	flags: blueprintable, item, wip
-	tags: workbench, manual, crafting, small, blacksmithing, metalworking
+	tags: manual, crafting, small, blacksmithing, metalworking
+	hints: none
+	connotations: none
 	infrastructure: workbench
 	infrastructure_exclude: none
 	

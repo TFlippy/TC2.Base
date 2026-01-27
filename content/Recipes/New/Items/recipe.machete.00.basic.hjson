@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.68.1"
 	name: "Machete"
 	tips: []
 	
@@ -32,23 +32,31 @@
 							material: steel.ingot
 							amount: 0.331619
 							snapping: 1.000
+							loss: 0.188
+							ratio: 0.271
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: temperature
-							amount: 1315.200
-							amount_min: 822.000
-							amount_max: 1578.240
+							amount: 1239.200
+							amount_min: 602.000
+							amount_max: 1478.240
+							falloff: 0.680
 							group: 0
-							flags: no_scaling, always_evaluate
+							flags: no_scaling, always_evaluate, prerequisite
 						}
 						{
 							type: work
 							work: smithing
-							amount: 430.000
+							amount: 375.000
+							amount_min: 120.000
 							difficulty: 7
+							step_max: 25
 							snapping: 5.000
+							falloff: 0.953
+							loss: 0.153
+							ratio: 0.278
 							group: 0
 							flags: conditional
 						}
@@ -56,12 +64,19 @@
 					
 					filter_tools:
 					{
-						require: hammer, tongs
-						include: bucket
+						require: hammer, pliers, tongs
+						include: towel
 					}
 					filter_infrastructure:
 					{
-						require: anvil, forge, table
+						require: anvil, forge, hard_surface, heater
+						include: vise
+					}
+					filter_environment:
+					{
+						require: sturdy, smithy
+						include: workshop
+						exclude: office, fragile
 					}
 				}
 			]
@@ -110,12 +125,8 @@
 					
 					filter_tools:
 					{
-						require: file, knife
-						include: saw, hand_drill, file, knife, sandpaper
-					}
-					filter_infrastructure:
-					{
-						include: table, chair, vise
+						require: knife
+						include: screwdriver, file, chisel, knife, sandpaper
 					}
 				}
 				{
@@ -150,11 +161,12 @@
 					filter_tools:
 					{
 						require: saw
-						include: pencil, ruler, pliers, axe, towel, knife
+						include: ruler, file, knife
 					}
 					filter_infrastructure:
 					{
-						include: table, chair
+						require: surface
+						include: workbench
 					}
 				}
 			]
@@ -208,11 +220,11 @@
 					}
 					filter_infrastructure:
 					{
-						require: table
-						include: chair, vise, rack
+						include: table
 					}
 					filter_environment:
 					{
+						include: clean, organized
 						exclude: wet
 					}
 				}
@@ -233,7 +245,9 @@
 	
 	type: workshop
 	flags: blueprintable, item, wip
-	tags: workbench, manual, crafting, weapon, blacksmithing, metalworking
+	tags: manual, crafting, weapon, blacksmithing, metalworking
+	hints: none
+	connotations: none
 	infrastructure: surface, workbench
 	infrastructure_exclude: none
 	
@@ -251,5 +265,5 @@
 	max: 5
 	step: 1
 	
-	version: 0
+	version: 1
 }
