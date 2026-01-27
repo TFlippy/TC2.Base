@@ -119,10 +119,10 @@ shop:
 		include: crafting, basic, simple, woodworking, assembling, metalworking, salvaging, gathering
 		exclude: advanced, huge, vehicle, smelting, fermenting, heating
 	}
-	tags_preferred: simple, munitions, raw, filtering, salvaging, gathering, forestry, processing
+	tags_preferred: crafting, simple, munitions, raw, filtering, assembling, metalworking, metallurgy, salvaging, gathering, forestry, processing
 	
-	tools: hammer, cutters, saw, hand_drill, screwdriver, spanner, pliers, bucket, axe, file, chisel, towel, knife, sandpaper, needle, scissors
-	infrastructure: table, rack, bucket, surface, hard_surface, workbench
+	tools: pencil, paper, ruler, hammer, cutters, saw, hand_drill, screwdriver, spanner, pliers, bucket, axe, file, chisel, towel, crowbar, knife, sandpaper, needle, scissors
+	infrastructure: table, vise, rack, shaping_mould, bucket, surface, hard_surface, workbench
 	environment: stationary, dirty, reinforced, fireproof, durable, sturdy
 	connotations: none
 	

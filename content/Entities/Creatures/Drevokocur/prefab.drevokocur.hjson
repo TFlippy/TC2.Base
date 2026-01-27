@@ -788,10 +788,10 @@ faction:
 		head:
 		{
 			voice_pitch: 0.700
-			air_capacity: 1.200
+			air_capacity: 1.300
 			air_usage: 0.200
 			breath_interval: 1.300
-			breath_amount: 0.350
+			breath_amount: 0.400
 			offset_mouth: [0.375, 0.000]
 			frame_pain: 1
 			frame_dead: 2

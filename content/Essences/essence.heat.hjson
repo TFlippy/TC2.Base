@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.0"
+	$version: "0.1.68.1"
 	name: "Heat"
 	desc:
 		'''
@@ -38,7 +38,7 @@
 	sound_blast: essence.blast.00
 	sound_impulse: explosion.03
 	sound_impact: explosion.gas.00
-	sound_shatter: missing
+	sound_shatter: projectile.strong.hit.01
 	
 	h_prefab_node: essence_node.heat
 	h_material_pellet: pellet.heat

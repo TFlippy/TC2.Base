@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.67.2"
+	$version: "0.1.68.1"
 	name: "Crossbow"
 	tips: []
 	
@@ -112,8 +112,8 @@
 					
 					filter_tools:
 					{
-						require: screwdriver, wrench, file, knife
-						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, pliers, paintbrush, stapler, file, chisel, towel, tongs, pick, crowbar, knife, sandpaper
+						require: screwdriver, wrench, knife
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, paintbrush, stapler, file, chisel, towel, tongs, pick, crowbar, knife, sandpaper
 					}
 					filter_infrastructure:
 					{

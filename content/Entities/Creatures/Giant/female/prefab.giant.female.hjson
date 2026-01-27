@@ -553,6 +553,10 @@ workshop:
 			flags: displacement_rigidity
 			displacement_mult: 2.000
 			displacement_rigidity: 0.600
+
+			air_capacity: 1.800
+			air_usage: 0.180
+			breath_amount: 0.250
 		}
 
 		control:
@@ -930,9 +934,16 @@ workshop:
 	{
 		flags: use_center_of_gravity, keyboard_write, mouse_write
 		flags_editable: use_center_of_gravity, locked, disabled, keyboard_read, keyboard_write, mouse_read, mouse_write, manual_aim, loose, offset, rotation
+		tags_filter:
+		{
+			include: small, medium, large, harness
+			exclude: tiny, huge
+		}
+		
 		gui_size: [96.000, 120.000]
-		name: "Back"
+		
 		identifier: "back"
+		name: "Back"
 	}
 }
 

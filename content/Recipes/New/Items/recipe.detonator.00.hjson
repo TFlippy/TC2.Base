@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.0"
+	$version: "0.1.68.1"
 	name: "Detonator"
 	
 	stages:
@@ -84,12 +84,13 @@
 					
 					filter_tools:
 					{
-						require: ruler, cutters, screwdriver, wrench
-						include: pencil, paper, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, pliers, tweezers, magnifying_glass, syringe, stapler, file, towel, tongs, pick, crowbar, knife, scissors
+						require: ruler, hammer, screwdriver, wrench
+						include: pencil, paper, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, pliers, tweezers, magnifying_glass, syringe, stapler, file, chisel, towel, tongs, pick, crowbar, knife
 					}
 					filter_infrastructure:
 					{
-						include: table, surface
+						require: surface, hard_surface
+						include: anvil, table, chair, vise, rack, dies, workbench
 					}
 					filter_environment:
 					{

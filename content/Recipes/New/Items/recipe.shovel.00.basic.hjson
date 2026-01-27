@@ -57,7 +57,7 @@
 					}
 					filter_infrastructure:
 					{
-						include: table
+						include: table, surface
 					}
 				}
 				{
@@ -229,8 +229,8 @@
 					
 					filter_tools:
 					{
-						require: file, knife
-						include: hand_drill, screwdriver, pliers, file, chisel, knife, sandpaper
+						require: knife
+						include: screwdriver, file, chisel, knife, sandpaper
 					}
 				}
 				{
@@ -311,7 +311,7 @@
 					
 					filter_tools:
 					{
-						require: hammer
+						include: hammer, towel
 					}
 				}
 				{

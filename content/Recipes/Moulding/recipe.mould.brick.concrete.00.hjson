@@ -1,11 +1,16 @@
 ﻿{
-	$version: "0.1.67.2"
+	$version: "0.1.68.1"
 	name: "ISO Concrete Masonry Unit"
 	desc:
 		'''
 		ISO-recommended general-purpose concrete masonry unit formulation carefully formulated and certified by ISO.
 		'''
 	tips: []
+	
+	related_materials:
+	{
+		brick.concrete: solidified, product, result, manufactured
+	}
 	
 	stages:
 	[
@@ -182,6 +187,8 @@
 		frame: [3, 0]
 	}
 	icon_offset: [0.000, 1.000]
+	
+	icon_c_scale: 1.010
 	
 	color_frame: "0xffaeb59a"
 	color_button: "0xff9dd80f"

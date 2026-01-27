@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.4"
+	$version: "0.1.68.1"
 	name: "Axe"
 	tips: []
 	
@@ -65,12 +65,12 @@
 					filter_tools:
 					{
 						require: saw, file
-						include: file
+						include: file, chisel, knife, sandpaper, utensils
 					}
 					filter_infrastructure:
 					{
 						require: surface
-						include: vise, workbench
+						include: vise, surface, workbench
 					}
 					filter_environment:
 					{
@@ -179,8 +179,8 @@
 					
 					filter_tools:
 					{
-						require: file, knife
-						include: hand_drill, screwdriver, pliers, file, chisel, knife, sandpaper
+						require: knife
+						include: screwdriver, file, chisel, knife, sandpaper
 					}
 				}
 				{
@@ -326,6 +326,8 @@
 	type: workshop
 	flags: blueprintable, item
 	tags: manual, crafting, simple, medium, weapon, tool, metalworking
+	hints: none
+	connotations: none
 	infrastructure: hard_surface, workbench
 	infrastructure_exclude: none
 	

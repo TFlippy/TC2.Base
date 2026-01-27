@@ -102,13 +102,14 @@ shop:
 {
 	tags_filter:
 	{
-		include: munitions, explosive
-		exclude: large, huge, blacksmithing, smelting, drying
+		include: medium, large, huge, vehicle, furniture, machinery, industrial, metalworking, metallurgy, engineering, architecture, construction
+		exclude: organic, smelting, fermenting, refining
 	}
 	
-	tools: pencil, paper, ruler, hammer, cutters, hand_drill, screwdriver, spanner, pliers, tweezers, bucket, shovel, syringe, file, towel, spatula, knife, sandpaper, scissors, ladle
+	tools: pencil, paper, ruler, cutters, saw, hand_drill, screwdriver, wrench, pliers, axe, shovel, towel, tongs, crowbar
 	infrastructure: anvil, lab_glassware, dishes, bottle, table, chair, vise, rack, shaping_mould, bucket, surface, hard_surface, stamping_press, press, structure, machine, building, workbench
-	environment: workshop, stationary, scary, noisy, durable, sturdy, flammable, factory
+	environment: workshop, stationary, scary, noisy, durable, sturdy, factory, open, building, large
+	connotations: none
 	
 	flags: embed_gui
 	menu_columns: 4

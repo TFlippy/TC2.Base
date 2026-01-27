@@ -1,10 +1,10 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.68.1"
 	name: "Cutting"
 	name_short: "Cutting"
 	desc:
 		'''
-		TODO: Desc
+		Using a cutting tool to slice through materials or objects.
 		'''
 	
 	icon:
@@ -15,7 +15,7 @@
 	}
 	
 	flags: manual, wip
-	tags: tools, industrial, dangerous
+	tags: tools, industrial, delicate, careful, kinetic, slow
 	
 	amount_base: 0.000
 	cooldown: 1.000
@@ -25,7 +25,7 @@
 	cooldown_jitter: 0.112
 	color: "0xffffa200"
 	
-	tools_required: cutters
+	tools_required: none
 	tools_optional: none
 	
 	infrastructure_required: none
@@ -50,9 +50,9 @@
 	sound_volume: 0.500
 	sound_pitch: 1.000
 	sound_size: 0.500
-	sound_dist: 1.000
+	sound_dist: 0.800
 	
-	sounds: []
+	sounds: ["metal.frame.hit.hard.02", "metal.hit.pole.02", "metal.frame.hit.hard.01"]
 	sounds_manual: []
 	sounds_crafter: []
 	sounds_passive: []

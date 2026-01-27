@@ -1,6 +1,5 @@
 ﻿{
-	$region_id: 0
-	$version: "0.1.68.0"
+	$version: "0.1.68.1"
 	name: "Steel Frames"
 	desc:
 		'''

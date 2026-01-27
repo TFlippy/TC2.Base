@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.0"
+	$version: "0.1.68.1"
 	name: "Gunpowder"
 	desc:
 		'''
@@ -280,12 +280,12 @@
 					
 					filter_tools:
 					{
-						include: hammer, wrench, spanner, bucket, axe, chisel, spatula, crowbar
+						include: paper, hammer, wrench, spanner, bucket, axe, chisel, towel, spatula, crowbar, utensils
 					}
 					filter_infrastructure:
 					{
 						require: surface
-						include: hard_surface, compactor, press
+						include: dishes, rack, hard_surface, compactor, press, filter, kitchen
 					}
 				}
 			]

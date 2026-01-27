@@ -26,12 +26,11 @@
 			options:
 			[
 				{
-					name: "Hand-made"
+					name: "Standard"
 					
 					type: undefined
 					flags: wip
 					
-					prefix: "Hand-made "
 					priority: 1.000
 					
 					requirements:

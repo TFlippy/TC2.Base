@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.67.2"
+	$version: "0.1.68.1"
 	name: "Handsaw"
 	tips: []
 	
@@ -63,7 +63,12 @@
 					filter_tools:
 					{
 						require: hand_drill
-						include: screwdriver, file, knife, scissors
+						include: screwdriver, chisel, pick, knife
+					}
+					filter_infrastructure:
+					{
+						require: vise
+						include: vise, rack, workbench
 					}
 				}
 			]

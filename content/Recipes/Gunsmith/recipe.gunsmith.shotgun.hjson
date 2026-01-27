@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.67.2"
+	$version: "0.1.68.1"
 	name: "Pump Shotgun"
 	desc:
 		'''
@@ -43,10 +43,11 @@
 						}
 						{
 							type: work
-							work: bending
-							amount: 1110.000
+							work: metal.forming
+							amount: 710.000
 							amount_min: 260.000
-							difficulty: 12
+							difficulty: 13
+							step_max: 20
 							snapping: 5.000
 							falloff: 0.880
 							ratio: 0.886

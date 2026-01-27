@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.68.1"
 	name: "Sledgehammer"
 	tips: []
 	
@@ -54,7 +54,12 @@
 					filter_tools:
 					{
 						require: hand_drill
-						include: screwdriver, file, knife, scissors
+						include: screwdriver, chisel, pick, knife
+					}
+					filter_infrastructure:
+					{
+						require: vise
+						include: vise, rack, workbench
 					}
 				}
 			]
@@ -106,13 +111,15 @@
 					
 					filter_tools:
 					{
-						require: saw
-						include: ruler, file, knife
+						require: sandpaper
 					}
 					filter_infrastructure:
 					{
-						require: surface
-						include: workbench
+						include: table, surface
+					}
+					filter_environment:
+					{
+						include: workshop, stationary, illuminated, dry
 					}
 				}
 			]

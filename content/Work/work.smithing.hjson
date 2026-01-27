@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.68.1"
 	name: "Smithing"
 	name_short: "Smithing"
 	desc:
@@ -17,9 +17,9 @@
 	flags: manual, wip
 	tags: skilled, tools, construction, industrial, dangerous
 	
-	amount_base: 0.000
-	cooldown: 1.000
-	multiplier: 1.550
+	amount_base: 1.500
+	cooldown: 0.850
+	multiplier: 1.000
 	
 	amount_jitter: 0.281
 	cooldown_jitter: 0.134
@@ -51,9 +51,10 @@
 	
 	skills_mult:
 	{
-		blacksmithing: 1.000
-		strength: 0.600
-		metallurgy: 0.100
+		blacksmithing: 0.450
+		strength: 0.320
+		metallurgy: 0.200
+		dexterity: 0.200
 	}
 	
 	sound_volume: 0.500
