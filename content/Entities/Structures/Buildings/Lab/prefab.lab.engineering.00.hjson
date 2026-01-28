@@ -36,9 +36,9 @@ animated.renderer:
 interactable:
 {
 	flags: no_tab
+	window_size: [804, 600]
+	window_size_misc: [96, 0]
 	priority: 1.000
-	window_size: [900.000, 600.000]
-	window_size_misc: [192.000, 0.000]
 }
 
 health:
@@ -128,7 +128,7 @@ workshop:
 	@inventory8:
 	{
 		type: workshop
-		flags: standalone, allow_ducts, ignore_mass, public, faction
+		flags: standalone, allow_ducts, ignore_mass, public, faction, vertical
 		stack_size_multiplier: 5.000
 		
 		offset: [0.000, 0.000]

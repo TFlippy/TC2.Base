@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.68.1"
 	name: "EC-MT Levitator (Single)"
 	desc:
 		'''
@@ -58,6 +58,8 @@
 	type: workshop
 	flags: no_amount_multiplier, blueprintable, disabled, wip
 	tags: manual, crafting, complex, advanced, large, assembling, metalworking, engineering
+	hints: none
+	connotations: none
 	infrastructure: none
 	infrastructure_exclude: none
 	
@@ -66,7 +68,7 @@
 		texture: levitator.00
 	}
 	
-	color_frame: "0xffaeb59a"
+	color_frame: "0xff19e2b1"
 	color_button: "0xff9dd80f"
 	rank: -541.000
 	

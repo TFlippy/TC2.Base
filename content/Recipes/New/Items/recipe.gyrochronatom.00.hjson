@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.0"
+	$version: "0.1.68.1"
 	name: "Gyrochronatom"
 	
 	stages:
@@ -421,7 +421,7 @@
 		size: [16, 16]
 	}
 	
-	color_frame: "0xffaeb59a"
+	color_frame: "0xff19e2b1"
 	color_button: "0xff9dd80f"
 	button_name: "Craft"
 	rank: 0.000

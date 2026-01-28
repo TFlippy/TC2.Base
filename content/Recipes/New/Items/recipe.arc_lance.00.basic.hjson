@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.4"
+	$version: "0.1.68.1"
 	name: "Arc Lance"
 	desc:
 		'''
@@ -68,6 +68,8 @@
 	type: workshop
 	flags: blueprintable, disabled, wip
 	tags: workbench, manual, crafting, simple, medium, weapon, delicate, blacksmithing, woodworking, assembling, metalworking, military
+	hints: none
+	connotations: none
 	infrastructure: none
 	infrastructure_exclude: none
 	
@@ -76,7 +78,7 @@
 		texture: arc_lance
 	}
 	
-	color_frame: "0xffaeb59a"
+	color_frame: "0xff19e2b1"
 	color_button: "0xff9dd80f"
 	rank: 0.000
 	

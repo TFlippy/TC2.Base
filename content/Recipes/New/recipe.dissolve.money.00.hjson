@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.67.1"
+	$version: "0.1.68.1"
 	name: "Dissolved Money"
 	desc:
 		'''
@@ -179,7 +179,7 @@
 	}
 	icon_c_offset: [-12.000, -6.000]
 	
-	color_frame: "0xff80dc7e"
+	color_frame: "0xffac7534"
 	color_button: "0xff9dd80f"
 	rank: -715.000
 	
