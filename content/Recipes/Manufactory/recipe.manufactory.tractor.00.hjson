@@ -1,47 +1,119 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.68.1"
 	name: "Tractor (Light)"
-	desc:
-		'''
-		Standard tractor with 1 device attachment slot, back-mounted cabin and an internal Aubucht steam engine.
-		'''
 	tips: []
 	
-	requirements:
+	stages:
 	[
 		{
-			type: resource
-			material: steel.ingot
-			amount: 50.000
-			group: 0
+			name: "Chassis"
+			
+			type: part
+			flags: requires_shipment, part, important
+			tags: frame, chassis, metal, structural, large
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Standard"
+					
+					type: undefined
+					flags: requires_shipment, wip
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.frames
+							amount: 50.000
+							snapping: 1.000
+							loss: 0.157
+							group: 0
+						}
+						{
+							type: work
+							work: welding
+							amount: 500.000
+							difficulty: 8
+							step_max: 20
+							snapping: 10.000
+							loss: 0.180
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+				}
+			]
 		}
 		{
-			type: resource
-			material: steel.plate
-			amount: 100.000
-			group: 0
-		}
-		{
-			type: resource
-			material: machine_parts
-			amount: 50.000
-			group: 0
-		}
-		{
-			type: work
-			work: smithing
-			amount: 1800.000
-			difficulty: 10
-			group: 0
-			flags: conditional
-		}
-		{
-			type: work
-			work: assembling
-			amount: 2000.000
-			difficulty: 13
-			group: 0
-			flags: conditional
+			name: "Test"
+			
+			type: part
+			flags: requires_shipment, part, important
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Standard"
+					
+					type: undefined
+					flags: requires_shipment, wip
+					discard_damage_type_override: sledgehammer
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.plate
+							amount: 80.000
+							snapping: 1.000
+							loss: 0.188
+							group: 0
+						}
+						{
+							type: work
+							work: snipping.metal
+							amount: 500.000
+							difficulty: 8
+							step_max: 20
+							snapping: 10.000
+							ratio: 0.133
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: metal.forming
+							amount: 500.000
+							difficulty: 8
+							step_max: 20
+							snapping: 10.000
+							ratio: 0.133
+							group: 0
+							flags: simultaneous, conditional
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+				}
+			]
 		}
 	]
 	
@@ -52,12 +124,15 @@
 			prefab: tractor.00
 			amount: 1.000
 			group: 0
+			flags: primary, spawn, use_temperature
 		}
 	]
 	
 	type: workshop
-	flags: no_amount_multiplier, blueprintable, disabled, wip
+	flags: no_amount_multiplier, blueprintable, debug, construction, wip, no_cancel, auto_complete
 	tags: manual, crafting, complex, huge, vehicle, machinery, assembling, metalworking, engineering, construction
+	hints: none
+	connotations: none
 	infrastructure: none
 	infrastructure_exclude: none
 	

@@ -101,21 +101,20 @@ shop:
 {
 	tags_filter:
 	{
-		require: manual
-		include: workbench, advanced, munitions, woodworking, assembling, metalworking, engineering, salvaging
-		exclude: large, vehicle, blacksmithing, social, gathering, smelting, overworld
+		include: complex, advanced, device, essence, vehicle, munitions, machinery, delicate, engineering, alchemistry, research, science, explosive
+		exclude: huge, smelting, fermenting
 	}
 	
-	tools: pencil, paper, ruler, hammer, cutters, screwdriver, wrench, spanner, pliers, tweezers, magnifying_glass, paintbrush, stapler, file, chisel, towel, tongs, knife, sandpaper, needle, pins, scissors
-	infrastructure: lab_glassware, table, chair, rack, bed, workbench
-	machinery: none
-	environment: office, stationary, clean, fancy, cozy, flammable
+	tools: pencil, paper, ruler, hammer, cutters, screwdriver, wrench, spanner, pliers, tweezers, magnifying_glass, paintbrush, syringe, stapler, file, chisel, towel, knife, sandpaper, needle, pins, scissors, typewriter, calculator, utensils
+	infrastructure: lab_glassware, dishes, bottle, table, chair, vise, rack, shaping_mould, stationery, bucket, surface, hard_surface, dies, structure, office, building
+	environment: office, stationary, clean, fancy, cozy, sturdy, flammable, cramped, building
+	connotations: none
 	
-	menu_columns: 7
-	recipe_type: workshop
 	flags: embed_gui
+	menu_columns: 6
+	recipe_type: workshop
 	
-	offset_spawn: [0.000, 0.000]
+	offset_spawn: [1.125, 0.250]
 	
 	name: "Engineering Laboratory"
 }
@@ -178,29 +177,29 @@ personnel:
 	characters_capacity: 4
 }
 
-spawn:
-{
-	flags: faction
-}
+// spawn:
+// {
+// 	flags: faction
+// }
 
-dormitory:
-{
-	species: human
-	flags: no_kit_selection, no_kit_requirements, region_only
-	characters_capacity: 3
-	characters_initial_count: 1
-	repopulate_interval: 300.000
-	repopulate_interval_extra: 600.000
-	repopulate_num: 1
-	repopulate_num_extra: 2
-	repopulate_max: 1
-	move_radius: 12.000
-	asset_flags: recycle
-	character_flags_filter:
-	{
-		require: engineer
-		include: construction, educated, artisan, professional, laborer, technician, engineer, middle_class, upper_middle_class
-		exclude: slave, unskilled, medical, farmer, illiterate, lower_class, lower_middle_class
-		weight: 1.000
-	}
-}
+// dormitory:
+// {
+// 	species: human
+// 	flags: no_kit_selection, no_kit_requirements, region_only
+// 	characters_capacity: 3
+// 	characters_initial_count: 1
+// 	repopulate_interval: 300.000
+// 	repopulate_interval_extra: 600.000
+// 	repopulate_num: 1
+// 	repopulate_num_extra: 2
+// 	repopulate_max: 1
+// 	move_radius: 12.000
+// 	asset_flags: recycle
+// 	character_flags_filter:
+// 	{
+// 		require: engineer
+// 		include: construction, educated, artisan, professional, laborer, technician, engineer, middle_class, upper_middle_class
+// 		exclude: slave, unskilled, medical, farmer, illiterate, lower_class, lower_middle_class
+// 		weight: 1.000
+// 	}
+// }

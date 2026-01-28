@@ -275,22 +275,22 @@ vehicle:
 	flags: use_misc_window
 }
 
-track:
-{
-	@animated.renderer:
-	{
-		sprite:
-		{
-			texture: "track.mover"
-		}
-		z: -190.000
-	}
-}
+// track:
+// {
+// 	@animated.renderer:
+// 	{
+// 		sprite:
+// 		{
+// 			texture: "track.mover"
+// 		}
+// 		z: -190.000
+// 	}
+// }
 
-track.state:
-{
+// track.state:
+// {
 
-}
+// }
 
 mount:
 {
@@ -327,8 +327,8 @@ mount:
 		max_bias: 1.000
 		max_bias_bounce: 5.000
 		stress_mult: 1.000
-		min: -3.140
-		max: 3.140
+		min: -2.000
+		max: 2.000
 		step: 5.000
 		bounce: 0.900
 		max_torque: 10000.000
@@ -353,46 +353,46 @@ mount:
 		// }
 	}
 
-	joint.slider:
-	{
-		a: [0.000, -3.000]
-		b: [0.000, 3.000]
-		max_force: 1000000.000
-		max_bias: 100.000
-		error_bias: 0.00001
-		stress_mult: 1.000
-	}
+	// joint.slider:
+	// {
+	// 	a: [0.000, -3.000]
+	// 	b: [0.000, 3.000]
+	// 	max_force: 1000000.000
+	// 	max_bias: 100.000
+	// 	error_bias: 0.00001
+	// 	stress_mult: 1.000
+	// }
 
-	joint.distance:
-	{
-		distance: 5.997
-		max_force: 500000.000
-		step: 4.000
-		max_bias: 5.000
-		max_bias_bounce: 1.000
-		error_bias: 0.000
-		stress_mult: 0.000
-		bounce: 1.000
+	// joint.distance:
+	// {
+	// 	distance: 5.997
+	// 	max_force: 500000.000
+	// 	step: 4.000
+	// 	max_bias: 5.000
+	// 	max_bias_bounce: 1.000
+	// 	error_bias: 0.000
+	// 	stress_mult: 0.000
+	// 	bounce: 1.000
 
-		@sound.emitter:
-		{
-			file: "track.move.loop.00"
-			flags: start_muted
-			volume: 1.000
-			pitch: 1.000
-			size: 0.750
-		}
+	// 	@sound.emitter:
+	// 	{
+	// 		file: "track.move.loop.00"
+	// 		flags: start_muted
+	// 		volume: 1.000
+	// 		pitch: 1.000
+	// 		size: 0.750
+	// 	}
 		
-		@sound.mixer:
-		{
-			volume_modifier: 0.700
-			pitch_modifier: 0.250
-			volume_min: 0.000
-			pitch_min: 0.500
-			volume_lerp_a: 0.050
-			volume_lerp_b: 0.100
-			pitch_lerp_a: 0.020
-			pitch_lerp_b: 0.050
-		}
-	}
+	// 	@sound.mixer:
+	// 	{
+	// 		volume_modifier: 0.700
+	// 		pitch_modifier: 0.250
+	// 		volume_min: 0.000
+	// 		pitch_min: 0.500
+	// 		volume_lerp_a: 0.050
+	// 		volume_lerp_b: 0.100
+	// 		pitch_lerp_a: 0.020
+	// 		pitch_lerp_b: 0.050
+	// 	}
+	// }
 }
