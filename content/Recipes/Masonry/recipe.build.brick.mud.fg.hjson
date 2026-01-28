@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.68.1"
 	name: "Mud Bricks"
 	desc:
 		'''
@@ -34,7 +34,10 @@
 	type: architecture
 	flags: none
 	tags: none
+	hints: none
+	connotations: none
 	infrastructure: none
+	infrastructure_exclude: none
 	
 	icon:
 	{
@@ -61,7 +64,7 @@
 		
 		sound: stone_place_1
 		
-		snapping_flags: snap_to_surface, align_to_surface, align_parallel, use_collider_radius, add_size_to_snap_radius, add_size_to_snap_offset, use_raw_collider, inset_terrain
+		snapping_flags: snap_to_surface, align_parallel, use_collider_radius, add_size_to_snap_radius, add_size_to_snap_offset, use_raw_collider, inset_terrain
 		
 		mappings_replace:
 		{
