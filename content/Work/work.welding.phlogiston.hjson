@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.68.1"
 	name: "Phlogiston Welding"
 	name_short: "P. Welding"
 	desc:
@@ -17,7 +17,7 @@
 	flags: manual, wip
 	tags: tools, technical, chemical, construction, industrial, dangerous
 	
-	amount_base: 0.000
+	amount_base: 1.000
 	cooldown: 0.880
 	multiplier: 0.610
 	

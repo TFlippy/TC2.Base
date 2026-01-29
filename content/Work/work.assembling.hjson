@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.68.1"
 	name: "Assembly"
 	name_short: "Assembly"
 	desc:
@@ -17,7 +17,7 @@
 	flags: manual, wip
 	tags: tools, technical, construction, industrial
 	
-	amount_base: 0.000
+	amount_base: 1.200
 	cooldown: 1.000
 	multiplier: 0.750
 	

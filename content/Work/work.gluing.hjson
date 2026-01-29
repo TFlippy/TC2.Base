@@ -1,11 +1,11 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.68.1"
 	name: "Gluing"
 	name_short: "Gluing"
 	desc:
 		'''
 		Universal method of joining materials together using adhesives, such as glue, porridge, or other sticky substances.
-		
+
 		Can be used to repair items, create crafts, or simply to make a mess.
 		'''
 	
@@ -19,7 +19,7 @@
 	flags: manual, wip
 	tags: simple, leisure, careful
 	
-	amount_base: 0.000
+	amount_base: 1.000
 	cooldown: 1.100
 	multiplier: 1.100
 	
