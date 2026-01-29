@@ -7,6 +7,11 @@
 		'''
 	tips: []
 	
+	related_materials:
+	{
+		brick.mud: solidified, product, brick, result
+	}
+	
 	stages:
 	[
 		{
@@ -27,7 +32,7 @@
 					name: "Basic"
 					
 					type: undefined
-					flags: requires_shipment, wip, auto_generated
+					flags: wip, auto_generated
 					
 					color: "0xff724421"
 					
@@ -39,7 +44,7 @@
 							amount: 0.660
 							snapping: 0.500
 							group: 0
-							flags: primary
+							flags: primary, prerequisite
 						}
 						{
 							type: resource
@@ -47,6 +52,7 @@
 							amount: 0.340
 							snapping: 0.500
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: resource
@@ -54,6 +60,7 @@
 							amount: 1.000
 							snapping: 0.250
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: work
@@ -87,7 +94,6 @@
 					}
 					filter_infrastructure:
 					{
-						require: shaping_mould
 						include: table, chair
 					}
 				}
@@ -147,6 +153,7 @@
 			snapping: 0.200
 			group: 0
 			flags: byproduct, primary
+			spawn_flags: merge, pickup, show_notification
 		}
 	]
 	
@@ -155,7 +162,7 @@
 	tags: manual, dumb, crude, basic, simple, small, agriculture, blending, drying, moulding, messy
 	hints: none
 	connotations: none
-	infrastructure: shaping_mould, form
+	infrastructure: none
 	infrastructure_exclude: none
 	
 	h_company: common.kobold

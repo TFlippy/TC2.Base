@@ -28,7 +28,7 @@
 	tools_required: none
 	tools_optional: shovel, spatula
 	
-	infrastructure_required: shaping_mould
+	infrastructure_required: none
 	infrastructure_optional: table, chair
 	
 	character_traits:
