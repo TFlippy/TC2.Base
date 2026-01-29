@@ -58,13 +58,15 @@ shop:
 {
 	tags_filter:
 	{
-		include: agriculture, filtering, cooking, alchemistry, gathering, blending, fermenting
+		include: agriculture, filtering, cooking, alchemistry, gathering, blending, fermenting, messy
 		exclude: advanced, large, huge, vehicle, furniture, blacksmithing, woodworking, assembling, carpentry, construction, smelting, drying, moulding, overworld
 	}
+	tags_preferred: cooking, alchemistry, refining, processing
 	
 	tools: hammer, cleaver, bucket, paintbrush, axe, shovel, syringe, towel, spatula, tongs, crowbar, knife, scissors, ladle, utensils
 	infrastructure: spigot, cauldron, dishes, bottle, barrel, crucible, bucket, liquid_container, heater, blender, stove, fermenter, structure
-	environment: container, stationary, reinforced, fireproof, durable, sturdy, waterproof, small
+	environment: container, stationary, scary, reinforced, fireproof, durable, sturdy, waterproof, open, small
+	connotations: none
 	
 	flags: embed_gui
 	menu_columns: 3
@@ -96,7 +98,7 @@ crafter:
 			include: soft, malleable, liquid, granular, viscous, small, gravel, powder
 			exclude: gas
 		}
-		offset: [0.000, -0.375]
+		offset: [-0.125, -1.000]
 	}
 
 	@inventory4:
@@ -110,7 +112,7 @@ crafter:
 			include: soft, malleable, liquid, granular, viscous, small, gravel, powder
 			exclude: gas
 		}
-		offset: [0.000, -0.375]
+		offset: [-0.375, -0.375]
 	}
 }
 
@@ -163,7 +165,7 @@ workshop:
 	environment: none
 	
 	gui_info_size_x: 252.000
-	max_order_mass: 550.000
+	max_order_mass: 200.000
 	
 	h_sound_order_complete: computer.bell.00
 }
@@ -177,10 +179,10 @@ shipment:
 
 interactable:
 {
-	flags: none
+	flags: no_tab
+	window_size: [592, 592]
+	window_size_misc: [144, 0]
 	priority: 2.000
-	window_size: [632.000, 648.000]
-	window_size_misc: [144.000, 0.000]
 }
 
 // animated.renderer|"work":
@@ -224,25 +226,26 @@ heat:
 	temperature_medium: 440.9637
 	temperature_high: 1479.600
 	temperature_ignite: 1894.000
-	temperature_operating: 1034.303
+	temperature_operating: 1534.303
 	temperature_melt: 1644.000
 	temperature_breakdown: 3143.000
-	heat_capacity_mult: 0.200
+	heat_capacity_mult: 1.200
 	heat_damage_mult: 0.200
 	smoke_size_mult: 0.800
-	smoke_speed_mult: 0.600
-	smoke_rise_mult: 1.200
+	smoke_speed_mult: 0.500
+	smoke_rise_mult: 1.000
+	cool_rate: 1.200
 	flags: no_gui
 	fire_flags: no_self_damage
-	offset: [0.000, -0.125]
-	smoke_offset: [0.000, -0.875]
+	offset: [0.000, -0.875]
+	smoke_offset: [0.000, -1.250]
 	size: [1.000, 1.000]
 	flame_tint: "0xe0ff8438"
 
 	@light:
 	{
 		offset: [-0.125, -0.375]
-		scale: [80.000, 40.000]
+		scale: [40.000, 34.000]
 		intensity: 1.000
 		texture: light.circle.04
 	}
@@ -259,6 +262,48 @@ heat:
 	}
 }
 
+essence.container:
+{
+	stability: 0.910
+	health_threshold: 0.100
+	glow_modifier: 1.000
+	emit_type: stressor
+	flags: show_gui, allow_edit_rate
+
+	@inventory1:
+	{
+		type: essence
+		flags: ignore_mass, no_auto_pickup
+		stack_size_multiplier: 0.020
+		
+		filter:
+		{
+			require: small, pellet, solid, essence
+			include: none
+			exclude: gas
+		}
+
+		offset: [0.500, 0.250]
+	}
+
+	@sound.emitter:
+	{
+		flags: start_muted
+		volume: 0.500
+		pitch: 1.730
+		size: 0.350
+		size_max_modifier: 0.700
+		spread: 80.000
+	}
+
+	@light:
+	{
+		offset: [0.500, 0.250]
+		scale: [6.000, 4.000]
+		texture: light.circle.00
+	}
+}
+
 // fillable:
 // {
 // 	flags: use_misc, reusable
@@ -271,54 +316,54 @@ heat:
 // 	offset_drop: [0.000, -0.750]
 // }
 
-vehicle:
-{
-	flags: use_misc_window
-}
+// vehicle:
+// {
+// 	flags: use_misc_window
+// }
 
-+slot.device.00|instance:
-{
-	joint.base:
-	{
-		offset_a: [-0.250, -0.375]
-		max_force: 100000.000
-		max_torque: 100000.000
-		max_stress: 3.000
-		z: -160.000
-		material_type: metal
-		flags: no_aiming, no_wrap, attachment, control_read, control_write, force_facing, use_proxy_body, no_sync
-	}
+// +slot.device.00|instance:
+// {
+// 	joint.base:
+// 	{
+// 		offset_a: [-0.250, -0.375]
+// 		max_force: 100000.000
+// 		max_torque: 100000.000
+// 		max_stress: 3.000
+// 		z: -160.000
+// 		material_type: metal
+// 		flags: no_aiming, no_wrap, attachment, control_read, control_write, force_facing, use_proxy_body, no_sync
+// 	}
 
-	joint.pivot:
-	{
-		max_bias: 8.000
-	}
+// 	joint.pivot:
+// 	{
+// 		max_bias: 8.000
+// 	}
 
-	joint.gear:
-	{
-		min: 0.000
-		max: 0.000
-		error_bias: 0.0000
-		max_bias: 1.250
-	}
+// 	joint.gear:
+// 	{
+// 		min: 0.000
+// 		max: 0.000
+// 		error_bias: 0.0000
+// 		max_bias: 1.250
+// 	}
 
-	attachment.slot:
-	{
-		flags: keyboard_read, mouse_read, brake
-		flags_editable: locked, disabled, keyboard_read, keyboard_write, mouse_read, mouse_write
-		name: "Device"
-		identifier: "device.00"
-		tags_filter:
-		{
-			include: tiny, small, utility, device, fixed
-			exclude: cabin, wheel, platform
-		}
-		rank: 1.000
-		gui_size: [96.000, 96.000]
-	}
+// 	attachment.slot:
+// 	{
+// 		flags: keyboard_read, mouse_read, brake
+// 		flags_editable: locked, disabled, keyboard_read, keyboard_write, mouse_read, mouse_write
+// 		name: "Device"
+// 		identifier: "device.00"
+// 		tags_filter:
+// 		{
+// 			include: tiny, small, utility, device, fixed
+// 			exclude: cabin, wheel, platform
+// 		}
+// 		rank: 1.000
+// 		gui_size: [96.000, 96.000]
+// 	}
 
-	analog.writer:
-	{
-		mask_read: red
-	}
-}
+// 	analog.writer:
+// 	{
+// 		mask_read: red
+// 	}
+// }
