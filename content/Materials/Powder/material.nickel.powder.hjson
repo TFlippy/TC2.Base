@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.65.1"
+	$version: "0.1.68.1"
 	name: "Nickel Powder"
 	name_short: "Nic. Powder"
+	name_imperial: "Niklpulvr"
 	name_dumb: "Gold"
 	description:
 		'''
@@ -51,6 +52,6 @@
 	color_dust: "0xff62605e"
 	color_gib: "0xff62605e"
 	
-	centroid_default: [0.000, 0.250]
+	centroid_default: [0.000, 0.750]
 	colliders: []
 }

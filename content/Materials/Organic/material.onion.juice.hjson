@@ -1,8 +1,8 @@
 ﻿{
-	$version: "0.1.65.1"
+	$version: "0.1.68.1"
 	name: "Onion Juice"
 	name_short: "Onion J."
-	name_imperial: "Cibuldzus"
+	name_imperial: "Cibulka"
 	name_dumb: "Juice"
 	description:
 		'''
@@ -50,6 +50,7 @@
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	
+	centroid_default: [0.000, 0.225]
 	colliders: []
 	
 	commodity:

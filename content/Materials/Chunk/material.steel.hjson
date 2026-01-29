@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.68.1"
 	name: "Steel Chunk"
 	name_short: "St. Chunk"
+	name_imperial: "Styl"
 	name_dumb: "Iron"
 	description:
 		'''
@@ -147,7 +148,6 @@
 		carving:
 		{
 			h_material: steel.powder
-			h_substance: "null"
 			
 			flags: none
 			flags_product: residue
@@ -157,7 +157,6 @@
 		cutting:
 		{
 			h_material: scrap.steel
-			h_substance: "null"
 			
 			flags: none
 			flags_product: waste
@@ -167,7 +166,6 @@
 		drilling:
 		{
 			h_material: steel.powder
-			h_substance: "null"
 			
 			flags: none
 			flags_product: residue
@@ -177,7 +175,6 @@
 		smithing:
 		{
 			h_material: steel
-			h_substance: "null"
 			
 			flags: none
 			flags_product: waste
@@ -187,7 +184,6 @@
 		machining:
 		{
 			h_material: steel.powder
-			h_substance: "null"
 			
 			flags: none
 			flags_product: residue
@@ -197,7 +193,6 @@
 		sawing:
 		{
 			h_material: steel.powder
-			h_substance: "null"
 			
 			flags: none
 			flags_product: residue
@@ -207,7 +202,6 @@
 		grinding:
 		{
 			h_material: ferronickel.powder
-			h_substance: "null"
 			
 			flags: none
 			flags_product: waste

@@ -1,8 +1,8 @@
 ﻿{
-	$version: "0.1.68.0"
+	$version: "0.1.68.1"
 	name: "Saltpeter"
 	name_short: "Saltpeter"
-	name_imperial: "Petrsel"
+	name_imperial: "Petrsalcr"
 	name_advanced: "Potassium Nitrate"
 	name_dumb: "Salt Ore"
 	description:

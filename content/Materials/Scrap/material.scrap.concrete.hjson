@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.68.0"
+	$version: "0.1.68.1"
 	name: "Concrete Debris"
 	name_short: "Cnc. Debris"
+	name_imperial: "Betosrot"
 	description:
 		'''
 		Chunks of destitute concrete that couldn't cope with the pressure.

@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.63.8"
+	$version: "0.1.68.1"
 	name: "Steel Frames"
 	name_short: "St. Frames"
+	name_imperial: "Stylfram"
 	name_dumb: "Frame"
 	description:
 		'''
@@ -17,17 +18,26 @@
 		frame: [3, 0]
 	}
 	
+	// Inventory material type.
 	type: metal_frame
 	flags: hard, magnetic, granular, metal, small, thin, manufactured, flexible, solid, processed
 	display_flags: none
 	hints: none
 	
+	// Ratio of the material volume to the total volume it occupies when stacked. A value of 1.0 means no empty space, while a value closer to 0.0 means a lot of empty space.
+	packing_fraction: 0.000
+	// General purity modifier.
 	purity: 0.953
+	// Mass of 1 unit in kg.
 	mass_per_unit: 2.500
 	
+	// Maximum quantity (units) per stack.
 	quantity_max: 250.000
+	// Minimum spawnable quantity.
 	spawn_quantity_threshold: 0.100
+	// Preferred quantity snapping for recipes.
 	snapping: 0.100
+	// Preferred quantity snapping for inventories.
 	snapping_pickup: 50.000
 	
 	prefab: resource.steel.frames
@@ -41,6 +51,7 @@
 	centroid_default: [0.000, 0.250]
 	colliders: []
 	
+	// Damage-based conversions.
 	conversions:
 	{
 		explosion:
@@ -51,7 +62,6 @@
 			ratio: 0.220
 			ratio_extra: 0.710
 			
-			h_material_waste: "null"
 			spawn_flags_waste: none
 			product_flags_waste: none
 			ratio_waste: 0.000
@@ -79,7 +89,6 @@
 			ratio: 0.010
 			ratio_extra: 0.070
 			
-			h_material_waste: "null"
 			spawn_flags_waste: none
 			product_flags_waste: none
 			ratio_waste: 0.000
@@ -107,7 +116,6 @@
 			ratio: 0.910
 			ratio_extra: 0.060
 			
-			h_material_waste: "null"
 			spawn_flags_waste: merge, no_offset
 			product_flags_waste: none
 			ratio_waste: 0.000
@@ -129,7 +137,6 @@
 		}
 		sledgehammer:
 		{
-			h_material: "null"
 			spawn_flags: none
 			product_flags: none
 			ratio: 1.000
@@ -185,12 +192,13 @@
 		}
 	}
 	
+	// Residues from crafting/work.
 	residues:
 	{
 		snipping.metal:
 		{
 			h_material: scrap.steel
-			h_substance: "null"
+			
 			flags: none
 			flags_product: residue
 			
@@ -199,7 +207,7 @@
 		carving:
 		{
 			h_material: steel.powder
-			h_substance: "null"
+			
 			flags: none
 			flags_product: residue
 			
@@ -208,7 +216,7 @@
 		cutting:
 		{
 			h_material: scrap.steel
-			h_substance: "null"
+			
 			flags: none
 			flags_product: residue
 			
@@ -217,7 +225,7 @@
 		drilling:
 		{
 			h_material: steel.powder
-			h_substance: "null"
+			
 			flags: none
 			flags_product: residue
 			
@@ -226,7 +234,7 @@
 		smithing:
 		{
 			h_material: scrap.ferrous
-			h_substance: "null"
+			
 			flags: none
 			flags_product: residue
 			
@@ -235,7 +243,7 @@
 		machining:
 		{
 			h_material: ferronickel.powder
-			h_substance: "null"
+			
 			flags: none
 			flags_product: residue
 			
@@ -244,7 +252,7 @@
 		sawing:
 		{
 			h_material: steel.powder
-			h_substance: "null"
+			
 			flags: none
 			flags_product: residue
 			
@@ -253,7 +261,7 @@
 		assembling:
 		{
 			h_material: scrap.machine
-			h_substance: "null"
+			
 			flags: none
 			flags_product: residue, byproduct
 			
@@ -262,7 +270,7 @@
 		dismantling:
 		{
 			h_material: scrap.machine
-			h_substance: "null"
+			
 			flags: none
 			flags_product: residue
 			
@@ -271,7 +279,7 @@
 		construction:
 		{
 			h_material: scrap.ferrous
-			h_substance: "null"
+			
 			flags: none
 			flags_product: residue
 			
@@ -280,7 +288,7 @@
 		bending:
 		{
 			h_material: scrap.steel
-			h_substance: "null"
+			
 			flags: none
 			flags_product: residue
 			
@@ -289,7 +297,7 @@
 		filing:
 		{
 			h_material: steel.powder
-			h_substance: "null"
+			
 			flags: none
 			flags_product: residue
 			
@@ -298,7 +306,7 @@
 		carpentry:
 		{
 			h_material: scrap.steel
-			h_substance: "null"
+			
 			flags: none
 			flags_product: residue
 			
@@ -307,7 +315,7 @@
 		search.components:
 		{
 			h_material: scrap.metal
-			h_substance: "null"
+			
 			flags: none
 			flags_product: waste, residue
 			

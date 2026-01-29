@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.68.1"
 	name: "Copper Chunk"
 	name_short: "Cop. Chunk"
+	name_imperial: "Kopr"
 	description:
 		'''
 		Solid chunk of deformed copper, usually a result of poor craftsmanship or bad smelting.
@@ -112,13 +113,11 @@
 	{
 		sledgehammer:
 		{
-			h_material: "null"
 			spawn_flags: merge
 			product_flags: none
 			ratio: 0.390
 			ratio_extra: 0.420
 			
-			h_material_waste: "null"
 			spawn_flags_waste: merge
 			product_flags_waste: none
 			ratio_waste: 0.650
@@ -146,7 +145,6 @@
 		hammering:
 		{
 			h_material: scrap.copper
-			h_substance: "null"
 			
 			flags: none
 			flags_product: waste
@@ -156,7 +154,6 @@
 		filing:
 		{
 			h_material: copper.powder
-			h_substance: "null"
 			
 			flags: none
 			flags_product: residue
@@ -166,7 +163,6 @@
 		snipping.metal:
 		{
 			h_material: scrap.copper
-			h_substance: "null"
 			
 			flags: none
 			flags_product: waste

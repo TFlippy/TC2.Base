@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.68.1"
 	name: "Glass"
 	name_short: "Glass"
+	name_imperial: "Vokno"
 	name_dumb: "Window"
 	description:
 		'''

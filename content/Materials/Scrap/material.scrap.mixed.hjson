@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.68.0"
+	$version: "0.1.68.1"
 	name: "Mixed Scrap"
 	name_short: "Mix. Scrap"
+	name_imperial: "Multisrot"
 	description:
 		'''
 		Extremely unsorted pile of assorted garbage. 

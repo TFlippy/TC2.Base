@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.65.1"
+	$version: "0.1.68.1"
 	name: "Silver Powder"
 	name_short: "Sv. Powder"
+	name_imperial: "Spejblpulvr"
 	description:
 		'''
 		Standard fine-grained silver powderswarf.
@@ -50,7 +51,7 @@
 	color_dust: "0xfff4fbf8"
 	color_gib: "0xfff4fbf8"
 	
-	centroid_default: [0.000, 0.250]
+	centroid_default: [0.000, 0.750]
 	colliders: []
 	
 	commodity:

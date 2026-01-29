@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.68.1"
 	name: "Recondite Sheet"
 	name_short: "Rec. Sheet"
+	name_imperial: "Rekonplat"
 	description:
 		'''
 		Standard 60x20x0.25 cm recondite sheet.

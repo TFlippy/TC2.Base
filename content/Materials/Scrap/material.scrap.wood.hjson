@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.68.0"
+	$version: "0.1.68.1"
 	name: "Wooden Debris"
 	name_short: "Wood Db."
+	name_imperial: "Drevosrot"
 	description:
 		'''
 		Remains of something that used to be made of wood.

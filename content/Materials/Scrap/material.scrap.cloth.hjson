@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.68.0"
+	$version: "0.1.68.1"
 	name: "Tattered Cloth"
 	name_short: "Tatters"
+	name_imperial: "Hadrsrot"
 	description:
 		'''
 		Ragged scraps of rugged rags.  

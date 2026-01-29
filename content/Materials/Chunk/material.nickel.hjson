@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.68.1"
 	name: "Nickel Chunk"
 	name_short: "Ni. Chunk"
+	name_imperial: "Nikl"
 	name_dumb: "Gold"
 	description:
 		'''
@@ -113,13 +114,11 @@
 	{
 		sledgehammer:
 		{
-			h_material: "null"
 			spawn_flags: merge
 			product_flags: none
 			ratio: 0.390
 			ratio_extra: 0.420
 			
-			h_material_waste: "null"
 			spawn_flags_waste: merge
 			product_flags_waste: none
 			ratio_waste: 0.650

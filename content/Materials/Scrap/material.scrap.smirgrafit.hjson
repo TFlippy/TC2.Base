@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.68.0"
+	$version: "0.1.68.1"
 	name: "Smirgrafit Scrap"
 	name_short: "Sgft. Scrap"
+	name_imperial: "Smirgrafosrot"
 	description:
 		'''
 		Shards of defeated smirgrafit. 

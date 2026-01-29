@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.68.0"
+	$version: "0.1.68.1"
 	name: "Steel Scrap"
 	name_short: "St. Scrap"
+	name_imperial: "Stylsrot"
 	description:
 		'''
 		Mostly clean nickelsteel scrap. 

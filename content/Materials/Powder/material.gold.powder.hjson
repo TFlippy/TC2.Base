@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.65.1"
+	$version: "0.1.68.1"
 	name: "Gold Powder"
 	name_short: "Gd. Powder"
+	name_imperial: "Zlopulvr"
 	description:
 		'''
 		Standard fine-grained gold powderswarf, and indicator of gold processing.

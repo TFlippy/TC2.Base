@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.67.2"
+	$version: "0.1.68.1"
 	name: "Copper Sheet"
 	name_short: "Cop. Sheet"
+	name_imperial: "Koprplat"
 	description:
 		'''
 		Standard 60x20x0.25 cm copper sheet.

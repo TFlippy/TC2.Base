@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.68.1"
 	name: "Copper (Gravel)"
 	name_short: "Cop. Gravel"
+	name_imperial: "Koprsterk"
 	description:
 		'''
 		Standard arsenic-sulfur-contaminated copper gravel.
@@ -16,16 +17,24 @@
 		frame: [3, 0]
 	}
 	
+	// Inventory material type.
 	type: gravel
 	flags: hard, granular, toxic, metal, small, raw, gravel, solid, impure, contaminated
 	display_flags: none
 	hints: none
 	
+	// Ratio of the material volume to the total volume it occupies when stacked. A value of 1.0 means no empty space, while a value closer to 0.0 means a lot of empty space.
+	packing_fraction: 0.000
+	// Mass of 1 unit in kg.
 	mass_per_unit: 1.150
 	
+	// Maximum quantity (units) per stack.
 	quantity_max: 500.000
+	// Minimum spawnable quantity.
 	spawn_quantity_threshold: 1.000
+	// Preferred quantity snapping for recipes.
 	snapping: 1.000
+	// Preferred quantity snapping for inventories.
 	snapping_pickup: 1.000
 	
 	form_type: gravel
@@ -40,6 +49,7 @@
 	centroid_default: [0.000, 0.250]
 	colliders: []
 	
+	// Info regarding relations of other materials towards this material.
 	related:
 	{
 		copper: none

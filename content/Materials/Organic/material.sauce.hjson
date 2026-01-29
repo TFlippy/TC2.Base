@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.68.1"
 	name: "Universal Brown Sauce"
 	name_short: "Sauce"
+	name_imperial: "UHO"
 	name_dumb: "Food"
 	description:
 		'''

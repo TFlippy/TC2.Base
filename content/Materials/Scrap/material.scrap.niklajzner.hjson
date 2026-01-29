@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.68.0"
+	$version: "0.1.68.1"
 	name: "Niklajzner Scrap"
 	name_short: "Nkz. Scrap"
+	name_imperial: "Niklsrot"
 	description:
 		'''
 		Discarded niklajzner bits of fun sizes.

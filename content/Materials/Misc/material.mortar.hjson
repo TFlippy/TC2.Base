@@ -1,12 +1,13 @@
 ﻿{
-	$version: "0.1.64.1"
-	$note: 
-	'''
-		TODO: Realistically, wet mortar can't be really stored, since it starts hardening once water is added to it.
-		I'll need to add some way to simulate that, but without it being too much annoying gameplay-wise.
-	'''
+	$version: "0.1.68.1"
+	$note:
+		'''
+			TODO: Realistically, wet mortar can't be really stored, since it starts hardening once water is added to it.
+			I'll need to add some way to simulate that, but without it being too much annoying gameplay-wise.
+		'''
 	name: "Mortar"
 	name_short: "Mortar"
+	name_imperial: "Pastus"
 	name_dumb: "Putty"
 	description:
 		'''

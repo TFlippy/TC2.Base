@@ -1,8 +1,8 @@
 ﻿{
-	$version: "0.1.66.1"
+	$version: "0.1.68.1"
 	name: "Soil"
 	name_short: "Soil"
-	name_imperial: "Padrt"
+	name_imperial: "Zeman"
 	description:
 		'''
 		Regular soil, fairly fertile.

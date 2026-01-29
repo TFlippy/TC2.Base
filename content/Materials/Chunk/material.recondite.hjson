@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.68.1"
 	name: "Recondite Chunk"
 	name_short: "Rec. Chunk"
+	name_imperial: "Rekondit"
 	description:
 		'''
 		Standard deformed chunk of alloyed silver and smirglum.

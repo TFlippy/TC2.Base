@@ -1,8 +1,8 @@
 ﻿{
-	$version: "0.1.65.3"
+	$version: "0.1.68.1"
 	name: "Nitrosugar"
 	name_short: "Nitrosugar"
-	name_imperial: "Nitrocukker"
+	name_imperial: "Nitrocukrus"
 	name_advanced: "Nitrated Glycitol Compound"
 	name_dumb: "Ruby"
 	description:

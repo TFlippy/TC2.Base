@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.68.0"
+	$version: "0.1.68.1"
 	name: "Mixed Metal Scrap"
 	name_short: "Metal Scrap"
+	name_imperial: "Kovosrot"
 	description:
 		'''
 		Messy heap of either unimaginably precious or utterly worthless metal.

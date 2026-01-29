@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.68.1"
 	name: "Arcanite Chunk"
 	name_short: "Arc. Chunk"
+	name_imperial: "Arkanit"
 	description:
 		'''
 		Standard mangled chunk of a gold and smirglum alloy.

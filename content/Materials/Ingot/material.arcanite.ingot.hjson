@@ -1,8 +1,8 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.68.1"
 	name: "Arcanite Brick"
 	name_short: "Arc. Brick"
-	name_imperial: "Arkanit"
+	name_imperial: "Arkoblok"
 	description:
 		'''
 		Standard 20x10x8 cm arcanite brick, a gold and smirglum alloy.

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.68.1"
 	$note:
 		'''
 		- Hexagonal prism shape, roughly 4.3cm wide, 5cm high, with each side being about 2.15cm
@@ -7,7 +7,7 @@
 		'''
 	name: "Pellets"
 	name_short: "Pellets"
-	name_imperial: "Smirglpelet"
+	name_imperial: "Arkpelet"
 	description:
 		'''
 		Small solid hexagonal-prism pellets made of pure smirglum.

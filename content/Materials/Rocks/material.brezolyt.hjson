@@ -1,8 +1,9 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.68.1"
 	$note: "Based on dolomite, alabaster, gypsum."
 	name: "Brezolyt"
 	name_short: "Brezolyt"
+	name_imperial: "Brezolyt"
 	name_dumb: "Stone"
 	description:
 		'''
@@ -24,6 +25,8 @@
 	display_flags: none
 	hints: none
 	
+	// Ratio of the material volume to the total volume it occupies when stacked. A value of 1.0 means no empty space, while a value closer to 0.0 means a lot of empty space.
+	packing_fraction: 0.000
 	// Mass of 1 unit in kg.
 	mass_per_unit: 0.866
 	
@@ -38,7 +41,6 @@
 	
 	form_type: chunk
 	prefab: resource.brezolyt
-	h_substance: "null"
 	
 	color_icon: "0xffffffff"
 	color_item: "0xffffffff"
