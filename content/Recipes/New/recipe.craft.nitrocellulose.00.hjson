@@ -342,6 +342,107 @@
 					}
 				}
 				{
+					name: "Cloth"
+					
+					type: undefined
+					flags: wip
+					discard_damage_type_override: corrosion
+					
+					suffix: "-cloth"
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: scrap.cloth
+							amount: 2.744195
+							snapping: 0.100
+							loss: 0.839
+							ratio: 1.000
+							group: 0
+							flags: primary, prerequisite
+						}
+						{
+							type: temperature
+							amount: 304.400
+							amount_min: 323.000
+							amount_max: 438.000
+							group: 0
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: work
+							work: nitration
+							amount: 71.000
+							amount_min: 80.000
+							difficulty: 5
+							step_max: 10
+							snapping: 5.000
+							falloff: 0.911
+							loss: 0.125
+							ratio: 0.125
+							group: 0
+							flags: stepped, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: nitrocellulose
+							amount: 0.3441
+							amount_extra: 0.054
+							snapping: 0.010
+							group: 0
+							ratio: 0.396
+							flags: primary, compact, scale_to_mass
+							spawn_flags: merge, pickup, show_notification
+						}
+						{
+							type: resource
+							material: mush
+							amount: 0.664
+							amount_extra: 0.214
+							snapping: 0.100
+							group: 0
+							ratio: 0.420
+							flags: waste, residue, scale_to_mass
+						}
+						{
+							type: resource
+							material: water.toxic
+							amount: 0.613
+							amount_extra: 0.266
+							snapping: 0.100
+							group: 0
+							ratio: 0.310
+							flags: pollutant, waste, scale_to_mass
+						}
+						{
+							type: resource
+							material: sludge
+							amount: 0.593
+							amount_extra: 0.334
+							snapping: 0.100
+							group: 0
+							ratio: 0.161
+							flags: pollutant, waste, scale_to_mass
+						}
+					]
+					
+					purity_modifier: 0.695
+					quality_modifier: 0.603
+					yield_modifier: 0.525
+					failure_chance: 0.200
+					
+					filter_infrastructure:
+					{
+						require: liquid_container
+						include: cauldron, lab_glassware, dishes, bottle, bucket, liquid_container
+					}
+				}
+				{
 					name: "Sawdust"
 					
 					type: undefined
@@ -522,9 +623,19 @@
 							amount_extra: 0.3615
 							snapping: 0.100
 							group: 0
-							ratio: 0.145
+							ratio: 0.137
 							flags: primary, scale_to_mass
 							spawn_flags: merge, pickup, show_notification
+						}
+						{
+							type: resource
+							material: water.toxic
+							amount: 0.929
+							amount_extra: 0.130
+							snapping: 0.100
+							group: 0
+							ratio: 0.616
+							flags: waste, scale_to_mass
 						}
 					]
 					
