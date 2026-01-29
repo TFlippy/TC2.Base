@@ -1,5 +1,4 @@
 ﻿{
-	$region_id: 0
 	$version: "0.1.68.1"
 	name: "Nitro"
 	desc:
@@ -10,7 +9,7 @@
 	
 	related_materials:
 	{
-		nitrocellulose: chemical, product, result
+		nitrocellulose: reaction, chemical, powdered, product, result, manufactured, processed
 	}
 	
 	stages:
@@ -29,122 +28,6 @@
 			
 			options:
 			[
-				{
-					name: "Salty"
-					
-					type: undefined
-					flags: none
-					discard_damage_type_override: heat
-					
-					prefix: "Salty "
-					
-					requirements:
-					[
-						{
-							type: resource
-							material: saltpeter
-							amount: 1.627273
-							snapping: 0.100
-							loss: 0.353
-							ratio: 1.000
-							group: 0
-							flags: prerequisite
-						}
-						{
-							type: resource
-							material: water
-							amount: 1.634
-							snapping: 0.100
-							loss: 0.361
-							ratio: 1.000
-							group: 0
-							flags: prerequisite
-						}
-						{
-							type: work
-							work: dissolving
-							amount: 40.000
-							amount_min: 50.000
-							difficulty: 5
-							step_max: 10
-							snapping: 10.000
-							falloff: 0.752
-							group: 0
-							flags: simultaneous, conditional
-						}
-						{
-							type: resource
-							material: sulfuric_acid
-							amount: 1.912195
-							snapping: 0.100
-							loss: 0.318
-							ratio: 1.000
-							group: 1
-							flags: prerequisite
-						}
-						{
-							type: temperature
-							amount: 323.600
-							amount_min: 343.000
-							amount_max: 365.000
-							falloff: 0.791
-							group: 1
-							flags: no_scaling, always_evaluate
-						}
-						{
-							type: work
-							work: mixing.liquid
-							amount: 95.000
-							amount_min: 80.000
-							difficulty: 8
-							step_max: 10
-							snapping: 5.000
-							falloff: 0.732
-							group: 1
-							flags: simultaneous, conditional
-						}
-					]
-					
-					products:
-					[
-						{
-							type: resource
-							material: sulfur_dioxide
-							amount: 0.0981
-							amount_extra: 0.0663
-							snapping: 0.100
-							group: 0
-							ratio: 0.180
-							flags: pollutant, waste, spawn, use_temperature, scale_to_mass
-							spawn_flags: merge, no_discard
-						}
-						{
-							type: resource
-							material: sludge
-							amount: 0.138
-							amount_extra: 0.092
-							snapping: 0.100
-							group: 0
-							ratio: 0.557
-							flags: waste, scale_to_mass
-						}
-					]
-					
-					purity_modifier: 0.677
-					quality_modifier: 0.610
-					yield_modifier: 0.663
-					failure_chance: 0.361
-					
-					filter_tools:
-					{
-						include: shovel, spatula
-					}
-					filter_infrastructure:
-					{
-						require: liquid_container
-						include: cauldron, liquid_container
-					}
-				}
 				{
 					name: "Standard"
 					
@@ -203,23 +86,13 @@
 					[
 						{
 							type: resource
-							material: sulfur_dioxide
-							amount: 0.1291
-							amount_extra: 0.0663
-							snapping: 0.100
-							group: 0
-							ratio: 0.145
-							flags: pollutant, waste, spawn, use_temperature, scale_to_mass
-							spawn_flags: merge, no_discard
-						}
-						{
-							type: resource
 							material: sulfuric_acid
 							amount: 0.0931
 							amount_extra: 0.2153
 							snapping: 0.100
 							group: 0
-							flags: residue, byproduct
+							ratio: 0.165
+							flags: residue, byproduct, scale_to_mass
 						}
 					]
 					
@@ -234,71 +107,72 @@
 					}
 					filter_infrastructure:
 					{
-						require: liquid_container
-						include: cauldron, liquid_container
+						include: liquid_container
 					}
 				}
 				{
-					name: "Cooled"
+					name: "Salty"
 					
 					type: undefined
 					flags: none
 					discard_damage_type_override: heat
 					
-					prefix: "Cooled "
+					prefix: "Salty "
 					
 					requirements:
 					[
 						{
 							type: resource
-							material: sulfuric_acid
-							amount: 1.626016
+							material: saltpeter
+							amount: 0.818182
 							snapping: 0.100
-							loss: 0.541
+							loss: 0.243
 							ratio: 1.000
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: resource
-							material: nitric_acid
-							amount: 0.723589
+							material: water
+							amount: 0.864
 							snapping: 0.100
-							loss: 0.980
+							loss: 0.302
 							ratio: 1.000
 							group: 0
 							flags: prerequisite
 						}
 						{
-							type: temperature
-							amount: 273.600
-							amount_min: 258.000
-							amount_max: 283.000
-							falloff: 0.791
-							group: 0
-							flags: no_scaling, always_evaluate, prerequisite
-						}
-						{
 							type: work
-							work: cooling
-							amount: 80.000
-							amount_min: 100.000
-							difficulty: 4
+							work: dissolving
+							amount: 40.000
+							amount_min: 50.000
+							difficulty: 5
+							step_max: 10
 							snapping: 10.000
-							falloff: 0.755
+							falloff: 0.752
 							group: 0
 							flags: simultaneous, conditional
 						}
 						{
+							type: resource
+							material: sulfuric_acid
+							amount: 1.700813
+							snapping: 0.100
+							loss: 0.345
+							ratio: 1.000
+							group: 1
+							flags: prerequisite
+						}
+						{
 							type: work
 							work: mixing.liquid
-							amount: 80.000
-							amount_min: 70.000
-							difficulty: 7
+							amount: 95.000
+							amount_min: 80.000
+							difficulty: 8
 							step_max: 10
-							snapping: 10.000
-							falloff: 0.713
-							group: 0
+							snapping: 5.000
+							falloff: 0.729
+							group: 1
 							flags: simultaneous, conditional
 						}
 					]
@@ -307,19 +181,30 @@
 					[
 						{
 							type: resource
-							material: sulfuric_acid
-							amount: 0.184297
-							amount_extra: 0.364809
+							material: water.toxic
+							amount: 0.153193
+							amount_extra: 0.0821
 							snapping: 0.100
 							group: 0
-							flags: residue, byproduct
+							ratio: 0.459
+							flags: waste, scale_to_mass
+						}
+						{
+							type: resource
+							material: sludge
+							amount: 0.138
+							amount_extra: 0.134
+							snapping: 0.100
+							group: 0
+							ratio: 0.624
+							flags: waste, scale_to_mass
 						}
 					]
 					
-					purity_modifier: 0.975
-					quality_modifier: 0.988
-					yield_modifier: 0.941
-					failure_chance: 0.129
+					purity_modifier: 0.677
+					quality_modifier: 0.610
+					yield_modifier: 0.663
+					failure_chance: 0.361
 					
 					filter_tools:
 					{
@@ -328,7 +213,7 @@
 					filter_infrastructure:
 					{
 						require: liquid_container
-						include: cauldron, liquid_container
+						include: cauldron, lab_glassware, bucket, liquid_container, blender, form
 					}
 				}
 			]
@@ -352,7 +237,7 @@
 					
 					type: undefined
 					flags: wip
-					discard_damage_type_override: heat
+					discard_damage_type_override: corrosion
 					
 					suffix: "-paper"
 					
@@ -363,7 +248,7 @@
 							material: paper
 							amount: 2.277986
 							snapping: 0.100
-							loss: 0.843
+							loss: 0.890
 							ratio: 1.000
 							group: 0
 							flags: argument, primary, prerequisite
@@ -381,8 +266,8 @@
 							work: nitration
 							amount: 40.000
 							amount_min: 70.000
-							difficulty: 5
-							step_max: 5
+							difficulty: 6
+							step_max: 10
 							snapping: 5.000
 							falloff: 0.871
 							group: 0
@@ -396,10 +281,10 @@
 							type: resource
 							material: nitrocellulose
 							amount: 0.7081
-							amount_extra: 0.107
+							amount_extra: 0.137
 							snapping: 0.010
 							group: 0
-							ratio: 0.239
+							ratio: 0.412
 							flags: primary, compact, scale_to_mass
 							spawn_flags: merge, pickup, show_notification
 						}
@@ -410,7 +295,7 @@
 							amount_extra: 0.305
 							snapping: 0.100
 							group: 0
-							ratio: 0.145
+							ratio: 0.125
 							flags: waste, residue, scale_to_mass
 						}
 						{
@@ -425,29 +310,149 @@
 						}
 						{
 							type: resource
+							material: glue
+							amount: 0.587
+							amount_extra: 0.421
+							snapping: 0.100
+							group: 0
+							ratio: 0.263
+							flags: residue, byproduct, scale_to_mass
+						}
+						{
+							type: resource
 							material: water.toxic
 							amount: 0.929
 							amount_extra: 0.130
 							snapping: 0.100
 							group: 0
-							ratio: 0.165
+							ratio: 0.612
 							flags: waste, scale_to_mass
 						}
 					]
 					
-					purity_modifier: 0.866
+					purity_modifier: 0.890
 					quality_modifier: 0.863
 					yield_modifier: 0.925
-					failure_chance: 0.216
+					failure_chance: 0.314
 					
-					filter_tools:
-					{
-						include: bucket, ladle
-					}
 					filter_infrastructure:
 					{
-						include: bottle, liquid_container
+						require: liquid_container
+						include: cauldron, lab_glassware, dishes, bottle, bucket, liquid_container
 					}
+				}
+				{
+					name: "Sawdust"
+					
+					type: undefined
+					flags: wip
+					discard_damage_type_override: corrosion
+					
+					suffix: "-sawdust"
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: sawdust
+							amount: 6.01421
+							snapping: 0.100
+							loss: 0.616
+							ratio: 1.000
+							group: 0
+							flags: primary, prerequisite
+						}
+						{
+							type: temperature
+							amount: 304.400
+							amount_min: 319.000
+							amount_max: 372.000
+							group: 0
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: work
+							work: nitration
+							amount: 75.000
+							amount_min: 70.000
+							difficulty: 4
+							step_max: 5
+							snapping: 5.000
+							falloff: 0.881
+							ratio: 0.306
+							group: 0
+							flags: stepped, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: nitrocellulose
+							amount: 0.2121
+							amount_extra: 0.356
+							snapping: 0.010
+							group: 0
+							ratio: 0.239
+							flags: primary, compact, scale_to_mass
+							spawn_flags: merge, pickup, show_notification
+						}
+						{
+							type: resource
+							material: mush
+							amount: 0.628
+							amount_extra: 0.305
+							snapping: 0.100
+							group: 0
+							ratio: 0.333
+							flags: waste, residue, scale_to_mass
+						}
+						{
+							type: resource
+							material: sludge
+							amount: 0.628
+							amount_extra: 0.266
+							snapping: 0.100
+							group: 0
+							ratio: 0.565
+							flags: pollutant, waste, scale_to_mass
+						}
+						{
+							type: resource
+							material: water.toxic
+							amount: 0.929
+							amount_extra: 0.130
+							snapping: 0.100
+							group: 0
+							ratio: 0.224
+							flags: waste, scale_to_mass
+						}
+					]
+					
+					purity_modifier: 0.695
+					quality_modifier: 0.603
+					yield_modifier: 0.525
+					failure_chance: 0.200
+					
+					filter_infrastructure:
+					{
+						require: liquid_container
+						include: cauldron, lab_glassware, dishes, bottle, bucket, liquid_container
+					}
+				}
+			]
+			
+			products:
+			[
+				{
+					type: resource
+					material: nitrocellulose
+					amount: 0.000
+					snapping: 0.010
+					group: 0
+					flags: primary, compact, scale_to_mass
+					spawn_flags: merge, pickup, show_notification
 				}
 			]
 		}
@@ -513,7 +518,7 @@
 						{
 							type: resource
 							material: nitrocellulose
-							amount: 0.2953
+							amount: 0.1613
 							amount_extra: 0.3615
 							snapping: 0.100
 							group: 0
@@ -521,22 +526,22 @@
 							flags: primary, scale_to_mass
 							spawn_flags: merge, pickup, show_notification
 						}
-						{
-							type: resource
-							material: scrap.cloth
-							amount: 0.587
-							amount_extra: 0.421
-							snapping: 0.100
-							group: 0
-							ratio: 0.188
-							flags: waste, residue, scale_to_mass
-						}
 					]
 					
 					purity_modifier: 0.521
 					quality_modifier: 0.631
 					yield_modifier: 0.745
 					failure_chance: 0.078
+					
+					filter_tools:
+					{
+						include: bucket, towel
+					}
+					filter_environment:
+					{
+						include: warm, container, disinfected, sterile, clean
+						exclude: polluted
+					}
 				}
 			]
 		}
@@ -578,6 +583,11 @@
 					quality_modifier: 0.886
 					yield_modifier: 0.808
 					failure_chance: 0.082
+					
+					filter_environment:
+					{
+						exclude: wet
+					}
 				}
 			]
 		}
