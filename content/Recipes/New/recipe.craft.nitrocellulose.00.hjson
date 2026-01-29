@@ -1,0 +1,387 @@
+﻿{
+	$region_id: 0
+	$version: "0.1.68.1"
+	name: "Nitrocellulose"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	tips: []
+	
+	related_materials:
+	{
+		nitrocellulose: chemical, product, result
+	}
+	
+	stages:
+	[
+		{
+			name: "Solution"
+			
+			type: formula
+			flags: part, important
+			tags: material, formula, ingredient
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: wet
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Cooled"
+					
+					type: undefined
+					flags: none
+					
+					prefix: "Cooled "
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: sulfuric_acid
+							amount: 1.626016
+							snapping: 0.100
+							loss: 0.541
+							ratio: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: nitric_acid
+							amount: 0.723589
+							snapping: 0.100
+							loss: 0.980
+							ratio: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: temperature
+							amount: 273.600
+							amount_min: 258.000
+							amount_max: 283.000
+							falloff: 0.791
+							group: 0
+							flags: no_scaling, always_evaluate, prerequisite
+						}
+						{
+							type: work
+							work: cooling
+							amount: 80.000
+							amount_min: 100.000
+							difficulty: 4
+							snapping: 10.000
+							falloff: 0.755
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: mixing.liquid
+							amount: 80.000
+							amount_min: 70.000
+							difficulty: 7
+							step_max: 10
+							snapping: 10.000
+							falloff: 0.713
+							group: 0
+							flags: simultaneous, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: sulfuric_acid
+							amount: 0.184297
+							amount_extra: 0.364809
+							snapping: 0.100
+							group: 0
+							flags: residue, byproduct
+						}
+					]
+					
+					purity_modifier: 0.975
+					quality_modifier: 0.988
+					yield_modifier: 0.941
+					failure_chance: 0.122
+					
+					filter_tools:
+					{
+						include: shovel, spatula
+					}
+					filter_infrastructure:
+					{
+						require: liquid_container
+						include: cauldron, liquid_container
+					}
+				}
+			]
+		}
+		{
+			name: "Material"
+			
+			type: ingredients
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: corrosion
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Paper"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: paper
+							amount: 1.000
+							snapping: 0.100
+							loss: 0.843
+							ratio: 1.000
+							group: 0
+							flags: argument, primary, prerequisite
+						}
+						{
+							type: work
+							work: nitration
+							amount: 40.000
+							amount_min: 70.000
+							difficulty: 5
+							step_max: 5
+							snapping: 5.000
+							falloff: 0.871
+							group: 0
+							flags: stepped, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: nitrocellulose
+							amount: 0.7081
+							amount_extra: 0.122
+							snapping: 0.010
+							group: 0
+							flags: primary, compact
+						}
+						{
+							type: resource
+							material: mush
+							amount: 0.628
+							amount_extra: 0.305
+							snapping: 0.100
+							group: 0
+							ratio: 0.145
+							flags: waste, residue, scale_to_mass
+						}
+						{
+							type: resource
+							material: sludge
+							amount: 0.628
+							amount_extra: 0.305
+							snapping: 0.100
+							group: 0
+							ratio: 0.125
+							flags: pollutant, waste, scale_to_mass
+						}
+						{
+							type: resource
+							material: water.toxic
+							amount: 0.929
+							amount_extra: 0.130
+							snapping: 0.100
+							group: 0
+							ratio: 0.165
+							flags: waste, scale_to_mass
+						}
+					]
+					
+					filter_tools:
+					{
+						include: bucket, ladle
+					}
+					filter_infrastructure:
+					{
+						include: bottle, liquid_container
+					}
+				}
+			]
+		}
+		{
+			name: "Washing"
+			
+			type: cleaning
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Simple"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: wet
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: water
+							amount: 1.000
+							snapping: 0.500
+							falloff: 0.600
+							loss: 0.208
+							group: 0
+							flags: argument, primary, prerequisite
+						}
+						{
+							type: work
+							work: washing
+							amount: 100.000
+							amount_min: 70.000
+							difficulty: 6
+							step_max: 10
+							snapping: 25.000
+							falloff: 0.664
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: water.dirty
+							amount: 0.6007
+							amount_extra: 0.1138
+							snapping: 0.100
+							group: 0
+							ratio: 0.133
+							flags: waste, scale_to_mass
+						}
+						{
+							type: resource
+							material: nitrocellulose
+							amount: 0.3163
+							amount_extra: 0.5785
+							snapping: 0.100
+							group: 0
+							ratio: 0.212
+							flags: primary, scale_to_mass
+						}
+						{
+							type: resource
+							material: scrap.cloth
+							amount: 0.587
+							amount_extra: 0.421
+							snapping: 0.100
+							group: 0
+							ratio: 0.188
+							flags: waste, residue, scale_to_mass
+						}
+					]
+				}
+			]
+		}
+		{
+			name: "Drying"
+			
+			type: postprocessing
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: dessication
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Simple"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: dessication
+					
+					requirements:
+					[
+						{
+							type: work
+							work: drying
+							amount: 200.000
+							difficulty: 7
+							snapping: 5.000
+							group: 0
+							flags: no_scaling, conditional
+						}
+					]
+				}
+			]
+		}
+	]
+	
+	type: workshop
+	flags: production, wip
+	tags: complex, alchemistry, blending, refining, processing, messy, explosive, dangerous
+	hints: none
+	connotations: none
+	infrastructure: cauldron, barrel, bucket, liquid_container
+	infrastructure_exclude: personal
+	
+	icon:
+	{
+		texture: resource.nitrocellulose
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	icon_offset: [6.000, 2.000]
+	
+	icon_extra:
+	{
+		size: [16, 16]
+		frame: [1, 0]
+	}
+	icon_extra_offset: [-4.000, -8.000]
+	
+	icon_c:
+	{
+		texture: resource.nitric_acid
+		size: [16, 16]
+		frame: [1, 0]
+	}
+	icon_c_offset: [-15.000, -8.000]
+	
+	color_frame: "0xffcf392b"
+	color_button: "0xff9dd80f"
+	rank: -9.000
+	
+	min: 1
+	max: 50
+	step: 1
+	
+	version: 1
+}
