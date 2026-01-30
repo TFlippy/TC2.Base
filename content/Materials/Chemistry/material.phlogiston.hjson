@@ -1,12 +1,17 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.68.1"
+	$note:
+		'''
+		- Obtained through the ancient phlogiston pipelines
+		- Possibly something akin to hydronium stabilized through unknown means?
+		'''
 	name: "Phlogiston"
 	name_short: "Phlogiston"
 	name_imperial: "Plogiston"
 	name_dumb: "Fire"
 	description:
 		'''
-		Exotic oxygen-rich fuel capable of reaching incredibly high temperatures.
+		Extremely corrosive and volatile exotic liquid fuel obtained from ancient phlogiston pipelines.
 		'''
 	
 	tips: []
@@ -20,18 +25,18 @@
 	
 	// Inventory material type.
 	type: liquid
-	flags: liquid, explosive, toxic, chemical, bottled, corrosive, fragile, manufactured, fuel, flammable, volatile, primary
+	flags: liquid, explosive, toxic, chemical, bottled, corrosive, fragile, manufactured, fuel, flammable, volatile, processed, acidic, primary
 	display_flags: none
 	spawn_flags:
 	{
-		add: no_discard
+		add: allow_encumbered, show_notification, no_discard
 	}
-	hints: materials, dangerous, advanced, powerful, chemical, industrial
+	hints: materials, dangerous, explosive, advanced, powerful, destructive, chemical, industrial, arcane, imperial, fast, propulsion, unstable
 	
 	// Ratio of the material volume to the total volume it occupies when stacked. A value of 1.0 means no empty space, while a value closer to 0.0 means a lot of empty space.
 	packing_fraction: 0.000
 	// General purity modifier.
-	purity: 1.000
+	purity: 0.998
 	// Mass of 1 unit in kg.
 	mass_per_unit: 0.572
 	
@@ -40,7 +45,7 @@
 	// Minimum spawnable quantity.
 	spawn_quantity_threshold: 1.000
 	// Preferred quantity snapping for recipes.
-	snapping: 1.000
+	snapping: 0.100
 	// Preferred quantity snapping for inventories.
 	snapping_pickup: 50.000
 	
@@ -170,5 +175,11 @@
 		stability_mult: 1.000
 		
 		prefab: projectile.phlogiston
+	}
+	
+	// Info regarding relations of other materials towards this material.
+	related:
+	{
+		smrad.dust: component
 	}
 }
