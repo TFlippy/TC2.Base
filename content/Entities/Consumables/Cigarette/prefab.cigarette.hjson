@@ -12,7 +12,7 @@ body:
 	{
 		size: [0.800, 0.900]
 		offset: [0.000, 0.000]
-		mass: 0.250
+		mass: 0.500
 		radius: 0.125
 		friction: 0.800
 		elasticity: 0.400
@@ -25,6 +25,9 @@ body:
 holdable:
 {
 	offset: [0.250, 0.000]
+	force_multiplier: 0.800
+	torque_multiplier: 0.650
+	stress_multiplier: 0.800
 	flags: storable
 }
 

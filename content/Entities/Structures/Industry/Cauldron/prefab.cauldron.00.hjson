@@ -224,9 +224,9 @@ interactable:
 heat:
 {
 	temperature_medium: 440.9637
-	temperature_high: 1479.600
-	temperature_ignite: 1894.000
-	temperature_operating: 1534.303
+	temperature_high: 1079.600
+	temperature_ignite: 1594.000
+	temperature_operating: 1234.303
 	temperature_melt: 1644.000
 	temperature_breakdown: 3143.000
 	heat_capacity_mult: 1.200
@@ -234,7 +234,7 @@ heat:
 	smoke_size_mult: 0.800
 	smoke_speed_mult: 0.500
 	smoke_rise_mult: 1.000
-	cool_rate: 1.200
+	cool_rate: 1.450
 	flags: no_gui
 	fire_flags: no_self_damage
 	offset: [0.000, -0.875]

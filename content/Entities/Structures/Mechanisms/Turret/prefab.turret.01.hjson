@@ -19,15 +19,17 @@ body:
 		layer: entity, solid, vehicle, shield, conductive, magnetic
 		mask: world
 		exclude: none
+		
 		mass: 110.000
 		radius: 0.750
 		friction: 0.600
 		elasticity: 0.500
-
-		fall_damage_mult: 1.140
 		
-		a: [0.750, -0.625]
-		b: [0.875, 0.625]
+		fall_damage_mult: 1.140
+		cog_offset: [0.000, 0.000]
+		
+		a: [0.875, -0.625]
+		b: [0.750, 0.750]
 		offset: [0.000, 0.000]
 	}
 
@@ -115,9 +117,10 @@ faction:
 
 interactable:
 {
-	window_size: [160.000, 96.000]
+	flags: none
+	window_size: [196, 96]
+	window_size_misc: [48, 0]
 	window_offset: [0.000, 192.000]
-	window_size_misc: [48.000, 0.000]
 }
 
 mount:
@@ -161,8 +164,7 @@ threat:
 
 vehicle:
 {
-	inventory_type: ammo
-	flags: use_misc_window
+
 }
 
 +seat|instance:

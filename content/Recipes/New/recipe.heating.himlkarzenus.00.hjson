@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.0"
+	$version: "0.1.68.1"
 	name: "Himlkarzenus Decomposition"
 	desc:
 		'''
@@ -51,7 +51,7 @@
 							type: temperature
 							amount: 424.900
 							amount_min: 380.000
-							amount_max: 484.000
+							amount_max: 548.000
 							falloff: 0.477
 							group: 0
 							flags: no_scaling, always_evaluate, prerequisite

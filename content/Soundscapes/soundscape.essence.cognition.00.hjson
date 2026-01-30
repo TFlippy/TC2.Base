@@ -1,8 +1,40 @@
 ﻿{
-	$version: "0.1.67.1"
+	$version: "0.1.68.1"
 	color: "0xffb444f2"
 	
-	sounds_looped: []
+	sounds_looped:
+	[
+		{
+			sound: amb.mystery.loop.00
+			volume: 1.018
+			pitch: 0.570
+			
+			daytime_range: [0.000, 1.000]
+			
+			mix:
+			{
+				front_left: 0.840
+				front_right: 0.930
+				center: 0.170
+				lfe: 0.550
+			}
+		}
+		{
+			sound: amb.mystery.loop.01
+			volume: 0.661
+			pitch: 1.185
+			
+			daytime_range: [0.000, 1.000]
+			
+			mix:
+			{
+				center: 0.200
+				side_left: 2.000
+				back_left: 1.000
+				back_right: 1.000
+			}
+		}
+	]
 	
 	sounds_random:
 	[

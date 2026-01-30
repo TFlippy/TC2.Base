@@ -6,16 +6,25 @@ body:
 {
 	type: static
 	
-	@shape.box:
+	@shape.circle:
 	{
-		size: [2.000, 2.000]
-		offset: [0.000, 0.000]
+		material: wreck
+		miss_chance: 0.831
+		flags: none
+		tags: none
+		
+		layer: entity, background, ignore_melee
+		mask: world
+		exclude: none
+		
+		mass: 100.000
+		radius: 0.9375
 		friction: 0.500
 		elasticity: 0.500
-		mass: 100.000
-		material: wreck
-		layer: entity, ignore_melee, background
-		mask: world
+		
+		cog_offset: [0.000, 0.000]
+		
+		offset: [0.000, 0.000]
 	}
 }
 

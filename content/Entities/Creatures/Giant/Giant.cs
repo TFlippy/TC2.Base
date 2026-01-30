@@ -2,17 +2,12 @@
 {
 	public static partial class Giant
 	{
-		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
-		public partial struct Data: IComponent
+		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region)]
+		public partial struct Data(): IComponent
 		{
 			[Save.Ignore, Net.Ignore] public float next_pain;
 			[Save.Ignore, Net.Ignore] public float next_talk;
 			[Save.Ignore, Net.Ignore] public float next_scream;
-
-			public Data()
-			{
-
-			}
 		}
 
 		public static Sound.Handle[] snd_cough =
@@ -49,6 +44,7 @@
 		}
 
 #if SERVER
+		[Shitcode]
 		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		[HasTag("dead", false, Source.Modifier.Owned), HasTag("giant", true, Source.Modifier.Parent)]
 		public static void HeadUpdate(ISystem.Info info, Entity entity, ref XorRandom random, ref Region.Data region,
@@ -146,8 +142,8 @@
 
 							//ai_original.anger -= Maths.Min(ai_original.anger, random.NextFloatRange(50.00f, 300.00f));
 
-							giant.next_talk = time + random.NextFloatRange(15.00f, 50.00f);
-							head_state.t_next_sound = time + 1.00f;
+							giant.next_talk = time + random.NextFloatExtra(20.00f, 40.00f);
+							head_state.t_next_sound = time + 1.50f;
 						}
 					}
 				}
