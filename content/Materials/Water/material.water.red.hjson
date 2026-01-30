@@ -1,7 +1,14 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.68.1"
+	$note:
+		'''
+		- Red-colored water with an extremely sour taste, but not corrosive enough to cause damage
+		- Byproduct of processing red sugar its derivatives (usually the result of washing it with water)
+		- Toxic to humans and most kobolds, but enjoyed by some giants
+		'''
 	name: "Redwater"
 	name_short: "R.Water"
+	name_imperial: "Cervodka"
 	name_dumb: "Wine"
 	description:
 		'''
@@ -21,7 +28,7 @@
 	
 	// Inventory material type.
 	type: liquid
-	flags: liquid, toxic, chemical, bottled, manufactured, volatile, processed, acidic
+	flags: food, liquid, toxic, chemical, bottled, manufactured, processed, acidic, smelly
 	display_flags: sprite_stack_linear
 	spawn_flags:
 	{
@@ -58,12 +65,16 @@
 	// Info regarding relations of other materials towards this material.
 	related:
 	{
-		nitrosugar: similar
-		red_sugar: raw, source
-		tnt: product
-		nitric_acid: none
-		oil: none
-		prdex: product
-		toluene: none
+		nitrosugar: component, refined, similar, chemical, solidified, processed
+		red_sugar: raw, source, similar, ingredient, natural
+		tnt: refined, reaction, chemical, solidified, product, result, manufactured, processed
+		nitric_acid: component, chemical, ingredient, liquid
+		oil: component, impure, liquid
+		prdex: refined, purified, similar, chemical, product, result, manufactured, processed
+		toluene: component, impure, liquid
+		water: component, filler, liquid
+		nitroglycerine: component, source, similar, liquid
+		alcohol: component, liquid
+		nitrogen_dioxide: component, residue, gas, vapor
 	}
 }

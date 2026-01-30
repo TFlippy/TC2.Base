@@ -44,7 +44,7 @@
 							material: red_sugar
 							amount: 1.6205
 							snapping: 0.100
-							falloff: 1.034
+							falloff: 0.972
 							loss: 1.000
 							ratio: 1.000
 							group: 0
@@ -227,7 +227,7 @@
 							amount_extra: 0.130
 							snapping: 0.100
 							group: 0
-							ratio: 0.204
+							ratio: 0.639
 							flags: pollutant, waste, scale_to_mass
 						}
 						{
@@ -337,13 +337,13 @@
 					[
 						{
 							type: resource
-							material: water.toxic
-							amount: 0.929
-							amount_extra: 0.130
+							material: water.red
+							amount: 0.329
+							amount_extra: 0.480
 							snapping: 0.100
 							group: 0
 							ratio: 0.616
-							flags: waste, scale_to_mass
+							flags: pollutant, waste, residue, scale_to_mass
 						}
 						{
 							type: resource
