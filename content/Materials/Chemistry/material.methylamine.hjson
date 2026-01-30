@@ -1,0 +1,69 @@
+﻿{
+	$version: "0.1.68.1"
+	name: "Methylamine"
+	name_short: "Methylamine"
+	name_imperial: "Metylamin"
+	name_dumb: "Fish"
+	description:
+		'''
+		TODO: Desc
+		'''
+	
+	tips: []
+	
+	icon:
+	{
+		texture: resource.methylamine
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	// Inventory material type.
+	type: liquid
+	flags: liquid, toxic, chemical, bottled, fragile, flammable, volatile, processed, smelly, primary
+	display_flags: none
+	spawn_flags:
+	{
+		add: no_discard
+	}
+	hints: none
+	
+	// Ratio of the material volume to the total volume it occupies when stacked. A value of 1.0 means no empty space, while a value closer to 0.0 means a lot of empty space.
+	packing_fraction: 0.000
+	// General purity modifier.
+	purity: 0.763
+	// Mass of 1 unit in kg.
+	mass_per_unit: 0.628
+	
+	// Maximum quantity (units) per stack.
+	quantity_max: 500.000
+	// Minimum spawnable quantity.
+	spawn_quantity_threshold: 1.000
+	// Preferred quantity snapping for recipes.
+	snapping: 1.000
+	// Preferred quantity snapping for inventories.
+	snapping_pickup: 50.000
+	
+	form_type: packaged
+	prefab: resource.methylamine
+	h_substance: methylamine
+	
+	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
+	
+	centroid_default: [0.000, 0.250]
+	colliders: []
+	
+	// Info regarding relations of other materials towards this material.
+	related:
+	{
+		ammonia: similar
+		salmiac: similar
+		alcohol: reaction
+		rot: source
+		pestilence: source
+		meth: reaction, product
+	}
+}
