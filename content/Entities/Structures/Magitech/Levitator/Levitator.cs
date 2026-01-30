@@ -3,10 +3,8 @@ namespace TC2.Base.Components
 {
 	public static partial class Levitator
 	{
-		[Serializable]
 		public partial struct Node
 		{
-			[Serializable]
 			public partial struct Setting
 			{
 				public Keyboard.Key? key;

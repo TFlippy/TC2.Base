@@ -80,14 +80,14 @@ vehicle:
 {
 	flags: use_misc_window
 	
-	@animated.renderer:
-	{
-		sprite:
-		{
-			texture: "cabin.wood.01.bg"
-		}
-		z: -100.000
-	}
+	// @animated.renderer:
+	// {
+	// 	sprite:
+	// 	{
+	// 		texture: "cabin.wood.01.bg"
+	// 	}
+	// 	z: -100.000
+	// }
 }
 
 transform:

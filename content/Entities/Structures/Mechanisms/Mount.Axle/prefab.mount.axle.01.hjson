@@ -31,7 +31,8 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "mount.axle.00"
+		texture: atlas.axle.00
+		size: [24, 24]
 	}
 	z: -200.000
 }

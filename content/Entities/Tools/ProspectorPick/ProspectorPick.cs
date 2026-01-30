@@ -4,23 +4,26 @@ namespace TC2.Base.Components
 	[Shitcode]
 	public static partial class ProspectorPick
 	{
-		[IComponent.Data(Net.SendType.Reliable, region_only: true), IComponent.With<ProspectorPick.State>]
+		[IComponent.Data(Net.SendType.Reliable, IComponent.Scope.Region)]
 		public partial struct Data(): IComponent
 		{
 			public float max_depth = 8.00f;
-		}
-
-		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
-		public partial struct State(): IComponent
-		{
-			public Vector2 position;
-			public Vector2 direction;
-			public FixedArray8<OreSample> samples;
-
 			[Save.Ignore, Net.Ignore] public float next_hit;
+
+			[Save.NewLine]
+			[Asset.Ignore] public Vector2 position;
+			[Asset.Ignore] public Vector2 direction;
+
+			[Save.NewLine]
+			[Asset.Ignore] public FixedArray8<OreSample> samples;
 		}
 
-		[Serializable]
+		//[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
+		//public partial struct State(): IComponent
+		//{
+
+		//}
+
 		public struct OreSample
 		{
 			public IBlock.Handle block;
@@ -28,30 +31,31 @@ namespace TC2.Base.Components
 		}
 
 #if CLIENT
+		[Shitcode]
 		public struct ProspectorPickGUI: IGUICommand
 		{
 			public Entity ent_pick;
 			public Transform.Data transform;
 			public Control.Data control;
 			public ProspectorPick.Data prospector_pick;
-			public ProspectorPick.State prospector_pick_state;
+			//public ProspectorPick.State prospector_pick_state;
 
 			public void Draw()
 			{
 				ref var region = ref Client.GetRegion();
 				ref var terrain = ref region.GetTerrain();
 
-				var pos = region.WorldToCanvas(this.prospector_pick_state.position);
+				var pos = region.WorldToCanvas(this.prospector_pick.position);
 
-				var a = region.WorldToCanvas(this.prospector_pick_state.position + (this.prospector_pick_state.direction * -3.00f));
-				var b = region.WorldToCanvas(this.prospector_pick_state.position);
-				var c = region.WorldToCanvas(this.prospector_pick_state.position + (this.prospector_pick_state.direction * this.prospector_pick.max_depth));
+				var a = region.WorldToCanvas(this.prospector_pick.position + (this.prospector_pick.direction * -3.00f));
+				var b = region.WorldToCanvas(this.prospector_pick.position);
+				var c = region.WorldToCanvas(this.prospector_pick.position + (this.prospector_pick.direction * this.prospector_pick.max_depth));
 
 				using (var window = GUI.Window.HUD("Prospector Pick"u8, position: a + new Vector2(0.00f, -2.00f), size: new(168, 0), pivot: new(0.50f, 1.00f)))
 				{
 					if (window.show)
 					{
-						ref var samples = ref this.prospector_pick_state.samples;
+						ref var samples = ref this.prospector_pick.samples;
 
 						var total_count = 0.00f;
 						for (var i = 0; i < samples.Length; i++)
@@ -63,7 +67,7 @@ namespace TC2.Base.Components
 						if (total_count > Maths.epsilon)
 						{
 							//GUI.DrawLine(a, b, GUI.font_color_default, 1.00f);
-							GUI.DrawLine2(a, b - (this.prospector_pick_state.direction * 0.25f * region.GetWorldToCanvasScale()), GUI.font_color_default, GUI.font_color_default.WithAlphaDiv(Maths.Factor.x2), 4.00f, 1.00f);
+							GUI.DrawLine2(a, b - (this.prospector_pick.direction * 0.25f * region.GetWorldToCanvasScale()), GUI.font_color_default, GUI.font_color_default.WithAlphaDiv(Maths.Factor.x2), 4.00f, 1.00f);
 
 							GUI.DrawLine(a - new Vector2(80, 0), a + new Vector2(80, 0), GUI.font_color_default, 1.00f);
 							//GUI.DrawLine2(b, c, GUI.font_color_default.WithAlphaMult(0.25f), GUI.font_color_default.WithAlphaMult(0.00f), 4.00f, 1.00f);
@@ -89,16 +93,16 @@ namespace TC2.Base.Components
 								}
 							}
 
-							var offset = region.WorldToCanvas(Vector2.Min(this.prospector_pick_state.position, this.prospector_pick_state.position + this.prospector_pick_state.direction * this.prospector_pick.max_depth));
+							var offset = region.WorldToCanvas(Vector2.Min(this.prospector_pick.position, this.prospector_pick.position + this.prospector_pick.direction * this.prospector_pick.max_depth));
 
 							var random = XorRandom.New((uint)(App.GetFixedTime() * 15.00));
 
-							var alpha = 1.00f; // (this.prospector_pick_state.next_hit - region.GetWorldTime()); //.Clamp0X();
+							var alpha = 1.00f; // (this.prospector_pick.next_hit - region.GetWorldTime()); //.Clamp0X();
 
 							var rect_size = new Vector2(App.pixels_per_unit_inv) * region.GetWorldToCanvasScale();
 							var args = (offset: offset, rect_size: rect_size, random: random, alpha: alpha);
 
-							terrain.IterateLine(this.prospector_pick_state.position, this.prospector_pick_state.position + this.prospector_pick_state.direction * this.prospector_pick.max_depth, 0.50f, ref args, Func, iteration_flags: Terrain.IterationFlags.None);
+							terrain.IterateLine(this.prospector_pick.position, this.prospector_pick.position + this.prospector_pick.direction * this.prospector_pick.max_depth, 0.50f, ref args, Func, iteration_flags: Terrain.IterationFlags.None);
 							static void Func(Tile tile, ref (Vector2 offset, Vector2 rect_size, XorRandom random, float alpha) args, int x, int y, byte mask)
 							{
 								var h_block = tile.GetBlockHandle();
@@ -128,7 +132,8 @@ namespace TC2.Base.Components
 
 		[ISystem.GUI(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("local", true, Source.Modifier.Parent)]
 		public static void OnGUI(ISystem.Info info, Entity entity,
-		[Source.Parent] in Interactor.Data interactor, [Source.Owned] in ProspectorPick.Data prospector_pick, [Source.Owned] in ProspectorPick.State prospector_pick_state, [Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control,
+		[Source.Parent] in Interactor.Data interactor, [Source.Owned] in ProspectorPick.Data prospector_pick, 
+		[Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control,
 		[Source.Parent] in Player.Data player)
 		{
 			var gui = new ProspectorPickGUI()
@@ -136,8 +141,7 @@ namespace TC2.Base.Components
 				ent_pick = entity,
 				transform = transform,
 				control = control,
-				prospector_pick = prospector_pick,
-				prospector_pick_state = prospector_pick_state
+				prospector_pick = prospector_pick
 			};
 			gui.Submit();
 		}
@@ -146,7 +150,7 @@ namespace TC2.Base.Components
 #if SERVER
 		[ISystem.Event<Melee.HitEvent>(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnHit(ISystem.Info info, Entity entity, ref Region.Data region, ref Melee.HitEvent data, 
-		[Source.Owned] ref ProspectorPick.Data prospector_pick, [Source.Owned] ref ProspectorPick.State prospector_pick_state)
+		[Source.Owned] ref ProspectorPick.Data prospector_pick)
 		{
 			ref var terrain = ref region.GetTerrain();
 
@@ -174,10 +178,10 @@ namespace TC2.Base.Components
 
 			arg.samples.AsSpan().Sort((x, y) => y.quantity.CompareTo(x.quantity));
 
-			prospector_pick_state.position = data.world_position;
-			prospector_pick_state.direction = data.direction;
-			prospector_pick_state.samples = arg.samples;
-			prospector_pick_state.Sync(entity);
+			prospector_pick.position = data.world_position;
+			prospector_pick.direction = data.direction;
+			prospector_pick.samples = arg.samples;
+			prospector_pick.Sync(entity);
 		}
 #endif
 	}

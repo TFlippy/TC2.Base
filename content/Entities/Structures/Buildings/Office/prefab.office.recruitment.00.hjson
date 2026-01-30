@@ -31,7 +31,7 @@ animated.renderer:
 	sprite:
 	{
 		texture: "office.recruitment.00"
-		mask: "office.recruitment.00.mask"
+		// mask: "office.recruitment.00.mask"
 	}
 	z: -300.000
 }

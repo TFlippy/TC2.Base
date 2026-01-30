@@ -113,7 +113,7 @@ press:
 	{
 		sprite:
 		{
-			texture: press.00.parts
+			texture: atlas.press.parts.00
 			size: [16, 24]
 		}
 		z: -145.000
@@ -232,7 +232,7 @@ piston:
 	{
 		sprite:
 		{
-			texture: press.00.parts
+			texture: atlas.press.parts.00
 			size: [16, 24]
 		}
 		z: -145.000

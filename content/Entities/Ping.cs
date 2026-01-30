@@ -172,9 +172,9 @@ namespace TC2.Base.Components
 				return;
 			}
 
-			if (!GUI.IsHidden && !Editor.is_window_open && !Editor.IsActive && info.WorldTime >= ping.next_ping)
+			if (control.mouse.GetKeyDown(Mouse.Key.Middle))
 			{
-				if (control.mouse.GetKeyDown(Mouse.Key.Middle))
+				if (!GUI.IsHidden && !Editor.is_window_open && !Editor.IsActive && info.WorldTime >= ping.next_ping)
 				{
 					var color = GUI.font_color_default;
 

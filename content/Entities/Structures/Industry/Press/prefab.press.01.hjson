@@ -172,7 +172,7 @@ crafter:
 {
 	h_crafter: impulse.press.00
 	flags: assignable, automatic, machine
-	distance_max: 6.000
+	distance_max: 7.000
 	temperature_max: 1200.000
 	pressure_max: 0.000
 	

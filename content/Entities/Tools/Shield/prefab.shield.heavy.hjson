@@ -93,16 +93,12 @@ packable:
 
 melee:
 {
-	sound_swing: "tool_swing_00"
-	sound_volume: 0.800
-	sound_pitch: 0.600
-	swing_offset: [0.000, 0.000]
-	swing_rotation: 0.000
 	damage_base: 90.000
 	damage_bonus: 150.000
+	
 	primary_damage_multiplier: 0.500
 	secondary_damage_multiplier: 1.300
-	terrain_damage_multiplier: 1.000
+	
 	cooldown: 1.000
 	max_distance: 1.000
 	aoe: 1.000
@@ -111,12 +107,20 @@ melee:
 	yield: 0.400
 	penetration_falloff: 0.800
 	penetration: 3
+	
+	swing_offset: [0.000, 0.000]
+	swing_rotation: 0.000
+	
+	sound_volume: 0.800
+	sound_pitch: 0.600
+	
+	attack_type: thrust
 	damage_type: blunt
 	category: blunt
 	flags: no_handle
-	attack_type: thrust
+	
 	hit_mask: item, creature
-	hit_exclude: background, tree, ignore_melee, climbable, furniture
+	hit_exclude: background, tree, furniture, climbable, ignore_melee
 }
 
 melee.state:

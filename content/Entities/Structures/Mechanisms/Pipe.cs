@@ -1155,40 +1155,43 @@ namespace TC2.Base.Components
 				{
 					//throw new Exception();
 
-					var flow_rate_abs = vent.flow_rate_old.m_value.Abs();
-					var modifier = MathF.Sqrt(flow_rate_abs * 2.00f) * 0.30f;
+
 					var vel = Maths.Min(vent.velocity.Abs(), 20.00f);
 
-					var color_smoke = vent.GetSmokeColor();
-
 					vent.t_next_smoke = info.WorldTime + Maths.Lerp01(0.40f, 0.10f, Maths.Normalize01(vel * 0.90f, 8.00f)); //  (0.40f * Maths.Mulpo(purity, 0.40f));
-					vent.color_smoke = color_smoke;
-
-					if (modifier > 0.02f && color_smoke.IsVisible() && Camera.IsVisible(Camera.CullType.Rect2x, transform.position))
+					if (Camera.IsVisible(Camera.CullType.Rect2x, transform.position))
 					{
-						var dir = Maths.RadToDir(transform.LocalToWorldRotation(vent.rotation));
+						var color_smoke = vent.GetSmokeColor();
+						vent.color_smoke = color_smoke;
 
-						var pos = transform.LocalToWorld(vent.offset);
-						Particle.Spawn(ref region, new Particle.Data()
+						var flow_rate_abs = vent.flow_rate_old.m_value.Abs();
+						var modifier = MathF.Sqrt(flow_rate_abs * 2.00f) * 0.30f;
+						if (modifier > 0.02f && color_smoke.IsVisible())
 						{
-							texture = texture_smoke,
-							lifetime = Maths.Clamp(random.NextFloatRange(2.00f, 6.00f) * modifier, 1.00f, 4.00f),
-							pos = pos + random.NextVector2(0.10f) + (dir * 0.50f),
-							//vel = new Vector2(0.70f, -1.10f) * (1.00f + (modifier2 * 0.10f)),
-							vel = dir * vel * random.NextFloatRange(0.90f, 1.10f),
-							force = new Vector2(2.50f, -2.50f) * random.NextFloatRange(0.90f, 1.10f),
-							fps = random.NextByteRange(6, 10),
-							frame_count = 64,
-							frame_count_total = 64,
-							frame_offset = random.NextByteRange(0, 64),
-							scale = (modifier * 0.22f) + random.NextFloatRange(0.19f, 0.28f),
-							rotation = random.NextFloatRange(-10.00f, 10.00f),
-							angular_velocity = random.NextFloat(0.60f),
-							growth = 0.25f * (1.00f + (modifier.Clamp01() * 0.15f)) * random.NextFloatRange(0.90f, 1.10f),
-							drag = random.NextFloatRange(0.015f, 0.04f),
-							color_a = color_smoke,
-							color_b = color_smoke.WithAlpha(0)
-						});
+							var dir = Maths.RadToDir(transform.LocalToWorldRotation(vent.rotation));
+
+							var pos = transform.LocalToWorld(vent.offset);
+							Particle.Spawn(ref region, new Particle.Data()
+							{
+								texture = texture_smoke,
+								lifetime = Maths.Clamp(random.NextFloatRange(2.00f, 6.00f) * modifier, 1.00f, 4.00f),
+								pos = pos + random.NextVector2(0.10f) + (dir * 0.50f),
+								//vel = new Vector2(0.70f, -1.10f) * (1.00f + (modifier2 * 0.10f)),
+								vel = dir * vel * random.NextFloatRange(0.90f, 1.10f),
+								force = new Vector2(2.50f, -2.50f) * random.NextFloatRange(0.90f, 1.10f),
+								fps = random.NextByteRange(6, 10),
+								frame_count = 64,
+								frame_count_total = 64,
+								frame_offset = random.NextByteRange(0, 64),
+								scale = (modifier * 0.22f) + random.NextFloatRange(0.19f, 0.28f),
+								rotation = random.NextFloatRange(-10.00f, 10.00f),
+								angular_velocity = random.NextFloat(0.60f),
+								growth = 0.25f * (1.00f + (modifier.Clamp01() * 0.15f)) * random.NextFloatRange(0.90f, 1.10f),
+								drag = random.NextFloatRange(0.015f, 0.04f),
+								color_a = color_smoke,
+								color_b = color_smoke.WithAlpha(0)
+							});
+						}
 					}
 				}
 				else
@@ -1613,8 +1616,8 @@ namespace TC2.Base.Components
 		[Shitcode, Shitcode, Shitcode]
 		public static Color32BGRA GetSmokeColor(ref readonly this Vent.Data vent)
 		{
-			var air = vent.blob.air;
-			var prt = vent.particulates;
+			ref readonly var air = ref vent.blob.air;
+			ref readonly var prt = ref vent.particulates;
 
 			var mass_air = vent.blob.mass;
 			var mass_prt = prt.GetMass();

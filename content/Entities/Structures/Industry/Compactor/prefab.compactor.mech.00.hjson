@@ -58,7 +58,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "compactor.00"
+		texture: "compactor.mech.00"
 	}
 	z: -75.000
 }
