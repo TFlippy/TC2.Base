@@ -718,22 +718,22 @@
 		size: [16, 16]
 		frame: [3, 0]
 	}
-	icon_offset: [6.000, 2.000]
+	icon_offset: [-4.000, 2.000]
 	
 	icon_extra:
 	{
+		texture: resource.nitric_acid
 		size: [16, 16]
-		frame: [1, 0]
 	}
-	icon_extra_offset: [-4.000, -8.000]
+	icon_extra_offset: [4.000, -6.000]
 	
 	icon_c:
 	{
-		texture: resource.nitric_acid
+		texture: resource.sulfuric_acid
 		size: [16, 16]
-		frame: [1, 0]
+		frame: [2, 0]
 	}
-	icon_c_offset: [-15.000, -8.000]
+	icon_c_offset: [-4.000, -16.000]
 	
 	color_frame: "0xffcf392b"
 	color_button: "0xff9dd80f"

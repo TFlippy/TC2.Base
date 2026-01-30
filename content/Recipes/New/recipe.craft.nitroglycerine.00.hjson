@@ -1,0 +1,401 @@
+﻿{
+	$version: "0.1.68.1"
+	name: "Nitroglycerine"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	tips: []
+	
+	related_materials:
+	{
+		nitroglycerine: reaction, chemical, product, result, manufactured, liquid, processed
+	}
+	
+	stages:
+	[
+		{
+			name: "Formula"
+			
+			type: formula
+			flags: part, important
+			tags: material, formula, ingredient
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: heat
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Red Sugar"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: wet
+					
+					prefix: "Red "
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: red_sugar
+							amount: 1.6205
+							snapping: 0.100
+							falloff: 1.034
+							loss: 1.000
+							ratio: 1.000
+							group: 0
+							flags: argument, primary, prerequisite
+						}
+						{
+							type: resource
+							material: alcohol
+							amount: 0.901191
+							snapping: 0.100
+							falloff: 0.971
+							loss: 0.188
+							ratio: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: blending
+							amount: 90.000
+							amount_min: 65.000
+							difficulty: 3
+							step_max: 10
+							snapping: 10.000
+							falloff: 0.754
+							group: 0
+							flags: simultaneous, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: nitroglycerine
+							amount: 0.1021
+							amount_extra: 0.0923
+							snapping: 0.100
+							group: 0
+							ratio: 0.129
+							flags: primary, compact, scale_to_mass
+						}
+						{
+							type: resource
+							material: nitrosugar
+							amount: 0.0931
+							amount_extra: 0.2293
+							snapping: 0.100
+							group: 0
+							ratio: 0.243
+							flags: residue, byproduct, scale_to_mass
+						}
+					]
+					
+					purity_modifier: 0.895
+					quality_modifier: 0.916
+					yield_modifier: 0.957
+					failure_chance: 0.239
+					
+					filter_tools:
+					{
+						include: shovel, spatula
+					}
+					filter_infrastructure:
+					{
+						include: liquid_container
+					}
+				}
+			]
+		}
+		{
+			name: "Nitration"
+			
+			type: processing
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: corrosion
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Standard"
+					
+					type: undefined
+					flags: wip
+					discard_damage_type_override: corrosion
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: nitric_acid
+							amount: 0.81042
+							snapping: 0.100
+							loss: 0.973
+							ratio: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: sulfuric_acid
+							amount: 1.170732
+							snapping: 0.100
+							loss: 0.824
+							ratio: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: temperature
+							amount: 278.400
+							amount_min: 262.000
+							amount_max: 316.000
+							group: 0
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: work
+							work: dousing
+							amount: 15.000
+							amount_min: 150.000
+							difficulty: 5
+							step_max: 10
+							snapping: 5.000
+							falloff: 1.011
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: mixing.liquid
+							amount: 18.000
+							amount_min: 140.000
+							difficulty: 7
+							step_max: 8
+							snapping: 5.000
+							falloff: 0.900
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: nitration
+							amount: 50.000
+							amount_min: 80.000
+							difficulty: 8
+							step_max: 7
+							snapping: 5.000
+							falloff: 0.929
+							ratio: 0.318
+							group: 1
+							flags: stepped, simultaneous, primary, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: nitroglycerine
+							amount: 0.856
+							amount_extra: 0.142
+							snapping: 0.100
+							group: 0
+							ratio: 0.267
+							flags: primary, compact, scale_to_mass
+						}
+						{
+							type: resource
+							material: water.toxic
+							amount: 0.929
+							amount_extra: 0.130
+							snapping: 0.100
+							group: 0
+							ratio: 0.204
+							flags: pollutant, waste, scale_to_mass
+						}
+						{
+							type: resource
+							material: nitrogen_dioxide
+							amount: 0.113
+							amount_extra: 0.457
+							snapping: 0.100
+							group: 0
+							ratio: 0.647
+							flags: pollutant, waste, spawn, use_temperature, scale_to_mass
+						}
+					]
+					
+					purity_modifier: 0.884
+					quality_modifier: 0.872
+					yield_modifier: 0.914
+					failure_chance: 0.471
+					
+					filter_infrastructure:
+					{
+						require: liquid_container
+						include: cauldron, lab_glassware, dishes, bottle, bucket, liquid_container
+					}
+				}
+			]
+			
+			products:
+			[
+				{
+					type: resource
+					material: nitroglycerine
+					amount: 0.000
+					snapping: 0.010
+					group: 0
+					flags: primary, compact, scale_to_mass
+					spawn_flags: merge, pickup, show_notification
+				}
+			]
+		}
+		{
+			name: "Washing"
+			
+			type: cleaning
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Simple"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: wet
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: water
+							amount: 1.000
+							snapping: 0.500
+							falloff: 0.600
+							loss: 0.204
+							group: 0
+							flags: argument, primary, prerequisite
+						}
+						{
+							type: work
+							work: washing
+							amount: 120.000
+							amount_min: 95.000
+							difficulty: 8
+							step_max: 10
+							snapping: 25.000
+							falloff: 0.664
+							group: 0
+							flags: conditional
+						}
+						{
+							type: work
+							work: drying
+							amount: 45.000
+							amount_min: 120.000
+							difficulty: 4
+							step_max: 10
+							snapping: 10.000
+							falloff: 0.877
+							group: 1
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: water.toxic
+							amount: 0.929
+							amount_extra: 0.130
+							snapping: 0.100
+							group: 0
+							ratio: 0.616
+							flags: waste, scale_to_mass
+						}
+					]
+					
+					purity_modifier: 0.521
+					quality_modifier: 0.631
+					yield_modifier: 0.745
+					failure_chance: 0.078
+					
+					filter_tools:
+					{
+						include: bucket, towel
+					}
+					filter_environment:
+					{
+						include: warm, container, disinfected, sterile, clean
+						exclude: polluted
+					}
+				}
+			]
+		}
+	]
+	
+	type: workshop
+	flags: production, manufacturing, wip
+	tags: complex, delicate, alchemistry, blending, refining, processing, messy, explosive, dangerous
+	hints: none
+	connotations: none
+	infrastructure: cauldron, barrel, bucket, liquid_container
+	infrastructure_exclude: personal
+	
+	icon:
+	{
+		texture: resource.nitroglycerine
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	icon_offset: [8.000, 2.000]
+	
+	icon_extra:
+	{
+		texture: resource.nitrosugar
+		size: [16, 16]
+		frame: [1, 0]
+	}
+	icon_extra_offset: [-20.000, -6.000]
+	
+	icon_c:
+	{
+		texture: resource.red_sugar
+		size: [16, 16]
+		frame: [1, 0]
+	}
+	icon_c_offset: [-16.000, -14.000]
+	
+	color_frame: "0xffcf392b"
+	color_button: "0xff9dd80f"
+	rank: -9.000
+	
+	min: 1
+	max: 50
+	step: 1
+	
+	version: 1
+}
