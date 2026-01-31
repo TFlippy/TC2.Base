@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.68.1"
 	name: "Cauldron"
 	name_short: "Cauldron"
 	desc:
@@ -21,14 +21,14 @@
 		{
 			h_work_supported:
 			[
-				brewing
+				soaking
 				leaching
 				cooking
-				soaking
+				brewing
 				boiling
-				"null"
-				"null"
-				"null"
+				nitration
+				null
+				null
 			]
 			
 			name: "Brewing"

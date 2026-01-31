@@ -1,8 +1,8 @@
 ﻿{
-	$version: "0.1.65.1"
+	$version: "0.1.68.1"
 	name: "Coal (Powder)"
 	name_short: "Coal P."
-	name_dumb: "Gunpowder"
+	name_dumb: "Ash"
 	description:
 		'''
 		Standard powdered mixture of various coals.

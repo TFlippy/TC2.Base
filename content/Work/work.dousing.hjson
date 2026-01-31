@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.68.1"
 	name: "Dousing"
 	name_short: "Dousing"
 	desc:
@@ -17,7 +17,7 @@
 	flags: manual, wip
 	tags: simple, chemical, industrial, delicate, dangerous, careful, thermal, slow
 	
-	amount_base: 0.000
+	amount_base: 1.200
 	cooldown: 1.910
 	multiplier: 1.250
 	
@@ -44,10 +44,10 @@
 	
 	skills_mult:
 	{
-		explosives: 0.260
-		dexterity: 0.300
-		strength: 0.190
-		alchemistry: 0.230
+		dexterity: 0.340
+		intellect: 0.220
+		alchemistry: 0.270
+		farming: 0.400
 	}
 	
 	sound_volume: 0.680

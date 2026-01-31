@@ -1,11 +1,11 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.68.1"
 	name: "Mouchus Mushrooms"
 	name_short: "Mouchus M."
 	name_imperial: "Mouchus"
 	description:
 		'''
-		A heap of red mushroom bits, may be poisonous.
+		Heap of red mushroom bits, giving off a putrid smell.
 		'''
 	
 	tips: []
@@ -17,21 +17,28 @@
 		frame: [3, 0]
 	}
 	
+	// Inventory material type.
 	type: mushroom
-	flags: soft, sticky, granular, toxic, organic, small, corrosive, raw, flammable, flexible, solid, smelly
+	flags: soft, malleable, sticky, granular, toxic, organic, small, raw, flammable, flexible, solid, acidic, smelly, primary
 	display_flags: none
 	hints: none
 	
+	// Ratio of the material volume to the total volume it occupies when stacked. A value of 1.0 means no empty space, while a value closer to 0.0 means a lot of empty space.
+	packing_fraction: 0.000
+	// Mass of 1 unit in kg.
 	mass_per_unit: 0.208
 	
+	// Maximum quantity (units) per stack.
 	quantity_max: 500.000
+	// Minimum spawnable quantity.
 	spawn_quantity_threshold: 3.000
+	// Preferred quantity snapping for recipes.
 	snapping: 1.000
+	// Preferred quantity snapping for inventories.
 	snapping_pickup: 1.000
 	
 	form_type: raw
 	prefab: resource.mushroom.red
-	h_substance: "null"
 	
 	color_icon: "0xffffffff"
 	color_item: "0xffffffff"
@@ -41,8 +48,14 @@
 	centroid_default: [0.000, 0.250]
 	colliders: []
 	
+	// Info regarding relations of other materials towards this material.
 	related:
 	{
-		hydrazine: refined, purified, chemical
+		hydrazine: refined, purified, chemical, byproduct, manufactured, liquid, processed
+		methylamine: juice, chemical, liquid, processed
+		mushroom: component, residue, similar, natural, scrap
+		ammonia: residue, gas, vapor, processed
+		alcohol: component, residue, liquid
+		mush: residue, mangled, waste, scrap
 	}
 }

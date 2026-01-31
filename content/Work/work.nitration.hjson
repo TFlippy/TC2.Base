@@ -46,9 +46,9 @@
 	
 	}
 	
-	sound_volume: 0.420
+	sound_volume: 0.620
 	sound_pitch: 0.760
-	sound_size: 0.590
+	sound_size: 0.670
 	sound_dist: 0.450
 	
 	sounds: []

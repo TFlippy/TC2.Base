@@ -6,7 +6,9 @@
 	name_dumb: "Fish"
 	description:
 		'''
-		TODO: Desc
+		Methylamine solution in some unknown liquid.
+		
+		Commonly mistaken for fish sauce, which has led to countless deaths.
 		'''
 	
 	tips: []
@@ -20,7 +22,7 @@
 	
 	// Inventory material type.
 	type: liquid
-	flags: liquid, toxic, chemical, bottled, fragile, flammable, volatile, processed, smelly, primary
+	flags: liquid, toxic, chemical, bottled, corrosive, fragile, flammable, volatile, processed, acidic, smelly, primary
 	display_flags: none
 	spawn_flags:
 	{
@@ -64,6 +66,7 @@
 		alcohol: reaction
 		rot: source
 		pestilence: source
-		meth: reaction, product
+		meth: reaction, chemical, product, manufactured, processed
+		mushroom.red: raw, source, natural
 	}
 }

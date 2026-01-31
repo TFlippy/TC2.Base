@@ -19,7 +19,7 @@
 	
 	amount_base: 1.000
 	cooldown: 1.300
-	multiplier: 0.490
+	multiplier: 0.760
 	
 	amount_jitter: 0.215
 	cooldown_jitter: 0.264

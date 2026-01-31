@@ -67,7 +67,7 @@
 							amount: 90.000
 							amount_min: 65.000
 							difficulty: 3
-							step_max: 10
+							step_max: 20
 							snapping: 10.000
 							falloff: 0.754
 							group: 0
@@ -173,9 +173,9 @@
 							type: work
 							work: dousing
 							amount: 15.000
-							amount_min: 150.000
+							amount_min: 80.000
 							difficulty: 5
-							step_max: 10
+							step_max: 20
 							snapping: 5.000
 							falloff: 1.011
 							group: 0
@@ -185,9 +185,9 @@
 							type: work
 							work: mixing.liquid
 							amount: 18.000
-							amount_min: 140.000
+							amount_min: 70.000
 							difficulty: 7
-							step_max: 8
+							step_max: 15
 							snapping: 5.000
 							falloff: 0.900
 							group: 0
@@ -199,7 +199,7 @@
 							amount: 50.000
 							amount_min: 80.000
 							difficulty: 8
-							step_max: 7
+							step_max: 10
 							snapping: 5.000
 							falloff: 0.929
 							ratio: 0.318

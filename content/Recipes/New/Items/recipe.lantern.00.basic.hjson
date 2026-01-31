@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.68.1"
 	name: "Lantern"
 	tips: []
 	
@@ -333,7 +333,7 @@
 	]
 	
 	type: workshop
-	flags: blueprintable, item
+	flags: blueprintable, item, wip
 	tags: manual, crafting, simple, small, metalworking
 	hints: none
 	connotations: none
