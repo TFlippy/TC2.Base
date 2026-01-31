@@ -135,7 +135,7 @@ storage:
 		stack_size_multiplier: 1.500
 		filter_flags: soft, malleable, granular, small
 		type: personal
-		flags: public
+		flags: public, standalone, faction, vertical
 
 		filter:
 		{
@@ -164,13 +164,6 @@ facing:
 	threshold: 0.750
 	flip_interval: 0.250
 	flags: rotate_on_flip
-}
-
-interactable:
-{
-	flags: no_tab
-	priority: -0.100
-	window_size: [192.000, 96.000]
 }
 
 equipment.slot:
@@ -292,6 +285,52 @@ pathfinding.state:
 commandable:
 {
 	
+}
+
+interactable:
+{
+	flags: centered_inventory
+	window_size: [600, 480]
+	window_size_misc: [96, 0]
+	priority: -4.000
+}
+
+shop:
+{
+	tags_filter:
+	{
+		include: dumb, crude, organic, tool, agriculture, woodworking, metallurgy, salvaging, gathering, blending, messy, dangerous
+		exclude: automated, complex, advanced, large, huge, delicate, research, social, science
+	}
+	tags_preferred: dumb, crude, messy
+	
+	tools: hammer, saw, hand_drill, spanner, bucket, shovel, file, chisel, towel, spatula, pick, knife, sandpaper, scissors, ladle
+	infrastructure: bottle, vise, bucket, surface, hard_surface, fermenter, personal, workbench
+	environment: mobile, dirty, contaminated, smelly, ugly, scary, noisy, sturdy, crappy, cramped, open, small
+	connotations: tool, food, danger, junk, illegal, explosive, gun, interesting, primitive, destructive, inaccurate, small, drug, loud, funny, cheap, dumb, industrial, wrecked, crappy, ugly, home, fake, sus, smelly, tasty, bad, disgusting, weird, scary, crude
+	
+	flags: no_sorting, embed_gui, self_only
+	menu_columns: 3
+	recipe_type: workshop
+	
+	name: "Crafting"
+}
+
+workshop:
+{
+	flags: self_only
+	orders_capacity: 1
+	
+	h_sound_order_begin: kobold.scream.00
+	h_sound_order_complete: kobold.scream.01
+	
+	gui_info_size_x: 216.000
+	max_order_mass: 70.000
+	
+	draw_order_flags:
+	{
+		rem: temperature, pressure
+	}
 }
 
 +slot.head|instance:

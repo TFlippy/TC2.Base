@@ -66,7 +66,7 @@ breakable:
 despawn:
 {
 	h_material_product: arsine
-	product_ratio: 0.0679
+	product_ratio: 0.1679
 	amount_ratio: 0.005
 	amount_ratio_extra: 0.0132
 	

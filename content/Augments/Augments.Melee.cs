@@ -349,14 +349,14 @@ namespace TC2.Base
 
 				can_add: static (ref Augment.Context context, in Melee.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					return (data.category == Melee.Category.Bladed || data.category == Melee.Category.Pointed) && data.yield > 0.00f && data.yield < 1.50f;
+					return augments.GetCount(handle) <= 3 && (data.category == Melee.Category.Bladed || data.category == Melee.Category.Pointed) && (data.yield > 0.00f && data.yield < 1.50f);
 				},
 
 				apply_0: static (ref Augment.Context context, ref Melee.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					data.damage_base *= 0.90f;
 					data.damage_bonus *= 0.90f;
-					data.yield = Maths.Clamp(data.yield + 0.10f, 0.00f, 1.00f);
+					data.yield = Maths.Clamp(data.yield + 0.10f, 0.00f, 1.50f);
 				},
 
 				apply_1: static (ref Augment.Context context, ref Melee.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>

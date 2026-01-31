@@ -18,10 +18,10 @@
 	tags: science, complex, chemical, industrial, toxic, dangerous, careful, slow
 	
 	amount_base: 1.000
-	cooldown: 2.000
+	cooldown: 1.500
 	multiplier: 2.000
 	
-	amount_jitter: 0.488
+	amount_jitter: 1.198
 	cooldown_jitter: 0.115
 	color: "0xffff5555"
 	
@@ -46,10 +46,10 @@
 	
 	}
 	
-	sound_volume: 0.620
+	sound_volume: 0.500
 	sound_pitch: 0.760
-	sound_size: 0.670
-	sound_dist: 0.450
+	sound_size: 1.080
+	sound_dist: 0.340
 	
 	sounds: []
 	sounds_manual: []
