@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.67.2"
 	name: "Nitric Acid"
-	name_short: "N. Acid"
+	name_short: "N.Acid"
 	name_dumb: "Water"
 	description:
 		'''

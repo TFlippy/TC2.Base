@@ -1,5 +1,10 @@
 ﻿{
-	$version: "0.1.65.1"
+	$version: "0.1.68.1"
+	$note:
+		'''
+		- Actually a mixture of ethanol and methanol/wood alcohol
+		- Humans on Smrtec got used to it (the ones that didn't either died or got blind, and then died)
+		'''
 	name: "Alcohol"
 	name_short: "Alcohol"
 	name_imperial: "Alkohol"

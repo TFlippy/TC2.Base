@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.68.1"
 	name: "Raw Water"
-	name_short: "R. Water"
+	name_short: "Water"
 	name_imperial: "Vodka"
 	name_dumb: "Water"
 	description:

@@ -76,5 +76,6 @@
 		nitroglycerine: component, source, similar, liquid
 		alcohol: component, liquid
 		nitrogen_dioxide: component, residue, gas, vapor
+		mercury: component
 	}
 }
