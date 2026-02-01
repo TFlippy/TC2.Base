@@ -171,7 +171,7 @@ burner:
 {
 	flags: open_air, show_misc
 	type: gas
-	area_aux: 0.004
+	area_aux: 0.040
 	temperature_max: 2200.000
 	insulation: 0.000
 
