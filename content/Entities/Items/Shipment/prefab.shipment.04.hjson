@@ -13,18 +13,24 @@ body:
 
 	@shape.box:
 	{
-		size: [4.250, 2.250]
-		// size: [2.750, 2.500]
-		// offset: [-0.750, 0.000]
-		radius: 0.250
-		mass: 240.000
-		friction: 0.650
-		elasticity: 0.500
-		layer: entity, crate, shipment, solid, flammable
-		mask: world, crate
-		exclude: held
 		material: wood
 		miss_chance: 0.635
+		flags: none
+		tags: none
+		
+		layer: entity, solid, crate, shipment, flammable
+		mask: world, crate
+		exclude: held
+		
+		mass: 240.000
+		radius: 0.250
+		friction: 0.650
+		elasticity: 0.500
+		
+		cog_offset: [-0.0625, 0.4375]
+		
+		size: [4.250, 2.250]
+		offset: [0.000, 0.000]
 	}
 }
 
@@ -62,10 +68,12 @@ interactable:
 
 norotate:
 {
-	bias: 0.050
+	flags: none
 	speed: 1.000
-	multiplier: 3.000
-	mass_multiplier: 4.000
+	bias: 0.050
+	
+	multiplier: 2.000
+	mass_multiplier: 2.000
 }
 
 holdable:

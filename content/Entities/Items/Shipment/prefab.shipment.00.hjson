@@ -13,16 +13,24 @@ body:
 
 	@shape.box:
 	{
-		size: [1.500, 0.625]
-		radius: 0.250
-		mass: 15.000
-		friction: 0.650
-		elasticity: 0.500
-		layer: entity, crate, shipment, solid, flammable
+		material: wood
+		miss_chance: 0.851
+		flags: none
+		tags: none
+		
+		layer: entity, solid, crate, shipment, flammable
 		mask: world, crate
 		exclude: held
-		material: wood
-		miss_chance: 0.850
+		
+		mass: 15.000
+		radius: 0.250
+		friction: 0.650
+		elasticity: 0.500
+		
+		cog_offset: [-0.0625, 0.1875]
+		
+		size: [1.500, 0.625]
+		offset: [0.000, 0.000]
 	}
 }
 

@@ -13,15 +13,24 @@ body:
 
 	@shape.box:
 	{
-		size: [0.500, 0.625]
-		radius: 0.250
+		material: leather
+		miss_chance: 0.349
+		flags: none
+		tags: none
+		
+		layer: entity, solid, shipment, flammable
+		mask: world
+		exclude: none
+		
 		mass: 0.500
+		radius: 0.250
 		friction: 0.650
 		elasticity: 0.250
-		layer: entity, shipment, solid, flammable
-		mask: world
-		material: leather
-		miss_chance: 0.350
+		
+		cog_offset: [0.000, 0.1875]
+		
+		size: [0.500, 0.625]
+		offset: [0.000, 0.000]
 	}
 }
 
