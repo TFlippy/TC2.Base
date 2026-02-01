@@ -1,11 +1,14 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.68.1"
 	name: "EC-CG Pellets"
 	name_short: "EC-CG Pt."
-	name_imperial: "Cognito-Arkpelet"
+	name_imperial: "Kogni-Arkpelet"
 	description:
 		'''
-		Essence infusion pellets.
+		EC-pellets infused with cognition essence - among the strangest essence types recognized by modern science.
+
+		Effects generally range from improved focus to seizures and full-blown psychosis. 
+		Can be used to cause distortions in local reality as well.
 		'''
 	
 	tips: []

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.0"
+	$version: "0.1.68.1"
 	name: "Failure"
 	desc:
 		'''
@@ -16,7 +16,7 @@
 	discharge_mult: 0.710
 	
 	emit_force: -375.000
-	emit_power_thermal: 17.260
+	emit_power_thermal: -5.340
 	emit_power_kinetic: -6.790
 	emit_power_radiant: 0.650
 	emit_power_electric: -14.175
