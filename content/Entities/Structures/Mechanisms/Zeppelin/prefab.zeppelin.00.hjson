@@ -47,7 +47,7 @@ body:
 		
 		layer: entity, solid, vehicle
 		mask: solid
-		exclude: world, bounds
+		exclude: world, bounds, attached
 		
 		mass: 7500.000
 		radius: 1.500
@@ -130,7 +130,7 @@ faction:
 
 company:
 {
-	h_company: energon
+	h_company: postus
 	logo_type: sign_4x2
 
 	@animated.renderer:
@@ -211,7 +211,47 @@ vibrate:
 	position_mult: [0.020, 0.050]
 }
 
-+slot|instance:
+vehicle:
+{
+
+}
+
+control:
+{
+	@net.synchronized:
+	{
+		interval: 0.000
+	}
+}
+
+storage:
+{
+	@inventory8:
+	{
+		type: ammo
+		flags: standalone, no_auto_pickup, faction, vertical
+		stack_size_multiplier: 20.000
+		
+		filter:
+		{
+			exclude: gas, large
+		}
+	}
+}
+
++seat|instance:
+{
+	$tags: []
+	
+	seat:
+	{
+		offset: [39.000, 19.375]
+		flags: open
+		max_tilt: 2.500
+	}
+}
+
++slot.skyhook|instance:
 {
 	joint.base:
 	{
@@ -297,6 +337,16 @@ vibrate:
 			
 		}
 
+		company:
+		{
+			h_company: postus
+		}
+
+		market:
+		{
+
+		}
+
 		minimap.marker:
 		{
 			sprite:
@@ -309,13 +359,61 @@ vibrate:
 
 		interactable:
 		{
-			window_size: [592.000, 408.000]
-			window_size_misc: [48.000, 0.000]
+			flags: none
+			window_size: [496, 432]
+			window_size_misc: [96, 0]
 		}
 
 		skyhook:
 		{
 			
 		}
+	}
+}
+
++slot.left|instance:
+{
+	joint.base:
+	{
+		offset_a: [58.500, 21.125]
+		z: 75.000
+		max_force: 400000.000
+		max_torque: 80000.000
+		material_type: metal
+		flags: attachment, allow_dragging, control_write, facing_reset_rot, facing_reset_pos, force_facing, mirror_x
+	}
+
+	joint.piston:
+	{
+		error_bias: 0.000
+		max_bias: 8.000
+		stiffness: 80000.000
+		damping: 2500.000
+		axis_force: 400000.000
+		spring_max_bias: 8.000
+		max_distance: 2.000
+		rotation: 0.000
+		stress_mult_axis: 1.000
+	}
+
+	joint.gear:
+	{
+		error_bias: 0.001
+		max_bias: 5.000
+		min: 0.000
+		max: 0.000
+	}
+
+	attachment.slot:
+	{
+		name: "Mount (Front)"
+		identifier: "front"
+
+		flags: keyboard_write, mouse_write, hold
+		flags_editable: locked, disabled, hold, invert, cycle, keyboard_read, mouse_read, keyboard_write, mouse_write, offset, rotation, brake
+
+		rank: 4.000
+		gui_size: [112.000, 72.000]
+		offset_bounds: [0.000, -0.250, 0.000, 0.500]
 	}
 }
