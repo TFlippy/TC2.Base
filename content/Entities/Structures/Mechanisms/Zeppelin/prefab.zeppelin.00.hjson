@@ -1,0 +1,81 @@
+$name: "Zeppelin"
+$desc: "TODO: Desc"
+$tags: []
+
+body:
+{
+	type: kinematic
+	
+	@shape.complex:
+	{
+		material: fabric
+		miss_chance: 0.000
+		flags: none
+		tags: none
+		
+		layer: entity
+		mask: solid
+		exclude: world, bounds
+		
+		mass: 50000.000
+		radius: 6.000
+		friction: 0.950
+		elasticity: 0.100
+		
+		cog_offset: [0.000, 0.000]
+		
+		count: 8
+		points:
+		[
+			[-57.625, -3.500]
+			[-15.000, -9.000]
+			[28.000, -9.375]
+			[57.250, -2.375]
+			[56.500, 2.250]
+			[27.625, 8.125]
+			[-3.875, 8.875]
+			[-51.375, 3.000]
+		]
+	}
+}
+
+transform:
+{
+
+}
+
+health:
+{
+	max: 900000.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: zeppelin.00
+	}
+	z: -150.000
+}
+
+interactable:
+{
+	window_size: [600.000, 400.000]
+}
+
+nameable:
+{
+	tags: chemical, tech, dangerous
+	flags: no_rename, randomize
+	type: building
+}
+
+faction:
+{
+
+}
+
+zeppelin:
+{
+
+}

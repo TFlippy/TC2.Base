@@ -1,0 +1,146 @@
+$name: "Skyhook (Base)"
+$desc: "TODO: Desc"
+$tags: []
+
+body:
+{
+	type: kinematic
+	
+	@shape.polygon:
+	{
+		mass: 500.000
+		radius: 1.500
+		friction: 0.950
+		elasticity: 0.500
+		material: metal
+		layer: entity
+		mask: world
+	}
+}
+
+transform:
+{
+
+}
+
+health:
+{
+	max: 90000.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: skyhook.00.atlas
+		frame: [0, 0]
+		size: [32, 48]
+	}
+	z: -150.000
+}
+
+nameable:
+{
+	tags: chemical, tech, dangerous
+	flags: no_rename, randomize
+	type: building
+}
+
+faction:
+{
+	
+}
+
+skyhook:
+{
+	
+}
+
++slot|instance:
+{
+	joint.base:
+	{
+		offset_a: [-0.375, 0.900]
+		offset_b: [0.375, -2.500]
+		max_force: 500000.000
+		max_torque: 20000.000
+		flags: no_stress
+	}
+
+	joint.rope:
+	{
+		distance: 1.500
+	}
+
+	rope.renderer:
+	{
+		texture: skyhook.00.cable
+		thickness: 1.000
+		scale: 0.200
+		z: -10.000
+	}
+
+	+attached|child:
+	{
+		$name: "Skyhook"
+		$tags: []
+		
+		body:
+		{
+			type: dynamic
+			
+			@shape.polygon:
+			{
+				mass: 500.000
+				radius: 1.500
+				friction: 0.950
+				elasticity: 0.500
+				material: metal
+				layer: entity
+				mask: world
+			}
+		}
+
+		transform:
+		{
+		
+		}
+		
+		health:
+		{
+			max: 88000.000
+		}
+		
+		animated.renderer:
+		{
+			sprite:
+			{
+				texture: skyhook.00.atlas
+				frame: [0, 0]
+				size: [32, 48]
+			}
+			z: -100.000
+		}
+
+		faction:
+		{
+			
+		}
+
+		minimap.marker:
+		{
+			sprite:
+			{
+				texture: ui_icons_minimap
+				size: [16, 16]
+				frame: [0, 0]
+			}
+		}
+
+		interactable:
+		{
+			window_size: [592.000, 408.000]
+			window_size_misc: [48.000, 0.000]
+		}
+	}
+}
