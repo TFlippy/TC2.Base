@@ -13,7 +13,7 @@ body:
 		flags: none
 		tags: none
 		
-		layer: entity
+		layer: entity, solid, vehicle
 		mask: solid
 		exclude: world, bounds
 		
@@ -37,6 +37,33 @@ body:
 			[-68.000, 4.125]
 		]
 	}
+
+	@shape.polygon:
+	{
+		material: metal
+		miss_chance: 0.000
+		flags: none
+		tags: none
+		
+		layer: entity, solid, vehicle
+		mask: solid
+		exclude: world, bounds
+		
+		mass: 500.000
+		radius: 1.500
+		friction: 0.950
+		elasticity: 0.500
+		
+		cog_offset: [0.000, 0.000]
+		
+		points:
+		[
+			[39.125, 17.500]
+			[67.250, 11.500]
+			[65.125, 20.250]
+			[42.375, 20.125]
+		]
+	}
 }
 
 transform:
@@ -56,7 +83,7 @@ animated.renderer:
 		texture: zeppelin.00
 	}
 	scale: [1.3125, 1.375]
-	z: -476.000
+	z: 500.000
 }
 
 interactable:
@@ -73,10 +100,158 @@ nameable:
 
 faction:
 {
+	id: krumpelstejn
+}
 
+company:
+{
+	h_company: energon
+	logo_type: sign_4x2
+
+	@animated.renderer:
+	{
+		offset: [49.875, 19.750]
+		z: 510.000
+	}
+
+	@light:
+	{
+		offset: [49.625, 19.875]
+		scale: [80.000, 128.000]
+		intensity: 1.000
+		texture: light.circle.03
+		rotation: -1.700
+	}
 }
 
 zeppelin:
 {
+	@sound.emitter:
+	{
+		file: propeller.loop.02
+		volume: 3.000
+		pitch: 0.400
+		offset: [-81.125, -8.250]
+		size: 50.000
+		size_max_modifier: 8.000
+		spread: 100.000
+		mix_3d: 0.600
+		doppler: 1.500
+		priority: 0.900
+	}
+}
 
+vibrate:
+{
+	rotation_mult: 0.0005
+	position_mult: [0.020, 0.050]
+}
+
++slot|instance:
+{
+	joint.base:
+	{
+		offset_a: [44.125, 20.250]
+		max_force: 500000.000
+		max_torque: 20000.000
+		flags: no_stress
+	}
+
+	joint.rope:
+	{
+		distance: 80.000
+	}
+
+	rope.renderer:
+	{
+		texture: skyhook.00.cable
+		thickness: 0.300
+		scale: 6.000
+		z: -400.000
+	}
+
+	+attached|child:
+	{
+		$name: "Skyhook"
+		$tags: []
+		
+		body:
+		{
+			type: dynamic
+			
+			@shape.polygon:
+			{
+				material: metal
+				miss_chance: 0.000
+				flags: none
+				tags: none
+				
+				layer: entity
+				mask: world
+				exclude: none
+				
+				mass: 500.000
+				radius: 0.500
+				friction: 0.950
+				elasticity: 0.500
+				
+				cog_offset: [0.000, 1.250]
+				
+				points:
+				[
+					[-0.500, -2.625]
+					[0.500, -2.625]
+					[1.500, 1.500]
+					[-1.500, 1.500]
+				]
+			}
+		}
+
+		transform:
+		{
+		
+		}
+		
+		health:
+		{
+			max: 880000.000
+		}
+		
+		animated.renderer:
+		{
+			sprite:
+			{
+				texture: skyhook.00.atlas
+				frame: [0, 0]
+				size: [32, 48]
+			}
+			z: -100.000
+		}
+
+		faction:
+		{
+			
+		}
+
+		minimap.marker:
+		{
+			sprite:
+			{
+				texture: ui_icons_minimap
+				size: [16, 16]
+				frame: [0, 0]
+			}
+		}
+
+		interactable:
+		{
+			window_size: [592.000, 408.000]
+			window_size_misc: [48.000, 0.000]
+		}
+
+		skyhook:
+		{
+			
+		}
+	}
 }
