@@ -19,10 +19,14 @@ namespace TC2.Base.Components
 				{
 					if (widget.state_flags.HasAny(Sidebar.Widget.StateFlags.Show))
 					{
+						var h_player = Client.GetPlayerHandle();
+
 						//ref var region = ref Client.GetRegion();
 						ref var faction_data = ref this.h_faction.GetData(out var faction_asset);
 						if (faction_data.IsNotNull())
 						{
+							var is_leader = faction_data.IsLeader(h_player);
+
 							using (GUI.Group.New(size: GUI.GetAvailableSize()))
 							{
 								//if (this.h_faction != 0)
@@ -45,7 +49,7 @@ namespace TC2.Base.Components
 
 										if (Constants.Factions.enable_leave_faction)
 										{
-											if (GUI.DrawConfirmButton("confirm.leave", "Leave", "Do you want to leave this faction?", new Vector2(80, 40), color: GUI.col_button_error))
+											if (GUI.DrawConfirmButton("confirm.leave"u8, "Leave"u8, "Do you want to leave this faction?"u8, new Vector2(80, 40), color: GUI.col_button_error, enabled: is_leader ? faction_data.policies.HasAll(IFaction.Policies.Allow_Recruitment) : true))
 											{
 												var rpc = new Player.LeaveFactionRPC()
 												{
@@ -53,7 +57,7 @@ namespace TC2.Base.Components
 												};
 												rpc.Send();
 											}
-											GUI.DrawHoverTooltip("Leave this faction.");
+											GUI.DrawHoverTooltip("Leave this faction."u8);
 										}
 									}
 
@@ -61,14 +65,14 @@ namespace TC2.Base.Components
 
 									using (GUI.Group.New(size: new Vector2(GUI.RmX, GUI.RmY), padding: new(8)))
 									{
-										GUI.Title("Members", size: 20);
+										GUI.Title("Members"u8, size: 20);
 										GUI.SeparatorThick();
 
-										using (var scrollable = GUI.Scrollbox.New("Members.Scrollable", size: GUI.Rm, padding: new(4)))
+										using (var scrollable = GUI.Scrollbox.New("Members.Scrollable"u8, size: GUI.Rm, padding: new(4)))
 										{
 											GUI.DrawBackground(GUI.tex_panel, scrollable.group_frame.GetInnerRect(), padding: new(8));
 
-											using (var table = GUI.Table.New("Members", 4))
+											using (var table = GUI.Table.New("Members"u8, 4))
 											{
 												if (table.show)
 												{
@@ -80,10 +84,10 @@ namespace TC2.Base.Components
 
 													using (var row = table.NextRow(16, header: true))
 													{
-														using (row.Column(0)) GUI.Title("Name");
-														using (row.Column(1)) GUI.Title("Money");
-														using (row.Column(2)) GUI.Title("Rank");
-														using (row.Column(3)) GUI.Title("Status");
+														using (row.Column(0)) GUI.Title("Name"u8);
+														using (row.Column(1)) GUI.Title("Money"u8);
+														using (row.Column(2)) GUI.Title("Rank"u8);
+														using (row.Column(3)) GUI.Title("Status"u8);
 														//using (row.Column(2)) GUI.Title("Test");
 													}
 
