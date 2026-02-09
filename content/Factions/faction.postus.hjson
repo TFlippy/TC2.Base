@@ -1,0 +1,23 @@
+﻿{
+	$region_id: 0
+	$version: "0.1.68.2"
+	tag: "pos"
+	name: "Postus"
+	
+	color_a: "0xff183187"
+	color_b: "0xff183187"
+	
+	kind: agency
+	flags: npc, no_player_squads
+	
+	scout_count: 0
+	
+	h_company: postus
+	
+	policies: none
+	
+	players:
+	{
+	
+	}
+}

@@ -192,7 +192,7 @@ zeppelin:
 	@sound.emitter:
 	{
 		file: propeller.loop.02
-		flags: start_muted
+		// flags: start_muted
 		volume: 3.000
 		pitch: 0.400
 		offset: [-81.125, -8.250]

@@ -9,6 +9,8 @@
 			public float unused_01;
 			public float unused_02;
 			public float unused_03;
+
+			public Vec2f vel_target;
 		}
 
 #if CLIENT
@@ -52,7 +54,7 @@
 		public static void OnUpdate(ISystem.Info info, ref Region.Data region, Entity entity,
 		[Source.Owned] ref Zeppelin.Data zeppelin, [Source.Owned] ref Transform.Data transform, [Source.Owned] ref Body.Data body)
 		{
-			body.SetVelocity(new Vector2(2, 0));
+			body.SetVelocity(new Vector2(0, 0));
 		}
 	}
 }
