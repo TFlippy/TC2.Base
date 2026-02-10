@@ -1,10 +1,10 @@
 ﻿{
 	$version: "0.1.68.2"
-	name: "Colonization"
-	category: "02: Survival"
+	name: "Factions"
+	category: "00: Introduction"
 	
 	flags: none
-	order: 100
+	order: 70
 	
 	color: "0x00000000"
 	

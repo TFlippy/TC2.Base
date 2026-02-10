@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.68.2"
-	name: "Colonization"
-	category: "02: Survival"
+	name: "Introduction"
+	category: "00: Introduction"
 	
 	flags: none
 	order: 100
