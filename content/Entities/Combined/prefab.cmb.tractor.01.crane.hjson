@@ -1,4 +1,4 @@
-$name: "Crane Tractor"
+$name: "Crane Trucktor"
 $prefab: "tractor.01"
 
 +slot_rear|instance:

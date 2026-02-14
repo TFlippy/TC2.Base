@@ -1,4 +1,4 @@
-$name: "APC Tractor"
+$name: "APC Trucktor"
 $prefab: "tractor.01"
 
 +slot_rear|instance:
