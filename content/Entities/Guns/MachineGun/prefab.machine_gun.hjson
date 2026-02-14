@@ -53,16 +53,17 @@ gun:
 	sound_reload: machine_gun_reload
 	
 	damage_multiplier: 3.400
-	velocity_multiplier: 850.000
+	velocity_multiplier: 680.000
+	velocity_max: 880.000
 	jitter_multiplier: 0.800
 	recoil_multiplier: 1.360
 	reload_interval: 2.500
 	cycle_interval: 0.085
 	stability: 3750.000
-	failure_rate: 0.0012
+	failure_rate: 0.0014
 	
 	ammo_filter: ammo_mg
-	max_ammo: 60.000
+	max_ammo: 50.000
 	
 	action: gas
 	type: machinegun
@@ -126,7 +127,7 @@ animated.renderer:
 
 health:
 {
-	max: 11500.000
+	max: 7500.000
 }
 
 armor:

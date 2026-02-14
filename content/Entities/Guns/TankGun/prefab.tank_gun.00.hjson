@@ -67,11 +67,11 @@ gun:
 	velocity_multiplier: 340.000
 	jitter_multiplier: 0.750
 	recoil_multiplier: 1.600
-	velocity_max: 780.000
+	velocity_max: 1500.000
 	reload_interval: 0.945
 	cycle_interval: 0.600
 	stability: 13300.000
-	failure_rate: 0.007
+	failure_rate: 0.001
 	
 	ammo_filter: ammo_kn
 	max_ammo: 4.000
@@ -142,7 +142,7 @@ animated.renderer:
 
 health:
 {
-	max: 95000.000
+	max: 98000.000
 }
 
 armor:
@@ -153,7 +153,7 @@ armor:
 	knockback_modifier: 1.300
 	pain_modifier: 0.000
 
-	material_type: metal
+	material_type: metal_solid
 	flags: no_damage_type_conversion
 }
 

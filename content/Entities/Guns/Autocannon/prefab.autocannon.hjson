@@ -56,14 +56,14 @@ gun:
 	sound_jam: hatch.open.00
 	
 	damage_multiplier: 4.150
-	velocity_multiplier: 510.000
-	jitter_multiplier: 0.320
+	velocity_multiplier: 620.000
+	jitter_multiplier: 0.250
 	recoil_multiplier: 1.350
 	velocity_max: 1200.000
 	reload_interval: 4.500
-	cycle_interval: 0.330
+	cycle_interval: 0.310
 	stability: 8250.000
-	failure_rate: 0.014
+	failure_rate: 0.007
 	
 	ammo_filter: ammo_ac
 	max_ammo: 12.000
