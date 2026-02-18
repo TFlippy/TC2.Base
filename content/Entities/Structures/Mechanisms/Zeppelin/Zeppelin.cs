@@ -1,5 +1,14 @@
 ﻿namespace TC2.Base.Components
 {
+	//public static partial class Airdrop
+	//{
+	//	[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region | IComponent.Scope.Global)]
+	//	public partial struct Data(): IComponent
+	//	{
+	//		[Editor.Picker.Position(relative: false)] public Vec2f pos_target;
+	//	}
+	//}
+
 	public static partial class Zeppelin
 	{
 		[IComponent.Data(Net.SendType.Reliable, IComponent.Scope.Region | IComponent.Scope.Global)]
@@ -34,7 +43,7 @@
 		}
 
 		[ISystem.GUI(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void OnGUI([Source.Owned] in Interactable.Data interactable, 
+		public static void OnGUI([Source.Owned] in Interactable.Data interactable,
 		Entity ent_zeppelin, [Source.Owned] in Zeppelin.Data zeppelin, [Source.Owned] in Transform.Data transform)
 		{
 			if (interactable.IsActive())
@@ -54,7 +63,7 @@
 		public static void OnUpdate(ISystem.Info info, ref Region.Data region, Entity entity,
 		[Source.Owned] ref Zeppelin.Data zeppelin, [Source.Owned] ref Transform.Data transform, [Source.Owned] ref Body.Data body)
 		{
-			body.SetVelocity(new Vector2(0, 0));
+			body.SetVelocity(zeppelin.vel_target);
 		}
 	}
 }

@@ -6,6 +6,7 @@ namespace TC2.Base
 	public sealed partial class BaseMod: Mod
 	{
 		[Shitcode]
+		[Obsolete]
 		protected override void OnRegister(ref ModContext context)
 		{
 			Augment.OnInitialize += RegisterAugments;

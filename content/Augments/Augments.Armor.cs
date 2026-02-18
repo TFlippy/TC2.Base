@@ -2,6 +2,7 @@
 {
 	public sealed partial class BaseMod
 	{
+		[Obsolete]
 		private static void RegisterArmorAugments(ref List<Augment.Definition> definitions)
 		{
 			definitions.Add(Augment.Definition.New<Health.Data>

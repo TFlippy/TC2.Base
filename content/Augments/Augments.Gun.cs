@@ -4,6 +4,7 @@ namespace TC2.Base
 {
 	public sealed partial class BaseMod
 	{
+		[Obsolete]
 		private static void RegisterGunAugments(ref List<Augment.Definition> definitions)
 		{
 			definitions.Add(Augment.Definition.New<Gun.Data>

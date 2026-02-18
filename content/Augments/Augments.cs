@@ -5,6 +5,7 @@ namespace TC2.Base
 	public sealed partial class BaseMod
 	{
 		// TODO: Split this into multiple files
+		[Obsolete]
 		private static void RegisterAugments(ref List<Augment.Definition> definitions)
 		{
 			definitions.Add(Augment.Definition.New<Health.Data>

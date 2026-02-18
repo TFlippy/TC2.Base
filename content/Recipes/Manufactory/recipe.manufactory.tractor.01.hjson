@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.68.2"
 	name: "Trucktor"
 	desc:
 		'''
@@ -58,6 +58,8 @@
 	type: workshop
 	flags: no_amount_multiplier, blueprintable, disabled, wip
 	tags: manual, crafting, complex, huge, vehicle, machinery, assembling, metalworking, engineering, construction
+	hints: none
+	connotations: none
 	infrastructure: none
 	infrastructure_exclude: none
 	

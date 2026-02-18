@@ -1,7 +1,9 @@
-$name: "Beacon"
+$name: "Trade Beacon"
 $desc: 
 	'''
-	TODO: Desc
+	Small attachable beacon with a built-in radio transmitter used to attract trader zeppelins.
+
+	Place this on objects to mark them for sale.
 	'''
 $tags: []
 
@@ -18,16 +20,16 @@ body:
 		mask: world
 		exclude: none
 		
-		mass: 4.000
+		mass: 8.000
 		radius: 0.625
 		friction: 0.880
-		elasticity: 0.340
+		elasticity: 0.440
 		
 		fall_damage_mult: 0.750
 		cog_offset: [0.000, 0.1875]
 		
-		a: [0.000, -0.125]
-		b: [0.000, 0.125]
+		a: [0.000, 0.125]
+		b: [0.000, 0.500]
 		offset: [0.000, 0.000]
 	}
 }
@@ -39,7 +41,7 @@ control:
 
 health:
 {
-	max: 6000.000
+	max: 7000.000
 }
 
 armor:
@@ -78,20 +80,20 @@ transform:
 
 interactable:
 {
-	window_size: [592.000, 408.000]
-	window_size_misc: [48.000, 0.000]
+	flags: no_tab
+	window_size: [488, 344]
+	window_size_misc: [48, 0]
+	priority: 1.000
 }
 
 sticky:
 {
-	min_contact_count: 2
+	max_force: 10000.000
+	min_contact_count: 1
 	min_contact_distance: 0.200
-	max_force: 8000.000
-	flags: none
-	mask: world, solid, destructible
-	exclude: essence, water, liquid, fire, gas, ignore_hover, stored, bounds, conveyor, belt, pipe, no_overlapped_placement, powder
-
-	sound: "fabric.hit.generic.00"
+	mask: crate, resource, storage, shipment, bulk, harvestable, item
+	exclude: world, bounds, belt, pipe, door, conveyor, essence, water, fire, gas, powder, liquid, held, stored, no_overlapped_placement, ignore_hover, static
+	sound: fabric.hit.generic.00
 }
 
 faction:
@@ -107,6 +109,11 @@ company:
 beacon:
 {
 
+}
+
+claimable:
+{
+	flags: allow_enemy_unclaim, allow_owner_unclaim
 }
 
 norotate:
@@ -126,9 +133,9 @@ lamp:
 
 	@light:
 	{
-		color: [0.828, 0.774, 0.092, 2.500]
-		offset: [0.000, -0.875]
+		color: [0.230, 0.804, 0.989, 3.500]
+		offset: [0.000, -0.500]
 		scale: [16.000, 16.000]
-		texture: light.circle.00
+		texture: light.circle.04
 	}
 }
