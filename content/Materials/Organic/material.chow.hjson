@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.68.2"
 	name: "Scrub's Chow"
 	name_short: "Chow"
 	name_dumb: "Food"
@@ -50,43 +50,4 @@
 	color_gib: "0xffffffff"
 	
 	colliders: []
-	
-	commodity:
-	{
-		availability: 1.000
-		rarity: 1.000
-		scalability: 1.000
-		reusability: 1.000
-		longevity: 1.000
-		complexity: 1.000
-		tech: 1.000
-		liquidity: 1.000
-		demand: 1.000
-		
-		flags: marketable
-		categories: food, consumer
-		
-		industries_produce: agricultural, hunting, food, fishing
-		industries_consume: tourism, hospitality, slaves, labor, kobolds, colonization, exploration, mercenary, medical, penal
-		industries_buy: none
-		industries_sell: none
-		
-		buildings_produce: factory, minefield, artillery, slum, farm, zoo, circus
-		buildings_consume: office, bunker, hotel, hospital, prison, labor_camp, school, bar, apartments, barracks
-		buildings_buy: none
-		buildings_sell: none
-		
-		categories_produce: industrial, wilderness, overgrown, frontier, agricultural
-		categories_consume: military, industrial, wasteland, commercial, residential, penal, urban, frontier
-		categories_buy: none
-		categories_sell: none
-		
-		market_price: 9.000
-		market_price_min: 4.000
-		market_price_max: 15.000
-		
-		quantity_retail: 8.000
-		quantity_wholesale: 50.000
-		quantity_industry: 400.000
-	}
 }

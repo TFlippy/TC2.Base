@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.68.2"
 	name: "Clay"
 	name_short: "Clay"
 	name_dumb: "Putty"
@@ -17,22 +17,31 @@
 		frame: [3, 0]
 	}
 	
+	// Inventory material type.
 	type: clay
 	flags: soft, malleable, sticky, raw, solid
 	display_flags: none
 	hints: none
 	
+	// Ratio of the material volume to the total volume it occupies when stacked. A value of 1.0 means no empty space, while a value closer to 0.0 means a lot of empty space.
+	packing_fraction: 0.000
+	// Mass of 1 unit in kg.
 	mass_per_unit: 0.570
+	
+	// Volume occupied by a stack in m³.
 	volume_per_stack: 1.0492
 	
+	// Maximum quantity (units) per stack.
 	quantity_max: 500.000
+	// Minimum spawnable quantity.
 	spawn_quantity_threshold: 2.000
+	// Preferred quantity snapping for recipes.
 	snapping: 1.000
+	// Preferred quantity snapping for inventories.
 	snapping_pickup: 1.000
 	
 	form_type: raw
 	prefab: resource.clay
-	h_substance: "null"
 	
 	color_icon: "0xffffffff"
 	color_item: "0xffffffff"
@@ -40,43 +49,4 @@
 	color_gib: "0xffffffff"
 	
 	colliders: []
-	
-	commodity:
-	{
-		availability: 1.000
-		rarity: 1.000
-		scalability: 1.000
-		reusability: 1.000
-		longevity: 1.000
-		complexity: 1.000
-		tech: 1.000
-		liquidity: 1.000
-		demand: 1.000
-		
-		flags: marketable
-		categories: raw
-		
-		industries_produce: none
-		industries_consume: none
-		industries_buy: none
-		industries_sell: none
-		
-		buildings_produce: none
-		buildings_consume: none
-		buildings_buy: none
-		buildings_sell: none
-		
-		categories_produce: none
-		categories_consume: none
-		categories_buy: none
-		categories_sell: none
-		
-		market_price: 0.070
-		market_price_min: 0.050
-		market_price_max: 0.090
-		
-		quantity_retail: 15.000
-		quantity_wholesale: 500.000
-		quantity_industry: 5000.000
-	}
 }

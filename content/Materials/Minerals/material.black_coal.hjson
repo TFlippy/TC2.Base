@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.68.2"
 	name: "Black Coal"
 	name_short: "Bl. Coal"
 	name_dumb: "Coal"
@@ -25,6 +25,8 @@
 	display_flags: none
 	hints: none
 	
+	// Ratio of the material volume to the total volume it occupies when stacked. A value of 1.0 means no empty space, while a value closer to 0.0 means a lot of empty space.
+	packing_fraction: 0.000
 	// General purity modifier.
 	purity: 0.821
 	// Mass of 1 unit in kg.
@@ -41,7 +43,6 @@
 	
 	form_type: raw
 	prefab: resource.black_coal
-	h_substance: "null"
 	
 	color_icon: "0xffffffff"
 	color_item: "0xffffffff"
@@ -50,45 +51,6 @@
 	
 	centroid_default: [0.000, 0.250]
 	colliders: []
-	
-	commodity:
-	{
-		availability: 1.000
-		rarity: 1.000
-		scalability: 1.000
-		reusability: 1.000
-		longevity: 1.000
-		complexity: 1.000
-		tech: 1.000
-		liquidity: 1.000
-		demand: 1.000
-		
-		flags: marketable
-		categories: raw, coal, fuel, minerals, energy
-		
-		industries_produce: mining, low_tech, slaves, kobolds, penal
-		industries_consume: mining, manufacturing, low_tech, metallurgy, chemical, power, entertainment, construction, tourism, logistics, hospitality, labor, kobolds, colonization, exploration, munitions, railway, tobacco, engineering, aviation, naval
-		industries_buy: none
-		industries_sell: none
-		
-		buildings_produce: labor_camp, mine, borehole
-		buildings_consume: factory, hotel, airport, trainyard, power_plant, docks, prison, labor_camp, foundry, manufactory, refinery, laboratory, apartments, farm, brewery, metalworks, zoo, quarry, fuel_depot, steel_mill, bakery
-		buildings_buy: none
-		buildings_sell: none
-		
-		categories_produce: industrial, wasteland, penal, ruined, decrepit, frontier, developing, warzone, expansive, excavated, polluted, mechanized
-		categories_consume: military, industrial, wilderness, wasteland, commercial, residential, urban, decrepit, frontier, wealthy, advanced, developing, innovative, powerful, modern, expansive, polluted, mechanized
-		categories_buy: none
-		categories_sell: none
-		
-		market_price: 0.450
-		market_price_min: 0.400
-		market_price_max: 0.650
-		
-		quantity_retail: 40.000
-		quantity_wholesale: 200.000
-		quantity_industry: 5000.000
-	}
 	
 	fuel:
 	{
@@ -150,7 +112,7 @@
 		carburization:
 		{
 			h_material: ash
-			h_substance: "null"
+			
 			flags: none
 			flags_product: waste, residue
 			

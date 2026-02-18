@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.1"
+	$version: "0.1.68.2"
 	name: "Arcanite Brick"
 	name_short: "Arc. Brick"
 	name_imperial: "Arkoblok"
@@ -153,43 +153,4 @@
 			]
 		}
 	]
-	
-	commodity:
-	{
-		availability: 1.000
-		rarity: 1.000
-		scalability: 1.000
-		reusability: 1.000
-		longevity: 1.000
-		complexity: 1.000
-		tech: 1.000
-		liquidity: 1.000
-		demand: 1.000
-		
-		flags: marketable
-		categories: metals, refined, artificial, arcane, jewelry, luxury, industrial
-		
-		industries_produce: manufacturing, high_tech, metallurgy, scrap, chemical, engineering, experimental, luxury, jewelry
-		industries_consume: telecommunications, manufacturing, high_tech, metallurgy, chemical, automotive, power, arcane, construction, research, education, engineering, weapons, experimental, luxury, jewelry
-		industries_buy: none
-		industries_sell: none
-		
-		buildings_produce: factory, power_plant, foundry, refinery, laboratory, university, metalworks, phlogiston
-		buildings_consume: factory, airport, power_plant, foundry, manufactory, refinery, laboratory, university, school, arsenal, metalworks, phlogiston, bank
-		buildings_buy: none
-		buildings_sell: none
-		
-		categories_produce: imperial, industrial, wasteland, commercial, urban, governmental, financial, magitech, wealthy, advanced, developing, innovative
-		categories_consume: military, imperial, industrial, wasteland, commercial, residential, urban, administrative, governmental, financial, magitech, wealthy, advanced, innovative, modern, mechanized
-		categories_buy: none
-		categories_sell: none
-		
-		market_price: 125.000
-		market_price_min: 0.000
-		market_price_max: 0.000
-		
-		quantity_retail: 0.000
-		quantity_wholesale: 0.000
-		quantity_industry: 0.000
-	}
 }

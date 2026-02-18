@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.1"
+	$version: "0.1.68.2"
 	name: "Steel Sheet"
 	name_short: "St. Sheet"
 	name_imperial: "Stylplat"
@@ -108,45 +108,6 @@
 			]
 		}
 	]
-	
-	commodity:
-	{
-		availability: 1.000
-		rarity: 1.000
-		scalability: 1.000
-		reusability: 1.000
-		longevity: 1.000
-		complexity: 1.000
-		tech: 1.000
-		liquidity: 1.000
-		demand: 1.000
-		
-		flags: marketable
-		categories: metals, components, refined, construction_materials, industrial
-		
-		industries_produce: manufacturing, high_tech, metallurgy, scrap, engineering
-		industries_consume: manufacturing, low_tech, high_tech, metallurgy, automotive, power, military, arcane, construction, logistics, kobolds, munitions, railway, engineering, weapons, beverage, aviation, naval, furniture, architecture, jewelry
-		industries_buy: none
-		industries_sell: none
-		
-		buildings_produce: factory, manufactory, slum, scrapyard, metalworks
-		buildings_consume: warehouse, factory, airport, trainyard, docks, prison, manufactory, lumber_mill, subway, train_station, arsenal, metalworks
-		buildings_buy: none
-		buildings_sell: none
-		
-		categories_produce: industrial, wasteland, commercial, urban, magitech
-		categories_consume: military, industrial, wasteland, commercial, residential, urban, magitech
-		categories_buy: none
-		categories_sell: none
-		
-		market_price: 11.000
-		market_price_min: 0.000
-		market_price_max: 0.000
-		
-		quantity_retail: 0.000
-		quantity_wholesale: 0.000
-		quantity_industry: 0.000
-	}
 	
 	// Damage-based conversions.
 	conversions:

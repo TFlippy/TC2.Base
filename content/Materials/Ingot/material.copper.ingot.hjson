@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.1"
+	$version: "0.1.68.2"
 	name: "Copper Brick"
 	name_short: "Cop. Brick"
 	name_imperial: "Koprblok"
@@ -158,45 +158,6 @@
 			]
 		}
 	]
-	
-	commodity:
-	{
-		availability: 1.000
-		rarity: 1.000
-		scalability: 1.000
-		reusability: 1.000
-		longevity: 1.000
-		complexity: 1.000
-		tech: 1.000
-		liquidity: 1.000
-		demand: 1.000
-		
-		flags: marketable
-		categories: metals, refined, construction_materials, consumer, industrial
-		
-		industries_produce: manufacturing, high_tech, metallurgy, scrap, chemical
-		industries_consume: manufacturing, high_tech, metallurgy, arcane, construction, engineering, weapons, experimental
-		industries_buy: none
-		industries_sell: none
-		
-		buildings_produce: factory, foundry, refinery, scrapyard, metalworks
-		buildings_consume: factory, power_plant, foundry, manufactory, refinery, university, metalworks, phlogiston, essenceworks
-		buildings_buy: none
-		buildings_sell: none
-		
-		categories_produce: industrial, wasteland, urban, magitech, advanced, innovative, mechanized
-		categories_consume: industrial, wasteland, urban, magitech, wealthy, advanced, innovative, modern, mechanized
-		categories_buy: none
-		categories_sell: none
-		
-		market_price: 35.000
-		market_price_min: 0.000
-		market_price_max: 0.000
-		
-		quantity_retail: 0.000
-		quantity_wholesale: 0.000
-		quantity_industry: 0.000
-	}
 	
 	// Damage-based conversions.
 	conversions:

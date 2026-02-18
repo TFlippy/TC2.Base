@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.65.1"
+	$version: "0.1.68.2"
 	name: "Brown Coal"
 	name_short: "Br. Coal"
 	name_dumb: "Coal"
@@ -47,45 +47,6 @@
 	
 	centroid_default: [0.000, 0.250]
 	colliders: []
-	
-	commodity:
-	{
-		availability: 1.000
-		rarity: 1.000
-		scalability: 1.000
-		reusability: 1.000
-		longevity: 1.000
-		complexity: 1.000
-		tech: 1.000
-		liquidity: 1.000
-		demand: 1.000
-		
-		flags: marketable
-		categories: coal, fuel
-		
-		industries_produce: mining
-		industries_consume: manufacturing, power, hospitality, kobolds
-		industries_buy: none
-		industries_sell: none
-		
-		buildings_produce: labor_camp, mine, borehole
-		buildings_consume: factory, trainyard, power_plant, docks, manufactory
-		buildings_buy: none
-		buildings_sell: none
-		
-		categories_produce: industrial, wasteland, ruined, decrepit, lawless, frontier, developing, excavated, polluted
-		categories_consume: industrial, wilderness, wasteland, commercial, residential, urban, decrepit, lawless, frontier, agricultural, developing, rural, polluted
-		categories_buy: none
-		categories_sell: none
-		
-		market_price: 0.378
-		market_price_min: 0.320
-		market_price_max: 0.420
-		
-		quantity_retail: 50.000
-		quantity_wholesale: 400.000
-		quantity_industry: 4000.000
-	}
 	
 	fuel:
 	{
