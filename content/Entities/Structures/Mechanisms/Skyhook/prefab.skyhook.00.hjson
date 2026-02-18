@@ -6,7 +6,7 @@ body:
 {
 	type: kinematic
 	
-	@shape.polygon:
+	@shape.circle:
 	{
 		mass: 500.000
 		radius: 1.500
@@ -25,7 +25,7 @@ transform:
 
 health:
 {
-	max: 90000.000
+	max: 900000.000
 }
 
 animated.renderer:
@@ -34,27 +34,33 @@ animated.renderer:
 	{
 		texture: skyhook.00.atlas
 		frame: [0, 0]
-		size: [32, 48]
+		size: [48, 16]
 	}
 	z: -150.000
 }
 
-nameable:
-{
-	tags: chemical, tech, dangerous
-	flags: no_rename, randomize
-	type: building
-}
+// nameable:
+// {
+// 	tags: chemical, tech, dangerous
+// 	flags: no_rename, randomize
+// 	type: building
+// }
 
-faction:
-{
+// faction:
+// {
 	
-}
+// }
 
-skyhook:
-{
+// skyhook:
+// {
 	
-}
+// }
+
+// interactable:
+// {
+// 	window_size: [592.000, 408.000]
+// 	window_size_misc: [48.000, 0.000]
+// }
 
 +slot|instance:
 {
@@ -73,7 +79,7 @@ skyhook:
 	rope.renderer:
 	{
 		texture: skyhook.00.cable
-		thickness: 0.300
+		thickness: 0.700
 		scale: 6.000
 		z: -400.000
 	}
@@ -82,7 +88,7 @@ skyhook:
 	{
 		$name: "Skyhook"
 		$tags: []
-		
+
 		body:
 		{
 			type: dynamic
@@ -99,7 +105,7 @@ skyhook:
 				exclude: none
 				
 				mass: 500.000
-				radius: 0.500
+				radius: 0.750
 				friction: 0.950
 				elasticity: 0.500
 				
@@ -107,39 +113,87 @@ skyhook:
 				
 				points:
 				[
-					[-0.500, -2.625]
-					[0.500, -2.625]
-					[1.500, 1.500]
-					[-1.500, 1.500]
+					[-0.625, -3.125]
+					[0.375, -2.875]
+					[1.000, 2.875]
+					[-1.000, 2.875]
 				]
 			}
 		}
 
 		transform:
 		{
-		
+
 		}
-		
+
 		health:
 		{
-			max: 88000.000
+			max: 880000.000
 		}
-		
+
 		animated.renderer:
 		{
 			sprite:
 			{
 				texture: skyhook.00.atlas
-				frame: [0, 0]
-				size: [32, 48]
+				size: [48, 64]
+				frame: [1, 0]
 			}
-			z: -100.000
+			z: -180.000
 		}
 
 		faction:
 		{
 			
 		}
+
+		company:
+		{
+			
+		}
+
+		storage:
+		{
+			@inventory16:
+			{
+				type: storage
+				flags: standalone, ignore_mass, no_auto_pickup, faction
+				stack_size_multiplier: 2.000
+				
+				filter:
+				{
+					exclude: gas, large
+				}
+			}
+		}
+
+		address:
+		{
+			
+		}
+
+		skyhook:
+		{
+			@sound.emitter:
+			{
+				file: winch.loop.00
+				flags: start_muted
+				volume: 1.000
+				size: 0.500
+			}
+		}
+
+		stockpile:
+		{
+			request_types: pack, unpack, move, send, load
+			flags: public, auto_create, full_access, show_addresses, edit_addresses
+		}
+
+		market:
+		{
+			
+		}
+
 
 		minimap.marker:
 		{
@@ -155,6 +209,21 @@ skyhook:
 		{
 			window_size: [592.000, 408.000]
 			window_size_misc: [48.000, 0.000]
+		}
+
+		lamp:
+		{
+			flicker: 0.000
+			blink_frequency: 1.000
+			blink_amplitude: 0.500
+			
+			@light:
+			{
+				color: [1.000, 0.400, 0.000, 2.700]
+				offset: [-1.000, -3.500]
+				scale: [16.000, 16.000]
+				texture: light.circle.04
+			}
 		}
 	}
 }
