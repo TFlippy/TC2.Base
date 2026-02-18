@@ -1,0 +1,134 @@
+$name: "Beacon"
+$desc: 
+	'''
+	TODO: Desc
+	'''
+$tags: []
+
+body:
+{
+	@shape.line:
+	{
+		material: device
+		miss_chance: 0.541
+		flags: none
+		tags: none
+		
+		layer: entity, solid, item, conductive, magnetic, no_overlapped_placement, ignore_melee
+		mask: world
+		exclude: none
+		
+		mass: 4.000
+		radius: 0.625
+		friction: 0.880
+		elasticity: 0.340
+		
+		fall_damage_mult: 0.750
+		cog_offset: [0.000, 0.1875]
+		
+		a: [0.000, -0.125]
+		b: [0.000, 0.125]
+		offset: [0.000, 0.000]
+	}
+}
+
+control:
+{
+
+}
+
+health:
+{
+	max: 6000.000
+}
+
+armor:
+{
+	toughness: 320.000
+	protection: 0.900
+	coverage: 0.800
+	knockback_modifier: 1.160
+	stun_modifier: 0.910
+	material_type: metal_frame
+	flags: no_damage_type_conversion
+}
+
+holdable:
+{
+	offset: [0.000, 0.375]
+	force_multiplier: 0.680
+	torque_multiplier: 0.690
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: atlas.beacon.00
+		size: [24, 24]
+		frame: [0, 0]
+	}
+	z: 100.000
+}
+
+transform:
+{
+
+}
+
+interactable:
+{
+	window_size: [592.000, 408.000]
+	window_size_misc: [48.000, 0.000]
+}
+
+sticky:
+{
+	min_contact_count: 2
+	min_contact_distance: 0.200
+	max_force: 8000.000
+	flags: none
+	mask: world, solid, destructible
+	exclude: essence, water, liquid, fire, gas, ignore_hover, stored, bounds, conveyor, belt, pipe, no_overlapped_placement, powder
+
+	sound: "fabric.hit.generic.00"
+}
+
+faction:
+{
+
+}
+
+company:
+{
+
+}
+
+beacon:
+{
+
+}
+
+norotate:
+{
+	flags: none
+	speed: 5.000
+	bias: 0.000
+	
+	mass_multiplier: 5.000
+}
+
+lamp:
+{
+	flicker: 0.100
+	blink_frequency: 2.000
+	blink_amplitude: 0.500
+
+	@light:
+	{
+		color: [0.828, 0.774, 0.092, 2.500]
+		offset: [0.000, -0.875]
+		scale: [16.000, 16.000]
+		texture: light.circle.00
+	}
+}
