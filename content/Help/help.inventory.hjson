@@ -1,12 +1,33 @@
 ﻿{
 	$version: "0.1.68.2"
-	name: "Storage"
+	name: "Inventories"
 	category: "02: Survival"
+	desc:
+		'''
+		TODO: Desc
+		'''
 	
 	flags: none
 	order: 80
 	
 	color: "0x00000000"
 	
-	entries: []
+	entries:
+	[
+		{
+			text: "Used for storing materials"
+			color: "0xfffff0d8"
+			flags: bullet
+		}
+		{
+			text: "Some inventories require materials to meet certain criteria"
+			color: "0xfffff0d8"
+			flags: bullet
+		}
+		{
+			text: "Non-stackable items such as tools, equipment or weapons cannot be stored in these"
+			color: "0xfffff0d8"
+			flags: newline, bullet
+		}
+	]
 }
