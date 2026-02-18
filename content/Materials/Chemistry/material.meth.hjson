@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.65.1"
+	$version: "0.1.68.2"
 	name: "Methamphetamine"
 	name_short: "Meth"
 	name_imperial: "Pervitin"
@@ -82,7 +82,7 @@
 		categories_buy: none
 		categories_sell: none
 		
-		market_price: 160.000
+		market_price: 42.000
 		market_price_min: 0.000
 		market_price_max: 0.000
 		

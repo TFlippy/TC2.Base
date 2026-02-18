@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.68.2"
 	name: "EC-LF Pellets"
 	name_short: "EC-LF Pt."
 	name_imperial: "Lojf-Arkpelet"
@@ -96,7 +96,7 @@
 		categories_buy: none
 		categories_sell: none
 		
-		market_price: 80.000
+		market_price: 380.000
 		market_price_min: 0.000
 		market_price_max: 0.000
 		

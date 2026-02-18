@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.0"
+	$version: "0.1.68.2"
 	name: "Planks"
 	name_short: "Planks"
 	name_dumb: "Wood"
@@ -155,45 +155,6 @@
 			]
 		}
 	]
-	
-	commodity:
-	{
-		availability: 1.000
-		rarity: 1.000
-		scalability: 1.000
-		reusability: 1.000
-		longevity: 1.000
-		complexity: 1.000
-		tech: 1.000
-		liquidity: 1.000
-		demand: 1.000
-		
-		flags: marketable
-		categories: wood, construction_materials, fuel, industrial, toys
-		
-		industries_produce: agricultural, low_tech, logging, hunting, colonization
-		industries_consume: mining, manufacturing, chemical, automotive, military, entertainment, construction, logistics, food, fishing, hospitality, slaves, labor, real_estate, railway, engineering, weapons, furniture, architecture, alcohol
-		industries_buy: none
-		industries_sell: none
-		
-		buildings_produce: labor_camp, lumber_mill, farm
-		buildings_consume: warehouse, factory, trainyard, docks, walls, theatre, mine, borehole, university, school, barracks, train_station, zoo, circus, quarry
-		buildings_buy: none
-		buildings_sell: none
-		
-		categories_produce: border, wilderness, overgrown, abandoned, frontier, agricultural, developing, infested, rural, expansive, forested
-		categories_consume: industrial, wasteland, commercial, residential, urban, frontier
-		categories_buy: none
-		categories_sell: none
-		
-		market_price: 0.779
-		market_price_min: 0.400
-		market_price_max: 0.950
-		
-		quantity_retail: 10.000
-		quantity_wholesale: 50.000
-		quantity_industry: 1000.000
-	}
 	
 	fuel:
 	{

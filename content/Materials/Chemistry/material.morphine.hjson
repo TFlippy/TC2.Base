@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.68.2"
 	name: "Morphine"
 	name_short: "Morphine"
 	name_imperial: "Morfin"
@@ -85,7 +85,7 @@
 		categories_buy: none
 		categories_sell: none
 		
-		market_price: 110.000
+		market_price: 66.000
 		market_price_min: 0.000
 		market_price_max: 0.000
 		

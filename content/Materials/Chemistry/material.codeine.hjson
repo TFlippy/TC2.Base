@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.1"
+	$version: "0.1.68.2"
 	name: "Codeine"
 	name_short: "Codeine"
 	name_imperial: "Kodajn"
@@ -82,7 +82,7 @@
 		categories_buy: none
 		categories_sell: none
 		
-		market_price: 130.000
+		market_price: 74.000
 		market_price_min: 0.000
 		market_price_max: 0.000
 		

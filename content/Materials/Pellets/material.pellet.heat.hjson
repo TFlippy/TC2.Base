@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.67.1"
+	$version: "0.1.68.2"
 	name: "EC-TH Pellets"
 	name_short: "EC-TH Pt."
 	name_imperial: "Termhal-Arkpelet"
@@ -96,7 +96,7 @@
 		categories_buy: none
 		categories_sell: none
 		
-		market_price: 150.000
+		market_price: 110.000
 		market_price_min: 0.000
 		market_price_max: 0.000
 		
