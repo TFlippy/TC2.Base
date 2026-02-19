@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.67.2"
+	$version: "0.1.68.2"
 	name: "SG-20.4mm/ST Slug"
 	description:
 		'''
@@ -54,6 +54,17 @@
 	
 	centroid_default: [0.000, 0.250]
 	colliders: []
+	
+	commodity:
+	{
+		
+		flags: none
+		categories: none
+		
+		market_price: 7.000
+		
+		market_price_per_kg_auto: 61.90476
+	}
 	
 	ammo:
 	{

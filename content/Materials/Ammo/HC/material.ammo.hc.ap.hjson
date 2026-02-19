@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.68.2"
 	name: "HC-13.2mm/AP Ammo"
 	description:
 		'''
@@ -55,6 +55,15 @@
 	
 	centroid_default: [0.000, 0.250]
 	colliders: []
+	
+	commodity:
+	{
+		
+		flags: none
+		categories: none
+		
+		market_price: 9.000
+	}
 	
 	ammo:
 	{

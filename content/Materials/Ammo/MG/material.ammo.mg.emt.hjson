@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.67.2"
+	$version: "0.1.68.2"
 	name: "MG-20.4mm/EMT Ammo"
 	description:
 		'''
@@ -55,6 +55,17 @@
 	
 	centroid_default: [0.000, 0.250]
 	colliders: []
+	
+	commodity:
+	{
+		
+		flags: none
+		categories: none
+		
+		market_price: 120.000
+		
+		market_price_per_kg_auto: 392.8571
+	}
 	
 	ammo:
 	{

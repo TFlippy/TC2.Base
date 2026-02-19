@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.68.2"
 	name: "RT-68.1mm/SM Rocket"
 	description:
 		'''
@@ -53,6 +53,15 @@
 	color_gib: "0xffffffff"
 	
 	colliders: []
+	
+	commodity:
+	{
+		
+		flags: none
+		categories: none
+		
+		market_price: 90.000
+	}
 	
 	ammo:
 	{

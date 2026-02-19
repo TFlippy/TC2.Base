@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.66.1"
+	$version: "0.1.68.2"
 	name: "HW-106.7mm/HV Shell"
 	description:
 		'''
@@ -53,6 +53,17 @@
 	color_gib: "0xffffffff"
 	
 	colliders: []
+	
+	commodity:
+	{
+		
+		flags: none
+		categories: none
+		
+		market_price: 400.000
+		
+		market_price_per_kg_auto: 33.600
+	}
 	
 	ammo:
 	{

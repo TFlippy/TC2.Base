@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.68.2"
 	name: "AC-33.6mm/LV Ammo"
 	description:
 		'''
@@ -52,7 +52,19 @@
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	
+	centroid_default: [0.000, 0.250]
 	colliders: []
+	
+	commodity:
+	{
+		
+		flags: none
+		categories: none
+		
+		market_price: 40.000
+		
+		market_price_per_kg_auto: 45.91837
+	}
 	
 	ammo:
 	{

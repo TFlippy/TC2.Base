@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.68.2"
 	name: "SG-20.4mm Buckshot"
 	description:
 		'''
@@ -50,6 +50,15 @@
 	
 	centroid_default: [0.000, 0.250]
 	colliders: []
+	
+	commodity:
+	{
+		
+		flags: none
+		categories: none
+		
+		market_price: 6.000
+	}
 	
 	ammo:
 	{

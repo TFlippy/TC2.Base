@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.68.2"
 	name: "AC-33.6mm/HV Ammo"
 	description:
 		'''
@@ -54,6 +54,15 @@
 	color_gib: "0xffffffff"
 	
 	colliders: []
+	
+	commodity:
+	{
+		
+		flags: none
+		categories: none
+		
+		market_price: 56.000
+	}
 	
 	ammo:
 	{
