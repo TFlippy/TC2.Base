@@ -64,8 +64,8 @@
 		flags: none
 		categories: none
 		
-		market_price: 2.100
+		market_price: 3.100
 		
-		market_price_per_kg_auto: 2.328624
+		market_price_per_kg_auto: 0.54945
 	}
 }
