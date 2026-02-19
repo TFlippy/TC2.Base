@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.68.2"
 	name: "Timber (Maple)"
 	name_short: "Maple"
 	name_dumb: "Wood"
@@ -97,6 +97,24 @@
 			]
 		}
 	]
+	
+	commodity:
+	{
+		availability: 0.000
+		rarity: 0.000
+		scalability: 0.000
+		reusability: 0.000
+		longevity: 0.000
+		complexity: 0.000
+		tech: 0.000
+		liquidity: 0.000
+		demand: 0.000
+		
+		flags: none
+		categories: none
+		
+		market_price: 28.000
+	}
 	
 	// Damage-based conversions.
 	conversions:

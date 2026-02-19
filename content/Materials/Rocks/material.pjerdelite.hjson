@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.68.2"
 	name: "Pjerdelite"
 	name_short: "Pjerdelite"
 	name_imperial: "Pjerdelit"
@@ -31,6 +31,8 @@
 	display_flags: none
 	hints: materials, heavy, mining, industrial, slow, clumsy
 	
+	// Ratio of the material volume to the total volume it occupies when stacked. A value of 1.0 means no empty space, while a value closer to 0.0 means a lot of empty space.
+	packing_fraction: 0.000
 	// General purity modifier.
 	purity: 0.655
 	// Mass of 1 unit in kg.
@@ -47,7 +49,6 @@
 	
 	form_type: raw
 	prefab: resource.pjerdelite
-	h_substance: "null"
 	
 	color_icon: "0xffffffff"
 	color_item: "0xffffffff"
@@ -57,13 +58,33 @@
 	centroid_default: [0.000, 0.250]
 	colliders: []
 	
+	commodity:
+	{
+		availability: 0.000
+		rarity: 0.000
+		scalability: 0.000
+		reusability: 0.000
+		longevity: 0.000
+		complexity: 0.000
+		tech: 0.000
+		liquidity: 0.000
+		demand: 0.000
+		
+		flags: none
+		categories: none
+		
+		market_price: 6.000
+		
+		market_price_per_kg_auto: 1.448636
+	}
+	
 	// Residues from crafting/work.
 	residues:
 	{
 		amalgamation:
 		{
 			h_material: smirglum.amalgam
-			h_substance: "null"
+			
 			flags: none
 			flags_product: residue, byproduct, compact
 			
@@ -81,7 +102,6 @@
 		chlorine: component, refined, burnt, residue, reaction, decomposition, waste, chemical, element, roasted, gas, vapor
 		gravel: residue, crushed, decomposition, dirty, waste, filler, natural
 		slag: ruined, burnt, residue, melted, reaction, mangled, decomposition, dirty, waste, solidified, slag, corroded, roasted
-		silica: component, refined, residue, decomposition, purified, filler, element, ingredient, product
 		sand: component, residue, crushed, decomposition, similar, filler, element, powdered, natural, product, roasted
 		smirglum.amalgam: reaction, decomposition, similar, alloy, product
 	}

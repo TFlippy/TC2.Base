@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.68.2"
 	name: "Kruskite"
 	name_short: "Kruskite"
 	name_imperial: "Kruskit"
@@ -58,6 +58,24 @@
 	centroid_default: [0.000, 0.250]
 	colliders: []
 	
+	commodity:
+	{
+		availability: 0.000
+		rarity: 0.000
+		scalability: 0.000
+		reusability: 0.000
+		longevity: 0.000
+		complexity: 0.000
+		tech: 0.000
+		liquidity: 0.000
+		demand: 0.000
+		
+		flags: none
+		categories: none
+		
+		market_price: 1.400
+	}
+	
 	// Info regarding relations of other materials towards this material.
 	related:
 	{
@@ -66,7 +84,6 @@
 		mercury: component, refined, residue, decomposition, purified, clean, element
 		gold.gravel: component, residue, raw, ore, crushed, decomposition, purified, similar, element, smelted
 		silver.gravel: component, residue, raw, ore, crushed, decomposition, purified, similar, element, smelted
-		silica: component, refined, residue, crushed, decomposition, purified, clean, similar, element, powdered
 		chalcopyrite: raw, ore, similar, filler, natural
 		sulfur: component, refined, residue, decomposition, purified, clean, chemical, element, powdered
 	}
