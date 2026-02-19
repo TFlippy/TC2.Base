@@ -64,6 +64,61 @@ namespace TC2.Base.Components
 			{
 				var sync = false;
 
+				var ent_attached = rpc.entity.GetParent<Sticky.Rel>();
+
+				var price_estimate = 0.00f;
+				var total_mass = (Mass)0.00f;
+
+				if (ent_attached.IsAlive())
+				{
+					ref var body = ref ent_attached.GetComponent<Body.Data>();
+					if (body.IsNotNull())
+					{
+						total_mass += body.GetMass() - (body.inventory_weight * body.inventory_weight_multiplier);
+					}
+
+					foreach (var h_inventory in ent_attached.GetInventories())
+					{
+						var span_items = h_inventory.GetReadOnlySpan();
+						foreach (var item in span_items)
+						{
+							if (item)
+							{
+								total_mass += item.GetMass();
+								price_estimate += item.GetMarketPrice();
+							}
+						}
+					}
+
+					ref var harvestable = ref ent_attached.GetComponent<Harvestable.Data>();
+					if (harvestable.IsNotNull())
+					{
+						ref var harvestable_state = ref ent_attached.GetComponent<Harvestable.State>();
+						if (harvestable_state.IsNotNull())
+						{
+							var items = harvestable.resources;
+							for (var i = 0; i < items.Length; i++)
+							{
+								var item = items[i];
+								if (item)
+								{
+									item.quantity *= (1.00f - harvestable_state.pct_spawned[i].Value);
+									price_estimate += item.GetMarketPrice();
+								}
+							}
+						}
+					}
+				}
+
+				var fee_mass = total_mass.m_value * data.fee_per_kg;
+				var fee_base = price_estimate * data.fee_base;
+
+				var price_w_fees = price_estimate - fee_base - fee_mass;
+				var tax = Maths.Abs(price_w_fees) * 0.21f;
+				var price_w_tax = price_w_fees - tax;
+
+
+
 				if (sync)
 				{
 					data.Sync(rpc.entity, true);
@@ -109,11 +164,20 @@ namespace TC2.Base.Components
 								GUI.Title(ent_attached.GetName(), size: 20);
 
 								var price_estimate = 0.00f;
+								var total_mass = (Mass)0.00f;
 
-								using (var group_items = GUI.Group.New(size: GUI.Rm.SubY(16)))
+								//total_mass += this.ent_beacon.
+
+								using (var group_items = GUI.Group.New(size: GUI.Rm.SubY((14 * 6) + 4 + 4)))
 								{
 									if (ent_attached.IsAlive())
 									{
+										ref var body = ref ent_attached.GetComponent<Body.Data>();
+										if (body.IsNotNull())
+										{
+											total_mass += body.GetMass() - (body.inventory_weight * body.inventory_weight_multiplier);
+										}
+
 										foreach (var h_inventory in ent_attached.GetInventories())
 										{
 											//GUI.Title(h_inventory.Type.ToStringUtf8());
@@ -125,6 +189,8 @@ namespace TC2.Base.Components
 													ref var material = ref item.GetMaterial();
 													if (material.IsNotNull())
 													{
+														total_mass += item.GetMass();
+
 														ref var commodity = ref material.commodity.GetRefOrNull();
 														if (commodity.IsNotNull())
 														{
@@ -152,6 +218,16 @@ namespace TC2.Base.Components
 															GUI.LabelShaded(item.GetName(), "N/A"u8, color_a: GUI.font_color_desc, color_b: GUI.font_color_desc);
 															//GUI.TextShaded(item.GetShortName(), color: GUI.font_color_default.WithAlpha((byte)(commodity.IsNotNull() ? 255 : 100)));
 														}
+
+														if (GUI.IsItemHovered())
+														{
+															using (var tooltip = GUI.Tooltip.New(size: new(192, 0)))
+															{
+																GUI.LabelShaded("Mass"u8, item.GetMass(), format: "0.##' kg'");
+															}
+														}
+
+														GUI.FocusableAsset(item.material);
 													}
 												}
 											}
@@ -167,7 +243,7 @@ namespace TC2.Base.Components
 												GUI.Separator(spacing: 4, thickness: 1.00f);
 
 
-												GUI.Title("Harvestable"u8);
+												GUI.Title("Harvestable"u8, color: GUI.font_color_yellow_b);
 												var items = harvestable.resources;
 												for (var i = 0; i < items.Length; i++)
 												{
@@ -179,6 +255,8 @@ namespace TC2.Base.Components
 														ref var material = ref item.GetMaterial();
 														if (material.IsNotNull())
 														{
+															//total_mass += item.GetMass();
+
 															ref var commodity = ref material.commodity.GetRefOrNull();
 															if (commodity.IsNotNull())
 															{
@@ -188,6 +266,7 @@ namespace TC2.Base.Components
 																GUI.TextShaded(item.quantity, format: "'~'0'x'", color: GUI.font_color_yellow_b);
 																GUI.OffsetLine(48);
 																GUI.LabelShaded(item.GetName(), item_price, format: "0' Đk'", color_a: GUI.font_color_yellow_b, color_b: GUI.font_color_yellow_b);
+																GUI.FocusableAsset(item.material);
 
 																//if (GUI.IsItemHovered())
 																//{
@@ -204,6 +283,16 @@ namespace TC2.Base.Components
 																GUI.LabelShaded(item.GetName(), "N/A"u8, color_a: GUI.font_color_desc, color_b: GUI.font_color_desc);
 																//GUI.TextShaded(item.GetShortName(), color: GUI.font_color_default.WithAlpha((byte)(commodity.IsNotNull() ? 255 : 100)));
 															}
+
+															if (GUI.IsItemHovered())
+															{
+																using (var tooltip = GUI.Tooltip.New(size: new(192, 0)))
+																{
+																	GUI.LabelShaded("Mass"u8, item.GetMass(), format: "0.##' kg'");
+																}
+															}
+
+															GUI.FocusableAsset(item.material);
 														}
 													}
 												}
@@ -219,7 +308,20 @@ namespace TC2.Base.Components
 
 								using (var group_total = GUI.Group.New(size: GUI.Rm))
 								{
-									GUI.LabelShaded("Est.Value"u8, price_estimate, format: "0' Đk'");
+									var fee_mass = total_mass.m_value * this.beacon.fee_per_kg;
+									var fee_base = price_estimate * this.beacon.fee_base;
+
+									var price_w_fees = price_estimate - fee_base - fee_mass;
+									var tax = Maths.Abs(price_w_fees) * 0.21f;
+									var price_w_tax = price_w_fees - tax;
+
+									GUI.LabelShaded("Value"u8, price_estimate, format: "0' Đk'");
+									GUI.LabelShaded("Fee (Base)"u8, -fee_base, format: "0' Đk'", color_b: GUI.font_color_red_b);
+									GUI.LabelShaded("Fee (Mass)"u8, -fee_mass, format: "0' Đk'", color_b: GUI.font_color_red_b);
+									GUI.LabelShaded("Sales Tax"u8, -tax, format: "0' Đk'", color_b: GUI.font_color_red_b);
+									GUI.Separator(spacing: 4, thickness: 1.00f);
+									GUI.LabelShaded("Reward"u8, price_w_tax, format: "0' Đk'", color_b: price_w_tax < 0.00f ? GUI.font_color_red_b : GUI.font_color_green_b);
+									GUI.LabelShaded("Mass"u8, total_mass, format: "0.##' kg'");
 								}
 							}
 
@@ -249,6 +351,19 @@ namespace TC2.Base.Components
 										rpc.Send(this.ent_beacon);
 									}
 									GUI.DrawHoverTooltip("Activate the beacon, allowing zeppelins to pick up this object."u8);
+								}
+
+								if (GUI.ShowDebugGUI)
+								{
+									GUI.SameLine();
+
+									if (GUI.DrawButton("DEV: Sell"u8, size: new(96, GUI.RmY), color: GUI.col_button_debug))
+									{
+										var rpc = new Beacon.ActionRPC
+										{
+										};
+										rpc.Send(this.ent_beacon);
+									}
 								}
 							}
 						}

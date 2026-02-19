@@ -108,7 +108,8 @@ company:
 
 beacon:
 {
-
+	fee_base: 0.100
+	fee_per_kg: 2.000
 }
 
 claimable:
