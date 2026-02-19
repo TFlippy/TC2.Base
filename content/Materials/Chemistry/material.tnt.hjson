@@ -45,7 +45,6 @@
 	// Preferred quantity snapping for inventories.
 	snapping_pickup: 5.000
 	
-	form_type: chunk
 	prefab: resource.tnt
 	
 	color_icon: "0xffffffff"

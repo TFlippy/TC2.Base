@@ -39,7 +39,6 @@
 	// Preferred quantity snapping for inventories.
 	snapping_pickup: 25.000
 	
-	form_type: chunk
 	prefab: resource.putty
 	
 	color_icon: "0xffffffff"
@@ -102,12 +101,10 @@
 	
 	commodity:
 	{
-		
 		flags: none
 		categories: none
 		
 		market_price: 65.000
-		
 		market_price_per_kg_auto: 104.4932
 	}
 	

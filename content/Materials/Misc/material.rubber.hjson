@@ -38,7 +38,6 @@
 	// Preferred quantity snapping for inventories.
 	snapping_pickup: 50.000
 	
-	form_type: chunk
 	prefab: resource.rubber
 	
 	color_icon: "0xffffffff"
@@ -51,21 +50,10 @@
 	
 	commodity:
 	{
-		availability: 0.000
-		rarity: 0.000
-		scalability: 0.000
-		reusability: 0.000
-		longevity: 0.000
-		complexity: 0.000
-		tech: 0.000
-		liquidity: 0.000
-		demand: 0.000
-		
 		flags: none
 		categories: none
 		
 		market_price: 6.500
-		
 		market_price_per_kg_auto: 22.58064
 	}
 }

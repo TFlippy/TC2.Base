@@ -61,9 +61,8 @@
 	
 	commodity:
 	{
-		
 		flags: none
-		categories: none
+		categories: weapons, munitions, military, manufactured
 		
 		market_price: 4.500
 	}

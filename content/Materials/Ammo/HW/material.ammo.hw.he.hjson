@@ -56,13 +56,11 @@
 	
 	commodity:
 	{
-		
 		flags: none
-		categories: none
+		categories: weapons, explosives, munitions, dangerous, military, manufactured
 		
 		market_price: 780.000
-		
-		market_price_per_kg_auto: 107.1429
+		market_price_per_kg_auto: 111.4286
 	}
 	
 	ammo:

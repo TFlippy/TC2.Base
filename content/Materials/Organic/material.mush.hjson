@@ -46,7 +46,6 @@
 	// Preferred quantity snapping for inventories.
 	snapping_pickup: 0.100
 	
-	form_type: chunk
 	prefab: resource.mush
 	
 	color_icon: "0xffffffff"

@@ -58,12 +58,10 @@
 	
 	commodity:
 	{
-		
 		flags: none
-		categories: none
+		categories: weapons, munitions, military, manufactured
 		
 		market_price: 1.850
-		
 		market_price_per_kg_auto: 200.000
 	}
 	

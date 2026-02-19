@@ -58,11 +58,11 @@
 	
 	commodity:
 	{
-		
 		flags: none
-		categories: none
+		categories: weapons, munitions, toys, manufactured
 		
 		market_price: 5.000
+		market_price_per_kg_auto: 52.63158
 	}
 	
 	ammo:
