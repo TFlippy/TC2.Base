@@ -108,16 +108,24 @@ namespace TC2.Base.Components
 							}
 						}
 					}
+
+					var fee_mass = total_mass.m_value * data.fee_per_kg;
+					var fee_base = price_estimate * data.fee_base;
+
+					var price_w_fees = price_estimate - fee_base - fee_mass;
+					var tax = Maths.Abs(price_w_fees) * 0.21f;
+					var price_w_tax = price_w_fees - tax;
+
+					ent_attached.AddTag("no_gib");
+					rpc.entity.AddTag("no_gib");
+
+					ent_attached.Delete();
+					rpc.entity.Delete();
+
+					Crafting.Context.NewFromCharacter(ref rpc.GetRegionCommon(), rpc.GetSenderCharacterHandle(), rpc.entity, out var context, search_radius: 4.00f);
+
+					context.Produce([Crafting.Product.Money(price_w_tax)], spawn_flags: Resource.SpawnFlags.Pickup | Resource.SpawnFlags.Show_Notification | Resource.SpawnFlags.Allow_Encumbered | Resource.SpawnFlags.No_Discard | Resource.SpawnFlags.No_Offset);
 				}
-
-				var fee_mass = total_mass.m_value * data.fee_per_kg;
-				var fee_base = price_estimate * data.fee_base;
-
-				var price_w_fees = price_estimate - fee_base - fee_mass;
-				var tax = Maths.Abs(price_w_fees) * 0.21f;
-				var price_w_tax = price_w_fees - tax;
-
-
 
 				if (sync)
 				{
@@ -168,7 +176,8 @@ namespace TC2.Base.Components
 
 								//total_mass += this.ent_beacon.
 
-								using (var group_items = GUI.Group.New(size: GUI.Rm.SubY((14 * 6) + 4 + 4)))
+								//using (var group_items = GUI.Group.New(size: GUI.Rm.SubY((14 * 6) + 4 + 4)))
+								using (var group_items = GUI.Scrollbox.New("sb.items"u8, size: GUI.Rm.SubY((14 * 6) + 4 + 4), padding: new(4)))
 								{
 									if (ent_attached.IsAlive())
 									{
@@ -242,7 +251,6 @@ namespace TC2.Base.Components
 												GUI.NewLine(2);
 												GUI.Separator(spacing: 4, thickness: 1.00f);
 
-
 												GUI.Title("Harvestable"u8, color: GUI.font_color_yellow_b);
 												var items = harvestable.resources;
 												for (var i = 0; i < items.Length; i++)
@@ -300,9 +308,12 @@ namespace TC2.Base.Components
 										}
 									}
 
-									GUI.NewLine(2);
-									GUI.Separator(spacing: 4, thickness: 1.00f);
+									//GUI.NewLine(2);
+									//GUI.Separator(spacing: 4, thickness: 1.00f);
 								}
+
+								GUI.SeparatorThick();
+								GUI.NewLine(2);
 
 								//GUI.Separator(spacing: 4);
 
