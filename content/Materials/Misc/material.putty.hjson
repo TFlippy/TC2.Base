@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.1"
+	$version: "0.1.68.2"
 	name: "Putty"
 	name_short: "Putty"
 	name_imperial: "Herkules"
@@ -99,6 +99,17 @@
 			]
 		}
 	]
+	
+	commodity:
+	{
+		
+		flags: none
+		categories: none
+		
+		market_price: 65.000
+		
+		market_price_per_kg_auto: 104.4932
+	}
 	
 	// Info regarding relations of other materials towards this material.
 	related:
