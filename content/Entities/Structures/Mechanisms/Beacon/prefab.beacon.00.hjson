@@ -64,7 +64,7 @@ holdable:
 
 packable:
 {
-	
+
 }
 
 animated.renderer:
@@ -96,6 +96,7 @@ sticky:
 	max_force: 10000.000
 	min_contact_count: 1
 	min_contact_distance: 0.200
+	flags: no_background_attach
 	mask: crate, resource, storage, shipment, bulk, harvestable, item
 	exclude: world, bounds, belt, pipe, door, conveyor, essence, water, fire, gas, powder, liquid, held, stored, no_overlapped_placement, ignore_hover, static
 	sound: fabric.hit.generic.00

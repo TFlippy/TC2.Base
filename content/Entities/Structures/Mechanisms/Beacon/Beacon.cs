@@ -8,7 +8,9 @@ namespace TC2.Base.Components
 		{
 			None = 0u,
 
-			Pending = 1u << 0
+			Active = 1u << 0,
+
+			[Asset.Ignore] Obstructed = 1 << 16,
 		}
 
 		public enum Type: byte
@@ -18,6 +20,8 @@ namespace TC2.Base.Components
 			Trade,
 			Cargo,
 		}
+
+		public const Beacon.Flags flags_editable_mask = Beacon.Flags.Active;
 
 		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Global | IComponent.Scope.Region)]
 		public struct Data(): IComponent
@@ -45,7 +49,7 @@ namespace TC2.Base.Components
 			{
 				var sync = false;
 
-				sync |= data.flags.TrySetFlagMasked(this.flags, Beacon.Flags.Pending);
+				sync |= data.flags.TrySetFlagMasked(this.flags, Beacon.flags_editable_mask);
 
 				if (sync)
 				{
@@ -55,7 +59,7 @@ namespace TC2.Base.Components
 #endif
 		}
 
-		public struct ActionRPC: Net.IRPC<Beacon.Data>
+		public struct DEV_SellRPC: Net.IRPC<Beacon.Data>
 		{
 
 
@@ -149,7 +153,9 @@ namespace TC2.Base.Components
 					this.StoreCurrentWindowTypeID(order: 7);
 					if (window.show)
 					{
+						ref var region_common = ref this.ent_beacon.GetRegionCommon();
 						var ent_attached = this.ent_beacon.GetParent<Sticky.Rel>();
+						var pos = this.transform.position;
 
 						using (var group_left = GUI.Group.New(size: new(192, GUI.RmY)))
 						{
@@ -185,6 +191,7 @@ namespace TC2.Base.Components
 										if (body.IsNotNull())
 										{
 											total_mass += body.GetMass() - (body.inventory_weight * body.inventory_weight_multiplier);
+											pos = body.GetPosition();
 										}
 
 										foreach (var h_inventory in ent_attached.GetInventories())
@@ -274,7 +281,6 @@ namespace TC2.Base.Components
 																GUI.TextShaded(item.quantity, format: "'~'0'x'", color: GUI.font_color_yellow_b);
 																GUI.OffsetLine(48);
 																GUI.LabelShaded(item.GetName(), item_price, format: "0' Đk'", color_a: GUI.font_color_yellow_b, color_b: GUI.font_color_yellow_b);
-																GUI.FocusableAsset(item.material);
 
 																//if (GUI.IsItemHovered())
 																//{
@@ -329,35 +335,54 @@ namespace TC2.Base.Components
 									GUI.LabelShaded("Value"u8, price_estimate, format: "0' Đk'");
 									GUI.LabelShaded("Fee (Base)"u8, -fee_base, format: "0' Đk'", color_b: GUI.font_color_red_b);
 									GUI.LabelShaded("Fee (Mass)"u8, -fee_mass, format: "0' Đk'", color_b: GUI.font_color_red_b);
-									GUI.LabelShaded("Sales Tax"u8, -tax, format: "0' Đk'", color_b: GUI.font_color_red_b);
+									GUI.LabelShaded("VAT"u8, -tax, format: "0' Đk'", color_b: GUI.font_color_red_b);
 									GUI.Separator(spacing: 4, thickness: 1.00f);
 									GUI.LabelShaded("Reward"u8, price_w_tax, format: "0' Đk'", color_b: price_w_tax < 0.00f ? GUI.font_color_red_b : GUI.font_color_green_b);
 									GUI.LabelShaded("Mass"u8, total_mass, format: "0.##' kg'");
 								}
 							}
 
+							var is_los_sky = true;
+
+							ref var region = ref region_common.AsRegion();
+							if (region.IsNotNull())
+							{
+								//var ts = Timestamp.Now();
+								is_los_sky = region.IsLOS(pos, pos with { Y = 0 }, threshold_solid: 0.00f, allow_inside: false);
+								if (is_los_sky)
+								{
+									//region.TryOverlapBB()
+									is_los_sky &= region.IsInLineOfSight(pos, pos with { Y = 0 }, radius: 3.00f, layer: Physics.Layer.Solid, mask: Physics.Layer.None, exclude: Physics.Layer.World | Physics.Layer.Bounds | Physics.Layer.Water | Physics.Layer.Gas | Physics.Layer.Liquid | Physics.Layer.Fire | Physics.Layer.Essence, skip_inside: false);
+								}
+								//var ts_elapsed_ms = ts.GetMilliseconds();
+								//GUI.Text($"{ts_elapsed_ms:0.0000} ms");
+
+								//GUI.DrawLine(region.WorldToCanvas(pos), region.WorldToCanvas(pos with { Y = 0 }), color: is_los_sky.GetColor32(), thickness: region.GetWorldToCanvasScale(), layer: GUI.Layer.Foreground);
+
+							}
+
 							using (var group_buttons = GUI.Group.New(size: GUI.Rm))
 							{
 								//group_buttons.DrawBackground(GUI.tex_window);
 
-								if (this.beacon.flags.HasAny(Beacon.Flags.Pending))
+								if (this.beacon.flags.HasAny(Beacon.Flags.Active))
 								{
 									if (GUI.DrawButton("Deactivate"u8, size: new(96, GUI.RmY), color: GUI.col_button_error))
 									{
 										var rpc = new Beacon.EditRPC
 										{
-											flags = this.beacon.flags.WithRemoved(Beacon.Flags.Pending)
+											flags = this.beacon.flags.WithRemoved(Beacon.Flags.Active)
 										};
 										rpc.Send(this.ent_beacon);
 									}
 								}
 								else
 								{
-									if (GUI.DrawButton("Activate"u8, size: new(96, GUI.RmY), color: GUI.col_button_ok, enabled: ent_attached.IsAlive()))
+									if (GUI.DrawButton("Activate"u8, size: new(96, GUI.RmY), color: GUI.col_button_ok, enabled: is_los_sky && ent_attached.IsAlive()))
 									{
 										var rpc = new Beacon.EditRPC
 										{
-											flags = this.beacon.flags.WithAdded(Beacon.Flags.Pending)
+											flags = this.beacon.flags.WithAdded(Beacon.Flags.Active)
 										};
 										rpc.Send(this.ent_beacon);
 									}
@@ -368,9 +393,9 @@ namespace TC2.Base.Components
 								{
 									GUI.SameLine();
 
-									if (GUI.DrawButton("DEV: Sell"u8, size: new(96, GUI.RmY), color: GUI.col_button_debug))
+									if (GUI.DrawButton("DEV: Sell"u8, size: new(96, GUI.RmY), color: GUI.col_button_debug, enabled: is_los_sky && ent_attached.IsAlive()))
 									{
-										var rpc = new Beacon.ActionRPC
+										var rpc = new Beacon.DEV_SellRPC
 										{
 										};
 										rpc.Send(this.ent_beacon);
