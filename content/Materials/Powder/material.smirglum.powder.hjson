@@ -69,9 +69,9 @@
 		flags: none
 		categories: none
 		
-		market_price: 7.400
+		market_price: 9.600
 		
-		market_price_per_kg_auto: 2.721214
+		market_price_per_kg_auto: 2.836196
 	}
 	
 	// Info regarding relations of other materials towards this material.
