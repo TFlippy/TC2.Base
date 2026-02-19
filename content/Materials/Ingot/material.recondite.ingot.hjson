@@ -1,11 +1,18 @@
 ﻿{
-	$version: "0.1.68.1"
+	$version: "0.1.68.2"
+	$note:
+		'''
+		- Roughly 70.71% Smirglum (24.003 kg), 29.29% Silver (9.943 kg)
+		- Primarily used in essence conduit components
+		'''
 	name: "Recondite Brick"
 	name_short: "Rec. Brick"
 	name_imperial: "Rekonblok"
 	description:
 		'''
 		Standard 20x10x8 cm recondite brick.
+
+		Used in magitronics for essence conduits and other transmission components.
 		'''
 	
 	tips: []
@@ -153,6 +160,26 @@
 			]
 		}
 	]
+	
+	commodity:
+	{
+		availability: 0.000
+		rarity: 0.000
+		scalability: 0.000
+		reusability: 0.000
+		longevity: 0.000
+		complexity: 0.000
+		tech: 0.000
+		liquidity: 0.000
+		demand: 0.000
+		
+		flags: none
+		categories: none
+		
+		market_price: 540.000
+		
+		market_price_per_kg_auto: 15.90757
+	}
 	
 	// Residues from crafting/work.
 	residues:

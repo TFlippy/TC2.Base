@@ -1,5 +1,9 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.68.2"
+	$note:
+		'''
+		- Roughly 70.71% Smirglum, 29.29% Silver by mass
+		'''
 	name: "Recondite"
 	description:
 		'''

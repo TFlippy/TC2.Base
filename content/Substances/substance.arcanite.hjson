@@ -1,5 +1,9 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.68.2"
+	$note:
+		'''
+		- Roughly 61.80% Smirglum, 38.20% Gold by mass
+		'''
 	name: "Arcanite"
 	description:
 		'''

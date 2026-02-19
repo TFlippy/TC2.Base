@@ -66,6 +66,15 @@
 	centroid_default: [0.000, 0.250]
 	colliders: []
 	
+	commodity:
+	{
+		
+		flags: none
+		categories: none
+		
+		market_price: 1.000
+	}
+	
 	// Info regarding relations of other materials towards this material.
 	related:
 	{

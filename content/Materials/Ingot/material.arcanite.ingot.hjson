@@ -1,13 +1,18 @@
 ﻿{
 	$version: "0.1.68.2"
+	$note:
+		'''
+		- Roughly 61.80% Smirglum (22.402 kg), 38.20% Gold (13.847 kg)
+		- Primarily used in essence emitters
+		'''
 	name: "Arcanite Brick"
 	name_short: "Arc. Brick"
 	name_imperial: "Arkoblok"
 	description:
 		'''
-		Standard 20x10x8 cm arcanite brick, a gold and smirglum alloy.
+		Standard 20x10x8 cm arcanite brick.
 
-		Used in magitronics for essence conduits and other components.
+		Used in magitronics for essence emitters and interfacing mechanisms.
 		'''
 	
 	tips: []
@@ -153,4 +158,24 @@
 			]
 		}
 	]
+	
+	commodity:
+	{
+		availability: 0.000
+		rarity: 0.000
+		scalability: 0.000
+		reusability: 0.000
+		longevity: 0.000
+		complexity: 0.000
+		tech: 0.000
+		liquidity: 0.000
+		demand: 0.000
+		
+		flags: none
+		categories: none
+		
+		market_price: 900.000
+		
+		market_price_per_kg_auto: 24.82776
+	}
 }
