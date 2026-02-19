@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.1"
+	$version: "0.1.68.2"
 	name: "Soil"
 	name_short: "Soil"
 	name_imperial: "Zeman"
@@ -49,6 +49,24 @@
 	color_gib: "0xff74472a"
 	
 	colliders: []
+	
+	commodity:
+	{
+		availability: 0.000
+		rarity: 0.000
+		scalability: 0.000
+		reusability: 0.000
+		longevity: 0.000
+		complexity: 0.000
+		tech: 0.000
+		liquidity: 0.000
+		demand: 0.000
+		
+		flags: none
+		categories: none
+		
+		market_price: 0.200
+	}
 	
 	// Damage-based conversions.
 	conversions:

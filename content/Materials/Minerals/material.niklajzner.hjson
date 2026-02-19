@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.68.2"
 	name: "Niklajzner"
 	name_short: "Niklajz."
 	name_imperial: "Niklajzner"
@@ -21,6 +21,7 @@
 		frame: [3, 0]
 	}
 	
+	// Inventory material type.
 	type: metal_solid
 	flags: malleable, magnetic, granular, metal, mineral, raw, solid, primary
 	display_flags: none
@@ -30,11 +31,18 @@
 	}
 	hints: none
 	
+	// Ratio of the material volume to the total volume it occupies when stacked. A value of 1.0 means no empty space, while a value closer to 0.0 means a lot of empty space.
+	packing_fraction: 0.000
+	// Mass of 1 unit in kg.
 	mass_per_unit: 1.780
 	
+	// Maximum quantity (units) per stack.
 	quantity_max: 500.000
+	// Minimum spawnable quantity.
 	spawn_quantity_threshold: 1.000
+	// Preferred quantity snapping for recipes.
 	snapping: 0.100
+	// Preferred quantity snapping for inventories.
 	snapping_pickup: 1.000
 	
 	form_type: raw
@@ -49,6 +57,27 @@
 	centroid_default: [0.000, 0.250]
 	colliders: []
 	
+	commodity:
+	{
+		availability: 0.000
+		rarity: 0.000
+		scalability: 0.000
+		reusability: 0.000
+		longevity: 0.000
+		complexity: 0.000
+		tech: 0.000
+		liquidity: 0.000
+		demand: 0.000
+		
+		flags: none
+		categories: none
+		
+		market_price: 4.300
+		
+		market_price_per_kg_auto: 1.966292
+	}
+	
+	// Damage-based conversions.
 	conversions:
 	{
 		heat:
@@ -81,12 +110,13 @@
 		}
 	}
 	
+	// Residues from crafting/work.
 	residues:
 	{
 		hammering:
 		{
 			h_material: scrap.niklajzner
-			h_substance: "null"
+			
 			flags: none
 			flags_product: residue
 			
@@ -95,7 +125,7 @@
 		die.forging.metal:
 		{
 			h_material: scrap.niklajzner
-			h_substance: "null"
+			
 			flags: none
 			flags_product: residue
 			
@@ -104,7 +134,7 @@
 		die.swaging.metal:
 		{
 			h_material: scrap.niklajzner
-			h_substance: "null"
+			
 			flags: none
 			flags_product: residue
 			
@@ -113,7 +143,7 @@
 		drilling:
 		{
 			h_material: scrap.niklajzner
-			h_substance: "null"
+			
 			flags: none
 			flags_product: residue
 			
@@ -122,7 +152,7 @@
 		heating:
 		{
 			h_material: ferronickel.powder
-			h_substance: "null"
+			
 			flags: none
 			flags_product: waste
 			
@@ -131,7 +161,7 @@
 		smithing:
 		{
 			h_material: ferronickel.powder
-			h_substance: "null"
+			
 			flags: none
 			flags_product: residue
 			
@@ -140,7 +170,7 @@
 		filing:
 		{
 			h_material: ferronickel.powder
-			h_substance: "null"
+			
 			flags: none
 			flags_product: waste
 			
@@ -148,6 +178,7 @@
 		}
 	}
 	
+	// Info regarding relations of other materials towards this material.
 	related:
 	{
 		steel: refined, solidified

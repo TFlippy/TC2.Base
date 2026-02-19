@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.68.2"
 	name: "Vinegar"
 	name_short: "Vinegar"
 	name_dumb: "Piss"
@@ -51,6 +51,24 @@
 	color_liquid: [0.936, 0.623, 0.065, 0.824]
 	
 	colliders: []
+	
+	commodity:
+	{
+		availability: 0.000
+		rarity: 0.000
+		scalability: 0.000
+		reusability: 0.000
+		longevity: 0.000
+		complexity: 0.000
+		tech: 0.000
+		liquidity: 0.000
+		demand: 0.000
+		
+		flags: none
+		categories: none
+		
+		market_price: 4.000
+	}
 	
 	// Info regarding relations of other materials towards this material.
 	related:

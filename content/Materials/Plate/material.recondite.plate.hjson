@@ -57,6 +57,7 @@
 	color_dust: "0xffd5cf97"
 	color_gib: "0xffd5cf97"
 	
+	centroid_default: [-0.03125, 0.050]
 	colliders:
 	[
 		{
@@ -108,4 +109,22 @@
 			]
 		}
 	]
+	
+	commodity:
+	{
+		availability: 0.000
+		rarity: 0.000
+		scalability: 0.000
+		reusability: 0.000
+		longevity: 0.000
+		complexity: 0.000
+		tech: 0.000
+		liquidity: 0.000
+		demand: 0.000
+		
+		flags: none
+		categories: none
+		
+		market_price: 155.000
+	}
 }

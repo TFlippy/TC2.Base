@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.1"
+	$version: "0.1.68.2"
 	name: "Rot"
 	name_short: "Rot"
 	name_imperial: "Hnus"
@@ -52,4 +52,24 @@
 	
 	centroid_default: [0.000, 0.600]
 	colliders: []
+	
+	commodity:
+	{
+		availability: 0.000
+		rarity: 0.000
+		scalability: 0.000
+		reusability: 0.000
+		longevity: 0.000
+		complexity: 0.000
+		tech: 0.000
+		liquidity: 0.000
+		demand: 0.000
+		
+		flags: none
+		categories: none
+		
+		market_price: 0.040
+		
+		market_price_per_kg_auto: 0.411523
+	}
 }

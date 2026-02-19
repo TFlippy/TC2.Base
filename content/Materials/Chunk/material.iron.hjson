@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.68.2"
 	name: "Iron Chunk"
 	name_short: "Irn. Chunk"
 	name_dumb: "Obsidian"
@@ -108,18 +108,34 @@
 		}
 	]
 	
+	commodity:
+	{
+		availability: 0.000
+		rarity: 0.000
+		scalability: 0.000
+		reusability: 0.000
+		longevity: 0.000
+		complexity: 0.000
+		tech: 0.000
+		liquidity: 0.000
+		demand: 0.000
+		
+		flags: none
+		categories: none
+		
+		market_price: 33.000
+	}
+	
 	// Damage-based conversions.
 	conversions:
 	{
 		sledgehammer:
 		{
-			h_material: "null"
 			spawn_flags: merge
 			product_flags: none
 			ratio: 0.390
 			ratio_extra: 0.420
 			
-			h_material_waste: "null"
 			spawn_flags_waste: merge
 			product_flags_waste: none
 			ratio_waste: 0.650

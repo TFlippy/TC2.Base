@@ -70,9 +70,9 @@
 		flags: none
 		categories: none
 		
-		market_price: 1.350
+		market_price: 1.450
 		
-		market_price_per_kg_auto: 2.777722
+		market_price_per_kg_auto: 2.272681
 	}
 	
 	// Damage-based conversions.
