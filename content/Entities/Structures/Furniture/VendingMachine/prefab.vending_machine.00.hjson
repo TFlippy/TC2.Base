@@ -152,11 +152,11 @@ vendor:
 		offset: [-0.125, -0.375]
 	}
 
-	@inventory16:
+	@inventory8:
 	{
 		type: output
 		flags: standalone, public, no_auto_pickup, vertical
-		stack_size_multiplier: 2.000
+		stack_size_multiplier: 4.000
 		
 		offset: [-1.000, 0.250]
 	}

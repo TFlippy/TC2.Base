@@ -81,11 +81,11 @@ namespace TC2.Base.Components
 				{
 					if (item_tmp.quantity <= 0.00f)
 					{
-						sync |= data.edit_selected_items.TryRemove(in item_tmp);
+						sync |= data.edit_selected_items.AsSpan(data.unused_00).TryRemove(item_tmp); // .TryRemove(in item_tmp);
 					}
 					else
 					{
-						sync |= data.edit_selected_items.TryAdd(in item_tmp);
+						sync |= data.edit_selected_items.AsSpan(data.unused_00).TryAddOrSet(item_tmp);
 					}
 
 					data.edit_selected_items.Compact();
@@ -169,6 +169,8 @@ namespace TC2.Base.Components
 						{
 							can_signal = h_location_region != target_airship_g.h_location_docked && !target_airship_g.dock_request_locations.Contains(h_location_region);
 						}
+
+						var credit = this.inventory_money.resource.GetMarketPrice();
 
 						using (var group_left = GUI.Group.New(size: new(224, GUI.RmY)))
 						{
@@ -274,14 +276,14 @@ namespace TC2.Base.Components
 
 						using (var group_right = GUI.Group.New(size: GUI.Rm))
 						{
-							using (var group_info = GUI.Group.New(size: GUI.Rm.SubY(40), padding: new(10)))
+							using (var group_info = GUI.Group.New(size: GUI.Rm.SubY(40), padding: new(8)))
 							{
 								group_info.DrawBackground(GUI.tex_window);
 
 								//GUI.TitleCentered(ent_attached.GetName(), pivot: new(0.00f, 0.00f), size: 20);
 								//GUI.Title(ent_attached.GetName(), size: 20);
 
-								var price_estimate = 0.00f;
+								var total_cost = 0.00f;
 								var total_mass = (Mass)0.00f;
 
 								//total_mass += this.ent_vendor.
@@ -304,7 +306,7 @@ namespace TC2.Base.Components
 
 											GUI.SeparatorThick();
 
-											using (var group_items = GUI.Group.New(size: GUI.Rm, padding: new(8)))
+											using (var group_items = GUI.Group.New(size: GUI.Rm))
 											{
 												group_items.DrawBackground(GUI.tex_panel);
 
@@ -321,36 +323,41 @@ namespace TC2.Base.Components
 
 														//item.quantity = 0;
 
-														const float item_h = 40.00f;
+														const float item_h = 48.00f;
 
 														if (i != 0) GUI.TrySameLine(item_h);
-														GUI.DrawItem(item, size: new(item_h), is_readonly: true);
-														var rect_item = GUI.GetLastItemRect();
-
-														if (is_selected)
+														using (var group_item = GUI.Group.New(size: new(item_h), padding: new(4)))
 														{
-															GUI.DrawRect(rect_item.Pad(1), color: GUI.col_button_ok.WithAlpha(150), layer: GUI.Layer.Window);
-														}
+															group_item.DrawBackground(GUI.tex_slot_simple);
 
-														if (GUI.Selectable3(hash, rect_item, selected: is_selected))
-														{
-															App.WriteLine($"click [{i:00}] {item}");
+															GUI.DrawItem(item, size: GUI.Rm, is_readonly: true, show_quantity: false);
+															var rect_item = GUI.GetLastItemRect();
 
 															if (is_selected)
 															{
-																var rpc = new Vendor.EditOrderRPC
-																{
-																	item = item.WithQuantity(0.00f)
-																};
-																rpc.Send(this.ent_vendor);
+																GUI.DrawRect(rect_item.Pad(1), color: GUI.col_button_ok.WithAlpha(150), layer: GUI.Layer.Window);
 															}
-															else
+
+															if (GUI.Selectable3(hash, rect_item, selected: is_selected))
 															{
-																var rpc = new Vendor.EditOrderRPC
+																App.WriteLine($"click [{i:00}] {item}");
+
+																if (is_selected)
 																{
-																	item = item.WithQuantity(1.00f)
-																};
-																rpc.Send(this.ent_vendor);
+																	var rpc = new Vendor.EditOrderRPC
+																	{
+																		item = item.WithQuantity(0.00f)
+																	};
+																	rpc.Send(this.ent_vendor);
+																}
+																else
+																{
+																	var rpc = new Vendor.EditOrderRPC
+																	{
+																		item = item.WithQuantity(1.00f)
+																	};
+																	rpc.Send(this.ent_vendor);
+																}
 															}
 														}
 
@@ -376,8 +383,9 @@ namespace TC2.Base.Components
 								using (var group_total = GUI.Group.New(size: GUI.Rm, padding: new(6)))
 								{
 									group_total.DrawBackground(GUI.tex_window);
+									//var total_cost = 0.00f;
 
-									using (var group_items = GUI.Group.New(size: GUI.Rm, padding: new(8)))
+									using (var group_items = GUI.Group.New(size: new(GUI.RmX, 96), padding: new(8)))
 									{
 										group_items.DrawBackground(GUI.tex_panel);
 
@@ -391,46 +399,69 @@ namespace TC2.Base.Components
 											var item = selected_items_span[i];
 											if (item.header == 0) continue;
 
+											total_cost += item.GetMarketPrice();
+											total_mass += item.GetMass();
+
 											const float item_h = 40.00f;
 
 											using (var hash = GUI.ID<Vendor.Data, Shipment.Item2>.Push(i))
 											{
 												if (i != 0) GUI.TrySameLine(item_h);
-												GUI.DrawItem(item, size: new(item_h), is_readonly: true);
-												var rect_item = GUI.GetLastItemRect();
-
-												//if (is_selected)
-												//{
-												//	GUI.DrawRect(rect_item.Pad(1), color: GUI.col_button_ok.WithAlpha(150), layer: GUI.Layer.Window);
-												//}
-
-												if (GUI.Selectable3(hash, rect_item, selected: false))
+												//using (var group_item = GUI.Group.New(size: new(item_h), padding: new(4)))
 												{
-													App.WriteLine($"click [{i:00}] {item}");
+													//group_item.DrawBackground(GUI.tex_slot_simple);
+
+													GUI.DrawItem(item, size: new(item_h), is_readonly: true);
+													var rect_item = GUI.GetLastItemRect();
 
 													//if (is_selected)
 													//{
-													//	var rpc = new Vendor.EditOrderRPC
-													//	{
-													//		item = item.WithQuantity(0.00f)
-													//	};
-													//	rpc.Send(this.ent_vendor);
+													//	GUI.DrawRect(rect_item.Pad(1), color: GUI.col_button_ok.WithAlpha(150), layer: GUI.Layer.Window);
 													//}
-													//else
+
+													//if (GUI.ButtonBehavior(hash.hash.id, rect_item, out var hovered, out var held, allow_overlap: false, keys: GUI.ButtonKeys.Left | GUI.ButtonKeys.Right))
 													//{
-													//	var rpc = new Vendor.EditOrderRPC
-													//	{
-													//		item = item.WithQuantity(1.00f)
-													//	};
-													//	rpc.Send(this.ent_vendor);
+													//	App.WriteLine($"click [{i:00}] {item}");
+
+													//}
+													if (GUI.Selectable3(hash, rect_item, selected: false))
+													{
+														App.WriteLine($"click [{i:00}] {item}");
+
+														//if (is_selected)
+														//{
+														//	var rpc = new Vendor.EditOrderRPC
+														//	{
+														//		item = item.WithQuantity(0.00f)
+														//	};
+														//	rpc.Send(this.ent_vendor);
+														//}
+														//else
+														//{
+														//	var rpc = new Vendor.EditOrderRPC
+														//	{
+														//		item = item.WithQuantity(1.00f)
+														//	};
+														//	rpc.Send(this.ent_vendor);
+														//}
+													}
+
+													var amount_tmp = (int)item.quantity;
+													if (GUI.ScrollInput(rect_item, value: ref amount_tmp, step: 1, min: 1, max: 100, id: hash))
+													{
+														var rpc = new Vendor.EditOrderRPC
+														{
+															item = item.WithQuantity(amount_tmp)
+														};
+														rpc.Send(this.ent_vendor);
+													}
+
+													//var amount_tmp = (int)item.quantity;
+													//if (GUI.HoverInputInt(item.header.ToString(), rect_item, ref amount_tmp, 1, 100))
+													//{
+
 													//}
 												}
-
-												//var amount_tmp = (int)item.quantity;
-												//if (GUI.HoverInputInt(item.header.ToString(), rect_item, ref amount_tmp, 1, 100))
-												//{
-
-												//}
 											}
 
 											//using (var item_row = GUI.Group.New(size: new(GUI.RmX, 32)))
@@ -444,7 +475,19 @@ namespace TC2.Base.Components
 										}
 									}
 
+									GUI.SeparatorThick();
 
+									using (var group_cost = GUI.Group.New(size: new(GUI.RmX, 96), padding: new(8)))
+									{
+										using (var group_l = group_cost.Split(size: new(192, 64), align_x: GUI.AlignX.Left, align_y: GUI.AlignY.Top))
+										{
+											var selected_items_span = this.vendor.edit_selected_items.AsSpan();
+											//selected_items_span.get
+
+											GUI.LabelShaded("Credit:"u8, credit, format: "0' Đk'");
+											GUI.LabelShaded("Price:"u8, total_cost, format: "0' Đk'");
+										}
+									}
 								}
 							}
 
