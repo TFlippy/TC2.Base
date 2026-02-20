@@ -1,7 +1,7 @@
 $name: "Vending Machine"
 $desc: 
 	'''
-	Elektron Imperial's solution to the high turnover rate of vendors in high-risk areas.
+	Postus Imperialny's solution to the high turnover rate of vendors in high-risk areas.
 	'''
 
 $tags: []
@@ -9,22 +9,26 @@ $tags: []
 body:
 {
 	type: dynamic
-	buoyancy: 0.300
+	flags: none
+	tags: solid, angular, complex
+	
+	fall_damage_multiplier: 0.940
+	buoyancy: 0.600
 	
 	@shape.polygon:
 	{
 		material: machine
-		miss_chance: 0.000
+		miss_chance: 0.322
 		flags: none
-		tags: none
+		tags: heavy, large, solid
 		
-		layer: entity, solid, furniture, ignore_bullet
+		layer: entity, solid, building, storage, conductive, magnetic, no_overlapped_placement
 		mask: world
 		exclude: none
 		
 		mass: 420.000
 		radius: 0.500
-		friction: 0.400
+		friction: 0.700
 		elasticity: 0.850
 		
 		cog_offset: [0.0625, 0.3125]
@@ -39,21 +43,25 @@ body:
 	}
 }
 
+transform:
+{
+
+}
+
 health:
 {
-	max: 14000.000
+	max: 95000.000
 }
 
 armor:
 {
-	toughness: 400.000
-	protection: 0.750
-	
+	material_type: metal_solid
+	coverage: 0.894
+	flags: no_damage_type_conversion
+	toughness: 700.000
+	protection: 0.950
 	knockback_modifier: 1.300
 	pain_modifier: 0.000
-
-	material_type: metal_sheet
-	flags: no_damage_type_conversion
 }
 
 animated.renderer:
@@ -66,9 +74,20 @@ animated.renderer:
 	z: -80.000
 }
 
-transform:
+faction:
 {
 
+}
+
+claimable:
+{
+	flags: allow_owner_unclaim
+}
+
+company:
+{
+	h_company: postus
+	logo_type: sign_2x1
 }
 
 // shop:
@@ -86,11 +105,12 @@ transform:
 // 	}
 // }
 
-// interactable:
-// {
-// 	flags: no_tab
-// 	window_size: [600.000, 400.000]
-// }
+interactable:
+{
+	flags: no_tab
+	window_size: [624, 488]
+	window_size_misc: [144, 0]
+}
 
 lamp:
 {
@@ -113,4 +133,44 @@ holdable:
 	radius: 0.000
 	flags: disable_parent_facing, disable_rotation
 	stress_multiplier: 0.500
+}
+
+vendor:
+{
+	type: vending_machine
+
+	@inventory1:
+	{
+		type: money
+		flags: standalone, no_auto_pickup
+		stack_size_multiplier: 4.000
+		
+		filter:
+		{
+			require: currency
+		}
+		offset: [-0.125, -0.375]
+	}
+
+	@inventory16:
+	{
+		type: output
+		flags: standalone, public, no_auto_pickup, vertical
+		stack_size_multiplier: 2.000
+		
+		offset: [-1.000, 0.250]
+	}
+}
+
+address:
+{
+	flags: auto_generate, no_editing, public
+}
+
+nameable:
+{
+	tags: tech, tool, market, male
+	type: tool
+	flags: randomize
+	max_length: 16
 }

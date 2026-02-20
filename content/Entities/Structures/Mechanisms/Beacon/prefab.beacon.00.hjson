@@ -93,7 +93,7 @@ interactable:
 
 sticky:
 {
-	max_force: 10000.000
+	max_force: 500000.000
 	min_contact_count: 1
 	min_contact_distance: 0.200
 	flags: no_background_attach

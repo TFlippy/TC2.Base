@@ -66,6 +66,9 @@ namespace TC2.Base.Components
 #if SERVER
 			public void Invoke(Net.IRPC.Context rpc, ref Beacon.Data data)
 			{
+				Assert.IsDevMode();
+				Assert.IsAdmin(ref rpc.connection);
+
 				var sync = false;
 
 				var ent_attached = rpc.entity.GetParent<Sticky.Rel>();
@@ -429,7 +432,46 @@ namespace TC2.Base.Components
 		public static void OnUpdate(ISystem.Info info, ref Region.Data region, Entity entity,
 		[Source.Owned] ref Beacon.Data beacon, [Source.Owned] ref Transform.Data transform, [Source.Owned] ref Body.Data body)
 		{
-
+			//if (beacon.flags.HasAny(Flags.Active))
+			//{
+			//	if (body.type != Body.Type.Kinematic)
+			//	{
+			//		body.type = Body.Type.Kinematic;
+			//		body.MarkDirty();
+			//	}
+			//	else
+			//	{
+			//		body.SetVelocity(new(0.00f, -2.50f));
+			//	}
+			//}
 		}
+
+#if CLIENT
+		[ISystem.Render(ISystem.Mode.Single, ISystem.Scope.Region)]
+		public static void OnRender(ISystem.Info info, ref Region.Data region, Entity entity,
+		[Source.Owned] ref Beacon.Data beacon, [Source.Owned] ref Transform.Data transform, [Source.Owned] ref Body.Data body)
+		{
+			//App.WriteLine("draw");
+			//if (beacon.flags.HasAny(Flags.Active))
+			//{
+			//	var pos_a = Vector2.Zero; // transform.WorldToLocal(transform.position);
+			//	var pos_b = transform.WorldToLocal(transform.position.WithY(0.00f));
+
+			//	Rope.Draw(transform, new()
+			//	{
+			//		thickness = 0.60f,
+			//		texture = "skyhook.00.cable",
+			//		scale = Vec2f.Distance(pos_a, pos_b) * 0.125f,
+			//		z = -75.000f,
+			//		//transform_index = 0,
+
+			//		p0 = pos_a,
+			//		p1 = pos_a,
+			//		p2 = pos_b,
+			//		p3 = pos_b,
+			//	});
+			//}
+		}
+#endif
 	}
 }
