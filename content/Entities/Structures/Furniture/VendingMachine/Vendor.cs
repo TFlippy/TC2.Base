@@ -1,6 +1,30 @@
 
 namespace TC2.Base.Components
 {
+	[Asset.Hjson(prefix: "catalogue.", capacity_world: 512, capacity_region: 16, capacity_local: 8, flags_world: Asset.Flags.Recycle, flags_local: Asset.Flags.Recycle)]
+	public interface ICatalogue: IAsset2<ICatalogue, ICatalogue.Data>
+	{
+		[Net.MsgPack]
+		public struct Data(): IName
+		{
+			[Net.Key(00), Save.Force] public string name;
+
+			//[Net.Key(00)]
+			[Save.NewLine]
+			[Net.Key(02), Save.Force] public ICompany.Handle h_company;
+
+			[Save.NewLine]
+			[Net.Key(04), Save.Force] public ImperialDateTime date_created;
+
+			[Save.NewLine]
+			[Net.Key(05), Save.Force, Save.Inline] public Shipment.Item2[] items;
+			//[Net.Key(06), Save.Force, Save.Inline] public Shipment.Item2[] items_trading;
+
+			readonly ReadOnlySpan<char> IName.GetName() => this.name;
+			readonly ReadOnlySpan<char> IName.GetShortName() => this.name;
+		}
+	}
+
 	public static partial class Vendor
 	{
 		[Flags]
@@ -28,7 +52,7 @@ namespace TC2.Base.Components
 			public IStore.Handle h_store;
 			public IStockpile.Handle h_stockpile;
 			public IWarrant.Handle h_warrant_current;
-			public ushort unused_01;
+			public ICatalogue.Handle h_catalogue;
 			public uint unused_02;
 
 			[Save.NewLine]
@@ -40,6 +64,7 @@ namespace TC2.Base.Components
 			public Shipment.Item2? item;
 			public IStockpile.Handle? h_stockpile;
 			public IStore.Handle? h_store;
+			public ICatalogue.Handle? h_catalogue;
 			public byte? index;
 
 			//public Vendor.Type? type;
@@ -50,7 +75,23 @@ namespace TC2.Base.Components
 			{
 				var sync = false;
 
-				//sync |= data.flags.TrySetFlagMasked(this.flags, Vendor.flags_editable_mask);
+				sync |= data.h_store.TrySet(this.h_store);
+
+				if (this.item.TryGetValueUnsafe(out var item_tmp))
+				{
+					if (item_tmp.quantity <= 0.00f)
+					{
+						sync |= data.edit_selected_items.TryRemove(in item_tmp);
+					}
+					else
+					{
+						sync |= data.edit_selected_items.TryAdd(in item_tmp);
+					}
+
+					data.edit_selected_items.Compact();
+
+					//var item_index = data.edit_selected_items.indexof(this.item.GetValueOrDefault());
+				}
 
 				if (sync)
 				{
@@ -96,22 +137,137 @@ namespace TC2.Base.Components
 					if (window.show)
 					{
 						ref var region_common = ref this.ent_vendor.GetRegionCommon();
+						var h_location_region = region_common.GetLocationHandle();
+
+
 						var pos = this.transform.position;
 
-						using (var group_left = GUI.Group.New(size: new(192, GUI.RmY)))
+						ref var store_data = ref this.vendor.h_store.GetData();
+
+						var ent_trader_g = Entity.None;
+
+						ref var target_airship_g = ref TC2.Conquest.WorldMap.Airship.Data.Null;
+						ref var target_trader_g = ref TC2.Conquest.WorldMap.Trader.Data.Null;
+						ref var target_transform_g = ref Transform.Data.Null;
+
+						if (store_data.IsNotNull())
 						{
-							using (var group_icon = GUI.Group.New(size: new(GUI.RmX, 128)))
+							ent_trader_g = store_data.h_location.GetGlobalEntity();
+						}
+
+						var is_alive_ent_trader_g = ent_trader_g.IsAlive();
+						if (is_alive_ent_trader_g)
+						{
+							target_airship_g = ref ent_trader_g.GetComponent<TC2.Conquest.WorldMap.Airship.Data>();
+							target_trader_g = ref ent_trader_g.GetComponent<TC2.Conquest.WorldMap.Trader.Data>();
+							target_transform_g = ref ent_trader_g.GetComponent<Transform.Data>();
+						}
+
+						var can_signal = false;
+
+						if (target_airship_g.IsNotNull())
+						{
+							can_signal = h_location_region != target_airship_g.h_location_docked && !target_airship_g.dock_request_locations.Contains(h_location_region);
+						}
+
+						using (var group_left = GUI.Group.New(size: new(224, GUI.RmY)))
+						{
+							using (var group_store = GUI.Group.New(size: new(GUI.RmX, 192)))
 							{
-								group_icon.DrawBackground(GUI.tex_window);
+								//group_store.DrawBackground(GUI.tex_window);
 
 								var h_store_edit = this.vendor.h_store;
-								if (GUI.AssetInput2("edit.store"u8, ref h_store_edit, size: new(GUI.RmX, 32), show_label: false, show_null: true))
+								if (GUI.AssetInput2("edit.store"u8, ref h_store_edit, size: new(GUI.RmX, 40), show_label: false, show_null: true))
 								{
+									var rpc = new EditOrderRPC
+									{
+										h_store = h_store_edit
+									};
+									rpc.Send(this.ent_vendor);
+									//if (h_store_edit != this.vendor.h_store)
 
 								}
 
+								using (var group_info = GUI.Group.New(size: GUI.Rm, padding: new(10, 8)))
+								{
+									group_info.DrawBackground(GUI.tex_window);
+
+									if (store_data.IsNotNull())
+									{
+										//GUI.Title(store_data.h_company.GetName(), size: 20);
+
+										GUI.LabelShaded("Name:"u8, store_data.h_location.GetName());
+										GUI.FocusableAsset(store_data.h_location);
+
+										GUI.LabelShaded("Company:"u8, store_data.h_company.GetName());
+										GUI.FocusableAsset(store_data.h_company);
+									}
+
+									// TODO: temporary shithack
+									if (is_alive_ent_trader_g)
+									{
+										//ref var unit_airship = ref ent_trader_g.GetComponent<TC2.Conquest.WorldMap.Airship.Data>();
+										if (target_airship_g.IsNotNull())
+										{
+											//can_signal = h_location_region != target_airship_g.h_location_docked && !target_airship_g.dock_request_locations.Contains(h_location_region);
+
+											GUI.NewLine(8);
+
+											//GUI.LabelShaded("Status:"u8, unit_airship.state);
+
+											//ref var transform_trader_g = ref ent_trader_g.GetTransform();
+											if (target_transform_g.IsNotNull())
+											{
+												GUI.LabelShaded("Distance:"u8, TC2.Conquest.WorldMap.km_per_unit * Vec2f.Distance(target_transform_g.position, TC2.Conquest.WorldMap.GetPosition(h_location_region)), format: "0.0' km'");
+											}
+
+											GUI.NewLine(8);
+
+
+											GUI.LabelShaded("Current:"u8, target_airship_g.h_location_docked.GetName());
+											GUI.FocusableAsset(target_airship_g.h_location_docked);
+
+											GUI.LabelShaded("Next:"u8, target_airship_g.h_location_target.GetName());
+											GUI.FocusableAsset(target_airship_g.h_location_target);
+
+											GUI.NewLine(8);
+
+											if (target_airship_g.h_location_docked == h_location_region)
+											{
+												GUI.TextShaded("Docked"u8, color: GUI.font_color_green_b);
+											}
+											else if (target_airship_g.dock_request_locations.ContainsHandle(h_location_region))
+											{
+												GUI.TextShaded("In Queue"u8, color: GUI.font_color_yellow_b);
+											}
+											else
+											{
+												GUI.TextShaded("Available"u8, color: GUI.font_color_default);
+											}
+											//if (GUI.DrawButton("Signal"u8, size: new(96, 40), color: GUI.col_button_yellow, enabled: can_signal))
+											//{
+											//	var rpc = new TC2.Conquest.WorldMap.Airship.SignalRPC
+											//	{
+											//		h_location = h_location_region
+											//	};
+											//	rpc.Send(ent_trader_g);
+											//}
+											//GUI.DrawHoverTooltip("Signal the airship to stop by this region."u8);
+										}
+									}
+								}
 								//GUI.DrawEntityIcon(ent_attached, scale: 4);
 							}
+
+							if (GUI.DrawButton("Call Airship"u8, size: new(128, 40), color: GUI.col_button_yellow, enabled: can_signal))
+							{
+								var rpc = new TC2.Conquest.WorldMap.Airship.SignalRPC
+								{
+									h_location = h_location_region
+								};
+								rpc.Send(ent_trader_g);
+							}
+							GUI.DrawHoverTooltip("Request the selected airship to stop by this region."u8);
 						}
 
 						GUI.SameLine();
@@ -131,139 +287,85 @@ namespace TC2.Base.Components
 								//total_mass += this.ent_vendor.
 
 								//using (var group_items = GUI.Group.New(size: GUI.Rm.SubY((14 * 6) + 4 + 4)))
-								using (var group_items = GUI.Scrollbox.New("sb.items"u8, size: GUI.Rm.SubY((14 * 6) + 4 + 4), padding: new(4)))
+								//using (var group_items = GUI.Scrollbox.New("sb.items"u8, size: GUI.Rm.SubY((14 * 6) + 4 + 4), padding: new(4)))
+								using (var group_catalogue = GUI.Group.New(size: new(GUI.RmX, (48 * 3) + 24)))
 								{
-									//if (ent_attached.IsAlive())
-									//{
-									//	ref var body = ref ent_attached.GetComponent<Body.Data>();
-									//	if (body.IsNotNull())
-									//	{
-									//		total_mass += body.GetMass() - (body.inventory_weight * body.inventory_weight_multiplier);
-									//		pos = body.GetPosition();
-									//	}
+									//group_catalogue.DrawBackground(GUI.tex_panel);
 
-									//	foreach (var h_inventory in ent_attached.GetInventories())
-									//	{
-									//		//GUI.Title(h_inventory.Type.ToStringUtf8());
-									//		var span_items = h_inventory.GetReadOnlySpan();
-									//		foreach (var item in span_items)
-									//		{
-									//			if (item)
-									//			{
-									//				ref var material = ref item.GetMaterial();
-									//				if (material.IsNotNull())
-									//				{
-									//					total_mass += item.GetMass();
+									//ref var unit_trader = ref ent_trader_g.GetComponent<TC2.Conquest.WorldMap.Trader.Data>();
+									if (target_trader_g.IsNotNull())
+									{
+										var h_catalogue = target_trader_g.h_catalogue;
+										ref var catalogue_data = ref h_catalogue.GetData();
+										if (catalogue_data.IsNotNull())
+										{
+											GUI.Title(catalogue_data.GetName(), size: 24);
+											GUI.FocusableAsset(h_catalogue);
 
-									//					ref var commodity = ref material.commodity.GetRefOrNull();
-									//					if (commodity.IsNotNull())
-									//					{
-									//						var item_price = commodity.market_price * item.quantity;
-									//						price_estimate += item_price;
+											GUI.SeparatorThick();
 
-									//						GUI.TextShaded(item.quantity, format: "0'x'");
-									//						GUI.OffsetLine(48);
-									//						GUI.LabelShaded(item.GetName(), item_price, format: "0' Đk'");
-									//						//GUI.SameLine(8);
-									//						//GUI.TextShaded(item.GetMass(), format: "0' kg'", size: 12);
+											using (var group_items = GUI.Group.New(size: GUI.Rm, padding: new(8)))
+											{
+												group_items.DrawBackground(GUI.tex_panel);
 
-									//						//if (GUI.IsItemHovered())
-									//						//{
-									//						//	using (var tooltip = GUI.Tooltip.New())
-									//						//	{
+												var catalogue_items_span = catalogue_data.items.AsSpan();
+												for (var i = 0; i < catalogue_items_span.Length; i++)
+												{
+													var item = catalogue_items_span[i];
+													if (item.header == 0) continue;
 
-									//						//	}
-									//						//}
-									//					}
-									//					else
-									//					{
-									//						GUI.TextShaded(item.quantity, format: "0'x'", color: GUI.font_color_desc);
-									//						GUI.OffsetLine(48);
-									//						GUI.LabelShaded(item.GetName(), "N/A"u8, color_a: GUI.font_color_desc, color_b: GUI.font_color_desc);
-									//						//GUI.TextShaded(item.GetShortName(), color: GUI.font_color_default.WithAlpha((byte)(commodity.IsNotNull() ? 255 : 100)));
-									//					}
+													using (var hash = GUI.ID<Vendor.Data, ICatalogue.Data>.Push(i))
+													{
+														var item_index = this.vendor.edit_selected_items.IndexOf(in item);
+														var is_selected = item_index >= 0;
 
-									//					if (GUI.IsItemHovered())
-									//					{
-									//						using (var tooltip = GUI.Tooltip.New(size: new(192, 0)))
-									//						{
-									//							GUI.LabelShaded("Mass"u8, item.GetMass(), format: "0.##' kg'");
-									//						}
-									//					}
+														//item.quantity = 0;
 
-									//					GUI.FocusableAsset(item.material);
-									//				}
-									//			}
-									//		}
-									//	}
+														const float item_h = 40.00f;
 
-									//	ref var harvestable = ref ent_attached.GetComponent<Harvestable.Data>();
-									//	if (harvestable.IsNotNull())
-									//	{
-									//		ref var harvestable_state = ref ent_attached.GetComponent<Harvestable.State>();
-									//		if (harvestable_state.IsNotNull())
-									//		{
-									//			GUI.NewLine(2);
-									//			GUI.Separator(spacing: 4, thickness: 1.00f);
+														if (i != 0) GUI.TrySameLine(item_h);
+														GUI.DrawItem(item, size: new(item_h), is_readonly: true);
+														var rect_item = GUI.GetLastItemRect();
 
-									//			GUI.Title("Harvestable"u8, color: GUI.font_color_yellow_b);
-									//			var items = harvestable.resources;
-									//			for (var i = 0; i < items.Length; i++)
-									//			{
-									//				var item = items[i];
-									//				if (item)
-									//				{
-									//					item.quantity *= (1.00f - harvestable_state.pct_spawned[i].Value);
+														if (is_selected)
+														{
+															GUI.DrawRect(rect_item.Pad(1), color: GUI.col_button_ok.WithAlpha(150), layer: GUI.Layer.Window);
+														}
 
-									//					ref var material = ref item.GetMaterial();
-									//					if (material.IsNotNull())
-									//					{
-									//						//total_mass += item.GetMass();
+														if (GUI.Selectable3(hash, rect_item, selected: is_selected))
+														{
+															App.WriteLine($"click [{i:00}] {item}");
 
-									//						ref var commodity = ref material.commodity.GetRefOrNull();
-									//						if (commodity.IsNotNull())
-									//						{
-									//							var item_price = commodity.market_price * item.quantity;
-									//							price_estimate += item_price;
+															if (is_selected)
+															{
+																var rpc = new Vendor.EditOrderRPC
+																{
+																	item = item.WithQuantity(0.00f)
+																};
+																rpc.Send(this.ent_vendor);
+															}
+															else
+															{
+																var rpc = new Vendor.EditOrderRPC
+																{
+																	item = item.WithQuantity(1.00f)
+																};
+																rpc.Send(this.ent_vendor);
+															}
+														}
 
-									//							GUI.TextShaded(item.quantity, format: "'~'0'x'", color: GUI.font_color_yellow_b);
-									//							GUI.OffsetLine(48);
-									//							GUI.LabelShaded(item.GetName(), item_price, format: "0' Đk'", color_a: GUI.font_color_yellow_b, color_b: GUI.font_color_yellow_b);
-
-									//							//if (GUI.IsItemHovered())
-									//							//{
-									//							//	using (var tooltip = GUI.Tooltip.New())
-									//							//	{
-
-									//							//	}
-									//							//}
-									//						}
-									//						else
-									//						{
-									//							GUI.TextShaded(item.quantity, format: "'~'0'x'", color: GUI.font_color_yellow_b);
-									//							GUI.OffsetLine(48);
-									//							GUI.LabelShaded(item.GetName(), "N/A"u8, color_a: GUI.font_color_desc, color_b: GUI.font_color_desc);
-									//							//GUI.TextShaded(item.GetShortName(), color: GUI.font_color_default.WithAlpha((byte)(commodity.IsNotNull() ? 255 : 100)));
-									//						}
-
-									//						if (GUI.IsItemHovered())
-									//						{
-									//							using (var tooltip = GUI.Tooltip.New(size: new(192, 0)))
-									//							{
-									//								GUI.LabelShaded("Mass"u8, item.GetMass(), format: "0.##' kg'");
-									//							}
-									//						}
-
-									//						GUI.FocusableAsset(item.material);
-									//					}
-									//				}
-									//			}
-									//		}
-									//	}
-									//}
-
-									//GUI.NewLine(2);
-									//GUI.Separator(spacing: 4, thickness: 1.00f);
+														//using (var item_row = GUI.Group.New(size: new(GUI.RmX, 32)))
+														//{
+														//	//using (var item_row = GUI.Group.New(size: new(GUI.RmX, 32)))
+														//	{
+														//		GUI.DrawItem(item, size: new(GUI.RmY), is_readonly: true);
+														//	}
+														//}
+													}
+												}
+											}
+										}
+									}
 								}
 
 								GUI.SeparatorThick();
@@ -271,22 +373,78 @@ namespace TC2.Base.Components
 
 								//GUI.Separator(spacing: 4);
 
-								using (var group_total = GUI.Group.New(size: GUI.Rm))
+								using (var group_total = GUI.Group.New(size: GUI.Rm, padding: new(6)))
 								{
-									//var fee_mass = total_mass.m_value * this.vendor.fee_per_kg;
-									//var fee_base = price_estimate * this.vendor.fee_base;
+									group_total.DrawBackground(GUI.tex_window);
 
-									//var price_w_fees = price_estimate - fee_base - fee_mass;
-									//var tax = Maths.Abs(price_w_fees) * 0.21f;
-									//var price_w_tax = price_w_fees - tax;
+									using (var group_items = GUI.Group.New(size: GUI.Rm, padding: new(8)))
+									{
+										group_items.DrawBackground(GUI.tex_panel);
 
-									//GUI.LabelShaded("Value"u8, price_estimate, format: "0' Đk'");
-									//GUI.LabelShaded("Fee (Base)"u8, -fee_base, format: "0' Đk'", color_b: GUI.font_color_red_b);
-									//GUI.LabelShaded("Fee (Mass)"u8, -fee_mass, format: "0' Đk'", color_b: GUI.font_color_red_b);
-									//GUI.LabelShaded("VAT"u8, -tax, format: "0' Đk'", color_b: GUI.font_color_red_b);
-									//GUI.Separator(spacing: 4, thickness: 1.00f);
-									//GUI.LabelShaded("Reward"u8, price_w_tax, format: "0' Đk'", color_b: price_w_tax < 0.00f ? GUI.font_color_red_b : GUI.font_color_green_b);
-									//GUI.LabelShaded("Mass"u8, total_mass, format: "0.##' kg'");
+										GUI.Title("Ordered Goods"u8, size: 24);
+
+										GUI.NewLine(4);
+
+										var selected_items_span = this.vendor.edit_selected_items.AsSpan();
+										for (var i = 0; i < selected_items_span.Length; i++)
+										{
+											var item = selected_items_span[i];
+											if (item.header == 0) continue;
+
+											const float item_h = 40.00f;
+
+											using (var hash = GUI.ID<Vendor.Data, Shipment.Item2>.Push(i))
+											{
+												if (i != 0) GUI.TrySameLine(item_h);
+												GUI.DrawItem(item, size: new(item_h), is_readonly: true);
+												var rect_item = GUI.GetLastItemRect();
+
+												//if (is_selected)
+												//{
+												//	GUI.DrawRect(rect_item.Pad(1), color: GUI.col_button_ok.WithAlpha(150), layer: GUI.Layer.Window);
+												//}
+
+												if (GUI.Selectable3(hash, rect_item, selected: false))
+												{
+													App.WriteLine($"click [{i:00}] {item}");
+
+													//if (is_selected)
+													//{
+													//	var rpc = new Vendor.EditOrderRPC
+													//	{
+													//		item = item.WithQuantity(0.00f)
+													//	};
+													//	rpc.Send(this.ent_vendor);
+													//}
+													//else
+													//{
+													//	var rpc = new Vendor.EditOrderRPC
+													//	{
+													//		item = item.WithQuantity(1.00f)
+													//	};
+													//	rpc.Send(this.ent_vendor);
+													//}
+												}
+
+												//var amount_tmp = (int)item.quantity;
+												//if (GUI.HoverInputInt(item.header.ToString(), rect_item, ref amount_tmp, 1, 100))
+												//{
+
+												//}
+											}
+
+											//using (var item_row = GUI.Group.New(size: new(GUI.RmX, 32)))
+											//{
+											//	//using (var item_row = GUI.Group.New(size: new(GUI.RmX, 32)))
+											//	{
+											//		GUI.DrawItem(item, size: new(GUI.RmY), is_readonly: true);
+											//	}
+											//}
+
+										}
+									}
+
+
 								}
 							}
 
@@ -358,7 +516,7 @@ namespace TC2.Base.Components
 
 		[ISystem.GUI(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnGUI([Source.Owned] in Interactable.Data interactable,
-		Entity ent_vendor, [Source.Owned] in Vendor.Data vendor, [Source.Owned] in Transform.Data transform, 
+		Entity ent_vendor, [Source.Owned] in Vendor.Data vendor, [Source.Owned] in Transform.Data transform,
 		[Source.Owned, Pair.Component<Vendor.Data>] in Inventory1.Data inventory_money)
 		{
 			if (interactable.IsActive())
