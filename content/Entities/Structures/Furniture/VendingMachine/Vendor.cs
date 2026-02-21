@@ -44,19 +44,28 @@ namespace TC2.Base.Components
 		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Global | IComponent.Scope.Region)]
 		public struct Data(): IComponent
 		{
-			public Vendor.Type type;
-			public byte item_count_max = 8;
-			public Vendor.Flags flags;
+			[Save.Force] public required Vendor.Type type;
+			[Save.Force] public required byte item_count_max = 8;
+			[Save.Force] public Vendor.Flags flags;
 
 			[Save.NewLine]
-			public IStore.Handle h_store;
-			public IStockpile.Handle h_stockpile;
-			public IWarrant.Handle h_warrant_current;
+			[Asset.Ignore] public IStore.Handle h_store;
+			//public IStockpile.Handle h_stockpile;
+			[Asset.Ignore] public IWarrant.Handle h_warrant_current;
 			public ICatalogue.Handle h_catalogue;
-			public uint unused_02;
+			public ushort unused_01;
+
+			public ISoundMix.Handle h_soundmix_signal;
+			public ISoundMix.Handle h_soundmix_order;
 
 			[Save.NewLine]
-			[Asset.Ignore] public FixedArray16<Shipment.Item2> edit_selected_items;
+			[Net.Segment.C] public float fee_base;
+			[Net.Segment.C] public float fee_per_kg;
+			[Net.Segment.C] public float unused_03;
+			[Net.Segment.C, Save.Force] public required float weight_max = 500.00f;
+
+			[Save.NewLine]
+			[Net.Segment.D, Asset.Ignore] public FixedArray16<Shipment.Item2> edit_selected_items;
 		}
 
 		public struct EditOrderRPC: Net.IRPC<Vendor.Data>
@@ -101,29 +110,87 @@ namespace TC2.Base.Components
 #endif
 		}
 
-		public struct DEV_TestRPC: Net.IRPC<Vendor.Data>
+		public struct SubmitRPC: Net.IRPC<Vendor.Data>
 		{
 
 
 #if SERVER
 			public void Invoke(Net.IRPC.Context rpc, ref Vendor.Data data)
 			{
-				Assert.IsDevMode();
-				Assert.IsAdmin(ref rpc.connection);
+				//Assert.IsDevMode();
+				//Assert.IsAdmin(ref rpc.connection);
+
+				ref var region_common = ref rpc.GetRegionCommon();
 
 				var sync = false;
 
 				ref var inventory_money = ref rpc.entity.GetTrait<Vendor.Data, Inventory1.Data>();
 				Assert.IsNotNull(ref inventory_money);
 
+				ref var resource_money = ref inventory_money.resource;
+				var credit = resource_money.GetMarketPrice();
+
 				var span_items = data.edit_selected_items.AsSpan(data.item_count_max);
+				//var total_cost = span_items.GetMarketPrice();
+				//Assert.Check(total_cost >= 1.00f);
 
-				var credit = inventory_money.resource.GetMarketPrice();
-				var total_cost = span_items.GetMarketPrice();
+				//var has_enough_money = credit >= total_cost;
 
-				var has_enough_money = credit >= total_cost;
+				//App.WriteValue((inventory_money.resource, credit, total_cost, has_enough_money));
 
-				App.WriteValue((inventory_money.resource, credit, total_cost, has_enough_money));
+				//if (has_enough_money)
+				{
+					//var ok = inventory_money.Remove(resource_money.material, total_cost);
+					//if (Assert.IsTrue(ok))
+					{
+
+						//Crafting.Product
+
+		
+						var total_cost = 0.00f;
+
+						var span_products = FixedArray.CreateSpanList8<Crafting.Product>(out var buffer_products);
+						foreach (ref var item in span_items)
+						{
+							if (item.header == 0) continue;
+
+							var item_price = item.GetMarketPrice();
+							Assert.Check(item_price > 0.00f);
+
+							total_cost += item_price;
+
+							switch (item.type)
+							{
+								case Shipment.Item.Type.Resource:
+								{
+									span_products.Add(Crafting.Product.Resource(item.h_material, item.quantity));
+								}
+								break;
+
+								case Shipment.Item.Type.Prefab:
+								{
+									span_products.Add(Crafting.Product.Prefab(item.h_prefab, (int)item.quantity));
+								}
+								break;
+
+								default:
+								{
+									Assert.Throw("Cannot spawn vendor item!", item, level: Assert.Level.Warn);
+								}
+								break;
+							}
+							//span_products.Add(item);
+						}
+
+						var has_enough_money = credit >= total_cost;
+						App.WriteValue((inventory_money.resource, credit, total_cost, has_enough_money));
+
+						Crafting.Context.NewFromSelf(ref region_common, rpc.entity, out var context, search_radius: 6.00f);
+
+						Assert.Check(inventory_money.Remove(resource_money.material, total_cost));
+						context.Produce(span_products, spawn_flags: Resource.SpawnFlags.No_Discard | Resource.SpawnFlags.Allow_Encumbered | Resource.SpawnFlags.Show_Notification | Resource.SpawnFlags.Merge | Resource.SpawnFlags.Pickup);
+					}
+				}
 
 				//ref readonly var rec_vendor = ref rpc.GetRecord();
 
@@ -530,10 +597,10 @@ namespace TC2.Base.Components
 									GUI.SameLine();
 
 
-									var can_submit = has_enough_money;
+									var can_submit = has_enough_money && total_cost >= 1.00f;
 									if (GUI.DrawButton("Submit Mail Order"u8, size: new(160, GUI.RmY), color: GUI.col_button_ok, error: !can_submit))
 									{
-										var rpc = new Vendor.DEV_TestRPC
+										var rpc = new Vendor.SubmitRPC
 										{
 											
 										};
