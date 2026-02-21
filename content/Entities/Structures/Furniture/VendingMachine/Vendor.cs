@@ -45,7 +45,7 @@ namespace TC2.Base.Components
 		public struct Data(): IComponent
 		{
 			public Vendor.Type type;
-			public byte unused_00;
+			public byte item_count_max = 8;
 			public Vendor.Flags flags;
 
 			[Save.NewLine]
@@ -81,11 +81,11 @@ namespace TC2.Base.Components
 				{
 					if (item_tmp.quantity <= 0.00f)
 					{
-						sync |= data.edit_selected_items.AsSpan(data.unused_00).TryRemove(item_tmp); // .TryRemove(in item_tmp);
+						sync |= data.edit_selected_items.AsSpan(data.item_count_max).TryRemove(item_tmp); // .TryRemove(in item_tmp);
 					}
 					else
 					{
-						sync |= data.edit_selected_items.AsSpan(data.unused_00).TryAddOrSet(item_tmp);
+						sync |= data.edit_selected_items.AsSpan(data.item_count_max).TryAddOrSet(item_tmp);
 					}
 
 					data.edit_selected_items.Compact();
@@ -380,115 +380,118 @@ namespace TC2.Base.Components
 
 								//GUI.Separator(spacing: 4);
 
-								using (var group_total = GUI.Group.New(size: GUI.Rm, padding: new(6)))
+								using (var group_total = GUI.Group.New(size: GUI.Rm.SubY(32 + 10), padding: new(6)))
 								{
 									group_total.DrawBackground(GUI.tex_window);
 									//var total_cost = 0.00f;
 
 									//using (var group_items = GUI.Group.New(size: new(GUI.RmX, 96), padding: new(4)))
-									using (var group_items = GUI.Group.New(size: new(GUI.RmX, 0), padding: new(4)))
+									//using (var group_items_title = GUI.Group.New(size: new(GUI.RmX, 0), padding: new(4, 2)))
+									using (var group_items_title = GUI.Group.New(size: new(GUI.RmX, 24)))
 									{
-										group_items.DrawBackground(GUI.tex_panel);
+										group_items_title.DrawBackground(GUI.tex_panel);
 
-										GUI.Title("Ordered Goods"u8, size: 24);
+										//GUI.Title("Purchase Goods"u8, size: 24);
+										GUI.TitleCentered("Purchase Goods"u8, size: 24, pivot: new(0.00f, 0.50f), offset: new(4, 0));
 
-										GUI.NewLine(4);
+										//GUI.NewLine(4);
 
-										var item_width = GUI.RmX / 8;
+										//var item_width = GUI.RmX / 8;
 
-										var selected_items_span = this.vendor.edit_selected_items.AsSpan();
-										for (var i = 0; i < selected_items_span.Length; i++)
-										{
-											var item = selected_items_span[i];
-											if (item.header == 0) continue;
+										//var selected_items_span = this.vendor.edit_selected_items.AsSpan();
+										//for (var i = 0; i < selected_items_span.Length; i++)
+										//{
+										//	var item = selected_items_span[i];
+										//	if (item.header == 0) continue;
 
-											var item_price = item.GetMarketPrice();
-											var item_mass = item.GetMass();
+										//	var item_price = item.GetMarketPrice();
+										//	var item_mass = item.GetMass();
 
-											total_cost += item_price;
-											total_mass += item_mass;
+										//	total_cost += item_price;
+										//	total_mass += item_mass;
 
-											if (false)
-											{
-												using (var hash = GUI.ID<Vendor.Data, Shipment.Item2>.Push(i))
-												{
-													if (i != 0) GUI.TrySameLine(item_width);
-													//using (var group_item = GUI.Group.New(size: new(item_h), padding: new(4)))
-													//using (var group_item = GUI.Group.New(size: new(item_width, item_width + 16)))
-													using (var group_item = GUI.Group.New(size: new(item_width)))
-													{
-														//group_item.DrawBackground(GUI.tex_slot_simple);
+										//	if (false)
+										//	{
+										//		using (var hash = GUI.ID<Vendor.Data, Shipment.Item2>.Push(i))
+										//		{
+										//			if (i != 0) GUI.TrySameLine(item_width);
+										//			//using (var group_item = GUI.Group.New(size: new(item_h), padding: new(4)))
+										//			//using (var group_item = GUI.Group.New(size: new(item_width, item_width + 16)))
+										//			using (var group_item = GUI.Group.New(size: new(item_width)))
+										//			{
+										//				//group_item.DrawBackground(GUI.tex_slot_simple);
 
-														GUI.DrawItem(item, size: new(item_width), is_readonly: true);
-														var rect_item = GUI.GetLastItemRect();
+										//				GUI.DrawItem(item, size: new(item_width), is_readonly: true);
+										//				var rect_item = GUI.GetLastItemRect();
 
-														//if (is_selected)
-														//{
-														//	GUI.DrawRect(rect_item.Pad(1), color: GUI.col_button_ok.WithAlpha(150), layer: GUI.Layer.Window);
-														//}
+										//				//if (is_selected)
+										//				//{
+										//				//	GUI.DrawRect(rect_item.Pad(1), color: GUI.col_button_ok.WithAlpha(150), layer: GUI.Layer.Window);
+										//				//}
 
-														//if (GUI.ButtonBehavior(hash.hash.id, rect_item, out var hovered, out var held, allow_overlap: false, keys: GUI.ButtonKeys.Left | GUI.ButtonKeys.Right))
-														//{
-														//	App.WriteLine($"click [{i:00}] {item}");
+										//				//if (GUI.ButtonBehavior(hash.hash.id, rect_item, out var hovered, out var held, allow_overlap: false, keys: GUI.ButtonKeys.Left | GUI.ButtonKeys.Right))
+										//				//{
+										//				//	App.WriteLine($"click [{i:00}] {item}");
 
-														//}
-														if (GUI.Selectable3(hash, rect_item, selected: false))
-														{
-															App.WriteLine($"click [{i:00}] {item}");
+										//				//}
+										//				if (GUI.Selectable3(hash, rect_item, selected: false))
+										//				{
+										//					App.WriteLine($"click [{i:00}] {item}");
 
-															//if (is_selected)
-															//{
-															//	var rpc = new Vendor.EditOrderRPC
-															//	{
-															//		item = item.WithQuantity(0.00f)
-															//	};
-															//	rpc.Send(this.ent_vendor);
-															//}
-															//else
-															//{
-															//	var rpc = new Vendor.EditOrderRPC
-															//	{
-															//		item = item.WithQuantity(1.00f)
-															//	};
-															//	rpc.Send(this.ent_vendor);
-															//}
-														}
+										//					//if (is_selected)
+										//					//{
+										//					//	var rpc = new Vendor.EditOrderRPC
+										//					//	{
+										//					//		item = item.WithQuantity(0.00f)
+										//					//	};
+										//					//	rpc.Send(this.ent_vendor);
+										//					//}
+										//					//else
+										//					//{
+										//					//	var rpc = new Vendor.EditOrderRPC
+										//					//	{
+										//					//		item = item.WithQuantity(1.00f)
+										//					//	};
+										//					//	rpc.Send(this.ent_vendor);
+										//					//}
+										//				}
 
-														var amount_tmp = (int)item.quantity;
-														if (GUI.ScrollInput(rect_item, value: ref amount_tmp, step: 1, min: 1, max: 100, id: hash))
-														{
-															var rpc = new Vendor.EditOrderRPC
-															{
-																item = item.WithQuantity(amount_tmp)
-															};
-															rpc.Send(this.ent_vendor);
-														}
+										//				var amount_tmp = (int)item.quantity;
+										//				if (GUI.ScrollInput(rect_item, value: ref amount_tmp, step: 1, min: 1, max: 100, id: hash))
+										//				{
+										//					var rpc = new Vendor.EditOrderRPC
+										//					{
+										//						item = item.WithQuantity(amount_tmp)
+										//					};
+										//					rpc.Send(this.ent_vendor);
+										//				}
 
-														//GUI.TextShadedCentered(item_price, format: "0' Đk", pivot: new(0.00f, 0.00f), size: 12, color: GUI.font_color_red_b);
+										//				//GUI.TextShadedCentered(item_price, format: "0' Đk", pivot: new(0.00f, 0.00f), size: 12, color: GUI.font_color_red_b);
 
-														//var amount_tmp = (int)item.quantity;
-														//if (GUI.HoverInputInt(item.header.ToString(), rect_item, ref amount_tmp, 1, 100))
-														//{
+										//				//var amount_tmp = (int)item.quantity;
+										//				//if (GUI.HoverInputInt(item.header.ToString(), rect_item, ref amount_tmp, 1, 100))
+										//				//{
 
-														//}
-													}
-												}
-											}
-											//using (var item_row = GUI.Group.New(size: new(GUI.RmX, 32)))
-											//{
-											//	//using (var item_row = GUI.Group.New(size: new(GUI.RmX, 32)))
-											//	{
-											//		GUI.DrawItem(item, size: new(GUI.RmY), is_readonly: true);
-											//	}
-											//}
+										//				//}
+										//			}
+										//		}
+										//	}
+										//	//using (var item_row = GUI.Group.New(size: new(GUI.RmX, 32)))
+										//	//{
+										//	//	//using (var item_row = GUI.Group.New(size: new(GUI.RmX, 32)))
+										//	//	{
+										//	//		GUI.DrawItem(item, size: new(GUI.RmY), is_readonly: true);
+										//	//	}
+										//	//}
 
-										}
+										//}
+
 									}
 
 									GUI.SeparatorThick();
 
 									//using (var group_cost = GUI.Group.New(size: new(GUI.RmX, 96), padding: new(8)))
-									using (var group_cost = GUI.Group.New(size: new(GUI.RmX, 0), padding: new(0)))
+									using (var group_items = GUI.Group.New(size: new(GUI.RmX, 0), padding: new(0)))
 									{
 										var selected_items_span = this.vendor.edit_selected_items.AsSpan();
 
@@ -502,59 +505,47 @@ namespace TC2.Base.Components
 											var item_price = item.GetMarketPrice();
 											var item_mass = item.GetMass();
 
+											total_cost += item_price;
+											total_mass += item_mass;
+
+											var h_material = item.h_material;
+
 											using (var hash = GUI.ID<Vendor.Data, Shipment.Item2>.Push(i))
 											using (var item_row = GUI.Group.New(size: new(GUI.RmX, 20)))
 											{
 												var amount_tmp = (int)item.quantity;
 												var amount_old = amount_tmp;
+												var amount_min = 1;
+												var amount_max = 1;
+												var step_size = 1;
+
+												ref var material_data = ref h_material.GetData();
+												if (material_data.IsNotNull())
+												{
+													step_size.ClampMinRef((int)material_data.snapping);
+													amount_max.ClampMinRef((int)material_data.quantity_max);
+												}
 
 												var is_hovered = false;
 
-												if (GUI.ScalarInput("input"u8, ref amount_tmp, size: new(48, GUI.RmY), format: Maths.NumberFormat.Int, show_frame: false)
-												|| GUI.ScrollInput(GUI.GetLastItemRect().Pad(2), value: ref amount_tmp, step: 1, min: 1, max: 100, id: hash))
-												{
-													amount_tmp.ClampRef(1, 100);
-													if (amount_tmp != amount_old)
-													{
-														var rpc = new Vendor.EditOrderRPC
-														{
-															item = item.WithQuantity(amount_tmp)
-														};
-														rpc.Send(this.ent_vendor);
-													}
-												}
-												is_hovered |= GUI.IsItemHovered();
+												//if (GUI.ScalarInput("input"u8, ref amount_tmp, size: new(48, GUI.RmY), format: Maths.NumberFormat.Int, show_frame: false)
+												//|| GUI.ScrollInput(GUI.GetLastItemRect().Pad(1), value: ref amount_tmp, step: step_size, min: amount_min, max: amount_max, id: hash))
+												//{
+												//	amount_tmp.ClampRef(amount_min, amount_max);
+												//	if (amount_tmp != amount_old)
+												//	{
+												//		var rpc = new Vendor.EditOrderRPC
+												//		{
+												//			item = item.WithQuantity(amount_tmp)
+												//		};
+												//		rpc.Send(this.ent_vendor);
+												//	}
+												//}
+												//is_hovered |= GUI.IsItemHovered();
 
-												GUI.SameLine(4);
+												//GUI.SameLine(4);
 
-												using (var group_item_text = GUI.Group.New(size: GUI.Rm.SubX(20)))
-												{
-													//group_item_text.DrawBackground(GUI.tex_panel_white, color: GUI.col_black.WithAlpha(80));
-													group_item_text.DrawBackground(GUI.tex_window_sidebar);
-
-													GUI.TextShadedCentered(item.h_material.GetName(), pivot: new(0.00f, 0.50f));
-													GUI.FocusableAsset(item.h_material);
-
-													is_hovered |= GUI.IsItemHovered();
-													if (is_hovered)
-													{
-														using (var tooltip = GUI.Tooltip.New(size: new(224, 0)))
-														using (GUI.Wrap.Push(GUI.RmX))
-														{
-															GUI.DrawMaterialInfo(item.h_material, amount: item.quantity);
-														}
-													}
-
-													//GUI.item
-
-													//GUI.TextShadedCentered(item.quantity, format: "0'x'", pivot: new(0.00f, 0.50f), offset: new(144 + 8, 0));
-													GUI.TextShadedCentered(item_mass, format: "0.##' kg'", pivot: new(0.00f, 0.50f), offset: new(144 + 8, 0), color: GUI.font_color_desc);
-													GUI.TextShadedCentered(item_price, format: "0' Đk'", pivot: new(0.00f, 0.50f), offset: new(144 + 80, 0));
-												}
-
-												GUI.SameLine();
-
-												using (var button = GUI.CustomButton.New("bt.rem"u8, size: GUI.Rm, sound: GUI.sound_select, sound_volume: 0.10f, enabled: true, set_cursor: true))
+												using (var button = GUI.CustomButton.New("bt.rem"u8, size: new(GUI.RmY), sound: GUI.sound_select, sound_volume: 0.10f, enabled: true, set_cursor: true))
 												{
 													var tex = button.hovered ? GUI.tex_button_sub_hover : GUI.tex_button_sub;
 
@@ -575,6 +566,82 @@ namespace TC2.Base.Components
 													//}
 												}
 
+												GUI.SameLine(-2);
+
+												using (var group_item_text = GUI.Group.New(size: GUI.Rm.SubX(48)))
+												{
+													//group_item_text.DrawBackground(GUI.tex_panel_white, color: GUI.col_black.WithAlpha(80));
+													group_item_text.DrawBackground(GUI.tex_window_sidebar_b);
+
+													GUI.TextShadedCentered(item.h_material.GetName(), pivot: new(0.00f, 0.50f), offset: new(8, 0));
+													GUI.FocusableAsset(item.h_material);
+
+													is_hovered |= GUI.IsItemHovered();
+													if (is_hovered)
+													{
+														using (var tooltip = GUI.Tooltip.New(size: new(224, 0)))
+														{
+															//GUI.DrawMaterialSmall(item.h_material, size: new(32));
+
+															//GUI.SameLine(8);
+
+															using (GUI.Wrap.Push(GUI.RmX))
+															{
+																//GUI.DrawMaterialSmall(item.h_material, size: new(32));
+
+																GUI.DrawMaterialInfo(item.h_material, amount: item.quantity);
+															}
+														}
+													}
+
+													//GUI.item
+
+													//GUI.TextShadedCentered(item.quantity, format: "0'x'", pivot: new(0.00f, 0.50f), offset: new(144 + 8, 0));
+													//GUI.TextShadedCentered(item_mass, format: "0.##' kg'", pivot: new(0.00f, 0.50f), offset: new(144 + 8, 0), color: GUI.font_color_desc);
+													GUI.TextShadedCentered(item_mass, format: "0.##' kg'", pivot: new(0.00f, 0.50f), offset: new(160 + 8, 0), color: GUI.font_color_desc);
+													//GUI.TextShadedCentered(-item_price, format: "0' Đk'", pivot: new(0.00f, 0.50f), offset: new(144 + 80, 0), color: GUI.font_color_red_b);
+													GUI.TextShadedCentered(item_price, format: "0' Đk'", pivot: new(0.00f, 0.50f), offset: new(160 + 80, 0));
+												}
+
+												GUI.SameLine();
+
+												if (GUI.ScalarInput("input"u8, ref amount_tmp, size: GUI.Rm, format: Maths.NumberFormat.Int, show_frame: false)
+												|| GUI.ScrollInput(GUI.GetLastItemRect().Pad(1), value: ref amount_tmp, step: step_size, min: amount_min, max: amount_max, id: hash))
+												{
+													amount_tmp.ClampRef(amount_min, amount_max);
+													if (amount_tmp != amount_old)
+													{
+														var rpc = new Vendor.EditOrderRPC
+														{
+															item = item.WithQuantity(amount_tmp)
+														};
+														rpc.Send(this.ent_vendor);
+													}
+												}
+
+												//GUI.SameLine();
+
+												//using (var button = GUI.CustomButton.New("bt.rem"u8, size: GUI.Rm, sound: GUI.sound_select, sound_volume: 0.10f, enabled: true, set_cursor: true))
+												//{
+												//	var tex = button.hovered ? GUI.tex_button_sub_hover : GUI.tex_button_sub;
+
+												//	GUI.Draw9Slice(tex, new Vector4(2), button.bb, color: Color32BGRA.White.WithAlphaMult(true ? 1.00f : 0.50f));
+
+												//	if (button.pressed)
+												//	{
+												//		var rpc = new Vendor.EditOrderRPC
+												//		{
+												//			item = item.WithQuantity(0)
+												//		};
+												//		rpc.Send(this.ent_vendor);
+												//	}
+
+												//	//if (pressed)
+												//	//{
+												//	//	value += step;
+												//	//}
+												//}
+
 												//if (GUI.DrawStepButton("step"u8, size: GUI.Rm, value: ref amount_tmp, step: 1, min: 1, max: 10, add: true, enabled: true))
 												//{
 
@@ -591,9 +658,76 @@ namespace TC2.Base.Components
 										//	GUI.LabelShaded("Price:"u8, total_cost, format: "0' Đk'");
 
 										//	//var selected_items_span = this.vendor.edit_selected_items.AsSpan();
-											
+
 										//}
 									}
+
+									GUI.SeparatorThick();
+
+									using (var group_cost = GUI.Group.New(size: new(GUI.RmX, 0), padding: new(4)))
+									{
+										var fee_vat = total_cost * 0.21f;
+										var fee_mass = total_mass * 1.50f;
+										var fee_base = 100.00f;
+
+										//GUI.TextShadedCentered(total_cost, format: "0' Đk'", pivot: new(0.00f, 0.50f), offset: new(144 + 80 + 48, 0));
+										//GUI.TextShadedCentered(total_cost, format: "0' Đk'", pivot: new(0.00f, 0.50f), offset: new(128 + 80 + 48, 0));
+										//GUI.NewLine();
+										//GUI.TextShadedCentered(fee_vat, format: "'+'0' Đk'", pivot: new(0.00f, 0.50f), offset: new(144 + 80 + 48 - 8, 0), color: GUI.font_color_red_b);
+										//GUI.TextShadedCentered(fee_vat, format: "'+'0' Đk'", pivot: new(0.00f, 0.50f), offset: new(144 + 80 + 48 - 8, 0), color: GUI.font_color_red_b);
+
+										GUI.TitleCentered(total_cost, format: "0' Đk'", pivot: new(0.00f, 0.50f), offset: new(128 + 80 + 48, 0));
+										GUI.NewLine();
+										//GUI.TextShadedCentered(fee_vat, format: "'+'0' Đk'", pivot: new(0.00f, 0.50f), offset: new(128 + 80 + 48 - 8, 0), color: GUI.font_color_red_b);
+										//GUI.NewLine();
+										//GUI.TextShadedCentered(fee_mass, format: "'+'0' Đk'", pivot: new(0.00f, 0.50f), offset: new(128 + 80 + 48 - 8, 0), color: GUI.font_color_red_b);
+										//GUI.NewLine();
+
+										//GUI.Separator(thickness: 1, spacing: 6);
+										//GUI.NewLine(2);
+
+										//GUI.TextShadedCentered(total_cost, format: "0' Đk'", pivot: new(0.00f, 0.50f), offset: new(128 + 80 + 48, 0));
+										//GUI.NewLine();
+
+										//GUI.TextShadedCentered(total_cost, format: "0' Đk'", pivot: new(0.00f, 0.50f), offset: new(144 + 80 + 48, 0));
+
+										//GUI.LabelShaded("Total"u8, total_cost, format: "0' Đk'");
+									}
+
+									//GUI.NewLine(4);
+									//GUI.Separator(thickness: 1.00f);
+								}
+
+								GUI.SeparatorThick();
+
+								using (var group_buttons = GUI.Group.New(size: GUI.Rm))
+								{
+									var has_enough_money = credit >= total_cost;
+
+
+
+									using (var group_funds = GUI.Group.New(size: new(144, GUI.RmY), padding: new(6)))
+									{
+										GUI.LabelShaded("Funds:"u8, credit, format: "0' Đk'");
+										//GUI.NewLine(4);
+										GUI.LabelShaded("Price:"u8, total_cost, format: "0' Đk'", color_b: has_enough_money ? GUI.font_color_green_b : GUI.font_color_red_b);
+									}
+
+									GUI.SameLine();
+
+									using (var group_funds = GUI.Group.New(size: GUI.Rm.SubX(160), padding: new(6)))
+									{
+
+									}
+
+									GUI.SameLine();
+
+									if (GUI.DrawButton("Submit Mail Order"u8, size: new(160, GUI.RmY), color: GUI.col_button_ok, error: !has_enough_money))
+									{
+
+									}
+									GUI.DrawHoverTooltip("Not enough funds."u8);
+
 								}
 							}
 

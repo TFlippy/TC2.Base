@@ -152,6 +152,19 @@ vendor:
 		offset: [-0.125, -0.375]
 	}
 
+	@inventory2:
+	{
+		type: shop
+		flags: standalone, no_auto_pickup, vertical, locked, faction
+		stack_size_multiplier: 4.000
+		
+		filter:
+		{
+			require: currency
+		}
+		offset: [-1.000, 0.250]
+	}
+
 	@inventory8:
 	{
 		type: output
