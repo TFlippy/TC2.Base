@@ -138,6 +138,12 @@ holdable:
 vendor:
 {
 	type: vending_machine
+	item_count_max: 8
+	flags: none
+	
+	fee_base: 100.000
+	fee_per_kg: 1.500
+	weight_max: 600.000
 
 	@inventory1:
 	{

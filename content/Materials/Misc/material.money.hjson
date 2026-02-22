@@ -33,7 +33,7 @@
 	// Inventory material type.
 	type: coin
 	flags: hard, magnetic, granular, metal, currency, small, manufactured, pellet, solid, processed
-	display_flags: hide_fraction
+	display_flags: none
 	spawn_flags:
 	{
 		add: no_discard
@@ -68,11 +68,11 @@
 	
 	commodity:
 	{
-		
 		flags: none
 		categories: none
 		
 		market_price: 1.000
+		market_price_per_kg_auto: 16.000
 	}
 	
 	// Info regarding relations of other materials towards this material.

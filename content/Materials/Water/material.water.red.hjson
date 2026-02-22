@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.1"
+	$version: "0.1.68.2"
 	$note:
 		'''
 		- Red-colored water with an extremely sour taste, but not corrosive enough to cause damage
@@ -61,6 +61,14 @@
 	color_gib: "0xffffffff"
 	
 	colliders: []
+	
+	commodity:
+	{
+		flags: none
+		categories: none
+		
+		market_price: 5.500
+	}
 	
 	// Info regarding relations of other materials towards this material.
 	related:

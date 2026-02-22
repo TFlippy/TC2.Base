@@ -151,7 +151,7 @@ namespace TC2.Base.Components
 
 			public void Draw()
 			{
-				using (var window = GUI.Window.Interaction("Beacon"u8, this.ent_beacon))
+				using (var window = GUI.Window.Interaction("Trade Beacon"u8, this.ent_beacon))
 				{
 					this.StoreCurrentWindowTypeID(order: 7);
 					if (window.show)
@@ -159,6 +159,10 @@ namespace TC2.Base.Components
 						ref var region_common = ref this.ent_beacon.GetRegionCommon();
 						var ent_attached = this.ent_beacon.GetParent<Sticky.Rel>();
 						var pos = this.transform.position;
+
+						var price_estimate = 0.00f;
+						var total_mass = (Mass)0.00f;
+						var reward = 0.00f;
 
 						using (var group_left = GUI.Group.New(size: new(192, GUI.RmY)))
 						{
@@ -179,9 +183,6 @@ namespace TC2.Base.Components
 
 								//GUI.TitleCentered(ent_attached.GetName(), pivot: new(0.00f, 0.00f), size: 20);
 								GUI.Title(ent_attached.GetName(), size: 20);
-
-								var price_estimate = 0.00f;
-								var total_mass = (Mass)0.00f;
 
 								//total_mass += this.ent_beacon.
 
@@ -335,12 +336,14 @@ namespace TC2.Base.Components
 									var tax = Maths.Abs(price_w_fees) * 0.21f;
 									var price_w_tax = price_w_fees - tax;
 
+									reward = price_w_tax;
+
 									GUI.LabelShaded("Value"u8, price_estimate, format: "0' Đk'");
-									GUI.LabelShaded("Fee (Base)"u8, -fee_base, format: "0' Đk'", color_b: GUI.font_color_red_b);
-									GUI.LabelShaded("Fee (Mass)"u8, -fee_mass, format: "0' Đk'", color_b: GUI.font_color_red_b);
-									GUI.LabelShaded("VAT"u8, -tax, format: "0' Đk'", color_b: GUI.font_color_red_b);
+									GUI.LabelShaded("Service Fee"u8, -fee_base, format: "0' Đk'", color_b: GUI.font_color_red_b);
+									GUI.LabelShaded("Weight Fee"u8, -fee_mass, format: "0' Đk'", color_b: GUI.font_color_red_b);
+									GUI.LabelShaded("Tax"u8, -tax, format: "0' Đk'", color_b: GUI.font_color_red_b);
 									GUI.Separator(spacing: 4, thickness: 1.00f);
-									GUI.LabelShaded("Reward"u8, price_w_tax, format: "0' Đk'", color_b: price_w_tax < 0.00f ? GUI.font_color_red_b : GUI.font_color_green_b);
+									GUI.LabelShaded("Reward"u8, reward, format: "0' Đk'", color_b: reward < 0.00f ? GUI.font_color_red_b : GUI.font_color_green_b);
 									GUI.LabelShaded("Mass"u8, total_mass, format: "0.##' kg'");
 								}
 							}
@@ -351,11 +354,11 @@ namespace TC2.Base.Components
 							if (region.IsNotNull())
 							{
 								//var ts = Timestamp.Now();
-								is_los_sky = region.IsLOS(pos, pos with { Y = 0 }, threshold_solid: 0.00f, allow_inside: false);
+								is_los_sky = region.IsLOS(pos, pos.WithY(0), threshold_solid: 0.00f, allow_inside: false);
 								if (is_los_sky)
 								{
 									//region.TryOverlapBB()
-									is_los_sky &= region.IsInLineOfSight(pos, pos with { Y = 0 }, radius: 3.00f, layer: Physics.Layer.Solid, mask: Physics.Layer.None, exclude: Physics.Layer.World | Physics.Layer.Bounds | Physics.Layer.Water | Physics.Layer.Gas | Physics.Layer.Liquid | Physics.Layer.Fire | Physics.Layer.Essence, skip_inside: false);
+									is_los_sky &= region.IsInLineOfSight(pos, pos.WithY(0), radius: 3.00f, layer: Physics.Layer.Solid, mask: Physics.Layer.None, exclude: Physics.Layer.World | Physics.Layer.Bounds | Physics.Layer.Water | Physics.Layer.Gas | Physics.Layer.Liquid | Physics.Layer.Fire | Physics.Layer.Essence, skip_inside: false);
 								}
 								//var ts_elapsed_ms = ts.GetMilliseconds();
 								//GUI.Text($"{ts_elapsed_ms:0.0000} ms");
@@ -381,7 +384,7 @@ namespace TC2.Base.Components
 								}
 								else
 								{
-									if (GUI.DrawButton("Activate"u8, size: new(96, GUI.RmY), color: GUI.col_button_ok, enabled: is_los_sky && ent_attached.IsAlive()))
+									if (GUI.DrawButton("Activate"u8, size: new(96, GUI.RmY), color: GUI.col_button_ok, error: !(is_los_sky && ent_attached.IsAlive())))
 									{
 										var rpc = new Beacon.EditRPC
 										{
@@ -396,7 +399,7 @@ namespace TC2.Base.Components
 								{
 									GUI.SameLine();
 
-									if (GUI.DrawButton("DEV: Sell"u8, size: new(96, GUI.RmY), color: GUI.col_button_debug, enabled: is_los_sky && ent_attached.IsAlive()))
+									if (GUI.DrawButton("DEV: Sell"u8, size: new(96, GUI.RmY), color: GUI.col_button_debug, error: !(is_los_sky && reward >= 1.00f && ent_attached.IsAlive())))
 									{
 										var rpc = new Beacon.DEV_SellRPC
 										{

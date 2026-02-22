@@ -53,4 +53,12 @@
 	color_gib: "0xffffffff"
 	
 	colliders: []
+	
+	commodity:
+	{
+		flags: none
+		categories: none
+		
+		market_price: 0.200
+	}
 }

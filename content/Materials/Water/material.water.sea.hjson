@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.68.2"
 	name: "Seawater"
 	name_short: "S. Water"
 	name_dumb: "Water"
@@ -53,4 +53,12 @@
 	color_gib: "0xffffffff"
 	
 	colliders: []
+	
+	commodity:
+	{
+		flags: none
+		categories: none
+		
+		market_price: 0.300
+	}
 }
