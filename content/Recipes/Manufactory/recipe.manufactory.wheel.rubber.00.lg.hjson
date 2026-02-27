@@ -1,41 +1,235 @@
 ﻿{
-	$version: "0.1.64.1"
-	name: "Wheel (Rubber, Large)"
+	$version: "0.1.70.0"
+	name: "Large rubber wheel"
 	desc:
 		'''
 		Large high-friction wheel that can be attached to vehicles.
 		'''
 	tips: []
 	
-	requirements:
+	stages:
 	[
 		{
-			type: resource
-			material: steel.ingot
-			amount: 9.000
-			group: 0
+			name: "Bearing"
+			
+			type: part
+			flags: part
+			tags: mechanism, metal, assembly, functional, small
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Ball bearing"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: machine_parts
+							amount: 24.000
+							snapping: 0.250
+							falloff: 0.950
+							loss: 0.235
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: steel.frames
+							amount: 6.400
+							snapping: 1.000
+							loss: 0.129
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: assembling
+							amount: 300.000
+							amount_min: 500.000
+							difficulty: 9
+							snapping: 5.000
+							falloff: 0.950
+							ratio: 0.902
+							group: 0
+							flags: conditional
+						}
+						{
+							type: resource
+							material: tallow
+							amount: 9.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: smearing
+							amount: 200.000
+							amount_min: 300.000
+							difficulty: 4
+							group: 0
+							flags: conditional
+						}
+						{
+							type: work
+							work: sealing
+							amount: 320.000
+							amount_min: 480.000
+							difficulty: 8
+							snapping: 10.000
+							falloff: 0.950
+							group: 0
+							flags: conditional
+						}
+					]
+				}
+			]
 		}
 		{
-			type: resource
-			material: rubber
-			amount: 20.000
-			group: 0
+			name: "Rim"
+			
+			type: assembly
+			flags: part
+			tags: frame, shell, thin, metal, assembly, structural, small, rounded
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Makeshift"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.frames
+							amount: 19.000
+							snapping: 0.100
+							falloff: 0.990
+							loss: 0.149
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: steel.plate
+							amount: 17.000
+							snapping: 0.100
+							falloff: 0.990
+							loss: 0.200
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: assembling
+							amount: 260.000
+							amount_min: 420.000
+							difficulty: 6
+							ratio: 0.149
+							group: 0
+							flags: conditional
+						}
+						{
+							type: work
+							work: bending
+							amount: 280.000
+							amount_min: 140.000
+							difficulty: 8
+							ratio: 0.251
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: snipping.metal
+							amount: 220.000
+							amount_min: 130.000
+							difficulty: 8
+							ratio: 0.251
+							group: 0
+							flags: simultaneous, conditional
+						}
+					]
+				}
+			]
 		}
 		{
-			type: work
-			work: smithing
-			amount: 400.000
-			difficulty: 9
-			group: 0
-			flags: conditional
-		}
-		{
-			type: work
-			work: assembling
-			amount: 400.000
-			difficulty: 6
-			group: 0
-			flags: conditional
+			name: "Tire"
+			
+			type: undefined
+			flags: part
+			tags: grip, shell, small, rounded
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "pure rubber"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: rubber
+							amount: 38.70968
+							snapping: 0.500
+							falloff: 0.950
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: tailoring
+							amount: 340.000
+							amount_min: 100.000
+							difficulty: 4
+							group: 0
+							flags: conditional
+						}
+						{
+							type: resource
+							material: glue
+							amount: 30.000
+							loss: 0.149
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: gluing
+							amount: 170.000
+							amount_min: 150.000
+							difficulty: 3
+							ratio: 0.149
+							group: 0
+							flags: conditional
+						}
+					]
+				}
+			]
 		}
 	]
 	
@@ -46,12 +240,15 @@
 			prefab: wheel.rubber.00.lg
 			amount: 1.000
 			group: 0
+			flags: primary
 		}
 	]
 	
 	type: workshop
-	flags: blueprintable, disabled, wip
-	tags: crafting, complex, large, vehicle, blacksmithing, assembling, metalworking, engineering
+	flags: blueprintable, wip
+	tags: crafting, complex, large, vehicle, assembling, metalworking, engineering
+	hints: none
+	connotations: none
 	infrastructure: none
 	infrastructure_exclude: none
 	
@@ -62,7 +259,7 @@
 	
 	color_frame: "0xffaeb59a"
 	color_button: "0xff9dd80f"
-	rank: 2000.000
+	rank: 2100.000
 	frame_size: [64.000, 64.000]
 	
 	min: 1

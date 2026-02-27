@@ -1,0 +1,291 @@
+﻿{
+	$version: "0.1.70.0"
+	name: "Propeller"
+	desc:
+		'''
+		TODO
+		'''
+	
+	stages:
+	[
+		{
+			name: "Frame"
+			
+			type: assembly
+			flags: part
+			tags: frame, shell, metal
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Standard"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.frames
+							amount: 6.000
+							loss: 0.102
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: steel.plate
+							amount: 4.000
+							loss: 0.118
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: assembling
+							amount: 220.000
+							amount_min: 80.000
+							difficulty: 10
+							ratio: 0.200
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: snipping.metal
+							amount: 160.000
+							amount_min: 40.000
+							difficulty: 8
+							ratio: 0.102
+							group: 0
+							flags: simultaneous, conditional
+						}
+					]
+				}
+			]
+		}
+		{
+			name: "Motor"
+			
+			type: part
+			flags: part
+			tags: mechanism, functional, small, machinery
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "EC-MT"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: actuator
+							amount: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: machine_parts
+							amount: 12.000
+							snapping: 0.500
+							falloff: 0.950
+							loss: 0.200
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: assembling
+							amount: 300.000
+							amount_min: 120.000
+							difficulty: 14
+							ratio: 0.165
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: calibration
+							amount: 400.000
+							amount_min: 300.000
+							difficulty: 12
+							snapping: 5.000
+							falloff: 0.950
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: resource
+							material: lubricant
+							amount: 4.500
+							snapping: 0.100
+							falloff: 0.800
+							group: 1
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: smearing
+							amount: 75.000
+							amount_min: 30.000
+							difficulty: 0
+							group: 1
+							flags: conditional
+						}
+					]
+				}
+			]
+		}
+		{
+			name: "Blades"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Steel"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.plate
+							amount: 12.000
+							snapping: 0.100
+							falloff: 0.980
+							loss: 0.145
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: steel.rod
+							amount: 1.000
+							loss: 0.027
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: sawing.metal
+							amount: 280.000
+							amount_min: 250.000
+							difficulty: 8
+							snapping: 10.000
+							falloff: 0.950
+							ratio: 0.263
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: hammering
+							amount: 490.000
+							amount_min: 220.000
+							difficulty: 9
+							snapping: 10.000
+							falloff: 0.950
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: filing
+							amount: 600.000
+							amount_min: 470.000
+							difficulty: 8
+							snapping: 5.000
+							falloff: 0.900
+							ratio: 1.000
+							group: 0
+							flags: conditional
+						}
+						{
+							type: resource
+							material: machine_parts
+							amount: 8.000
+							group: 1
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: bolting
+							amount: 300.000
+							amount_min: 100.000
+							difficulty: 6
+							snapping: 10.000
+							falloff: 0.980
+							group: 1
+							flags: conditional
+						}
+					]
+				}
+			]
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: propeller.00
+			amount: 1.000
+			group: 0
+			flags: primary
+		}
+	]
+	
+	type: workshop
+	flags: wip
+	tags: manual, crafting, complex, large, device, vehicle, machinery, assembling, metalworking, engineering
+	hints: none
+	connotations: none
+	infrastructure: none
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		texture: propeller.00
+		size: [64, 16]
+		frame: [0, 6]
+	}
+	icon_scale: 1.070
+	
+	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
+	rank: 2000.000
+	frame_size: [128.000, 64.000]
+	
+	min: 1
+	max: 4
+	step: 1
+	
+	version: 0
+}
