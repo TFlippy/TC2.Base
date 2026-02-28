@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.5"
+	$version: "0.1.70.1"
 	name: "Ladder (Wood)"
 	desc:
 		'''
@@ -32,8 +32,14 @@
 	
 	type: architecture
 	flags: none
-	tags: construction
+	tags: simple, woodworking, construction
+	hints: none
+	connotations: none
 	infrastructure: none
+	infrastructure_exclude: none
+	
+	dismantle_work: 1.000
+	dismantle_yield: 0.800
 	
 	icon:
 	{
@@ -44,9 +50,6 @@
 	color_frame: "0xffaeb59a"
 	color_button: "0xff9dd80f"
 	rank: -4614.400
-	
-	dismantle_work: 1.000
-	dismantle_yield: 0.800
 	
 	placement:
 	{

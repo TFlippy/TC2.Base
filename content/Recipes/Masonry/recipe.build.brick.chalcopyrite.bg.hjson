@@ -1,6 +1,5 @@
 ﻿{
-	$region_id: 0
-	$version: "0.1.63.8"
+	$version: "0.1.70.1"
 	name: "Chalcopyrite Bricks (Back)"
 	desc:
 		'''
@@ -38,7 +37,9 @@
 	
 	type: architecture
 	flags: none
-	tags: none
+	tags: complex, metallurgy, architecture, construction
+	hints: none
+	connotations: none
 	infrastructure: none
 	infrastructure_exclude: none
 	

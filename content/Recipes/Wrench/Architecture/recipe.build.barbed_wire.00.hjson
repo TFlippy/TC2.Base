@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.8"
+	$version: "0.1.70.1"
 	name: "Barbed Wire"
 	desc:
 		'''
@@ -41,9 +41,14 @@
 	
 	type: architecture
 	flags: wip
-	tags: construction
+	tags: basic, simple, construction
+	hints: none
+	connotations: none
 	infrastructure: none
 	infrastructure_exclude: none
+	
+	dismantle_work: 50.000
+	dismantle_yield: 0.200
 	
 	icon:
 	{
@@ -53,9 +58,6 @@
 	color_frame: "0xffa11209"
 	color_button: "0xff9dd80f"
 	rank: -1624.000
-	
-	dismantle_work: 50.000
-	dismantle_yield: 0.200
 	
 	placement:
 	{

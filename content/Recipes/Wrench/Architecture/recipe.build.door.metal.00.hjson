@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.70.1"
 	name: "Door (Metal)"
 	tips: []
 	
@@ -40,9 +40,14 @@
 	
 	type: architecture
 	flags: no_amount_multiplier, no_cancel
-	tags: construction
+	tags: simple, medium, metalworking, construction
+	hints: none
+	connotations: none
 	infrastructure: none
 	infrastructure_exclude: none
+	
+	dismantle_work: 50.000
+	dismantle_yield: 0.800
 	
 	icon:
 	{
@@ -56,9 +61,6 @@
 	color_button: "0xff9dd80f"
 	rank: -4744.000
 	frame_size: [48.000, 64.000]
-	
-	dismantle_work: 50.000
-	dismantle_yield: 0.800
 	
 	placement:
 	{

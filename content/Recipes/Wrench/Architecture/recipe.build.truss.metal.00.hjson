@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.5"
+	$version: "0.1.70.1"
 	name: "Truss (Metal)"
 	desc:
 		'''
@@ -39,8 +39,14 @@
 	
 	type: architecture
 	flags: none
-	tags: construction
+	tags: complex, large, metalworking, architecture, construction
+	hints: none
+	connotations: none
 	infrastructure: none
+	infrastructure_exclude: none
+	
+	dismantle_work: 20.000
+	dismantle_yield: 0.900
 	
 	icon:
 	{
@@ -50,9 +56,6 @@
 	color_frame: "0xffaeb59a"
 	color_button: "0xff9dd80f"
 	rank: -5095.000
-	
-	dismantle_work: 20.000
-	dismantle_yield: 0.900
 	
 	placement:
 	{

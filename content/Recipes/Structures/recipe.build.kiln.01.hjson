@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.70.1"
 	name: "Distillation Oven"
 	tips: []
 	
@@ -70,9 +70,14 @@
 	
 	type: industry
 	flags: no_amount_multiplier, blueprintable, wip
-	tags: construction
+	tags: complex, medium, machinery, assembling, industrial, metalworking, engineering, construction
+	hints: none
+	connotations: none
 	infrastructure: none
 	infrastructure_exclude: none
+	
+	dismantle_work: 10.000
+	dismantle_yield: 0.800
 	
 	icon:
 	{
@@ -85,9 +90,6 @@
 	color_button: "0xff9dd80f"
 	rank: -386.000
 	frame_size: [80.000, 80.000]
-	
-	dismantle_work: 10.000
-	dismantle_yield: 0.800
 	
 	placement:
 	{

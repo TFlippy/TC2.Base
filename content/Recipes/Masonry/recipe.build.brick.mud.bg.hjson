@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.1"
+	$version: "0.1.70.1"
 	name: "Mud Bricks (Back)"
 	desc:
 		'''
@@ -30,7 +30,7 @@
 	
 	type: architecture
 	flags: none
-	tags: none
+	tags: dumb, crude, basic, simple
 	hints: none
 	connotations: none
 	infrastructure: none

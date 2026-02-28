@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.70.1"
 	name: "EC-MT Impulse Press"
 	tips: []
 	
@@ -85,7 +85,7 @@
 	
 	type: industry
 	flags: no_amount_multiplier, blueprintable, wip
-	tags: large, industrial, engineering, construction
+	tags: advanced, large, machinery, assembling, industrial, metalworking, engineering, construction
 	hints: none
 	connotations: none
 	infrastructure: none

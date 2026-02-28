@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.70.1"
 	name: "Post (Metal)"
 	tips: []
 	
@@ -32,10 +32,15 @@
 	]
 	
 	type: architecture
-	flags: no_amount_multiplier, blueprintable, no_cancel
-	tags: large, construction
+	flags: no_amount_multiplier, blueprintable, debug, disabled, wip, no_cancel
+	tags: basic, simple, large, metalworking, construction
+	hints: none
+	connotations: none
 	infrastructure: none
 	infrastructure_exclude: none
+	
+	dismantle_work: 4.000
+	dismantle_yield: 0.800
 	
 	icon:
 	{
@@ -46,9 +51,6 @@
 	color_frame: "0xffaeb59a"
 	color_button: "0xff9dd80f"
 	rank: 10.000
-	
-	dismantle_work: 4.000
-	dismantle_yield: 0.800
 	
 	placement:
 	{

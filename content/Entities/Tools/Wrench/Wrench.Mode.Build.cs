@@ -13,6 +13,7 @@ namespace TC2.Base.Components
 				[IComponent.Data(Net.SendType.Reliable, IComponent.Scope.Region, name: "Wrench (Build)", order: 4)]
 				public partial struct Data(): IComponent, Wrench.IMode
 				{
+					public Filter.Mask<Recipe.Tags> filter_tags;
 					public float placement_range = 4.00f;
 
 					[Asset.Ignore] public IRecipe.Handle recipe;
@@ -72,6 +73,7 @@ namespace TC2.Base.Components
 						Arm.HoverGUI.Hide();
 
 						ref var wrench_transform = ref ent_wrench.GetComponent<Transform.Data>();
+						ref var wrench_build = ref ent_wrench.GetComponent<Wrench.Mode.Build.Data>();
 
 						{
 							GUI.DrawWindowBackground(GUI.tex_window_menu, new Vector4(8, 8, 8, 8));
@@ -190,11 +192,13 @@ namespace TC2.Base.Components
 
 									recipe_indices.Clear();
 
+									var filter_tags = wrench_build.IsNotNull() ? wrench_build.filter_tags : default;
+
 									var recipes = IRecipe.Database.GetAssetsSpan();
 									foreach (var d_recipe in recipes)
 									{
 										ref var recipe = ref d_recipe.GetData();
-										if (recipe.type == edit_type_filter && recipe.flags.HasNone(Recipe.Flags.Hidden | Recipe.Flags.Custom))
+										if (recipe.type == edit_type_filter && recipe.flags.HasNone(Recipe.Flags.Hidden | Recipe.Flags.Custom) && filter_tags.Evaluate(recipe.tags))
 										{
 											//var size = (Vector2)recipe.icon.GetFrameSize();
 											var size = recipe.frame_size.OrDefault(recipe.icon.GetFrameSize(scale));
@@ -1014,8 +1018,22 @@ namespace TC2.Base.Components
 #if SERVER
 					public void Invoke(Net.IRPC.Context rpc, ref Wrench.Mode.Build.Data build)
 					{
-						build.recipe = this.recipe;
-						build.Sync(rpc.entity);
+						var sync = false;
+
+						ref var recipe = ref this.recipe.GetData();
+						if (recipe.IsNotNull())
+						{
+							Assert.Check(recipe.flags.HasNone(Recipe.Flags.Hidden | Recipe.Flags.Custom));
+							Assert.Check(build.filter_tags.Evaluate(recipe.tags));
+
+							sync = build.recipe.TryChange(this.recipe);
+						}
+						else
+						{
+							sync = build.recipe.TryChange(default);
+						}
+
+						if (sync) build.Sync(rpc.entity);
 					}
 #endif
 				}
@@ -1900,7 +1918,7 @@ namespace TC2.Base.Components
 				}
 
 				[Flags]
-				public enum Flags: uint
+				public enum Flags: ushort
 				{
 					None = 0,
 

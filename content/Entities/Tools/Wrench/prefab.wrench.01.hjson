@@ -1,0 +1,115 @@
+$name: "Shitty Wrench"
+$desc:
+	'''
+	This piece of garbage barely qualifies as a wrench.
+
+	Also, it's unwieldy, ugly, shoddy, eager to give you tetanus,
+	steal your wallet and smells like a rusted arse.
+	
+	But it had to be done.
+	'''
+$tags: []
+
+body:
+{
+	buoyancy: 0.300
+
+	@shape.line:
+	{
+		material: wreck
+		miss_chance: 0.745
+		flags: none
+		tags: none
+		
+		layer: entity, solid, item
+		mask: world
+		exclude: none
+		
+		mass: 6.150
+		radius: 0.4375
+		friction: 0.650
+		elasticity: 0.250
+		
+		cog_offset: [-0.0625, -0.125]
+		
+		a: [0.000, -0.500]
+		b: [-0.125, 0.500]
+		offset: [0.000, 0.000]
+	}
+}
+
+health:
+{
+	max: 2000.000
+}
+
+holdable:
+{
+	offset: [0.000, 0.500]
+	flags: storable
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "wrench.01"
+	}
+}
+
+// control:
+// {
+
+// }
+
+// interactable:
+// {
+// 	flags: no_window
+// 	window_size: [454.000, 442.000]
+// }
+
+transform:
+{
+
+}
+
+wrench:
+{
+
+}
+
+wrench.mode.build:
+{
+	filter_tags:
+	{
+		include: dumb, crude, basic, simple, raw, salvaging
+		exclude: complex, advanced, huge, machinery, blacksmithing, industrial, metallurgy, engineering
+	}
+	placement_range: 5.000
+}
+
+packable:
+{
+
+}
+
+heat:
+{
+	temperature_medium: 500.000
+	temperature_high: 900.000
+	temperature_breakdown: 1550.000
+	cool_rate: 0.175
+	heat_capacity_extra: 15.000
+	heat_damage_mult: 0.200
+	offset: [0.000, -0.500]
+	smoke_offset: [0.000, -0.500]
+	size: [0.375, 0.500]
+
+	@light:
+	{
+		offset: [0.000, -0.375]
+		scale: [14.000, 16.000]
+		intensity: 2.000
+		texture: light.circle.00
+	}
+}

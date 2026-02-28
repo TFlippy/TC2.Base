@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.70.1"
 	name: "Krakatite Masonry (Back)"
 	desc:
 		'''
@@ -37,8 +37,11 @@
 	
 	type: architecture
 	flags: none
-	tags: none
+	tags: simple, architecture, construction
+	hints: none
+	connotations: none
 	infrastructure: none
+	infrastructure_exclude: none
 	
 	icon:
 	{

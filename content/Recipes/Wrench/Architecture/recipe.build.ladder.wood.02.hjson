@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.0"
+	$version: "0.1.70.1"
 	name: "Ladder (Shoddy)"
 	desc:
 		'''
@@ -32,7 +32,7 @@
 	
 	type: architecture
 	flags: no_amount_multiplier, no_cancel
-	tags: construction
+	tags: dumb, crude, basic, woodworking, construction
 	hints: none
 	connotations: none
 	infrastructure: none

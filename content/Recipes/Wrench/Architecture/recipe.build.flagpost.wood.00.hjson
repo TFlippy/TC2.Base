@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.70.1"
 	name: "Flagpole (Wood)"
 	desc:
 		'''
@@ -40,9 +40,14 @@
 	
 	type: architecture
 	flags: no_amount_multiplier, blueprintable
-	tags: huge, construction
+	tags: basic, simple, large, woodworking, construction
+	hints: none
+	connotations: none
 	infrastructure: none
 	infrastructure_exclude: none
+	
+	dismantle_work: 5.000
+	dismantle_yield: 0.800
 	
 	icon:
 	{
@@ -53,9 +58,6 @@
 	color_frame: "0xffc54e5e"
 	color_button: "0xff9dd80f"
 	rank: 98.000
-	
-	dismantle_work: 5.000
-	dismantle_yield: 0.800
 	
 	placement:
 	{

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.70.1"
 	name: "Giant Door (Metal)"
 	tips: []
 	
@@ -47,14 +47,18 @@
 	
 	type: architecture
 	flags: no_amount_multiplier, wip, no_cancel
-	tags: construction
+	tags: complex, large, metalworking, construction
+	hints: none
+	connotations: none
 	infrastructure: none
 	infrastructure_exclude: none
+	
+	dismantle_work: 50.000
+	dismantle_yield: 0.800
 	
 	icon:
 	{
 		texture: door.metal.01
-		mask: missing
 		size: [24, 40]
 	}
 	icon_offset: [13.000, 0.000]
@@ -62,9 +66,6 @@
 	color_frame: "0xffaeb59a"
 	color_button: "0xff9dd80f"
 	rank: -4602.300
-	
-	dismantle_work: 50.000
-	dismantle_yield: 0.800
 	
 	placement:
 	{

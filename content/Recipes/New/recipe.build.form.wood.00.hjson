@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.8"
+	$version: "0.1.70.1"
 	name: "Wooden Form"
 	tips: []
 	
@@ -37,7 +37,9 @@
 	
 	type: industry
 	flags: no_amount_multiplier, blueprintable
-	tags: construction
+	tags: basic, simple, woodworking, construction
+	hints: none
+	connotations: none
 	infrastructure: none
 	infrastructure_exclude: none
 	

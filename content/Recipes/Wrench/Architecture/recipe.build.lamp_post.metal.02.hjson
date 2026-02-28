@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.70.1"
 	name: "Lamp Post (Metal, Angled)"
 	tips: []
 	
@@ -40,9 +40,14 @@
 	
 	type: architecture
 	flags: no_amount_multiplier, blueprintable, no_cancel
-	tags: large, construction
+	tags: complex, medium, device, metalworking, construction
+	hints: none
+	connotations: none
 	infrastructure: none
 	infrastructure_exclude: none
+	
+	dismantle_work: 7.000
+	dismantle_yield: 0.800
 	
 	icon:
 	{
@@ -53,9 +58,6 @@
 	color_frame: "0xffaeb59a"
 	color_button: "0xff9dd80f"
 	rank: -5.000
-	
-	dismantle_work: 7.000
-	dismantle_yield: 0.800
 	
 	placement:
 	{

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.8"
+	$version: "0.1.70.1"
 	name: "Formwork (Empty)"
 	desc:
 		'''
@@ -37,7 +37,9 @@
 	
 	type: architecture
 	flags: wip
-	tags: none
+	tags: complex, large, metalworking, architecture, construction
+	hints: none
+	connotations: none
 	infrastructure: none
 	infrastructure_exclude: none
 	

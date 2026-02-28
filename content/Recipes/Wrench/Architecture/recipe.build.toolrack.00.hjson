@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.8"
+	$version: "0.1.70.1"
 	name: "Tool Rack"
 	tips: []
 	
@@ -33,9 +33,14 @@
 	
 	type: architecture
 	flags: no_amount_multiplier, blueprintable
-	tags: construction
+	tags: basic, simple, small, woodworking, assembling, metalworking, construction
+	hints: none
+	connotations: none
 	infrastructure: none
 	infrastructure_exclude: none
+	
+	dismantle_work: 3.000
+	dismantle_yield: 0.800
 	
 	icon:
 	{
@@ -46,9 +51,6 @@
 	color_frame: "0xff4f79a5"
 	color_button: "0xff9dd80f"
 	rank: -5082.000
-	
-	dismantle_work: 3.000
-	dismantle_yield: 0.800
 	
 	placement:
 	{

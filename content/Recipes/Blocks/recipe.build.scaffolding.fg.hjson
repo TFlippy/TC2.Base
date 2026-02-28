@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.70.1"
 	name: "Scaffolding"
 	desc:
 		'''
@@ -31,8 +31,11 @@
 	
 	type: architecture
 	flags: none
-	tags: none
+	tags: simple, complex, assembling, metalworking, architecture, construction
+	hints: none
+	connotations: none
 	infrastructure: none
+	infrastructure_exclude: none
 	
 	icon:
 	{

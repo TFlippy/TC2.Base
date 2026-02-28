@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.8"
+	$version: "0.1.70.1"
 	name: "Smithy"
 	tips:
 	[
@@ -342,9 +342,14 @@
 	
 	type: buildings
 	flags: no_amount_multiplier, blueprintable, construction, building, ignore_tools, ignore_equipment, ignore_machinery, ignore_environment, no_cancel, auto_complete
-	tags: complex, large, architecture, construction
+	tags: simple, large, woodworking, metalworking, architecture, construction
+	hints: none
+	connotations: none
 	infrastructure: none
 	infrastructure_exclude: none
+	
+	dismantle_work: 25.000
+	dismantle_yield: 0.800
 	
 	icon:
 	{
@@ -360,9 +365,6 @@
 	min: 1
 	max: 1
 	step: 1
-	
-	dismantle_work: 25.000
-	dismantle_yield: 0.800
 	
 	placement:
 	{

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.70.1"
 	name: "Cauldron"
 	tips: []
 	
@@ -49,9 +49,14 @@
 	
 	type: industry
 	flags: no_amount_multiplier, blueprintable, wip
-	tags: construction
+	tags: simple, medium, metalworking, construction
+	hints: none
+	connotations: none
 	infrastructure: none
 	infrastructure_exclude: none
+	
+	dismantle_work: 5.000
+	dismantle_yield: 0.800
 	
 	icon:
 	{
@@ -64,9 +69,6 @@
 	color_button: "0xff9dd80f"
 	rank: -574.000
 	frame_size: [48.000, 96.000]
-	
-	dismantle_work: 5.000
-	dismantle_yield: 0.800
 	
 	placement:
 	{

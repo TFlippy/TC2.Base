@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.70.1"
 	name: "Metal Roof (Red)"
 	desc:
 		'''
@@ -30,8 +30,11 @@
 	
 	type: architecture
 	flags: none
-	tags: none
+	tags: complex, metalworking
+	hints: none
+	connotations: none
 	infrastructure: none
+	infrastructure_exclude: none
 	
 	icon:
 	{

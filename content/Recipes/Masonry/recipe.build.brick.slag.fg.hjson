@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.70.1"
 	name: "Slag Bricks"
 	desc:
 		'''
@@ -38,8 +38,11 @@
 	
 	type: architecture
 	flags: none
-	tags: none
+	tags: dumb, crude, basic, simple, architecture, construction
+	hints: none
+	connotations: none
 	infrastructure: none
+	infrastructure_exclude: none
 	
 	icon:
 	{

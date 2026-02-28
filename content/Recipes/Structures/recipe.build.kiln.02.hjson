@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.2"
+	$version: "0.1.70.1"
 	name: "Trash Kiln"
 	tips: []
 	
@@ -41,9 +41,14 @@
 	
 	type: industry
 	flags: no_amount_multiplier, blueprintable, debug, disabled, wip
-	tags: construction
+	tags: dumb, crude, basic, simple, salvaging, construction
+	hints: none
+	connotations: none
 	infrastructure: none
 	infrastructure_exclude: none
+	
+	dismantle_work: 5.000
+	dismantle_yield: 0.800
 	
 	icon:
 	{
@@ -56,9 +61,6 @@
 	color_button: "0xff9dd80f"
 	rank: -555.000
 	frame_size: [48.000, 96.000]
-	
-	dismantle_work: 5.000
-	dismantle_yield: 0.800
 	
 	placement:
 	{

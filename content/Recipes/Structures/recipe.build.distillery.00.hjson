@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.70.1"
 	name: "Distillery"
 	tips: []
 	
@@ -70,7 +70,7 @@
 	
 	type: industry
 	flags: no_amount_multiplier, blueprintable, wip
-	tags: construction
+	tags: complex, machinery, engineering, construction
 	hints: none
 	connotations: none
 	infrastructure: none

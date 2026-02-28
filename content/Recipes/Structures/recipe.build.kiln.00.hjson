@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.70.1"
 	name: "Oven"
 	tips: []
 	
@@ -56,9 +56,14 @@
 	
 	type: industry
 	flags: no_amount_multiplier, blueprintable
-	tags: construction
+	tags: simple, large, industrial, metalworking, construction
+	hints: none
+	connotations: none
 	infrastructure: none
 	infrastructure_exclude: none
+	
+	dismantle_work: 10.000
+	dismantle_yield: 0.800
 	
 	icon:
 	{
@@ -71,9 +76,6 @@
 	color_button: "0xff9dd80f"
 	rank: -553.000
 	frame_size: [56.000, 56.000]
-	
-	dismantle_work: 10.000
-	dismantle_yield: 0.800
 	
 	placement:
 	{
