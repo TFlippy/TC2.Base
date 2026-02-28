@@ -274,8 +274,8 @@ lootable:
 		}
 		{
 			material: "chitin"
-			min: 5.000
-			max: 13.000
+			min: 3.000
+			max: 7.000
 		}
 		{
 			material: "red_sugar"

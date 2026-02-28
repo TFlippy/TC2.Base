@@ -139,14 +139,14 @@ claimer:
 	
 		spawner:
 		{
-			group_size: 1
-			group_size_extra: 2
-			max_count: 10
+			group_size: 2
+			group_size_extra: 3
+			max_count: 7
 			ai_stance: aggressive
 			ai_type: attack
-			interval: 15.000
-			interval_extra: 40.000
-			interval_count_modifier: 20.000
+			interval: 300.000
+			interval_extra: 300.000
+			interval_count_modifier: 60.000
 		}
 
 		dormitory:

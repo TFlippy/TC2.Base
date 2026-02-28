@@ -72,8 +72,8 @@ spawner:
 {
 	group_size: 1
 	group_size_extra: 1
-	interval: 45.000
-	interval_extra: 300.000
+	interval: 90.000
+	interval_extra: 400.000
 	interval_count_modifier: 60.000
 	ai_stance: aggressive
 	flags: none

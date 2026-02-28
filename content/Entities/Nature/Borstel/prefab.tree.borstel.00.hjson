@@ -141,8 +141,8 @@ spawner:
 	max_count: 2
 	ai_stance: aggressive
 	ai_type: attack
-	interval: 75.000
-	interval_extra: 300.000
+	interval: 150.000
+	interval_extra: 600.000
 	interval_count_modifier: 600.000
 }
 
