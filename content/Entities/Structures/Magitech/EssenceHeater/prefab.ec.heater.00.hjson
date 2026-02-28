@@ -1,4 +1,4 @@
-$name: "Thermoregulator"
+$name: "EC-Thermoregulator"
 $desc:
 	'''
 	Essence-powered heat management device used to control the temperature of various systems.

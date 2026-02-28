@@ -369,35 +369,38 @@ namespace TC2.Base.Components
 
 							using (var group_buttons = GUI.Group.New(size: GUI.Rm))
 							{
-								//group_buttons.DrawBackground(GUI.tex_window);
+								group_buttons.DrawBackground(GUI.tex_window);
 
-								if (this.beacon.flags.HasAny(Beacon.Flags.Active))
+								if (false)
 								{
-									if (GUI.DrawButton("Deactivate"u8, size: new(96, GUI.RmY), color: GUI.col_button_error))
+									if (this.beacon.flags.HasAny(Beacon.Flags.Active))
 									{
-										var rpc = new Beacon.EditRPC
+										if (GUI.DrawButton("Deactivate"u8, size: new(96, GUI.RmY), color: GUI.col_button_error))
 										{
-											flags = this.beacon.flags.WithRemoved(Beacon.Flags.Active)
-										};
-										rpc.Send(this.ent_beacon);
+											var rpc = new Beacon.EditRPC
+											{
+												flags = this.beacon.flags.WithRemoved(Beacon.Flags.Active)
+											};
+											rpc.Send(this.ent_beacon);
+										}
 									}
-								}
-								else
-								{
-									if (GUI.DrawButton("Activate"u8, size: new(96, GUI.RmY), color: GUI.col_button_ok, error: !(is_los_sky && ent_attached.IsAlive())))
+									else
 									{
-										var rpc = new Beacon.EditRPC
+										if (GUI.DrawButton("Activate"u8, size: new(96, GUI.RmY), color: GUI.col_button_ok, error: !(is_los_sky && ent_attached.IsAlive())))
 										{
-											flags = this.beacon.flags.WithAdded(Beacon.Flags.Active)
-										};
-										rpc.Send(this.ent_beacon);
+											var rpc = new Beacon.EditRPC
+											{
+												flags = this.beacon.flags.WithAdded(Beacon.Flags.Active)
+											};
+											rpc.Send(this.ent_beacon);
+										}
+										GUI.DrawHoverTooltip("Activate the beacon, allowing zeppelins to pick up this object."u8);
 									}
-									GUI.DrawHoverTooltip("Activate the beacon, allowing zeppelins to pick up this object."u8);
 								}
 
 								if (GUI.ShowDebugGUI)
 								{
-									GUI.SameLine();
+									//GUI.SameLine();
 
 									if (GUI.DrawButton("DEV: Sell"u8, size: new(96, GUI.RmY), color: GUI.col_button_debug, error: !(is_los_sky && reward >= 1.00f && ent_attached.IsAlive())))
 									{
@@ -406,6 +409,10 @@ namespace TC2.Base.Components
 										};
 										rpc.Send(this.ent_beacon);
 									}
+								}
+								else
+								{
+									GUI.TitleCentered(">> coming soon (sorry) <<"u8, pivot: new(0.50f), size: 24, color: GUI.col_button_yellow);
 								}
 							}
 						}

@@ -96,4 +96,10 @@
 		}
 		casing_scale: 0.850
 	}
+	
+	// Info regarding relations of other materials towards this material.
+	related:
+	{
+		money: ruined, source, mangled
+	}
 }

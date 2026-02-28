@@ -22,7 +22,7 @@ body:
 		flags: none
 		tags: heavy, large, solid
 		
-		layer: entity, solid, building, storage, conductive, magnetic, no_overlapped_placement
+		layer: entity, solid, building, storage, conductive, magnetic
 		mask: world
 		exclude: none
 		

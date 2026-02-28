@@ -9,6 +9,7 @@
 	name: "Kordel Denar"
 	name_short: "Đk"
 	name_imperial: "Kordeldenar"
+	name_dumb: "Treasure"
 	description:
 		'''
 		Standard coin-shaped currency.
@@ -33,12 +34,12 @@
 	// Inventory material type.
 	type: coin
 	flags: hard, magnetic, granular, metal, currency, small, manufactured, pellet, solid, processed
-	display_flags: none
+	display_flags: hide_fraction
 	spawn_flags:
 	{
-		add: no_discard
+		add: allow_encumbered, show_notification, no_discard
 	}
-	hints: materials, small, expensive, fancy, civilian, imperial
+	hints: materials, small, expensive, fancy, civilian, office, imperial
 	
 	// Ratio of the material volume to the total volume it occupies when stacked. A value of 1.0 means no empty space, while a value closer to 0.0 means a lot of empty space.
 	packing_fraction: 0.9325
@@ -73,13 +74,19 @@
 		
 		market_price: 1.000
 		market_price_per_kg_auto: 16.000
+		
+		buildings_produce: black_market, bank
+		buildings_consume: customs, exchange, black_market, market, bank
+		
+		categories_produce: imperial, governmental, financial
+		categories_consume: commercial, financial, wealthy, mercantile
 	}
 	
 	// Info regarding relations of other materials towards this material.
 	related:
 	{
-		pellet: component, residue, melted, clean, similar, payload, filler, element, ingredient
-		smirglum: ruined, residue, raw, source, mangled, decomposition, similar, payload, filler, element, solidified, ingredient
+		pellet: component, residue, clean, similar, payload, filler, element, ingredient
+		smirglum: ruined, crushed, source, mangled, decomposition, similar, payload, filler, element, solidified, ingredient, byproduct
 		smirglum.powder: residue, raw, source, decomposition, purified, clean, similar, payload, filler, element, powdered, ingredient
 		gold: ruined, residue, raw, melted, source, mangled, decomposition, similar, casing, element, solidified, ingredient
 		gold.powder: residue, raw, source, decomposition, purified, clean, similar, casing, element, powdered, ingredient
