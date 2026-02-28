@@ -12,11 +12,11 @@
 		{
 			name: "Feedstock"
 			
-			type: undefined
+			type: feedstock
 			flags: none
 			tags: none
 			// Damage type used for discarding leftover resources.
-			discard_damage_type: none
+			discard_damage_type: shovel
 			
 			ratio: 0.000
 			mass_base: 0.000
@@ -35,6 +35,8 @@
 							type: resource
 							material: sand
 							amount: 1.385246
+							snapping: 0.500
+							loss: 0.984
 							group: 0
 							flags: prerequisite
 						}
@@ -42,30 +44,40 @@
 							type: resource
 							material: lime
 							amount: 0.506024
+							snapping: 0.100
+							loss: 0.886
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: work
 							work: mixing
-							amount: 10.000
-							amount_min: 60.000
-							difficulty: 3
+							amount: 15.000
+							amount_min: 100.000
+							difficulty: 4
+							step_max: 10
+							snapping: 10.000
+							falloff: 0.921
 							group: 0
-							flags: conditional
+							flags: stepped, conditional
 						}
 					]
+					
+					filter_tools:
+					{
+						include: bucket, spatula
+					}
 				}
 			]
 		}
 		{
 			name: "Processing"
 			
-			type: undefined
+			type: heating
 			flags: none
 			tags: none
 			// Damage type used for discarding leftover resources.
-			discard_damage_type: none
+			discard_damage_type: heat
 			
 			ratio: 0.000
 			mass_base: 0.000
@@ -77,6 +89,7 @@
 					
 					type: undefined
 					flags: none
+					discard_damage_type_override: heat
 					
 					requirements:
 					[
@@ -96,25 +109,37 @@
 							amount_min: 870.000
 							amount_max: 1100.000
 							difficulty: 6
+							snapping: 25.000
+							falloff: 0.906
+							ratio: 0.737
 							group: 0
-							flags: conditional
+							flags: stepped, primary, conditional
 						}
 					]
 					
 					start_delay: 0.000
 					advance_delay: 0.000
 					complete_delay: 0.000
+					
+					filter_infrastructure:
+					{
+						include: oven
+					}
+					filter_environment:
+					{
+						include: airtight
+					}
 				}
 			]
 		}
 		{
 			name: "Separation"
 			
-			type: undefined
+			type: separation
 			flags: none
 			tags: none
 			// Damage type used for discarding leftover resources.
-			discard_damage_type: none
+			discard_damage_type: sledgehammer
 			
 			ratio: 0.000
 			mass_base: 0.000
@@ -132,17 +157,26 @@
 						{
 							type: work
 							work: shattering
-							amount: 20.000
+							amount: 37.000
 							amount_min: 150.000
-							difficulty: 4
+							difficulty: 6
+							step_max: 40
+							snapping: 25.000
+							falloff: 0.844
+							loss: 0.008
 							group: 0
-							flags: conditional
+							flags: stepped, conditional
 						}
 					]
 					
 					start_delay: 0.000
 					advance_delay: 0.000
 					complete_delay: 0.000
+					
+					filter_tools:
+					{
+						require: hammer
+					}
 				}
 			]
 		}
@@ -154,35 +188,51 @@
 			type: resource
 			material: glass.powder
 			amount: 2.970
-			amount_extra: 0.890
+			amount_extra: 0.902
+			snapping: 0.100
 			group: 0
-			flags: primary
+			ratio: 0.675
+			flags: primary, compact, scale_to_mass
 		}
 		{
 			type: resource
 			material: glass
-			amount: 0.187
-			amount_extra: 0.096
+			amount: 0.197
+			amount_extra: 0.223
+			snapping: 0.400
 			group: 0
-			chance: 0.600
-			flags: secondary
+			chance: 0.337
+			ratio: 0.278
+			flags: byproduct, secondary, stepped, compact, scale_to_mass
 		}
 		{
 			type: resource
-			material: slag
-			amount: 0.668135
-			amount_extra: 0.120
+			material: cement
+			amount: 0.3561
+			amount_extra: 0.192
+			snapping: 0.010
 			group: 0
-			flags: waste
+			ratio: 0.180
+			flags: waste, residue, stepped, scale_to_mass
+		}
+		{
+			type: resource
+			material: clinker
+			amount: 0.668135
+			amount_extra: 0.130
+			snapping: 0.100
+			group: 0
+			ratio: 1.000
+			flags: waste, residue, stepped, scale_to_mass
 		}
 	]
 	
 	type: workshop
 	flags: production
-	tags: simple, metallurgy, refining, heating, processing
+	tags: basic, simple, raw, industrial, refining, heating, processing
 	hints: none
 	connotations: none
-	infrastructure: none
+	infrastructure: oven, heater, kiln
 	infrastructure_exclude: none
 	
 	icon:
@@ -218,5 +268,5 @@
 	max: 100
 	step: 1
 	
-	version: 0
+	version: 1
 }

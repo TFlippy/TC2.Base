@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.2"
+	$version: "0.1.70.1"
 	name: "Lime"
 	name_short: "Lime"
 	name_dumb: "Flour"
@@ -55,21 +55,25 @@
 	
 	commodity:
 	{
-		availability: 0.000
-		rarity: 0.000
-		scalability: 0.000
-		reusability: 0.000
-		longevity: 0.000
-		complexity: 0.000
-		tech: 0.000
-		liquidity: 0.000
-		demand: 0.000
-		
 		flags: none
 		categories: none
 		
 		market_price: 10.200
-		
-		market_price_per_kg_auto: 15.54217
+		market_price_per_kg_auto: 12.28916
+	}
+	
+	// Residues from crafting/work.
+	residues:
+	{
+		calcination:
+		{
+			h_material: carbon_dioxide
+			h_substance: carbon_dioxide
+			
+			flags: none
+			flags_product: pollutant, waste, spawn, use_temperature
+			
+			yield: [0.298, 0.199]
+		}
 	}
 }
