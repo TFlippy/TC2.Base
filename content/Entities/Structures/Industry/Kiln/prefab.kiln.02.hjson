@@ -110,7 +110,7 @@ crafter:
 
 	@inventory2:
 	{
-		type: waste
+		type: output
 		flags: standalone, allow_ducts, ignore_mass, no_auto_pickup, vertical
 		stack_size_multiplier: 1.000
 		
@@ -269,4 +269,5 @@ shipment:
 	type: crafting
 	layout: square
 	flags: keep_items, allow_deposit, use_misc, no_empty_deposit, crafting
+	color: "0xfff0c63e"
 }

@@ -80,7 +80,7 @@ transform:
 
 interactable:
 {
-	flags: none
+	flags: no_tab
 	priority: 2.000
 	window_size: [632.000, 648.000]
 	window_size_misc: [144.000, 0.000]
@@ -173,7 +173,7 @@ workshop:
 	environment: container, stationary, dirty, ugly, fireproof, durable, sturdy, waterproof
 	
 	gui_info_size_x: 252.000
-	max_order_mass: 750.000
+	max_order_mass: 850.000
 	
 	h_sound_order_complete: computer.bell.00
 
@@ -326,4 +326,5 @@ shipment:
 	type: crafting
 	layout: square
 	flags: keep_items, allow_deposit, use_misc, no_empty_deposit, crafting
+	color: "0xfff0c63e"
 }

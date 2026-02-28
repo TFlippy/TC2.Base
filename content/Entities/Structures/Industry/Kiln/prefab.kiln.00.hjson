@@ -117,7 +117,7 @@ crafter:
 
 	@inventory4:
 	{
-		type: waste
+		type: output
 		flags: standalone, allow_ducts, ignore_mass, no_auto_pickup, vertical
 		stack_size_multiplier: 1.000
 		
@@ -139,7 +139,7 @@ workshop:
 	environment: container, stationary, dirty, ugly, fireproof, durable, sturdy, waterproof
 	
 	gui_info_size_x: 252.000
-	max_order_mass: 750.000
+	max_order_mass: 600.000
 	
 	h_sound_order_complete: computer.bell.00
 }
@@ -278,4 +278,5 @@ shipment:
 	type: crafting
 	layout: square
 	flags: keep_items, allow_deposit, use_misc, no_empty_deposit, crafting
+	color: "0xfff0c63e"
 }

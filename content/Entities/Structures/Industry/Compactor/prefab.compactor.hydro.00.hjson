@@ -223,4 +223,5 @@ shipment:
 	flags: keep_items, allow_withdraw, allow_deposit, use_misc, no_empty_deposit, crafting
 	type: crafting
 	layout: square
+	color: "0xfff0c63e"
 }

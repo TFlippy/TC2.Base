@@ -123,8 +123,8 @@ shop:
 
 workshop:
 {
-	orders_capacity: 4
-	h_sound_order_complete: effect.bell.ring.01
+	orders_capacity: 3
+	h_sound_order_complete: effect.buzzer.09
 	max_order_mass: 750.000
 
 	@inventory16:
@@ -139,6 +139,14 @@ workshop:
 		}
 		offset: [0.500, 0.000]
 	}
+}
+
+shipment:
+{
+	type: crafting
+	layout: square
+	flags: keep_items, allow_deposit, use_misc, no_empty_deposit, crafting
+	color: "0xfff0c63e"
 }
 
 personnel:

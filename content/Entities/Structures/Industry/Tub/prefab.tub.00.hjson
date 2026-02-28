@@ -109,6 +109,7 @@ shipment:
 	type: crafting
 	layout: square
 	flags: keep_items, allow_deposit, use_misc, no_empty_deposit, crafting
+	color: "0xfff0c63e"
 }
 
 interactable:
