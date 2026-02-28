@@ -1,0 +1,232 @@
+﻿{
+	$version: "0.1.70.0"
+	$author: "KoreZack"
+	name: "Helichopper"
+	
+	stages:
+	[
+		{
+			name: "Chassis"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Bolted"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.frames
+							amount: 42.000
+							loss: 0.220
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: steel.plate
+							amount: 38.000
+							loss: 0.294
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: metal.forming
+							amount: 900.000
+							difficulty: 10
+							ratio: 0.141
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: snipping.metal
+							amount: 650.000
+							difficulty: 9
+							ratio: 0.169
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: assembling
+							amount: 840.000
+							difficulty: 8
+							ratio: 0.110
+							group: 0
+							flags: conditional
+						}
+						{
+							type: resource
+							material: machine_parts
+							amount: 20.000
+							loss: 0.271
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: bolting
+							amount: 620.000
+							difficulty: 8
+							ratio: 0.086
+							group: 0
+							flags: conditional
+						}
+					]
+				}
+			]
+		}
+		{
+			name: "Connectors"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Mechanical"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: machine_parts
+							amount: 46.000
+							loss: 0.220
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: assembling
+							amount: 760.000
+							difficulty: 7
+							ratio: 0.102
+							group: 0
+							flags: conditional
+						}
+					]
+				}
+			]
+		}
+		{
+			name: "Steering Control"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Rods"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.rod
+							amount: 12.000
+							loss: 0.184
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: machine_parts
+							amount: 35.000
+							loss: 0.529
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: sawing.metal
+							amount: 820.000
+							difficulty: 12
+							ratio: 0.118
+							group: 0
+							flags: conditional
+						}
+						{
+							type: work
+							work: assembling
+							amount: 650.000
+							difficulty: 8
+							ratio: 0.173
+							group: 0
+							flags: conditional
+						}
+					]
+				}
+			]
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: helichopper.00
+			amount: 1.000
+			group: 0
+			flags: primary
+		}
+	]
+	
+	type: workshop
+	flags: blueprintable, wip
+	tags: advanced, large, vehicle, machinery, assembling, metalworking, engineering
+	hints: none
+	connotations: none
+	infrastructure: none
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		texture: helichopper.00.bg
+	}
+	
+	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
+	rank: 2499.000
+	
+	min: 1
+	max: 1
+	step: 1
+	
+	version: 0
+}

@@ -1,0 +1,298 @@
+﻿{
+	$version: "0.1.70.0"
+	$author: "KoreZack"
+	name: "Windowed cabin"
+	
+	stages:
+	[
+		{
+			name: "Frame"
+			
+			type: part
+			flags: part, important
+			tags: frame, shell, metal, structural, large
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Bolted"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.frames
+							amount: 20.000
+							loss: 0.200
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: steel.rod
+							amount: 8.000
+							loss: 0.149
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: assembling
+							amount: 760.000
+							difficulty: 7
+							ratio: 0.090
+							group: 0
+							flags: simultaneous
+						}
+						{
+							type: resource
+							material: steel.plate
+							amount: 35.000
+							loss: 0.235
+							group: 1
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: machine_parts
+							amount: 20.000
+							loss: 0.067
+							group: 1
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: metal.forming
+							amount: 720.000
+							difficulty: 6
+							group: 1
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: snipping.metal
+							amount: 500.000
+							difficulty: 8
+							ratio: 0.161
+							group: 1
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: bolting
+							amount: 850.000
+							difficulty: 4
+							group: 1
+							flags: simultaneous, conditional
+						}
+					]
+				}
+			]
+		}
+		{
+			name: "Connectors"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Mechanical"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: machine_parts
+							amount: 18.000
+							loss: 0.227
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: assembling
+							amount: 600.000
+							difficulty: 6
+							ratio: 0.165
+							group: 0
+							flags: conditional
+						}
+					]
+				}
+			]
+		}
+		{
+			name: "Control Panel"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Simple"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: machine_parts
+							amount: 26.000
+							loss: 0.078
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: steel.frames
+							amount: 8.000
+							loss: 0.137
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: metal.forming
+							amount: 280.000
+							difficulty: 9
+							ratio: 0.251
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: assembling
+							amount: 450.000
+							difficulty: 8
+							ratio: 0.204
+							group: 0
+							flags: simultaneous, conditional
+						}
+					]
+				}
+			]
+		}
+		{
+			name: "Windows"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Glass"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: glass
+							amount: 30.000
+							loss: 0.635
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: glue
+							amount: 40.000
+							loss: 0.702
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: filing
+							amount: 400.000
+							difficulty: 8
+							ratio: 0.031
+							group: 0
+							flags: conditional
+						}
+						{
+							type: work
+							work: gluing
+							amount: 540.000
+							difficulty: 6
+							ratio: 0.153
+							group: 0
+							flags: conditional
+						}
+					]
+				}
+			]
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: cabin.metal.03
+			amount: 1.000
+			group: 0
+			flags: primary
+		}
+	]
+	
+	type: workshop
+	flags: blueprintable, wip
+	tags: crafting, advanced, large, vehicle, machinery, assembling, metalworking, engineering
+	hints: none
+	connotations: none
+	infrastructure: none
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		texture: cabin.metal.03.fg
+	}
+	
+	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
+	rank: 2500.000
+	
+	min: 1
+	max: 1
+	step: 1
+	
+	version: 0
+}
