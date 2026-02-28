@@ -105,12 +105,14 @@ shop:
 	tags_filter:
 	{
 		include: blacksmithing, industrial, metalworking, metallurgy, salvaging, smelting
-		exclude: advanced, huge, social, forestry, fermenting, overworld
+		exclude: advanced, huge, munitions, social, forestry, fermenting, overworld
 	}
+	tags_preferred: industrial, metallurgy, salvaging, smelting, refining, heating, processing
 	
 	tools: ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, spanner, pliers, bucket, axe, shovel, file, chisel, towel, spatula, tongs, pick, crowbar, knife, sandpaper, ladle
-	infrastructure: oven, anvil, forge, barrel, table, chair, vise, rack, crucible, casting_mould, pulley, bucket, surface, hard_surface, heater, stove, kiln, structure, building, workbench
-	environment: indoor, warm, workshop, stationary, dirty, smelly, cozy, scary, noisy, reinforced, durable, sturdy, large
+	infrastructure: oven, anvil, forge, barrel, table, chair, vise, rack, crucible, casting_mould, shaping_mould, pulley, bucket, surface, hard_surface, heater, stove, kiln, smokestack, structure, building, workbench
+	environment: indoor, warm, workshop, stationary, dirty, smelly, ugly, cozy, scary, noisy, reinforced, durable, sturdy, smithy, factory, building, large
+	connotations: heavy, big, industrial, scary
 	
 	flags: embed_gui
 	menu_columns: 6
@@ -151,44 +153,39 @@ shipment:
 
 personnel:
 {
+	characters_capacity: 4
 	flags: store_characters
 	slots:
 	[
 		{
-			role: engineer
-			tags: management, civil, industrial, logistics, production, paperwork, sedentary, technical
+			role: foreman
+			tags: management, civil, industrial, logistics, production, manual_labor, paperwork, sedentary, technical, overseer
 			color: "0xffff8333"
-			multiplier: 1.750
+			multiplier: 1.350
 		}
 		{
-			role: mechanic
-			tags: civil, industrial, production, dangerous, manual_labor, technical, maintenance, operation
-			color: "0xffff8333"
-			multiplier: 1.500
-		}
-		{
-			role: technician
-			tags: civil, industrial, production, dangerous, manual_labor, technical, operation
+			role: blacksmith
+			tags: industrial, production, dangerous, manual_labor, crafts
 			color: "0xffffa800"
 			multiplier: 1.000
 		}
 		{
-			role: technician
-			tags: civil, industrial, production, dangerous, manual_labor, technical, operation
+			role: metalworker
+			tags: industrial, production, dangerous, manual_labor, maintenance, operation
 			color: "0xffffa800"
 			multiplier: 1.000
 		}
 		{
-			role: technician
-			tags: civil, industrial, production, dangerous, manual_labor, technical, operation
+			role: metalworker
+			tags: industrial, production, dangerous, manual_labor, maintenance, operation
 			color: "0xffffa800"
 			multiplier: 1.000
 		}
+		null
 		null
 		null
 		null
 	]
-	characters_capacity: 5
 }
 
 crafter:
