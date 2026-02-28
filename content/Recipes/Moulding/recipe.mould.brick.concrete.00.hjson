@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.1"
+	$version: "0.1.70.0"
 	name: "ISO Concrete Masonry Unit"
 	desc:
 		'''
@@ -78,10 +78,10 @@
 							type: work
 							work: filling.gravel
 							amount: 25.000
-							amount_min: 100.000
+							amount_min: 110.000
 							difficulty: 7
 							snapping: 5.000
-							falloff: 0.771
+							falloff: 0.752
 							group: 0
 							flags: simultaneous, conditional
 						}
@@ -99,11 +99,11 @@
 						{
 							type: work
 							work: blending
-							amount: 22.000
-							amount_min: 200.000
+							amount: 11.000
+							amount_min: 150.000
 							difficulty: 7
 							snapping: 5.000
-							falloff: 0.827
+							falloff: 0.783
 							group: 1
 							flags: conditional
 						}

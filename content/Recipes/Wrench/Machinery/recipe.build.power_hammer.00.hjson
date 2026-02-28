@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.5"
+	$version: "0.1.70.1"
 	name: "Trip Hammer"
 	tips: []
 	
@@ -40,9 +40,15 @@
 	]
 	
 	type: machinery
-	flags: no_amount_multiplier, blueprintable, disabled, wip
+	flags: no_amount_multiplier, blueprintable, debug, disabled, wip
 	tags: construction
+	hints: none
+	connotations: none
 	infrastructure: none
+	infrastructure_exclude: none
+	
+	dismantle_work: 5.000
+	dismantle_yield: 0.800
 	
 	icon:
 	{
@@ -56,9 +62,6 @@
 	color_button: "0xff9dd80f"
 	rank: -555.000
 	frame_size: [64.000, 128.000]
-	
-	dismantle_work: 5.000
-	dismantle_yield: 0.800
 	
 	placement:
 	{

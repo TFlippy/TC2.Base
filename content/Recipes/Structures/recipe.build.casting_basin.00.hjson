@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.70.1"
 	name: "Casting Basin"
 	tips: []
 	
@@ -46,10 +46,15 @@
 	]
 	
 	type: industry
-	flags: no_amount_multiplier, blueprintable, disabled, wip
+	flags: no_amount_multiplier, blueprintable, debug, disabled, wip
 	tags: construction
+	hints: none
+	connotations: none
 	infrastructure: none
 	infrastructure_exclude: none
+	
+	dismantle_work: 5.000
+	dismantle_yield: 0.800
 	
 	icon:
 	{
@@ -61,9 +66,6 @@
 	color_button: "0xff9dd80f"
 	rank: -370.000
 	frame_size: [96.000, 96.000]
-	
-	dismantle_work: 5.000
-	dismantle_yield: 0.800
 	
 	placement:
 	{

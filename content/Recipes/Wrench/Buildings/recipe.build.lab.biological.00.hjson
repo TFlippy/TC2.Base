@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.5"
+	$version: "0.1.70.1"
 	name: "Biological Laboratory"
 	tips: []
 	
@@ -44,9 +44,6 @@
 							flags: conditional
 						}
 					]
-					
-					quality: 1.000
-					precision: 1.000
 				}
 				{
 					name: "Compacted Soil"
@@ -82,9 +79,6 @@
 							flags: conditional
 						}
 					]
-					
-					quality: 1.000
-					precision: 1.000
 				}
 				{
 					name: "Rubble"
@@ -127,9 +121,6 @@
 							flags: conditional
 						}
 					]
-					
-					quality: 1.000
-					precision: 1.000
 				}
 				{
 					name: "Concrete Composite"
@@ -195,9 +186,6 @@
 							flags: conditional
 						}
 					]
-					
-					quality: 1.000
-					precision: 1.000
 				}
 			]
 		}
@@ -257,9 +245,6 @@
 							flags: conditional
 						}
 					]
-					
-					quality: 1.000
-					precision: 1.000
 				}
 			]
 		}
@@ -311,9 +296,6 @@
 							flags: conditional
 						}
 					]
-					
-					quality: 1.000
-					precision: 1.000
 				}
 			]
 		}
@@ -331,9 +313,15 @@
 	]
 	
 	type: buildings
-	flags: no_amount_multiplier, blueprintable, disabled, construction, building, ignore_tools, ignore_equipment, ignore_machinery, ignore_environment, wip, no_cancel, auto_complete
+	flags: no_amount_multiplier, blueprintable, debug, disabled, construction, building, ignore_tools, ignore_equipment, ignore_machinery, ignore_environment, wip, no_cancel, auto_complete
 	tags: complex, huge, architecture, construction
+	hints: none
+	connotations: none
 	infrastructure: none
+	infrastructure_exclude: none
+	
+	dismantle_work: 8.000
+	dismantle_yield: 0.800
 	
 	icon:
 	{
@@ -349,9 +337,6 @@
 	min: 1
 	max: 1
 	step: 1
-	
-	dismantle_work: 8.000
-	dismantle_yield: 0.800
 	
 	placement:
 	{

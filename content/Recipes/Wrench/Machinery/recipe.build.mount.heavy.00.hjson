@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.4"
+	$version: "0.1.70.1"
 	name: "Emplacement (Heavy)"
 	desc:
 		'''
@@ -43,10 +43,15 @@
 	]
 	
 	type: machinery
-	flags: blueprintable, disabled, wip
+	flags: blueprintable, debug, disabled, wip
 	tags: construction
+	hints: none
+	connotations: none
 	infrastructure: none
 	infrastructure_exclude: none
+	
+	dismantle_work: 15.000
+	dismantle_yield: 0.800
 	
 	icon:
 	{
@@ -57,9 +62,6 @@
 	color_frame: "0xffaeb59a"
 	color_button: "0xff9dd80f"
 	rank: -40.000
-	
-	dismantle_work: 15.000
-	dismantle_yield: 0.800
 	
 	placement:
 	{
