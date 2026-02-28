@@ -1,0 +1,220 @@
+﻿{
+	$region_id: 0
+	$version: "0.1.70.1"
+	name: "Shitty Wrench"
+	tips: []
+	
+	stages:
+	[
+		{
+			name: "Construction"
+			
+			type: construction
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Dubious"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: shovel
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: scrap.mixed
+							amount: 6.456522
+							snapping: 1.000
+							loss: 0.765
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: scavenging
+							amount: 200.000
+							amount_min: 50.000
+							difficulty: 4
+							step_max: 22
+							snapping: 5.000
+							falloff: 0.923
+							loss: 0.184
+							ratio: 0.145
+							group: 0
+							flags: stepped, conditional
+						}
+						{
+							type: work
+							work: bending
+							amount: 75.000
+							amount_min: 25.000
+							difficulty: 7
+							step_max: 20
+							snapping: 5.000
+							falloff: 0.933
+							loss: 0.216
+							ratio: 0.075
+							group: 1
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: trashing.metal
+							amount: 120.000
+							amount_min: 40.000
+							difficulty: 5
+							step_max: 20
+							snapping: 5.000
+							falloff: 0.956
+							loss: 0.200
+							ratio: 0.153
+							group: 1
+							flags: stepped, simultaneous, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: scrap.metal
+							amount: 0.271
+							amount_extra: 0.832
+							snapping: 0.010
+							group: 0
+							chance: 0.365
+							ratio: 0.133
+							flags: waste, residue, stepped, scale_to_mass
+						}
+					]
+					
+					filter_tools:
+					{
+						require: hammer
+						include: hammer, cutters, screwdriver, wrench, pliers, cleaver, bucket, axe, shovel, chisel, towel, spatula, crowbar, knife, scissors
+					}
+					filter_infrastructure:
+					{
+						include: anvil, vise, hard_surface, workbench
+					}
+					filter_environment:
+					{
+						include: dirty, smelly, ugly, scary, noisy, reinforced, durable, sturdy
+					}
+				}
+			]
+		}
+		{
+			name: "Assembly"
+			
+			type: assembly
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Crammed"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: work
+							work: cramming.solid
+							amount: 110.000
+							amount_min: 40.000
+							difficulty: 8
+							step_max: 30
+							snapping: 5.000
+							falloff: 0.976
+							loss: 0.447
+							ratio: 0.306
+							group: 0
+							flags: stepped, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: scrap.ferrous
+							amount: 0.244
+							amount_extra: 0.924
+							snapping: 0.010
+							group: 0
+							chance: 0.765
+							ratio: 0.086
+							flags: waste, residue, stepped, scale_to_mass
+						}
+						{
+							type: resource
+							material: scrap.mixed
+							amount: 0.489
+							amount_extra: 0.427
+							snapping: 0.010
+							group: 0
+							ratio: 0.188
+							flags: waste, residue, secondary, stepped, scale_to_mass
+						}
+					]
+				}
+			]
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: wrench.01
+			amount: 1.000
+			group: 0
+			flags: primary, compact
+		}
+	]
+	
+	type: workshop
+	flags: blueprintable, item, wip
+	tags: manual, crafting, dumb, crude, basic, simple, small, tool, assembling, metalworking, salvaging
+	hints: tools, junk, primitive, weak, inaccurate, small, construction, cheap, dumb, civilian, crappy, slow, clumsy
+	connotations: tool, junk, primitive, inaccurate, construction, painful, cheap, dumb, civilian, wrecked, crappy, ugly, fake, sus, smelly, bad, crude
+	infrastructure: surface
+	infrastructure_exclude: none
+	
+	h_company: common.kobold
+	
+	icon:
+	{
+		texture: wrench.01
+	}
+	
+	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
+	button_name: "Craft"
+	rank: -1.000
+	frame_size: [48.000, 48.000]
+	
+	min: 1
+	max: 5
+	step: 1
+	
+	version: 1
+}
