@@ -1,0 +1,220 @@
+﻿{
+	$version: "0.1.70.0"
+	name: "Glass calcination"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	stages:
+	[
+		{
+			name: "Feedstock"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Standard"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: sand
+							amount: 1.385246
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: lime
+							amount: 0.506024
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: mixing
+							amount: 10.000
+							amount_min: 60.000
+							difficulty: 3
+							group: 0
+							flags: conditional
+						}
+					]
+				}
+			]
+		}
+		{
+			name: "Processing"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Simple"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: temperature
+							amount: 1210.000
+							amount_min: 1140.000
+							amount_max: 1370.000
+							falloff: 0.423
+							group: 0
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: work
+							work: calcination
+							amount: 5.000
+							amount_min: 870.000
+							amount_max: 1100.000
+							difficulty: 6
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+				}
+			]
+		}
+		{
+			name: "Seperation"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Crude"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: work
+							work: shattering
+							amount: 20.000
+							amount_min: 150.000
+							difficulty: 4
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+				}
+			]
+		}
+	]
+	
+	products:
+	[
+		{
+			type: resource
+			material: glass.powder
+			amount: 2.970
+			amount_extra: 0.890
+			group: 0
+			flags: primary
+		}
+		{
+			type: resource
+			material: glass
+			amount: 0.187
+			amount_extra: 0.096
+			group: 0
+			chance: 0.600
+			flags: secondary
+		}
+		{
+			type: resource
+			material: slag
+			amount: 0.668135
+			amount_extra: 0.120
+			group: 0
+			flags: waste
+		}
+	]
+	
+	type: workshop
+	flags: production
+	tags: simple, metallurgy, refining, heating, processing
+	hints: none
+	connotations: none
+	infrastructure: none
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		texture: resource.sand
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	icon_offset: [15.000, -1.000]
+	
+	icon_extra:
+	{
+		texture: resource.glass.powder
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	icon_extra_offset: [-18.000, -9.000]
+	
+	icon_c:
+	{
+		texture: ui_icons_widget
+		size: [16, 16]
+		frame: [4, 1]
+	}
+	icon_c_offset: [-36.000, -6.000]
+	
+	color_frame: "0xffb45630"
+	color_button: "0xff9dd80f"
+	rank: 0.000
+	frame_size: [64.000, 16.000]
+	
+	min: 1
+	max: 100
+	
+	version: 0
+}

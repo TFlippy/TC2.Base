@@ -1,21 +1,15 @@
 ﻿{
 	$version: "0.1.70.0"
-	name: "Bazooka"
-	desc:
-		'''
-		Portable rocket launcher.
-		Good for blowing up stuff from distance.
-		'''
-	tips: []
+	name: "Windowed cabin"
 	
 	stages:
 	[
 		{
-			name: "Barrel"
+			name: "Frame"
 			
 			type: part
 			flags: part, important
-			tags: frame, barrel, metal, container, rounded
+			tags: frame, shell, metal, structural, large
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: none
 			
@@ -25,192 +19,89 @@
 			options:
 			[
 				{
-					name: "Bent"
+					name: "Bolted"
 					
 					type: undefined
 					flags: none
 					
 					requirements:
 					[
-						{
-							type: resource
-							material: steel.plate
-							amount: 5.000
-							snapping: 0.250
-							falloff: 0.969
-							loss: 0.714
-							group: 0
-							flags: prerequisite
-						}
 						{
 							type: resource
 							material: steel.frames
-							amount: 4.000
-							loss: 0.247
-							group: 0
-							flags: prerequisite
-						}
-						{
-							type: work
-							work: bending
-							amount: 460.000
-							amount_min: 400.000
-							difficulty: 12
-							snapping: 40.000
-							falloff: 0.980
+							amount: 20.000
 							loss: 0.200
-							ratio: 0.227
-							group: 0
-							flags: simultaneous, conditional
-						}
-						{
-							type: work
-							work: hammering
-							amount: 300.000
-							amount_min: 400.000
-							difficulty: 8
-							snapping: 20.000
-							falloff: 0.980
-							loss: 0.200
-							ratio: 0.227
-							group: 0
-							flags: simultaneous, conditional
-						}
-					]
-				}
-			]
-		}
-		{
-			name: "Grip"
-			
-			type: part
-			flags: part
-			tags: grip, rod
-			// Damage type used for discarding leftover resources.
-			discard_damage_type: none
-			
-			ratio: 0.000
-			mass_base: 0.000
-			
-			options:
-			[
-				{
-					name: "Carved"
-					
-					type: undefined
-					flags: none
-					
-					requirements:
-					[
-						{
-							type: resource
-							material: wood
-							amount: 0.500
-							loss: 0.502
-							group: 0
-							flags: prerequisite
-						}
-						{
-							type: work
-							work: woodcarving
-							amount: 90.000
-							amount_min: 160.000
-							difficulty: 6
-							snapping: 30.000
-							ratio: 0.471
-							group: 0
-							flags: conditional
-						}
-					]
-				}
-			]
-		}
-		{
-			name: "Shoulder Pad"
-			
-			type: part
-			flags: part
-			tags: grip, frame, flat
-			// Damage type used for discarding leftover resources.
-			discard_damage_type: none
-			
-			ratio: 0.000
-			mass_base: 0.000
-			
-			options:
-			[
-				{
-					name: "Leather"
-					
-					type: undefined
-					flags: none
-					
-					requirements:
-					[
-						{
-							type: resource
-							material: leather
-							amount: 5.000
-							snapping: 0.750
-							falloff: 0.950
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: resource
-							material: wood
-							amount: 1.000
+							material: steel.rod
+							amount: 8.000
+							loss: 0.149
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: work
-							work: tailoring
-							amount: 100.000
-							amount_min: 125.000
+							work: assembling
+							amount: 760.000
 							difficulty: 7
-							snapping: 5.000
-							falloff: 0.960
+							ratio: 0.090
 							group: 0
-							flags: simultaneous, conditional
-						}
-						{
-							type: work
-							work: woodcarving
-							amount: 140.000
-							amount_min: 260.000
-							difficulty: 6
-							group: 0
-							flags: simultaneous, conditional
+							flags: simultaneous
 						}
 						{
 							type: resource
-							material: glue
-							amount: 2.500
-							loss: 0.204
-							group: 0
+							material: steel.plate
+							amount: 35.000
+							loss: 0.235
+							group: 1
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: machine_parts
+							amount: 20.000
+							loss: 0.067
+							group: 1
 							flags: prerequisite
 						}
 						{
 							type: work
-							work: gluing
-							amount: 60.000
-							amount_min: 40.000
-							difficulty: 0
-							ratio: 0.227
-							group: 0
-							flags: conditional
+							work: metal.forming
+							amount: 720.000
+							difficulty: 6
+							group: 1
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: snipping.metal
+							amount: 500.000
+							difficulty: 8
+							ratio: 0.161
+							group: 1
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: bolting
+							amount: 850.000
+							difficulty: 4
+							group: 1
+							flags: simultaneous, conditional
 						}
 					]
 				}
 			]
 		}
 		{
-			name: "Firining Mechanism"
+			name: "Connectors"
 			
 			type: undefined
-			flags: part
-			tags: grip, mechanism, functional, machinery
+			flags: none
+			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: none
 			
@@ -230,19 +121,137 @@
 						{
 							type: resource
 							material: machine_parts
-							amount: 5.000
-							snapping: 0.500
-							falloff: 0.970
+							amount: 18.000
+							loss: 0.227
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: work
 							work: assembling
-							amount: 160.000
-							amount_min: 120.000
+							amount: 600.000
+							difficulty: 6
+							ratio: 0.165
+							group: 0
+							flags: conditional
+						}
+					]
+				}
+			]
+		}
+		{
+			name: "Control Panel"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Simple"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: machine_parts
+							amount: 26.000
+							loss: 0.078
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: steel.frames
+							amount: 8.000
+							loss: 0.137
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: metal.forming
+							amount: 280.000
+							difficulty: 9
+							ratio: 0.251
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: assembling
+							amount: 450.000
 							difficulty: 8
-							ratio: 0.243
+							ratio: 0.204
+							group: 0
+							flags: simultaneous, conditional
+						}
+					]
+				}
+			]
+		}
+		{
+			name: "Windows"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Glass"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: glass
+							amount: 30.000
+							loss: 0.635
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: glue
+							amount: 40.000
+							loss: 0.702
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: filing
+							amount: 400.000
+							difficulty: 8
+							ratio: 0.031
+							group: 0
+							flags: conditional
+						}
+						{
+							type: work
+							work: gluing
+							amount: 540.000
+							difficulty: 6
+							ratio: 0.153
 							group: 0
 							flags: conditional
 						}
@@ -256,7 +265,7 @@
 	[
 		{
 			type: prefab
-			prefab: bazooka
+			prefab: cabin.metal.03
 			amount: 1.000
 			group: 0
 			flags: primary
@@ -265,24 +274,23 @@
 	
 	type: workshop
 	flags: blueprintable, wip
-	tags: workbench, manual, crafting, complex, medium, weapon, gun, blacksmithing, assembling, metalworking, engineering, military, construction
+	tags: crafting, advanced, large, vehicle, machinery, assembling, metalworking, engineering
 	hints: none
 	connotations: none
-	infrastructure: anvil, surface, hard_surface, workbench
+	infrastructure: none
 	infrastructure_exclude: none
 	
 	icon:
 	{
-		texture: bazooka
+		texture: cabin.metal.03.fg
 	}
 	
 	color_frame: "0xffaeb59a"
 	color_button: "0xff9dd80f"
-	rank: 8.000
-	frame_size: [64.000, 48.000]
+	rank: 2500.000
 	
 	min: 1
-	max: 20
+	max: 1
 	step: 1
 	
 	version: 0
