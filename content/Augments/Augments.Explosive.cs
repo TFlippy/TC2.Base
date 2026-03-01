@@ -101,7 +101,7 @@ namespace TC2.Base
 				identifier: "explosive.dud",
 				category: "Explosive",
 				name: "Dud Explosive",
-				description: "Replaces all the explosive material with dirt.",
+				description: "Replaces all the explosive material with sawdust.",
 
 				can_add: static (ref Augment.Context context, in Explosive.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
@@ -123,7 +123,7 @@ namespace TC2.Base
 						if (requirement.type == Crafting.Requirement.Type.Resource)
 						{
 							ref var material = ref requirement.material.GetData();
-							if (material.IsNotNull() && material.flags.HasAny(Material.Flags.Explosive))
+							if (material.IsNotNull() && material.flags.HasAnyExcept(Material.Flags.Explosive, Material.Flags.Pellet | Material.Flags.Essence | Material.Flags.Gas | Material.Flags.Ammo))
 							{
 								amount_total += requirement.amount;
 								requirement = default;
@@ -131,7 +131,7 @@ namespace TC2.Base
 						}
 					}
 					
-					context.requirements_new.Merge(Crafting.Requirement.Resource("soil", amount_total).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));				
+					context.requirements_new.Merge(Crafting.Requirement.Resource("sawdust", amount_total).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));				
 				}
 			));
 
@@ -156,9 +156,9 @@ namespace TC2.Base
 
 					var dirty = false;
 
-					dirty |= GUI.AssetInput("Essence", ref h_essence, size: new Vector2(GUI.RmX * 0.60f, GUI.RmY), show_label: false);
+					dirty |= GUI.AssetInput("Essence"u8, ref h_essence, size: new Vector2(GUI.RmX * 0.60f, GUI.RmY), show_label: false);
 					GUI.SameLine();
-					dirty |= GUI.SliderIntLerp("Amount", ref modifier, 1, 20, size: GUI.Rm);
+					dirty |= GUI.SliderIntLerp("Amount"u8, ref modifier, 1, 20, size: GUI.Rm);
 
 					return dirty;
 				},
@@ -171,7 +171,7 @@ namespace TC2.Base
 					ref var essence_data = ref h_essence.GetData();
 					if (essence_data.IsNotNull())
 					{
-						var amount = Maths.LerpInt(1, 20, modifier);
+						var amount = Maths.LerpInt(1, 10, modifier);
 
 						ref var essence_container = ref context.GetOrAddComponent<Essence.Container.Data>();
 						if (essence_container.IsNotNull())
@@ -179,6 +179,7 @@ namespace TC2.Base
 							essence_container.h_essence = h_essence;
 							essence_container.stability = 0.25f;
 							essence_container.available = amount * Essence.essence_per_pellet;
+							essence_container.emit_type = Essence.Container.EmitType.Explosive;
 						}
 
 						context.requirements_new.Merge(Crafting.Requirement.Resource(essence_data.h_material_pellet, amount).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
