@@ -625,7 +625,7 @@
 	]
 	
 	type: workshop
-	flags: production, wip
+	flags: production, wip, debug
 	tags: simple, raw, heating, processing
 	hints: none
 	connotations: none

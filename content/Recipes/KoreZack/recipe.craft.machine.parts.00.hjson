@@ -209,7 +209,7 @@
 	]
 	
 	type: workshop
-	flags: production, wip
+	flags: production, wip, debug
 	tags: manual, crafting, basic, simple, small, metalworking, salvaging
 	hints: none
 	connotations: none

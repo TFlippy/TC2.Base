@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.70.0"
+	$version: "0.1.70.1"
 	$author: "KoreZack"
 	name: "Slag"
 	desc:
@@ -363,7 +363,7 @@
 	]
 	
 	type: workshop
-	flags: dismantling
+	flags: debug, dismantling, wip
 	tags: manual, dumb, crude, basic, simple, metalworking, metallurgy, salvaging, processing
 	hints: none
 	connotations: none

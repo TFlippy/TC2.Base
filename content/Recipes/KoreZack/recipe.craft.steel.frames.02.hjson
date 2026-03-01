@@ -98,7 +98,7 @@
 	]
 	
 	type: workshop
-	flags: production, wip
+	flags: production, wip, debug
 	tags: manual, crafting, dumb, crude, metalworking
 	hints: none
 	connotations: none

@@ -274,7 +274,7 @@
 	]
 	
 	type: workshop
-	flags: blueprintable, wip
+	flags: blueprintable, wip, debug
 	tags: crafting, advanced, large, vehicle, machinery, assembling, metalworking, engineering
 	hints: none
 	connotations: none

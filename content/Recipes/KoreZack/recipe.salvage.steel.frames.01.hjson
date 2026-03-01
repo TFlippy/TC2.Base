@@ -114,7 +114,7 @@
 	]
 	
 	type: workshop
-	flags: wip
+	flags: wip, debug
 	tags: workbench, manual, simple, salvaging
 	hints: none
 	connotations: none

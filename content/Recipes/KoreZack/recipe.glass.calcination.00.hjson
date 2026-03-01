@@ -7,6 +7,14 @@
 		TODO: Desc
 		'''
 	
+	related_materials:
+	{
+		glass.powder: powdered, result, processed
+		glass: flattened, result, processed
+		cement: residue, powdered, roasted, result, byproduct
+		clinker: residue, solidified, roasted, impure, result, byproduct
+	}
+	
 	stages:
 	[
 		{

@@ -264,7 +264,7 @@
 	]
 	
 	type: workshop
-	flags: wip
+	flags: wip, debug
 	tags: manual, crafting, complex, medium, device, vehicle, machinery, assembling, metalworking, engineering
 	hints: none
 	connotations: none
