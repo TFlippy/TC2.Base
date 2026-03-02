@@ -24,8 +24,8 @@ body:
 		miss_chance: 0.000
 		
 		layer: entity, solid, background, furniture, no_overlapped_placement, ignore_melee, ignore_bullet, flammable
-		mask: world, no_overlapped_placement
-		exclude: none
+		mask: world, door
+		exclude: held, dynamic
 	}
 }
 
