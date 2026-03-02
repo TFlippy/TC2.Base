@@ -1,0 +1,391 @@
+﻿{
+	$version: "0.1.70.1"
+	$author: "KoreZack, TFlippy"
+	name: "Kuprovst Roasting"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	tips: []
+	
+	related_materials:
+	{
+		copper.gravel: residue, decomposition, dirty, smelted, roasted, impure, result
+		copper.powder: residue, decomposition, clean, element, powdered, smelted, roasted, result
+		sulfur: residue, decomposition, clean, element, powdered, roasted, result
+		sulfuric_acid: refined, reaction, purified, chemical, product, result, liquid, processed, extracted
+	}
+	
+	stages:
+	[
+		{
+			name: "Feedstock"
+			
+			type: feedstock
+			flags: important
+			tags: material, raw, ingredient
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Raw"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: kuprovst
+							amount: 10.000
+							snapping: 0.500
+							loss: 0.961
+							group: 0
+							flags: argument, primary, prerequisite
+						}
+					]
+					
+					h_sound_complete: burner.groan.01
+				}
+			]
+		}
+		{
+			name: "Roasting"
+			
+			type: heating
+			flags: important
+			tags: formula
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: heat
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Simple"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: heat
+					
+					requirements:
+					[
+						{
+							type: temperature
+							amount: 920.000
+							amount_min: 773.000
+							amount_max: 1180.000
+							falloff: 0.819
+							group: 0
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: work
+							work: roasting
+							amount: 100.000
+							amount_min: 200.000
+							amount_max: 1362.000
+							difficulty: 8
+							snapping: 10.000
+							falloff: 0.861
+							loss: 0.957
+							ratio: 1.000
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: copper.gravel
+							amount: 1.123
+							amount_extra: 0.401
+							snapping: 0.100
+							group: 0
+							ratio: 0.576
+							flags: primary, compact, scale_to_mass
+						}
+						{
+							type: resource
+							material: copper.powder
+							amount: 0.749
+							amount_extra: 0.312
+							snapping: 0.010
+							group: 0
+							chance: 0.471
+							ratio: 0.051
+							flags: byproduct, secondary, stepped, compact, scale_to_mass
+						}
+						{
+							type: resource
+							material: sulfur
+							amount: 0.901
+							amount_extra: 0.519
+							snapping: 0.010
+							group: 0
+							chance: 0.780
+							ratio: 0.141
+							flags: residue, stepped, scale_to_mass
+						}
+						{
+							type: resource
+							material: slag
+							amount: 0.904
+							amount_extra: 0.218
+							snapping: 0.100
+							group: 0
+							ratio: 0.341
+							flags: waste, scale_to_mass
+						}
+					]
+					
+					filter_infrastructure:
+					{
+						include: oven
+					}
+					filter_environment:
+					{
+						include: airtight
+					}
+					
+					h_sound_begin: furnace.produce.00
+					h_sound_complete: burner.groan.01
+				}
+			]
+		}
+		{
+			name: "Fumes"
+			
+			type: separation
+			flags: none
+			tags: formula
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Vented"
+					
+					type: undefined
+					flags: none
+					
+					products:
+					[
+						{
+							type: resource
+							material: sulfur_dioxide
+							amount: 1.000
+							amount_extra: 0.391
+							snapping: 0.100
+							group: 0
+							ratio: 0.945
+							flags: pollutant, waste, spawn, use_temperature, scale_to_mass
+						}
+					]
+					
+					filter_infrastructure:
+					{
+						include: oven
+					}
+					filter_environment:
+					{
+						include: airtight
+					}
+					
+					h_sound_begin: furnace.produce.00
+					h_sound_complete: burner.groan.01
+				}
+				{
+					name: "Wet-Scrubbed"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: wet
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: water
+							amount: 1.000
+							snapping: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: distillation
+							amount: 260.000
+							amount_min: 75.000
+							amount_max: 1362.000
+							difficulty: 5
+							step_max: 10
+							snapping: 10.000
+							falloff: 0.612
+							ratio: 0.004
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: sulfuric_acid
+							amount: 0.819
+							amount_extra: 0.497
+							snapping: 0.100
+							group: 0
+							chance: 0.698
+							ratio: 0.267
+							flags: byproduct, stepped, scale_to_mass
+						}
+						{
+							type: resource
+							material: water.toxic
+							amount: 0.720
+							amount_extra: 0.308
+							snapping: 0.100
+							group: 0
+							ratio: 0.216
+							flags: pollutant, waste, stepped, scale_to_mass
+						}
+						{
+							type: resource
+							material: sulfur_dioxide
+							amount: 0.851
+							amount_extra: 0.402
+							snapping: 0.100
+							group: 0
+							ratio: 1.000
+							flags: pollutant, waste, spawn, use_temperature, scale_to_mass
+						}
+					]
+					
+					filter_infrastructure:
+					{
+						include: oven
+					}
+					filter_environment:
+					{
+						include: airtight
+					}
+					
+					h_sound_begin: furnace.produce.00
+					h_sound_complete: burner.groan.01
+				}
+			]
+		}
+		{
+			name: "Separation"
+			
+			type: separation
+			flags: none
+			tags: formula
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Crude"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: sledgehammer
+					
+					requirements:
+					[
+						{
+							type: work
+							work: shattering
+							amount: 210.000
+							amount_min: 50.000
+							amount_max: 1362.000
+							difficulty: 6
+							step_max: 20
+							snapping: 10.000
+							falloff: 0.689
+							ratio: 1.000
+							group: 0
+							flags: stepped, conditional
+						}
+					]
+					
+					filter_infrastructure:
+					{
+						include: oven
+					}
+					filter_environment:
+					{
+						include: airtight
+					}
+					
+					h_sound_begin: furnace.produce.00
+					h_sound_complete: burner.groan.01
+				}
+			]
+		}
+	]
+	
+	type: workshop
+	flags: debug, production, wip
+	tags: basic, simple, raw, metallurgy, smelting, refining, heating, processing, dangerous
+	hints: none
+	connotations: material, danger, mining, cheap, ugly, smelly, scary
+	infrastructure: oven, heater, kiln, smokestack
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		texture: resource.kuprovst
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	icon_offset: [-9.000, 1.000]
+	
+	icon_extra:
+	{
+		texture: resource.copper.gravel
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	icon_extra_offset: [-8.000, -7.000]
+	
+	icon_c:
+	{
+		texture: resource.kuprovst
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	icon_c_offset: [-18.000, -7.000]
+	
+	color_frame: "0xffb45630"
+	color_button: "0xff9dd80f"
+	rank: -60.000
+	frame_size: [64.000, 48.000]
+	
+	min: 1
+	max: 50
+	step: 1
+	
+	version: 0
+}
