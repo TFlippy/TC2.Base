@@ -1,0 +1,51 @@
+﻿{
+	$version: "0.1.63.8"
+	name: "Niklajzner Bricks"
+	
+	material_type: brick_metallic
+	tile_flags: non_empty
+	flags: artificial, metal, masonry, construction
+	
+	max_health: 28500.000
+	smoothing: 0.133
+	stability: 0.820
+	strength_tensile: 0.000
+	strength_compressive: 0.000
+	
+	mass: 1.400
+	friction: 0.820
+	elasticity: 0.600
+	fall_damage_mult: 0.990
+	collision_layer: none
+	collision_mask: none
+	
+	texture: terrain.brick.niklajzner
+	pattern: pattern.brick.slag
+	texture_scale: 1.500
+	texture_overshoot: -0.300
+	texture_offset: 0.000
+	
+	color_preview: "0xff686934"
+	color_fill: "0xff140e08"
+	
+	resources:
+	[
+		{
+			material: niklajzner
+			quantity: 0.100
+		}
+		null
+	]
+	
+	mappings:
+	[
+		{
+			color: "0xff686934"
+			tile_flags: solid, non_empty, become_background_on_break
+		}
+		{
+			color: "0xff52472b"
+			tile_flags: non_empty
+		}
+	]
+}
