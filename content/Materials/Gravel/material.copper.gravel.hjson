@@ -1,8 +1,8 @@
 ﻿{
 	$version: "0.1.68.2"
-	name: "Copper (Gravel)"
-	name_short: "Cop. Gravel"
-	name_imperial: "Koprsterk"
+	name: "Copper Gravel"
+	name_short: "Cop.Gravel"
+	name_imperial: "Kuprsterk"
 	description:
 		'''
 		Standard arsenic-sulfur-contaminated copper gravel.

@@ -1,8 +1,8 @@
 ﻿{
 	$version: "0.1.68.2"
 	name: "Copper Chunk"
-	name_short: "Cop. Chunk"
-	name_imperial: "Kopr"
+	name_short: "Cop.Chunk"
+	name_imperial: "Kupr"
 	description:
 		'''
 		Solid chunk of deformed copper, usually a result of poor craftsmanship or bad smelting.

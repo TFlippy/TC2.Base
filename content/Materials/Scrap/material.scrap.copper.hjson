@@ -1,8 +1,8 @@
 ﻿{
 	$version: "0.1.68.2"
 	name: "Copper Scrap"
-	name_short: "Cop. Scrap"
-	name_imperial: "Koprsrot"
+	name_short: "Cop.Scrap"
+	name_imperial: "Kuprsrot"
 	description:
 		'''
 		Pile containing both shiny and unshiny pieces of rejected copper.

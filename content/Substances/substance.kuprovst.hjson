@@ -1,0 +1,26 @@
+﻿{
+	$version: "0.1.63.8"
+	name: "Kuprovst"
+	description:
+		'''
+		TODO: Desc
+		'''
+	
+	type: mineral
+	atomic_number: 0
+	flags: none
+	tags: impure, metallic, mineral, solid
+	
+	icon:
+	{
+		texture: ui_icons_widget
+		size: [16, 16]
+		frame: [14, 1]
+	}
+
+	form_to_material:
+	{
+		chunk: kuprovst
+		raw: kuprovst
+	}
+}

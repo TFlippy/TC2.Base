@@ -1,8 +1,13 @@
 ﻿{
 	$version: "0.1.68.2"
+	$note:
+		'''
+		- Technically, it's more of a copper alloy, rather than pure copper
+		- Intense metallic gold-orange color
+		'''
 	name: "Copper Brick"
-	name_short: "Cop. Brick"
-	name_imperial: "Koprblok"
+	name_short: "Cop.Brick"
+	name_imperial: "Kuprblok"
 	description:
 		'''
 		Standard 20x10x8 cm copper brick.

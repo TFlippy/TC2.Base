@@ -1,8 +1,8 @@
 ﻿{
 	$version: "0.1.68.2"
 	name: "Copper Powder"
-	name_short: "Cop. Powder"
-	name_imperial: "Koprpulvr"
+	name_short: "Cop.Powder"
+	name_imperial: "Kuprpulvr"
 	description:
 		'''
 		Standard fine-grained copper powderswarf.

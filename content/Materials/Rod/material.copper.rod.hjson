@@ -1,8 +1,8 @@
 ﻿{
 	$version: "0.1.68.2"
 	name: "Copper Bar"
-	name_short: "Cop. Bar"
-	name_imperial: "Koprtyc"
+	name_short: "Cop.Bar"
+	name_imperial: "Kuprtyc"
 	description:
 		'''
 		Standard 60x4x4 cm copper bar.
