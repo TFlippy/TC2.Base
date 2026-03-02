@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.68.2"
 	name: "Steel Bar"
-	name_short: "St. Bar"
+	name_short: "St.Bar"
 	name_imperial: "Styltyc"
 	name_dumb: "Iron Stick"
 	description:

@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.68.2"
 	name: "Steel Sheet"
-	name_short: "St. Sheet"
+	name_short: "St.Sheet"
 	name_imperial: "Stylplat"
 	name_dumb: "Flat Iron"
 	description:

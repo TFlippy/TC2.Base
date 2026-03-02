@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.68.2"
 	name: "Niklajzner Brick"
-	name_short: "Nkz. Brick"
+	name_short: "Nkz.Brick"
 	name_imperial: "Niklajzblok"
 	name_dumb: "Iron"
 	description:

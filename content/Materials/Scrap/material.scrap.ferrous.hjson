@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.68.2"
 	name: "Ferrous Scrap"
-	name_short: "Ferr. Scrap"
+	name_short: "Ferr.Scrap"
 	name_imperial: "Ferosrot"
 	description:
 		'''
