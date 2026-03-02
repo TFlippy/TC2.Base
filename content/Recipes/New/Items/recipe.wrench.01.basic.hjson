@@ -192,7 +192,7 @@
 	]
 	
 	type: workshop
-	flags: blueprintable, item, wip
+	flags: blueprintable, item
 	tags: manual, crafting, dumb, crude, basic, simple, small, tool, assembling, metalworking, salvaging
 	hints: tools, junk, primitive, weak, inaccurate, small, construction, cheap, dumb, civilian, crappy, slow, clumsy
 	connotations: tool, junk, primitive, inaccurate, construction, painful, cheap, dumb, civilian, wrecked, crappy, ugly, fake, sus, smelly, bad, crude

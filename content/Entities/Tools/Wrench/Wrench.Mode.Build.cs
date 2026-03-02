@@ -1537,7 +1537,7 @@ namespace TC2.Base.Components
 								ref var product = ref recipe.products[0];
 								if (recipe.placement.TryGetValue(out var placement))
 								{
-									var scale = new Vector2(1, 1);
+									var scale = Vector2.One;
 									var normal_surface = this.normal.GetNormalized(out var normal_distance) ?? new Vector2(0.00f, -1.00f);
 
 									if (placement.flags.HasAny(Placement.Flags.Allow_Mirror_X)) scale.X.SetSign(this.pos_raw.X < this.pos_origin.X);
@@ -1579,13 +1579,14 @@ namespace TC2.Base.Components
 											amount_multiplier = placed_block_count;
 											Wrench.Mode.Build.Evaluate(region: ref region, entity: rpc.entity, placement: in placement, errors: ref errors, skip_support: ref skip_support, support: out support, clearance: out clearance, bb: bb, transform: in transform, placement_range: build.placement_range, pos: pos, pos_a: pos_a, pos_b: pos_b, faction_id: h_faction);
 
+											var reqs_span = recipe.requirements.AsSpan();
 											//if (!Crafting.Evaluate(entity, ent_parent, transform.position, ref recipe.requirements, inventory: inventory, amount_multiplier: amount_multiplier, h_faction: h_faction)) errors |= Errors.RequirementsNotMet;
-											if (!context.Evaluate(requirements: recipe.requirements.AsSpan(), amount_multiplier: amount_multiplier, evaluation_flags: Crafting.EvaluateFlags.Prerequisite)) errors |= Errors.RequirementsNotMet;
+											if (!context.Evaluate(requirements: reqs_span, amount_multiplier: amount_multiplier, evaluation_flags: Crafting.EvaluateFlags.Prerequisite)) errors |= Errors.RequirementsNotMet;
 
 											if (errors == Wrench.Mode.Build.Errors.None)
 											{
 												//Crafting.Consume(ent_parent, transform.position, ref recipe.requirements, inventory: inventory, amount_multiplier: amount_multiplier, sync: true);
-												context.Consume(requirements: recipe.requirements.AsSpan(), amount_multiplier: amount_multiplier, evaluation_flags: Crafting.EvaluateFlags.Prerequisite);
+												context.Consume(requirements: reqs_span, amount_multiplier: amount_multiplier, evaluation_flags: Crafting.EvaluateFlags.Prerequisite);
 
 												var tile_meta = 0u;
 
@@ -1682,32 +1683,33 @@ namespace TC2.Base.Components
 												amount_multiplier += Vector2.Distance(pos_a, pos_b);
 											}
 
-											if (recipe.construction.HasValue)
+											ref var construction_info = ref recipe.construction.GetRefOrNull();
+											if (construction_info.IsNotNull())
 											{
-												var construction = recipe.construction.Value;
+												var construction_info_reqs_span = construction_info.requirements.AsSpan();
 
 												//if (!Crafting.Evaluate(entity, ent_parent, transform.position, ref construction.requirements, inventory: inventory, amount_multiplier: amount_multiplier, h_faction: h_faction)) errors |= Errors.RequirementsNotMet;
-												if (!context.Evaluate(requirements: construction.requirements.AsSpan(), amount_multiplier: amount_multiplier, evaluation_flags: Crafting.EvaluateFlags.Prerequisite)) errors |= Errors.RequirementsNotMet;
+												if (!context.Evaluate(requirements: construction_info_reqs_span, amount_multiplier: amount_multiplier, evaluation_flags: Crafting.EvaluateFlags.Prerequisite)) errors |= Errors.RequirementsNotMet;
 
 												if (errors == Wrench.Mode.Build.Errors.None)
 												{
 													//Crafting.Consume(ent_parent, transform.position, ref construction.requirements, inventory: inventory, amount_multiplier: amount_multiplier, sync: true);
-													context.Consume(requirements: construction.requirements.AsSpan(), amount_multiplier: amount_multiplier, evaluation_flags: Crafting.EvaluateFlags.Prerequisite);
+													context.Consume(requirements: construction_info_reqs_span, amount_multiplier: amount_multiplier, evaluation_flags: Crafting.EvaluateFlags.Prerequisite);
 
 													var dismantlable_tmp = new Dismantlable.Data();
 													dismantlable_tmp.yield = 0.90f;
 													dismantlable_tmp.required_work = 5.00f;
 													var dismantlable_tmp_items = dismantlable_tmp.items.AsSpan();
 
-													var requirements_construction = construction.requirements;
-													for (var i = 0; i < requirements_construction.Length; i++)
+													//var requirements_construction = construction.requirements;
+													for (var i = 0; i < construction_info_reqs_span.Length; i++)
 													{
-														ref var requirement = ref requirements_construction[i];
-														switch (requirement.type)
+														ref var req = ref construction_info_reqs_span[i];
+														switch (req.type)
 														{
 															case Crafting.Requirement.Type.Resource:
 															{
-																dismantlable_tmp_items.Add(Shipment.Item.Resource(requirement.material, requirement.amount));
+																dismantlable_tmp_items.Add(Shipment.Item.Resource(req.material, req.amount));
 															}
 															break;
 														}
@@ -1748,7 +1750,8 @@ namespace TC2.Base.Components
 
 													var h_recipe = build.recipe;
 
-													region.SpawnPrefab(prefab: construction.prefab, position: pos_final, rotation: rot_final, scale: scale, faction_id: h_faction).ContinueWith((ent) =>
+													region.SpawnPrefab(prefab: construction_info.prefab, position: pos_final, rotation: rot_final, scale: scale, 
+													faction_id: h_faction).ContinueWith((ent) =>
 													{
 														ref var dismantlable = ref ent.GetOrAddComponent<Dismantlable.Data>(sync: true, ignore_mask: true);
 														if (dismantlable.IsNotNull())
@@ -1785,23 +1788,25 @@ namespace TC2.Base.Components
 											}
 											else
 											{
+												var reqs_span = recipe.requirements.AsSpan();
+
 												//if (!Crafting.Evaluate(entity, ent_parent, transform.position, ref recipe.requirements, inventory: inventory, amount_multiplier: amount_multiplier, h_faction: h_faction)) errors |= Errors.RequirementsNotMet;
-												if (!context.Evaluate(requirements: recipe.requirements.AsSpan(), amount_multiplier: amount_multiplier, evaluation_flags: Crafting.EvaluateFlags.Prerequisite)) errors |= Errors.RequirementsNotMet;
+												if (!context.Evaluate(requirements: reqs_span, amount_multiplier: amount_multiplier, evaluation_flags: Crafting.EvaluateFlags.Prerequisite)) errors |= Errors.RequirementsNotMet;
 
 												if (errors == Wrench.Mode.Build.Errors.None)
 												{
 													//Crafting.Consume(ent_parent, transform.position, ref recipe.requirements, inventory: inventory, amount_multiplier: amount_multiplier, sync: true);
-													context.Consume(requirements: recipe.requirements.AsSpan(), amount_multiplier: amount_multiplier, evaluation_flags: Crafting.EvaluateFlags.Prerequisite);
+													context.Consume(requirements: reqs_span, amount_multiplier: amount_multiplier, evaluation_flags: Crafting.EvaluateFlags.Prerequisite);
 
 													var dismantlable_tmp = new Dismantlable.Data();
 													dismantlable_tmp.yield = recipe.dismantle_yield;
 													dismantlable_tmp.required_work = recipe.dismantle_work;
 													var dismantlable_tmp_items = dismantlable_tmp.items.AsSpan();
 
-													var requirements = recipe.requirements;
-													for (var i = 0; i < requirements.Length; i++)
+													//var requirements = recipe.requirements;
+													for (var i = 0; i < reqs_span.Length; i++)
 													{
-														ref var requirement = ref requirements[i];
+														ref var requirement = ref reqs_span[i];
 														switch (requirement.type)
 														{
 															case Crafting.Requirement.Type.Resource:
@@ -1822,13 +1827,13 @@ namespace TC2.Base.Components
 													region.SpawnPrefab(prefab: h_prefab, position: pos_final, rotation: rot_final, scale: scale, faction_id: h_faction).ContinueWith((ent) =>
 													{
 														ref var dismantlable = ref ent.GetOrAddComponent<Dismantlable.Data>(sync: true, ignore_mask: true);
-														if (!dismantlable.IsNull())
+														if (dismantlable.IsNotNull())
 														{
 															dismantlable = dismantlable_tmp;
 														}
 
 														ref var resizable = ref ent.GetComponent<Resizable.Data>();
-														if (!resizable.IsNull())
+														if (resizable.IsNotNull())
 														{
 															resizable.a = Vector2.Zero;
 
