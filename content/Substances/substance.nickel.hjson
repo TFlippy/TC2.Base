@@ -86,12 +86,12 @@
 	
 	form_to_material:
 	{
-		powder: iron.powder
-		ingot: iron.ingot
-		chunk: iron
-		gravel: iron.gravel
-		raw: iron
+		powder: nickel.powder
+		ingot: nickel.ingot
+		chunk: nickel
+		gravel: nickel.gravel
+		raw: nickel
 		scrap: scrap.ferrous
-		slab: iron.slab
+		slab: nickel.slab
 	}
 }

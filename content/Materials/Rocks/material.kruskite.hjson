@@ -84,7 +84,7 @@
 		mercury: component, refined, residue, decomposition, purified, clean, element
 		gold.gravel: component, residue, raw, ore, crushed, decomposition, purified, similar, element, smelted
 		silver.gravel: component, residue, raw, ore, crushed, decomposition, purified, similar, element, smelted
-		chalcopyrite: raw, ore, similar, filler, natural
+		kuprovst: raw, ore, similar, filler, natural
 		sulfur: component, refined, residue, decomposition, purified, clean, chemical, element, powdered
 	}
 }

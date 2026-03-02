@@ -536,7 +536,7 @@
 	[
 		{
 			type: resource
-			material: chalcopyrite
+			material: kuprovst
 			amount: 10.000
 			group: 0
 			flags: prerequisite
