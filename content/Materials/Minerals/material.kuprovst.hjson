@@ -2,7 +2,7 @@
 	$version: "0.1.70.1"
 	$note:
 		'''
-		- Copper-rich mineral (roughly 85% copper content)
+		- Copper-arsenic sulfosalt mineral (roughly 80% copper content)
 		- Sometimes found with thin native copper running through it
 		'''
 	name: "Kuprovst"
@@ -10,7 +10,7 @@
 	name_imperial: "Kuprovst"
 	description:
 		'''
-		TODO: Desc
+		Copper-arsenic sulfosalt mineral.
 		'''
 	
 	tips: []

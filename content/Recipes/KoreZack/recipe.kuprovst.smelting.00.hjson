@@ -112,7 +112,7 @@
 							amount_extra: 0.401
 							snapping: 0.100
 							group: 0
-							ratio: 0.576
+							ratio: 0.561
 							flags: primary, compact, scale_to_mass
 						}
 						{
@@ -123,7 +123,7 @@
 							snapping: 0.010
 							group: 0
 							chance: 0.471
-							ratio: 0.051
+							ratio: 0.216
 							flags: byproduct, secondary, stepped, compact, scale_to_mass
 						}
 						{
@@ -133,7 +133,7 @@
 							amount_extra: 0.519
 							snapping: 0.010
 							group: 0
-							chance: 0.780
+							chance: 0.776
 							ratio: 0.141
 							flags: residue, stepped, scale_to_mass
 						}
@@ -251,7 +251,7 @@
 							amount_extra: 0.497
 							snapping: 0.100
 							group: 0
-							chance: 0.698
+							chance: 0.706
 							ratio: 0.267
 							flags: byproduct, stepped, scale_to_mass
 						}
@@ -347,7 +347,7 @@
 	]
 	
 	type: workshop
-	flags: debug, production, wip
+	flags: production, wip
 	tags: basic, simple, raw, metallurgy, smelting, refining, heating, processing, dangerous
 	hints: none
 	connotations: material, danger, mining, cheap, ugly, smelly, scary
@@ -356,7 +356,7 @@
 	
 	icon:
 	{
-		texture: resource.kuprovst
+		texture: resource.copper.powder
 		size: [16, 16]
 		frame: [2, 0]
 	}
@@ -376,7 +376,7 @@
 		size: [16, 16]
 		frame: [3, 0]
 	}
-	icon_c_offset: [-18.000, -7.000]
+	icon_c_offset: [-14.000, -12.000]
 	
 	color_frame: "0xffb45630"
 	color_button: "0xff9dd80f"

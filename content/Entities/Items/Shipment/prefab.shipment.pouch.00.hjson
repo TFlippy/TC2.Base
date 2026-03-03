@@ -22,7 +22,7 @@ body:
 		mask: world
 		exclude: none
 		
-		mass: 0.500
+		mass: 2.000
 		radius: 0.250
 		friction: 0.650
 		elasticity: 0.250
