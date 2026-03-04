@@ -1,9 +1,9 @@
 ﻿{
-	$version: "0.1.68.2"
+	$version: "0.1.70.1"
 	name: "Steel Bar"
 	name_short: "St.Bar"
 	name_imperial: "Styltyc"
-	name_dumb: "Iron Stick"
+	name_dumb: "Pipe"
 	description:
 		'''
 		Standard 60x4x4 cm nickelsteel bar.
@@ -114,21 +114,10 @@
 	
 	commodity:
 	{
-		availability: 0.000
-		rarity: 0.000
-		scalability: 0.000
-		reusability: 0.000
-		longevity: 0.000
-		complexity: 0.000
-		tech: 0.000
-		liquidity: 0.000
-		demand: 0.000
-		
 		flags: none
 		categories: none
 		
 		market_price: 44.000
-		
 		market_price_per_kg_auto: 7.187988
 	}
 	

@@ -58,21 +58,21 @@
 							amount: 210.000
 							amount_min: 150.000
 							difficulty: 4
-							step_max: 25
+							step_max: 20
 							snapping: 5.000
-							falloff: 0.749
+							falloff: 0.765
 							group: 1
 							flags: always_evaluate, simultaneous, conditional
 						}
 						{
 							type: work
 							work: metal.forming
-							amount: 350.000
-							amount_min: 125.000
-							difficulty: 7
-							step_max: 12
+							amount: 300.000
+							amount_min: 200.000
+							difficulty: 6
+							step_max: 11
 							snapping: 10.000
-							falloff: 0.883
+							falloff: 0.885
 							group: 1
 							flags: simultaneous, conditional
 						}
@@ -109,13 +109,17 @@
 					
 					filter_tools:
 					{
-						require: hammer, tongs
-						include: pliers
+						require: hammer
+						include: hammer, cutters, pliers, file, chisel
+					}
+					filter_infrastructure:
+					{
+						require: surface, hard_surface
+						include: oven, anvil, forge, table, chair, vise, rack, crucible, dies, workbench
 					}
 					filter_environment:
 					{
-						include: workshop, stationary, fireproof, sturdy
-						exclude: fragile
+						include: container, airtight, stationary, dirty, ugly, cozy, fireproof, flammable, small
 					}
 					
 					h_sound_begin: metal.hit.heavy.00
@@ -125,7 +129,7 @@
 					
 					type: undefined
 					flags: none
-					discard_damage_type_override: sledgehammer
+					discard_damage_type_override: heat
 					
 					prefix: "Forged "
 					
@@ -152,12 +156,12 @@
 						{
 							type: work
 							work: smithing
-							amount: 550.000
-							amount_min: 100.000
+							amount: 600.000
+							amount_min: 120.000
 							difficulty: 5
-							step_max: 20
+							step_max: 17
 							snapping: 5.000
-							falloff: 0.874
+							falloff: 0.789
 							group: 1
 							flags: simultaneous, conditional
 						}
@@ -193,13 +197,19 @@
 					
 					filter_tools:
 					{
-						require: hammer, tongs
-						include: pliers
+						require: hammer, pliers, tongs
+						include: towel
+					}
+					filter_infrastructure:
+					{
+						require: anvil, forge, hard_surface, heater
+						include: vise
 					}
 					filter_environment:
 					{
-						include: workshop, stationary, fireproof, sturdy
-						exclude: fragile
+						require: sturdy, smithy
+						include: workshop
+						exclude: office, fragile
 					}
 					
 					h_sound_begin: metal.hit.heavy.00
@@ -241,12 +251,12 @@
 						{
 							type: work
 							work: cooling
-							amount: 350.000
-							amount_min: 150.000
+							amount: 500.000
+							amount_min: 310.000
 							difficulty: 6
 							step_max: 20
 							snapping: 5.000
-							falloff: 0.622
+							falloff: 0.749
 							group: 0
 							flags: always_evaluate, conditional
 						}
@@ -286,17 +296,6 @@
 							flags: residue, stepped, scale_to_mass
 						}
 					]
-					
-					filter_tools:
-					{
-						require: hammer, tongs
-						include: pliers
-					}
-					filter_environment:
-					{
-						include: workshop, stationary, fireproof, sturdy
-						exclude: fragile
-					}
 				}
 			]
 		}
@@ -304,7 +303,7 @@
 	
 	type: workshop
 	flags: item, production, wip
-	tags: manual, simple, raw, blacksmithing, metalworking, metallurgy, heating, processing
+	tags: manual, basic, simple, blacksmithing, metalworking, metallurgy, heating, processing
 	hints: none
 	connotations: none
 	infrastructure: anvil, forge, hard_surface

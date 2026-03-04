@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.70.0"
+	$version: "0.1.70.1"
 	$author: "KoreZack"
 	name: "Bolted Steel Frames"
 	
@@ -98,7 +98,7 @@
 	]
 	
 	type: workshop
-	flags: production, wip, debug
+	flags: debug, production, wip
 	tags: manual, crafting, dumb, crude, metalworking
 	hints: none
 	connotations: none

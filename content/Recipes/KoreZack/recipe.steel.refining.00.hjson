@@ -1,0 +1,661 @@
+﻿{
+	$version: "0.1.70.0"
+	$author: "KoreZack"
+	name: "Steel"
+	desc:
+		'''
+		smelt any steel bits you can find
+		'''
+	tips: []
+	
+	stages:
+	[
+		{
+			name: "Feedstock"
+			
+			type: feedstock
+			flags: important
+			tags: material, raw
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: heat
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Raw"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: heat
+					
+					prefix: "Raw "
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: ferrous.gravel
+							amount: 9.057972
+							snapping: 1.000
+							loss: 0.376
+							group: 0
+							flags: primary, prerequisite
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: slag
+							amount: 3.066242
+							amount_extra: 1.2783
+							group: 0
+							flags: residue
+						}
+					]
+					
+					h_sound_complete: burner.groan.01
+				}
+				{
+					name: "Dirty"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: heat
+					
+					prefix: "Dirty "
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: scrap.steel
+							amount: 5.586292
+							snapping: 0.500
+							loss: 0.584
+							group: 0
+							flags: prerequisite
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: slag
+							amount: 2.2939
+							amount_extra: 0.624
+							group: 0
+							flags: residue
+						}
+					]
+					
+					h_sound_complete: burner.groan.01
+				}
+				{
+					name: "Pure"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: heat
+					
+					prefix: "Pure "
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.powder
+							amount: 16.83468
+							snapping: 0.500
+							loss: 0.980
+							group: 0
+							flags: no_residue, prerequisite
+						}
+					]
+					
+					h_sound_complete: burner.groan.01
+				}
+				{
+					name: "Chunky"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: heat
+					
+					prefix: "Chunky "
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel
+							amount: 0.856586
+							snapping: 0.100
+							loss: 0.980
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: filing
+							amount: 50.000
+							amount_min: 60.000
+							difficulty: 10
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					h_sound_complete: burner.groan.01
+				}
+				{
+					name: "Cut plates"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: heat
+					
+					prefix: "Cut "
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.plate
+							amount: 4.26694
+							snapping: 0.500
+							loss: 0.957
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: snipping.metal
+							amount: 65.000
+							amount_min: 75.000
+							difficulty: 9
+							snapping: 0.500
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					h_sound_complete: burner.groan.01
+				}
+				{
+					name: "Sawed bars"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: heat
+					
+					prefix: "Sawed "
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.rod
+							amount: 1.711425
+							snapping: 0.100
+							loss: 0.957
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: sawing.metal
+							amount: 58.000
+							amount_min: 60.000
+							difficulty: 9
+							snapping: 0.100
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					h_sound_complete: burner.groan.01
+				}
+			]
+		}
+		{
+			name: "Processing"
+			
+			type: processing
+			flags: important
+			tags: formula
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: heat
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Melting"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: heat
+					
+					requirements:
+					[
+						{
+							type: temperature
+							amount: 1278.900
+							amount_min: 1157.000
+							amount_max: 1393.000
+							falloff: 0.819
+							group: 0
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: work
+							work: melting
+							amount: 160.000
+							amount_min: 300.000
+							amount_max: 1362.000
+							difficulty: 10
+							snapping: 10.000
+							falloff: 0.800
+							ratio: 1.000
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					filter_infrastructure:
+					{
+						include: oven
+					}
+					filter_environment:
+					{
+						include: airtight
+					}
+					
+					h_sound_begin: furnace.produce.00
+					h_sound_complete: burner.groan.01
+				}
+			]
+		}
+		{
+			name: "Casting"
+			
+			type: processing
+			flags: important
+			tags: formula
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: heat
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Bricks"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: heat
+					
+					suffix: " Bricks"
+					
+					requirements:
+					[
+						{
+							type: work
+							work: casting
+							amount: 280.000
+							amount_min: 260.000
+							amount_max: 1362.000
+							difficulty: 8
+							snapping: 10.000
+							falloff: 0.612
+							ratio: 1.000
+							group: 0
+							flags: conditional
+						}
+						{
+							type: temperature
+							amount: 300.000
+							amount_min: 273.200
+							amount_max: 400.000
+							snapping: 10.000
+							falloff: 0.612
+							ratio: 1.000
+							group: 0
+							flags: no_scaling, always_evaluate, conditional
+						}
+						{
+							type: work
+							work: cooling
+							amount: 310.000
+							amount_min: 380.000
+							amount_max: 1362.000
+							difficulty: 8
+							snapping: 10.000
+							falloff: 0.612
+							ratio: 1.000
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: steel.ingot
+							amount: 0.023723
+							group: 0
+							ratio: 1.000
+							flags: primary, scale_to_mass, add_to_residues
+						}
+					]
+					
+					filter_infrastructure:
+					{
+						include: oven
+					}
+					filter_environment:
+					{
+						include: airtight
+					}
+					
+					h_sound_begin: furnace.produce.00
+					h_sound_complete: burner.groan.01
+				}
+				{
+					name: "Bars"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: heat
+					
+					suffix: " Bars"
+					
+					requirements:
+					[
+						{
+							type: work
+							work: casting
+							amount: 280.000
+							amount_min: 280.000
+							amount_max: 1362.000
+							difficulty: 8
+							snapping: 10.000
+							falloff: 0.612
+							ratio: 1.000
+							group: 0
+							flags: conditional
+						}
+						{
+							type: temperature
+							amount: 300.000
+							amount_min: 273.200
+							amount_max: 400.000
+							snapping: 10.000
+							falloff: 0.612
+							ratio: 1.000
+							group: 0
+							flags: no_scaling, always_evaluate, conditional
+						}
+						{
+							type: work
+							work: cooling
+							amount: 265.000
+							amount_min: 220.000
+							amount_max: 1362.000
+							difficulty: 8
+							snapping: 10.000
+							falloff: 0.612
+							ratio: 1.000
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: steel.rod
+							amount: 0.040033
+							group: 0
+							ratio: 1.000
+							flags: primary, scale_to_mass
+						}
+					]
+					
+					filter_infrastructure:
+					{
+						include: oven
+					}
+					filter_environment:
+					{
+						include: airtight
+					}
+					
+					h_sound_begin: furnace.produce.00
+					h_sound_complete: burner.groan.01
+				}
+				{
+					name: "Plates"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: heat
+					
+					suffix: " Plates"
+					
+					requirements:
+					[
+						{
+							type: work
+							work: casting
+							amount: 260.000
+							amount_min: 200.000
+							amount_max: 1362.000
+							difficulty: 8
+							snapping: 10.000
+							falloff: 0.612
+							ratio: 1.000
+							group: 0
+							flags: conditional
+						}
+						{
+							type: temperature
+							amount: 300.000
+							amount_min: 273.200
+							amount_max: 400.000
+							snapping: 10.000
+							falloff: 0.612
+							ratio: 1.000
+							group: 0
+							flags: no_scaling, always_evaluate, conditional
+						}
+						{
+							type: work
+							work: cooling
+							amount: 205.000
+							amount_min: 170.000
+							amount_max: 1362.000
+							difficulty: 8
+							snapping: 10.000
+							falloff: 0.612
+							ratio: 1.000
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: steel.plate
+							amount: 0.081845
+							group: 0
+							ratio: 1.000
+							flags: primary, scale_to_mass, add_to_residues
+						}
+					]
+					
+					filter_infrastructure:
+					{
+						include: oven
+					}
+					filter_environment:
+					{
+						include: airtight
+					}
+					
+					h_sound_begin: furnace.produce.00
+					h_sound_complete: burner.groan.01
+				}
+			]
+		}
+	]
+	
+	requirements_old:
+	[
+		{
+			type: resource
+			material: kuprovst
+			amount: 10.000
+			group: 0
+			flags: prerequisite
+		}
+		{
+			type: resource
+			material: water
+			amount: 2.500
+			snapping: 0.010
+			group: 0
+			flags: prerequisite
+		}
+		{
+			type: work
+			work: washing
+			amount: 350.000
+			difficulty: 5
+			snapping: 5.000
+			falloff: 0.800
+			group: 0
+			flags: conditional
+		}
+		{
+			type: temperature
+			amount: 850.000
+			amount_min: 750.000
+			amount_max: 1100.000
+			snapping: 5.000
+			falloff: 0.600
+			group: 1
+			flags: no_scaling
+		}
+		{
+			type: work
+			work: heating
+			amount: 550.000
+			difficulty: 5
+			snapping: 5.000
+			falloff: 0.600
+			group: 1
+			flags: conditional
+		}
+		{
+			type: work
+			work: condensation
+			amount: 220.000
+			difficulty: 3
+			snapping: 5.000
+			falloff: 0.400
+			group: 1
+			flags: conditional
+		}
+	]
+	
+	products_old:
+	[
+		{
+			type: resource
+			material: slag
+			amount: 8.020
+			amount_extra: 0.350
+			group: 0
+		}
+		{
+			type: resource
+			material: copper
+			amount: 9.410
+			amount_extra: 0.350
+			group: 0
+			flags: primary
+		}
+		{
+			type: resource
+			material: sulfur
+			amount: 9.410
+			amount_extra: 0.350
+			group: 0
+		}
+		{
+			type: resource
+			material: sulfuric_acid
+			amount: 0.088
+			amount_extra: 0.041
+			group: 0
+		}
+	]
+	
+	type: workshop
+	flags: production, wip, debug
+	tags: simple, raw, heating, processing
+	hints: none
+	connotations: none
+	infrastructure: oven, heater, kiln
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		texture: ui_icons_crafting.mini
+		size: [16, 16]
+		frame: [2, 2]
+	}
+	icon_offset: [-13.000, 4.000]
+	
+	icon_extra:
+	{
+		texture: resource.ferrous.gravel
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	icon_extra_offset: [-8.000, -7.000]
+	
+	icon_c:
+	{
+		texture: resource.steel.ingot
+		size: [16, 16]
+		frame: [4, 0]
+	}
+	icon_c_offset: [-13.000, -15.000]
+	
+	color_frame: "0xffb45630"
+	color_button: "0xff9dd80f"
+	rank: -60.000
+	frame_size: [64.000, 48.000]
+	
+	min: 1
+	max: 50
+	step: 1
+	
+	version: 0
+}
