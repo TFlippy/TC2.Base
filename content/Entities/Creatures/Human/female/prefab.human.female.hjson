@@ -823,6 +823,7 @@ workshop:
 		damping: 130.000
 		axis_force: 9000.000
 		spring_max_bias: 3.700
+		spring_error_bias: 0.010
 		max_distance: 0.200
 		stress_mult_axis: 1.000
 	}
