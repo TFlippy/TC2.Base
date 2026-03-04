@@ -137,7 +137,7 @@
 	tags: basic, simple, delicate, metallurgy, refining, heating, processing
 	hints: materials, civilian
 	connotations: none
-	infrastructure: surface, heater
+	infrastructure: surface, heater, form
 	infrastructure_exclude: none
 	
 	icon:

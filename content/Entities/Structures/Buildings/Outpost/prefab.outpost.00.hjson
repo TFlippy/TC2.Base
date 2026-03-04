@@ -160,7 +160,7 @@ spawn:
 dormitory:
 {
 	species: human
-	flags: no_kit_selection, no_kit_requirements, repopulate_needs_faction, region_only
+	flags: no_kit_selection, no_kit_requirements, repopulate_needs_faction, recruit_into_squad, region_only
 	// kit_default: default.outpost
 	characters_capacity: 3
 	characters_initial_count: 0

@@ -936,10 +936,11 @@ workshop:
 		flags_editable: use_center_of_gravity, locked, disabled, keyboard_read, keyboard_write, mouse_read, mouse_write, manual_aim, loose, offset, rotation
 		tags_filter:
 		{
+			require: none
 			include: small, medium, large, harness
-			exclude: tiny, huge
+			exclude: tiny, huge, wheel, platform, long
 		}
-		
+				
 		gui_size: [96.000, 120.000]
 		
 		identifier: "back"
