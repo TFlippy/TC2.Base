@@ -11,11 +11,11 @@ company:
     
 }
 
-squad:
-{
-	movement_flags: hold, open_doors
-	combat_flags: attack_visible, attack_when_hit, cover, flee, defend, assist_work, form_groups
-}
+// squad:
+// {
+// 	movement_flags: hold, open_doors
+// 	combat_flags: attack_visible, attack_when_hit, cover, flee, defend, assist_work, form_groups
+// }
 
 nameable:
 {
