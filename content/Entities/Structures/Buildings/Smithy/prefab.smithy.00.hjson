@@ -107,13 +107,12 @@ shop:
 {
 	tags_filter:
 	{
-		require: manual
 		include: crafting, gun, tool, blacksmithing, metalworking, metallurgy, salvaging, construction, heating
 		exclude: advanced, large, huge, social, forestry, smelting, fermenting, moulding, overworld
 	}
 	
 	tools: hammer, cutters, saw, hand_drill, screwdriver, spanner, pliers, bucket, axe, shovel, file, chisel, towel, tongs, pick, crowbar, knife, sandpaper, ladle
-	infrastructure: anvil, forge, dishes, table, rack, bucket, surface, hard_surface, heater, stove, smokestack, structure, building, workbench
+	infrastructure: oven, anvil, forge, dishes, table, rack, shaping_mould, bucket, surface, hard_surface, heater, stove, smokestack, structure, building, workbench
 	environment: workshop, stationary, dirty, polluted, ugly, scary, fireproof, durable, sturdy, smithy
 	connotations: none
 	

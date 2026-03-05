@@ -71,7 +71,7 @@ animated.renderer:
 		texture: "vending_machine.00"
 	}
 	offset: [0.000, 0.000]
-	z: -80.000
+	z: -100.000
 }
 
 faction:
