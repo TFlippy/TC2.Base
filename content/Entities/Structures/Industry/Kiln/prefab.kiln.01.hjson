@@ -90,13 +90,14 @@ shop:
 {
 	tags_filter:
 	{
-		include: industrial, metallurgy, cooking, smelting, drying, refining, heating, separation
-		exclude: crafting, huge, assembling, architecture, construction, moulding
+		include: raw, filtering, industrial, metalworking, metallurgy, cooking, alchemistry, science, smelting, drying, refining, heating, separation, processing
+		exclude: crafting, advanced, huge, device, gun, tool, vehicle, furniture, machinery, blacksmithing, assembling, gathering, architecture, construction, fermenting
 	}
 	
-	tools: hammer, screwdriver, spanner, bucket, shovel, chisel, towel, spatula, tongs, crowbar, ladle
-	infrastructure: oven, forge, bottle, barrel, rack, shaping_mould, bucket, surface, hard_surface, liquid_container, heater, burner, stove, kiln, still, smokestack, condenser, structure
+	tools: hammer, screwdriver, spanner, bucket, shovel, syringe, chisel, towel, spatula, tongs, crowbar, ladle, utensils
+	infrastructure: oven, forge, bottle, barrel, rack, shaping_mould, bucket, surface, hard_surface, liquid_container, heater, burner, stove, kiln, still, smokestack, condenser, form, filter, structure, machine
 	environment: machine, container, watertight, stationary, dirty, scary, reinforced, fireproof, durable, sturdy, waterproof
+	connotations: none
 	
 	flags: embed_gui
 	menu_columns: 3

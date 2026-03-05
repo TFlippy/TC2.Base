@@ -74,12 +74,12 @@ shop:
 {
 	tags_filter:
 	{
-		include: raw, filtering, cooking, smelting, drying, heating, processing
-		exclude: manual, advanced, large, huge, assembling, construction, fermenting
+		include: raw, filtering, industrial, metalworking, metallurgy, cooking, smelting, drying, heating, processing
+		exclude: crafting, advanced, large, huge, assembling, construction, fermenting
 	}
 	
-	tools: hammer, saw, hand_drill, screwdriver, spanner, pliers, bucket, shovel, chisel, tongs, pick
-	infrastructure: oven, rack, casting_mould, shaping_mould, surface, hard_surface, heater, burner, stove, kiln, smokestack, form, structure
+	tools: hammer, saw, hand_drill, screwdriver, spanner, pliers, bucket, axe, shovel, chisel, tongs, pick
+	infrastructure: oven, rack, crucible, shaping_mould, surface, hard_surface, heater, burner, stove, kiln, smokestack, form, structure
 	environment: container, stationary, dirty, scary, reinforced, fireproof, durable, sturdy, waterproof
 	connotations: none
 	

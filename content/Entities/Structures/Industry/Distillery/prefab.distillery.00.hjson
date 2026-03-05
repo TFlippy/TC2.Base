@@ -87,13 +87,14 @@ shop:
 {
 	tags_filter:
 	{
-		include: alchemistry, fermenting, heating
-		exclude: workbench, large, huge, tool, vehicle, furniture, blacksmithing, assembling, tailoring, metalworking, carpentry, architecture, construction, smelting, moulding
+		include: filtering, industrial, cooking, alchemistry, medical, science, biology, blending, fermenting, refining, heating, processing
+		exclude: workbench, large, huge, device, weapon, gun, tool, vehicle, furniture, machinery, blacksmithing, assembling, tailoring, metalworking, carpentry, architecture, construction, smelting
 	}
 	
-	tools: hammer, screwdriver, spanner, magnifying_glass, bucket, shovel, towel, spatula, tongs, ladle
-	infrastructure: spigot, cauldron, lab_glassware, pressure_cooker, dishes, bottle, barrel, rack, bucket, surface, liquid_container, heater, stove, fermenter, kiln, still, condenser, structure, machine
+	tools: hammer, screwdriver, spanner, magnifying_glass, bucket, shovel, syringe, towel, spatula, tongs, ladle, utensils
+	infrastructure: spigot, cauldron, lab_glassware, pressure_cooker, dishes, bottle, barrel, casting_mould, bucket, surface, liquid_container, heater, blender, stove, fermenter, still, condenser, form, essence_emitter, filter, pump, structure, machine
 	environment: machine, container, stationary, dirty, fireproof, durable, sturdy, waterproof
+	connotations: none
 	
 	flags: embed_gui
 	menu_columns: 3
