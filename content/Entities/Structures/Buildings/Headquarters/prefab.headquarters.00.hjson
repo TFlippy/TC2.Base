@@ -164,7 +164,7 @@ shipment:
 dormitory:
 {
 	species: human
-	flags: no_kit_selection, no_kit_requirements, repopulate_needs_faction, region_only
+	flags: no_kit_selection, no_kit_requirements, repopulate_needs_faction, recruit_into_squad, region_only
 	kit_default: "null"
 	characters_capacity: 6
 	characters_initial_count: 0
@@ -174,6 +174,7 @@ dormitory:
 	repopulate_num_extra: 1
 	repopulate_max: 6
 	move_radius: 8.000
+	repopulate_character_flags_add: recruitable
 	asset_flags: recycle
 	character_flags_filter:
 	{
@@ -182,6 +183,14 @@ dormitory:
 		exclude: slave, unskilled, lowlife, illiterate, lower_class, elite_class
 		weight: 1.000
 	}
+}
+
+squad:
+{
+	max_size: 4
+	flags: no_unit_remove
+	movement_flags: hold, open_doors
+	combat_flags: attack_visible, attack_when_hit, cover, flee, defend, form_groups, assist_work
 }
 
 shop:
@@ -313,10 +322,4 @@ laboratory:
 		include: device, weapon, tool, munitions, furniture, tailoring, engineering, cooking, medical, research, social, science, military, architecture, explosive
 		exclude: vehicle
 	}
-}
-
-squad:
-{
-	movement_flags: hold, open_doors
-	combat_flags: attack_visible, attack_when_hit, cover, flee, defend, assist_work, form_groups
 }

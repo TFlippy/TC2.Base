@@ -106,11 +106,6 @@ storage:
 	}
 }
 
-squad:
-{
-
-}
-
 personnel:
 {
 	flags: store_characters
@@ -206,7 +201,7 @@ spawn:
 
 dormitory:
 {
-	flags: no_kit_selection, no_kit_requirements, repopulate_needs_faction, region_only
+	flags: no_kit_selection, no_kit_requirements, repopulate_needs_faction, recruit_into_squad, region_only
 	species: human
 	
 	characters_capacity: 8
@@ -225,6 +220,14 @@ dormitory:
 		include: construction, artisan, farmer, laborer, civillian, nomad, culinary, entertainer, artist, lower_class, lower_middle_class, middle_class
 		exclude: upper_middle_class, upper_class, elite_class
 	}
+}
+
+squad:
+{
+	max_size: 4
+	flags: no_unit_remove
+	movement_flags: hold, open_doors
+	combat_flags: attack_visible, attack_when_hit, cover, flee, defend, form_groups, assist_work
 }
 
 // laboratory:

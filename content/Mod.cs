@@ -117,7 +117,7 @@ namespace TC2.Base
 
 					if (!region.IsGlobal())
 					{
-						Spawner.SpawnCharacter(ref region.AsRegion(), h_character, position: context.GetTargetPosition(), h_player: player_asset, h_faction: h_faction, control: true).ContinueWith((ent) =>
+						Spawner.SpawnCharacter(ref region.AsRegion(), h_character, position: context.GetTargetPosition(), h_player: player_asset, h_faction: h_faction, flags: Spawn.SpawnEvent.Flags.Control).ContinueWith((ent) =>
 						{
 							ref var character = ref h_character.GetData();
 							if (character.IsNotNull())
