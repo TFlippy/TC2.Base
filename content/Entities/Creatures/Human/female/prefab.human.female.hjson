@@ -533,8 +533,8 @@ workshop:
 		{
 			voice_pitch: 1.700
 
-			air_capacity: 0.500
-			air_usage: 0.065
+			air_capacity: 0.620
+			air_usage: 0.040
 
 			offset_mouth: [0.300, 0.250]
 

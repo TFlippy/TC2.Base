@@ -178,6 +178,14 @@ dormitory:
 	}
 }
 
+squad:
+{
+	max_size: 4
+	flags: no_unit_remove
+	movement_flags: hold, open_doors
+	combat_flags: attack_visible, attack_when_hit, cover, flee, defend, form_groups, assist_work
+}
+
 personnel:
 {
 	flags: store_characters
@@ -251,10 +259,4 @@ laboratory:
 		include: construction, architecture
 		exclude: complex, advanced, vehicle, machinery, blacksmithing, smelting, processing
 	}
-}
-
-squad:
-{
-	movement_flags: hold, open_doors
-	combat_flags: attack_visible, attack_when_hit, cover, flee, defend, assist_work, form_groups
 }

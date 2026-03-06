@@ -543,7 +543,7 @@ workshop:
 		head:
 		{
 			air_capacity: 0.620
-			air_usage: 0.080
+			air_usage: 0.040
 			
 			offset_mouth: [0.300, 0.350]
 

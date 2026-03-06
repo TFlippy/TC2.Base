@@ -555,7 +555,7 @@ workshop:
 			displacement_rigidity: 0.600
 
 			air_capacity: 1.800
-			air_usage: 0.180
+			air_usage: 0.140
 			breath_amount: 0.250
 		}
 

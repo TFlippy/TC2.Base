@@ -791,7 +791,7 @@ faction:
 			air_capacity: 1.300
 			air_usage: 0.200
 			breath_interval: 1.300
-			breath_amount: 0.400
+			breath_amount: 0.500
 			offset_mouth: [0.375, 0.000]
 			frame_pain: 1
 			frame_dead: 2
