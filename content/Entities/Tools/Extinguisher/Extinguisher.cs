@@ -1,5 +1,6 @@
 ﻿namespace TC2.Base.Components
 {
+	// TODO: finish this, it's still pretty much Welder.cs
 	public static class Extinguisher
 	{
 		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region)]

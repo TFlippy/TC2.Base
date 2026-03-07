@@ -1,6 +1,7 @@
 ﻿
 namespace TC2.Base.Components
 {
+	[Shitcode]
 	public static partial class Explosive
 	{
 		[Flags]

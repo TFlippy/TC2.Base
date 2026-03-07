@@ -20,8 +20,8 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void UpdateOrganic(ISystem.Info info, Entity entity,
-		[Source.Owned] ref Flyer.Data flyer, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] in Organic.State organic_state)
+		public static void UpdateOrganic([Source.Owned] ref Flyer.Data flyer, 
+		[Source.Owned, Override] in Organic.Data organic, [Source.Owned] in Organic.State organic_state)
 		{
 			flyer.force_modifier = organic.strength;
 			flyer.lift_modifier = (organic_state.efficiency * (1.00f - organic_state.stun_norm)) > 0.20f ? 1.00f : 0.00f;
@@ -29,9 +29,9 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned)]
-		public static void UpdateMovement(ISystem.Info info, ref Region.Data region, 
+		public static void UpdateMovement(ref Region.Data region, 
 		[Source.Owned] ref Flyer.Data flyer, [Source.Owned] in Control.Data control, [Source.Owned] ref Body.Data body,
-		[Source.Owned] in Physics.Data physics, [Source.Owned, Pair.Component<Physics.Data>, Optional] in Net.Synchronized synchronized)
+		[Source.Owned, Pair.Component<Physics.Data>, Optional] in Net.Synchronized synchronized)
 		{
 			var kb = control.keyboard;
 			var has_authority = synchronized.HasAuthority();
@@ -80,7 +80,7 @@ namespace TC2.Base.Components
 
 #if CLIENT
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void UpdateSound(ISystem.Info info, [Source.Owned] in Flyer.Data flyer, [Source.Owned] in Body.Data body, [Source.Owned] ref Sound.Emitter sound_emitter)
+		public static void UpdateSound([Source.Owned] in Flyer.Data flyer, [Source.Owned] in Body.Data body, [Source.Owned] ref Sound.Emitter sound_emitter)
 		{
 			var vel_len = body.GetVelocity().Length();
 			sound_emitter.volume_mult = ((flyer.sound_volume * 0.50f) + Maths.Clamp(vel_len * flyer.sound_speed_modifier, 0.00f, flyer.sound_volume * 0.50f)) * flyer.lift_modifier;

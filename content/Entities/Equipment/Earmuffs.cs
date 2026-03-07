@@ -52,7 +52,7 @@
 			//App.WriteLine("earmuffs");
 
 			var modifier_low = Maths.PowFast(earmuffs.modifier * 4.00f, 0.50f).Clamp01();
-			var modifier_high = Maths.PowFast(earmuffs.modifier * 1.00f, 0.30f).Clamp01();
+			var modifier_high = Maths.Pow(earmuffs.modifier, 0.30f).Clamp01();
 			var modifier_mix = earmuffs.modifier.Clamp01();
 
 			ref var low_pass = ref Audio.LowPass;
