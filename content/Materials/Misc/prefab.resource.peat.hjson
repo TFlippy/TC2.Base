@@ -10,7 +10,7 @@ body:
 		friction: 0.650
 		elasticity: 0.500
 		material: peat
-		layer: entity, solid, resource, ignore_melee, ignore_bullet, flammable
+		layer: entity, solid, resource, ignore_melee, ignore_bullet
 		mask: world
 	}
 }

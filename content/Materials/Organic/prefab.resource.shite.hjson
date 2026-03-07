@@ -74,7 +74,7 @@ rotting:
 
 health:
 {
-	max: 9500.000
+	max: 99500.000
 }
 
 breakable:

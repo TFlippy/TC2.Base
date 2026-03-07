@@ -48,3 +48,8 @@ norotate:
 	mass_multiplier: 25.000
 	attached_multiplier: 0.500
 }
+
+health:
+{
+	max: 18000.000
+}

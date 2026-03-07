@@ -7,8 +7,8 @@ body:
 		offset: [0.000, 0.250]
 		mass: 1.000
 		radius: 0.750
-		friction: 0.950
-		elasticity: 0.000
+		friction: 0.450
+		elasticity: 0.100
 		material: slime
 		layer: entity, solid, resource, ignore_melee, ignore_bullet, flammable
 		mask: world
@@ -53,4 +53,9 @@ despawn:
 	interval: 15.000
 	threshold_delete: 0.040
 	threshold_despawning: 1.000
+}
+
+health:
+{
+	max: 30000.000
 }
