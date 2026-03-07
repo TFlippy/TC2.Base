@@ -3,7 +3,7 @@ namespace TC2.Base.Components
 {
 	public static partial class Adrenaline
 	{
-		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
+		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region)]
 		public partial struct Effect: IComponent
 		{
 			[Statistics.Info("Adrenaline", description: "TODO: Desc", format: "{0:0.##} mg", comparison: Statistics.Comparison.None, priority: Statistics.Priority.High)]

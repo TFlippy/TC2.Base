@@ -41,25 +41,25 @@ animated.renderer:
 	z: -280.000
 }
 
-windmill:
-{
-	max_speed: 6.000
-	torque: 150.000
-	volume_base: 0.250
-	pitch_base: 0.800
-	volume_modifier: 1.000
-	pitch_modifier: 0.000
+// windmill:
+// {
+// 	max_speed: 6.000
+// 	torque: 150.000
+// 	volume_base: 0.250
+// 	pitch_base: 0.800
+// 	volume_modifier: 1.000
+// 	pitch_modifier: 0.000
 	
-	@animated.renderer:
-	{
-		sprite:
-		{
-			texture: "windmill.top.metal"
-		}
-		offset: [0.000, -3.000]
-		z: 1000.000
-	}
-}
+// 	@animated.renderer:
+// 	{
+// 		sprite:
+// 		{
+// 			texture: "windmill.top.metal"
+// 		}
+// 		offset: [0.000, -3.000]
+// 		z: 1000.000
+// 	}
+// }
 
 axle:
 {

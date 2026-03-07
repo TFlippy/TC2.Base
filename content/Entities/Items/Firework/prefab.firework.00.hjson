@@ -1,0 +1,93 @@
+$name: "Firework"
+$desc:
+	'''
+	TODO: Desc
+	'''
+$tags: []
+
+body:
+{
+	@shape.line:
+	{
+		material: paper
+		miss_chance: 0.737
+		flags: none
+		tags: light, medium, flammable
+		
+		layer: entity, solid, item, flammable, ignore_melee
+		mask: world
+		exclude: none
+		
+		mass: 3.000
+		radius: 0.300
+		friction: 0.800
+		elasticity: 0.150
+		
+		cog_offset: [0.000, 0.000]
+		
+		a: [0.000, -1.000]
+		b: [0.000, 0.000]
+		offset: [0.000, 0.000]
+	}
+}
+
+health:
+{
+	max: 1000.000
+}
+
+holdable:
+{
+	offset: [0.000, 0.000]
+	flags: storable
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: firework.00
+		frame: [0, 0]
+		size: [16, 24]
+	}
+}
+
+transform:
+{
+
+}
+
+explosive:
+{
+	radius: 8.000
+	power: 2.000
+	damage_entity: 4000.000
+	damage_terrain: 3000.000
+	sparks_amount: 5.000
+	smoke_amount: 1.300
+	smoke_lifetime_multiplier: 0.700
+	smoke_velocity_multiplier: 2.000
+	flash_duration_multiplier: 0.150
+	flash_intensity_multiplier: 0.200
+	force_multiplier: 0.900
+	volume: 1.100
+	pitch: 0.800
+	damage_type: shrapnel
+	damage_type_secondary: explosion
+}
+
+firework:
+{
+
+}
+
+packable:
+{
+
+}
+
+interactable:
+{
+	flags: once, no_tab
+	priority: -1.500
+}
