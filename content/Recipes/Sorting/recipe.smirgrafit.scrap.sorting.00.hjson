@@ -1,0 +1,47 @@
+﻿{
+	$version: "0.1.70.0"
+	name: "ITEM NAME"
+	desc:
+		'''
+		ITEM DESCRYPTION.
+		'''
+	tips: []
+	
+	stages:
+	
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: ITEM
+			amount: 1.000
+			group: 0
+			flags: primary
+		}
+	]
+	
+	type: workshop
+	flags: blueprintable, wip
+	tags: manual, crafting, complex, small, vehicle, assembling, metalworking, engineering
+	hints: none
+	connotations: none
+	infrastructure: none
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		texture: ITEM
+	}
+	
+	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
+	rank: 2000.000
+	frame_size: [48.000, 48.000]
+	
+	min: 1
+	max: 8
+	step: 1
+	
+	version: 0
+}

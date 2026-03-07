@@ -1,0 +1,288 @@
+﻿{
+	$version: "0.1.70.0"
+	name: "Wooden debris sorting"
+	
+	related_materials:
+	{
+		wood: product
+		scrap.wood: residue
+		woodchips: product
+		wood.rod: waste
+		timber.maple: product
+		timber.oak: product
+		timber.pine: product
+		sawdust: waste
+	}
+	
+	stages:
+	[
+		{
+			name: "Focus"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Basic"
+					desc: "There should be some still useful wood in the debris."
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: scrap.wood
+							amount: 21.36752
+							snapping: 0.500
+							falloff: 0.970
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: scavenging
+							amount: 45.000
+							amount_min: 50.000
+							difficulty: 9
+							snapping: 5.000
+							group: 1
+							flags: conditional
+						}
+						{
+							type: work
+							work: sawing
+							amount: 25.000
+							amount_min: 80.000
+							difficulty: 6
+							snapping: 5.000
+							group: 1
+							flags: conditional
+						}
+						{
+							type: work
+							work: trashing.wood
+							amount: 20.000
+							amount_min: 70.000
+							difficulty: 8
+							snapping: 5.000
+							group: 2
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: wood
+							amount: 0.69859
+							amount_extra: 0.195604
+							group: 0
+							flags: primary, compact
+						}
+						{
+							type: resource
+							material: wood.rod
+							amount: 0.139267
+							amount_extra: 0.038995
+							group: 0
+							flags: byproduct
+						}
+						{
+							type: resource
+							material: scrap.wood
+							amount: 5.423685
+							amount_extra: 1.518623
+							group: 0
+							flags: residue
+						}
+						{
+							type: resource
+							material: woodchips
+							amount: 5.222527
+							amount_extra: 1.4623
+							group: 0
+							flags: waste
+						}
+						{
+							type: resource
+							material: sawdust
+							amount: 1.686268
+							amount_extra: 0.472153
+							group: 0
+							flags: waste
+						}
+					]
+					
+					filter_tools:
+					{
+						require: saw
+						include: hammer, cutters, bucket, axe
+					}
+					filter_infrastructure:
+					{
+						require: table
+						include: chair, surface, structure, building
+					}
+				}
+				{
+					name: "Logs"
+					desc: "You can still find some unused timber that gor thrown in with the rest of the wood debris."
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: scrap.wood
+							amount: 21.36752
+							snapping: 0.500
+							falloff: 0.970
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: scavenging
+							amount: 35.000
+							amount_min: 60.000
+							difficulty: 7
+							snapping: 5.000
+							group: 1
+							flags: conditional
+						}
+						{
+							type: work
+							work: cutting
+							amount: 25.000
+							amount_min: 90.000
+							difficulty: 8
+							snapping: 5.000
+							falloff: 0.990
+							group: 1
+							flags: conditional
+						}
+						{
+							type: work
+							work: trashing.wood
+							amount: 25.000
+							amount_min: 50.000
+							difficulty: 5
+							snapping: 5.000
+							group: 2
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: timber.oak
+							amount: 0.000
+							amount_extra: 0.1738
+							group: 0
+							flags: byproduct
+						}
+						{
+							type: resource
+							material: timber.pine
+							amount: 0.000
+							amount_extra: 0.172
+							group: 0
+							flags: byproduct
+						}
+						{
+							type: resource
+							material: timber.maple
+							amount: 0.000
+							amount_extra: 0.0636
+							group: 0
+							flags: byproduct
+						}
+						{
+							type: resource
+							material: scrap.wood
+							amount: 5.423685
+							amount_extra: 1.518623
+							group: 0
+							flags: residue
+						}
+						{
+							type: resource
+							material: woodchips
+							amount: 7.269944
+							amount_extra: 2.035574
+							group: 0
+							flags: waste
+						}
+						{
+							type: resource
+							material: sawdust
+							amount: 1.686268
+							amount_extra: 0.472153
+							group: 0
+							flags: waste
+						}
+					]
+					
+					filter_tools:
+					{
+						require: cutters
+						include: hammer, saw, bucket, axe
+					}
+					filter_infrastructure:
+					{
+						require: table
+						include: chair, surface, structure, building
+					}
+				}
+			]
+		}
+	]
+	
+	type: workshop
+	flags: none
+	tags: manual, crafting, dumb, crude, complex, salvaging, gathering, separation, messy
+	hints: none
+	connotations: none
+	infrastructure: none
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		texture: ui_icons_crafting.mini
+		size: [16, 16]
+	}
+	icon_offset: [-6.000, -17.000]
+	
+	icon_extra:
+	{
+		texture: resource.scrap.wood
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	icon_extra_offset: [-6.000, -7.000]
+	
+	color_frame: "0xff9dd80f"
+	color_button: "0xff9dd80f"
+	rank: -996.000
+	
+	min: 1
+	max: 50
+	step: 1
+	
+	version: 0
+}

@@ -1,0 +1,371 @@
+﻿{
+	$version: "0.1.70.0"
+	name: "Charred remains sorting"
+	
+	related_materials:
+	{
+		plants: product
+		scrap.charred: residue
+		scrap.wood: product, byproduct
+		ash: waste
+		charcoal: product
+		coal.powder: product
+		rosin: product, byproduct
+		graphite: product, byproduct
+		sugar: product, byproduct
+	}
+	
+	stages:
+	[
+		{
+			name: "Focus"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Unburned"
+					desc: "Sort a heap of charred remains looking for things that arent actualy burned,  just covered in soot."
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: scrap.charred
+							amount: 21.36752
+							snapping: 0.500
+							falloff: 0.970
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: scavenging
+							amount: 45.000
+							amount_min: 50.000
+							difficulty: 9
+							snapping: 5.000
+							group: 1
+							flags: conditional
+						}
+						{
+							type: work
+							work: cutting
+							amount: 25.000
+							amount_min: 80.000
+							difficulty: 6
+							snapping: 5.000
+							group: 1
+							flags: conditional
+						}
+						{
+							type: work
+							work: trashing.wood
+							amount: 20.000
+							amount_min: 70.000
+							difficulty: 8
+							snapping: 5.000
+							group: 2
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: plants
+							amount: 6.913044
+							amount_extra: 1.728261
+							group: 0
+							flags: primary, compact
+						}
+						{
+							type: resource
+							material: scrap.wood
+							amount: 1.050875
+							amount_extra: 1.155962
+							group: 0
+							flags: byproduct
+						}
+						{
+							type: resource
+							material: ash
+							amount: 2.020243
+							amount_extra: 1.818219
+							group: 0
+							flags: waste
+						}
+						{
+							type: resource
+							material: scrap.charred
+							amount: 5.283787
+							amount_extra: 1.47946
+							group: 0
+							flags: residue
+						}
+						{
+							type: resource
+							material: resin
+							amount: 0.265512
+							amount_extra: 0.074343
+							group: 0
+							flags: residue
+						}
+					]
+					
+					filter_tools:
+					{
+						require: cutters
+						include: hammer, saw, bucket, axe
+					}
+					filter_infrastructure:
+					{
+						require: table
+						include: chair, surface, structure, building
+					}
+				}
+				{
+					name: "Coal"
+					desc: "Sort a heap of charred remains picking out usable charcoal from burned wood."
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: scrap.charred
+							amount: 21.36752
+							snapping: 0.500
+							falloff: 0.970
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: scavenging
+							amount: 30.000
+							amount_min: 110.000
+							difficulty: 7
+							snapping: 5.000
+							group: 1
+							flags: conditional
+						}
+						{
+							type: work
+							work: dismantling
+							amount: 25.000
+							amount_min: 90.000
+							difficulty: 6
+							snapping: 5.000
+							group: 1
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: charcoal
+							amount: 1.597561
+							amount_extra: 0.585772
+							group: 0
+							flags: primary, compact
+						}
+						{
+							type: resource
+							material: coal.powder
+							amount: 0.386041
+							amount_extra: 0.12868
+							group: 0
+							flags: byproduct
+						}
+						{
+							type: resource
+							material: scrap.charred
+							amount: 5.954751
+							amount_extra: 2.481147
+							group: 0
+							flags: residue
+						}
+						{
+							type: resource
+							material: ash
+							amount: 0.939271
+							amount_extra: 0.845344
+							group: 0
+							flags: waste
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+					
+					filter_tools:
+					{
+						include: hammer, cutters, saw, bucket, axe
+					}
+					filter_infrastructure:
+					{
+						require: table
+						include: chair, surface, structure, building
+					}
+				}
+				{
+					name: "Processed"
+					desc: "Some of the materials in the charred remains were processed by the flame that destroyed whatever they originated from making some other useful materials but it is mostly ashes."
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: scrap.charred
+							amount: 21.36752
+							snapping: 0.500
+							falloff: 0.970
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: scavenging
+							amount: 55.000
+							amount_min: 190.000
+							difficulty: 9
+							snapping: 5.000
+							falloff: 0.990
+							group: 1
+							flags: conditional
+						}
+						{
+							type: work
+							work: sieving
+							amount: 75.000
+							amount_min: 280.000
+							difficulty: 14
+							snapping: 5.000
+							falloff: 0.975
+							group: 1
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: sugar
+							amount: 0.487819
+							amount_extra: 0.799039
+							group: 0
+							chance: 0.478
+							flags: byproduct
+						}
+						{
+							type: resource
+							material: rosin
+							amount: 0.114414
+							amount_extra: 0.039453
+							group: 0
+							chance: 0.239
+							flags: byproduct
+						}
+						{
+							type: resource
+							material: graphite.powder
+							amount: 0.276086
+							amount_extra: 0.049191
+							group: 0
+							chance: 0.122
+							flags: byproduct
+						}
+						{
+							type: resource
+							material: ash
+							amount: 5.122378
+							amount_extra: 6.146853
+							group: 0
+							flags: waste
+						}
+						{
+							type: resource
+							material: scrap.charred
+							amount: 2.15083
+							amount_extra: 1.505581
+							group: 0
+							flags: residue
+						}
+					]
+					
+					filter_tools:
+					{
+						require: magnifying_glass
+						include: hammer, cutters, saw, bucket, axe
+					}
+					filter_infrastructure:
+					{
+						require: table
+						include: chair, surface, structure, building
+					}
+				}
+			]
+		}
+	]
+	
+	type: workshop
+	flags: none
+	tags: manual, crafting, dumb, crude, complex, salvaging, gathering, separation, messy
+	hints: none
+	connotations: none
+	infrastructure: none
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		texture: ui_icons_crafting.mini
+		size: [16, 16]
+	}
+	icon_offset: [-6.000, -17.000]
+	
+	icon_extra:
+	{
+		texture: resource.scrap.charred
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	icon_extra_offset: [-6.000, -7.000]
+	
+	icon_c:
+	{
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	
+	color_frame: "0xff9dd80f"
+	color_button: "0xff9dd80f"
+	rank: -997.000
+	
+	min: 1
+	max: 50
+	step: 1
+	
+	version: 0
+}
