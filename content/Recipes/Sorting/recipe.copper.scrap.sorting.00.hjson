@@ -1,0 +1,309 @@
+﻿{
+	$version: "0.1.70.0"
+	name: "Copper scrap sorting"
+	
+	related_materials:
+	{
+		copper: product
+		copper.ingot: product
+		copper.plate: product
+		copper.powder: product
+		copper.rod: product
+		copper.gravel: product
+		gravel: waste
+		sand: waste
+		slag: waste
+		scrap.copper: residue
+	}
+	
+	stages:
+	[
+		{
+			name: "Focus"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Gravel"
+					desc: "Sort copper scrap gathering mainly gravels."
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: scrap.copper
+							amount: 4.870548
+							snapping: 0.500
+							group: 0
+						}
+						{
+							type: work
+							work: scavenging
+							amount: 35.000
+							amount_min: 80.000
+							difficulty: 7
+							snapping: 5.000
+							falloff: 0.980
+							group: 1
+							flags: conditional
+						}
+						{
+							type: work
+							work: crushing
+							amount: 20.000
+							amount_min: 90.000
+							difficulty: 9
+							snapping: 5.000
+							falloff: 0.980
+							group: 1
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: copper.gravel
+							amount: 2.883287
+							amount_extra: 0.88454
+							group: 0
+							flags: primary, compact
+						}
+						{
+							type: resource
+							material: scrap.copper
+							amount: 0.601498
+							amount_extra: 0.316016
+							group: 0
+							flags: residue
+						}
+						{
+							type: resource
+							material: copper.powder
+							amount: 0.544663
+							amount_extra: 0.26863
+							group: 0
+							flags: byproduct
+						}
+						{
+							type: resource
+							material: gravel
+							amount: 0.698604
+							amount_extra: 0.452466
+							group: 0
+							flags: waste
+						}
+						{
+							type: resource
+							material: sand
+							amount: 0.141614
+							amount_extra: 0.05437
+							group: 0
+							flags: waste
+						}
+						{
+							type: resource
+							material: slag
+							amount: 0.293383
+							amount_extra: 0.124752
+							group: 0
+							flags: waste
+						}
+					]
+					
+					filter_tools:
+					{
+						require: hammer
+						include: pliers, bucket, shovel, crowbar
+					}
+					filter_infrastructure:
+					{
+						require: table
+						include: chair, surface, structure, building
+					}
+				}
+				{
+					name: "Usable"
+					desc: "Search for any usable copper materials but its probably better to smelt the scrap instead."
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: scrap.copper
+							amount: 4.870548
+							snapping: 0.500
+							falloff: 0.990
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: scavenging
+							amount: 55.000
+							amount_min: 220.000
+							difficulty: 9
+							snapping: 5.000
+							falloff: 0.980
+							group: 1
+							flags: conditional
+						}
+						{
+							type: work
+							work: snipping.metal
+							amount: 25.000
+							amount_min: 120.000
+							difficulty: 8
+							snapping: 5.000
+							falloff: 0.980
+							group: 1
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: trashing.metal
+							amount: 35.000
+							amount_min: 90.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.980
+							group: 1
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: cleaning.metal
+							amount: 15.000
+							amount_min: 150.000
+							difficulty: 10
+							snapping: 5.000
+							falloff: 0.980
+							group: 2
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: copper.plate
+							amount: 0.121788
+							amount_extra: 0.421367
+							group: 0
+							flags: byproduct
+						}
+						{
+							type: resource
+							material: copper.rod
+							amount: 0.022773
+							amount_extra: 0.096599
+							group: 0
+							flags: byproduct
+						}
+						{
+							type: resource
+							material: copper.ingot
+							amount: 0.01014
+							amount_extra: 0.035083
+							group: 0
+							flags: byproduct
+						}
+						{
+							type: resource
+							material: copper
+							amount: 0.025736
+							amount_extra: 0.089056
+							group: 0
+							flags: byproduct
+						}
+						{
+							type: resource
+							material: copper.powder
+							amount: 0.266287
+							amount_extra: 0.921436
+							group: 0
+							flags: byproduct
+						}
+						{
+							type: resource
+							material: scrap.copper
+							amount: 1.124263
+							amount_extra: 0.728153
+							group: 0
+							flags: residue
+						}
+						{
+							type: resource
+							material: slag
+							amount: 0.22169
+							amount_extra: 0.143582
+							group: 0
+							flags: waste
+						}
+					]
+					
+					filter_tools:
+					{
+						require: hammer
+						include: pliers, bucket, shovel, crowbar
+					}
+					filter_infrastructure:
+					{
+						require: table
+						include: chair, surface, structure, building
+					}
+				}
+			]
+		}
+	]
+	
+	type: workshop
+	flags: none
+	tags: manual, crafting, dumb, crude, complex, salvaging, gathering, separation, messy
+	hints: none
+	connotations: none
+	infrastructure: none
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		texture: ui_icons_crafting.mini
+		size: [16, 16]
+	}
+	icon_offset: [-6.000, -17.000]
+	
+	icon_extra:
+	{
+		texture: resource.scrap.copper
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	icon_extra_offset: [-8.000, -8.000]
+	
+	color_frame: "0xff9dd80f"
+	color_button: "0xff9dd80f"
+	rank: -997.000
+	
+	min: 1
+	max: 50
+	step: 1
+	
+	version: 0
+}

@@ -1,0 +1,315 @@
+﻿{
+	$version: "0.1.70.0"
+	name: "Ferrous scrap sorting"
+	
+	related_materials:
+	{
+		ferronickel.powder: product, byproduct
+		ferrous.gravel: product
+		scrap.ferrous: residue, product
+		iron: product
+		iron.powder: product, byproduct
+		sand: waste
+		slag: waste
+		copper.gravel: waste
+		scrap.steel: product, byproduct
+	}
+	
+	stages:
+	[
+		{
+			name: "Focus"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Ferrous gravel"
+					desc: "Sort ferrous scrap gathering mainly gravels."
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: scrap.ferrous
+							amount: 8.62069
+							snapping: 0.500
+							falloff: 0.980
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: scavenging
+							amount: 30.000
+							amount_min: 70.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.980
+							group: 1
+							flags: conditional
+						}
+						{
+							type: work
+							work: crushing
+							amount: 25.000
+							amount_min: 110.000
+							difficulty: 10
+							snapping: 5.000
+							falloff: 0.980
+							group: 1
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: ferrous.gravel
+							amount: 2.9565
+							amount_extra: 0.907
+							group: 0
+							flags: primary, compact
+						}
+						{
+							type: resource
+							material: scrap.ferrous
+							amount: 0.7899
+							amount_extra: 0.415
+							group: 0
+							flags: residue
+						}
+						{
+							type: resource
+							material: ferronickel.powder
+							amount: 0.4562
+							amount_extra: 0.225
+							group: 0
+							flags: byproduct
+						}
+						{
+							type: resource
+							material: iron
+							amount: 0.011
+							amount_extra: 0.008
+							group: 0
+							flags: residue
+						}
+						{
+							type: resource
+							material: gravel
+							amount: 0.7581
+							amount_extra: 0.491
+							group: 0
+							flags: waste
+						}
+						{
+							type: resource
+							material: sand
+							amount: 0.112
+							amount_extra: 0.043
+							group: 0
+							flags: waste
+						}
+						{
+							type: resource
+							material: slag
+							amount: 0.2728
+							amount_extra: 0.116
+							group: 0
+							flags: waste
+						}
+					]
+					
+					filter_tools:
+					{
+						require: hammer
+						include: pliers, bucket, shovel, crowbar
+					}
+					filter_infrastructure:
+					{
+						require: table
+						include: chair, surface, structure, building
+					}
+				}
+				{
+					name: "Iron"
+					desc: "Sort ferrous scrap gathering iron adjacent maetials."
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: scrap.ferrous
+							amount: 8.62069
+							snapping: 0.500
+							falloff: 0.980
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: scavenging
+							amount: 30.000
+							amount_min: 70.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.980
+							group: 1
+							flags: conditional
+						}
+						{
+							type: work
+							work: cleaning.metal
+							amount: 25.000
+							amount_min: 90.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.980
+							group: 1
+							flags: conditional
+						}
+						{
+							type: work
+							work: trashing.metal
+							amount: 15.000
+							amount_min: 120.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.980
+							group: 2
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: iron
+							amount: 0.264685
+							amount_extra: 0.081201
+							group: 0
+							flags: primary, compact
+						}
+						{
+							type: resource
+							material: scrap.ferrous
+							amount: 0.7899
+							amount_extra: 0.415
+							group: 0
+							flags: residue
+						}
+						{
+							type: resource
+							material: iron.powder
+							amount: 0.768298
+							amount_extra: 0.378928
+							group: 0
+							flags: byproduct
+						}
+						{
+							type: resource
+							material: scrap.steel
+							amount: 0.129244
+							amount_extra: 0.083706
+							group: 0
+							flags: byproduct
+						}
+						{
+							type: resource
+							material: iron
+							amount: 0.011
+							amount_extra: 0.008
+							group: 0
+							flags: residue
+						}
+						{
+							type: resource
+							material: gravel
+							amount: 0.319957
+							amount_extra: 0.207227
+							group: 0
+							flags: waste
+						}
+						{
+							type: resource
+							material: sand
+							amount: 0.082386
+							amount_extra: 0.03163
+							group: 0
+							flags: waste
+						}
+						{
+							type: resource
+							material: slag
+							amount: 0.643691
+							amount_extra: 0.27371
+							group: 0
+							flags: waste
+						}
+					]
+					
+					filter_tools:
+					{
+						require: towel
+						include: hammer, pliers, bucket, shovel, crowbar
+					}
+					filter_infrastructure:
+					{
+						require: table
+						include: chair, surface, structure, building
+					}
+				}
+			]
+		}
+	]
+	
+	type: workshop
+	flags: none
+	tags: manual, crafting, dumb, crude, complex, salvaging, gathering, separation, messy
+	hints: none
+	connotations: none
+	infrastructure: none
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		texture: ui_icons_crafting.mini
+		size: [16, 16]
+	}
+	icon_offset: [-6.000, -17.000]
+	
+	icon_extra:
+	{
+		texture: resource.scrap.ferrous
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	icon_extra_offset: [-7.000, -8.000]
+	
+	color_frame: "0xff9dd80f"
+	color_button: "0xff9dd80f"
+	rank: -998.000
+	
+	min: 1
+	max: 50
+	step: 1
+	
+	version: 0
+}

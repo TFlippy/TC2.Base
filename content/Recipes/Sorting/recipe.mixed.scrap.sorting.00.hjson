@@ -1,0 +1,710 @@
+﻿{
+	$version: "0.1.70.0"
+	name: "Mixed scrap sorting"
+	
+	related_materials:
+	{
+		scrap.mixed: refined, residue, processed
+		scrap.machine: product, result
+		scrap.metal: residue, product, result
+		scrap.smirgrafit: product, result, byproduct
+		scrap.arcane: product, result, byproduct
+		scrap.cloth: residue, product, result
+		leather: product, result, byproduct
+		betoniter: product, result
+		scrap.fur: product, result, byproduct
+		scrap.copper: product, result, byproduct
+		scrap.ferrous: product, result, byproduct
+		scrap.steel: product, result, byproduct
+	}
+	
+	stages:
+	[
+		{
+			name: "Focus"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "General"
+					desc: "Sort mixed scrap with no particular focus yielding a variety of other scrap."
+					
+					type: undefined
+					flags: none
+					
+					prefix: "General "
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: scrap.mixed
+							amount: 7.246377
+							snapping: 0.500
+							falloff: 0.900
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: scavenging
+							amount: 60.000
+							amount_min: 120.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.980
+							group: 1
+							flags: conditional
+						}
+						{
+							type: work
+							work: dismantling
+							amount: 20.000
+							amount_min: 60.000
+							difficulty: 4
+							snapping: 5.000
+							falloff: 0.995
+							group: 1
+							flags: conditional
+						}
+						{
+							type: work
+							work: trashing.metal
+							amount: 8.000
+							amount_min: 75.000
+							difficulty: 7
+							snapping: 5.000
+							falloff: 0.9875
+							group: 2
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: trashing.wood
+							amount: 7.000
+							amount_min: 59.000
+							difficulty: 4
+							snapping: 5.000
+							falloff: 0.9875
+							group: 2
+							flags: simultaneous, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: scrap.metal
+							amount: 0.352544
+							amount_extra: 0.47118
+							group: 0
+							flags: byproduct
+						}
+						{
+							type: resource
+							material: scrap.machine
+							amount: 0.256351
+							amount_extra: 0.335155
+							group: 0
+							flags: byproduct
+						}
+						{
+							type: resource
+							material: scrap.cloth
+							amount: 0.260674
+							amount_extra: 0.391011
+							group: 0
+							flags: byproduct
+						}
+						{
+							type: resource
+							material: scrap.mixed
+							amount: 0.368311
+							amount_extra: 0.948573
+							group: 0
+							flags: residue
+						}
+						{
+							type: resource
+							material: glue
+							amount: 0.349138
+							amount_extra: 1.047414
+							group: 0
+							flags: residue
+						}
+						{
+							type: resource
+							material: scrap.ferrous
+							amount: 0.291026
+							amount_extra: 0.485043
+							group: 0
+							flags: byproduct
+						}
+						{
+							type: resource
+							material: plants
+							amount: 1.430585
+							amount_extra: 1.760719
+							group: 0
+							flags: waste
+						}
+						{
+							type: resource
+							material: scrap.steel
+							amount: 0.280823
+							group: 0
+							flags: byproduct
+						}
+					]
+					
+					filter_tools:
+					{
+						include: hammer, cutters, saw, pliers, bucket, crowbar, sandpaper
+					}
+					filter_infrastructure:
+					{
+						require: table
+						include: chair, bucket, structure, building, workbench
+					}
+				}
+				{
+					name: "Metalic"
+					desc: "Sort mixed scrap focusing on getting metal scrap, somehow this resulting in more of it being in the pile."
+					
+					type: undefined
+					flags: none
+					
+					prefix: "Metalic "
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: scrap.mixed
+							amount: 7.246377
+							snapping: 0.500
+							falloff: 0.977
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: scavenging
+							amount: 50.000
+							amount_min: 130.000
+							difficulty: 8
+							snapping: 5.000
+							falloff: 0.970
+							group: 1
+							flags: conditional
+						}
+						{
+							type: work
+							work: dismantling
+							amount: 45.000
+							amount_min: 70.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.962
+							group: 1
+							flags: conditional
+						}
+						{
+							type: work
+							work: cleaning.metal
+							amount: 55.000
+							amount_min: 80.000
+							difficulty: 7
+							snapping: 5.000
+							falloff: 0.902
+							group: 2
+							flags: conditional
+						}
+						{
+							type: work
+							work: trashing.metal
+							amount: 25.000
+							amount_min: 70.000
+							difficulty: 9
+							snapping: 5.000
+							falloff: 0.990
+							group: 2
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: scrap.metal
+							amount: 5.0198
+							amount_extra: 1.3162
+							group: 0
+							flags: primary, compact
+						}
+						{
+							type: resource
+							material: scrap.machine
+							amount: 0.103508
+							amount_extra: 0.136169
+							group: 0
+							flags: byproduct
+						}
+						{
+							type: resource
+							material: scrap.ferrous
+							amount: 0.208474
+							amount_extra: 0.272561
+							group: 0
+							flags: byproduct
+						}
+						{
+							type: resource
+							material: scrap.copper
+							amount: 0.062565
+							amount_extra: 0.081798
+							group: 0
+							flags: byproduct
+						}
+						{
+							type: resource
+							material: scrap.niklajzner
+							amount: 0.086237
+							amount_extra: 0.078223
+							group: 0
+							flags: byproduct
+						}
+						{
+							type: resource
+							material: scrap.mixed
+							amount: 0.531492
+							amount_extra: 0.4821
+							group: 0
+							flags: residue
+						}
+					]
+					
+					filter_tools:
+					{
+						require: sandpaper
+						include: hammer, cutters, saw, pliers, bucket, crowbar
+					}
+					filter_infrastructure:
+					{
+						require: table
+						include: chair, bucket, structure, building, workbench
+					}
+				}
+				{
+					name: "Technical"
+					desc: "Sort mixed scrap trying realy hard to get more advanced scrap resulting in some valuable EC scrap and a pile of broken machinery."
+					
+					type: undefined
+					flags: none
+					
+					prefix: "Technical "
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: scrap.mixed
+							amount: 7.246377
+							snapping: 0.500
+							falloff: 0.990
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: scavenging
+							amount: 30.000
+							amount_min: 50.000
+							difficulty: 12
+							snapping: 5.000
+							falloff: 0.957
+							group: 1
+							flags: conditional
+						}
+						{
+							type: work
+							work: dismantling
+							amount: 25.000
+							amount_min: 20.000
+							difficulty: 8
+							snapping: 5.000
+							falloff: 0.994
+							group: 1
+							flags: conditional
+						}
+						{
+							type: work
+							work: search.components
+							amount: 45.000
+							amount_min: 80.000
+							difficulty: 10
+							snapping: 5.000
+							falloff: 0.976
+							group: 2
+							flags: conditional
+						}
+						{
+							type: work
+							work: trashing.metal
+							amount: 35.000
+							amount_min: 60.000
+							difficulty: 9
+							snapping: 5.000
+							falloff: 0.989
+							group: 2
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: scrap.machine
+							amount: 5.672042
+							amount_extra: 1.13441
+							group: 0
+							flags: primary, compact
+						}
+						{
+							type: resource
+							material: scrap.arcane
+							amount: 0.292602
+							amount_extra: 0.107205
+							group: 0
+							flags: byproduct, secondary
+						}
+						{
+							type: resource
+							material: machine_parts
+							amount: 1.035616
+							amount_extra: 0.095646
+							group: 0
+							flags: byproduct
+						}
+						{
+							type: resource
+							material: scrap.mixed
+							amount: 1.200256
+							amount_extra: 0.36931
+							group: 0
+							flags: residue
+						}
+					]
+					
+					filter_tools:
+					{
+						require: tweezers, magnifying_glass
+						include: hammer, cutters, saw, pliers, bucket, crowbar
+					}
+					filter_infrastructure:
+					{
+						require: table
+						include: chair, bucket, structure, building, workbench
+					}
+				}
+				{
+					name: "Heavy"
+					desc: "Sort mixed scrap in search of heavy things most of it is just rocks but some of it is smirgrafit."
+					
+					type: undefined
+					flags: none
+					
+					prefix: "Heavy "
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: scrap.mixed
+							amount: 14.49275
+							snapping: 4.000
+							falloff: 0.960
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: scavenging
+							amount: 60.000
+							amount_min: 120.000
+							difficulty: 5
+							snapping: 5.000
+							falloff: 0.928
+							group: 1
+							flags: conditional
+						}
+						{
+							type: work
+							work: crushing
+							amount: 45.000
+							amount_min: 50.000
+							difficulty: 8
+							snapping: 5.000
+							falloff: 0.975
+							group: 1
+							flags: conditional
+						}
+						{
+							type: work
+							work: sieving
+							amount: 35.000
+							amount_min: 50.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.970
+							group: 2
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: scrap.rubble
+							amount: 1.730259
+							amount_extra: 0.692102
+							group: 0
+							flags: waste
+						}
+						{
+							type: resource
+							material: scrap.smirgrafit
+							amount: 0.54907
+							amount_extra: 0.183023
+							group: 0
+							flags: byproduct, secondary, compact
+						}
+						{
+							type: resource
+							material: gravel
+							amount: 0.666809
+							amount_extra: 0.394421
+							group: 0
+							flags: waste
+						}
+						{
+							type: resource
+							material: betoniter
+							amount: 2.186391
+							amount_extra: 1.093195
+							group: 0
+							flags: primary, compact
+						}
+						{
+							type: resource
+							material: scrap.mixed
+							amount: 1.40773
+							amount_extra: 0.703865
+							group: 0
+							flags: residue
+						}
+					]
+					
+					filter_tools:
+					{
+						require: hammer
+						include: cutters, saw, pliers, bucket, crowbar
+					}
+					filter_infrastructure:
+					{
+						require: table
+						include: chair, bucket, structure, building, workbench
+					}
+				}
+				{
+					name: "Soft"
+					desc: "Sort mixed scrap wanting better pillows you grab soft materials."
+					
+					type: undefined
+					flags: none
+					
+					prefix: "Soft "
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: scrap.mixed
+							amount: 7.246377
+							snapping: 0.500
+							falloff: 0.945
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: scavenging
+							amount: 30.000
+							amount_min: 240.000
+							difficulty: 3
+							snapping: 5.000
+							falloff: 0.962
+							group: 1
+							flags: conditional
+						}
+						{
+							type: work
+							work: search.plants
+							amount: 15.000
+							amount_min: 20.000
+							difficulty: 8
+							snapping: 5.000
+							falloff: 0.981
+							group: 1
+							flags: conditional
+						}
+						{
+							type: work
+							work: cutting
+							amount: 25.000
+							amount_min: 40.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.975
+							group: 2
+							flags: conditional
+						}
+						{
+							type: work
+							work: trashing.wood
+							amount: 35.000
+							amount_min: 140.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.949
+							group: 2
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: scrap.cloth
+							amount: 2.718293
+							amount_extra: 1.412419
+							group: 0
+							flags: primary, compact
+						}
+						{
+							type: resource
+							material: leather
+							amount: 0.442174
+							amount_extra: 0.211888
+							group: 0
+							flags: byproduct, secondary
+						}
+						{
+							type: resource
+							material: scrap.mixed
+							amount: 0.85814
+							amount_extra: 0.136642
+							group: 0
+							flags: residue
+						}
+						{
+							type: resource
+							material: mushroom
+							amount: 2.628606
+							amount_extra: 0.301567
+							group: 0
+							flags: byproduct
+						}
+						{
+							type: resource
+							material: scrap.fur
+							amount: 1.401476
+							amount_extra: 0.160784
+							group: 0
+							flags: byproduct
+						}
+						{
+							type: resource
+							material: plants
+							amount: 10.00821
+							amount_extra: 1.55429
+							group: 0
+							flags: byproduct
+						}
+						{
+							type: resource
+							material: scrap.wood
+							amount: 1.679976
+							amount_extra: 0.357418
+							group: 0
+							flags: waste
+						}
+					]
+					
+					filter_tools:
+					{
+						require: scissors
+						include: cutters, saw, pliers, bucket, crowbar
+					}
+					filter_infrastructure:
+					{
+						require: table
+						include: chair, bucket, structure, building, workbench
+					}
+				}
+			]
+		}
+	]
+	
+	type: workshop
+	flags: none
+	tags: manual, crafting, dumb, crude, complex, salvaging, gathering, separation, messy
+	hints: none
+	connotations: none
+	infrastructure: table
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		texture: ui_icons_crafting.mini
+		size: [16, 16]
+	}
+	icon_offset: [-16.000, -17.000]
+	icon_scale: 1.200
+	
+	icon_extra:
+	{
+		texture: resource.scrap.mixed
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	icon_extra_offset: [-7.000, -8.000]
+	icon_extra_scale: 1.100
+	
+	icon_c_offset: [-1.000, 0.000]
+	
+	color_frame: "0xff9dd80f"
+	color_button: "0xff9dd80f"
+	rank: -1000.000
+	frame_size: [64.000, 16.000]
+	
+	min: 1
+	max: 50
+	step: 1
+	
+	version: 0
+}

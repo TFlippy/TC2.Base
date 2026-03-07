@@ -1,0 +1,306 @@
+﻿{
+	$version: "0.1.70.0"
+	name: "Steel scrap sorting"
+	
+	related_materials:
+	{
+		steel: product
+		steel.ingot: product
+		steel.plate: product
+		steel.powder: product
+		steel.rod: product
+		slag: waste
+		scrap.steel: residue
+	}
+	
+	stages:
+	[
+		{
+			name: "Focus"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Stock material"
+					desc: "Search the steel scrap for any still recoverable plates and rods that can be used as good stock material."
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: scrap.steel
+							amount: 5.586293
+							snapping: 0.500
+							falloff: 0.990
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: scavenging
+							amount: 60.000
+							amount_min: 160.000
+							difficulty: 8
+							snapping: 5.000
+							falloff: 0.980
+							group: 1
+							flags: conditional
+						}
+						{
+							type: work
+							work: snipping.metal
+							amount: 20.000
+							amount_min: 120.000
+							difficulty: 10
+							snapping: 5.000
+							falloff: 0.980
+							group: 1
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: trashing.metal
+							amount: 30.000
+							amount_min: 90.000
+							difficulty: 8
+							snapping: 5.000
+							falloff: 0.980
+							group: 1
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: cleaning.metal
+							amount: 20.000
+							amount_min: 150.000
+							difficulty: 9
+							snapping: 5.000
+							falloff: 0.980
+							group: 2
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: steel.plate
+							amount: 0.201194
+							amount_extra: 0.6961
+							group: 0
+							flags: primary, compact
+						}
+						{
+							type: resource
+							material: steel.rod
+							amount: 0.035833
+							amount_extra: 0.151996
+							group: 0
+							flags: byproduct, secondary, compact
+						}
+						{
+							type: resource
+							material: steel.powder
+							amount: 0.206906
+							amount_extra: 0.715971
+							group: 0
+							flags: byproduct
+						}
+						{
+							type: resource
+							material: scrap.steel
+							amount: 1.124263
+							amount_extra: 0.728153
+							group: 0
+							flags: residue
+						}
+						{
+							type: resource
+							material: slag
+							amount: 0.230602
+							amount_extra: 0.149354
+							group: 0
+							flags: waste
+						}
+					]
+					
+					filter_tools:
+					{
+						require: cutters
+						include: hammer, pliers, bucket, shovel, crowbar
+					}
+					filter_infrastructure:
+					{
+						require: table
+						include: chair, surface, structure, building
+					}
+				}
+				{
+					name: "Large"
+					desc: "Search the pile for large hunks of usable steel that are close enought to be used as bricks."
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: scrap.steel
+							amount: 5.586293
+							snapping: 0.500
+							falloff: 0.990
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: scavenging
+							amount: 30.000
+							amount_min: 80.000
+							difficulty: 4
+							snapping: 5.000
+							falloff: 0.980
+							group: 1
+							flags: conditional
+						}
+						{
+							type: work
+							work: sanding
+							amount: 25.000
+							amount_min: 100.000
+							difficulty: 9
+							snapping: 5.000
+							falloff: 0.980
+							group: 1
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: trashing.metal
+							amount: 35.000
+							amount_min: 90.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.980
+							group: 1
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: cleaning.metal
+							amount: 25.000
+							amount_min: 90.000
+							difficulty: 10
+							snapping: 5.000
+							falloff: 0.980
+							group: 2
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: steel.ingot
+							amount: 0.041331
+							amount_extra: 0.142998
+							group: 0
+							flags: primary, compact
+						}
+						{
+							type: resource
+							material: steel
+							amount: 0.023917
+							amount_extra: 0.101453
+							group: 0
+							flags: byproduct, secondary, compact
+						}
+						{
+							type: resource
+							material: steel.powder
+							amount: 0.078581
+							amount_extra: 0.271917
+							group: 0
+							flags: byproduct
+						}
+						{
+							type: resource
+							material: scrap.steel
+							amount: 1.181899
+							amount_extra: 0.765482
+							group: 0
+							flags: residue
+						}
+						{
+							type: resource
+							material: slag
+							amount: 0.391021
+							amount_extra: 0.253252
+							group: 0
+							flags: waste
+						}
+					]
+					
+					filter_tools:
+					{
+						require: sandpaper
+						include: hammer, pliers, bucket, shovel, crowbar
+					}
+					filter_infrastructure:
+					{
+						require: table
+						include: chair, surface, structure, building
+					}
+				}
+			]
+		}
+	]
+	
+	type: workshop
+	flags: none
+	tags: manual, crafting, dumb, crude, complex, salvaging, gathering, separation, messy
+	hints: none
+	connotations: none
+	infrastructure: none
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		texture: ui_icons_crafting.mini
+		size: [16, 16]
+	}
+	icon_offset: [-4.000, -17.000]
+	
+	icon_extra:
+	{
+		texture: resource.scrap.steel
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	icon_extra_offset: [-7.000, -8.000]
+	
+	color_frame: "0xff9dd80f"
+	color_button: "0xff9dd80f"
+	rank: -998.000
+	
+	min: 1
+	max: 50
+	step: 1
+	
+	version: 0
+}
