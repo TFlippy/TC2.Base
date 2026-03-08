@@ -21,7 +21,7 @@ body:
 		material: paper
 		miss_chance: 0.000
 		
-		layer: entity, solid, flammable
+		layer: entity, solid, flammable, item
 		mask: world
 		exclude: none
 	}
