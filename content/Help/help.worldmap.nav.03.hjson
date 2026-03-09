@@ -1,0 +1,28 @@
+﻿{
+	$version: "0.1.71.1"
+	name: "Navigation"
+	category: "00: World Map"
+	desc:
+		'''
+		Once in the border crossing menu, select your desired character and press the blue button to enter them into the border crossing.
+
+		After that, press the ">> Spawn <<" button to enter your character into the region.
+		'''
+	
+	order: 18
+	size: [514, 0]
+	layout: a
+	flags: none
+	
+	title: "Navigation"
+	
+	sprite_scale: 0.625
+	sprite:
+	{
+		texture: ui.tutorial.atlas.00
+		size: [480, 320]
+		frame: [3, 0]
+	}
+	
+	entries: []
+}
