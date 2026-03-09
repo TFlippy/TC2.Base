@@ -1,15 +1,16 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.71.1"
 	name: "Lime"
 	description:
 		'''
 		Alkaline mineral commonly used in metallurgy, chemical industry and in production of cement and paper.
 		'''
+	
 	cas_number: "1305-78-8"
 	type: mineral
 	atomic_number: 0
 	flags: none
-	tags: inert, solid
+	tags: unstable, solid
 	
 	icon:
 	{
@@ -54,6 +55,8 @@
 	// bar
 	triple_point_pressure: 0.000
 	
+	// K
+	ductile_temperature: 0.000
 	// K
 	forging_temperature_lower: 0.000
 	// K

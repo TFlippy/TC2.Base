@@ -1,6 +1,5 @@
 ﻿{
-	$region_id: 0
-	$version: "0.1.68.0"
+	$version: "0.1.71.1"
 	flags: none
 	chance: 0.000
 	tags: none
@@ -16,7 +15,7 @@
 	sounds:
 	[
 		twuk.idle.00
-		twuk.idle.00
-		twuk.idle.00
+		twuk.idle.01
+		twuk.idle.02
 	]
 }
