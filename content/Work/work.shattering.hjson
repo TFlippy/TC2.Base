@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.67.1"
+	$version: "0.1.71.1"
 	name: "Shattering"
 	name_short: "Shattering"
 	desc:
@@ -17,7 +17,7 @@
 	flags: manual, wip
 	tags: tools, simple, leisure
 	
-	amount_base: 0.000
+	amount_base: 1.000
 	cooldown: 2.000
 	multiplier: 1.000
 	
