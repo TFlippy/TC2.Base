@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.2"
+	$version: "0.1.71.1"
 	name: "Steel Sheet"
 	name_short: "St.Sheet"
 	name_imperial: "Stylplat"
@@ -111,12 +111,10 @@
 	
 	commodity:
 	{
-		
 		flags: none
 		categories: none
 		
 		market_price: 13.800
-		
 		market_price_per_kg_auto: 5.888376
 	}
 	

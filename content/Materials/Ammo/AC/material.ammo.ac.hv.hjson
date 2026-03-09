@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.2"
+	$version: "0.1.71.1"
 	name: "AC-33.6mm/HV Ammo"
 	description:
 		'''
@@ -53,6 +53,7 @@
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	
+	centroid_default: [0.000, 0.250]
 	colliders: []
 	
 	commodity:
@@ -61,6 +62,7 @@
 		categories: weapons, munitions, military, manufactured
 		
 		market_price: 56.000
+		market_price_per_kg_auto: 58.94737
 	}
 	
 	ammo:
@@ -89,7 +91,6 @@
 		sprite_casing:
 		{
 			texture: atlas.ammo.casings.00
-			mask: missing
 			size: [8, 8]
 			frame: [4, 0]
 		}

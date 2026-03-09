@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.2"
+	$version: "0.1.71.1"
 	name: "AC-33.6mm/LV Ammo"
 	description:
 		'''
@@ -90,7 +90,6 @@
 		sprite_casing:
 		{
 			texture: atlas.ammo.casings.00
-			mask: missing
 			size: [8, 8]
 			frame: [4, 0]
 		}

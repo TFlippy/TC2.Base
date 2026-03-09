@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.2"
+	$version: "0.1.71.1"
 	name: "Arcanite Chunk"
 	name_short: "Arc. Chunk"
 	name_imperial: "Arkanit"
@@ -114,5 +114,6 @@
 		categories: none
 		
 		market_price: 684.750
+		market_price_per_kg_auto: 19.61787
 	}
 }

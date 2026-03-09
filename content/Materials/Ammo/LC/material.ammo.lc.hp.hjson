@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.2"
+	$version: "0.1.71.1"
 	name: "LC-9.4mm/HP Ammo"
 	description:
 		'''
@@ -62,7 +62,7 @@
 		categories: weapons, munitions, military, manufactured
 		
 		market_price: 1.850
-		market_price_per_kg_auto: 200.000
+		market_price_per_kg_auto: 205.5556
 	}
 	
 	ammo:
@@ -91,7 +91,6 @@
 		sprite_casing:
 		{
 			texture: atlas.ammo.casings.00
-			mask: missing
 			size: [8, 8]
 		}
 		casing_scale: 0.900

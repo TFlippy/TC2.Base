@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.2"
+	$version: "0.1.71.1"
 	name: "Concrete Slabs"
 	name_short: "Concrete"
 	name_dumb: "Stone Brick"
@@ -56,12 +56,10 @@
 	
 	commodity:
 	{
-		
 		flags: none
 		categories: none
 		
 		market_price: 8.100
-		
 		market_price_per_kg_auto: 4.252874
 	}
 	
