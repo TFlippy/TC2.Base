@@ -1,0 +1,54 @@
+﻿{
+	$version: "0.1.71.1"
+	name: "World Map"
+	category: "00: World Map"
+	desc:
+		'''
+		The world map is the primary means of moving your player characters between regions.
+		'''
+	
+	order: 100
+	flags: none
+	
+	sprite_scale: 0.625
+	size: [500, 0]
+	sprite:
+	{
+		texture: ui.tutorial.atlas.00
+		size: [480, 320]
+	}
+	
+	entries:
+	[
+		{
+			text: "There are several features to the world map that are important:"
+			color: "0xfffff0d8"
+			flags: bold
+		}
+		{
+			text: "Characters, which can be moved to and from border crossings and vehicles."
+			color: "0xfffff0d8"
+			flags: bullet
+		}
+		{
+			text: "Regions, the active gameplay of TC2, all regions are self-contained maps."
+			color: "0xfffff0d8"
+			flags: bullet
+		}
+		{
+			text: "Border crossings, the means to enter a region."
+			color: "0xfffff0d8"
+			flags: bullet
+		}
+		{
+			text: "Vehicles, used as a quick means of transit over the map."
+			color: "0xfffff0d8"
+			flags: bullet
+		}
+		{
+			text: "Settlements, (WIP, currently do nothing)"
+			color: "0xfffff0d8"
+			flags: bullet
+		}
+	]
+}
