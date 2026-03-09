@@ -1,9 +1,9 @@
 ﻿{
-	$version: "0.1.68.2"
+	$version: "0.1.71.1"
 	name: "Steel Frames"
 	name_short: "St. Frames"
 	name_imperial: "Stylfram"
-	name_dumb: "Frame"
+	name_dumb: "Ladders"
 	description:
 		'''
 		Various structural nickelsteel components - frames, braces, grids, grates, struts.
@@ -53,13 +53,11 @@
 	
 	commodity:
 	{
-		
 		flags: none
 		categories: none
 		
 		market_price: 16.500
-		
-		market_price_per_kg_auto: 6.800
+		market_price_per_kg_auto: 6.600
 	}
 	
 	// Damage-based conversions.
