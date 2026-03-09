@@ -1,28 +1,26 @@
 ﻿{
 	$region_id: 0
 	$version: "0.1.71.1"
-	name: "Toolbelt"
+	name: "Interacting"
 	category: "01: Controls"
 	desc:
 		'''
-		You can equip items into the toolbelt by dragging them into the associated slot.
-
-		Press "F" to open the toolbelt menu.
+		Press "E" to interact with a building.
 		'''
 	
-	order: 23
-	size: [514, 0]
+	order: 26
+	size: [466, 0]
 	layout: a
 	flags: none
 	
-	title: "Toolbelt"
+	title: "Interacting"
 	
 	sprite_scale: 0.625
 	sprite:
 	{
 		texture: ui.tutorial.atlas.00
 		size: [480, 320]
-		frame: [3, 1]
+		frame: [2, 2]
 	}
 	
 	entries: []

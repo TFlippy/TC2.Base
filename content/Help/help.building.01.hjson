@@ -1,0 +1,27 @@
+﻿{
+	$region_id: 0
+	$version: "0.1.71.1"
+	name: "Constr. Sites"
+	category: "03: Building"
+	desc:
+		'''
+		Buildings require additional resources after placing.
+
+		Similarily to crafting, these also need to have their work and material orders fulfilled.
+		'''
+	
+	order: 41
+	size: [596, 0]
+	layout: a
+	flags: none
+	
+	title: "Construction Sites"
+	
+	sprite_scale: 0.875
+	sprite:
+	{
+		texture: ui.tutorial.atlas.00
+		size: [480, 320]
+		frame: [1, 4]
+	}
+}

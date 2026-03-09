@@ -1,0 +1,53 @@
+﻿{
+	$version: "0.1.71.1"
+	name: "Build Menu"
+	category: "03: Building"
+	desc:
+		'''
+		To build, equip a wrench.
+
+		Simply holding the wrench will automatically open the build menu.
+		'''
+	
+	order: 40
+	size: [512, 0]
+	layout: a
+	flags: none
+	
+	sprite_scale: 0.750
+	sprite:
+	{
+		texture: ui.tutorial.atlas.00
+		size: [480, 320]
+		frame: [0, 4]
+	}
+	
+	entries:
+	[
+		{
+			text: "The build menu contains several categories:"
+			color: "0xfffff0d8"
+			flags: bold
+		}
+		{
+			text: "Architecture, your building blocks, doors, ladders and other utilities."
+			color: "0xfffff0d8"
+			flags: bullet
+		}
+		{
+			text: "Industry, mainly structures that automatically produce materials."
+			color: "0xfffff0d8"
+			flags: bullet
+		}
+		{
+			text: "Buildings, for infrastructure, faction expansion and complex production such as weaponry and blueprinting."
+			color: "0xfffff0d8"
+			flags: bullet
+		}
+		{
+			text: "Machinery, (WIP, currently does nothing)."
+			color: "0xfffff0d8"
+			flags: bullet
+		}
+	]
+}

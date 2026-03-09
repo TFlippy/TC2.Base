@@ -1,28 +1,28 @@
 ﻿{
 	$region_id: 0
 	$version: "0.1.71.1"
-	name: "Toolbelt"
+	name: "Emotes"
 	category: "01: Controls"
 	desc:
 		'''
-		You can equip items into the toolbelt by dragging them into the associated slot.
+		You can also get jiggy! and quickly show other players your intentions by emoting.
 
-		Press "F" to open the toolbelt menu.
+		Press "Q" to open the Emote menu.
 		'''
 	
-	order: 23
-	size: [514, 0]
+	order: 25
+	size: [470, 0]
 	layout: a
 	flags: none
 	
-	title: "Toolbelt"
+	title: "Emotes"
 	
 	sprite_scale: 0.625
 	sprite:
 	{
 		texture: ui.tutorial.atlas.00
 		size: [480, 320]
-		frame: [3, 1]
+		frame: [1, 2]
 	}
 	
 	entries: []

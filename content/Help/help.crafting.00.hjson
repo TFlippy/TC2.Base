@@ -1,0 +1,28 @@
+﻿{
+	$version: "0.1.71.1"
+	name: "Crafting I"
+	category: "02: Crafting"
+	desc:
+		'''
+		Certain buildings can be used to craft specific items, as well as the player themselves.
+
+		Alternatively, you can press this button to open up your character's crafting menu.
+		'''
+	
+	order: 30
+	size: [456, 0]
+	layout: a
+	flags: none
+	
+	title: "Crafting"
+	
+	sprite_scale: 0.625
+	sprite:
+	{
+		texture: ui.tutorial.atlas.00
+		size: [480, 320]
+		frame: [0, 3]
+	}
+	
+	entries: []
+}
