@@ -150,6 +150,7 @@ personnel:
 {
 	characters_capacity: 2
 	flags: store_characters
+	assign_radius: 20.000
 	slots:
 	[
 		{
