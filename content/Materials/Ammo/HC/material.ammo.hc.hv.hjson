@@ -68,7 +68,7 @@
 	{
 		count: 1
 		mass: 0.018
-		heat: 25.000
+		heat: 35.000
 		velocity_min: 80.000
 		
 		speed_base: 0.000
