@@ -1,6 +1,5 @@
 ﻿{
-	$region_id: 0
-	$version: "0.1.70.1"
+	$version: "0.1.71.1"
 	name: "Shitty Wrench"
 	tips: []
 	
@@ -140,7 +139,7 @@
 							work: cramming.solid
 							amount: 110.000
 							amount_min: 40.000
-							difficulty: 8
+							difficulty: 6
 							step_max: 30
 							snapping: 5.000
 							falloff: 0.976
