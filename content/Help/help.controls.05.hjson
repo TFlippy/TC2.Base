@@ -1,5 +1,4 @@
 ﻿{
-	$region_id: 0
 	$version: "0.1.71.1"
 	name: "Emotes"
 	category: "01: Controls"
@@ -10,7 +9,7 @@
 		Press "Q" to open the Emote menu.
 		'''
 	
-	order: 25
+	order: 26
 	size: [470, 0]
 	layout: a
 	flags: none

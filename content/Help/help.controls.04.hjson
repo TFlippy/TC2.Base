@@ -1,7 +1,6 @@
 ﻿{
-	$region_id: 0
 	$version: "0.1.71.1"
-	name: "Melee"
+	name: "Melee & Tools"
 	category: "01: Controls"
 	desc:
 		'''
@@ -15,7 +14,7 @@
 	layout: a
 	flags: none
 	
-	title: "Melee"
+	title: "Melee & Tools"
 	
 	sprite_scale: 0.625
 	sprite:

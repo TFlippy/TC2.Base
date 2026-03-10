@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.71.1"
-	name: "Pick up"
+	name: "Picking up"
 	category: "01: Controls"
 	desc:
 		'''
