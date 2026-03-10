@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.0"
+	$version: "0.1.71.1"
 	name: "Copper"
 	tips: []
 	
@@ -184,7 +184,7 @@
 						{
 							type: work
 							work: drilling
-							amount: 417.000
+							amount: 117.000
 							amount_min: 210.000
 							difficulty: 13
 							snapping: 5.000

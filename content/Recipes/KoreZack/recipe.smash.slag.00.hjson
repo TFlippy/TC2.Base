@@ -10,14 +10,7 @@
 	
 	related_materials:
 	{
-		scrap.metal: residue, product, result
-		niklajzner: residue, product, result
-		scrap.niklajzner: residue, product, result
 		cement: residue, powdered, result, byproduct
-		sulfur: residue, chemical, byproduct
-		copper.powder: residue, powdered, product, result
-		gold.powder: residue, powdered, product, result
-		silver.powder: residue, powdered, product, result
 		ferrous.gravel: residue, product, byproduct
 	}
 	
@@ -324,10 +317,11 @@
 							work: sieving
 							amount: 150.000
 							amount_min: 100.000
-							difficulty: 12
+							difficulty: 10
+							step_max: 10
 							snapping: 25.000
 							group: 0
-							flags: conditional
+							flags: stepped, conditional
 						}
 					]
 					
@@ -522,11 +516,11 @@
 	
 	type: workshop
 	flags: production, wip
-	tags: manual, dumb, crude, basic, simple, metalworking, metallurgy, salvaging, processing
+	tags: manual, basic, simple, raw, metallurgy, salvaging, separation, processing, messy
 	hints: none
 	connotations: none
-	infrastructure: table, surface
-	infrastructure_exclude: personal
+	infrastructure: surface
+	infrastructure_exclude: none
 	
 	icon:
 	{

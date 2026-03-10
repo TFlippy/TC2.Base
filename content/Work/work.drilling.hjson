@@ -17,7 +17,7 @@
 	flags: wip
 	tags: tools, simple, technical, construction, industrial, careful, kinetic, fast
 	
-	amount_base: 1.000
+	amount_base: 5.000
 	cooldown: 1.800
 	multiplier: 1.550
 	
