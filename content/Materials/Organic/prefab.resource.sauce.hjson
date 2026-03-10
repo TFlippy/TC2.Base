@@ -58,5 +58,5 @@ norotate:
 
 health:
 {
-	max: 1300.000
+	max: 1500.000
 }

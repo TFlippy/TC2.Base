@@ -73,6 +73,11 @@
 		
 		sound: building_place
 		
+		physics_filter:
+		{
+			include: no_overlapped_placement
+		}
+		
 		snapping_filter:
 		{
 			exclude: construction, dynamic

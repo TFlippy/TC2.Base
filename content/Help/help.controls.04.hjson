@@ -1,0 +1,28 @@
+﻿{
+	$version: "0.1.71.1"
+	name: "Melee & Tools"
+	category: "01: Controls"
+	desc:
+		'''
+		To melee attack, or attack structures, hold right-click while pressing left-click while holding a tool.
+
+		(Alternatively you can also press right-click to punch!)
+		'''
+	
+	order: 24
+	size: [514, 0]
+	layout: a
+	flags: none
+	
+	title: "Melee & Tools"
+	
+	sprite_scale: 0.625
+	sprite:
+	{
+		texture: ui.tutorial.atlas.00
+		size: [480, 320]
+		frame: [0, 2]
+	}
+	
+	entries: []
+}

@@ -1,0 +1,29 @@
+﻿{
+	$region_id: 0
+	$version: "0.1.71.1"
+	name: "Crafting II"
+	category: "02: Crafting"
+	desc:
+		'''
+		To craft an item, you need to have the required materials either in your inventory, or in nearby storage.
+
+		Let's try crafting the Shitty Wrench.
+		'''
+	
+	order: 31
+	size: [455, 0]
+	layout: a
+	flags: none
+	
+	title: "Crafting"
+	
+	sprite_scale: 0.625
+	sprite:
+	{
+		texture: ui.tutorial.atlas.00
+		size: [480, 320]
+		frame: [1, 3]
+	}
+	
+	entries: []
+}

@@ -1,57 +1,191 @@
 ﻿{
-	$version: "0.1.68.1"
+	$version: "0.1.71.1"
 	name: "Arc Lance"
-	desc:
-		'''
-		Powerful spear-like weapon tipped with 2 electrodes connected to an EC-EL pellet power source.
-		'''
 	tips: []
 	
-	requirements:
+	stages:
 	[
 		{
-			type: resource
-			material: smirglum.plate
-			amount: 3.000
-			group: 0
-			flags: prerequisite
+			name: "Electrodes"
+			
+			type: component
+			flags: part, important, wip
+			tags: thin, metal, assembly, functional, small, blade, sharp
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 0.000
+			mass_base: 1.500
+			
+			options:
+			[
+				{
+					name: "Standard"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: smirglum.plate
+							amount: 0.334211
+							snapping: 1.000
+							group: 0
+							flags: prerequisite
+						}
+					]
+				}
+			]
 		}
 		{
-			type: resource
-			material: steel.ingot
-			amount: 5.000
-			group: 0
-			flags: prerequisite
+			name: "Emitter"
+			
+			type: part
+			flags: part, important, wip
+			tags: mechanism, metal, container, assembly, functional, small, machinery, dangerous
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: handsaw
+			
+			ratio: 0.000
+			mass_base: 5.000
+			
+			options:
+			[
+				{
+					name: "Standard"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: directors
+							amount: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: pellet.electricity
+							amount: 2.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: machine_parts
+							amount: 1.500
+							group: 0
+							flags: prerequisite
+						}
+					]
+				}
+			]
 		}
 		{
-			type: resource
-			material: pellet.electricity
-			amount: 2.000
-			group: 0
-			flags: prerequisite
+			name: "Pole"
+			
+			type: part
+			flags: part, important, wip
+			tags: grip, rod, thin, structural, rounded
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: axe
+			
+			ratio: 0.000
+			mass_base: 2.000
+			
+			options:
+			[
+				{
+					name: "Simple"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: timber.maple
+							amount: 0.224235
+							snapping: 0.500
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: steel.frames
+							amount: 0.200
+							snapping: 0.100
+							group: 0
+							flags: prerequisite
+						}
+					]
+				}
+			]
 		}
 		{
-			type: resource
-			material: wood
-			amount: 4.000
-			group: 0
-			flags: prerequisite
-		}
-		{
-			type: work
-			work: assembling
-			amount: 350.000
-			difficulty: 8
-			group: 0
-			flags: conditional
-		}
-		{
-			type: work
-			work: smithing
-			amount: 500.000
-			difficulty: 10
-			group: 0
-			flags: conditional
+			name: "Assembly"
+			
+			type: assembly
+			flags: wip, incomplete, auto_generated
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Glued"
+					
+					type: undefined
+					flags: wip, incomplete, auto_generated
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: glue
+							amount: 7.360
+							snapping: 0.500
+							falloff: 0.950
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: gluing
+							amount: 225.000
+							difficulty: 5
+							snapping: 25.000
+							falloff: 0.920
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						include: paintbrush, file
+					}
+					filter_infrastructure:
+					{
+						include: table
+					}
+					filter_environment:
+					{
+						include: clean, organized
+						exclude: wet
+					}
+				}
+			]
 		}
 	]
 	
@@ -62,29 +196,32 @@
 			prefab: arc_lance
 			amount: 1.000
 			group: 0
+			flags: primary, compact
 		}
 	]
 	
 	type: workshop
-	flags: blueprintable, disabled, wip
-	tags: workbench, manual, crafting, simple, medium, weapon, delicate, blacksmithing, woodworking, assembling, metalworking, military
+	flags: blueprintable, debug, item, wip
+	tags: manual, crafting, basic, simple, medium, essence, weapon, woodworking, assembling, metalworking, military
 	hints: none
-	connotations: none
-	infrastructure: none
+	connotations: weapon, melee, interesting, decent, powerful, authority, painful, loud, funny, arcane, tech, scary
+	infrastructure: surface, workbench
 	infrastructure_exclude: none
 	
 	icon:
 	{
 		texture: arc_lance
+		size: [40, 8]
 	}
 	
-	color_frame: "0xff19e2b1"
+	color_frame: "0xffaeb59a"
 	color_button: "0xff9dd80f"
 	rank: 0.000
+	frame_size: [80.000, 48.000]
 	
 	min: 1
-	max: 4
+	max: 8
 	step: 1
 	
-	version: 0
+	version: 1
 }

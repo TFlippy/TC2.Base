@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.1"
+	$version: "0.1.71.1"
 	name: "Cutting"
 	name_short: "Cutting"
 	desc:
@@ -17,7 +17,7 @@
 	flags: manual, wip
 	tags: tools, industrial, delicate, careful, kinetic, slow
 	
-	amount_base: 0.000
+	amount_base: 0.700
 	cooldown: 1.000
 	multiplier: 1.000
 	

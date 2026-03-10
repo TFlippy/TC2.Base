@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.1"
+	$version: "0.1.71.1"
 	name: "Drilling"
 	name_short: "Drill"
 	desc:
@@ -17,7 +17,7 @@
 	flags: wip
 	tags: tools, simple, technical, construction, industrial, careful, kinetic, fast
 	
-	amount_base: 1.000
+	amount_base: 5.000
 	cooldown: 1.800
 	multiplier: 1.550
 	
@@ -26,9 +26,9 @@
 	color: "0xffff6200"
 	
 	tools_required: hand_drill
-	tools_optional: screwdriver, chisel, pick, knife
+	tools_optional: hand_drill, screwdriver, chisel, pick, knife
 	
-	infrastructure_required: vise
+	infrastructure_required: none
 	infrastructure_optional: vise, rack, workbench
 	
 	character_traits:

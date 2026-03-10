@@ -18,13 +18,13 @@ namespace TC2.Base.Components
 		}
 
 		public static Sound.Handle[] sounds_cough =
-		[
+		{
 			"cough.00",
 			"cough.01",
 			"cough.02",
 			"cough.03",
 			"cough.04",
-		];
+		};
 
 		public static Gradient<float> gr_consciousness = new Gradient<float>(1.00f, 1.00f, 0.99f, 0.98f, 0.98f, 0.96f, 0.93f, 0.90f, 0.85f, 0.82f, 0.78f, 0.72f, 0.64f, 0.57f, 0.51f, 0.42f, 0.30f, 0.14f, 0.00f);
 		public static Gradient<float> gr_endurance = new Gradient<float>(1.00f, 0.98f, 0.95f, 0.93f, 0.90f, 0.87f, 0.82f, 0.75f, 0.65f, 0.50f, 0.35f, 0.20f);

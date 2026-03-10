@@ -71,3 +71,8 @@ despawn:
 	
 	sleep_count_max: 29
 }
+
+health:
+{
+	max: 40000.000
+}

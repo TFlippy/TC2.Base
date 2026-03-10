@@ -13,7 +13,7 @@
 			Maintain_Position = 1 << 3
 		}
 
-		[IComponent.Data(Net.SendType.Reliable, region_only: true), IComponent.With<Crane.State>]
+		[IComponent.Data(Net.SendType.Reliable, IComponent.Scope.Region), IComponent.With<Crane.State>]
 		public partial struct Data(): IComponent
 		{
 			public float length_a = 8.00f;
@@ -23,7 +23,7 @@
 			public Crane.Flags flags_editable = Crane.Flags.None;
 		}
 
-		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
+		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region)]
 		public partial struct State(): IComponent
 		{
 			[Asset.Ignore] public float angle_a;

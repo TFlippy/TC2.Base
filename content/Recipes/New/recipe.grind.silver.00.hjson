@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.0"
+	$version: "0.1.71.1"
 	name: "Silver"
 	tips: []
 	
@@ -184,9 +184,9 @@
 						{
 							type: work
 							work: drilling
-							amount: 217.000
+							amount: 187.000
 							amount_min: 129.000
-							difficulty: 8
+							difficulty: 7
 							snapping: 5.000
 							falloff: 0.903
 							loss: 0.329

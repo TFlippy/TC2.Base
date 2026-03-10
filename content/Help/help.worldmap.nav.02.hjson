@@ -1,0 +1,28 @@
+﻿{
+	$version: "0.1.71.1"
+	name: "Navigation II"
+	category: "00: World Map"
+	desc:
+		'''
+		When you have a character present on the world map, you can move them around by right-clicking on a destination.
+
+		To enter a region with your character, select your character and right-click the desired border crossing connected to that region.
+		'''
+	
+	order: 17
+	size: [514, 0]
+	layout: a
+	flags: none
+	
+	title: "Navigation"
+	
+	sprite_scale: 0.625
+	sprite:
+	{
+		texture: ui.tutorial.atlas.00
+		size: [480, 320]
+		frame: [2, 0]
+	}
+	
+	entries: []
+}

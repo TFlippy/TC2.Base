@@ -20,7 +20,7 @@ namespace TC2.Base.Components
 			Continuous = 1u << 1,
 		}
 
-		[IComponent.Data(Net.SendType.Reliable, region_only: true), IComponent.With<Electrode.State>]
+		[IComponent.Data(Net.SendType.Reliable, IComponent.Scope.Region), IComponent.With<Electrode.State>]
 		public partial struct Data(): IComponent
 		{
 			public Electrode.Flags flags;
@@ -50,7 +50,7 @@ namespace TC2.Base.Components
 			public Mouse.Key key_activate = Mouse.Key.Left;
 		}
 
-		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
+		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region)]
 		public partial struct State(): IComponent
 		{
 			[Flags]
@@ -799,7 +799,7 @@ namespace TC2.Base.Components
 			Continuous = 1u << 1,
 		}
 
-		[IComponent.Data(Net.SendType.Reliable, region_only: true)]
+		[IComponent.Data(Net.SendType.Reliable, IComponent.Scope.Region)]
 		public partial struct Data(): IComponent
 		{
 			public Arcer.Flags flags;

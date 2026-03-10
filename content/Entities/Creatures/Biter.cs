@@ -1,9 +1,10 @@
 ﻿
 namespace TC2.Base.Components
 {
+	// TODO: old stuff
 	public static partial class Biter
 	{
-		[IComponent.Data(Net.SendType.Reliable, region_only: true), IComponent.With<Biter.State>()]
+		[IComponent.Data(Net.SendType.Reliable, IComponent.Scope.Region), IComponent.With<Biter.State>()]
 		public partial struct Data(): IComponent
 		{
 			public Sound.Handle sound;
@@ -27,7 +28,8 @@ namespace TC2.Base.Components
 			public Physics.Layer hit_exclude;
 		}
 
-		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
+		// TODO: merge into Biter.Data
+		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region)]
 		public partial struct State(): IComponent
 		{
 			[Net.Ignore, Save.Ignore] public float next_attack;

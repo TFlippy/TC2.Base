@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.2"
+	$version: "0.1.71.1"
 	name: "Copper Bar"
 	name_short: "Cop.Bar"
 	name_imperial: "Kuprtyc"
@@ -60,6 +60,7 @@
 	color_liquid: [0.908, 0.542, 0.254, 1.000]
 	color_smoke: [0.675, 0.671, 0.455, 1.000]
 	
+	centroid_default: [-0.017241, 0.123563]
 	colliders:
 	[
 		{
@@ -114,20 +115,11 @@
 	
 	commodity:
 	{
-		availability: 0.000
-		rarity: 0.000
-		scalability: 0.000
-		reusability: 0.000
-		longevity: 0.000
-		complexity: 0.000
-		tech: 0.000
-		liquidity: 0.000
-		demand: 0.000
-		
 		flags: none
 		categories: none
 		
 		market_price: 240.000
+		market_price_per_kg_auto: 35.81158
 	}
 	
 	// Damage-based conversions.

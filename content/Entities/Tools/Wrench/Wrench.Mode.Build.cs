@@ -198,27 +198,29 @@ namespace TC2.Base.Components
 									foreach (var d_recipe in recipes)
 									{
 										ref var recipe = ref d_recipe.GetData();
-										if (recipe.type == edit_type_filter && recipe.flags.HasNone(Recipe.Flags.Hidden | Recipe.Flags.Custom) && filter_tags.Evaluate(recipe.tags))
-										{
-											//var size = (Vector2)recipe.icon.GetFrameSize();
-											var size = recipe.frame_size.OrDefault(recipe.icon.GetFrameSize(scale));
-											size = size.ScaleToNearestMultiple(new Vector2(48, 48));
+										if (recipe.type != edit_type_filter) continue;
+										if (recipe.flags.HasAny(Recipe.Flags.Hidden | Recipe.Flags.Custom)) continue;
+										if ((!App.IsModEditing || App.hide_wip_recipes) && recipe.flags.HasAny(Recipe.Flags.Debug | Recipe.Flags.Disabled)) continue;
+										if (!filter_tags.Evaluate(recipe.tags)) continue;
 
-											//var rank = recipe.rank;
-											//rank += d_recipe.id * 0.000001f;
+										//var size = (Vector2)recipe.icon.GetFrameSize();
+										var size = recipe.frame_size.OrDefault(recipe.icon.GetFrameSize(scale));
+										size = size.ScaleToNearestMultiple(new Vector2(48, 48));
+
+										//var rank = recipe.rank;
+										//rank += d_recipe.id * 0.000001f;
 
 
-											var rank = recipe.rank;
-											rank += d_recipe.id * 0.0001f;
-											rank -= (size.X * size.Y) * 0.001f;
+										var rank = recipe.rank;
+										rank += d_recipe.id * 0.0001f;
+										rank -= (size.X * size.Y) * 0.001f;
 
-											if (recipe.products[0].type == Crafting.Product.Type.Block) rank -= 5000.00f;
-											//rank += (size.X) * 1.00f;
-											rank -= (size.Y) * 10.00f;
-											////rank -= size.Y * 0.10f;
+										if (recipe.products[0].type == Crafting.Product.Type.Block) rank -= 5000.00f;
+										//rank += (size.X) * 1.00f;
+										rank -= (size.Y) * 10.00f;
+										////rank -= size.Y * 0.10f;
 
-											recipe_indices.Add((d_recipe.id, rank));
-										}
+										recipe_indices.Add((d_recipe.id, rank));
 									}
 
 									recipe_indices.Sort(SortFunc);
@@ -318,7 +320,7 @@ namespace TC2.Base.Components
 
 						if (!Editor.IsActive)
 						{
-							using (var window_hud = GUI.Window.HUD("Build.HUD"u8, position: region.WorldToCanvas(mouse.GetInterpolatedPosition() + new Vector2(2.50f, -2.00f)), 
+							using (var window_hud = GUI.Window.HUD("Build.HUD"u8, position: region.WorldToCanvas(mouse.GetInterpolatedPosition() + new Vector2(2.50f, -2.00f)),
 							size: new(192, 0), padding: new(8, 8), pivot: new(0.00f, 0.00f)))
 							{
 								if (window_hud.show)

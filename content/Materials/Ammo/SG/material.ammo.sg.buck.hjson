@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.2"
+	$version: "0.1.71.1"
 	name: "SG-20.4mm Buckshot"
 	description:
 		'''
@@ -57,6 +57,7 @@
 		categories: weapons, munitions, military, manufactured
 		
 		market_price: 6.000
+		market_price_per_kg_auto: 62.500
 	}
 	
 	ammo:
@@ -85,7 +86,6 @@
 		sprite_casing:
 		{
 			texture: atlas.ammo.casings.00
-			mask: missing
 			size: [8, 8]
 			frame: [13, 0]
 		}

@@ -1,0 +1,28 @@
+﻿{
+	$version: "0.1.71.1"
+	name: "Navigation I"
+	category: "00: World Map"
+	desc:
+		'''
+		To navigate the world map, you need to have a character present outside of a region.
+
+		You can do this by either moving a character out of a region through a border crossing, or by creating a "Main Character"
+		'''
+	
+	order: 16
+	size: [522, 0]
+	layout: a
+	flags: none
+	
+	title: "Region Entrances"
+	
+	sprite_scale: 0.750
+	sprite:
+	{
+		texture: ui.tutorial.atlas.00
+		size: [480, 320]
+		frame: [1, 0]
+	}
+	
+	entries: []
+}

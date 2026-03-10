@@ -7,6 +7,7 @@ $tags: []
 
 body:
 {
+	fall_damage_multiplier: 0.740
 	inventory_weight_multiplier: 0.200
 
 	@shape.line:
@@ -138,6 +139,6 @@ storage:
 interactable:
 {
 	flags: none
-	priority: -5.500
+	priority: -8.500
 	window_size: [192.000, 96.000]
 }

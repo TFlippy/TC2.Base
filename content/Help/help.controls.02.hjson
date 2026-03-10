@@ -1,0 +1,27 @@
+﻿{
+	$region_id: 0
+	$version: "0.1.71.1"
+	name: "Dragging"
+	category: "01: Controls"
+	desc:
+		'''
+		You can also drag items by holding left-click on them, and dragging the mouse.
+		'''
+	
+	order: 22
+	size: [514, 0]
+	layout: a
+	flags: none
+	
+	title: "Dragging"
+	
+	sprite_scale: 0.625
+	sprite:
+	{
+		texture: ui.tutorial.atlas.00
+		size: [480, 320]
+		frame: [2, 1]
+	}
+	
+	entries: []
+}

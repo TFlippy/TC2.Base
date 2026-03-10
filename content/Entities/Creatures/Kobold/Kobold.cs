@@ -101,7 +101,7 @@ namespace TC2.Base.Components
 		};
 
 #if SERVER
-		internal static string[] w_starters =
+		internal static readonly string[] w_starters =
 		[
 			"ayy",
 			"ay",
@@ -118,7 +118,7 @@ namespace TC2.Base.Components
 			"mate"
 		];
 
-		internal static string[] w_enders_misc =
+		internal static readonly string[] w_enders_misc =
 		[
 			" innit",
 			" ha",
@@ -158,7 +158,7 @@ namespace TC2.Base.Components
 			" not",
 		];
 
-		internal static string[] w_enders_upset =
+		internal static readonly string[] w_enders_upset =
 		[
 			"?",
 			"??",
@@ -186,7 +186,7 @@ namespace TC2.Base.Components
 			" wha??!",
 		];
 
-		internal static string[] w_enders_nevermind =
+		internal static readonly string[] w_enders_nevermind =
 		[
 			"...or not",
 			"...nevemind",
@@ -204,7 +204,7 @@ namespace TC2.Base.Components
 			"...uh?"
 		];
 
-		internal static string[] w_enders_curious =
+		internal static readonly string[] w_enders_curious =
 		[
 			"?",
 			".??",
@@ -226,7 +226,7 @@ namespace TC2.Base.Components
 			" hmm....",
 		];
 
-		internal static string[] w_enders_low =
+		internal static readonly string[] w_enders_low =
 		[
 			" ugh",
 			" hhh",
@@ -263,7 +263,7 @@ namespace TC2.Base.Components
 			"..maybe.",
 		];
 
-		internal static string[] w_verbs_bad =
+		internal static readonly string[] w_verbs_bad =
 		[
 			"eat",
 			"drink",
@@ -289,7 +289,7 @@ namespace TC2.Base.Components
 			"jump",
 		];
 
-		internal static string[] w_verbs_misc =
+		internal static readonly string[] w_verbs_misc =
 		[
 			"eat",
 			"drink",
@@ -324,7 +324,7 @@ namespace TC2.Base.Components
 			"kiss"
 		];
 
-		internal static string[] w_learn =
+		internal static readonly string[] w_learn =
 		[
 			"learn",
 			"hear",
@@ -337,7 +337,7 @@ namespace TC2.Base.Components
 			"catch"
 		];
 
-		internal static string[] w_that =
+		internal static readonly string[] w_that =
 		[
 			"that",
 			"dat",
@@ -346,7 +346,7 @@ namespace TC2.Base.Components
 			"the"
 		];
 
-		internal static string[] w_our =
+		internal static readonly string[] w_our =
 		[
 			"our",
 			"us",
@@ -355,7 +355,7 @@ namespace TC2.Base.Components
 			"kobs",
 		];
 
-		internal static string[] w_and =
+		internal static readonly string[] w_and =
 		[
 			"and",
 			"plus",
@@ -365,7 +365,7 @@ namespace TC2.Base.Components
 			"withal"
 		];
 
-		internal static string[] w_your =
+		internal static readonly string[] w_your =
 		[
 			"ye",
 			"yours",
@@ -376,7 +376,7 @@ namespace TC2.Base.Components
 			"thee",
 		];
 
-		internal static string[] w_you =
+		internal static readonly string[] w_you =
 		[
 			"ye",
 			"yer",
@@ -386,7 +386,7 @@ namespace TC2.Base.Components
 			"u"
 		];
 
-		internal static string[] w_directions =
+		internal static readonly string[] w_directions =
 		[
 			"off",
 			"in",
@@ -403,7 +403,7 @@ namespace TC2.Base.Components
 			"over"
 		];
 
-		internal static string[] w_targeters =
+		internal static readonly string[] w_targeters =
 		[
 			"ya",
 			"ye",
@@ -416,7 +416,7 @@ namespace TC2.Base.Components
 			"mine"
 		];
 
-		internal static string[] w_question =
+		internal static readonly string[] w_question =
 		[
 			"how",
 			"when",
@@ -426,7 +426,7 @@ namespace TC2.Base.Components
 			"who",
 		];
 
-		internal static string[] w_me =
+		internal static readonly string[] w_me =
 		[
 			"i",
 			"am",
@@ -434,7 +434,7 @@ namespace TC2.Base.Components
 			"kobs",
 		];
 
-		internal static string[] w_us =
+		internal static readonly string[] w_us =
 		[
 			"we",
 			"kobold",
@@ -446,14 +446,14 @@ namespace TC2.Base.Components
 			"kobs"
 		];
 
-		internal static string[] w_my =
+		internal static readonly string[] w_my =
 		[
 			"my",
 			"me",
 			"mine"
 		];
 
-		internal static string[] w_i_am =
+		internal static readonly string[] w_i_am =
 		[
 			"am",
 			"i'm",

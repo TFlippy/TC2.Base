@@ -1,6 +1,5 @@
 ﻿{
-	$region_id: 0
-	$version: "0.1.68.0"
+	$version: "0.1.71.1"
 	name: "Sieving"
 	name_short: "Sieving"
 	desc:
@@ -18,7 +17,7 @@
 	flags: wip
 	tags: tools, simple, careful, kinetic, fast
 	
-	amount_base: 0.500
+	amount_base: 3.000
 	cooldown: 0.940
 	multiplier: 1.000
 	

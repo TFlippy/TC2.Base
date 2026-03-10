@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.2"
+	$version: "0.1.71.1"
 	name: "Raw Water"
 	name_short: "Water"
 	name_imperial: "Vodka"
@@ -70,6 +70,6 @@
 		categories: none
 		
 		market_price: 0.400
-		market_price_per_kg_auto: 0.300
+		market_price_per_kg_auto: 0.400
 	}
 }

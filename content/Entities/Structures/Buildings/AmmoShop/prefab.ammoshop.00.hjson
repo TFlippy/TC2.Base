@@ -149,6 +149,7 @@ workshop:
 personnel:
 {
 	flags: store_characters
+	assign_radius: 20.000
 	slots:
 	[
 		{
@@ -245,7 +246,7 @@ press.state:
 crafter:
 {
 	h_crafter: stamping.press.00
-	flags: self_only, assignable
+	flags: self_only, assignable, automatic, machine
 	
 	tools: none
 	infrastructure: none
@@ -301,7 +302,7 @@ axle:
 	friction: 0.200
 	radius_inner: 0.500
 	radius_outer: 0.750
-	z: -310.000
+	z: -290.000
 	
 	@animated.renderer:
 	{
@@ -313,10 +314,10 @@ axle:
 	}
 }
 
-crank:
-{
+// crank:
+// {
 
-}
+// }
 
 shipment:
 {

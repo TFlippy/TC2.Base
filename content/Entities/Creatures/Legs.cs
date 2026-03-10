@@ -63,11 +63,13 @@ namespace TC2.Base.Components
 		};
 
 #if CLIENT
+		[Shitcode]
 		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void UpdateAnimation(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity,
-		[Source.Owned, Override] in Organic.Data organic, [Source.Owned] in Organic.State organic_state,
+		public static void UpdateAnimation(ISystem.Info info, ref XorRandom random,
+		[Source.Owned] in Organic.State organic_state,
 		[Source.Owned] ref Legs.Data legs, [Source.Owned, Override] in Runner.Data runner, [Source.Owned] in Runner.State runner_state,
-		[Source.Owned] ref Animated.Renderer.Data renderer, [Source.Owned] in Control.Data control, [Source.Owned] in Transform.Data transform, [Source.Owned, Optional(true)] ref HeadBob.Data headbob)
+		[Source.Owned] ref Animated.Renderer.Data renderer, [Source.Owned] in Transform.Data transform, 
+		[Source.Owned, Optional(true)] ref HeadBob.Data headbob)
 		{
 			//App.WriteLine($"{Unsafe.AsRef(in headbob).IsNull()}");
 

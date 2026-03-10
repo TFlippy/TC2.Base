@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.70.1"
+	$version: "0.1.71.1"
 	name: "Wall Lamp (Bulb)"
 	desc:
 		'''
@@ -72,6 +72,11 @@
 		rotation_max: 6.283
 		
 		sound: building_place
+		
+		physics_filter:
+		{
+			include: no_overlapped_placement
+		}
 		
 		snapping_filter:
 		{

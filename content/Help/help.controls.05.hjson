@@ -1,0 +1,28 @@
+﻿{
+	$version: "0.1.71.1"
+	name: "Emotes"
+	category: "01: Controls"
+	desc:
+		'''
+		You can also get jiggy! and quickly show other players your intentions by emoting.
+
+		Press "Q" to open the Emote menu.
+		'''
+	
+	order: 26
+	size: [470, 0]
+	layout: a
+	flags: none
+	
+	title: "Emotes"
+	
+	sprite_scale: 0.625
+	sprite:
+	{
+		texture: ui.tutorial.atlas.00
+		size: [480, 320]
+		frame: [1, 2]
+	}
+	
+	entries: []
+}

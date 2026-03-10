@@ -21,15 +21,15 @@ health:
 	max: 2000.000
 }
 
-windmill.rotor:
-{
-	max_speed: 2.000
-	torque: 200.000
-	volume_base: 0.500
-	pitch_base: 0.800
-	volume_modifier: 1.000
-	pitch_modifier: 0.050
-}
+// windmill.rotor:
+// {
+// 	max_speed: 2.000
+// 	torque: 200.000
+// 	volume_base: 0.500
+// 	pitch_base: 0.800
+// 	volume_modifier: 1.000
+// 	pitch_modifier: 0.050
+// }
 
 axle:
 {

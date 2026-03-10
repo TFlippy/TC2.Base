@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.2"
+	$version: "0.1.71.1"
 	name: "Seawater"
 	name_short: "S. Water"
 	name_dumb: "Water"
@@ -60,5 +60,6 @@
 		categories: none
 		
 		market_price: 0.300
+		market_price_per_kg_auto: 0.279851
 	}
 }

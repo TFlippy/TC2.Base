@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.2"
+	$version: "0.1.71.1"
 	name: "Silver Chunk"
 	name_short: "Sv. Chunk"
 	name_imperial: "Spejbl"
@@ -114,5 +114,6 @@
 		categories: none
 		
 		market_price: 529.540
+		market_price_per_kg_auto: 33.77976
 	}
 }

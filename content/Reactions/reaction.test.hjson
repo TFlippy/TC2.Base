@@ -1,0 +1,22 @@
+﻿{
+	$region_id: 0
+	$version: "0.1.67.2"
+	name: "Test"
+	description:
+		'''
+		Test reaction.
+		'''
+	
+	type: undefined
+	flags: none
+	tags: none
+	
+	icon:
+	{
+		texture: ui_icons_widget
+		size: [16, 16]
+		frame: [9, 4]
+	}
+	
+	color_gui: "0xffffffff"
+}

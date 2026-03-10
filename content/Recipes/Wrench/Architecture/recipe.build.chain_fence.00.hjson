@@ -67,6 +67,11 @@
 		rotation_max: 0.400
 		
 		sound: building_place
+
+		physics_filter:
+		{
+			include: no_overlapped_placement
+		}
 		
 		snapping_filter:
 		{

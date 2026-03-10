@@ -1,0 +1,27 @@
+﻿{
+	$region_id: 0
+	$version: "0.1.71.1"
+	name: "Movement"
+	category: "01: Controls"
+	desc:
+		'''
+		To move your character around inside a region, use the WASD keys to walk around, crouch and jump!
+		'''
+	
+	order: 20
+	size: [514, 0]
+	layout: a
+	flags: none
+	
+	title: "Movement"
+	
+	sprite_scale: 0.625
+	sprite:
+	{
+		texture: ui.tutorial.atlas.00
+		size: [480, 320]
+		frame: [0, 1]
+	}
+	
+	entries: []
+}
