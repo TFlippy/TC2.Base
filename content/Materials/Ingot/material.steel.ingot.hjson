@@ -328,5 +328,14 @@
 			
 			yield: [0.645, 0.309]
 		}
+		welding.phlogiston:
+		{
+			h_material: ferronickel.powder
+			
+			flags: none
+			flags_product: waste
+			
+			yield: [0.345, 0.426]
+		}
 	}
 }

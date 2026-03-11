@@ -415,5 +415,23 @@
 			
 			yield: [0.708, 0.292]
 		}
+		metal.forming:
+		{
+			h_material: scrap.steel
+			
+			flags: none
+			flags_product: waste, residue
+			
+			yield: [0.859649, 0.1384]
+		}
+		welding.phlogiston:
+		{
+			h_material: ferronickel.powder
+			
+			flags: none
+			flags_product: waste
+			
+			yield: [0.345, 0.426]
+		}
 	}
 }

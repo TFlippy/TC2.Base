@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.71.1"
-	name: "Putty"
-	name_short: "Putty"
+	name: "Construction Putty"
+	name_short: "C-Putty"
 	name_imperial: "Herkules"
 	description:
 		'''
