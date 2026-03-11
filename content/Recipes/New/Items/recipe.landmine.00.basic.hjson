@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.67.2"
+	$version: "0.1.71.1"
 	name: "Landmine"
 	tips: []
 	
@@ -111,6 +111,100 @@
 						include: anvil, table, vise, surface, hard_surface, workbench
 					}
 				}
+				{
+					name: "Stamped"
+					
+					type: undefined
+					flags: requires_shipment, crafter, automated, wip
+					discard_damage_type_override: pickaxe
+					
+					prefix: "Stamped "
+					priority: 1.000
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.plate
+							amount: 0.853388
+							snapping: 1.000
+							loss: 0.176
+							ratio: 0.949
+							group: 0
+						}
+						{
+							type: resource
+							material: lubricant
+							amount: 1.000
+							snapping: 0.100
+							falloff: 0.700
+							loss: 0.188
+							ratio: 0.937
+							group: 0
+						}
+						{
+							type: work
+							work: die.swaging.metal
+							amount: 60.000
+							amount_min: 40.000
+							difficulty: 9
+							snapping: 5.000
+							falloff: 0.913
+							loss: 0.290
+							ratio: 0.208
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: die.stamping.metal
+							amount: 10.000
+							amount_min: 20.000
+							difficulty: 5
+							snapping: 5.000
+							falloff: 0.809
+							loss: 0.176
+							ratio: 0.145
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: resource
+							material: machine_parts
+							amount: 1.1223
+							snapping: 0.100
+							loss: 0.263
+							ratio: 1.000
+							group: 1
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: assembling
+							amount: 80.000
+							amount_min: 75.000
+							difficulty: 5
+							step_max: 20
+							snapping: 5.000
+							falloff: 0.875
+							loss: 0.376
+							ratio: 0.439
+							group: 1
+							flags: stepped, conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: screwdriver, wrench
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, stapler, towel, tongs, pick, crowbar, knife
+					}
+					filter_infrastructure:
+					{
+						require: anvil, shaping_mould, hard_surface, press
+						include: stamping_press, press
+					}
+				}
 			]
 		}
 		{
@@ -175,6 +269,135 @@
 						include: bucket, spatula
 					}
 				}
+				{
+					name: "Nitro-Ferrous Gravel"
+					
+					type: undefined
+					flags: wip
+					
+					suffix: " (Ferrous)"
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: nitroglycerine
+							amount: 0.610942
+							snapping: 0.100
+							falloff: 0.980
+							loss: 0.075
+							ratio: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: ferrous.gravel
+							amount: 0.949275
+							snapping: 1.000
+							loss: 0.122
+							ratio: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: filling.liquid
+							amount: 20.000
+							difficulty: 5
+							step_max: 20
+							snapping: 10.000
+							falloff: 0.877
+							loss: 0.275
+							ratio: 0.573
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: filling.gravel
+							amount: 65.000
+							amount_min: 50.000
+							difficulty: 3
+							snapping: 5.000
+							falloff: 0.850
+							loss: 0.322
+							ratio: 0.773
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						include: bucket, shovel, spatula
+					}
+				}
+				{
+					name: "Nitrosugar-Scrap"
+					
+					type: undefined
+					flags: wip
+					
+					suffix: " (Nitrosugar)"
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: nitrosugar
+							amount: 0.994652
+							snapping: 0.100
+							falloff: 0.946
+							loss: 0.051
+							ratio: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: scrap.mixed
+							amount: 0.652
+							snapping: 0.100
+							loss: 0.224
+							ratio: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: filling.powder
+							amount: 85.000
+							amount_min: 65.000
+							difficulty: 4
+							snapping: 5.000
+							falloff: 0.830
+							loss: 0.322
+							ratio: 0.573
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: assembling
+							amount: 55.000
+							amount_min: 40.000
+							difficulty: 4
+							snapping: 5.000
+							falloff: 0.870
+							loss: 0.275
+							ratio: 0.773
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: screwdriver, wrench
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, bucket, stapler, towel, spatula, tongs, pick, crowbar, knife
+					}
+				}
 			]
 		}
 		{
@@ -213,10 +436,11 @@
 							type: work
 							work: gluing
 							amount: 75.000
-							amount_min: 120.000
-							difficulty: 4
+							amount_min: 50.000
+							difficulty: 7
+							step_max: 20
 							snapping: 5.000
-							falloff: 0.816
+							falloff: 0.921
 							loss: 0.373
 							ratio: 1.000
 							group: 0
@@ -228,6 +452,7 @@
 							amount: 35.000
 							amount_min: 25.000
 							difficulty: 3
+							step_max: 10
 							snapping: 5.000
 							falloff: 0.886
 							loss: 0.373
@@ -249,6 +474,103 @@
 					{
 						include: clean, organized
 						exclude: wet
+					}
+				}
+				{
+					name: "Bolted"
+					
+					type: undefined
+					flags: wip
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: machine_parts
+							amount: 0.776699
+							snapping: 1.000
+							falloff: 0.682
+							loss: 0.255
+							ratio: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: bolting
+							amount: 45.000
+							amount_min: 15.000
+							difficulty: 5
+							snapping: 5.000
+							falloff: 0.870
+							loss: 0.275
+							ratio: 0.773
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: assembling
+							amount: 15.000
+							amount_min: 10.000
+							difficulty: 4
+							snapping: 5.000
+							falloff: 0.900
+							loss: 0.275
+							ratio: 0.875
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: screwdriver, wrench
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, spanner, pliers, stapler, towel, tongs, pick, crowbar, knife
+					}
+				}
+				{
+					name: "Crimped"
+					
+					type: undefined
+					flags: wip
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: scrap.metal
+							amount: 0.159574
+							snapping: 0.500
+							loss: 0.122
+							ratio: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: crimping.metal
+							amount: 95.000
+							amount_min: 70.000
+							difficulty: 7
+							step_max: 10
+							snapping: 5.000
+							falloff: 0.870
+							loss: 0.224
+							ratio: 0.875
+							group: 0
+							flags: stepped, conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: pliers
+						include: wrench, pliers, tweezers
+					}
+					filter_infrastructure:
+					{
+						include: table, vise
 					}
 				}
 			]
