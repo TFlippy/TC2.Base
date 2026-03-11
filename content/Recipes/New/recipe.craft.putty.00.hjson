@@ -8,7 +8,7 @@
 		{
 			name: "Feedstock"
 			
-			type: additives
+			type: feedstock
 			flags: part
 			tags: structural, material, formula, ingredient
 			// Damage type used for discarding leftover resources.
@@ -30,7 +30,7 @@
 						{
 							type: resource
 							material: sludge
-							amount: 2.727273
+							amount: 1.436364
 							snapping: 0.100
 							loss: 0.729
 							group: 0
@@ -38,19 +38,19 @@
 						}
 						{
 							type: resource
-							material: scrap.charred
-							amount: 1.068376
+							material: himlkarzenus
+							amount: 0.55429
 							snapping: 0.100
-							loss: 0.878
+							loss: 0.580
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: work
-							work: mashing
+							work: crushing
 							amount: 250.000
 							amount_min: 180.000
-							difficulty: 5
+							difficulty: 8
 							step_max: 50
 							snapping: 15.000
 							falloff: 0.809
@@ -59,13 +59,29 @@
 						}
 					]
 					
+					products:
+					[
+						{
+							type: resource
+							material: mithril
+							amount: 0.064
+							amount_extra: 0.128
+							snapping: 0.100
+							group: 0
+							chance: 0.592
+							ratio: 0.071
+							flags: byproduct, secondary, stepped, scale_to_mass
+						}
+					]
+					
 					filter_tools:
 					{
-						include: shovel, towel
+						include: hammer, wrench, spanner, axe, chisel, crowbar
 					}
 					filter_infrastructure:
 					{
-						include: dishes, compactor, blender, press, form
+						require: surface
+						include: hard_surface, compactor, press
 					}
 				}
 				{
@@ -79,18 +95,18 @@
 						{
 							type: resource
 							material: ash
-							amount: 2.692308
+							amount: 1.461538
 							snapping: 0.100
-							loss: 1.000
+							loss: 0.992
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: resource
 							material: ferronickel.powder
-							amount: 1.893352
+							amount: 0.917547
 							snapping: 0.100
-							loss: 1.000
+							loss: 0.973
 							group: 0
 							flags: prerequisite
 						}
@@ -112,13 +128,25 @@
 					[
 						{
 							type: resource
-							material: slag
-							amount: 0.029
-							amount_extra: 0.103
+							material: gunpowder
+							amount: 0.057
+							amount_extra: 0.086
 							snapping: 0.100
 							group: 0
-							ratio: 0.161
-							flags: waste, scale_to_mass
+							chance: 0.663
+							ratio: 0.180
+							flags: residue, stepped, scale_to_mass
+						}
+						{
+							type: resource
+							material: graphite.powder
+							amount: 0.060
+							amount_extra: 0.138
+							snapping: 0.100
+							group: 0
+							chance: 0.655
+							ratio: 0.059
+							flags: residue, stepped, scale_to_mass
 						}
 					]
 					
@@ -142,18 +170,18 @@
 						{
 							type: resource
 							material: shite
-							amount: 4.694836
+							amount: 2.347418
 							snapping: 0.100
-							loss: 0.914
+							loss: 0.749
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: resource
 							material: brown_coal
-							amount: 2.083333
+							amount: 0.770833
 							snapping: 0.100
-							loss: 0.961
+							loss: 0.863
 							group: 0
 							flags: prerequisite
 						}
@@ -175,13 +203,36 @@
 					[
 						{
 							type: resource
-							material: sauce
-							amount: 0.080
-							amount_extra: 0.057
+							material: rubber
+							amount: 0.045
+							amount_extra: 0.092
 							snapping: 0.100
 							group: 0
-							ratio: 0.110
-							flags: residue, byproduct, scale_to_mass
+							chance: 0.486
+							ratio: 0.055
+							flags: residue, byproduct, stepped, scale_to_mass
+						}
+						{
+							type: resource
+							material: salmiac
+							amount: 0.029
+							amount_extra: 0.103
+							snapping: 0.100
+							group: 0
+							chance: 0.518
+							ratio: 0.078
+							flags: residue, stepped, scale_to_mass
+						}
+						{
+							type: resource
+							material: tobacco
+							amount: 0.027
+							amount_extra: 0.086
+							snapping: 0.100
+							group: 0
+							chance: 0.376
+							ratio: 0.055
+							flags: residue, stepped, scale_to_mass
 						}
 					]
 					
@@ -193,13 +244,13 @@
 			]
 		}
 		{
-			name: "Blending"
+			name: "Blend"
 			
 			type: formula
 			flags: part, important
 			tags: functional, material, raw, formula, ingredient
 			// Damage type used for discarding leftover resources.
-			discard_damage_type: shovel
+			discard_damage_type: mercury
 			
 			ratio: 0.000
 			mass_base: 0.000
@@ -217,8 +268,9 @@
 						{
 							type: resource
 							material: smrad
-							amount: 1.338688
+							amount: 1.298527
 							snapping: 0.100
+							falloff: 0.936
 							loss: 0.973
 							ratio: 1.000
 							group: 0
@@ -227,8 +279,9 @@
 						{
 							type: resource
 							material: putty
-							amount: 1.000
+							amount: 0.989551
 							snapping: 0.100
+							falloff: 1.026
 							loss: 0.961
 							ratio: 1.000
 							group: 0
@@ -239,7 +292,8 @@
 							material: mercury
 							amount: 0.683301
 							snapping: 0.100
-							loss: 0.918
+							falloff: 0.949
+							loss: 0.961
 							ratio: 1.000
 							group: 0
 							flags: filler, prerequisite
@@ -249,7 +303,7 @@
 							material: lubricant
 							amount: 1.223744
 							snapping: 0.100
-							falloff: 0.902
+							falloff: 0.918
 							loss: 0.980
 							ratio: 0.957
 							group: 0
@@ -264,6 +318,7 @@
 							step_max: 20
 							snapping: 5.000
 							falloff: 0.888
+							loss: 0.004
 							group: 0
 							flags: stepped, simultaneous, conditional
 						}
@@ -377,8 +432,19 @@
 			amount_extra: 0.048371
 			snapping: 0.100
 			group: 0
-			ratio: 0.973
+			ratio: 0.855
 			flags: primary, stepped, compact, scale_to_mass
+		}
+		{
+			type: resource
+			material: smirgrafit.powder
+			amount: 0.6294
+			amount_extra: 0.1854
+			snapping: 0.100
+			group: 0
+			chance: 0.675
+			ratio: 0.447
+			flags: residue, byproduct, stepped, scale_to_mass
 		}
 	]
 	
