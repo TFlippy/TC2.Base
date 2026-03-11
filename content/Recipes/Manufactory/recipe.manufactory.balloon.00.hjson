@@ -1,61 +1,285 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.71.0"
 	name: "Balloon"
 	desc:
 		'''
-		Basic hot-air balloon.
+		Basic hot-air balloon. Make sure you have plenty of space for it when you make it.
 		'''
 	tips: []
 	
-	requirements:
+	related_materials:
+	{
+	
+	}
+	
+	stages:
 	[
 		{
-			type: resource
-			material: cloth
-			amount: 70.000
-			group: 0
+			name: "Basket"
+			
+			type: part
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Wood"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: wood
+							amount: 60.000
+							loss: 0.157
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: steel.frames
+							amount: 10.000
+							loss: 0.106
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: carpentry
+							amount: 0.000
+							amount_min: 1800.000
+							difficulty: 10
+							ratio: 1.000
+							group: 1
+							flags: conditional
+						}
+						{
+							type: work
+							work: trashing.wood
+							amount: 0.000
+							amount_min: 500.000
+							difficulty: 6
+							group: 1
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: hammer, saw
+						include: pencil, ruler, cutters, hand_drill, screwdriver, spanner, pliers, chisel, crowbar, sandpaper
+					}
+					filter_infrastructure:
+					{
+						include: forge, surface, crane, structure, machine, building, workbench
+					}
+				}
+			]
 		}
 		{
-			type: resource
-			material: wood
-			amount: 60.000
-			group: 0
+			name: "Connectors"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Mechanical"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: machine_parts
+							amount: 35.000
+							loss: 0.118
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: assembling
+							amount: 0.000
+							amount_min: 650.000
+							difficulty: 8
+							ratio: 1.000
+							group: 1
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: screwdriver, spanner
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, pliers, chisel, crowbar, sandpaper
+					}
+					filter_infrastructure:
+					{
+						include: forge, surface, crane, structure, machine, building, workbench
+					}
+				}
+			]
 		}
 		{
-			type: resource
-			material: steel.ingot
-			amount: 10.000
-			group: 0
+			name: "Burner"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Standard"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.plate
+							amount: 5.000
+							loss: 0.420
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: steel.frames
+							amount: 4.000
+							loss: 0.361
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: bending
+							amount: 0.000
+							amount_min: 600.000
+							difficulty: 9
+							ratio: 0.161
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: hammering
+							amount: 0.000
+							amount_min: 900.000
+							difficulty: 7
+							ratio: 0.173
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: resource
+							material: machine_parts
+							amount: 10.000
+							group: 1
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: bolting
+							amount: 0.000
+							amount_min: 600.000
+							difficulty: 0
+							group: 1
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: hammer, screwdriver, spanner
+						include: pencil, ruler, cutters, saw, hand_drill, pliers, chisel, crowbar, sandpaper
+					}
+					filter_infrastructure:
+					{
+						include: forge, surface, crane, structure, machine, building, workbench
+					}
+				}
+			]
 		}
 		{
-			type: resource
-			material: machine_parts
-			amount: 17.000
-			group: 0
-		}
-		{
-			type: work
-			work: smithing
-			amount: 800.000
-			difficulty: 10
-			group: 0
-			flags: conditional
-		}
-		{
-			type: work
-			work: woodworking
-			amount: 700.000
-			difficulty: 15
-			group: 0
-			flags: conditional
-		}
-		{
-			type: work
-			work: assembling
-			amount: 1000.000
-			difficulty: 10
-			group: 0
-			flags: conditional
+			name: "Envelope"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Cloth"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: cloth
+							amount: 125.000
+							loss: 0.094
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: tailoring
+							amount: 0.000
+							amount_min: 2400.000
+							difficulty: 8
+							ratio: 1.000
+							group: 1
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: needle, scissors
+						include: pencil, ruler, cutters, pliers, tweezers, magnifying_glass, stapler, knife
+					}
+					filter_infrastructure:
+					{
+						include: forge, surface, crane, structure, machine, building, workbench
+					}
+				}
+			]
 		}
 	]
 	
@@ -66,12 +290,13 @@
 			prefab: balloon.00
 			amount: 1.000
 			group: 0
+			flags: primary
 		}
 	]
 	
 	type: workshop
-	flags: no_amount_multiplier, blueprintable, disabled, wip
-	tags: manual, crafting, simple, huge, vehicle, woodworking, assembling, engineering, carpentry, construction
+	flags: no_amount_multiplier, blueprintable, wip
+	tags: manual, crafting, advanced, large, weapon, gun, assembling, metalworking, engineering
 	hints: none
 	connotations: none
 	infrastructure: none
@@ -81,10 +306,12 @@
 	{
 		texture: balloon.00.icon
 	}
+	icon_scale: 0.700
 	
 	color_frame: "0xffaeb59a"
 	color_button: "0xff9dd80f"
-	rank: -550.000
+	rank: 2000.000
+	frame_size: [96.000, 128.000]
 	
 	min: 1
 	max: 1

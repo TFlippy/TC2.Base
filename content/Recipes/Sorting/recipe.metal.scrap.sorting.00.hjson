@@ -1,0 +1,693 @@
+﻿{
+	$version: "0.1.70.0"
+	name: "Metal scrap sorting"
+	desc:
+		'''
+		Sort metal scrap
+		'''
+	
+	related_materials:
+	{
+		scrap.ferrous: residue, product
+		scrap.steel: residue, product
+		niklajzner: residue, product
+		scrap.niklajzner: residue, product
+		scrap.copper: residue, product
+		scrap.smirgrafit: residue, product
+		scrap.metal: residue, processed
+		slag: waste
+		silver.powder: product
+		gold.powder: product
+		himlkarzenus: product
+		copper.gravel: product, byproduct
+		ferrous.gravel: product, byproduct
+		steel.frames: product, byproduct
+	}
+	
+	stages:
+	[
+		{
+			name: "Focus"
+			
+			type: undefined
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			ratio: 0.000
+			mass_base: 0.000
+			
+			options:
+			[
+				{
+					name: "Ferrous"
+					desc: " into mostly ferrous materials."
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: scrap.metal
+							amount: 10.6383
+							snapping: 1.000
+							falloff: 0.985
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: scavenging
+							amount: 35.000
+							amount_min: 40.000
+							difficulty: 7
+							snapping: 5.000
+							falloff: 0.990
+							group: 1
+							flags: conditional
+						}
+						{
+							type: work
+							work: dismantling
+							amount: 30.000
+							amount_min: 60.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.985
+							group: 1
+							flags: conditional
+						}
+						{
+							type: work
+							work: trashing.metal
+							amount: 45.000
+							amount_min: 70.000
+							difficulty: 8
+							snapping: 5.000
+							group: 2
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: scrap.ferrous
+							amount: 3.640804
+							amount_extra: 1.04023
+							group: 0
+							flags: primary, compact
+						}
+						{
+							type: resource
+							material: ferrous.gravel
+							amount: 0.50942
+							amount_extra: 0.25471
+							group: 0
+							flags: byproduct
+						}
+						{
+							type: resource
+							material: scrap.metal
+							amount: 0.854159
+							amount_extra: 0.320309
+							group: 0
+							flags: residue
+						}
+						{
+							type: resource
+							material: scrap.steel
+							amount: 0.062194
+							amount_extra: 0.031097
+							group: 0
+							flags: residue
+						}
+						{
+							type: resource
+							material: scrap.copper
+							amount: 0.041409
+							amount_extra: 0.015528
+							group: 0
+							flags: residue
+						}
+						{
+							type: resource
+							material: scrap.niklajzner
+							amount: 0.06074
+							amount_extra: 0.022775
+							group: 0
+							flags: residue
+						}
+						{
+							type: resource
+							material: slag
+							amount: 0.500
+							amount_extra: 0.150
+							group: 0
+							flags: waste
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+					
+					filter_tools:
+					{
+						include: hammer, cutters, saw, pliers, bucket, crowbar, sandpaper
+					}
+					filter_infrastructure:
+					{
+						require: table
+						include: surface, structure, building
+					}
+				}
+				{
+					name: "Steel"
+					desc: " into mostly steel materials."
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: scrap.metal
+							amount: 10.6383
+							snapping: 1.000
+							falloff: 0.985
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: scavenging
+							amount: 32.000
+							amount_min: 50.000
+							difficulty: 8
+							snapping: 5.000
+							falloff: 0.990
+							group: 1
+							flags: conditional
+						}
+						{
+							type: work
+							work: cleaning.metal
+							amount: 35.000
+							amount_min: 80.000
+							difficulty: 7
+							snapping: 5.000
+							falloff: 0.985
+							group: 1
+							flags: conditional
+						}
+						{
+							type: work
+							work: trashing.metal
+							amount: 40.000
+							amount_min: 100.000
+							difficulty: 8
+							snapping: 5.000
+							group: 2
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: scrap.steel
+							amount: 2.437224
+							amount_extra: 0.69635
+							group: 0
+							flags: primary, compact
+						}
+						{
+							type: resource
+							material: steel.frames
+							amount: 0.205413
+							amount_extra: 0.102707
+							group: 0
+							flags: byproduct
+						}
+						{
+							type: resource
+							material: scrap.metal
+							amount: 0.815474
+							amount_extra: 0.305802
+							group: 0
+							flags: residue
+						}
+						{
+							type: resource
+							material: scrap.ferrous
+							amount: 0.248084
+							amount_extra: 0.070881
+							group: 0
+							flags: residue
+						}
+						{
+							type: resource
+							material: scrap.copper
+							amount: 0.038042
+							amount_extra: 0.016996
+							group: 0
+							flags: residue
+						}
+						{
+							type: resource
+							material: scrap.niklajzner
+							amount: 0.007923
+							amount_extra: 0.002971
+							group: 0
+							flags: residue
+						}
+						{
+							type: resource
+							material: slag
+							amount: 0.488705
+							amount_extra: 0.146611
+							group: 0
+							flags: waste
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+					
+					filter_tools:
+					{
+						include: hammer, cutters, saw, pliers, bucket, crowbar, sandpaper
+					}
+					filter_infrastructure:
+					{
+						require: table
+						include: surface, structure, building
+					}
+				}
+				{
+					name: "Copper"
+					desc: " into mostly copper materials."
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: scrap.metal
+							amount: 10.6383
+							snapping: 1.000
+							falloff: 0.985
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: scavenging
+							amount: 30.000
+							amount_min: 60.000
+							difficulty: 5
+							snapping: 5.000
+							falloff: 0.990
+							group: 1
+							flags: conditional
+						}
+						{
+							type: work
+							work: scraping
+							amount: 35.000
+							amount_min: 75.000
+							difficulty: 7
+							snapping: 5.000
+							falloff: 0.985
+							group: 1
+							flags: conditional
+						}
+						{
+							type: work
+							work: trashing.metal
+							amount: 42.000
+							amount_min: 68.000
+							difficulty: 7
+							snapping: 5.000
+							group: 2
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: scrap.copper
+							amount: 1.865717
+							amount_extra: 0.677099
+							group: 0
+							flags: primary, compact
+						}
+						{
+							type: resource
+							material: copper.gravel
+							amount: 0.613443
+							amount_extra: 0.230035
+							group: 0
+							flags: byproduct
+						}
+						{
+							type: resource
+							material: scrap.metal
+							amount: 1.055319
+							amount_extra: 0.395745
+							group: 0
+							flags: residue
+						}
+						{
+							type: resource
+							material: scrap.ferrous
+							amount: 0.118793
+							group: 0
+							flags: residue
+						}
+						{
+							type: resource
+							material: copper
+							amount: 0.027069
+							amount_extra: 0.013535
+							group: 0
+							flags: byproduct
+						}
+						{
+							type: resource
+							material: scrap.niklajzner
+							amount: 0.007922
+							amount_extra: 0.002971
+							group: 0
+							flags: residue
+						}
+						{
+							type: resource
+							material: slag
+							amount: 0.403987
+							amount_extra: 0.121196
+							group: 0
+							flags: waste
+						}
+					]
+					
+					filter_tools:
+					{
+						include: hammer, cutters, saw, pliers, bucket, crowbar, sandpaper
+					}
+					filter_infrastructure:
+					{
+						require: table
+						include: surface, structure, building
+					}
+				}
+				{
+					name: "Niklajzner"
+					desc: " into mostly niklajzner materials."
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: scrap.metal
+							amount: 10.6383
+							snapping: 1.000
+							falloff: 0.985
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: scavenging
+							amount: 45.000
+							amount_min: 20.000
+							difficulty: 8
+							snapping: 5.000
+							falloff: 0.990
+							group: 1
+							flags: conditional
+						}
+						{
+							type: work
+							work: sanding
+							amount: 25.000
+							amount_min: 80.000
+							difficulty: 8
+							snapping: 5.000
+							falloff: 0.974
+							group: 1
+							flags: conditional
+						}
+						{
+							type: work
+							work: trashing.metal
+							amount: 50.000
+							amount_min: 90.000
+							difficulty: 9
+							snapping: 5.000
+							group: 2
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: scrap.niklajzner
+							amount: 2.002932
+							amount_extra: 0.75111
+							group: 0
+							flags: primary, compact
+						}
+						{
+							type: resource
+							material: niklajzner
+							amount: 0.461653
+							amount_extra: 0.139471
+							group: 0
+							flags: byproduct
+						}
+						{
+							type: resource
+							material: scrap.metal
+							amount: 1.055319
+							amount_extra: 0.395745
+							group: 0
+							flags: residue
+						}
+						{
+							type: resource
+							material: scrap.ferrous
+							amount: 0.185375
+							amount_extra: 0.056004
+							group: 0
+							flags: residue
+						}
+						{
+							type: resource
+							material: scrap.copper
+							amount: 0.095641
+							amount_extra: 0.035864
+							group: 0
+							flags: residue
+						}
+						{
+							type: resource
+							material: scrap.steel
+							amount: 0.026069
+							amount_extra: 0.013035
+							group: 0
+							flags: residue
+						}
+						{
+							type: resource
+							material: slag
+							amount: 0.403987
+							amount_extra: 0.121196
+							group: 0
+							flags: waste
+						}
+					]
+					
+					filter_tools:
+					{
+						require: sandpaper
+						include: hammer, cutters, saw, pliers, bucket, crowbar
+					}
+					filter_infrastructure:
+					{
+						require: table
+						include: surface, structure, building
+					}
+				}
+				{
+					name: "Precious"
+					desc: " into some  precious materials."
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: scrap.metal
+							amount: 10.6383
+							snapping: 1.000
+							falloff: 0.985
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: scavenging
+							amount: 35.000
+							amount_min: 100.000
+							difficulty: 12
+							snapping: 5.000
+							falloff: 0.990
+							group: 1
+							flags: conditional
+						}
+						{
+							type: work
+							work: sieving
+							amount: 30.000
+							amount_min: 110.000
+							difficulty: 10
+							snapping: 5.000
+							falloff: 0.974
+							group: 1
+							flags: conditional
+						}
+						{
+							type: work
+							work: trashing.metal
+							amount: 40.000
+							amount_min: 120.000
+							difficulty: 9
+							snapping: 5.000
+							group: 2
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: scrap.smirgrafit
+							amount: 0.426201
+							amount_extra: 0.159819
+							group: 0
+							chance: 0.945
+							flags: byproduct
+						}
+						{
+							type: resource
+							material: himlkarzenus
+							amount: 0.325329
+							amount_extra: 0.098286
+							group: 0
+							chance: 0.749
+							flags: byproduct
+						}
+						{
+							type: resource
+							material: silver.powder
+							amount: 0.054971
+							amount_extra: 0.274854
+							group: 0
+							chance: 0.549
+							flags: byproduct
+						}
+						{
+							type: resource
+							material: gold.powder
+							amount: 0.011062
+							amount_extra: 0.055309
+							group: 0
+							chance: 0.373
+							flags: byproduct
+						}
+						{
+							type: resource
+							material: scrap.metal
+							amount: 1.211114
+							amount_extra: 0.525269
+							group: 0
+							flags: residue
+						}
+						{
+							type: resource
+							material: slag
+							amount: 0.793686
+							amount_extra: 0.238106
+							group: 0
+							flags: waste
+						}
+					]
+					
+					filter_tools:
+					{
+						include: hammer, cutters, saw, pliers, bucket, crowbar, sandpaper
+					}
+					filter_infrastructure:
+					{
+						require: table
+						include: surface, structure, building
+					}
+				}
+			]
+		}
+	]
+	
+	type: workshop
+	flags: none
+	tags: manual, crafting, dumb, crude, complex, salvaging, gathering, separation, messy
+	hints: none
+	connotations: none
+	infrastructure: table
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		texture: ui_icons_crafting.mini
+		size: [16, 16]
+	}
+	icon_offset: [-6.000, -16.000]
+	
+	icon_extra:
+	{
+		texture: resource.scrap.metal
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	icon_extra_offset: [-5.000, -8.000]
+	
+	color_frame: "0xff9dd80f"
+	color_button: "0xff9dd80f"
+	rank: -998.000
+	
+	min: 1
+	max: 50
+	step: 1
+	
+	version: 0
+}
