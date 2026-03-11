@@ -38,9 +38,9 @@
 						{
 							type: resource
 							material: steel.ingot
-							amount: 7.000
+							amount: 8.000
 							snapping: 1.000
-							loss: 0.380
+							loss: 0.208
 							group: 0
 							flags: prerequisite
 						}
@@ -49,7 +49,7 @@
 							material: steel.frames
 							amount: 14.000
 							snapping: 0.500
-							loss: 0.090
+							loss: 0.094
 							group: 0
 							flags: prerequisite
 						}
@@ -57,11 +57,13 @@
 							type: work
 							work: hammering
 							amount: 4200.000
-							amount_min: 1800.000
-							difficulty: 14
+							amount_min: 1100.000
+							difficulty: 11
+							step_max: 25
 							snapping: 5.000
-							falloff: 0.960
-							ratio: 0.580
+							falloff: 0.941
+							loss: 0.004
+							ratio: 0.247
 							group: 0
 							flags: stepped, simultaneous, conditional
 						}
@@ -73,7 +75,7 @@
 							difficulty: 13
 							snapping: 5.000
 							falloff: 0.935
-							ratio: 0.278
+							ratio: 0.337
 							group: 0
 							flags: simultaneous, conditional
 						}
@@ -82,17 +84,16 @@
 							material: machine_parts
 							amount: 28.000
 							snapping: 0.100
-							loss: 0.075
+							loss: 0.180
 							group: 1
 							flags: prerequisite
 						}
 						{
 							type: resource
-							material: steel.rod
-							amount: 2.500
+							material: steel.plate
+							amount: 6.23302
 							snapping: 0.500
-							falloff: 0.937
-							loss: 0.200
+							loss: 0.224
 							group: 1
 							flags: filler, prerequisite
 						}
@@ -101,29 +102,30 @@
 							work: bolting
 							amount: 3000.000
 							amount_min: 800.000
-							difficulty: 10
+							difficulty: 11
 							snapping: 5.000
 							falloff: 0.910
-							ratio: 0.133
+							ratio: 0.165
 							group: 1
 							flags: conditional
 						}
 						{
 							type: resource
 							material: phlogiston
-							amount: 18.500
+							amount: 6.993007
 							snapping: 0.100
-							falloff: 0.875
-							loss: 0.231
+							falloff: 0.844
+							loss: 1.000
 							group: 2
 							flags: no_residue, prerequisite
 						}
 						{
 							type: resource
-							material: rosin
-							amount: 4.850
-							falloff: 0.619
-							loss: 0.110
+							material: putty
+							amount: 3.949843
+							snapping: 0.500
+							falloff: 0.904
+							loss: 1.000
 							group: 2
 							flags: no_residue, prerequisite
 						}
@@ -131,11 +133,12 @@
 							type: work
 							work: welding.phlogiston
 							amount: 850.000
-							amount_min: 650.000
-							difficulty: 6
+							amount_min: 450.000
+							difficulty: 10
+							step_max: 20
 							snapping: 5.000
 							falloff: 0.925
-							ratio: 0.651
+							ratio: 0.251
 							group: 2
 							flags: conditional
 						}
@@ -143,12 +146,13 @@
 					
 					filter_tools:
 					{
-						require: screwdriver, wrench
-						include: pencil, ruler, hammer, cutters, hand_drill, screwdriver, wrench, towel, tongs, crowbar
+						require: hammer, hand_drill, screwdriver
+						include: hand_drill, screwdriver, wrench, spanner, pliers, chisel, towel, pick, knife
 					}
-					filter_environment:
+					filter_infrastructure:
 					{
-						include: workshop, stationary, illuminated, dry
+						require: hard_surface
+						include: vise, rack, workbench
 					}
 				}
 			]
@@ -162,7 +166,7 @@
 			
 			type: part
 			flags: part, important, wip
-			tags: mechanism, metal, structural, functional, large, machinery, rounded
+			tags: shell, mechanism, metal, container, structural, functional, large, machinery, rounded
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
 			
@@ -182,9 +186,9 @@
 						{
 							type: resource
 							material: steel.ingot
-							amount: 7.000
+							amount: 10.000
 							snapping: 1.000
-							loss: 0.420
+							loss: 0.337
 							group: 0
 							flags: prerequisite
 						}
@@ -196,19 +200,19 @@
 							difficulty: 14
 							snapping: 5.000
 							falloff: 0.930
-							ratio: 0.620
+							ratio: 0.592
 							group: 0
 							flags: simultaneous, conditional
 						}
 						{
 							type: work
-							work: hammering
+							work: filing
 							amount: 1500.000
 							amount_min: 600.000
 							difficulty: 11
 							snapping: 5.000
 							falloff: 0.945
-							ratio: 0.380
+							ratio: 0.275
 							group: 0
 							flags: simultaneous, conditional
 						}
@@ -217,7 +221,7 @@
 							material: machine_parts
 							amount: 18.000
 							snapping: 0.100
-							loss: 0.090
+							loss: 0.212
 							group: 1
 							flags: prerequisite
 						}
@@ -227,7 +231,7 @@
 							amount: 6.500
 							snapping: 0.100
 							group: 1
-							flags: prerequisite
+							flags: no_residue, prerequisite
 						}
 						{
 							type: work
@@ -237,18 +241,18 @@
 							difficulty: 10
 							snapping: 5.000
 							falloff: 0.910
-							ratio: 0.176
+							ratio: 0.514
 							group: 1
 							flags: simultaneous, conditional
 						}
 						{
 							type: work
-							work: calibration
+							work: cleaning.metal
 							amount: 600.000
-							amount_min: 450.000
-							difficulty: 13
+							amount_min: 250.000
+							difficulty: 4
 							snapping: 5.000
-							falloff: 0.955
+							falloff: 0.901
 							group: 1
 							flags: simultaneous, conditional
 						}
@@ -256,13 +260,16 @@
 					
 					filter_tools:
 					{
-						require: hand_drill, file
-						include: ruler, hand_drill, screwdriver, pliers, file, chisel, sandpaper
+						require: hand_drill, screwdriver, wrench, file, sandpaper
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, stapler, chisel, towel, tongs, pick, crowbar, knife, sandpaper, utensils
 					}
 					filter_infrastructure:
 					{
-						require: vise
-						include: anvil, vise, hard_surface, workbench
+						include: table, vise, rack, surface, workbench
+					}
+					filter_environment:
+					{
+						include: workshop, stationary, illuminated, dry
 					}
 				}
 			]
@@ -298,8 +305,7 @@
 							material: steel.plate
 							amount: 56.000
 							snapping: 1.000
-							falloff: 0.981
-							loss: 0.075
+							loss: 0.071
 							group: 0
 							flags: prerequisite
 						}
@@ -308,43 +314,65 @@
 							material: steel.frames
 							amount: 6.000
 							snapping: 0.500
-							falloff: 0.976
-							loss: 0.102
+							loss: 0.125
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: resource
+							material: phlogiston
+							amount: 6.433566
+							snapping: 0.100
+							falloff: 0.862
+							group: 0
+							flags: no_residue, prerequisite
+						}
+						{
+							type: resource
 							material: putty
-							amount: 14.500
+							amount: 4.252873
 							snapping: 0.500
-							falloff: 0.927
-							loss: 0.075
-							group: 1
+							falloff: 0.973
+							group: 0
 							flags: no_residue, filler, prerequisite
 						}
 						{
 							type: work
-							work: welding
-							amount: 1200.000
-							amount_min: 350.000
+							work: metal.forming
+							amount: 2200.000
+							amount_min: 400.000
 							difficulty: 10
+							step_max: 40
 							snapping: 5.000
-							falloff: 0.917
-							ratio: 0.859
-							group: 1
-							flags: stepped, conditional
+							falloff: 0.943
+							ratio: 0.118
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: welding.phlogiston
+							amount: 1100.000
+							amount_min: 400.000
+							difficulty: 7
+							step_max: 20
+							snapping: 5.000
+							falloff: 0.922
+							ratio: 0.098
+							group: 0
+							flags: stepped, simultaneous, conditional
 						}
 					]
 					
 					filter_tools:
 					{
 						require: hammer
-						include: hammer, pliers, chisel, towel, crowbar
+						include: hammer, cutters, pliers, file, chisel
 					}
 					filter_infrastructure:
 					{
-						include: anvil, vise, hard_surface, workbench
+						require: surface, hard_surface
+						include: anvil, table, chair, vise, rack, dies, workbench
 					}
 				}
 			]
@@ -363,8 +391,8 @@
 	]
 	
 	type: workshop
-	flags: blueprintable, debug, packable, item, production, wip
-	tags: manual, crafting, advanced, large, weapon, gun, assembling, metalworking, engineering, military
+	flags: blueprintable, debug, item, production, manufacturing, wip
+	tags: manual, crafting, complex, large, weapon, gun, machinery, assembling, metalworking, engineering, military, construction
 	hints: none
 	connotations: none
 	infrastructure: none
