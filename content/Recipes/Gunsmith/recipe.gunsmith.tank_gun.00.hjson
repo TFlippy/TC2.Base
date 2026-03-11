@@ -62,8 +62,7 @@
 							step_max: 25
 							snapping: 5.000
 							falloff: 0.941
-							loss: 0.004
-							ratio: 0.247
+							ratio: 0.251
 							group: 0
 							flags: stepped, simultaneous, conditional
 						}
@@ -212,7 +211,7 @@
 							difficulty: 11
 							snapping: 5.000
 							falloff: 0.945
-							ratio: 0.275
+							ratio: 0.161
 							group: 0
 							flags: simultaneous, conditional
 						}
@@ -241,7 +240,7 @@
 							difficulty: 10
 							snapping: 5.000
 							falloff: 0.910
-							ratio: 0.514
+							ratio: 0.486
 							group: 1
 							flags: simultaneous, conditional
 						}
@@ -391,7 +390,7 @@
 	]
 	
 	type: workshop
-	flags: blueprintable, debug, item, production, manufacturing, wip
+	flags: blueprintable, item, production, manufacturing, wip
 	tags: manual, crafting, complex, large, weapon, gun, machinery, assembling, metalworking, engineering, military, construction
 	hints: none
 	connotations: none

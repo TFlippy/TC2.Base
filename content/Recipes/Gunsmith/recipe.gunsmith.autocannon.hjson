@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.1"
+	$version: "0.1.71.1"
 	name: "Autocannon"
 	tips: []
 	
@@ -13,8 +13,8 @@
 				'''
 			
 			type: part
-			flags: part, important, wip, auto_generated
-			tags: frame, chassis, shell, mechanism, metal, structural, functional, large, machinery, material
+			flags: part, important
+			tags: frame, chassis, shell, mechanism, metal, assembly, structural, functional, large, machinery, material
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
 			
@@ -27,7 +27,7 @@
 					name: "Standard"
 					
 					type: undefined
-					flags: auto_generated
+					flags: none
 					
 					requirements:
 					[
@@ -54,22 +54,22 @@
 							work: drilling
 							amount: 7500.000
 							amount_min: 900.000
-							difficulty: 15
+							difficulty: 12
 							snapping: 5.000
 							falloff: 0.945
-							ratio: 0.318
+							ratio: 0.337
 							group: 0
 							flags: simultaneous, conditional
 						}
 						{
 							type: work
-							work: hammering
-							amount: 2800.000
-							amount_min: 1450.000
-							difficulty: 16
+							work: metal.forming
+							amount: 1100.000
+							amount_min: 450.000
+							difficulty: 14
 							snapping: 5.000
 							falloff: 0.969
-							ratio: 0.655
+							ratio: 0.608
 							group: 0
 							flags: stepped, simultaneous, conditional
 						}
@@ -107,7 +107,7 @@
 						{
 							type: resource
 							material: phlogiston
-							amount: 15.860
+							amount: 4.1117
 							snapping: 0.100
 							falloff: 0.875
 							loss: 0.255
@@ -116,8 +116,9 @@
 						}
 						{
 							type: resource
-							material: rosin
-							amount: 4.080576
+							material: putty
+							amount: 3.8249
+							snapping: 0.100
 							falloff: 0.619
 							loss: 0.122
 							group: 2
@@ -128,7 +129,7 @@
 							work: welding.phlogiston
 							amount: 750.000
 							amount_min: 600.000
-							difficulty: 7
+							difficulty: 15
 							snapping: 5.000
 							falloff: 0.928
 							ratio: 0.624
@@ -139,12 +140,13 @@
 					
 					filter_tools:
 					{
-						require: screwdriver, wrench, file
-						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, stapler, towel, tongs, pick, crowbar, knife
+						require: hammer, hand_drill, screwdriver
+						include: hammer, cutters, hand_drill, screwdriver, wrench, spanner, pliers, file, chisel, towel, pick, knife
 					}
-					filter_environment:
+					filter_infrastructure:
 					{
-						include: workshop, stationary, illuminated, dry
+						require: surface, hard_surface
+						include: anvil, table, chair, vise, rack, dies, workbench
 					}
 				}
 			]
@@ -157,8 +159,8 @@
 				'''
 			
 			type: component
-			flags: part, important, wip, incomplete, auto_generated
-			tags: mechanism, metal, assembly, functional, machinery
+			flags: part, important
+			tags: frame, chassis, mechanism, metal, container, assembly, structural, functional, machinery
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
 			
@@ -259,8 +261,17 @@
 					
 					filter_tools:
 					{
-						require: file, knife
-						include: hand_drill, screwdriver, pliers, file, chisel, knife, sandpaper
+						require: ruler, hammer, cutters, screwdriver, wrench
+						include: pencil, paper, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, pliers, tweezers, magnifying_glass, syringe, stapler, file, chisel, towel, tongs, pick, crowbar, knife, scissors
+					}
+					filter_infrastructure:
+					{
+						include: anvil, table, vise, surface, hard_surface, workbench
+					}
+					filter_environment:
+					{
+						include: workshop, office, stationary, clean, fancy, cozy, safe, illuminated, quiet, dry
+						exclude: scary
 					}
 				}
 			]
@@ -273,7 +284,7 @@
 				'''
 			
 			type: part
-			flags: part, important, wip, auto_generated
+			flags: part, important
 			tags: frame, barrel, chassis, shell, metal, structural, large, rounded
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
@@ -287,7 +298,7 @@
 					name: "Standard"
 					
 					type: undefined
-					flags: auto_generated
+					flags: none
 					
 					requirements:
 					[
@@ -296,7 +307,6 @@
 							material: steel.plate
 							amount: 32.78499
 							snapping: 1.000
-							falloff: 0.981
 							loss: 0.075
 							group: 0
 							flags: prerequisite
@@ -306,43 +316,65 @@
 							material: steel.frames
 							amount: 3.6302
 							snapping: 0.100
-							falloff: 0.976
 							loss: 0.110
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: resource
+							material: phlogiston
+							amount: 4.632867
+							snapping: 0.100
+							falloff: 0.949
+							group: 0
+							flags: no_residue, prerequisite
+						}
+						{
+							type: resource
 							material: putty
-							amount: 8.683176
+							amount: 2.821316
 							snapping: 0.500
-							falloff: 0.927
-							loss: 0.075
-							group: 1
+							falloff: 0.973
+							group: 0
 							flags: no_residue, filler, prerequisite
 						}
 						{
 							type: work
-							work: welding
-							amount: 850.000
-							amount_min: 250.000
+							work: metal.forming
+							amount: 1400.000
+							amount_min: 400.000
 							difficulty: 9
+							step_max: 40
 							snapping: 5.000
-							falloff: 0.917
-							ratio: 0.859
-							group: 1
-							flags: stepped, conditional
+							falloff: 0.913
+							ratio: 0.192
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: welding.phlogiston
+							amount: 450.000
+							amount_min: 250.000
+							difficulty: 11
+							step_max: 20
+							snapping: 5.000
+							falloff: 0.922
+							ratio: 0.094
+							group: 0
+							flags: stepped, simultaneous, conditional
 						}
 					]
 					
 					filter_tools:
 					{
 						require: hammer
-						include: hammer, pliers, chisel, towel, crowbar
+						include: hammer, cutters, pliers, file, chisel
 					}
 					filter_infrastructure:
 					{
-						include: anvil, vise, hard_surface, workbench
+						require: surface, hard_surface
+						include: anvil, table, chair, vise, rack, dies, workbench
 					}
 				}
 			]
@@ -361,11 +393,11 @@
 	]
 	
 	type: workshop
-	flags: blueprintable, packable, item, production, wip
-	tags: manual, crafting, advanced, large, weapon, gun, assembling, metalworking, engineering, military
-	hints: none
-	connotations: none
-	infrastructure: none
+	flags: blueprintable, item, production, manufacturing, wip
+	tags: manual, crafting, advanced, large, weapon, gun, machinery, assembling, metalworking, engineering, military, construction
+	hints: weapon, dangerous, heavy, gun, long_range, advanced, powerful, machine, destructive, expensive, military, tech, ranged, large, long
+	connotations: weapon, vehicle, heavy, gun, interesting, advanced, powerful, machine, authority, destructive, loud, military, tech, good, scary
+	infrastructure: vise, pulley, surface, hard_surface, workbench
 	infrastructure_exclude: personal
 	
 	icon:
@@ -380,7 +412,7 @@
 	frame_size: [144.000, 48.000]
 	
 	min: 1
-	max: 4
+	max: 8
 	step: 1
 	
 	version: 1

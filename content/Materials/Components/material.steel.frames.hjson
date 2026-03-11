@@ -339,5 +339,14 @@
 			
 			yield: [0.345, 0.426]
 		}
+		metal.forming:
+		{
+			h_material: scrap.steel
+			
+			flags: none
+			flags_product: residue
+			
+			yield: [0.859649, 0.140351]
+		}
 	}
 }
