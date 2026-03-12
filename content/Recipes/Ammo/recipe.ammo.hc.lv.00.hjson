@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.67.2"
+	$version: "0.1.71.1"
 	name: "HC-13.2mm"
 	desc:
 		'''
@@ -17,9 +17,6 @@
 			tags: chassis, shell, thin, metal, container, structural, flat, rounded, material
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: shovel
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -342,9 +339,6 @@
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
 			
-			ratio: 0.000
-			mass_base: 0.000
-			
 			options:
 			[
 				{
@@ -475,9 +469,6 @@
 			tags: container, assembly, functional, material, dangerous, formula
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
