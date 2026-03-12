@@ -14,9 +14,6 @@
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
 			
-			ratio: 0.000
-			mass_base: 0.000
-			
 			options:
 			[
 				{
@@ -252,9 +249,6 @@
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: mercury
 			
-			ratio: 0.000
-			mass_base: 0.000
-			
 			options:
 			[
 				{
@@ -357,9 +351,6 @@
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: none
 			
-			ratio: 0.000
-			mass_base: 0.000
-			
 			options:
 			[
 				{
@@ -403,7 +394,7 @@
 							amount_extra: 0.060
 							snapping: 0.010
 							group: 0
-							chance: 0.376
+							chance: 0.322
 							ratio: 0.043
 							flags: byproduct, secondary, stepped, scale_to_mass
 						}
@@ -449,7 +440,7 @@
 	]
 	
 	type: workshop
-	flags: debug, production, wip
+	flags: production, wip
 	tags: crafting, metallurgy, engineering, alchemistry, blending, processing, messy, dangerous
 	hints: none
 	connotations: none

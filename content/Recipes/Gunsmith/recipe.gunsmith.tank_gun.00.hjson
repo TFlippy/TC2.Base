@@ -22,7 +22,6 @@
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
 			
-			ratio: 0.000
 			mass_base: 140.000
 			
 			options:
@@ -169,7 +168,6 @@
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
 			
-			ratio: 0.000
 			mass_base: 85.000
 			
 			options:
@@ -286,7 +284,6 @@
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
 			
-			ratio: 0.000
 			mass_base: 155.000
 			
 			options:
@@ -394,7 +391,7 @@
 	tags: manual, crafting, complex, large, weapon, gun, machinery, assembling, metalworking, engineering, military, construction
 	hints: none
 	connotations: none
-	infrastructure: none
+	infrastructure: vise, pulley, surface, hard_surface, workbench
 	infrastructure_exclude: personal
 	
 	icon:

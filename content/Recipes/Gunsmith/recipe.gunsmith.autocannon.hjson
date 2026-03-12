@@ -18,7 +18,6 @@
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
 			
-			ratio: 0.000
 			mass_base: 115.000
 			
 			options:
@@ -164,7 +163,6 @@
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
 			
-			ratio: 0.000
 			mass_base: 32.000
 			
 			options:
@@ -289,7 +287,6 @@
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
 			
-			ratio: 0.000
 			mass_base: 90.000
 			
 			options:

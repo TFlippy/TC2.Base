@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.1"
+	$version: "0.1.71.1"
 	name: "Steel Frames"
 	desc:
 		'''
@@ -112,7 +112,7 @@
 							group: 0
 							chance: 0.451
 							ratio: 0.412
-							flags: residue, byproduct, scale_to_mass
+							flags: residue, byproduct, stepped, scale_to_mass
 						}
 						{
 							type: resource
@@ -123,7 +123,7 @@
 							group: 0
 							chance: 0.306
 							ratio: 0.506
-							flags: residue, byproduct, scale_to_mass
+							flags: residue, byproduct, stepped, scale_to_mass
 						}
 						{
 							type: resource
