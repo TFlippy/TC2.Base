@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.0"
+	$version: "0.1.72.0"
 	name: "Glued SG-20.4mm"
 	desc:
 		'''
@@ -27,9 +27,6 @@
 			tags: thin, metal, structural, small, flat, rounded, material
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: shovel
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -158,12 +155,12 @@
 					filter_tools:
 					{
 						require: hammer
-						include: paper, ruler, cutters, pliers, tweezers, magnifying_glass, paintbrush, stapler, file, chisel, knife
+						include: paper, ruler, hammer, cutters, pliers, tweezers, magnifying_glass, paintbrush, stapler, file, chisel, knife
 					}
 					filter_infrastructure:
 					{
 						require: surface, hard_surface
-						include: anvil, table, chair, vise, structure, workbench
+						include: anvil, table, chair, vise, rack, dies, structure, workbench
 					}
 					filter_environment:
 					{
@@ -181,9 +178,6 @@
 			tags: container, assembly, functional, material, dangerous, formula
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
