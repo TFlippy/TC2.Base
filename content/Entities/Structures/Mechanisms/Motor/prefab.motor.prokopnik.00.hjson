@@ -66,8 +66,8 @@ transform:
 interactable:
 {
 	flags: none
-	window_size: [200.000, 192.000]
-	window_size_misc: [48.000, 0.000]
+	window_size: [200, 192]
+	window_size_misc: [96, 0]
 }
 
 control:

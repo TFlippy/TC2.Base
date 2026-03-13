@@ -1,7 +1,17 @@
 ﻿{
 	$version: "0.1.71.1"
+	$note:
+		'''
+		- Strange crystals with a green glow
+		- Partially organic, partially mineral
+		- Sought after by alchemists for its transmutation properties
+		- Possibly related to Life Essence and Himlkarzenus
+		- Can be smoked to get instant terminal cancer
+		'''
 	name: "Mithril"
 	name_short: "Mithril"
+	name_imperial: "Mytril"
+	name_advanced: "Mithrios"
 	name_dumb: "Uranium"
 	description:
 		'''
@@ -19,25 +29,27 @@
 	
 	// Inventory material type.
 	type: crystal
-	flags: hard, granular, organic, raw, volatile, solid
+	flags: hard, granular, organic, mineral, small, fragile, raw, volatile, solid
 	display_flags: none
 	spawn_flags:
 	{
 		add: no_discard
 	}
-	hints: materials, dangerous, illegal, advanced, destructive, expensive, arcane, contraband, unstable
+	hints: materials, dangerous, rare, illegal, advanced, powerful, destructive, expensive, fancy, industrial, arcane, contraband, unstable
 	
 	// Ratio of the material volume to the total volume it occupies when stacked. A value of 1.0 means no empty space, while a value closer to 0.0 means a lot of empty space.
 	packing_fraction: 0.000
+	// General purity modifier.
+	purity: 0.989
 	// Mass of 1 unit in kg.
 	mass_per_unit: 1.144
 	
 	// Maximum quantity (units) per stack.
 	quantity_max: 250.000
 	// Minimum spawnable quantity.
-	spawn_quantity_threshold: 1.000
+	spawn_quantity_threshold: 0.100
 	// Preferred quantity snapping for recipes.
-	snapping: 1.000
+	snapping: 0.100
 	// Preferred quantity snapping for inventories.
 	snapping_pickup: 1.000
 	
@@ -53,9 +65,24 @@
 	
 	commodity:
 	{
-		flags: none
-		categories: none
+		flags: illegal
+		categories: arcane, jewelry, illegal, dangerous
 		
-		market_price: 650.000
+		market_price: 874.000
+		market_price_min: 820.000
+		market_price_max: 2304.200
+		market_price_per_kg_auto: 763.986
+		
+		industries_sell: arcane, research, exploration, criminal, experimental, jewelry
+		
+		buildings_buy: laboratory, university, black_market, circus, essenceworks
+		buildings_sell: black_market
+		
+		quantity_retail: 0.200
+		quantity_wholesale: 1.000
+		quantity_industry: 7.000
+		
+		rarity: 0.900
+		reusability: 0.800
 	}
 }

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.0"
+	$version: "0.1.72.0"
 	name: "Wooden Bars"
 	desc:
 		'''
@@ -10,6 +10,8 @@
 	related_materials:
 	{
 		wood.rod: refined, product, result
+		sawdust: residue, powdered, result
+		woodchips: ruined, residue, waste, result
 	}
 	
 	stages:
@@ -24,7 +26,6 @@
 			discard_damage_type: none
 			
 			ratio: 1.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -51,11 +52,11 @@
 						{
 							type: work
 							work: sawing
-							amount: 160.000
-							amount_min: 90.000
+							amount: 85.000
+							amount_min: 40.000
 							difficulty: 5
 							snapping: 5.000
-							falloff: 0.915
+							falloff: 0.908
 							loss: 0.012
 							ratio: 0.020
 							group: 0
@@ -86,7 +87,6 @@
 			discard_damage_type: none
 			
 			ratio: 1.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -103,11 +103,11 @@
 						{
 							type: work
 							work: carving
-							amount: 140.000
-							amount_min: 40.000
+							amount: 50.000
+							amount_min: 10.000
 							difficulty: 6
 							snapping: 5.000
-							falloff: 0.977
+							falloff: 0.949
 							loss: 0.075
 							ratio: 0.275
 							group: 0
@@ -148,11 +148,11 @@
 						{
 							type: work
 							work: sanding
-							amount: 140.000
-							amount_min: 100.000
+							amount: 100.000
+							amount_min: 40.000
 							difficulty: 4
 							snapping: 5.000
-							falloff: 0.878
+							falloff: 0.912
 							loss: 0.357
 							ratio: 0.275
 							group: 0

@@ -35,9 +35,10 @@ animated.renderer:
 
 interactable:
 {
+	flags: none
+	window_size: [858, 648]
+	window_size_misc: [144, 0]
 	priority: -1.000
-	window_size: [658.000, 648.000]
-	window_size_misc: [144.000, 0.000]
 }
 
 health:
@@ -102,20 +103,21 @@ shop:
 {
 	tags_filter:
 	{
-		include: medium, large, huge, vehicle, furniture, machinery, industrial, metalworking, metallurgy, engineering, architecture, construction
-		exclude: organic, smelting, fermenting, refining
+		include: large, huge, gun, vehicle, munitions, machinery, industrial, engineering, architecture, construction
+		exclude: organic, filtering, gathering, blending, forestry, smelting, drying, fermenting, refining, separation, processing
 	}
+	tags_preferred: huge, device, vehicle
 	
-	tools: pencil, paper, ruler, cutters, saw, hand_drill, screwdriver, wrench, pliers, axe, shovel, towel, tongs, crowbar
-	infrastructure: anvil, lab_glassware, dishes, bottle, table, chair, vise, rack, shaping_mould, bucket, surface, hard_surface, stamping_press, press, structure, machine, building, workbench
+	tools: pencil, paper, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, spanner, pliers, paintbrush, axe, shovel, towel, tongs, crowbar, sandpaper
+	infrastructure: anvil, table, chair, vise, rack, shaping_mould, pulley, bucket, surface, large_surface, hard_surface, stamping_press, press, form, crane, structure, building, workbench
 	environment: workshop, stationary, scary, noisy, durable, sturdy, factory, open, building, large
 	connotations: none
 	
 	flags: embed_gui
-	menu_columns: 4
+	menu_columns: 7
 	recipe_type: workshop
 	
-	offset_spawn: [0.000, 0.500]
+	offset_spawn: [0.000, 1.750]
 	
 	name: "Construction Yard"
 }

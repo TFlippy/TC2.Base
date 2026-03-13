@@ -84,7 +84,7 @@ despawn:
 	amount_ratio_extra: 0.050
 	
 	threshold_delete: 0.002
-	threshold_despawning: 0.100
+	threshold_despawning: 0.050
 	
 	interval: 1.000
 	interval_extra: 12.000

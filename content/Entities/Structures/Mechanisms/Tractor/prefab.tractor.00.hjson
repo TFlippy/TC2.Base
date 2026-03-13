@@ -177,10 +177,10 @@ norotate:
 
 interactable:
 {
+	flags: none
+	window_size: [384, 256]
+	window_size_misc: [96, 0]
 	priority: 2.000
-	window_size: [384.000, 256.000]
-	window_offset: [0.000, 0.000]
-	window_size_misc: [48.000, 0.000]
 }
 
 storage:
@@ -188,10 +188,10 @@ storage:
 	@inventory4:
 	{
 		type: storage
-		flags: standalone, public, faction, vertical, no_auto_pickup
+		flags: standalone, public, faction, no_auto_pickup
 		stack_size_multiplier: 4.000
 		
-		offset: [0.000, 0.000]
+		offset: [0.000, 0.375]
 
 		filter:
 		{
