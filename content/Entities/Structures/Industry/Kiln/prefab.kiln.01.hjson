@@ -1,10 +1,4 @@
-$name: "Distillation Oven"
-$desc:
-	'''
-	Large oven-distillery hybrid equipped with a liquid fuel burner and a condenser.
-
-	Primarily used for destructive distillation of organic material into compounds such as turpentine, alcohol, rosin, oils and more.
-	'''
+$name: "Kiln (Small)"
 $tags: []
 
 body:
@@ -15,39 +9,21 @@ body:
 	{
 		points:
 		[
-			[-1.000, 0.000]
-			[1.000, -1.000]
-			[0.875, 2.000]
-			[-0.625, 2.000]
+			[-1.000, -0.625]
+			[1.125, -0.625]
+			[1.000, 1.625]
+			[-0.875, 1.625]
 		]
 		
-		mass: 600.000
-		radius: 0.750
+		mass: 350.000
+		radius: 0.375
 		friction: 0.650
 		elasticity: 0.200
 		
-		material: metal
-		miss_chance: 0.396
+		material: building_reinforced
+		miss_chance: 0.082
 		
-		layer: entity, solid, background, building, support, ignore_melee
-		mask: world, building
-		exclude: none
-	}
-
-	@shape.box:
-	{
-		size: [2.250, 0.500]
-		offset: [0.125, 2.250]
-		
-		mass: 235.000
-		radius: 0.500
-		friction: 0.500
-		elasticity: 0.500
-		
-		material: building_masonry
-		miss_chance: 0.000
-		
-		layer: entity, solid, building, ignore_hover, ignore_bullet
+		layer: entity, solid, building, support, ignore_melee
 		mask: world, building
 		exclude: none
 	}
@@ -57,8 +33,8 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "kiln.01"
-		size: [32, 48]
+		texture: "kiln.02"
+		size: [24, 32]
 	}
 	z: -280.000
 }
@@ -70,7 +46,7 @@ control:
 
 health:
 {
-	max: 75000.000
+	max: 55000.000
 }
 
 transform:
@@ -81,75 +57,58 @@ transform:
 interactable:
 {
 	flags: no_tab
-	priority: 2.000
-	window_size: [632.000, 648.000]
+	priority: 1.800
+	window_size: [576.000, 520.000]
+	window_size_min: [192.000, 96.000]
 	window_size_misc: [144.000, 0.000]
+	window_offset: [-192.000, 0.000]
 }
 
 shop:
 {
 	tags_filter:
 	{
-		include: raw, filtering, industrial, metalworking, metallurgy, cooking, alchemistry, science, smelting, drying, refining, heating, separation, processing
-		exclude: crafting, advanced, huge, device, gun, tool, vehicle, furniture, machinery, blacksmithing, assembling, gathering, architecture, construction, fermenting
+		include: raw, filtering, cooking, smelting, drying, heating, processing
+		exclude: advanced, large, huge, assembling, blending, construction, fermenting
 	}
 	
-	tools: hammer, screwdriver, spanner, bucket, shovel, syringe, chisel, towel, spatula, tongs, crowbar, ladle, utensils
-	infrastructure: oven, forge, bottle, barrel, rack, shaping_mould, bucket, surface, hard_surface, liquid_container, heater, burner, stove, kiln, still, smokestack, condenser, form, filter, structure, machine
-	environment: machine, container, watertight, stationary, dirty, scary, reinforced, fireproof, durable, sturdy, waterproof
-	connotations: none
+	tools: hammer, bucket, shovel, tongs
+	infrastructure: oven, rack, heater, burner, kiln
+	environment: container, waterproof, stationary, dirty, ugly, fireproof, durable, sturdy
 	
 	flags: embed_gui
 	menu_columns: 3
 	recipe_type: workshop
 	
-	offset_spawn: [1.500, 0.250]
+	offset_spawn: [-0.500, 0.375]
 	
-	name: "Distillation Oven"
+	name: "Kiln"
 }
 
 crafter:
 {
-	h_crafter: distillation.oven.00
-	flags: assignable
-	distance_max: 4.000
-	temperature_max: 1579.000
-	pressure_max: 50.000
+	flags: no_gui
 	
-	tools: none
-	infrastructure: none
-	environment: none
-	offset: [0.000, 0.000]
+	temperature_max: 1579.000
+	pressure_max: 3.000
+	
+	spawn_offset: [1.000, -0.375]
 
-	// @inventory2:
-	// {
-	// 	type: gas
-	// 	flags: standalone, allow_ducts, ignore_mass
-	// 	stack_size_multiplier: 1.000
-		
-	// 	filter:
-	// 	{
-	// 		require: gas
-	// 		include: gas
-	// 	}
-	// 	offset: [-0.500, 0.500]
-	// }
-
-	@inventory1:
-	{
-		type: gas
-		flags: standalone, allow_ducts, ignore_mass
+	@inventory4:
+	{		
+		type: workshop
+		flags: standalone, allow_ducts, ignore_mass, no_auto_pickup
 		stack_size_multiplier: 1.000
 		
 		filter:
 		{
-			require: gas
-			include: gas
+			include: soft, malleable, granular, viscous, small, gravel, powder, bottled
+			exclude: gas
 		}
-		offset: [1.625, -1.750]
+		offset: [0.000, -0.375]
 	}
 
-	@inventory4:
+	@inventory2:
 	{
 		type: output
 		flags: standalone, allow_ducts, ignore_mass, no_auto_pickup, vertical
@@ -166,36 +125,14 @@ crafter:
 
 workshop:
 {
-	flags: none
-	orders_capacity: 1
-	
 	tools: hammer, bucket, shovel, tongs
 	infrastructure: oven, hard_surface
-	environment: container, stationary, dirty, ugly, fireproof, durable, sturdy, waterproof
-	
-	gui_info_size_x: 252.000
-	max_order_mass: 850.000
-	
+	machinery: heater, burner
+	environment: container, waterproof, stationary, dirty, ugly, fireproof, durable, sturdy
+
+	orders_capacity: 1
 	h_sound_order_complete: computer.bell.00
-
-	@inventory8:
-	{		
-		type: workshop
-		flags: standalone, allow_ducts, ignore_mass, no_auto_pickup, vertical
-		stack_size_multiplier: 1.000
-		
-		filter:
-		{
-			include: soft, malleable, granular, viscous, small, gravel, powder, bottled
-			exclude: gas
-		}
-		offset: [0.000, -0.375]
-	}
-}
-
-kiln:
-{
-
+	max_order_mass: 80.000
 }
 
 animated.renderer|"exhaust":
@@ -206,21 +143,21 @@ animated.renderer|"exhaust":
 		size: [16, 16]
 		frame: [0, 1]
 	}
-	offset: [-1.625, -2.000]
+	offset: [-0.125, -2.250]
 	rotation: 0.000
 	z: -285.000
 }
 
-// animated.renderer|"intake":
-// {
-// 	sprite:
-// 	{
-// 		texture: "burner.parts.00"
-// 		size: [8, 8]
-// 		frame: [0, 1]
-// 	}
-// 	z: -275.000
-// }
+animated.renderer|"intake":
+{
+	sprite:
+	{
+		texture: "burner.parts.00"
+		size: [8, 8]
+		frame: [0, 1]
+	}
+	z: -275.000
+}
 
 sound.emitter|"aux":
 {
@@ -234,7 +171,7 @@ sound.emitter|"aux":
 
 air.vent|"exhaust":
 {
-	offset: [-1.250, -2.125]
+	offset: [0.375, -2.375]
 	rotation: -1.571
 	cross_section: 0.200
 	leak_ratio: 0.020
@@ -244,7 +181,7 @@ air.vent|"exhaust":
 
 air.vent|"intake":
 {
-	offset: [0.375, 0.375]
+	offset: [-0.500, 0.250]
 	rotation: 1.571
 	cross_section: 0.300
 	leak_ratio: 0.077
@@ -254,7 +191,7 @@ air.vent|"intake":
 
 air.container:
 {
-	volume: 0.700
+	volume: 0.400
 }
 
 burner:
@@ -295,7 +232,7 @@ burner:
 	@light:
 	{
 		color: [1.000, 0.500, 0.000, 2.000]
-		offset: [-1.250, -2.250]
+		offset: [-0.500, 0.375]
 		scale: [14.000, 13.000]
 		intensity: 0.000
 		texture: "light.circle.04"

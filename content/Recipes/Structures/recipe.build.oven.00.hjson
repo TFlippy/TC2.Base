@@ -48,7 +48,7 @@
 	[
 		{
 			type: prefab
-			prefab: kiln.00
+			prefab: oven.00
 			amount: 1.000
 			group: 0
 		}
@@ -67,7 +67,7 @@
 	
 	icon:
 	{
-		texture: kiln.00
+		texture: oven.00
 		size: [24, 40]
 	}
 	icon_offset: [-1.875, 2.875]
