@@ -1,0 +1,57 @@
+﻿{
+	$version: "0.1.72.0"
+	name: "Karban"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	material_type: coal
+	tile_flags: non_empty
+	flags: raw, ore, uncommon, mineral, rock, metamorphic
+	
+	max_health: 31800.000
+	smoothing: 0.140
+	stability: 2.940
+	strength_tensile: 1.600
+	strength_compressive: 10.700
+	
+	mass: 1.265
+	density: 0.000
+	friction: 0.890
+	elasticity: 0.380
+	fall_damage_mult: 1.230
+	collision_layer: none
+	collision_mask: none
+	
+	texture: terrain.rock.karban
+	pattern: pattern.stone
+	texture_scale: 1.230
+	texture_overshoot: -0.500
+	texture_offset: 0.125
+	
+	color_preview: "0xff282827"
+	color_fill: "0xff140e08"
+	
+	resources:
+	[
+		{
+			material: karban
+			quantity: 1.280
+		}
+		null
+	]
+	
+	mappings:
+	[
+		{
+			color: "0xff282827"
+			tile_flags: solid, non_empty, ground, no_replace
+		}
+	]
+	
+	related:
+	{
+		karban: raw, similar, element
+	}
+}

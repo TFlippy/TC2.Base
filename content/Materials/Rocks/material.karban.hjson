@@ -1,0 +1,69 @@
+﻿{
+	$version: "0.1.72.0"
+	name: "Karban"
+	name_short: "Karban"
+	name_imperial: "Karban"
+	name_dumb: "Coal"
+	description:
+		'''
+		TODO: Desc
+		'''
+	
+	tips: []
+	
+	icon:
+	{
+		texture: resource.karban
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	// Inventory material type.
+	type: coal
+	flags: hard, granular, mineral, rock, raw, flammable, solid, primary
+	display_flags: none
+	hints: none
+	
+	// Ratio of the material volume to the total volume it occupies when stacked. A value of 1.0 means no empty space, while a value closer to 0.0 means a lot of empty space.
+	packing_fraction: 0.000
+	// General purity modifier.
+	purity: 0.953
+	// Mass of 1 unit in kg.
+	mass_per_unit: 0.935
+	
+	// Maximum quantity (units) per stack.
+	quantity_max: 1000.000
+	// Minimum spawnable quantity.
+	spawn_quantity_threshold: 1.000
+	// Preferred quantity snapping for recipes.
+	snapping: 1.000
+	// Preferred quantity snapping for inventories.
+	snapping_pickup: 1.000
+	
+	form_type: raw
+	prefab: resource.karban
+	
+	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
+	color_dust: "0xffffffff"
+	color_gib: "0xffffffff"
+	
+	centroid_default: [0.000, 0.250]
+	colliders: []
+	
+	commodity:
+	{
+		flags: none
+		categories: none
+		
+		market_price: 5.100
+		market_price_per_kg_auto: 5.454546
+	}
+	
+	// Info regarding relations of other materials towards this material.
+	related:
+	{
+		graphite: similar
+		graphite.powder: similar, powdered
+	}
+}

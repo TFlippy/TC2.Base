@@ -175,7 +175,7 @@
 						}
 						{
 							type: resource
-							material: brown_coal
+							material: krakatite
 							amount: 0.770833
 							snapping: 0.100
 							loss: 0.863
