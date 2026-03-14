@@ -1923,6 +1923,8 @@ namespace TC2.Base.Components
 		[Source.Owned] ref Transform.Data transform, [Source.Owned] ref Head.Data head, [Source.Owned] ref Head.State head_state, 
 		[Source.Parent, Optional(true)] ref SpeechBubble.Data speech_bubble, [Source.Owned] ref Body.Data body)
 		{
+			if (AI.debug_paused) return;
+
 			var time = info.WorldTime;
 
 			var skip_timer = false; // (time - commandable.last_time) < 0.15f;

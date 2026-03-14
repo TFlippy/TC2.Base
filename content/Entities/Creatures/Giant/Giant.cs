@@ -51,6 +51,7 @@
 		[Source.Parent, Override] in Organic.Data organic, [Source.Parent] ref Organic.State organic_state, [Source.Parent] ref Giant.Data giant,
 		[Source.Owned] ref Transform.Data transform, [Source.Owned] ref Head.Data head, [Source.Owned] ref Head.State head_state, [Source.Owned] ref Body.Data body)
 		{
+			if (AI.debug_paused) return;
 			var time = info.WorldTime;
 
 			//App.WriteLine("hm");
