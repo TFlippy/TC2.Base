@@ -1,0 +1,402 @@
+﻿{
+	$version: "0.1.72.0"
+	name: "RG-68.1mm"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	tips: []
+	
+	stages:
+	[
+		{
+			name: "Body"
+			
+			type: container
+			flags: part
+			tags: chassis, shell, metal, container, structural, rounded, material
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: pickaxe
+			
+			options:
+			[
+				{
+					name: "Pressed-Niklajzner"
+					
+					type: undefined
+					flags: wip
+					
+					priority: 1.000
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: niklajzner.plate
+							amount: 0.298686
+							snapping: 0.250
+							loss: 0.173
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: lubricant
+							amount: 0.365297
+							snapping: 0.100
+							falloff: 0.384
+							loss: 0.153
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: die.cutting.metal
+							amount: 30.000
+							difficulty: 5
+							snapping: 20.000
+							falloff: 0.911
+							ratio: 0.137
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: die.drawing.metal
+							amount: 140.000
+							amount_min: 100.000
+							difficulty: 9
+							snapping: 50.000
+							falloff: 0.954
+							ratio: 0.122
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+					]
+					
+					filter_infrastructure:
+					{
+						require: anvil, shaping_mould, hard_surface, press
+					}
+				}
+				{
+					name: "Forged-Steel"
+					
+					type: undefined
+					flags: wip
+					
+					priority: 1.000
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.plate
+							amount: 0.298686
+							snapping: 0.250
+							loss: 0.337
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: temperature
+							amount: 750.000
+							amount_min: 600.000
+							amount_max: 1073.000
+							snapping: 20.000
+							falloff: 0.876
+							group: 1
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: work
+							work: die.cutting.metal
+							amount: 60.000
+							difficulty: 9
+							snapping: 20.000
+							falloff: 0.959
+							ratio: 0.322
+							group: 1
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: die.forging.metal
+							amount: 220.000
+							amount_min: 40.000
+							difficulty: 12
+							snapping: 10.000
+							falloff: 0.891
+							ratio: 0.353
+							group: 1
+							flags: stepped, simultaneous, conditional
+						}
+					]
+					
+					filter_infrastructure:
+					{
+						require: anvil, shaping_mould, hard_surface, press
+					}
+				}
+			]
+		}
+		{
+			name: "Propellant"
+			
+			type: filler
+			flags: important
+			tags: barrel, functional, material, dangerous, formula, ingredient
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: crush
+			
+			options:
+			[
+				{
+					name: "Gunpowder"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: shovel
+					
+					priority: 1.000
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: gunpowder
+							amount: 2.536232
+							snapping: 0.100
+							loss: 0.086
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: machine_parts
+							amount: 1.776699
+							snapping: 0.100
+							loss: 0.306
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: filling.powder
+							amount: 16.000
+							amount_min: 65.000
+							difficulty: 7
+							step_max: 25
+							snapping: 5.000
+							falloff: 0.958
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: assembling
+							amount: 220.000
+							amount_min: 75.000
+							difficulty: 11
+							step_max: 50
+							snapping: 10.000
+							falloff: 0.891
+							ratio: 0.694
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: screwdriver, wrench
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, bucket, stapler, towel, spatula, tongs, pick, crowbar, knife
+					}
+				}
+			]
+		}
+		{
+			name: "Warhead"
+			
+			type: formula
+			flags: important
+			tags: shell, metal, container, rounded, material, dangerous, formula
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			options:
+			[
+				{
+					name: "Nitrocellulose/LV"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: sledgehammer
+					
+					suffix: "/LV"
+					priority: 1.000
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: nitrocellulose
+							amount: 1.008646
+							snapping: 0.100
+							loss: 0.059
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: scrap.steel
+							amount: 0.574271
+							snapping: 0.100
+							loss: 0.102
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: filling.powder
+							amount: 110.000
+							amount_min: 90.000
+							difficulty: 6
+							snapping: 10.000
+							falloff: 0.952
+							loss: 0.067
+							ratio: 0.122
+							group: 0
+							flags: stepped, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: ammo.rocket.lv
+							amount: 1.000
+							group: 0
+							flags: primary, compact
+						}
+					]
+					
+					filter_tools:
+					{
+						include: bucket, spatula
+					}
+				}
+			]
+		}
+		{
+			name: "Assembly"
+			
+			type: assembly
+			flags: none
+			tags: assembly, formula
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			options:
+			[
+				{
+					name: "Glued"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: wet
+					
+					priority: 1.000
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: glue
+							amount: 0.840
+							snapping: 0.100
+							falloff: 0.948
+							loss: 0.333
+							ratio: 0.106
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: gluing
+							amount: 40.000
+							amount_min: 140.000
+							difficulty: 6
+							snapping: 10.000
+							falloff: 0.948
+							group: 0
+							flags: no_residue, stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: metal.forming
+							amount: 140.000
+							amount_min: 80.000
+							difficulty: 10
+							snapping: 10.000
+							falloff: 0.952
+							ratio: 0.576
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: hammer
+						include: hammer, cutters, pliers, paintbrush, file, chisel
+					}
+					filter_infrastructure:
+					{
+						require: surface, hard_surface
+						include: anvil, table, chair, vise, rack, dies, workbench
+					}
+					filter_environment:
+					{
+						include: clean, organized
+						exclude: wet
+					}
+				}
+			]
+		}
+	]
+	
+	type: workshop
+	flags: production, manufacturing, wip
+	tags: crafting, complex, small, munitions, delicate, assembling, industrial, metalworking, engineering, military, explosive, dangerous
+	hints: none
+	connotations: none
+	infrastructure: anvil, dishes, table, chair, rack, surface, workbench
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		texture: resource.ammo.rocket.lv
+		count: 4
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	icon_offset: [0.000, 6.000]
+	
+	icon_extra:
+	{
+		size: [16, 16]
+	}
+	icon_extra_offset: [3.000, -7.000]
+	
+	color_frame: "0xffcf392b"
+	color_button: "0xff9dd80f"
+	rank: -55.500
+	
+	min: 1
+	max: 20
+	step: 1
+	
+	version: 1
+}

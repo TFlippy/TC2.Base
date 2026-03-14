@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Niklajzner Sheet"
 	name_short: "Nkz. Sheet"
 	name_imperial: "Niklajzplat"
@@ -56,6 +56,7 @@
 	color_dust: "0xffc0c6ac"
 	color_gib: "0xffc0c6ac"
 	
+	centroid_default: [-0.03125, 0.050]
 	colliders:
 	[
 		{
@@ -114,6 +115,7 @@
 		categories: none
 		
 		market_price: 11.000
+		market_price_per_kg_auto: 4.693634
 	}
 	
 	// Damage-based conversions.
@@ -384,6 +386,24 @@
 			flags_product: waste, residue
 			
 			yield: [0.105, 0.681]
+		}
+		die.cutting.metal:
+		{
+			h_material: scrap.niklajzner
+			
+			flags: none
+			flags_product: waste
+			
+			yield: [0.8966, 0.1034]
+		}
+		die.drawing.metal:
+		{
+			h_material: niklajzner
+			
+			flags: none
+			flags_product: residue
+			
+			yield: [0.5356, 0.1934]
 		}
 	}
 }
