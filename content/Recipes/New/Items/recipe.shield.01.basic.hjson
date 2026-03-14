@@ -1,6 +1,7 @@
 ﻿{
+	$region_id: 0
 	$version: "0.1.72.0"
-	name: "Shield"
+	name: "Heavy Shield"
 	tips: []
 	
 	stages:
@@ -14,13 +15,10 @@
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
 			
-			ratio: 0.911111
-			mass_base: 4.100
-			
 			options:
 			[
 				{
-					name: "Hammered"
+					name: "Forged"
 					
 					type: undefined
 					flags: none
@@ -29,30 +27,61 @@
 					[
 						{
 							type: resource
-							material: steel.plate
-							amount: 1.800648
-							snapping: 1.000
-							loss: 0.075
+							material: steel.ingot
+							amount: 2.4809
+							snapping: 0.500
+							loss: 0.114
 							group: 0
 							flags: prerequisite
 						}
 						{
-							type: work
-							work: hammering
-							amount: 375.000
-							amount_min: 200.000
-							difficulty: 7
-							snapping: 25.000
-							falloff: 0.824
-							ratio: 0.910
+							type: resource
+							material: steel.frames
+							amount: 1.892
+							snapping: 0.500
+							loss: 0.235
 							group: 0
+							flags: prerequisite
+						}
+						{
+							type: temperature
+							amount: 1239.200
+							amount_min: 602.000
+							amount_max: 1478.240
+							falloff: 0.726
+							group: 1
+							flags: no_scaling, always_evaluate, prerequisite
+						}
+						{
+							type: work
+							work: smithing
+							amount: 1200.000
+							amount_min: 200.000
+							difficulty: 10
+							step_max: 20
+							snapping: 25.000
+							falloff: 0.896
+							ratio: 0.929
+							group: 1
 							flags: conditional
 						}
 					]
 					
 					filter_tools:
 					{
-						require: hammer
+						require: hammer, pliers, tongs
+						include: towel
+					}
+					filter_infrastructure:
+					{
+						require: anvil, forge, hard_surface, heater
+						include: vise
+					}
+					filter_environment:
+					{
+						require: sturdy, smithy
+						include: workshop
+						exclude: office, fragile
 					}
 				}
 			]
@@ -65,9 +94,6 @@
 			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
-			
-			ratio: 0.088889
-			mass_base: 0.400
 			
 			options:
 			[
@@ -147,7 +173,7 @@
 	[
 		{
 			type: prefab
-			prefab: shield
+			prefab: shield.heavy
 			amount: 1.000
 			group: 0
 			flags: primary, compact
@@ -156,15 +182,15 @@
 	
 	type: workshop
 	flags: blueprintable, item, wip
-	tags: manual, crafting, simple, medium, tool, assembling, metalworking
+	tags: manual, crafting, simple, medium, tool, blacksmithing, assembling, metalworking
 	hints: none
 	connotations: none
-	infrastructure: workbench
+	infrastructure: anvil, hard_surface, workbench
 	infrastructure_exclude: none
 	
 	icon:
 	{
-		texture: shield
+		texture: shield.heavy
 		size: [16, 16]
 	}
 	
@@ -174,7 +200,7 @@
 	rank: 0.000
 	
 	min: 1
-	max: 10
+	max: 5
 	step: 1
 	
 	version: 1
