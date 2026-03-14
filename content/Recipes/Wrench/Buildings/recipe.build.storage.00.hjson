@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.8"
+	$version: "0.1.72.0"
 	name: "Storage"
 	tips: []
 	
@@ -13,9 +13,6 @@
 			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: shovel
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -197,9 +194,6 @@
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: axe
 			
-			ratio: 0.000
-			mass_base: 0.000
-			
 			options:
 			[
 				{
@@ -263,8 +257,13 @@
 	type: buildings
 	flags: no_amount_multiplier, blueprintable, construction, building, ignore_tools, ignore_equipment, ignore_machinery, ignore_environment, wip, no_cancel, auto_complete
 	tags: simple, large, architecture, construction
+	hints: none
+	connotations: none
 	infrastructure: none
 	infrastructure_exclude: none
+	
+	dismantle_work: 10.000
+	dismantle_yield: 0.800
 	
 	icon:
 	{
@@ -280,9 +279,6 @@
 	min: 1
 	max: 1
 	step: 1
-	
-	dismantle_work: 10.000
-	dismantle_yield: 0.800
 	
 	placement:
 	{
@@ -300,7 +296,7 @@
 		
 		cooldown: 1.000
 		min_support: 0.750
-		min_clearance: 1.000
+		min_clearance: 0.950
 		min_claim: 1.000
 		
 		rotation_max: 0.200
