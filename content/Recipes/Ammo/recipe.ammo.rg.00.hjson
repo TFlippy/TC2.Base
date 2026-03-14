@@ -52,7 +52,7 @@
 						{
 							type: work
 							work: die.cutting.metal
-							amount: 30.000
+							amount: 80.000
 							difficulty: 5
 							snapping: 20.000
 							falloff: 0.911
@@ -111,7 +111,7 @@
 						{
 							type: work
 							work: die.cutting.metal
-							amount: 60.000
+							amount: 90.000
 							difficulty: 9
 							snapping: 20.000
 							falloff: 0.959
@@ -122,7 +122,7 @@
 						{
 							type: work
 							work: die.forging.metal
-							amount: 220.000
+							amount: 240.000
 							amount_min: 40.000
 							difficulty: 12
 							snapping: 10.000
@@ -135,7 +135,8 @@
 					
 					filter_infrastructure:
 					{
-						require: anvil, shaping_mould, hard_surface, press
+						require: anvil, hard_surface, press
+						include: press
 					}
 				}
 			]
@@ -372,8 +373,8 @@
 	tags: crafting, complex, small, munitions, delicate, assembling, industrial, metalworking, engineering, military, explosive, dangerous
 	hints: none
 	connotations: none
-	infrastructure: anvil, dishes, table, chair, rack, surface, workbench
-	infrastructure_exclude: none
+	infrastructure: table, chair, rack, surface, workbench
+	infrastructure_exclude: personal
 	
 	icon:
 	{
