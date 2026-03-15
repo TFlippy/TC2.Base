@@ -87,10 +87,6 @@ harvestable:
 			material: resin
 			quantity: 78.05605
 		}
-		{
-			material: rosin
-			quantity: 21.86151
-		}
 	]
 	
 	thresholds: [0.990, 1.000, 0.835, 0.441]
