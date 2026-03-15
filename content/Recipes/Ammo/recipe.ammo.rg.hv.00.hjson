@@ -1,9 +1,10 @@
 ﻿{
+	$region_id: 0
 	$version: "0.1.72.0"
-	name: "RG-68.1mm/LV"
+	name: "RG-68.1mm/HV"
 	desc:
 		'''
-		TODO: Desc
+		Precise high-velocity rockets with powerful, but lower blast radius.
 		'''
 	tips: []
 	
@@ -45,7 +46,6 @@
 							material: steel.frames
 							amount: 0.032
 							snapping: 0.100
-							falloff: 0.384
 							loss: 0.153
 							group: 0
 							flags: prerequisite
@@ -243,8 +243,8 @@
 					[
 						{
 							type: resource
-							material: gunpowder
-							amount: 2.898551
+							material: nitrocellulose
+							amount: 3.054755
 							snapping: 0.100
 							loss: 0.086
 							group: 0
@@ -306,7 +306,7 @@
 			options:
 			[
 				{
-					name: "Solid"
+					name: "NS-NC"
 					
 					type: undefined
 					flags: none
@@ -319,27 +319,27 @@
 						{
 							type: resource
 							material: nitrosugar
-							amount: 0.695187
-							snapping: 0.500
+							amount: 1.631016
+							snapping: 0.100
 							loss: 0.094
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: resource
-							material: scrap.steel
-							amount: 0.574271
+							material: nitrocellulose
+							amount: 2.305475
 							snapping: 0.100
-							loss: 0.145
+							loss: 0.086
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: work
-							work: cramming.solid
+							work: filling.powder
 							amount: 75.000
 							amount_min: 50.000
-							difficulty: 6
+							difficulty: 7
 							snapping: 10.000
 							falloff: 0.934
 							loss: 0.067
@@ -353,7 +353,7 @@
 					[
 						{
 							type: resource
-							material: ammo.rocket.lv
+							material: ammo.rocket.hv
 							amount: 1.000
 							group: 0
 							flags: primary, compact
@@ -361,7 +361,7 @@
 					]
 				}
 				{
-					name: "Liquid"
+					name: "NTG-GP"
 					
 					type: undefined
 					flags: none
@@ -374,7 +374,7 @@
 						{
 							type: resource
 							material: nitroglycerine
-							amount: 0.147583
+							amount: 0.961832
 							snapping: 0.100
 							loss: 0.059
 							group: 0
@@ -382,8 +382,8 @@
 						}
 						{
 							type: resource
-							material: scrap.concrete
-							amount: 0.856738
+							material: gunpowder
+							amount: 3.833333
 							snapping: 0.100
 							loss: 0.122
 							group: 0
@@ -391,7 +391,7 @@
 						}
 						{
 							type: work
-							work: filling.liquid
+							work: blending
 							amount: 50.000
 							amount_min: 25.000
 							difficulty: 6
@@ -408,7 +408,7 @@
 					[
 						{
 							type: resource
-							material: ammo.rocket.lv
+							material: ammo.rocket.hv
 							amount: 1.000
 							group: 0
 							flags: primary, compact
@@ -421,7 +421,7 @@
 					}
 				}
 				{
-					name: "Scary"
+					name: "TNT-NTG"
 					
 					type: undefined
 					flags: none
@@ -433,17 +433,17 @@
 					[
 						{
 							type: resource
-							material: prdex
-							amount: 0.019677
-							snapping: 0.010
+							material: tnt
+							amount: 1.836458
+							snapping: 0.100
 							loss: 0.075
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: resource
-							material: scrap.smirgrafit
-							amount: 0.657228
+							material: nitroglycerine
+							amount: 0.656489
 							snapping: 0.100
 							loss: 0.137
 							group: 0
@@ -451,9 +451,9 @@
 						}
 						{
 							type: work
-							work: wadding
+							work: blending
 							amount: 10.000
-							difficulty: 7
+							difficulty: 8
 							snapping: 5.000
 							falloff: 0.994
 							loss: 0.067
@@ -467,7 +467,7 @@
 					[
 						{
 							type: resource
-							material: ammo.rocket.lv
+							material: ammo.rocket.hv
 							amount: 1.000
 							group: 0
 							flags: primary, compact
@@ -488,7 +488,7 @@
 	]
 	
 	type: workshop
-	flags: production, manufacturing, wip
+	flags: production, manufacturing
 	tags: crafting, complex, small, munitions, delicate, assembling, industrial, metalworking, engineering, military, explosive, dangerous
 	hints: none
 	connotations: none
@@ -502,13 +502,15 @@
 		size: [16, 16]
 		frame: [3, 0]
 	}
-	icon_offset: [0.000, 6.000]
+	icon_offset: [0.000, -2.000]
 	
 	icon_extra:
 	{
+		texture: ui_icons_gunsmith.mini
 		size: [16, 16]
+		frame: [1, 0]
 	}
-	icon_extra_offset: [3.000, -7.000]
+	icon_extra_offset: [-17.000, 0.000]
 	
 	color_frame: "0xffcf392b"
 	color_button: "0xff9dd80f"

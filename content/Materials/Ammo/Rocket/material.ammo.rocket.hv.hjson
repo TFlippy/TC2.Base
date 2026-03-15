@@ -1,9 +1,14 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "RG-68.1mm/HV Rocket"
 	description:
 		'''
 		Ammunition for rocket launchers. Greatly increased velocity, increased damage at the cost of reduced explosion radius.
+		'''
+	
+	lore:
+		'''
+			
 		'''
 	
 	tips: []
@@ -34,7 +39,7 @@
 	// Ratio of the material volume to the total volume it occupies when stacked. A value of 1.0 means no empty space, while a value closer to 0.0 means a lot of empty space.
 	packing_fraction: 0.000
 	// Mass of 1 unit in kg.
-	mass_per_unit: 4.000
+	mass_per_unit: 3.400
 	
 	// Maximum quantity (units) per stack.
 	quantity_max: 4.000
@@ -60,13 +65,13 @@
 		categories: weapons, explosives, munitions, dangerous, military, manufactured
 		
 		market_price: 175.000
-		market_price_per_kg_auto: 43.750
+		market_price_per_kg_auto: 51.47059
 	}
 	
 	ammo:
 	{
 		count: 1
-		mass: 2.500
+		mass: 3.000
 		heat: 1000.000
 		velocity_min: 0.500
 		
