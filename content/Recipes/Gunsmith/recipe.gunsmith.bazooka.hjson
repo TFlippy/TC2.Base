@@ -15,7 +15,7 @@
 			
 			type: part
 			flags: wip, incomplete
-			tags: none
+			tags: barrel, shell, thin, metal, container, structural, rounded
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
 			
@@ -74,16 +74,13 @@
 					
 					filter_tools:
 					{
-						require: hand_drill, file
-						include: screwdriver, file, chisel, knife, sandpaper, scissors, utensils
+						require: hammer, screwdriver
+						include: hammer, cutters, screwdriver, wrench, spanner, pliers, file, chisel, towel
 					}
 					filter_infrastructure:
 					{
-						include: surface
-					}
-					filter_environment:
-					{
-						include: workshop, stationary, illuminated, dry
+						require: surface, hard_surface
+						include: anvil, table, chair, vise, rack, dies, workbench
 					}
 				}
 			]
@@ -93,9 +90,9 @@
 			
 			type: assembly
 			flags: wip, incomplete
-			tags: none
+			tags: mechanism, assembly, functional, machinery
 			// Damage type used for discarding leftover resources.
-			discard_damage_type: axe
+			discard_damage_type: sledgehammer
 			
 			options:
 			[
@@ -104,7 +101,6 @@
 					
 					type: undefined
 					flags: wip
-					discard_damage_type_override: saw
 					
 					requirements:
 					[
@@ -133,8 +129,8 @@
 					
 					filter_tools:
 					{
-						require: file, knife
-						include: hand_drill, screwdriver, pliers, file, chisel, knife, sandpaper
+						require: screwdriver, wrench
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, stapler, towel, tongs, pick, crowbar, knife
 					}
 				}
 			]
@@ -144,7 +140,7 @@
 			
 			type: assembly
 			flags: wip, incomplete
-			tags: none
+			tags: grip, assembly, structural, small
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: axe
 			
@@ -203,8 +199,16 @@
 					
 					filter_tools:
 					{
-						require: file, knife
-						include: hand_drill, screwdriver, pliers, file, chisel, knife, sandpaper
+						include: hammer, saw, screwdriver, paintbrush, axe, file, chisel, knife, sandpaper
+					}
+					filter_infrastructure:
+					{
+						include: table
+					}
+					filter_environment:
+					{
+						include: clean, organized
+						exclude: wet
 					}
 				}
 			]
@@ -224,10 +228,10 @@
 	
 	type: workshop
 	flags: blueprintable, item, wip
-	tags: workbench, manual, crafting, simple, medium, weapon, gun, assembling, metalworking, engineering, military, construction
+	tags: manual, crafting, simple, medium, weapon, gun, assembling, metalworking, engineering, military, construction
 	hints: none
-	connotations: none
-	infrastructure: surface, hard_surface, workbench
+	connotations: weapon, gun, decent, powerful, destructive, inaccurate, loud, cheap, military, scary
+	infrastructure: table, surface, hard_surface, workbench
 	infrastructure_exclude: none
 	
 	icon:
@@ -245,5 +249,5 @@
 	max: 10
 	step: 1
 	
-	version: 0
+	version: 1
 }
