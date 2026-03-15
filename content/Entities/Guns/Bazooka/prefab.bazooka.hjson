@@ -1,8 +1,7 @@
-$name: "Bazooka"
+$name: "Rocket Launcher"
 $desc:
 	'''
-	Portable rocket launcher.
-	Good for blowing up stuff from distance.
+	Simple portable rocket launcher capable of launching rockets.
 	'''
 $tags: []
 
@@ -12,7 +11,7 @@ body:
 	{
 		a: [-0.875, 0.375]
 		b: [0.875, 0.000]
-		mass: 20.000
+		mass: 17.200
 		radius: 0.375
 		friction: 0.900
 		elasticity: 0.250
