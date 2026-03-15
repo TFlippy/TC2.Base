@@ -387,7 +387,7 @@
 	]
 	
 	type: workshop
-	flags: blueprintable, item, production, wip, converted
+	flags: blueprintable, item, production
 	tags: manual, crafting, simple, small, weapon, munitions, delicate, blending, explosive, dangerous
 	hints: none
 	connotations: none

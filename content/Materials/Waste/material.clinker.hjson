@@ -7,7 +7,8 @@
 	name_dumb: "Stone"
 	description:
 		'''
-		Gravel-like byproduct from processing of aluminosilicate ores used in production of cement.
+		Gravel-like byproduct from processing of aluminosilicate ores.
+		Can be smashed into cement with a sledgehammer.
 		'''
 	
 	tips: []

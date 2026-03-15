@@ -39,9 +39,9 @@ animated.renderer:
 interactable:
 {
 	flags: no_tab
+	window_size: [644, 528]
+	window_size_misc: [192, 0]
 	priority: 1.500
-	window_size: [644.000, 528.000]
-	window_size_misc: [96.000, 0.000]
 }
 
 health:
@@ -87,12 +87,19 @@ entrance.linkable:
 
 }
 
+shipment:
+{
+	flags: keep_items, allow_withdraw, allow_deposit, no_gui, faction
+	type: armory
+	layout: large
+}
+
 storage:
 {
 	@inventory8:
 	{
 		type: storage
-		flags: standalone, ignore_mass, faction, vertical
+		flags: standalone, ignore_mass, faction
 		stack_size_multiplier: 2.000
 		
 		filter:

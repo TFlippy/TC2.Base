@@ -126,14 +126,10 @@ workshop:
 {
 	orders_capacity: 1
 	
-	tools: none
-	infrastructure: none
-	environment: none
+	h_sound_order_complete: effect.bell.ring.00
 	
 	gui_info_size_x: 252.000
-	max_order_mass: 100.000
-	
-	h_sound_order_complete: effect.bell.ring.00
+	max_order_mass: 8000.000
 
 	@inventory8:
 	{

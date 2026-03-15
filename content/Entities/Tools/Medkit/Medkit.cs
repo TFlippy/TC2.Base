@@ -35,6 +35,13 @@
 			[Statistics.Info("Pain", description: "Adds or reduces pain", format: "{0:0}", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.Medium)]
 			public float pain = 0.00f;
 
+			[Save.NewLine]
+			public ISoundMix.Handle h_soundmix_heal;
+			public ISoundMix.Handle h_soundmix_fail;
+
+			[Save.NewLine]
+			public Filter.Mask2x<Physics.Layer> layers_filter;
+
 			[Save.Ignore, Net.Ignore] public float next_use;
 		}
 
@@ -61,7 +68,9 @@
 				if (len < max_distance)
 				{
 					Span<OverlapResult> hits = stackalloc OverlapResult[16];
-					if (region.TryOverlapPointAll(this.control.mouse.position, this.medkit.aoe, ref hits, mask: Physics.Layer.Organic, require: Physics.Layer.Organic | Physics.Layer.Destructible, exclude: Physics.Layer.Dead))
+					if (region.TryOverlapPointAll(world_position: this.control.mouse.position, radius: this.medkit.aoe, hits: ref hits, 
+					mask: Physics.Layer.Organic, require: Physics.Layer.Organic | Physics.Layer.Destructible, 
+					exclude: Physics.Layer.Dead | Physics.Layer.World | Physics.Layer.Stored | Physics.Layer.Plant | Physics.Layer.Resource | Physics.Layer.Tree))
 					{
 						hits.SortByDistance();
 
@@ -84,7 +93,7 @@
 								}
 								else
 								{
-									var color = Color32BGRA.Green.WithAlphaMult(0.50f);
+									var color = Color32BGRA.Green.WithAlpha(128);
 									GUI.DrawEntity(hit.entity, color: color);
 								}
 							}
@@ -134,7 +143,9 @@
 				if (len < max_distance)
 				{
 					Span<OverlapResult> hits = stackalloc OverlapResult[16];
-					if (region.TryOverlapPointAll(control.mouse.position, medkit.aoe, ref hits, mask: Physics.Layer.Organic, require: Physics.Layer.Organic | Physics.Layer.Destructible, exclude: Physics.Layer.Dead))
+					if (region.TryOverlapPointAll(world_position: control.mouse.position, radius: medkit.aoe, hits: ref hits,
+					mask: Physics.Layer.Organic, require: Physics.Layer.Organic | Physics.Layer.Destructible,
+					exclude: Physics.Layer.Dead | Physics.Layer.World | Physics.Layer.Stored | Physics.Layer.Plant | Physics.Layer.Resource | Physics.Layer.Tree))
 					{
 						hits.SortByDistance();
 
@@ -183,7 +194,7 @@
 							if (healed_amount_max > Maths.epsilon)
 							{
 								ref var organic_state = ref hit.entity.GetComponent<Organic.State>();
-								if (!organic_state.IsNull())
+								if (organic_state.IsNotNull())
 								{
 									// Adds or reduces pain
 									var pain_amount = Maths.Max(medkit.pain, -organic_state.pain);

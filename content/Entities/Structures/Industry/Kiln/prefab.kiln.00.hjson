@@ -1,9 +1,7 @@
-$name: "Oven"
+$name: "Stone Kiln"
 $desc:
 	'''
-	Large oven equipped with a liquid fuel burner.
-
-	Fit for simple heating-related tasks, can also double as an oven.
+	TODO: Desc
 	'''
 $tags: []
 
@@ -21,13 +19,13 @@ body:
 			[-0.875, 1.625]
 		]
 		
-		mass: 380.000
+		mass: 220.000
 		radius: 0.375
 		friction: 0.650
 		elasticity: 0.200
 		
-		material: building_reinforced
-		miss_chance: 0.582
+		material: stone_slab
+		miss_chance: 0.402
 		
 		layer: entity, solid, building, support, ignore_melee, background
 		mask: world, building
@@ -39,7 +37,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "oven.00"
+		texture: "kiln.00"
 		size: [24, 40]
 	}
 	z: -280.000
@@ -52,7 +50,7 @@ control:
 
 health:
 {
-	max: 65000.000
+	max: 30000.000
 }
 
 transform:
@@ -89,7 +87,7 @@ shop:
 	
 	offset_spawn: [-0.500, 0.375]
 	
-	name: "Oven"
+	name: "Kiln"
 }
 
 crafter:
@@ -113,20 +111,6 @@ crafter:
 			exclude: gas
 		}
 		offset: [0.000, -0.375]
-	}
-
-	@inventory4:
-	{
-		type: output
-		flags: standalone, allow_ducts, ignore_mass, no_auto_pickup, vertical
-		stack_size_multiplier: 1.000
-		
-		filter:
-		{
-			include: soft, malleable, granular, viscous, small, gravel, powder, bottled
-			exclude: gas
-		}
-		offset: [-0.500, 0.500]
 	}
 }
 
