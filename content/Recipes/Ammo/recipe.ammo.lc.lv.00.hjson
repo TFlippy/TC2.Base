@@ -263,25 +263,14 @@
 						}
 						{
 							type: work
-							work: die.cutting.metal
-							amount: 10.000
-							difficulty: 8
-							snapping: 5.000
-							ratio: 0.671
+							work: die.stamping.metal
+							amount: 9.000
+							difficulty: 4
+							snapping: 10.000
+							falloff: 0.977
+							ratio: 0.373
 							group: 0
 							flags: stepped, simultaneous, conditional
-						}
-						{
-							type: work
-							work: polishing.oil
-							amount: 42.000
-							amount_min: 90.000
-							difficulty: 3
-							snapping: 5.000
-							falloff: 0.554
-							ratio: 0.722
-							group: 0
-							flags: simultaneous, conditional
 						}
 						{
 							type: work
@@ -292,17 +281,16 @@
 							snapping: 10.000
 							falloff: 0.967
 							ratio: 0.373
-							group: 1
-							flags: stepped, conditional
+							group: 0
+							flags: stepped, simultaneous, conditional
 						}
 						{
 							type: work
-							work: die.stamping.metal
-							amount: 9.000
-							difficulty: 4
-							snapping: 10.000
-							falloff: 0.977
-							ratio: 0.373
+							work: die.cutting.metal
+							amount: 10.000
+							difficulty: 7
+							snapping: 5.000
+							ratio: 0.671
 							group: 1
 							flags: stepped, conditional
 						}
@@ -322,11 +310,6 @@
 					
 					advance_delay: 2.000
 					
-					filter_tools:
-					{
-						require: towel
-						include: paintbrush, towel
-					}
 					filter_infrastructure:
 					{
 						require: anvil, shaping_mould, hard_surface, press

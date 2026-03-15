@@ -251,7 +251,7 @@
 							material: lubricant
 							amount: 0.646
 							snapping: 0.100
-							falloff: 0.358
+							falloff: 0.414
 							loss: 0.090
 							ratio: 1.000
 							group: 0
@@ -259,25 +259,14 @@
 						}
 						{
 							type: work
-							work: die.cutting.metal
-							amount: 15.000
-							difficulty: 9
-							snapping: 5.000
-							ratio: 0.710
+							work: die.stamping.metal
+							amount: 28.000
+							difficulty: 7
+							snapping: 10.000
+							falloff: 0.952
+							ratio: 0.455
 							group: 0
-							flags: stepped, simultaneous, conditional
-						}
-						{
-							type: work
-							work: polishing.oil
-							amount: 50.000
-							amount_min: 110.000
-							difficulty: 4
-							snapping: 5.000
-							falloff: 0.568
-							ratio: 0.722
-							group: 0
-							flags: simultaneous, conditional
+							flags: stepped, conditional
 						}
 						{
 							type: work
@@ -288,18 +277,17 @@
 							falloff: 0.935
 							ratio: 0.471
 							group: 1
-							flags: stepped, conditional
+							flags: stepped, simultaneous, conditional
 						}
 						{
 							type: work
-							work: die.stamping.metal
-							amount: 28.000
-							difficulty: 7
-							snapping: 10.000
-							falloff: 0.952
-							ratio: 0.455
+							work: die.cutting.metal
+							amount: 10.000
+							difficulty: 9
+							snapping: 5.000
+							ratio: 0.710
 							group: 1
-							flags: stepped, conditional
+							flags: stepped, simultaneous, conditional
 						}
 					]
 					
@@ -317,11 +305,6 @@
 					
 					advance_delay: 2.000
 					
-					filter_tools:
-					{
-						require: towel
-						include: paintbrush, towel
-					}
 					filter_infrastructure:
 					{
 						require: anvil, shaping_mould, hard_surface, press
@@ -550,9 +533,9 @@
 	
 	icon_extra:
 	{
+		texture: ui_icons_gunsmith.mini
 		size: [16, 16]
 	}
-	icon_extra_offset: [3.000, -7.000]
 	
 	color_frame: "0xffcf392b"
 	color_button: "0xff9dd80f"

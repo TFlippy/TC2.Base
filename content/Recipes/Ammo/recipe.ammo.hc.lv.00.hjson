@@ -229,7 +229,8 @@
 					name: "Lubricated"
 					
 					type: undefined
-					flags: wip
+					flags: crafter, automated, wip
+					discard_damage_type_override: pickaxe
 					
 					prefix: "Shiny "
 					priority: 1.000
@@ -251,7 +252,7 @@
 							material: lubricant
 							amount: 0.538
 							snapping: 0.100
-							falloff: 0.344
+							falloff: 0.416
 							loss: 0.075
 							ratio: 1.000
 							group: 0
@@ -269,31 +270,19 @@
 						}
 						{
 							type: work
-							work: polishing.oil
-							amount: 42.000
-							amount_min: 90.000
-							difficulty: 3
-							snapping: 5.000
-							falloff: 0.554
-							ratio: 0.722
-							group: 0
-							flags: simultaneous, conditional
-						}
-						{
-							type: work
 							work: die.drawing.metal
-							amount: 20.000
+							amount: 15.000
 							difficulty: 6
 							snapping: 10.000
 							falloff: 0.947
 							ratio: 0.471
-							group: 1
-							flags: stepped, conditional
+							group: 0
+							flags: stepped, simultaneous, conditional
 						}
 						{
 							type: work
 							work: die.stamping.metal
-							amount: 20.000
+							amount: 10.000
 							difficulty: 5
 							snapping: 10.000
 							falloff: 0.964
@@ -317,11 +306,6 @@
 					
 					advance_delay: 2.000
 					
-					filter_tools:
-					{
-						require: towel
-						include: paintbrush, towel
-					}
 					filter_infrastructure:
 					{
 						require: anvil, shaping_mould, hard_surface, press
@@ -508,31 +492,32 @@
 							amount: 7.000
 							amount_min: 50.000
 							difficulty: 4
+							step_max: 40
 							snapping: 10.000
 							falloff: 0.972
 							group: 0
-							flags: stepped, simultaneous, conditional
+							flags: simultaneous, conditional
 						}
 						{
 							type: work
 							work: hammering
 							amount: 12.000
-							amount_min: 90.000
+							amount_min: 40.000
 							difficulty: 7
 							snapping: 5.000
 							falloff: 0.828
 							ratio: 1.000
 							group: 0
-							flags: stepped, simultaneous, conditional
+							flags: simultaneous, conditional
 						}
 						{
 							type: work
 							work: crimping.metal
 							amount: 11.000
-							amount_min: 50.000
+							amount_min: 20.000
 							difficulty: 5
 							snapping: 5.000
-							falloff: 0.919
+							falloff: 0.889
 							ratio: 1.000
 							group: 1
 							flags: stepped, conditional

@@ -146,34 +146,12 @@
 							flags: prerequisite
 						}
 						{
-							type: resource
-							material: lubricant
-							amount: 0.776
-							snapping: 0.100
-							falloff: 0.370
-							loss: 0.106
-							ratio: 1.000
-							group: 0
-							flags: prerequisite
-						}
-						{
 							type: work
 							work: die.cutting.metal
 							amount: 20.000
 							difficulty: 10
 							snapping: 5.000
 							ratio: 0.761
-							group: 0
-							flags: stepped, conditional
-						}
-						{
-							type: work
-							work: die.stamping.metal
-							amount: 38.000
-							difficulty: 9
-							snapping: 10.000
-							falloff: 0.940
-							ratio: 0.447
 							group: 0
 							flags: stepped, simultaneous, conditional
 						}
@@ -187,6 +165,17 @@
 							ratio: 0.463
 							group: 0
 							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: die.stamping.metal
+							amount: 38.000
+							difficulty: 9
+							snapping: 10.000
+							falloff: 0.940
+							ratio: 0.447
+							group: 1
+							flags: stepped, conditional
 						}
 					]
 					
@@ -555,13 +544,13 @@
 		size: [16, 16]
 		frame: [3, 0]
 	}
-	icon_offset: [-2.000, -2.000]
+	icon_offset: [-3.000, -3.000]
 	
 	icon_extra:
 	{
+		texture: ui_icons_gunsmith.mini
 		size: [16, 16]
 	}
-	icon_extra_offset: [3.000, -7.000]
 	
 	color_frame: "0xffcf392b"
 	color_button: "0xff9dd80f"

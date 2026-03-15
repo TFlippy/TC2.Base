@@ -452,7 +452,7 @@
 	]
 	
 	type: workshop
-	flags: production, manufacturing, wip
+	flags: production, manufacturing
 	tags: manual, crafting, dumb, crude, basic, simple, small, munitions, assembling, military, construction, messy, dangerous
 	hints: dangerous, junk, gun, primitive, weak, inaccurate, small, construction, cheap, dumb, civilian, military, crappy, outlaw, unstable, ranged, clumsy
 	connotations: danger, junk, gun, inaccurate, small, construction, funny, cheap, dumb, civilian, crappy, ugly, sus, crude
