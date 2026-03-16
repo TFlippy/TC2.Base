@@ -1,0 +1,166 @@
+﻿{
+	$region_id: 0
+	$version: "0.1.72.0"
+	name: "Dusty Smirgrafit Cleaning"
+	desc:
+		'''
+		Collect the Smrad dust coating some broken Smirgrafit scrap.
+		'''
+	tips: []
+	
+	related_materials:
+	{
+		smrad: residue, product, result
+		scrap.smirgrafit: residue, product, result
+	}
+	
+	stages:
+	[
+		{
+			name: "Cleaning"
+			
+			type: cleaning
+			flags: subtractive, wip
+			tags: material, raw, formula, ingredient
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			ratio: 1.000
+			
+			options:
+			[
+				{
+					name: "Brushed"
+					
+					type: undefined
+					flags: wip
+					discard_damage_type_override: punch
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: scrap.smirgrafit.dusty
+							amount: 1.000
+							snapping: 0.100
+							loss: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: sweeping.dust
+							amount: 150.000
+							amount_min: 100.000
+							difficulty: 4
+							step_max: 10
+							snapping: 15.000
+							falloff: 0.839
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: smrad
+							amount: 1.000
+							amount_extra: 0.5185
+							snapping: 0.010
+							group: 0
+							ratio: 0.110
+							flags: primary, stepped, parameter, compact, scale_to_mass
+						}
+						{
+							type: resource
+							material: smirgrafit.powder
+							amount: 0.722
+							amount_extra: 0.059
+							snapping: 0.010
+							group: 0
+							chance: 0.561
+							ratio: 0.063
+							flags: residue, byproduct, stepped, scale_to_mass
+						}
+						{
+							type: resource
+							material: putty
+							amount: 0.695
+							amount_extra: 0.284
+							snapping: 0.010
+							group: 0
+							chance: 0.282
+							ratio: 0.031
+							flags: residue, byproduct, stepped, scale_to_mass
+						}
+						{
+							type: resource
+							material: scrap.smirgrafit
+							amount: 0.991
+							amount_extra: 0.044
+							snapping: 0.100
+							group: 0
+							ratio: 0.992
+							flags: residue, stepped, compact, scale_to_mass
+						}
+					]
+					
+					filter_tools:
+					{
+						include: cutters, screwdriver, pliers, bucket, towel, knife
+					}
+					filter_environment:
+					{
+						include: warm, container, disinfected, sterile, clean
+						exclude: polluted
+					}
+				}
+			]
+		}
+	]
+	
+	type: workshop
+	flags: wip
+	tags: manual, basic, simple, small, filtering, salvaging
+	hints: none
+	connotations: none
+	infrastructure: surface
+	infrastructure_exclude: none
+	
+	h_company: elektron
+	
+	icon:
+	{
+		texture: resource.smrad
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	icon_offset: [-6.000, 1.000]
+	
+	icon_extra:
+	{
+		texture: ui_icons_crafting.mini
+		size: [16, 16]
+	}
+	icon_extra_offset: [2.000, -8.000]
+	
+	icon_c:
+	{
+		texture: resource.scrap.smirgrafit.dusty
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	icon_c_offset: [-4.000, -10.000]
+	
+	color_frame: "0xffa35e93"
+	color_button: "0xff9dd80f"
+	rank: -140.000
+	
+	min: 1
+	max: 50
+	step: 1
+	
+	version: 1
+}

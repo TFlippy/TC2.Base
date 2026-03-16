@@ -1,0 +1,67 @@
+﻿{
+	$region_id: 0
+	$version: "0.1.72.0"
+	name: "Sweeping (Dust)"
+	name_short: "Sweeping"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: ui.icons.work.00
+		size: [16, 16]
+		frame: [4, 0]
+	}
+	
+	flags: manual, wip
+	tags: simple, delicate, careful, slow
+	
+	amount_base: 1.000
+	cooldown: 0.950
+	multiplier: 0.960
+	
+	amount_jitter: 0.241
+	cooldown_jitter: 0.124
+	color: "0xffdd4f60"
+	
+	tools_required: none
+	tools_optional: paintbrush, towel
+	
+	infrastructure_required: none
+	infrastructure_optional: table, surface
+	
+	character_traits:
+	{
+		include: bureaucrat, scientist, professional, civillian, social, insane, entertainer, artist, sedentary, politician
+		weight: 1.000
+	}
+	
+	skills_min:
+	{
+	
+	}
+	
+	skills_mult:
+	{
+		dexterity: 0.390
+		geology: 0.220
+		law: 0.310
+	}
+	
+	sound_volume: 0.600
+	sound_pitch: 0.970
+	sound_size: 0.600
+	sound_dist: 0.620
+	
+	sounds: ["effect.cloth.slide.00", "effect.cloth.place.02", "effect.cloth.place.03", "effect.cloth.place.00"]
+	sounds_manual: []
+	sounds_crafter: []
+	sounds_passive: []
+	sounds_ambient: []
+	
+	sounds_start: []
+	sounds_end: []
+	sounds_fail: []
+}
