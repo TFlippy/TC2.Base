@@ -212,21 +212,21 @@ heat:
 
 press:
 {
-	slider_offset: [0.000, -1.000]
-	slider_length: 0.500
+	// slider_offset: [0.000, -1.000]
+	// slider_length: 0.500
 	speed: 2.200
 	load_multiplier: 1.000
 	
-	@animated.renderer:
-	{
-		sprite:
-		{
-			texture: ammoshop.00.parts
-			size: [16, 16]
-		}
-		offset: [-0.250, -0.125]
-		z: -315.000
-	}
+	// @animated.renderer:
+	// {
+	// 	sprite:
+	// 	{
+	// 		texture: ammoshop.00.parts
+	// 		size: [16, 16]
+	// 	}
+	// 	offset: [-0.250, -0.125]
+	// 	z: -315.000
+	// }
 
 	@light:
 	{
@@ -241,6 +241,37 @@ press:
 press.state:
 {
 
+}
+
+piston:
+{
+	offset: [-0.250, -0.500]
+	direction: [0.000, 1.000]
+	length: 0.500
+	mass: 10.000
+	damping: 0.000
+	spring_constant: 0.000
+	flags: no_simulate
+
+	@animated.renderer:
+	{
+		sprite:
+		{
+			texture: ammoshop.00.parts
+			size: [16, 16]
+		}
+		offset: [-0.250, -0.125]
+		z: -315.000
+	}
+
+	// @light:
+	// {
+	// 	color: [0.000, 1.000, 0.800, 1.500]
+	// 	offset: [-0.250, -1.750]
+	// 	scale: [12.000, 14.000]
+	// 	intensity: 1.200
+	// 	texture: light.circle.00
+	// }
 }
 
 crafter:
@@ -314,10 +345,10 @@ axle:
 	}
 }
 
-// crank:
-// {
+crank:
+{
 
-// }
+}
 
 shipment:
 {

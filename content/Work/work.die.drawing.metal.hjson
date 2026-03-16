@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.72.0"
 	name: "Die-Drawing"
 	name_short: "D-Drawing"
 	desc:
@@ -45,10 +45,10 @@
 	
 	}
 	
-	sound_volume: 0.500
-	sound_pitch: 0.950
-	sound_size: 1.000
-	sound_dist: 0.890
+	sound_volume: 0.430
+	sound_pitch: 0.990
+	sound_size: 0.920
+	sound_dist: 0.800
 	
 	sounds: ["work_assembly_00", "work_assembly_01", "work_assembly_02", "work_assembly_03", "work_assembly_04"]
 	sounds_manual: []

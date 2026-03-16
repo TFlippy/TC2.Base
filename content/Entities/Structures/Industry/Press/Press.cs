@@ -75,7 +75,7 @@
 				if (press_state.flags.HasAny(Press.State.Flags.Success))
 				{
 					//Sound.Play(snd_smash[(press.current_sound_index++) % snd_smash.Length], transform.position, volume: 1.00f, pitch: random.NextFloatRange(0.70f, 0.80f), size: 0.80f, priority: 0.60f, dist_multiplier: 0.70f);
-					Sound.Play(sound: snd_stamp.GetNext(ref press_state.current_sound_index), world_position: transform.position, volume: 0.60f, pitch: random.NextFloatExtra(0.95f, 0.10f), size: 4.00f, priority: 0.20f, dist_multiplier: 0.55f);
+					//Sound.Play(sound: snd_stamp.GetNext(ref press_state.current_sound_index), world_position: transform.position, volume: 0.60f, pitch: random.NextFloatExtra(0.95f, 0.10f), size: 4.00f, priority: 0.20f, dist_multiplier: 0.55f);
 					Shake.Emit(region: ref region, world_position: transform.position, trauma: 0.30f, max: 0.35f, radius: 14.00f);
 
 					light.intensity = 1.00f;
@@ -165,6 +165,48 @@
 				crafter_state.pressure = pressure;
 			}
 		}
+
+		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region)]
+		public static void OnUpdate_Axle(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity ent_press,
+		[Source.Owned] ref Press.Data press, [Source.Owned] ref Press.State press_state,
+		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Piston.Data piston,
+		[Source.Owned] ref Crafter.Data crafter, [Source.Owned] ref Crafter.State crafter_state,
+		[Source.Owned] ref Axle.Data axle, [Source.Owned] ref Axle.State axle_state)
+		{
+			var hvcos = Maths.HvCos(axle_state.rotation);
+			var modifier_current = hvcos.Pow2();
+
+			piston.current_distance = Maths.Lerp(0.00f, piston.length, modifier_current);
+
+			if (axle_state.flags.HasAny(Axle.State.Flags.Revolved))
+			{
+//#if SERVER
+				//axle_state.Sync(ent_press, overwrite: true);
+				//piston.flags.AddFlag(Piston.Flags.Impacted);
+
+				piston.flags.AddFlag(Piston.Flags.Impacted);
+				//piston.Sync(ent_press, overwrite: true);
+//#endif
+				//piston.flags.AddFlag(Piston.Flags.Impacted);
+			}
+			else
+			{
+				piston.flags.RemoveFlag(Piston.Flags.Impacted);
+			}
+
+			//if (axle_state.flags.HasAny(Axle.State.Flags.Revolved))
+			//{
+			//	App.WriteLine((piston.current_distance, axle_state.rotation_old));
+			//}
+		}
+
+		//[ISystem.PostUpdate.A(ISystem.Mode.Single, ISystem.Scope.Region)]
+		//public static void OnUpdate_Renderer([Source.Owned] ref Press.Data piston,
+		//[Source.Owned, Pair.Component<Press.Data>] ref Animated.Renderer.Data renderer)
+		//{
+		//	renderer.offset = piston.offset.AddY(piston.current_distance);
+		//	//renderer_slider.offset = press.slider_offset + new Vector2(0.00f, MathF.Pow((MathF.Cos(axle_state.rotation) + 1.00f) * 0.50f, press.speed) * press.slider_length);
+		//}
 
 		[Shitcode]
 		[ISystem.Update.F(ISystem.Mode.Single, ISystem.Scope.Region)]
