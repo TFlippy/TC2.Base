@@ -1,0 +1,61 @@
+﻿{
+	$version: "0.1.67.1"
+	name: "Cat"
+	name_plural: "Cats"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	prefab_male: cat.00
+	prefab_female: cat.00
+	flags: mammal, domesticated, tameable, nocturnal, solitary, omnivore, predator
+	industries: none
+	
+	lifecycle:
+	{
+		age_child: 0.100
+		age_adolescent: 0.800
+		age_mature: 1.700
+		age_elder: 11.000
+	}
+	
+	sprite_head_male:
+	{
+		texture: cat.00.head
+		mask: missing
+		size: [8, 8]
+	}
+	sprite_head_female:
+	{
+		texture: cat.00.head
+		mask: missing
+		size: [8, 8]
+	}
+	
+	hair_colors:
+	[
+		"0xffffffff"
+	]
+	
+	sounds_idle_male: []
+	sounds_idle_female: []
+	
+	sounds_taunt_male: []
+	sounds_taunt_female: []
+	
+	sounds_talk_male: []
+	sounds_talk_female: []
+	
+	sounds_alert_male: []
+	sounds_alert_female: []
+	
+	sounds_pain_male: []
+	sounds_pain_female: []
+	
+	sounds_scream_male: []
+	sounds_scream_female: []
+	
+	sounds_death_male: []
+	sounds_death_female: []
+}

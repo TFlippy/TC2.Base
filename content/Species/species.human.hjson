@@ -1,0 +1,67 @@
+﻿{
+	$version: "0.1.67.1"
+	name: "Human"
+	name_plural: "Humans"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	prefab_male: human.male
+	prefab_female: human.female
+	prefab_unit: unit.human.00
+	flags: humanoid, mammal, domesticated, tameable, omnivore, predator, social, sentient, sapient
+	industries: none
+	
+	lifecycle:
+	{
+		age_child: 2.000
+		age_adolescent: 14.000
+		age_mature: 21.000
+		age_elder: 50.000
+	}
+	
+	sprite_head_male:
+	{
+		texture: human.male.head
+		mask: missing
+		size: [16, 16]
+	}
+	sprite_head_female:
+	{
+		texture: human.female.head
+		mask: missing
+		size: [16, 16]
+	}
+	
+	hair_colors:
+	[
+		"0xffe47309"
+		"0xff784330"
+		"0xffa64830"
+		"0xff797e8b"
+		"0xfffaa852"
+		"0xff8c3607"
+	]
+	
+	sounds_idle_male: []
+	sounds_idle_female: []
+	
+	sounds_taunt_male: []
+	sounds_taunt_female: []
+	
+	sounds_talk_male: []
+	sounds_talk_female: []
+	
+	sounds_alert_male: []
+	sounds_alert_female: []
+	
+	sounds_pain_male: ["kobold.cough.00", "kobold.cough.01", "kobold.cough.02", "kobold.cough.03", "kobold.grunt.00"]
+	sounds_pain_female: ["kobold.cough.00", "kobold.cough.01", "kobold.cough.02", "kobold.cough.03", "kobold.grunt.00"]
+	
+	sounds_scream_male: []
+	sounds_scream_female: []
+	
+	sounds_death_male: ["human.death.00", "kobold.bleh.00", "drunk.04", "vo_rip"]
+	sounds_death_female: ["human.death.00", "kobold.bleh.00", "drunk.04", "vo_rip"]
+}

@@ -1,0 +1,61 @@
+﻿{
+	$version: "0.1.67.1"
+	name: "Chicken"
+	name_plural: "Chickens"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	prefab_male: chicken.male
+	prefab_female: chicken.female
+	flags: bird, domesticated, tameable, omnivore, prey, social
+	industries: none
+	
+	lifecycle:
+	{
+		age_child: 0.400
+		age_adolescent: 0.800
+		age_mature: 1.200
+		age_elder: 8.000
+	}
+	
+	sprite_head_male:
+	{
+		texture: chicken.male
+		mask: missing
+		size: [16, 16]
+	}
+	sprite_head_female:
+	{
+		texture: chicken.female
+		mask: missing
+		size: [16, 16]
+	}
+	
+	hair_colors:
+	[
+		"0xffffffff"
+	]
+	
+	sounds_idle_male: []
+	sounds_idle_female: []
+	
+	sounds_taunt_male: []
+	sounds_taunt_female: []
+	
+	sounds_talk_male: []
+	sounds_talk_female: []
+	
+	sounds_alert_male: []
+	sounds_alert_female: []
+	
+	sounds_pain_male: []
+	sounds_pain_female: []
+	
+	sounds_scream_male: []
+	sounds_scream_female: []
+	
+	sounds_death_male: []
+	sounds_death_female: []
+}

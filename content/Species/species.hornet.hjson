@@ -1,0 +1,61 @@
+﻿{
+	$version: "0.1.67.1"
+	name: "Hornet"
+	name_plural: "Hornets"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	prefab_male: hornet
+	prefab_female: hornet
+	flags: insect, carnivore, predator, parasite, scavenger, wild, social
+	industries: none
+	
+	lifecycle:
+	{
+		age_child: 0.050
+		age_adolescent: 0.100
+		age_mature: 0.150
+		age_elder: 2.000
+	}
+	
+	sprite_head_male:
+	{
+		texture: hornet
+		mask: missing
+		size: [16, 16]
+	}
+	sprite_head_female:
+	{
+		texture: hornet
+		mask: missing
+		size: [16, 16]
+	}
+	
+	hair_colors:
+	[
+		"0xffffffff"
+	]
+	
+	sounds_idle_male: []
+	sounds_idle_female: []
+	
+	sounds_taunt_male: []
+	sounds_taunt_female: []
+	
+	sounds_talk_male: []
+	sounds_talk_female: []
+	
+	sounds_alert_male: []
+	sounds_alert_female: []
+	
+	sounds_pain_male: []
+	sounds_pain_female: []
+	
+	sounds_scream_male: []
+	sounds_scream_female: []
+	
+	sounds_death_male: []
+	sounds_death_female: []
+}
