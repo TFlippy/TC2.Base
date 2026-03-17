@@ -1,0 +1,82 @@
+﻿{
+	$prefab: "g.settlement"
+	$version: "0.1.60.4"
+	name: "Lopat-Prospekto (Harbor)"
+	name_short: "Harbor"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	type: harbor
+	flags: hidden
+	categories: military, imperial, industrial, commercial, residential, urban
+	buildings: warehouse, factory, office, bunker, hotel, hospital, artillery, power_plant, docks, skyscraper, tower, lighthouse, walls, prison, constabulary, manufactory, refinery, checkpoint, customs, slum, laboratory, school, bar, apartments, barracks
+	industry_primary: none
+	industry: none
+	goods_trading: none
+	goods_demanded: none
+	goods_produced: none
+	crime: none
+	geography: none
+	
+	// Urban development, population density.
+	urbanization: 0.890
+	// Availability and utilization of advanced technology.
+	technology: 0.710
+	// Industrial production, mechanization, engineering.
+	industrialization: 0.750
+	// Literacy, availability of education, skilled workers.
+	education: 0.470
+	// Standard of living, overall wealth of population and government.
+	wealth: 0.603
+	// Nature, wildlife, overgrowth, untamed nature.
+	wilderness: 0.120
+	// Environmental damage, pollution, wastelandness.
+	devastation: 0.180
+	// Brutality of nature and population.
+	savagery: 0.160
+	// Lawlessness, lack of organization.
+	anarchy: 0.220
+	// Economic strength, employment rate, flow of goods.
+	economy: 0.660
+	// Variance of population's social classes.
+	inequality: 0.787
+	// Crime rate, personal safety.
+	safety: 0.520
+	// Rate of expansion, economic and population growth.
+	growth: 0.321
+	// Military strength, security, access to weapons.
+	military: 0.811
+	elevation: 10.000
+	
+	population:
+	{
+	
+	}
+	
+	h_prefecture: "tanhauzr"
+	h_faction: "null"
+	h_company: "null"
+	h_location_parent: "lopat"
+	size: 1.000
+	
+	color: "0xffb9d9ff"
+	
+	thumbnail:
+	{
+		texture: "missing"
+	}
+	
+	icon:
+	{
+		texture: "worldmap.icons.01"
+		size: [24, 24]
+		frame: [5, 1]
+	}
+	
+	icon_offset: [0.000, 0.000]
+	text_offset: [0.000, 0.000]
+	
+	point: [25, -20]
+}

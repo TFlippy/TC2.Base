@@ -1,0 +1,81 @@
+﻿{
+	$prefab: "g.settlement.fort.00"
+	$version: "0.1.62.0"
+	name: "Mejdlo"
+	name_short: "Mejdlo"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	post_code: "MEJ"
+	
+	type: fortress
+	flags: restricted
+	categories: military, border, industrial, wilderness, commercial, overgrown, urban, magitech, frontier, wealthy, advanced, secure, fortified, innovative, mercantile, powerful, modern, excavated, forested, mechanized, authoritarian, regulated
+	buildings: none
+	industry_primary: none
+	industry: none
+	goods_trading: none
+	goods_demanded: none
+	goods_produced: none
+	crime: none
+	geography: none
+	
+	// Urban development, population density.
+	urbanization: 0.740
+	// Availability and utilization of advanced technology.
+	technology: 0.720
+	// Industrial production, mechanization, engineering.
+	industrialization: 0.540
+	// Literacy, availability of education, skilled workers.
+	education: 0.690
+	// Standard of living, overall wealth of population and government.
+	wealth: 0.663
+	// Nature, wildlife, overgrowth, untamed nature.
+	wilderness: 0.000
+	// Environmental damage, pollution, wastelandness.
+	devastation: 0.133
+	// Brutality of nature and population.
+	savagery: 0.000
+	// Lawlessness, lack of organization.
+	anarchy: 0.000
+	// Economic strength, employment rate, flow of goods.
+	economy: 0.640
+	// Variance of population's social classes.
+	inequality: 0.134
+	// Crime rate, personal safety.
+	safety: 0.834
+	// Rate of expansion, economic and population growth.
+	growth: 0.765
+	// Military strength, security, access to weapons.
+	military: 0.412
+	// Height in meters above sea level.
+	elevation: 10.000
+	
+	population:
+	{
+	
+	}
+	
+	h_prefecture: brod
+	h_faction: energon
+	h_company: energon
+	h_location_parent: "null"
+	size: 0.700
+	
+	color: "0xffffee00"
+	
+	icon:
+	{
+		texture: worldmap.icons.01
+		mask: missing
+		size: [24, 24]
+		frame: [2, 1]
+	}
+	
+	icon_offset: [0.375, -0.250]
+	text_offset: [0.375, 0.000]
+	
+	point: [11, -11]
+}

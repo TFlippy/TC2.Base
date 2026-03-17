@@ -1,0 +1,87 @@
+﻿{
+	$prefab: "g.settlement.factory.00"
+	$version: "0.1.62.0"
+	name: "Skumpus"
+	name_short: "Skumpus"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	post_code: "SKM"
+	
+	type: factory_town
+	flags: none
+	categories: industrial, commercial, residential, penal, urban, financial, magitech
+	buildings: warehouse, factory, office, bunker, hotel, hospital, airport, trainyard, artillery, power_plant, tower, walls, prison, labor_camp, theatre, constabulary, foundry, manufactory, refinery, mine, borehole, checkpoint, customs, slum, laboratory, school, bar, apartments, lumber_mill, barracks, train_station, arsenal, scrapyard, landfill, black_market, brewery, metalworks, quarry, market, fuel_depot
+	industry_primary: none
+	industry: none
+	goods_trading: none
+	goods_demanded: none
+	goods_produced: none
+	crime: none
+	geography: none
+	
+	// Urban development, population density.
+	urbanization: 0.780
+	// Availability and utilization of advanced technology.
+	technology: 0.690
+	// Industrial production, mechanization, engineering.
+	industrialization: 0.820
+	// Literacy, availability of education, skilled workers.
+	education: 0.580
+	// Standard of living, overall wealth of population and government.
+	wealth: 0.544
+	// Nature, wildlife, overgrowth, untamed nature.
+	wilderness: 0.000
+	// Environmental damage, pollution, wastelandness.
+	devastation: 0.475
+	// Brutality of nature and population.
+	savagery: 0.000
+	// Lawlessness, lack of organization.
+	anarchy: 0.000
+	// Economic strength, employment rate, flow of goods.
+	economy: 0.460
+	// Variance of population's social classes.
+	inequality: 0.399
+	// Crime rate, personal safety.
+	safety: 0.653
+	// Rate of expansion, economic and population growth.
+	growth: 0.377
+	// Military strength, security, access to weapons.
+	military: 0.421
+	// Height in meters above sea level.
+	elevation: 10.000
+	
+	population:
+	{
+	
+	}
+	
+	h_prefecture: tanhauzr
+	h_faction: krumpelstejn
+	h_company: "null"
+	h_location_parent: "null"
+	size: 0.860
+	
+	color: "0xd0ffa82a"
+	
+	thumbnail:
+	{
+		texture: ui.thumbnail.industrial.00
+		mask: missing
+	}
+	
+	icon:
+	{
+		texture: worldmap.icons.01
+		mask: missing
+		size: [24, 24]
+		frame: [4, 2]
+	}
+	
+	icon_offset: [0.250, -0.625]
+	text_offset: [0.250, 0.000]
+	
+	point: [27, -19]
+}

@@ -1,0 +1,82 @@
+﻿{
+	$prefab: "g.settlement.trainyard.00"
+	$version: "0.1.60.4"
+	name: "Lopat-Prospekto (Trainyard)"
+	name_short: "Trainyard"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	type: trainyard
+	flags: hidden
+	categories: military, imperial, industrial, commercial, residential, urban, magitech, advanced, secure, fortified, polluted, mechanized, authoritarian, regulated
+	buildings: warehouse, factory, office, bunker, hotel, hospital, trainyard, artillery, power_plant, docks, skyscraper, tower, lighthouse, walls, prison, labor_camp, constabulary, manufactory, refinery, checkpoint, customs, slum, school, bar, apartments, barracks, subway, train_station, scrapyard, landfill, black_market, market, fuel_depot, bank, steel_mill, transmitter, bakery
+	industry_primary: logistics, railway, engineering
+	industry: financial, telecommunications, manufacturing, low_tech, high_tech, metallurgy, scrap, automotive, military, entertainment, construction, tourism, logistics, food, hospitality, slaves, labor, kobolds, railway, tobacco, trading, propaganda, engineering, beverage, commerce, alcohol
+	goods_trading: none
+	goods_demanded: machinery, components, kobolds, arcane, construction_materials, tools, coal, fuel, industrial
+	goods_produced: scrap, machinery, vehicles, technology, industrial
+	crime: theft, murder, drugs, prostitution, trafficking, vandalism, bribery, corruption, fraud, smuggling, forgery, extortion
+	geography: excavated, windy, rough, flat, warm, urban
+	
+	// Urban development, population density.
+	urbanization: 0.840
+	// Availability and utilization of advanced technology.
+	technology: 0.730
+	// Industrial production, mechanization, engineering.
+	industrialization: 0.860
+	// Literacy, availability of education, skilled workers.
+	education: 0.510
+	// Standard of living, overall wealth of population and government.
+	wealth: 0.698
+	// Nature, wildlife, overgrowth, untamed nature.
+	wilderness: 0.090
+	// Environmental damage, pollution, wastelandness.
+	devastation: 0.323
+	// Brutality of nature and population.
+	savagery: 0.160
+	// Lawlessness, lack of organization.
+	anarchy: 0.170
+	// Economic strength, employment rate, flow of goods.
+	economy: 0.680
+	// Variance of population's social classes.
+	inequality: 0.887
+	// Crime rate, personal safety.
+	safety: 0.494
+	// Rate of expansion, economic and population growth.
+	growth: 0.735
+	// Military strength, security, access to weapons.
+	military: 0.681
+	elevation: 10.000
+	
+	population:
+	{
+	
+	}
+	
+	h_prefecture: "tanhauzr"
+	h_faction: "null"
+	h_company: "zeleznitzer"
+	h_location_parent: "lopat"
+	size: 1.000
+	
+	color: "0xffffa800"
+	
+	thumbnail:
+	{
+		texture: "missing"
+	}
+	
+	icon:
+	{
+		texture: "worldmap.icons.01"
+		size: [24, 24]
+		frame: [7, 1]
+	}
+	
+	icon_offset: [0.000, 0.000]
+	text_offset: [0.000, 0.000]
+	
+	point: [25, -20]
+}

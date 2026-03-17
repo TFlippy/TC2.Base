@@ -1,0 +1,81 @@
+﻿{
+	$prefab: "g.settlement.camp.00"
+	$version: "0.1.62.0"
+	name: "Lejno"
+	name_short: "Lejno"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	post_code: "LJN"
+	
+	type: outpost
+	flags: none
+	categories: rebel, wilderness, criminal, overgrown, ruined, decrepit, lawless, frontier, developing, infested, rural, warzone, forested, uncharted, dangerous
+	buildings: none
+	industry_primary: none
+	industry: none
+	goods_trading: none
+	goods_demanded: none
+	goods_produced: none
+	crime: none
+	geography: none
+	
+	// Urban development, population density.
+	urbanization: 0.020
+	// Availability and utilization of advanced technology.
+	technology: 0.000
+	// Industrial production, mechanization, engineering.
+	industrialization: 0.030
+	// Literacy, availability of education, skilled workers.
+	education: 0.050
+	// Standard of living, overall wealth of population and government.
+	wealth: 0.032
+	// Nature, wildlife, overgrowth, untamed nature.
+	wilderness: 0.000
+	// Environmental damage, pollution, wastelandness.
+	devastation: 0.462
+	// Brutality of nature and population.
+	savagery: 0.000
+	// Lawlessness, lack of organization.
+	anarchy: 0.000
+	// Economic strength, employment rate, flow of goods.
+	economy: 0.020
+	// Variance of population's social classes.
+	inequality: 0.028
+	// Crime rate, personal safety.
+	safety: 0.125
+	// Rate of expansion, economic and population growth.
+	growth: 0.054
+	// Military strength, security, access to weapons.
+	military: 0.025
+	// Height in meters above sea level.
+	elevation: 10.000
+	
+	population:
+	{
+	
+	}
+	
+	h_prefecture: veleprdelsk
+	h_faction: krumpelstejn.guard
+	h_company: krumpelstejn.guard
+	h_location_parent: "null"
+	size: 0.600
+	
+	color: "0xffffee00"
+	
+	icon:
+	{
+		texture: worldmap.icons.00
+		mask: missing
+		size: [24, 24]
+		frame: [1, 0]
+	}
+	
+	icon_offset: [0.000, -0.250]
+	text_offset: [0.000, 0.000]
+	
+	point: [14, -17]
+}

@@ -1,0 +1,80 @@
+﻿{
+	$prefab: "g.settlement.border.00"
+	$version: "0.1.66.1"
+	name: "Bordus D1"
+	name_short: "Bordus D1"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	post_code: ""
+	
+	type: checkpoint
+	flags: none
+	categories: military, imperial, border, secure, fortified, authoritarian, regulated
+	buildings: warehouse, office, bunker, minefield, artillery, tower, walls, prison, constabulary, checkpoint, customs, barracks
+	industry_primary: none
+	industry: none
+	goods_trading: none
+	goods_demanded: none
+	goods_produced: none
+	crime: none
+	geography: none
+	
+	// Urban development, population density.
+	urbanization: 0.270
+	// Availability and utilization of advanced technology.
+	technology: 0.590
+	// Industrial production, mechanization, engineering.
+	industrialization: 0.190
+	// Literacy, availability of education, skilled workers.
+	education: 0.450
+	// Standard of living, overall wealth of population and government.
+	wealth: 0.230
+	// Nature, wildlife, overgrowth, untamed nature.
+	wilderness: 0.000
+	// Environmental damage, pollution, wastelandness.
+	devastation: 0.055
+	// Brutality of nature and population.
+	savagery: 0.000
+	// Lawlessness, lack of organization.
+	anarchy: 0.000
+	// Economic strength, employment rate, flow of goods.
+	economy: 0.170
+	// Variance of population's social classes.
+	inequality: 0.754
+	// Crime rate, personal safety.
+	safety: 0.782
+	// Rate of expansion, economic and population growth.
+	growth: 0.000
+	// Military strength, security, access to weapons.
+	military: 0.544
+	// Height in meters above sea level.
+	elevation: 10.000
+	
+	population:
+	{
+	
+	}
+	
+	h_prefecture: tanhauzr
+	h_faction: krumpelstejn.guard
+	h_company: krumpelstejn.guard
+	size: 0.400
+	
+	color: "0xffc0c0c0"
+	
+	icon:
+	{
+		texture: worldmap.icons.00
+		mask: missing
+		size: [24, 24]
+		frame: [0, 3]
+	}
+	
+	icon_offset: [0.000, 0.000]
+	text_offset: [0.000, 0.250]
+	
+	point: [22, -17]
+}

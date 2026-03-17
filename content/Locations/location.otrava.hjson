@@ -1,0 +1,110 @@
+﻿{
+	$prefab: "g.settlement.city.00"
+	$version: "0.1.65.3"
+	name: "Otrava"
+	name_short: "Otrava"
+	desc:
+		'''
+		Medium-sized city overlooking a massive gorge formed over years of essence-harvesting operations, extending all the way to Horec-Snehovy.
+		'''
+	
+	post_code: "OTR"
+	
+	type: city
+	flags: spawn
+	categories: industrial, wasteland, commercial, residential, urban, decrepit, magitech, advanced, fortified, innovative, mercantile, powerful, modern, excavated, polluted, mechanized, dangerous
+	buildings: warehouse, factory, office, bunker, hotel, hospital, airport, trainyard, minefield, artillery, power_plant, skyscraper, tower, walls, prison, labor_camp, theatre, constabulary, foundry, manufactory, refinery, mine, borehole, checkpoint, customs, slum, laboratory, university, school, bar, apartments, barracks, train_station, exchange, arsenal, scrapyard, landfill, black_market, brewery, metalworks, phlogiston, circus, quarry, market, fuel_depot, bank, essenceworks, brickworks, steel_mill, transmitter, bakery, glassworks
+	industry_primary: none
+	industry: none
+	goods_trading: none
+	goods_demanded: none
+	goods_produced: none
+	crime: none
+	geography: none
+	
+	// Urban development, population density.
+	urbanization: 0.870
+	// Availability and utilization of advanced technology.
+	technology: 0.770
+	// Industrial production, mechanization, engineering.
+	industrialization: 0.830
+	// Literacy, availability of education, skilled workers.
+	education: 0.730
+	// Standard of living, overall wealth of population and government.
+	wealth: 0.665
+	// Nature, wildlife, overgrowth, untamed nature.
+	wilderness: 0.000
+	// Environmental damage, pollution, wastelandness.
+	devastation: 0.969
+	// Brutality of nature and population.
+	savagery: 0.000
+	// Lawlessness, lack of organization.
+	anarchy: 0.000
+	// Economic strength, employment rate, flow of goods.
+	economy: 0.630
+	// Variance of population's social classes.
+	inequality: 0.623
+	// Crime rate, personal safety.
+	safety: 0.332
+	// Rate of expansion, economic and population growth.
+	growth: 0.379
+	// Military strength, security, access to weapons.
+	military: 0.416
+	// Height in meters above sea level.
+	elevation: 10.000
+	
+	statistics:
+	{
+		// Literacy, availability of education, skilled workers.
+		education: 0.730
+		// Urban development, population density.
+		urbanization: 0.870
+		// Availability and utilization of advanced technology.
+		technology: 0.770
+		// Industrial production, mechanization, engineering.
+		industrialization: 0.830
+		// Standard of living, overall wealth of population and government.
+		wealth: 0.665
+		// Environmental devastation, excavation, deforestation, wasteland-ness.
+		devastation: 0.969
+		// Economic strength, employment rate, flow of goods.
+		economy: 0.630
+		// Variance of population's social classes.
+		inequality: 0.623
+		// Crime rate, personal safety.
+		safety: 0.332
+		// Rate of expansion, economic and population growth.
+		growth: 0.379
+		// Military strength, security, access to weapons.
+		military: 0.416
+	}
+	
+	population:
+	{
+	
+	}
+	
+	h_prefecture: trphajzel
+	size: 0.850
+	
+	color: "0xffffee00"
+	
+	thumbnail:
+	{
+		texture: ui.thumbnail.industrial.03
+		mask: missing
+	}
+	
+	icon:
+	{
+		texture: worldmap.icons.01
+		mask: missing
+		size: [24, 24]
+		frame: [0, 2]
+	}
+	
+	icon_offset: [0.000, -0.500]
+	text_offset: [0.000, 0.000]
+	
+	point: [40, -10]
+}

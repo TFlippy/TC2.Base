@@ -1,0 +1,115 @@
+﻿{
+	$prefab: "g.settlement.prison.00"
+	$version: "0.1.62.0"
+	name: "Mordus"
+	name_short: "Mordus"
+	desc:
+		'''
+		Former industrial prison complex.
+		'''
+	
+	post_code: "MOR"
+	
+	type: prison
+	flags: restricted
+	categories: military, industrial, rebel, wasteland, residential, penal, criminal, urban, abandoned, ruined, decrepit, lawless, magitech, advanced, developing, secure, fortified, powerful, warzone, modern, expansive, excavated, polluted, mechanized, authoritarian, dangerous
+	buildings: warehouse, factory, office, bunker, hospital, airport, trainyard, minefield, artillery, power_plant, tower, walls, prison, labor_camp, foundry, manufactory, refinery, mine, borehole, slum, school, bar, barracks, phlogiston
+	industry_primary: none
+	industry: none
+	goods_trading: none
+	goods_demanded: none
+	goods_produced: none
+	crime: none
+	geography: none
+	
+	// Urban development, population density.
+	urbanization: 0.580
+	// Availability and utilization of advanced technology.
+	technology: 0.600
+	// Industrial production, mechanization, engineering.
+	industrialization: 0.880
+	// Literacy, availability of education, skilled workers.
+	education: 0.270
+	// Standard of living, overall wealth of population and government.
+	wealth: 0.085
+	// Nature, wildlife, overgrowth, untamed nature.
+	wilderness: 0.030
+	// Environmental damage, pollution, wastelandness.
+	devastation: 0.929
+	// Brutality of nature and population.
+	savagery: 0.860
+	// Lawlessness, lack of organization.
+	anarchy: 0.880
+	// Economic strength, employment rate, flow of goods.
+	economy: 0.090
+	// Variance of population's social classes.
+	inequality: 0.212
+	// Crime rate, personal safety.
+	safety: 0.044
+	// Rate of expansion, economic and population growth.
+	growth: 0.605
+	// Military strength, security, access to weapons.
+	military: 0.459
+	// Height in meters above sea level.
+	elevation: 99.000
+	
+	statistics:
+	{
+		// Brutality of nature and population.
+		savagery: 0.860
+		// Literacy, availability of education, skilled workers.
+		education: 0.270
+		// Urban development, population density.
+		urbanization: 0.580
+		// Availability and utilization of advanced technology.
+		technology: 0.600
+		// Industrial production, mechanization, engineering.
+		industrialization: 0.880
+		// Standard of living, overall wealth of population and government.
+		wealth: 0.085
+		// Nature, wildlife, overgrowth, untamed nature.
+		wilderness: 0.030
+		// Environmental devastation, excavation, deforestation, wasteland-ness.
+		devastation: 0.929
+		// Lawlessness, lack of organization.
+		anarchy: 0.880
+		// Economic strength, employment rate, flow of goods.
+		economy: 0.090
+		// Variance of population's social classes.
+		inequality: 0.212
+		// Crime rate, personal safety.
+		safety: 0.044
+		// Rate of expansion, economic and population growth.
+		growth: 0.605
+		// Military strength, security, access to weapons.
+		military: 0.459
+	}
+	
+	population:
+	{
+		human: 600
+		kobold: 4000
+		giant: 50
+	}
+	
+	h_prefecture: srn
+	h_faction: srn.outlaw
+	h_company: kobolder
+	h_location_parent: "null"
+	size: 0.840
+	
+	color: "0xffff1010"
+	
+	icon:
+	{
+		texture: worldmap.icons.01
+		mask: missing
+		size: [24, 24]
+		frame: [0, 2]
+	}
+	
+	icon_offset: [0.000, -0.250]
+	text_offset: [0.000, 0.125]
+	
+	point: [36, -6]
+}

@@ -1,0 +1,121 @@
+﻿{
+	$prefab: "g.settlement.city.00"
+	$version: "0.1.62.0"
+	name: "Kordelkapital"
+	name_short: "Kordelkapital"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	post_code: "KAP"
+	
+	type: capital
+	flags: restricted
+	categories: military, imperial, industrial, commercial, residential, urban, administrative, governmental, financial, magitech, wealthy, advanced, developing, secure, fortified, innovative, mercantile, coastal, powerful, modern, expansive, polluted, mechanized, authoritarian, regulated
+	buildings: warehouse, factory, office, bunker, hotel, hospital, airport, trainyard, minefield, artillery, power_plant, docks, skyscraper, tower, lighthouse, walls, prison, labor_camp, theatre, constabulary, foundry, manufactory, refinery, checkpoint, customs, slum, laboratory, university, school, bar, apartments, barracks, subway, train_station, exchange, arsenal, scrapyard, landfill, black_market, brewery, metalworks, phlogiston, zoo, circus, quarry, market, fuel_depot, bank, essenceworks, brickworks, steel_mill, transmitter, bakery, glassworks
+	industry_primary: financial, telecommunications, manufacturing, high_tech, metallurgy, chemical, automotive, power, military, entertainment, arcane, biology, construction, tourism, logistics, food, textile, fishing, hospitality, real_estate, research, education, security, munitions, media, pharmaceutical, medical, railway, administrative, criminal, tobacco, trading, literature, propaganda, engineering, weapons, experimental, beverage, commerce, aviation, naval, architecture, luxury, jewelry, intel, alcohol
+	industry: none
+	goods_trading: weapons, beverages, food, alcohol, metals, scrap, machinery, components, drugs, ores, chemicals, explosives, refined, kobolds, natural, artificial, rocks, crops, water, vehicles, arcane, technology, blueprints, paper, medicine, raw, wood, construction_materials, tools, harvested, coal, fuel, clothing, textiles, minerals, herbs, mushrooms, plants, animals, cooking, jewelry, energy, waste, leather, munitions, soil, fertilizers, meat, livestock, prisoners, tobacco, dangerous, luxury, consumer, industrial, military, toys, stocks, manufactured, recycled, processed, smirglum
+	goods_demanded: weapons, beverages, food, alcohol, metals, machinery, components, drugs, chemicals, explosives, refined, kobolds, artificial, vehicles, arcane, technology, blueprints, paper, medicine, wood, construction_materials, tools, coal, fuel, clothing, textiles, minerals, herbs, mushrooms, plants, animals, cooking, jewelry, energy, leather, munitions, mined, meat, livestock, prisoners, tobacco, illegal, dangerous, luxury, consumer, industrial, military, toys, stocks, manufactured, processed, smirglum
+	goods_produced: weapons, beverages, food, alcohol, metals, scrap, machinery, components, drugs, chemicals, explosives, refined, kobolds, artificial, water, vehicles, arcane, technology, blueprints, paper, medicine, tools, fuel, clothing, textiles, cooking, jewelry, energy, waste, munitions, prisoners, luxury, consumer, industrial, military, toys, stocks, manufactured, processed, smirglum
+	crime: theft, murder, embezzlement, drugs, prostitution, bribery, corruption, fraud, smuggling, forgery, arson, extortion, espionage, tax_evasion, jaywalking, vagrancy, counterfeiting, begging, impersonation, insubordination, misconduct
+	geography: mountains, hills, excavated, rough, coastal, warm, urban
+	
+	// Urban development, population density.
+	urbanization: 2.732
+	// Availability and utilization of advanced technology.
+	technology: 4.134
+	// Industrial production, mechanization, engineering.
+	industrialization: 2.254
+	// Literacy, availability of education, skilled workers.
+	education: 0.940
+	// Standard of living, overall wealth of population and government.
+	wealth: 8.601
+	// Nature, wildlife, overgrowth, untamed nature.
+	wilderness: 0.029
+	// Environmental damage, pollution, wastelandness.
+	devastation: 0.242
+	// Brutality of nature and population.
+	savagery: 0.027
+	// Lawlessness, lack of organization.
+	anarchy: 0.016
+	// Economic strength, employment rate, flow of goods.
+	economy: 4.362
+	// Variance of population's social classes.
+	inequality: 0.433
+	// Crime rate, personal safety.
+	safety: 0.874
+	// Rate of expansion, economic and population growth.
+	growth: 2.170
+	// Military strength, security, access to weapons.
+	military: 79.502
+	// Height in meters above sea level.
+	elevation: 11.000
+	
+	statistics:
+	{
+		// Brutality of nature and population.
+		savagery: 0.027
+		// Literacy, availability of education, skilled workers.
+		education: 0.940
+		// Urban development, population density.
+		urbanization: 2.732
+		// Availability and utilization of advanced technology.
+		technology: 4.134
+		// Industrial production, mechanization, engineering.
+		industrialization: 2.254
+		// Standard of living, overall wealth of population and government.
+		wealth: 8.601
+		// Nature, wildlife, overgrowth, untamed nature.
+		wilderness: 0.029
+		// Environmental devastation, excavation, deforestation, wasteland-ness.
+		devastation: 0.242
+		// Lawlessness, lack of organization.
+		anarchy: 0.016
+		// Economic strength, employment rate, flow of goods.
+		economy: 4.362
+		// Variance of population's social classes.
+		inequality: 0.433
+		// Crime rate, personal safety.
+		safety: 0.874
+		// Rate of expansion, economic and population growth.
+		growth: 2.170
+		// Military strength, security, access to weapons.
+		military: 79.502
+	}
+	
+	population:
+	{
+		human: 842000
+		kobold: 115000
+		giant: 78500
+	}
+	
+	h_prefecture: novokordelsk
+	h_faction: imperial
+	h_company: kordel
+	h_location_parent: "null"
+	size: 1.500
+	
+	color: "0xffffee00"
+	
+	thumbnail:
+	{
+		texture: ui.thumbnail.urban.06
+		mask: missing
+	}
+	
+	icon:
+	{
+		texture: worldmap.icons.01
+		mask: missing
+		size: [24, 32]
+		frame: [0, 3]
+	}
+	
+	icon_offset: [0.000, -0.750]
+	text_offset: [0.000, 0.125]
+	
+	point: [32, -33]
+}

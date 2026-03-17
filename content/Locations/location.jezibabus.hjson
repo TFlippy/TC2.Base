@@ -1,0 +1,90 @@
+﻿{
+	$prefab: "g.settlement.factory.00"
+	$version: "0.1.60.7"
+	name: "Jezibabus"
+	name_short: "Jezibabus"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	post_code: "JZB"
+	
+	type: factory_town
+	flags: none
+	categories: industrial, wilderness, commercial, residential, criminal, overgrown, urban, administrative, lawless, magitech, frontier, agricultural
+	buildings: warehouse, factory, office, bunker, hotel, hospital, trainyard, artillery, power_plant, tower, walls, prison, labor_camp, theatre, constabulary, manufactory, mine, checkpoint, customs, school, bar, apartments, lumber_mill, barracks, train_station, farm, arsenal, landfill, black_market, brewery, circus, market, fuel_depot
+	industry_primary: none
+	industry: none
+	goods_trading: none
+	goods_demanded: none
+	goods_produced: none
+	crime: none
+	geography: none
+	
+	// Urban development, population density.
+	urbanization: 0.310
+	// Availability and utilization of advanced technology.
+	technology: 0.190
+	// Industrial production, mechanization, engineering.
+	industrialization: 0.160
+	// Literacy, availability of education, skilled workers.
+	education: 0.260
+	// Standard of living, overall wealth of population and government.
+	wealth: 0.174
+	// Nature, wildlife, overgrowth, untamed nature.
+	wilderness: 0.000
+	// Environmental damage, pollution, wastelandness.
+	devastation: 0.105
+	// Brutality of nature and population.
+	savagery: 0.000
+	// Lawlessness, lack of organization.
+	anarchy: 0.000
+	// Economic strength, employment rate, flow of goods.
+	economy: 0.260
+	// Variance of population's social classes.
+	inequality: 0.083
+	// Crime rate, personal safety.
+	safety: 0.394
+	// Rate of expansion, economic and population growth.
+	growth: 0.119
+	// Military strength, security, access to weapons.
+	military: 0.123
+	// Height in meters above sea level.
+	elevation: 10.000
+	
+	statistics:
+	{
+	
+	}
+	
+	population:
+	{
+	
+	}
+	
+	h_prefecture: "somrwald"
+	h_faction: "smejdum"
+	h_company: "smejdum"
+	h_location_parent: "null"
+	size: 0.780
+	
+	color: "0xffffee00"
+	
+	thumbnail:
+	{
+		texture: "missing"
+	}
+	
+	icon:
+	{
+		texture: "worldmap.icons.01"
+		size: [24, 24]
+		frame: [1, 2]
+	}
+	
+	icon_offset: [0.000, 0.000]
+	text_offset: [0.000, 0.500]
+	
+	point: [19, -12]
+}

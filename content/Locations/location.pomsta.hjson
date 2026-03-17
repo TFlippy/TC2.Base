@@ -1,0 +1,115 @@
+﻿{
+	$prefab: "g.settlement.installation.00"
+	$version: "0.1.62.0"
+	name: "Pomsta Krtkova"
+	name_short: "Pomsta Krtkova"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	post_code: "KRT"
+	
+	type: installation
+	flags: restricted
+	categories: military, border, industrial, rebel, wasteland, penal, criminal, urban, administrative, ruined, decrepit, lawless, magitech, advanced, secure, fortified, powerful, warzone, modern, mechanized, authoritarian, dangerous
+	buildings: warehouse, bunker, airport, trainyard, minefield, artillery, power_plant, tower, walls, checkpoint, customs, bar, apartments, barracks
+	industry_primary: none
+	industry: none
+	goods_trading: none
+	goods_demanded: none
+	goods_produced: none
+	crime: none
+	geography: none
+	
+	// Urban development, population density.
+	urbanization: 0.720
+	// Availability and utilization of advanced technology.
+	technology: 0.710
+	// Industrial production, mechanization, engineering.
+	industrialization: 0.700
+	// Literacy, availability of education, skilled workers.
+	education: 0.420
+	// Standard of living, overall wealth of population and government.
+	wealth: 0.580
+	// Nature, wildlife, overgrowth, untamed nature.
+	wilderness: 0.020
+	// Environmental damage, pollution, wastelandness.
+	devastation: 0.658
+	// Brutality of nature and population.
+	savagery: 0.630
+	// Lawlessness, lack of organization.
+	anarchy: 0.730
+	// Economic strength, employment rate, flow of goods.
+	economy: 0.250
+	// Variance of population's social classes.
+	inequality: 0.853
+	// Crime rate, personal safety.
+	safety: 0.456
+	// Rate of expansion, economic and population growth.
+	growth: 0.153
+	// Military strength, security, access to weapons.
+	military: 1.084
+	// Height in meters above sea level.
+	elevation: 89.000
+	
+	statistics:
+	{
+		// Brutality of nature and population.
+		savagery: 0.630
+		// Literacy, availability of education, skilled workers.
+		education: 0.420
+		// Urban development, population density.
+		urbanization: 0.720
+		// Availability and utilization of advanced technology.
+		technology: 0.710
+		// Industrial production, mechanization, engineering.
+		industrialization: 0.700
+		// Standard of living, overall wealth of population and government.
+		wealth: 0.580
+		// Nature, wildlife, overgrowth, untamed nature.
+		wilderness: 0.020
+		// Environmental devastation, excavation, deforestation, wasteland-ness.
+		devastation: 0.658
+		// Lawlessness, lack of organization.
+		anarchy: 0.730
+		// Economic strength, employment rate, flow of goods.
+		economy: 0.250
+		// Variance of population's social classes.
+		inequality: 0.853
+		// Crime rate, personal safety.
+		safety: 0.456
+		// Rate of expansion, economic and population growth.
+		growth: 0.153
+		// Military strength, security, access to weapons.
+		military: 1.084
+	}
+	
+	population:
+	{
+		human: 60
+		kobold: 30
+		giant: 5
+	}
+	
+	h_prefecture: srn
+	h_faction: srn
+	h_company: "null"
+	h_location_parent: "null"
+	size: 0.720
+	
+	color: "0xffff1010"
+	
+	icon:
+	{
+		texture: worldmap.icons.01
+		mask: missing
+		size: [24, 24]
+		frame: [3, 1]
+	}
+	
+	icon_offset: [0.000, -0.375]
+	text_offset: [0.000, 0.250]
+	
+	point: [34, -9]
+}

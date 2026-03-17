@@ -1,0 +1,119 @@
+﻿{
+	$prefab: "g.settlement.factory.00"
+	$version: "0.1.62.0"
+	name: "Krachtel"
+	name_short: "Krachtel"
+	desc:
+		'''
+		Large industrial city originally formed from a factory complex.
+		'''
+	
+	post_code: "KTL"
+	
+	type: factory_complex
+	flags: spawn
+	categories: military, imperial, border, industrial, wasteland, commercial, residential, penal, urban, administrative, governmental, financial, decrepit, magitech, wealthy, advanced, secure, fortified, innovative, mercantile, powerful, modern, expansive, excavated, polluted, mechanized, authoritarian, dangerous
+	buildings: warehouse, factory, office, bunker, hotel, hospital, airport, trainyard, minefield, artillery, power_plant, skyscraper, tower, walls, prison, labor_camp, theatre, constabulary, foundry, manufactory, refinery, mine, borehole, checkpoint, customs, slum, laboratory, university, school, bar, apartments, barracks, subway, train_station, exchange, arsenal, scrapyard, landfill, black_market, brewery, metalworks, phlogiston, circus, quarry, market, fuel_depot, bank, brickworks, steel_mill, transmitter, bakery, glassworks
+	industry_primary: none
+	industry: none
+	goods_trading: none
+	goods_demanded: none
+	goods_produced: none
+	crime: none
+	geography: none
+	
+	// Urban development, population density.
+	urbanization: 0.990
+	// Availability and utilization of advanced technology.
+	technology: 0.870
+	// Industrial production, mechanization, engineering.
+	industrialization: 0.970
+	// Literacy, availability of education, skilled workers.
+	education: 0.810
+	// Standard of living, overall wealth of population and government.
+	wealth: 0.846
+	// Nature, wildlife, overgrowth, untamed nature.
+	wilderness: 0.030
+	// Environmental damage, pollution, wastelandness.
+	devastation: 0.797
+	// Brutality of nature and population.
+	savagery: 0.160
+	// Lawlessness, lack of organization.
+	anarchy: 0.210
+	// Economic strength, employment rate, flow of goods.
+	economy: 0.750
+	// Variance of population's social classes.
+	inequality: 0.773
+	// Crime rate, personal safety.
+	safety: 0.392
+	// Rate of expansion, economic and population growth.
+	growth: 0.573
+	// Military strength, security, access to weapons.
+	military: 0.664
+	// Height in meters above sea level.
+	elevation: 41.000
+	
+	statistics:
+	{
+		// Brutality of nature and population.
+		savagery: 0.160
+		// Literacy, availability of education, skilled workers.
+		education: 0.810
+		// Urban development, population density.
+		urbanization: 0.990
+		// Availability and utilization of advanced technology.
+		technology: 0.870
+		// Industrial production, mechanization, engineering.
+		industrialization: 0.970
+		// Standard of living, overall wealth of population and government.
+		wealth: 0.846
+		// Nature, wildlife, overgrowth, untamed nature.
+		wilderness: 0.030
+		// Environmental devastation, excavation, deforestation, wasteland-ness.
+		devastation: 0.797
+		// Lawlessness, lack of organization.
+		anarchy: 0.210
+		// Economic strength, employment rate, flow of goods.
+		economy: 0.750
+		// Variance of population's social classes.
+		inequality: 0.773
+		// Crime rate, personal safety.
+		safety: 0.392
+		// Rate of expansion, economic and population growth.
+		growth: 0.573
+		// Military strength, security, access to weapons.
+		military: 0.664
+	}
+	
+	population:
+	{
+	
+	}
+	
+	h_prefecture: trphajzel
+	h_faction: "null"
+	h_company: refaktor
+	h_location_parent: "null"
+	size: 0.910
+	
+	color: "0xffffee00"
+	
+	thumbnail:
+	{
+		texture: ui.thumbnail.urban.04
+		mask: missing
+	}
+	
+	icon:
+	{
+		texture: worldmap.icons.01
+		mask: missing
+		size: [24, 32]
+		frame: [1, 3]
+	}
+	
+	icon_offset: [0.125, -0.500]
+	text_offset: [0.125, 0.375]
+	
+	point: [32, -14]
+}
