@@ -1,0 +1,281 @@
+﻿{
+	$version: "0.1.67.2"
+	name: "S.R.N. Terminator"
+	desc:
+		'''
+		TODO
+		'''
+	
+	money: 3850.000
+	age: [35.000, 40.000, 45.000, 50.000, 60.000, 80.000, 150.000]
+	genders: male, female
+	gender_ratio: 0.160
+	species: giant
+	faction: srn
+	cost: 0.000
+	flags: none
+	
+	character_flags: criminal, educated, military, professional, armed, law, technician, engineer, alchemist, soldier, insane, alcoholic, nomad, arcane, entertainer, brawler, outdoor, strong, evil, thief, murderer, terrorist, fanatic, huge, lower_middle_class
+	character_flags_optional: construction, unskilled, medical, professional, laborer, technician, engineer, insane, arcane, illiterate, junkie, evil, middle_class
+	
+	industry_flags: mercenary, criminal
+	industry_flags_optional: military, hunting, slaves, kobolds, exploration, tobacco, alcohol
+	
+	service_flags: mercenary, extortion, sabotage
+	service_flags_optional: recruitment, espionage, imprisonment, waste_management
+	
+	crime_flags: piracy, theft, murder, raiding, pillaging, tax_evasion, treason, mutiny, dissent
+	crime_flags_optional: drugs, slavery, prostitution, trafficking, vandalism, terrorism, smuggling, arson, extortion, tax_evasion, jaywalking, vagrancy, insubordination, misconduct
+	
+	kit_filter_primary:
+	{
+		chance: 1.000
+		
+		categories:
+		{
+			require: gun
+			include: weapon, illegal, heavy, gun, long_range, short_range, inaccurate, military, industrial, wrecked, arcane, contraband, outlaw, rebel, stolen
+			exclude: primitive
+			weight: 1.000
+		}
+	}
+	
+	kit_filter_secondary:
+	{
+		chance: 0.000
+		
+		categories:
+		{
+			require: none
+			include: armor, tools, weapon, illegal, melee, gun, short_range, destructive, small, cheap, military, industrial, outlaw, rebel, fast, stolen
+			exclude: primitive
+			weight: 0.800
+		}
+	}
+	
+	kit_filter_tool:
+	{
+		chance: 0.851
+		
+		categories:
+		{
+			require: none
+			include: armor, tools, weapon, food, dangerous, illegal, explosive, melee, short_range, defensive, small, drug, consumable, healing, cheap, civilian, military, contraband, outlaw, rebel, stolen
+			exclude: none
+			weight: 0.700
+		}
+	}
+	
+	kit_filter_utility:
+	{
+		chance: 0.800
+		
+		categories:
+		{
+			require: none
+			include: armor, tools, weapon, food, dangerous, illegal, explosive, melee, defensive, destructive, drug, chemical, consumable, healing, military, contraband, outlaw, rebel, stolen
+			exclude: none
+			weight: 0.800
+		}
+	}
+	
+	conditions:
+	{
+		weight_mult: 0.860
+		
+		industry:
+		{
+			require: none
+			include: financial, administrative
+			exclude: none
+			weight: 1.170
+		}
+		
+		crime:
+		{
+			require: none
+			include: piracy, theft, murder, drugs, slavery, prostitution, trafficking, terrorism, smuggling, extortion, raiding, pillaging
+			exclude: none
+			weight: 6.000
+		}
+		
+		geography:
+		{
+			require: none
+			include: none
+			exclude: none
+			weight: 0.000
+		}
+		
+		urbanization:
+		{
+			min: 0.020
+			mid: 0.470
+			max: 0.980
+			weight: 0.610
+		}
+		
+		industrialization:
+		{
+			min: 0.020
+			mid: 0.500
+			max: 0.850
+			weight: 0.240
+		}
+		
+		education:
+		{
+			min: 0.010
+			mid: 0.360
+			max: 0.000
+			weight: -0.280
+		}
+		
+		wealth:
+		{
+			min: 0.100
+			mid: 0.380
+			max: 0.940
+			weight: 0.760
+		}
+		
+		wilderness:
+		{
+			min: 0.060
+			mid: 0.480
+			max: 0.690
+			weight: 0.700
+		}
+		
+		devastation:
+		{
+			min: 0.110
+			mid: 0.680
+			max: 0.000
+			weight: 0.150
+		}
+		
+		savagery:
+		{
+			min: 0.020
+			mid: 0.910
+			max: 0.000
+			weight: 0.910
+		}
+		
+		anarchy:
+		{
+			min: 0.140
+			mid: 0.950
+			max: 0.000
+			weight: 0.820
+		}
+		
+		safety:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		pollution:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		destruction:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		inequality:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		unrest:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		corruption:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		prestige:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		elevation:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+	}
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: money
+			amount: 7779.000
+			group: 0
+		}
+	]
+	
+	experience:
+	{
+		handguns: 0
+		rifles: 18
+		explosives: 15
+		mining: 5
+		woodcutting: 3
+		construction: 4
+		masonry: 3
+		carpentry: 3
+		engineering: 6
+		blacksmithing: 5
+		arcanology: 9
+		strength: 29
+		dexterity: 4
+		endurance: 31
+		intellect: 15
+		geology: 7
+		metallurgy: 6
+		medicine: 3
+		commerce: 5
+		charisma: 8
+		leadership: 15
+		blades: 4
+		axes: 10
+		clubs: 19
+		alchemistry: 6
+		farming: 0
+		animals: 2
+		scavenging: 8
+		law: 10
+	}
+}

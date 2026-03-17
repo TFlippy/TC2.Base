@@ -1,0 +1,220 @@
+﻿{
+	$version: "0.1.70.1"
+	name: "Motion"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	money: 0.000
+	age: [20.000, 4000.000]
+	genders: ""
+	gender_ratio: 0.500
+	species: smradlus
+	cost: 0.000
+	flags: special
+	
+	character_flags: bureaucrat, arcane, strong
+	character_flags_optional: none
+	
+	industry_flags: high_tech, power, arcane, experimental
+	industry_flags_optional: none
+	
+	service_flags: research
+	service_flags_optional: none
+	
+	crime_flags: tax_evasion
+	crime_flags_optional: none
+	
+	conditions:
+	{
+		weight_mult: 0.000
+		
+		industry:
+		{
+			require: none
+			include: none
+			exclude: none
+			weight: 0.000
+		}
+		
+		crime:
+		{
+			require: none
+			include: none
+			exclude: none
+			weight: 0.000
+		}
+		
+		geography:
+		{
+			require: none
+			include: mountains, hills, windy, coastal
+			exclude: none
+			weight: 1.000
+		}
+		
+		urbanization:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		industrialization:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		education:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		wealth:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		wilderness:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		devastation:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		savagery:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		anarchy:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		safety:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		pollution:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		destruction:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		inequality:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		unrest:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		corruption:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		prestige:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		elevation:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+	}
+	
+	requirements: []
+	
+	experience:
+	{
+		handguns: 0
+		rifles: 0
+		explosives: 0
+		mining: 0
+		woodcutting: 0
+		construction: 0
+		masonry: 0
+		carpentry: 0
+		engineering: 0
+		blacksmithing: 0
+		arcanology: 42
+		strength: 0
+		dexterity: 0
+		endurance: 0
+		intellect: 0
+		geology: 0
+		metallurgy: 0
+		medicine: 0
+		commerce: 0
+		charisma: 0
+		leadership: 0
+		blades: 0
+		axes: 0
+		clubs: 0
+		alchemistry: 0
+		farming: 0
+		animals: 0
+		scavenging: 0
+		law: 0
+	}
+}

@@ -1,0 +1,293 @@
+﻿{
+	$version: "0.1.67.1"
+	name: "Militia"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	money: 350.000
+	age: [19.000, 25.000, 28.000, 35.000, 45.000, 60.000]
+	genders: male, female
+	gender_ratio: 0.100
+	species: human
+	cost: 0.000
+	flags: none
+	
+	character_flags: military, armed, hunter, soldier, nomad, brawler, outdoor, strong, lower_middle_class, middle_class
+	character_flags_optional: none
+	
+	industry_flags: none
+	industry_flags_optional: none
+	
+	service_flags: none
+	service_flags_optional: none
+	
+	crime_flags: none
+	crime_flags_optional: none
+	
+	kit_filter_primary:
+	{
+		chance: 0.400
+		
+		categories:
+		{
+			require: weapon, gun
+			include: tools, weapon, dangerous, gun, long_range, short_range
+			exclude: junk, primitive, expensive, fancy
+			weight: 1.000
+		}
+	}
+	
+	kit_filter_secondary:
+	{
+		chance: 1.000
+		
+		categories:
+		{
+			require: weapon
+			include: tools, weapon, dangerous, heavy, explosive, melee, gun, long_range, short_range, civilian, military
+			exclude: primitive, expensive, fancy
+			weight: 1.000
+		}
+	}
+	
+	kit_filter_utility:
+	{
+		chance: 0.302
+		
+		categories:
+		{
+			require: none
+			include: weapon, food, dangerous, explosive, destructive, small, cheap
+			exclude: primitive, expensive, fancy
+			weight: 1.000
+		}
+	}
+	
+	kit_filter_head:
+	{
+		chance: 0.702
+		
+		categories:
+		{
+			require: armor
+			include: armor
+			exclude: junk, primitive, expensive, fancy
+			weight: 1.000
+		}
+	}
+	
+	kit_filter_chest:
+	{
+		chance: 0.502
+		
+		categories:
+		{
+			require: armor
+			include: armor
+			exclude: junk, primitive, expensive, fancy
+			weight: 1.000
+		}
+	}
+	
+	conditions:
+	{
+		weight_mult: 0.760
+		
+		industry:
+		{
+			require: none
+			include: military, administrative
+			exclude: none
+			weight: 10.000
+		}
+		
+		crime:
+		{
+			require: none
+			include: none
+			exclude: none
+			weight: 5.000
+		}
+		
+		geography:
+		{
+			require: none
+			include: none
+			exclude: none
+			weight: 0.000
+		}
+		
+		urbanization:
+		{
+			min: 0.020
+			mid: 0.140
+			max: 0.680
+			weight: 30.000
+		}
+		
+		industrialization:
+		{
+			min: 0.000
+			mid: 0.500
+			max: 0.000
+			weight: 15.000
+		}
+		
+		education:
+		{
+			min: 0.100
+			mid: 0.500
+			max: 0.000
+			weight: 5.000
+		}
+		
+		wealth:
+		{
+			min: 0.100
+			mid: 0.400
+			max: 0.000
+			weight: 20.000
+		}
+		
+		wilderness:
+		{
+			min: 0.300
+			mid: 0.800
+			max: 0.000
+			weight: 30.000
+		}
+		
+		devastation:
+		{
+			min: 0.200
+			mid: 0.500
+			max: 0.000
+			weight: 10.000
+		}
+		
+		savagery:
+		{
+			min: 0.150
+			mid: 0.800
+			max: 0.000
+			weight: 25.000
+		}
+		
+		anarchy:
+		{
+			min: 0.100
+			mid: 0.400
+			max: 0.600
+			weight: 30.000
+		}
+		
+		safety:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		pollution:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		destruction:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		inequality:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		unrest:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		corruption:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		prestige:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		elevation:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+	}
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: money
+			amount: 449.000
+			group: 0
+		}
+	]
+	
+	experience:
+	{
+		handguns: 7
+		rifles: 10
+		explosives: 4
+		mining: 3
+		woodcutting: 3
+		construction: 7
+		masonry: 1
+		carpentry: 3
+		engineering: 3
+		blacksmithing: 1
+		arcanology: 3
+		strength: 8
+		dexterity: 7
+		endurance: 8
+		intellect: 5
+		geology: 1
+		metallurgy: 3
+		medicine: 3
+		commerce: 2
+		charisma: 4
+		leadership: 7
+		blades: 7
+		axes: 5
+		clubs: 4
+		alchemistry: 2
+		farming: 0
+		animals: 4
+		scavenging: 7
+		law: 4
+	}
+}

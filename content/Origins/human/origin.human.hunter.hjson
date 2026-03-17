@@ -1,0 +1,293 @@
+﻿{
+	$version: "0.1.67.1"
+	name: "Hunter"
+	desc:
+		'''
+		TODO
+		'''
+	
+	money: 135.000
+	age: [18.000, 25.000, 28.000, 30.000, 32.000, 40.000, 50.000]
+	genders: male, female
+	gender_ratio: 0.040
+	species: human
+	cost: 0.000
+	flags: none
+	
+	character_flags: artisan, farmer, civillian, armed, hunter, lower_class
+	character_flags_optional: none
+	
+	industry_flags: none
+	industry_flags_optional: none
+	
+	service_flags: none
+	service_flags_optional: none
+	
+	crime_flags: none
+	crime_flags_optional: none
+	
+	kit_filter_primary:
+	{
+		chance: 1.000
+		
+		categories:
+		{
+			require: gun
+			include: tools, weapon, junk, gun, long_range, short_range, gathering, cheap
+			exclude: primitive, expensive, fancy
+			weight: 1.000
+		}
+	}
+	
+	kit_filter_secondary:
+	{
+		chance: 1.000
+		
+		categories:
+		{
+			require: none
+			include: tools, weapon, melee, gun, long_range, short_range, small, gathering, civilian
+			exclude: primitive, expensive
+			weight: 1.000
+		}
+	}
+	
+	kit_filter_tool:
+	{
+		chance: 0.400
+		
+		categories:
+		{
+			require: none
+			include: tools, junk, melee, weak, consumable, gathering, cheap
+			exclude: none
+			weight: 1.000
+		}
+	}
+	
+	kit_filter_utility:
+	{
+		chance: 0.302
+		
+		categories:
+		{
+			require: none
+			include: tools, food, gathering, cheap
+			exclude: none
+			weight: 1.000
+		}
+	}
+	
+	kit_filter_resources:
+	{
+		chance: 0.200
+		
+		categories:
+		{
+			require: none
+			include: food, materials, junk
+			exclude: expensive, fancy
+			weight: 1.000
+		}
+	}
+	
+	conditions:
+	{
+		weight_mult: 0.720
+		
+		industry:
+		{
+			require: none
+			include: agricultural, low_tech, logging, hunting
+			exclude: none
+			weight: 10.000
+		}
+		
+		crime:
+		{
+			require: none
+			include: none
+			exclude: none
+			weight: 0.000
+		}
+		
+		geography:
+		{
+			require: none
+			include: hills, meadows, forested
+			exclude: none
+			weight: 10.000
+		}
+		
+		urbanization:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.300
+			weight: 40.000
+		}
+		
+		industrialization:
+		{
+			min: 0.000
+			mid: 0.100
+			max: 0.300
+			weight: 30.000
+		}
+		
+		education:
+		{
+			min: 0.000
+			mid: 0.100
+			max: 0.300
+			weight: 10.000
+		}
+		
+		wealth:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.400
+			weight: 15.000
+		}
+		
+		wilderness:
+		{
+			min: 0.200
+			mid: 0.400
+			max: 0.600
+			weight: 45.000
+		}
+		
+		devastation:
+		{
+			min: 0.100
+			mid: 0.400
+			max: 0.000
+			weight: -80.000
+		}
+		
+		savagery:
+		{
+			min: 0.100
+			mid: 0.200
+			max: 0.600
+			weight: 40.000
+		}
+		
+		anarchy:
+		{
+			min: 0.100
+			mid: 0.900
+			max: 0.000
+			weight: 20.000
+		}
+		
+		safety:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		pollution:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		destruction:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		inequality:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		unrest:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		corruption:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		prestige:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		elevation:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+	}
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: money
+			amount: 289.000
+			group: 0
+		}
+	]
+	
+	experience:
+	{
+		handguns: 2
+		rifles: 11
+		explosives: 0
+		mining: 3
+		woodcutting: 7
+		construction: 7
+		masonry: 1
+		carpentry: 8
+		engineering: 2
+		blacksmithing: 1
+		arcanology: 1
+		strength: 7
+		dexterity: 8
+		endurance: 9
+		intellect: 6
+		geology: 4
+		metallurgy: 0
+		medicine: 6
+		commerce: 2
+		charisma: 4
+		leadership: 5
+		blades: 7
+		axes: 9
+		clubs: 3
+		alchemistry: 3
+		farming: 6
+		animals: 11
+		scavenging: 6
+		law: 0
+	}
+}

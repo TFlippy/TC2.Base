@@ -1,0 +1,280 @@
+﻿{
+	$version: "0.1.67.1"
+	name: "Outlaw"
+	desc:
+		'''
+		TODO
+		'''
+	
+	money: 480.000
+	age: [18.000, 20.000, 25.000, 35.000, 50.000]
+	genders: male, female
+	gender_ratio: 0.120
+	species: human
+	cost: 0.000
+	flags: selectable
+	
+	character_flags: criminal, civillian, armed, lowlife, nomad, brawler, outdoor, strong, thief, murderer, lower_class, lower_middle_class
+	character_flags_optional: none
+	
+	industry_flags: none
+	industry_flags_optional: none
+	
+	service_flags: none
+	service_flags_optional: none
+	
+	crime_flags: murder, vandalism, terrorism, raiding, pillaging, tax_evasion, vagrancy, misconduct
+	crime_flags_optional: none
+	
+	kit_filter_primary:
+	{
+		chance: 0.502
+		
+		categories:
+		{
+			require: gun
+			include: tools, weapon, junk, illegal, gun, short_range, small, gathering, cheap
+			exclude: primitive, expensive, fancy
+			weight: 1.000
+		}
+	}
+	
+	kit_filter_secondary:
+	{
+		chance: 1.000
+		
+		categories:
+		{
+			require: none
+			include: tools, weapon, illegal, melee, gun, short_range, small, cheap, civilian, military, industrial, crappy, contraband, outlaw, stolen
+			exclude: primitive, expensive
+			weight: 1.000
+		}
+	}
+	
+	kit_filter_tool:
+	{
+		chance: 0.702
+		
+		categories:
+		{
+			require: weapon
+			include: tools, weapon, junk, illegal, melee, gathering, cheap
+			exclude: none
+			weight: 1.000
+		}
+	}
+	
+	kit_filter_resources:
+	{
+		chance: 0.200
+		
+		categories:
+		{
+			require: none
+			include: food, materials, junk, illegal, drug
+			exclude: expensive, fancy
+			weight: 1.000
+		}
+	}
+	
+	conditions:
+	{
+		weight_mult: 0.860
+		
+		industry:
+		{
+			require: none
+			include: financial, administrative
+			exclude: none
+			weight: 1.170
+		}
+		
+		crime:
+		{
+			require: none
+			include: piracy, theft, murder, drugs, slavery, prostitution, trafficking, terrorism, smuggling, extortion, raiding, pillaging
+			exclude: none
+			weight: 6.000
+		}
+		
+		geography:
+		{
+			require: none
+			include: none
+			exclude: none
+			weight: 0.000
+		}
+		
+		urbanization:
+		{
+			min: 0.020
+			mid: 0.470
+			max: 0.980
+			weight: 0.610
+		}
+		
+		industrialization:
+		{
+			min: 0.020
+			mid: 0.500
+			max: 0.850
+			weight: 0.240
+		}
+		
+		education:
+		{
+			min: 0.010
+			mid: 0.360
+			max: 0.000
+			weight: -0.280
+		}
+		
+		wealth:
+		{
+			min: 0.100
+			mid: 0.380
+			max: 0.940
+			weight: 0.760
+		}
+		
+		wilderness:
+		{
+			min: 0.060
+			mid: 0.480
+			max: 0.690
+			weight: 0.700
+		}
+		
+		devastation:
+		{
+			min: 0.110
+			mid: 0.680
+			max: 0.000
+			weight: 0.150
+		}
+		
+		savagery:
+		{
+			min: 0.020
+			mid: 0.910
+			max: 0.000
+			weight: 0.910
+		}
+		
+		anarchy:
+		{
+			min: 0.140
+			mid: 0.950
+			max: 0.000
+			weight: 0.820
+		}
+		
+		safety:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		pollution:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		destruction:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		inequality:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		unrest:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		corruption:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		prestige:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		elevation:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+	}
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: money
+			amount: 339.000
+			group: 0
+		}
+	]
+	
+	experience:
+	{
+		handguns: 9
+		rifles: 7
+		explosives: 5
+		mining: 1
+		woodcutting: 2
+		construction: 5
+		masonry: 1
+		carpentry: 4
+		engineering: 1
+		blacksmithing: 0
+		arcanology: 3
+		strength: 10
+		dexterity: 6
+		endurance: 9
+		intellect: 4
+		geology: 1
+		metallurgy: 1
+		medicine: 2
+		commerce: 3
+		charisma: 3
+		leadership: 2
+		blades: 8
+		axes: 7
+		clubs: 7
+		alchemistry: 2
+		farming: 1
+		animals: 5
+		scavenging: 7
+		law: 0
+	}
+}

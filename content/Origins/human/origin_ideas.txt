@@ -1,0 +1,9 @@
+Detective
+Jester
+Sailor
+Musician
+Mud Farmer
+Painter
+Writer
+Journalist
+Hobo

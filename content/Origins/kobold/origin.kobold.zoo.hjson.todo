@@ -1,0 +1,94 @@
+{
+	name: "Zoobold"
+	desc:
+		'''
+		Previously a popular attraction at the local zoo, this one escaped in the chaos when a child fell in and a zookeeper accidentally shot the child instead.
+		'''
+	
+	money: 0.000
+	age: [4, 5, 10, 25]
+	genders: male, female
+	gender_ratio: 0.300
+	species: "kobold"
+	character_flags: unskilled, lowlife, unarmed, poor, hunter, insane, alcoholic, pet, illiterate
+	
+	conditions:
+	{
+		weight_mult: 0.200
+		
+		infrastructure:
+		{
+			require: zoo
+			include: education, university, zoo
+			exclude: none
+			weight: 45.000
+		}
+		
+		industry:
+		{
+			require: none
+			include: entertainment, tourism, hospitality
+			exclude: none
+			weight: 15.000
+		}
+		
+		crime:
+		{
+			require: none
+			include: slavery, trafficking, smuggling
+			exclude: none
+			weight: 15.000
+		}
+		
+		geography:
+		{
+			require: none
+			include: urban
+			exclude: none
+			weight: 10.000
+		}
+		
+		urbanization: [0.600, 0.000, 0.900, 40.000]
+		industrialization: [0.100, 0.000, 0.900, 15.000]
+		education: [0.400, 0.000, 0.700, 20.000]
+		wealth: [0.500, 0.000, 0.700, 40.000]
+		wilderness: [0.300, 0.000, 0.700, -15.000]
+		devastation: [0.000, 0.000, 0.500, 5.000]
+		savagery: [0.150, 0.000, 0.800, 10.000]
+		anarchy: [0.400, 0.000, 0.800, -5.000]
+		elevation: [0.000, 0.000, 0.000, 0.000]
+	}
+	
+	experience:
+	{
+		handguns: 0
+		rifles: 0
+		explosives: 4
+		mining: 2
+		woodcutting: 2
+		construction: 2
+		masonry: 1
+		carpentry: 3
+		engineering: 0
+		blacksmithing: 1
+		arcanology: 0
+		strength: 11
+		dexterity: 4
+		endurance: 9
+		intellect: 1
+		geology: 0
+		metallurgy: 0
+		medicine: 0
+		commerce: 0
+		charisma: 4
+		leadership: 0
+		blades: 3
+		axes: 0
+		clubs: 7
+		chemistry: 0
+		farming: 3
+		animals: 8
+		scavenging: 7
+		law: 0
+	}
+}

@@ -1,0 +1,307 @@
+﻿{
+	$version: "0.1.67.1"
+	name: "Border Guard"
+	desc:
+		'''
+		TODO
+		'''
+	
+	money: 680.000
+	age: [16.000, 20.000, 23.000, 28.000, 30.000, 32.000, 35.000, 45.000, 65.000]
+	genders: male, female
+	gender_ratio: 0.130
+	species: human
+	faction: krumpelstejn.guard
+	cost: 0.000
+	flags: none
+	
+	character_flags: criminal, military, armed, lowlife, hunter, soldier, alcoholic, nomad, brawler, outdoor, strong, thief, murderer, terrorist, lower_middle_class, middle_class
+	character_flags_optional: educated, medical, professional, laborer, engineer, alchemist, culinary, insane, illiterate, junkie, evil
+	
+	industry_flags: mercenary, criminal
+	industry_flags_optional: military, hunting, slaves, kobolds, exploration, tobacco, alcohol
+	
+	service_flags: mercenary, extortion, sabotage
+	service_flags_optional: recruitment, espionage, imprisonment, waste_management
+	
+	crime_flags: none
+	crime_flags_optional: drugs, slavery, prostitution, trafficking, vandalism, terrorism, smuggling, arson, extortion, tax_evasion, jaywalking, vagrancy, insubordination, misconduct
+	
+	kit_filter_primary:
+	{
+		chance: 1.000
+		
+		categories:
+		{
+			require: gun
+			include: weapon, illegal, gun, long_range, short_range, inaccurate, military, industrial, wrecked, contraband
+			exclude: primitive, expensive, fancy
+			weight: 1.000
+		}
+	}
+	
+	kit_filter_secondary:
+	{
+		chance: 1.000
+		
+		categories:
+		{
+			require: weapon
+			include: weapon, illegal, melee, gun, short_range, destructive, small, cheap, military, industrial, wrecked
+			exclude: primitive, expensive
+			weight: 0.800
+		}
+	}
+	
+	kit_filter_tool:
+	{
+		chance: 0.502
+		
+		categories:
+		{
+			require: none
+			include: weapon, dangerous, illegal, melee, short_range, destructive, cheap, military, industrial, wrecked, contraband
+			exclude: none
+			weight: 0.700
+		}
+	}
+	
+	kit_filter_utility:
+	{
+		chance: 0.745
+		
+		categories:
+		{
+			require: none
+			include: weapon, food, dangerous, illegal, explosive, destructive, drug, chemical, consumable, military, contraband
+			exclude: none
+			weight: 0.800
+		}
+	}
+	
+	kit_filter_head:
+	{
+		chance: 0.851
+		
+		categories:
+		{
+			require: armor
+			include: armor, illegal, destructive, cheap, military, industrial, wrecked, contraband
+			exclude: none
+			weight: 1.000
+		}
+	}
+	
+	kit_filter_chest:
+	{
+		chance: 0.502
+		
+		categories:
+		{
+			require: armor
+			include: armor, illegal, destructive, cheap, military, industrial, wrecked, contraband
+			exclude: none
+			weight: 1.000
+		}
+	}
+	
+	conditions:
+	{
+		weight_mult: 0.860
+		
+		industry:
+		{
+			require: none
+			include: financial, administrative
+			exclude: none
+			weight: 1.170
+		}
+		
+		crime:
+		{
+			require: none
+			include: piracy, theft, murder, drugs, slavery, prostitution, trafficking, terrorism, smuggling, extortion, raiding, pillaging
+			exclude: none
+			weight: 6.000
+		}
+		
+		geography:
+		{
+			require: none
+			include: none
+			exclude: none
+			weight: 0.000
+		}
+		
+		urbanization:
+		{
+			min: 0.050
+			mid: 0.420
+			max: 1.250
+			weight: 0.610
+		}
+		
+		industrialization:
+		{
+			min: 0.020
+			mid: 0.500
+			max: 0.850
+			weight: 0.240
+		}
+		
+		education:
+		{
+			min: 0.010
+			mid: 0.360
+			max: 0.000
+			weight: -0.280
+		}
+		
+		wealth:
+		{
+			min: 0.100
+			mid: 0.380
+			max: 0.940
+			weight: 0.760
+		}
+		
+		wilderness:
+		{
+			min: 0.060
+			mid: 0.480
+			max: 0.690
+			weight: 0.700
+		}
+		
+		devastation:
+		{
+			min: 0.110
+			mid: 0.680
+			max: 0.000
+			weight: 0.150
+		}
+		
+		savagery:
+		{
+			min: 0.020
+			mid: 0.910
+			max: 0.000
+			weight: 0.910
+		}
+		
+		anarchy:
+		{
+			min: 0.140
+			mid: 0.950
+			max: 0.000
+			weight: 0.820
+		}
+		
+		safety:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		pollution:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		destruction:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		inequality:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		unrest:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		corruption:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		prestige:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		elevation:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+	}
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: money
+			amount: 779.000
+			group: 0
+		}
+	]
+	
+	experience:
+	{
+		handguns: 11
+		rifles: 9
+		explosives: 7
+		mining: 1
+		woodcutting: 2
+		construction: 5
+		masonry: 1
+		carpentry: 3
+		engineering: 3
+		blacksmithing: 2
+		arcanology: 5
+		strength: 11
+		dexterity: 7
+		endurance: 9
+		intellect: 5
+		geology: 1
+		metallurgy: 3
+		medicine: 4
+		commerce: 4
+		charisma: 5
+		leadership: 4
+		blades: 8
+		axes: 4
+		clubs: 5
+		alchemistry: 3
+		farming: 1
+		animals: 5
+		scavenging: 8
+		law: 3
+	}
+}

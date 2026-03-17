@@ -1,0 +1,95 @@
+{
+	name: "Noble"
+	desc:
+		'''
+		You saw a great opportunity in the recent government crisis and set your plan in motion.
+		This proved to be a mistake, and now you're here.
+		'''
+	
+	money: 950.000
+	age: [20, 26, 28, 30, 32, 35, 40, 60, 80]
+	genders: male, female
+	gender_ratio: 0.500
+	species: "human"
+	character_flags: educated, military, nobility, civillian, armed, law, social, commerce, rich, upper_class, elite_class
+	
+	conditions:
+	{
+		weight_mult: 0.100
+		
+		infrastructure:
+		{
+			require: none
+			include: electricity, telegraph, railway, airport, docks, military
+			exclude: none
+			weight: 0.500
+		}
+		
+		industry:
+		{
+			require: none
+			include: financial, administrative, military
+			exclude: none
+			weight: 3.000
+		}
+		
+		crime:
+		{
+			require: none
+			include: embezzlement, bribery, corruption
+			exclude: none
+			weight: 1.500
+		}
+		
+		geography:
+		{
+			require: none
+			include: none
+			exclude: none
+			weight: 0.000
+		}
+		
+		urbanization: [0.100, 0.000, 0.900, 20.000]
+		industrialization: [0.000, 0.000, 0.800, 15.000]
+		education: [0.100, 0.000, 0.500, 20.000]
+		wealth: [0.100, 0.000, 0.900, 80.000]
+		wilderness: [0.200, 0.000, 0.800, -5.000]
+		devastation: [0.000, 0.000, 0.500, -2.000]
+		savagery: [0.150, 0.000, 0.700, -4.000]
+		anarchy: [0.300, 0.000, 0.900, -10.000]
+		elevation: [0.000, 0.000, 0.000, 0.000]
+	}
+	
+	experience:
+	{
+		handguns: 6
+		rifles: 5
+		explosives: 0
+		mining: 0
+		woodcutting: 0
+		construction: 0
+		masonry: 2
+		carpentry: 0
+		engineering: 2
+		blacksmithing: 0
+		arcanology: 0
+		strength: 3
+		dexterity: 8
+		endurance: 2
+		intellect: 9
+		geology: 0
+		metallurgy: 1
+		medicine: 5
+		commerce: 8
+		charisma: 16
+		leadership: 13
+		blades: 6
+		axes: 0
+		clubs: 1
+		chemistry: 2
+		farming: 0
+		animals: 3
+		scavenging: 0
+		law: 9
+	}
+}

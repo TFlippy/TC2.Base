@@ -1,0 +1,94 @@
+{
+	name: "Surgeon"
+	desc:
+		'''
+		While a brilliant surgeon, your patients' low survival rate led to you being reassigned to the nearby butcher shop and confiscation of your medical license.
+		'''
+	
+	money: 105.000
+	age: [25, 30, 35, 40, 70]
+	genders: male, female
+	gender_ratio: 0.150
+	species: "human"
+	character_flags: educated, medical, professional, civillian, upper_middle_class
+	
+	conditions:
+	{
+		weight_mult: 0.300
+		
+		infrastructure:
+		{
+			require: none
+			include: healthcare, education, military
+			exclude: none
+			weight: 10.000
+		}
+		
+		industry:
+		{
+			require: none
+			include: manufacturing, high_tech, military, logging
+			exclude: none
+			weight: 10.000
+		}
+		
+		crime:
+		{
+			require: none
+			include: none
+			exclude: none
+			weight: 1.000
+		}
+		
+		geography:
+		{
+			require: none
+			include: none
+			exclude: none
+			weight: 0.000
+		}
+		
+		urbanization: [0.100, 0.000, 0.400, 50.000]
+		industrialization: [0.100, 0.000, 0.800, 40.000]
+		education: [0.000, 0.000, 0.700, 45.000]
+		wealth: [0.100, 0.000, 0.700, 40.000]
+		wilderness: [0.350, 0.000, 0.700, 10.000]
+		devastation: [0.000, 0.000, 0.500, 25.000]
+		savagery: [0.000, 0.000, 0.500, 50.000]
+		anarchy: [0.100, 0.000, 0.800, -15.000]
+		elevation: [0.000, 0.000, 0.000, 0.000]
+	}
+	
+	experience:
+	{
+		handguns: 4
+		rifles: 2
+		explosives: 1
+		mining: 2
+		woodcutting: 5
+		construction: 2
+		masonry: 2
+		carpentry: 2
+		engineering: 3
+		blacksmithing: 1
+		arcanology: 0
+		strength: 8
+		dexterity: 11
+		endurance: 7
+		intellect: 12
+		geology: 2
+		metallurgy: 4
+		medicine: 11
+		commerce: 4
+		charisma: 6
+		leadership: 7
+		blades: 9
+		axes: 5
+		clubs: 5
+		chemistry: 7
+		farming: 2
+		animals: 6
+		scavenging: 7
+		law: 6
+	}
+}
