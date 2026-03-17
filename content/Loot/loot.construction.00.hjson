@@ -1,0 +1,467 @@
+﻿{
+	$version: "0.1.64.1"
+	nodes:
+	[
+		{
+			rarity: 4.000
+			weight: 20.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: brick.concrete
+					amount: 50.000
+					amount_extra: 250.000
+					snapping: 10.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.000
+			weight: 20.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: wood
+					amount: 50.000
+					amount_extra: 150.000
+					snapping: 25.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.000
+			weight: 17.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: wood.rod
+					amount: 30.000
+					amount_extra: 75.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.000
+			weight: 15.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: brick.clay
+					amount: 150.000
+					amount_extra: 500.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 4.000
+			weight: 15.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: steel.plate
+					amount: 10.000
+					amount_extra: 65.000
+					snapping: 4.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 4.000
+			weight: 15.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: steel.rod
+					amount: 15.000
+					amount_extra: 35.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.000
+			weight: 15.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: brick.mud
+					amount: 150.000
+					amount_extra: 500.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.000
+			weight: 12.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: water
+					amount: 80.000
+					amount_extra: 350.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.180
+			weight: 10.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: lime
+					amount: 35.000
+					amount_extra: 100.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.000
+			weight: 10.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: steel.ingot
+					amount: 10.000
+					amount_extra: 30.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 4.000
+			weight: 10.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: cement
+					amount: 200.000
+					amount_extra: 500.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 5.000
+			weight: 10.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: steel.frames
+					amount: 20.000
+					amount_extra: 85.000
+					snapping: 2.500
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.000
+			weight: 10.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: lime
+					amount: 35.000
+					amount_extra: 100.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 5.000
+			weight: 10.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: machine_parts
+					amount: 30.000
+					amount_extra: 65.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.050
+			weight: 8.800
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: sand
+					amount: 238.5246
+					amount_extra: 397.541
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 4.000
+			weight: 8.200
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: limelight
+					amount: 9.000
+					amount_extra: 26.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.000
+			weight: 8.000
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: handsaw.00
+					amount: 2.000
+					amount_extra: 3.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 7.000
+			weight: 6.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: phlogiston
+					amount: 10.000
+					amount_extra: 75.000
+					snapping: 15.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 6.000
+			weight: 2.000
+			
+			flags: has_resources, has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: welder.00
+					amount: 1.000
+					snapping: 1.000
+					group: 0
+				}
+				{
+					type: resource
+					material: phlogiston
+					amount: 5.000
+					amount_extra: 13.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.000
+			weight: 4.000
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: sledgehammer.00
+					amount: 4.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 4.000
+			weight: 4.000
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: wrench.00
+					amount: 3.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.000
+			weight: 4.000
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: ruler.00
+					amount: 2.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 6.880
+			weight: 3.400
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: smirgrafit.compacted
+					amount: 26.5666
+					amount_extra: 39.39938
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.000
+			weight: 3.000
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: crowbar.00
+					amount: 3.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+	]
+	
+	includes: []
+}

@@ -1,0 +1,355 @@
+﻿{
+	$version: "0.1.64.1"
+	nodes:
+	[
+		{
+			rarity: 3.740
+			weight: 8.200
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: brick.clay
+					amount: 150.000
+					amount_extra: 400.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.210
+			weight: 8.200
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: paper
+					amount: 24.43466
+					amount_extra: 31.51546
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.970
+			weight: 8.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: cloth
+					amount: 19.96526
+					amount_extra: 25.7509
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 4.000
+			weight: 7.900
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: steel.plate
+					amount: 10.000
+					amount_extra: 65.000
+					snapping: 0.500
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.180
+			weight: 7.100
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: glass
+					amount: 18.96793
+					amount_extra: 41.7764
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 6.620
+			weight: 6.900
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: phlogiston
+					amount: 20.1054
+					amount_extra: 40.5561
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 4.250
+			weight: 6.400
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: steel.rod
+					amount: 12.000
+					amount_extra: 29.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.780
+			weight: 6.300
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: steel.ingot
+					amount: 3.62272
+					amount_extra: 10.86816
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 4.900
+			weight: 6.204
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: limelight
+					amount: 7.000
+					amount_extra: 16.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 4.110
+			weight: 6.100
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: steel.frames
+					amount: 20.000
+					amount_extra: 85.000
+					snapping: 2.500
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.200
+			weight: 6.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: brick.concrete
+					amount: 64.14152
+					amount_extra: 73.69743
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.920
+			weight: 5.600
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: cement
+					amount: 49.95345
+					amount_extra: 82.14578
+					snapping: 0.090
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.760
+			weight: 5.600
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: machine_parts
+					amount: 31.77833
+					amount_extra: 68.85313
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.060
+			weight: 5.100
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: sand
+					amount: 177.0492
+					amount_extra: 295.082
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.260
+			weight: 4.200
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: copper.plate
+					amount: 14.3119
+					amount_extra: 18.6622
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 1.740
+			weight: 4.200
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: wood.rod
+					amount: 30.000
+					amount_extra: 75.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.260
+			weight: 4.200
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: copper.plate
+					amount: 14.3119
+					amount_extra: 18.6622
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 6.800
+			weight: 3.700
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: smirgrafit.compacted
+					amount: 26.5666
+					amount_extra: 39.39938
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+	]
+	
+	includes:
+	[
+		{
+			handle: chemicals.fuels.00
+		}
+	]
+}

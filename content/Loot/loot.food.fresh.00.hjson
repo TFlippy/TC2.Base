@@ -1,0 +1,177 @@
+﻿{
+	$version: "0.1.60.7"
+	nodes:
+	[
+		{
+			rarity: 3.000
+			weight: 8.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: alcohol
+					amount: 4.000
+					amount_extra: 25.000
+				}
+			]
+		}
+		{
+			rarity: 2.000
+			weight: 12.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: sauce
+					amount: 6.000
+					amount_extra: 30.000
+				}
+			]
+		}
+		{
+			rarity: 6.000
+			weight: 7.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: mayo
+					amount: 6.000
+					amount_extra: 12.000
+				}
+			]
+		}
+		{
+			rarity: 3.000
+			weight: 7.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: onion.juice
+					amount: 5.000
+					amount_extra: 19.000
+				}
+			]
+		}
+		{
+			rarity: 2.000
+			weight: 14.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: eggs
+					amount: 3.000
+					amount_extra: 22.000
+				}
+			]
+		}
+		{
+			rarity: 1.000
+			weight: 20.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: flour
+					amount: 20.000
+					amount_extra: 45.000
+				}
+			]
+		}
+		{
+			rarity: 2.000
+			weight: 14.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: salt
+					amount: 5.000
+					amount_extra: 23.000
+				}
+			]
+		}
+		{
+			rarity: 2.000
+			weight: 12.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: sugar
+					amount: 6.000
+					amount_extra: 12.000
+				}
+			]
+		}
+		{
+			rarity: 2.000
+			weight: 11.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: tallow
+					amount: 6.000
+					amount_extra: 20.000
+				}
+			]
+		}
+		{
+			rarity: 6.000
+			weight: 7.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: red_sugar
+					amount: 8.000
+					amount_extra: 25.000
+				}
+			]
+		}
+		{
+			rarity: 2.000
+			weight: 11.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: mushroom.brown
+					amount: 8.000
+					amount_extra: 28.000
+				}
+			]
+		}
+		{
+			rarity: 2.000
+			weight: 15.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: water.clean
+					amount: 20.000
+					amount_extra: 45.000
+					snapping: 1.000
+				}
+			]
+		}
+	]
+	
+	includes: []
+}

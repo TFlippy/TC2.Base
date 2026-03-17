@@ -1,0 +1,325 @@
+﻿{
+	$version: "0.1.64.1"
+	nodes:
+	[
+		{
+			rarity: 3.000
+			weight: 8.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: morphine
+					amount: 30.000
+					amount_extra: 40.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 5.000
+			weight: 8.000
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: bp.morfitin.b
+					amount: 5.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.000
+			weight: 7.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: alcohol
+					amount: 25.000
+					amount_extra: 70.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 1.000
+			weight: 7.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: water.clean
+					amount: 20.000
+					amount_extra: 35.000
+					snapping: 0.010
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.000
+			weight: 7.000
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: bp.codeine.20mg.ir
+					amount: 3.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.000
+			weight: 7.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: codeine
+					amount: 30.000
+					amount_extra: 40.000
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.000
+			weight: 6.000
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: bp.pervitin.50mg.er
+					amount: 3.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 5.000
+			weight: 6.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: red_sugar
+					amount: 10.000
+					amount_extra: 70.000
+					snapping: 0.500
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 7.000
+			weight: 5.000
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: bp.medimax
+					amount: 3.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 5.000
+			weight: 5.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: hydrogen_peroxide
+					amount: 30.000
+					amount_extra: 150.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 4.000
+			weight: 5.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: meth
+					amount: 30.000
+					amount_extra: 40.000
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 1.000
+			weight: 5.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: onion.juice
+					amount: 30.000
+					amount_extra: 40.000
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 4.000
+			weight: 4.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: mushroom.green
+					amount: 20.000
+					amount_extra: 50.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.000
+			weight: 4.000
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: bp.pervitin.100mg.er
+					amount: 3.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 7.000
+			weight: 4.000
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: bp.paralyx
+					amount: 5.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 6.000
+			weight: 3.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: mushroom.blue
+					amount: 10.000
+					amount_extra: 45.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 7.000
+			weight: 3.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: paxilon
+					amount: 10.000
+					amount_extra: 40.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+	]
+	
+	includes: []
+}

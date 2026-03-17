@@ -1,0 +1,160 @@
+﻿{
+	$version: "0.1.64.1"
+	nodes:
+	[
+		{
+			rarity: 2.780
+			weight: 22.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: ammo.sg.buck
+					amount: 30.000
+					amount_extra: 80.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.720
+			weight: 20.800
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: ammo.lc.hv
+					amount: 80.000
+					amount_extra: 250.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.500
+			weight: 20.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: ammo.hc.hv
+					amount: 50.000
+					amount_extra: 200.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.330
+			weight: 17.300
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: ammo.sg.bird
+					amount: 35.000
+					amount_extra: 70.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 1.950
+			weight: 16.300
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: ammo.lc.lv
+					amount: 80.000
+					amount_extra: 250.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.830
+			weight: 15.800
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: ammo.sg.slug
+					amount: 30.000
+					amount_extra: 50.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 4.000
+			weight: 8.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: ammo.lc.hp
+					amount: 50.000
+					amount_extra: 150.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 5.980
+			weight: 4.600
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: ammo.sg.grenade
+					amount: 24.000
+					amount_extra: 40.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+	]
+	
+	includes: []
+}

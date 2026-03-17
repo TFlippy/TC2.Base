@@ -1,0 +1,197 @@
+﻿{
+	$version: "0.1.64.1"
+	nodes:
+	[
+		{
+			rarity: 4.500
+			weight: 15.000
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: wrench.00
+					amount: 1.000
+					amount_extra: 1.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.000
+			weight: 8.000
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: sledgehammer.00
+					amount: 1.000
+					amount_extra: 1.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.500
+			weight: 7.000
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: pickaxe.00
+					amount: 1.000
+					amount_extra: 1.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 4.000
+			weight: 11.000
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: handsaw.00
+					amount: 1.000
+					amount_extra: 2.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.000
+			weight: 6.000
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: crowbar.00
+					amount: 2.000
+					amount_extra: 2.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 7.000
+			weight: 5.000
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: rivet_gun.00
+					amount: 1.000
+					amount_extra: 1.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 6.000
+			weight: 2.000
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: welder.00
+					amount: 1.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 4.000
+			weight: 4.000
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: ruler.00
+					amount: 1.000
+					amount_extra: 2.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 4.000
+			weight: 4.000
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: toolbox.00
+					amount: 1.000
+					amount_extra: 2.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 4.000
+			weight: 3.000
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: tongs.00
+					amount: 1.000
+					amount_extra: 2.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+	]
+	
+	includes: []
+}

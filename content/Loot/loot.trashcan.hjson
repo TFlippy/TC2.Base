@@ -1,0 +1,27 @@
+﻿{
+	$version: "0.1.70.0"
+	nodes: []
+	
+	includes:
+	[
+		{
+			handle: junk.00
+			weight_multiplier: 0.800
+		}
+		{
+			handle: food.ingredients.00
+			weight_multiplier: 0.900
+			amount_multiplier: 0.600
+		}
+		{
+			handle: bleh.00
+			weight_multiplier: 0.900
+			amount_multiplier: 0.900
+		}
+		{
+			handle: drugs.00
+			weight_multiplier: 0.910
+			amount_multiplier: 0.900
+		}
+	]
+}

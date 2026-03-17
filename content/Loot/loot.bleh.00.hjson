@@ -1,0 +1,331 @@
+﻿{
+	$version: "0.1.64.1"
+	nodes:
+	[
+		{
+			rarity: 2.000
+			weight: 10.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: rot
+					amount: 7.000
+					amount_extra: 42.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.000
+			weight: 10.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: shite
+					amount: 3.000
+					amount_extra: 80.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 4.000
+			weight: 9.500
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: nitrosugar
+					amount: 2.000
+					amount_extra: 3.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 4.000
+			weight: 9.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: pestilence
+					amount: 5.000
+					amount_extra: 55.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.000
+			weight: 8.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: plants
+					amount: 20.000
+					amount_extra: 90.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.000
+			weight: 8.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: mud
+					amount: 10.000
+					amount_extra: 50.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.000
+			weight: 8.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: scrap.wood
+					amount: 20.000
+					amount_extra: 60.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.000
+			weight: 8.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: sawdust
+					amount: 30.000
+					amount_extra: 80.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 4.000
+			weight: 8.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: mush
+					amount: 35.000
+					amount_extra: 60.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 4.000
+			weight: 8.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: sludge
+					amount: 20.000
+					amount_extra: 60.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 4.000
+			weight: 8.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: clay
+					amount: 35.000
+					amount_extra: 60.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.000
+			weight: 8.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: woodchips
+					amount: 25.000
+					amount_extra: 60.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.000
+			weight: 7.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: compost
+					amount: 7.000
+					amount_extra: 44.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 5.000
+			weight: 7.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: porridge
+					amount: 10.000
+					amount_extra: 60.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 4.000
+			weight: 6.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: insect
+					amount: 5.000
+					amount_extra: 35.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.000
+			weight: 6.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: soil
+					amount: 30.000
+					amount_extra: 65.000
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.000
+			weight: 6.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: peat
+					amount: 20.000
+					amount_extra: 40.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+	]
+	
+	includes: []
+}

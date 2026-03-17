@@ -1,0 +1,287 @@
+﻿{
+	$version: "0.1.64.1"
+	nodes:
+	[
+		{
+			rarity: 2.910
+			weight: 17.600
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: pickaxe.00
+					amount: 1.000
+					amount_extra: 1.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.480
+			weight: 6.200
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: shovel.00
+					amount: 1.000
+					amount_extra: 1.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.250
+			weight: 5.100
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: sledgehammer.00
+					amount: 1.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.360
+			weight: 4.400
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: helmet.03
+					amount: 1.000
+					amount_extra: 1.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.500
+			weight: 4.400
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: earmuffs.00
+					amount: 1.000
+					amount_extra: 1.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 4.680
+			weight: 4.200
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: detonator.00
+					amount: 1.000
+					amount_extra: 2.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.940
+			weight: 4.100
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: bp.pivan.brumbrum
+					amount: 1.000
+					amount_extra: 4.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.450
+			weight: 4.000
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: prospector_pick
+					amount: 1.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.000
+			weight: 4.000
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: tongs.00
+					amount: 1.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.860
+			weight: 3.800
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: lantern
+					amount: 1.000
+					amount_extra: 1.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 5.100
+			weight: 1.700
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: dynamite
+					amount: 1.000
+					amount_extra: 2.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.880
+			weight: 3.500
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: crowbar.00
+					amount: 1.000
+					amount_extra: 1.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.120
+			weight: 3.500
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: wrench.00
+					amount: 1.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.220
+			weight: 3.200
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: ruler.00
+					amount: 1.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 7.000
+			weight: 2.000
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: welder.00
+					amount: 1.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+	]
+	
+	includes: []
+}

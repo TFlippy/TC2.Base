@@ -1,0 +1,265 @@
+﻿{
+	$version: "0.1.68.2"
+	nodes:
+	[
+		{
+			rarity: 3.430
+			weight: 7.300
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: grenade
+					amount: 1.000
+					amount_extra: 3.000
+					snapping: 1.000
+					group: 0
+					flags: primary, compact
+				}
+			]
+		}
+		{
+			rarity: 4.000
+			weight: 7.000
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: beacon.00
+					amount: 1.000
+					amount_extra: 2.000
+					snapping: 1.000
+					group: 0
+					flags: primary, compact
+				}
+			]
+		}
+		{
+			rarity: 3.950
+			weight: 6.200
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: detonator.00
+					amount: 1.000
+					amount_extra: 2.000
+					snapping: 1.000
+					group: 0
+					flags: primary, compact
+				}
+			]
+		}
+		{
+			rarity: 3.460
+			weight: 6.100
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: bp.boban.vz8
+					amount: 1.000
+					amount_extra: 3.000
+					snapping: 1.000
+					group: 0
+					flags: primary, compact
+				}
+			]
+		}
+		{
+			rarity: 2.260
+			weight: 4.700
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: lighter.00
+					amount: 1.000
+					amount_extra: 1.000
+					snapping: 1.000
+					group: 0
+					flags: primary, compact
+				}
+			]
+		}
+		{
+			rarity: 3.500
+			weight: 4.500
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: bp.medimax
+					amount: 1.000
+					amount_extra: 1.000
+					snapping: 1.000
+					group: 0
+					flags: primary, compact
+				}
+			]
+		}
+		{
+			rarity: 2.470
+			weight: 4.400
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: ruler.00
+					amount: 1.000
+					amount_extra: 1.000
+					snapping: 1.000
+					group: 0
+					flags: primary, compact
+				}
+			]
+		}
+		{
+			rarity: 2.190
+			weight: 4.100
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: binoculars
+					amount: 1.000
+					amount_extra: 1.000
+					snapping: 1.000
+					group: 0
+					flags: primary, compact
+				}
+			]
+		}
+		{
+			rarity: 5.150
+			weight: 3.700
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: receiver.00
+					amount: 1.000
+					amount_extra: 1.000
+					snapping: 1.000
+					group: 0
+					flags: primary, compact
+				}
+			]
+		}
+		{
+			rarity: 4.530
+			weight: 3.700
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: gyrochronatom.00
+					amount: 1.000
+					snapping: 1.000
+					group: 0
+					flags: primary, compact
+				}
+			]
+		}
+		{
+			rarity: 4.980
+			weight: 3.600
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: ec.heater.00
+					amount: 1.000
+					snapping: 1.000
+					group: 0
+					flags: primary, compact
+				}
+			]
+		}
+		{
+			rarity: 7.550
+			weight: 2.200
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: computer.00
+					amount: 1.000
+					snapping: 1.000
+					group: 0
+					flags: primary, compact
+				}
+			]
+		}
+		{
+			rarity: 4.840
+			weight: 1.500
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: dynamite
+					amount: 1.000
+					amount_extra: 1.000
+					snapping: 1.000
+					group: 0
+					flags: primary, compact
+				}
+			]
+		}
+	]
+	
+	includes: []
+}

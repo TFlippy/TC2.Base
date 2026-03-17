@@ -1,0 +1,573 @@
+﻿{
+	$version: "0.1.68.2"
+	nodes:
+	[
+		{
+			rarity: 2.730
+			weight: 18.600
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: scrap.machine
+					amount: 6.4215
+					amount_extra: 10.44145
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.530
+			weight: 15.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: steel.frames
+					amount: 12.000
+					amount_extra: 38.000
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.960
+			weight: 14.900
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: machine_parts
+					amount: 5.000
+					amount_extra: 45.000
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.770
+			weight: 12.900
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: scrap.mixed
+					amount: 6.940256
+					amount_extra: 11.28496
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.890
+			weight: 11.100
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: oil
+					amount: 4.208658
+					amount_extra: 9.332172
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.200
+			weight: 10.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: limelight
+					amount: 2.000
+					amount_extra: 7.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 4.210
+			weight: 10.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: pellet.failure
+					amount: 1.000
+					amount_extra: 6.000
+					snapping: 0.500
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.140
+			weight: 9.900
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: scrap.copper
+					amount: 6.9695
+					amount_extra: 11.15527
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 4.260
+			weight: 9.900
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: scrap.arcane
+					amount: 2.219029
+					amount_extra: 7.032973
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.320
+			weight: 9.400
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: lubricant
+					amount: 4.058854
+					amount_extra: 9.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.830
+			weight: 9.300
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: steel.rod
+					amount: 3.086492
+					amount_extra: 9.7492
+					snapping: 0.200
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.840
+			weight: 9.100
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: scrap.smirgrafit
+					amount: 11.35538
+					amount_extra: 18.46401
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.770
+			weight: 8.200
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: putty
+					amount: 2.193325
+					amount_extra: 8.573236
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.600
+			weight: 8.000
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: beacon.00
+					amount: 1.000
+					amount_extra: 1.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.170
+			weight: 7.700
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: detonator.00
+					amount: 1.000
+					amount_extra: 1.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 4.150
+			weight: 7.600
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: pellet.heat
+					amount: 1.000
+					amount_extra: 6.000
+					snapping: 0.500
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.950
+			weight: 7.200
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: directors
+					amount: 2.000
+					amount_extra: 8.000
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 4.200
+			weight: 7.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: pellet.motion
+					amount: 1.000
+					amount_extra: 6.000
+					snapping: 0.500
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.200
+			weight: 6.600
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: copper.rod
+					amount: 3.2942
+					amount_extra: 9.574652
+					snapping: 0.200
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 4.950
+			weight: 5.500
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: vacuum_cleaner
+					amount: 1.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.800
+			weight: 5.500
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: ammo.sg.emt
+					amount: 8.000
+					amount_extra: 24.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 5.770
+			weight: 5.400
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: actuator
+					amount: 1.000
+					amount_extra: 5.000
+					snapping: 0.250
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.900
+			weight: 5.300
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: phlogiston
+					amount: 5.000
+					amount_extra: 20.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 4.000
+			weight: 5.200
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: ammo.mg.emt
+					amount: 4.000
+					amount_extra: 22.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 4.340
+			weight: 4.600
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: pellet.electricity
+					amount: 1.000
+					amount_extra: 4.000
+					snapping: 0.500
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 5.980
+			weight: 3.200
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: rivet_gun.00
+					amount: 1.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 4.780
+			weight: 2.000
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: welder.00
+					amount: 1.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 4.200
+			weight: 1.900
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: gyrochronatom.00
+					amount: 1.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 7.100
+			weight: 0.600
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: computer
+					amount: 1.000
+					amount_extra: 0.736
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 7.650
+			weight: 0.400
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: levitator.00
+					amount: 1.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+	]
+	
+	includes: []
+}

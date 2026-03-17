@@ -1,0 +1,182 @@
+﻿{
+	$version: "0.1.62.0"
+	nodes:
+	[
+		{
+			rarity: 4.000
+			weight: 9.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: bp.majzl.b749
+					amount: 1.000
+					amount_extra: 1.000
+					group: 0
+					flags: primary, compact
+				}
+			]
+		}
+		{
+			rarity: 2.000
+			weight: 7.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: bp.hromus.500
+					amount: 1.000
+					amount_extra: 2.000
+					group: 0
+					flags: primary, compact
+				}
+			]
+		}
+		{
+			rarity: 5.000
+			weight: 6.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: bp.mamut.c738
+					amount: 1.000
+					amount_extra: 1.000
+					group: 0
+					flags: primary, compact
+				}
+			]
+		}
+		{
+			rarity: 5.000
+			weight: 6.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: bp.peprus.752
+					amount: 1.000
+					amount_extra: 1.000
+					group: 0
+					flags: primary, compact
+				}
+			]
+		}
+		{
+			rarity: 5.000
+			weight: 5.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: bp.kladyvo.a90
+					amount: 1.000
+					amount_extra: 1.000
+					group: 0
+					flags: primary, compact
+				}
+			]
+		}
+		{
+			rarity: 6.000
+			weight: 5.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: bp.mizitko
+					amount: 1.000
+					amount_extra: 1.000
+					group: 0
+					flags: primary, compact
+				}
+			]
+		}
+		{
+			rarity: 8.000
+			weight: 5.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: bp.zrd.bobmistr.750
+					amount: 1.000
+					group: 0
+					flags: primary, compact
+				}
+			]
+		}
+		{
+			rarity: 7.000
+			weight: 4.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: bp.vejcar
+					amount: 1.000
+					amount_extra: 1.000
+					group: 0
+					flags: primary, compact
+				}
+			]
+		}
+		{
+			rarity: 7.000
+			weight: 4.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: bp.hyperbobus
+					amount: 1.000
+					amount_extra: 1.000
+					group: 0
+					flags: primary, compact
+				}
+			]
+		}
+		{
+			rarity: 5.000
+			weight: 3.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: bp.fajront
+					amount: 1.000
+					amount_extra: 1.000
+					group: 0
+					flags: primary, compact
+				}
+			]
+		}
+		{
+			rarity: 8.000
+			weight: 3.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: bp.zrd.kanon.m3
+					amount: 1.000
+					group: 0
+					flags: primary, compact
+				}
+			]
+		}
+	]
+	
+	includes: []
+}

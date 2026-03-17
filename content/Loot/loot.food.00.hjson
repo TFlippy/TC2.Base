@@ -1,0 +1,407 @@
+﻿{
+	$version: "0.1.64.1"
+	nodes:
+	[
+		{
+			rarity: 2.780
+			weight: 20.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: flour
+					amount: 9.235629
+					amount_extra: 20.78017
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.670
+			weight: 17.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: grain
+					amount: 8.134628
+					amount_extra: 18.30291
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.290
+			weight: 15.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: water.clean
+					amount: 2.400
+					amount_extra: 9.600
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.440
+			weight: 14.500
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: cmajzl
+					amount: 8.134628
+					amount_extra: 18.30291
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.770
+			weight: 14.200
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: sauce
+					amount: 2.347418
+					amount_extra: 11.73709
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.810
+			weight: 14.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: eggs
+					amount: 2.400
+					amount_extra: 17.600
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.710
+			weight: 14.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: salt
+					amount: 2.403846
+					amount_extra: 11.05769
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.350
+			weight: 12.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: sugar
+					amount: 6.000
+					amount_extra: 12.000
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.790
+			weight: 12.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: meat
+					amount: 6.250
+					amount_extra: 12.500
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.280
+			weight: 11.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: tallow
+					amount: 6.000
+					amount_extra: 20.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.140
+			weight: 11.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: mushroom.brown
+					amount: 8.000
+					amount_extra: 28.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.090
+			weight: 9.400
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: salmiac
+					amount: 3.3238
+					amount_extra: 9.0077
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.860
+			weight: 9.100
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: porridge
+					amount: 3.658537
+					amount_extra: 18.29268
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.060
+			weight: 8.500
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: starch
+					amount: 1.131631
+					amount_extra: 5.205505
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.460
+			weight: 8.400
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: oil
+					amount: 1.66182
+					amount_extra: 10.38637
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.570
+			weight: 8.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: vinegar
+					amount: 2.343171
+					amount_extra: 14.64482
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.870
+			weight: 8.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: alcohol
+					amount: 4.000
+					amount_extra: 25.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 5.220
+			weight: 7.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: mayo
+					amount: 6.000
+					amount_extra: 12.000
+					snapping: 0.500
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 6.000
+			weight: 7.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: red_sugar
+					amount: 8.000
+					amount_extra: 25.000
+					snapping: 0.500
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 4.060
+			weight: 6.800
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: onion.juice
+					amount: 2.989429
+					amount_extra: 11.35983
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.390
+			weight: 5.500
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: mushroom.juice
+					amount: 2.243158
+					amount_extra: 8.524002
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+	]
+	
+	includes: []
+}

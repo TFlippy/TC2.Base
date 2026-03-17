@@ -1,0 +1,93 @@
+﻿{
+	$version: "0.1.60.7"
+	nodes:
+	[
+		{
+			rarity: 3.000
+			weight: 7.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: compost
+					amount: 7.000
+					amount_extra: 44.000
+				}
+			]
+		}
+		{
+			rarity: 4.000
+			weight: 9.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: pestilence
+					amount: 5.000
+					amount_extra: 55.000
+				}
+			]
+		}
+		{
+			rarity: 2.000
+			weight: 10.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: rot
+					amount: 7.000
+					amount_extra: 42.000
+				}
+			]
+		}
+		{
+			rarity: 2.000
+			weight: 10.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: shite
+					amount: 3.000
+					amount_extra: 80.000
+				}
+			]
+		}
+		{
+			rarity: 2.000
+			weight: 8.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: plants
+					amount: 20.000
+					amount_extra: 90.000
+				}
+			]
+		}
+		{
+			rarity: 3.000
+			weight: 4.500
+			
+			products:
+			[
+				{
+					type: resource
+					material: nitrosugar
+					amount: 2.000
+					amount_extra: 3.000
+					group: 0
+				}
+			]
+		}
+	]
+	
+	includes: []
+}

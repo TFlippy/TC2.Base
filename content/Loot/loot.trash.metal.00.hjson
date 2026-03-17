@@ -1,0 +1,179 @@
+﻿{
+	$version: "0.1.64.1"
+	nodes:
+	[
+		{
+			rarity: 4.000
+			weight: 9.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: steel
+					amount: 4.000
+					amount_extra: 11.000
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 7.500
+			weight: 9.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: smirglum
+					amount: 2.000
+					amount_extra: 11.000
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 5.000
+			weight: 8.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: niklajzner
+					amount: 3.000
+					amount_extra: 7.000
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 1.000
+			weight: 7.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: slag
+					amount: 6.000
+					amount_extra: 18.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 5.000
+			weight: 6.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: copper
+					amount: 2.000
+					amount_extra: 6.000
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 7.000
+			weight: 6.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: arcanite
+					amount: 0.958193
+					amount_extra: 4.31187
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 6.000
+			weight: 5.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: recondite
+					amount: 0.887494
+					amount_extra: 3.993722
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 5.000
+			weight: 3.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: silver
+					amount: 0.270962
+					amount_extra: 1.625773
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 7.500
+			weight: 2.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: gold
+					amount: 0.207503
+					amount_extra: 1.245015
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+	]
+	
+	includes: []
+}

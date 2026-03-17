@@ -1,0 +1,348 @@
+﻿{
+	$version: "0.1.64.1"
+	nodes:
+	[
+		{
+			rarity: 2.000
+			weight: 20.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: naphtha
+					amount: 20.000
+					amount_extra: 80.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 1.000
+			weight: 15.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: black_coal
+					amount: 20.000
+					amount_extra: 80.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.000
+			weight: 15.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: toluene
+					amount: 8.000
+					amount_extra: 25.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 1.000
+			weight: 15.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: ash
+					amount: 8.000
+					amount_extra: 25.000
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 5.000
+			weight: 12.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: phlogiston
+					amount: 5.000
+					amount_extra: 25.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 1.000
+			weight: 12.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: eggs
+					amount: 5.000
+					amount_extra: 25.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.000
+			weight: 12.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: flour
+					amount: 15.000
+					amount_extra: 50.000
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 1.000
+			weight: 10.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: rubber
+					amount: 20.000
+					amount_extra: 80.000
+					snapping: 0.500
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.000
+			weight: 10.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: tar
+					amount: 7.000
+					amount_extra: 24.000
+					snapping: 0.800
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.000
+			weight: 10.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: salt
+					amount: 12.000
+					amount_extra: 14.000
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 1.000
+			weight: 8.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: wood
+					amount: 2.000
+					amount_extra: 3.000
+					snapping: 0.500
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 1.000
+			weight: 8.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: rot
+					amount: 12.000
+					amount_extra: 25.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.000
+			weight: 8.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: tallow
+					amount: 12.000
+					amount_extra: 14.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.000
+			weight: 8.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: tobacco
+					amount: 10.000
+					amount_extra: 50.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.000
+			weight: 7.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: sugar
+					amount: 12.000
+					amount_extra: 14.000
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 6.000
+			weight: 2.000
+			
+			flags: has_resources, has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: welder.00
+					amount: 1.000
+					snapping: 1.000
+					group: 0
+				}
+				{
+					type: resource
+					material: phlogiston
+					amount: 2.000
+					amount_extra: 15.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 7.000
+			weight: 2.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: pellet.heat
+					amount: 3.000
+					amount_extra: 5.000
+					snapping: 0.500
+					group: 0
+				}
+			]
+		}
+	]
+	
+	includes:
+	[
+		{
+			handle: junk.00
+			weight_multiplier: 0.600
+		}
+		{
+			handle: drugs.00
+			weight_multiplier: 0.300
+		}
+	]
+}
