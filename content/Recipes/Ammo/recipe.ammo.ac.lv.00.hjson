@@ -146,6 +146,17 @@
 							flags: prerequisite
 						}
 						{
+							type: resource
+							material: lubricant
+							amount: 2.246
+							snapping: 0.100
+							falloff: 0.414
+							loss: 0.090
+							ratio: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
 							type: work
 							work: die.cutting.metal
 							amount: 20.000

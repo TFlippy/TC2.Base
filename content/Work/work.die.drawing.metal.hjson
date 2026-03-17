@@ -15,7 +15,7 @@
 	}
 	
 	flags: machine, crafter_only, time_independent, wip
-	tags: technical, construction, industrial
+	tags: impact, technical, industrial, dangerous, kinetic, slow
 	
 	amount_base: 5.000
 	cooldown: 1.500
@@ -27,8 +27,8 @@
 	tools_required: none
 	tools_optional: none
 	
-	infrastructure_required: anvil, shaping_mould, hard_surface, press
-	infrastructure_optional: none
+	infrastructure_required: press
+	infrastructure_optional: dies
 	
 	character_traits:
 	{

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.8"
+	$version: "0.1.72.0"
 	name: "Munitions Workshop"
 	tips: []
 	
@@ -13,9 +13,6 @@
 			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: shovel
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -197,9 +194,6 @@
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
 			
-			ratio: 0.000
-			mass_base: 0.000
-			
 			options:
 			[
 				{
@@ -295,9 +289,6 @@
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
 			
-			ratio: 0.000
-			mass_base: 0.000
-			
 			options:
 			[
 				{
@@ -365,9 +356,6 @@
 			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: axe
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -451,13 +439,18 @@
 	type: buildings
 	flags: no_amount_multiplier, blueprintable, construction, building, ignore_tools, ignore_equipment, ignore_machinery, ignore_environment, wip, no_cancel, auto_complete
 	tags: complex, huge, engineering, architecture, construction
+	hints: none
+	connotations: none
 	infrastructure: none
 	infrastructure_exclude: none
+	
+	dismantle_work: 8.000
+	dismantle_yield: 0.800
 	
 	icon:
 	{
 		texture: ammoshop.00
-		size: [56, 48]
+		size: [40, 48]
 	}
 	
 	color_frame: "0xffffa200"
@@ -469,21 +462,18 @@
 	max: 1
 	step: 1
 	
-	dismantle_work: 8.000
-	dismantle_yield: 0.800
-	
 	placement:
 	{
 		type: simple
 		flags: allow_mirror_x, require_terrain, terrain_is_support
 		
-		size: [7.000, 6.000]
+		size: [5.000, 6.000]
 		offset: [0.000, -2.000]
 		
-		rect_foundation: [-3.500, 0.000, 3.500, 1.000]
+		rect_foundation: [-2.500, 0.000, 2.500, 1.000]
 		tileflags_foundation: solid
 		
-		rect_clearance: [-3.125, -4.500, 3.125, 0.000]
+		rect_clearance: [-2.125, -4.500, 2.125, 0.000]
 		tileflags_clearance: solid
 		
 		cooldown: 1.000
@@ -511,7 +501,7 @@
 	
 	construction:
 	{
-		prefab: construction.7x6
+		prefab: construction.5x6
 		
 		requirements:
 		[

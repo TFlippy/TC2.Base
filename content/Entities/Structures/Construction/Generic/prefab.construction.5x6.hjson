@@ -1,0 +1,19 @@
+$tags: []
+$prefab: "construction.template"
+
+body:
+{
+	@shape.box:
+	{
+		size: [3.250, 3.750]		
+	}
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		size: [40, 48]
+		frame: [6, 1]
+	}
+}
