@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.72.0"
 	name: "Die-Swaging"
 	name_short: "D-Swaging"
 	desc:
@@ -45,14 +45,14 @@
 	
 	}
 	
-	sound_volume: 0.500
-	sound_pitch: 0.950
+	sound_volume: 0.780
+	sound_pitch: 0.610
 	sound_size: 1.000
-	sound_dist: 0.890
+	sound_dist: 0.910
 	
 	sounds: []
 	sounds_manual: []
-	sounds_crafter: []
+	sounds_crafter: ["metal.hit.bullet.heavy.00", "metal.hit.bullet.heavy.01"]
 	sounds_passive: ["press.smash.00", "press.smash.01", "press.smash.02"]
 	sounds_ambient: []
 	

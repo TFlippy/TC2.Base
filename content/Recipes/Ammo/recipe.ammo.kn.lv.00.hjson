@@ -16,7 +16,7 @@
 			flags: part
 			tags: chassis, shell, metal, container, structural, rounded, material
 			// Damage type used for discarding leftover resources.
-			discard_damage_type: crush
+			discard_damage_type: pickaxe
 			
 			options:
 			[
@@ -210,7 +210,7 @@
 			flags: part
 			tags: metal, structural, rounded, material
 			// Damage type used for discarding leftover resources.
-			discard_damage_type: sledgehammer
+			discard_damage_type: pickaxe
 			
 			options:
 			[
@@ -218,8 +218,7 @@
 					name: "Stamped"
 					
 					type: undefined
-					flags: crafter, automated
-					discard_damage_type_override: pickaxe
+					flags: requires_shipment, crafter, automated
 					
 					priority: 1.000
 					
@@ -273,8 +272,8 @@
 					name: "Nitrosugar"
 					
 					type: undefined
-					flags: none
-					discard_damage_type_override: punch
+					flags: requires_shipment
+					discard_damage_type_override: wet
 					
 					requirements:
 					[
@@ -323,7 +322,7 @@
 					name: "Nitroglycerine"
 					
 					type: undefined
-					flags: none
+					flags: requires_shipment
 					discard_damage_type_override: wet
 					
 					requirements:
@@ -371,8 +370,8 @@
 					name: "GP-NTG"
 					
 					type: undefined
-					flags: none
-					discard_damage_type_override: shovel
+					flags: requires_shipment
+					discard_damage_type_override: pickaxe
 					
 					suffix: "/LV (GP-NTG)"
 					priority: 1.000
@@ -447,10 +446,10 @@
 	
 	type: workshop
 	flags: production, manufacturing, wip
-	tags: crafting, complex, small, munitions, delicate, assembling, industrial, metalworking, engineering, military, explosive, dangerous
+	tags: crafting, basic, simple, small, munitions, assembling, industrial, metalworking, engineering, military, explosive, dangerous
 	hints: none
 	connotations: none
-	infrastructure: table, chair, surface, stamping_press, workbench
+	infrastructure: surface, stamping_press, workbench
 	infrastructure_exclude: none
 	
 	icon:

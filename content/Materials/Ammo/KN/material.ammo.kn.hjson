@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "KN-51.9mm/LV Shell"
 	description:
 		'''
@@ -82,7 +82,7 @@
 		failure_base: 0.001
 		failure_mult: 1.075
 		
-		stability_base: 8500.000
+		stability_base: 5500.000
 		stability_mult: 1.000
 		
 		prefab: projectile.kn

@@ -143,38 +143,38 @@ workshop:
 		{
 			exclude: gas
 		}
+		offset: [-0.625, 0.875]
 	}
 }
 
 personnel:
 {
+	characters_capacity: 2
 	flags: store_characters
 	assign_radius: 20.000
 	slots:
 	[
 		{
 			role: engineer
-			tags: management, civil, industrial, logistics, production, paperwork, sedentary, technical
+			flags: can_craft, can_manage, can_use_inventory
+			tags: management, civil, industrial, logistics, production, manual_labor, paperwork, sedentary, technical, maintenance, operation
 			color: "0xffff8333"
 			multiplier: 1.000
 		}
 		{
-			role: technician
-			tags: civil, industrial, production, dangerous, manual_labor, technical, operation
+			role: machinist
+			flags: can_craft, can_use_inventory
+			tags: civil, industrial, production, dangerous, manual_labor, technical, maintenance, operation
 			color: "0xffffa800"
-			multiplier: 1.000
+			multiplier: 1.200
 		}
-		{
-			role: technician
-			tags: civil, industrial, production, dangerous, manual_labor, technical, operation
-			color: "0xffffa800"
-			multiplier: 1.000
-		}
+		null
+		null
+		null
 		null
 		null
 		null
 	]
-	characters_capacity: 3
 }
 
 heat:
@@ -317,12 +317,9 @@ crafter.state:
 		
 		filter:
 		{
-			require: none
-			include: none
 			exclude: gas
 		}
-		
-		offset: [0.000, 0.000]
+		offset: [0.750, 1.500]
 	}
 }
 

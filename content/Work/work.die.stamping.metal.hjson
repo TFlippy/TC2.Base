@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.72.0"
 	name: "Die-Stamping"
 	name_short: "D-Stamping"
 	desc:
@@ -46,14 +46,14 @@
 	
 	}
 	
-	sound_volume: 0.500
-	sound_pitch: 1.000
-	sound_size: 1.000
-	sound_dist: 0.500
+	sound_volume: 0.740
+	sound_pitch: 0.950
+	sound_size: 0.680
+	sound_dist: 0.530
 	
 	sounds: []
 	sounds_manual: []
-	sounds_crafter: ["press.stamp.01"]
+	sounds_crafter: ["press.stamp.00", "press.stamp.01"]
 	sounds_passive: []
 	sounds_ambient: []
 	

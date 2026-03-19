@@ -121,7 +121,7 @@
 					filter_infrastructure:
 					{
 						require: anvil, shaping_mould, hard_surface, press
-						include: stamping_press
+						include: stamping_press, dies
 					}
 				}
 				{
@@ -195,7 +195,7 @@
 					filter_infrastructure:
 					{
 						require: anvil, shaping_mould, hard_surface, press
-						include: stamping_press
+						include: stamping_press, dies
 					}
 				}
 			]
@@ -363,7 +363,7 @@
 					name: "Nitrosugar"
 					
 					type: undefined
-					flags: none
+					flags: requires_shipment
 					discard_damage_type_override: punch
 					
 					requirements:
@@ -413,7 +413,7 @@
 					name: "Nitroglycerine"
 					
 					type: undefined
-					flags: none
+					flags: requires_shipment
 					discard_damage_type_override: wet
 					
 					requirements:
@@ -461,7 +461,7 @@
 					name: "Nitrocellulose"
 					
 					type: undefined
-					flags: none
+					flags: requires_shipment
 					discard_damage_type_override: saw
 					
 					suffix: "/LV (Nitrocellulose)"

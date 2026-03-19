@@ -45,14 +45,14 @@
 	
 	}
 	
-	sound_volume: 0.430
-	sound_pitch: 0.990
-	sound_size: 0.920
-	sound_dist: 0.800
+	sound_volume: 0.840
+	sound_pitch: 0.610
+	sound_size: 0.850
+	sound_dist: 0.750
 	
 	sounds: ["work_assembly_00", "work_assembly_01", "work_assembly_02", "work_assembly_03", "work_assembly_04"]
 	sounds_manual: []
-	sounds_crafter: ["press.smash.00", "press.smash.01", "press.smash.02"]
+	sounds_crafter: ["metal.hit.bullet.heavy.00", "metal.hit.bullet.heavy.01"]
 	sounds_passive: []
 	sounds_ambient: []
 	
