@@ -11,7 +11,7 @@ body:
 		radius: 0.750
 		friction: 0.850
 		elasticity: 0.400
-		material: metal
+		material: metal_sheet
 		layer: entity, solid, resource, flammable
 		mask: world
 	}
@@ -49,7 +49,7 @@ norotate:
 
 health:
 {
-	max: 8500.000
+	max: 4200.000
 }
 
 explosive:
@@ -64,7 +64,7 @@ explosive:
 	damage_type_secondary: shockwave
 	flags: explode_when_primed, primed_when_destroyed
 	
-	detonate_chance: 0.788
+	detonate_chance: 0.888
 	detonate_damage_filter: bullet_lc, bullet_hc, bullet_mg, bullet_ac, bullet_sg, bullet_kn, bullet_hw, bullet_musket, rivet, impact, crush, pickaxe, sledgehammer, explosion, deflagration, motion_impulse, fire, electricity, shockwave, corrosion, heat, phlogiston
 	
 	shake_multiplier: 1.650

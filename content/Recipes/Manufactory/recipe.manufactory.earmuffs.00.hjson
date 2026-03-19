@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Earmuffs"
 	tips: []
 	
@@ -13,9 +13,6 @@
 			tags: frame, thin, structural, small, rounded
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -70,9 +67,6 @@
 			tags: functional, small, rounded
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: slash
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -133,9 +127,6 @@
 			tags: assembly
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: none
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -213,7 +204,7 @@
 	]
 	
 	type: workshop
-	flags: blueprintable, item, wip
+	flags: blueprintable, item
 	tags: manual, crafting, simple, small, assembling, tailoring
 	hints: none
 	connotations: none
@@ -231,7 +222,7 @@
 	rank: 0.000
 	
 	min: 1
-	max: 5
+	max: 8
 	step: 1
 	
 	version: 1

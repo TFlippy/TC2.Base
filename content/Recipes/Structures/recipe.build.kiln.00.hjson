@@ -48,7 +48,7 @@
 	]
 	
 	type: industry
-	flags: no_amount_multiplier, blueprintable
+	flags: no_amount_multiplier, blueprintable, debug, wip
 	tags: dumb, crude, basic, simple, medium, architecture, construction
 	hints: none
 	connotations: none

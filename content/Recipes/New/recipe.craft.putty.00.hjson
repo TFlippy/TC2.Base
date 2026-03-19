@@ -1,6 +1,10 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Construction Putty"
+	desc:
+		'''
+		TODO. Desc
+		'''
 	tips: []
 	
 	stages:
@@ -354,6 +358,71 @@
 			options:
 			[
 				{
+					name: "Friendly"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: wet
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: pellet.cognition
+							amount: 1.000
+							snapping: 1.000
+							falloff: 0.707
+							group: 0
+							flags: no_consume, no_residue, prerequisite
+						}
+						{
+							type: resource
+							material: mayo
+							amount: 1.000
+							snapping: 1.000
+							falloff: 0.509
+							loss: 0.408
+							group: 0
+							flags: stepped, prerequisite
+						}
+						{
+							type: work
+							work: friendship
+							amount: 100.000
+							amount_min: 150.000
+							difficulty: 10
+							step_max: 20
+							snapping: 15.000
+							falloff: 0.771
+							group: 0
+							flags: stepped, conditional
+						}
+						{
+							type: work
+							work: synthesis
+							amount: 250.000
+							amount_min: 200.000
+							difficulty: 12
+							step_max: 40
+							snapping: 20.000
+							falloff: 0.849
+							ratio: 0.008
+							group: 1
+							flags: stepped, conditional
+						}
+					]
+					
+					purity_modifier: 0.916
+					quality_modifier: 0.894
+					yield_modifier: 0.937
+					failure_chance: 0.153
+					
+					filter_infrastructure:
+					{
+						include: lab_glassware, bottle, bucket, blender
+					}
+				}
+				{
 					name: "MTR-Catalyzed"
 					
 					type: undefined
@@ -445,7 +514,9 @@
 	hints: none
 	connotations: none
 	infrastructure: bucket, surface
-	infrastructure_exclude: personal
+	infrastructure_exclude: none
+	
+	h_company: carohrad
 	
 	icon:
 	{
@@ -461,17 +532,17 @@
 		size: [16, 16]
 		frame: [1, 0]
 	}
-	icon_extra_offset: [0.000, -7.000]
+	icon_extra_offset: [0.000, -8.000]
 	
 	icon_c:
 	{
-		texture: resource.himlkarzenus
+		texture: resource.smrad
 		size: [16, 16]
 		frame: [2, 0]
 	}
-	icon_c_offset: [4.000, -12.000]
+	icon_c_offset: [0.000, -12.000]
 	
-	color_frame: "0xffeabb3e"
+	color_frame: "0xff19e2b1"
 	color_button: "0xff9dd80f"
 	rank: -156.000
 	
