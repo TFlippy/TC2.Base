@@ -49,8 +49,9 @@ namespace TC2.Base
 		}
 
 #if SERVER
+		[Shitcode]
 		[ChatCommand.Region("origin", "", creative: true)]
-		public static void OriginCommand(ref ChatCommand.Context context, IOrigin.Handle h_origin, bool force_new = false)
+		public static void OriginCommand(ref ChatCommand.Context context, IOrigin.Handle h_origin, bool force_new = true)
 		{
 			ref var region = ref context.GetRegionCommon();
 			Assert.IsNotNull(ref region);

@@ -199,6 +199,7 @@ namespace TC2.Base.Components
 			var aim_torque = arm.aim_torque;
 			if (arm.aim_torque > 1.00f)
 			{
+				// TODO: wtf is this?
 				aim_torque += (body_parent.GetMass() / (arm.aim_torque * 0.000018f)) * organic.strength;
 			}
 
@@ -287,7 +288,7 @@ namespace TC2.Base.Components
 			}
 			else
 			{
-				if (organic_state.unconscious_time > 15.00f) entity.SetTag("dead", true);
+				if (organic_state.unconscious_time > 15.00f) entity.AddTag("dead");
 			}
 		}
 
@@ -359,36 +360,36 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.PostUpdate.A(ISystem.Mode.Single, ISystem.Scope.Region, flags: ISystem.Flags.Unchecked)]
-		public static void OnUpdate_JointHealth([Source.Owned] ref Organic.State organic_state, [Source.Owned] in Health.Data health_child, 
-		[Source.Parent] in Health.Data health_parent, [Source.Parent] ref Joint.Base joint)
-		{
-			if (joint.flags.HasAny(Joint.Flags.Organic))
-			{
+		//[ISystem.PostUpdate.A(ISystem.Mode.Single, ISystem.Scope.Region, flags: ISystem.Flags.Unchecked)]
+		//public static void OnUpdate_JointHealth([Source.Owned] ref Organic.State organic_state, [Source.Owned] in Health.Data health_child, 
+		//[Source.Parent] in Health.Data health_parent, [Source.Parent] ref Joint.Base joint)
+		//{
+		//	if (joint.flags.HasAny(Joint.Flags.Organic))
+		//	{
 
-				const float health_threshold = 0.80f;
+		//		const float health_threshold = 0.80f;
 
-				//var mult = (1.00f - health.GetHealthNormalized()).Pow2();
+		//		//var mult = (1.00f - health.GetHealthNormalized()).Pow2();
 
-				//var health_norm = Maths.Min(health_child.GetHealthNormalizedAvg(), health_parent.GetHealthNormalizedAvg());
-				var health_norm = Maths.Max(Maths.LerpFMA(health_child.integrity, health_child.durability, 0.25f), Maths.LerpFMA(health_parent.integrity, health_parent.durability, 0.25f));
-				//var mult = (1.00f - health_norm.Pow2()).Pow2();
-				var mult = health_norm; //.Pow2();
-				//joint.stress += joint.max_stress * mult;
-				//joint.stress += joint.stress_threshold * mult * 0.80f; // * 1.05f;
-				joint.stress_threshold_modifier *= mult;
-				//joint.stress
+		//		//var health_norm = Maths.Min(health_child.GetHealthNormalizedAvg(), health_parent.GetHealthNormalizedAvg());
+		//		var health_norm = Maths.Max(Maths.LerpFMA(health_child.integrity, health_child.durability, 0.25f), Maths.LerpFMA(health_parent.integrity, health_parent.durability, 0.25f));
+		//		//var mult = (1.00f - health_norm.Pow2()).Pow2();
+		//		var mult = health_norm; //.Pow2();
+		//		//joint.stress += joint.max_stress * mult;
+		//		//joint.stress += joint.stress_threshold * mult * 0.80f; // * 1.05f;
+		//		joint.stress_threshold_modifier *= mult;
+		//		//joint.stress
 
-				//var health_norm = health.GetHealthNormalized();
-				//if (health_norm < health_threshold)
-				//{
-				//	var mult = health_norm.NormalizeFastUnsafe(health_threshold).Pow2();
-				//	joint.force_modifier_attached *= mult;
-				//}
-				//joint.stress *= 1.00f + stress_mult;
-				//joint.stress_accumulator += joint.displacement_smoothed * (1.50f + stress_mult);
+		//		//var health_norm = health.GetHealthNormalized();
+		//		//if (health_norm < health_threshold)
+		//		//{
+		//		//	var mult = health_norm.NormalizeFastUnsafe(health_threshold).Pow2();
+		//		//	joint.force_modifier_attached *= mult;
+		//		//}
+		//		//joint.stress *= 1.00f + stress_mult;
+		//		//joint.stress_accumulator += joint.displacement_smoothed * (1.50f + stress_mult);
 
-			}
-		}
+		//	}
+		//}
 	}
 }
