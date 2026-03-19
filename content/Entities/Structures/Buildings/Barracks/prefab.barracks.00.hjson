@@ -120,10 +120,9 @@ personnel:
 	slots:
 	[
 		{
-			role: clerk
-			tags: administrative, civil, paperwork, sedentary
-			color: "0x8f005ec2"
-			multiplier: 2.000
+			role: resident
+			tags: civil, sedentary, maintenance
+			multiplier: 0.500
 		}
 		{
 			role: resident
@@ -212,20 +211,27 @@ dormitory:
 	flags: no_kit_selection, no_kit_requirements, repopulate_needs_faction, recruit_into_squad, region_only
 	species: human
 	
-	characters_capacity: 8
+	characters_capacity: 6
 	characters_initial_count: 0
+	characters_reserved_count: 0
 	
-	repopulate_interval: 120.000
-	repopulate_interval_extra: 300.000
-	repopulate_max: 2
+	repopulate_max: 6
 	repopulate_num: 1
 	repopulate_num_extra: 1
+	repopulate_interval: 120.000
+	repopulate_interval_extra: 300.000
 	repopulate_character_flags_add: recruitable
 	
+	kit_categories_filter:
+	{
+		require: none
+		exclude: rare, explosive, gun, advanced, powerful, expensive, military, arcane
+	}
+
 	asset_flags: recycle
 	character_flags_filter:
 	{
-		include: construction, artisan, farmer, laborer, civillian, nomad, culinary, entertainer, artist, lower_class, lower_middle_class, middle_class
+		include: construction, artisan, farmer, laborer, civillian, culinary, nomad, entertainer, artist, lower_class, lower_middle_class, middle_class
 		exclude: upper_middle_class, upper_class, elite_class
 	}
 }

@@ -128,4 +128,9 @@ dormitory:
 		exclude: bureaucrat, nobility, rich, sedentary, upper_class, elite_class
 		weight: 1.000
 	}
+	kit_categories_filter:
+	{
+		require: none
+		exclude: rare, advanced, powerful, expensive, explosive, arcane, fancy
+	}
 }

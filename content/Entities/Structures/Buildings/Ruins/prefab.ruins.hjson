@@ -135,4 +135,9 @@ dormitory:
 		include: slave, criminal, unskilled, farmer, laborer, armed, lowlife, poor, hunter, insane, alcoholic, nomad, entertainer, illiterate, brawler, outdoor, strong, junkie, evil, thief, murderer, terrorist, dumb, clumsy, lower_class, lower_middle_class
 		exclude: nobility, rich, sedentary, upper_middle_class, upper_class, elite_class
 	}
+	kit_categories_filter:
+	{
+		require: none
+		exclude: rare, advanced, powerful, expensive, explosive, arcane, fancy
+	}
 }
