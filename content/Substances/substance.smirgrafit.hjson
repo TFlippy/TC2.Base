@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.8"
+	$version: "0.1.72.0"
 	name: "Smirgrafit"
 	description:
 		'''
@@ -9,7 +9,7 @@
 	type: metal_matrix
 	atomic_number: 0
 	flags: none
-	tags: oxide, carbide, inert, metallic, refractory, ceramic, solid
+	tags: oxide, carbide, inert, metallic, refractory, ceramic, artificial, solid
 	
 	icon:
 	{

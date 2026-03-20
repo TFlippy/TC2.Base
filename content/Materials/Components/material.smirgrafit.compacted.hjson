@@ -1,7 +1,7 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Compacted Smirgrafit"
-	name_short: "C. Smirgrafit"
+	name_short: "C.Smirgrafit"
 	name_imperial: "Smirgrafit"
 	description:
 		'''
