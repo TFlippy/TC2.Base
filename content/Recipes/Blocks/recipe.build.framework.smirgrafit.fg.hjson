@@ -11,7 +11,7 @@
 	[
 		{
 			type: resource
-			material: smirgrafit.compacted
+			material: smirgrafit.clay
 			amount: 0.200
 			group: 0
 			flags: prerequisite
@@ -45,7 +45,7 @@
 	
 	icon_extra:
 	{
-		texture: resource.smirgrafit.compacted
+		texture: resource.smirgrafit.clay
 		size: [16, 16]
 		frame: [1, 0]
 	}

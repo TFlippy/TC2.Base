@@ -7,6 +7,7 @@
 		- Needs Smrad dust and initial C-Putty to produce more C-Putty, along with feedstock rich in large variety of elements
 		- Used to join various objects together when sprayed with Phlogiston, essentially fusing them at the molecular level
 		- Looks similar to ferrofluid, but more slime-like
+		- Stored in same glass containers as water
 		'''
 	name: "Construction Putty"
 	name_short: "C-Putty"

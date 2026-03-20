@@ -35,7 +35,7 @@
 	resources:
 	[
 		{
-			material: smirgrafit.powder
+			material: smirgrafit.clay
 			quantity: 0.957474
 		}
 		{

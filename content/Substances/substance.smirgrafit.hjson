@@ -86,11 +86,9 @@
 	
 	form_to_material:
 	{
-		chunk: scrap.smirgrafit
+		chunk: smirgrafit.clay
 		scrap: scrap.smirgrafit
-		packaged: smirgrafit.compacted
-		powder: smirgrafit.powder
-		raw: smirgrafit.powder
-		blob: scrap.smirgrafit
+		raw: smirgrafit.clay
+		blob: smirgrafit.clay
 	}
 }

@@ -3237,7 +3237,7 @@ namespace TC2.Base
 						//armor.protection 
 					}
 
-					var h_material = new IMaterial.Handle("smirgrafit.compacted");
+					var h_material = new IMaterial.Handle("smirgrafit.clay");
 
 					ref var material = ref h_material.GetData();
 					if (material.IsNotNull())
@@ -3525,7 +3525,7 @@ namespace TC2.Base
 						//armor.protection 
 					}
 
-					var h_material = new IMaterial.Handle("smirgrafit.compacted");
+					var h_material = new IMaterial.Handle("smirgrafit.clay");
 
 					ref var material = ref h_material.GetData();
 					if (material.IsNotNull())

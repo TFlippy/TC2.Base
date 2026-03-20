@@ -336,7 +336,7 @@
 			[
 				{
 					type: resource
-					material: smirgrafit.compacted
+					material: smirgrafit.clay
 					amount: 26.5666
 					amount_extra: 39.39938
 					snapping: 1.000

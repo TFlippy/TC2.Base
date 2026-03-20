@@ -74,7 +74,7 @@
 						}
 						{
 							type: resource
-							material: smirgrafit.powder
+							material: smirgrafit.clay
 							amount: 0.722
 							amount_extra: 0.059
 							snapping: 0.010

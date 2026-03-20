@@ -222,7 +222,7 @@
 			[
 				{
 					type: resource
-					material: scrap.smirgrafit
+					material: scrap.smirgrafit.dusty
 					amount: 11.35538
 					amount_extra: 18.46401
 					snapping: 0.100

@@ -68,8 +68,7 @@
 	// Info regarding relations of other materials towards this material.
 	related:
 	{
-		smirgrafit.powder: raw, source, similar, powdered
-		smirgrafit.compacted: raw, source, similar, powdered, solidified, brick
+		smirgrafit.clay: raw, source, similar
 		smirglum.powder: raw, clean, powdered, ingredient, extracted
 		smrad: residue, decomposition, powdered, mixed, extracted
 		smrad.dust: residue, raw, decomposition, powdered, mixed, extracted
