@@ -1,0 +1,206 @@
+﻿{
+	$region_id: 0
+	$version: "0.1.72.0"
+	name: "Smirgrafit Clay"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	tips: []
+	
+	stages:
+	[
+		{
+			name: "Formula"
+			
+			type: formula
+			flags: important
+			tags: material, raw, formula, ingredient
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			options:
+			[
+				{
+					name: "Graphite"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: smirglum.powder
+							amount: 2.000
+							snapping: 0.100
+							loss: 0.992
+							group: 0
+							flags: argument, primary, prerequisite
+						}
+						{
+							type: resource
+							material: graphite.powder
+							amount: 0.700
+							snapping: 1.000
+							falloff: 0.962
+							loss: 0.988
+							group: 0
+							flags: prerequisite
+						}
+					]
+				}
+			]
+		}
+		{
+			name: "Blend"
+			
+			type: refining
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: corrosion
+			
+			options:
+			[
+				{
+					name: "Standard"
+					
+					type: undefined
+					flags: none
+					
+					prefix: "Standard "
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: putty
+							amount: 0.9196
+							snapping: 0.100
+							falloff: 0.768
+							loss: 0.980
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: blending
+							amount: 30.000
+							amount_min: 50.000
+							difficulty: 13
+							snapping: 25.000
+							falloff: 1.056
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: smirgrafit.clay
+							amount: 0.136411
+							amount_extra: 0.0081
+							snapping: 0.010
+							group: 0
+							ratio: 0.969
+							flags: primary, stepped, compact, scale_to_mass
+						}
+					]
+				}
+			]
+		}
+		{
+			name: "Curing"
+			
+			type: dissolving
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: corrosion
+			
+			options:
+			[
+				{
+					name: "Simple"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: work
+							work: dissolving
+							amount: 400.000
+							amount_min: 235.000
+							difficulty: 9
+							snapping: 25.000
+							falloff: 0.663
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: smirglum.amalgam
+							amount: 0.208
+							amount_extra: 0.047
+							snapping: 0.010
+							group: 0
+							ratio: 0.965
+							flags: residue, stepped, scale_to_mass
+						}
+					]
+				}
+			]
+		}
+	]
+	
+	type: workshop
+	flags: production
+	tags: simple, industrial, alchemistry, blending, refining, moulding, processing, messy, dangerous
+	hints: none
+	connotations: none
+	infrastructure: barrel, bucket, liquid_container
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		texture: resource.smirgrafit.clay
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	icon_offset: [6.000, 1.000]
+	
+	icon_extra:
+	{
+		texture: resource.smirglum.powder
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	icon_extra_offset: [-14.000, -8.000]
+	
+	icon_c:
+	{
+		texture: resource.putty
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	icon_c_offset: [-16.000, -14.000]
+	
+	color_frame: "0xffb5ddd4"
+	color_button: "0xff9dd80f"
+	rank: -140.000
+	
+	min: 1
+	max: 100
+	step: 1
+	
+	version: 1
+}

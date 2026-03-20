@@ -402,11 +402,10 @@
 							amount: 100.000
 							amount_min: 150.000
 							difficulty: 10
-							step_max: 20
 							snapping: 15.000
 							falloff: 0.771
 							group: 0
-							flags: stepped, conditional
+							flags: conditional
 						}
 						{
 							type: work
@@ -416,10 +415,10 @@
 							difficulty: 12
 							step_max: 40
 							snapping: 20.000
-							falloff: 0.849
+							falloff: 0.846
 							ratio: 0.008
 							group: 1
-							flags: stepped, conditional
+							flags: conditional
 						}
 					]
 					
@@ -461,13 +460,12 @@
 							type: work
 							work: mtr.synthesis
 							amount: 180.000
-							amount_min: 150.000
-							difficulty: 11
-							step_max: 40
+							amount_min: 120.000
+							difficulty: 10
 							snapping: 5.000
-							falloff: 0.672
+							falloff: 0.676
 							group: 0
-							flags: stepped, simultaneous, conditional
+							flags: simultaneous, conditional
 						}
 					]
 					
