@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.70.1"
+	$version: "0.1.72.0"
 	name: "Porridge-based Mortar"
 	desc:
 		'''
@@ -25,7 +25,6 @@
 			discard_damage_type: sledgehammer
 			
 			ratio: 1.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -69,7 +68,6 @@
 			discard_damage_type: sledgehammer
 			
 			ratio: 1.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -201,7 +199,7 @@
 	infrastructure: none
 	infrastructure_exclude: none
 	
-	h_company: common
+	h_company: common.kobold
 	
 	icon:
 	{

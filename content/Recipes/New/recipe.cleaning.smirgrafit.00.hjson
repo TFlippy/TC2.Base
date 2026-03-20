@@ -24,7 +24,7 @@
 			flags: subtractive, wip
 			tags: material, raw, formula, ingredient
 			// Damage type used for discarding leftover resources.
-			discard_damage_type: none
+			discard_damage_type: sledgehammer
 			
 			ratio: 1.000
 			
@@ -51,12 +51,12 @@
 						{
 							type: work
 							work: sweeping.dust
-							amount: 150.000
-							amount_min: 100.000
+							amount: 200.000
+							amount_min: 120.000
 							difficulty: 4
 							step_max: 10
 							snapping: 15.000
-							falloff: 0.839
+							falloff: 0.667
 							group: 0
 							flags: conditional
 						}
