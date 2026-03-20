@@ -2966,7 +2966,7 @@ namespace TC2.Base
 			(
 				identifier: "body.casing.smirglum",
 				category: "Structure",
-				name: "Smirglum Casing",
+				name: "Smirgrafit Casing",
 				description: "TODO: Desc",
 
 				can_add: static (ref context, in data, ref handle, augments) =>
@@ -3237,7 +3237,7 @@ namespace TC2.Base
 						//armor.protection 
 					}
 
-					var h_material = new IMaterial.Handle("smirglum.plate");
+					var h_material = new IMaterial.Handle("smirgrafit.compacted");
 
 					ref var material = ref h_material.GetData();
 					if (material.IsNotNull())
@@ -3254,7 +3254,7 @@ namespace TC2.Base
 			(
 				identifier: "body.casing.smirglum.large",
 				category: "Structure",
-				name: "Smirglum Casing (Large)",
+				name: "Smirgrafit Casing (Large)",
 				description: "TODO: Desc",
 
 				can_add: static (ref context, in data, ref handle, augments) =>
@@ -3525,7 +3525,7 @@ namespace TC2.Base
 						//armor.protection 
 					}
 
-					var h_material = new IMaterial.Handle("smirglum.plate");
+					var h_material = new IMaterial.Handle("smirgrafit.compacted");
 
 					ref var material = ref h_material.GetData();
 					if (material.IsNotNull())
