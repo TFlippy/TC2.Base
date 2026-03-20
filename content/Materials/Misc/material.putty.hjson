@@ -9,9 +9,11 @@
 		- Looks similar to ferrofluid, but more slime-like
 		- Stored in same glass containers as water
 		'''
-	name: "Construction Putty"
+	name: "C-Putty"
 	name_short: "C-Putty"
 	name_imperial: "Herkules"
+	name_advanced: "Construction Putty"
+	name_dumb: "Elbow Grease"
 	description:
 		'''
 		TODO: Desc

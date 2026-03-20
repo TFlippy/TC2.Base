@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.72.0"
-	name: "Construction Putty"
+	name: "C-Putty"
 	desc:
 		'''
 		TODO. Desc
@@ -25,6 +25,9 @@
 					
 					type: undefined
 					flags: none
+					
+					prefix: "Toxic "
+					priority: 1.000
 					
 					requirements:
 					[
@@ -90,6 +93,9 @@
 					
 					type: undefined
 					flags: none
+					
+					prefix: "Dusty "
+					priority: 1.000
 					
 					requirements:
 					[
@@ -165,6 +171,9 @@
 					
 					type: undefined
 					flags: none
+					
+					prefix: "Shitty "
+					priority: 1.000
 					
 					requirements:
 					[
@@ -362,7 +371,9 @@
 					
 					type: undefined
 					flags: none
-					discard_damage_type_override: wet
+					discard_damage_type_override: disintegration
+					
+					suffix: " of Friendship"
 					
 					requirements:
 					[
@@ -417,6 +428,10 @@
 					yield_modifier: 0.937
 					failure_chance: 0.153
 					
+					filter_tools:
+					{
+						include: pencil, paper, towel
+					}
 					filter_infrastructure:
 					{
 						include: lab_glassware, bottle, bucket, blender
@@ -428,6 +443,8 @@
 					type: undefined
 					flags: none
 					discard_damage_type_override: life
+					
+					suffix: " (MTR-Catalyzed)"
 					
 					requirements:
 					[
@@ -442,9 +459,9 @@
 						}
 						{
 							type: work
-							work: synthesis
+							work: mtr.synthesis
 							amount: 180.000
-							amount_min: 320.000
+							amount_min: 150.000
 							difficulty: 11
 							step_max: 40
 							snapping: 5.000
@@ -492,12 +509,12 @@
 			amount_extra: 0.048371
 			snapping: 0.100
 			group: 0
-			ratio: 0.855
+			ratio: 0.922
 			flags: primary, stepped, compact, scale_to_mass
 		}
 		{
 			type: resource
-			material: smirgrafit.clay
+			material: rubber
 			amount: 0.6294
 			amount_extra: 0.1854
 			snapping: 0.100
@@ -505,6 +522,16 @@
 			chance: 0.675
 			ratio: 0.447
 			flags: residue, byproduct, stepped, scale_to_mass
+		}
+		{
+			type: resource
+			material: mercury.vapor
+			amount: 2.298066
+			amount_extra: 0.8916
+			snapping: 0.100
+			group: 0
+			ratio: 0.886
+			flags: pollutant, waste, spawn, scale_to_mass
 		}
 	]
 	
