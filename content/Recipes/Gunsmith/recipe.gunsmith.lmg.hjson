@@ -1,10 +1,6 @@
 ﻿{
-	$version: "0.1.67.2"
-	name: "LMG"
-	desc:
-		'''
-		Light machine gun capable of firing high-powered rounds.
-		'''
+	$version: "0.1.72.0"
+	name: "Light Machine Gun"
 	tips: []
 	
 	stages:
@@ -135,7 +131,11 @@
 					filter_tools:
 					{
 						require: screwdriver, wrench, file
-						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, stapler, towel, tongs, pick, crowbar, knife
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, stapler, chisel, towel, tongs, pick, crowbar, knife, sandpaper, utensils
+					}
+					filter_infrastructure:
+					{
+						include: surface
 					}
 					filter_environment:
 					{
@@ -191,8 +191,8 @@
 					
 					filter_tools:
 					{
-						require: file, knife
-						include: hand_drill, screwdriver, pliers, file, chisel, knife, sandpaper
+						require: knife
+						include: screwdriver, file, chisel, knife, sandpaper
 					}
 				}
 			]

@@ -1,6 +1,6 @@
 ﻿{
-	$version: "0.1.68.1"
-	name: "HMG"
+	$version: "0.1.72.0"
+	name: "Heavy Machine Gun"
 	tips: []
 	
 	stages:
@@ -285,7 +285,7 @@
 	
 	type: workshop
 	flags: blueprintable, item, wip
-	tags: manual, crafting, complex, medium, weapon, gun, assembling, metalworking, engineering, military
+	tags: manual, crafting, complex, advanced, medium, weapon, gun, machinery, assembling, industrial, metalworking, metallurgy, engineering, military, construction
 	hints: none
 	connotations: none
 	infrastructure: table, vise, surface, hard_surface, workbench

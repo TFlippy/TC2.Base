@@ -91,9 +91,9 @@ transform:
 interactable:
 {
 	flags: no_tab, centered_inventory
+	window_size: [192, 104]
+	window_size_misc: [48, 0]
 	priority: -1.800
-	window_size: [144.000, 104.000]
-	window_size_misc: [48.000, 0.000]
 	window_offset: [0.000, 192.000]
 }
 
@@ -107,8 +107,8 @@ storage:
 	@inventory1:
 	{
 		type: ammo
-		flags: standalone, allow_ducts, no_auto_pickup
-		stack_size_multiplier: 4.000
+		flags: standalone, allow_ducts, no_auto_pickup, faction
+		stack_size_multiplier: 8.000
 		
 		filter:
 		{
@@ -116,7 +116,7 @@ storage:
 			exclude: gas
 		}
 		
-		offset: [-0.125, -0.750]
+		offset: [-0.500, 0.000]
 	}
 }
 
