@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Hydrochloric Acid"
 	name_short: "HCl. Acid"
 	name_dumb: "Water"
@@ -21,7 +21,7 @@
 	
 	// Inventory material type.
 	type: liquid
-	flags: liquid, bottled, corrosive, primary
+	flags: liquid, toxic, bottled, corrosive, primary
 	display_flags: none
 	spawn_flags:
 	{

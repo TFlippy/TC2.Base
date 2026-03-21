@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Saltpeter"
 	name_short: "Saltpeter"
 	name_imperial: "Petrsalcr"
@@ -21,7 +21,7 @@
 	
 	// Inventory material type.
 	type: chalk
-	flags: granular, mineral, raw, powder, solid, primary
+	flags: food, granular, mineral, raw, powder, solid, primary
 	display_flags: none
 	hints: none
 	

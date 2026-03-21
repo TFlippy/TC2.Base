@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Insect Meat"
 	name_short: "Insect"
 	name_imperial: "Hmyst"
@@ -20,7 +20,7 @@
 	
 	// Inventory material type.
 	type: insect
-	flags: soft, malleable, sticky, organic, corrosive, raw, flexible, solid
+	flags: soft, malleable, sticky, food, organic, corrosive, raw, flexible, solid
 	display_flags: none
 	hints: none
 	

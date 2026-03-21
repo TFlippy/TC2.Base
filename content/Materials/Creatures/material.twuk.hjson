@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Twuk Bits"
 	name_short: "Twuk"
 	name_imperial: "Twuk"
@@ -20,7 +20,7 @@
 	
 	// Inventory material type.
 	type: fabric
-	flags: soft, granular, organic, small, thin, raw, flammable, flexible, solid, primary
+	flags: soft, granular, organic, small, raw, flammable, flexible, solid, primary
 	display_flags: none
 	spawn_flags:
 	{

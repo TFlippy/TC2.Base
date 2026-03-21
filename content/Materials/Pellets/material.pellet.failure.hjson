@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "EC-FU Pellets"
 	name_short: "EC-FU Pt."
 	name_imperial: "Fug-Arkpelet"
@@ -20,7 +20,7 @@
 	
 	// Inventory material type.
 	type: metal_solid
-	flags: hard, magnetic, granular, essence, metal, small, fragile, manufactured, pellet, solid, processed, smelly, primary
+	flags: hard, sticky, magnetic, granular, essence, metal, small, fragile, manufactured, pellet, solid, processed, smelly, primary
 	display_flags: none
 	spawn_flags:
 	{

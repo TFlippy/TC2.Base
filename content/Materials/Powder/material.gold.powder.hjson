@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Gold Powder"
 	name_short: "Gd. Powder"
 	name_imperial: "Zlopulvr"
@@ -19,7 +19,7 @@
 	
 	// Inventory material type.
 	type: powder
-	flags: granular, metal, small, powder, flexible, solid, processed, primary
+	flags: granular, metal, currency, small, powder, flexible, solid, processed, primary
 	display_flags: none
 	hints: materials
 	

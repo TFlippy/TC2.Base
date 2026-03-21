@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Lye"
 	name_short: "Lye"
 	name_imperial: "Lojz"
@@ -22,7 +22,7 @@
 	
 	// Inventory material type.
 	type: chalk
-	flags: hard, granular, caustic, chemical, small, corrosive, gravel, solid, processed, primary
+	flags: hard, granular, toxic, caustic, chemical, small, corrosive, gravel, solid, processed, primary
 	display_flags: none
 	hints: none
 	

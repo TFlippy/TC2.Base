@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Sawdust"
 	name_short: "Sawdust"
 	name_dumb: "Dust"
@@ -19,7 +19,7 @@
 	
 	// Inventory material type.
 	type: wood_powder
-	flags: granular, organic, powder, flammable, solid
+	flags: food, granular, organic, powder, flammable, solid
 	display_flags: none
 	spawn_flags:
 	{

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Eggs"
 	name_short: "Eggs"
 	name_imperial: "Vejco"
@@ -20,7 +20,7 @@
 	
 	// Inventory material type.
 	type: egg
-	flags: hard, granular, organic, fragile, raw
+	flags: hard, food, granular, organic, fragile, raw
 	display_flags: none
 	spawn_flags:
 	{

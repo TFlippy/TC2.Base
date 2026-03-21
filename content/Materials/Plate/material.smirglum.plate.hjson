@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.2"
+	$version: "0.1.72.0"
 	name: "Smirglum Sheet"
 	name_short: "Sg. Sheet"
 	name_imperial: "Smirglplat"
@@ -20,7 +20,7 @@
 	
 	// Inventory material type.
 	type: metal_sheet
-	flags: metal, small, plate, flexible, solid, processed
+	flags: hard, magnetic, metal, small, manufactured, plate, flexible, solid, processed
 	display_flags: no_random_facing
 	spawn_flags:
 	{
@@ -111,21 +111,10 @@
 	
 	commodity:
 	{
-		availability: 0.000
-		rarity: 0.000
-		scalability: 0.000
-		reusability: 0.000
-		longevity: 0.000
-		complexity: 0.000
-		tech: 0.000
-		liquidity: 0.000
-		demand: 0.000
-		
 		flags: none
 		categories: none
 		
 		market_price: 158.000
-		
 		market_price_per_kg_auto: 20.05268
 	}
 	

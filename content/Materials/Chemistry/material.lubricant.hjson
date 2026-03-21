@@ -21,7 +21,7 @@
 	
 	// Inventory material type.
 	type: liquid
-	flags: liquid, chemical, bottled
+	flags: liquid, chemical, bottled, manufactured, processed
 	display_flags: none
 	spawn_flags:
 	{

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "EC-GR Pellets"
 	name_short: "EC-GR Pt."
 	name_imperial: "Aggro-Arkpelet"
@@ -20,7 +20,7 @@
 	
 	// Inventory material type.
 	type: metal_solid
-	flags: hard, magnetic, granular, essence, metal, small, fragile, manufactured, pellet, solid, processed, primary
+	flags: hard, magnetic, granular, essence, explosive, toxic, metal, small, fragile, manufactured, pellet, solid, processed, smelly, primary
 	display_flags: none
 	spawn_flags:
 	{
@@ -72,5 +72,6 @@
 		categories: none
 		
 		market_price: 67.000
+		market_price_per_kg_auto: 37.61932
 	}
 }

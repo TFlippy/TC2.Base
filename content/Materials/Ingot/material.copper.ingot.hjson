@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	$note:
 		'''
 		- Technically, it's more of a copper alloy, rather than pure copper
@@ -25,7 +25,7 @@
 	
 	// Inventory material type.
 	type: metal_solid
-	flags: hard, metal, small, ingot, solid
+	flags: hard, metal, currency, small, ingot, solid
 	display_flags: sprite_stack_linear, no_random_facing
 	spawn_flags:
 	{
