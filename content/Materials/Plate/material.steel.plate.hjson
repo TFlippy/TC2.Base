@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Steel Sheet"
 	name_short: "St.Sheet"
 	name_imperial: "Stylplat"
@@ -112,7 +112,7 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: metals, construction_materials
 		
 		market_price: 13.800
 		market_price_per_kg_auto: 5.888376

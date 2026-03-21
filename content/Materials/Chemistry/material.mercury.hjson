@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Mercury"
 	name_short: "Mercury"
 	name_imperial: "Merkur"
@@ -61,7 +61,7 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: metals
 		
 		market_price: 22.600
 		market_price_per_kg_auto: 16.68389

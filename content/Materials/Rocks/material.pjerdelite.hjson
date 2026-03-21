@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Pjerdelite"
 	name_short: "Pjerdelite"
 	name_imperial: "Pjerdelit"
@@ -61,10 +61,10 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: ores, rocks, raw, mined, smirglum
 		
 		market_price: 6.000
-		market_price_per_kg_auto: 1.448636
+		market_price_per_kg_auto: 1.889526
 	}
 	
 	// Residues from crafting/work.

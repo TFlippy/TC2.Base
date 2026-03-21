@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Mystery Meat"
 	name_short: "Meat"
 	name_dumb: "Food"
@@ -54,10 +54,10 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: food, raw, cooking
 		
 		market_price: 7.000
-		market_price_per_kg_auto: 6.016848
+		market_price_per_kg_auto: 8.423586
 	}
 	
 	// Damage-based conversions.

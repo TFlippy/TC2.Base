@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Smirglum Chunk"
 	name_short: "Sg. Chunk"
 	name_imperial: "Smirglum"
@@ -112,9 +112,10 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: metals, smirglum
 		
 		market_price: 82.170
+		market_price_per_kg_auto: 1.83767
 	}
 	
 	// Residues from crafting/work.

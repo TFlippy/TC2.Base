@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Nitrocellulose"
 	name_short: "Nitrocel."
 	name_imperial: "Nitrocel"
@@ -55,7 +55,7 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: explosives
 		
 		market_price: 26.100
 		market_price_per_kg_auto: 80.11527

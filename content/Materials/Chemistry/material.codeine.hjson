@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Codeine"
 	name_short: "Codeine"
 	name_imperial: "Kodajn"
@@ -55,9 +55,9 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: drugs, medicine
 		
 		market_price: 51.300
-		market_price_per_kg_auto: 520.000
+		market_price_per_kg_auto: 513.000
 	}
 }

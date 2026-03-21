@@ -57,9 +57,9 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: chemicals, refined, artificial, construction_materials, consumer, industrial, toys, manufactured, processed
 		
 		market_price: 14.400
-		market_price_per_kg_auto: 70.77626
+		market_price_per_kg_auto: 65.75343
 	}
 }

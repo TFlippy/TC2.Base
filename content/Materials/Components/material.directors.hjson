@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "EC-Directors"
 	name_short: "EC-Directors"
 	name_imperial: "Direktor"
@@ -63,7 +63,7 @@
 	commodity:
 	{
 		flags: none
-		categories: machinery, components, arcane, technology, industrial, manufactured
+		categories: machinery, components, arcane, technology, industrial, manufactured, smirglum
 		
 		market_price: 135.000
 		market_price_per_kg_auto: 35.01408

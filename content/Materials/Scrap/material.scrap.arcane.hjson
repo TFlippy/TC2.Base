@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "EC-Scrap"
 	name_short: "EC-Scrap"
 	name_imperial: "Arkosrot"
@@ -55,7 +55,7 @@
 	commodity:
 	{
 		flags: none
-		categories: metals, scrap, components, arcane, technology, waste
+		categories: metals, scrap, components, arcane, technology, waste, smirglum
 		
 		market_price: 65.000
 		market_price_per_kg_auto: 46.45161

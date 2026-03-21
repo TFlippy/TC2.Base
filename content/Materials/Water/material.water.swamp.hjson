@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Blackwater"
 	name_short: "B. Water"
 	name_dumb: "Shitwater"
@@ -60,5 +60,6 @@
 		categories: none
 		
 		market_price: 0.300
+		market_price_per_kg_auto: 0.23753
 	}
 }

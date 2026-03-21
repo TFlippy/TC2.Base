@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Gold Gravel"
 	name_short: "Gd. Gravel"
 	name_imperial: "Zlosterk"
@@ -51,7 +51,7 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: metals
 		
 		market_price: 50.000
 	}

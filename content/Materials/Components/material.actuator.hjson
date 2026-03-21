@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Magitronic Actuators"
 	name_short: "Actuators"
 	name_imperial: "Aktuator"
@@ -58,9 +58,10 @@
 	commodity:
 	{
 		flags: none
-		categories: machinery, components, arcane, technology, industrial, manufactured
+		categories: machinery, components, arcane, technology, industrial, manufactured, smirglum
 		
 		market_price: 650.000
+		market_price_per_kg_auto: 81.250
 	}
 	
 	// Residues from crafting/work.

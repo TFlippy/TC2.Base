@@ -112,10 +112,10 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: metals, construction_materials, smirglum
 		
 		market_price: 158.000
-		market_price_per_kg_auto: 20.05268
+		market_price_per_kg_auto: 17.60179
 	}
 	
 	// Damage-based conversions.

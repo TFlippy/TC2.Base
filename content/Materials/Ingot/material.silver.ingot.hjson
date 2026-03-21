@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Silver Brick"
 	name_short: "Sv. Brick"
 	name_imperial: "Spejblblok"
@@ -157,7 +157,7 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: metals, refined, luxury
 		
 		market_price: 800.000
 		market_price_per_kg_auto: 49.1386

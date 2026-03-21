@@ -65,7 +65,7 @@
 	commodity:
 	{
 		flags: marketable
-		categories: chemicals, refined, artificial, arcane, industrial, manufactured
+		categories: chemicals, refined, artificial, arcane, construction_materials, industrial, manufactured
 		
 		market_price: 95.000
 		market_price_per_kg_auto: 61.96999

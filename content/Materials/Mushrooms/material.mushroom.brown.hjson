@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Gustus Mushrooms"
 	name_short: "Gustus M."
 	name_imperial: "Gustus"
@@ -51,7 +51,7 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: food, natural, raw, harvested, mushrooms, cooking
 		
 		market_price: 1.100
 		market_price_per_kg_auto: 4.661017

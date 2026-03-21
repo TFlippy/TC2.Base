@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Recondite Chunk"
 	name_short: "Rec. Chunk"
 	name_imperial: "Rekondit"
@@ -111,8 +111,9 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: metals, smirglum
 		
 		market_price: 392.590
+		market_price_per_kg_auto: 12.01086
 	}
 }

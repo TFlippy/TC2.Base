@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Glass"
 	name_short: "Glass"
 	name_imperial: "Vokno"
@@ -111,10 +111,10 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: construction_materials
 		
 		market_price: 10.000
-		market_price_per_kg_auto: 12.85714
+		market_price_per_kg_auto: 14.28571
 	}
 	
 	// Damage-based conversions.

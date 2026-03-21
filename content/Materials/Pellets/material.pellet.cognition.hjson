@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "EC-CG Pellets"
 	name_short: "EC-CG Pt."
 	name_imperial: "Kogni-Arkpelet"
@@ -72,9 +72,9 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: components, arcane, technology, dangerous, manufactured, smirglum
 		
 		market_price: 910.000
-		market_price_per_kg_auto: 533.4082
+		market_price_per_kg_auto: 510.9489
 	}
 }

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Arcanite Chunk"
 	name_short: "Arc. Chunk"
 	name_imperial: "Arkanit"
@@ -111,7 +111,7 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: metals, smirglum
 		
 		market_price: 684.750
 		market_price_per_kg_auto: 19.61787

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Arcanite Bar"
 	name_short: "Arc. Bar"
 	name_imperial: "Arkotyc"
@@ -117,7 +117,7 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: metals, construction_materials, smirglum
 		
 		market_price: 780.000
 		market_price_per_kg_auto: 43.30853

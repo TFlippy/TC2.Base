@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Niklajzner"
 	name_short: "Niklajz."
 	name_imperial: "Niklajzner"
@@ -60,7 +60,7 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: metals
 		
 		market_price: 4.300
 		market_price_per_kg_auto: 2.41573

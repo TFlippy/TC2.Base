@@ -59,7 +59,7 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: metals, scrap, smirglum
 		
 		market_price: 2.110
 		market_price_per_kg_auto: 1.100047

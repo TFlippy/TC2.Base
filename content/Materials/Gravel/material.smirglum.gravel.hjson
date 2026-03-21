@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Smirglum Gravel"
 	name_short: "Sg. Gravel"
 	name_imperial: "Smirglsterk"
@@ -52,7 +52,7 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: metals, smirglum
 		
 		market_price: 3.100
 		market_price_per_kg_auto: 0.811094

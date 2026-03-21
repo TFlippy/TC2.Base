@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Nitrosugar"
 	name_short: "Nitrosugar"
 	name_imperial: "Nitrocukrus"
@@ -59,10 +59,10 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: food, explosives, cooking
 		
 		market_price: 36.900
-		market_price_per_kg_auto: 82.8877
+		market_price_per_kg_auto: 98.6631
 	}
 	
 	// Info regarding relations of other materials towards this material.

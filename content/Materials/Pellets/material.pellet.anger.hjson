@@ -69,7 +69,7 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: components, arcane, dangerous, manufactured, smirglum
 		
 		market_price: 67.000
 		market_price_per_kg_auto: 37.61932

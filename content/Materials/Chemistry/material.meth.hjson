@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Methamphetamine"
 	name_short: "Meth"
 	name_imperial: "Pervitin"
@@ -55,9 +55,9 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: drugs, medicine
 		
 		market_price: 48.800
-		market_price_per_kg_auto: 503.000
+		market_price_per_kg_auto: 488.000
 	}
 }

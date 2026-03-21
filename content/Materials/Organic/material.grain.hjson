@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Grain"
 	name_short: "Grain"
 	name_dumb: "Gold"
@@ -53,9 +53,10 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: food, raw, cooking
 		
 		market_price: 1.100
+		market_price_per_kg_auto: 2.423441
 	}
 	
 	// Damage-based conversions.

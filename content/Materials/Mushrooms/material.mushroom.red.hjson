@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Mouchus Mushrooms"
 	name_short: "Mouchus M."
 	name_imperial: "Mouchus"
@@ -51,7 +51,7 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: natural, raw, harvested, mushrooms
 		
 		market_price: 1.400
 		market_price_per_kg_auto: 6.730769

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Sugar"
 	name_short: "Sugar"
 	name_imperial: "Cukrus"
@@ -52,9 +52,9 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: food, cooking, consumer, toys, processed
 		
 		market_price: 3.600
-		market_price_per_kg_auto: 7.428571
+		market_price_per_kg_auto: 10.28571
 	}
 }

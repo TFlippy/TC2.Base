@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Scrub's Chow"
 	name_short: "Chow"
 	name_dumb: "Food"
@@ -55,7 +55,7 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: food, cooking, consumer, manufactured, processed
 		
 		market_price: 4.000
 		market_price_per_kg_auto: 8.000

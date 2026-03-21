@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Steel Powder"
 	name_short: "St. Powder"
 	name_imperial: "Stylpulvr"
@@ -58,7 +58,7 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: metals
 		
 		market_price: 1.450
 		market_price_per_kg_auto: 2.441028

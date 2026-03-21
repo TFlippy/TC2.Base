@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Niklajzner Scrap"
 	name_short: "Nkz. Scrap"
 	name_imperial: "Niklsrot"
@@ -61,7 +61,7 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: metals, scrap
 		
 		market_price: 3.800
 		market_price_per_kg_auto: 2.122791

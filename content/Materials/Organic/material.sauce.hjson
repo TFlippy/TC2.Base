@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Universal Brown Sauce"
 	name_short: "Sauce"
 	name_imperial: "UHO"
@@ -56,7 +56,7 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: food, cooking, consumer, manufactured, processed
 		
 		market_price: 6.500
 		market_price_per_kg_auto: 7.629108

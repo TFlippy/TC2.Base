@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Raw Water"
 	name_short: "Water"
 	name_imperial: "Vodka"
@@ -67,7 +67,7 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: food, water, raw, cooking
 		
 		market_price: 0.400
 		market_price_per_kg_auto: 0.400

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Sand"
 	name_short: "Sand"
 	name_dumb: "Sand"
@@ -55,7 +55,7 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: construction_materials
 		
 		market_price: 1.800
 		market_price_per_kg_auto: 1.47541

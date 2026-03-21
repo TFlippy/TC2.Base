@@ -112,7 +112,7 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: metals, construction_materials
 		
 		market_price: 11.000
 		market_price_per_kg_auto: 4.693634

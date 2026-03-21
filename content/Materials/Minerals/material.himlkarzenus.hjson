@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Himlkarzenus"
 	name_short: "Himlkarzenus"
 	name_imperial: "Himlkarzenus"
@@ -69,7 +69,7 @@
 		categories: none
 		
 		market_price: 23.600
-		market_price_per_kg_auto: 18.67882
+		market_price_per_kg_auto: 17.91951
 	}
 	
 	// Damage-based conversions.

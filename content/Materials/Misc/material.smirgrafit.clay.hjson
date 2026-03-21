@@ -106,7 +106,7 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: metals, refined, artificial, arcane, construction_materials, industrial, military, manufactured, processed, smirglum
 		
 		market_price: 50.000
 		market_price_per_kg_auto: 8.476012

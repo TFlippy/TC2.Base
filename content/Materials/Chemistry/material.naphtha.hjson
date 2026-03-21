@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Naphtha"
 	name_short: "Naphtha"
 	name_imperial: "Nafta"
@@ -62,6 +62,7 @@
 		categories: none
 		
 		market_price: 8.000
+		market_price_per_kg_auto: 10.20408
 	}
 	
 	fuel:

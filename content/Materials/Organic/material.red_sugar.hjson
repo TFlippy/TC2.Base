@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	$note:
 		'''
 		- Very sweet substance produced by hornet larvae to preserve their food/host (i.e. to keep it alive)
@@ -64,9 +64,9 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: food, natural, medicine, cooking, luxury, consumer
 		
 		market_price: 24.500
-		market_price_per_kg_auto: 135.000
+		market_price_per_kg_auto: 122.500
 	}
 }

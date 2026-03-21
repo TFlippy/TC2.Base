@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Steel Bar"
 	name_short: "St.Bar"
 	name_imperial: "Styltyc"
@@ -115,10 +115,10 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: metals, construction_materials
 		
 		market_price: 44.000
-		market_price_per_kg_auto: 7.187988
+		market_price_per_kg_auto: 7.530272
 	}
 	
 	// Damage-based conversions.

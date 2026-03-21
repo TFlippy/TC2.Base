@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Black Powder"
 	name_short: "B. Powder"
 	name_dumb: "Gunpowder"
@@ -55,10 +55,10 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: explosives
 		
 		market_price: 8.500
-		market_price_per_kg_auto: 32.6087
+		market_price_per_kg_auto: 30.7971
 	}
 	
 	// Info regarding relations of other materials towards this material.

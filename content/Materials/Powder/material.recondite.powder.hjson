@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Recondite Powder"
 	name_short: "Rec. Powder"
 	name_imperial: "Rekonpulvr"
@@ -57,9 +57,9 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: metals, smirglum
 		
 		market_price: 29.000
-		market_price_per_kg_auto: 12.58336
+		market_price_per_kg_auto: 15.20489
 	}
 }

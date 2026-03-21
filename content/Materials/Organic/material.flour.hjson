@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Flour"
 	name_short: "Flour"
 	name_imperial: "Muka"
@@ -54,9 +54,9 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: food, cooking
 		
 		market_price: 2.000
-		market_price_per_kg_auto: 3.317536
+		market_price_per_kg_auto: 3.159558
 	}
 }

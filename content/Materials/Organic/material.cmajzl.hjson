@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Cmajzl"
 	name_short: "Cmajzl"
 	name_imperial: "Cmajzl"
@@ -52,10 +52,10 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: food, raw, cooking
 		
 		market_price: 1.200
-		market_price_per_kg_auto: 3.203661
+		market_price_per_kg_auto: 2.745996
 	}
 	
 	// Damage-based conversions.

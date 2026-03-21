@@ -46,14 +46,16 @@
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	
+	centroid_default: [0.000, 0.250]
 	colliders: []
 	
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: food, raw, cooking
 		
 		market_price: 2.000
+		market_price_per_kg_auto: 5.167958
 	}
 	
 	// Info regarding relations of other materials towards this material.

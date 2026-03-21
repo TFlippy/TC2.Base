@@ -57,9 +57,9 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: metals, refined, luxury
 		
 		market_price: 50.000
-		market_price_per_kg_auto: 53.56784
+		market_price_per_kg_auto: 54.66106
 	}
 }

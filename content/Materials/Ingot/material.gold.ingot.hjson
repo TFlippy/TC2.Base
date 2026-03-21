@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Gold Brick"
 	name_short: "Gd. Brick"
 	name_imperial: "Zloblok"
@@ -158,7 +158,7 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: metals, refined, luxury
 		
 		market_price: 2000.000
 		market_price_per_kg_auto: 66.76994

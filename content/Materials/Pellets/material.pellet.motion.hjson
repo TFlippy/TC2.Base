@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "EC-MT Pellets"
 	name_short: "EC-MT Pt."
 	name_imperial: "Motorik-Arkpelet"
@@ -69,9 +69,9 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: components, arcane, energy, manufactured, smirglum
 		
 		market_price: 170.000
-		market_price_per_kg_auto: 84.22234
+		market_price_per_kg_auto: 95.45199
 	}
 }

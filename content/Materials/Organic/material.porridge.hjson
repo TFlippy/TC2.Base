@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Porridge"
 	name_short: "Porridge"
 	name_imperial: "Kasickus"
@@ -47,13 +47,15 @@
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	
+	centroid_default: [0.000, 0.250]
 	colliders: []
 	
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: food, cooking, consumer, manufactured, processed
 		
 		market_price: 2.100
+		market_price_per_kg_auto: 5.121951
 	}
 }

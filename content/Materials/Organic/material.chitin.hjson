@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Chitin"
 	name_short: "Chitin"
 	name_dumb: "Gems"
@@ -54,6 +54,6 @@
 		categories: none
 		
 		market_price: 7.800
-		market_price_per_kg_auto: 15.625
+		market_price_per_kg_auto: 16.250
 	}
 }

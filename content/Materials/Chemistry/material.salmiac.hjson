@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Salmiac"
 	name_short: "Salmiac"
 	name_imperial: "Salmijak"
@@ -55,7 +55,7 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: food, cooking
 		
 		market_price: 23.700
 		market_price_per_kg_auto: 45.57693

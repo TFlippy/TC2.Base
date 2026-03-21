@@ -67,7 +67,7 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: components, refined, artificial, arcane, technology, construction_materials, consumer, industrial, toys, manufactured, processed
 		
 		market_price: 42.000
 		market_price_per_kg_auto: 56.2249

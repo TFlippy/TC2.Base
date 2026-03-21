@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Timber (Oak)"
 	name_short: "Oak"
 	name_dumb: "Wood"
@@ -104,6 +104,7 @@
 		categories: none
 		
 		market_price: 41.000
+		market_price_per_kg_auto: 4.474029
 	}
 	
 	// Damage-based conversions.

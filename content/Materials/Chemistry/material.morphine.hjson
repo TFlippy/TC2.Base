@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Morphine"
 	name_short: "Morphine"
 	name_imperial: "Morfin"
@@ -59,7 +59,7 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: drugs, medicine
 		
 		market_price: 63.800
 		market_price_per_kg_auto: 638.000

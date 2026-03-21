@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	$note:
 		'''
 			TODO: Realistically, wet mortar can't be really stored, since it starts hardening once water is added to it.
@@ -108,7 +108,7 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: construction_materials
 		
 		market_price: 5.500
 		market_price_per_kg_auto: 4.968383

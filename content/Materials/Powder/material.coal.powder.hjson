@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Coal (Powder)"
 	name_short: "Coal P."
 	name_dumb: "Ash"
@@ -19,7 +19,7 @@
 	
 	// Inventory material type.
 	type: powder
-	flags: granular, powder, solid
+	flags: granular, small, powder, flammable, solid
 	display_flags: none
 	hints: materials
 	

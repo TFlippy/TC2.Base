@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	$note:
 		'''
 		- Roughly 61.80% Smirglum (22.402 kg), 38.20% Gold (13.847 kg)
@@ -162,7 +162,7 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: metals, construction_materials, smirglum
 		
 		market_price: 1050.000
 		market_price_per_kg_auto: 28.96572

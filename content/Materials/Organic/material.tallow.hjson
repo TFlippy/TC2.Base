@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Fatty Lump"
 	name_short: "Fat"
 	name_imperial: "Smalc"
@@ -52,8 +52,9 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: food, raw, cooking
 		
 		market_price: 2.100
+		market_price_per_kg_auto: 9.130434
 	}
 }

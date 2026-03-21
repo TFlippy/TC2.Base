@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Nitric Acid"
 	name_short: "N.Acid"
 	name_dumb: "Water"
@@ -61,6 +61,6 @@
 		categories: none
 		
 		market_price: 23.700
-		market_price_per_kg_auto: 28.07525
+		market_price_per_kg_auto: 34.29812
 	}
 }

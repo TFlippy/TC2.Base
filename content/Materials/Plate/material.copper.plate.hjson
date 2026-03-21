@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Copper Sheet"
 	name_short: "Cop.Sheet"
 	name_imperial: "Kuprplat"
@@ -114,7 +114,7 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: metals, construction_materials
 		
 		market_price: 100.000
 		market_price_per_kg_auto: 37.20238

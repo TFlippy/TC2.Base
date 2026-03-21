@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Arcanite Sheet"
 	name_short: "Arc. Sheet"
 	name_imperial: "Arkoplat"
@@ -111,7 +111,7 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: metals, construction_materials, smirglum
 		
 		market_price: 285.000
 		market_price_per_kg_auto: 40.67339

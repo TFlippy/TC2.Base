@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Salt"
 	name_short: "Salt"
 	name_imperial: "Salcr"
@@ -55,9 +55,9 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: food, cooking
 		
 		market_price: 10.700
-		market_price_per_kg_auto: 21.15385
+		market_price_per_kg_auto: 20.57692
 	}
 }

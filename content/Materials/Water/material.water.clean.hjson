@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Purified Water"
 	name_short: "P. Water"
 	name_dumb: "Water"
@@ -57,9 +57,9 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: beverages, food, water, cooking, consumer, processed
 		
 		market_price: 2.100
-		market_price_per_kg_auto: 1.400
+		market_price_per_kg_auto: 2.100
 	}
 }

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	$note:
 		'''
 		- Actually a mixture of ethanol and methanol/wood alcohol
@@ -64,10 +64,10 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: beverages, food, cooking, consumer, manufactured, processed
 		
 		market_price: 11.000
-		market_price_per_kg_auto: 14.88095
+		market_price_per_kg_auto: 16.36905
 	}
 	
 	fuel:

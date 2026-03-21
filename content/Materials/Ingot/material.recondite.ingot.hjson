@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	$note:
 		'''
 		- Roughly 70.71% Smirglum (24.003 kg), 29.29% Silver (9.943 kg)
@@ -164,10 +164,10 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: metals, construction_materials, smirglum
 		
 		market_price: 600.000
-		market_price_per_kg_auto: 15.90757
+		market_price_per_kg_auto: 17.67508
 	}
 	
 	// Residues from crafting/work.

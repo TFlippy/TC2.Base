@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "HW-106.7mm/AP Shell"
 	description:
 		'''
@@ -57,7 +57,7 @@
 	commodity:
 	{
 		flags: none
-		categories: weapons, explosives, munitions, dangerous, military, manufactured
+		categories: weapons, explosives, munitions, dangerous, military, manufactured, smirglum
 		
 		market_price: 750.000
 		market_price_per_kg_auto: 37.500

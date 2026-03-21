@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Smoulus Mushrooms"
 	name_short: "Smoulus M."
 	name_imperial: "Smoulus"
@@ -51,9 +51,9 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: natural, raw, harvested, mushrooms
 		
 		market_price: 25.400
-		market_price_per_kg_auto: 77.500
+		market_price_per_kg_auto: 90.71429
 	}
 }

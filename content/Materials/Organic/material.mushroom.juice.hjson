@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Mushroom Juice"
 	name_short: "Mushroom J."
 	name_imperial: "Houbka"
@@ -55,9 +55,9 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: beverages, food, mushrooms, cooking, consumer, manufactured
 		
 		market_price: 7.000
-		market_price_per_kg_auto: 8.613729
+		market_price_per_kg_auto: 9.421266
 	}
 }

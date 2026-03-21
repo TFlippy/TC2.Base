@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Steel Scrap"
 	name_short: "St. Scrap"
 	name_imperial: "Stylsrot"
@@ -63,9 +63,10 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: metals, scrap
 		
 		market_price: 3.200
+		market_price_per_kg_auto: 1.787614
 	}
 	
 	// Damage-based conversions.

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	$note:
 		'''
 		- Strange crystals with a green glow
@@ -66,7 +66,7 @@
 	commodity:
 	{
 		flags: illegal
-		categories: arcane, jewelry, illegal, dangerous
+		categories: artificial, arcane, raw, jewelry, illegal, dangerous, luxury, industrial, military
 		
 		market_price: 874.000
 		market_price_min: 820.000

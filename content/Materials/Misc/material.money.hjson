@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	$note:
 		'''
 		- Hexagonal prism-shaped smirglum core, roughly 4.3cm wide, 0.139cm thick, with each side being about 2.15cm
@@ -70,7 +70,7 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: artificial, consumer
 		
 		market_price: 1.000
 		market_price_per_kg_auto: 16.000
@@ -78,7 +78,7 @@
 		buildings_produce: black_market, bank
 		buildings_consume: customs, exchange, black_market, market, bank
 		
-		categories_produce: imperial, governmental, financial
+		categories_produce: imperial, commercial, criminal, governmental, financial, wealthy, mercantile
 		categories_consume: commercial, financial, wealthy, mercantile
 	}
 	

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Clay Bricks"
 	name_short: "Bricks"
 	name_dumb: "Brick"
@@ -55,9 +55,9 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: construction_materials
 		
 		market_price: 2.200
-		market_price_per_kg_auto: 3.921569
+		market_price_per_kg_auto: 4.313726
 	}
 }

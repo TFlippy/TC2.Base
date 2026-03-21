@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Majonez"
 	name_short: "Mayo"
 	name_imperial: "Majonez"
@@ -56,7 +56,7 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: food, refined, cooking, luxury, consumer, manufactured, processed
 		
 		market_price: 71.100
 		market_price_per_kg_auto: 114.6774

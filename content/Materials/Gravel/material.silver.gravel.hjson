@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Silver Gravel"
 	name_short: "Sv. Gravel"
 	description:
@@ -50,7 +50,7 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: metals
 		
 		market_price: 20.000
 	}

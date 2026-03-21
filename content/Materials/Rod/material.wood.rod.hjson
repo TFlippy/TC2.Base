@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Wooden Bar"
 	name_short: "Wd. Bar"
 	name_dumb: "Stick"
@@ -108,9 +108,10 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: construction_materials
 		
 		market_price: 4.800
+		market_price_per_kg_auto: 8.556578
 	}
 	
 	fuel:

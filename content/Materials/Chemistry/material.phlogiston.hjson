@@ -1,9 +1,6 @@
 ﻿{
-	$version: "0.1.71.1"
-	$note:
-		'''
-		- Obtained through the ancient phlogiston pipelines
-		'''
+	$version: "0.1.72.0"
+	$note: "- Obtained through the ancient phlogiston pipelines"
 	name: "Phlogiston"
 	name_short: "Phlogiston"
 	name_imperial: "Plogiston"
@@ -64,10 +61,10 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: chemicals, refined, artificial, arcane, fuel, energy, consumer, industrial
 		
 		market_price: 50.000
-		market_price_per_kg_auto: 131.1189
+		market_price_per_kg_auto: 87.41258
 	}
 	
 	fuel:

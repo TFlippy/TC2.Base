@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Smirglum Powder"
 	name_short: "Sg. Powder"
 	name_imperial: "Smirglpulvr"
@@ -57,10 +57,10 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: metals, smirglum
 		
 		market_price: 12.300
-		market_price_per_kg_auto: 6.208969
+		market_price_per_kg_auto: 4.714217
 	}
 	
 	// Info regarding relations of other materials towards this material.

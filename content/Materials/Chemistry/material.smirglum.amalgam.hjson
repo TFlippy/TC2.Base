@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Smirglum Amalgam"
 	name_short: "Sg. Amalgam"
 	name_imperial: "Smirglmerkur"
@@ -64,10 +64,10 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: metals, smirglum
 		
 		market_price: 28.100
-		market_price_per_kg_auto: 8.123723
+		market_price_per_kg_auto: 7.089336
 	}
 	
 	// Damage-based conversions.

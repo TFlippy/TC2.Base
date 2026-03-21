@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Paper"
 	name_short: "Paper"
 	name_imperial: "Papyr"
@@ -56,7 +56,7 @@
 		categories: none
 		
 		market_price: 2.400
-		market_price_per_kg_auto: 3.51288
+		market_price_per_kg_auto: 5.62061
 	}
 	
 	// Damage-based conversions.

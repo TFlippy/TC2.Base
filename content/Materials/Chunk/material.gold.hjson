@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.2"
+	$version: "0.1.72.0"
 	name: "Gold Chunk"
 	name_short: "Gd. Chunk"
 	name_imperial: "Zlo"
@@ -112,9 +112,9 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: metals
 		
 		market_price: 1718.540
-		market_price_per_kg_auto: 61.65678
+		market_price_per_kg_auto: 59.5848
 	}
 }

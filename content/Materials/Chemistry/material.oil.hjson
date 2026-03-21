@@ -60,7 +60,7 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: food, cooking
 		
 		market_price: 8.200
 		market_price_per_kg_auto: 10.97724

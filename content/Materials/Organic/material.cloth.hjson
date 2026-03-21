@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Cloth"
 	name_short: "Cloth"
 	name_imperial: "Hadr"
@@ -58,10 +58,10 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: construction_materials
 		
 		market_price: 5.900
-		market_price_per_kg_auto: 16.66667
+		market_price_per_kg_auto: 16.38889
 	}
 	
 	// Damage-based conversions.

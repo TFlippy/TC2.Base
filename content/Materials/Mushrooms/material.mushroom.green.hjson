@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Pradedus Mushrooms"
 	name_short: "Pradedus M."
 	name_imperial: "Pradedus"
@@ -45,13 +45,15 @@
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	
+	centroid_default: [0.000, 0.250]
 	colliders: []
 	
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: natural, raw, harvested, mushrooms
 		
 		market_price: 8.300
+		market_price_per_kg_auto: 28.42466
 	}
 }

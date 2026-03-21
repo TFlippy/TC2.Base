@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Resin"
 	name_short: "Resin"
 	name_imperial: "Rezink"
@@ -55,5 +55,6 @@
 		categories: none
 		
 		market_price: 6.200
+		market_price_per_kg_auto: 4.971932
 	}
 }

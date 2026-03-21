@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Sejrus Mushrooms"
 	name_short: "Sejrus M."
 	name_imperial: "Sejrus"
@@ -51,7 +51,7 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: natural, raw, harvested, mushrooms
 		
 		market_price: 3.600
 		market_price_per_kg_auto: 9.72973

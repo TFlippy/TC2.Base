@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	$note:
 		'''
 		- Hexagonal prism shape, roughly 4.3cm wide, 5cm high, with each side being about 2.15cm
@@ -74,10 +74,10 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: components, manufactured, smirglum
 		
 		market_price: 20.000
-		market_price_per_kg_auto: 5.614823
+		market_price_per_kg_auto: 11.22965
 	}
 	
 	// Info regarding relations of other materials towards this material.

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Nitroglycerine"
 	name_short: "NTG"
 	name_imperial: "Nitroglycerin"
@@ -61,7 +61,7 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: explosives
 		
 		market_price: 48.700
 		market_price_per_kg_auto: 123.9186

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Mixed Scrap"
 	name_short: "Mix. Scrap"
 	name_imperial: "Multisrot"
@@ -57,9 +57,9 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: scrap
 		
 		market_price: 5.900
-		market_price_per_kg_auto: 4.565218
+		market_price_per_kg_auto: 4.275362
 	}
 }
