@@ -120,6 +120,7 @@ workshop:
 	infrastructure: table, shaping_mould
 	environment: container, mobile, dirty, ugly, sturdy, flammable, large
 
+	gui_info_size_x: 172.000
 	max_order_mass: 500.000
 }
 

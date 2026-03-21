@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.67.2"
+	$version: "0.1.72.0"
 	name: "Smirglum Amalgamation"
 	desc:
 		'''
@@ -17,9 +17,6 @@
 			tags: material, raw, formula, ingredient
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -53,9 +50,6 @@
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: none
 			
-			ratio: 0.000
-			mass_base: 0.000
-			
 			options:
 			[
 				{
@@ -79,11 +73,11 @@
 						{
 							type: work
 							work: amalgamation
-							amount: 400.000
-							amount_min: 350.000
+							amount: 200.000
+							amount_min: 150.000
 							difficulty: 9
 							snapping: 5.000
-							falloff: 0.695
+							falloff: 0.676
 							group: 0
 							flags: conditional
 						}

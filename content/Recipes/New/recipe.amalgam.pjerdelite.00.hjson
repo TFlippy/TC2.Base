@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.67.2"
+	$version: "0.1.72.0"
 	name: "Pjerdelite Amalgamation"
 	desc:
 		'''
@@ -17,9 +17,6 @@
 			tags: material, raw, formula, ingredient
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -53,9 +50,6 @@
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: heat
 			
-			ratio: 0.000
-			mass_base: 0.000
-			
 			options:
 			[
 				{
@@ -78,8 +72,8 @@
 						{
 							type: work
 							work: amalgamation
-							amount: 200.000
-							amount_min: 500.000
+							amount: 50.000
+							amount_min: 200.000
 							difficulty: 11
 							snapping: 1.000
 							falloff: 0.566
@@ -136,9 +130,6 @@
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: heat
 			
-			ratio: 0.000
-			mass_base: 0.000
-			
 			options:
 			[
 				{
@@ -157,9 +148,6 @@
 			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: heat
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
