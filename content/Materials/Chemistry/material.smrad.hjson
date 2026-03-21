@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	$note:
 		'''
 		- Strange, ultrafine powder with anomalous properties
@@ -69,8 +69,8 @@
 		flags: none
 		categories: none
 		
-		market_price: 30.000
-		market_price_per_kg_auto: 40.16064
+		market_price: 42.000
+		market_price_per_kg_auto: 56.2249
 	}
 	
 	// Residues from crafting/work.

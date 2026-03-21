@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Oil"
 	name_short: "Oil"
 	name_imperial: "Olej"
@@ -62,8 +62,8 @@
 		flags: none
 		categories: none
 		
-		market_price: 9.600
-		market_price_per_kg_auto: 12.85141
+		market_price: 8.200
+		market_price_per_kg_auto: 10.97724
 	}
 	
 	fuel:

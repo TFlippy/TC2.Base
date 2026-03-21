@@ -29,7 +29,7 @@ body:
 		mass: 420.000
 		radius: 0.500
 		friction: 0.700
-		elasticity: 0.850
+		elasticity: 0.450
 		
 		cog_offset: [0.0625, 0.3125]
 		
@@ -108,7 +108,7 @@ company:
 interactable:
 {
 	flags: no_tab
-	window_size: [624, 488]
+	window_size: [624, 544]
 	window_size_misc: [144, 0]
 }
 

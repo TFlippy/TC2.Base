@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Lubricant"
 	name_short: "Lubricant"
 	name_dumb: "Lube"
@@ -59,7 +59,7 @@
 		flags: none
 		categories: none
 		
-		market_price: 10.100
-		market_price_per_kg_auto: 46.11872
+		market_price: 14.400
+		market_price_per_kg_auto: 70.77626
 	}
 }

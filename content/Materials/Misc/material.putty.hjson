@@ -67,8 +67,8 @@
 		flags: marketable
 		categories: chemicals, refined, artificial, arcane, industrial, manufactured
 		
-		market_price: 65.000
-		market_price_per_kg_auto: 42.40052
+		market_price: 95.000
+		market_price_per_kg_auto: 61.96999
 		
 		industries_produce: manufacturing, high_tech, chemical, arcane, research, engineering, experimental
 		industries_consume: manufacturing, high_tech, metallurgy, automotive, military, arcane, construction, real_estate, research, colonization, security, railway, engineering, weapons, experimental, aviation, naval, architecture
