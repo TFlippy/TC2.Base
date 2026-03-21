@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.8"
+	$version: "0.1.72.0"
 	name: "Copper"
 	description:
 		'''
@@ -95,6 +95,5 @@
 		gravel: copper.gravel
 		raw: copper
 		scrap: scrap.copper
-		slab: copper.slab
 	}
 }

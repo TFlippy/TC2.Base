@@ -152,40 +152,7 @@
 			flags: primary, compact
 		}
 	]
-	
-	requirements_old:
-	[
-		{
-			type: resource
-			material: timber.maple
-			amount: 0.440062
-			snapping: 1.000
-			loss: 0.122
-			group: 0
-			flags: prerequisite
-		}
-		{
-			type: work
-			work: woodcarving
-			amount: 90.000
-			difficulty: 3
-			falloff: 0.920
-			group: 0
-			flags: conditional
-		}
-	]
-	
-	products_old:
-	[
-		{
-			type: prefab
-			prefab: club
-			amount: 1.000
-			group: 0
-			flags: primary
-		}
-	]
-	
+
 	type: workshop
 	flags: blueprintable, item
 	tags: manual, crafting, dumb, crude, basic, simple, weapon, woodworking

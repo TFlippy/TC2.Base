@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.70.1"
+	$version: "0.1.72.0"
 	name: "Chosen Plantstuff"
 	desc:
 		'''
@@ -26,9 +26,6 @@
 			tags: material, raw, formula, ingredient
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: slash
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -154,7 +151,7 @@
 	]
 	
 	type: workshop
-	flags: none
+	flags: dismantling
 	tags: manual, crafting, basic, simple, organic, raw, agriculture, forestry, separation
 	hints: none
 	connotations: none
