@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.8"
+	$version: "0.1.72.0"
 	name: "Betoniter Slabs"
 	desc:
 		'''
@@ -23,6 +23,7 @@
 	strength_compressive: 8.000
 	
 	mass: 1.400
+	density: 0.000
 	friction: 0.900
 	elasticity: 0.600
 	fall_damage_mult: 0.950
@@ -47,5 +48,15 @@
 		null
 	]
 	
-	mappings: []
+	mappings:
+	[
+		{
+			color: "0xff4a4c4c"
+			tile_flags: solid, non_empty, become_background_on_break
+		}
+		{
+			color: "0xff1f2020"
+			tile_flags: non_empty
+		}
+	]
 }

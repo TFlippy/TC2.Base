@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.65.1"
+	$version: "0.1.72.0"
 	name: "Pjerdelite Slabs"
 	desc:
 		'''
@@ -48,5 +48,15 @@
 		null
 	]
 	
-	mappings: []
+	mappings:
+	[
+		{
+			color: "0xff5a4438"
+			tile_flags: solid, non_empty, become_background_on_break
+		}
+		{
+			color: "0xff271e19"
+			tile_flags: non_empty
+		}
+	]
 }

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.8"
+	$version: "0.1.72.0"
 	name: "Scaffolding"
 	desc:
 		'''
@@ -17,6 +17,7 @@
 	strength_compressive: 25.200
 	
 	mass: 0.443
+	density: 0.000
 	friction: 0.950
 	elasticity: 0.430
 	fall_damage_mult: 1.590

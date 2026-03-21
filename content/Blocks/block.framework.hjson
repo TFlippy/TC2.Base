@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.8"
+	$version: "0.1.72.0"
 	name: "Formwork (Empty)"
 	desc:
 		'''
@@ -17,6 +17,7 @@
 	strength_compressive: 14.000
 	
 	mass: 0.080
+	density: 0.000
 	friction: 0.920
 	elasticity: 0.670
 	fall_damage_mult: 0.940
@@ -49,7 +50,7 @@
 		}
 		{
 			color: "0xff50514e"
-			tile_flags: non_empty
+			tile_flags: non_empty, transparent
 		}
 	]
 }
