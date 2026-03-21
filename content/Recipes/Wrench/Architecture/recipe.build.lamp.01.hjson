@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.70.1"
+	$version: "0.1.72.0"
 	name: "Wall Lamp (Flat)"
 	desc:
 		'''
@@ -54,7 +54,7 @@
 	
 	color_frame: "0xffaeb59a"
 	color_button: "0xff9dd80f"
-	rank: -5074.800
+	rank: -1504.000
 	
 	placement:
 	{

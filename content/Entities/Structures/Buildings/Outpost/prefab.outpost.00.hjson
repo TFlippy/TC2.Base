@@ -181,7 +181,7 @@ dormitory:
 	}
 	kit_categories_filter:
 	{
-		exclude: explosive, gun, expensive, advanced
+		exclude: explosive, advanced, expensive
 	}
 }
 

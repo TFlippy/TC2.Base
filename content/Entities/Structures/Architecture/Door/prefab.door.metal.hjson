@@ -1,7 +1,7 @@
-$name: "Door (Metal)"
+$name: "Door (Sheetmetal)"
 $desc:
 	'''
-	Standard durable metal door.
+	Standard decently durable sheetmetal door.
 	Can be locked.
 	'''
 $tags: []

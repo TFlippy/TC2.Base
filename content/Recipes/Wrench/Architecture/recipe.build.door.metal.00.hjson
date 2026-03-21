@@ -1,6 +1,6 @@
 ﻿{
-	$version: "0.1.70.1"
-	name: "Door (Metal)"
+	$version: "0.1.72.0"
+	name: "Door (Sheetmetal)"
 	tips: []
 	
 	requirements:

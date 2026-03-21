@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.0"
 	name: "Wall Lamp (Bulb)"
 	desc:
 		'''
@@ -54,7 +54,7 @@
 	
 	color_frame: "0xffaeb59a"
 	color_button: "0xff9dd80f"
-	rank: -5075.000
+	rank: -1505.000
 	
 	placement:
 	{
