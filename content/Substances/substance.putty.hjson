@@ -1,0 +1,26 @@
+﻿{
+	$version: "0.1.72.0"
+	name: "C-Putty"
+	description:
+		'''
+		TODO: Desc
+		'''
+	
+	type: exotic
+	atomic_number: 0
+	flags: none
+	tags: artificial, exotic, liquid
+	
+	icon:
+	{
+		texture: resource.putty
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	color_icon: "0xffffffff"
+	color_gui: "0xffff4600"
+	color_dust: "0xffff4600"
+	color_gib: "0xffff4600"
+	color_smoke: "0xffff4600"
+}

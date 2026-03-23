@@ -12,7 +12,7 @@
 		{
 			type: resource
 			material: smirgrafit.clay
-			amount: 0.200
+			amount: 0.240
 			group: 0
 			flags: prerequisite
 		}

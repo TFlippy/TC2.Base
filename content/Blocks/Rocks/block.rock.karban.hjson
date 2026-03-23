@@ -48,6 +48,10 @@
 			color: "0xff282827"
 			tile_flags: solid, non_empty, ground, no_replace
 		}
+		{
+			color: "0xff35312b"
+			tile_flags: solid, non_empty, ground, no_replace
+		}
 	]
 	
 	related:
