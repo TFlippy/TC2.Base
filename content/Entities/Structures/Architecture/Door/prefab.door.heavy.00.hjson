@@ -1,0 +1,104 @@
+$name: "Door (Smirgrafit)"
+$desc:
+	'''
+	Standard mighty durable smirgrafit-clad door.
+	Can be locked.
+	'''
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.box:
+	{
+		size: [0.500, 2.750]
+		offset: [0.000, 0.000]
+		
+		mass: 300.000
+		radius: 0.125
+		friction: 0.550
+		elasticity: 0.600
+		
+		material: metal_solid
+		miss_chance: 0.000
+		
+		layer: entity, solid, building, door, no_overlapped_placement
+		mask: world, solid, essence
+		exclude: none
+	}
+}
+
+health:
+{
+	max: 75000.000
+}
+
+armor:
+{
+	toughness: 680.000
+	protection: 0.950
+	coverage: 0.850
+	
+	knockback_modifier: 1.300
+	pain_modifier: 0.000
+
+	material_type: cermet
+	flags: no_damage_type_conversion
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "door.heavy.00"
+		count: 5
+		size: [16, 24]
+	}
+	z: 100.000
+	offset: [0.500, 0.000]
+}
+
+faction.colorable:
+{
+
+}
+
+faction:
+{
+
+}
+
+claimable:
+{
+	flags: no_menu
+}
+
+interactable:
+{
+	flags: no_window, once
+	priority: 4.000
+}
+
+transform:
+{
+
+}
+
+door:
+{
+	sound_open: "door_open"
+	sound_close: "door_close"
+	size_open: [1.350, 2.750]
+	size_closed: [0.250, 2.750]
+	offset_open: [0.700, 0.000]
+	offset_closed: [0.000, 0.000]
+	direction: horizontal
+	flags: lockable
+
+	frame_closed: 0
+	frame_open: 4
+
+	fps_close: 8.000
+	fps_open: 6.000
+}

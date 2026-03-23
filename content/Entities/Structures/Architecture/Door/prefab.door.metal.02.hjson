@@ -1,0 +1,106 @@
+$name: "Door (Sliding)"
+$desc:
+	'''
+	Standard compact sliding sheetmetal door.
+	'''
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.box:
+	{
+		material: metal_sheet
+		miss_chance: 0.000
+		flags: none
+		tags: none
+		
+		layer: entity, solid, building, door, no_overlapped_placement
+		mask: world, solid
+		exclude: none
+		
+		mass: 42.000
+		radius: 0.125
+		friction: 0.550
+		elasticity: 0.600
+		
+		cog_offset: [0.000, 0.000]
+		
+		size: [0.250, 3.000]
+		offset: [-0.0625, 0.000]
+	}
+}
+
+health:
+{
+	max: 9500.000
+}
+
+armor:
+{
+	toughness: 380.000
+	protection: 0.950
+	
+	knockback_modifier: 1.300
+	pain_modifier: 0.000
+
+	material_type: metal
+	flags: no_damage_type_conversion
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "door.metal.02"
+		count: 4
+		size: [8, 32]
+	}
+	z: 100.000
+	offset: [0.000, 0.000]
+}
+
+faction.colorable:
+{
+
+}
+
+faction:
+{
+
+}
+
+claimable:
+{
+	flags: no_menu
+}
+
+interactable:
+{
+	flags: no_window, once
+	priority: 4.000
+}
+
+transform:
+{
+
+}
+
+door:
+{
+	sound_open: "door_open"
+	sound_close: "door_close"
+	size_open: [0.250, 3.000]
+	size_closed: [0.250, 3.000]
+	offset_open: [-0.0625, 0.000]
+	offset_closed: [-0.0625, 0.000]
+	direction: horizontal
+	flags: lockable
+
+	frame_closed: 0
+	frame_open: 3
+
+	fps_close: 8.000
+	fps_open: 6.000
+}
