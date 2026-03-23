@@ -7,7 +7,7 @@
 		public struct Data(): IComponent
 		{
 			[Flags]
-			public enum Flags: uint
+			public enum Flags: ushort
 			{
 				None = 0,
 
@@ -15,12 +15,14 @@
 				Stuck = 1 << 1,
 			}
 
+			[Save.Force] public required Damage.Type damage_type = Damage.Type.Drill;
+			[Save.Force] public byte unused_00;
 			[Save.Force] public Driller.Data.Flags flags;
+
 			[Save.Force] public IMaterial.Handle h_material_rail;
 			[Save.Force] public ISubstance.Handle h_substance_drill;
 
 			[Save.Force] public required float interval = 0.50f;
-			[Save.Force] public float drill_offset;
 
 			[Save.NewLine]
 			[Save.Force, Editor.Picker.Position(relative: true)] public required Vec2f offset;
@@ -40,8 +42,10 @@
 			public ISoundMix.Handle h_soundmix_mode;
 			public ISoundMix.Handle h_soundmix_move;
 
-			public float distance_current;
-			[Save.Ignore, Net.Ignore] public float t_next_update;
+			[Asset.Ignore] public float distance_target;
+			[Asset.Ignore] public float distance_current;
+			[Asset.Ignore] public float distance_obstacle;
+			[Asset.Ignore, Save.Ignore, Net.Ignore] public float t_next_update;
 		}
 
 		public struct EditRPC: Net.IRPC<Driller.Data>
@@ -56,7 +60,7 @@
 
 				if (this.depth_ratio.HasValue)
 				{
-					sync |= data.drill_offset.TrySetClamped(this.depth_ratio.Value * data.distance_max, 0.00f, data.distance_max);
+					sync |= data.distance_target.TrySetClamped(this.depth_ratio.Value * data.distance_max, 0.00f, data.distance_max);
 				}
 
 				if (sync)
@@ -74,7 +78,7 @@
 		{
 			const bool debug_draw = false;
 
-			driller.distance_current.MoveTowards(driller.drill_offset, driller.speed_max * info.DeltaTime);
+			driller.distance_current.MoveTowards(driller.distance_target, driller.speed_max * info.DeltaTime);
 
 			var pos_drill_local_base = (driller.direction * driller.distance_current);
 			var pos_drill_world = transform.LocalToWorld(pos_drill_local_base);
@@ -112,7 +116,7 @@
 					var damage_bonus = 0.00f; // random.NextFloatRange(0.00f, melee.damage_bonus);
 					var damage = damage_base + damage_bonus;
 
-					var flags = Damage.Flags.No_Loot_Notification | Damage.Flags.No_Loot_Discard;
+					var flags = Damage.Flags.No_Loot_Notification | Damage.Flags.No_Loot_Discard; // | Damage.Flags.No_Sound;
 
 					var modifier = 1.00f;
 					var hit_terrain = false;
@@ -136,6 +140,11 @@
 						{
 							if (hit_terrain) continue;
 
+#if CLIENT
+							//Sound.Play(ref region, driller.h_soundmix_dig, ref random, pos: result.world_position);
+							Shake.Emit(ref region, result.world_position, trauma: 0.20f, max: 0.52f, radius: 64.00f);
+#endif
+
 							dist_terrain = Vec2f.Distance(pos_drill_world_start, result.world_position);
 							hit_terrain = true;
 						}
@@ -156,7 +165,7 @@
 						Damage.Hit(ent_attacker: entity, ent_owner: entity, ent_target: result.entity,
 							position: result.world_position, velocity: dir_drill_world * 4.00f, normal: result.normal, // -dir_drill_world,
 							damage_integrity: damage_final, damage_durability: damage_final, damage_terrain: damage_final,
-							target_material_type: result.material_type, damage_type: Damage.Type.Drill,
+							target_material_type: result.material_type, damage_type: driller.damage_type,
 							yield: driller.yield, size: driller.size * 1.50f, impulse: 100.00f, flags: flags);
 #endif
 
@@ -217,9 +226,9 @@
 					{
 						using (GUI.Group.New(size: GUI.Rm))
 						{
-							if (GUI.SliderFloat("Depth"u8, value: ref this.driller.drill_offset, min: 0.00f, max: this.driller.distance_max, size: new(128, 32)))
+							if (GUI.SliderFloat("Depth"u8, value: ref this.driller.distance_target, min: 0.00f, max: this.driller.distance_max, size: new(128, 32)))
 							{
-								var depth_ratio = Maths.InvLerp01(0.00f, this.driller.distance_max, this.driller.drill_offset);
+								var depth_ratio = Maths.InvLerp01(0.00f, this.driller.distance_max, this.driller.distance_target);
 								var rpc = new Driller.EditRPC
 								{
 									depth_ratio = depth_ratio,

@@ -104,19 +104,20 @@ transform:
 driller:
 {
 	flags: none
-	interval: 0.100
+	interval: 0.200
 	
 	offset: [0.000, 0.000]
 	direction: [0.000, 1.000]
 	
 	power: 4500.000
 	yield: 1.000
-	thickness: 0.500
-	size: 0.750
+	thickness: 0.700
+	size: 1.125
 	
 	speed_max: 1.000
 	distance_max: 16.000
-	
+	h_soundmix_dig: driller.00.dig
+
 	@animated.renderer:
 	{
 		sprite:
