@@ -51,7 +51,7 @@ animated.renderer:
 	sprite:
 	{
 		texture: "door.metal.00"
-		mask: "door.metal.mask"
+		mask: "door.metal.00.mask"
 		count: 5
 		size: [16, 24]
 	}

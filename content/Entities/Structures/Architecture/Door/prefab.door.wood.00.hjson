@@ -33,8 +33,8 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "door.wood"
-		mask: "door.wood.mask"
+		texture: "door.wood.00"
+		mask: "door.wood.00.mask"
 		count: 5
 		size: [16, 24]
 	}
