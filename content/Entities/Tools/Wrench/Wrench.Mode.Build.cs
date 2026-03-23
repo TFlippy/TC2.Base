@@ -17,6 +17,7 @@ namespace TC2.Base.Components
 					public float placement_range = 4.00f;
 
 					[Asset.Ignore] public IRecipe.Handle recipe;
+					[Asset.Ignore] public IBlueprint.Handle h_blueprint;
 					[Asset.Ignore] public Wrench.Mode.Build.Flags flags;
 
 					[Asset.Ignore, Save.Ignore, Net.Ignore] public float next_place;
@@ -307,6 +308,121 @@ namespace TC2.Base.Components
 													}
 
 													h_recipe_prev = h_recipe;
+												}
+											}
+										}
+									}
+								}
+							}
+
+							if (false)
+							{
+								var h_blueprint_selected = IBlueprint.Handle.None;
+
+								var h_selected_recipe = this.recipe;
+								var h_selected_blueprint = this.h_blueprint;
+
+								ref var baseline_recipe_data = ref h_selected_recipe.GetData(out var baseline_recipe_asset);
+								ref var selected_recipe_data = ref baseline_recipe_data;
+
+								ref var selected_blueprint_data = ref h_selected_blueprint.GetData();
+								if (selected_blueprint_data.IsNotNull() && selected_recipe_data.IsNotNull() && selected_blueprint_data.h_recipe == h_selected_recipe)
+								{
+									selected_recipe_data = ref selected_blueprint_data.h_recipe_generated.GetData();
+									h_selected_recipe = selected_blueprint_data.h_recipe_generated;
+								}
+								else
+								{
+									//edit_h_selected_blueprint = default;
+									h_selected_blueprint = default;
+								}
+
+								//ref var recipe = ref h_recipe.GetData
+								if (baseline_recipe_data.IsNotNull() && baseline_recipe_data.flags.HasAny(Recipe.Flags.Blueprintable))
+								{
+									var bp_spanlist = FixedArray.CreateSpan32NoInit<IBlueprint.Handle>(out var bp_buffer).AsSpanList();
+									IBlueprint.Database.GetHandlesFiltered(list: ref bp_spanlist,
+										arg: baseline_recipe_asset.GetHandle(),
+										predicate: static (in x, arg) => x.data.h_recipe == arg && x.data.flags.HasNone(IBlueprint.Flags.Editable | IBlueprint.Flags.Hidden));
+
+									if (!bp_spanlist.IsEmpty)
+									{
+										var frame_size_base = baseline_recipe_data.frame_size.OrDefault(baseline_recipe_data.icon.GetFrameSize(2.00f));
+										frame_size_base += new Vector2(8, 8);
+										frame_size_base = frame_size_base.ScaleToNearestMultiple(new(48));
+
+										using (var window_child = window.BeginChildWindow(identifier: "wrench.blueprints"u8,
+										anchor_x: GUI.AlignX.Right,
+										anchor_y: GUI.AlignY.Top,
+										open: true,
+										size: new Vector2(frame_size_base.X + 24 + 12 + 4, 340),
+										offset: new(-8, 110),
+										padding: new(4, 4)))
+										{
+											if (window_child.show)
+											{
+												using (var group = GUI.Group.New(size: GUI.Rm, padding: new(2)))
+												{
+													using (var group_top = GUI.Group.New(size: new(GUI.RmX, 32)))
+													{
+														GUI.TitleCentered("Blueprints"u8, size: 24, pivot: new(0.00f, 0.50f), offset: new(4, 0));
+													}
+
+													GUI.SeparatorThick();
+
+													var h_selected_recipe_tmp = h_selected_recipe;
+
+													//using (var group_mid = GUI.Group.New(size: GUI.Rm))
+													using (var group_mid = GUI.Scrollbox.New("sb.blueprints"u8, size: GUI.Rm))
+													{
+														foreach (var h_blueprint in bp_spanlist)
+														{
+															ref var blueprint_data = ref h_blueprint.GetData();
+															if (blueprint_data.IsNotNull())
+															{
+																ref var recipe_data = ref blueprint_data.h_recipe_generated.GetData();
+																if (recipe_data.IsNotNull())
+																{
+																	var frame_size = recipe_data.frame_size.OrDefault(recipe_data.icon.GetFrameSize(2.00f));
+																	frame_size += new Vector2(16, 16);
+																	frame_size = frame_size.ScaleToNearestMultiple(new(16));
+																	frame_size.X = GUI.RmX;
+
+																	using (var group_bp = GUI.Group.New(size: frame_size))
+																	{
+																		//group_bp.DrawBackground(GUI.tex_slot);
+
+																		var is_selected = h_blueprint == h_blueprint_selected;
+
+																		if (GUI.DrawRecipeButton(context: ref context,
+																		rect: group_bp.GetOuterRect(),
+																		h_recipe: blueprint_data.h_recipe_generated,
+																		h_recipe_selected: ref h_selected_recipe_tmp,
+																		evaluation_flags: Crafting.EvaluateFlags.Ignore_Work | Crafting.EvaluateFlags.Prerequisite,
+																		flags_add: GUI.DrawRecipeFlags.None,
+																		flags_rem: GUI.DrawRecipeFlags.Send_RPC | GUI.DrawRecipeFlags.Modal | GUI.DrawRecipeFlags.Scrollbox | GUI.DrawRecipeFlags.Products | GUI.DrawRecipeFlags.Highlight | GUI.DrawRecipeFlags.Button | GUI.DrawRecipeFlags.Counter,
+																		tooltip_anchor: GUI.Anchor.Right,
+																		tooltip_pivot: new(0.00f, 0.50f)))
+																		{
+																			var rpc = new Wrench.Mode.Build.ConfigureRPC
+																			{
+																				recipe = this.recipe,
+																				h_blueprint = h_blueprint
+																			};
+																			rpc.Send(ent_wrench);
+
+																			//edit_h_selected_blueprint = is_selected ? IBlueprint.Handle.None : h_blueprint;
+																			////var rpc = new Construction.ConfigureRPC()
+																			////{
+																			////	h_blueprint = is_selected ? IBlueprint.Handle.None : h_blueprint
+																			////};
+																			////rpc.Send(this.ent_construction);
+																		}
+																	}
+																}
+															}
+														}
+													}
 												}
 											}
 										}
@@ -1016,6 +1132,7 @@ namespace TC2.Base.Components
 				public partial struct ConfigureRPC: Net.IRPC<Wrench.Mode.Build.Data>
 				{
 					public IRecipe.Handle recipe;
+					public IBlueprint.Handle h_blueprint;
 
 #if SERVER
 					public void Invoke(Net.IRPC.Context rpc, ref Wrench.Mode.Build.Data build)
@@ -1028,11 +1145,13 @@ namespace TC2.Base.Components
 							Assert.Check(recipe.flags.HasNone(Recipe.Flags.Hidden | Recipe.Flags.Custom));
 							Assert.Check(build.filter_tags.Evaluate(recipe.tags));
 
-							sync = build.recipe.TryChange(this.recipe);
+							sync |= build.recipe.TryChange(this.recipe);
+							sync |= build.h_blueprint.TryChange(this.h_blueprint);
 						}
 						else
 						{
-							sync = build.recipe.TryChange(default);
+							sync |= build.recipe.TryChange(default);
+							sync |= build.h_blueprint.TryChange(default);
 						}
 
 						if (sync) build.Sync(rpc.entity);

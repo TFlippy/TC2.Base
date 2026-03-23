@@ -12,39 +12,41 @@ body:
 	
 	@shape.box:
 	{
-		size: [1.000, 2.750]
-		offset: [0.250, 0.000]
-		
-		mass: 300.000
-		radius: 0.125
-		friction: 0.550
-		elasticity: 0.600
-		
 		material: metal_solid
 		miss_chance: 0.000
+		flags: none
+		tags: none
 		
 		layer: entity, solid, building, door, no_overlapped_placement
 		mask: world, solid, essence
 		exclude: none
+		
+		mass: 300.000
+		radius: 0.125
+		friction: 0.300
+		elasticity: 0.600
+		
+		fall_damage_mult: 1.200
+		cog_offset: [0.000, 0.000]
+		
+		size: [1.000, 2.750]
+		offset: [0.000, 0.000]
 	}
 }
 
 health:
 {
-	max: 75000.000
+	max: 98000.000
 }
 
 armor:
 {
-	toughness: 680.000
-	protection: 0.950
-	coverage: 0.850
-	
-	knockback_modifier: 1.300
-	pain_modifier: 0.000
-
 	material_type: cermet
+	coverage: 0.957
 	flags: no_damage_type_conversion
+	toughness: 850.000
+	protection: 0.950
+	pain_modifier: 0.000
 }
 
 animated.renderer:
@@ -77,7 +79,7 @@ claimable:
 interactable:
 {
 	flags: no_window, once
-	priority: 4.000
+	priority: 5.000
 }
 
 transform:
@@ -87,8 +89,8 @@ transform:
 
 door:
 {
-	sound_open: conveyor.move.02
-	sound_close: burner.lid.clang.01
+	sound_open: burner.lid.clang.01
+	sound_close: conveyor.move.02
 
 	flags: lockable
 	size_open: [1.350, 2.750]
@@ -97,4 +99,11 @@ door:
 	offset_closed: [0.000, 0.000]
 	fps_close: 3.000
 	fps_open: 3.000
+}
+
+smirgrafit:
+{
+	flags: fused
+	
+	surface_area: 2.500
 }
