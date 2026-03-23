@@ -139,6 +139,6 @@ storage:
 interactable:
 {
 	flags: none
-	priority: -8.500
+	priority: -9.500
 	window_size: [192.000, 96.000]
 }

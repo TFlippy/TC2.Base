@@ -1,11 +1,12 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.1"
 	name: "Copper"
 	tips: []
 	
 	related_materials:
 	{
 		copper.powder: residue, powdered, product, result
+		copper.ingot: source, input
 	}
 	
 	stages:
@@ -18,9 +19,6 @@
 			tags: material, raw, ingredient
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: none
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -81,9 +79,6 @@
 			tags: formula
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: none
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[

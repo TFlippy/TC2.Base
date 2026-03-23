@@ -90,10 +90,10 @@ transform:
 
 interactable:
 {
-	flags: no_tab, centered_inventory
+	flags: centered_inventory
 	window_size: [192, 104]
 	window_size_misc: [48, 0]
-	priority: -1.800
+	priority: 1.500
 	window_offset: [0.000, 192.000]
 }
 
@@ -171,8 +171,8 @@ sticky:
 		max_force: 12000.000
 		max_torque: 12000.000
 		max_displacement: 0.450
-		displacement_stress_modifier: 0.500
-		displacement_force_modifier: 0.100
+		displacement_stress_modifier: 0.450
+		displacement_force_modifier: 0.250
 		max_stress: 2.500
 		stress_damp: 0.950
 		material_type: metal
