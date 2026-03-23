@@ -77,6 +77,14 @@ health:
 // 	flags: no_damage_type_conversion
 // }
 
+interactable:
+{
+	flags: none
+	window_size: [200, 272]
+	window_size_misc: [144, 0]
+	priority: 0.800
+}
+
 animated.renderer:
 {
 	sprite:
@@ -95,6 +103,32 @@ transform:
 
 driller:
 {
+	flags: none
+	interval: 0.100
+	
+	offset: [0.000, 0.000]
+	direction: [0.000, 1.000]
+	
+	power: 4500.000
+	yield: 1.000
+	thickness: 0.500
+	size: 0.750
+	
+	speed_max: 1.000
+	distance_max: 16.000
+	
+	@animated.renderer:
+	{
+		sprite:
+		{
+			texture: driller.00
+			size: [16, 128]
+			frame: [3, 0]
+		}
+		offset: [0.000, -4.250]
+		z: 950.000
+	}
+
 	@sound.emitter:
 	{
 		file: flywheel.loop.01
@@ -110,11 +144,13 @@ driller:
 
 axle:
 {
-	offset: [0.625, -1.500]
+	offset: [0.875, -0.875]
 	
-	mass: 20.000
-	friction: 0.500
-	flags: no_wrap
+	mass: 40.000
+	friction: 0.400
+	radius_a: 1.250
+	radius_outer: 1.250
+	z: 500.000
 
 	@animated.renderer:
 	{
@@ -170,14 +206,6 @@ crank:
 	// }
 }
 
-interactable:
-{
-	flags: none
-	priority: 0.800
-	window_size: [592.000, 592.000]
-	window_size_misc: [144.000, 0.000]
-}
-
 shipment:
 {
 	type: crafting
@@ -224,16 +252,16 @@ heat:
 	}
 }
 
-// control:
-// {
+control:
+{
 
-// }
+}
 
-// controllable:
-// {
-// 	gui_size: [96.000, 0.000]
-// 	speed: 7.100
-// 	radius: 1.500
-// 	radius_max: 2.000
-// 	flags: show_misc, disable_mouse_properties, disable_mouse_rmb, disable_mouse_pos, disable_keyboard, hide_cursor, mouse_orthogonal
-// }
+controllable:
+{
+	gui_size: [96.000, 0.000]
+	speed: 7.100
+	radius: 1.500
+	radius_max: 2.000
+	flags: show_misc, disable_mouse_properties, disable_mouse_rmb, disable_mouse_pos, disable_keyboard, hide_cursor, mouse_orthogonal
+}
