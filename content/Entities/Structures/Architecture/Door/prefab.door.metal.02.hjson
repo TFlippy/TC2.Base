@@ -1,4 +1,4 @@
-$name: "Door (Sliding)"
+$name: "Sliding Door (Sheetmetal)"
 $desc:
 	'''
 	Standard compact sliding sheetmetal door.
@@ -8,15 +8,19 @@ $tags: []
 body:
 {
 	type: static
+	flags: none
+	tags: thin, solid, angular, simple, lightweight
 	
+	fall_damage_multiplier: 3.500
+
 	@shape.box:
 	{
 		material: metal_sheet
 		miss_chance: 0.000
 		flags: none
-		tags: none
+		tags: light, medium, thin, solid
 		
-		layer: entity, solid, building, door, no_overlapped_placement
+		layer: entity, solid, building, door, conductive, magnetic, no_overlapped_placement
 		mask: world, solid
 		exclude: none
 		
@@ -39,13 +43,14 @@ health:
 
 armor:
 {
-	toughness: 380.000
-	protection: 0.950
-	
+	toughness: 300.000
+	protection: 0.850
+	coverage: 0.750
+
 	knockback_modifier: 1.300
 	pain_modifier: 0.000
 
-	material_type: metal
+	material_type: metal_frame
 	flags: no_damage_type_conversion
 }
 
@@ -78,8 +83,9 @@ claimable:
 
 interactable:
 {
-	flags: no_window, once
-	priority: 4.000
+	flags: no_window, use_left_click, once
+	window_size: [0, 0]
+	priority: 20.000
 }
 
 transform:
@@ -89,18 +95,14 @@ transform:
 
 door:
 {
-	sound_open: "door_open"
-	sound_close: "door_close"
+	sound_open: depot_load
+	sound_close: depot_unload
+	flags: lockable
+	frame_open: 3
 	size_open: [0.250, 3.000]
 	size_closed: [0.250, 3.000]
 	offset_open: [-0.0625, 0.000]
 	offset_closed: [-0.0625, 0.000]
-	direction: horizontal
-	flags: lockable
-
-	frame_closed: 0
-	frame_open: 3
-
-	fps_close: 8.000
-	fps_open: 6.000
+	fps_close: 4.000
+	fps_open: 4.000
 }
