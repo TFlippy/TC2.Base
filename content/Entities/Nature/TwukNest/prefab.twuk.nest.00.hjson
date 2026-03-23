@@ -95,8 +95,8 @@ dormitory:
 	characters_initial_count: 1
 	characters_reserved_count: 1
 	
-	repopulate_interval: 60.000
-	repopulate_interval_extra: 240.000
+	repopulate_interval: 120.000
+	repopulate_interval_extra: 300.000
 	repopulate_max: 4
 	repopulate_num: 1
 	repopulate_num_extra: 1

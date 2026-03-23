@@ -1798,11 +1798,11 @@ namespace TC2.Base
 						//attachable.tags.AddFlag(Attachment.Tags.Long, width >= 5.00f);
 
 						var area = context.rect.GetArea();
-						attachable.tags.AddFlag(Attachment.Tags.Tiny, area <= 1.125f);
-						attachable.tags.AddFlag(Attachment.Tags.Small, area >= 1.25f && area <= 3.00f);
-						attachable.tags.AddFlag(Attachment.Tags.Medium, area >= 2.00f && area <= 5.50f);
-						attachable.tags.AddFlag(Attachment.Tags.Large, area >= 5.00f && area <= 11.00f);
-						attachable.tags.AddFlag(Attachment.Tags.Huge, area >= 11.00f);
+						attachable.tags.AddFlag(Attachment.Tags.Tiny, area <= 1.25f);
+						attachable.tags.AddFlag(Attachment.Tags.Small, area > 1.25f && area <= 3.00f);
+						attachable.tags.AddFlag(Attachment.Tags.Medium, area > 3.00f && area <= 7.50f);
+						attachable.tags.AddFlag(Attachment.Tags.Large, area > 7.50f && area <= 14.00f);
+						attachable.tags.AddFlag(Attachment.Tags.Huge, area > 14.00f);
 
 						//attachable.tags.AddFlag(Attachment.Tags.Mount, context.HasComponent<Mount.Data>());
 						attachable.tags.AddFlag(Attachment.Tags.Mount, context.HasComponent<Mount.Data>());

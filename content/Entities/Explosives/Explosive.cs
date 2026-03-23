@@ -155,7 +155,7 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.Event<Health.PostDamageEvent>(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void OnPostDamage(Entity entity, ref XorRandom random, ref Health.PostDamageEvent data, 
+		public static void OnPostDamage(Entity entity, ref XorRandom random, ref Health.PostDamageEvent ev, 
 		[Source.Owned] ref Health.Data health, [Source.Owned] ref Explosive.Data explosive)
 		{
 			//App.WriteLine(health.integrity);
@@ -167,7 +167,7 @@ namespace TC2.Base.Components
 				}
 				else
 				{
-					if (explosive.detonate_damage_filter.Has(data.damage.damage_type)) explosive.flags |= Explosive.Flags.Primed;
+					if (explosive.detonate_damage_filter.Has(ev.damage.damage_type)) explosive.flags |= Explosive.Flags.Primed;
 				}
 
 				if (explosive.flags.HasAny(Explosive.Flags.Primed))
