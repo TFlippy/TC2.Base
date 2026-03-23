@@ -1,7 +1,7 @@
 ﻿{
 	$region_id: 0
 	$version: "0.1.72.1"
-	name: "Door (Smirgrafit)"
+	name: "Heavy Door (Smirgrafit)"
 	tips: []
 	
 	requirements:
@@ -36,12 +36,13 @@
 			prefab: door.heavy.00
 			amount: 1.000
 			group: 0
+			flags: primary
 		}
 	]
 	
 	type: architecture
 	flags: no_amount_multiplier, no_cancel
-	tags: simple, medium, metalworking, construction
+	tags: complex, large, industrial, metalworking, metallurgy, engineering, construction
 	hints: none
 	connotations: none
 	infrastructure: none
@@ -65,23 +66,24 @@
 	placement:
 	{
 		type: simple
-		flags: allow_mirror_x, allow_placement_over_buildings, require_terrain
+		flags: allow_mirror_x, require_terrain, require_snapped
 		
-		size: [0.500, 3.000]
-		offset: [0.000, -1.375]
+		size: [3.000, 3.000]
+		offset: [0.000, -1.250]
 		
-		rect_foundation: [-0.250, 0.250, 0.250, 0.750]
+		rect_foundation: [-0.250, 0.250, 1.000, 1.000]
 		tileflags_foundation: solid
 		
-		rect_clearance: [-0.250, -2.875, 0.250, 0.250]
+		rect_clearance: [-0.500, -2.750, 1.500, 0.250]
 		tileflags_clearance: solid
 		
-		cooldown: 0.750
-		min_support: 0.500
-		min_clearance: 0.750
+		cooldown: 1.000
+		min_support: 0.900
+		min_clearance: 0.900
 		min_claim: 1.000
 		
-		rotation_max: 0.400
+		rotation_max: 0.1473
+		rotation_step: 0.0981
 		
 		sound: building_place
 		
@@ -95,8 +97,8 @@
 			include: world
 			exclude: construction, dynamic
 		}
-		snapping_flags: snap_to_surface, align_to_surface, use_collider_radius, use_raw_collider, no_end_snap
-		snapping_radius: 0.500
+		snapping_flags: force, snap_to_surface, align_to_surface, use_collider_radius, use_raw_collider
+		snapping_radius: 0.750
 		
 		mappings_replace:
 		{
