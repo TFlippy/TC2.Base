@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.5"
+	$version: "0.1.72.1"
 	name: "Wood"
 	
 	type: organic
@@ -16,7 +16,7 @@
 	
 	color_icon: "0xffffffff"
 	color_gui: "0xffffffff"
-	color_dust: "0xffffffff"
+	color_dust: "0xffdab688"
 	color_gib: "0xffffffff"
 	color_smoke: "0x00000000"
 	
