@@ -19,11 +19,10 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.mayo"
+		texture: "resource.formic_acid"
 		count: 4
 		size: [16, 16]
 	}
-	z: -60.000
 }
 
 transform:
@@ -33,7 +32,7 @@ transform:
 
 resource:
 {
-	material: "mayo"
+	material: "formic_acid"
 }
 
 holdable:
@@ -43,14 +42,10 @@ holdable:
 
 norotate:
 {
-	bias: 0.000
-	speed: 2.000
-	multiplier: 2.000
-	mass_multiplier: 20.000
-	flags: no_share
+
 }
 
 health:
 {
-	max: 1500.000
+	max: 7500.000
 }
