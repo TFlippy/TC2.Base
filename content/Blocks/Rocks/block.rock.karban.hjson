@@ -1,34 +1,36 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.72.1"
 	name: "Karban"
 	desc:
 		'''
-		TODO: Desc
+		Lightweight, porous carbonaceous rock with a dull, sooty luster. 
+
+		Readily yields graphite when crushed.
 		'''
 	
 	material_type: coal
 	tile_flags: non_empty
-	flags: raw, ore, uncommon, mineral, rock, metamorphic
+	flags: raw, ore, uncommon, fuel, mineral, porous, rock
 	
 	max_health: 31800.000
-	smoothing: 0.140
-	stability: 2.940
-	strength_tensile: 1.600
-	strength_compressive: 10.700
+	smoothing: 0.150
+	stability: 2.110
+	strength_tensile: 1.100
+	strength_compressive: 0.700
 	
-	mass: 1.265
+	mass: 0.865
 	density: 0.000
-	friction: 0.890
-	elasticity: 0.380
-	fall_damage_mult: 1.230
+	friction: 0.940
+	elasticity: 0.310
+	fall_damage_mult: 1.130
 	collision_layer: none
 	collision_mask: none
 	
 	texture: terrain.rock.karban
 	pattern: pattern.stone
-	texture_scale: 1.230
-	texture_overshoot: -0.500
-	texture_offset: 0.125
+	texture_scale: 1.480
+	texture_overshoot: -0.200
+	texture_offset: 0.000
 	
 	color_preview: "0xff282827"
 	color_fill: "0xff140e08"
@@ -37,7 +39,7 @@
 	[
 		{
 			material: karban
-			quantity: 1.280
+			quantity: 1.192888
 		}
 		null
 	]
@@ -56,6 +58,9 @@
 	
 	related:
 	{
-		karban: raw, similar, element
+		karban: raw, ore, similar, element, natural, result
+		graphite: raw, ore, similar
+		graphite.powder: raw, ore, crushed, similar, powdered
+		mercury: residue, filler, impurity, extracted
 	}
 }

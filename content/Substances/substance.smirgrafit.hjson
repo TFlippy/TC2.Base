@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.72.1"
 	name: "Smirgrafit"
 	description:
 		'''
@@ -90,5 +90,6 @@
 		scrap: scrap.smirgrafit
 		raw: smirgrafit.clay
 		blob: smirgrafit.clay
+		gravel: scrap.smirgrafit
 	}
 }

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.8"
+	$version: "0.1.72.1"
 	name: "Graphite"
 	description:
 		'''
@@ -22,7 +22,7 @@
 	
 	color_icon: "0xffffffff"
 	color_gui: "0xffffffff"
-	color_dust: "0xffffffff"
+	color_dust: "0xff151515"
 	color_gib: "0xffffffff"
 	color_smoke: "0x00000000"
 	

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.72.1"
 	$note: "- TODO: Desc"
 	name: "Smirgrafit Clay"
 	name_short: "Smirgrafit"
@@ -42,6 +42,7 @@
 	// Preferred quantity snapping for inventories.
 	snapping_pickup: 0.100
 	
+	form_type: chunk
 	prefab: resource.smirgrafit.clay
 	h_substance: smirgrafit
 	
@@ -110,5 +111,18 @@
 		
 		market_price: 50.000
 		market_price_per_kg_auto: 8.476012
+	}
+	
+	// Info regarding relations of other materials towards this material.
+	related:
+	{
+		smrad: component, filler, powdered, ingredient, mixed, input, catalyst
+		putty: component, juice, filler, alloy, ingredient, liquid, processed, mixed, input
+		smirglum.powder: component, raw, clean, filler, element, powdered, ingredient, input
+		mercury: component, reaction, chemical, filler, alloy, ingredient, liquid, mixed, input
+		graphite.powder: component, raw, crushed, clean, element, powdered, ingredient, input
+		graphite: component, raw, element, ingredient, input
+		scrap.smirgrafit: ruined, mangled, similar, solidified, scrap, output
+		scrap.smirgrafit.dusty: ruined, reaction, mangled, decomposition, similar, solidified, scrap, output
 	}
 }
