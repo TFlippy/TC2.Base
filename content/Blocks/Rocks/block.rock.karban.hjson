@@ -12,7 +12,7 @@
 	tile_flags: non_empty
 	flags: raw, ore, uncommon, fuel, mineral, porous, rock
 	
-	max_health: 31800.000
+	max_health: 16950.000
 	smoothing: 0.150
 	stability: 2.110
 	strength_tensile: 1.100
@@ -39,7 +39,7 @@
 	[
 		{
 			material: karban
-			quantity: 1.192888
+			quantity: 1.286854
 		}
 		null
 	]

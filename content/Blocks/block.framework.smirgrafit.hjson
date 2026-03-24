@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.72.1"
 	name: "Framework (Smirgrafit)"
 	desc:
 		'''
@@ -16,7 +16,7 @@
 	strength_tensile: 19.000
 	strength_compressive: 17.000
 	
-	mass: 1.500
+	mass: 1.580
 	density: 0.000
 	friction: 0.950
 	elasticity: 0.470
@@ -40,8 +40,8 @@
 			quantity: 0.240
 		}
 		{
-			material: steel.rod
-			quantity: 0.012
+			material: scrap.steel
+			quantity: 0.08385
 		}
 	]
 	

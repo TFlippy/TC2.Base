@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.0"
+	$version: "0.1.72.1"
 	name: "Smirglum Slabs"
 	desc:
 		'''
@@ -8,7 +8,7 @@
 	
 	material_type: metal_solid
 	tile_flags: non_empty
-	flags: artificial, metal, masonry, construction
+	flags: artificial, magnetic, metal, masonry, construction
 	
 	max_health: 550000.000
 	smoothing: 0.150

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.72.1"
 	name: "Smirgrafit"
 	desc:
 		'''
@@ -40,8 +40,8 @@
 			quantity: 0.731414
 		}
 		{
-			material: steel.rod
-			quantity: 0.012
+			material: scrap.steel
+			quantity: 0.089437
 		}
 	]
 	

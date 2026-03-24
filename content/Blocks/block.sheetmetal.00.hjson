@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.72.1"
 	name: "Sheetmetal"
 	desc:
 		'''
@@ -8,7 +8,7 @@
 	
 	material_type: metal_sheet
 	tile_flags: non_empty
-	flags: artificial, metal, construction
+	flags: artificial, magnetic, metal, construction
 	
 	max_health: 7000.000
 	smoothing: 0.170

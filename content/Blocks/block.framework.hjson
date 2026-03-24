@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.72.1"
 	name: "Formwork (Empty)"
 	desc:
 		'''
@@ -8,7 +8,7 @@
 	
 	material_type: metal_frame
 	tile_flags: non_empty
-	flags: artificial, metal, construction
+	flags: artificial, magnetic, metal, construction
 	
 	max_health: 35000.000
 	smoothing: 0.200
@@ -16,7 +16,7 @@
 	strength_tensile: 30.000
 	strength_compressive: 14.000
 	
-	mass: 0.080
+	mass: 0.165234
 	density: 0.000
 	friction: 0.920
 	elasticity: 0.670
@@ -37,7 +37,7 @@
 	[
 		{
 			material: steel.rod
-			quantity: 0.012
+			quantity: 0.022266
 		}
 		null
 	]

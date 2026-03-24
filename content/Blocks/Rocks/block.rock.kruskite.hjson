@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.0"
+	$version: "0.1.72.1"
 	name: "Kruskite"
 	desc:
 		'''
@@ -12,7 +12,7 @@
 	tile_flags: non_empty
 	flags: raw, ore, common, porous, rock, silicate, igneous
 	
-	max_health: 15000.000
+	max_health: 18800.000
 	smoothing: 0.140
 	stability: 4.140
 	strength_tensile: 4.800

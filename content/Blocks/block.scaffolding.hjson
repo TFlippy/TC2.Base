@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.72.1"
 	name: "Scaffolding"
 	desc:
 		'''
@@ -8,7 +8,7 @@
 	
 	material_type: metal_frame
 	tile_flags: non_empty
-	flags: artificial, metal, construction
+	flags: artificial, magnetic, metal, construction
 	
 	max_health: 9200.000
 	smoothing: 0.150
