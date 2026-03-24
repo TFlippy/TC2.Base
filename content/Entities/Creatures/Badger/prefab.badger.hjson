@@ -608,7 +608,7 @@ faction:
 				mask: world, vehicle
 				exclude: barbed, dead
 
-				miss_chance: 0.360
+				miss_chance: 0.320
 			}
 		}
 		

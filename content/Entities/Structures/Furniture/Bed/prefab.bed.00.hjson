@@ -10,7 +10,7 @@ body:
 	@shape.polygon:
 	{
 		material: metal_pole
-		miss_chance: 0.376
+		miss_chance: 0.896
 		flags: none
 		tags: none
 		

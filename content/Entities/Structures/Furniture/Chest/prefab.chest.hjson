@@ -19,7 +19,7 @@ body:
 		mask: world, furniture, door
 		exclude: held, dynamic
 
-		miss_chance: 0.550
+		miss_chance: 0.650
 	}
 }
 

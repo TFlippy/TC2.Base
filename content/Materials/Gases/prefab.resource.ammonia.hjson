@@ -13,7 +13,7 @@ body:
 		rigidity_dynamic: 0.300
 		
 		material: gas
-		miss_chance: 0.560
+		miss_chance: 0.760
 		
 		layer: entity, solid, resource, gas, ignore_melee, ignore_hover
 		mask: world, gas

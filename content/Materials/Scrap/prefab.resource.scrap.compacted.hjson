@@ -9,7 +9,7 @@ body:
 	@shape.polygon:
 	{
 		material: scrap
-		miss_chance: 0.000
+		miss_chance: 0.620
 		flags: none
 		tags: none
 		

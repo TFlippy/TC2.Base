@@ -7,7 +7,7 @@ body:
 	@shape.line:
 	{
 		material: tar
-		miss_chance: 0.000
+		miss_chance: 0.780
 		flags: none
 		tags: flammable, soft
 		

@@ -28,7 +28,7 @@ body:
 		
 		layer: entity, solid, vehicle, furniture
 
-		miss_chance: 0.650
+		miss_chance: 0.850
 	}
 }
 

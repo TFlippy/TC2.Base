@@ -13,7 +13,7 @@ body:
 	@shape.line:
 	{
 		material: wood
-		miss_chance: 0.463
+		miss_chance: 0.763
 		flags: none
 		tags: none
 		

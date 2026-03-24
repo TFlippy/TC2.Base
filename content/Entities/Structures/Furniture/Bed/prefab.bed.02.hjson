@@ -26,7 +26,7 @@ body:
 		elasticity: 0.860
 		
 		material: machine
-		miss_chance: 0.173
+		miss_chance: 0.673
 		
 		layer: entity, solid, furniture, ignore_melee
 		mask: world

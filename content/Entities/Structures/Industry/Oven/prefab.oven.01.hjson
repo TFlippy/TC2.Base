@@ -27,7 +27,7 @@ body:
 		elasticity: 0.200
 		
 		material: metal
-		miss_chance: 0.396
+		miss_chance: 0.696
 		
 		layer: entity, solid, background, building, support, ignore_melee
 		mask: world, building
@@ -45,7 +45,7 @@ body:
 		elasticity: 0.500
 		
 		material: building_masonry
-		miss_chance: 0.000
+		miss_chance: 0.700
 		
 		layer: entity, solid, building, ignore_hover, ignore_bullet
 		mask: world, building

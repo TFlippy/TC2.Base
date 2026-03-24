@@ -21,7 +21,7 @@ body:
 		elasticity: 0.400
 		
 		material: mushroom
-		miss_chance: 0.000
+		miss_chance: 0.974
 		
 		layer: entity, solid, tree, organic, flammable, no_overlapped_placement, ignore_bullet
 		mask: world

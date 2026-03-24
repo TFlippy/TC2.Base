@@ -25,7 +25,7 @@ body:
 		elasticity: 0.400
 		
 		material: metal_solid
-		miss_chance: 0.153
+		miss_chance: 0.653
 		
 		layer: entity, solid, item, crate, crafter, conductive, magnetic, bulk
 		mask: world, vehicle, bulk

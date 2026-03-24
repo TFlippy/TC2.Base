@@ -10,7 +10,7 @@ body:
 	@shape.polygon:
 	{
 		material: wood
-		miss_chance: 0.000
+		miss_chance: 0.780
 		flags: none
 		tags: none
 		
