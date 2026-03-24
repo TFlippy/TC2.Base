@@ -10,7 +10,7 @@ body:
 	@shape.polygon:
 	{
 		material: wood
-		miss_chance: 0.176
+		miss_chance: 0.876
 		flags: none
 		tags: medium, flammable
 		

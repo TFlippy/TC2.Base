@@ -29,7 +29,7 @@ body:
 		elasticity: 0.620
 		
 		material: metal_sheet
-		miss_chance: 0.702
+		miss_chance: 0.780
 		
 		layer: entity, solid, furniture, conductive, magnetic, ignore_melee
 		cog_offset: [0.000, 0.250]
