@@ -5,18 +5,22 @@ projectile:
 	damage_base: 1000.000
 	damage_bonus: 5000.000
 	lifetime: 3.000
-	ignore_time: 0.150
+	ignore_time: 0.250
 	damage_type: phlogiston
-	size: 1.000
+	size: 0.500
 	ricochet_count: 0
 	gravity: 0.400
 	damp: 0.509
+	speed_modifier_min: 0.900
+	speed_modifier_max: 1.100
+	stabilization: 0.150
+	flags: no_miss
 
 	@light:
 	{
 		color: [1.000, 0.800, 0.600, 2.500]
-		offset: [0.000, 0.000]
-		scale: [6.000, 6.000]
+		offset: [-1.000, 0.000]
+		scale: [8.000, 4.000]
 		intensity: 1.000
 		texture: "light.circle.01"
 	}
@@ -61,22 +65,22 @@ cluster:
 {
 	prefab: "fire.phlogiston"
 	velocity: [0.000, -8.000]
-	offset: [0.000, -0.800]
+	offset: [0.000, -1.800]
 
-	radius: 1.480
-	spread: 1.000
+	radius: 0.100
+	spread: 2.000
 	speed: 8.000
 	count: 1
 
 	speed_modifier_min: 0.240
-	speed_modifier_max: 10.700
+	speed_modifier_max: 1.100
 
 	lifetime_modifier_min: 0.400
-	lifetime_modifier_max: 2.200
+	lifetime_modifier_max: 3.200
 
 	min_explode_lifetime: 0.121
 	// flags: reverse_direction, no_velocity_rotate
-	flags: reverse_direction, no_velocity_rotate, align_normal
+	flags: none
 }
 
 // flare:
@@ -111,24 +115,24 @@ cluster:
 
 explosive:
 {
-	damage_type: fire
-	damage_type_secondary: phlogiston
+	damage_type: phlogiston
+	damage_type_secondary: heat
 
-	radius: 4.000
+	radius: 7.000
 	power: 4.500
 	damage_entity: 4300.000
-	damage_terrain: 7000.000
-	smoke_amount: 0.080
-	smoke_lifetime_multiplier: 1.250
+	damage_terrain: 3000.000
+	smoke_amount: 0.480
+	smoke_lifetime_multiplier: 0.250
 	smoke_velocity_multiplier: 1.400
-	flash_duration_multiplier: 0.850
-	flash_intensity_multiplier: 0.800
+	flash_duration_multiplier: 4.250
+	flash_intensity_multiplier: 0.100
 	shake_multiplier: 0.000
-	force_multiplier: 0.300
+	force_multiplier: 0.100
 	stun_multiplier: 0.500
-	fire_amount: 0.450
-	sparks_amount: 1.000
-	smoke_color: "0xffd8d8d8"
+	fire_amount: 0.000
+	sparks_amount: 0.100
+	smoke_color: "0xaad8d8d8"
 	volume: 0.100
 	pitch: 0.940
 	flags: primed
@@ -141,7 +145,7 @@ fire:
 	intensity: 1.500
 	fade: 0.080
 	damage_multiplier: 3.500
-	ignite_radius_multiplier: 4.000
+	ignite_radius_multiplier: 2.000
 	damage_type_contact: phlogiston
 	damage_type_convection: phlogiston
 	smoke_color: "0xaaffffff"
