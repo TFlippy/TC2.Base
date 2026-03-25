@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.72.1"
 	$author: "KoreZack, TFlippy"
 	name: "Kuprovst Roasting"
 	desc:
@@ -10,10 +10,15 @@
 	
 	related_materials:
 	{
-		copper.gravel: residue, decomposition, dirty, smelted, roasted, impure, result
-		copper.powder: residue, decomposition, clean, element, powdered, smelted, roasted, result
-		sulfur: residue, decomposition, clean, element, powdered, roasted, result
-		sulfuric_acid: refined, reaction, purified, chemical, product, result, liquid, processed, extracted
+		copper.gravel: residue, raw, decomposition, dirty, smelted, roasted, impure, result, output
+		copper.powder: residue, decomposition, clean, element, powdered, smelted, roasted, result, byproduct, output
+		sulfur: residue, raw, decomposition, clean, element, powdered, roasted, result, output
+		sulfuric_acid: refined, reaction, purified, chemical, product, result, byproduct, liquid, processed, extracted, output
+		kuprovst: raw, input, feedstock, auto_generated
+		slag: waste, output, auto_generated
+		sulfur_dioxide: waste, gas, output, auto_generated
+		water: raw, liquid, input, auto_generated
+		water.toxic: raw, waste, liquid, output, auto_generated
 	}
 	
 	stages:
@@ -145,11 +150,13 @@
 					
 					filter_infrastructure:
 					{
-						include: oven
+						require: heater
+						include: oven, heater, kiln
 					}
 					filter_environment:
 					{
-						include: airtight
+						include: container, stationary, fireproof
+						exclude: fragile, flammable
 					}
 					
 					h_sound_begin: furnace.produce.00
@@ -187,15 +194,6 @@
 							flags: pollutant, waste, spawn, use_temperature, scale_to_mass
 						}
 					]
-					
-					filter_infrastructure:
-					{
-						include: oven
-					}
-					filter_environment:
-					{
-						include: airtight
-					}
 					
 					h_sound_begin: furnace.produce.00
 					h_sound_complete: burner.groan.01
@@ -270,11 +268,12 @@
 					
 					filter_infrastructure:
 					{
-						include: oven
+						require: still, condenser
+						include: still, condenser
 					}
 					filter_environment:
 					{
-						include: airtight
+						include: watertight, fireproof
 					}
 					
 					h_sound_begin: furnace.produce.00
@@ -318,13 +317,9 @@
 						}
 					]
 					
-					filter_infrastructure:
+					filter_tools:
 					{
-						include: oven
-					}
-					filter_environment:
-					{
-						include: airtight
+						require: hammer
 					}
 					
 					h_sound_begin: furnace.produce.00
@@ -375,5 +370,5 @@
 	max: 50
 	step: 1
 	
-	version: 0
+	version: 1
 }

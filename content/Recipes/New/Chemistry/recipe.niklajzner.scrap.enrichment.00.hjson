@@ -1,11 +1,20 @@
 ﻿{
-	$version: "0.1.67.2"
+	$version: "0.1.72.1"
 	name: "Niklajzner Scrap"
 	desc:
 		'''
 		TODO: Desc
 		'''
 	tips: []
+	
+	related_materials:
+	{
+		scrap.niklajzner: scrap, input, feedstock, auto_generated
+		scrap.ferrous: product, result, scrap, output, auto_generated
+		ferronickel.powder: residue, powdered, product, byproduct, output, auto_generated
+		black_coal: raw, ore, ingredient, input, auto_generated
+		ash: raw, powdered, output, auto_generated
+	}
 	
 	stages:
 	[
@@ -17,9 +26,6 @@
 			tags: material, ingredient
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: heat
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -79,9 +85,6 @@
 			tags: material
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: heat
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[

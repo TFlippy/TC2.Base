@@ -1,11 +1,18 @@
 ﻿{
-	$version: "0.1.67.2"
+	$version: "0.1.72.1"
 	name: "Niklajzner Brick"
 	desc:
 		'''
 		TODO: Desc
 		'''
 	tips: []
+	
+	related_materials:
+	{
+		steel.ingot: result, output, auto_generated
+		niklajzner.ingot: input, feedstock, auto_generated
+		black_coal: raw, ore, ingredient, input, auto_generated
+	}
 	
 	stages:
 	[
@@ -17,9 +24,6 @@
 			tags: material, ingredient
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -67,9 +71,6 @@
 			tags: material
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: heat
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[

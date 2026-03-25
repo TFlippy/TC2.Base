@@ -10,7 +10,7 @@
 	related_materials:
 	{
 		smirglum.powder: residue, decomposition, purified, clean, powdered, product, result, output
-		smirglum.amalgam: raw, input, auto_generated
+		smirglum.amalgam: raw, ingredient, input, auto_generated
 	}
 	
 	stages:
