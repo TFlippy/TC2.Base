@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.72.1"
 	name: "Friendship"
 	name_short: "Friendship"
 	desc:
@@ -15,14 +15,14 @@
 	}
 	
 	flags: wip
-	tags: skilled, social, politics, bureaucracy
+	tags: skilled, social, complex, politics, leisure, bureaucracy, careful
 	
-	amount_base: 0.000
-	cooldown: 3.000
-	multiplier: 1.000
+	amount_base: 0.200
+	cooldown: 0.940
+	multiplier: 0.450
 	
-	amount_jitter: 0.644
-	cooldown_jitter: 0.644
+	amount_jitter: 0.507
+	cooldown_jitter: 0.592
 	color: "0xff882ec2"
 	
 	tools_required: none
@@ -56,7 +56,7 @@
 	sound_size: 0.500
 	sound_dist: 1.000
 	
-	sounds: []
+	sounds: ["vo_hi", "vo_look", "vo_lalala", "vo_haha", "vo_okay", "vo_lalala", "vo_yes", "vo_hello", "vo_fire", "vo_water", "vo_strong", "vo_gun", "vo_kill", "vo_neutral", "vo_rip", "vo_haha", "vo_yes", "vo_huh"]
 	sounds_manual: []
 	sounds_crafter: []
 	sounds_passive: []

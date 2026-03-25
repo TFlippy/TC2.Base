@@ -73,7 +73,7 @@
 						}
 						{
 							type: work
-							work: crushing
+							work: pounding
 							amount: 250.000
 							amount_min: 180.000
 							difficulty: 8
@@ -100,14 +100,9 @@
 						}
 					]
 					
-					filter_tools:
-					{
-						include: hammer, wrench, spanner, axe, chisel, crowbar
-					}
 					filter_infrastructure:
 					{
-						require: surface
-						include: hard_surface, compactor, press
+						include: surface, hard_surface
 					}
 				}
 				{
@@ -219,7 +214,7 @@
 						}
 						{
 							type: work
-							work: pounding
+							work: mashing
 							amount: 110.000
 							amount_min: 140.000
 							difficulty: 6
@@ -268,9 +263,13 @@
 						}
 					]
 					
+					filter_tools:
+					{
+						include: shovel, towel
+					}
 					filter_infrastructure:
 					{
-						include: surface, hard_surface
+						include: dishes, compactor, blender, press, form
 					}
 				}
 			]
@@ -341,12 +340,12 @@
 						{
 							type: work
 							work: dissolving
-							amount: 130.000
-							amount_min: 120.000
+							amount: 100.000
+							amount_min: 110.000
 							difficulty: 8
-							step_max: 20
+							step_max: 40
 							snapping: 5.000
-							falloff: 0.888
+							falloff: 0.861
 							loss: 0.004
 							group: 0
 							flags: stepped, simultaneous, conditional
@@ -378,7 +377,7 @@
 			]
 		}
 		{
-			name: "Activation"
+			name: "Transformation"
 			
 			type: postprocessing
 			flags: important
@@ -392,7 +391,7 @@
 					name: "Friendly"
 					
 					type: undefined
-					flags: none
+					flags: manual_only
 					discard_damage_type_override: disintegration
 					
 					suffix: " of Friendship"
@@ -421,26 +420,27 @@
 						{
 							type: work
 							work: friendship
-							amount: 100.000
+							amount: 200.000
 							amount_min: 150.000
 							difficulty: 10
+							step_max: 10
 							snapping: 15.000
 							falloff: 0.771
 							group: 0
-							flags: conditional
+							flags: stepped, conditional
 						}
 						{
 							type: work
-							work: synthesis
+							work: cg.fabrication
 							amount: 250.000
-							amount_min: 200.000
+							amount_min: 10.000
 							difficulty: 12
 							step_max: 40
 							snapping: 20.000
-							falloff: 0.846
+							falloff: 0.776
 							ratio: 0.008
 							group: 1
-							flags: conditional
+							flags: stepped, conditional
 						}
 					]
 					
@@ -451,11 +451,13 @@
 					
 					filter_tools:
 					{
-						include: pencil, paper, towel
+						require: towel
+						include: pencil, paper, ruler, towel, calculator
 					}
 					filter_infrastructure:
 					{
-						include: lab_glassware, bottle, bucket, blender
+						require: table, chair
+						include: table, chair
 					}
 				}
 				{

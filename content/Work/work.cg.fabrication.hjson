@@ -1,0 +1,68 @@
+﻿{
+	$region_id: 0
+	$version: "0.1.72.1"
+	name: "CG-Fabrication"
+	name_short: "CG-Fabrication"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: ui.icons.work.00
+		size: [16, 16]
+		frame: [11, 0]
+	}
+	
+	flags: manual, worker_only, wip
+	tags: skilled, social, science, advanced, complex, technical, chemical, arcane, politics, leisure, delicate, careful
+	
+	amount_base: 0.100
+	cooldown: 0.960
+	multiplier: 0.440
+	
+	amount_jitter: 0.490
+	cooldown_jitter: 0.351
+	color: "0xff40f084"
+	
+	tools_required: towel
+	tools_optional: pencil, paper, ruler, towel, calculator
+	
+	infrastructure_required: table, chair
+	infrastructure_optional: table, chair
+	
+	character_traits:
+	{
+		include: bureaucrat, scientist, educated, medical, professional, law, social, commerce, engineer, rich, alchemist, insane, arcane, entertainer, artist, politician
+		weight: 1.000
+	}
+	
+	skills_min:
+	{
+	
+	}
+	
+	skills_mult:
+	{
+		alchemistry: 0.510
+		arcanology: 0.950
+		charisma: 0.270
+		intellect: 0.800
+	}
+	
+	sound_volume: 0.480
+	sound_pitch: 0.780
+	sound_size: 0.830
+	sound_dist: 0.720
+	
+	sounds: ["arcane_attractor.loop.00", "golem_loop_01", "essence.field.generic.loop.00", "essence.hit.bullet.02", "essence.imply.hum.00", "essence.hit.bullet.03", "golem_loop_01", "essence.field.generic.loop.00", "essence.hit.bullet.00", "essence.imply.query.00", "essence.hit.bullet.01", "golem_loop_01", "essence.field.generic.loop.00", "essence.hit.bullet.00", "essence.imply.hum.00", "essence.hit.bullet.03", "golem_loop_01", "essence.field.generic.loop.00", "essence.hit.bullet.01"]
+	sounds_manual: []
+	sounds_crafter: []
+	sounds_passive: []
+	sounds_ambient: []
+	
+	sounds_start: ["essence.imply.query.00"]
+	sounds_end: ["essence.imply.scream.00"]
+	sounds_fail: []
+}
