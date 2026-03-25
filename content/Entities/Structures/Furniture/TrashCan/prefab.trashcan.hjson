@@ -91,7 +91,8 @@ loot.container:
 interactable:
 {
 	flags: no_tab
-	window_size: [192.000, 96.000]
+	window_size: [192, 96]
+	window_offset: [0.000, -128.000]
 }
 
 harvestable:
