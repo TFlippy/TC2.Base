@@ -65,18 +65,27 @@ shipment:
 {
 	type: trash
 	flags: keep_items, allow_withdraw, allow_deposit
+	layout: large
 }
 
 loot.container:
 {
-	rolls: 2
-	rolls_extra: 1
-	merge_flags: skip_resources
-
-	tables:
-	[
-		"trashcan"
-	]
+	rarity_min: 1.100
+	rarity_mid: 3.000
+	rarity_max: 10.000
+	rarity_falloff: 0.900
+	
+	weight_multiplier: 1.000
+	amount_multiplier: 1.000
+	amount_extra_multiplier: 1.500
+	
+	flags: none
+	merge_flags: bias_weight
+	
+	rolls: 3
+	rolls_extra: 2
+	
+	tables: ["trashcan", null, null, null]
 }
 
 interactable:
