@@ -6,7 +6,7 @@
 		TODO: Desc
 		'''
 	
-	material_type: coal
+	material_type: tar
 	tile_flags: non_empty
 	flags: artificial, magnetic, flammable, metal, construction
 	

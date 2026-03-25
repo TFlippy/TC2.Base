@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.1"
+	$version: "0.1.72.1"
 	name: "Copper Sheets"
 	desc:
 		'''
@@ -22,9 +22,6 @@
 			tags: material, raw, formula
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -129,7 +126,7 @@
 	
 	type: workshop
 	flags: production, wip
-	tags: manual, crafting, simple, raw, metalworking, metallurgy, processing
+	tags: manual, crafting, simple, raw, metalworking, metallurgy, refining, processing
 	hints: none
 	connotations: none
 	infrastructure: surface

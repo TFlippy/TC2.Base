@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.1"
 	$author: "KoreZack"
 	name: "Slag"
 	desc:
@@ -24,9 +24,6 @@
 			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: none
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -176,9 +173,6 @@
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: none
 			
-			ratio: 0.000
-			mass_base: 0.000
-			
 			options:
 			[
 				{
@@ -296,9 +290,6 @@
 			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: none
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -516,7 +507,7 @@
 	
 	type: workshop
 	flags: production, wip
-	tags: manual, basic, simple, raw, metallurgy, salvaging, separation, processing, messy
+	tags: manual, basic, simple, raw, filtering, metallurgy, salvaging, separation, processing, messy
 	hints: none
 	connotations: none
 	infrastructure: surface
@@ -548,7 +539,7 @@
 	
 	color_frame: "0xffac7534"
 	color_button: "0xff9dd80f"
-	rank: -96.000
+	rank: -166.000
 	frame_size: [64.000, 48.000]
 	
 	min: 1

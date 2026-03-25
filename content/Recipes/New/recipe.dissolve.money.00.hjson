@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.1"
+	$version: "0.1.72.1"
 	name: "Dissolved Money"
 	desc:
 		'''
@@ -17,9 +17,6 @@
 			tags: material, raw, formula
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: none
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -147,7 +144,7 @@
 	
 	type: workshop
 	flags: debug, disabled, dismantling, wip
-	tags: dumb, crude, simple, filtering, metallurgy, alchemistry, salvaging, separation, processing, messy
+	tags: dumb, crude, basic, simple, small, filtering, metallurgy, alchemistry, salvaging, separation, processing, messy
 	hints: none
 	connotations: none
 	infrastructure: bucket, hard_surface
@@ -181,7 +178,7 @@
 	
 	color_frame: "0xffac7534"
 	color_button: "0xff9dd80f"
-	rank: -715.000
+	rank: -145.000
 	
 	min: 1
 	max: 25

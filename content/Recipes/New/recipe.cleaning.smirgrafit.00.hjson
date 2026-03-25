@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.72.1"
 	name: "Dusty Smirgrafit Cleaning"
 	desc:
 		'''
@@ -9,10 +9,11 @@
 	
 	related_materials:
 	{
-		smrad: residue, purified, powdered, product, result, extracted
-		scrap.smirgrafit: residue, purified, similar, product, result, scrap
-		putty: wet, residue, filler, result, impurity, mixed
-		smirgrafit.clay: component, wet, residue, raw, similar, filler, result
+		smrad: residue, purified, powdered, product, result, extracted, output
+		scrap.smirgrafit: residue, purified, similar, product, result, scrap, output
+		putty: wet, residue, filler, product, result, byproduct, impurity, mixed, output
+		smirgrafit.clay: component, wet, residue, raw, similar, filler, product, result, byproduct, output
+		scrap.smirgrafit.dusty: scrap, input, auto_generated
 	}
 	
 	stages:

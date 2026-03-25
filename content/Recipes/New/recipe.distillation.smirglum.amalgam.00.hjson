@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.72.1"
 	name: "Smirglum Amalgam Distillation"
 	desc:
 		'''
@@ -9,7 +9,8 @@
 	
 	related_materials:
 	{
-		smirglum.powder: decomposition, purified, clean, powdered, product, result
+		smirglum.powder: residue, decomposition, purified, clean, powdered, product, result, output
+		smirglum.amalgam: raw, input, auto_generated
 	}
 	
 	stages:
