@@ -1,7 +1,18 @@
 ﻿{
-	$version: "0.1.68.1"
+	$version: "0.1.72.1"
 	name: "Lantern"
 	tips: []
+	
+	related_materials:
+	{
+		steel.ingot: input, auto_generated
+		cloth: input, auto_generated
+		toluene: liquid, input, auto_generated
+		naphtha: liquid, input, auto_generated
+		limelight: input, auto_generated
+		steel.frames: input, auto_generated
+		glue: liquid, input, auto_generated
+	}
 	
 	stages:
 	[

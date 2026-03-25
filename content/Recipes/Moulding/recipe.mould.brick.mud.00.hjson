@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.1"
+	$version: "0.1.72.1"
 	name: "Dirty Mud Bricks"
 	desc:
 		'''
@@ -9,7 +9,10 @@
 	
 	related_materials:
 	{
-		brick.mud: solidified, product, brick, result
+		brick.mud: solidified, product, brick, result, byproduct, output
+		soil: raw, input, auto_generated
+		mud: raw, input, auto_generated
+		water: raw, liquid, input, auto_generated
 	}
 	
 	stages:
@@ -157,9 +160,6 @@
 			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: fracture
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[

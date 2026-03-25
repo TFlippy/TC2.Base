@@ -1,6 +1,19 @@
 ﻿{
-	$version: "0.1.68.1"
+	$version: "0.1.72.1"
 	name: "Gyrochronatom"
+	
+	related_materials:
+	{
+		steel.plate: input, auto_generated
+		steel.frames: input, auto_generated
+		actuator: input, auto_generated
+		machine_parts: input, auto_generated
+		directors: input, auto_generated
+		pellet.cognition: input, auto_generated
+		oil: liquid, input, auto_generated
+		rubber: input, auto_generated
+		glue: liquid, input, auto_generated
+	}
 	
 	stages:
 	[
@@ -12,9 +25,6 @@
 			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -73,11 +83,11 @@
 					filter_tools:
 					{
 						require: hammer, hand_drill
-						include: hammer, screwdriver, pliers, file, chisel, towel, crowbar, knife, scissors
+						include: hammer, hand_drill, screwdriver, pliers, chisel, towel, pick, crowbar, knife
 					}
 					filter_infrastructure:
 					{
-						include: anvil, vise, hard_surface, workbench
+						include: anvil, vise, rack, hard_surface, workbench
 					}
 				}
 			]
@@ -90,9 +100,6 @@
 			tags: mechanism, assembly, functional, small, machinery
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -265,9 +272,6 @@
 			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[

@@ -1,7 +1,16 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.1"
 	name: "Handsaw"
 	tips: []
+	
+	related_materials:
+	{
+		steel.frames: input, auto_generated
+		machine_parts: input, auto_generated
+		steel.rod: input, auto_generated
+		steel.plate: input, auto_generated
+		glue: liquid, input, auto_generated
+	}
 	
 	stages:
 	[
@@ -277,9 +286,6 @@
 			tags: assembly
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[

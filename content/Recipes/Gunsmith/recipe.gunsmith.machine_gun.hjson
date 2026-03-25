@@ -1,7 +1,17 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.72.1"
 	name: "Heavy Machine Gun"
 	tips: []
+	
+	related_materials:
+	{
+		steel.plate: input, auto_generated
+		steel.frames: input, auto_generated
+		steel.ingot: input, auto_generated
+		machine_parts: input, auto_generated
+		wood.rod: input, auto_generated
+		steel.rod: input, auto_generated
+	}
 	
 	stages:
 	[
@@ -185,8 +195,13 @@
 					
 					filter_tools:
 					{
-						require: screwdriver, wrench, file
-						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, stapler, towel, tongs, pick, crowbar, knife
+						require: hammer, hand_drill, screwdriver, wrench, file
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, pliers, stapler, file, chisel, towel, tongs, pick, crowbar, knife, sandpaper, utensils
+					}
+					filter_infrastructure:
+					{
+						require: surface, hard_surface
+						include: anvil, table, chair, vise, rack, surface, dies, workbench
 					}
 					filter_environment:
 					{
@@ -264,8 +279,16 @@
 					
 					filter_tools:
 					{
-						require: file, knife
-						include: hand_drill, screwdriver, pliers, file, chisel, knife, sandpaper
+						require: file, sandpaper
+						include: chisel, knife, sandpaper, utensils
+					}
+					filter_infrastructure:
+					{
+						include: table, surface
+					}
+					filter_environment:
+					{
+						include: workshop, stationary, illuminated, dry
 					}
 				}
 			]

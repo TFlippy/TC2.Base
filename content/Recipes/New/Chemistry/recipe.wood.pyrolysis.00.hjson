@@ -1,11 +1,22 @@
 ﻿{
-	$version: "0.1.67.2"
+	$version: "0.1.72.1"
 	name: "Wood"
 	desc:
 		'''
 		TODO: Desc
 		'''
 	tips: []
+	
+	related_materials:
+	{
+		sawdust: powdered, input, feedstock, auto_generated
+		woodchips: raw, powdered, input, feedstock, auto_generated
+		scrap.wood: scrap, input, feedstock, auto_generated
+		wood.rod: input, feedstock, auto_generated
+		charcoal: raw, result, output, auto_generated
+		scrap.charred: waste, scrap, output, auto_generated
+		ash: residue, raw, waste, powdered, output, auto_generated
+	}
 	
 	stages:
 	[
@@ -18,7 +29,6 @@
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: axe
 			
-			ratio: 0.000
 			mass_base: 1.000
 			
 			options:
@@ -159,9 +169,6 @@
 			tags: formula
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: heat
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[

@@ -1,11 +1,16 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.1"
 	name: "Crate (Wood, Medium)"
 	tips: []
 	
 	related_materials:
 	{
 		sawdust: residue, waste, powdered, result
+		wood: raw, input, auto_generated
+		timber.pine: raw, input, auto_generated
+		wood.rod: input, auto_generated
+		machine_parts: input, auto_generated
+		glue: liquid, input, auto_generated
 	}
 	
 	stages:
@@ -246,9 +251,6 @@
 			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[

@@ -1,6 +1,5 @@
 ﻿{
-	$region_id: 0
-	$version: "0.1.72.0"
+	$version: "0.1.72.1"
 	name: "Smirgrafit Clay"
 	desc:
 		'''
@@ -10,8 +9,11 @@
 	
 	related_materials:
 	{
-		smirgrafit.clay: product, result, processed, mixed
-		smirglum.amalgam: ruined, waste, impure, result, byproduct, impurity
+		smirgrafit.clay: product, result, processed, mixed, output
+		smirglum.amalgam: ruined, residue, raw, waste, impure, result, byproduct, impurity, output
+		smirglum.powder: powdered, ingredient, input, auto_generated
+		graphite.powder: powdered, ingredient, input, auto_generated
+		putty: residue, product, result, byproduct, input, output, auto_generated
 	}
 	
 	stages:

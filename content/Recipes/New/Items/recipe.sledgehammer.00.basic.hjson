@@ -1,7 +1,14 @@
 ﻿{
-	$version: "0.1.68.1"
+	$version: "0.1.72.1"
 	name: "Sledgehammer"
 	tips: []
+	
+	related_materials:
+	{
+		steel.ingot: input, auto_generated
+		wood.rod: input, auto_generated
+		glue: liquid, input, auto_generated
+	}
 	
 	stages:
 	[
@@ -54,11 +61,10 @@
 					filter_tools:
 					{
 						require: hand_drill
-						include: screwdriver, chisel, pick, knife
+						include: hand_drill, screwdriver, chisel, pick, knife
 					}
 					filter_infrastructure:
 					{
-						require: vise
 						include: vise, rack, workbench
 					}
 				}
@@ -132,9 +138,6 @@
 			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[

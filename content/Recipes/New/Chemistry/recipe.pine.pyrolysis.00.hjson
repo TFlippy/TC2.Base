@@ -1,11 +1,25 @@
 ﻿{
-	$version: "0.1.67.2"
+	$version: "0.1.72.1"
 	name: "Pine"
 	desc:
 		'''
 		TODO: Desc
 		'''
 	tips: []
+	
+	related_materials:
+	{
+		timber.pine: raw, input, auto_generated
+		charcoal: raw, result, output, auto_generated
+		tar: residue, raw, byproduct, output, auto_generated
+		wood_gas: gas, byproduct, output, auto_generated
+		scrap.charred: waste, scrap, output, auto_generated
+		graphite.powder: residue, powdered, byproduct, output, auto_generated
+		syngas: product, gas, byproduct, output, auto_generated
+		ash: raw, waste, powdered, output, auto_generated
+		water: raw, liquid, input, auto_generated
+		turpentine: result, liquid, output, auto_generated
+	}
 	
 	stages:
 	[
@@ -17,9 +31,6 @@
 			tags: material, raw
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: axe
-			
-			ratio: 0.000
-			mass_base: 1.000
 			
 			options:
 			[
@@ -36,7 +47,7 @@
 							material: timber.pine
 							amount: 0.209249
 							snapping: 0.250
-							loss: 0.024
+							loss: 0.051
 							ratio: 1.000
 							group: 0
 							flags: primary
@@ -50,6 +61,7 @@
 							snapping: 5.000
 							falloff: 0.792
 							loss: 0.224
+							ratio: 1.000
 							group: 0
 							flags: conditional
 						}
@@ -131,9 +143,6 @@
 			tags: formula
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: heat
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -324,9 +333,6 @@
 			tags: formula
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: none
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[

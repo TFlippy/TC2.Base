@@ -1,11 +1,19 @@
 ﻿{
-	$version: "0.1.67.2"
+	$version: "0.1.72.1"
 	name: "SMG"
 	desc:
 		'''
 		Automatic submachine gun with high ammo capacity.
 		'''
 	tips: []
+	
+	related_materials:
+	{
+		steel.plate: input, auto_generated
+		steel.frames: input, auto_generated
+		machine_parts: input, auto_generated
+		wood: raw, input, auto_generated
+	}
 	
 	stages:
 	[
@@ -135,7 +143,11 @@
 					filter_tools:
 					{
 						require: screwdriver, wrench, file
-						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, stapler, towel, tongs, pick, crowbar, knife
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, stapler, chisel, towel, tongs, pick, crowbar, knife, sandpaper, utensils
+					}
+					filter_infrastructure:
+					{
+						include: surface
 					}
 					filter_environment:
 					{
@@ -191,8 +203,8 @@
 					
 					filter_tools:
 					{
-						require: file, knife
-						include: hand_drill, screwdriver, pliers, file, chisel, knife, sandpaper
+						require: knife
+						include: screwdriver, file, chisel, knife, sandpaper
 					}
 				}
 			]
