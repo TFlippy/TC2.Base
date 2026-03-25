@@ -2,23 +2,23 @@ $tags: []
 
 projectile:
 {
-	damage_base: 100.000
-	damage_bonus: 500.000
-	lifetime: 4.000
+	damage_base: 1000.000
+	damage_bonus: 5000.000
+	lifetime: 3.000
 	ignore_time: 0.150
-	damage_type: fire
-	size: 0.050
+	damage_type: phlogiston
+	size: 1.000
 	ricochet_count: 0
-	gravity: 1.000
-	damp: 0.989
+	gravity: 0.400
+	damp: 0.509
 
 	@light:
 	{
-		color: [1.000, 0.500, 0.000, 8.500]
+		color: [1.000, 0.800, 0.600, 2.500]
 		offset: [0.000, 0.000]
-		scale: [8.000, 4.000]
+		scale: [6.000, 6.000]
 		intensity: 1.000
-		texture: "light.fire.00"
+		texture: "light.circle.01"
 	}
 }
 
@@ -60,41 +60,102 @@ transform:
 cluster:
 {
 	prefab: "fire.phlogiston"
-	spread: 0.400
-	speed: 10.000
+	velocity: [0.000, -8.000]
+	offset: [0.000, -0.800]
+
+	radius: 1.480
+	spread: 1.000
+	speed: 8.000
 	count: 1
 
-	speed_modifier_min: 0.300
-	speed_modifier_max: 1.300
+	speed_modifier_min: 0.240
+	speed_modifier_max: 10.700
+
+	lifetime_modifier_min: 0.400
+	lifetime_modifier_max: 2.200
+
+	min_explode_lifetime: 0.121
+	// flags: reverse_direction, no_velocity_rotate
+	flags: reverse_direction, no_velocity_rotate, align_normal
 }
 
-flare:
-{
-	lifetime: 4.000
-	smoke_amount: 0.400
-	sparks_amount: 0.800
-	flicker: 0.500
-	flicker_interval: 0.030
-	lerp: 0.050
-	size: 4.000
+// flare:
+// {
+// 	lifetime: 3.500
+// 	smoke_amount: 1.200
+// 	sparks_amount: 4.800
+// 	flicker: 0.100
+// 	flicker_interval: 0.130
+// 	lerp: 0.650
+// 	size: 0.500
 
-	sound_volume: 3.000
-	sound_pitch: 1.500
+// 	sound_volume: 3.000
+// 	sound_pitch: 1.500
+
+// 	@light:
+// 	{
+// 		color: [1.000, 0.400, 0.100, 1.000]
+// 		offset: [0.000, 0.000]
+// 		scale: [2.000, 4.000]
+// 		intensity: 1.000
+// 		texture: "light.fire.00"
+// 	}
+
+// 	@sound.emitter:
+// 	{
+// 		file: "fuse_loop"
+// 		size: 1.500
+// 		size_max_modifier: 2.000
+// 	}
+// }
+
+explosive:
+{
+	damage_type: fire
+	damage_type_secondary: phlogiston
+
+	radius: 4.000
+	power: 4.500
+	damage_entity: 4300.000
+	damage_terrain: 7000.000
+	smoke_amount: 0.080
+	smoke_lifetime_multiplier: 1.250
+	smoke_velocity_multiplier: 1.400
+	flash_duration_multiplier: 0.850
+	flash_intensity_multiplier: 0.800
+	shake_multiplier: 0.000
+	force_multiplier: 0.300
+	stun_multiplier: 0.500
+	fire_amount: 0.450
+	sparks_amount: 1.000
+	smoke_color: "0xffd8d8d8"
+	volume: 0.100
+	pitch: 0.940
+	flags: primed
+}
+
+fire:
+{
+	flicker: 0.070
+	radius: 3.000
+	intensity: 1.500
+	fade: 0.080
+	damage_multiplier: 3.500
+	ignite_radius_multiplier: 4.000
+	damage_type_contact: phlogiston
+	damage_type_convection: phlogiston
+	smoke_color: "0xaaffffff"
+	temperature: 4000.000
+	color_tint: [0.883, 0.558, 0.139, 0.971]
 
 	@light:
 	{
-		color: [1.000, 0.500, 0.000, 1.000]
+		color: [1.000, 0.500, 0.200, 1.000]
 		offset: [0.000, 0.000]
-		scale: [4.000, 32.000]
+		scale: [4.000, 4.000]
 		intensity: 1.000
-		texture: "light.fire.00"
-	}
-
-	@sound.emitter:
-	{
-		file: "fuse_loop"
-		size: 1.500
-		size_max_modifier: 2.000
+		texture: light.circle.03
+		size_modifier: 1.100
 	}
 }
 
