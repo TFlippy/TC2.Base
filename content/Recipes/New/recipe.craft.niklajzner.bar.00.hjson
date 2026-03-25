@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.0"
+	$version: "0.1.72.1"
 	name: "Niklajzner Bricks"
 	desc:
 		'''
@@ -9,7 +9,8 @@
 	
 	related_materials:
 	{
-		niklajzner.ingot: refined, product, result
+		niklajzner.ingot: refined, product, result, output
+		niklajzner: raw, ingredient, input, auto_generated
 	}
 	
 	stages:
@@ -22,9 +23,6 @@
 			tags: material, raw, formula
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[

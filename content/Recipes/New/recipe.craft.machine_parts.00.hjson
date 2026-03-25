@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.72.1"
 	name: "Machine Parts"
 	desc:
 		'''
@@ -9,10 +9,14 @@
 	
 	related_materials:
 	{
-		machine_parts: component, residue, product, result
-		scrap.arcane: residue, result, byproduct, scrap
-		copper.plate: residue, result, byproduct
-		copper.rod: residue, result, byproduct
+		machine_parts: component, residue, product, result, input, output
+		scrap.arcane: residue, product, result, byproduct, scrap, output
+		copper.plate: residue, flattened, product, result, byproduct, output
+		copper.rod: residue, product, result, byproduct, output
+		steel.frames: input, auto_generated
+		scrap.machine: residue, result, scrap, input, output, auto_generated
+		scrap.mixed: residue, scrap, input, output, auto_generated
+		scrap.metal: residue, result, scrap, output, auto_generated
 	}
 	
 	stages:

@@ -10,8 +10,19 @@
 	
 	related_materials:
 	{
-		cement: residue, powdered, result, byproduct
-		ferrous.gravel: residue, product, byproduct
+		cement: residue, powdered, product, result, byproduct, output
+		ferrous.gravel: residue, raw, waste, product, byproduct, output
+		slag: input, auto_generated
+		gravel: residue, raw, waste, output, auto_generated
+		clinker: residue, output, auto_generated
+		sand: residue, raw, powdered, output, auto_generated
+		scrap.smirgrafit: residue, product, byproduct, scrap, output, auto_generated
+		smirglum.gravel: residue, raw, output, auto_generated
+		graphite.powder: residue, powdered, result, output, auto_generated
+		water: raw, liquid, input, auto_generated
+		water.dirty: raw, waste, liquid, output, auto_generated
+		scrap.metal: residue, product, result, scrap, output, auto_generated
+		smirglum.powder: residue, powdered, product, byproduct, output, auto_generated
 	}
 	
 	stages:

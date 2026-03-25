@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.72.1"
 	name: "Niklajzner Sheets"
 	desc:
 		'''
@@ -9,7 +9,11 @@
 	
 	related_materials:
 	{
-		niklajzner.plate: refined, product, result
+		niklajzner.plate: refined, flattened, product, result, output
+		niklajzner: raw, ingredient, input, auto_generated
+		scrap.niklajzner: residue, waste, scrap, output, auto_generated
+		lubricant: ingredient, liquid, input, auto_generated
+		ferronickel.powder: waste, powdered, output, auto_generated
 	}
 	
 	stages:
@@ -219,18 +223,10 @@
 						}
 					]
 					
-					filter_tools:
-					{
-						require: hammer, cutters, sandpaper
-						include: cutters, pliers, knife, scissors
-					}
 					filter_infrastructure:
 					{
-						include: table, surface
-					}
-					filter_environment:
-					{
-						include: workshop, stationary, illuminated, dry
+						require: anvil, shaping_mould, hard_surface, press
+						include: stamping_press
 					}
 				}
 			]

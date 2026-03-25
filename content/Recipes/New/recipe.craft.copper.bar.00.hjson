@@ -9,7 +9,8 @@
 	
 	related_materials:
 	{
-		copper.ingot: product, result
+		copper.ingot: product, result, output
+		copper: raw, ingredient, input, auto_generated
 	}
 	
 	stages:

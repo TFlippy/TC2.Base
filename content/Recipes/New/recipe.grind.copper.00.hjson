@@ -5,8 +5,10 @@
 	
 	related_materials:
 	{
-		copper.powder: residue, powdered, product, result
+		copper.powder: residue, powdered, product, result, output
 		copper.ingot: source, input
+		copper: raw, input, auto_generated
+		scrap.copper: waste, scrap, output, auto_generated
 	}
 	
 	stages:
@@ -219,11 +221,10 @@
 					filter_tools:
 					{
 						require: hand_drill
-						include: screwdriver, chisel, pick, knife
+						include: hand_drill, screwdriver, chisel, pick, knife
 					}
 					filter_infrastructure:
 					{
-						require: vise
 						include: vise, rack, workbench
 					}
 				}

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.1"
 	name: "Steel Frames"
 	desc:
 		'''
@@ -9,10 +9,12 @@
 	
 	related_materials:
 	{
-		steel.frames: component, product, result, processed
-		steel.rod: residue, result, byproduct, processed
-		steel.plate: residue, flattened, result, byproduct, processed
-		scrap.ferrous: residue, mangled, dirty, waste, impure, result, scrap
+		steel.frames: component, flattened, product, result, processed, output
+		steel.rod: residue, flattened, product, result, byproduct, processed, output
+		steel.plate: residue, flattened, product, result, byproduct, processed, output
+		scrap.ferrous: residue, mangled, dirty, waste, impure, result, scrap, output
+		scrap.steel: scrap, input, auto_generated
+		steel.powder: residue, powdered, output, auto_generated
 	}
 	
 	stages:
@@ -27,7 +29,6 @@
 			discard_damage_type: sledgehammer
 			
 			ratio: 1.000
-			mass_base: 0.000
 			
 			options:
 			[

@@ -1,11 +1,33 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.72.1"
 	name: "C-Putty"
 	desc:
 		'''
 		TODO. Desc
 		'''
 	tips: []
+	
+	related_materials:
+	{
+		sludge: raw, input, feedstock, auto_generated
+		himlkarzenus: raw, input, feedstock, auto_generated
+		mithril: raw, result, byproduct, output, auto_generated
+		ash: raw, powdered, input, feedstock, auto_generated
+		ferronickel.powder: powdered, input, feedstock, auto_generated
+		gunpowder: residue, powdered, output, auto_generated
+		graphite.powder: residue, powdered, output, auto_generated
+		shite: raw, input, feedstock, auto_generated
+		krakatite: raw, input, feedstock, auto_generated
+		rubber: residue, byproduct, output, auto_generated
+		salmiac: residue, raw, powdered, output, auto_generated
+		tobacco: residue, raw, powdered, output, auto_generated
+		smrad: powdered, ingredient, input, auto_generated
+		putty: ingredient, product, result, input, output, auto_generated
+		mercury: raw, ingredient, liquid, input, auto_generated
+		lubricant: ingredient, liquid, input, auto_generated
+		mayo: input, auto_generated
+		mercury.vapor: raw, waste, gas, vapor, output, auto_generated
+	}
 	
 	stages:
 	[
@@ -489,9 +511,14 @@
 					yield_modifier: 0.937
 					failure_chance: 0.153
 					
+					filter_tools:
+					{
+						include: tweezers, tongs, utensils
+					}
 					filter_infrastructure:
 					{
-						include: lab_glassware, bottle, bucket, blender
+						require: table, chair
+						include: table, chair
 					}
 				}
 			]

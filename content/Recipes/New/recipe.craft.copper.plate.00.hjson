@@ -9,7 +9,8 @@
 	
 	related_materials:
 	{
-		copper.plate: product, result
+		copper.plate: flattened, product, result, output
+		copper: raw, ingredient, input, auto_generated
 	}
 	
 	stages:

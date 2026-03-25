@@ -1,11 +1,20 @@
 ﻿{
-	$version: "0.1.70.1"
+	$version: "0.1.72.1"
 	name: "Steel Rods"
 	desc:
 		'''
 		TODO: Desc
 		'''
 	tips: []
+	
+	related_materials:
+	{
+		niklajzner.ingot: ingredient, input, auto_generated
+		steel.rod: flattened, product, result, output, auto_generated
+		steel: residue, raw, output, auto_generated
+		ferronickel.powder: residue, powdered, output, auto_generated
+		scrap.steel: residue, waste, byproduct, scrap, output, auto_generated
+	}
 	
 	stages:
 	[
@@ -19,7 +28,6 @@
 			discard_damage_type: heat
 			
 			ratio: 1.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -224,9 +232,6 @@
 			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: fracture
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[

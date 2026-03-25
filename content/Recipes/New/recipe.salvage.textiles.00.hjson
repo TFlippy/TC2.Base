@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.0"
+	$version: "0.1.72.1"
 	name: "Thinly Veiled Threads"
 	desc:
 		'''
@@ -9,8 +9,13 @@
 	
 	related_materials:
 	{
-		cloth: residue, product, result
-		leather: residue, product, result
+		cloth: residue, flattened, product, result, output
+		leather: residue, raw, product, result, byproduct, output
+		scrap.mixed: waste, scrap, input, output, auto_generated
+		water: raw, liquid, input, auto_generated
+		scrap.cloth: residue, flattened, scrap, output, auto_generated
+		scrap.fur: residue, scrap, output, auto_generated
+		water.dirty: raw, waste, liquid, output, auto_generated
 	}
 	
 	stages:
@@ -25,7 +30,6 @@
 			discard_damage_type: wet
 			
 			ratio: 1.000
-			mass_base: 0.000
 			
 			options:
 			[
