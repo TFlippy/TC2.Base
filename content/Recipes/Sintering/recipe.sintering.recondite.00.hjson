@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.0"
+	$version: "0.1.72.1"
 	name: "Recondite Sintering"
 	desc:
 		'''
@@ -9,9 +9,12 @@
 	
 	related_materials:
 	{
-		recondite.ingot: refined, solidified, product, result
+		recondite.ingot: refined, solidified, product, result, output
 		recondite.plate: refined, flattened, solidified, product, result
-		recondite: refined, ruined, residue, solidified, product, result
+		recondite: refined, ruined, residue, raw, solidified, product, result, output
+		smirglum.powder: powdered, ingredient, input, auto_generated
+		silver.powder: powdered, ingredient, input, auto_generated
+		recondite.powder: residue, powdered, result, byproduct, output, auto_generated
 	}
 	
 	stages:
@@ -24,9 +27,6 @@
 			tags: material, formula, ingredient
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: shovel
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -72,9 +72,6 @@
 			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: none
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[

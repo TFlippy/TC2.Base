@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.1"
+	$version: "0.1.72.1"
 	name: "Wet Gunpowder"
 	desc:
 		'''
@@ -9,8 +9,12 @@
 	
 	related_materials:
 	{
-		gunpowder: product, result
+		gunpowder: powdered, product, result, output
 		coal.powder: residue, powdered, result
+		alcohol: ingredient, liquid, input, auto_generated
+		saltpeter: raw, powdered, ingredient, input, auto_generated
+		charcoal: raw, ingredient, input, auto_generated
+		sulfur: raw, powdered, ingredient, input, auto_generated
 	}
 	
 	stages:
@@ -23,9 +27,6 @@
 			tags: material
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: wet
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -78,9 +79,6 @@
 			tags: material, formula
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -184,9 +182,6 @@
 			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: fracture
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[

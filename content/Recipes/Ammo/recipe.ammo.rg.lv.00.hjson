@@ -1,11 +1,28 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.72.1"
 	name: "RG-68.1mm/LV"
 	desc:
 		'''
 		Relatively cheap, short-range fragmentation rockets.
 		'''
 	tips: []
+	
+	related_materials:
+	{
+		steel.plate: input, auto_generated
+		steel.frames: input, auto_generated
+		niklajzner.plate: input, auto_generated
+		lubricant: liquid, input, auto_generated
+		gunpowder: powdered, input, auto_generated
+		machine_parts: input, auto_generated
+		nitrosugar: ingredient, input, auto_generated
+		scrap.steel: ingredient, scrap, input, auto_generated
+		ammo.rocket.lv: product, result, output, auto_generated
+		nitroglycerine: ingredient, liquid, input, auto_generated
+		scrap.concrete: ingredient, scrap, input, auto_generated
+		prdex: ingredient, input, auto_generated
+		scrap.smirgrafit: ingredient, scrap, input, auto_generated
+	}
 	
 	stages:
 	[
@@ -213,7 +230,8 @@
 					
 					filter_infrastructure:
 					{
-						require: anvil, shaping_mould, hard_surface, press
+						require: hard_surface, press
+						include: dies
 					}
 				}
 			]

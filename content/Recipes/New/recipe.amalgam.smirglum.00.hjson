@@ -1,11 +1,20 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.72.1"
 	name: "Smirglum Amalgamation"
 	desc:
 		'''
 		TODO: Desc
 		'''
 	tips: []
+	
+	related_materials:
+	{
+		smirglum: raw, ingredient, input, auto_generated
+		mercury: raw, liquid, input, auto_generated
+		smirglum.amalgam: raw, product, result, output, auto_generated
+		smirglum.powder: residue, powdered, product, result, byproduct, output, auto_generated
+		smirglum.gravel: raw, waste, output, auto_generated
+	}
 	
 	stages:
 	[

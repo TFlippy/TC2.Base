@@ -1,11 +1,23 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.72.1"
 	name: "LC-9.4mm"
 	desc:
 		'''
 		TODO: Desc
 		'''
 	tips: []
+	
+	related_materials:
+	{
+		copper.plate: input, auto_generated
+		tallow: raw, input, auto_generated
+		oil: residue, byproduct, liquid, input, output, auto_generated
+		lubricant: liquid, input, auto_generated
+		water.toxic: raw, waste, liquid, output, auto_generated
+		gunpowder: powdered, ingredient, input, auto_generated
+		ferrous.gravel: raw, ingredient, input, auto_generated
+		ammo.lc.lv: product, result, output, auto_generated
+	}
 	
 	stages:
 	[
@@ -121,7 +133,7 @@
 					filter_infrastructure:
 					{
 						require: anvil, shaping_mould, hard_surface, press
-						include: stamping_press
+						include: stamping_press, dies
 					}
 				}
 				{
@@ -225,7 +237,7 @@
 					filter_infrastructure:
 					{
 						require: anvil, shaping_mould, hard_surface, press
-						include: stamping_press
+						include: stamping_press, dies
 					}
 				}
 				{
@@ -313,7 +325,7 @@
 					filter_infrastructure:
 					{
 						require: anvil, shaping_mould, hard_surface, press
-						include: stamping_press
+						include: stamping_press, dies
 					}
 				}
 			]
@@ -333,7 +345,7 @@
 					name: "Gunpowder"
 					
 					type: undefined
-					flags: none
+					flags: requires_shipment
 					discard_damage_type_override: saw
 					
 					suffix: "/LV (Gunpowder)"

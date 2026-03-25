@@ -1,11 +1,24 @@
 ﻿{
-	$version: "0.1.67.2"
+	$version: "0.1.72.1"
 	name: "Lye Leaching"
 	desc:
 		'''
 		TODO: Desc
 		'''
 	tips: []
+	
+	related_materials:
+	{
+		ash: raw, powdered, ingredient, input, auto_generated
+		water: raw, ingredient, liquid, input, auto_generated
+		lye: product, result, byproduct, output, auto_generated
+		gravel: residue, raw, input, output, auto_generated
+		sand: raw, powdered, input, auto_generated
+		mortar: result, byproduct, output, auto_generated
+		water.dirty: raw, waste, liquid, output, auto_generated
+		lime: raw, powdered, input, auto_generated
+		clinker: waste, output, auto_generated
+	}
 	
 	stages:
 	[
@@ -17,9 +30,6 @@
 			tags: material, formula, ingredient
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: wet
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -112,9 +122,6 @@
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: wet
 			
-			ratio: 0.000
-			mass_base: 0.000
-			
 			options:
 			[
 				{
@@ -193,9 +200,6 @@
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: heat
 			
-			ratio: 0.000
-			mass_base: 0.000
-			
 			options:
 			[
 				{
@@ -268,9 +272,6 @@
 			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: heat
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[

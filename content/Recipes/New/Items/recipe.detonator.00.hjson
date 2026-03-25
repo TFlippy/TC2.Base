@@ -1,6 +1,19 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.1"
 	name: "Detonator"
+	
+	related_materials:
+	{
+		steel.frames: input, auto_generated
+		machine_parts: payload, input, auto_generated
+		nitrosugar: payload, input, auto_generated
+		sulfuric_acid: payload, liquid, input, auto_generated
+		glue: payload, liquid, input, auto_generated
+		rubber: payload, input, auto_generated
+		silver.powder: payload, powdered, input, auto_generated
+		nitric_acid: payload, liquid, input, auto_generated
+		alcohol: payload, liquid, input, auto_generated
+	}
 	
 	stages:
 	[
@@ -12,9 +25,6 @@
 			tags: mechanism, functional, small, machinery
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -108,9 +118,6 @@
 			tags: functional, small, material, dangerous, formula, ingredient
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[

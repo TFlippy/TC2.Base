@@ -1,7 +1,14 @@
 ﻿{
-	$version: "0.1.68.1"
+	$version: "0.1.72.1"
 	name: "Tripod"
 	tips: []
+	
+	related_materials:
+	{
+		steel.frames: input, auto_generated
+		machine_parts: input, auto_generated
+		cloth: input, auto_generated
+	}
 	
 	stages:
 	[

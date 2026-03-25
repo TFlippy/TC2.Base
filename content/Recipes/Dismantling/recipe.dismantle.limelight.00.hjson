@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.0"
+	$version: "0.1.72.1"
 	name: "Dismantle Limelight"
 	desc:
 		'''
@@ -9,9 +9,10 @@
 	
 	related_materials:
 	{
-		pellet.heat: product, result
-		directors: residue, product, result
-		lime: residue, powdered, result
+		pellet.heat: product, result, output
+		directors: residue, product, result, byproduct, output
+		lime: residue, raw, powdered, result, output
+		limelight: input, auto_generated
 	}
 	
 	stages:
@@ -26,7 +27,6 @@
 			discard_damage_type: sledgehammer
 			
 			ratio: 1.000
-			mass_base: 0.000
 			
 			options:
 			[

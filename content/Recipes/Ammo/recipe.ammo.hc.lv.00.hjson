@@ -1,11 +1,27 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.72.1"
 	name: "HC-13.2mm"
 	desc:
 		'''
 		TODO: Desc
 		'''
 	tips: []
+	
+	related_materials:
+	{
+		copper.plate: input, auto_generated
+		tallow: raw, input, auto_generated
+		oil: residue, byproduct, liquid, input, output, auto_generated
+		lubricant: liquid, input, auto_generated
+		water.toxic: raw, waste, liquid, output, auto_generated
+		nitrosugar: input, auto_generated
+		alcohol: liquid, input, auto_generated
+		nitroglycerine: liquid, input, auto_generated
+		himlkarzenus: raw, input, auto_generated
+		gunpowder: powdered, ingredient, input, auto_generated
+		scrap.niklajzner: ingredient, scrap, input, auto_generated
+		ammo.hc.lv: product, result, output, auto_generated
+	}
 	
 	stages:
 	[
@@ -119,7 +135,7 @@
 					filter_infrastructure:
 					{
 						require: anvil, shaping_mould, hard_surface, press
-						include: stamping_press
+						include: stamping_press, dies
 					}
 				}
 				{
@@ -222,7 +238,7 @@
 					filter_infrastructure:
 					{
 						require: anvil, shaping_mould, hard_surface, press
-						include: stamping_press
+						include: stamping_press, dies
 					}
 				}
 				{
@@ -309,7 +325,7 @@
 					filter_infrastructure:
 					{
 						require: anvil, shaping_mould, hard_surface, press
-						include: stamping_press
+						include: stamping_press, dies
 					}
 				}
 			]
@@ -329,7 +345,7 @@
 					name: "Nitrosugar"
 					
 					type: undefined
-					flags: none
+					flags: requires_shipment
 					discard_damage_type_override: punch
 					
 					requirements:
@@ -379,7 +395,7 @@
 					name: "Nitroglycerine"
 					
 					type: undefined
-					flags: none
+					flags: requires_shipment
 					discard_damage_type_override: wet
 					
 					requirements:
@@ -414,7 +430,7 @@
 					name: "Himlkarzenus"
 					
 					type: undefined
-					flags: incomplete
+					flags: requires_shipment, incomplete
 					discard_damage_type_override: sledgehammer
 					
 					requirements:
@@ -460,7 +476,7 @@
 					name: "Gunpowder"
 					
 					type: undefined
-					flags: none
+					flags: requires_shipment
 					discard_damage_type_override: saw
 					
 					suffix: "/LV (Gunpowder)"

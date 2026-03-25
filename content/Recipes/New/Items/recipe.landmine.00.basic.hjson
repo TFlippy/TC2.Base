@@ -1,7 +1,23 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.72.1"
 	name: "Landmine"
 	tips: []
+	
+	related_materials:
+	{
+		steel.plate: input, auto_generated
+		steel.frames: input, auto_generated
+		scrap.machine: scrap, input, auto_generated
+		lubricant: liquid, input, auto_generated
+		machine_parts: input, auto_generated
+		gunpowder: payload, powdered, input, auto_generated
+		scrap.metal: payload, scrap, input, auto_generated
+		nitroglycerine: payload, liquid, input, auto_generated
+		ferrous.gravel: raw, payload, input, auto_generated
+		nitrosugar: payload, input, auto_generated
+		scrap.mixed: payload, scrap, input, auto_generated
+		glue: liquid, input, auto_generated
+	}
 	
 	stages:
 	[

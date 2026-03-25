@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.0"
+	$version: "0.1.72.1"
 	name: "Grandma's Traditional Mortar"
 	desc:
 		'''
@@ -9,8 +9,11 @@
 	
 	related_materials:
 	{
-		mortar: product, result
-		glue: residue, dirty, impure, result
+		mortar: product, result, output
+		glue: residue, dirty, product, impure, result, byproduct, liquid, output
+		eggs: raw, input, auto_generated
+		mushroom: raw, input, auto_generated
+		clay: raw, input, auto_generated
 	}
 	
 	stages:
@@ -25,7 +28,6 @@
 			discard_damage_type: sledgehammer
 			
 			ratio: 1.000
-			mass_base: 0.000
 			
 			options:
 			[

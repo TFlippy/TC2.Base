@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.0"
+	$version: "0.1.72.1"
 	name: "Arrowbolts"
 	desc:
 		'''
@@ -8,6 +8,14 @@
 		Cleverly designed by ISO to fit both bows' and crossbows' form factor in order to streamline logistics.
 		'''
 	tips: []
+	
+	related_materials:
+	{
+		scrap.steel: scrap, input, auto_generated
+		wood.rod: input, auto_generated
+		glue: liquid, input, auto_generated
+		ammo.arrow: product, result, output, auto_generated
+	}
 	
 	stages:
 	[
@@ -21,7 +29,6 @@
 			discard_damage_type: sledgehammer
 			
 			ratio: 1.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -77,7 +84,6 @@
 			discard_damage_type: sledgehammer
 			
 			ratio: 1.000
-			mass_base: 0.000
 			
 			options:
 			[

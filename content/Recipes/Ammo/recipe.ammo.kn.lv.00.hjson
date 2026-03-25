@@ -1,11 +1,24 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.72.1"
 	name: "KN-51.9mm"
 	desc:
 		'''
 		TODO: Desc
 		'''
 	tips: []
+	
+	related_materials:
+	{
+		copper.plate: input, auto_generated
+		oil: residue, liquid, input, output, auto_generated
+		lubricant: liquid, input, auto_generated
+		steel.plate: input, auto_generated
+		nitrosugar: input, auto_generated
+		alcohol: liquid, input, auto_generated
+		nitroglycerine: payload, liquid, input, auto_generated
+		gunpowder: payload, powdered, input, auto_generated
+		ammo.kn: product, result, output, auto_generated
+	}
 	
 	stages:
 	[

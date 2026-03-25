@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.1"
+	$version: "0.1.72.1"
 	name: "RS-Nitroglycerine"
 	desc:
 		'''
@@ -9,8 +9,17 @@
 	
 	related_materials:
 	{
-		nitroglycerine: reaction, chemical, product, result, manufactured, liquid, processed
-		nitrosugar: residue, reaction, chemical, solidified, product, result, byproduct, processed
+		nitroglycerine: reaction, chemical, product, result, manufactured, liquid, processed, output
+		nitrosugar: residue, reaction, chemical, solidified, product, result, byproduct, processed, output
+		red_sugar: raw, ingredient, input, auto_generated
+		alcohol: ingredient, liquid, input, auto_generated
+		nitric_acid: liquid, input, auto_generated
+		sulfuric_acid: liquid, input, auto_generated
+		water.toxic: raw, waste, liquid, output, auto_generated
+		nitrogen_dioxide: waste, gas, output, auto_generated
+		water: raw, liquid, input, auto_generated
+		water.red: residue, waste, liquid, output, auto_generated
+		tar: residue, raw, waste, output, auto_generated
 	}
 	
 	stages:
@@ -23,9 +32,6 @@
 			tags: material, formula, ingredient
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: heat
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -123,9 +129,6 @@
 			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: corrosion
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -281,9 +284,6 @@
 			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: none
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[

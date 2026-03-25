@@ -1,11 +1,24 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.72.1"
 	name: "AC-33.6mm"
 	desc:
 		'''
 		TODO: Desc
 		'''
 	tips: []
+	
+	related_materials:
+	{
+		copper.plate: input, auto_generated
+		oil: residue, liquid, input, output, auto_generated
+		lubricant: liquid, input, auto_generated
+		steel.rod: input, auto_generated
+		nitrosugar: input, auto_generated
+		alcohol: liquid, input, auto_generated
+		nitroglycerine: liquid, input, auto_generated
+		nitrocellulose: powdered, ingredient, input, auto_generated
+		ammo.ac.lv: product, result, output, auto_generated
+	}
 	
 	stages:
 	[

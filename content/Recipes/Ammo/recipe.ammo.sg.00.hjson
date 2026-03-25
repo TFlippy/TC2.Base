@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.72.1"
 	name: "Glued SG-20.4mm"
 	desc:
 		'''
@@ -10,11 +10,21 @@
 	
 	related_materials:
 	{
-		ammo.sg.buck: product, result
-		ammo.sg.bird: product, result
-		ammo.sg.crap: product, result
+		ammo.sg.buck: product, result, output
+		ammo.sg.bird: product, result, byproduct, output
+		ammo.sg.crap: residue, product, result, output
 		ammo.sg.baton: product, result
-		ammo.sg.slug: product, result
+		ammo.sg.slug: product, result, output
+		copper.plate: input, auto_generated
+		himlkarzenus: raw, input, auto_generated
+		paper: input, auto_generated
+		glue: liquid, input, auto_generated
+		scrap.mixed: waste, scrap, output, auto_generated
+		gunpowder: powdered, ingredient, input, auto_generated
+		scrap.steel: ingredient, scrap, input, auto_generated
+		steel.rod: ingredient, input, auto_generated
+		machine_parts: product, byproduct, output, auto_generated
+		scrap.machine: residue, waste, scrap, output, auto_generated
 	}
 	
 	stages:

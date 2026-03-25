@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.72.1"
 	name: "Porridge-based Mortar"
 	desc:
 		'''
@@ -9,8 +9,14 @@
 	
 	related_materials:
 	{
-		mortar: product, result
-		oil: residue, dirty, impure, result
+		mortar: product, result, output
+		oil: residue, dirty, impure, result, byproduct, liquid, output
+		porridge: input, auto_generated
+		cement: powdered, input, auto_generated
+		plants: raw, input, auto_generated
+		sawdust: powdered, input, auto_generated
+		mush: residue, waste, scrap, output, auto_generated
+		water.toxic: raw, waste, liquid, output, auto_generated
 	}
 	
 	stages:

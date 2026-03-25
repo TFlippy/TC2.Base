@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.0"
+	$version: "0.1.72.1"
 	name: "Cement-lime Mortar"
 	desc:
 		'''
@@ -9,7 +9,11 @@
 	
 	related_materials:
 	{
-		mortar: product, result
+		mortar: product, result, output
+		lime: raw, powdered, input, auto_generated
+		cement: powdered, input, auto_generated
+		sand: raw, powdered, input, auto_generated
+		water: raw, liquid, input, auto_generated
 	}
 	
 	stages:
@@ -24,7 +28,6 @@
 			discard_damage_type: sledgehammer
 			
 			ratio: 1.000
-			mass_base: 0.000
 			
 			options:
 			[

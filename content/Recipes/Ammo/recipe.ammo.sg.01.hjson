@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.72.1"
 	name: "SG-20.4mm Buckshot"
 	desc:
 		'''
@@ -7,6 +7,22 @@
 		Suitable for general-purpose combat, with decent stopping power and effective range.
 		'''
 	tips: []
+	
+	related_materials:
+	{
+		copper.plate: input, auto_generated
+		paper: input, auto_generated
+		oil: liquid, input, auto_generated
+		himlkarzenus: raw, input, auto_generated
+		nitroglycerine: liquid, input, auto_generated
+		nitrosugar: input, auto_generated
+		alcohol: liquid, input, auto_generated
+		gunpowder: powdered, ingredient, input, auto_generated
+		mushroom: raw, ingredient, input, auto_generated
+		scrap.steel: ingredient, scrap, input, auto_generated
+		glue: ingredient, liquid, input, auto_generated
+		ammo.sg.buck: product, result, output, auto_generated
+	}
 	
 	stages:
 	[

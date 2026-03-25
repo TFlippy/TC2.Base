@@ -1,11 +1,22 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.1"
 	name: "Revolver Cannon"
 	desc:
 		'''
 		A heavy tank cannon with a revolving cylinder mechanism for loading KN-51.9mm shells.
 		'''
 	tips: []
+	
+	related_materials:
+	{
+		steel.ingot: input, auto_generated
+		steel.frames: input, auto_generated
+		machine_parts: input, auto_generated
+		steel.plate: input, auto_generated
+		phlogiston: liquid, input, auto_generated
+		putty: input, auto_generated
+		lubricant: liquid, input, auto_generated
+	}
 	
 	stages:
 	[

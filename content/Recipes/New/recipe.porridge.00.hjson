@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.0"
+	$version: "0.1.72.1"
 	name: "Porridge"
 	desc:
 		'''
@@ -9,9 +9,15 @@
 	
 	related_materials:
 	{
-		porridge: product, result
-		oil: wet, residue, impure, result
-		mushroom.juice: wet, residue, product, result
+		porridge: product, result, output
+		oil: wet, residue, impure, result, byproduct, liquid, output
+		mushroom.juice: wet, residue, product, result, liquid, output
+		water: raw, ingredient, liquid, input, auto_generated
+		mushroom.brown: raw, ingredient, input, auto_generated
+		tallow: raw, ingredient, input, auto_generated
+		saltpeter: raw, powdered, ingredient, input, auto_generated
+		sawdust: powdered, ingredient, input, auto_generated
+		mush: waste, scrap, output, auto_generated
 	}
 	
 	stages:
@@ -24,9 +30,6 @@
 			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[

@@ -1,7 +1,14 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.1"
 	name: "Shitty Wrench"
 	tips: []
+	
+	related_materials:
+	{
+		scrap.mixed: residue, waste, result, scrap, input, output, auto_generated
+		scrap.metal: residue, waste, scrap, output, auto_generated
+		scrap.ferrous: residue, waste, scrap, output, auto_generated
+	}
 	
 	stages:
 	[
@@ -13,9 +20,6 @@
 			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -120,9 +124,6 @@
 			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[

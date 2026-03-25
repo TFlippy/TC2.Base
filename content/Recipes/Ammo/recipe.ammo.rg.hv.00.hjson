@@ -1,12 +1,26 @@
 ﻿{
-	$region_id: 0
-	$version: "0.1.72.0"
+	$version: "0.1.72.1"
 	name: "RG-68.1mm/HV"
 	desc:
 		'''
 		Precise high-velocity rockets with powerful, but lower blast radius.
 		'''
 	tips: []
+	
+	related_materials:
+	{
+		steel.plate: input, auto_generated
+		steel.frames: input, auto_generated
+		niklajzner.plate: input, auto_generated
+		lubricant: liquid, input, auto_generated
+		nitrocellulose: powdered, ingredient, input, auto_generated
+		machine_parts: input, auto_generated
+		nitrosugar: ingredient, input, auto_generated
+		ammo.rocket.hv: product, result, output, auto_generated
+		nitroglycerine: ingredient, liquid, input, auto_generated
+		gunpowder: powdered, ingredient, input, auto_generated
+		tnt: ingredient, input, auto_generated
+	}
 	
 	stages:
 	[
@@ -214,7 +228,8 @@
 					
 					filter_infrastructure:
 					{
-						require: anvil, shaping_mould, hard_surface, press
+						require: hard_surface, press
+						include: dies
 					}
 				}
 			]
@@ -359,6 +374,11 @@
 							flags: primary, compact
 						}
 					]
+					
+					filter_tools:
+					{
+						include: bucket, spatula
+					}
 				}
 				{
 					name: "NTG-GP"
@@ -417,7 +437,11 @@
 					
 					filter_tools:
 					{
-						include: bucket, spatula
+						include: ruler, shovel, file, spatula, ladle, utensils
+					}
+					filter_infrastructure:
+					{
+						include: cauldron, dishes, barrel, bucket, liquid_container, blender, form
 					}
 				}
 				{
@@ -476,11 +500,11 @@
 					
 					filter_tools:
 					{
-						include: paintbrush, towel, spatula
+						include: ruler, shovel, file, spatula, ladle, utensils
 					}
 					filter_infrastructure:
 					{
-						include: table, chair
+						include: cauldron, dishes, barrel, bucket, liquid_container, blender, form
 					}
 				}
 			]

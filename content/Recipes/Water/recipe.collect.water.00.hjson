@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.0"
+	$version: "0.1.72.1"
 	name: "Collect Water"
 	desc:
 		'''
@@ -12,11 +12,12 @@
 	
 	related_materials:
 	{
-		water: wet, raw, product, result
-		water.clean: wet, raw, clean, product, result
-		water.dirty: wet, raw, dirty, product, result
-		water.swamp: wet, raw, dirty, product, result
-		water.toxic: wet, raw, dirty, chemical, product, result
+		water: wet, raw, product, result, liquid, output
+		water.clean: wet, raw, clean, product, result, liquid, output
+		water.dirty: wet, raw, dirty, product, result, liquid, output
+		water.swamp: wet, raw, dirty, product, result, liquid, output
+		water.toxic: wet, raw, dirty, chemical, product, result, liquid, output
+		water.sea: raw, result, liquid, output, auto_generated
 	}
 	
 	stages:
@@ -31,7 +32,6 @@
 			discard_damage_type: wet
 			
 			ratio: 1.000
-			mass_base: 0.000
 			volume_base: 1.000
 			
 			options:

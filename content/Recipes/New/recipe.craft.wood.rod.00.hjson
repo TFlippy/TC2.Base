@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.72.1"
 	name: "Wooden Bars"
 	desc:
 		'''
@@ -9,9 +9,10 @@
 	
 	related_materials:
 	{
-		wood.rod: refined, product, result
-		sawdust: residue, powdered, result
-		woodchips: ruined, residue, waste, result
+		wood.rod: refined, product, result, output
+		sawdust: residue, powdered, result, output
+		woodchips: ruined, residue, raw, waste, powdered, result, output
+		wood: raw, input, feedstock, auto_generated
 	}
 	
 	stages:
@@ -23,7 +24,7 @@
 			flags: wip, auto_generated
 			tags: material, raw
 			// Damage type used for discarding leftover resources.
-			discard_damage_type: none
+			discard_damage_type: sledgehammer
 			
 			ratio: 1.000
 			
@@ -84,7 +85,7 @@
 			flags: subtractive, wip
 			tags: rod, rounded
 			// Damage type used for discarding leftover resources.
-			discard_damage_type: none
+			discard_damage_type: sledgehammer
 			
 			ratio: 1.000
 			

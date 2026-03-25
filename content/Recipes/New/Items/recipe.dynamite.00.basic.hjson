@@ -1,7 +1,21 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.72.1"
 	name: "Dynamite"
 	tips: []
+	
+	related_materials:
+	{
+		nitroglycerine: ingredient, liquid, input, auto_generated
+		sawdust: powdered, ingredient, input, auto_generated
+		saltpeter: raw, powdered, ingredient, input, auto_generated
+		mush: residue, scrap, output, auto_generated
+		gunpowder: powdered, ingredient, input, auto_generated
+		tnt: ingredient, input, auto_generated
+		nitrocellulose: powdered, ingredient, input, auto_generated
+		porridge: ingredient, input, auto_generated
+		paper: input, auto_generated
+		glue: liquid, input, auto_generated
+	}
 	
 	stages:
 	[
