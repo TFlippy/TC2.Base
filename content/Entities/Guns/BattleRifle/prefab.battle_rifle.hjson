@@ -27,33 +27,36 @@ gun:
 {
 	muzzle_offset: [1.125, -0.0625]
 	receiver_offset: [-0.250, 0.000]
-
+	
 	eject_direction: [-4.800, -5.400]
 	eject_angular_velocity: 10.000
-
-	sound_shoot: "battle_rifle_shoot"
-	sound_reload: "smg_reload"
-	sound_empty: "gun_empty"
-	velocity_multiplier: 750.000
-	jitter_multiplier: 1.200
+	
+	shake_amount: 0.310
+	
+	sound_shoot: battle_rifle_shoot
+	sound_reload: smg_reload
+	sound_empty: gun_empty
+	
 	damage_multiplier: 3.300
+	velocity_multiplier: 570.000
+	velocity_max: 760.000
+	jitter_multiplier: 1.200
 	recoil_multiplier: 1.100
 	reload_interval: 2.000
 	cycle_interval: 0.220
+	stability: 950.000
 	failure_rate: 0.006
-	max_ammo: 10.000
-	projectile_count: 1
-	flags: full_reload, cycle_on_shoot
+	
 	ammo_filter: ammo_hc
+	max_ammo: 10.000
+	
 	action: blowback
 	type: rifle
 	feed: magazine
-
+	
+	flags: full_reload, cycle_on_shoot
 	heuristic_range: 35.000
 
-	shake_amount: 0.310
-	stability: 800.000
-	
 	@inventory1:
 	{
 		stack_size_multiplier: 1.000
@@ -88,8 +91,8 @@ holdable:
 	radius: 4.000
 	flags: storable
 
-	force_multiplier: 1.450
-	torque_multiplier: 0.900
+	force_multiplier: 2.500
+	torque_multiplier: 1.450
 }
 
 animated.renderer:

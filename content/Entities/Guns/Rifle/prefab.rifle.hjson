@@ -34,6 +34,7 @@ gun:
 	eject_angular_velocity: 10.000
 	
 	shake_amount: 0.390
+	
 	sound_size: 3.000
 	sound_dist_multiplier: 2.500
 	
@@ -42,9 +43,11 @@ gun:
 	sound_reload: rifle_reload
 	
 	damage_multiplier: 4.200
-	velocity_multiplier: 800.000
-	jitter_multiplier: 0.040
+	velocity_multiplier: 620.000
+	velocity_max: 820.000
+	jitter_multiplier: 0.340
 	recoil_multiplier: 1.250
+	muzzle_blast_mult: 1.100
 	reload_interval: 0.600
 	cycle_interval: 0.500
 	stability: 1400.000
@@ -56,6 +59,7 @@ gun:
 	action: bolt
 	type: rifle
 	feed: clip
+	
 	heuristic_range: 50.000
 
 	@inventory1:
@@ -92,8 +96,8 @@ holdable:
 	radius: 4.000
 	flags: storable
 
-	force_multiplier: 1.200
-	torque_multiplier: 0.900
+	force_multiplier: 2.800
+	torque_multiplier: 1.950
 }
 
 animated.renderer:

@@ -363,7 +363,7 @@ workshop:
 		material_type: flesh
 		
 		max_displacement: 1.000
-		displacement_stress_modifier: 0.200
+		displacement_stress_modifier: 0.300
 		displacement_force_modifier: 1.400
 
 		z: 4.000
@@ -609,7 +609,7 @@ workshop:
 		max_force: 16000.000
 		max_torque: 8000.000
 		max_displacement: 0.400
-		displacement_stress_modifier: 0.100
+		displacement_stress_modifier: 0.300
 		displacement_force_modifier: 0.500
 		max_stress: 3.000
 		stress_threshold: 1.500
@@ -832,6 +832,7 @@ workshop:
 		spring_error_bias: 0.010
 		max_distance: 0.200
 		stress_mult_axis: 1.000
+		stress_mult_spring: 2.000
 	}
 
 	joint.gear:
