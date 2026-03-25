@@ -50,6 +50,7 @@ namespace TC2.Conquest
 								if (GUI.IsMouseClicked(button: GUI.MouseButton.Right))
 								{
 									h_item_selected.Toggle(h_material_hovered);
+									Sound.PlayGUI(GUI.sound_select, volume: 0.18f, pitch: 0.85f);
 								}
 							}
 
@@ -73,7 +74,7 @@ namespace TC2.Conquest
 
 								GUI.SeparatorThick(l: 4, r: 0);
 
-								using (var scroll_recipes = GUI.Scrollbox.New("scroll.recipes"u8, size: GUI.Rm.MulY(0.50f)))
+								using (var scroll_recipes = GUI.Scrollbox.New("scroll.recipes"u8, size: material_data.related.IsNotNullOrEmpty() ? GUI.Rm.MulY(0.50f) : GUI.Rm))
 								{
 									var recipes = IRecipe.Database.GetAssetsSpan();
 									foreach (var recipe_asset in recipes)
@@ -109,10 +110,10 @@ namespace TC2.Conquest
 
 															GUI.TitleCentered(recipe_data.GetShortName(), size: 16, pivot: new(0, 0.50f), offset: new(8, 0));
 															GUI.TextShadedCentered(tags_related.WithMasked(
-																IMaterial.RelatedTags.Scrap | IMaterial.RelatedTags.Component | IMaterial.RelatedTags.Manufactured | IMaterial.RelatedTags.Ingredient | 
-																IMaterial.RelatedTags.Product | IMaterial.RelatedTags.Waste | IMaterial.RelatedTags.Byproduct | IMaterial.RelatedTags.Residue | IMaterial.RelatedTags.Ore | 
-																IMaterial.RelatedTags.Casing | IMaterial.RelatedTags.Impurity | IMaterial.RelatedTags.Extracted | IMaterial.RelatedTags.Propellant | IMaterial.RelatedTags.Vapor | 
-																IMaterial.RelatedTags.Catalyst | IMaterial.RelatedTags.Reaction | IMaterial.RelatedTags.Melted | IMaterial.RelatedTags.Mixed | IMaterial.RelatedTags.Refined).GetLowestSetBit().ToStringUtf8(), 
+																IMaterial.RelatedTags.Scrap | IMaterial.RelatedTags.Component | IMaterial.RelatedTags.Manufactured | IMaterial.RelatedTags.Ingredient |
+																IMaterial.RelatedTags.Product | IMaterial.RelatedTags.Waste | IMaterial.RelatedTags.Byproduct | IMaterial.RelatedTags.Residue | IMaterial.RelatedTags.Ore |
+																IMaterial.RelatedTags.Casing | IMaterial.RelatedTags.Impurity | IMaterial.RelatedTags.Extracted | IMaterial.RelatedTags.Propellant | IMaterial.RelatedTags.Vapor |
+																IMaterial.RelatedTags.Catalyst | IMaterial.RelatedTags.Reaction | IMaterial.RelatedTags.Melted | IMaterial.RelatedTags.Mixed | IMaterial.RelatedTags.Refined).GetLowestSetBit().ToStringUtf8(),
 																size: 14, pivot: new(1, 0.50f), offset: new(-8, 0));
 														}
 
@@ -125,46 +126,49 @@ namespace TC2.Conquest
 									}
 								}
 
-								GUI.SeparatorThick(l: 4, r: 0, spacing: 16);
-
-								using (var scroll_related = GUI.Scrollbox.New("scroll.related"u8, size: GUI.Rm))
+								if (material_data.related.IsNotNullOrEmpty())
 								{
-									var related = material_data.related;
-									if (related.IsNotNullOrEmpty())
+									GUI.SeparatorThick(l: 4, r: 0, spacing: 16);
+
+									using (var scroll_related = GUI.Scrollbox.New("scroll.related"u8, size: GUI.Rm))
 									{
-										foreach (var (h_material_related, tags_related) in related)
+										var related = material_data.related;
+										if (related.IsNotNullOrEmpty())
 										{
-											if (h_material_related == h_material) continue;
-
-											ref var material_related_data = ref h_material_related.GetData();
-											if (material_related_data.IsNotNull())
+											foreach (var (h_material_related, tags_related) in related)
 											{
-												using (var group_row = GUI.Group.New(size: new(GUI.RmX, 32)))
+												if (h_material_related == h_material) continue;
+
+												ref var material_related_data = ref h_material_related.GetData();
+												if (material_related_data.IsNotNull())
 												{
-													if (group_row.IsVisible())
+													using (var group_row = GUI.Group.New(size: new(GUI.RmX, 32)))
 													{
-														GUI.DrawMaterialSmall(h_material_related, size: new(GUI.RmY));
-														GUI.Draw9Slice(GUI.tex_frame, padding: new(4), rect: GUI.GetLastItemRect());
-
-														GUI.SameLine();
-
-														using (var group_info = GUI.Group.New(size: new(GUI.RmX, 32)))
+														if (group_row.IsVisible())
 														{
-															var color = Color32BGRA.White;
-															if (tags_related.HasAny(IMaterial.RelatedTags.Product | IMaterial.RelatedTags.Output | IMaterial.RelatedTags.Result)) color = GUI.col_new;
-															if (tags_related.HasAny(IMaterial.RelatedTags.Ingredient | IMaterial.RelatedTags.Input | IMaterial.RelatedTags.Source)) color = GUI.col_remove;
-															group_info.DrawBackground(GUI.tex_slot_white, color: color.WithAlpha(192).WithColorMult(0.50f));
+															GUI.DrawMaterialSmall(h_material_related, size: new(GUI.RmY));
+															GUI.Draw9Slice(GUI.tex_frame, padding: new(4), rect: GUI.GetLastItemRect());
 
-															GUI.TitleCentered(material_related_data.GetName(), size: 16, pivot: new(0, 0.50f), offset: new(8, 0));
-															GUI.TextShadedCentered(tags_related.WithMasked(
-																IMaterial.RelatedTags.Scrap | IMaterial.RelatedTags.Component | IMaterial.RelatedTags.Manufactured | IMaterial.RelatedTags.Ingredient | 
-																IMaterial.RelatedTags.Product | IMaterial.RelatedTags.Waste | IMaterial.RelatedTags.Byproduct | IMaterial.RelatedTags.Residue | IMaterial.RelatedTags.Catalyst | 
-																IMaterial.RelatedTags.Crushed | IMaterial.RelatedTags.Reaction | IMaterial.RelatedTags.Extracted | IMaterial.RelatedTags.Powdered | IMaterial.RelatedTags.Filler | 
-																IMaterial.RelatedTags.Ore | IMaterial.RelatedTags.Raw | IMaterial.RelatedTags.Vapor | IMaterial.RelatedTags.Rotten | IMaterial.RelatedTags.Impurity).GetLowestSetBit().ToStringUtf8(),
-																	size: 14, pivot: new(1, 0.50f), offset: new(-8, 0));
+															GUI.SameLine();
+
+															using (var group_info = GUI.Group.New(size: new(GUI.RmX, 32)))
+															{
+																var color = Color32BGRA.White;
+																if (tags_related.HasAny(IMaterial.RelatedTags.Product | IMaterial.RelatedTags.Output | IMaterial.RelatedTags.Result)) color = GUI.col_new;
+																if (tags_related.HasAny(IMaterial.RelatedTags.Ingredient | IMaterial.RelatedTags.Input | IMaterial.RelatedTags.Source)) color = GUI.col_remove;
+																group_info.DrawBackground(GUI.tex_slot_white, color: color.WithAlpha(192).WithColorMult(0.50f));
+
+																GUI.TitleCentered(material_related_data.GetName(), size: 16, pivot: new(0, 0.50f), offset: new(8, 0));
+																GUI.TextShadedCentered(tags_related.WithMasked(
+																	IMaterial.RelatedTags.Scrap | IMaterial.RelatedTags.Component | IMaterial.RelatedTags.Manufactured | IMaterial.RelatedTags.Ingredient |
+																	IMaterial.RelatedTags.Product | IMaterial.RelatedTags.Waste | IMaterial.RelatedTags.Byproduct | IMaterial.RelatedTags.Residue | IMaterial.RelatedTags.Catalyst |
+																	IMaterial.RelatedTags.Crushed | IMaterial.RelatedTags.Reaction | IMaterial.RelatedTags.Extracted | IMaterial.RelatedTags.Powdered | IMaterial.RelatedTags.Filler |
+																	IMaterial.RelatedTags.Ore | IMaterial.RelatedTags.Raw | IMaterial.RelatedTags.Vapor | IMaterial.RelatedTags.Rotten | IMaterial.RelatedTags.Impurity).GetLowestSetBit().ToStringUtf8(),
+																		size: 14, pivot: new(1, 0.50f), offset: new(-8, 0));
+															}
+
+															GUI.FocusableAsset(h_material_related, rect: group_row.GetOuterRect());
 														}
-
-														GUI.FocusableAsset(h_material_related, rect: group_row.GetOuterRect());
 													}
 												}
 											}
