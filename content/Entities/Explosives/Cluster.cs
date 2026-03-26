@@ -81,7 +81,8 @@
 						projectile_init.vel *= -1.00f;
 					}
 
-					region.SpawnPrefab(cluster.prefab, transform.position).ContinueWith(ent =>
+					region.SpawnPrefab(prefab: cluster.prefab, position: transform.position + cluster.offset + random.NextUnitVector2Range(cluster.radius * 0.50f, cluster.radius), 
+					rotation: Vector2Extensions.GetAngleRadiansFast(projectile_init.vel), velocity: projectile_init.vel, faction_id: projectile_init.faction_id).ContinueWith(ent =>
 					{
 						ref var projectile = ref ent.GetComponent<Projectile.Data>();
 						if (projectile.IsNotNull())
@@ -119,6 +120,9 @@
 
 				}
 
+				var ent_parent = body.GetParent();
+				var h_faction = body.GetFaction();
+
 				for (var i = 0; i < cluster.count; i++)
 				{
 					var projectile_init =
@@ -126,8 +130,8 @@
 						damage_mult: cluster.damage_modifier,
 						vel: Vec2f.RotateByRad(dir, random.NextFloat(cluster.spread)) * (Maths.Max(vel * random.NextFloatRange(cluster.speed_modifier_min, cluster.speed_modifier_max), 1.00f) + cluster.speed),
 						lifetime_mult: random.NextFloatRange(cluster.lifetime_modifier_min, cluster.lifetime_modifier_max),
-						owner: body.GetParent(),
-						faction_id: body.GetFaction()
+						owner: ent_parent,
+						faction_id: h_faction
 					);
 
 					if (cluster.speed > Maths.epsilon)
@@ -150,7 +154,7 @@
 					}
 
 					region.SpawnPrefab(prefab: cluster.prefab, position: transform.position + cluster.offset + random.NextUnitVector2Range(cluster.radius * 0.50f, cluster.radius), 
-					rotation: Vector2Extensions.GetAngleRadiansFast(projectile_init.vel), velocity: projectile_init.vel).ContinueWith(ent =>
+					rotation: Vector2Extensions.GetAngleRadiansFast(projectile_init.vel), velocity: projectile_init.vel, faction_id: projectile_init.faction_id).ContinueWith(ent =>
 					{
 						ref var projectile = ref ent.GetComponent<Projectile.Data>();
 						if (projectile.IsNotNull())

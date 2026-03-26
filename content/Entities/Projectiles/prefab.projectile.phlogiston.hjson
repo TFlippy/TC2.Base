@@ -2,17 +2,18 @@ $tags: []
 
 projectile:
 {
-	damage_base: 1000.000
-	damage_bonus: 5000.000
+	damage_base: 500.000
+	damage_bonus: 3000.000
 	lifetime: 3.000
 	ignore_time: 0.250
 	damage_type: phlogiston
+	hit_mask: world, solid, water, gas
 	size: 0.500
 	ricochet_count: 0
-	gravity: 0.400
-	damp: 0.509
-	speed_modifier_min: 0.900
-	speed_modifier_max: 1.100
+	gravity: 0.200
+	damp: 0.909
+	speed_modifier_min: 0.050
+	speed_modifier_max: 0.400
 	stabilization: 0.150
 	flags: no_miss
 
@@ -64,16 +65,16 @@ transform:
 cluster:
 {
 	prefab: "fire.phlogiston"
-	velocity: [0.000, -8.000]
-	offset: [0.000, -1.800]
+	velocity: [0.000, -5.000]
+	offset: [0.000, -0.100]
 
 	radius: 0.100
-	spread: 2.000
-	speed: 8.000
+	spread: 0.800
+	speed: 1.000
 	count: 1
 
-	speed_modifier_min: 0.240
-	speed_modifier_max: 1.100
+	speed_modifier_min: 0.000
+	speed_modifier_max: 0.500
 
 	lifetime_modifier_min: 0.400
 	lifetime_modifier_max: 3.200
@@ -120,7 +121,7 @@ explosive:
 
 	radius: 7.000
 	power: 4.500
-	damage_entity: 4300.000
+	damage_entity: 7300.000
 	damage_terrain: 3000.000
 	smoke_amount: 0.480
 	smoke_lifetime_multiplier: 0.250
@@ -128,7 +129,7 @@ explosive:
 	flash_duration_multiplier: 4.250
 	flash_intensity_multiplier: 0.100
 	shake_multiplier: 0.000
-	force_multiplier: 0.200
+	force_multiplier: 0.100
 	stun_multiplier: 0.100
 	fire_amount: 0.000
 	sparks_amount: 0.100
@@ -141,16 +142,17 @@ explosive:
 fire:
 {
 	flicker: 0.070
-	radius: 3.000
-	intensity: 1.500
-	fade: 0.080
-	damage_multiplier: 3.500
+	radius: 7.000
+	intensity: 100.000
+	fade: 10.000
+	damage_multiplier: 1.500
 	ignite_radius_multiplier: 2.000
 	damage_type_contact: phlogiston
 	damage_type_convection: phlogiston
 	smoke_color: "0xaaffffff"
-	temperature: 4000.000
+	temperature: 3000.000
 	color_tint: [0.883, 0.558, 0.139, 0.971]
+	glow_mult: 0.0050
 
 	@light:
 	{
