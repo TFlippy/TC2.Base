@@ -14,7 +14,7 @@ body:
 		elasticity: 0.260
 		
 		material: metal
-		miss_chance: 0.650
+		miss_chance: 0.880
 		
 		layer: entity, solid, resource, conductive, magnetic, ignore_melee
 		mask: world

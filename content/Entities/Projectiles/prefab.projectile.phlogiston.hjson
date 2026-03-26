@@ -128,8 +128,8 @@ explosive:
 	flash_duration_multiplier: 4.250
 	flash_intensity_multiplier: 0.100
 	shake_multiplier: 0.000
-	force_multiplier: 0.100
-	stun_multiplier: 0.500
+	force_multiplier: 0.200
+	stun_multiplier: 0.100
 	fire_amount: 0.000
 	sparks_amount: 0.100
 	smoke_color: "0xaad8d8d8"

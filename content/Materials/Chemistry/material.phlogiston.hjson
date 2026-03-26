@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.72.1"
 	$note: "- Obtained through the ancient phlogiston pipelines"
 	name: "Phlogiston"
 	name_short: "Phlogiston"
@@ -60,11 +60,19 @@
 	
 	commodity:
 	{
-		flags: none
+		flags: marketable
 		categories: chemicals, refined, artificial, arcane, fuel, energy, consumer, industrial
 		
 		market_price: 50.000
 		market_price_per_kg_auto: 87.41258
+		
+		industries_produce: high_tech, power, arcane, engineering, experimental
+		
+		buildings_produce: phlogiston
+		buildings_buy: factory, hospital, airport, trainyard, power_plant, docks, prison, labor_camp, foundry, manufactory, refinery, checkpoint, laboratory, university, school, bar, train_station, farm, exchange, arsenal, scrapyard, black_market, brewery, metalworks, circus, market, fuel_depot, essenceworks, brickworks, steel_mill, bakery, glassworks
+		buildings_sell: airport, trainyard, checkpoint, bar, train_station, exchange, black_market, phlogiston, market, fuel_depot, essenceworks
+		
+		categories_produce: magitech, advanced, powerful, ancient
 	}
 	
 	fuel:
@@ -84,7 +92,7 @@
 		// Adiabatic flame temperature (Kelvin) in pure oxygen, see https://en.wikipedia.org/wiki/Adiabatic_flame_temperature
 		flame_temperature_o2: 4300.000
 		// Adiabatic flame temperature (Kelvin) in air. If not known, just subtract 1000 from 'flame_temperature_o2'.
-		flame_temperature_air: 1300.000
+		flame_temperature_air: 1600.000
 		// Auto-ignition temperature (Kelvin), see https://en.wikipedia.org/wiki/Autoignition_temperature.
 		autoignition_temperature: 210.000
 		// Minimum temperature (Kelvin) for ignition, see https://en.wikipedia.org/wiki/Flash_point
@@ -99,20 +107,20 @@
 		// TODO: Desc
 		volatility: 4.880
 		// TODO: Desc
-		viscosity: 2.110
+		viscosity: 0.510
 		// TODO: Desc
 		surface_area_mult: 0.000
 		
 		// Percentage of carbon.
-		carbon_ratio: 0.0215
+		carbon_ratio: 0.1015
 		// Percentage of hydrogen.
-		hydrogen_ratio: 0.150
+		hydrogen_ratio: 0.120
 		// Percentage of nitrogen.
-		nitrogen_ratio: 0.0048
+		nitrogen_ratio: 0.000
 		// Percentage of oxygen.
 		oxygen_ratio: 0.778
 		// Percentage of sulfur.
-		sulfur_ratio: 0.007
+		sulfur_ratio: 0.000
 		// Percentage of water.
 		water_ratio: 0.000
 		
@@ -148,6 +156,14 @@
 	// Info regarding relations of other materials towards this material.
 	related:
 	{
-		smrad.dust: component
+		smrad.dust: component, raw, similar, element, powdered, ingredient
+		smirgrafit.clay: reaction, feedstock
+		hydrogen: component, clean, similar, element, gas
+		oxygen: component, clean, similar, element, gas
+		putty: similar, manufactured, feedstock
+		smrad: component, container, clean, similar, element, powdered, ingredient
+		scrap.charred: ruined, burnt, mangled, dirty, waste, solidified, roasted, impure, result, byproduct
+		ash: burnt, residue, dirty, powdered, corroded, roasted, impure, result, byproduct
+		mithril: similar, catalyst
 	}
 }

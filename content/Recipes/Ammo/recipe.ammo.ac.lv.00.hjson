@@ -9,7 +9,7 @@
 	
 	related_materials:
 	{
-		copper.plate: input, auto_generated
+		copper.plate: component, casing, input, auto_generated
 		oil: residue, liquid, input, output, auto_generated
 		lubricant: liquid, input, auto_generated
 		steel.rod: input, auto_generated

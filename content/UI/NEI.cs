@@ -30,7 +30,7 @@ namespace TC2.Conquest
 				//	if (window.show)
 				//	{
 				using (var widget = Sidebar.Widget.New(identifier: "nei", name: "Recipe Reference",
-				icon: new Sprite(GUI.tex_icons_widget, 16, 16, 1, 2), 
+				icon: new Sprite(GUI.tex_icons_widget, 16, 16, 1, 2),
 				size: new(48.00f * 7, 48.00f * 9),
 				size_min: new(48.00f * 7, 48.00f * 6),
 				size_max: new(48.00f * 7, 48.00f * 12),
@@ -50,12 +50,13 @@ namespace TC2.Conquest
 								if (GUI.IsMouseClicked(button: GUI.MouseButton.Right))
 								{
 									h_item_selected.Toggle(h_material_hovered);
-									Sound.PlayGUI(GUI.sound_select, volume: 0.18f, pitch: 0.85f);
+									Sound.PlayGUI(GUI.sound_select, volume: 0.07f);
+									//Sound.PlayGUI(GUI.sound_select, volume: 0.18f, pitch: 0.85f);
 								}
 							}
 
-							var h_material = (IMaterial.Handle)h_item_selected.id;
-							ref var material_data = ref h_material.GetData();
+							var h_material_selected = (IMaterial.Handle)h_item_selected.id;
+							ref var material_data = ref h_material_selected.GetData();
 							if (material_data.IsNotNull())
 							{
 								using (var group_title = GUI.Group.New(size: new(GUI.RmX, 40)))
@@ -63,9 +64,9 @@ namespace TC2.Conquest
 									using (var group_icon = GUI.Group.New(size: new(GUI.RmY)))
 									{
 										GUI.Draw9Slice(GUI.tex_slot, padding: new(4), rect: group_icon.GetOuterRect());
-										GUI.DrawMaterialSmall(h_material, size: GUI.Rm);
+										GUI.DrawMaterialSmall(h_material_selected, size: GUI.Rm);
 									}
-									GUI.FocusableAsset(h_material, rect: GUI.GetLastItemRect());
+									GUI.FocusableAsset(h_material_selected, rect: GUI.GetLastItemRect());
 
 									GUI.SameLine();
 
@@ -82,12 +83,13 @@ namespace TC2.Conquest
 										ref var recipe_data = ref recipe_asset.GetData();
 										if (recipe_data.IsNotNull())
 										{
-											if (recipe_data.flags.HasAny(Recipe.Flags.Disabled | Recipe.Flags.Hidden | Recipe.Flags.Custom)) continue;
-											if ((!App.IsModEditing || App.hide_wip_recipes) && recipe_data.flags.HasAny(Recipe.Flags.Debug)) continue;
+											if (recipe_data.flags.HasAny(Recipe.Flags.Hidden | Recipe.Flags.Custom)) continue;
+											if ((!App.IsModEditing || App.hide_wip_recipes) && recipe_data.flags.HasAny(Recipe.Flags.Debug | Recipe.Flags.Disabled)) continue;
 
 											var related = recipe_data.related_materials;
-											if (related.IsNotNullOrEmpty() && related.TryGetValue(h_material, out var tags_related))
+											if (related.IsNotNullOrEmpty() && related.TryGetValue(h_material_selected, out var tags_related))
 											{
+												using (var id = GUI.ID<NEI.Entry, Recipe.Type>.Push(recipe_asset.GetHandle()))
 												using (var group_row = GUI.Group.New(size: new(GUI.RmX, 32)))
 												{
 													if (group_row.IsVisible())
@@ -117,8 +119,12 @@ namespace TC2.Conquest
 																size: 14, pivot: new(1, 0.50f), offset: new(-8, 0));
 														}
 
-
 														GUI.FocusableAsset(recipe_asset, rect: group_row.GetOuterRect());
+
+														if (GUI.Selectable3(id: id.hash, rect: group_row.GetOuterRect(), selected: false))
+														{
+
+														}
 													}
 												}
 											}
@@ -137,11 +143,12 @@ namespace TC2.Conquest
 										{
 											foreach (var (h_material_related, tags_related) in related)
 											{
-												if (h_material_related == h_material) continue;
+												if (h_material_related == h_material_selected) continue;
 
 												ref var material_related_data = ref h_material_related.GetData();
 												if (material_related_data.IsNotNull())
 												{
+													using (var id = GUI.ID<NEI.Entry, Material.Type>.Push(h_material_related))
 													using (var group_row = GUI.Group.New(size: new(GUI.RmX, 32)))
 													{
 														if (group_row.IsVisible())
@@ -168,6 +175,11 @@ namespace TC2.Conquest
 															}
 
 															GUI.FocusableAsset(h_material_related, rect: group_row.GetOuterRect());
+
+															if (GUI.Selectable3(id: id.hash, rect: group_row.GetOuterRect(), selected: false))
+															{
+																h_item_selected.Toggle(h_material_related);
+															}
 														}
 													}
 												}
