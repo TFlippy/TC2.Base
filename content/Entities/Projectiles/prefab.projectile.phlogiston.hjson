@@ -2,8 +2,8 @@ $tags: []
 
 projectile:
 {
-	damage_base: 500.000
-	damage_bonus: 3000.000
+	damage_base: 2500.000
+	damage_bonus: 5000.000
 	lifetime: 3.000
 	ignore_time: 0.250
 	damage_type: phlogiston
@@ -122,7 +122,7 @@ explosive:
 	radius: 7.000
 	power: 4.500
 	damage_entity: 7300.000
-	damage_terrain: 3000.000
+	damage_terrain: 5000.000
 	smoke_amount: 0.480
 	smoke_lifetime_multiplier: 0.250
 	smoke_velocity_multiplier: 1.400
