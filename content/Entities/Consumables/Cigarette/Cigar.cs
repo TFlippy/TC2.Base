@@ -5,7 +5,7 @@ namespace TC2.Base.Components
 	{
 		public static readonly Texture.Handle texture_smoke = "BiggerSmoke_Light";
 
-		[IComponent.Data(Net.SendType.Reliable, region_only: true)]
+		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region)]
 		public partial struct Data: IComponent
 		{
 			public Sprite sprite;
@@ -14,7 +14,6 @@ namespace TC2.Base.Components
 			[Net.Ignore, Save.Ignore]
 			public float t_next_smoke;
 		}
-
 
 #if CLIENT
 		[ISystem.PostRender(ISystem.Mode.Single, ISystem.Scope.Region)]
@@ -62,7 +61,7 @@ namespace TC2.Base.Components
 
 	public static partial class Cigar
 	{
-		[IComponent.Data(Net.SendType.Reliable, region_only: true)]
+		[IComponent.Data(Net.SendType.Reliable, IComponent.Scope.Region)]
 		public partial struct Data: IComponent
 		{
 			public Sprite sprite_cigar;

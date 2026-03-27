@@ -3,9 +3,7 @@
 	name: "Karban"
 	desc:
 		'''
-		Lightweight, porous carbonaceous rock with a dull, sooty luster. 
-
-		Readily yields graphite when crushed.
+		Mercury-rich carbonaceous rock with a dark, pearly luster.
 		'''
 	
 	material_type: coal
@@ -18,7 +16,7 @@
 	strength_tensile: 1.100
 	strength_compressive: 0.700
 	
-	mass: 0.865
+	mass: 0.8827
 	density: 0.000
 	friction: 0.940
 	elasticity: 0.310
@@ -28,9 +26,9 @@
 	
 	texture: terrain.rock.karban
 	pattern: pattern.stone
-	texture_scale: 1.480
+	texture_scale: 1.430
 	texture_overshoot: -0.200
-	texture_offset: 0.000
+	texture_offset: 0.375
 	
 	color_preview: "0xff282827"
 	color_fill: "0xff140e08"
@@ -39,9 +37,12 @@
 	[
 		{
 			material: karban
-			quantity: 1.286854
+			quantity: 1.201026
 		}
-		null
+		{
+			material: mercury
+			quantity: 0.025543
+		}
 	]
 	
 	mappings:

@@ -146,7 +146,7 @@ namespace TC2.Base.Components
 			{
 				explosive.flags |= Explosive.Flags.Primed | Explosive.Flags.Any_Damage;
 				explosive.health_threshold = 0.99f;
-				
+
 				if (random.NextBool(0.50f))
 				{
 					explosive.flags |= Explosive.Flags.Explode_When_Primed;
@@ -157,7 +157,7 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.Event<Health.PostDamageEvent>(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void OnPostDamage(Entity entity, ref XorRandom random, ref Health.PostDamageEvent ev, 
+		public static void OnPostDamage(Entity entity, ref XorRandom random, ref Health.PostDamageEvent ev,
 		[Source.Owned] ref Health.Data health, [Source.Owned] ref Explosive.Data explosive)
 		{
 			//App.WriteLine(health.integrity);
@@ -203,81 +203,82 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.RemoveLast(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void OnRemove(ref Region.Data region, Entity entity, 
+		public static void OnRemove(ref Region.Data region, Entity entity,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] in Explosive.Data explosive)
 		{
-			if (explosive.flags.HasAny(Explosive.Flags.Primed) && explosive.modifier >= explosive.modifier_min)
+			if (explosive.flags.HasNone(Explosive.Flags.Primed)) return;
+			if (explosive.modifier < explosive.modifier_min) return;
+
+			//var explosion_tmp = new Explosion.Data()
+			//{
+			//	power = explosive.power * explosive.modifier,
+			//	radius = explosive.radius * explosive.modifier,
+			//	damage_entity = explosive.damage_entity * explosive.modifier,
+			//	damage_terrain = explosive.damage_terrain * explosive.modifier,
+			//	damage_type = explosive.damage_type,
+			//	ent_owner = explosive.ent_owner,
+			//	fire_amount = explosive.fire_amount,
+			//	smoke_amount = explosive.smoke_amount,
+			//	smoke_lifetime_multiplier = explosive.smoke_lifetime_multiplier,
+			//	smoke_velocity_multiplier = explosive.smoke_velocity_multiplier,
+			//	sparks_amount = explosive.sparks_amount,
+			//	volume = explosive.volume,
+			//	pitch = explosive.pitch,
+			//};
+
+			var explosive_tmp = explosive;
+
+			//if (explosive.flags.HasAny(Explosive.Flags.No_Self_Damage)) explosion_tmp.ent_ignored = entity;
+
+			region.SpawnPrefab("explosion", transform.position).ContinueWith(ent =>
 			{
-				//var explosion_tmp = new Explosion.Data()
-				//{
-				//	power = explosive.power * explosive.modifier,
-				//	radius = explosive.radius * explosive.modifier,
-				//	damage_entity = explosive.damage_entity * explosive.modifier,
-				//	damage_terrain = explosive.damage_terrain * explosive.modifier,
-				//	damage_type = explosive.damage_type,
-				//	ent_owner = explosive.ent_owner,
-				//	fire_amount = explosive.fire_amount,
-				//	smoke_amount = explosive.smoke_amount,
-				//	smoke_lifetime_multiplier = explosive.smoke_lifetime_multiplier,
-				//	smoke_velocity_multiplier = explosive.smoke_velocity_multiplier,
-				//	sparks_amount = explosive.sparks_amount,
-				//	volume = explosive.volume,
-				//	pitch = explosive.pitch,
-				//};
-
-				var explosive_tmp = explosive;
-
-				//if (explosive.flags.HasAny(Explosive.Flags.No_Self_Damage)) explosion_tmp.ent_ignored = entity;
-
-				region.SpawnPrefab("explosion", transform.position).ContinueWith(ent =>
+				ref var explosion = ref ent.GetComponent<Explosion.Data>();
+				if (explosion.IsNotNull())
 				{
-					ref var explosion = ref ent.GetComponent<Explosion.Data>();
-					if (explosion.IsNotNull())
-					{
-						var random = XorRandom.New(true);
+					var random = XorRandom.New(true);
 
-						//App.WriteValue(explosive_tmp.modifier);
+					//App.WriteValue(explosive_tmp.modifier);
 
-						//explosion.radius = Maths.Max(3.00f, Maths.Lerp01(explosive_tmp.radius * 0.25f, explosive_tmp.radius, explosive_tmp.modifier) * random.NextFloatExtra(0.90f, 0.15f));
-						//explosion.radius = Maths.Max(3.00f, (explosive_tmp.radius * explosive_tmp.modifier) * random.NextFloatExtra(0.90f, 0.15f));
-						explosion.radius = Maths.Max(2.00f, (explosive_tmp.radius * explosive_tmp.modifier) * random.NextFloatExtra(0.90f, 0.15f));
-						//explosion.power = Maths.Max(2.50f, Maths.Lerp01(explosive_tmp.power * 0.50f, explosive_tmp.power, explosive_tmp.modifier) * random.NextFloatExtra(0.90f, 0.15f));
-						explosion.power = Maths.Max(1.50f, Maths.Lerp01(explosive_tmp.power * 0.50f, explosive_tmp.power, explosive_tmp.modifier) * random.NextFloatExtra(0.90f, 0.15f));
+					//explosion.radius = Maths.Max(3.00f, Maths.Lerp01(explosive_tmp.radius * 0.25f, explosive_tmp.radius, explosive_tmp.modifier) * random.NextFloatExtra(0.90f, 0.15f));
+					//explosion.radius = Maths.Max(3.00f, (explosive_tmp.radius * explosive_tmp.modifier) * random.NextFloatExtra(0.90f, 0.15f));
+					explosion.radius = Maths.Max(2.00f, (explosive_tmp.radius * explosive_tmp.modifier) * random.NextFloatExtra(0.90f, 0.15f));
+					//explosion.power = Maths.Max(2.50f, Maths.Lerp01(explosive_tmp.power * 0.50f, explosive_tmp.power, explosive_tmp.modifier) * random.NextFloatExtra(0.90f, 0.15f));
+					explosion.power = Maths.Max(1.50f, Maths.Lerp01(explosive_tmp.power * 0.50f, explosive_tmp.power, explosive_tmp.modifier) * random.NextFloatExtra(0.90f, 0.15f));
 
-						explosion.damage_entity = explosive_tmp.damage_entity * explosive_tmp.modifier * random.NextFloatExtra(0.90f, 0.18f);
-						//explosion.damage_terrain = explosive_tmp.damage_terrain * explosive_tmp.modifier * random.NextFloatExtra(0.90f, 0.17f);
-						explosion.damage_terrain = Maths.Lerp01(explosive_tmp.damage_terrain * 0.50f, explosive_tmp.damage_terrain, explosive_tmp.modifier) * random.NextFloatExtra(0.90f, 0.17f);
+					explosion.damage_entity = explosive_tmp.damage_entity * explosive_tmp.modifier * random.NextFloatExtra(0.90f, 0.18f);
+					//explosion.damage_terrain = explosive_tmp.damage_terrain * explosive_tmp.modifier * random.NextFloatExtra(0.90f, 0.17f);
+					explosion.damage_terrain = Maths.Lerp01(explosive_tmp.damage_terrain * 0.50f, explosive_tmp.damage_terrain, explosive_tmp.modifier) * random.NextFloatExtra(0.90f, 0.17f);
 
-						explosion.damage_type = explosive_tmp.damage_type;
-						explosion.damage_type_secondary = explosive_tmp.damage_type_secondary;
+					explosion.damage_type = explosive_tmp.damage_type;
+					explosion.damage_type_secondary = explosive_tmp.damage_type_secondary;
 
-						explosion.shake_multiplier = explosive_tmp.shake_multiplier;
-						explosion.force_multiplier = explosive_tmp.force_multiplier;
-						explosion.stun_multiplier = explosive_tmp.stun_multiplier;
-						explosion.terrain_radius_multiplier = explosive_tmp.terrain_radius_multiplier;
+					explosion.shake_multiplier = explosive_tmp.shake_multiplier;
+					explosion.force_multiplier = explosive_tmp.force_multiplier;
+					explosion.stun_multiplier = explosive_tmp.stun_multiplier;
+					explosion.terrain_radius_multiplier = explosive_tmp.terrain_radius_multiplier;
 
-						explosion.smoke_amount = explosive_tmp.smoke_amount;
-						explosion.smoke_lifetime_multiplier = explosive_tmp.smoke_lifetime_multiplier;
-						explosion.smoke_velocity_multiplier = explosive_tmp.smoke_velocity_multiplier;
-						explosion.smoke_color = explosive_tmp.smoke_color;
+					explosion.smoke_amount = explosive_tmp.smoke_amount;
+					explosion.smoke_lifetime_multiplier = explosive_tmp.smoke_lifetime_multiplier;
+					explosion.smoke_velocity_multiplier = explosive_tmp.smoke_velocity_multiplier;
+					explosion.smoke_color = explosive_tmp.smoke_color;
 
-						explosion.flash_duration_multiplier = explosive_tmp.flash_duration_multiplier;
-						explosion.flash_intensity_multiplier = explosive_tmp.flash_intensity_multiplier;
+					explosion.flash_duration_multiplier = explosive_tmp.flash_duration_multiplier;
+					explosion.flash_intensity_multiplier = explosive_tmp.flash_intensity_multiplier;
 
-						explosion.fire_amount = explosive_tmp.fire_amount;
-						explosion.sparks_amount = explosive_tmp.sparks_amount;
+					explosion.fire_amount = explosive_tmp.fire_amount;
+					explosion.sparks_amount = explosive_tmp.sparks_amount;
 
-						explosion.volume = explosive_tmp.volume;
-						explosion.pitch = explosive_tmp.pitch;
-						explosion.delay = random.NextFloatExtra(0.01f, 0.05f);
+					explosion.volume = explosive_tmp.volume;
+					explosion.pitch = explosive_tmp.pitch;
+					explosion.delay = random.NextFloatExtra(0.01f, 0.05f);
 
-						//explosion.ent_owner = explosive_tmp.ent_owner;
-						if (explosive_tmp.flags.HasAny(Explosive.Flags.No_Self_Damage)) explosion.ent_ignored = entity;
+					//explosion.ent_owner = explosive_tmp.ent_owner;
+					if (explosive_tmp.flags.HasAny(Explosive.Flags.No_Self_Damage)) explosion.ent_ignored = entity;
 
-						explosion.Sync(ent, true);
-					}
-				});
-			}
+					explosion.Sync(ent, true);
+				}
+			});
+
 		}
 #endif
 	}

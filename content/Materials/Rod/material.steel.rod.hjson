@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.72.1"
 	name: "Steel Bar"
 	name_short: "St.Bar"
 	name_imperial: "Styltyc"
@@ -27,7 +27,7 @@
 	{
 		add: no_discard
 	}
-	hints: materials, construction
+	hints: materials, long_range, construction, industrial, clumsy, long
 	
 	// Ratio of the material volume to the total volume it occupies when stacked. A value of 1.0 means no empty space, while a value closer to 0.0 means a lot of empty space.
 	packing_fraction: 0.000
@@ -285,6 +285,33 @@
 			flags: none
 			merge_radius_mult: 1.000
 			velocity_mult: 1.520
+			damage_mult: 1.000
+		}
+		bullet_ac:
+		{
+			spawn_flags: none
+			product_flags: none
+			ratio: 0.000
+			ratio_extra: 0.000
+			
+			h_material_waste: scrap.steel
+			spawn_flags_waste: merge
+			product_flags_waste: waste
+			ratio_waste: 1.000
+			ratio_waste_extra: 0.000
+			
+			yield: 0.690
+			yield_extra: 0.180
+			
+			h_sound: missing
+			sound_volume: 0.500
+			sound_pitch: 1.000
+			
+			chance: 1.000
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.000
+			velocity_mult: 1.000
 			damage_mult: 1.000
 		}
 	}

@@ -14,7 +14,7 @@
 	name_dumb: "Coal"
 	description:
 		'''
-		Lightweight, porous carbonaceous rock with a dull, sooty luster.
+		Porous carbonaceous rock with a dark, pearly luster.
 		'''
 	
 	tips: []
@@ -37,7 +37,7 @@
 	// General purity modifier.
 	purity: 0.977
 	// Mass of 1 unit in kg.
-	mass_per_unit: 0.639
+	mass_per_unit: 0.682
 	
 	// Maximum quantity (units) per stack.
 	quantity_max: 1000.000
@@ -65,7 +65,7 @@
 		categories: none
 		
 		market_price: 5.100
-		market_price_per_kg_auto: 7.98122
+		market_price_per_kg_auto: 7.478006
 	}
 	
 	fuel:

@@ -27,7 +27,8 @@ namespace TC2.Base.Components
 
 		// Crappily exposed Climber.cs for now, since it interacts with physics constraint pointers
 		[Shitcode]
-		[ISystem.Update.E(ISystem.Mode.Single, ISystem.Scope.Region)]
+		//[ISystem.Update.E(ISystem.Mode.Single, ISystem.Scope.Region)]
+		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnUpdate(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity,
 		[Source.Owned] in Transform.Data transform,
 		[Source.Owned, Override] in Organic.Data organic, [Source.Owned] in Organic.State organic_state,
