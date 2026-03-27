@@ -107,8 +107,8 @@
 						{
 							type: resource
 							material: rot
-							amount: 8.751515
-							amount_extra: 2.856715
+							amount: 3.13659
+							amount_extra: 1.023857
 							group: 0
 							flags: waste
 						}

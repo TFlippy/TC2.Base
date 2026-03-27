@@ -97,6 +97,33 @@
 			velocity_mult: 1.000
 			damage_mult: 1.000
 		}
+		phlogiston:
+		{
+			spawn_flags: none
+			product_flags: none
+			ratio: 0.530
+			ratio_extra: 0.000
+			
+			h_material_waste: mercury.vapor
+			spawn_flags_waste: merge
+			product_flags_waste: pollutant, residue, byproduct, spawn
+			ratio_waste: 0.840
+			ratio_waste_extra: 0.100
+			
+			yield: 0.790
+			yield_extra: 0.130
+			
+			h_sound: missing
+			sound_volume: 0.500
+			sound_pitch: 1.000
+			
+			chance: 1.000
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.000
+			velocity_mult: 1.000
+			damage_mult: 1.000
+		}
 	}
 	
 	// Residues from crafting/work.
