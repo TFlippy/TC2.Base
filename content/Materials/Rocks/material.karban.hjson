@@ -61,11 +61,11 @@
 	
 	commodity:
 	{
-		flags: none
-		categories: none
+		flags: marketable
+		categories: ores, rocks, raw, coal, minerals, mined, industrial
 		
-		market_price: 5.100
-		market_price_per_kg_auto: 7.478006
+		market_price: 5.800
+		market_price_per_kg_auto: 8.504399
 	}
 	
 	fuel:
@@ -120,6 +120,39 @@
 		// Percentage of volatiles.
 		volatiles_ratio: 0.0597
 		volatiles: ["mercury.vapor"]
+	}
+	
+	// Damage-based conversions.
+	conversions:
+	{
+		sledgehammer:
+		{
+			h_material: graphite
+			spawn_flags: merge
+			product_flags: residue
+			ratio: 0.240
+			ratio_extra: 0.440
+			
+			h_material_waste: mercury
+			spawn_flags_waste: merge, no_discard
+			product_flags_waste: pollutant, residue
+			ratio_waste: 0.080
+			ratio_waste_extra: 0.160
+			
+			yield: 0.560
+			yield_extra: 0.380
+			
+			h_sound: missing
+			sound_volume: 0.500
+			sound_pitch: 1.000
+			
+			chance: 0.832
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.000
+			velocity_mult: 1.000
+			damage_mult: 1.000
+		}
 	}
 	
 	// Info regarding relations of other materials towards this material.

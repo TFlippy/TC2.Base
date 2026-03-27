@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.72.1"
 	name: "Graphite"
 	name_short: "Graphite"
 	name_imperial: "Grafit"
@@ -68,7 +68,7 @@
 		{
 			h_material: graphite.powder
 			spawn_flags: merge
-			product_flags: none
+			product_flags: residue
 			ratio: 0.210
 			ratio_extra: 0.455
 			
@@ -84,7 +84,7 @@
 			sound_volume: 0.580
 			sound_pitch: 1.250
 			
-			chance: 1.000
+			chance: 0.633
 			type: undefined
 			flags: none
 			merge_radius_mult: 1.000

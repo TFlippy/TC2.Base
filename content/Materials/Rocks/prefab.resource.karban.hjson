@@ -2,7 +2,7 @@ $tags: []
 
 body:
 {
-	buoyancy: 0.520
+	buoyancy: 0.320
 
 	@shape.circle:
 	{
@@ -62,4 +62,14 @@ despawn:
 	threshold_despawning: 0.050
 	amount_ratio: 0.002
 	amount_ratio_extra: 0.003
+}
+
+health:
+{
+	max: 41000.000
+}
+
+breakable:
+{
+	flags: no_damage
 }
