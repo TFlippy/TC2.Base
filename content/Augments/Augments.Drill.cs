@@ -14,6 +14,11 @@ namespace TC2.Base
 				name: "Overclocked Mechanism",
 				description: "Increases drilling speed.",
 
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
+
 				can_add: static (ref Augment.Context context, in Drill.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					return !augments.HasAugment(handle);
@@ -55,6 +60,11 @@ namespace TC2.Base
 				name: "Larger Drill Head",
 				description: "Increases drilling area, but reduces speed.",
 
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
+
 				can_add: static (ref Augment.Context context, in Drill.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					return !augments.HasAugment(handle);
@@ -95,6 +105,11 @@ namespace TC2.Base
 				category: "Drill",
 				name: "Smirglum Drill Head",
 				description: "Greatly increases drill power at cost of reduced speed.",
+
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
 
 				can_add: static (ref Augment.Context context, in Drill.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{

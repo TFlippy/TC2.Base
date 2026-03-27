@@ -13,6 +13,11 @@
 				description: "Replaces entire structure with smirglum, greatly increasing durability and making it solid to essences.",
 				flags: Augment.Definition.Flags.Hidden,
 
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
+
 				can_add: static (ref Augment.Context context, in Health.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					var h_mat = new IMaterial.Handle("steel.ingot");
@@ -87,6 +92,11 @@
 				name: "Chitin-Lined",
 				description: "Incorporate chitin lining into the armor, increasing its protection while slightly lowering its toughness.",
 
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
+
 				can_add: static (ref Augment.Context context, in Armor.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					return !augments.HasAugment(handle);
@@ -117,6 +127,11 @@
 				name: "Smirglum Plating",
 				description: "Reinforce the armor with smirglum plating, increasing its toughness, weight and making it solid to essences.",
 				flags: Augment.Definition.Flags.Hidden,
+
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
 
 				can_add: static (ref Augment.Context context, in Armor.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{

@@ -30,6 +30,11 @@ namespace TC2.Base
 				},
 #endif
 
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
+
 				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					if (data.feed == Gun.Feed.Single || data.feed == Gun.Feed.Breech || data.feed == Gun.Feed.Front) return false;
@@ -185,6 +190,11 @@ namespace TC2.Base
 					amount = Maths.Clamp(amount, 0.00f, 1.00f);
 
 					return true;
+				},
+
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
 				},
 
 				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
@@ -368,6 +378,11 @@ namespace TC2.Base
 				name: "Mode: Semi-Automatic",
 				description: "Converts fire mode to semi-automatic.",
 
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
+
 				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					return (data.action == Gun.Action.Gas || data.action == Gun.Action.Blowback || data.action == Gun.Action.Crank) && data.flags.HasAny(Gun.Flags.Automatic) && !augments.HasAugment(handle);
@@ -483,10 +498,15 @@ namespace TC2.Base
 				name: "Autocannon: Caliber Downgrade",
 				description: "Rechambers to a lower caliber, turning autocannon into oversized and sturdy machine gun.",
 
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
+
 				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					if (data.type != Gun.Type.AutoCannon) return false;
-					return data.ammo_filter.HasAny(Material.Flags.Ammo_AC | Material.Flags.Ammo_MG | Material.Flags.Ammo_HC);
+					return data.ammo_filter.HasAny(Material.Flags.Ammo_AC | Material.Flags.Ammo_MG | Material.Flags.Ammo_HC) && !augments.HasAugment(handle);
 				},
 
 				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
@@ -557,6 +577,11 @@ namespace TC2.Base
 				category: "Gun (Receiver)",
 				name: "Rapid-Fire Mechanism",
 				description: "Greatly increases fire rate, at the cost of worsened ballistics.",
+
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
 
 				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
@@ -649,6 +674,11 @@ namespace TC2.Base
 				name: "Improved Ammo Loading",
 				description: "Improves reliability and slightly increases rate of fire, while also increasing manufacturing costs.",
 
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
+
 				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					return (data.action == Gun.Action.Gas || data.action == Gun.Action.Blowback) && !augments.HasAugment(handle);
@@ -731,6 +761,11 @@ namespace TC2.Base
 				category: "Gun (Receiver)",
 				name: "Stacked Charge",
 				description: "Allows to load more than one round per barrel, at the cost of increased complexity and manufacturing costs. Note that it doesn't improve cooling, so use at your own risk.",
+
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
 
 				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
@@ -847,6 +882,11 @@ namespace TC2.Base
 					return GUI.SliderInt("Caliber", ref value, -2, 2);
 				},
 #endif
+
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
 
 				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
@@ -1014,6 +1054,11 @@ namespace TC2.Base
 					amount = Maths.Clamp(amount, 0.00f, 1.00f);
 
 					return true;
+				},
+
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
 				},
 
 				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
@@ -1373,6 +1418,11 @@ namespace TC2.Base
 					return true;
 				},
 
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
+
 				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					return !augments.HasAugment(handle);
@@ -1475,6 +1525,11 @@ namespace TC2.Base
 					offset.Snap(0.125f, out offset);
 
 					return true;
+				},
+
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
 				},
 
 				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
@@ -1737,6 +1792,11 @@ namespace TC2.Base
 				},
 #endif
 
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
+
 				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					return !augments.HasAugment(handle);
@@ -1961,6 +2021,11 @@ namespace TC2.Base
 				name: "Gas Seal",
 				description: "Increases damage and velocity by moving cylinder closer to barrel before each shot to avoid flash gap in revolver.",
 
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
+
 				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					return data.feed == Gun.Feed.Cylinder && !augments.HasAugment(handle);
@@ -2042,6 +2107,11 @@ namespace TC2.Base
 				name: "Hand-Fitted Parts",
 				description: "Increases damage and velocity by making flash gap in revolver shorter due to very careful construction, at the cost of workspeed.",
 
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
+
 				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					return data.feed == Gun.Feed.Cylinder && !augments.HasAugment(handle);
@@ -2122,6 +2192,11 @@ namespace TC2.Base
 				category: "Gun (Frame)",
 				name: "Side Gate Loading",
 				description: "Simplifies revolver's construction, increasing reliability at the cost of reload speed.",
+
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
 
 				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
@@ -2349,6 +2424,11 @@ namespace TC2.Base
 					return true;
 				},
 
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
+
 				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					return !augments.HasAugment(handle);
@@ -2448,9 +2528,14 @@ namespace TC2.Base
 					//[0] = Crafting.Requirement.Level(Experience.Type.Engineering, 10, Crafting.Requirement.Flags.No_Consume),
 				},
 
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
+
 				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					return data.action == Gun.Action.Blowback;
+					return data.action == Gun.Action.Blowback && !augments.HasAugment(handle);
 				},
 
 				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
@@ -2538,6 +2623,11 @@ namespace TC2.Base
 				category: "Gun (Receiver)",
 				name: "Feed: Single-Shot",
 				description: "Converts to single-shot feed mechanism.",
+
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
 
 				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
@@ -2647,6 +2737,11 @@ namespace TC2.Base
 				name: "Mode: Burst",
 				description: "Converts automatic fire mode to burst.",
 
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
+
 				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					return (data.action == Gun.Action.Gas || data.action == Gun.Action.Blowback) && data.flags.HasAny(Gun.Flags.Automatic) && data.burst_count <= 1 && !augments.HasAugment(handle);
@@ -2690,6 +2785,11 @@ namespace TC2.Base
 				category: "Gun (Barrel)",
 				name: "Extra Barrel",
 				description: "Adds an extra barrel to the gun.",
+
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return augments.GetCount(handle) < 3;
+				},
 
 				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
@@ -2906,6 +3006,11 @@ namespace TC2.Base
 					return true;
 				},
 
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
+
 				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					return !augments.HasAugment(handle);
@@ -2959,6 +3064,11 @@ namespace TC2.Base
 					offset.Y.ClampRef(0.00f, 1.00f);
 
 					return true;
+				},
+
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
 				},
 
 				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
@@ -3036,6 +3146,11 @@ namespace TC2.Base
 					offset.Y.ClampRef(-0.125f, 0.125f);
 
 					return true;
+				},
+
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
 				},
 
 				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
@@ -3147,6 +3262,11 @@ namespace TC2.Base
 					return true;
 				},
 
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
+
 				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					return context.mass_old <= 100.00f && !augments.HasAugment(handle) && !context.HasComponent<Melee.Data>();
@@ -3215,6 +3335,11 @@ namespace TC2.Base
 				category: "Gun (Ammo)",
 				name: "EC-MT Auto-Loader",
 				description: "Automatically reloads the weapon once the magazine is empty.",
+
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
 
 				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
@@ -3403,6 +3528,11 @@ namespace TC2.Base
 					return true;
 				},
 
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
+
 				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					return !augments.HasAugment(handle);
@@ -3567,6 +3697,11 @@ namespace TC2.Base
 					offset.Y.ClampRef(data.receiver_offset.Y, data.receiver_offset.Y);
 
 					return true;
+				},
+
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
 				},
 
 				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
@@ -3751,6 +3886,11 @@ namespace TC2.Base
 					offset.Y.ClampRef(data.muzzle_offset.Y - 0.125f, data.muzzle_offset.Y + 0.125f);
 
 					return true;
+				},
+
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
 				},
 
 				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
@@ -3982,6 +4122,11 @@ namespace TC2.Base
 					return true;
 				},
 
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
+
 				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					return context.mass_old <= 60.00f && !augments.HasAugment(handle) && !context.HasComponent<Arcer.Data>() && !context.HasComponent<Melee.Data>();
@@ -4074,6 +4219,11 @@ namespace TC2.Base
 					offset.Y.ClampRef(data.muzzle_offset.Y - 0.000f, data.muzzle_offset.Y + 0.500f);
 
 					return true;
+				},
+
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
 				},
 
 				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
