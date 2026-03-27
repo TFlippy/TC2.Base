@@ -17,8 +17,10 @@ namespace TC2.Base
 
 				validate: static (ref context, in data, ref handle, augments) =>
 				{
+					//context.mass_old
+
 					ref var pair = ref handle.GetData<(int amount, float threshold)>();
-					pair.amount = Maths.Clamp(pair.amount, 10, 50);
+					pair.amount = Maths.Clamp(pair.amount, 1, 25);
 					pair.threshold = Maths.Clamp(pair.threshold, 0.20f, 0.99f);
 
 					return true;
@@ -32,7 +34,7 @@ namespace TC2.Base
 					var size = GUI.Rm;
 
 					var changed = false;
-					changed |= GUI.SliderInt("Amount", ref pair.amount, 10, 50, size: new(size.X * 0.50f, size.Y));
+					changed |= GUI.SliderInt("Amount", ref pair.amount, 1, 25, size: new(size.X * 0.50f, size.Y));
 					GUI.SameLine();
 					changed |= GUI.SliderFloat("Threshold", ref pair.threshold, 0.20f, 0.99f, size: new(size.X * 0.50f, size.Y));
 
@@ -213,7 +215,7 @@ namespace TC2.Base
 				apply_0: static (ref context, ref data, ref handle, augments) =>
 				{
 					data.failure_chance = 0.00f;
-					context.requirements_new.Merge(Crafting.Requirement.Resource("mushroom.green", 4.00f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
+					context.requirements_new.Merge(Crafting.Requirement.Resource("mushroom.green", 1.00f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 				}
 			));
 
@@ -1075,7 +1077,7 @@ namespace TC2.Base
 
 				can_add: static (ref context, in data, ref handle, augments) =>
 				{
-					return augments.GetCount(handle) <= 4;
+					return augments.GetCount(handle) <= 2;
 				},
 
 				apply_1: static (ref context, ref data, ref handle, augments) =>
@@ -1157,7 +1159,7 @@ namespace TC2.Base
 
 				can_add: static (ref context, in data, ref handle, augments) =>
 				{
-					return augments.GetCount(handle) <= 3;
+					return augments.GetCount(handle) <= 2;
 				},
 
 				apply_1: static (ref context, ref data, ref handle, augments) =>
@@ -2057,7 +2059,7 @@ namespace TC2.Base
 
 				can_add: static (ref context, in data, ref handle, augments) =>
 				{
-					return augments.GetCount(handle) < 8;
+					return context.mass_old >= 40.00f && augments.GetCount(handle) < 6;
 				},
 
 #if CLIENT
@@ -2106,7 +2108,7 @@ namespace TC2.Base
 
 				can_add: static (ref context, in data, ref handle, augments) =>
 				{
-					return augments.GetCount(handle) < 8;
+					return context.mass_old >= 150.00f && augments.GetCount(handle) < 4;
 				},
 
 #if CLIENT
@@ -2364,7 +2366,7 @@ namespace TC2.Base
 
 				can_add: static (ref context, in data, ref handle, augments) =>
 				{
-					return augments.GetCount(handle) < 8;
+					return context.mass_old >= 40.00f && augments.GetCount(handle) < 6;
 				},
 
 #if CLIENT
@@ -2807,7 +2809,7 @@ namespace TC2.Base
 
 				can_add: static (ref context, in data, ref handle, augments) =>
 				{
-					return augments.GetCount(handle) < 8;
+					return context.mass_old >= 40.00f && augments.GetCount(handle) < 6;
 				},
 
 #if CLIENT
@@ -3259,7 +3261,7 @@ namespace TC2.Base
 
 				can_add: static (ref context, in data, ref handle, augments) =>
 				{
-					return augments.GetCount(handle) < 8;
+					return context.mass_old >= 70.00f && augments.GetCount(handle) < 6;
 				},
 
 #if CLIENT

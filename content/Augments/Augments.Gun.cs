@@ -203,7 +203,9 @@ namespace TC2.Base
 				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					ref var value = ref handle.GetData<float>();
+					var vel_ratio = Maths.Normalize(data.velocity_multiplier, data.velocity_max).Pow2();
 					var ratio = value;
+					var ratio_b = (value / vel_ratio).Clamp(0.00f, 1.20f);
 
 					switch (data.type)
 					{
@@ -217,46 +219,46 @@ namespace TC2.Base
 
 						case Gun.Type.Rifle:
 						{
-							data.damage_multiplier *= Maths.Lerp(1.00f, 1.28f, ratio);
-							data.velocity_multiplier *= Maths.Lerp(1.00f, 1.13f, ratio);
-							data.jitter_multiplier *= Maths.Lerp(1.00f, 0.10f, ratio);
-							data.recoil_multiplier += Maths.Lerp(0.00f, 0.10f, ratio);
+							data.damage_multiplier *= Maths.Lerp(1.00f, 1.28f, ratio_b);
+							data.velocity_multiplier *= Maths.Lerp(1.00f, 1.13f, ratio_b);
+							data.jitter_multiplier *= Maths.Lerp(1.00f, ratio_b, ratio);
+							data.recoil_multiplier += Maths.Lerp(0.00f, 0.10f, ratio_b);
 						}
 						break;
 
 						case Gun.Type.MachineGun:
 						{
-							data.damage_multiplier *= Maths.Lerp(1.00f, 1.28f, ratio);
-							data.velocity_multiplier *= Maths.Lerp(1.00f, 1.13f, ratio);
-							data.jitter_multiplier *= Maths.Lerp(1.00f, 0.10f, ratio);
-							data.recoil_multiplier += Maths.Lerp(0.00f, 0.10f, ratio);
+							data.damage_multiplier *= Maths.Lerp(1.00f, 1.28f, ratio_b);
+							data.velocity_multiplier *= Maths.Lerp(1.00f, 1.13f, ratio_b);
+							data.jitter_multiplier *= Maths.Lerp(1.00f, ratio_b, ratio);
+							data.recoil_multiplier += Maths.Lerp(0.00f, 0.10f, ratio_b);
 						}
 						break;
 
 						case Gun.Type.SMG:
 						{
-							data.damage_multiplier *= Maths.Lerp(1.00f, 1.25f, ratio);
-							data.velocity_multiplier *= Maths.Lerp(1.00f, 1.12f, ratio);
-							data.jitter_multiplier *= Maths.Lerp(1.00f, 0.15f, ratio);
-							data.recoil_multiplier += Maths.Lerp(0.00f, 0.15f, ratio);
+							data.damage_multiplier *= Maths.Lerp(1.00f, 1.25f, ratio_b);
+							data.velocity_multiplier *= Maths.Lerp(1.00f, 1.12f, ratio_b);
+							data.jitter_multiplier *= Maths.Lerp(1.00f, ratio_b, ratio);
+							data.recoil_multiplier += Maths.Lerp(0.00f, 0.15f, ratio_b);
 						}
 						break;
 
 						case Gun.Type.Handgun:
 						{
-							data.damage_multiplier *= Maths.Lerp(1.00f, 1.20f, ratio);
-							data.velocity_multiplier *= Maths.Lerp(1.00f, 1.10f, ratio);
-							data.jitter_multiplier *= Maths.Lerp(1.00f, 0.15f, ratio);
-							data.recoil_multiplier += Maths.Lerp(0.00f, 0.05f, ratio);
+							data.damage_multiplier *= Maths.Lerp(1.00f, 1.20f, ratio_b);
+							data.velocity_multiplier *= Maths.Lerp(1.00f, 1.10f, ratio_b);
+							data.jitter_multiplier *= Maths.Lerp(1.00f, ratio_b, ratio);
+							data.recoil_multiplier += Maths.Lerp(0.00f, 0.05f, ratio_b);
 						}
 						break;
 
 						default:
 						{
-							data.damage_multiplier *= Maths.Lerp(1.00f, 1.25f, ratio);
-							data.velocity_multiplier *= Maths.Lerp(1.00f, 1.12f, ratio);
-							data.jitter_multiplier *= Maths.Lerp(1.00f, 0.15f, ratio);
-							data.recoil_multiplier += Maths.Lerp(0.00f, 0.10f, ratio);
+							data.damage_multiplier *= Maths.Lerp(1.00f, 1.25f, ratio_b);
+							data.velocity_multiplier *= Maths.Lerp(1.00f, 1.12f, ratio_b);
+							data.jitter_multiplier *= Maths.Lerp(1.00f, ratio_b, ratio);
+							data.recoil_multiplier += Maths.Lerp(0.00f, 0.10f, ratio_b);
 						}
 						break;
 					}
@@ -315,6 +317,11 @@ namespace TC2.Base
 				category: "Gun (Receiver)",
 				name: "Mode: Automatic",
 				description: "Converts fire mode to automatic.",
+
+				can_add_simple: static (ref Augment.Handle handle, Span<Augment.Handle> augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
 
 				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
@@ -1872,11 +1879,12 @@ namespace TC2.Base
 				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					data.failure_rate *= 0.85f;
-					data.failure_rate -= Maths.Min(data.failure_rate, 0.05f);
+					data.failure_rate -= Maths.Min(data.failure_rate * 0.50f, 0.05f);
 					data.stability *= 1.15f; // MathF.Pow(Maths.Clamp(data.stability, 0.00f, 1.00f), 2.00f);
 					data.cycle_interval *= 1.35f;
 					data.reload_interval *= 0.93f;
 					data.damage_multiplier *= 0.98f;
+					data.velocity_max *= 0.96f;
 				},
 
 				finalize: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
@@ -2322,7 +2330,7 @@ namespace TC2.Base
 						}
 					}
 
-					context.requirements_new.Merge(Crafting.Requirement.Resource("lubricant", 5.00f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
+					context.requirements_new.Merge(Crafting.Requirement.Resource("lubricant", 2.00f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 				}
 			));
 
@@ -2493,33 +2501,33 @@ namespace TC2.Base
 								}
 							}
 						}
-						else if (requirement.type == Crafting.Requirement.Type.Work)
-						{
-							switch (requirement.work.GetIdentifier())
-							{
-								case "machining":
-								{
-									requirement.amount *= 1.10f;
-									requirement.amount += 50.00f;
-									requirement.difficulty += 2;
-								}
-								break;
+						//else if (requirement.type == Crafting.Requirement.Type.Work)
+						//{
+						//	switch (requirement.work.GetIdentifier())
+						//	{
+						//		case "machining":
+						//		{
+						//			requirement.amount *= 1.10f;
+						//			requirement.amount += 50.00f;
+						//			requirement.difficulty += 2;
+						//		}
+						//		break;
 
-								case "smithing":
-								{
-									requirement.amount *= 1.40f;
-									requirement.difficulty += 3;
-								}
-								break;
+						//		case "smithing":
+						//		{
+						//			requirement.amount *= 1.40f;
+						//			requirement.difficulty += 3;
+						//		}
+						//		break;
 
-								case "assembling":
-								{
-									requirement.amount *= 0.70f;
-									requirement.difficulty += 2;
-								}
-								break;
-							}
-						}
+						//		case "assembling":
+						//		{
+						//			requirement.amount *= 0.70f;
+						//			requirement.difficulty += 2;
+						//		}
+						//		break;
+						//	}
+						//}
 					}
 				}
 			));
@@ -2715,6 +2723,7 @@ namespace TC2.Base
 					{
 						data.ammo_per_shot += 1.00f;
 						data.smoke_amount += 1.50f;
+						data.muzzle_blast_mult += 0.50f;
 						//data.projectile_count += 1;
 					}
 
@@ -2732,7 +2741,7 @@ namespace TC2.Base
 								//data.stability -= Maths.Min(data.stability, 0.50f);
 								//data.stability = Maths.Clamp(data.stability * 0.60f, 0.00f, 1.00f);
 
-								data.stability *= 1.24f;
+								data.stability *= 1.07f;
 
 								//data.reload_interval *= 1.30f;
 
@@ -2745,7 +2754,7 @@ namespace TC2.Base
 							}
 							else
 							{
-								data.stability *= 1.24f;
+								data.stability *= 1.07f;
 								//data.stability -= Maths.Min(data.stability, 0.02f);
 								//data.stability = MathF.Pow(Maths.Clamp(data.stability, 0.00f, 1.00f), 2.00f);
 							}
@@ -2763,7 +2772,7 @@ namespace TC2.Base
 								//data.stability = Maths.Clamp(data.stability * 0.70f, 0.00f, 1.00f);
 
 								//data.stability *= 0.70f;
-								data.stability *= 1.12f;
+								data.stability *= 0.92f;
 
 								data.cycle_interval *= 1.30f;
 								data.reload_interval *= 1.30f;
@@ -2783,7 +2792,7 @@ namespace TC2.Base
 								//data.stability -= Maths.Min(data.stability, 0.10f);
 								//data.stability = Maths.Clamp(data.stability * 0.95f, 0.00f, 1.00f);
 
-								data.stability *= 1.12f;
+								data.stability *= 0.98f;
 
 								data.reload_interval *= 1.30f;
 
@@ -2832,11 +2841,11 @@ namespace TC2.Base
 
 				apply_1: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					ref var heat = ref context.GetComponent<Heat.Data>();
-					if (!heat.IsNull())
-					{
-						heat.cool_rate *= 1.30f;
-					}
+					//ref var heat = ref context.GetComponent<Heat.Data>();
+					//if (!heat.IsNull())
+					//{
+					//	heat.cool_rate *= 1.30f;
+					//}
 
 					var barrel_count_inv = MathF.ReciprocalEstimate(Maths.Max(data.barrel_count - augments.GetCount(handle), 1));
 
@@ -2954,7 +2963,7 @@ namespace TC2.Base
 
 				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					return !augments.HasAugment(handle) && !context.HasComponent<Melee.Data>();
+					return context.mass_old <= 60.00f && !augments.HasAugment(handle) && !context.HasComponent<Melee.Data>();
 				},
 
 #if CLIENT
@@ -3140,7 +3149,7 @@ namespace TC2.Base
 
 				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					return !augments.HasAugment(handle) && !context.HasComponent<Melee.Data>();
+					return context.mass_old <= 100.00f && !augments.HasAugment(handle) && !context.HasComponent<Melee.Data>();
 				},
 
 #if CLIENT
@@ -3204,12 +3213,12 @@ namespace TC2.Base
 			(
 				identifier: "gun.automatic_reloading",
 				category: "Gun (Ammo)",
-				name: "ARC-MT Auto-Loader",
+				name: "EC-MT Auto-Loader",
 				description: "Automatically reloads the weapon once the magazine is empty.",
 
 				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					return !augments.HasAugment(handle) && data.type != Gun.Type.Handgun;
+					return data.type != Gun.Type.Handgun && !augments.HasAugment(handle);
 				},
 
 				validate: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
@@ -3324,7 +3333,7 @@ namespace TC2.Base
 					}
 					else if (data.ammo_filter.HasAll(Material.Flags.Ammo_KN))
 					{
-						context.requirements_new.Merge(Crafting.Requirement.Resource("actuator", 1.00f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact), ref extra_mass);
+						context.requirements_new.Merge(Crafting.Requirement.Resource("actuator", 4.00f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact), ref extra_mass);
 						context.requirements_new.Merge(Crafting.Requirement.Resource("steel.ingot", 3.00f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact), ref extra_mass);
 						context.requirements_new.Merge(Crafting.Requirement.Resource("machine_parts", 17.00f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact), ref extra_mass);
 						context.requirements_new.Merge(Crafting.Requirement.Work("assembling", 100.00f, 10));
@@ -3382,7 +3391,7 @@ namespace TC2.Base
 			(
 				identifier: "gun.recoil_compensator",
 				category: "Gun (Frame)",
-				name: "ARC-MT Compensator",
+				name: "EC-MT Compensator",
 				description: "Applies force in opposite direction upon being fired. Needs careful calibration.",
 
 				validate: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
@@ -3548,7 +3557,7 @@ namespace TC2.Base
 			(
 				identifier: "gun.accelerator",
 				category: "Gun (Barrel)",
-				name: "ARC-MT Accelerator",
+				name: "EC-MT Accelerator",
 				description: "Greatly increases projectile velocity, as well as recoil.",
 
 				validate: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
@@ -3601,22 +3610,25 @@ namespace TC2.Base
 
 					var frame_y = 0u;
 
-					if (data.ammo_filter.HasAny(Material.Flags.Ammo_LC))
-					{
-						frame_y = 0u;
-					}
-					else if (data.ammo_filter.HasAny(Material.Flags.Ammo_HC | Material.Flags.Ammo_SG | Material.Flags.Ammo_Musket))
-					{
-						frame_y = 1u;
-					}
-					else if (data.ammo_filter.HasAny(Material.Flags.Ammo_MG | Material.Flags.Ammo_KN))
-					{
-						frame_y = 2u;
-					}
-					else if (data.ammo_filter.HasAny(Material.Flags.Ammo_HW | Material.Flags.Ammo_AC))
+					if (data.ammo_filter.HasAny(Material.Flags.Ammo_HW | Material.Flags.Ammo_AC | Material.Flags.Ammo_KN))
 					{
 						frame_y = 3u;
 					}
+					else if (data.ammo_filter.HasAny(Material.Flags.Ammo_MG | Material.Flags.Ammo_SG))
+					{
+						frame_y = 2u;
+					}
+					else if (data.ammo_filter.HasAny(Material.Flags.Ammo_HC | Material.Flags.Ammo_Musket))
+					{
+						frame_y = 1u;
+					}
+					else if (data.ammo_filter.HasAny(Material.Flags.Ammo_LC))
+					{
+						frame_y = 0u;
+					}
+					
+					
+					
 
 					var sprite = new Sprite("augment.accelerator", 16, 16, (uint)type, frame_y);
 
@@ -3649,31 +3661,34 @@ namespace TC2.Base
 						var pellet_count = 0.00f;
 						var smirglum_count = 0.00f;
 
-						if (data.ammo_filter.HasAny(Material.Flags.Ammo_LC))
+						if (data.ammo_filter.HasAny(Material.Flags.Ammo_HW))
 						{
-							pellet_count = (1.00f + type) * 0.500f;
-							smirglum_count = (1.00f + type) * 0.55f * 0.25f;
-						}
-						else if (data.ammo_filter.HasAny(Material.Flags.Ammo_HC | Material.Flags.Ammo_SG | Material.Flags.Ammo_Musket))
-						{
-							pellet_count = (1.00f + type) * 2.00f;
-							smirglum_count = (1.00f + type) * 0.80f * 0.25f;
-						}
-						else if (data.ammo_filter.HasAny(Material.Flags.Ammo_MG))
-						{
-							pellet_count = (1.00f + type) * 4.00f;
-							smirglum_count = (1.00f + type) * 1.20f * 0.25f;
+							pellet_count = (1.00f + type) * 15.00f;
+							smirglum_count = (1.00f + type) * 14.00f * 0.25f;
 						}
 						else if (data.ammo_filter.HasAny(Material.Flags.Ammo_KN | Material.Flags.Ammo_AC))
 						{
 							pellet_count = (1.00f + type) * 8.00f;
 							smirglum_count = (1.00f + type) * 3.00f * 0.25f;
 						}
-						else if (data.ammo_filter.HasAny(Material.Flags.Ammo_HW))
+						else if (data.ammo_filter.HasAny(Material.Flags.Ammo_MG | Material.Flags.Ammo_SG))
 						{
-							pellet_count = (1.00f + type) * 15.00f;
-							smirglum_count = (1.00f + type) * 14.00f * 0.25f;
+							pellet_count = (1.00f + type) * 4.00f;
+							smirglum_count = (1.00f + type) * 1.20f * 0.25f;
 						}
+						else if (data.ammo_filter.HasAny(Material.Flags.Ammo_HC | Material.Flags.Ammo_Musket))
+						{
+							pellet_count = (1.00f + type) * 2.00f;
+							smirglum_count = (1.00f + type) * 0.80f * 0.25f;
+						}
+						else if (data.ammo_filter.HasAny(Material.Flags.Ammo_LC))
+						{
+							pellet_count = (1.00f + type) * 0.500f;
+							smirglum_count = (1.00f + type) * 0.55f * 0.25f;
+						}
+						
+						
+						
 
 						context.requirements_new.Merge(Crafting.Requirement.Resource("pellet.motion", pellet_count).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact), ref mass_added);
 						context.requirements_new.Merge(Crafting.Requirement.Resource("smirgrafit.clay", smirglum_count).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact), ref mass_added);
@@ -3701,9 +3716,21 @@ namespace TC2.Base
 							light.texture = Light.tex_light_box_00;
 						}
 
-						data.velocity_multiplier += MathF.Pow(100 * (1 + type), 1.15f);
+						var velocity_add = MathF.Pow(100 * (1 + type), 1.15f);
+
+						data.velocity_multiplier += velocity_add;
+						var velocity_overshoot_modifier = Maths.Normalize(data.velocity_multiplier, data.velocity_max);
+						data.velocity_max += velocity_add * 0.95f;
+
 						data.recoil_multiplier += Maths.PowFast((1 + type) * 0.75f, 0.75f);
-						data.damage_multiplier += Maths.PowFast((1 + type) * 0.75f, 1.50f);
+						data.damage_multiplier += Maths.PowFast((1 + type) * 0.75f, 1.50f) * 0.50f;
+
+						if (velocity_overshoot_modifier > 1.00f)
+						{
+							data.stability /= velocity_overshoot_modifier * 1.50f;
+							data.failure_rate += (velocity_overshoot_modifier - 1.00f).Pow2() * 0.40f;
+						}
+
 
 						//data.recoil_multiplier -= Maths.Normalize(force * dist_mult, context.mass_new * 20.00f);
 					}
@@ -3957,7 +3984,7 @@ namespace TC2.Base
 
 				can_add: static (ref Augment.Context context, in Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					return !augments.HasAugment(handle) && !context.HasComponent<Arcer.Data>() && !context.HasComponent<Melee.Data>();
+					return context.mass_old <= 60.00f && !augments.HasAugment(handle) && !context.HasComponent<Arcer.Data>() && !context.HasComponent<Melee.Data>();
 				},
 
 #if CLIENT
