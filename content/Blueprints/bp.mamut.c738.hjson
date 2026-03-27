@@ -1,15 +1,16 @@
 ﻿{
-	$version: "0.1.62.5"
+	$version: "0.1.72.1"
 	name: "Mamut C-738"
 	description:
 		'''
-		High-powered anti-materiel rifle with two barrels and a scope.
+		High-powered, double-barreled anti-materiel rifle for giants.
+		
 		Capable of firing explosive ammunition.
 		'''
 	
 	flags: hidden
 	
-	h_company: "null"
+	h_company: houfmistr
 	h_prefab: rifle
 	h_recipe: gunsmith.rifle
 	
