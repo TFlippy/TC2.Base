@@ -6,7 +6,7 @@ body:
 	flags: none
 	tags: hollow, solid, round, angular, complex
 	
-	fall_damage_multiplier: 1.150
+	fall_damage_multiplier: 1.350
 	buoyancy: 0.480
 
 	@shape.line:
@@ -25,7 +25,7 @@ body:
 		friction: 0.650
 		elasticity: 0.400
 		
-		fall_damage_mult: 1.130
+		fall_damage_mult: 1.230
 		// cog_offset: [0.000, 0.1875]
 		
 		a: [0.000, -0.200]
@@ -93,7 +93,7 @@ explosive:
 	power: 4.100
 	damage_entity: 6000.000
 	damage_terrain: 8000.000
-	health_threshold: 0.550
+	health_threshold: 0.850
 	
 	damage_type: phlogiston
 	damage_type_secondary: shockwave
