@@ -15,6 +15,7 @@ namespace TC2.Base.Components
 			No_Self_Damage = 1 << 3,
 			Repeatable = 1 << 4,
 			Primed_When_Destroyed = 1 << 5,
+			Quantity_Modifier_Linear = 1 << 6,
 		}
 
 		[IEvent.Data]
@@ -124,6 +125,7 @@ namespace TC2.Base.Components
 			public float pitch = 1.00f;
 
 			[Save.NewLine]
+			public float modifier_min = 0.01f;
 			[Asset.Ignore] public float modifier = 1.00f;
 
 			//[Net.Ignore, Asset.Ignore, Obsolete] public Entity ent_owner;
@@ -190,7 +192,10 @@ namespace TC2.Base.Components
 			if (material.IsNotNull())
 			{
 				//explosive.modifier = Maths.Sqrt(resource.GetQuantityNormalized()).Clamp01();
-				explosive.modifier = Maths.Cbrt(resource.GetQuantityNormalized().Clamp01());
+
+				var quantity_norm = resource.GetQuantityNormalized().Clamp01();
+				if (explosive.flags.HasNone(Explosive.Flags.Quantity_Modifier_Linear)) quantity_norm = Maths.Cbrt(quantity_norm);
+				explosive.modifier = quantity_norm;
 			}
 			//explosive.modifier = Maths.NormalizeClamp(resource.quantity, resource.material.GetDefinition().quantity_max);
 			//explosive.modifier = MathF.Log2(resource.quantity / Maths.Max(resource.material.GetDefinition().quantity_max, 1.00f));
@@ -201,7 +206,7 @@ namespace TC2.Base.Components
 		public static void OnRemove(ref Region.Data region, Entity entity, 
 		[Source.Owned] in Transform.Data transform, [Source.Owned] in Explosive.Data explosive)
 		{
-			if (explosive.flags.HasAny(Explosive.Flags.Primed))
+			if (explosive.flags.HasAny(Explosive.Flags.Primed) && explosive.modifier >= explosive.modifier_min)
 			{
 				//var explosion_tmp = new Explosion.Data()
 				//{

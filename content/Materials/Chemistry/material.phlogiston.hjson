@@ -55,6 +55,7 @@
 	color_item: "0xffffffff"
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
+	color_liquid: [1.510, 0.730, 0.370, 1.920]
 	
 	colliders: []
 	
