@@ -71,7 +71,7 @@ gun:
 	stability: 12800.000
 	failure_rate: 0.014
 	
-	ammo_filter: ammo_mg, ammo_ac, ammo_kn, ammo_musket
+	ammo_filter: ammo_mg, ammo_ac, ammo_kn
 	max_ammo: 1.000
 	
 	action: manual
@@ -79,6 +79,7 @@ gun:
 	feed: breech
 	
 	flags: full_reload, cycle_on_shoot, eject_on_shoot, eject_from_muzzle
+	heuristic_range: 30.000
 
 	@inventory1:
 	{

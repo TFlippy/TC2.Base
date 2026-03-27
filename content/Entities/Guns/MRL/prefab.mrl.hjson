@@ -42,6 +42,7 @@ gun:
 	sound_reload: "mrl_reload"
 	sound_pitch: 1.500
 	velocity_multiplier: 50.000
+	velocity_max: 150.000
 	jitter_multiplier: 1.450
 	damage_multiplier: 1.000
 	recoil_multiplier: 0.500
@@ -52,6 +53,7 @@ gun:
 	projectile_count: 1
 	barrel_count: 6
 	flags: automatic, cycle_on_shoot, cycled_when_reloaded
+	heuristic_range: 40.000
 	ammo_filter: ammo_rocket
 	action: manual
 	type: launcher

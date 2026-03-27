@@ -52,7 +52,7 @@ gun:
 	sound_reload: machine_gun_reload
 	
 	damage_multiplier: 3.400
-	velocity_multiplier: 680.000
+	velocity_multiplier: 580.000
 	velocity_max: 880.000
 	jitter_multiplier: 0.800
 	recoil_multiplier: 1.360

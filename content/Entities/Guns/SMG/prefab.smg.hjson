@@ -35,6 +35,7 @@ gun:
 	sound_reload: "smg_reload"
 	sound_empty: "gun_empty"
 	velocity_multiplier: 330.000
+	velocity_max: 600.000
 	jitter_multiplier: 0.700
 	damage_multiplier: 2.750
 	recoil_multiplier: 3.000
