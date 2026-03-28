@@ -392,7 +392,7 @@ workshop:
 		material_type: flesh
 		
 		max_displacement: 1.000
-		displacement_stress_modifier: 0.200
+		displacement_stress_modifier: 0.300
 		displacement_force_modifier: 1.400
 
 		z: 4.000

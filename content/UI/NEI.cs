@@ -29,7 +29,7 @@ namespace TC2.Conquest
 				//{
 				//	if (window.show)
 				//	{
-				using (var widget = Sidebar.Widget.New(identifier: "nei", name: "Recipe Reference",
+				using (var widget = Sidebar.Widget.New(identifier: "nei", name: "ISO Handbook",
 				icon: new Sprite(GUI.tex_icons_widget, 16, 16, 1, 2),
 				size: new(48.00f * 7, 48.00f * 9),
 				size_min: new(48.00f * 7, 48.00f * 6),
@@ -181,6 +181,60 @@ namespace TC2.Conquest
 																h_item_selected.Toggle(h_material_related);
 															}
 														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+							else
+							{
+								//GUI.SeparatorThick(l: 4, r: 0, spacing: 16);
+
+								using (var scroll_related = GUI.Scrollbox.New("scroll.materials"u8, size: GUI.Rm))
+								{
+									var materials = IMaterial.Database.GetAssetsSpan();
+									foreach (var material_asset in materials)
+									{
+										ref var material_related_data = ref material_asset.GetData();
+										if (material_related_data.IsNotNull())
+										{
+											if (material_related_data.display_flags.HasAny(Material.DisplayFlags.Unlisted)) continue;
+
+											var h_material = material_asset.GetHandle();
+
+											using (var id = GUI.ID<NEI.Entry, Material.Type>.Push(h_material))
+											using (var group_row = GUI.Group.New(size: new(GUI.RmX, 32)))
+											{
+												if (group_row.IsVisible())
+												{
+													GUI.DrawMaterialSmall(h_material, size: new(GUI.RmY));
+													GUI.Draw9Slice(GUI.tex_frame, padding: new(4), rect: GUI.GetLastItemRect());
+
+													GUI.SameLine();
+
+													using (var group_info = GUI.Group.New(size: new(GUI.RmX, 32)))
+													{
+														var color = Color32BGRA.White;
+														//if (tags_related.HasAny(IMaterial.RelatedTags.Product | IMaterial.RelatedTags.Output | IMaterial.RelatedTags.Result)) color = GUI.col_new;
+														//if (tags_related.HasAny(IMaterial.RelatedTags.Ingredient | IMaterial.RelatedTags.Input | IMaterial.RelatedTags.Source)) color = GUI.col_remove;
+														group_info.DrawBackground(GUI.tex_slot_white, color: color.WithAlpha(192).WithColorMult(0.50f));
+
+														GUI.TitleCentered(material_related_data.GetName(), size: 16, pivot: new(0, 0.50f), offset: new(8, 0));
+														//GUI.TextShadedCentered(tags_related.WithMasked(
+														//	IMaterial.RelatedTags.Scrap | IMaterial.RelatedTags.Component | IMaterial.RelatedTags.Manufactured | IMaterial.RelatedTags.Ingredient |
+														//	IMaterial.RelatedTags.Product | IMaterial.RelatedTags.Waste | IMaterial.RelatedTags.Byproduct | IMaterial.RelatedTags.Residue | IMaterial.RelatedTags.Catalyst |
+														//	IMaterial.RelatedTags.Crushed | IMaterial.RelatedTags.Reaction | IMaterial.RelatedTags.Extracted | IMaterial.RelatedTags.Powdered | IMaterial.RelatedTags.Filler |
+														//	IMaterial.RelatedTags.Ore | IMaterial.RelatedTags.Raw | IMaterial.RelatedTags.Vapor | IMaterial.RelatedTags.Rotten | IMaterial.RelatedTags.Impurity).GetLowestSetBit().ToStringUtf8(),
+														//		size: 14, pivot: new(1, 0.50f), offset: new(-8, 0));
+													}
+
+													GUI.FocusableAsset(h_material, rect: group_row.GetOuterRect());
+
+													if (GUI.Selectable3(id: id.hash, rect: group_row.GetOuterRect(), selected: false))
+													{
+														h_item_selected.Toggle(h_material);
 													}
 												}
 											}

@@ -806,7 +806,7 @@ workshop:
 		max_torque: 10000.000
 		max_stress: 2.000
 		stress_threshold: 1.250
-		stress_damp: 0.500
+		stress_damp: 0.250
 		flags: control_write, facing_reset_pos, force_facing
 		z: 45.000
 
