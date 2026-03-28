@@ -115,16 +115,16 @@ control:
 aimable:
 {
 	deadzone: 0.400
-	min: -2.000
-	max: 2.000
+	min: -3.000
+	max: 0.700
 }
 
 holdable:
 {
 	offset: [-1.125, 0.000]
-	force_multiplier: 0.750
-	torque_multiplier: 1.150
-	stress_multiplier: 0.500
+	force_multiplier: 1.250
+	torque_multiplier: 1.250
+	stress_multiplier: 0.200
 	radius: 3.000
 	hints: tools, dangerous, heavy, short_range, advanced, machine, destructive, construction, device, industrial, arcane, tech, slow, unstable
 	flags: full_rotate

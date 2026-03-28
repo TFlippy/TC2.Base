@@ -81,7 +81,7 @@ faction:
 
 claimable:
 {
-	flags: allow_owner_unclaim
+	flags: allow_owner_unclaim, allow_enemy_unclaim
 }
 
 company:
