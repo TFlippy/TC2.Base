@@ -78,7 +78,7 @@ faction:
 
 claimable:
 {
-	flags: no_menu
+	flags: no_menu, enable_wololo
 }
 
 interactable:
