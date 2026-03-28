@@ -1,0 +1,27 @@
+﻿{
+	$version: "0.1.72.1"
+	name: "S.D. Zero"
+	date: "000.00.00 00:00:00"
+	
+	type: undefined
+	tags: political, innovation, discovery, official, ancient, society, world, literature, documentation, glorious
+	connotations: interesting, authority, big, bureaucracy, home, good, special
+	
+	desc:
+		'''
+		Day zero of the Standard Date calendar.
+
+		"The date of this event is unknown, but it is believed to have occurred in ancient times." 
+			- J.Pepek, Head Archivist of the Kordel Archival Society
+		'''
+	outcome:
+		'''
+		The Standard Date calendar has provided accurate timekeeping ever since.
+		'''
+	notes:
+		'''
+		It is worth noting that the Kordel Archival Society maintains no fewer than three contradictory official accounts 
+		of the establishment of the S.D. calendar. When pressed on this, Head Archivist J.Pepek reportedly stated: 
+		"They are all correct. The calendar was established three times, and each time was the first time."
+		'''
+}
