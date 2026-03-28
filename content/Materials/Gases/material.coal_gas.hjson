@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.72.1"
 	name: "Coal Gas"
 	name_short: "Coal Gas"
 	name_dumb: "Air"
@@ -21,7 +21,7 @@
 	// Inventory material type.
 	type: gas
 	flags: gas, explosive, toxic, chemical, raw, fuel, flammable, volatile
-	display_flags: sprite_stack_linear, no_random_facing
+	display_flags: sprite_stack_linear, no_random_facing, unlisted
 	spawn_flags:
 	{
 		add: no_discard

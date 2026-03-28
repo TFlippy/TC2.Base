@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.72.1"
 	name: "Biogas"
 	name_short: "Biogas"
 	name_dumb: "Farts"
@@ -21,7 +21,7 @@
 	// Inventory material type.
 	type: gas
 	flags: gas, organic, chemical, raw, fuel, flammable, waste, volatile
-	display_flags: sprite_stack_linear, no_random_facing
+	display_flags: sprite_stack_linear, no_random_facing, unlisted
 	spawn_flags:
 	{
 		add: no_discard

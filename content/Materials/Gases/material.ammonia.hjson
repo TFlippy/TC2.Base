@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.1"
 	name: "Ammonia"
 	name_short: "Ammonia"
 	name_imperial: "Amonijak"
@@ -22,7 +22,7 @@
 	// Inventory material type.
 	type: gas
 	flags: gas, toxic, chemical, corrosive, flammable, processed, primary
-	display_flags: sprite_stack_linear, no_random_facing
+	display_flags: sprite_stack_linear, no_random_facing, unlisted
 	spawn_flags:
 	{
 		add: no_discard

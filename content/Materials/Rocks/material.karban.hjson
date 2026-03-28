@@ -50,6 +50,7 @@
 	
 	form_type: raw
 	prefab: resource.karban
+	h_substance: karban
 	
 	color_icon: "0xffffffff"
 	color_item: "0xffffffff"

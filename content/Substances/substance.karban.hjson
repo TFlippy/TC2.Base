@@ -1,28 +1,28 @@
 ﻿{
+	$region_id: 0
 	$version: "0.1.72.1"
-	name: "Formic Acid"
+	name: "Karban"
 	description:
 		'''
 		TODO: Desc
 		'''
 	
-	cas_number: "64-18-6"
-	type: molecule
+	type: aggregate
 	atomic_number: 0
 	flags: none
-	tags: liquid
+	tags: mineral
 	
 	icon:
 	{
-		texture: ui_icons_widget
+		texture: resource.karban
 		size: [16, 16]
-		frame: [12, 1]
+		frame: [3, 1]
 	}
 	
-	color_icon: "0xff96e413"
+	color_icon: "0xffffffff"
 	color_gui: "0xffffffff"
-	color_dust: "0xffffffff"
-	color_gib: "0xffffffff"
+	color_dust: "0xff151515"
+	color_gib: "0xff151515"
 	color_smoke: "0x00000000"
 	
 	color_liquid: [0.000, 0.000, 0.000, 0.000]
@@ -87,6 +87,16 @@
 	
 	form_to_material:
 	{
-		packaged: formic_acid
+		chunk: karban
+		raw: karban
+		gravel: karban
+	}
+	
+	related:
+	{
+		graphite: none
+		mercury: none
+		smirgrafit: none
+		lead: none
 	}
 }

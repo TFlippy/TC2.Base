@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.72.1"
 	name: "EC-LF Pellets"
 	name_short: "EC-LF Pt."
 	name_imperial: "Lojf-Arkpelet"
@@ -21,7 +21,7 @@
 	// Inventory material type.
 	type: metal_solid
 	flags: hard, sticky, magnetic, granular, essence, toxic, metal, small, corrosive, fragile, manufactured, pellet, solid, processed, smelly, primary
-	display_flags: none
+	display_flags: unlisted
 	spawn_flags:
 	{
 		add: no_discard

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.72.1"
 	$note:
 		'''
 		- Strange crystals with a green glow
@@ -30,7 +30,7 @@
 	// Inventory material type.
 	type: crystal
 	flags: hard, granular, organic, mineral, small, fragile, raw, volatile, solid
-	display_flags: none
+	display_flags: unlisted
 	spawn_flags:
 	{
 		add: no_discard

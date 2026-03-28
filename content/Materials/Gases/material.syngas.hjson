@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.2"
+	$version: "0.1.72.1"
 	name: "Syngas"
 	name_short: "Syngas"
 	name_dumb: "Smoke"
@@ -21,7 +21,7 @@
 	// Inventory material type.
 	type: gas
 	flags: gas, explosive, toxic, chemical, fuel, flammable, volatile, processed
-	display_flags: sprite_stack_linear, no_random_facing
+	display_flags: sprite_stack_linear, no_random_facing, unlisted
 	spawn_flags:
 	{
 		add: no_discard

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.72.1"
 	name: "Dusty Smrad"
 	description:
 		'''
@@ -19,7 +19,7 @@
 	// Inventory material type.
 	type: gas
 	flags: magnetic, granular, gas, chemical, small, raw, powder, smelly, primary
-	display_flags: sprite_stack_linear, no_random_facing
+	display_flags: sprite_stack_linear, no_random_facing, unlisted
 	spawn_flags:
 	{
 		add: no_discard

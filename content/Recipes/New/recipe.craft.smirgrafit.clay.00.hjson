@@ -49,8 +49,8 @@
 						{
 							type: resource
 							material: graphite.powder
-							amount: 0.700
-							snapping: 1.000
+							amount: 1.511111
+							snapping: 0.100
 							falloff: 0.962
 							loss: 0.992
 							group: 0
@@ -224,7 +224,8 @@
 		size: [16, 16]
 		frame: [3, 0]
 	}
-	icon_offset: [6.000, 1.000]
+	icon_offset: [-7.000, -1.000]
+	icon_scale: 1.250
 	
 	icon_extra:
 	{
@@ -232,15 +233,15 @@
 		size: [16, 16]
 		frame: [2, 0]
 	}
-	icon_extra_offset: [-14.000, -8.000]
+	icon_extra_offset: [-4.000, -7.000]
 	
 	icon_c:
 	{
 		texture: resource.putty
 		size: [16, 16]
-		frame: [3, 0]
+		frame: [1, 0]
 	}
-	icon_c_offset: [-16.000, -14.000]
+	icon_c_offset: [-2.000, -11.000]
 	
 	color_frame: "0xff19e2b1"
 	color_button: "0xff9dd80f"

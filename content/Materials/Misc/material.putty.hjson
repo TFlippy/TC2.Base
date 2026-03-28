@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.72.1"
 	$note:
 		'''
 		- Something between Structure Gel from SOMA and the fluid used by the "strange dogs" on Laconia in The Expanse books
@@ -56,6 +56,7 @@
 	
 	form_type: packaged
 	prefab: resource.putty
+	h_substance: putty
 	
 	color_icon: "0xffffffff"
 	color_item: "0xffffffff"
@@ -85,8 +86,8 @@
 		putty: component, source, filler, element, ingredient
 		mercury: filler, ingredient, liquid, mixed
 		mercury.vapor: burnt, residue, decomposition, vapor
-		phlogiston: reaction, propellant
-		mithril: reaction
+		phlogiston: reaction, propellant, catalyst
+		mithril: reaction, catalyst
 		lubricant: filler, liquid, mixed
 	}
 }
