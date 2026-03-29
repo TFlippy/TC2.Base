@@ -29,9 +29,25 @@ body:
 
 organic:
 {
-	h_species: "drop_bear"
-	tags: heart, torso, legs, lungs
-	pain_base: 2000.000
+	h_species: drop_bear
+	tags: heart, torso, waist, legs, lungs, butt
+	flags: none
+	pain_base: 4000.000
+	pain_modifier: 0.100
+	
+	consciousness: 1.000
+	unused_00: 0.000
+	water_ratio: 0.600
+	work_speed: 0.100
+	
+	smartness: 0.100
+	motorics: 1.000
+	strength: 1.000
+	endurance: 1.500
+	dexterity: 0.500
+	coordination: 1.000
+	absorption: 1.400
+	regeneration: 1.100
 }
 
 organic.state:
@@ -41,7 +57,7 @@ organic.state:
 
 health:
 {
-	max: 3800.000
+	max: 5800.000
 }
 
 animated.renderer:
@@ -100,7 +116,7 @@ animal:
 
 	charge_distance: 6.000
 	retreat_distance: 2.500
-	growl_cooldown: 0.100
+	growl_cooldown: 1.100
 }
 
 animal.state:
@@ -110,20 +126,20 @@ animal.state:
 
 npc:
 {
-	pain_modifier: 0.100
-	min_consciousness: 0.300
+	pain_modifier: 0.010
+	min_consciousness: 0.100
 	min_distance: [0.500, 0.000]
 	max_distance: [2.000, 2.000]
-	wander_radius: 12.000
+	wander_radius: 6.000
 }
 
 npc.emotions:
 {
 	hostility: 0.020
 	courage: 0.050
-	cruelty: 0.100
+	cruelty: 0.010
 	irritability: 0.010
-	apathy: 0.980
+	apathy: 9000.000
 }
 
 npc.emotions.state:
@@ -143,27 +159,23 @@ ai.movement:
 
 ai.behavior:
 {
-	type: attack
-	movement_flags: wander
-	combat_flags: attack_visible, attack_when_hit, flee, chase, charge, form_groups
+	type: idle
+	movement_flags: none
+	combat_flags: none
 }
 
 runner:
 {
-	walk_force: 1000.000
+	walk_force: 2000.000
 	jump_force: 4000.000
 	max_speed: 12.000
-	max_jump_speed: 10.000
 	max_jump_time: 0.000
-	max_air_time: 0.140
-	max_grounded_dot: 1.000
-	propagate_ratio: 1.000
-	no_rotate_air_mult: 0.070
-	flags: jump_align_surface, jump_relative, move_relative, stick_to_surface, no_rotate_align_surface
-	walk_lerp: 0.900
+	max_grounded_dot: 2.000
+	propagate_ratio: 2.000
+	no_rotate_air_mult: 1.000
+	flags: jump_relative, move_relative, stick_to_surface, no_rotate_align_surface
+	walk_lerp: 0.300
 	jump_decay: 0.650
-	crouch_speed_modifier: 0.500
-	air_brake_modifier: 0.100
 }
 
 runner.state:
@@ -173,7 +185,7 @@ runner.state:
 
 threat:
 {
-	priority: 20.000
+	priority: 30.000
 }
 
 // dive:
@@ -191,12 +203,13 @@ threat:
 
 norotate:
 {
-	rotation: 0.000
+	flags: no_share, align_to_surface
+	speed: 25.000
 	bias: 0.001
-	speed: 6.000
-	multiplier: 5.000
-	mass_multiplier: 16.000
-	flags: no_share
+	min_surface_dot: -1.000
+	
+	multiplier: 40.000
+	mass_multiplier: 50.000
 }
 
 // interactable:
@@ -228,14 +241,9 @@ lootable:
 			max: 50.000
 		}
 		{
-			material: "leather"
+			material: "scrap.fur"
 			min: 10.000
 			max: 20.000
-		}
-		{
-			material: "tallow"
-			min: 12.000
-			max: 25.000
 		}
 	]
 }
@@ -245,7 +253,7 @@ faction:
 	id: dropbear
 }
 
-+slot_head|instance:
++slot.head|instance:
 {
 	$tags: []
 	
@@ -303,7 +311,7 @@ faction:
 			@shape.circle:
 			{
 				offset: [0.000, 0.000]
-				mass: 1.000
+				mass: 2.000
 				radius: 0.575
 				friction: 0.500
 				elasticity: 0.850
@@ -322,9 +330,25 @@ faction:
 		
 		organic:
 		{
-			h_species: "drop_bear"
+			h_species: drop_bear
 			tags: brain, head, eyes, mouth
-			pain_base: 2000.000
+			flags: none
+			pain_base: 4000.000
+			pain_modifier: 0.100
+			
+			consciousness: 1.000
+			unused_00: 0.000
+			water_ratio: 0.600
+			work_speed: 0.100
+			
+			smartness: 0.100
+			motorics: 1.000
+			strength: 1.000
+			endurance: 1.500
+			dexterity: 0.500
+			coordination: 1.000
+			absorption: 1.400
+			regeneration: 1.100
 
 			@animated.renderer:
 			{
@@ -346,7 +370,7 @@ faction:
 		
 		health:
 		{
-			max: 3000.000
+			max: 4000.000
 		}
 		
 		holdable:
@@ -408,14 +432,9 @@ faction:
 					max: 25.000
 				}
 				{
-					material: "leather"
-					min: 5.000
+					material: "scrap.fur"
+					min: 10.000
 					max: 15.000
-				}
-				{
-					material: "tallow"
-					min: 15.000
-					max: 30.000
 				}
 			]
 		}

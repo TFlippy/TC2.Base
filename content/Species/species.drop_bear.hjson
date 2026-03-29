@@ -1,16 +1,29 @@
 ﻿{
-	$version: "0.1.67.1"
+	$version: "0.1.72.1"
+	$note:
+		'''
+		- Actually just a small, armless furry creature with two legs
+		- Doesn't really do much, just stays stuck to whatever surface it was left on
+		- Slow metabolism, mostly absorbs nutrients through its skin (e.g. fungi growing on it, or whatever it happens to be stuck to)
+		- Somehow managed to survive in the world, despite being completely useless and generally unpleasant to be around
+		- Doesn't feel pain, doesn't think, it just exists
+		- Kids often kick them around for fun
+		- Everyone hates them for some reason
+		- Completely useless pile of shit
+		'''
 	name: "Drop Bear"
 	name_plural: "Drop Bears"
 	desc:
 		'''
-		TODO: Desc
+		An utterly abhorrent failure of a creature that can latch onto (more or less) anything.
+
+		Sometimes found in canopies of trees, which makes it especially unpopular among those who stroll under said trees.
 		'''
 	
 	prefab_male: drop_bear
 	prefab_female: drop_bear
-	flags: abomination, mammal, tameable, nocturnal, solitary, fungivore, prey, parasite, scavenger, social
-	industries: none
+	flags: abomination, mammal, tameable, solitary, herbivore, fungivore, prey, social
+	industries: agricultural, logging, real_estate
 	
 	lifecycle:
 	{
@@ -22,14 +35,17 @@
 	
 	sprite_head_male:
 	{
-		mask: missing
+		texture: drop_bear.head.male
 		size: [16, 16]
 	}
 	sprite_head_female:
 	{
-		mask: missing
+		texture: drop_bear.head.female
 		size: [16, 16]
 	}
+	
+	voice_pitch_mult_male: 1.000
+	voice_pitch_mult_female: 1.000
 	
 	hair_colors:
 	[
