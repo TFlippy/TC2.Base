@@ -76,7 +76,7 @@ claimable:
 interactable:
 {
 	flags: no_window, once, use_left_click
-	priority: 4.000
+	priority: 3.000
 }
 
 transform:
