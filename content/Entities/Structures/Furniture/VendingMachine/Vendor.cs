@@ -65,7 +65,7 @@ namespace TC2.Base.Components
 			[Net.Segment.C, Save.Force] public required float weight_max = 500.00f;
 
 			[Save.NewLine]
-			[Net.Segment.D, Asset.Ignore] public FixedArray16<Shipment.Item2> edit_selected_items;
+			[Net.Segment.D, Asset.Ignore] public FixedArray8<Shipment.Item2> edit_selected_items;
 		}
 
 		public struct EditOrderRPC: Net.IRPC<Vendor.Data>
@@ -122,6 +122,9 @@ namespace TC2.Base.Components
 
 				ref var region_common = ref rpc.GetRegionCommon();
 
+				var span_items = data.edit_selected_items.AsSpan(data.item_count_max);
+				//Assert.Check(span_items.is)
+
 				var sync = false;
 
 				ref var inventory_money = ref rpc.entity.GetTrait<Vendor.Data, Inventory1.Data>();
@@ -130,7 +133,6 @@ namespace TC2.Base.Components
 				ref var resource_money = ref inventory_money.resource;
 				var credit = resource_money.GetMarketPrice();
 
-				var span_items = data.edit_selected_items.AsSpan(data.item_count_max);
 				//var total_cost = span_items.GetMarketPrice();
 				//Assert.Check(total_cost >= 1.00f);
 
@@ -184,6 +186,8 @@ namespace TC2.Base.Components
 							//span_products.Add(item);
 						}
 
+						Assert.Check(!span_products.IsEmpty);
+
 						//var fee_vat = total_cost * 0.21f;
 
 						total_cost.CeilRef();
@@ -193,12 +197,17 @@ namespace TC2.Base.Components
 						var final_cost = (total_cost + fee_trader + fee_mass + fee_base).Ceil();
 
 						var has_enough_money = credit >= total_cost;
+						Assert.Check(has_enough_money);
+
 						App.WriteValue((inventory_money.resource, credit, final_cost, has_enough_money));
 
-						Crafting.Context.NewFromSelf(ref region_common, rpc.entity, out var context, search_radius: 6.00f);
-
 						Assert.Check(inventory_money.Remove(resource_money.material, final_cost));
+
+						Crafting.Context.NewFromSelf(ref region_common, rpc.entity, out var context, search_radius: 6.00f);
 						context.Produce(span_products, spawn_flags: Resource.SpawnFlags.No_Discard | Resource.SpawnFlags.Allow_Encumbered | Resource.SpawnFlags.Show_Notification | Resource.SpawnFlags.Merge | Resource.SpawnFlags.Pickup);
+
+						span_items.Clear();
+						sync = true;
 					}
 				}
 
@@ -574,23 +583,31 @@ namespace TC2.Base.Components
 									//GUI.TextShadedCentered(fee_trader, format: "'+'0' Đk'", pivot: new(0.00f, 0.50f), offset: new(128 + 80 + 48, 0), color: GUI.font_color_red_b);
 									//GUI.NewLine();
 
-									GUI.TitleCentered(total_cost, format: "0' Đk'", pivot: new(0.00f, 0.50f), offset: new(128 + 80 + 48, 0));
-									if (fee_base > 0.00f)
+									if (item_count > 0)
 									{
-										GUI.NewLine();
-										GUI.TextShadedCentered(fee_base, format: "'+'0' Đk'", pivot: new(0.00f, 0.50f), offset: new(128 + 80 + 48, 0), color: GUI.font_color_red_b);
+										GUI.TitleCentered(total_cost, format: "0' Đk'", pivot: new(0.00f, 0.50f), offset: new(128 + 80 + 48, 0));
+										GUI.DrawHoverTooltip("Total Cost"u8);
+
+										if (fee_base > 0.00f)
+										{
+											GUI.NewLine();
+											GUI.TextShadedCentered(fee_base, format: "'+'0' Đk'", pivot: new(0.00f, 0.50f), offset: new(128 + 80 + 48, 0), color: GUI.font_color_red_b);
+											GUI.DrawHoverTooltip("Base Fee"u8);
+										}
 									}
 
 									if (fee_trader > 0.00f)
 									{
 										GUI.NewLine();
 										GUI.TextShadedCentered(fee_trader, format: "'+'0' Đk'", pivot: new(0.00f, 0.50f), offset: new(128 + 80 + 48, 0), color: GUI.font_color_red_b);
+										GUI.DrawHoverTooltip("Trader's Cut"u8);
 									}
 
 									if (fee_mass > 0.00f)
 									{
 										GUI.NewLine();
 										GUI.TextShadedCentered(fee_mass, format: "'+'0' Đk'", pivot: new(0.00f, 0.50f), offset: new(128 + 80 + 48, 0), color: GUI.font_color_red_b);
+										GUI.DrawHoverTooltip("Fee per Kg"u8);
 									}
 									//GUI.NewLine();
 
