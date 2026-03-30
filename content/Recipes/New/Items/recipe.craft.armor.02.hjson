@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.72.1"
 	name: "Badger-Class Armor"
 	tips: []
 	
@@ -14,7 +14,6 @@
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: slash
 			
-			ratio: 0.000
 			mass_base: 5.200
 			
 			options:
@@ -76,7 +75,6 @@
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: club
 			
-			ratio: 0.000
 			mass_base: 7.100
 			
 			options:
@@ -168,7 +166,7 @@
 	hints: none
 	connotations: none
 	infrastructure: table, surface
-	infrastructure_exclude: none
+	infrastructure_exclude: giant
 	environment_filter:
 	{
 		exclude: form, sealed

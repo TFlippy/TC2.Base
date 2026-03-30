@@ -104,8 +104,8 @@ harvestable:
 hvac:
 {
 	produce_interval: 5.000
-	amount: 0.167
-	amount_extra: 0.582
+	amount: 0.067
+	amount_extra: 0.0112
 
 	@inventory1:
 	{

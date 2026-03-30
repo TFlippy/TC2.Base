@@ -417,7 +417,7 @@
 	hints: none
 	connotations: none
 	infrastructure: table
-	infrastructure_exclude: none
+	infrastructure_exclude: giant
 	
 	icon:
 	{

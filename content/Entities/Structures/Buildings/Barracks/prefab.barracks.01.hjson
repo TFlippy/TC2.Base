@@ -132,19 +132,20 @@ shop:
 	tags_filter:
 	{
 		require: manual
-		include: manual, tailoring, cooking, research, social
-		exclude: advanced, small, huge, tailoring, cooking, gathering, architecture, smelting, drying, fermenting, heating
+		include: manual, basic, raw, tailoring, cooking, social, gathering
+		exclude: automated, complex, advanced, small, huge, delicate, blacksmithing, smelting, fermenting, heating
 	}
 	
-	tools: hammer, magnifying_glass, bucket, shovel, towel, tongs, crowbar, sandpaper, scissors, ladle
-	infrastructure: dishes, bottle, table, chair, rack, bed, stationery, surface
+	tools: paper, hammer, saw, cleaver, magnifying_glass, bucket, paintbrush, shovel, towel, spatula, tongs, crowbar, knife, scissors, ladle
+	infrastructure: dishes, bottle, barrel, table, chair, rack, bed, pulley, stationery, bucket, surface, large_surface, hard_surface, giant, structure, kitchen, building
 	environment: stationary, smelly, cozy, scary, durable, sturdy, flammable, large
+	connotations: none
 	
 	flags: embed_gui
 	menu_columns: 4
 	recipe_type: workshop
 	
-	name: "Barracks"
+	name: "Giant Barracks"
 }
 
 workshop:

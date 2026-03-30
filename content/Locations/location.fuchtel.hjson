@@ -1,6 +1,6 @@
 ﻿{
 	$prefab: "g.settlement.military.00"
-	$version: "0.1.62.0"
+	$version: "0.1.72.1"
 	name: "Fuchtel"
 	name_short: "Fuchtel"
 	desc:
@@ -53,6 +53,32 @@
 	// Height in meters above sea level.
 	elevation: 10.000
 	
+	statistics:
+	{
+		// Literacy, availability of education, skilled workers.
+		education: 0.680
+		// Urban development, population density.
+		urbanization: 0.790
+		// Availability and utilization of advanced technology.
+		technology: 0.960
+		// Industrial production, mechanization, engineering.
+		industrialization: 0.400
+		// Standard of living, overall wealth of population and government.
+		wealth: 0.727
+		// Environmental devastation, excavation, deforestation, wasteland-ness.
+		devastation: 0.177
+		// Economic strength, employment rate, flow of goods.
+		economy: 0.590
+		// Variance of population's social classes.
+		inequality: 0.486
+		// Crime rate, personal safety.
+		safety: 0.992
+		// Rate of expansion, economic and population growth.
+		growth: 0.185
+		// Military strength, security, access to weapons.
+		military: 1.407
+	}
+	
 	population:
 	{
 		human: 200
@@ -63,7 +89,6 @@
 	h_prefecture: tanhauzr
 	h_faction: imperial
 	h_company: kordel
-	h_location_parent: "null"
 	size: 0.755
 	
 	color: "0xffe2e2d4"
@@ -71,13 +96,11 @@
 	thumbnail:
 	{
 		texture: ui.thumbnail.harbor.01
-		mask: missing
 	}
 	
 	icon:
 	{
 		texture: worldmap.icons.01
-		mask: missing
 		size: [24, 24]
 		frame: [3, 1]
 	}

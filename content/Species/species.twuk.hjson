@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.67.1"
+	$version: "0.1.72.1"
 	name: "Twuk"
 	name_plural: "Twuks"
 	desc:
@@ -23,15 +23,16 @@
 	sprite_head_male:
 	{
 		texture: twuk.head.male
-		mask: missing
 		size: [16, 16]
 	}
 	sprite_head_female:
 	{
 		texture: twuk.head.female
-		mask: missing
 		size: [16, 16]
 	}
+	
+	voice_pitch_mult_male: 1.000
+	voice_pitch_mult_female: 1.000
 	
 	hair_colors:
 	[
@@ -58,4 +59,6 @@
 	
 	sounds_death_male: ["twuk.idle.00", "twuk.idle.01", "twuk.idle.02"]
 	sounds_death_female: ["twuk.idle.00", "twuk.idle.01", "twuk.idle.02"]
+	
+	h_soundmix_idle: twuk.idle.00
 }

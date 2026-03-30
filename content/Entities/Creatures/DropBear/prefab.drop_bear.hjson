@@ -14,7 +14,7 @@ body:
 
 	@shape.circle:
 	{
-		offset: [0.000, 0.000]
+		offset: [0.000, -0.125]
 		mass: 6.000
 		radius: 0.625
 		friction: 1.000
