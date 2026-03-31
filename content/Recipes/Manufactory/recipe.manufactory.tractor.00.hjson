@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.2"
+	$version: "0.1.72.1"
 	name: "Tractor"
 	tips: []
 	
@@ -13,9 +13,6 @@
 			tags: frame, chassis, metal, structural, large
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: none
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -62,9 +59,6 @@
 			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: none
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -129,7 +123,7 @@
 	]
 	
 	type: workshop
-	flags: no_amount_multiplier, blueprintable, debug, construction, wip, no_cancel, auto_complete
+	flags: no_amount_multiplier, blueprintable, construction, wip, no_cancel, auto_complete
 	tags: manual, crafting, complex, huge, vehicle, machinery, assembling, metalworking, engineering, construction
 	hints: none
 	connotations: none
