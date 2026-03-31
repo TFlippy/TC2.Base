@@ -131,9 +131,9 @@ control:
 
 tractor:
 {
-	speed: 13.000
-	brake_step: 20.000
-	speed_step: 15.000
+	speed: 20.000
+	brake_step: 17.000
+	speed_step: 13.000
 }
 
 norotate:
