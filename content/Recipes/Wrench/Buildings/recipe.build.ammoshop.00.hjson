@@ -27,7 +27,7 @@
 						{
 							type: resource
 							material: gravel
-							amount: 480.000
+							amount: 380.000
 							loss: 0.039
 							group: 0
 							flags: compact, primary
@@ -35,8 +35,8 @@
 						{
 							type: work
 							work: filling.gravel
-							amount: 400.000
-							amount_min: 30.000
+							amount: 450.000
+							amount_min: 20.000
 							difficulty: 6
 							group: 0
 							flags: conditional
@@ -54,7 +54,7 @@
 						{
 							type: resource
 							material: soil
-							amount: 435.000
+							amount: 305.000
 							loss: 0.071
 							group: 0
 							flags: compact
@@ -142,7 +142,7 @@
 						{
 							type: resource
 							material: scrap.concrete
-							amount: 310.000
+							amount: 280.000
 							loss: 0.020
 							group: 0
 							flags: compact
