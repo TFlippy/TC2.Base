@@ -128,7 +128,7 @@
 	{
 		blunt:
 		{
-			h_material: scrap.steel
+			h_material: arcanite
 			spawn_flags: merge, pickup
 			product_flags: none
 			ratio: 0.180
@@ -155,7 +155,7 @@
 		}
 		club:
 		{
-			h_material: scrap.steel
+			h_material: arcanite
 			spawn_flags: merge, pickup
 			product_flags: none
 			ratio: 0.200
@@ -182,7 +182,7 @@
 		}
 		axe:
 		{
-			h_material: scrap.steel
+			h_material: arcanite
 			spawn_flags: merge, pickup
 			product_flags: none
 			ratio: 0.220
@@ -209,7 +209,7 @@
 		}
 		phlogiston:
 		{
-			h_material: steel
+			h_material: arcanite
 			spawn_flags: merge, no_offset
 			product_flags: none
 			ratio: 0.910
@@ -241,7 +241,7 @@
 			ratio: 0.000
 			ratio_extra: 0.000
 			
-			h_material_waste: scrap.steel
+			h_material_waste: arcanite
 			spawn_flags_waste: merge
 			product_flags_waste: waste
 			ratio_waste: 1.000
@@ -263,13 +263,13 @@
 		}
 		handsaw:
 		{
-			h_material: steel.frames
+			h_material: arcanite
 			spawn_flags: merge, pickup, show_notification
 			product_flags: primary
 			ratio: 0.180
 			ratio_extra: 0.270
 			
-			h_material_waste: steel.powder
+			h_material_waste: arcanite.powder
 			spawn_flags_waste: merge, pickup
 			product_flags_waste: residue
 			ratio_waste: 0.040
@@ -296,7 +296,7 @@
 	{
 		carving:
 		{
-			h_material: steel.powder
+			h_material: arcanite.powder
 			
 			flags: none
 			flags_product: residue
@@ -305,7 +305,7 @@
 		}
 		cutting:
 		{
-			h_material: steel.powder
+			h_material: arcanite.powder
 			
 			flags: none
 			flags_product: residue
@@ -314,7 +314,7 @@
 		}
 		drilling:
 		{
-			h_material: steel.powder
+			h_material: arcanite.powder
 			
 			flags: none
 			flags_product: residue
@@ -323,7 +323,7 @@
 		}
 		smithing:
 		{
-			h_material: ferronickel.powder
+			h_material: arcanite.powder
 			
 			flags: none
 			flags_product: waste
@@ -332,7 +332,7 @@
 		}
 		machining:
 		{
-			h_material: ferronickel.powder
+			h_material: arcanite.powder
 			
 			flags: none
 			flags_product: residue
@@ -341,7 +341,7 @@
 		}
 		sawing:
 		{
-			h_material: steel.powder
+			h_material: arcanite.powder
 			
 			flags: none
 			flags_product: residue
@@ -350,25 +350,16 @@
 		}
 		sawing.metal:
 		{
-			h_material: steel.powder
+			h_material: arcanite.powder
 			
 			flags: none
 			flags_product: residue
 			
 			yield: [0.962, 0.033]
 		}
-		bending:
-		{
-			h_material: scrap.steel
-			
-			flags: none
-			flags_product: residue
-			
-			yield: [0.9546, 0.0454]
-		}
 		filing:
 		{
-			h_material: steel.powder
+			h_material: arcanite.powder
 			
 			flags: none
 			flags_product: residue
@@ -377,36 +368,18 @@
 		}
 		sanding:
 		{
-			h_material: steel.powder
+			h_material: arcanite.powder
 			
 			flags: none
 			flags_product: residue
 			
 			yield: [0.092, 0.233]
 		}
-		welding.phlogiston:
-		{
-			h_material: ferrous.gravel
-			
-			flags: none
-			flags_product: waste
-			
-			yield: [0.474, 0.512]
-		}
-		welding:
-		{
-			h_material: ferronickel.powder
-			
-			flags: none
-			flags_product: waste
-			
-			yield: [0.354, 0.620]
-		}
 	}
 	
 	// Info regarding relations of other materials towards this material.
 	related:
 	{
-		steel: similar
+		arcanite: similar
 	}
 }
