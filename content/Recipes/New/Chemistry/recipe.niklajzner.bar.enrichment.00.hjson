@@ -12,6 +12,9 @@
 		steel.ingot: result, output, auto_generated
 		niklajzner.ingot: input, feedstock, auto_generated
 		black_coal: raw, ore, ingredient, input, auto_generated
+		karban: raw, ore, ingredient, input, auto_generated
+		scrap.charred: waste, scrap, output, auto_generated
+		mercury.vapor: residue, raw, gas, vapor, output, auto_generated
 	}
 	
 	stages:
@@ -115,6 +118,82 @@
 							ratio: 0.275
 							group: 0
 							flags: conditional
+						}
+					]
+					
+					filter_infrastructure:
+					{
+						include: oven, forge, crucible
+					}
+					filter_environment:
+					{
+						include: machine, container, airtight, clean, reinforced, fireproof, sturdy, small
+					}
+				}
+				{
+					name: "Karban"
+					
+					type: undefined
+					flags: requires_shipment
+					discard_damage_type_override: heat
+					
+					prefix: "Dark "
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: karban
+							amount: 3.923754
+							snapping: 0.100
+							falloff: 0.865
+							loss: 0.761
+							ratio: 0.216
+							group: 0
+						}
+						{
+							type: temperature
+							amount: 1016.800
+							amount_min: 851.000
+							amount_max: 1096.240
+							falloff: 2.085
+							group: 0
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: work
+							work: carburization
+							amount: 120.000
+							amount_min: 250.000
+							difficulty: 7
+							snapping: 20.000
+							falloff: 0.897
+							ratio: 0.286
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: scrap.charred
+							amount: 0.850
+							amount_extra: 0.182
+							snapping: 0.010
+							group: 0
+							ratio: 0.565
+							flags: waste, scale_to_mass
+						}
+						{
+							type: resource
+							material: mercury.vapor
+							amount: 0.850
+							amount_extra: 0.127
+							group: 0
+							ratio: 0.494
+							flags: pollutant, residue, spawn, use_temperature, scale_to_mass
 						}
 					]
 					
