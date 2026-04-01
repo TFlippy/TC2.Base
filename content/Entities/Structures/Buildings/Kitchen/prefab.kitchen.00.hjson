@@ -110,7 +110,7 @@ shop:
 	}
 	
 	tools: pencil, paper, hammer, saw, hand_drill, cleaver, tweezers, bucket, paintbrush, syringe, towel, spatula, tongs, knife, needle, pins, scissors, ladle
-	infrastructure: oven, dishes, bottle, barrel, table, chair, rack, bucket, surface, hard_surface, liquid_container, heater, burner, stove, smokestack, kitchen, building, workbench
+	infrastructure: oven, dishes, bottle, barrel, table, chair, rack, bucket, surface, hard_surface, liquid_container, heater, burner, stove, smokestack, kitchen, building, workbench, form
 	environment: workshop, stationary, fancy, cozy, sturdy, flammable, kitchen, small
 	
 	flags: embed_gui

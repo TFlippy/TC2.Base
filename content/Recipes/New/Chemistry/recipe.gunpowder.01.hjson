@@ -15,6 +15,10 @@
 		saltpeter: raw, powdered, ingredient, input, auto_generated
 		charcoal: raw, ingredient, input, auto_generated
 		sulfur: raw, powdered, ingredient, input, auto_generated
+		karban: raw, ore, ingredient, input, auto_generated
+		water.toxic: raw, ingredient, liquid, input, auto_generated
+		hydrogen_cyanide: gas, byproduct, output, auto_generated
+		sludge: raw, waste, output, auto_generated
 	}
 	
 	stages:
@@ -289,12 +293,13 @@
 					
 					filter_tools:
 					{
-						include: ruler, hammer, wrench, spanner, axe, shovel, file, chisel, spatula, crowbar, ladle, utensils
+						require: hammer
+						include: paintbrush, spatula
 					}
 					filter_infrastructure:
 					{
-						require: surface
-						include: cauldron, dishes, barrel, bucket, hard_surface, liquid_container, compactor, blender, press, form
+						require: liquid_container
+						include: cauldron, liquid_container
 					}
 				}
 			]
@@ -344,7 +349,7 @@
 	
 	type: workshop
 	flags: production, manufacturing
-	tags: manual, basic, simple, medium, blending, drying, moulding, messy, explosive, dangerous
+	tags: manual, basic, simple, blending, drying, moulding, messy, explosive, dangerous
 	hints: none
 	connotations: none
 	infrastructure: form
