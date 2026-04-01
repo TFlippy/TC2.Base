@@ -27,7 +27,7 @@
 						{
 							type: resource
 							material: gravel
-							amount: 540.000
+							amount: 480.000
 							loss: 0.039
 							group: 0
 							flags: compact, primary
@@ -36,6 +36,7 @@
 							type: work
 							work: filling.gravel
 							amount: 400.000
+							amount_min: 30.000
 							difficulty: 6
 							group: 0
 							flags: conditional
@@ -43,7 +44,7 @@
 					]
 				}
 				{
-					name: "Compacted Soil"
+					name: "Paved"
 					
 					type: undefined
 					flags: none
@@ -53,26 +54,36 @@
 						{
 							type: resource
 							material: soil
-							amount: 360.000
+							amount: 435.000
 							loss: 0.071
 							group: 0
-							flags: compact, primary
+							flags: compact
+						}
+						{
+							type: resource
+							material: brick.concrete
+							amount: 40.000
+							loss: 0.071
+							group: 0
+							flags: compact
 						}
 						{
 							type: work
 							work: filling.soil
-							amount: 300.000
+							amount: 225.000
+							amount_min: 40.000
 							difficulty: 4
 							group: 0
-							flags: conditional
+							flags: simultaneous, conditional
 						}
 						{
 							type: work
-							work: compaction.soil
-							amount: 150.000
+							work: masonry
+							amount: 200.000
+							amount_min: 20.000
 							difficulty: 7
-							group: 1
-							flags: conditional
+							group: 0
+							flags: simultaneous, conditional
 						}
 					]
 				}
@@ -90,7 +101,7 @@
 							amount: 240.000
 							loss: 0.020
 							group: 0
-							flags: compact, primary
+							flags: compact
 						}
 						{
 							type: resource
@@ -98,88 +109,69 @@
 							amount: 80.000
 							loss: 0.059
 							group: 0
-							flags: compact, primary
+							flags: compact
 						}
 						{
 							type: work
 							work: filling.rubble
-							amount: 275.000
-							difficulty: 12
+							amount: 250.000
+							amount_min: 20.000
+							difficulty: 10
 							group: 0
 							flags: simultaneous, conditional
 						}
 						{
 							type: work
 							work: filling.soil
-							amount: 60.000
-							difficulty: 4
+							amount: 80.000
+							amount_min: 20.000
+							difficulty: 8
 							group: 0
 							flags: simultaneous, conditional
 						}
 					]
 				}
 				{
-					name: "Concrete Composite"
+					name: "Concrete Mix"
 					
 					type: undefined
-					flags: disabled
+					flags: none
 					
 					requirements:
 					[
 						{
 							type: resource
 							material: scrap.concrete
-							amount: 175.000
-							snapping: 1.000
+							amount: 310.000
+							loss: 0.020
 							group: 0
+							flags: compact
+						}
+						{
+							type: resource
+							material: gravel
+							amount: 95.000
+							loss: 0.059
+							group: 0
+							flags: compact
 						}
 						{
 							type: work
 							work: filling.rubble
-							amount: 200.000
-							difficulty: 7
-							snapping: 5.000
-							group: 0
-							flags: conditional
-						}
-						{
-							type: resource
-							material: cement
-							amount: 35.000
-							snapping: 1.000
-							group: 1
-						}
-						{
-							type: resource
-							material: sand
-							amount: 50.000
-							snapping: 1.000
-							group: 1
-						}
-						{
-							type: work
-							work: filling.sand
 							amount: 175.000
-							difficulty: 3
-							snapping: 5.000
-							group: 1
-							flags: conditional
-						}
-						{
-							type: resource
-							material: water
-							amount: 35.000
-							snapping: 1.000
-							group: 2
+							amount_min: 30.000
+							difficulty: 11
+							group: 0
+							flags: simultaneous, conditional
 						}
 						{
 							type: work
-							work: filling.liquid
-							amount: 150.000
-							difficulty: 3
-							snapping: 5.000
-							group: 2
-							flags: conditional
+							work: shattering
+							amount: 175.000
+							amount_min: 25.000
+							difficulty: 9
+							group: 0
+							flags: simultaneous, conditional
 						}
 					]
 				}
@@ -232,11 +224,11 @@
 						}
 						{
 							type: work
-							work: drilling
-							amount: 500.000
-							difficulty: 9
+							work: construction
+							amount: 400.000
+							difficulty: 11
 							snapping: 5.000
-							ratio: 0.824
+							ratio: 0.722
 							group: 0
 							flags: simultaneous, conditional
 						}
@@ -263,16 +255,6 @@
 							difficulty: 8
 							snapping: 5.000
 							ratio: 0.553
-							group: 1
-							flags: simultaneous, conditional
-						}
-						{
-							type: work
-							work: construction
-							amount: 400.000
-							difficulty: 11
-							snapping: 5.000
-							ratio: 0.722
 							group: 1
 							flags: simultaneous, conditional
 						}

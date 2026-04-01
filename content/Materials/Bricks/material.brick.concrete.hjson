@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.72.1"
 	name: "Concrete Slabs"
 	name_short: "Concrete"
 	name_dumb: "Stone Brick"
@@ -33,6 +33,9 @@
 	packing_fraction: 0.000
 	// Mass of 1 unit in kg.
 	mass_per_unit: 1.740
+	
+	// Volume occupied by a stack in m³.
+	volume_per_stack: 0.9949
 	
 	// Maximum quantity (units) per stack.
 	quantity_max: 500.000
