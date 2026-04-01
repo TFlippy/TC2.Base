@@ -82,5 +82,7 @@ building:
 shipment:
 {
 	h_container: isb.042c
+	type: crafting
 	flags: keep_items, allow_deposit, use_misc, no_empty_deposit
+	color: "0xfff0c63e"
 }
