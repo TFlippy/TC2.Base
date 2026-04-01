@@ -17,6 +17,12 @@
 		gunpowder: powdered, ingredient, input, auto_generated
 		ferrous.gravel: raw, ingredient, input, auto_generated
 		ammo.lc.lv: product, result, output, auto_generated
+		nitrosugar: ingredient, input, auto_generated
+		steel.powder: powdered, ingredient, input, auto_generated
+		nitroglycerine: ingredient, liquid, input, auto_generated
+		hortspargl: raw, ingredient, input, auto_generated
+		himlkarzenus: raw, ingredient, input, auto_generated
+		putty: ingredient, input, auto_generated
 	}
 	
 	stages:
@@ -486,21 +492,21 @@
 					filter_tools:
 					{
 						require: pliers
-						include: wrench, pliers, tweezers, bucket, spatula
+						include: wrench, pliers, tweezers, paintbrush, towel, spatula
 					}
 					filter_infrastructure:
 					{
-						include: table, vise
+						include: table, chair, vise
 					}
 				}
 				{
-					name: "Fused"
+					name: "CPT-Integrated"
 					
 					type: undefined
-					flags: requires_shipment
+					flags: none
 					discard_damage_type_override: corrosion
 					
-					suffix: "/LV (Fused)"
+					suffix: "/LV (CPT-Integrated)"
 					priority: 1.000
 					
 					requirements:
@@ -513,6 +519,7 @@
 							loss: 0.224
 							ratio: 0.106
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: resource
@@ -522,18 +529,17 @@
 							loss: 0.373
 							ratio: 1.000
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: work
-							work: crimping.metal
-							amount: 7.000
-							amount_min: 10.000
+							work: cpt.integration
+							amount: 350.000
 							difficulty: 6
 							snapping: 5.000
-							falloff: 0.865
 							ratio: 1.000
 							group: 1
-							flags: stepped, conditional
+							flags: no_scaling, conditional
 						}
 					]
 					
@@ -549,16 +555,6 @@
 							flags: primary, compact
 						}
 					]
-					
-					filter_tools:
-					{
-						require: pliers
-						include: wrench, pliers, tweezers, bucket, spatula
-					}
-					filter_infrastructure:
-					{
-						include: table, vise
-					}
 				}
 			]
 		}

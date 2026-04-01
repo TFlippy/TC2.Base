@@ -1,0 +1,63 @@
+﻿{
+	$version: "0.1.72.1"
+	name: "CPT-Integration"
+	name_short: "CPT-Integration"
+	desc:
+		'''
+		C-Putty integrating itself into the object's structure.
+		'''
+	
+	icon:
+	{
+		texture: ui.icons.work.00
+		size: [16, 16]
+		frame: [11, 0]
+	}
+	
+	flags: passive, ambient
+	tags: complex, chemical, arcane, construction, dangerous, slow
+	
+	amount_base: 1.000
+	cooldown: 2.000
+	multiplier: 1.520
+	
+	amount_jitter: 0.801
+	cooldown_jitter: 0.405
+	color: "0xff40f084"
+	
+	tools_required: none
+	tools_optional: none
+	
+	infrastructure_required: none
+	infrastructure_optional: none
+	
+	character_traits:
+	{
+		weight: 1.000
+	}
+	
+	skills_min:
+	{
+	
+	}
+	
+	skills_mult:
+	{
+	
+	}
+	
+	sound_volume: 0.660
+	sound_pitch: 0.600
+	sound_size: 0.750
+	sound_dist: 0.540
+	
+	sounds: ["essence.mumble.loop.00", "essence.mumble.loop.02", "essence.mumble.loop.01"]
+	sounds_manual: []
+	sounds_crafter: []
+	sounds_passive: ["essence.mumble.loop.00", "essence.mumble.loop.02", "essence.mumble.loop.01"]
+	sounds_ambient: []
+	
+	sounds_start: ["essence.imply.query.00"]
+	sounds_end: ["essence.imply.scream.00"]
+	sounds_fail: []
+}
