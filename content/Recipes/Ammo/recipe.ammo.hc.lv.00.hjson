@@ -93,10 +93,10 @@
 						{
 							type: work
 							work: die.drawing.metal
-							amount: 42.000
+							amount: 22.000
 							difficulty: 9
 							snapping: 10.000
-							falloff: 0.898
+							falloff: 0.798
 							ratio: 1.000
 							group: 1
 							flags: stepped, conditional
@@ -104,10 +104,10 @@
 						{
 							type: work
 							work: die.stamping.metal
-							amount: 20.000
+							amount: 10.000
 							difficulty: 7
 							snapping: 10.000
-							falloff: 1.015
+							falloff: 0.865
 							ratio: 1.000
 							group: 1
 							flags: stepped, conditional
@@ -195,10 +195,10 @@
 						{
 							type: work
 							work: die.drawing.metal
-							amount: 30.000
+							amount: 15.000
 							difficulty: 7
 							snapping: 25.000
-							falloff: 0.917
+							falloff: 0.817
 							ratio: 0.922
 							group: 1
 							flags: stepped, conditional
@@ -206,10 +206,10 @@
 						{
 							type: work
 							work: die.stamping.metal
-							amount: 20.000
+							amount: 10.000
 							difficulty: 6
 							snapping: 10.000
-							falloff: 0.988
+							falloff: 0.888
 							ratio: 1.000
 							group: 1
 							flags: stepped, conditional
@@ -266,7 +266,7 @@
 						{
 							type: resource
 							material: lubricant
-							amount: 0.538
+							amount: 0.638
 							snapping: 0.100
 							falloff: 0.416
 							loss: 0.075
@@ -287,10 +287,10 @@
 						{
 							type: work
 							work: die.drawing.metal
-							amount: 15.000
+							amount: 10.000
 							difficulty: 6
 							snapping: 10.000
-							falloff: 0.947
+							falloff: 0.847
 							ratio: 0.471
 							group: 0
 							flags: stepped, simultaneous, conditional
@@ -298,10 +298,10 @@
 						{
 							type: work
 							work: die.stamping.metal
-							amount: 10.000
+							amount: 5.000
 							difficulty: 5
 							snapping: 10.000
-							falloff: 0.964
+							falloff: 0.890
 							ratio: 0.455
 							group: 1
 							flags: stepped, conditional
@@ -371,11 +371,11 @@
 						{
 							type: work
 							work: wadding
-							amount: 35.000
-							amount_min: 48.000
+							amount: 25.000
+							amount_min: 28.000
 							difficulty: 4
 							snapping: 5.000
-							falloff: 0.838
+							falloff: 0.788
 							ratio: 1.000
 							group: 0
 							flags: stepped, conditional
@@ -510,7 +510,7 @@
 							difficulty: 4
 							step_max: 40
 							snapping: 10.000
-							falloff: 0.972
+							falloff: 0.942
 							group: 0
 							flags: simultaneous, conditional
 						}
