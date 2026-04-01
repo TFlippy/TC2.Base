@@ -1,5 +1,4 @@
 ﻿{
-	$region_id: 0
 	$version: "0.1.72.1"
 	name: "Driller"
 	tips: []
@@ -27,7 +26,7 @@
 	]
 	
 	type: industry
-	flags: no_amount_multiplier, blueprintable, wip, no_cancel
+	flags: no_amount_multiplier, blueprintable, debug, wip, no_cancel
 	tags: complex, large, device, machinery, assembling, industrial, metalworking, engineering, construction
 	hints: tools, heavy, advanced, machine, destructive, mining, construction, gathering, device, industrial, tech, clumsy, large
 	connotations: heavy, interesting, machine, destructive, mining, construction, loud, industrial, scary, boring

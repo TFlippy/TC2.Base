@@ -219,10 +219,10 @@
 	
 	type: workshop
 	flags: production, manufacturing
-	tags: manual, simple, medium, blending, drying, moulding, messy, explosive, dangerous
+	tags: manual, basic, simple, medium, blending, drying, moulding, messy, explosive, dangerous
 	hints: none
 	connotations: none
-	infrastructure: liquid_container
+	infrastructure: form
 	infrastructure_exclude: personal
 	
 	icon:
