@@ -201,7 +201,7 @@
 					flags: requires_shipment
 					discard_damage_type_override: heat
 					
-					prefix: "Dark "
+					prefix: "Grimdark "
 					
 					requirements:
 					[

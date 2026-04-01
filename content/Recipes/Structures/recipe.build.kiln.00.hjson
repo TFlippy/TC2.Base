@@ -56,8 +56,6 @@
 	infrastructure: none
 	infrastructure_exclude: none
 	
-	h_company: common
-	
 	dismantle_work: 10.000
 	dismantle_yield: 0.800
 	

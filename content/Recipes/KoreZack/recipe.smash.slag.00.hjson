@@ -16,7 +16,6 @@
 		gravel: residue, raw, waste, output, auto_generated
 		clinker: residue, output, auto_generated
 		sand: residue, raw, powdered, output, auto_generated
-		scrap.smirgrafit: residue, product, byproduct, scrap, output, auto_generated
 		smirglum.gravel: residue, raw, output, auto_generated
 		graphite.powder: residue, powdered, result, output, auto_generated
 		water: raw, liquid, input, auto_generated
@@ -219,17 +218,6 @@
 							group: 0
 							ratio: 0.180
 							flags: waste, scale_to_mass
-						}
-						{
-							type: resource
-							material: scrap.smirgrafit
-							amount: 1.414045
-							amount_extra: 0.3893
-							snapping: 0.100
-							group: 0
-							chance: 0.392
-							ratio: 0.102
-							flags: residue, byproduct, stepped, scale_to_mass
 						}
 					]
 				}
@@ -502,17 +490,6 @@
 			group: 0
 			ratio: 0.651
 			flags: waste, scale_to_mass
-		}
-		{
-			type: resource
-			material: scrap.smirgrafit
-			amount: 1.414045
-			amount_extra: 0.3893
-			snapping: 0.100
-			group: 0
-			chance: 0.286
-			ratio: 0.310
-			flags: residue, byproduct, stepped, scale_to_mass
 		}
 	]
 	
