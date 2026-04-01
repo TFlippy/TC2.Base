@@ -1,4 +1,4 @@
-$name: "Stone Kiln"
+$name: "Betoniter Kiln"
 $desc:
 	'''
 	TODO: Desc
@@ -38,7 +38,7 @@ animated.renderer:
 	sprite:
 	{
 		texture: "kiln.00"
-		size: [24, 40]
+		size: [24, 32]
 	}
 	z: -280.000
 }
@@ -50,7 +50,7 @@ control:
 
 health:
 {
-	max: 30000.000
+	max: 23000.000
 }
 
 transform:
@@ -72,32 +72,32 @@ shop:
 {
 	tags_filter:
 	{
-		include: raw, filtering, industrial, metalworking, metallurgy, cooking, smelting, drying, heating, processing
-		exclude: crafting, advanced, large, huge, assembling, construction, fermenting
+		include: metalworking, metallurgy, cooking, drying, heating, processing, dangerous
+		exclude: crafting, complex, advanced, large, huge, assembling, construction, smelting, fermenting
 	}
 	
-	tools: hammer, saw, hand_drill, screwdriver, spanner, pliers, bucket, axe, shovel, chisel, tongs, pick
-	infrastructure: oven, rack, crucible, shaping_mould, surface, hard_surface, heater, burner, stove, kiln, smokestack, form, structure
-	environment: container, stationary, dirty, scary, reinforced, fireproof, durable, sturdy, waterproof
+	tools: hammer, cutters, saw, hand_drill, bucket, axe, shovel, tongs, pick
+	infrastructure: oven, rack, shaping_mould, surface, hard_surface, heater, burner, stove, kiln, smokestack, form, structure
+	environment: container, stationary, dirty, scary, fireproof, durable, sturdy, enclosed, cramped, waterproof, small
 	connotations: none
 	
 	flags: embed_gui
 	menu_columns: 3
 	recipe_type: workshop
 	
-	offset_spawn: [-0.500, 0.375]
+	offset_spawn: [-0.375, -0.125]
 	
-	name: "Kiln"
+	name: "Betoniter Kiln"
 }
 
 crafter:
 {
 	flags: no_gui
 	
-	temperature_max: 1579.000
+	temperature_max: 1249.000
 	pressure_max: 3.000
 	
-	spawn_offset: [1.000, -0.375]
+	offset: [-0.375, -0.125]
 
 	@inventory8:
 	{		
@@ -110,7 +110,7 @@ crafter:
 			include: soft, malleable, granular, viscous, small, gravel, powder, bottled
 			exclude: gas
 		}
-		offset: [0.000, -0.375]
+		offset: [-0.500, -0.125]
 	}
 }
 
@@ -118,12 +118,8 @@ workshop:
 {
 	orders_capacity: 1
 	
-	tools: hammer, bucket, shovel, tongs
-	infrastructure: oven, hard_surface
-	environment: container, stationary, dirty, ugly, fireproof, durable, sturdy, waterproof
-	
 	gui_info_size_x: 252.000
-	max_order_mass: 600.000
+	max_order_mass: 250.000
 	
 	h_sound_order_complete: computer.bell.00
 }
@@ -136,7 +132,7 @@ animated.renderer|"exhaust":
 		size: [16, 16]
 		frame: [0, 1]
 	}
-	offset: [-0.125, -2.250]
+	offset: [-0.625, -1.625]
 	rotation: 0.000
 	z: -285.000
 }
@@ -164,38 +160,38 @@ sound.emitter|"aux":
 
 air.vent|"exhaust":
 {
-	offset: [0.375, -2.375]
+	offset: [-0.125, -1.750]
 	rotation: -1.571
-	cross_section: 0.200
-	leak_ratio: 0.020
+	cross_section: 0.150
+	leak_ratio: 0.001
 	flags: no_gui
 	type: exhaust
 }
 
 air.vent|"intake":
 {
-	offset: [-0.500, 0.250]
-	rotation: 1.571
-	cross_section: 0.300
-	leak_ratio: 0.077
+	offset: [0.750, 0.625]
+	rotation: 0.000
+	cross_section: 0.100
+	leak_ratio: 0.117
 	flags: no_gui
 	type: intake
 }
 
 air.container:
 {
-	volume: 0.400
+	volume: 0.240
 }
 
 burner:
 {
 	flags: show_misc
 	type: liquid
-	area_fuel: 0.300
-	area_aux: 0.006854
-	temperature_max: 1579.000
+	area_fuel: 0.250
+	area_aux: 0.008854
+	temperature_max: 1249.000
 	pressure_max: 3.000
-	insulation: 0.680
+	insulation: 0.710
 
 	// @inventory1:
 	// {
@@ -225,7 +221,7 @@ burner:
 	@light:
 	{
 		color: [1.000, 0.500, 0.000, 2.000]
-		offset: [-0.500, 0.375]
+		offset: [0.750, 0.625]
 		scale: [14.000, 13.000]
 		intensity: 0.000
 		texture: "light.circle.04"
@@ -239,8 +235,8 @@ burner.state:
 	@inventory1:
 	{
 		type: fuel
-		flags: allow_ducts, ignore_mass, no_auto_pickup
-		stack_size_multiplier: 1.000
+		flags: ignore_mass, no_auto_pickup
+		stack_size_multiplier: 0.500
 		
 		filter:
 		{
@@ -248,7 +244,7 @@ burner.state:
 			include: liquid
 			exclude: solid, gas
 		}
-		offset: [-0.500, 0.375]
+		offset: [0.875, 0.625]
 	}
 }
 
