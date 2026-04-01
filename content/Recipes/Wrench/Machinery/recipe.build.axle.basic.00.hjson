@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.72.1"
-	name: "Axle (Ground)"
+	name: "Basic Axle (Ground)"
 	tips: []
 	
 	requirements:
@@ -35,7 +35,7 @@
 	[
 		{
 			type: prefab
-			prefab: axle.00
+			prefab: axle.basic.00
 			amount: 1.000
 			group: 0
 			flags: primary
@@ -56,7 +56,8 @@
 	icon:
 	{
 		texture: atlas.axle.00
-		size: [24, 24]
+		size: [16, 24]
+		frame: [0, 0]
 	}
 	icon_offset: [0.000, 7.000]
 	

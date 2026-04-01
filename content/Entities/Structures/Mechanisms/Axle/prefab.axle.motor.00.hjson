@@ -1,0 +1,112 @@
+$name: "Motorized Axle (Ground)"
+$desc: 
+	'''
+	Motor-slotted axle anchored to the ground.
+	Used to power belt drives.
+	'''
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.line:
+	{
+		a: [0.000, -0.750]
+		b: [0.000, 0.375]
+		offset: [0.000, 0.000]
+		
+		mass: 40.000
+		radius: 0.750
+		friction: 0.590
+		elasticity: 0.400
+		
+		material: metal_solid
+		miss_chance: 0.788
+		
+		layer: entity, background, building, no_overlapped_placement, ignore_melee
+		mask: world, building
+		exclude: none
+	}
+}
+
+control:
+{
+
+}
+
+health:
+{
+	max: 38000.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: atlas.axle.00
+		size: [16, 24]
+		frame: [1, 0]
+	}
+	z: -200.000
+}
+
+transform:
+{
+
+}
+
+interactable:
+{
+	flags: centered_inventory
+	window_size: [200, 272]
+	window_size_misc: [96, 0]
+	priority: 4.000
+}
+
+module.slots:
+{
+	slot_type: motor
+	
+	gui_size: [96, 72]
+	
+	offset: [0.000, -0.625]
+	z: -100.000
+}
+
+axle:
+{
+	offset: [0.000, -0.875]
+	
+	mass: 60.000
+	friction: 0.200
+	radius_a: 1.250
+	radius_b: 1.250
+	radius_inner: 1.250
+	radius_outer: 1.500
+	z: -200.000
+	
+	@animated.renderer:
+	{
+		sprite:
+		{
+			texture: "wheel_1500.steel"
+		}
+		z: -200.000
+	}
+
+	@sound.emitter:
+	{
+		file: flywheel.loop.01
+		volume: 1.000
+		pitch: 1.100
+		size: 1.250
+		size_max_modifier: 0.850
+		offset: [0.000, -0.875]
+	}
+}
+
+crank:
+{
+
+}

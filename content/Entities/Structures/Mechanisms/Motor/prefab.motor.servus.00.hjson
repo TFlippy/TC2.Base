@@ -52,8 +52,9 @@ transform:
 interactable:
 {
 	flags: none
-	window_size: [528.000, 352.000]
-	window_size_misc: [48.000, 0.000]
+	window_size: [200, 192]
+	window_size_misc: [96, 0]
+	priority: -5.000
 }
 
 motor:

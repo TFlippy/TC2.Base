@@ -1,7 +1,7 @@
-$name: "Axle (Ground)"
+$name: "Basic Axle (Ground)"
 $desc: 
 	'''
-	Axle anchored to the ground.
+	Basic axle anchored to the ground.
 	Used as part of belt drives.
 	'''
 
@@ -46,7 +46,8 @@ animated.renderer:
 	sprite:
 	{
 		texture: atlas.axle.00
-		size: [24, 24]
+		size: [16, 24]
+		frame: [0, 0]
 	}
 	z: -200.000
 }
