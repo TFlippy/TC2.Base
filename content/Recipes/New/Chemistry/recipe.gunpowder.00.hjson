@@ -304,8 +304,6 @@
 	infrastructure: surface
 	infrastructure_exclude: none
 	
-	h_company: carohrad
-	
 	icon:
 	{
 		texture: resource.gunpowder
