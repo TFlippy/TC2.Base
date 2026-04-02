@@ -81,9 +81,9 @@ transform:
 interactable:
 {
 	flags: no_tab
+	window_size: [672, 600]
+	window_size_misc: [144, 0]
 	priority: 2.000
-	window_size: [632.000, 648.000]
-	window_size_misc: [144.000, 0.000]
 }
 
 shop:

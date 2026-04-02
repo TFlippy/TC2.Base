@@ -70,7 +70,7 @@ storage:
 
 shipment:
 {
-	flags: keep_items, allow_withdraw, allow_deposit, public, use_misc
+	flags: keep_items, allow_withdraw, allow_deposit, public, use_misc, no_body_mass
 	layout: square
 }
 

@@ -350,8 +350,8 @@ shop:
 		exclude: automated, complex, advanced, huge, delicate, smelting, fermenting, heating
 	}
 	
-	tools: pliers, magnifying_glass, bucket, file, chisel, towel, tongs, sandpaper, ladle
-	infrastructure: barrel, bucket, surface, hard_surface, large_surface, giant, personal
+	tools: hammer, pliers, magnifying_glass, bucket, file, chisel, towel, tongs, sandpaper, ladle
+	infrastructure: barrel, bucket, surface, large_surface, hard_surface, giant, personal
 	environment: mobile, dirty, smelly, ugly, scary, noisy, sturdy, crappy, cramped, open, large
 	connotations: none
 	

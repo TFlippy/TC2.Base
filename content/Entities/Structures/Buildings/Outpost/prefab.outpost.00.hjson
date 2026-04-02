@@ -33,7 +33,7 @@ animated.renderer:
 interactable:
 {
 	flags: no_tab
-	window_size: [648, 576]
+	window_size: [720, 576]
 	window_size_misc: [192, 0]
 	priority: 1.000
 }
@@ -147,7 +147,7 @@ armory:
 
 shipment:
 {
-	flags: keep_items, allow_withdraw, allow_deposit, no_gui, faction
+	flags: keep_items, allow_withdraw, allow_deposit, no_gui, faction, no_body_mass
 	type: armory
 	layout: large
 }

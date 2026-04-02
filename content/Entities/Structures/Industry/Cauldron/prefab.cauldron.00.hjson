@@ -172,7 +172,7 @@ workshop:
 
 shipment:
 {
-	flags: keep_items, allow_deposit, use_misc, no_empty_deposit, crafting
+	flags: keep_items, allow_deposit, use_misc, no_empty_deposit, crafting, no_body_mass
 	type: crafting
 	layout: square
 	color: "0xfff0c63e"

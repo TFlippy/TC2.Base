@@ -28,7 +28,7 @@ body:
 
 health:
 {
-	max: 55000.000
+	max: 58000.000
 }
 
 animated.renderer:
@@ -111,9 +111,9 @@ claimer:
 interactable:
 {
 	flags: no_tab
+	window_size: [720, 600]
+	window_size_misc: [192, 0]
 	priority: 1.500
-	window_size: [664.000, 560.000]
-	window_size_misc: [192.000, 0.000]
 }
 
 // depot:
@@ -157,7 +157,7 @@ armory:
 
 shipment:
 {
-	flags: keep_items, allow_withdraw, allow_deposit, no_gui, faction
+	flags: keep_items, allow_withdraw, allow_deposit, no_gui, faction, no_body_mass
 	type: armory
 }
 
