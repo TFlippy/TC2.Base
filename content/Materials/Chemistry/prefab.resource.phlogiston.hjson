@@ -6,7 +6,7 @@ body:
 	flags: none
 	tags: hollow, solid, round, angular, complex
 	
-	fall_damage_multiplier: 1.350
+	fall_damage_multiplier: 1.550
 	buoyancy: 0.480
 
 	@shape.line:
@@ -25,7 +25,7 @@ body:
 		friction: 0.650
 		elasticity: 0.400
 		
-		fall_damage_mult: 1.230
+		fall_damage_mult: 1.430
 		// cog_offset: [0.000, 0.1875]
 		
 		a: [0.000, -0.200]

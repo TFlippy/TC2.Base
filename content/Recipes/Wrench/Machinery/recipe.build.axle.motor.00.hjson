@@ -8,7 +8,7 @@
 		{
 			type: resource
 			material: steel.frames
-			amount: 8.000
+			amount: 20.000
 			loss: 0.075
 			group: 0
 			flags: prerequisite
@@ -16,15 +16,15 @@
 		{
 			type: resource
 			material: machine_parts
-			amount: 4.000
+			amount: 25.000
 			loss: 0.024
 			group: 0
 			flags: prerequisite
 		}
 		{
 			type: resource
-			material: steel.plate
-			amount: 2.000
+			material: steel.rod
+			amount: 3.000
 			loss: 0.110
 			group: 0
 			flags: prerequisite
@@ -44,7 +44,7 @@
 	
 	type: machinery
 	flags: no_amount_multiplier, building
-	tags: simple, medium, metalworking, engineering, construction
+	tags: complex, medium, metalworking, engineering, construction
 	hints: none
 	connotations: none
 	infrastructure: none

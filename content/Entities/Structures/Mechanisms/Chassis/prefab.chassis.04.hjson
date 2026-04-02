@@ -35,7 +35,7 @@ body:
 		
 		layer: entity, solid, vehicle
 		mask: world
-		exclude: none
+		exclude: tree
 	}
 
 	@shape.line:
@@ -53,7 +53,7 @@ body:
 		material: metal
 		layer: entity, solid, vehicle, platform
 		mask: world, solid
-		exclude: wheel, attached
+		exclude: wheel, attached, tree
 		flags: none
 		dirty_flags: none
 	}

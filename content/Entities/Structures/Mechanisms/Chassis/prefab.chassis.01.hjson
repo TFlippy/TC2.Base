@@ -17,7 +17,7 @@ body:
 		
 		layer: entity, solid, vehicle
 		mask: world
-		exclude: none
+		exclude: tree
 		
 		mass: 380.000
 		radius: 0.250

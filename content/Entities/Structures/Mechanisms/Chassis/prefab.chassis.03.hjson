@@ -29,7 +29,7 @@ body:
 		material: metal_frame
 		layer: entity, solid, vehicle
 		mask: world
-		exclude: none
+		exclude: tree
 		flags: none
 		dirty_flags: none
 	}

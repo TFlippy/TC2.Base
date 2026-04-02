@@ -75,9 +75,12 @@ transform:
 
 holdable:
 {
+	force_multiplier: 1.600
+	torque_multiplier: 1.300
+	stress_multiplier: 0.250
 	radius: 0.000
-	flags: disable_parent_facing, disable_rotation, disable_control
-	stress_multiplier: 0.500
+	flags: disable_parent_facing, disable_rotation, disable_control, force_edge_pickup
+	hints: dangerous, heavy, advanced, powerful, machine, device, arcane, tech, propulsion, clumsy
 }
 
 interactable:
