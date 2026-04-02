@@ -66,14 +66,22 @@
 	{
 		actuator: component, similar, product, manufactured, processed, extracted, output
 		directors: component, similar, product, manufactured, processed, extracted, output
-		scrap.machine: mangled, payload, impure, scrap, processed, mixed, output
-		arcanite: raw, melted, mangled, cooked, decomposition, solidified, smelted, byproduct, processed, extracted, output
-		recondite: raw, melted, mangled, cooked, decomposition, solidified, smelted, byproduct, processed, extracted, output
-		scrap.smirgrafit: mangled, waste, similar, payload, filler, slag, scrap, mixed, extracted, output
+		pellet: component, clean, similar, extracted, output
+		pellet.heat: component, clean, similar, extracted, output
+		pellet.motion: component, clean, similar, extracted, output
+		pellet.failure: component, clean, similar, extracted, output
+		pellet.anger: component, clean, similar, extracted, output
+		pellet.electricity: component, clean, similar, extracted, output
+		pellet.radiance: component, clean, similar, extracted, output
+		pellet.cognition: component, clean, similar, extracted, output
+		pellet.life: component, clean, similar, extracted, output
+		putty: decomposition, juice, similar, chemical, result, byproduct, liquid, impurity, extracted, output
 		scrap.smirgrafit.dusty: reaction, mangled, decomposition, similar, payload, filler, slag, scrap, mixed, extracted, output
+		scrap.smirgrafit: mangled, waste, similar, payload, filler, slag, scrap, mixed, extracted, output
 		smirglum.amalgam: wet, raw, melted, reaction, decomposition, similar, chemical, product, processed, mixed, output
 		smirgrafit.clay: similar, chemical, payload, filler, impurity, extracted, output
-		putty: decomposition, juice, similar, chemical, result, byproduct, liquid, impurity, extracted, output
-		pellet: component, clean, similar, extracted, output
+		arcanite: raw, melted, mangled, cooked, decomposition, solidified, smelted, byproduct, processed, extracted, output
+		recondite: raw, melted, mangled, cooked, decomposition, solidified, smelted, byproduct, processed, extracted, output
+		scrap.machine: mangled, payload, impure, scrap, processed, mixed, output
 	}
 }

@@ -4,13 +4,20 @@
 	name: "Salvaged EC-Scrap"
 	desc:
 		'''
-		TODO: Desc
+		Take a pile of EC-Scrap
 		'''
 	tips: []
 	
 	related_materials:
 	{
-	
+		scrap.arcane: ingredient, scrap, input, auto_generated
+		arcanite: raw, waste, output, auto_generated
+		scrap.smirgrafit.dusty: residue, scrap, output, auto_generated
+		scrap.metal: waste, scrap, output, auto_generated
+		directors: product, result, byproduct, output, auto_generated
+		pellet.failure: residue, product, byproduct, output, auto_generated
+		smirgrafit.clay: residue, output, auto_generated
+		smrad.dust: raw, waste, powdered, gas, output, auto_generated
 	}
 	
 	stages:
@@ -27,34 +34,49 @@
 			options:
 			[
 				{
-					name: "Simple"
+					name: "Casual"
+					desc: ", search through it without much thought, and try to dismantle whatever looks remotely interesting."
 					
 					type: undefined
 					flags: none
+					
+					prefix: "Casually "
 					
 					requirements:
 					[
 						{
 							type: resource
 							material: scrap.arcane
-							amount: 1.187097
-							snapping: 5.000
-							loss: 1.000
-							ratio: 0.314
+							amount: 1.000
+							snapping: 0.100
+							falloff: 1.500
+							loss: 0.969
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: work
 							work: scavenging
-							amount: 74.000
-							amount_min: 175.000
-							difficulty: 4
-							snapping: 5.000
-							falloff: 0.935
-							ratio: 0.514
+							amount: 46.000
+							amount_min: 100.000
+							difficulty: 7
+							step_max: 20
+							snapping: 25.000
+							falloff: 1.070
 							group: 0
-							flags: conditional
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: dismantling
+							amount: 80.000
+							amount_min: 50.000
+							difficulty: 6
+							step_max: 40
+							snapping: 25.000
+							falloff: 0.876
+							group: 0
+							flags: simultaneous, conditional
 						}
 					]
 					
@@ -62,86 +84,112 @@
 					[
 						{
 							type: resource
-							material: cmajzl
-							amount: 0.181
-							amount_extra: 0.2429
+							material: arcanite
+							amount: 0.2492
+							amount_extra: 0.4411
+							snapping: 0.010
 							group: 0
-							chance: 0.412
-							ratio: 0.176
-							flags: residue, stepped, scale_to_mass
-						}
-						{
-							type: resource
-							material: scrap.wood
-							amount: 0.1255
-							amount_extra: 0.1703
-							group: 0
-							chance: 0.663
-							ratio: 0.231
+							chance: 0.765
+							ratio: 0.102
 							flags: waste, stepped, scale_to_mass
 						}
 						{
 							type: resource
-							material: eggs
-							amount: 0.370709
-							amount_extra: 0.519791
-							snapping: 1.000
-							group: 0
-							chance: 0.122
-							ratio: 0.110
-							flags: residue, stepped, scale_to_mass
-						}
-						{
-							type: resource
-							material: insect
-							amount: 0.1817
-							amount_extra: 0.3678
+							material: scrap.smirgrafit.dusty
+							amount: 0.307
+							amount_extra: 0.2913
 							snapping: 0.100
 							group: 0
-							chance: 0.310
-							ratio: 0.224
+							chance: 0.600
+							ratio: 0.298
 							flags: residue, stepped, scale_to_mass
 						}
 						{
 							type: resource
-							material: shite
-							amount: 0.113717
-							amount_extra: 1.091448
-							snapping: 0.2366
+							material: scrap.metal
+							amount: 0.4782
+							amount_extra: 0.4786
+							snapping: 0.100
 							group: 0
-							chance: 0.337
-							ratio: 0.196
-							flags: pollutant, waste, no_scaling, stepped, scale_to_mass
+							chance: 0.839
+							ratio: 0.133
+							flags: waste, stepped, scale_to_mass
 						}
 						{
 							type: resource
-							material: sugar
-							amount: 0.1843
-							amount_extra: 0.3159
+							material: directors
+							amount: 0.6377
+							amount_extra: 1.1364
+							snapping: 0.100
 							group: 0
-							chance: 0.157
-							ratio: 0.184
+							chance: 0.408
+							ratio: 0.263
+							flags: byproduct, primary, stepped, compact, scale_to_mass
+						}
+						{
+							type: resource
+							material: pellet.failure
+							amount: 0.2287
+							amount_extra: 0.7587
+							snapping: 1.000
+							group: 0
+							chance: 0.541
+							ratio: 0.161
+							flags: residue, byproduct, scale_to_mass
+						}
+						{
+							type: resource
+							material: smirgrafit.clay
+							amount: 0.169
+							amount_extra: 0.0105
+							snapping: 0.100
+							group: 0
+							chance: 0.557
+							ratio: 0.165
 							flags: residue, stepped, scale_to_mass
 						}
 						{
 							type: resource
-							material: plants
-							amount: 0.7087
-							amount_extra: 1.6585
+							material: smrad.dust
+							amount: 0.685
+							amount_extra: 0.331
+							snapping: 1.337
 							group: 0
-							ratio: 0.957
-							flags: residue, primary, compact, scale_to_mass
+							chance: 0.741
+							ratio: 0.067
+							flags: pollutant, waste, spawn, scale_to_mass
 						}
 					]
 					
 					filter_tools:
 					{
-						include: cleaver, tweezers, magnifying_glass, bucket, spatula, knife, scissors
+						include: cutters, screwdriver, pliers, towel, knife
 					}
-					filter_infrastructure:
-					{
-						include: dishes, table, chair, surface, kitchen
-					}
+				}
+			]
+		}
+		{
+			name: "Post-Processing"
+			
+			type: postprocessing
+			flags: optional
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			options:
+			[
+				{
+					name: "None"
+					desc:
+						'''
+
+
+						Then throw it on the ground.
+						'''
+					
+					type: undefined
+					flags: merge_residue
 				}
 			]
 		}
