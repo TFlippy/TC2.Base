@@ -1,7 +1,7 @@
-$name: "EC-Levitator"
+$name: "EC-Levitator (Single)"
 $desc:
 	'''
-	Powerful EC levitator used for propulsion.
+	Small EC-Levitator used for propulsion.
 	'''
 $tags: []
 
@@ -96,7 +96,7 @@ attachment:
 	radius: 0.000
 	flags: disable_parent_facing
 	force_multiplier: 2.500
-	tags: small, rotary, fixed, coaxial, propulsion
+	tags: small, medium, rotary, fixed, coaxial, propulsion
 }
 
 // threat:
@@ -163,6 +163,7 @@ levitator:
 			dir: [-1.000, 0.000]
 			offset: [0.000, 0.000]
 			ratio: 1.000
+			modifier: 1.000
 			key: moveup
 		}
 	]
@@ -181,19 +182,23 @@ levitator.state:
 
 heat:
 {
-	heat_medium: 450.000
-	heat_high: 700.000
-	heat_critical: 900.000
-	cool_rate: 50.000
-	capacity_extra: 500.000
-	
+	temperature_medium: 592.6775
+	temperature_high: 1183.018
+	temperature_ignite: 1676.860
+	temperature_operating: 2032.210
+	temperature_melt: 3353.772
+	temperature_breakdown: 2560.823
+	cool_rate: 2.000
+	size: [1.500, 1.500]
+	flame_tint: "0xd3ffa304"
+
 	@light:
 	{
 		color: [1.000, 0.400, 0.100, 2.000]
 		offset: [0.000, 0.000]
 		scale: [16.000, 16.000]
 		intensity: 0.000
-		texture: "light.circle.00"
+		texture: light.circle.00
 	}
 	
 	@sound.emitter:
