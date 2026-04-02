@@ -35,7 +35,10 @@ namespace TC2.Base.Components
 		public static void OnDamage(ISystem.Info.Common info, ref XorRandom random, ref Health.DamageEvent ev,
 		[Source.Owned, Original] ref Regen.Data regen, [Source.Owned] in Health.Data health)
 		{
-			regen.t_next_regen = Maths.Max(regen.t_next_regen, info.WorldTime + random.NextFloatExtra(regen.interval, 8.00f));
+			//App.WriteValue(regen.t_next_regen);
+			regen.t_next_regen = Maths.Max(regen.t_next_regen, info.WorldTime + random.NextFloatExtra(regen.interval + 10.00f, 10.00f));
+			//App.WriteValue(regen.t_next_regen);
+
 		}
 
 		[ISystem.PostUpdate.C(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.22f), HasTag("dead", false, Source.Modifier.Owned)]

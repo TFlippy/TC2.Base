@@ -8,13 +8,12 @@ body:
 	
 	@shape.circle:
 	{
-		offset: [0.000, 0.000]
-		mass: 1400.000
+		mass: 2000.000
 		radius: 1.500
 		friction: 0.950
 		elasticity: 0.500
-		material: fabric
-		layer: entity, flammable
+		material: clay
+		layer: entity, solid
 		mask: world
 	}
 }
@@ -27,6 +26,15 @@ transform:
 health:
 {
 	max: 90000.000
+}
+
+regen:
+{
+	amount: 180.000
+	interval: 15.000
+	
+	min_a: 0.200
+	min_b: 0.200
 }
 
 animated.renderer:
@@ -89,18 +97,19 @@ claimer:
 		body:
 		{
 			type: dynamic
+			fall_damage_multiplier: 1.700
 			
 			@shape.line:
 			{
 				a: [1.000, -2.500]
 				b: [0.125, -1.500]
 				offset: [-0.750, 1.875]
-				mass: 2100.000
+				mass: 2900.000
 				radius: 1.500
 				friction: 0.950
-				elasticity: 0.500
+				elasticity: 0.300
 				material: fabric
-				layer: entity, solid, flammable
+				layer: entity, solid, flammable, organic
 				mask: world
 				exclude: none
 				flags: none
@@ -115,6 +124,15 @@ claimer:
 		health:
 		{
 			max: 88000.000
+		}
+
+		regen:
+		{
+			amount: 180.000
+			interval: 10.000
+			
+			min_a: 0.300
+			min_b: 0.200
 		}
 		
 		animated.renderer:
@@ -194,7 +212,7 @@ claimer:
 			items:
 			[
 				{
-					material: "soil.dry"
+					material: "scrap.cloth"
 					min: 500.000
 					max: 800.000
 				}
