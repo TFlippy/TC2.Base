@@ -50,7 +50,7 @@
 							amount: 1.000
 							snapping: 0.100
 							falloff: 1.500
-							loss: 0.969
+							loss: 0.949
 							group: 0
 							flags: prerequisite
 						}
@@ -163,7 +163,185 @@
 					
 					filter_tools:
 					{
-						include: cutters, screwdriver, pliers, towel, knife
+						require: screwdriver, spanner
+						include: cutters, hand_drill, screwdriver, wrench, spanner, pliers, tweezers, magnifying_glass, towel, knife
+					}
+					filter_infrastructure:
+					{
+						include: table, chair, vise, workbench
+					}
+				}
+				{
+					name: "Methodical"
+					desc: ", carefully sort and catalogue the components, then disassemble and reassemble each piece."
+					
+					type: undefined
+					flags: none
+					
+					prefix: "Methodically "
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: scrap.arcane
+							amount: 1.000
+							snapping: 0.100
+							falloff: 1.500
+							loss: 0.988
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: glue
+							amount: 0.500
+							snapping: 0.100
+							falloff: 1.186
+							loss: 0.278
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: search.components
+							amount: 80.000
+							amount_min: 120.000
+							difficulty: 9
+							step_max: 30
+							snapping: 25.000
+							falloff: 1.047
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: dismantling
+							amount: 140.000
+							amount_min: 90.000
+							difficulty: 10
+							step_max: 40
+							snapping: 25.000
+							falloff: 0.840
+							group: 1
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: assembling
+							amount: 80.000
+							amount_min: 50.000
+							difficulty: 8
+							step_max: 20
+							snapping: 10.000
+							falloff: 0.927
+							group: 2
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: calibration
+							amount: 20.000
+							amount_min: 40.000
+							difficulty: 5
+							step_max: 20
+							snapping: 10.000
+							falloff: 0.918
+							group: 2
+							flags: stepped, simultaneous, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: directors
+							amount: 0.891
+							amount_extra: 1.100
+							snapping: 0.100
+							group: 0
+							chance: 0.624
+							ratio: 0.290
+							flags: byproduct, primary, stepped, compact, scale_to_mass
+						}
+						{
+							type: resource
+							material: actuator
+							amount: 0.152
+							amount_extra: 0.144
+							snapping: 0.250
+							group: 0
+							chance: 0.282
+							ratio: 0.196
+							flags: primary, stepped, compact, scale_to_mass
+						}
+						{
+							type: resource
+							material: arcanite
+							amount: 0.194
+							amount_extra: 0.362
+							snapping: 0.010
+							group: 0
+							chance: 0.722
+							ratio: 0.173
+							flags: waste, stepped, scale_to_mass
+						}
+						{
+							type: resource
+							material: scrap.smirgrafit.dusty
+							amount: 0.240
+							amount_extra: 0.213
+							snapping: 0.100
+							group: 0
+							chance: 0.667
+							ratio: 0.259
+							flags: residue, stepped, scale_to_mass
+						}
+						{
+							type: resource
+							material: smirgrafit.clay
+							amount: 0.195
+							amount_extra: 0.025
+							snapping: 0.100
+							group: 0
+							chance: 0.612
+							ratio: 0.141
+							flags: residue, stepped, scale_to_mass
+						}
+						{
+							type: resource
+							material: scrap.machine
+							amount: 0.312
+							amount_extra: 0.290
+							snapping: 0.100
+							group: 0
+							chance: 0.769
+							ratio: 0.098
+							flags: residue, stepped, scale_to_mass
+						}
+						{
+							type: resource
+							material: smrad.dust
+							amount: 0.420
+							amount_extra: 0.185
+							snapping: 1.337
+							group: 0
+							chance: 0.580
+							ratio: 0.043
+							flags: pollutant, waste, spawn, scale_to_mass
+						}
+					]
+					
+					filter_tools:
+					{
+						require: screwdriver, spanner, tweezers
+						include: cutters, hand_drill, screwdriver, wrench, spanner, pliers, tweezers, magnifying_glass, towel, knife
+					}
+					filter_infrastructure:
+					{
+						require: table
+						include: table, chair, vise, workbench
 					}
 				}
 			]
@@ -227,7 +405,7 @@
 	}
 	icon_c_offset: [-2.000, -20.000]
 	
-	color_frame: "0xffac7534"
+	color_frame: "0xff19e2b1"
 	color_button: "0xff9dd80f"
 	rank: -50.000
 	frame_size: [48.000, 48.000]
