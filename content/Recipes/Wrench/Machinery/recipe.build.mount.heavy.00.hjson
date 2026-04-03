@@ -1,34 +1,80 @@
 ﻿{
-	$version: "0.1.70.1"
-	name: "Emplacement (Heavy)"
+	$version: "0.1.72.1"
+	name: "Emplacement (Large)"
 	desc:
 		'''
 		Large emplacement with an aimable heavy rotary mount.
-		- Perfect for artillery and cranes
-		- High-torque, high-force attachment slot
-		- Comfortable seat
 		'''
-	tips: []
+	tips:
+	[
+		"Perfect for artillery and cranes"
+		"High-torque, high-force attachment slot"
+		"Comfortable seat"
+	]
+	
+	related_materials:
+	{
+		brick.concrete: input, auto_generated
+		mortar: input, auto_generated
+		steel.frames: input, auto_generated
+		steel.rod: input, auto_generated
+		machine_parts: input, auto_generated
+		cloth: input, auto_generated
+		mushroom: raw, input, auto_generated
+	}
 	
 	requirements:
 	[
 		{
 			type: resource
-			material: steel.ingot
-			amount: 75.000
+			material: brick.concrete
+			amount: 500.000
+			snapping: 0.500
 			group: 0
+			flags: prerequisite
+		}
+		{
+			type: resource
+			material: mortar
+			amount: 80.000
+			snapping: 0.500
+			group: 0
+			flags: prerequisite
+		}
+		{
+			type: resource
+			material: steel.frames
+			amount: 90.000
+			group: 0
+			flags: prerequisite
+		}
+		{
+			type: resource
+			material: steel.rod
+			amount: 40.000
+			group: 0
+			flags: prerequisite
 		}
 		{
 			type: resource
 			material: machine_parts
-			amount: 45.000
+			amount: 85.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: resource
-			material: cement
-			amount: 850.000
+			material: cloth
+			amount: 20.000
 			group: 0
+			flags: prerequisite
+		}
+		{
+			type: resource
+			material: mushroom
+			amount: 40.000
+			group: 0
+			flags: prerequisite
 		}
 	]
 	
@@ -39,12 +85,13 @@
 			prefab: mount.heavy
 			amount: 1.000
 			group: 0
+			flags: primary
 		}
 	]
 	
 	type: machinery
-	flags: blueprintable, debug, disabled, wip
-	tags: construction
+	flags: blueprintable, construction, wip
+	tags: complex, large, machinery, assembling, metalworking, metallurgy, engineering, military, architecture, construction
 	hints: none
 	connotations: none
 	infrastructure: none
@@ -58,27 +105,44 @@
 		texture: mount.heavy
 		size: [48, 48]
 	}
+	icon_offset: [0.000, -14.000]
 	
 	color_frame: "0xffaeb59a"
 	color_button: "0xff9dd80f"
 	rank: -40.000
+	frame_size: [128.000, 80.000]
 	
 	placement:
 	{
 		type: simple
-		flags: allow_mirror_x, require_terrain, terrain_is_support
+		flags: allow_mirror_x, require_terrain, terrain_is_support, no_solid_support
 		
-		size: [6.000, 6.000]
-		offset: [0.000, -1.500]
+		size: [4.000, 4.000]
+		offset: [0.000, -2.500]
 		
-		cooldown: 0.500
-		min_support: 0.200
-		min_clearance: 0.900
+		rect_foundation: [-3.000, 0.000, 3.000, 1.000]
+		tileflags_foundation: solid
+		
+		rect_clearance: [-3.000, -4.500, 2.500, 0.000]
+		tileflags_clearance: solid
+		
+		cooldown: 1.000
+		min_support: 0.950
+		min_clearance: 0.950
 		min_claim: 1.000
+		max_range: 2.500
 		
-		rotation_max: 0.200
+		rotation_max: 0.589
+		rotation_step: 0.0491
 		
 		sound: building_place
+		
+		snapping_filter:
+		{
+			include: world
+			exclude: none
+		}
+		snapping_flags: snap_to_surface, add_size_to_snap_radius, use_raw_collider, no_end_snap
 		
 		mappings_replace:
 		{
@@ -86,20 +150,5 @@
 		}
 	}
 	
-	construction:
-	{
-		prefab: construction.6x6
-		
-		requirements:
-		[
-			{
-				type: resource
-				material: wood
-				amount: 5.000
-				group: 0
-			}
-		]
-	}
-	
-	version: 0
+	version: 1
 }
