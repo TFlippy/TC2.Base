@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.72.1"
 	name: "Nitroglycerine"
 	name_short: "NTG"
 	name_imperial: "Nitroglycerin"
@@ -65,5 +65,17 @@
 		
 		market_price: 48.700
 		market_price_per_kg_auto: 123.9186
+	}
+	
+	// Info regarding relations of other materials towards this material.
+	related:
+	{
+		nitrosugar: reaction, similar, chemical, solidified, byproduct
+		red_sugar: raw, reaction, similar, chemical, ingredient, natural
+		nitric_acid: reaction, chemical, ingredient, liquid
+		sulfuric_acid: reaction, chemical, ingredient, liquid
+		water.red: ruined, wet, decomposition, waste, chemical, impure, byproduct, liquid, mixed
+		sugar: raw, reaction, powdered, ingredient
+		prdex: refined, reaction, chemical, product, processed
 	}
 }
