@@ -1,0 +1,26 @@
+﻿{
+	$version: "0.1.72.1"
+	name: "Essence Manipulation"
+	date: "739.04.04 09:16:32"
+	
+	type: undefined
+	tags: disaster, innovation, imperial, discovery, censored, official, arcane, anomalous, glorious, science, engineering, accident
+	connotations: danger, rare, explosive, interesting, advanced, powerful, fancy, destructive, big, painful, loud, expensive, funny, dumb, civilian, wrecked, arcane, tech, fake, sus, good, weird, scary, luxury, special
+	
+	h_faction: imperial
+	h_nation: kordel
+	h_location: frgal
+	
+	desc:
+		'''
+		On the morning of 739.04.04 S.D., jeweler M.Horvin of Frgal was working on a counterfeit antique golden pendant,
+		substituting some of the valuable gold with then-worthless smirglum powder - a byproduct of rare earth refining.
+
+		[REDACTED]
+		'''
+	outcome:
+		'''
+		- Obliteration of approximately 400 pieces of assorted pastry, bakery of B.Housek, and B.Housek.
+		- Discovery of controlled essence manipulation, triggering a new industrial revolution in Kordel.
+		'''
+}

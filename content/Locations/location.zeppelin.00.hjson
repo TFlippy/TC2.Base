@@ -1,9 +1,10 @@
 ﻿{
 	$prefab: "g.zeppelin.00"
 	$prefab_region: "zeppelin.00"
-	$version: "0.1.68.2"
+	$version: "0.1.72.1"
 	name: "V2-Schneider Zeppelin"
 	name_short: "V2-Schneider"
+	
 	desc:
 		'''
 		Huge zeppelin operated by the Lufthanz company, acting as a mobile administrative and commercial hub.
@@ -13,55 +14,45 @@
 	
 	type: zeppelin
 	flags: spawn, mobile
+	
 	categories: imperial, commercial, administrative, magitech, advanced, secure, mercantile, powerful, modern, mechanized, vehicle, airship
 	buildings: warehouse, office, hotel, artillery, power_plant, laboratory, bar, apartments, barracks, exchange, arsenal, market, bank, transmitter
+	geography: windy, cold
+	crime: embezzlement, bribery, corruption, smuggling
+	
 	industry_primary: logistics, commerce, aviation
 	industry: logistics, retail, colonization, trading
+	
 	goods_trading: weapons, beverages, food, alcohol, metals, machinery, components, drugs, chemicals, explosives, refined, artificial, arcane, technology, blueprints, paper, medicine, construction_materials, tools, fuel, clothing, textiles, herbs, jewelry, munitions, tobacco, luxury, consumer, industrial, military, manufactured, processed
 	goods_demanded: weapons, beverages, food, alcohol, components, drugs, chemicals, water, arcane, technology, blueprints, paper, medicine, tools, fuel, clothing, munitions, tobacco, military
 	goods_produced: scrap, waste
-	crime: embezzlement, bribery, corruption, smuggling
-	geography: windy, cold
 	
-	// Urban development, population density.
-	urbanization: 0.730
-	// Availability and utilization of advanced technology.
-	technology: 0.941
-	// Industrial production, mechanization, engineering.
-	industrialization: 0.929
-	// Literacy, availability of education, skilled workers.
-	education: 0.749
-	// Standard of living, overall wealth of population and government.
-	wealth: 0.783
-	// Nature, wildlife, overgrowth, untamed nature.
-	wilderness: 0.000
-	// Environmental damage, pollution, wastelandness.
-	devastation: 0.000
-	// Brutality of nature and population.
-	savagery: 0.005
-	// Lawlessness, lack of organization.
-	anarchy: 0.029
-	// Economic strength, employment rate, flow of goods.
-	economy: 0.616
-	// Variance of population's social classes.
-	inequality: 0.517
-	// Crime rate, personal safety.
-	safety: 0.875
-	// Rate of expansion, economic and population growth.
-	growth: 0.076
-	// Military strength, security, access to weapons.
-	military: 0.763
-	// Height in meters above sea level.
-	elevation: 200.000
+	h_prefecture: brod
+	h_faction: lufthanz
+	h_company: lufthanz
+	point: [8, -12]
+	
+	size: 0.500
+	color: "0xff00a3d9"
+	
+	icon:
+	{
+		texture: worldmap.unit.zeppelin.00
+		size: [24, 24]
+	}
+	
+	text_offset: [0.000, 0.250]
 	
 	statistics:
 	{
 		// Political corruption, organized crime, bribery, embezzlement.
 		corruption: 0.205
+		
 		// Polarization of society, internal conflict, radicalization.
 		unrest: 0.011
 		// Brutality of nature and population.
 		savagery: 0.002
+		
 		// Literacy, availability of education, skilled workers.
 		education: 0.753
 		// Urban development, population density.
@@ -70,6 +61,7 @@
 		technology: 0.887
 		// Industrial production, mechanization, engineering.
 		industrialization: 0.869
+		
 		// Standard of living, overall wealth of population and government.
 		wealth: 0.715
 		// Nature, wildlife, overgrowth, untamed nature.
@@ -80,8 +72,10 @@
 		destruction: 0.002
 		// Groundwater and air pollution, exposure to toxic chemicals.
 		pollution: 0.230
+		
 		// Reputation, nobility, luxuries.
 		prestige: 0.722
+		
 		// Lawlessness, lack of organization.
 		anarchy: 0.015
 		// Economic strength, employment rate, flow of goods.
@@ -104,22 +98,30 @@
 		giant: 1
 	}
 	
-	h_prefecture: brod
-	h_faction: lufthanz
-	h_company: lufthanz
-	size: 0.500
-	
-	color: "0xff00a3d9"
-	
-	icon:
-	{
-		texture: worldmap.unit.zeppelin.00
-		mask: missing
-		size: [24, 24]
-	}
-	
-	icon_offset: [0.000, 0.000]
-	text_offset: [0.000, 0.250]
-	
-	point: [8, -12]
+	// Urban development, population density.
+	urbanization: 0.730
+	// Availability and utilization of advanced technology.
+	technology: 0.941
+	// Industrial production, mechanization, engineering.
+	industrialization: 0.929
+	// Literacy, availability of education, skilled workers.
+	education: 0.749
+	// Standard of living, overall wealth of population and government.
+	wealth: 0.783
+	// Brutality of nature and population.
+	savagery: 0.005
+	// Lawlessness, lack of organization.
+	anarchy: 0.029
+	// Economic strength, employment rate, flow of goods.
+	economy: 0.616
+	// Variance of population's social classes.
+	inequality: 0.517
+	// Crime rate, personal safety.
+	safety: 0.875
+	// Rate of expansion, economic and population growth.
+	growth: 0.076
+	// Military strength, security, access to weapons.
+	military: 0.763
+	// Height in meters above sea level.
+	elevation: 200.000
 }

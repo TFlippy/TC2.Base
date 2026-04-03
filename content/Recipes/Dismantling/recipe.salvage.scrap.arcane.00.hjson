@@ -18,6 +18,9 @@
 		pellet.failure: residue, product, byproduct, output, auto_generated
 		smirgrafit.clay: residue, output, auto_generated
 		smrad.dust: raw, waste, powdered, gas, output, auto_generated
+		glue: ingredient, liquid, input, auto_generated
+		actuator: product, result, output, auto_generated
+		scrap.machine: residue, scrap, output, auto_generated
 	}
 	
 	stages:
@@ -335,13 +338,17 @@
 					
 					filter_tools:
 					{
-						require: screwdriver, spanner, tweezers
-						include: cutters, hand_drill, screwdriver, wrench, spanner, pliers, tweezers, magnifying_glass, towel, knife
+						require: ruler, screwdriver, wrench, spanner
+						include: pencil, paper, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, spanner, pliers, tweezers, magnifying_glass, bucket, syringe, stapler, file, towel, spatula, tongs, pick, crowbar, knife
 					}
 					filter_infrastructure:
 					{
-						require: table
-						include: table, chair, vise, workbench
+						include: table, chair, vise, surface, workbench
+					}
+					filter_environment:
+					{
+						include: workshop, office, stationary, clean, fancy, cozy, safe, illuminated, quiet, dry, organized
+						exclude: scary
 					}
 				}
 			]
@@ -374,11 +381,11 @@
 	]
 	
 	type: workshop
-	flags: debug, dismantling, wip
+	flags: dismantling, production, wip
 	tags: manual, basic, simple, complex, engineering, salvaging, separation
 	hints: none
 	connotations: none
-	infrastructure: surface
+	infrastructure: table, surface
 	infrastructure_exclude: none
 	
 	icon:
