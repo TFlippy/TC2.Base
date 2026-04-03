@@ -71,4 +71,16 @@
 		market_price: 47.400
 		market_price_per_kg_auto: 82.29167
 	}
+	
+	// Info regarding relations of other materials towards this material.
+	related:
+	{
+		nitrosugar: refined, reaction, dried, similar, chemical, solidified, product, result, byproduct, processed
+		nitroglycerine: refined, wet, reaction, purified, similar, chemical, product, result, byproduct, manufactured, liquid, processed
+		water.red: ruined, wet, reaction, decomposition, waste, chemical, impure, result, manufactured, liquid, processed, mixed
+		alcohol: reaction, chemical, liquid
+		nitric_acid: reaction, chemical, liquid
+		sulfuric_acid: reaction, chemical, liquid
+		prdex: refined, reaction, chemical, product, result, manufactured, processed
+	}
 }

@@ -3,6 +3,14 @@
 	name: "Earmuffs"
 	tips: []
 	
+	related_materials:
+	{
+		steel.rod: input, auto_generated
+		mushroom: raw, input, auto_generated
+		cloth: input, auto_generated
+		glue: liquid, input, auto_generated
+	}
+	
 	stages:
 	[
 		{
@@ -114,7 +122,7 @@
 					filter_tools:
 					{
 						require: knife, needle
-						include: cutters, tweezers, stapler, knife, needle, pins
+						include: cutters, screwdriver, tweezers, stapler, knife, needle, pins, scissors
 					}
 				}
 			]
@@ -126,7 +134,7 @@
 			flags: wip
 			tags: assembly
 			// Damage type used for discarding leftover resources.
-			discard_damage_type: none
+			discard_damage_type: sledgehammer
 			
 			options:
 			[

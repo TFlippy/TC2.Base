@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.1"
+	$version: "0.1.72.1"
 	name: "Rucksack"
 	tips:
 	[
@@ -8,6 +8,13 @@
 		"Simpler to craft"
 		"More durable"
 	]
+	
+	related_materials:
+	{
+		leather: raw, input, auto_generated
+		glue: liquid, input, auto_generated
+		steel.frames: input, auto_generated
+	}
 	
 	stages:
 	[
@@ -90,7 +97,7 @@
 					filter_tools:
 					{
 						require: knife, needle
-						include: ruler, cutters, cleaver, tweezers, paintbrush, stapler, file, knife, needle, pins, scissors, utensils
+						include: ruler, cutters, screwdriver, cleaver, tweezers, paintbrush, stapler, file, knife, needle, pins, scissors, utensils
 					}
 					filter_infrastructure:
 					{
@@ -160,7 +167,7 @@
 					filter_tools:
 					{
 						require: knife, needle
-						include: cutters, tweezers, stapler, knife, needle, pins
+						include: cutters, screwdriver, tweezers, stapler, knife, needle, pins, scissors
 					}
 				}
 			]

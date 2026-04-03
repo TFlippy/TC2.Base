@@ -34,7 +34,7 @@
 					name: "Bricks"
 					
 					type: undefined
-					flags: requires_shipment
+					flags: none
 					
 					suffix: "s"
 					
@@ -47,7 +47,7 @@
 							snapping: 0.100
 							ratio: 1.000
 							group: 0
-							flags: argument, primary
+							flags: argument, primary, prerequisite
 						}
 					]
 					
@@ -81,7 +81,7 @@
 					name: "Black Coal"
 					
 					type: undefined
-					flags: requires_shipment
+					flags: none
 					discard_damage_type_override: heat
 					
 					prefix: "Sooty "
@@ -97,6 +97,7 @@
 							loss: 0.671
 							ratio: 0.216
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: temperature
@@ -134,7 +135,7 @@
 					name: "Karban"
 					
 					type: undefined
-					flags: requires_shipment
+					flags: none
 					discard_damage_type_override: heat
 					
 					prefix: "Grimdark "
@@ -150,6 +151,7 @@
 							loss: 0.761
 							ratio: 0.216
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: temperature

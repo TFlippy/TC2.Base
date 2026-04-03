@@ -38,7 +38,7 @@
 					name: "Handsawn"
 					
 					type: undefined
-					flags: requires_shipment
+					flags: none
 					
 					requirements:
 					[
@@ -50,7 +50,7 @@
 							loss: 0.051
 							ratio: 1.000
 							group: 0
-							flags: primary
+							flags: primary, prerequisite
 						}
 						{
 							type: work
@@ -88,7 +88,7 @@
 					name: "Trashed"
 					
 					type: undefined
-					flags: requires_shipment
+					flags: none
 					discard_damage_type_override: crush
 					
 					requirements:
@@ -101,7 +101,7 @@
 							loss: 0.075
 							ratio: 1.000
 							group: 0
-							flags: primary
+							flags: primary, prerequisite
 						}
 						{
 							type: work

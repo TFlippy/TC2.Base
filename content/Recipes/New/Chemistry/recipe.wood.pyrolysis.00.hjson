@@ -37,7 +37,7 @@
 					name: "Sawdust"
 					
 					type: undefined
-					flags: requires_shipment
+					flags: none
 					
 					requirements:
 					[
@@ -49,7 +49,7 @@
 							loss: 0.275
 							ratio: 1.000
 							group: 0
-							flags: primary
+							flags: primary, prerequisite
 						}
 					]
 					
@@ -63,7 +63,7 @@
 					name: "Woodchips"
 					
 					type: undefined
-					flags: requires_shipment
+					flags: none
 					
 					requirements:
 					[
@@ -75,7 +75,7 @@
 							loss: 0.224
 							ratio: 1.000
 							group: 0
-							flags: primary
+							flags: primary, prerequisite
 						}
 					]
 					
@@ -89,7 +89,7 @@
 					name: "Debris"
 					
 					type: undefined
-					flags: requires_shipment
+					flags: none
 					
 					requirements:
 					[
@@ -101,7 +101,7 @@
 							loss: 0.224
 							ratio: 1.000
 							group: 0
-							flags: primary
+							flags: primary, prerequisite
 						}
 					]
 					
@@ -115,7 +115,7 @@
 					name: "Rods"
 					
 					type: undefined
-					flags: requires_shipment
+					flags: none
 					
 					requirements:
 					[
@@ -127,7 +127,7 @@
 							loss: 0.224
 							ratio: 1.000
 							group: 0
-							flags: primary
+							flags: primary, prerequisite
 						}
 						{
 							type: work

@@ -1,5 +1,4 @@
 ﻿{
-	$region_id: 0
 	$version: "0.1.72.1"
 	name: "Salvaged EC-Scrap"
 	desc:
@@ -203,7 +202,7 @@
 							falloff: 1.186
 							loss: 0.278
 							group: 0
-							flags: prerequisite
+							flags: no_residue, prerequisite
 						}
 						{
 							type: work
