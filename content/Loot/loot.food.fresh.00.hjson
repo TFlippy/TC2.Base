@@ -138,7 +138,7 @@
 					type: resource
 					material: red_sugar
 					amount: 8.000
-					amount_extra: 25.000
+					amount_extra: 20.000
 				}
 			]
 		}

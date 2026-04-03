@@ -280,7 +280,7 @@ lootable:
 		{
 			material: "red_sugar"
 			min: 0.000
-			max: 5.000
+			max: 3.500
 		}
 	]
 }

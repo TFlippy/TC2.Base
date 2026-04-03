@@ -48,9 +48,9 @@
 						{
 							type: resource
 							material: red_sugar
-							amount: 1.6205
+							amount: 0.821875
 							snapping: 0.100
-							falloff: 0.972
+							falloff: 0.990
 							loss: 1.000
 							ratio: 1.000
 							group: 0
@@ -59,7 +59,7 @@
 						{
 							type: resource
 							material: alcohol
-							amount: 0.499405
+							amount: 0.588691
 							snapping: 0.100
 							falloff: 0.971
 							loss: 0.231
@@ -90,7 +90,7 @@
 							amount_extra: 0.0923
 							snapping: 0.100
 							group: 0
-							ratio: 0.153
+							ratio: 0.129
 							flags: primary, compact, scale_to_mass
 						}
 						{
@@ -100,7 +100,7 @@
 							amount_extra: 0.2293
 							snapping: 0.100
 							group: 0
-							ratio: 0.243
+							ratio: 0.071
 							flags: residue, byproduct, scale_to_mass
 						}
 					]
@@ -216,12 +216,22 @@
 						{
 							type: resource
 							material: nitroglycerine
-							amount: 0.856
-							amount_extra: 0.142
+							amount: 0.837
+							amount_extra: 0.124
 							snapping: 0.100
 							group: 0
-							ratio: 0.267
+							ratio: 0.357
 							flags: primary, compact, scale_to_mass
+						}
+						{
+							type: resource
+							material: nitrosugar
+							amount: 0.0931
+							amount_extra: 0.2293
+							snapping: 0.100
+							group: 0
+							ratio: 0.353
+							flags: residue, byproduct, scale_to_mass
 						}
 						{
 							type: resource
@@ -230,7 +240,7 @@
 							amount_extra: 0.130
 							snapping: 0.100
 							group: 0
-							ratio: 0.639
+							ratio: 0.518
 							flags: pollutant, waste, scale_to_mass
 						}
 						{
@@ -240,7 +250,7 @@
 							amount_extra: 0.457
 							snapping: 0.100
 							group: 0
-							ratio: 0.310
+							ratio: 0.376
 							flags: pollutant, waste, spawn, use_temperature, scale_to_mass
 						}
 					]
@@ -342,7 +352,7 @@
 							amount_extra: 0.480
 							snapping: 0.100
 							group: 0
-							ratio: 0.616
+							ratio: 0.592
 							flags: pollutant, waste, residue, scale_to_mass
 						}
 						{
@@ -352,7 +362,7 @@
 							amount_extra: 0.498
 							snapping: 0.100
 							group: 0
-							ratio: 0.710
+							ratio: 0.722
 							flags: waste, residue, scale_to_mass
 						}
 					]

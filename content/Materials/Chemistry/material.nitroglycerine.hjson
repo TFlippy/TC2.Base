@@ -63,8 +63,8 @@
 		flags: none
 		categories: explosives
 		
-		market_price: 48.700
-		market_price_per_kg_auto: 123.9186
+		market_price: 64.600
+		market_price_per_kg_auto: 164.3766
 	}
 	
 	// Info regarding relations of other materials towards this material.

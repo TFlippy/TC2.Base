@@ -19,7 +19,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "resource.red_sugar"
+		texture: resource.red_sugar
 		count: 4
 		size: [16, 16]
 	}
@@ -32,7 +32,7 @@ transform:
 
 resource:
 {
-	material: "red_sugar"
+	material: red_sugar
 }
 
 holdable:
@@ -51,8 +51,8 @@ despawn:
 {
 	sleep_count_max: 11
 	interval: 15.000
-	threshold_delete: 0.010
-	threshold_despawning: 1.000
+	threshold_delete: 0.004
+	threshold_despawning: 0.500
 }
 
 health:
