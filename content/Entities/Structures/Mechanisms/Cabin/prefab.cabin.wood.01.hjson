@@ -156,8 +156,8 @@ workshop:
 	
 	seat:
 	{
+		offset: [0.000, 0.750]
 		flags: covered, open
-		offset: [0.125, 0.250]
 		max_tilt: 5.000
 		damage_mult: 0.680
 		stun_mult: 0.400
