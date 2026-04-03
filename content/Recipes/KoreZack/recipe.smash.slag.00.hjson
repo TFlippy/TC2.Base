@@ -498,7 +498,7 @@
 	tags: manual, basic, simple, raw, filtering, metallurgy, salvaging, separation, processing, messy
 	hints: none
 	connotations: none
-	infrastructure: surface
+	infrastructure: surface, hard_surface
 	infrastructure_exclude: none
 	
 	icon:

@@ -100,7 +100,7 @@ interactable:
 	flags: none
 	window_size: [648, 524]
 	window_size_misc: [96, 0]
-	priority: 3.000
+	priority: 0.500
 }
 
 control:
@@ -130,9 +130,9 @@ shop:
 
 workshop:
 {
-	orders_capacity: 2
+	orders_capacity: 1
 	h_sound_order_complete: computer.bell.00
-	max_order_mass: 90.000
+	max_order_mass: 120.000
 	gui_info_size_x: 252.000
 
 	@inventory8:
@@ -147,7 +147,7 @@ workshop:
 		}
 	}
 
-	offset: [0.250, 0.000]
+	offset: [0.000, 0.000]
 }
 
 +seat|instance:
