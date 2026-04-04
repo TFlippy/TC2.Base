@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.0"
+	$version: "0.1.73.0"
 	name: "Betoniter"
 	desc:
 		'''
@@ -17,7 +17,7 @@
 	strength_tensile: 4.800
 	strength_compressive: 21.000
 	
-	mass: 1.979
+	mass: 5.0475
 	density: 0.000
 	friction: 0.700
 	elasticity: 0.560
@@ -38,11 +38,11 @@
 	[
 		{
 			material: betoniter
-			quantity: 1.062069
+			quantity: 2.951724
 		}
 		{
 			material: scrap.concrete
-			quantity: 0.304965
+			quantity: 0.539007
 		}
 	]
 	

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.1"
+	$version: "0.1.73.0"
 	name: "Karban"
 	desc:
 		'''
@@ -16,7 +16,7 @@
 	strength_tensile: 1.100
 	strength_compressive: 0.700
 	
-	mass: 0.8827
+	mass: 2.20675
 	density: 0.000
 	friction: 0.940
 	elasticity: 0.310
@@ -37,11 +37,11 @@
 	[
 		{
 			material: karban
-			quantity: 1.201026
+			quantity: 2.960557
 		}
 		{
 			material: mercury
-			quantity: 0.025543
+			quantity: 0.091983
 		}
 	]
 	

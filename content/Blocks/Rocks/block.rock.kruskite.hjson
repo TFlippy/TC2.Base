@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.1"
+	$version: "0.1.73.0"
 	name: "Kruskite"
 	desc:
 		'''
@@ -18,7 +18,7 @@
 	strength_tensile: 4.800
 	strength_compressive: 21.000
 	
-	mass: 1.220
+	mass: 3.050
 	density: 0.000
 	friction: 0.900
 	elasticity: 0.200
@@ -39,11 +39,11 @@
 	[
 		{
 			material: kruskite
-			quantity: 1.095498
+			quantity: 3.18281
 		}
 		{
 			material: sand
-			quantity: 0.237705
+			quantity: 0.565574
 		}
 	]
 	

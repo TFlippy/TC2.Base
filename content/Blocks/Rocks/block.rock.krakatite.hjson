@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.1"
+	$version: "0.1.73.0"
 	name: "Krakatite"
 	desc:
 		'''
@@ -18,7 +18,7 @@
 	strength_tensile: 4.800
 	strength_compressive: 21.000
 	
-	mass: 1.700
+	mass: 4.250
 	density: 0.000
 	friction: 0.500
 	elasticity: 0.360
@@ -39,7 +39,7 @@
 	[
 		{
 			material: krakatite
-			quantity: 1.262857
+			quantity: 3.104962
 		}
 		null
 	]
