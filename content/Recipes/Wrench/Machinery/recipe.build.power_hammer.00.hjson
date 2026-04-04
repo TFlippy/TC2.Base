@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.70.1"
+	$version: "0.1.72.1"
 	name: "Trip Hammer"
 	tips: []
 	
@@ -40,7 +40,7 @@
 	]
 	
 	type: machinery
-	flags: no_amount_multiplier, blueprintable, debug, disabled, wip
+	flags: no_amount_multiplier, blueprintable, hidden, debug, disabled, wip
 	tags: construction
 	hints: none
 	connotations: none
