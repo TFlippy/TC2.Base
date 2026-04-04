@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.65.1"
+	$version: "0.1.73.0"
 	name: "[OBSOLETE] Hardstone"
 	desc:
 		'''
@@ -16,7 +16,7 @@
 	strength_tensile: 4.800
 	strength_compressive: 21.000
 	
-	mass: 4.000
+	mass: 6.700
 	density: 0.000
 	friction: 0.750
 	elasticity: 0.390
@@ -37,7 +37,7 @@
 	[
 		{
 			material: gravel
-			quantity: 3.692308
+			quantity: 5.813547
 		}
 		null
 	]

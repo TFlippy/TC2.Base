@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.70.1"
+	$version: "0.1.73.0"
 	name: "Kuprovst"
 	desc:
 		'''
@@ -16,7 +16,7 @@
 	strength_tensile: 4.800
 	strength_compressive: 21.000
 	
-	mass: 2.900
+	mass: 5.500
 	density: 0.000
 	friction: 0.960
 	elasticity: 0.620
@@ -37,7 +37,7 @@
 	[
 		{
 			material: kuprovst
-			quantity: 2.176599
+			quantity: 4.095476
 		}
 		null
 	]

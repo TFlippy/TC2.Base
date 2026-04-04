@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.1"
+	$version: "0.1.73.0"
 	name: "Compacted Garbage"
 	desc:
 		'''
@@ -16,7 +16,7 @@
 	strength_tensile: 0.100
 	strength_compressive: 7.000
 	
-	mass: 0.941
+	mass: 1.241
 	density: 0.000
 	friction: 0.950
 	elasticity: 0.270
@@ -37,7 +37,7 @@
 	[
 		{
 			material: scrap.mixed
-			quantity: 0.674058
+			quantity: 0.876956
 		}
 		null
 	]

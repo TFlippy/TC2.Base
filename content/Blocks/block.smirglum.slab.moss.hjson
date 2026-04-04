@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.1"
+	$version: "0.1.73.0"
 	name: "Smirglum Slabs"
 	desc:
 		'''
@@ -16,7 +16,7 @@
 	strength_tensile: 13.000
 	strength_compressive: 45.410
 	
-	mass: 7.600
+	mass: 16.800
 	density: 0.000
 	friction: 0.800
 	elasticity: 0.600
@@ -37,7 +37,7 @@
 	[
 		{
 			material: smirglum
-			quantity: 0.100
+			quantity: 0.371501
 		}
 		null
 	]

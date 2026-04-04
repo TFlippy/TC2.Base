@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.8"
+	$version: "0.1.73.0"
 	name: "Niklajzner"
 	desc:
 		'''
@@ -16,7 +16,8 @@
 	strength_tensile: 4.800
 	strength_compressive: 21.000
 	
-	mass: 2.200
+	mass: 5.800
+	density: 0.000
 	friction: 0.640
 	elasticity: 0.630
 	fall_damage_mult: 0.940
@@ -36,7 +37,7 @@
 	[
 		{
 			material: niklajzner
-			quantity: 1.139382
+			quantity: 3.240506
 		}
 		null
 	]

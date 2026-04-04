@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.0"
+	$version: "0.1.73.0"
 	name: "Native Smirglum"
 	desc:
 		'''
@@ -16,7 +16,7 @@
 	strength_tensile: 4.800
 	strength_compressive: 21.000
 	
-	mass: 8.400
+	mass: 11.900
 	density: 0.000
 	friction: 0.600
 	elasticity: 0.500
@@ -37,7 +37,7 @@
 	[
 		{
 			material: smirglum
-			quantity: 0.178019
+			quantity: 0.239074
 		}
 		null
 	]
