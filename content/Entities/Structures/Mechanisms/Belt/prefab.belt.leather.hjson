@@ -20,7 +20,7 @@ body:
 		friction: 0.990
 		elasticity: 0.700
 		material: leather
-		layer: entity, belt, ignore_melee, ignore_hover
+		layer: entity, belt, ignore_hover
 		mask: world
 	}
 }
@@ -48,4 +48,9 @@ transform:
 dismantlable:
 {
 
+}
+
+health:
+{
+	max: 4500.000
 }
