@@ -3,7 +3,7 @@
 	name: "Giant Ladder (Metal)"
 	desc:
 		'''
-		More durable ladder with a longer placement range.
+		More robust ladder designed to be used only by giants.
 		Can be also directly embedded in ground.
 		'''
 	tips: []

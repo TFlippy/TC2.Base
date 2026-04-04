@@ -109,10 +109,10 @@ norotate:
 
 holdable:
 {
-	stress_multiplier: 0.500
 	offset: [0.000, 0.750]
-	radius: 1.500
-	flags: storable, disable_parent_facing, disable_rotation, disable_control
+	stress_multiplier: 0.500
+	radius: 0.000
+	flags: storable, disable_parent_facing, disable_rotation, disable_control, force_edge_pickup
 }
 
 attachment:
@@ -154,6 +154,7 @@ essence.container:
 	stability: 0.750
 	health_threshold: 0.800
 	emit_type: cycler
+	type: pellet_magazine
 }
 
 vibrate:

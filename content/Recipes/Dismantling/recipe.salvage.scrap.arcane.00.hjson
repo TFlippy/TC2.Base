@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.1"
+	$version: "0.1.73.0"
 	name: "Salvaged EC-Scrap"
 	desc:
 		'''
@@ -159,7 +159,7 @@
 							group: 0
 							chance: 0.741
 							ratio: 0.067
-							flags: pollutant, waste, spawn, scale_to_mass
+							flags: pollutant, waste, spawn, hidden, scale_to_mass
 						}
 					]
 					
@@ -331,7 +331,7 @@
 							group: 0
 							chance: 0.580
 							ratio: 0.043
-							flags: pollutant, waste, spawn, scale_to_mass
+							flags: pollutant, waste, spawn, hidden, scale_to_mass
 						}
 					]
 					

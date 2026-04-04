@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.72.1"
-	name: "Mount (Static, Tall)"
+	name: "Tower Mount (Rotary)"
 	desc:
 		'''
 		TODO: Desc
@@ -42,7 +42,7 @@
 		{
 			type: resource
 			material: machine_parts
-			amount: 50.000
+			amount: 40.000
 			group: 0
 			flags: prerequisite
 		}

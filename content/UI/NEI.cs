@@ -68,6 +68,11 @@ namespace TC2.Conquest
 									}
 									GUI.FocusableAsset(h_material_selected, rect: GUI.GetLastItemRect());
 
+									if (GUI.Selectable3(id: "select.mat.current"u8, rect: GUI.GetLastItemRect(), selected: false))
+									{
+										h_item_selected.Toggle(h_material_selected);
+									}
+
 									GUI.SameLine();
 
 									GUI.TitleCentered(material_data.GetName(), size: 24, pivot: new(0, 0.00f), offset: new(6, 0));
