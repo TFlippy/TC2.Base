@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.73.0"
 	name: "Recondite Powder"
 	name_short: "Rec. Powder"
 	name_imperial: "Rekonpulvr"
@@ -19,7 +19,7 @@
 	
 	// Inventory material type.
 	type: powder
-	flags: magnetic, granular, metal, powder, solid
+	flags: magnetic, granular, metal, currency, powder, solid
 	display_flags: none
 	hints: materials
 	
