@@ -13,7 +13,7 @@ body:
 		friction: 0.990
 		elasticity: 0.700
 		material: metal
-		layer: entity, conveyor, ignore_melee, ignore_hover
+		layer: entity, conveyor, ignore_hover
 		mask: world
 	}
 }
@@ -37,6 +37,11 @@ conveyor:
 conveyor.state:
 {
 
+}
+
+health:
+{
+	max: 9000.000
 }
 
 animated.renderer:
