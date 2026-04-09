@@ -1,0 +1,123 @@
+﻿{
+	$prefab: "g.settlement.city.00"
+	$version: "0.1.62.0"
+	name: "Lopat-Prospekto"
+	name_short: "Lopat-Prospekto"
+	desc:
+		'''
+		Capital of Guvernorat-Krumpelstejn.
+
+		Wealthiest and the most developed city on the entire island - also probably the closest semblance of the mainland Imperial civilization.
+		'''
+	
+	post_code: "LOP"
+	
+	type: capital
+	flags: spawn
+	categories: military, imperial, industrial, commercial, residential, urban, administrative, governmental, financial, magitech, agricultural, wealthy, advanced, secure, fortified, innovative, mercantile, coastal, powerful, modern, expansive, excavated, polluted, mechanized, authoritarian, regulated
+	buildings: warehouse, factory, office, bunker, hotel, hospital, airport, trainyard, minefield, artillery, power_plant, docks, skyscraper, tower, lighthouse, walls, prison, labor_camp, theatre, constabulary, foundry, manufactory, refinery, mine, checkpoint, customs, slum, laboratory, university, school, bar, apartments, barracks, subway, train_station, exchange, arsenal, scrapyard, landfill, black_market, brewery, metalworks, zoo, circus, market, fuel_depot, bank, brickworks, steel_mill, transmitter, bakery
+	industry_primary: none
+	industry: financial, telecommunications, manufacturing, low_tech, high_tech, metallurgy, chemical, automotive, power, military, entertainment, arcane, biology, tourism, logistics, food, textile, fishing, hospitality, slaves, recruitment, real_estate, research, education, security, munitions, media, pharmaceutical, medical, railway, administrative, tobacco, trading, literature, propaganda, engineering, weapons, experimental, beverage, commerce, aviation, naval, furniture, architecture, luxury, jewelry, intel, alcohol
+	goods_trading: none
+	goods_demanded: none
+	goods_produced: none
+	crime: theft, murder, embezzlement, prostitution, bribery, corruption, fraud, smuggling, forgery, extortion, espionage
+	geography: hills, excavated, forested, rocky, coastal, warm, urban
+	
+	// Urban development, population density.
+	urbanization: 0.920
+	// Availability and utilization of advanced technology.
+	technology: 0.910
+	// Industrial production, mechanization, engineering.
+	industrialization: 0.780
+	// Literacy, availability of education, skilled workers.
+	education: 0.850
+	// Standard of living, overall wealth of population and government.
+	wealth: 1.141
+	// Nature, wildlife, overgrowth, untamed nature.
+	wilderness: 0.040
+	// Environmental damage, pollution, wastelandness.
+	devastation: 0.397
+	// Brutality of nature and population.
+	savagery: 0.050
+	// Lawlessness, lack of organization.
+	anarchy: 0.040
+	// Economic strength, employment rate, flow of goods.
+	economy: 0.860
+	// Variance of population's social classes.
+	inequality: 0.437
+	// Crime rate, personal safety.
+	safety: 0.823
+	// Rate of expansion, economic and population growth.
+	growth: 0.038
+	// Military strength, security, access to weapons.
+	military: 1.649
+	// Height in meters above sea level.
+	elevation: 10.000
+	
+	statistics:
+	{
+		// Brutality of nature and population.
+		savagery: 0.050
+		// Literacy, availability of education, skilled workers.
+		education: 0.850
+		// Urban development, population density.
+		urbanization: 0.920
+		// Availability and utilization of advanced technology.
+		technology: 0.910
+		// Industrial production, mechanization, engineering.
+		industrialization: 0.780
+		// Standard of living, overall wealth of population and government.
+		wealth: 1.141
+		// Nature, wildlife, overgrowth, untamed nature.
+		wilderness: 0.040
+		// Environmental devastation, excavation, deforestation, wasteland-ness.
+		devastation: 0.397
+		// Lawlessness, lack of organization.
+		anarchy: 0.040
+		// Economic strength, employment rate, flow of goods.
+		economy: 0.860
+		// Variance of population's social classes.
+		inequality: 0.437
+		// Crime rate, personal safety.
+		safety: 0.823
+		// Rate of expansion, economic and population growth.
+		growth: 0.038
+		// Military strength, security, access to weapons.
+		military: 1.649
+	}
+	
+	population:
+	{
+		human: 70000
+		kobold: 15000
+		giant: 900
+	}
+	
+	h_prefecture: tanhauzr
+	h_faction: krumpelstejn
+	h_company: lopat_prospekto
+	h_location_parent: "null"
+	size: 0.900
+	
+	color: "0xffffee00"
+	
+	thumbnail:
+	{
+		texture: ui.thumbnail.urban.05
+		mask: missing
+	}
+	
+	icon:
+	{
+		texture: worldmap.icons.01
+		mask: missing
+		size: [24, 32]
+		frame: [0, 3]
+	}
+	
+	icon_offset: [0.000, -0.875]
+	text_offset: [0.000, -0.125]
+	
+	point: [25, -20]
+}

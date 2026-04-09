@@ -12,7 +12,7 @@ body:
 	@shape.line:
 	{
 		material: wreck
-		miss_chance: 0.341
+		miss_chance: 0.841
 		flags: none
 		tags: none
 		

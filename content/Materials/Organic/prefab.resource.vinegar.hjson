@@ -14,7 +14,7 @@ body:
 		elasticity: 0.800
 		
 		material: glass
-		miss_chance: 0.015
+		miss_chance: 0.115
 		
 		layer: entity, solid, resource
 		mask: world
@@ -58,5 +58,5 @@ norotate:
 
 health:
 {
-	max: 800.000
+	max: 1500.000
 }

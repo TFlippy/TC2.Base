@@ -1,0 +1,26 @@
+﻿{
+	$region_id: 0
+	$version: "0.1.72.1"
+	flags: none
+	chance: 0.000
+	tags: none
+	
+	volume: [0.700, 0.000]
+	pitch: [0.720, 0.130]
+	size: [6.630, 0.000]
+	dist_mult: [0.770, 0.000]
+	
+	shake_radius: [0.000, 0.000]
+	shake_magnitude: [0.000, 0.000]
+	
+	sounds:
+	[
+		explosion.rumble.00
+		explosion.gas.00
+		stone.hit.impact.05
+		explosion.impact.00
+		projectile.strong.burrow.00
+		projectile.strong.hit.01
+		stone.hit.impact.02
+	]
+}

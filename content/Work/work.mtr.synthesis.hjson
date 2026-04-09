@@ -1,0 +1,68 @@
+﻿{
+	$region_id: 0
+	$version: "0.1.72.0"
+	name: "MTR-Synthesis"
+	name_short: "MTR-Synthesis"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: ui.icons.work.00
+		size: [16, 16]
+		frame: [11, 0]
+	}
+	
+	flags: wip
+	tags: skilled, science, advanced, complex, arcane, industrial, toxic, delicate, dangerous, careful
+	
+	amount_base: 1.000
+	cooldown: 2.000
+	multiplier: 0.700
+	
+	amount_jitter: 0.837
+	cooldown_jitter: 0.346
+	color: "0xff40f084"
+	
+	tools_required: none
+	tools_optional: tweezers, tongs, utensils
+	
+	infrastructure_required: table, chair
+	infrastructure_optional: table, chair
+	
+	character_traits:
+	{
+		include: scientist, educated, medical, professional, engineer, alchemist, insane, arcane, evil, fanatic
+		weight: 1.000
+	}
+	
+	skills_min:
+	{
+	
+	}
+	
+	skills_mult:
+	{
+		alchemistry: 0.210
+		arcanology: 0.950
+		charisma: 0.530
+		intellect: 0.570
+	}
+	
+	sound_volume: 0.500
+	sound_pitch: 1.000
+	sound_size: 0.500
+	sound_dist: 1.000
+	
+	sounds: ["golem_loop_01", "golem_voice_00", "golem_loop_01", "golem_voice_01", "essence.push.00", "distillery.produce"]
+	sounds_manual: []
+	sounds_crafter: []
+	sounds_passive: []
+	sounds_ambient: []
+	
+	sounds_start: []
+	sounds_end: []
+	sounds_fail: []
+}

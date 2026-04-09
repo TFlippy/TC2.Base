@@ -47,20 +47,27 @@ harvestable:
 	resources:
 	[
 		{
-			material: "scrap.mixed"
-			quantity: 110.000
+			material: steel.plate
+			quantity: 50.000
 		}
 		{
-			material: "steel.frames"
-			quantity: 30.000
+			material: steel.frames
+			quantity: 28.000
 		}
 		{
-			material: "paper"
-			quantity: 80.000
+			material: paper
+			quantity: 100.000
 		}
 		{
-			material: "wood"
-			quantity: 70.000
+			material: wood
+			quantity: 22.000
 		}
 	]
+	
+	thresholds: [0.599, 0.890, 0.950, 0.620]
+	
+	pct_damage_mult: [0.920, 0.950, 0.970, 0.590]
+	pct_quantity_min: [0.080, 0.117, 0.108, 0.068]
+	
+	chance_base: [0.922, 0.957, 0.965, 0.953]
 }

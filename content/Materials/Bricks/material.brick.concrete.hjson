@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.2"
+	$version: "0.1.73.0"
 	name: "Concrete Slabs"
 	name_short: "Concrete"
 	name_dumb: "Stone Brick"
@@ -34,6 +34,9 @@
 	// Mass of 1 unit in kg.
 	mass_per_unit: 1.740
 	
+	// Volume occupied by a stack in m³.
+	volume_per_stack: 0.9949
+	
 	// Maximum quantity (units) per stack.
 	quantity_max: 500.000
 	// Minimum spawnable quantity.
@@ -56,13 +59,11 @@
 	
 	commodity:
 	{
-		
 		flags: none
-		categories: none
+		categories: construction_materials
 		
 		market_price: 8.100
-		
-		market_price_per_kg_auto: 4.252874
+		market_price_per_kg_auto: 4.655173
 	}
 	
 	// Residues from crafting/work.

@@ -1,7 +1,7 @@
 $name: "LMG"
 $desc:
 	'''
-	Light machine gun with large ammo capacity and a robust build.
+	High-capacity machine gun designed for human use.
 	'''
 $tags: []
 
@@ -46,16 +46,18 @@ gun:
 	
 	sound_volume: 1.300
 	sound_size: 3.000
-	sound_dist_multiplier: 2.000
 	sound_pitch: 1.070
+	sound_dist_multiplier: 2.500
 	
 	sound_shoot: machine_gun_shoot.old
 	sound_reload: machine_gun_reload
 	
 	damage_multiplier: 3.500
-	velocity_multiplier: 600.000
+	velocity_multiplier: 550.000
+	velocity_max: 750.000
 	jitter_multiplier: 2.400
-	recoil_multiplier: 1.200
+	recoil_multiplier: 1.100
+	muzzle_blast_mult: 1.120
 	reload_interval: 2.500
 	cycle_interval: 0.120
 	stability: 1680.000
@@ -102,12 +104,11 @@ gun.state:
 holdable:
 {
 	offset: [-0.600, 0.000]
+	force_multiplier: 7.900
+	torque_multiplier: 6.630
+	stress_multiplier: 1.320
 	radius: 8.000
 	flags: storable, full_rotate
-	hints: gun, powerful, heavy
-
-	force_multiplier: 1.250
-	torque_multiplier: 1.500
 }
 
 attachment:
@@ -126,7 +127,7 @@ animated.renderer:
 
 health:
 {
-	max: 8500.000
+	max: 7500.000
 }
 
 armor:
@@ -167,7 +168,7 @@ heat:
 	heat_medium: 350.000
 	heat_high: 500.000
 	heat_critical: 750.000
-	cool_rate: 60.000
+	cool_rate: 30.000
 
 	offset: [0.750, -0.125]
 	size: [1.000, 0.500]

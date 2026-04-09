@@ -14,11 +14,11 @@ body:
 			[1.250, 2.375]
 			[-1.250, 2.375]
 		]
-		mass: 1450.000
+		mass: 1350.000
 		radius: 0.500
 		friction: 0.500
 		elasticity: 0.500
-		material: metal_solid
+		material: metal
 		layer: entity, solid, background, building, support, no_overlapped_placement, ignore_melee
 
 		miss_chance: 0.750
@@ -144,11 +144,11 @@ mount:
 
 	attachment.slot:
 	{
-		flags: keyboard_read, keyboard_write, mouse_read, mouse_write, manual_aim
-		flags_editable: locked, disabled, invert, keyboard_read, keyboard_write, mouse_read, mouse_write, loose, offset
+		flags: keyboard_write, mouse_write, manual_aim
+		flags_editable: locked, disabled, invert, keyboard_read, keyboard_write, mouse_read, mouse_write, loose, offset, manual_aim
 		name: "Mount"
 		identifier: "mount"
-		offset_bounds: [-0.500, 0.000, 0.500, 0.000]
-		gui_size: [0.000, 200.000]
+		offset_bounds: [-0.500, -0.500, 0.500, 0.500]
+		gui_size: [0.000, 192.000]
 	}
 }

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.0"
+	$version: "0.1.72.1"
 	name: "Sejrus Mushroom"
 	desc:
 		'''
@@ -9,7 +9,13 @@
 	
 	related_materials:
 	{
-		sulfuric_acid: chemical, product, result
+		sulfuric_acid: chemical, product, result, liquid, output
+		mushroom.yellow: raw, ingredient, input, auto_generated
+		water: raw, ingredient, liquid, input, auto_generated
+		glue: product, result, byproduct, liquid, output, auto_generated
+		water.toxic: raw, waste, liquid, output, auto_generated
+		sludge: raw, waste, output, auto_generated
+		mush: residue, scrap, output, auto_generated
 	}
 	
 	stages:
@@ -22,9 +28,6 @@
 			tags: material, formula, ingredient
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: wet
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -114,7 +117,6 @@
 			discard_damage_type: none
 			
 			ratio: 0.005
-			mass_base: 0.000
 			
 			options:
 			[
@@ -230,9 +232,6 @@
 			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: none
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -366,9 +365,6 @@
 			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: none
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[

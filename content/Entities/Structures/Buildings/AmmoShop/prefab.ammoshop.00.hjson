@@ -11,10 +11,10 @@ body:
 	
 	@shape.box:
 	{
-		size: [5.250, 3.750]
+		size: [3.250, 3.750]
 		offset: [0.000, -0.125]
 		
-		mass: 1200.000
+		mass: 820.000
 		radius: 0.500
 		
 		material: building_reinforced
@@ -122,14 +122,14 @@ shop:
 
 workshop:
 {
-	orders_capacity: 3
+	orders_capacity: 2
 	
 	tools: none
 	infrastructure: none
 	environment: none
 	
 	gui_info_size_x: 252.000
-	max_order_mass: 100.000
+	max_order_mass: 200.000
 	
 	h_sound_order_complete: effect.bell.ring.00
 
@@ -143,37 +143,38 @@ workshop:
 		{
 			exclude: gas
 		}
+		offset: [-0.625, 0.875]
 	}
 }
 
 personnel:
 {
+	characters_capacity: 2
 	flags: store_characters
+	assign_radius: 20.000
 	slots:
 	[
 		{
 			role: engineer
-			tags: management, civil, industrial, logistics, production, paperwork, sedentary, technical
+			flags: can_craft, can_manage, can_use_inventory
+			tags: management, civil, industrial, logistics, production, manual_labor, paperwork, sedentary, technical, maintenance, operation
 			color: "0xffff8333"
 			multiplier: 1.000
 		}
 		{
-			role: technician
-			tags: civil, industrial, production, dangerous, manual_labor, technical, operation
+			role: machinist
+			flags: can_craft, can_use_inventory
+			tags: civil, industrial, production, dangerous, manual_labor, technical, maintenance, operation
 			color: "0xffffa800"
-			multiplier: 1.000
+			multiplier: 1.200
 		}
-		{
-			role: technician
-			tags: civil, industrial, production, dangerous, manual_labor, technical, operation
-			color: "0xffffa800"
-			multiplier: 1.000
-		}
+		null
+		null
+		null
 		null
 		null
 		null
 	]
-	characters_capacity: 3
 }
 
 heat:
@@ -211,21 +212,21 @@ heat:
 
 press:
 {
-	slider_offset: [0.000, -1.000]
-	slider_length: 0.500
+	// slider_offset: [0.000, -1.000]
+	// slider_length: 0.500
 	speed: 2.200
 	load_multiplier: 1.000
 	
-	@animated.renderer:
-	{
-		sprite:
-		{
-			texture: ammoshop.00.parts
-			size: [16, 16]
-		}
-		offset: [-0.250, -0.125]
-		z: -315.000
-	}
+	// @animated.renderer:
+	// {
+	// 	sprite:
+	// 	{
+	// 		texture: ammoshop.00.parts
+	// 		size: [16, 16]
+	// 	}
+	// 	offset: [-0.250, -0.125]
+	// 	z: -315.000
+	// }
 
 	@light:
 	{
@@ -242,10 +243,41 @@ press.state:
 
 }
 
+piston:
+{
+	offset: [-0.625, -1.000]
+	direction: [0.000, 1.000]
+	length: 1.000
+	mass: 10.000
+	damping: 0.000
+	spring_constant: 0.000
+	flags: no_simulate
+
+	@animated.renderer:
+	{
+		sprite:
+		{
+			texture: ammoshop.00.parts
+			size: [16, 16]
+		}
+		offset: [-0.250, -0.125]
+		z: -315.000
+	}
+
+	// @light:
+	// {
+	// 	color: [0.000, 1.000, 0.800, 1.500]
+	// 	offset: [-0.250, -1.750]
+	// 	scale: [12.000, 14.000]
+	// 	intensity: 1.200
+	// 	texture: light.circle.00
+	// }
+}
+
 crafter:
 {
 	h_crafter: stamping.press.00
-	flags: self_only, assignable
+	flags: self_only, assignable, automatic, machine
 	
 	tools: none
 	infrastructure: none
@@ -285,23 +317,20 @@ crafter.state:
 		
 		filter:
 		{
-			require: none
-			include: none
 			exclude: gas
 		}
-		
-		offset: [0.000, 0.000]
+		offset: [0.750, 1.500]
 	}
 }
 
 axle:
 {
-	offset: [-0.375, -1.625]
+	offset: [0.125, -1.000]
 	
 	friction: 0.200
 	radius_inner: 0.500
 	radius_outer: 0.750
-	z: -310.000
+	z: -315.000
 	
 	@animated.renderer:
 	{
@@ -322,6 +351,6 @@ shipment:
 {
 	type: crafting
 	layout: square
-	flags: keep_items, allow_deposit, use_misc, no_empty_deposit, crafting
+	flags: keep_items, allow_deposit, use_misc, no_empty_deposit, crafting, no_body_mass
 	color: "0xfff0c63e"
 }

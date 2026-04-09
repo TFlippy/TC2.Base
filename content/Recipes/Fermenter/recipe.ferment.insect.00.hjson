@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.0"
+	$version: "0.1.72.1"
 	name: "Grubby"
 	desc:
 		'''
@@ -9,8 +9,13 @@
 	
 	related_materials:
 	{
-		rubber: product, result
-		vinegar: product, result
+		rubber: residue, product, result, output
+		vinegar: product, result, byproduct, liquid, output
+		insect: raw, ingredient, input, auto_generated
+		alcohol: ingredient, liquid, input, auto_generated
+		mushroom: raw, ingredient, input, auto_generated
+		sludge: raw, waste, output, auto_generated
+		hydrogen_cyanide: gas, byproduct, output, auto_generated
 	}
 	
 	stages:
@@ -25,7 +30,6 @@
 			discard_damage_type: rotting
 			
 			ratio: 1.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -142,7 +146,6 @@
 			discard_damage_type: rotting
 			
 			ratio: 1.000
-			mass_base: 0.000
 			
 			options:
 			[

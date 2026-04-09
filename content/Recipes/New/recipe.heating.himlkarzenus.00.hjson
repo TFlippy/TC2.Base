@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.1"
+	$version: "0.1.72.1"
 	name: "Himlkarzenus Decomposition"
 	desc:
 		'''
@@ -9,8 +9,14 @@
 	
 	related_materials:
 	{
-		arsenic: product, result
-		mercury: residue, product, result
+		arsenic: residue, raw, powdered, product, result, output
+		mercury: residue, raw, product, result, byproduct, liquid, output
+		himlkarzenus: raw, ingredient, input, auto_generated
+		hydrogen: residue, gas, output, auto_generated
+		arsine: raw, waste, gas, output, auto_generated
+		mercury.vapor: raw, waste, gas, vapor, output, auto_generated
+		sulfur: residue, raw, powdered, byproduct, output, auto_generated
+		hydrogen_sulfide: waste, gas, output, auto_generated
 	}
 	
 	stages:
@@ -24,7 +30,6 @@
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: wet
 			
-			ratio: 0.000
 			mass_base: 1.000
 			
 			options:
@@ -84,9 +89,6 @@
 			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: heat
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -166,9 +168,6 @@
 			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: heat
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -346,7 +345,7 @@
 	hints: none
 	connotations: none
 	infrastructure: heater
-	infrastructure_exclude: personal
+	infrastructure_exclude: stamping_press, personal
 	
 	h_company: carohrad
 	

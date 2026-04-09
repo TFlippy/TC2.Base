@@ -62,7 +62,7 @@ explosive:
 	sparks_amount: 1.500
 	force_multiplier: 0.300
 	terrain_radius_multiplier: 2.250
-	volume: 1.000
+	volume: 1.400
 	pitch: 1.000
 
 	flags: primed

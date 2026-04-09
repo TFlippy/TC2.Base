@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.2"
+	$version: "0.1.72.0"
 	name: "EC-RD Pellets"
 	name_short: "EC-RD Pt."
 	name_imperial: "Radiant-Arkpelet"
@@ -68,21 +68,10 @@
 	
 	commodity:
 	{
-		availability: 0.000
-		rarity: 0.000
-		scalability: 0.000
-		reusability: 0.000
-		longevity: 0.000
-		complexity: 0.000
-		tech: 0.000
-		liquidity: 0.000
-		demand: 0.000
-		
 		flags: none
-		categories: none
+		categories: components, arcane, technology, consumer, manufactured, smirglum
 		
 		market_price: 140.000
-		
-		market_price_per_kg_auto: 101.0668
+		market_price_per_kg_auto: 78.60752
 	}
 }

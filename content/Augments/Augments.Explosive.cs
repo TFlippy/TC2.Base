@@ -14,6 +14,11 @@ namespace TC2.Base
 				name: "Directed Explosion",
 				description: "Focuses the explosion into a smaller area.",
 
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
+
 				can_add: static (ref Augment.Context context, in Explosive.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					return !augments.HasAugment(handle);
@@ -36,6 +41,12 @@ namespace TC2.Base
 				category: "Explosive",
 				name: "Nitroglycerine Filler",
 				description: "Replaces filler with nitroglycerine.",
+				flags: Augment.Definition.Flags.Hidden,
+
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
 
 				can_add: static (ref Augment.Context context, in Explosive.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
@@ -103,6 +114,11 @@ namespace TC2.Base
 				name: "Dud Explosive",
 				description: "Replaces all the explosive material with sawdust.",
 
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
+
 				can_add: static (ref Augment.Context context, in Explosive.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					return !augments.HasAugment(handle);
@@ -141,7 +157,12 @@ namespace TC2.Base
 				category: "Explosive",
 				name: "Essence Payload",
 				description: "Adds essence pellets to the explosive.",
-				//flags: Augment.Definition.Flags.Hidden,
+				flags: Augment.Definition.Flags.Hidden,
+
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
 
 				can_add: static (ref Augment.Context context, in Explosive.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
@@ -193,6 +214,11 @@ namespace TC2.Base
 				category: "Explosive",
 				name: "Smoke Explosive",
 				description: "Replaces all the explosive material with sulfur, which produces a lot of smoke.",
+
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
 
 				can_add: static (ref Augment.Context context, in Explosive.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{

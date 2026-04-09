@@ -1,11 +1,24 @@
 ﻿{
-	$version: "0.1.67.2"
+	$version: "0.1.72.1"
 	name: "Prdex"
 	desc:
 		'''
 		TODO: Desc
 		'''
 	tips: []
+	
+	related_materials:
+	{
+		mercury: raw, ingredient, liquid, input, auto_generated
+		nitroglycerine: ingredient, liquid, input, auto_generated
+		tallow: raw, ingredient, input, auto_generated
+		silver.powder: powdered, ingredient, input, auto_generated
+		alcohol: ingredient, liquid, input, auto_generated
+		nitrosugar: ingredient, input, auto_generated
+		water.red: residue, waste, liquid, output, auto_generated
+		hydrazine: liquid, input, auto_generated
+		prdex: product, result, output, auto_generated
+	}
 	
 	stages:
 	[
@@ -17,9 +30,6 @@
 			tags: material, dangerous, ingredient
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: wet
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -125,9 +135,6 @@
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: wet
 			
-			ratio: 0.000
-			mass_base: 0.000
-			
 			options:
 			[
 				{
@@ -214,9 +221,6 @@
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: corrosion
 			
-			ratio: 0.000
-			mass_base: 0.000
-			
 			options:
 			[
 				{
@@ -284,9 +288,6 @@
 			tags: material, ingredient
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: corrosion
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.2"
+	$version: "0.1.72.1"
 	$note:
 		'''
 		- Very sweet substance produced by hornet larvae to preserve their food/host (i.e. to keep it alive)
@@ -38,17 +38,19 @@
 	
 	// Ratio of the material volume to the total volume it occupies when stacked. A value of 1.0 means no empty space, while a value closer to 0.0 means a lot of empty space.
 	packing_fraction: 0.000
+	// General purity modifier.
+	purity: 0.896
 	// Mass of 1 unit in kg.
-	mass_per_unit: 0.200
+	mass_per_unit: 0.576
 	
 	// Maximum quantity (units) per stack.
-	quantity_max: 100.000
+	quantity_max: 250.000
 	// Minimum spawnable quantity.
-	spawn_quantity_threshold: 0.500
+	spawn_quantity_threshold: 0.100
 	// Preferred quantity snapping for recipes.
-	snapping: 1.000
+	snapping: 0.100
 	// Preferred quantity snapping for inventories.
-	snapping_pickup: 1.000
+	snapping_pickup: 25.000
 	
 	form_type: raw
 	prefab: resource.red_sugar
@@ -63,21 +65,22 @@
 	
 	commodity:
 	{
-		availability: 0.000
-		rarity: 0.000
-		scalability: 0.000
-		reusability: 0.000
-		longevity: 0.000
-		complexity: 0.000
-		tech: 0.000
-		liquidity: 0.000
-		demand: 0.000
+		flags: marketable
+		categories: food, chemicals, natural, medicine, raw, harvested, cooking, luxury, consumer
 		
-		flags: none
-		categories: none
-		
-		market_price: 24.500
-		
-		market_price_per_kg_auto: 135.000
+		market_price: 47.400
+		market_price_per_kg_auto: 82.29167
+	}
+	
+	// Info regarding relations of other materials towards this material.
+	related:
+	{
+		nitrosugar: refined, reaction, dried, similar, chemical, solidified, product, result, byproduct, processed
+		nitroglycerine: refined, wet, reaction, purified, similar, chemical, product, result, byproduct, manufactured, liquid, processed
+		water.red: ruined, wet, reaction, decomposition, waste, chemical, impure, result, manufactured, liquid, processed, mixed
+		alcohol: reaction, chemical, liquid
+		nitric_acid: reaction, chemical, liquid
+		sulfuric_acid: reaction, chemical, liquid
+		prdex: refined, reaction, chemical, product, result, manufactured, processed
 	}
 }

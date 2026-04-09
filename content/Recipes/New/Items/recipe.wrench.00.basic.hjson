@@ -1,7 +1,17 @@
 ﻿{
-	$version: "0.1.68.1"
+	$version: "0.1.72.1"
 	name: "Wrench"
 	tips: []
+	
+	related_materials:
+	{
+		niklajzner: raw, input, auto_generated
+		glue: liquid, input, auto_generated
+		steel.frames: input, auto_generated
+		scrap.mixed: scrap, input, auto_generated
+		machine_parts: input, auto_generated
+		steel.rod: input, auto_generated
+	}
 	
 	stages:
 	[

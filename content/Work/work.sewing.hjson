@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.72.1"
 	name: "Sewing"
 	name_short: "Sewing"
 	desc:
@@ -17,7 +17,7 @@
 	flags: manual, wip
 	tags: tools, simple
 	
-	amount_base: 0.000
+	amount_base: 0.500
 	cooldown: 0.900
 	multiplier: 1.000
 	
@@ -26,7 +26,7 @@
 	color: "0xffdd4f60"
 	
 	tools_required: knife, needle
-	tools_optional: cutters, tweezers, stapler, knife, needle, pins
+	tools_optional: cutters, screwdriver, tweezers, stapler, knife, needle, pins, scissors
 	
 	infrastructure_required: none
 	infrastructure_optional: none

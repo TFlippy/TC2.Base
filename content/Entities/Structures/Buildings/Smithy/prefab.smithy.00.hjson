@@ -37,9 +37,9 @@ animated.renderer:
 interactable:
 {
 	flags: no_tab
+	window_size: [768, 592]
+	window_size_misc: [96, 0]
 	priority: 2.000
-	window_size: [704.000, 592.000]
-	window_size_misc: [96.000, 0.000]
 }
 
 health:
@@ -87,7 +87,7 @@ entrance.linkable:
 
 claimable:
 {
-	
+	flags: allow_owner_unclaim
 }
 
 laboratory:
@@ -107,13 +107,12 @@ shop:
 {
 	tags_filter:
 	{
-		require: manual
 		include: crafting, gun, tool, blacksmithing, metalworking, metallurgy, salvaging, construction, heating
 		exclude: advanced, large, huge, social, forestry, smelting, fermenting, moulding, overworld
 	}
 	
 	tools: hammer, cutters, saw, hand_drill, screwdriver, spanner, pliers, bucket, axe, shovel, file, chisel, towel, tongs, pick, crowbar, knife, sandpaper, ladle
-	infrastructure: anvil, forge, dishes, table, rack, bucket, surface, hard_surface, heater, stove, smokestack, structure, building, workbench
+	infrastructure: oven, anvil, forge, dishes, table, rack, shaping_mould, bucket, surface, hard_surface, heater, stove, smokestack, structure, building, workbench
 	environment: workshop, stationary, dirty, polluted, ugly, scary, fireproof, durable, sturdy, smithy
 	connotations: none
 	
@@ -131,7 +130,7 @@ workshop:
 	orders_capacity: 3
 	h_sound_order_complete: order_complete
 	max_order_mass: 250.000
-	gui_info_size_x: 252.000
+	gui_info_size_x: 332.000
 
 	@inventory8:
 	{	
@@ -151,6 +150,7 @@ personnel:
 {
 	characters_capacity: 2
 	flags: store_characters
+	assign_radius: 20.000
 	slots:
 	[
 		{

@@ -27,6 +27,7 @@ body:
 		material: metal_frame
 		layer: entity, solid, vehicle
 		mask: world
+		exclude: tree
 	}
 
 	@shape.line:
@@ -40,7 +41,7 @@ body:
 		material: wood
 		layer: entity, solid, vehicle, flammable, platform
 		mask: solid
-		exclude: attachable, attached, world, static
+		exclude: attachable, attached, world, static, tree
 	}
 }
 

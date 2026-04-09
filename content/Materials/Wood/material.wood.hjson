@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.2"
+	$version: "0.1.72.0"
 	name: "Planks"
 	name_short: "Planks"
 	name_dumb: "Wood"
@@ -158,12 +158,10 @@
 	
 	commodity:
 	{
-		
 		flags: none
-		categories: none
+		categories: construction_materials
 		
 		market_price: 9.300
-		
 		market_price_per_kg_auto: 4.962548
 	}
 	

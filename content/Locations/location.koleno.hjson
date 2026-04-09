@@ -1,0 +1,81 @@
+﻿{
+	$prefab: "g.settlement.factory.00"
+	$version: "0.1.62.0"
+	name: "Koleno"
+	name_short: "Koleno"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	post_code: "KOL"
+	
+	type: factory_town
+	flags: none
+	categories: imperial, border, industrial, commercial, residential, urban, administrative, financial, magitech, frontier, agricultural, advanced, secure, fortified, mercantile, rural, modern, expansive, forested, mechanized, regulated
+	buildings: warehouse, factory, office, bunker, hotel, hospital, airport, trainyard, minefield, artillery, power_plant, tower, walls, theatre, constabulary, foundry, manufactory, mine, checkpoint, customs, slum, school, bar, apartments, lumber_mill, barracks, farm, arsenal, scrapyard, landfill, black_market, brewery, metalworks, circus, market, fuel_depot
+	industry_primary: none
+	industry: none
+	goods_trading: none
+	goods_demanded: none
+	goods_produced: none
+	crime: none
+	geography: none
+	
+	// Urban development, population density.
+	urbanization: 0.570
+	// Availability and utilization of advanced technology.
+	technology: 0.670
+	// Industrial production, mechanization, engineering.
+	industrialization: 0.700
+	// Literacy, availability of education, skilled workers.
+	education: 0.570
+	// Standard of living, overall wealth of population and government.
+	wealth: 0.532
+	// Nature, wildlife, overgrowth, untamed nature.
+	wilderness: 0.000
+	// Environmental damage, pollution, wastelandness.
+	devastation: 0.423
+	// Brutality of nature and population.
+	savagery: 0.000
+	// Lawlessness, lack of organization.
+	anarchy: 0.000
+	// Economic strength, employment rate, flow of goods.
+	economy: 0.560
+	// Variance of population's social classes.
+	inequality: 0.189
+	// Crime rate, personal safety.
+	safety: 0.646
+	// Rate of expansion, economic and population growth.
+	growth: 0.655
+	// Military strength, security, access to weapons.
+	military: 0.286
+	// Height in meters above sea level.
+	elevation: 10.000
+	
+	population:
+	{
+	
+	}
+	
+	h_prefecture: tanhauzr
+	h_faction: "null"
+	h_company: pivan
+	h_location_parent: "null"
+	size: 0.790
+	
+	color: "0xffffee00"
+	
+	icon:
+	{
+		texture: worldmap.icons.01
+		mask: missing
+		size: [24, 24]
+		frame: [1, 2]
+	}
+	
+	icon_offset: [0.000, -0.625]
+	text_offset: [0.000, 0.000]
+	
+	point: [21, -18]
+}

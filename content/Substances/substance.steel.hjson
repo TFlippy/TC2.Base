@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.5"
+	$version: "0.1.72.0"
 	name: "Steel"
 	description:
 		'''
@@ -93,7 +93,6 @@
 		chunk: steel
 		raw: steel
 		scrap: scrap.steel
-		slab: steel.slab
 		rod: steel.rod
 		gravel: ferrous.gravel
 	}

@@ -12,7 +12,7 @@ body:
 		friction: 0.650
 		elasticity: 0.500
 		material: coal
-		layer: entity, solid, resource, ignore_melee, ignore_bullet, flammable
+		layer: entity, solid, resource, ignore_melee, ignore_bullet
 		mask: world
 	}
 }
@@ -55,4 +55,9 @@ despawn:
 	interval: 30.000
 	threshold_delete: 0.010
 	threshold_despawning: 0.150
+}
+
+health:
+{
+	max: 38000.000
 }

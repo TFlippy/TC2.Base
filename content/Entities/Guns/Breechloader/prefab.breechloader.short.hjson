@@ -7,7 +7,7 @@ $tags: []
 
 body:
 {
-	buoyancy: 0.100
+	buoyancy: 0.300
 
 	@shape.line:
 	{
@@ -60,7 +60,7 @@ gun:
 	stability: 3650.000
 	failure_rate: 0.023
 	
-	ammo_filter: ammo_mg, ammo_sg, ammo_musket, ammo_hc
+	ammo_filter: ammo_mg, ammo_sg, ammo_hc
 	max_ammo: 1.000
 	
 	action: manual

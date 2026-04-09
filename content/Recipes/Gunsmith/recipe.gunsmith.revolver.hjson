@@ -1,11 +1,19 @@
 ﻿{
-	$version: "0.1.67.2"
+	$version: "0.1.72.1"
 	name: "Revolver"
 	desc:
 		'''
 		Small revolver capable of using high-caliber ammunition.
 		'''
 	tips: []
+	
+	related_materials:
+	{
+		steel.rod: input, auto_generated
+		steel.frames: input, auto_generated
+		machine_parts: input, auto_generated
+		wood: raw, input, auto_generated
+	}
 	
 	stages:
 	[
@@ -57,11 +65,10 @@
 					filter_tools:
 					{
 						require: hand_drill
-						include: screwdriver, chisel, pick, knife
+						include: hand_drill, screwdriver, chisel, pick, knife
 					}
 					filter_infrastructure:
 					{
-						require: vise
 						include: vise, rack, workbench
 					}
 				}

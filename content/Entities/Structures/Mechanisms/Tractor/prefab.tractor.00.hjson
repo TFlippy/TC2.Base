@@ -18,7 +18,7 @@ body:
 		mask: world
 		exclude: none
 		
-		mass: 1100.000
+		mass: 900.000
 		radius: 0.625
 		friction: 0.500
 		elasticity: 0.450
@@ -150,9 +150,9 @@ tractor:
 {
 	shake_force: [0.010, 0.060]
 	shake_intensity: 0.035
-	speed: 14.000
-	brake_step: 15.000
-	speed_step: 11.000
+	speed: 23.000
+	brake_step: 20.000
+	speed_step: 17.000
 	force: 90000.000
 	brake: 100000.000
 	gear: 0
@@ -177,10 +177,10 @@ norotate:
 
 interactable:
 {
+	flags: none
+	window_size: [384, 256]
+	window_size_misc: [96, 0]
 	priority: 2.000
-	window_size: [384.000, 256.000]
-	window_offset: [0.000, 0.000]
-	window_size_misc: [48.000, 0.000]
 }
 
 storage:
@@ -188,10 +188,10 @@ storage:
 	@inventory4:
 	{
 		type: storage
-		flags: standalone, public, faction, vertical, no_auto_pickup
+		flags: standalone, public, faction, no_auto_pickup
 		stack_size_multiplier: 4.000
 		
-		offset: [0.000, 0.000]
+		offset: [0.000, 0.375]
 
 		filter:
 		{

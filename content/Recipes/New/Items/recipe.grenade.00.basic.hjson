@@ -1,7 +1,15 @@
 ﻿{
-	$version: "0.1.65.2"
+	$version: "0.1.72.1"
 	name: "Grenade"
 	tips: []
+	
+	related_materials:
+	{
+		steel.plate: input, auto_generated
+		gunpowder: powdered, input, auto_generated
+		machine_parts: input, auto_generated
+		wood.rod: input, auto_generated
+	}
 	
 	stages:
 	[

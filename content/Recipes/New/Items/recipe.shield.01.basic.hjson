@@ -1,0 +1,207 @@
+﻿{
+	$region_id: 0
+	$version: "0.1.72.0"
+	name: "Heavy Shield"
+	tips: []
+	
+	stages:
+	[
+		{
+			name: "Body"
+			
+			type: part
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			options:
+			[
+				{
+					name: "Forged"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.ingot
+							amount: 2.4809
+							snapping: 0.500
+							loss: 0.114
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: steel.frames
+							amount: 1.892
+							snapping: 0.500
+							loss: 0.235
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: temperature
+							amount: 1239.200
+							amount_min: 602.000
+							amount_max: 1478.240
+							falloff: 0.726
+							group: 1
+							flags: no_scaling, always_evaluate, prerequisite
+						}
+						{
+							type: work
+							work: smithing
+							amount: 1200.000
+							amount_min: 200.000
+							difficulty: 10
+							step_max: 20
+							snapping: 25.000
+							falloff: 0.896
+							ratio: 0.929
+							group: 1
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: hammer, pliers, tongs
+						include: towel
+					}
+					filter_infrastructure:
+					{
+						require: anvil, forge, hard_surface, heater
+						include: vise
+					}
+					filter_environment:
+					{
+						require: sturdy, smithy
+						include: workshop
+						exclude: office, fragile
+					}
+				}
+			]
+		}
+		{
+			name: "Grip"
+			
+			type: part
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			options:
+			[
+				{
+					name: "Bolted"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: machine_parts
+							amount: 1.074754
+							snapping: 0.100
+							loss: 0.173
+							ratio: 0.275
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: bending
+							amount: 75.000
+							amount_min: 75.000
+							difficulty: 7
+							snapping: 25.000
+							falloff: 0.843
+							ratio: 0.424
+							group: 0
+							flags: conditional
+						}
+						{
+							type: work
+							work: assembling
+							amount: 185.000
+							amount_min: 80.000
+							difficulty: 4
+							snapping: 25.000
+							falloff: 0.926
+							ratio: 0.918
+							group: 1
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: hammer, screwdriver, wrench
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, pliers, stapler, chisel, towel, tongs, pick, crowbar, knife
+					}
+					filter_infrastructure:
+					{
+						include: anvil, vise, hard_surface, workbench
+					}
+				}
+			]
+			
+			requirements:
+			[
+				{
+					type: resource
+					material: steel.frames
+					amount: 0.137838
+					snapping: 0.100
+					loss: 0.122
+					ratio: 0.404
+					group: 0
+					flags: compact, prerequisite
+				}
+			]
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: shield.heavy
+			amount: 1.000
+			group: 0
+			flags: primary, compact
+		}
+	]
+	
+	type: workshop
+	flags: blueprintable, item, wip
+	tags: manual, crafting, simple, medium, tool, blacksmithing, assembling, metalworking
+	hints: none
+	connotations: none
+	infrastructure: anvil, hard_surface, workbench
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		texture: shield.heavy
+		size: [16, 16]
+	}
+	
+	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
+	button_name: "Craft"
+	rank: 0.000
+	
+	min: 1
+	max: 5
+	step: 1
+	
+	version: 1
+}

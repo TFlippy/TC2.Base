@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.0"
+	$version: "0.1.71.1"
 	name: "Scavenging"
 	name_short: "Scavenging"
 	desc:
@@ -17,7 +17,7 @@
 	flags: manual, worker_only, wip
 	tags: crude, simple, technical, industrial, slow
 	
-	amount_base: 0.800
+	amount_base: 1.000
 	cooldown: 1.100
 	multiplier: 0.650
 	

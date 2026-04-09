@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.8"
+	$version: "0.1.72.1"
 	name: "Smirgrafit"
 	description:
 		'''
@@ -9,7 +9,7 @@
 	type: metal_matrix
 	atomic_number: 0
 	flags: none
-	tags: oxide, carbide, inert, metallic, refractory, ceramic, solid
+	tags: oxide, carbide, inert, metallic, refractory, ceramic, artificial, solid
 	
 	icon:
 	{
@@ -86,11 +86,10 @@
 	
 	form_to_material:
 	{
-		chunk: scrap.smirgrafit
+		chunk: smirgrafit.clay
 		scrap: scrap.smirgrafit
-		packaged: smirgrafit.compacted
-		powder: smirgrafit.powder
-		raw: smirgrafit.powder
-		blob: scrap.smirgrafit
+		raw: smirgrafit.clay
+		blob: smirgrafit.clay
+		gravel: scrap.smirgrafit
 	}
 }

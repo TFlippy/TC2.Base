@@ -1,0 +1,127 @@
+$name: "Fire Extinguisher"
+$desc: 
+	'''
+	TODO: Desc
+	'''
+$tags: []
+
+body:
+{
+	buoyancy: 0.600
+
+	@shape.line:
+	{
+		a: [-0.650, 0.200]
+		b: [0.375, -0.100]
+		mass: 12.000
+		radius: 0.400
+		friction: 0.850
+		elasticity: 0.350
+		material: tool
+		layer: entity, solid, item
+		mask: world, essence
+	}
+}
+
+extinguisher:
+{
+	offset: [0.875, 0.000]
+	max_length: 3.000
+	thickness: 1.000
+	damage: 350.000
+	damage_extra: 800.000
+	fuel_usage: 0.062
+	h_material_fuel: phlogiston
+	sound_start: welder.start.00
+
+	@inventory1:
+	{
+		type: fuel
+		flags: standalone, allow_ducts, no_auto_pickup, ignore_mass
+		stack_size_multiplier: 0.200
+		
+		filter:
+		{
+			require: bottled, fuel, flammable
+			exclude: gas
+		}
+		
+		offset: [-0.875, -0.125]
+	}
+
+	@light:
+	{
+		color: [1.000, 0.400, 0.000, 2.000]
+		offset: [-0.250, -0.125]
+		scale: [6.000, 5.000]
+		intensity: 1.000
+		texture: "light.circle.00"
+	}
+}
+
+holdable:
+{
+	offset: [-0.375, 0.000]
+	force_multiplier: 1.000
+	torque_multiplier: 1.000
+	flags: storable
+}
+
+interactable:
+{
+	flags: none
+	priority: -0.100
+	window_size: [120.000, 104.000]
+	window_size_misc: [48.000, 0.000]
+}
+
+control:
+{
+
+}
+
+aimable:
+{
+	deadzone: 0.500
+	min: -1.700
+	max: 0.400
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "extinguisher.00"
+	}
+	scale: [0.900, 0.900]
+}
+
+transform:
+{
+
+}
+
+sound.emitter:
+{
+	file: "welder.loop.01"
+	flags: start_muted
+	volume: 1.000
+	pitch: 1.000
+}
+
+sound.mixer:
+{
+	volume_modifier: 1.000
+	pitch_modifier: 0.200
+	volume_min: 0.000
+	pitch_min: 0.800
+	volume_lerp_a: 0.100
+	volume_lerp_b: 0.030
+	pitch_lerp_a: 0.100
+	pitch_lerp_b: 0.050
+}
+
+packable:
+{
+
+}

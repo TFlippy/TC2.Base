@@ -13,7 +13,7 @@ body:
 	@shape.polygon:
 	{
 		material: wreck
-		miss_chance: 0.835
+		miss_chance: 0.705
 		flags: none
 		tags: none
 		

@@ -135,7 +135,7 @@ npc:
 	avoid_distance_base: [1.000, 1.000]
 	idle_distance_base: [1.200, 3.000]
 	
-	wander_radius: 20.000
+	wander_radius: 16.000
 	wander_interval: 4.000
 	wander_interval_extra: 8.000
 	
@@ -145,11 +145,11 @@ npc:
 
 npc.emotions:
 {
-	hostility: 2.100
-	courage: 0.200
+	hostility: 2.200
+	courage: 0.100
 	cruelty: 4.500
-	irritability: 1.100
-	apathy: 0.400
+	irritability: 1.700
+	apathy: 0.300
 }
 
 npc.emotions.state:

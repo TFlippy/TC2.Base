@@ -1,0 +1,113 @@
+﻿{
+	$prefab: "g.settlement.factory.00"
+	$version: "0.1.60.7"
+	name: "Popelnitz"
+	name_short: "Popelnitz"
+	desc:
+		'''
+		Factory town owned by Nasrot Suntwerk - mostly specialized in scrap metal and waste processing.
+
+		Just as one would expect from such place, it's mostly inhabited by kobolds.
+		'''
+	
+	post_code: "PPZ"
+	
+	type: factory_town
+	flags: spawn
+	categories: industrial, wasteland, commercial, residential, penal, criminal, urban, decrepit, lawless, magitech, frontier, advanced, fortified, mercantile, powerful, modern, excavated, polluted, mechanized, authoritarian, dangerous
+	buildings: warehouse, factory, office, bunker, trainyard, artillery, power_plant, tower, walls, prison, labor_camp, foundry, manufactory, refinery, mine, borehole, slum, bar, apartments, train_station, exchange, arsenal, scrapyard, landfill, black_market, metalworks, circus, quarry, market, fuel_depot, essenceworks, steel_mill, transmitter
+	industry_primary: none
+	industry: none
+	goods_trading: none
+	goods_demanded: none
+	goods_produced: none
+	crime: none
+	geography: none
+	
+	// Urban development, population density.
+	urbanization: 0.340
+	// Availability and utilization of advanced technology.
+	technology: 0.620
+	// Industrial production, mechanization, engineering.
+	industrialization: 0.710
+	// Literacy, availability of education, skilled workers.
+	education: 0.290
+	// Standard of living, overall wealth of population and government.
+	wealth: 0.126
+	// Nature, wildlife, overgrowth, untamed nature.
+	wilderness: 0.000
+	// Environmental damage, pollution, wastelandness.
+	devastation: 0.893
+	// Brutality of nature and population.
+	savagery: 0.000
+	// Lawlessness, lack of organization.
+	anarchy: 0.000
+	// Economic strength, employment rate, flow of goods.
+	economy: 0.190
+	// Variance of population's social classes.
+	inequality: 0.862
+	// Crime rate, personal safety.
+	safety: 0.166
+	// Rate of expansion, economic and population growth.
+	growth: 0.539
+	// Military strength, security, access to weapons.
+	military: 0.130
+	// Height in meters above sea level.
+	elevation: 10.000
+	
+	statistics:
+	{
+		// Literacy, availability of education, skilled workers.
+		education: 0.290
+		// Urban development, population density.
+		urbanization: 0.340
+		// Availability and utilization of advanced technology.
+		technology: 0.620
+		// Industrial production, mechanization, engineering.
+		industrialization: 0.710
+		// Standard of living, overall wealth of population and government.
+		wealth: 0.126
+		// Environmental devastation, excavation, deforestation, wasteland-ness.
+		devastation: 0.893
+		// Economic strength, employment rate, flow of goods.
+		economy: 0.190
+		// Variance of population's social classes.
+		inequality: 0.862
+		// Crime rate, personal safety.
+		safety: 0.166
+		// Rate of expansion, economic and population growth.
+		growth: 0.539
+		// Military strength, security, access to weapons.
+		military: 0.130
+	}
+	
+	population:
+	{
+	
+	}
+	
+	h_prefecture: "trphajzel"
+	h_faction: "smejdum"
+	h_company: "nasrot"
+	h_location_parent: "null"
+	size: 0.850
+	
+	color: "0xffffa82a"
+	
+	thumbnail:
+	{
+		texture: "ui.thumbnail.transport.01"
+	}
+	
+	icon:
+	{
+		texture: "worldmap.icons.01"
+		size: [24, 24]
+		frame: [1, 2]
+	}
+	
+	icon_offset: [0.000, -0.375]
+	text_offset: [0.000, 0.250]
+	
+	point: [36, -16]
+}

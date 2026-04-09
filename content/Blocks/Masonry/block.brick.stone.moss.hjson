@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.67.2"
+	$version: "0.1.73.0"
 	name: "Old Stone Bricks (Moss)"
 	desc:
 		'''
@@ -16,7 +16,7 @@
 	strength_tensile: 1.100
 	strength_compressive: 7.000
 	
-	mass: 1.120
+	mass: 3.820
 	density: 0.000
 	friction: 0.900
 	elasticity: 0.520
@@ -37,7 +37,7 @@
 	[
 		{
 			material: scrap.rubble
-			quantity: 0.210
+			quantity: 2.290746
 		}
 		null
 	]

@@ -1,0 +1,407 @@
+﻿{
+	$version: "0.1.64.1"
+	nodes:
+	[
+		{
+			rarity: 4.270
+			weight: 10.500
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: sulfuric_acid
+					amount: 17.47968
+					amount_extra: 69.9187
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.390
+			weight: 9.200
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: glue
+					amount: 44.44544
+					amount_extra: 222.3916
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 5.420
+			weight: 9.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: nitric_acid
+					amount: 16.9754
+					amount_extra: 42.7786
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.760
+			weight: 8.800
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: toluene
+					amount: 27.32877
+					amount_extra: 70.27398
+					snapping: 15.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 6.140
+			weight: 8.400
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: phlogiston
+					amount: 33.67651
+					amount_extra: 96.21858
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.800
+			weight: 8.300
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: mercury
+					amount: 29.450
+					amount_extra: 39.26668
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.360
+			weight: 8.200
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: sludge
+					amount: 41.55223
+					amount_extra: 110.8059
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.720
+			weight: 8.200
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: naphtha
+					amount: 30.22605
+					amount_extra: 80.60277
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 6.230
+			weight: 8.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: hydrochloric_acid
+					amount: 15.24298
+					amount_extra: 67.06907
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.510
+			weight: 7.600
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: lye
+					amount: 29.74664
+					amount_extra: 39.66219
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.290
+			weight: 7.500
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: water.toxic
+					amount: 23.99401
+					amount_extra: 31.99202
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 4.470
+			weight: 7.400
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: hydrogen_peroxide
+					amount: 28.26354
+					amount_extra: 37.68474
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.570
+			weight: 7.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: alcohol
+					amount: 24.19722
+					amount_extra: 67.75218
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.040
+			weight: 6.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: water.clean
+					amount: 22.08866
+					amount_extra: 45.18134
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.350
+			weight: 6.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: saltpeter
+					amount: 35.000
+					amount_extra: 45.000
+					snapping: 5.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 4.290
+			weight: 5.700
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: himlkarzenus
+					amount: 26.14148
+					amount_extra: 63.48645
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.300
+			weight: 5.700
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: sulfur
+					amount: 35.000
+					amount_extra: 80.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.610
+			weight: 5.200
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: lime
+					amount: 35.000
+					amount_extra: 65.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 4.950
+			weight: 5.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: smrad
+					amount: 35.000
+					amount_extra: 80.000
+					snapping: 5.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 7.180
+			weight: 4.700
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: hydrazine
+					amount: 14.61785
+					amount_extra: 38.98092
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 4.000
+			weight: 3.700
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: arsenic
+					amount: 30.15151
+					amount_extra: 150.7576
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+	]
+	
+	includes: []
+}

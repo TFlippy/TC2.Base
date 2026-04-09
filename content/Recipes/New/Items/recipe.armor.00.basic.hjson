@@ -1,6 +1,6 @@
 ﻿{
-	$version: "0.1.68.0"
-	name: "Uniform (Heavy Infantry)"
+	$version: "0.1.72.1"
+	name: "Crayfish-Class Armor"
 	tips: []
 	
 	stages:
@@ -188,7 +188,7 @@
 	hints: none
 	connotations: none
 	infrastructure: table, surface, heater, workbench
-	infrastructure_exclude: none
+	infrastructure_exclude: giant
 	
 	icon:
 	{

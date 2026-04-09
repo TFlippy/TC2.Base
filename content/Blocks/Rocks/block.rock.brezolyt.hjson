@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.0"
+	$version: "0.1.73.0"
 	$note: "Based on dolomite, alabaster, gypsum."
 	name: "Brezolyt"
 	desc:
@@ -11,13 +11,13 @@
 	tile_flags: non_empty
 	flags: raw, ore, common, rock, carbonate, sedimentary, sulfate
 	
-	max_health: 21800.000
+	max_health: 24800.000
 	smoothing: 0.170
 	stability: 4.040
 	strength_tensile: 6.500
 	strength_compressive: 8.100
 	
-	mass: 1.681
+	mass: 3.8025
 	density: 0.000
 	friction: 0.840
 	elasticity: 0.580
@@ -38,11 +38,11 @@
 	[
 		{
 			material: brezolyt
-			quantity: 1.057737
+			quantity: 2.644342
 		}
 		{
 			material: gravel
-			quantity: 0.768271
+			quantity: 1.020499
 		}
 	]
 	

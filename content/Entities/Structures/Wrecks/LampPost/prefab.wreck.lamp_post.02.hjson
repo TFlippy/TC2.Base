@@ -21,6 +21,7 @@ body:
 		material: metal_pole
 		layer: entity, support, ignore_melee, background
 		mask: world
+		miss_chance: 0.835
 	}
 }
 

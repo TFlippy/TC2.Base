@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.70.1"
 	name: "Stamping Press"
 	name_short: "Stamping Press"
 	desc:
@@ -26,10 +26,10 @@
 				die.drawing.metal
 				die.stamping.metal
 				die.swaging.metal
-				"null"
-				"null"
-				"null"
-				"null"
+				null
+				null
+				null
+				null
 			]
 			
 			name: "Die-Forming"
@@ -46,7 +46,6 @@
 			}
 			
 			switch_cooldown: 3.000
-			h_sound_switch: effect.mechanical.adjust.00
 		}
 	]
 }

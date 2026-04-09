@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.72.0"
 	name: "Amalgamation"
 	name_short: "Amalgam"
 	desc:
@@ -15,13 +15,13 @@
 	}
 	
 	flags: passive, ambient, wip
-	tags: simple, chemical, industrial, toxic, dangerous, slow
+	tags: simple, chemical, industrial, toxic, slow
 	
 	amount_base: 1.000
 	cooldown: 3.000
-	multiplier: 1.220
+	multiplier: 1.490
 	
-	amount_jitter: 0.726
+	amount_jitter: 0.805
 	cooldown_jitter: 0.417
 	color: "0xfff9d7be"
 	

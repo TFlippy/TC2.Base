@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.70.1"
+	$version: "0.1.72.1"
 	name: "Barracks"
 	
 	stages:
@@ -12,9 +12,6 @@
 			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: shovel
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -29,7 +26,7 @@
 						{
 							type: resource
 							material: gravel
-							amount: 760.000
+							amount: 880.000
 							loss: 0.039
 							group: 0
 							flags: compact, primary
@@ -37,7 +34,8 @@
 						{
 							type: work
 							work: filling.gravel
-							amount: 950.000
+							amount: 1000.000
+							amount_min: 20.000
 							difficulty: 6
 							group: 0
 							flags: conditional
@@ -45,7 +43,7 @@
 					]
 				}
 				{
-					name: "Compacted Soil"
+					name: "Paved"
 					
 					type: undefined
 					flags: none
@@ -55,26 +53,36 @@
 						{
 							type: resource
 							material: soil
-							amount: 840.000
-							loss: 0.067
+							amount: 735.000
+							loss: 0.071
 							group: 0
-							flags: compact, primary
+							flags: compact
+						}
+						{
+							type: resource
+							material: brick.concrete
+							amount: 60.000
+							loss: 0.071
+							group: 0
+							flags: compact
 						}
 						{
 							type: work
 							work: filling.soil
-							amount: 725.000
+							amount: 550.000
+							amount_min: 40.000
 							difficulty: 4
 							group: 0
-							flags: conditional
+							flags: simultaneous, conditional
 						}
 						{
 							type: work
-							work: compaction.soil
-							amount: 390.000
+							work: masonry
+							amount: 280.000
+							amount_min: 20.000
 							difficulty: 7
-							group: 1
-							flags: conditional
+							group: 0
+							flags: simultaneous, conditional
 						}
 					]
 				}
@@ -92,7 +100,7 @@
 							amount: 540.000
 							loss: 0.020
 							group: 0
-							flags: compact, primary
+							flags: compact
 						}
 						{
 							type: resource
@@ -100,88 +108,69 @@
 							amount: 180.000
 							loss: 0.059
 							group: 0
-							flags: compact, primary
+							flags: compact
 						}
 						{
 							type: work
 							work: filling.rubble
-							amount: 675.000
-							difficulty: 12
+							amount: 550.000
+							amount_min: 20.000
+							difficulty: 10
 							group: 0
 							flags: simultaneous, conditional
 						}
 						{
 							type: work
 							work: filling.soil
-							amount: 160.000
-							difficulty: 4
+							amount: 180.000
+							amount_min: 20.000
+							difficulty: 8
 							group: 0
 							flags: simultaneous, conditional
 						}
 					]
 				}
 				{
-					name: "Concrete Composite"
+					name: "Concrete Mix"
 					
 					type: undefined
-					flags: disabled
+					flags: none
 					
 					requirements:
 					[
 						{
 							type: resource
 							material: scrap.concrete
-							amount: 175.000
-							snapping: 1.000
+							amount: 670.000
+							loss: 0.020
 							group: 0
+							flags: compact
+						}
+						{
+							type: resource
+							material: gravel
+							amount: 215.000
+							loss: 0.059
+							group: 0
+							flags: compact
 						}
 						{
 							type: work
 							work: filling.rubble
-							amount: 200.000
-							difficulty: 7
-							snapping: 5.000
+							amount: 400.000
+							amount_min: 30.000
+							difficulty: 11
 							group: 0
-							flags: conditional
-						}
-						{
-							type: resource
-							material: cement
-							amount: 35.000
-							snapping: 1.000
-							group: 1
-						}
-						{
-							type: resource
-							material: sand
-							amount: 50.000
-							snapping: 1.000
-							group: 1
+							flags: simultaneous, conditional
 						}
 						{
 							type: work
-							work: filling.sand
-							amount: 175.000
-							difficulty: 3
-							snapping: 5.000
-							group: 1
-							flags: conditional
-						}
-						{
-							type: resource
-							material: water
-							amount: 15.000
-							snapping: 1.000
-							group: 2
-						}
-						{
-							type: work
-							work: filling.liquid
-							amount: 150.000
-							difficulty: 3
-							snapping: 5.000
-							group: 2
-							flags: conditional
+							work: shattering
+							amount: 450.000
+							amount_min: 25.000
+							difficulty: 9
+							group: 0
+							flags: simultaneous, conditional
 						}
 					]
 				}
@@ -195,9 +184,6 @@
 			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: axe
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -340,7 +326,7 @@
 				type: resource
 				material: brick.concrete
 				amount: 60.000
-				loss: 0.027
+				loss: 0.031
 				group: 0
 				flags: compact, no_scaling, prerequisite
 			}

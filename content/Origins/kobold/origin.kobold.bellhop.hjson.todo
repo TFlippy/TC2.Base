@@ -1,0 +1,94 @@
+{
+	name: "Bellhop"
+	desc:
+		'''
+		Trained to keep clean and help guests, this kobold got thrown away after one too many mishaps.
+		'''
+	
+	money: 8.000
+	age: [4, 5, 10, 20]
+	genders: male, female
+	gender_ratio: 0.450
+	species: "kobold"
+	character_flags: slave, social, unarmed, poor, entertainer, lower_class
+	
+	conditions:
+	{
+		weight_mult: 0.270
+		
+		infrastructure:
+		{
+			require: none
+			include: railway, highway, docks
+			exclude: none
+			weight: 7.000
+		}
+		
+		industry:
+		{
+			require: none
+			include: financial, administrative, high_tech, military, entertainment, tourism, food, hospitality
+			exclude: none
+			weight: 20.000
+		}
+		
+		crime:
+		{
+			require: none
+			include: drugs, prostitution, trafficking, fraud
+			exclude: none
+			weight: 5.000
+		}
+		
+		geography:
+		{
+			require: none
+			include: urban
+			exclude: none
+			weight: 10.000
+		}
+		
+		urbanization: [0.600, 0.000, 0.900, 40.000]
+		industrialization: [0.100, 0.000, 0.900, 15.000]
+		education: [0.400, 0.000, 0.700, 20.000]
+		wealth: [0.500, 0.000, 0.700, 80.000]
+		wilderness: [0.300, 0.000, 0.700, -35.000]
+		devastation: [0.200, 0.000, 0.500, -20.000]
+		savagery: [0.150, 0.000, 0.800, -40.000]
+		anarchy: [0.100, 0.000, 0.500, -50.000]
+		elevation: [0.000, 0.000, 0.000, 0.000]
+	}
+	
+	experience:
+	{
+		handguns: 1
+		rifles: 1
+		explosives: 1
+		mining: 1
+		woodcutting: 1
+		construction: 1
+		masonry: 2
+		carpentry: 2
+		engineering: 0
+		blacksmithing: 1
+		arcanology: 0
+		strength: 8
+		dexterity: 10
+		endurance: 8
+		intellect: 4
+		geology: 1
+		metallurgy: 0
+		medicine: 3
+		commerce: 3
+		charisma: 6
+		leadership: 2
+		blades: 4
+		axes: 2
+		clubs: 2
+		chemistry: 1
+		farming: 2
+		animals: 5
+		scavenging: 2
+		law: 1
+	}
+}

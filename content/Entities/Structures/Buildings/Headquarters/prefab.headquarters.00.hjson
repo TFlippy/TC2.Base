@@ -28,7 +28,7 @@ body:
 
 health:
 {
-	max: 55000.000
+	max: 58000.000
 }
 
 animated.renderer:
@@ -111,9 +111,9 @@ claimer:
 interactable:
 {
 	flags: no_tab
+	window_size: [720, 600]
+	window_size_misc: [192, 0]
 	priority: 1.500
-	window_size: [664.000, 560.000]
-	window_size_misc: [192.000, 0.000]
 }
 
 // depot:
@@ -157,31 +157,45 @@ armory:
 
 shipment:
 {
-	flags: keep_items, allow_withdraw, allow_deposit, no_gui, faction
+	flags: keep_items, allow_withdraw, allow_deposit, no_gui, faction, no_body_mass
 	type: armory
 }
 
 dormitory:
 {
+	flags: no_kit_selection, no_kit_requirements, repopulate_needs_faction, recruit_into_squad, region_only
 	species: human
-	flags: no_kit_selection, no_kit_requirements, repopulate_needs_faction, region_only
-	kit_default: "null"
+	
 	characters_capacity: 6
 	characters_initial_count: 0
-	repopulate_interval: 300.000
-	repopulate_interval_extra: 600.000
+	characters_reserved_count: 0
+	
+	repopulate_max: 6
 	repopulate_num: 1
 	repopulate_num_extra: 1
-	repopulate_max: 6
-	move_radius: 8.000
+	repopulate_interval: 300.000
+	repopulate_interval_extra: 600.000
+	repopulate_character_flags_add: recruitable
+	
 	asset_flags: recycle
 	character_flags_filter:
 	{
 		require: sedentary
 		include: bureaucrat, construction, educated, military, nobility, professional, civillian, law, social, commerce, engineer, soldier, artist, sedentary, politician, middle_class, upper_middle_class, upper_class
 		exclude: slave, unskilled, lowlife, illiterate, lower_class, elite_class
-		weight: 1.000
 	}
+	kit_categories_filter:
+	{
+		exclude: dangerous, explosive, propulsion, rare
+	}
+}
+
+squad:
+{
+	max_size: 4
+	flags: no_unit_remove
+	movement_flags: hold, open_doors
+	combat_flags: attack_visible, attack_when_hit, cover, flee, defend, form_groups, assist_work
 }
 
 shop:
@@ -267,6 +281,7 @@ office:
 personnel:
 {
 	flags: store_characters
+	assign_radius: 20.000
 
 	slots:
 	[

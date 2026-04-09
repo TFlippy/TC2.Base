@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.67.1"
+	$version: "0.1.73.0"
 	name: "Compacted Garbage"
 	desc:
 		'''
@@ -10,13 +10,13 @@
 	tile_flags: non_empty
 	flags: artificial, common, magnetic, metal
 	
-	max_health: 16500.000
+	max_health: 7500.000
 	smoothing: 0.160
 	stability: 0.180
 	strength_tensile: 0.100
 	strength_compressive: 7.000
 	
-	mass: 1.700
+	mass: 1.241
 	density: 0.000
 	friction: 0.950
 	elasticity: 0.270
@@ -37,7 +37,7 @@
 	[
 		{
 			material: scrap.mixed
-			quantity: 1.4929
+			quantity: 0.876956
 		}
 		null
 	]

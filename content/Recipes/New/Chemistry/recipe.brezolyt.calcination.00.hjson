@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.67.2"
+	$version: "0.1.72.1"
 	$note: "Needs to be updated to reflect the changes made to Brezolyt's composition."
 	name: "Brezolyt Calcination"
 	desc:
@@ -7,6 +7,15 @@
 		TODO: Desc
 		'''
 	tips: []
+	
+	related_materials:
+	{
+		brezolyt: raw, input, feedstock, auto_generated
+		lime: raw, powdered, product, result, output, auto_generated
+		gravel: residue, raw, waste, output, auto_generated
+		ash: raw, waste, powdered, output, auto_generated
+		carbon_dioxide: gas, result, byproduct, output, auto_generated
+	}
 	
 	stages:
 	[
@@ -18,9 +27,6 @@
 			tags: material, raw
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -55,9 +61,6 @@
 			tags: material
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: heat
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -152,9 +155,6 @@
 			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[

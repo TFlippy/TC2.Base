@@ -1,0 +1,423 @@
+﻿{
+	$version: "0.1.72.1"
+	name: "Revolver Cannon"
+	desc:
+		'''
+		A heavy tank cannon with a revolving cylinder mechanism for loading KN-51.9mm shells.
+		'''
+	tips: []
+	
+	related_materials:
+	{
+		steel.ingot: input, auto_generated
+		steel.frames: input, auto_generated
+		machine_parts: input, auto_generated
+		steel.plate: input, auto_generated
+		phlogiston: liquid, input, auto_generated
+		putty: input, auto_generated
+		lubricant: liquid, input, auto_generated
+	}
+	
+	stages:
+	[
+		{
+			name: "Breech"
+			desc:
+				'''
+				The breech is the reinforced rear section of the cannon, housing the firing pin and mounting points for the cylinder assembly.
+				'''
+			
+			type: part
+			flags: part, important, wip
+			tags: frame, chassis, shell, mechanism, metal, structural, functional, large, machinery, material
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			mass_base: 140.000
+			
+			options:
+			[
+				{
+					name: "Standard"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.ingot
+							amount: 8.000
+							snapping: 1.000
+							loss: 0.208
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: steel.frames
+							amount: 14.000
+							snapping: 0.500
+							loss: 0.094
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: hammering
+							amount: 4200.000
+							amount_min: 1100.000
+							difficulty: 11
+							step_max: 25
+							snapping: 5.000
+							falloff: 0.941
+							ratio: 0.251
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: drilling
+							amount: 3500.000
+							amount_min: 600.000
+							difficulty: 13
+							snapping: 5.000
+							falloff: 0.935
+							ratio: 0.337
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: resource
+							material: machine_parts
+							amount: 28.000
+							snapping: 0.100
+							loss: 0.180
+							group: 1
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: steel.plate
+							amount: 6.23302
+							snapping: 0.500
+							loss: 0.224
+							group: 1
+							flags: filler, prerequisite
+						}
+						{
+							type: work
+							work: bolting
+							amount: 3000.000
+							amount_min: 800.000
+							difficulty: 11
+							snapping: 5.000
+							falloff: 0.910
+							ratio: 0.165
+							group: 1
+							flags: conditional
+						}
+						{
+							type: resource
+							material: phlogiston
+							amount: 6.993007
+							snapping: 0.100
+							falloff: 0.844
+							loss: 1.000
+							group: 2
+							flags: no_residue, prerequisite
+						}
+						{
+							type: resource
+							material: putty
+							amount: 3.949843
+							snapping: 0.500
+							falloff: 0.904
+							loss: 1.000
+							group: 2
+							flags: no_residue, prerequisite
+						}
+						{
+							type: work
+							work: welding.phlogiston
+							amount: 850.000
+							amount_min: 450.000
+							difficulty: 10
+							step_max: 20
+							snapping: 5.000
+							falloff: 0.925
+							ratio: 0.251
+							group: 2
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: hammer, hand_drill, screwdriver
+						include: hand_drill, screwdriver, wrench, spanner, pliers, chisel, towel, pick, knife
+					}
+					filter_infrastructure:
+					{
+						require: hard_surface
+						include: vise, rack, workbench
+					}
+				}
+			]
+		}
+		{
+			name: "Cylinder"
+			desc:
+				'''
+				The revolving cylinder holds multiple KN-51.9mm shell chambers, rotating to align each with the barrel and breech for firing.
+				'''
+			
+			type: part
+			flags: part, important, wip
+			tags: shell, mechanism, metal, container, structural, functional, large, machinery, rounded
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			mass_base: 85.000
+			
+			options:
+			[
+				{
+					name: "Standard"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.ingot
+							amount: 10.000
+							snapping: 1.000
+							loss: 0.337
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: drilling
+							amount: 5500.000
+							amount_min: 1000.000
+							difficulty: 14
+							snapping: 5.000
+							falloff: 0.930
+							ratio: 0.592
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: filing
+							amount: 1500.000
+							amount_min: 600.000
+							difficulty: 11
+							snapping: 5.000
+							falloff: 0.945
+							ratio: 0.161
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: resource
+							material: machine_parts
+							amount: 18.000
+							snapping: 0.100
+							loss: 0.212
+							group: 1
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: lubricant
+							amount: 6.500
+							snapping: 0.100
+							group: 1
+							flags: no_residue, prerequisite
+						}
+						{
+							type: work
+							work: assembling
+							amount: 2000.000
+							amount_min: 600.000
+							difficulty: 10
+							snapping: 5.000
+							falloff: 0.910
+							ratio: 0.486
+							group: 1
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: cleaning.metal
+							amount: 600.000
+							amount_min: 250.000
+							difficulty: 4
+							snapping: 5.000
+							falloff: 0.901
+							group: 1
+							flags: simultaneous, conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: hand_drill, screwdriver, wrench, file, sandpaper
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, stapler, chisel, towel, tongs, pick, crowbar, knife, sandpaper, utensils
+					}
+					filter_infrastructure:
+					{
+						include: table, vise, rack, surface, workbench
+					}
+					filter_environment:
+					{
+						include: workshop, stationary, illuminated, dry
+					}
+				}
+			]
+		}
+		{
+			name: "Barrel"
+			desc:
+				'''
+				A thick-walled barrel designed to withstand the high pressures of the KN-51.9mm cartridge over sustained fire.
+				'''
+			
+			type: part
+			flags: part, important, wip
+			tags: frame, barrel, chassis, shell, metal, structural, large, rounded
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			mass_base: 155.000
+			
+			options:
+			[
+				{
+					name: "Standard"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.plate
+							amount: 56.000
+							snapping: 1.000
+							loss: 0.071
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: steel.frames
+							amount: 6.000
+							snapping: 0.500
+							loss: 0.125
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: phlogiston
+							amount: 6.433566
+							snapping: 0.100
+							falloff: 0.862
+							group: 0
+							flags: no_residue, prerequisite
+						}
+						{
+							type: resource
+							material: putty
+							amount: 4.252873
+							snapping: 0.500
+							falloff: 0.973
+							group: 0
+							flags: no_residue, filler, prerequisite
+						}
+						{
+							type: work
+							work: metal.forming
+							amount: 2200.000
+							amount_min: 400.000
+							difficulty: 10
+							step_max: 40
+							snapping: 5.000
+							falloff: 0.943
+							ratio: 0.118
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: welding.phlogiston
+							amount: 1100.000
+							amount_min: 400.000
+							difficulty: 7
+							step_max: 20
+							snapping: 5.000
+							falloff: 0.922
+							ratio: 0.098
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: hammer
+						include: hammer, cutters, pliers, file, chisel
+					}
+					filter_infrastructure:
+					{
+						require: surface, hard_surface
+						include: anvil, table, chair, vise, rack, dies, workbench
+					}
+				}
+			]
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: tank_gun.00
+			amount: 1.000
+			group: 0
+			flags: primary, compact
+		}
+	]
+	
+	type: workshop
+	flags: blueprintable, item, production, manufacturing, wip
+	tags: manual, crafting, complex, large, weapon, gun, machinery, assembling, metalworking, engineering, military, construction
+	hints: none
+	connotations: none
+	infrastructure: vise, pulley, surface, hard_surface, workbench
+	infrastructure_exclude: personal
+	
+	icon:
+	{
+		texture: tank_gun.00
+	}
+	
+	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
+	rank: -2.000
+	frame_size: [144.000, 48.000]
+	
+	min: 1
+	max: 4
+	step: 1
+	
+	version: 1
+}

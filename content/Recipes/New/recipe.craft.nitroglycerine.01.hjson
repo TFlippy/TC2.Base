@@ -1,0 +1,359 @@
+﻿{
+	$region_id: 0
+	$version: "0.1.72.1"
+	name: "NS-Nitroglycerine"
+	desc:
+		'''
+		Nitrosugar
+		'''
+	tips: []
+	
+	related_materials:
+	{
+		nitroglycerine: reaction, chemical, product, result, manufactured, liquid, processed, output
+		nitrosugar: raw, ingredient, input
+		alcohol: ingredient, liquid, input
+		water: raw, liquid, input
+		water.red: residue, waste, liquid, output
+		water.clean: liquid, input, auto_generated
+	}
+	
+	stages:
+	[
+		{
+			name: "Dissolution"
+			
+			type: dissolving
+			flags: part, important
+			tags: material, formula, ingredient
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: wet
+			
+			options:
+			[
+				{
+					name: "Alcohol Bath"
+					desc: " dissolved in warm alcohol"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: heat
+					
+					prefix: "Bathed "
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: nitrosugar
+							amount: 1.000
+							snapping: 1.000
+							loss: 0.984
+							ratio: 1.000
+							group: 0
+							flags: argument, primary, prerequisite
+						}
+						{
+							type: resource
+							material: alcohol
+							amount: 1.299405
+							snapping: 0.500
+							falloff: 0.958
+							loss: 0.122
+							ratio: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: temperature
+							amount: 322.000
+							amount_min: 305.000
+							amount_max: 348.000
+							group: 0
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: work
+							work: dissolving
+							amount: 40.000
+							amount_min: 80.000
+							difficulty: 5
+							step_max: 15
+							snapping: 5.000
+							falloff: 0.800
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: blending
+							amount: 30.000
+							amount_min: 40.000
+							difficulty: 4
+							step_max: 15
+							snapping: 5.000
+							falloff: 0.838
+							ratio: 0.008
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: nitroglycerine
+							amount: 0.408
+							amount_extra: 0.130
+							snapping: 0.010
+							group: 0
+							ratio: 0.251
+							flags: primary, compact, scale_to_mass
+						}
+					]
+					
+					purity_modifier: 0.832
+					quality_modifier: 0.879
+					yield_modifier: 0.922
+					failure_chance: 0.125
+					
+					filter_tools:
+					{
+						include: ruler, shovel, file, spatula, ladle, utensils
+					}
+					filter_infrastructure:
+					{
+						require: liquid_container
+						include: cauldron, lab_glassware, dishes, barrel, bucket, liquid_container, blender, form
+					}
+				}
+			]
+		}
+		{
+			name: "Washing"
+			
+			type: cleaning
+			flags: none
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: wet
+			
+			options:
+			[
+				{
+					name: "Simple"
+					desc: ", then washed with water and left to settle at the bottom."
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: wet
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: water
+							amount: 1.000
+							snapping: 0.500
+							falloff: 0.818
+							loss: 0.808
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: washing
+							amount: 50.000
+							amount_min: 45.000
+							difficulty: 5
+							step_max: 15
+							snapping: 10.000
+							falloff: 0.748
+							group: 0
+							flags: conditional
+						}
+						{
+							type: work
+							work: evaporation
+							amount: 80.000
+							amount_min: 100.000
+							difficulty: 3
+							step_max: 10
+							snapping: 10.000
+							falloff: 0.664
+							group: 1
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: water.red
+							amount: 0.217231
+							amount_extra: 0.187905
+							snapping: 0.100
+							group: 0
+							ratio: 0.812
+							flags: pollutant, waste, residue, scale_to_mass
+						}
+						{
+							type: resource
+							material: nitroglycerine
+							amount: 0.271
+							amount_extra: 0.295
+							snapping: 0.010
+							group: 0
+							ratio: 0.651
+							flags: primary, compact, scale_to_mass
+						}
+					]
+					
+					purity_modifier: 0.612
+					quality_modifier: 0.701
+					yield_modifier: 0.816
+					failure_chance: 0.059
+					
+					filter_tools:
+					{
+						include: bucket, towel
+					}
+					filter_environment:
+					{
+						include: warm, container, disinfected, sterile, clean
+						exclude: polluted
+					}
+				}
+				{
+					name: "Clean"
+					desc: ", then washed with purified water and left to settle at the bottom."
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: wet
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: water.clean
+							amount: 1.000
+							snapping: 0.500
+							falloff: 0.818
+							loss: 0.831
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: washing
+							amount: 75.000
+							amount_min: 70.000
+							difficulty: 6
+							step_max: 20
+							snapping: 10.000
+							falloff: 0.711
+							group: 0
+							flags: conditional
+						}
+						{
+							type: work
+							work: evaporation
+							amount: 75.000
+							amount_min: 100.000
+							difficulty: 3
+							step_max: 10
+							snapping: 10.000
+							falloff: 0.728
+							group: 1
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: water.red
+							amount: 0.200
+							amount_extra: 0.151
+							snapping: 0.100
+							group: 0
+							ratio: 0.706
+							flags: pollutant, waste, residue, scale_to_mass
+						}
+						{
+							type: resource
+							material: nitroglycerine
+							amount: 0.363
+							amount_extra: 0.068
+							snapping: 0.010
+							group: 0
+							ratio: 0.906
+							flags: primary, compact, scale_to_mass
+						}
+					]
+					
+					purity_modifier: 0.612
+					quality_modifier: 0.701
+					yield_modifier: 0.816
+					failure_chance: 0.059
+					
+					filter_tools:
+					{
+						include: bucket, towel
+					}
+					filter_environment:
+					{
+						include: warm, container, disinfected, sterile, clean
+						exclude: polluted
+					}
+				}
+			]
+		}
+	]
+	
+	type: workshop
+	flags: production, manufacturing, wip
+	tags: basic, simple, delicate, alchemistry, blending, refining, separation, processing, explosive, dangerous
+	hints: none
+	connotations: none
+	infrastructure: cauldron, barrel, bucket, liquid_container
+	infrastructure_exclude: personal
+	
+	icon:
+	{
+		texture: resource.nitroglycerine
+		size: [16, 16]
+		frame: [1, 0]
+	}
+	icon_offset: [-8.000, 2.000]
+	
+	icon_extra:
+	{
+		texture: resource.water.red
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	icon_extra_offset: [0.000, -6.000]
+	
+	icon_c:
+	{
+		texture: resource.nitrosugar
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	icon_c_offset: [-12.000, -20.000]
+	
+	color_frame: "0xffcf392b"
+	color_button: "0xff9dd80f"
+	rank: -8.000
+	
+	min: 1
+	max: 50
+	step: 1
+	
+	version: 1
+}

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.0"
+	$version: "0.1.72.1"
 	name: "Homemade Glue"
 	desc:
 		'''
@@ -9,9 +9,23 @@
 	
 	related_materials:
 	{
-		glue: product, result
-		mortar: residue, impure, result
-		nitrocellulose: residue, impure, result
+		glue: product, result, liquid, output
+		mortar: residue, impure, result, byproduct, output
+		nitrocellulose: residue, powdered, product, impure, result, byproduct, output
+		eggs: raw, ingredient, input, auto_generated
+		mushroom.juice: residue, ingredient, liquid, input, output, auto_generated
+		vinegar: ingredient, liquid, input, auto_generated
+		onion.juice: ingredient, liquid, input, auto_generated
+		shite: raw, ingredient, input, auto_generated
+		mushroom.brown: raw, ingredient, input, auto_generated
+		sludge: raw, waste, output, auto_generated
+		sugar: powdered, ingredient, input, auto_generated
+		flour: raw, powdered, ingredient, input, auto_generated
+		starch: powdered, ingredient, input, auto_generated
+		sawdust: powdered, ingredient, input, auto_generated
+		porridge: ingredient, input, auto_generated
+		water: raw, liquid, input, auto_generated
+		toluene: liquid, input, auto_generated
 	}
 	
 	stages:
@@ -26,7 +40,6 @@
 			discard_damage_type: sledgehammer
 			
 			ratio: 1.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -234,7 +247,6 @@
 			discard_damage_type: wet
 			
 			ratio: 1.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -401,7 +413,6 @@
 			discard_damage_type: wet
 			
 			ratio: 1.000
-			mass_base: 0.000
 			
 			options:
 			[

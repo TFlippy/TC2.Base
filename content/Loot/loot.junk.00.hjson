@@ -1,0 +1,825 @@
+﻿{
+	$version: "0.1.72.1"
+	nodes:
+	[
+		{
+			rarity: 2.030
+			weight: 24.800
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: scrap.metal
+					amount: 10.5336
+					amount_extra: 28.9568
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.440
+			weight: 23.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: scrap.steel
+					amount: 9.216924
+					amount_extra: 22.18524
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.190
+			weight: 20.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: scrap.ferrous
+					amount: 10.5336
+					amount_extra: 27.8678
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 1.640
+			weight: 15.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: paper
+					amount: 5.000
+					amount_extra: 30.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.540
+			weight: 15.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: cloth
+					amount: 9.893939
+					amount_extra: 28.9394
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 6.180
+			weight: 12.300
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: scrap.smirgrafit.dusty
+					amount: 8.6836
+					amount_extra: 23.4748
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 1.440
+			weight: 12.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: rot
+					amount: 5.000
+					amount_extra: 26.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.120
+			weight: 11.300
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: scrap.cloth
+					amount: 12.7782
+					amount_extra: 27.13402
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.000
+			weight: 11.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: glue
+					amount: 4.000
+					amount_extra: 25.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.020
+			weight: 10.200
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: scrap.copper
+					amount: 4.2016
+					amount_extra: 16.218
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.000
+			weight: 10.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: rubber
+					amount: 2.000
+					amount_extra: 20.000
+					snapping: 0.500
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 4.470
+			weight: 9.600
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: pellet.failure
+					amount: 1.000
+					amount_extra: 7.000
+					snapping: 0.500
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.410
+			weight: 9.500
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: scrap.charred
+					amount: 10.5336
+					amount_extra: 27.8678
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.000
+			weight: 9.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: sulfuric_acid
+					amount: 11.000
+					amount_extra: 30.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.000
+			weight: 9.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: naphtha
+					amount: 35.000
+					amount_extra: 70.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.520
+			weight: 8.900
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: machine_parts
+					amount: 2.000
+					amount_extra: 13.902
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.000
+			weight: 8.500
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: nitrosugar
+					amount: 2.000
+					amount_extra: 4.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.810
+			weight: 8.500
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: putty
+					amount: 3.4542
+					amount_extra: 9.77642
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 4.000
+			weight: 8.300
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: toluene
+					amount: 12.000
+					amount_extra: 38.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 5.960
+			weight: 8.100
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: scrap.arcane
+					amount: 6.641147
+					amount_extra: 21.6944
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.000
+			weight: 8.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: cmajzl
+					amount: 25.000
+					amount_extra: 100.000
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.500
+			weight: 8.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: limelight
+					amount: 1.000
+					amount_extra: 9.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 1.230
+			weight: 8.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: shite
+					amount: 10.000
+					amount_extra: 50.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 4.720
+			weight: 7.300
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: pellet
+					amount: 5.558
+					amount_extra: 12.5379
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 1.000
+			weight: 7.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: glass
+					amount: 2.000
+					amount_extra: 10.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.000
+			weight: 7.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: lubricant
+					amount: 5.000
+					amount_extra: 11.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.000
+			weight: 7.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: vinegar
+					amount: 7.000
+					amount_extra: 30.000
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.000
+			weight: 6.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: slag
+					amount: 10.000
+					amount_extra: 100.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 4.000
+			weight: 6.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: hydrochloric_acid
+					amount: 4.000
+					amount_extra: 18.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 1.000
+			weight: 6.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: insect
+					amount: 10.000
+					amount_extra: 20.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.000
+			weight: 6.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: mush
+					amount: 22.37273
+					amount_extra: 89.49091
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 1.000
+			weight: 6.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: scrap.fur
+					amount: 3.000
+					amount_extra: 20.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.300
+			weight: 5.200
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: hydrogen_peroxide
+					amount: 1.000
+					amount_extra: 13.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.000
+			weight: 5.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: ash
+					amount: 10.000
+					amount_extra: 75.000
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.000
+			weight: 5.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: sludge
+					amount: 10.000
+					amount_extra: 100.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 1.000
+			weight: 5.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: sauce
+					amount: 1.000
+					amount_extra: 8.000
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 1.000
+			weight: 5.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: chow
+					amount: 1.000
+					amount_extra: 3.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 5.010
+			weight: 4.600
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: actuator
+					amount: 0.53725
+					amount_extra: 2.149
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 5.000
+			weight: 4.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: himlkarzenus
+					amount: 12.000
+					amount_extra: 70.000
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.600
+			weight: 2.300
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: porridge
+					amount: 4.000
+					amount_extra: 150.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.000
+			weight: 2.200
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: nitric_acid
+					amount: 1.882805
+					amount_extra: 8.149467
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 7.750
+			weight: 2.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: pellet.life
+					amount: 1.023021
+					amount_extra: 2.557552
+					snapping: 0.500
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.000
+			weight: 1.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: water.toxic
+					amount: 1.000
+					amount_extra: 750.000
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+	]
+	
+	includes: []
+}

@@ -14,6 +14,11 @@ namespace TC2.Base
 				name: "Battering",
 				description: "Greatly increases knockback.",
 
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
+
 				can_add: static (ref Augment.Context context, in Melee.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					return !augments.HasAugment(handle);
@@ -83,6 +88,11 @@ namespace TC2.Base
 				name: "Hooking",
 				description: "Reverses the knockback by adding tiny hooks.",
 
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
+
 				can_add: static (ref Augment.Context context, in Melee.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					return !augments.HasAugment(handle);
@@ -125,6 +135,11 @@ namespace TC2.Base
 					offset.Y = Maths.Clamp(offset.Y, -0.50f, 0.50f);
 
 					return true;
+				},
+
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
 				},
 
 				can_add: static (ref Augment.Context context, in Melee.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
@@ -175,16 +190,15 @@ namespace TC2.Base
 				name: "Longer Handle",
 				description: "Lengthens the handle of the weapon, allowing you to strike further with more power.",
 
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return augments.GetCount(handle) < 2;
+				},
+
 				can_add: static (ref Augment.Context context, in Melee.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					if (data.flags.HasAny(Melee.Flags.No_Handle)) return false;
-
-					var count = 0;
-					for (var i = 0; i < augments.Length; i++)
-					{
-						if (augments[i].id == handle.id) count++;
-					}
-					return count < 2;
+					return augments.GetCount(handle) < 2;
 				},
 
 				apply_0: static (ref Augment.Context context, ref Melee.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
@@ -213,14 +227,14 @@ namespace TC2.Base
 				name: "Uneven Strike",
 				description: "Reduces base damage, but also increases bonus damage.",
 
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return augments.GetCount(handle) < 2;
+				},
+
 				can_add: static (ref Augment.Context context, in Melee.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					var count = 0;
-					for (var i = 0; i < augments.Length; i++)
-					{
-						if (augments[i].id == handle.id) count++;
-					}
-					return count < 2;
+					return augments.GetCount(handle) < 2;
 				},
 
 				apply_0: static (ref Augment.Context context, ref Melee.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
@@ -252,14 +266,15 @@ namespace TC2.Base
 				name: "Reliable Strike",
 				description: "Half of the weapon's bonus damage is converted to base damage",
 
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return augments.GetCount(handle) < 2;
+				},
+
 				can_add: static (ref Augment.Context context, in Melee.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					var count = 0;
-					for (var i = 0; i < augments.Length; i++)
-					{
-						if (augments[i].id == handle.id) count++;
-					}
-					return count < 2 && data.damage_bonus > 0.00f;
+					if (data.damage_bonus <= 0.00f) return false;
+					return augments.GetCount(handle) < 2;
 				},
 
 				apply_0: static (ref Augment.Context context, ref Melee.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
@@ -292,16 +307,15 @@ namespace TC2.Base
 				name: "Hollowed",
 				description: "Hollows out parts of the weapon, increasing swing speed, while also reducing damage, knockback and cost.",
 
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return augments.GetCount(handle) < 2;
+				},
+
 				can_add: static (ref Augment.Context context, in Melee.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					if (data.category != Melee.Category.Blunt) return false;
-
-					var count = 0;
-					for (var i = 0; i < augments.Length; i++)
-					{
-						if (augments[i].id == handle.id) count++;
-					}
-					return count < 2;
+					return augments.GetCount(handle) < 2;
 				},
 
 				apply_0: static (ref Augment.Context context, ref Melee.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
@@ -348,6 +362,11 @@ namespace TC2.Base
 				name: "Resourceful Sharpening",
 				description: "Sharpens the tool to render less of the struck material unusable, increasing resource yield.",
 
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return augments.GetCount(handle) <= 3;
+				},
+
 				can_add: static (ref Augment.Context context, in Melee.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					return augments.GetCount(handle) <= 3 && (data.category == Melee.Category.Bladed || data.category == Melee.Category.Pointed) && (data.yield > 0.00f && data.yield < 1.50f);
@@ -379,6 +398,11 @@ namespace TC2.Base
 				category: "Melee",
 				name: "Toy Weapon",
 				description: "Dulls the weapon to deal no damage.", // Currently this also reduces kockback to 0 cause knockback is bad and based on damage
+
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
 
 				can_add: static (ref Augment.Context context, in Melee.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{

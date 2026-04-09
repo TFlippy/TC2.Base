@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.2"
+	$version: "0.1.72.1"
 	name: "Prdex"
 	name_short: "PDX"
 	name_imperial: "Prdex"
@@ -109,10 +109,10 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: explosives
 		
 		market_price: 249.300
-		market_price_per_kg_auto: 154.4667
+		market_price_per_kg_auto: 163.5183
 	}
 	
 	// Info regarding relations of other materials towards this material.

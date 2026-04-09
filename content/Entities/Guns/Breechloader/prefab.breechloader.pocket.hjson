@@ -61,7 +61,7 @@ gun:
 	stability: 2240.000
 	failure_rate: 0.071
 	
-	ammo_filter: ammo_lc, ammo_hc, ammo_musket
+	ammo_filter: ammo_lc, ammo_hc
 	max_ammo: 1.000
 	
 	action: manual

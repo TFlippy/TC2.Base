@@ -9,17 +9,23 @@ namespace TC2.Base.Components
 			None = 0u,
 		}
 
+		public const bool show_faction_only = true;
+
 		[IComponent.Data(Net.SendType.Unreliable), IComponent.AddTo<Player.Data>()]
 		public partial struct Data(): IComponent
 		{
 			[Save.Ignore] public Entity ent_target;
 			[Save.Ignore] public Vector2 pos;
+
 			[Save.Ignore] public Color32BGRA color;
 			[Save.Ignore] public float duration;
 			[Save.Ignore] public float elapsed;
+			[Save.Ignore] public IFaction.Handle h_faction;
 			[Save.Ignore] public FixedString16 text;
 			[Save.Ignore, Net.Ignore] public float next_ping;
 		}
+
+		public static Sound.Handle h_sound_ping = "ui.misc.02";
 
 		public partial struct PingRPC: Net.IRPC<Ping.Data>
 		{
@@ -32,13 +38,16 @@ namespace TC2.Base.Components
 			public void Invoke(Net.IRPC.Context rpc, ref Data data)
 			{
 				ref var region = ref rpc.connection.GetRegion();
-				ref var player = ref rpc.connection.GetPlayer();
+				if (region.IsNull()) return;
 
-				if (region.IsNotNull() && player.IsNotNull() && rpc.entity == rpc.connection.GetEntity())
+				ref var player = ref rpc.connection.GetPlayer();
+				if (player.IsNull()) return;
+
+				if (rpc.entity == rpc.connection.GetEntity())
 				{
 					if (region.GetWorldTime() >= data.next_ping)
 					{
-						var random = XorRandom.New(true);
+						//var random = XorRandom.New(true);
 
 						data.pos = this.pos;
 						data.color = this.color;
@@ -49,7 +58,7 @@ namespace TC2.Base.Components
 						data.next_ping = region.GetWorldTime() + 0.20f;
 
 						//Sound.Play(ref region, "ui.alert.bwoing.02", data.pos, volume: 1.00f, pitch: 1.00f, size: 0.10f);
-						Sound.PlayGUI(ref region, "ui.misc.02", volume: 1.20f, pitch: random.NextFloatRange(0.98f, 1.01f), h_faction: player.h_faction);
+						Sound.PlayGUI(ref region, h_sound_ping, volume: 1.20f, pitch: region.GetRandom().NextFloatRange(0.98f, 1.01f), h_faction: player.h_faction);
 
 						data.Sync(rpc.entity, true);
 					}

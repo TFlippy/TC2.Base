@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.65.1"
+	$version: "0.1.72.0"
 	name: "Hortspargl Slabs"
 	desc:
 		'''
@@ -48,5 +48,15 @@
 		null
 	]
 	
-	mappings: []
+	mappings:
+	[
+		{
+			color: "0xff53524f"
+			tile_flags: solid, non_empty, become_background_on_break
+		}
+		{
+			color: "0xff20201f"
+			tile_flags: non_empty
+		}
+	]
 }

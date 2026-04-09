@@ -1,0 +1,98 @@
+﻿{
+	name: "Waller"
+	desc:
+		'''
+		Used to build walls, and only walls due to its small height.
+		'''
+	
+	money: 6.000
+	age: [4.000, 5.000, 10.000, 20.000]
+	genders: male, female
+	gender_ratio: 0.300
+	species: "kobold"
+	faction: "null"
+	kit_default: "null"
+	character_flags: slave, construction, artisan, laborer, civillian, poor, alcoholic, lower_class
+	
+	conditions:
+	{
+		weight_mult: 0.500
+		
+		infrastructure:
+		{
+			require: none
+			include: railway, highway, docks
+			exclude: none
+			weight: 7.000
+		}
+		
+		industry:
+		{
+			require: none
+			include: low_tech, high_tech, construction
+			exclude: none
+			weight: 7.000
+		}
+		
+		crime:
+		{
+			require: none
+			include: vandalism, arson
+			exclude: none
+			weight: 10.000
+		}
+		
+		geography:
+		{
+			require: none
+			include: urban
+			exclude: none
+			weight: 15.000
+		}
+		
+		urbanization: [0.200, 0.000, 0.600, 60.000]
+		industrialization: [0.100, 0.000, 0.900, 40.000]
+		education: [0.400, 0.000, 0.700, 10.000]
+		wealth: [0.000, 0.200, 0.500, 10.000]
+		wilderness: [0.300, 0.000, 0.700, -15.000]
+		devastation: [0.200, 0.000, 0.500, 20.000]
+		savagery: [0.150, 0.000, 0.800, -10.000]
+		anarchy: [0.100, 0.000, 0.500, 10.000]
+		elevation: [0.000, 0.000, 0.000, 0.000]
+	}
+	
+	requirements: []
+	
+	experience:
+	{
+		handguns: 1
+		rifles: 2
+		explosives: 3
+		mining: 3
+		woodcutting: 4
+		construction: 7
+		masonry: 22
+		carpentry: 5
+		engineering: 1
+		blacksmithing: 2
+		arcanology: 0
+		strength: 13
+		dexterity: 7
+		endurance: 11
+		intellect: 4
+		geology: 1
+		metallurgy: 1
+		medicine: 0
+		commerce: 0
+		charisma: 1
+		leadership: 0
+		blades: 2
+		axes: 3
+		clubs: 15
+		chemistry: 0
+		farming: 1
+		animals: 2
+		scavenging: 4
+		law: 0
+	}
+}

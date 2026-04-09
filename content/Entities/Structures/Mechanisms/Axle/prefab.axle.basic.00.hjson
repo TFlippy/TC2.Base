@@ -1,0 +1,103 @@
+$name: "Basic Axle (Ground)"
+$desc: 
+	'''
+	Basic axle anchored to the ground.
+	Used as part of belt drives.
+	'''
+
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.line:
+	{
+		a: [0.000, -0.750]
+		b: [0.000, 0.375]
+		offset: [0.000, 0.000]
+		
+		mass: 40.000
+		radius: 0.750
+		friction: 0.590
+		elasticity: 0.400
+		
+		material: metal_solid
+		miss_chance: 0.788
+		
+		layer: entity, background, building, no_overlapped_placement, ignore_melee
+		mask: world, building
+		exclude: none
+	}
+}
+
+// control:
+// {
+
+// }
+
+health:
+{
+	max: 35000.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: atlas.axle.00
+		size: [16, 24]
+		frame: [0, 0]
+	}
+	z: -200.000
+}
+
+transform:
+{
+
+}
+
+// interactable:
+// {
+// 	flags: centered_inventory
+// 	priority: 1.800
+// 	window_size: [168.000, 168.000]
+// 	window_size_misc: [88.000, 0.000]
+// }
+
+// module.slots:
+// {
+// 	slot_type: motor
+// 	offset: [0.000, 0.000]
+// 	z: 40.000
+// }
+
+axle:
+{
+	offset: [0.000, -0.875]
+	
+	mass: 30.000
+	friction: 0.200
+	z: -140.000
+
+	@animated.renderer:
+	{
+		sprite:
+		{
+			texture: "wheel_1000.steel"
+		}
+		z: -140.000
+	}
+
+	// @sound.emitter:
+	// {
+	// 	file: "shaft.loop.overload.00"
+	// 	volume: 1.000
+	// 	pitch: 1.000
+	// }
+}
+
+crank:
+{
+
+}

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.71.1"
 	name: "Polishing"
 	name_short: "Polish"
 	desc:
@@ -17,7 +17,7 @@
 	flags: manual, wip
 	tags: simple, leisure
 	
-	amount_base: 0.000
+	amount_base: 1.000
 	cooldown: 0.900
 	multiplier: 1.150
 	

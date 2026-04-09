@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.70.1"
+	$version: "0.1.72.1"
 	name: "Chosen Plantstuff"
 	desc:
 		'''
@@ -9,11 +9,13 @@
 	
 	related_materials:
 	{
-		plants: residue, raw, ingredient, natural, product, result
-		cmajzl: residue, raw, natural, result
-		sugar: residue, raw, natural, result
-		eggs: residue, raw, natural, result
-		shite: residue, raw, natural, result
+		plants: residue, raw, ingredient, natural, product, result, input, output
+		cmajzl: residue, raw, natural, result, output
+		sugar: residue, raw, powdered, natural, result, output
+		eggs: residue, raw, natural, result, output
+		shite: residue, raw, waste, natural, result, output
+		scrap.wood: waste, scrap, output, auto_generated
+		insect: residue, raw, output, auto_generated
 	}
 	
 	stages:
@@ -26,9 +28,6 @@
 			tags: material, raw, formula, ingredient
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: slash
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -154,8 +153,8 @@
 	]
 	
 	type: workshop
-	flags: none
-	tags: manual, simple, organic, raw, agriculture, biology, forestry, separation
+	flags: dismantling
+	tags: manual, crafting, basic, simple, organic, raw, agriculture, forestry, separation
 	hints: none
 	connotations: none
 	infrastructure: surface

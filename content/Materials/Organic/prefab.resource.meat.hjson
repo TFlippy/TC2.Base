@@ -56,16 +56,19 @@ norotate:
 
 despawn:
 {
+	h_material_product: rot
+	product_ratio: 0.200
+
 	amount_ratio: 0.005
-	amount_ratio_extra: 0.010
+	amount_ratio_extra: 0.070
 	
-	threshold_delete: 0.010
-	threshold_despawning: 0.140
+	threshold_delete: 0.005
+	threshold_despawning: 1.000
 	
-	interval: 20.000
-	interval_extra: 30.000
+	interval: 7.000
+	interval_extra: 11.000
 	
-	sleep_count_max: 33
+	sleep_count_max: 29
 }
 
 health:

@@ -1,5 +1,6 @@
 ﻿namespace TC2.Base.Components
 {
+	[Shitcode]
 	public static class Hornet
 	{
 		[IComponent.Data(Net.SendType.Reliable, IComponent.Scope.Region)]
@@ -8,6 +9,7 @@
 			public float fps = 30.00f;
 		}
 
+		[Shitcode]
 		[ISystem.PostUpdate.C(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned), HasTag("hornet", true, Source.Modifier.Owned)]
 		public static void UpdateAlive(ISystem.Info info, 
 		[Source.Owned] ref Hornet.Data hornet, [Source.Owned, Override] ref NoRotate.Data no_rotate,

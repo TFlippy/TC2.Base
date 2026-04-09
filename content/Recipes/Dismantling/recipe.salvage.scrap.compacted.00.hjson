@@ -1,0 +1,191 @@
+﻿{
+	$region_id: 0
+	$version: "0.1.72.1"
+	name: "Salvaged Compacted Scrap"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	tips: []
+	
+	related_materials:
+	{
+	
+	}
+	
+	stages:
+	[
+		{
+			name: "Method"
+			
+			type: formula
+			flags: important
+			tags: material, raw, formula, ingredient
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: pickaxe
+			
+			options:
+			[
+				{
+					name: "Simple"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: scrap.compacted
+							amount: 1.000
+							snapping: 1.000
+							loss: 1.000
+							ratio: 0.314
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: scavenging
+							amount: 74.000
+							amount_min: 175.000
+							difficulty: 4
+							snapping: 5.000
+							falloff: 0.935
+							ratio: 0.514
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: cmajzl
+							amount: 0.181
+							amount_extra: 0.2429
+							group: 0
+							chance: 0.412
+							ratio: 0.176
+							flags: residue, stepped, scale_to_mass
+						}
+						{
+							type: resource
+							material: scrap.wood
+							amount: 0.1255
+							amount_extra: 0.1703
+							group: 0
+							chance: 0.663
+							ratio: 0.231
+							flags: waste, stepped, scale_to_mass
+						}
+						{
+							type: resource
+							material: eggs
+							amount: 0.370709
+							amount_extra: 0.519791
+							snapping: 1.000
+							group: 0
+							chance: 0.122
+							ratio: 0.110
+							flags: residue, stepped, scale_to_mass
+						}
+						{
+							type: resource
+							material: insect
+							amount: 0.1817
+							amount_extra: 0.3678
+							snapping: 0.100
+							group: 0
+							chance: 0.310
+							ratio: 0.224
+							flags: residue, stepped, scale_to_mass
+						}
+						{
+							type: resource
+							material: shite
+							amount: 0.113717
+							amount_extra: 1.091448
+							snapping: 0.2366
+							group: 0
+							chance: 0.337
+							ratio: 0.196
+							flags: pollutant, waste, no_scaling, stepped, scale_to_mass
+						}
+						{
+							type: resource
+							material: sugar
+							amount: 0.1843
+							amount_extra: 0.3159
+							group: 0
+							chance: 0.157
+							ratio: 0.184
+							flags: residue, stepped, scale_to_mass
+						}
+						{
+							type: resource
+							material: plants
+							amount: 0.7087
+							amount_extra: 1.6585
+							group: 0
+							ratio: 0.957
+							flags: residue, primary, compact, scale_to_mass
+						}
+					]
+					
+					filter_tools:
+					{
+						include: cleaver, tweezers, magnifying_glass, bucket, spatula, knife, scissors
+					}
+					filter_infrastructure:
+					{
+						include: dishes, table, chair, surface, kitchen
+					}
+				}
+			]
+		}
+	]
+	
+	type: workshop
+	flags: debug, dismantling, wip
+	tags: manual, basic, simple, metallurgy, salvaging, separation
+	hints: none
+	connotations: none
+	infrastructure: surface
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		texture: resource.copper.plate
+		size: [16, 16]
+		frame: [1, 0]
+	}
+	
+	icon_extra:
+	{
+		texture: ui_icons_widget
+		size: [16, 16]
+		frame: [10, 5]
+	}
+	icon_extra_offset: [-12.000, -12.000]
+	
+	icon_c:
+	{
+		texture: resource.scrap.compacted
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	icon_c_offset: [2.000, -16.000]
+	
+	color_frame: "0xffac7534"
+	color_button: "0xff9dd80f"
+	rank: -50.000
+	frame_size: [48.000, 48.000]
+	
+	min: 1
+	max: 25
+	step: 1
+	
+	version: 1
+}

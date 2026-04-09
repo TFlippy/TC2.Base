@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.2"
+	$version: "0.1.72.0"
 	name: "MG-20.4mm/EMT Ammo"
 	description:
 		'''
@@ -91,7 +91,6 @@
 		sprite_casing:
 		{
 			texture: atlas.ammo.casings.00
-			mask: missing
 			size: [8, 8]
 			frame: [3, 0]
 		}

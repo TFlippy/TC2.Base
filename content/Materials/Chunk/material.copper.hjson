@@ -1,8 +1,8 @@
 ﻿{
-	$version: "0.1.68.2"
+	$version: "0.1.72.0"
 	name: "Copper Chunk"
-	name_short: "Cop. Chunk"
-	name_imperial: "Kopr"
+	name_short: "Cop.Chunk"
+	name_imperial: "Kupr"
 	description:
 		'''
 		Solid chunk of deformed copper, usually a result of poor craftsmanship or bad smelting.
@@ -111,10 +111,10 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: metals
 		
 		market_price: 223.685
-		market_price_per_kg_auto: 22.38909
+		market_price_per_kg_auto: 17.88609
 	}
 	
 	// Damage-based conversions.

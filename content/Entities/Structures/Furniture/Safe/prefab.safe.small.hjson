@@ -13,7 +13,7 @@ body:
 	@shape.box:
 	{
 		material: metal_solid
-		miss_chance: 0.000
+		miss_chance: 0.480
 		flags: none
 		tags: none
 		
@@ -40,7 +40,7 @@ health:
 
 armor:
 {
-	toughness: 800.000
+	toughness: 600.000
 	protection: 0.980
 	
 	knockback_modifier: 1.300

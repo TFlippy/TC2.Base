@@ -147,7 +147,7 @@ npc.emotions:
 	hostility: 3.500
 	courage: 2.500
 	cruelty: 2.100
-	irritability: 1.800
+	irritability: 1.000
 	apathy: 1.500
 }
 
@@ -643,7 +643,7 @@ faction:
 				mask: world, vehicle
 				exclude: barbed, dead, held
 
-				miss_chance: 0.380
+				miss_chance: 0.220
 			}
 		}
 		
@@ -791,7 +791,7 @@ faction:
 			air_capacity: 1.300
 			air_usage: 0.200
 			breath_interval: 1.300
-			breath_amount: 0.400
+			breath_amount: 0.500
 			offset_mouth: [0.375, 0.000]
 			frame_pain: 1
 			frame_dead: 2

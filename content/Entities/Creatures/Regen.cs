@@ -11,16 +11,18 @@ namespace TC2.Base.Components
 			
 		}
 
-		[IComponent.Data(Net.SendType.Reliable, IComponent.Scope.Global | IComponent.Scope.Region)]
+		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Global | IComponent.Scope.Region)]
 		public partial struct Data(): IComponent, IOverridable
 		{
-			public float amount;
-			public float interval = 3.00f;
+			[Save.Force] public required float amount;
+			[Save.Force] public required float interval = 3.00f;
 
+			[Save.NewLine]
 			public float min_a = 0.70f;
 			public float max_a = 1.00f;
 			public float multiplier_a = 0.50f;
 
+			[Save.NewLine]
 			public float min_b = 0.70f;
 			public float max_b = 1.00f;
 			public float multiplier_b = 1.00f;
@@ -33,7 +35,10 @@ namespace TC2.Base.Components
 		public static void OnDamage(ISystem.Info.Common info, ref XorRandom random, ref Health.DamageEvent ev,
 		[Source.Owned, Original] ref Regen.Data regen, [Source.Owned] in Health.Data health)
 		{
-			regen.t_next_regen = Maths.Max(regen.t_next_regen, info.WorldTime + random.NextFloatExtra(2.00f, 8.00f));
+			//App.WriteValue(regen.t_next_regen);
+			regen.t_next_regen = Maths.Max(regen.t_next_regen, info.WorldTime + random.NextFloatExtra(regen.interval + 10.00f, 10.00f));
+			//App.WriteValue(regen.t_next_regen);
+
 		}
 
 		[ISystem.PostUpdate.C(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.22f), HasTag("dead", false, Source.Modifier.Owned)]

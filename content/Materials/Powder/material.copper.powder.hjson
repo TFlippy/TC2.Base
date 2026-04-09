@@ -1,8 +1,8 @@
 ﻿{
-	$version: "0.1.68.2"
+	$version: "0.1.72.0"
 	name: "Copper Powder"
-	name_short: "Cop. Powder"
-	name_imperial: "Koprpulvr"
+	name_short: "Cop.Powder"
+	name_imperial: "Kuprpulvr"
 	description:
 		'''
 		Standard fine-grained copper powderswarf.
@@ -19,7 +19,7 @@
 	
 	// Inventory material type.
 	type: powder
-	flags: granular, metal, powder, solid
+	flags: granular, metal, currency, powder, solid
 	display_flags: none
 	hints: materials
 	
@@ -56,22 +56,11 @@
 	
 	commodity:
 	{
-		availability: 0.000
-		rarity: 0.000
-		scalability: 0.000
-		reusability: 0.000
-		longevity: 0.000
-		complexity: 0.000
-		tech: 0.000
-		liquidity: 0.000
-		demand: 0.000
-		
 		flags: none
-		categories: none
+		categories: metals, refined, industrial
 		
 		market_price: 15.700
-		
-		market_price_per_kg_auto: 20.98916
+		market_price_per_kg_auto: 23.04404
 	}
 	
 	// Damage-based conversions.

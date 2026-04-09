@@ -1,0 +1,32 @@
+﻿{
+	$region_id: 0
+	$version: "0.1.71.1"
+	name: "Crafting III"
+	category: "02: Crafting"
+	desc:
+		'''
+		Once you select an item to craft, it'll enter into the crafting stage.
+
+		To fulfill the crafting order, simply left-click it, and your character will automatically do the work. 
+		(If it's blue, that means it's active)
+
+		Once it's finished, press the "Complete" button to receive your items.
+		'''
+	
+	order: 32
+	size: [640, 0]
+	layout: a
+	flags: none
+	
+	title: "Crafting"
+	
+	sprite_scale: 1.000
+	sprite:
+	{
+		texture: ui.tutorial.atlas.00
+		size: [480, 320]
+		frame: [2, 3]
+	}
+	
+	entries: []
+}

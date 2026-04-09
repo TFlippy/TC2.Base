@@ -1,0 +1,87 @@
+$name: "Door (Wood)"
+$desc:
+	'''
+	Standard wooden door.
+	Can be locked.
+	'''
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.box:
+	{
+		size: [0.250, 2.750]
+		offset: [0.000, 0.000]
+		mass: 16.200
+		radius: 0.125
+		friction: 0.750
+		elasticity: 0.300
+		material: wood
+		layer: entity, solid, building, door, no_overlapped_placement, flammable
+		mask: world, solid
+	}
+}
+
+health:
+{
+	max: 8500.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "door.wood.00"
+		mask: "door.wood.00.mask"
+		count: 5
+		size: [16, 24]
+	}
+	z: 100.000
+	offset: [0.500, 0.000]
+}
+
+faction.colorable:
+{
+
+}
+
+faction:
+{
+
+}
+
+claimable:
+{
+	flags: no_menu, enable_wololo
+}
+
+interactable:
+{
+	flags: no_window, once, use_left_click
+	priority: 3.000
+}
+
+transform:
+{
+
+}
+
+door:
+{
+	sound_open: "door_open"
+	sound_close: "door_close"
+	size_open: [1.350, 2.750]
+	size_closed: [0.250, 2.750]
+	offset_open: [0.700, 0.000]
+	offset_closed: [0.000, 0.000]
+	direction: horizontal
+	flags: lockable
+
+	frame_closed: 0
+	frame_open: 4
+
+	fps_close: 8.000
+	fps_open: 6.000
+}

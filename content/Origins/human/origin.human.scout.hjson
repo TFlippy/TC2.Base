@@ -1,0 +1,267 @@
+﻿{
+	$version: "0.1.67.1"
+	name: "Scout"
+	desc:
+		'''
+		TODO
+		'''
+	
+	money: 550.000
+	age: [20.000, 25.000, 28.000, 30.000, 35.000, 40.000, 70.000]
+	genders: male, female
+	gender_ratio: 0.100
+	species: human
+	cost: 0.000
+	flags: none
+	
+	character_flags: military, armed, engineer, hunter, soldier, nomad, outdoor, strong, middle_class
+	character_flags_optional: none
+	
+	industry_flags: none
+	industry_flags_optional: none
+	
+	service_flags: none
+	service_flags_optional: none
+	
+	crime_flags: espionage, vagrancy
+	crime_flags_optional: none
+	
+	kit_filter_primary:
+	{
+		chance: 1.000
+		
+		categories:
+		{
+			require: gun
+			include: weapon, gun, long_range, short_range
+			exclude: junk, primitive
+			weight: 1.000
+		}
+	}
+	
+	kit_filter_secondary:
+	{
+		chance: 1.000
+		
+		categories:
+		{
+			require: weapon
+			include: weapon, melee, gun, small, military
+			exclude: primitive
+			weight: 1.000
+		}
+	}
+	
+	kit_filter_utility:
+	{
+		chance: 1.000
+		
+		categories:
+		{
+			require: tools, long_range, advanced, small, device
+			include: tools, long_range, advanced, small, device
+			exclude: junk, primitive, expensive
+			weight: 1.000
+		}
+	}
+	
+	conditions:
+	{
+		weight_mult: 0.000
+		
+		industry:
+		{
+			require: none
+			include: mining, scrap, logging
+			exclude: none
+			weight: 20.000
+		}
+		
+		crime:
+		{
+			require: none
+			include: none
+			exclude: none
+			weight: 5.000
+		}
+		
+		geography:
+		{
+			require: none
+			include: mountains, hills, excavated, wasteland, rough, rocky
+			exclude: none
+			weight: 25.000
+		}
+		
+		urbanization:
+		{
+			min: 0.100
+			mid: 0.200
+			max: 0.500
+			weight: 30.000
+		}
+		
+		industrialization:
+		{
+			min: 0.200
+			mid: 0.300
+			max: 0.500
+			weight: 70.000
+		}
+		
+		education:
+		{
+			min: 0.100
+			mid: 0.500
+			max: 0.000
+			weight: 5.000
+		}
+		
+		wealth:
+		{
+			min: 0.200
+			mid: 0.400
+			max: 0.000
+			weight: 20.000
+		}
+		
+		wilderness:
+		{
+			min: 0.200
+			mid: 0.500
+			max: 0.600
+			weight: 30.000
+		}
+		
+		devastation:
+		{
+			min: 0.000
+			mid: 0.700
+			max: 0.000
+			weight: 75.000
+		}
+		
+		savagery:
+		{
+			min: 0.350
+			mid: 0.500
+			max: 0.000
+			weight: -30.000
+		}
+		
+		anarchy:
+		{
+			min: 0.300
+			mid: 0.500
+			max: 0.000
+			weight: -35.000
+		}
+		
+		safety:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		pollution:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		destruction:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		inequality:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		unrest:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		corruption:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		prestige:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		elevation:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+	}
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: money
+			amount: 849.000
+			group: 0
+		}
+	]
+	
+	experience:
+	{
+		handguns: 7
+		rifles: 10
+		explosives: 5
+		mining: 6
+		woodcutting: 4
+		construction: 6
+		masonry: 3
+		carpentry: 6
+		engineering: 5
+		blacksmithing: 3
+		arcanology: 3
+		strength: 10
+		dexterity: 8
+		endurance: 7
+		intellect: 7
+		geology: 9
+		metallurgy: 4
+		medicine: 5
+		commerce: 5
+		charisma: 6
+		leadership: 5
+		blades: 6
+		axes: 5
+		clubs: 3
+		alchemistry: 4
+		farming: 5
+		animals: 4
+		scavenging: 8
+		law: 4
+	}
+}

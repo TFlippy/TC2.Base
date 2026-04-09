@@ -1,0 +1,221 @@
+﻿{
+	$version: "0.1.62.0"
+	name: "Garfield"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	money: 0.000
+	age: [2.000, 10.000]
+	genders: male
+	gender_ratio: 0.000
+	species: drevokocur
+	faction: drevokocur
+	cost: 0.000
+	flags: none
+	
+	character_flags: criminal, hunter, insane, nomad, illiterate, feral, pest, animal, sedentary, brawler, outdoor, strong, evil, thief, murderer, terrorist, huge
+	character_flags_optional: none
+	
+	industry_flags: none
+	industry_flags_optional: none
+	
+	service_flags: none
+	service_flags_optional: none
+	
+	crime_flags: piracy, theft, murder, vandalism, terrorism, smuggling, raiding, pillaging, espionage, tax_evasion, jaywalking, vagrancy, treason, mutiny, impersonation, dissent, insubordination, misconduct
+	crime_flags_optional: none
+	
+	conditions:
+	{
+		weight_mult: 1.000
+		
+		industry:
+		{
+			require: none
+			include: none
+			exclude: none
+			weight: 0.000
+		}
+		
+		crime:
+		{
+			require: none
+			include: none
+			exclude: none
+			weight: 0.000
+		}
+		
+		geography:
+		{
+			require: none
+			include: hills, forested, rough, rocky
+			exclude: none
+			weight: 10.000
+		}
+		
+		urbanization:
+		{
+			min: 0.000
+			mid: 0.500
+			max: 1.000
+			weight: 0.000
+		}
+		
+		industrialization:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 1.000
+			weight: 0.000
+		}
+		
+		education:
+		{
+			min: 0.000
+			mid: 0.700
+			max: 0.000
+			weight: 10.000
+		}
+		
+		wealth:
+		{
+			min: 0.100
+			mid: 0.300
+			max: 0.000
+			weight: 10.000
+		}
+		
+		wilderness:
+		{
+			min: 0.400
+			mid: 0.700
+			max: 0.200
+			weight: 50.000
+		}
+		
+		devastation:
+		{
+			min: 0.200
+			mid: 0.500
+			max: 0.000
+			weight: 0.000
+		}
+		
+		savagery:
+		{
+			min: 0.150
+			mid: 0.700
+			max: 0.200
+			weight: 30.000
+		}
+		
+		anarchy:
+		{
+			min: 0.100
+			mid: 0.500
+			max: 0.000
+			weight: 10.000
+		}
+		
+		safety:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		pollution:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		destruction:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		inequality:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		unrest:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		corruption:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		prestige:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		elevation:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+	}
+	
+	requirements: []
+	
+	experience:
+	{
+		handguns: 0
+		rifles: 0
+		explosives: 0
+		mining: 5
+		woodcutting: 3
+		construction: 2
+		masonry: 0
+		carpentry: 0
+		engineering: 0
+		blacksmithing: 0
+		arcanology: 0
+		strength: 7
+		dexterity: 10
+		endurance: 8
+		intellect: 2
+		geology: 4
+		metallurgy: 0
+		medicine: 0
+		commerce: 0
+		charisma: 2
+		leadership: 3
+		blades: 0
+		axes: 0
+		clubs: 0
+		alchemistry: 0
+		farming: 3
+		animals: 15
+		scavenging: 7
+		law: 3
+	}
+}

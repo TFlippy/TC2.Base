@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.72.1"
 	name: "Arsine"
 	name_short: "Arsine"
 	name_imperial: "Arzyn"
@@ -24,7 +24,7 @@
 	// Inventory material type.
 	type: gas
 	flags: gas, explosive, toxic, chemical, raw, flammable, volatile, smelly, primary
-	display_flags: sprite_stack_linear, no_random_facing
+	display_flags: sprite_stack_linear, no_random_facing, unlisted
 	spawn_flags:
 	{
 		add: no_discard

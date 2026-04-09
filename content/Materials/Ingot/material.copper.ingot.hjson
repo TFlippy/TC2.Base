@@ -1,8 +1,13 @@
 ﻿{
-	$version: "0.1.68.2"
+	$version: "0.1.72.0"
+	$note:
+		'''
+		- Technically, it's more of a copper alloy, rather than pure copper
+		- Intense metallic gold-orange color
+		'''
 	name: "Copper Brick"
-	name_short: "Cop. Brick"
-	name_imperial: "Koprblok"
+	name_short: "Cop.Brick"
+	name_imperial: "Kuprblok"
 	description:
 		'''
 		Standard 20x10x8 cm copper brick.
@@ -20,7 +25,7 @@
 	
 	// Inventory material type.
 	type: metal_solid
-	flags: hard, metal, small, ingot, solid
+	flags: hard, metal, currency, small, ingot, solid
 	display_flags: sprite_stack_linear, no_random_facing
 	spawn_flags:
 	{
@@ -161,22 +166,11 @@
 	
 	commodity:
 	{
-		availability: 0.000
-		rarity: 0.000
-		scalability: 0.000
-		reusability: 0.000
-		longevity: 0.000
-		complexity: 0.000
-		tech: 0.000
-		liquidity: 0.000
-		demand: 0.000
-		
 		flags: none
-		categories: none
+		categories: metals, refined, construction_materials, industrial
 		
 		market_price: 350.000
-		
-		market_price_per_kg_auto: 27.43029
+		market_price_per_kg_auto: 25.94757
 	}
 	
 	// Damage-based conversions.

@@ -1,0 +1,94 @@
+{
+	name: "Bellhop"
+	desc:
+		'''
+		This rare kobold is smart enough and willful enough to try enroll and study. However its ridiculed and never gets far despite its attempts.
+		'''
+	
+	money: 5.000
+	age: [4, 5, 6, 20]
+	genders: male, female
+	gender_ratio: 0.450
+	species: "kobold"
+	character_flags: scientist, social, unarmed, artist, lower_class
+	
+	conditions:
+	{
+		weight_mult: 0.120
+		
+		infrastructure:
+		{
+			require: education
+			include: education, university, laboratory
+			exclude: none
+			weight: 35.000
+		}
+		
+		industry:
+		{
+			require: high_tech
+			include: financial, administrative, high_tech, entertainment, tourism
+			exclude: none
+			weight: 7.000
+		}
+		
+		crime:
+		{
+			require: none
+			include: none
+			exclude: none
+			weight: 5.000
+		}
+		
+		geography:
+		{
+			require: none
+			include: urban
+			exclude: none
+			weight: 10.000
+		}
+		
+		urbanization: [0.600, 0.000, 0.900, 40.000]
+		industrialization: [0.100, 0.000, 0.900, 15.000]
+		education: [0.400, 0.000, 0.700, 50.000]
+		wealth: [0.500, 0.000, 0.700, 50.000]
+		wilderness: [0.300, 0.000, 0.700, -35.000]
+		devastation: [0.200, 0.000, 0.500, -20.000]
+		savagery: [0.150, 0.000, 0.800, -40.000]
+		anarchy: [0.100, 0.000, 0.500, -50.000]
+		elevation: [0.000, 0.000, 0.000, 0.000]
+	}
+	
+	experience:
+	{
+		handguns: 1
+		rifles: 1
+		explosives: 1
+		mining: 1
+		woodcutting: 1
+		construction: 1
+		masonry: 5
+		carpentry: 2
+		engineering: 2
+		blacksmithing: 1
+		arcanology: 1
+		strength: 5
+		dexterity: 6
+		endurance: 4
+		intellect: 6
+		geology: 2
+		metallurgy: 2
+		medicine: 3
+		commerce: 5
+		charisma: 6
+		leadership: 5
+		blades: 2
+		axes: 2
+		clubs: 2
+		chemistry: 1
+		farming: 2
+		animals: 2
+		scavenging: 2
+		law: 4
+	}
+}

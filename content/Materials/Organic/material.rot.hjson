@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.2"
+	$version: "0.1.72.1"
 	name: "Rot"
 	name_short: "Rot"
 	name_imperial: "Hnus"
@@ -31,12 +31,12 @@
 	// Ratio of the material volume to the total volume it occupies when stacked. A value of 1.0 means no empty space, while a value closer to 0.0 means a lot of empty space.
 	packing_fraction: 0.000
 	// Mass of 1 unit in kg.
-	mass_per_unit: 0.243
+	mass_per_unit: 0.670
 	
 	// Maximum quantity (units) per stack.
-	quantity_max: 100.000
+	quantity_max: 250.000
 	// Minimum spawnable quantity.
-	spawn_quantity_threshold: 1.000
+	spawn_quantity_threshold: 0.100
 	// Preferred quantity snapping for recipes.
 	snapping: 1.000
 	// Preferred quantity snapping for inventories.
@@ -55,21 +55,10 @@
 	
 	commodity:
 	{
-		availability: 0.000
-		rarity: 0.000
-		scalability: 0.000
-		reusability: 0.000
-		longevity: 0.000
-		complexity: 0.000
-		tech: 0.000
-		liquidity: 0.000
-		demand: 0.000
-		
 		flags: none
 		categories: none
 		
 		market_price: 0.040
-		
-		market_price_per_kg_auto: 0.411523
+		market_price_per_kg_auto: 0.164609
 	}
 }

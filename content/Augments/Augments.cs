@@ -17,8 +17,10 @@ namespace TC2.Base
 
 				validate: static (ref context, in data, ref handle, augments) =>
 				{
+					//context.mass_old
+
 					ref var pair = ref handle.GetData<(int amount, float threshold)>();
-					pair.amount = Maths.Clamp(pair.amount, 10, 50);
+					pair.amount = Maths.Clamp(pair.amount, 1, 25);
 					pair.threshold = Maths.Clamp(pair.threshold, 0.20f, 0.99f);
 
 					return true;
@@ -32,13 +34,18 @@ namespace TC2.Base
 					var size = GUI.Rm;
 
 					var changed = false;
-					changed |= GUI.SliderInt("Amount", ref pair.amount, 10, 50, size: new(size.X * 0.50f, size.Y));
+					changed |= GUI.SliderInt("Amount", ref pair.amount, 1, 25, size: new(size.X * 0.50f, size.Y));
 					GUI.SameLine();
 					changed |= GUI.SliderFloat("Threshold", ref pair.threshold, 0.20f, 0.99f, size: new(size.X * 0.50f, size.Y));
 
 					return changed;
 				},
 #endif
+
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
 
 				can_add: static (ref context, in data, ref handle, augments) =>
 				{
@@ -76,6 +83,11 @@ namespace TC2.Base
 				name: "Mushroom Glow",
 				description: "Glows in the dark.",
 
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
+
 				can_add: static (ref context, in data, ref handle, augments) =>
 				{
 					return !context.HasComponent<Light.Data>() && !augments.HasAugment(handle);
@@ -102,6 +114,11 @@ namespace TC2.Base
 				category: "Protection",
 				name: "Varnished Wood",
 				description: "Applies varnish on item's wooden parts, improving their durability.",
+
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
 
 				can_add: static (ref context, in data, ref handle, augments) =>
 				{
@@ -170,6 +187,11 @@ namespace TC2.Base
 				name: "Fuse Length",
 				description: "Modifies fuse's length.",
 
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
+
 				can_add: static (ref context, in data, ref handle, augments) =>
 				{
 					return !augments.HasAugment(handle);
@@ -205,6 +227,11 @@ namespace TC2.Base
 				name: "Inextinguishable Fuse",
 				description: "Makes the fuse impossible to be extinguished.",
 
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
+
 				can_add: static (ref context, in data, ref handle, augments) =>
 				{
 					return !augments.HasAugment(handle);
@@ -213,7 +240,7 @@ namespace TC2.Base
 				apply_0: static (ref context, ref data, ref handle, augments) =>
 				{
 					data.failure_chance = 0.00f;
-					context.requirements_new.Merge(Crafting.Requirement.Resource("mushroom.green", 4.00f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
+					context.requirements_new.Merge(Crafting.Requirement.Resource("mushroom.green", 1.00f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 				}
 			));
 
@@ -223,6 +250,11 @@ namespace TC2.Base
 				category: "Heat Management",
 				name: "Water-Cooled",
 				description: "Increases heat capacity.",
+
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
 
 				can_add: static (ref context, in data, ref handle, augments) =>
 				{
@@ -300,6 +332,11 @@ namespace TC2.Base
 				category: "Heat Management",
 				name: "Radiator",
 				description: "Increases cooling rate.",
+
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
 
 				can_add: static (ref context, in data, ref handle, augments) =>
 				{
@@ -459,6 +496,11 @@ namespace TC2.Base
 				name: "Heat-Resistant Components",
 				description: "Dramatically increases maximum operating temperature at cost of extra weight and reduced cooling rate.",
 
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
+
 				can_add: static (ref context, in data, ref handle, augments) =>
 				{
 					return !augments.HasAugment(handle);
@@ -514,6 +556,11 @@ namespace TC2.Base
 				// Due to the wide variety of uses this has, this costs a large amount of materials
 				// This doesn't aim, so using anything which uses aim direction requires additional setup
 
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
+
 				can_add: static (ref context, in data, ref handle, augments) =>
 				{
 					return !augments.HasAugment(handle);
@@ -559,6 +606,11 @@ namespace TC2.Base
 					return GUI.SliderInt("Count", ref batch_size, 1, 10);
 				},
 #endif
+
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
 
 				can_add: static (ref context, in data, ref handle, augments) =>
 				{
@@ -651,6 +703,11 @@ namespace TC2.Base
 					return GUI.SliderFloat("Ratio", ref ratio, 0.10f, 0.65f, size: GUI.Rm);
 				},
 #endif
+
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
 
 				can_add: static (ref context, in data, ref handle, augments) =>
 				{
@@ -835,6 +892,11 @@ namespace TC2.Base
 					return true;
 				},
 
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
+
 				can_add: static (ref context, in data, ref handle, augments) =>
 				{
 					return !augments.HasAugment(handle) && !context.HasComponent<Lamp.Data>();
@@ -1006,6 +1068,11 @@ namespace TC2.Base
 					return true;
 				},
 
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
+
 				can_add: static (ref context, in data, ref handle, augments) =>
 				{
 					return !augments.HasAugment(handle) && !context.HasComponent<Telescope.Data>() && data.flags.HasAll(Holdable.Flags.Storable); // && data.type != Gun.Type.Cannon && data.type != Gun.Type.AutoCannon && data.type != Gun.Type.Launcher;
@@ -1073,9 +1140,14 @@ namespace TC2.Base
 				},
 #endif
 
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return augments.GetCount(handle) <= 2;
+				},
+
 				can_add: static (ref context, in data, ref handle, augments) =>
 				{
-					return augments.GetCount(handle) <= 4;
+					return augments.GetCount(handle) <= 2;
 				},
 
 				apply_1: static (ref context, ref data, ref handle, augments) =>
@@ -1113,6 +1185,11 @@ namespace TC2.Base
 					return GUI.SliderFloat("Value", ref value, 1.00f, 3.00f, size: GUI.Rm);
 				},
 #endif
+
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
 
 				can_add: static (ref context, in data, ref handle, augments) =>
 				{
@@ -1155,9 +1232,14 @@ namespace TC2.Base
 				},
 #endif
 
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return augments.GetCount(handle) <= 2;
+				},
+
 				can_add: static (ref context, in data, ref handle, augments) =>
 				{
-					return augments.GetCount(handle) <= 3;
+					return augments.GetCount(handle) <= 2;
 				},
 
 				apply_1: static (ref context, ref data, ref handle, augments) =>
@@ -1192,6 +1274,11 @@ namespace TC2.Base
 				},
 #endif
 
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return augments.GetCount(handle) <= 2;
+				},
+
 				can_add: static (ref context, in data, ref handle, augments) =>
 				{
 					return augments.GetCount(handle) <= 2;
@@ -1218,6 +1305,11 @@ namespace TC2.Base
 				name: "Cursed",
 				description: "Covers the inner parts with tar, making it impossible to be unequipped.",
 
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
+
 				can_add: static (ref context, in data, ref handle, augments) =>
 				{
 					return !augments.HasAugment(handle);
@@ -1240,6 +1332,11 @@ namespace TC2.Base
 				category: "Equipment",
 				name: "Cloth Padding",
 				description: "Pads the inner side of the armor with cloth.",
+
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
 
 				can_add: static (ref context, in data, ref handle, augments) =>
 				{
@@ -1269,6 +1366,11 @@ namespace TC2.Base
 				name: "Mushroom Stuffing",
 				description: "Stuffs the inner side of the armor with soft mushroom bits.",
 
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
+
 				can_add: static (ref context, in data, ref handle, augments) =>
 				{
 					return !augments.HasAugment(handle);
@@ -1296,6 +1398,11 @@ namespace TC2.Base
 				category: "Misc",
 				name: "Bling",
 				description: "Improves bragging rights.",
+
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return augments.GetCount(handle) < 4;
+				},
 
 				can_add: static (ref context, in data, ref handle, augments) =>
 				{
@@ -1341,6 +1448,11 @@ namespace TC2.Base
 				category: "Consumable",
 				name: "Mix: Alcohol",
 				description: "Mixes a dose of alcohol into the item.",
+
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
 
 				can_add: static (ref context, in data, ref handle, augments) =>
 				{
@@ -1390,6 +1502,11 @@ namespace TC2.Base
 				name: "Mix: Methamphetamine",
 				description: "Mixes a dose of methamphetamine into the item.",
 
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
+
 				can_add: static (ref context, in data, ref handle, augments) =>
 				{
 					return !context.HasComponent<Meth.Effect>();
@@ -1437,6 +1554,11 @@ namespace TC2.Base
 				category: "Consumable",
 				name: "Mix: Epinephrine",
 				description: "Mixes a dose of epinephrine into the item.",
+
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
 
 				can_add: static (ref context, in data, ref handle, augments) =>
 				{
@@ -1486,6 +1608,11 @@ namespace TC2.Base
 				name: "Mix: Morphine",
 				description: "Mixes a dose of morphine into the item.",
 
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
+
 				can_add: static (ref context, in data, ref handle, augments) =>
 				{
 					return !context.HasComponent<Morphine.Effect>();
@@ -1534,6 +1661,11 @@ namespace TC2.Base
 				name: "Mix: Codeine",
 				description: "Mixes a dose of codeine into the item.",
 
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
+
 				can_add: static (ref context, in data, ref handle, augments) =>
 				{
 					return !context.HasComponent<Codeine.Effect>();
@@ -1581,6 +1713,11 @@ namespace TC2.Base
 				category: "Consumable",
 				name: "Mix: Paxilon Hydrochlorate",
 				description: "Mixes a dose of paxilon hydrochlorate into the item.",
+
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
 
 				can_add: static (ref context, in data, ref handle, augments) =>
 				{
@@ -1646,6 +1783,11 @@ namespace TC2.Base
 				},
 #endif
 
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
+
 				can_add: static (ref context, in data, ref handle, augments) =>
 				{
 					return !augments.HasAugment(handle);
@@ -1676,6 +1818,11 @@ namespace TC2.Base
 					value.ClampRef(0.00f, 1.50f);
 
 					return true;
+				},
+
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
 				},
 
 				can_add: static (ref context, in data, ref handle, augments) =>
@@ -1722,6 +1869,11 @@ namespace TC2.Base
 					offset.Snap(0.125f, out offset);
 
 					return true;
+				},
+
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
 				},
 
 				can_add: static (ref context, in data, ref handle, augments) =>
@@ -1798,11 +1950,11 @@ namespace TC2.Base
 						//attachable.tags.AddFlag(Attachment.Tags.Long, width >= 5.00f);
 
 						var area = context.rect.GetArea();
-						attachable.tags.AddFlag(Attachment.Tags.Tiny, area <= 1.125f);
-						attachable.tags.AddFlag(Attachment.Tags.Small, area >= 1.25f && area <= 3.00f);
-						attachable.tags.AddFlag(Attachment.Tags.Medium, area >= 2.00f && area <= 5.50f);
-						attachable.tags.AddFlag(Attachment.Tags.Large, area >= 5.00f && area <= 11.00f);
-						attachable.tags.AddFlag(Attachment.Tags.Huge, area >= 11.00f);
+						attachable.tags.AddFlag(Attachment.Tags.Tiny, area <= 1.25f);
+						attachable.tags.AddFlag(Attachment.Tags.Small, area > 1.25f && area <= 3.00f);
+						attachable.tags.AddFlag(Attachment.Tags.Medium, area > 3.00f && area <= 7.50f);
+						attachable.tags.AddFlag(Attachment.Tags.Large, area > 7.50f && area <= 14.00f);
+						attachable.tags.AddFlag(Attachment.Tags.Huge, area > 14.00f);
 
 						//attachable.tags.AddFlag(Attachment.Tags.Mount, context.HasComponent<Mount.Data>());
 						attachable.tags.AddFlag(Attachment.Tags.Mount, context.HasComponent<Mount.Data>());
@@ -1821,6 +1973,11 @@ namespace TC2.Base
 				category: "Utility",
 				name: "Safety Markings",
 				description: "Prevents faction members from stepping on the land mine.",
+
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
 
 				can_add: static (ref context, in data, ref handle, augments) =>
 				{
@@ -1844,6 +2001,11 @@ namespace TC2.Base
 				category: "Structure",
 				name: "Steel Casing",
 				description: "TODO: Desc",
+
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return augments.GetCount(handle) < 4;
+				},
 
 				can_add: static (ref context, in data, ref handle, augments) =>
 				{
@@ -2055,9 +2217,14 @@ namespace TC2.Base
 				name: "Steel Casing (Large)",
 				description: "TODO: Desc",
 
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return augments.GetCount(handle) < 6;
+				},
+
 				can_add: static (ref context, in data, ref handle, augments) =>
 				{
-					return augments.GetCount(handle) < 8;
+					return context.mass_old >= 40.00f && augments.GetCount(handle) < 6;
 				},
 
 #if CLIENT
@@ -2104,9 +2271,14 @@ namespace TC2.Base
 				name: "Steel Casing (Vehicle)",
 				description: "TODO: Desc",
 
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return augments.GetCount(handle) < 4;
+				},
+
 				can_add: static (ref context, in data, ref handle, augments) =>
 				{
-					return augments.GetCount(handle) < 8;
+					return context.mass_old >= 150.00f && augments.GetCount(handle) < 4;
 				},
 
 #if CLIENT
@@ -2152,6 +2324,11 @@ namespace TC2.Base
 				category: "Structure",
 				name: "Steel Framework",
 				description: "TODO: Desc",
+
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return augments.GetCount(handle) < 4;
+				},
 
 				can_add: static (ref context, in data, ref handle, augments) =>
 				{
@@ -2362,9 +2539,14 @@ namespace TC2.Base
 				name: "Steel Framework (Large)",
 				description: "TODO: Desc",
 
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return augments.GetCount(handle) < 6;
+				},
+
 				can_add: static (ref context, in data, ref handle, augments) =>
 				{
-					return augments.GetCount(handle) < 8;
+					return context.mass_old >= 40.00f && augments.GetCount(handle) < 6;
 				},
 
 #if CLIENT
@@ -2415,6 +2597,11 @@ namespace TC2.Base
 				category: "Structure",
 				name: "Scrap Casing",
 				description: "TODO: Desc",
+
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return augments.GetCount(handle) < 8;
+				},
 
 				can_add: static (ref context, in data, ref handle, augments) =>
 				{
@@ -2805,9 +2992,14 @@ namespace TC2.Base
 				name: "Scrap Casing (Large)",
 				description: "TODO: Desc",
 
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return augments.GetCount(handle) < 6;
+				},
+
 				can_add: static (ref context, in data, ref handle, augments) =>
 				{
-					return augments.GetCount(handle) < 8;
+					return context.mass_old >= 40.00f && augments.GetCount(handle) < 6;
 				},
 
 #if CLIENT
@@ -2966,8 +3158,13 @@ namespace TC2.Base
 			(
 				identifier: "body.casing.smirglum",
 				category: "Structure",
-				name: "Smirglum Casing",
+				name: "Smirgrafit Casing",
 				description: "TODO: Desc",
+
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return augments.GetCount(handle) < 4;
+				},
 
 				can_add: static (ref context, in data, ref handle, augments) =>
 				{
@@ -3237,7 +3434,7 @@ namespace TC2.Base
 						//armor.protection 
 					}
 
-					var h_material = new IMaterial.Handle("smirglum.plate");
+					var h_material = new IMaterial.Handle("smirgrafit.clay");
 
 					ref var material = ref h_material.GetData();
 					if (material.IsNotNull())
@@ -3254,12 +3451,17 @@ namespace TC2.Base
 			(
 				identifier: "body.casing.smirglum.large",
 				category: "Structure",
-				name: "Smirglum Casing (Large)",
+				name: "Smirgrafit Casing (Large)",
 				description: "TODO: Desc",
+
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return augments.GetCount(handle) < 6;
+				},
 
 				can_add: static (ref context, in data, ref handle, augments) =>
 				{
-					return augments.GetCount(handle) < 8;
+					return context.mass_old >= 70.00f && augments.GetCount(handle) < 6;
 				},
 
 #if CLIENT
@@ -3525,7 +3727,7 @@ namespace TC2.Base
 						//armor.protection 
 					}
 
-					var h_material = new IMaterial.Handle("smirglum.plate");
+					var h_material = new IMaterial.Handle("smirgrafit.clay");
 
 					ref var material = ref h_material.GetData();
 					if (material.IsNotNull())
@@ -3548,6 +3750,11 @@ namespace TC2.Base
 				category: "Steam Engine",
 				name: "Fail-Safe Mechanism [WIP]",
 				description: "Greatly lowers chance of catastrophic failure at cost of reduced performance.",
+
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
 
 				can_add: static (ref context, in data, ref handle, augments) =>
 				{

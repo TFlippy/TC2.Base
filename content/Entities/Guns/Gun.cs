@@ -1702,7 +1702,7 @@ namespace TC2.Base.Components
 						if (heat.temperature_operating > Maths.epsilon && ammo.heat > Maths.epsilon)
 						{
 							//var heat = ((gun.ammo_per_shot - amount) * ammo.heat) / Maths.Max(heat.heat_capacity_extra + (body.GetMass() * 0.10f), 1.00f);
-							var heat_amount = (consumed_ammo.quantity * Energy.J(ammo.heat)); // / Maths.Max(heat.heat_capacity_extra + (body.GetMass() * 0.10f), 1.00f);
+							var heat_amount = (consumed_ammo.quantity * Energy.kJ(ammo.heat)); // / Maths.Max(heat.heat_capacity_extra + (body.GetMass() * 0.10f), 1.00f);
 							heat_state.AddEnergy(heat_amount);
 
 							var heat_excess = Maths.Max(heat_state.temperature_current - heat.temperature_high, 0.00f);

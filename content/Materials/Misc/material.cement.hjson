@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.2"
+	$version: "0.1.72.0"
 	name: "Cement"
 	name_short: "Cement"
 	name_imperial: "Cement"
@@ -20,7 +20,7 @@
 	
 	// Inventory material type.
 	type: powder
-	flags: soft, granular, caustic, powder, solid, processed
+	flags: soft, granular, toxic, caustic, powder, solid, processed
 	display_flags: none
 	hints: materials
 	
@@ -54,12 +54,10 @@
 	
 	commodity:
 	{
-		
 		flags: none
-		categories: none
+		categories: construction_materials
 		
 		market_price: 13.100
-		
-		market_price_per_kg_auto: 9.772727
+		market_price_per_kg_auto: 9.924242
 	}
 }

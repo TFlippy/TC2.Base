@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.71.1"
 	name: "Scraping"
 	name_short: "Scraping"
 	desc:
@@ -19,7 +19,7 @@
 	flags: manual, wip
 	tags: tools, crude, simple, kinetic, fast
 	
-	amount_base: 0.000
+	amount_base: 1.000
 	cooldown: 0.690
 	multiplier: 0.940
 	

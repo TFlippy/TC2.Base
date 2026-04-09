@@ -1,0 +1,52 @@
+﻿{
+	$region_id: 0
+	$version: "0.1.68.2"
+	name: "Electrochamber"
+	name_short: "Electrochamber"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: electrochamber.00
+		size: [40, 64]
+	}
+	color: "0xffaeb59a"
+	
+	flags: wip
+	tags: none
+	
+	modes:
+	[
+		{
+			h_work_supported:
+			[
+				deterioration
+				null
+				null
+				null
+				null
+				null
+				null
+				null
+			]
+			
+			name: "Test"
+			
+			work_multiplier: 1.000
+			cooldown_multiplier: 0.200
+			
+			flags: automated, wip
+			crafter_state_required: ready
+			crafter_state_on_work:
+			{
+				add: working
+				rem: ready
+			}
+			
+			switch_cooldown: 1.000
+		}
+	]
+}

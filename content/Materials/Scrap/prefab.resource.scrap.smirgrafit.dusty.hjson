@@ -1,0 +1,59 @@
+$tags: []
+
+body:
+{
+	buoyancy: 0.010
+
+	@shape.circle:
+	{
+		offset: [0.000, 0.250]
+		mass: 1.000
+		radius: 0.750
+		friction: 0.850
+		elasticity: 0.200
+		material: metal_solid
+		layer: entity, solid, resource, ignore_melee, ignore_bullet
+		mask: world, essence
+	}
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "resource.scrap.smirgrafit.dusty"
+		count: 4
+		size: [16, 16]
+	}
+	z: -72.500
+}
+
+transform:
+{
+
+}
+
+resource:
+{
+	material: "scrap.smirgrafit.dusty"
+}
+
+holdable:
+{
+	offset: [0.000, 0.750]
+}
+
+norotate:
+{
+	bias: 0.000
+	mass_multiplier: 25.000
+	attached_multiplier: 0.500
+}
+
+despawn:
+{
+	sleep_count_max: 39
+	interval: 30.000
+	threshold_delete: 0.010
+	threshold_despawning: 0.140
+}

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.65.1"
+	$version: "0.1.72.1"
 	name: "Pjerdelite Slabs"
 	desc:
 		'''
@@ -14,7 +14,7 @@
 	
 	material_type: brick_metallic
 	tile_flags: non_empty
-	flags: artificial, masonry, construction
+	flags: artificial, magnetic, metal, masonry, construction
 	
 	max_health: 93000.000
 	smoothing: 0.160
@@ -48,5 +48,15 @@
 		null
 	]
 	
-	mappings: []
+	mappings:
+	[
+		{
+			color: "0xff5a4438"
+			tile_flags: solid, non_empty, become_background_on_break
+		}
+		{
+			color: "0xff271e19"
+			tile_flags: non_empty
+		}
+	]
 }

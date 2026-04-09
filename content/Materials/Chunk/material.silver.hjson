@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.2"
+	$version: "0.1.72.0"
 	name: "Silver Chunk"
 	name_short: "Sv. Chunk"
 	name_imperial: "Spejbl"
@@ -111,8 +111,9 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: metals
 		
 		market_price: 529.540
+		market_price_per_kg_auto: 33.77976
 	}
 }

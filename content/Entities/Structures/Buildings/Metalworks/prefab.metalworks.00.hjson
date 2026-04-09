@@ -37,9 +37,9 @@ animated.renderer:
 interactable:
 {
 	flags: no_tab
+	window_size: [816, 600]
+	window_size_misc: [192, 0]
 	priority: 0.700
-	window_size: [740.000, 600.000]
-	window_size_misc: [192.000, 0.000]
 }
 
 health:
@@ -147,7 +147,7 @@ shipment:
 {
 	type: crafting
 	layout: square
-	flags: keep_items, allow_deposit, use_misc, no_empty_deposit, crafting
+	flags: keep_items, allow_deposit, use_misc, no_empty_deposit, crafting, no_body_mass
 	color: "0xfff0c63e"
 }
 
@@ -155,6 +155,8 @@ personnel:
 {
 	characters_capacity: 4
 	flags: store_characters
+	assign_radius: 20.000
+
 	slots:
 	[
 		{

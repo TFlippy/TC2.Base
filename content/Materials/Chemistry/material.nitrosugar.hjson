@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.2"
+	$version: "0.1.72.1"
 	name: "Nitrosugar"
 	name_short: "Nitrosugar"
 	name_imperial: "Nitrocukrus"
@@ -7,7 +7,7 @@
 	name_dumb: "Ruby"
 	description:
 		'''
-		Sugar alcohol-based high explosive commonly used in detonators, primers and medicine.
+		Sugar alcohol-based primary explosive commonly used in detonators, primers and medicine.
 		'''
 	
 	tips: []
@@ -58,30 +58,20 @@
 	
 	commodity:
 	{
-		availability: 0.000
-		rarity: 0.000
-		scalability: 0.000
-		reusability: 0.000
-		longevity: 0.000
-		complexity: 0.000
-		tech: 0.000
-		liquidity: 0.000
-		demand: 0.000
-		
 		flags: none
-		categories: none
+		categories: food, explosives, cooking
 		
-		market_price: 36.900
-		
-		market_price_per_kg_auto: 82.8877
+		market_price: 57.400
+		market_price_per_kg_auto: 153.4759
 	}
 	
 	// Info regarding relations of other materials towards this material.
 	related:
 	{
-		red_sugar: source, similar
-		nitric_acid: component, reaction, chemical
-		alcohol: component, reaction, chemical
-		sugar: raw, source, similar
+		red_sugar: raw, reaction, source, similar, ingredient, natural
+		nitric_acid: component, reaction, chemical, liquid
+		alcohol: component, reaction, chemical, liquid
+		sugar: raw, source, similar, powdered, ingredient
+		nitroglycerine: refined, wet, reaction, similar, chemical, byproduct, manufactured, liquid, processed
 	}
 }

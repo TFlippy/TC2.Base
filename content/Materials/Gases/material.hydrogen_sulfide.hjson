@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.72.1"
 	name: "Sulfane"
 	name_short: "Sulfane"
 	name_imperial: "Sulfan"
@@ -23,7 +23,7 @@
 	// Inventory material type.
 	type: gas
 	flags: gas, toxic, organic, chemical, corrosive, flammable, impure, smelly
-	display_flags: sprite_stack_linear, no_random_facing
+	display_flags: sprite_stack_linear, no_random_facing, unlisted
 	spawn_flags:
 	{
 		add: no_discard

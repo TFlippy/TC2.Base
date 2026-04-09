@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.70.1"
+	$version: "0.1.72.0"
 	name: "Wall Lamp (Red)"
 	desc:
 		'''
@@ -61,7 +61,7 @@
 	
 	color_frame: "0xffaeb59a"
 	color_button: "0xff9dd80f"
-	rank: -5074.600
+	rank: -1503.000
 	
 	placement:
 	{
@@ -79,6 +79,11 @@
 		rotation_max: 6.283
 		
 		sound: building_place
+		
+		physics_filter:
+		{
+			include: no_overlapped_placement
+		}
 		
 		snapping_filter:
 		{

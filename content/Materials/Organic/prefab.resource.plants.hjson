@@ -14,7 +14,7 @@ body:
 	@shape.circle:
 	{
 		material: foliage
-		miss_chance: 0.000
+		miss_chance: 0.700
 		flags: none
 		tags: light, thin, soft
 		

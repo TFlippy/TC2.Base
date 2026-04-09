@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.0"
+	$version: "0.1.72.1"
 	name: "Glued SG-20.4mm"
 	desc:
 		'''
@@ -10,11 +10,21 @@
 	
 	related_materials:
 	{
-		ammo.sg.buck: product, result
-		ammo.sg.bird: product, result
-		ammo.sg.crap: product, result
+		ammo.sg.buck: product, result, output
+		ammo.sg.bird: product, result, byproduct, output
+		ammo.sg.crap: residue, product, result, output
 		ammo.sg.baton: product, result
-		ammo.sg.slug: product, result
+		ammo.sg.slug: product, result, output
+		copper.plate: input, auto_generated
+		himlkarzenus: raw, input, auto_generated
+		paper: input, auto_generated
+		glue: liquid, input, auto_generated
+		scrap.mixed: waste, scrap, output, auto_generated
+		gunpowder: powdered, ingredient, input, auto_generated
+		scrap.steel: ingredient, scrap, input, auto_generated
+		steel.rod: ingredient, input, auto_generated
+		machine_parts: product, byproduct, output, auto_generated
+		scrap.machine: residue, waste, scrap, output, auto_generated
 	}
 	
 	stages:
@@ -27,9 +37,6 @@
 			tags: thin, metal, structural, small, flat, rounded, material
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: shovel
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -158,12 +165,12 @@
 					filter_tools:
 					{
 						require: hammer
-						include: paper, ruler, cutters, pliers, tweezers, magnifying_glass, paintbrush, stapler, file, chisel, knife
+						include: paper, ruler, hammer, cutters, pliers, tweezers, magnifying_glass, paintbrush, stapler, file, chisel, knife
 					}
 					filter_infrastructure:
 					{
 						require: surface, hard_surface
-						include: anvil, table, chair, vise, structure, workbench
+						include: anvil, table, chair, vise, rack, dies, structure, workbench
 					}
 					filter_environment:
 					{
@@ -181,9 +188,6 @@
 			tags: container, assembly, functional, material, dangerous, formula
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -458,7 +462,7 @@
 	]
 	
 	type: workshop
-	flags: production, manufacturing, wip
+	flags: production, manufacturing
 	tags: manual, crafting, dumb, crude, basic, simple, small, munitions, assembling, military, construction, messy, dangerous
 	hints: dangerous, junk, gun, primitive, weak, inaccurate, small, construction, cheap, dumb, civilian, military, crappy, outlaw, unstable, ranged, clumsy
 	connotations: danger, junk, gun, inaccurate, small, construction, funny, cheap, dumb, civilian, crappy, ugly, sus, crude

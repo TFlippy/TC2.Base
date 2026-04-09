@@ -35,7 +35,7 @@
 
 			public float min_explode_lifetime;
 
-			public int count;
+			public byte count;
 
 			public Cluster.Flags flags;
 		}
@@ -81,7 +81,8 @@
 						projectile_init.vel *= -1.00f;
 					}
 
-					region.SpawnPrefab(cluster.prefab, transform.position).ContinueWith(ent =>
+					region.SpawnPrefab(prefab: cluster.prefab, position: transform.position + cluster.offset + random.NextUnitVector2Range(cluster.radius * 0.50f, cluster.radius),
+					rotation: Vector2Extensions.GetAngleRadiansFast(projectile_init.vel), velocity: projectile_init.vel, faction_id: projectile_init.faction_id).ContinueWith(ent =>
 					{
 						ref var projectile = ref ent.GetComponent<Projectile.Data>();
 						if (projectile.IsNotNull())
@@ -111,67 +112,77 @@
 		public static void OnRemoveBody(ref XorRandom random, ref Region.Data region, [Source.Owned] in Transform.Data transform,
 		[Source.Owned] in Cluster.Data cluster, [Source.Owned] in Body.Data body, [Source.Owned] in Explosive.Data explosive)
 		{
-			if (explosive.flags.HasAll(Explosive.Flags.Primed) && cluster.count > 0 && cluster.prefab.id != 0)
+			if (explosive.flags.HasNone(Explosive.Flags.Primed)) return;
+			if (cluster.prefab.id == 0) return;
+
+			var modifier = explosive.modifier;
+			if (modifier < explosive.modifier_min) return;
+
+			var count = Maths.RoundToInt(cluster.count * modifier);
+			if (count <= 0) return;
+
+			var dir = (Vec2f)body.GetVelocity().GetNormalized(out var vel);
+			if (cluster.flags.HasAny(Flags.Align_Normal) && body.TryGetArbiterNormal(ref dir))
 			{
-				var dir = (Vec2f)body.GetVelocity().GetNormalized(out var vel);
-				if (cluster.flags.HasAny(Flags.Align_Normal) && body.TryGetArbiterNormal(ref dir))
-				{
 
+			}
+
+			var ent_parent = body.GetParent();
+			var h_faction = body.GetFaction();
+
+			for (var i = 0; i < count; i++)
+			{
+				var projectile_init =
+				(
+					damage_mult: cluster.damage_modifier,
+					vel: Vec2f.RotateByRad(dir, random.NextFloat(cluster.spread)) * (Maths.Max(vel * random.NextFloatRange(cluster.speed_modifier_min, cluster.speed_modifier_max), 1.00f) + cluster.speed),
+					lifetime_mult: random.NextFloatRange(cluster.lifetime_modifier_min, cluster.lifetime_modifier_max),
+					ent_owner: ent_parent,
+					h_faction: h_faction,
+					modifier: modifier
+				);
+
+				if (cluster.speed > Maths.epsilon)
+				{
+					projectile_init.vel += new Vector2(cluster.speed, 0.00f).RotateByRad(random.NextFloat(cluster.spread)) * random.NextFloatRange(cluster.speed_modifier_min, cluster.speed_modifier_max);
 				}
 
-				for (var i = 0; i < cluster.count; i++)
+				if (cluster.flags.HasAny(Cluster.Flags.No_Velocity_Rotate))
 				{
-					var projectile_init =
-					(
-						damage_mult: cluster.damage_modifier,
-						vel: Vec2f.RotateByRad(dir, random.NextFloat(cluster.spread)) * (Maths.Max(vel * random.NextFloatRange(cluster.speed_modifier_min, cluster.speed_modifier_max), 1.00f) + cluster.speed),
-						lifetime_mult: random.NextFloatRange(cluster.lifetime_modifier_min, cluster.lifetime_modifier_max),
-						owner: body.GetParent(),
-						faction_id: body.GetFaction()
-					);
-
-					if (cluster.speed > Maths.epsilon)
-					{
-						projectile_init.vel += new Vector2(cluster.speed, 0.00f).RotateByRad(random.NextFloat(cluster.spread)) * random.NextFloatRange(cluster.speed_modifier_min, cluster.speed_modifier_max);
-					}
-
-					if (cluster.flags.HasAny(Cluster.Flags.No_Velocity_Rotate))
-					{
-						projectile_init.vel += cluster.velocity * random.NextFloatRange(cluster.speed_modifier_min, cluster.speed_modifier_max);
-					}
-					else
-					{
-						projectile_init.vel += transform.LocalToWorldDirection(cluster.velocity * random.NextFloatRange(cluster.speed_modifier_min, cluster.speed_modifier_max));
-					}
-
-					if (cluster.flags.HasAny(Cluster.Flags.Reverse_Direction))
-					{
-						projectile_init.vel *= -1.00f;
-					}
-
-					region.SpawnPrefab(prefab: cluster.prefab, position: transform.position + cluster.offset + random.NextUnitVector2Range(cluster.radius * 0.50f, cluster.radius), 
-					rotation: Vector2Extensions.GetAngleRadiansFast(projectile_init.vel), velocity: projectile_init.vel).ContinueWith(ent =>
-					{
-						ref var projectile = ref ent.GetComponent<Projectile.Data>();
-						if (projectile.IsNotNull())
-						{
-							projectile.damage_base *= projectile_init.damage_mult;
-							projectile.damage_bonus *= projectile_init.damage_mult;
-							projectile.velocity = projectile_init.vel;
-							projectile.ent_owner = projectile_init.owner;
-							projectile.faction_id = projectile_init.faction_id;
-							projectile.lifetime *= projectile_init.lifetime_mult;
-							projectile.Sync(ent, true);
-						}
-
-						//ref var explosive = ref ent.GetComponent<Explosive.Data>();
-						//if (explosive.IsNotNull())
-						//{
-						//	explosive.ent_owner = projectile_init.owner;
-						//	explosive.Sync(ent, true);
-						//}
-					});
+					projectile_init.vel += cluster.velocity * random.NextFloatRange(cluster.speed_modifier_min, cluster.speed_modifier_max);
 				}
+				else
+				{
+					projectile_init.vel += transform.LocalToWorldDirection(cluster.velocity * random.NextFloatRange(cluster.speed_modifier_min, cluster.speed_modifier_max));
+				}
+
+				if (cluster.flags.HasAny(Cluster.Flags.Reverse_Direction))
+				{
+					projectile_init.vel *= -1.00f;
+				}
+
+				region.SpawnPrefab(prefab: cluster.prefab, position: transform.position + cluster.offset + random.NextUnitVector2Range(cluster.radius * 0.50f, cluster.radius),
+				rotation: Vector2Extensions.GetAngleRadiansFast(projectile_init.vel), velocity: projectile_init.vel, faction_id: projectile_init.h_faction).ContinueWith(ent =>
+				{
+					ref var projectile = ref ent.GetComponent<Projectile.Data>();
+					if (projectile.IsNotNull())
+					{
+						projectile.damage_base *= projectile_init.damage_mult;
+						projectile.damage_bonus *= projectile_init.damage_mult;
+						projectile.velocity = projectile_init.vel;
+						projectile.ent_owner = projectile_init.ent_owner;
+						projectile.faction_id = projectile_init.h_faction;
+						projectile.lifetime *= projectile_init.lifetime_mult;
+						projectile.Sync(ent, true);
+					}
+
+					ref var explosive = ref ent.GetComponent<Explosive.Data>();
+					if (explosive.IsNotNull())
+					{
+						explosive.modifier *= projectile_init.modifier;
+						explosive.Sync(ent, true);
+					}
+				});
 			}
 		}
 #endif

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.2"
+	$version: "0.1.73.0"
 	name: "Himlkarzenus"
 	name_short: "Himlkarzenus"
 	name_imperial: "Himlkarzenus"
@@ -22,7 +22,7 @@
 	
 	// Inventory material type.
 	type: crystal
-	flags: hard, granular, toxic, mineral, small, fragile, raw, flammable, volatile, solid, smelly, primary
+	flags: hard, granular, toxic, mineral, currency, small, fragile, raw, flammable, volatile, solid, smelly, primary
 	display_flags: none
 	spawn_flags:
 	{
@@ -65,22 +65,11 @@
 	
 	commodity:
 	{
-		availability: 0.000
-		rarity: 0.000
-		scalability: 0.000
-		reusability: 0.000
-		longevity: 0.000
-		complexity: 0.000
-		tech: 0.000
-		liquidity: 0.000
-		demand: 0.000
-		
 		flags: none
 		categories: none
 		
-		market_price: 23.600
-		
-		market_price_per_kg_auto: 18.67882
+		market_price: 11.710
+		market_price_per_kg_auto: 9.19514
 	}
 	
 	// Damage-based conversions.

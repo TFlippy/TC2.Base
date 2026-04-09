@@ -139,6 +139,13 @@ dormitory:
 	repopulate_num_extra: 2
 	repopulate_max: 4
 	asset_flags: recycle
+
+	kit_categories_filter:
+	{
+		require: none
+		exclude: rare, advanced, powerful, expensive, military, arcane
+	}
+
 	character_flags_filter:
 	{
 		require: miner

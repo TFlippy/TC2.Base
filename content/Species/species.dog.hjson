@@ -1,0 +1,61 @@
+﻿{
+	$version: "0.1.67.1"
+	name: "Dog"
+	name_plural: "Dogs"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	prefab_male: dog
+	prefab_female: dog
+	flags: mammal, domesticated, tameable, omnivore, predator, social
+	industries: none
+	
+	lifecycle:
+	{
+		age_child: 0.100
+		age_adolescent: 1.000
+		age_mature: 2.000
+		age_elder: 10.000
+	}
+	
+	sprite_head_male:
+	{
+		texture: dog
+		mask: missing
+		size: [16, 8]
+	}
+	sprite_head_female:
+	{
+		texture: dog
+		mask: missing
+		size: [16, 8]
+	}
+	
+	hair_colors:
+	[
+		"0xffffffff"
+	]
+	
+	sounds_idle_male: []
+	sounds_idle_female: []
+	
+	sounds_taunt_male: []
+	sounds_taunt_female: []
+	
+	sounds_talk_male: []
+	sounds_talk_female: []
+	
+	sounds_alert_male: []
+	sounds_alert_female: []
+	
+	sounds_pain_male: []
+	sounds_pain_female: []
+	
+	sounds_scream_male: []
+	sounds_scream_female: []
+	
+	sounds_death_male: []
+	sounds_death_female: []
+}

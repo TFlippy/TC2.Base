@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.70.0"
+	$version: "0.1.72.1"
 	name: "ISO Concrete Masonry Unit"
 	desc:
 		'''
@@ -9,7 +9,11 @@
 	
 	related_materials:
 	{
-		brick.concrete: solidified, product, result, manufactured
+		brick.concrete: solidified, product, result, manufactured, output
+		cement: powdered, ingredient, input, auto_generated
+		water: raw, ingredient, liquid, input, auto_generated
+		sand: raw, powdered, ingredient, input, auto_generated
+		gravel: raw, ingredient, input, auto_generated
 	}
 	
 	stages:
@@ -141,9 +145,6 @@
 			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: fracture
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[

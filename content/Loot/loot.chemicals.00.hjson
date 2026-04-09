@@ -1,0 +1,369 @@
+﻿{
+	$version: "0.1.64.1"
+	nodes:
+	[
+		{
+			rarity: 3.870
+			weight: 9.700
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: toluene
+					amount: 23.3274
+					amount_extra: 44.3952
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.690
+			weight: 9.500
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: oil
+					amount: 12.64657
+					amount_extra: 44.3105
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.160
+			weight: 9.100
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: alcohol
+					amount: 24.03721
+					amount_extra: 65.73978
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.930
+			weight: 8.600
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: mercury
+					amount: 13.73072
+					amount_extra: 52.1948
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 5.830
+			weight: 8.600
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: hydrochloric_acid
+					amount: 12.54181
+					amount_extra: 43.612
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.160
+			weight: 8.600
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: naphtha
+					amount: 44.4383
+					amount_extra: 145.1517
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 4.260
+			weight: 8.100
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: sulfuric_acid
+					amount: 28.106
+					amount_extra: 63.784
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.340
+			weight: 7.600
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: lubricant
+					amount: 22.54181
+					amount_extra: 13.61204
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 6.000
+			weight: 7.100
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: phlogiston
+					amount: 24.7248
+					amount_extra: 57.69895
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.670
+			weight: 7.100
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: turpentine
+					amount: 12.91322
+					amount_extra: 57.59142
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 4.870
+			weight: 2.900
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: tnt
+					amount: 10.0264
+					amount_extra: 49.0993
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 1.830
+			weight: 6.800
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: salt
+					amount: 13.32446
+					amount_extra: 67.94015
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 5.210
+			weight: 6.700
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: nitric_acid
+					amount: 14.70893
+					amount_extra: 52.2346
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.910
+			weight: 6.500
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: salmiac
+					amount: 13.282
+					amount_extra: 31.70954
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.680
+			weight: 3.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: nitrosugar
+					amount: 9.006387
+					amount_extra: 34.62543
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 6.530
+			weight: 3.100
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: nitroglycerine
+					amount: 3.1377
+					amount_extra: 47.461
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.110
+			weight: 3.900
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: opium
+					amount: 11.94183
+					amount_extra: 20.9522
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 4.890
+			weight: 3.800
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: meth
+					amount: 4.430
+					amount_extra: 32.600
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 6.890
+			weight: 2.900
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: paxilon
+					amount: 4.89709
+					amount_extra: 16.41891
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+	]
+	
+	includes: []
+}

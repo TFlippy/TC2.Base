@@ -1,0 +1,65 @@
+﻿{
+	$version: "0.1.67.1"
+	name: "Kobold"
+	name_plural: "Kobolds"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	prefab_male: kobold.male
+	prefab_female: kobold.female
+	prefab_unit: unit.kobold.00
+	flags: humanoid, mammal, domesticated, tameable, omnivore, predator, parasite, scavenger, social, sentient, sapient
+	industries: none
+	
+	lifecycle:
+	{
+		age_child: 1.000
+		age_adolescent: 4.000
+		age_mature: 7.000
+		age_elder: 20.000
+	}
+	
+	sprite_head_male:
+	{
+		texture: kobold.male.head
+		mask: missing
+		size: [16, 16]
+	}
+	sprite_head_female:
+	{
+		texture: kobold.female.head
+		mask: missing
+		size: [16, 16]
+	}
+	
+	hair_colors:
+	[
+		"0xff9dc622"
+		"0xffd1496f"
+		"0xffcd4f35"
+		"0xff9fa1bc"
+	]
+	
+	sounds_idle_male: []
+	sounds_idle_female: []
+	
+	sounds_taunt_male: []
+	sounds_taunt_female: []
+	
+	sounds_talk_male: []
+	sounds_talk_female: []
+	
+	sounds_alert_male: []
+	sounds_alert_female: []
+	
+	sounds_pain_male: []
+	sounds_pain_female: []
+	
+	sounds_scream_male: []
+	sounds_scream_female: []
+	
+	sounds_death_male: ["kobold.bleh.00", "kobold.cough.03", "human.death.00", "drunk.03", "zabar.tongue.detach.00"]
+	sounds_death_female: ["kobold.bleh.00", "kobold.cough.03", "human.death.00", "drunk.03", "zabar.tongue.detach.00"]
+}

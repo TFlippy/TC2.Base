@@ -9,12 +9,12 @@ $tags: []
 
 body:
 {
-	inventory_weight_multiplier: 0.200
+	inventory_weight_multiplier: 0.800
 
 	@shape.box:
 	{
 		material: leather
-		miss_chance: 0.349
+		miss_chance: 0.849
 		flags: none
 		tags: none
 		
@@ -22,7 +22,7 @@ body:
 		mask: world
 		exclude: none
 		
-		mass: 0.500
+		mass: 2.000
 		radius: 0.250
 		friction: 0.650
 		elasticity: 0.250

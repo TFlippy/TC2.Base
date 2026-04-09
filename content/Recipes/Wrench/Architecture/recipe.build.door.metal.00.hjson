@@ -1,6 +1,6 @@
 ﻿{
-	$version: "0.1.70.1"
-	name: "Door (Metal)"
+	$version: "0.1.72.0"
+	name: "Door (Sheetmetal)"
 	tips: []
 	
 	requirements:
@@ -32,7 +32,7 @@
 	[
 		{
 			type: prefab
-			prefab: door.metal
+			prefab: door.metal.00
 			amount: 1.000
 			group: 0
 		}
@@ -51,8 +51,8 @@
 	
 	icon:
 	{
-		texture: door.metal
-		mask: door.metal.mask
+		texture: door.metal.00
+		mask: door.metal.00.mask
 		size: [16, 24]
 	}
 	icon_offset: [8.000, 3.000]

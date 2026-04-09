@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.2"
+	$version: "0.1.72.1"
 	name: "EC-LF Pellets"
 	name_short: "EC-LF Pt."
 	name_imperial: "Lojf-Arkpelet"
@@ -21,7 +21,7 @@
 	// Inventory material type.
 	type: metal_solid
 	flags: hard, sticky, magnetic, granular, essence, toxic, metal, small, corrosive, fragile, manufactured, pellet, solid, processed, smelly, primary
-	display_flags: none
+	display_flags: unlisted
 	spawn_flags:
 	{
 		add: no_discard
@@ -68,19 +68,10 @@
 	
 	commodity:
 	{
-		availability: 0.000
-		rarity: 0.000
-		scalability: 0.000
-		reusability: 0.000
-		longevity: 0.000
-		complexity: 0.000
-		tech: 0.000
-		liquidity: 0.000
-		demand: 0.000
-		
 		flags: none
-		categories: none
+		categories: components, arcane, illegal, dangerous, manufactured, smirglum
 		
 		market_price: 100.000
+		market_price_per_kg_auto: 56.14823
 	}
 }

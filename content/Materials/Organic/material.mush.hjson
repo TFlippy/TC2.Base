@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.2"
+	$version: "0.1.72.0"
 	name: "Mush"
 	name_short: "Mush"
 	name_imperial: "Blemc"
@@ -22,7 +22,7 @@
 	
 	// Inventory material type.
 	type: slime
-	flags: scrap, soft, malleable, sticky, small, thin, waste, solid, impure, contaminated, smelly
+	flags: scrap, soft, malleable, sticky, small, waste, solid, impure, contaminated, smelly
 	display_flags: none
 	spawn_flags:
 	{

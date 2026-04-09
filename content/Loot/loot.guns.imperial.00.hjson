@@ -1,0 +1,168 @@
+﻿{
+	$version: "0.1.64.1"
+	nodes:
+	[
+		{
+			rarity: 3.000
+			weight: 10.000
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: bp.abr.740
+					amount: 1.000
+					amount_extra: 2.000
+					snapping: 1.000
+					group: 0
+					flags: primary, compact
+				}
+			]
+		}
+		{
+			rarity: 4.000
+			weight: 10.000
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: bp.houser.a750
+					amount: 1.000
+					amount_extra: 2.000
+					snapping: 1.000
+					group: 0
+					flags: primary, compact
+				}
+			]
+		}
+		{
+			rarity: 2.000
+			weight: 9.000
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: bp.bambula.dvoj_b
+					amount: 1.000
+					amount_extra: 2.000
+					snapping: 1.000
+					group: 0
+					flags: primary, compact
+				}
+			]
+		}
+		{
+			rarity: 3.450
+			weight: 8.200
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: bp.bobel.5
+					amount: 1.000
+					amount_extra: 1.000
+					snapping: 1.000
+					group: 0
+					flags: primary, compact
+				}
+			]
+		}
+		{
+			rarity: 3.500
+			weight: 8.000
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: bp.burt.mini
+					amount: 1.000
+					amount_extra: 2.000
+					snapping: 1.000
+					group: 0
+					flags: primary, compact
+				}
+			]
+		}
+		{
+			rarity: 3.500
+			weight: 6.000
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: bp.abr.740.protektor
+					amount: 1.000
+					amount_extra: 1.000
+					snapping: 1.000
+					group: 0
+					flags: primary, compact
+				}
+			]
+		}
+		{
+			rarity: 6.000
+			weight: 6.000
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: bp.mamut.c738
+					amount: 1.000
+					amount_extra: 1.000
+					snapping: 1.000
+					group: 0
+					flags: primary, compact
+				}
+			]
+		}
+		{
+			rarity: 5.500
+			weight: 4.500
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: bp.majzl.b749
+					amount: 1.000
+					amount_extra: 1.000
+					snapping: 1.000
+					group: 0
+					flags: primary, compact
+				}
+			]
+		}
+	]
+	
+	includes: []
+}

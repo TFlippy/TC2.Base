@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.1"
+	$version: "0.1.72.1"
 	name: "Nitro"
 	desc:
 		'''
@@ -9,7 +9,19 @@
 	
 	related_materials:
 	{
-		nitrocellulose: reaction, chemical, powdered, product, result, manufactured, processed
+		nitrocellulose: reaction, chemical, powdered, product, result, manufactured, processed, output
+		sulfuric_acid: residue, ingredient, byproduct, liquid, input, output, auto_generated
+		nitric_acid: ingredient, liquid, input, auto_generated
+		saltpeter: raw, powdered, ingredient, input, auto_generated
+		water: raw, ingredient, liquid, input, auto_generated
+		water.toxic: raw, waste, liquid, output, auto_generated
+		sludge: raw, waste, output, auto_generated
+		paper: ingredient, input, auto_generated
+		mush: residue, waste, scrap, output, auto_generated
+		glue: residue, product, byproduct, liquid, output, auto_generated
+		scrap.cloth: ingredient, scrap, input, auto_generated
+		sawdust: powdered, ingredient, input, auto_generated
+		water.dirty: raw, waste, liquid, output, auto_generated
 	}
 	
 	stages:
@@ -22,9 +34,6 @@
 			tags: material, formula, ingredient
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: heat
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -226,9 +235,6 @@
 			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: corrosion
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -566,9 +572,6 @@
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: none
 			
-			ratio: 0.000
-			mass_base: 0.000
-			
 			options:
 			[
 				{
@@ -664,9 +667,6 @@
 			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: dessication
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[

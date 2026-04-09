@@ -20,7 +20,7 @@ body:
 		friction: 0.990
 		elasticity: 0.700
 		material: rubber
-		layer: entity, belt, ignore_melee, flammable, ignore_hover
+		layer: entity, belt, flammable, ignore_hover
 		mask: world
 	}
 }
@@ -47,4 +47,9 @@ transform:
 dismantlable:
 {
 
+}
+
+health:
+{
+	max: 2200.000
 }

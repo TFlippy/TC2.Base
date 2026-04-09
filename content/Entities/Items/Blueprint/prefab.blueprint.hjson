@@ -1,3 +1,8 @@
+$name: "Blueprints"
+$desc:
+	'''
+	Technical drawings of either some nefarious doomsday device or children's toy.
+	'''
 $tags: []
 
 body:
@@ -10,7 +15,7 @@ body:
 	{
 		size: [0.875, 0.500]
 		
-		mass: 0.500
+		mass: 1.500
 		radius: 0.200
 		friction: 0.950
 		elasticity: 0.020
@@ -48,7 +53,7 @@ transform:
 interactable:
 {
 	flags: no_tab
-	priority: 0.750
+	priority: 0.150
 	window_size: [700.000, 512.000]
 }
 

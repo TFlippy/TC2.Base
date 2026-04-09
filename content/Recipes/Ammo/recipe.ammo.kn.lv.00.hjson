@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.72.1"
 	name: "KN-51.9mm"
 	desc:
 		'''
@@ -7,50 +7,266 @@
 		'''
 	tips: []
 	
+	related_materials:
+	{
+		copper.plate: input, auto_generated
+		oil: residue, liquid, input, output, auto_generated
+		lubricant: liquid, input, auto_generated
+		steel.plate: input, auto_generated
+		nitrosugar: input, auto_generated
+		alcohol: liquid, input, auto_generated
+		nitroglycerine: payload, liquid, input, auto_generated
+		gunpowder: payload, powdered, input, auto_generated
+		ammo.kn: product, result, output, auto_generated
+	}
+	
 	stages:
 	[
 		{
-			name: "Case"
+			name: "Shell"
 			
 			type: container
 			flags: part
-			tags: shell, container, structural, rounded
+			tags: chassis, shell, metal, container, structural, rounded, material
 			// Damage type used for discarding leftover resources.
-			discard_damage_type: crush
-			
-			ratio: 0.000
-			mass_base: 0.000
+			discard_damage_type: pickaxe
 			
 			options:
 			[
 				{
-					name: "Basic"
+					name: "Oiled"
 					
 					type: undefined
 					flags: wip
+					
+					prefix: "Oily "
+					priority: 1.000
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: copper.plate
+							amount: 0.350
+							snapping: 0.500
+							loss: 0.231
+							ratio: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: oil
+							amount: 0.119
+							snapping: 0.100
+							falloff: 0.941
+							loss: 0.149
+							ratio: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: die.cutting.metal
+							amount: 25.000
+							difficulty: 10
+							snapping: 5.000
+							ratio: 0.824
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: polishing.oil
+							amount: 90.000
+							amount_min: 150.000
+							difficulty: 7
+							snapping: 5.000
+							falloff: 0.604
+							ratio: 1.000
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: die.drawing.metal
+							amount: 75.000
+							difficulty: 12
+							snapping: 10.000
+							falloff: 0.890
+							ratio: 0.922
+							group: 1
+							flags: stepped, conditional
+						}
+						{
+							type: work
+							work: die.stamping.metal
+							amount: 45.000
+							difficulty: 11
+							snapping: 10.000
+							falloff: 0.962
+							ratio: 1.000
+							group: 1
+							flags: stepped, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: oil
+							amount: 0.0326
+							amount_extra: 0.022
+							snapping: 0.010
+							group: 0
+							flags: residue
+						}
+					]
+					
+					advance_delay: 2.000
+					
+					filter_tools:
+					{
+						require: towel
+						include: paintbrush, towel
+					}
+					filter_infrastructure:
+					{
+						require: anvil, shaping_mould, hard_surface, press
+						include: stamping_press, dies
+					}
+				}
+				{
+					name: "Lubricated"
+					
+					type: undefined
+					flags: wip
+					
+					prefix: "Shiny "
+					priority: 1.000
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: copper.plate
+							amount: 0.350
+							snapping: 0.500
+							loss: 0.216
+							ratio: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: lubricant
+							amount: 2.800
+							snapping: 0.100
+							falloff: 0.414
+							loss: 0.090
+							ratio: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: die.cutting.metal
+							amount: 20.000
+							amount_min: 50.000
+							difficulty: 10
+							snapping: 5.000
+							ratio: 0.761
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: die.drawing.metal
+							amount: 60.000
+							amount_min: 40.000
+							difficulty: 11
+							snapping: 10.000
+							falloff: 0.899
+							ratio: 0.463
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: die.stamping.metal
+							amount: 40.000
+							amount_min: 20.000
+							difficulty: 10
+							snapping: 10.000
+							falloff: 0.935
+							ratio: 0.447
+							group: 1
+							flags: stepped, conditional
+						}
+					]
+					
+					advance_delay: 2.000
+					
+					filter_infrastructure:
+					{
+						require: anvil, shaping_mould, hard_surface, press
+						include: stamping_press, dies
+					}
+				}
+			]
+		}
+		{
+			name: "Projectile"
+			
+			type: component
+			flags: part
+			tags: metal, structural, rounded, material
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: pickaxe
+			
+			options:
+			[
+				{
+					name: "Stamped"
+					
+					type: undefined
+					flags: requires_shipment, crafter, automated
+					
+					priority: 1.000
 					
 					requirements:
 					[
 						{
 							type: resource
 							material: steel.plate
-							amount: 1.000
-							snapping: 1.000
-							ratio: 1.000
+							amount: 0.149343
+							snapping: 0.500
+							loss: 0.208
 							group: 0
 						}
 						{
 							type: work
-							work: "null"
+							work: die.stamping.metal
 							amount: 50.000
-							amount_min: 100.000
-							difficulty: 15
-							snapping: 1.000
-							ratio: 1.000
-							group: 1
-							flags: conditional
+							amount_min: 40.000
+							difficulty: 12
+							snapping: 20.000
+							falloff: 0.900
+							loss: 0.063
+							ratio: 0.102
+							group: 0
+							flags: stepped, conditional
 						}
 					]
+					
+					advance_delay: 2.000
+					
+					filter_infrastructure:
+					{
+						require: anvil, shaping_mould, hard_surface, press
+						include: stamping_press
+					}
 				}
 			]
 		}
@@ -61,10 +277,7 @@
 			flags: part
 			tags: functional, small, flat, rounded, material, dangerous
 			// Damage type used for discarding leftover resources.
-			discard_damage_type: none
-			
-			ratio: 0.000
-			mass_base: 0.000
+			discard_damage_type: sledgehammer
 			
 			options:
 			[
@@ -72,19 +285,77 @@
 					name: "Nitrosugar"
 					
 					type: undefined
-					flags: none
-					discard_damage_type_override: saw
+					flags: requires_shipment
+					discard_damage_type_override: wet
 					
 					requirements:
 					[
 						{
+							type: resource
+							material: nitrosugar
+							amount: 0.028
+							snapping: 0.100
+							loss: 0.075
+							ratio: 1.000
+							group: 0
+						}
+						{
+							type: resource
+							material: alcohol
+							amount: 0.025
+							snapping: 0.100
+							falloff: 0.978
+							loss: 0.157
+							group: 0
+						}
+						{
 							type: work
-							work: scavenging
-							amount: 35.000
-							amount_min: 50.000
-							difficulty: 5
-							snapping: 15.000
-							falloff: 0.950
+							work: wadding
+							amount: 50.000
+							amount_min: 68.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.811
+							ratio: 1.000
+							group: 0
+							flags: stepped, conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						include: paintbrush, towel, spatula
+					}
+					filter_infrastructure:
+					{
+						include: table, chair
+					}
+				}
+				{
+					name: "Nitroglycerine"
+					
+					type: undefined
+					flags: requires_shipment
+					discard_damage_type_override: wet
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: nitroglycerine
+							amount: 0.038168
+							snapping: 0.100
+							loss: 0.145
+							group: 0
+						}
+						{
+							type: work
+							work: pouring
+							amount: 26.000
+							amount_min: 180.000
+							difficulty: 8
+							snapping: 5.000
+							falloff: 0.715
 							group: 0
 							flags: conditional
 						}
@@ -92,60 +363,94 @@
 					
 					filter_tools:
 					{
-						require: hammer
-						include: hammer, cutters, hand_drill, screwdriver, wrench, tweezers, magnifying_glass, towel, tongs, pick, crowbar
-					}
-					filter_infrastructure:
-					{
-						include: table, chair, vise
+						include: bucket, spatula, ladle
 					}
 				}
 			]
 		}
 		{
-			name: "Type"
+			name: "Payload"
 			
-			type: formula
+			type: payload
 			flags: important
 			tags: container, assembly, functional, material, dangerous, formula
 			// Damage type used for discarding leftover resources.
-			discard_damage_type: pickaxe
-			
-			ratio: 0.000
-			mass_base: 0.000
+			discard_damage_type: sledgehammer
 			
 			options:
 			[
 				{
-					name: "TODO"
+					name: "GP-NTG"
 					
 					type: undefined
-					flags: none
-					discard_damage_type_override: saw
+					flags: requires_shipment
+					discard_damage_type_override: pickaxe
+					
+					suffix: "/LV (GP-NTG)"
+					priority: 1.000
 					
 					requirements:
 					[
 						{
-							type: work
-							work: scavenging
-							amount: 35.000
-							amount_min: 50.000
-							difficulty: 5
-							snapping: 15.000
-							falloff: 0.950
+							type: resource
+							material: gunpowder
+							amount: 2.13913
+							snapping: 0.100
+							loss: 0.071
 							group: 0
-							flags: conditional
+						}
+						{
+							type: resource
+							material: nitroglycerine
+							amount: 0.105852
+							snapping: 0.100
+							group: 0
+						}
+						{
+							type: work
+							work: blending
+							amount: 24.000
+							amount_min: 110.000
+							difficulty: 6
+							snapping: 10.000
+							falloff: 0.853
+							group: 0
+							flags: stepped, conditional
+						}
+						{
+							type: work
+							work: crimping.metal
+							amount: 25.000
+							amount_min: 90.000
+							difficulty: 7
+							snapping: 5.000
+							falloff: 0.898
+							loss: 0.204
+							ratio: 0.235
+							group: 1
+							flags: stepped, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: ammo.kn
+							amount: 1.000
+							group: 0
+							flags: primary, compact
 						}
 					]
 					
 					filter_tools:
 					{
-						require: hammer
-						include: hammer, cutters, hand_drill, screwdriver, wrench, tweezers, magnifying_glass, towel, tongs, pick, crowbar
+						require: pliers
+						include: ruler, wrench, pliers, tweezers, shovel, file, spatula, ladle, utensils
 					}
 					filter_infrastructure:
 					{
-						include: table, chair, vise
+						include: cauldron, dishes, barrel, table, vise, bucket, liquid_container, blender, form
 					}
 				}
 			]
@@ -153,9 +458,11 @@
 	]
 	
 	type: workshop
-	flags: debug, disabled, production, wip
-	tags: manual, crafting, complex, small, munitions, delicate, assembling, metalworking, military, explosive, dangerous
-	infrastructure: table, chair, surface, machine, workbench
+	flags: production, manufacturing, wip
+	tags: crafting, basic, simple, small, munitions, assembling, industrial, metalworking, engineering, military, explosive, dangerous
+	hints: none
+	connotations: none
+	infrastructure: surface, stamping_press, workbench
 	infrastructure_exclude: none
 	
 	icon:
@@ -165,21 +472,21 @@
 		size: [16, 16]
 		frame: [3, 0]
 	}
-	icon_offset: [0.000, -1.000]
+	icon_offset: [-4.000, -1.000]
 	
 	icon_extra:
 	{
+		texture: ui_icons_gunsmith.mini
 		size: [16, 16]
 	}
-	icon_extra_offset: [3.000, -7.000]
 	
 	color_frame: "0xffcf392b"
 	color_button: "0xff9dd80f"
-	rank: -55.20001
+	rank: -55.500
 	
 	min: 1
-	max: 10
+	max: 40
 	step: 1
 	
-	version: 0
+	version: 1
 }

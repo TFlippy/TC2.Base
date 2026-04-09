@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.2"
+	$version: "0.1.72.0"
 	name: "Pjerdelite"
 	name_short: "Pjerdelite"
 	name_imperial: "Pjerdelit"
@@ -60,22 +60,11 @@
 	
 	commodity:
 	{
-		availability: 0.000
-		rarity: 0.000
-		scalability: 0.000
-		reusability: 0.000
-		longevity: 0.000
-		complexity: 0.000
-		tech: 0.000
-		liquidity: 0.000
-		demand: 0.000
-		
 		flags: none
-		categories: none
+		categories: ores, rocks, raw, mined, smirglum
 		
 		market_price: 6.000
-		
-		market_price_per_kg_auto: 1.448636
+		market_price_per_kg_auto: 1.889526
 	}
 	
 	// Residues from crafting/work.
@@ -96,9 +85,7 @@
 	related:
 	{
 		smirglum: component, refined, residue, decomposition, purified, clean, similar, element, solidified, product
-		iron: component, refined, residue, decomposition, purified, clean, similar, element, solidified, product
 		smirglum.powder: component, refined, residue, crushed, decomposition, purified, clean, similar, element, powdered
-		iron.powder: component, refined, residue, crushed, decomposition, purified, clean, similar, element, powdered
 		chlorine: component, refined, burnt, residue, reaction, decomposition, waste, chemical, element, roasted, gas, vapor
 		gravel: residue, crushed, decomposition, dirty, waste, filler, natural
 		slag: ruined, burnt, residue, melted, reaction, mangled, decomposition, dirty, waste, solidified, slag, corroded, roasted

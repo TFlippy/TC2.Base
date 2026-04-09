@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.65.1"
+	$version: "0.1.72.0"
 	name: "Ferronickel Powder"
 	name_short: "FeNi. Powder"
 	description:
@@ -49,6 +49,6 @@
 	color_dust: "0xff62605e"
 	color_gib: "0xff62605e"
 	
-	centroid_default: [0.000, 0.250]
+	centroid_default: [0.000, 0.750]
 	colliders: []
 }

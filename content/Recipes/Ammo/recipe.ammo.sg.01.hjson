@@ -1,6 +1,5 @@
 ﻿{
-	$region_id: 0
-	$version: "0.1.67.2"
+	$version: "0.1.72.1"
 	name: "SG-20.4mm Buckshot"
 	desc:
 		'''
@@ -8,6 +7,22 @@
 		Suitable for general-purpose combat, with decent stopping power and effective range.
 		'''
 	tips: []
+	
+	related_materials:
+	{
+		copper.plate: input, auto_generated
+		paper: input, auto_generated
+		oil: liquid, input, auto_generated
+		himlkarzenus: raw, input, auto_generated
+		nitroglycerine: liquid, input, auto_generated
+		nitrosugar: input, auto_generated
+		alcohol: liquid, input, auto_generated
+		gunpowder: powdered, ingredient, input, auto_generated
+		mushroom: raw, ingredient, input, auto_generated
+		scrap.steel: ingredient, scrap, input, auto_generated
+		glue: ingredient, liquid, input, auto_generated
+		ammo.sg.buck: product, result, output, auto_generated
+	}
 	
 	stages:
 	[
@@ -19,9 +34,6 @@
 			tags: thin, metal, structural, small, flat, rounded, material
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: shovel
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -154,9 +166,6 @@
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: wet
 			
-			ratio: 0.000
-			mass_base: 0.000
-			
 			options:
 			[
 				{
@@ -240,9 +249,6 @@
 			tags: functional, small, flat, rounded, material, dangerous
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -353,9 +359,6 @@
 			tags: container, assembly, functional, material, dangerous, formula
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[

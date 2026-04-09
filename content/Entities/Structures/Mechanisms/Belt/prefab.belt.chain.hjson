@@ -19,8 +19,8 @@ body:
 		radius: 0.500
 		friction: 0.990
 		elasticity: 0.700
-		material: metal
-		layer: entity, belt, ignore_melee, ignore_hover
+		material: wire
+		layer: entity, belt, ignore_hover
 		mask: world
 	}
 }
@@ -48,4 +48,9 @@ transform:
 dismantlable:
 {
 
+}
+
+health:
+{
+	max: 8000.000
 }

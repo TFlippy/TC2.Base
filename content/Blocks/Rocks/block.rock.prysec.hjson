@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.65.3"
+	$version: "0.1.73.0"
 	name: "Prysec"
 	desc:
 		'''
@@ -16,7 +16,7 @@
 	strength_tensile: 6.500
 	strength_compressive: 8.100
 	
-	mass: 1.210
+	mass: 4.425
 	density: 0.000
 	friction: 0.840
 	elasticity: 0.580

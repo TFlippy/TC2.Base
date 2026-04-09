@@ -1,0 +1,117 @@
+﻿{
+	$prefab: "g.settlement.town.00"
+	$version: "0.1.60.7"
+	name: "Strdi Medvedi"
+	name_short: "Strdi Medvedi"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	post_code: "STR"
+	
+	type: farmstead
+	flags: spawn
+	categories: wilderness, residential, overgrown, frontier, agricultural, developing, rural, forested
+	buildings: warehouse, hotel, artillery, tower, walls, labor_camp, bar, lumber_mill, farm, brewery, circus, market, fuel_depot, transmitter, bakery
+	industry_primary: none
+	industry: none
+	goods_trading: none
+	goods_demanded: none
+	goods_produced: none
+	crime: none
+	geography: mountains, hills, meadows, forested, windy, rough, rocky, warm
+	
+	// Urban development, population density.
+	urbanization: 0.150
+	// Availability and utilization of advanced technology.
+	technology: 0.140
+	// Industrial production, mechanization, engineering.
+	industrialization: 0.310
+	// Literacy, availability of education, skilled workers.
+	education: 0.060
+	// Standard of living, overall wealth of population and government.
+	wealth: 0.179
+	// Nature, wildlife, overgrowth, untamed nature.
+	wilderness: 0.510
+	// Environmental damage, pollution, wastelandness.
+	devastation: 0.230
+	// Brutality of nature and population.
+	savagery: 0.160
+	// Lawlessness, lack of organization.
+	anarchy: 0.120
+	// Economic strength, employment rate, flow of goods.
+	economy: 0.220
+	// Variance of population's social classes.
+	inequality: 0.792
+	// Crime rate, personal safety.
+	safety: 0.798
+	// Rate of expansion, economic and population growth.
+	growth: 0.285
+	// Military strength, security, access to weapons.
+	military: 0.126
+	// Height in meters above sea level.
+	elevation: 66.000
+	
+	statistics:
+	{
+		// Brutality of nature and population.
+		savagery: 0.160
+		// Literacy, availability of education, skilled workers.
+		education: 0.060
+		// Urban development, population density.
+		urbanization: 0.150
+		// Availability and utilization of advanced technology.
+		technology: 0.140
+		// Industrial production, mechanization, engineering.
+		industrialization: 0.310
+		// Standard of living, overall wealth of population and government.
+		wealth: 0.179
+		// Nature, wildlife, overgrowth, untamed nature.
+		wilderness: 0.510
+		// Environmental devastation, excavation, deforestation, wasteland-ness.
+		devastation: 0.230
+		// Lawlessness, lack of organization.
+		anarchy: 0.120
+		// Economic strength, employment rate, flow of goods.
+		economy: 0.220
+		// Variance of population's social classes.
+		inequality: 0.792
+		// Crime rate, personal safety.
+		safety: 0.798
+		// Rate of expansion, economic and population growth.
+		growth: 0.285
+		// Military strength, security, access to weapons.
+		military: 0.126
+	}
+	
+	population:
+	{
+	
+	}
+	
+	h_prefecture: "krocant"
+	h_faction: "smejdum"
+	h_company: "babis"
+	h_location_parent: "null"
+	size: 0.590
+	
+	color: "0xffffee00"
+	
+	thumbnail:
+	{
+		texture: "missing"
+	}
+	
+	icon:
+	{
+		texture: "worldmap.icons.01"
+		size: [24, 24]
+		frame: [4, 0]
+	}
+	
+	icon_offset: [0.000, -0.125]
+	text_offset: [0.000, 0.125]
+	
+	point: [19, -15]
+}

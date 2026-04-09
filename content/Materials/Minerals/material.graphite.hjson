@@ -1,9 +1,9 @@
 ﻿{
-	$version: "0.1.68.2"
+	$version: "0.1.72.1"
 	name: "Graphite"
 	name_short: "Graphite"
 	name_imperial: "Grafit"
-	name_dumb: "TNT"
+	name_dumb: "Lead"
 	description:
 		'''
 		TODO: Desc
@@ -54,22 +54,11 @@
 	
 	commodity:
 	{
-		availability: 0.000
-		rarity: 0.000
-		scalability: 0.000
-		reusability: 0.000
-		longevity: 0.000
-		complexity: 0.000
-		tech: 0.000
-		liquidity: 0.000
-		demand: 0.000
-		
 		flags: none
 		categories: none
 		
 		market_price: 7.300
-		
-		market_price_per_kg_auto: 24.51613
+		market_price_per_kg_auto: 23.54839
 	}
 	
 	// Damage-based conversions.
@@ -79,7 +68,7 @@
 		{
 			h_material: graphite.powder
 			spawn_flags: merge
-			product_flags: none
+			product_flags: residue
 			ratio: 0.210
 			ratio_extra: 0.455
 			
@@ -95,7 +84,7 @@
 			sound_volume: 0.580
 			sound_pitch: 1.250
 			
-			chance: 1.000
+			chance: 0.633
 			type: undefined
 			flags: none
 			merge_radius_mult: 1.000

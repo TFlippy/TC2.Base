@@ -1,7 +1,7 @@
 ﻿{
-	$version: "0.1.68.2"
+	$version: "0.1.73.0"
 	name: "Steel Brick"
-	name_short: "St. Brick"
+	name_short: "St.Brick"
 	name_imperial: "Stylblok"
 	name_dumb: "Iron"
 	description:
@@ -159,21 +159,10 @@
 	
 	commodity:
 	{
-		availability: 0.000
-		rarity: 0.000
-		scalability: 0.000
-		reusability: 0.000
-		longevity: 0.000
-		complexity: 0.000
-		tech: 0.000
-		liquidity: 0.000
-		demand: 0.000
-		
 		flags: none
-		categories: none
+		categories: metals, construction_materials
 		
 		market_price: 55.000
-		
 		market_price_per_kg_auto: 4.676672
 	}
 	
@@ -338,6 +327,24 @@
 			flags_product: residue
 			
 			yield: [0.645, 0.309]
+		}
+		welding.phlogiston:
+		{
+			h_material: ferronickel.powder
+			
+			flags: none
+			flags_product: waste
+			
+			yield: [0.345, 0.426]
+		}
+		metal.forming:
+		{
+			h_material: steel
+			
+			flags: none
+			flags_product: residue
+			
+			yield: [0.859649, 0.140351]
 		}
 	}
 }

@@ -1,25 +1,29 @@
 $name: "Beer"
 $desc:
 	'''
-	It's beer.
+	Standard 300ml beer bottle made of thick glass. 
+	May not contain beer.
 	'''
 
 $tags: []
 
 body:
 {
+	buoyancy: 0.600
+	tags: hollow, solid, round, simple, dense, brittle
+
 	@shape.line:
 	{
 		material: glass
 		miss_chance: 0.675
 		flags: none
-		tags: none
+		tags: small, solid, hard
 		
 		layer: entity, solid, item
 		mask: world
 		exclude: none
 		
-		mass: 0.300
+		mass: 0.600
 		radius: 0.250
 		friction: 0.370
 		elasticity: 0.700
@@ -54,7 +58,7 @@ transform:
 
 health:
 {
-	max: 600.000
+	max: 4600.000
 }
 
 packable:

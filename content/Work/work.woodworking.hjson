@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.67.1"
+	$version: "0.1.71.1"
 	name: "Woodworking"
 	name_short: "Woodworking"
 	desc:
@@ -17,7 +17,7 @@
 	flags: manual, wip
 	tags: skilled, tools, construction
 	
-	amount_base: 0.000
+	amount_base: 0.700
 	cooldown: 1.000
 	multiplier: 1.140
 	

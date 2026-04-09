@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.0"
+	$version: "0.1.72.1"
 	name: "Purified Water"
 	desc:
 		'''
@@ -9,7 +9,9 @@
 	
 	related_materials:
 	{
-		water.clean: product, result
+		water.clean: product, result, liquid, output
+		water: raw, source, liquid, input, auto_generated
+		hydrogen_peroxide: ingredient, liquid, input, auto_generated
 	}
 	
 	stages:
@@ -22,9 +24,6 @@
 			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: wet
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -58,7 +57,6 @@
 			discard_damage_type: wet
 			
 			ratio: 1.000
-			mass_base: 0.000
 			
 			options:
 			[

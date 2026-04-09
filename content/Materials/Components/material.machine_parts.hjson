@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.2"
+	$version: "0.1.72.0"
 	name: "Machine Parts"
 	name_short: "M.Parts"
 	name_dumb: "Things"
@@ -50,7 +50,7 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: metals, construction_materials
 		
 		market_price: 16.000
 		market_price_per_kg_auto: 62.13593

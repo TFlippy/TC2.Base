@@ -1,0 +1,216 @@
+﻿{
+	$version: "0.1.67.2"
+	name: "Professor"
+	
+	money: 6950.000
+	age: [35.000, 40.000, 45.000, 50.000, 60.000, 80.000, 150.000]
+	genders: male, female
+	gender_ratio: 0.370
+	species: giant
+	cost: 10.000
+	flags: selectable, special
+	
+	character_flags: scientist, educated, professional, civillian, rich, sedentary, strong, huge, upper_middle_class, upper_class
+	character_flags_optional: bureaucrat, military, medical, nobility, technician, engineer, alchemist, culinary, insane, alcoholic, arcane, artist, evil, politician
+	
+	industry_flags: education
+	industry_flags_optional: financial, telecommunications, agricultural, manufacturing, metallurgy, chemical, military, arcane, biology, construction, training, research, pharmaceutical, medical, tobacco, literature, propaganda, engineering, weapons, architecture
+	
+	service_flags: education
+	service_flags_optional: entertainment, recruitment, law, propaganda, advertising, research, indoctrination
+	
+	crime_flags: none
+	crime_flags_optional: embezzlement, prostitution, bribery, corruption, forgery, extortion, espionage, tax_evasion, religion, impersonation, dissent
+	
+	conditions:
+	{
+		weight_mult: 0.400
+		
+		industry:
+		{
+			require: none
+			include: agricultural, mining, manufacturing, low_tech, high_tech, metallurgy, scrap, automotive, military, logging
+			exclude: none
+			weight: 10.000
+		}
+		
+		crime:
+		{
+			require: none
+			include: slavery, vandalism, smuggling
+			exclude: none
+			weight: 5.000
+		}
+		
+		geography:
+		{
+			require: none
+			include: excavated, wasteland
+			exclude: none
+			weight: 10.000
+		}
+		
+		urbanization:
+		{
+			min: 0.200
+			mid: 0.900
+			max: 0.000
+			weight: 30.000
+		}
+		
+		industrialization:
+		{
+			min: 0.200
+			mid: 0.700
+			max: 0.000
+			weight: 80.000
+		}
+		
+		education:
+		{
+			min: 0.230
+			mid: 0.740
+			max: 0.000
+			weight: 50.000
+		}
+		
+		wealth:
+		{
+			min: 0.100
+			mid: 0.400
+			max: 0.000
+			weight: 5.000
+		}
+		
+		wilderness:
+		{
+			min: 0.350
+			mid: 0.700
+			max: 0.000
+			weight: -5.000
+		}
+		
+		devastation:
+		{
+			min: 0.000
+			mid: 0.500
+			max: 0.000
+			weight: 25.000
+		}
+		
+		savagery:
+		{
+			min: 0.150
+			mid: 0.800
+			max: 0.000
+			weight: 30.000
+		}
+		
+		anarchy:
+		{
+			min: 0.100
+			mid: 0.500
+			max: 0.800
+			weight: 5.000
+		}
+		
+		safety:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		pollution:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		destruction:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		inequality:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		unrest:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		corruption:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		prestige:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		elevation:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+	}
+	
+	requirements: []
+	
+	experience:
+	{
+		handguns: 0
+		rifles: 5
+		explosives: 8
+		mining: 4
+		woodcutting: 3
+		construction: 5
+		masonry: 5
+		carpentry: 3
+		engineering: 8
+		blacksmithing: 4
+		arcanology: 12
+		strength: 18
+		dexterity: 7
+		endurance: 18
+		intellect: 25
+		geology: 11
+		metallurgy: 15
+		medicine: 8
+		commerce: 9
+		charisma: 16
+		leadership: 11
+		blades: 4
+		axes: 2
+		clubs: 5
+		alchemistry: 11
+		farming: 4
+		animals: 5
+		scavenging: 6
+		law: 15
+	}
+}

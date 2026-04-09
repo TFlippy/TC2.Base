@@ -1,0 +1,142 @@
+﻿{
+	$version: "0.1.62.0"
+	nodes:
+	[
+		{
+			rarity: 2.000
+			weight: 8.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: breechloader.short
+					amount: 1.000
+					amount_extra: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.000
+			weight: 6.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: breechloader.pocket
+					amount: 1.000
+					amount_extra: 2.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 4.000
+			weight: 12.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: scattergun
+					amount: 1.000
+					amount_extra: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 4.000
+			weight: 8.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: revolver
+					amount: 1.000
+					amount_extra: 2.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 5.000
+			weight: 8.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: pistol
+					amount: 1.000
+					amount_extra: 2.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 6.000
+			weight: 8.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: pump_shotgun
+					amount: 1.000
+					amount_extra: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 4.000
+			weight: 8.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: rifle
+					amount: 1.000
+					amount_extra: 2.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.000
+			weight: 4.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: breechloader.long
+					amount: 1.000
+					amount_extra: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 5.000
+			weight: 3.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: breechloader.heavy
+					amount: 1.000
+					group: 0
+				}
+			]
+		}
+	]
+	
+	includes: []
+}

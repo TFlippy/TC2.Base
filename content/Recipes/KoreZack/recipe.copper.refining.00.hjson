@@ -1,0 +1,568 @@
+﻿{
+	$version: "0.1.72.1"
+	$author: "KoreZack"
+	name: "Copper"
+	desc:
+		'''
+		Smelt any copper bits you can find
+		'''
+	tips: []
+	
+	stages:
+	[
+		{
+			name: "Feedstock"
+			
+			type: feedstock
+			flags: important
+			tags: material, raw
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: heat
+			
+			options:
+			[
+				{
+					name: "Raw"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: heat
+					
+					prefix: "Raw "
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: copper.gravel
+							amount: 8.695652
+							snapping: 1.000
+							loss: 0.376
+							group: 0
+							flags: primary, prerequisite
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: slag
+							amount: 3.066242
+							amount_extra: 1.258281
+							group: 0
+							flags: residue
+						}
+						{
+							type: resource
+							material: sulfur
+							amount: 0.434783
+							amount_extra: 0.200
+							group: 0
+							flags: byproduct
+						}
+					]
+					
+					h_sound_complete: burner.groan.01
+				}
+				{
+					name: "Dirty"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: heat
+					
+					prefix: "Dirty "
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: scrap.copper
+							amount: 4.870548
+							snapping: 0.500
+							loss: 0.482
+							group: 0
+							flags: no_residue, prerequisite
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: slag
+							amount: 2.219085
+							amount_extra: 1.485908
+							group: 0
+							flags: residue
+						}
+					]
+					
+					h_sound_complete: burner.groan.01
+				}
+				{
+					name: "Pure"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: heat
+					
+					prefix: "Pure "
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: copper.powder
+							amount: 14.67774
+							snapping: 0.500
+							loss: 0.980
+							group: 0
+							flags: prerequisite
+						}
+					]
+					
+					h_sound_complete: burner.groan.01
+				}
+				{
+					name: "Chunky"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: heat
+					
+					prefix: "Chunky "
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: copper
+							amount: 0.79961
+							snapping: 0.100
+							loss: 0.953
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: filing
+							amount: 45.000
+							amount_min: 50.000
+							difficulty: 6
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					h_sound_complete: burner.groan.01
+				}
+				{
+					name: "Cut plates"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: heat
+					
+					prefix: "Cut "
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: copper.plate
+							amount: 3.720238
+							snapping: 0.500
+							loss: 1.000
+							group: 0
+							flags: no_residue, prerequisite
+						}
+						{
+							type: work
+							work: snipping.metal
+							amount: 48.000
+							amount_min: 55.000
+							difficulty: 6
+							snapping: 0.500
+							group: 0
+							flags: always_evaluate, no_residue, conditional
+						}
+					]
+					
+					h_sound_complete: burner.groan.01
+				}
+				{
+					name: "Sawed bars"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: heat
+					
+					prefix: "Sawed "
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: copper.rod
+							amount: 1.492149
+							snapping: 0.100
+							loss: 0.953
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: sawing.metal
+							amount: 45.000
+							amount_min: 50.000
+							difficulty: 6
+							snapping: 0.100
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					h_sound_complete: burner.groan.01
+				}
+			]
+		}
+		{
+			name: "Processing"
+			
+			type: processing
+			flags: important
+			tags: formula
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: heat
+			
+			options:
+			[
+				{
+					name: "Melting"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: heat
+					
+					requirements:
+					[
+						{
+							type: temperature
+							amount: 1180.000
+							amount_min: 1000.000
+							amount_max: 1280.000
+							falloff: 0.819
+							group: 0
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: work
+							work: melting
+							amount: 120.000
+							amount_min: 250.000
+							amount_max: 1362.000
+							difficulty: 8
+							snapping: 10.000
+							falloff: 0.800
+							ratio: 1.000
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					filter_infrastructure:
+					{
+						include: oven
+					}
+					filter_environment:
+					{
+						include: airtight
+					}
+					
+					h_sound_begin: furnace.produce.00
+					h_sound_complete: burner.groan.01
+				}
+			]
+		}
+		{
+			name: "Casting"
+			
+			type: processing
+			flags: important
+			tags: formula
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: heat
+			
+			options:
+			[
+				{
+					name: "Bricks"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: heat
+					
+					suffix: " Bricks"
+					
+					requirements:
+					[
+						{
+							type: work
+							work: casting
+							amount: 280.000
+							amount_min: 260.000
+							amount_max: 1362.000
+							difficulty: 8
+							snapping: 10.000
+							falloff: 0.612
+							ratio: 1.000
+							group: 0
+							flags: conditional
+						}
+						{
+							type: temperature
+							amount: 300.000
+							amount_min: 273.200
+							amount_max: 400.000
+							snapping: 10.000
+							falloff: 0.612
+							ratio: 1.000
+							group: 0
+							flags: no_scaling, always_evaluate, conditional
+						}
+						{
+							type: work
+							work: cooling
+							amount: 300.000
+							amount_min: 350.000
+							amount_max: 1362.000
+							difficulty: 8
+							snapping: 10.000
+							falloff: 0.612
+							ratio: 1.000
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: copper.ingot
+							amount: 0.025948
+							group: 0
+							ratio: 1.000
+							flags: primary, scale_to_mass, add_to_residues
+						}
+					]
+					
+					filter_infrastructure:
+					{
+						include: oven
+					}
+					filter_environment:
+					{
+						include: airtight
+					}
+					
+					h_sound_begin: furnace.produce.00
+					h_sound_complete: burner.groan.01
+				}
+				{
+					name: "Bars"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: heat
+					
+					suffix: " Bars"
+					
+					requirements:
+					[
+						{
+							type: work
+							work: casting
+							amount: 280.000
+							amount_min: 280.000
+							amount_max: 1362.000
+							difficulty: 8
+							snapping: 10.000
+							falloff: 0.612
+							ratio: 1.000
+							group: 0
+							flags: conditional
+						}
+						{
+							type: temperature
+							amount: 300.000
+							amount_min: 273.200
+							amount_max: 400.000
+							snapping: 10.000
+							falloff: 0.612
+							ratio: 1.000
+							group: 0
+							flags: no_scaling, always_evaluate, conditional
+						}
+						{
+							type: work
+							work: cooling
+							amount: 260.000
+							amount_min: 200.000
+							amount_max: 1362.000
+							difficulty: 8
+							snapping: 10.000
+							falloff: 0.612
+							ratio: 1.000
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: copper.rod
+							amount: 0.040033
+							group: 0
+							ratio: 1.000
+							flags: primary, scale_to_mass
+						}
+					]
+					
+					filter_infrastructure:
+					{
+						include: oven
+					}
+					filter_environment:
+					{
+						include: airtight
+					}
+					
+					h_sound_begin: furnace.produce.00
+					h_sound_complete: burner.groan.01
+				}
+				{
+					name: "Plates"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: heat
+					
+					suffix: " Plates"
+					
+					requirements:
+					[
+						{
+							type: work
+							work: casting
+							amount: 260.000
+							amount_min: 200.000
+							amount_max: 1362.000
+							difficulty: 8
+							snapping: 10.000
+							falloff: 0.612
+							ratio: 1.000
+							group: 0
+							flags: conditional
+						}
+						{
+							type: temperature
+							amount: 300.000
+							amount_min: 273.200
+							amount_max: 400.000
+							snapping: 10.000
+							falloff: 0.612
+							ratio: 1.000
+							group: 0
+							flags: no_scaling, always_evaluate, conditional
+						}
+						{
+							type: work
+							work: cooling
+							amount: 200.000
+							amount_min: 160.000
+							amount_max: 1362.000
+							difficulty: 8
+							snapping: 10.000
+							falloff: 0.612
+							ratio: 1.000
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: copper.plate
+							amount: 0.081845
+							group: 0
+							ratio: 1.000
+							flags: primary, scale_to_mass, add_to_residues
+						}
+					]
+					
+					filter_infrastructure:
+					{
+						include: oven
+					}
+					filter_environment:
+					{
+						include: airtight
+					}
+					
+					h_sound_begin: furnace.produce.00
+					h_sound_complete: burner.groan.01
+				}
+			]
+		}
+	]
+	
+	type: workshop
+	flags: debug, disabled, production, wip
+	tags: simple, raw, heating, processing
+	hints: none
+	connotations: none
+	infrastructure: oven, heater, kiln
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		texture: ui_icons_crafting.mini
+		size: [16, 16]
+		frame: [2, 2]
+	}
+	icon_offset: [-13.000, 4.000]
+	
+	icon_extra:
+	{
+		texture: resource.copper.gravel
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	icon_extra_offset: [-8.000, -7.000]
+	
+	icon_c:
+	{
+		texture: resource.copper.ingot
+		size: [16, 16]
+		frame: [4, 0]
+	}
+	icon_c_offset: [-13.000, -15.000]
+	
+	color_frame: "0xffb45630"
+	color_button: "0xff9dd80f"
+	rank: -60.000
+	frame_size: [64.000, 48.000]
+	
+	min: 1
+	max: 50
+	step: 1
+	
+	version: 0
+}

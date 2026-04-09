@@ -1,0 +1,94 @@
+{
+	name: "Swindler"
+	desc:
+		'''
+		TODO
+		'''
+	
+	money: 120.000
+	age: [20, 25, 30, 40, 50]
+	genders: male, female
+	gender_ratio: 0.300
+	species: "human"
+	character_flags: criminal, educated, civillian, armed, law, social, commerce, nomad, middle_class
+	
+	conditions:
+	{
+		weight_mult: 0.500
+		
+		infrastructure:
+		{
+			require: none
+			include: railway, airport, docks, healthcare
+			exclude: none
+			weight: 4.000
+		}
+		
+		industry:
+		{
+			require: none
+			include: financial, administrative, manufacturing, high_tech, metallurgy, scrap, chemical, automotive, power, military
+			exclude: none
+			weight: 4.000
+		}
+		
+		crime:
+		{
+			require: fraud
+			include: corruption, fraud, smuggling, forgery
+			exclude: none
+			weight: 8.000
+		}
+		
+		geography:
+		{
+			require: none
+			include: none
+			exclude: none
+			weight: 0.000
+		}
+		
+		urbanization: [0.200, 0.000, 0.500, 50.000]
+		industrialization: [0.100, 0.000, 0.600, 20.000]
+		education: [0.200, 0.000, 0.700, -40.000]
+		wealth: [0.100, 0.000, 0.800, 40.000]
+		wilderness: [0.150, 0.000, 0.500, -40.000]
+		devastation: [0.200, 0.000, 0.500, -5.000]
+		savagery: [0.150, 0.000, 0.800, -25.000]
+		anarchy: [0.100, 0.800, 0.400, 20.000]
+		elevation: [0.000, 0.000, 0.000, 0.000]
+	}
+	
+	experience:
+	{
+		handguns: 9
+		rifles: 4
+		explosives: 5
+		mining: 1
+		woodcutting: 2
+		construction: 5
+		masonry: 4
+		carpentry: 4
+		engineering: 4
+		blacksmithing: 4
+		arcanology: 0
+		strength: 4
+		dexterity: 6
+		endurance: 7
+		intellect: 8
+		geology: 3
+		metallurgy: 2
+		medicine: 4
+		commerce: 13
+		charisma: 15
+		leadership: 6
+		blades: 8
+		axes: 2
+		clubs: 4
+		chemistry: 5
+		farming: 1
+		animals: 5
+		scavenging: 7
+		law: 8
+	}
+}

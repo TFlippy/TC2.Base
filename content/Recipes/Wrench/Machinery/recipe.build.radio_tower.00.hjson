@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.70.1"
+	$version: "0.1.72.1"
 	name: "Radio Tower"
 	tips: []
 	
@@ -13,9 +13,6 @@
 			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: shovel
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -203,7 +200,7 @@
 	]
 	
 	type: machinery
-	flags: no_amount_multiplier, blueprintable, debug, disabled, construction, wip, auto_complete
+	flags: no_amount_multiplier, blueprintable, hidden, debug, disabled, construction, wip, auto_complete
 	tags: advanced, huge, machinery, assembling, metalworking, engineering, science, construction
 	hints: none
 	connotations: none

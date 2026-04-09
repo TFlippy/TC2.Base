@@ -1,11 +1,29 @@
 ﻿{
-	$version: "0.1.67.2"
+	$version: "0.1.72.1"
 	name: "LC-9.4mm"
 	desc:
 		'''
 		TODO: Desc
 		'''
 	tips: []
+	
+	related_materials:
+	{
+		copper.plate: input, auto_generated
+		tallow: raw, input, auto_generated
+		oil: residue, byproduct, liquid, input, output, auto_generated
+		lubricant: liquid, input, auto_generated
+		water.toxic: raw, waste, liquid, output, auto_generated
+		gunpowder: powdered, ingredient, input, auto_generated
+		ferrous.gravel: raw, ingredient, input, auto_generated
+		ammo.lc.lv: product, result, output, auto_generated
+		nitrosugar: ingredient, input, auto_generated
+		steel.powder: powdered, ingredient, input, auto_generated
+		nitroglycerine: ingredient, liquid, input, auto_generated
+		hortspargl: raw, ingredient, input, auto_generated
+		himlkarzenus: raw, ingredient, input, auto_generated
+		putty: ingredient, input, auto_generated
+	}
 	
 	stages:
 	[
@@ -17,9 +35,6 @@
 			tags: chassis, shell, thin, metal, container, structural, flat, rounded, material
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: shovel
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -37,7 +52,7 @@
 						{
 							type: resource
 							material: copper.plate
-							amount: 0.033371
+							amount: 0.029071
 							snapping: 1.000
 							loss: 0.667
 							ratio: 1.000
@@ -80,10 +95,10 @@
 						{
 							type: work
 							work: die.drawing.metal
-							amount: 17.72152
-							amount_min: 23.000
+							amount: 5.000
+							amount_min: 20.000
 							difficulty: 8
-							snapping: 10.000
+							snapping: 5.000
 							falloff: 0.890
 							ratio: 0.722
 							group: 1
@@ -92,11 +107,11 @@
 						{
 							type: work
 							work: die.stamping.metal
-							amount: 11.000
-							amount_min: 44.000
+							amount: 10.000
+							amount_min: 50.000
 							difficulty: 7
-							snapping: 3.000
-							falloff: 0.983
+							snapping: 5.000
+							falloff: 0.873
 							ratio: 0.773
 							group: 1
 							flags: stepped, conditional
@@ -124,7 +139,7 @@
 					filter_infrastructure:
 					{
 						require: anvil, shaping_mould, hard_surface, press
-						include: stamping_press
+						include: stamping_press, dies
 					}
 				}
 				{
@@ -184,11 +199,11 @@
 						{
 							type: work
 							work: die.drawing.metal
-							amount: 11.3175
+							amount: 7.000
 							amount_min: 50.000
-							difficulty: 6
-							snapping: 25.000
-							falloff: 0.954
+							difficulty: 5
+							snapping: 10.000
+							falloff: 0.854
 							ratio: 0.922
 							group: 1
 							flags: stepped, conditional
@@ -196,11 +211,11 @@
 						{
 							type: work
 							work: die.stamping.metal
-							amount: 10.000
-							difficulty: 6
-							snapping: 10.000
-							falloff: 0.984
-							ratio: 0.973
+							amount: 5.000
+							difficulty: 4
+							snapping: 5.000
+							falloff: 0.914
+							ratio: 0.875
 							group: 1
 							flags: stepped, conditional
 						}
@@ -228,7 +243,7 @@
 					filter_infrastructure:
 					{
 						require: anvil, shaping_mould, hard_surface, press
-						include: stamping_press
+						include: stamping_press, dies
 					}
 				}
 				{
@@ -266,25 +281,14 @@
 						}
 						{
 							type: work
-							work: die.cutting.metal
-							amount: 10.000
-							difficulty: 8
-							snapping: 5.000
-							ratio: 0.671
+							work: die.stamping.metal
+							amount: 5.000
+							difficulty: 4
+							snapping: 10.000
+							falloff: 0.877
+							ratio: 0.373
 							group: 0
 							flags: stepped, simultaneous, conditional
-						}
-						{
-							type: work
-							work: polishing.oil
-							amount: 42.000
-							amount_min: 90.000
-							difficulty: 3
-							snapping: 5.000
-							falloff: 0.554
-							ratio: 0.722
-							group: 0
-							flags: simultaneous, conditional
 						}
 						{
 							type: work
@@ -293,19 +297,18 @@
 							amount_min: 40.000
 							difficulty: 5
 							snapping: 10.000
-							falloff: 0.967
+							falloff: 0.867
 							ratio: 0.373
-							group: 1
-							flags: stepped, conditional
+							group: 0
+							flags: stepped, simultaneous, conditional
 						}
 						{
 							type: work
-							work: die.stamping.metal
-							amount: 9.000
-							difficulty: 4
-							snapping: 10.000
-							falloff: 0.977
-							ratio: 0.373
+							work: die.cutting.metal
+							amount: 5.000
+							difficulty: 6
+							snapping: 5.000
+							ratio: 0.671
 							group: 1
 							flags: stepped, conditional
 						}
@@ -325,15 +328,10 @@
 					
 					advance_delay: 2.000
 					
-					filter_tools:
-					{
-						require: towel
-						include: paintbrush, towel
-					}
 					filter_infrastructure:
 					{
 						require: anvil, shaping_mould, hard_surface, press
-						include: stamping_press
+						include: stamping_press, dies
 					}
 				}
 			]
@@ -347,27 +345,24 @@
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
 			
-			ratio: 0.000
-			mass_base: 0.000
-			
 			options:
 			[
 				{
-					name: "Gunpowder"
+					name: "Nitrosugar"
 					
 					type: undefined
-					flags: none
+					flags: requires_shipment
 					discard_damage_type_override: saw
 					
-					suffix: "/LV (Gunpowder)"
+					suffix: "/LV (Nitrosugar)"
 					priority: 1.000
 					
 					requirements:
 					[
 						{
 							type: resource
-							material: gunpowder
-							amount: 0.0089
+							material: nitrosugar
+							amount: 0.009358
 							snapping: 0.100
 							loss: 0.224
 							ratio: 0.106
@@ -375,8 +370,8 @@
 						}
 						{
 							type: resource
-							material: ferrous.gravel
-							amount: 0.012727
+							material: steel.powder
+							amount: 0.013636
 							snapping: 0.100
 							loss: 0.373
 							ratio: 1.000
@@ -384,23 +379,23 @@
 						}
 						{
 							type: work
-							work: mixing
+							work: filling.powder
 							amount: 8.000
-							amount_min: 80.000
+							amount_min: 70.000
 							difficulty: 6
 							snapping: 10.000
-							falloff: 0.982
+							falloff: 0.837
 							group: 0
 							flags: conditional
 						}
 						{
 							type: work
 							work: crimping.metal
-							amount: 11.000
-							amount_min: 35.000
-							difficulty: 7
+							amount: 7.000
+							amount_min: 10.000
+							difficulty: 6
 							snapping: 5.000
-							falloff: 0.966
+							falloff: 0.866
 							ratio: 1.000
 							group: 1
 							flags: stepped, conditional
@@ -427,6 +422,139 @@
 					{
 						include: table, vise
 					}
+				}
+				{
+					name: "Nitrospargl"
+					
+					type: undefined
+					flags: requires_shipment
+					discard_damage_type_override: pickaxe
+					
+					suffix: "/LV (Nitrospargl)"
+					priority: 1.000
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: nitroglycerine
+							amount: 0.007634
+							snapping: 0.100
+							loss: 0.224
+							ratio: 0.106
+							group: 0
+						}
+						{
+							type: resource
+							material: hortspargl
+							amount: 0.004308
+							snapping: 0.100
+							loss: 0.369
+							ratio: 1.000
+							group: 0
+						}
+						{
+							type: work
+							work: wadding
+							amount: 8.000
+							amount_min: 50.000
+							difficulty: 5
+							snapping: 10.000
+							falloff: 0.818
+							group: 0
+							flags: conditional
+						}
+						{
+							type: work
+							work: crimping.metal
+							amount: 7.000
+							amount_min: 15.000
+							difficulty: 7
+							snapping: 5.000
+							falloff: 0.859
+							ratio: 1.000
+							group: 1
+							flags: stepped, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: ammo.lc.lv
+							amount: 1.000
+							group: 0
+							flags: primary, compact
+						}
+					]
+					
+					filter_tools:
+					{
+						require: pliers
+						include: wrench, pliers, tweezers, paintbrush, towel, spatula
+					}
+					filter_infrastructure:
+					{
+						include: table, chair, vise
+					}
+				}
+				{
+					name: "CPT-Integrated"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: corrosion
+					
+					suffix: "/LV (CPT-Integrated)"
+					priority: 1.000
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: himlkarzenus
+							amount: 0.006074
+							snapping: 0.100
+							loss: 0.224
+							ratio: 0.106
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: putty
+							amount: 0.002022
+							snapping: 0.100
+							loss: 0.373
+							ratio: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: cpt.integration
+							amount: 350.000
+							difficulty: 6
+							snapping: 5.000
+							ratio: 1.000
+							group: 1
+							flags: no_scaling, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: ammo.lc.lv
+							amount: 0.920
+							amount_extra: 0.080
+							snapping: 1.000
+							group: 0
+							flags: primary, compact
+						}
+					]
 				}
 			]
 		}

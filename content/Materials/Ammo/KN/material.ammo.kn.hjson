@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.2"
+	$version: "0.1.72.0"
 	name: "KN-51.9mm/LV Shell"
 	description:
 		'''
@@ -82,7 +82,7 @@
 		failure_base: 0.001
 		failure_mult: 1.075
 		
-		stability_base: 8500.000
+		stability_base: 5500.000
 		stability_mult: 1.000
 		
 		prefab: projectile.kn
@@ -90,7 +90,6 @@
 		sprite_casing:
 		{
 			texture: atlas.ammo.casings.00
-			mask: missing
 			size: [8, 8]
 			frame: [5, 0]
 		}

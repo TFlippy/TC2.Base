@@ -17,6 +17,7 @@ namespace TC2.Base.Components
 					public float placement_range = 4.00f;
 
 					[Asset.Ignore] public IRecipe.Handle recipe;
+					[Asset.Ignore] public IBlueprint.Handle h_blueprint;
 					[Asset.Ignore] public Wrench.Mode.Build.Flags flags;
 
 					[Asset.Ignore, Save.Ignore, Net.Ignore] public float next_place;
@@ -198,27 +199,29 @@ namespace TC2.Base.Components
 									foreach (var d_recipe in recipes)
 									{
 										ref var recipe = ref d_recipe.GetData();
-										if (recipe.type == edit_type_filter && recipe.flags.HasNone(Recipe.Flags.Hidden | Recipe.Flags.Custom) && filter_tags.Evaluate(recipe.tags))
-										{
-											//var size = (Vector2)recipe.icon.GetFrameSize();
-											var size = recipe.frame_size.OrDefault(recipe.icon.GetFrameSize(scale));
-											size = size.ScaleToNearestMultiple(new Vector2(48, 48));
+										if (recipe.type != edit_type_filter) continue;
+										if (recipe.flags.HasAny(Recipe.Flags.Hidden | Recipe.Flags.Custom)) continue;
+										if ((!App.IsModEditing || App.hide_wip_recipes) && recipe.flags.HasAny(Recipe.Flags.Debug | Recipe.Flags.Disabled)) continue;
+										if (!filter_tags.Evaluate(recipe.tags)) continue;
 
-											//var rank = recipe.rank;
-											//rank += d_recipe.id * 0.000001f;
+										//var size = (Vector2)recipe.icon.GetFrameSize();
+										var size = recipe.frame_size.OrDefault(recipe.icon.GetFrameSize(scale));
+										size = size.ScaleToNearestMultiple(new Vector2(48, 48));
+
+										//var rank = recipe.rank;
+										//rank += d_recipe.id * 0.000001f;
 
 
-											var rank = recipe.rank;
-											rank += d_recipe.id * 0.0001f;
-											rank -= (size.X * size.Y) * 0.001f;
+										var rank = recipe.rank;
+										rank += d_recipe.id * 0.0001f;
+										rank -= (size.X * size.Y) * 0.001f;
 
-											if (recipe.products[0].type == Crafting.Product.Type.Block) rank -= 5000.00f;
-											//rank += (size.X) * 1.00f;
-											rank -= (size.Y) * 10.00f;
-											////rank -= size.Y * 0.10f;
+										if (recipe.products[0].type == Crafting.Product.Type.Block) rank -= 5000.00f;
+										//rank += (size.X) * 1.00f;
+										rank -= (size.Y) * 10.00f;
+										////rank -= size.Y * 0.10f;
 
-											recipe_indices.Add((d_recipe.id, rank));
-										}
+										recipe_indices.Add((d_recipe.id, rank));
 									}
 
 									recipe_indices.Sort(SortFunc);
@@ -311,6 +314,121 @@ namespace TC2.Base.Components
 									}
 								}
 							}
+
+							if (false)
+							{
+								var h_blueprint_selected = IBlueprint.Handle.None;
+
+								var h_selected_recipe = this.recipe;
+								var h_selected_blueprint = this.h_blueprint;
+
+								ref var baseline_recipe_data = ref h_selected_recipe.GetData(out var baseline_recipe_asset);
+								ref var selected_recipe_data = ref baseline_recipe_data;
+
+								ref var selected_blueprint_data = ref h_selected_blueprint.GetData();
+								if (selected_blueprint_data.IsNotNull() && selected_recipe_data.IsNotNull() && selected_blueprint_data.h_recipe == h_selected_recipe)
+								{
+									selected_recipe_data = ref selected_blueprint_data.h_recipe_generated.GetData();
+									h_selected_recipe = selected_blueprint_data.h_recipe_generated;
+								}
+								else
+								{
+									//edit_h_selected_blueprint = default;
+									h_selected_blueprint = default;
+								}
+
+								//ref var recipe = ref h_recipe.GetData
+								if (baseline_recipe_data.IsNotNull() && baseline_recipe_data.flags.HasAny(Recipe.Flags.Blueprintable))
+								{
+									var bp_spanlist = FixedArray.CreateSpan32NoInit<IBlueprint.Handle>(out var bp_buffer).AsSpanList();
+									IBlueprint.Database.GetHandlesFiltered(list: ref bp_spanlist,
+										arg: baseline_recipe_asset.GetHandle(),
+										predicate: static (in x, arg) => x.data.h_recipe == arg && x.data.flags.HasNone(IBlueprint.Flags.Editable | IBlueprint.Flags.Hidden));
+
+									if (!bp_spanlist.IsEmpty)
+									{
+										var frame_size_base = baseline_recipe_data.frame_size.OrDefault(baseline_recipe_data.icon.GetFrameSize(2.00f));
+										frame_size_base += new Vector2(8, 8);
+										frame_size_base = frame_size_base.ScaleToNearestMultiple(new(48));
+
+										using (var window_child = window.BeginChildWindow(identifier: "wrench.blueprints"u8,
+										anchor_x: GUI.AlignX.Right,
+										anchor_y: GUI.AlignY.Top,
+										open: true,
+										size: new Vector2(frame_size_base.X + 24 + 12 + 4, 340),
+										offset: new(-8, 110),
+										padding: new(4, 4)))
+										{
+											if (window_child.show)
+											{
+												using (var group = GUI.Group.New(size: GUI.Rm, padding: new(2)))
+												{
+													using (var group_top = GUI.Group.New(size: new(GUI.RmX, 32)))
+													{
+														GUI.TitleCentered("Blueprints"u8, size: 24, pivot: new(0.00f, 0.50f), offset: new(4, 0));
+													}
+
+													GUI.SeparatorThick();
+
+													var h_selected_recipe_tmp = h_selected_recipe;
+
+													//using (var group_mid = GUI.Group.New(size: GUI.Rm))
+													using (var group_mid = GUI.Scrollbox.New("sb.blueprints"u8, size: GUI.Rm))
+													{
+														foreach (var h_blueprint in bp_spanlist)
+														{
+															ref var blueprint_data = ref h_blueprint.GetData();
+															if (blueprint_data.IsNotNull())
+															{
+																ref var recipe_data = ref blueprint_data.h_recipe_generated.GetData();
+																if (recipe_data.IsNotNull())
+																{
+																	var frame_size = recipe_data.frame_size.OrDefault(recipe_data.icon.GetFrameSize(2.00f));
+																	frame_size += new Vector2(16, 16);
+																	frame_size = frame_size.ScaleToNearestMultiple(new(16));
+																	frame_size.X = GUI.RmX;
+
+																	using (var group_bp = GUI.Group.New(size: frame_size))
+																	{
+																		//group_bp.DrawBackground(GUI.tex_slot);
+
+																		var is_selected = h_blueprint == h_blueprint_selected;
+
+																		if (GUI.DrawRecipeButton(context: ref context,
+																		rect: group_bp.GetOuterRect(),
+																		h_recipe: blueprint_data.h_recipe_generated,
+																		h_recipe_selected: ref h_selected_recipe_tmp,
+																		evaluation_flags: Crafting.EvaluateFlags.Ignore_Work | Crafting.EvaluateFlags.Prerequisite,
+																		flags_add: GUI.DrawRecipeFlags.None,
+																		flags_rem: GUI.DrawRecipeFlags.Send_RPC | GUI.DrawRecipeFlags.Modal | GUI.DrawRecipeFlags.Scrollbox | GUI.DrawRecipeFlags.Products | GUI.DrawRecipeFlags.Highlight | GUI.DrawRecipeFlags.Button | GUI.DrawRecipeFlags.Counter,
+																		tooltip_anchor: GUI.Anchor.Right,
+																		tooltip_pivot: new(0.00f, 0.50f)))
+																		{
+																			var rpc = new Wrench.Mode.Build.ConfigureRPC
+																			{
+																				recipe = this.recipe,
+																				h_blueprint = h_blueprint
+																			};
+																			rpc.Send(ent_wrench);
+
+																			//edit_h_selected_blueprint = is_selected ? IBlueprint.Handle.None : h_blueprint;
+																			////var rpc = new Construction.ConfigureRPC()
+																			////{
+																			////	h_blueprint = is_selected ? IBlueprint.Handle.None : h_blueprint
+																			////};
+																			////rpc.Send(this.ent_construction);
+																		}
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
 						}
 
 
@@ -318,7 +436,7 @@ namespace TC2.Base.Components
 
 						if (!Editor.IsActive)
 						{
-							using (var window_hud = GUI.Window.HUD("Build.HUD"u8, position: region.WorldToCanvas(mouse.GetInterpolatedPosition() + new Vector2(2.50f, -2.00f)), 
+							using (var window_hud = GUI.Window.HUD("Build.HUD"u8, position: region.WorldToCanvas(mouse.GetInterpolatedPosition() + new Vector2(2.50f, -2.00f)),
 							size: new(192, 0), padding: new(8, 8), pivot: new(0.00f, 0.00f)))
 							{
 								if (window_hud.show)
@@ -1014,6 +1132,7 @@ namespace TC2.Base.Components
 				public partial struct ConfigureRPC: Net.IRPC<Wrench.Mode.Build.Data>
 				{
 					public IRecipe.Handle recipe;
+					public IBlueprint.Handle h_blueprint;
 
 #if SERVER
 					public void Invoke(Net.IRPC.Context rpc, ref Wrench.Mode.Build.Data build)
@@ -1026,11 +1145,13 @@ namespace TC2.Base.Components
 							Assert.Check(recipe.flags.HasNone(Recipe.Flags.Hidden | Recipe.Flags.Custom));
 							Assert.Check(build.filter_tags.Evaluate(recipe.tags));
 
-							sync = build.recipe.TryChange(this.recipe);
+							sync |= build.recipe.TryChange(this.recipe);
+							sync |= build.h_blueprint.TryChange(this.h_blueprint);
 						}
 						else
 						{
-							sync = build.recipe.TryChange(default);
+							sync |= build.recipe.TryChange(default);
+							sync |= build.h_blueprint.TryChange(default);
 						}
 
 						if (sync) build.Sync(rpc.entity);
@@ -1537,7 +1658,7 @@ namespace TC2.Base.Components
 								ref var product = ref recipe.products[0];
 								if (recipe.placement.TryGetValue(out var placement))
 								{
-									var scale = new Vector2(1, 1);
+									var scale = Vector2.One;
 									var normal_surface = this.normal.GetNormalized(out var normal_distance) ?? new Vector2(0.00f, -1.00f);
 
 									if (placement.flags.HasAny(Placement.Flags.Allow_Mirror_X)) scale.X.SetSign(this.pos_raw.X < this.pos_origin.X);
@@ -1579,13 +1700,14 @@ namespace TC2.Base.Components
 											amount_multiplier = placed_block_count;
 											Wrench.Mode.Build.Evaluate(region: ref region, entity: rpc.entity, placement: in placement, errors: ref errors, skip_support: ref skip_support, support: out support, clearance: out clearance, bb: bb, transform: in transform, placement_range: build.placement_range, pos: pos, pos_a: pos_a, pos_b: pos_b, faction_id: h_faction);
 
+											var reqs_span = recipe.requirements.AsSpan();
 											//if (!Crafting.Evaluate(entity, ent_parent, transform.position, ref recipe.requirements, inventory: inventory, amount_multiplier: amount_multiplier, h_faction: h_faction)) errors |= Errors.RequirementsNotMet;
-											if (!context.Evaluate(requirements: recipe.requirements.AsSpan(), amount_multiplier: amount_multiplier, evaluation_flags: Crafting.EvaluateFlags.Prerequisite)) errors |= Errors.RequirementsNotMet;
+											if (!context.Evaluate(requirements: reqs_span, amount_multiplier: amount_multiplier, evaluation_flags: Crafting.EvaluateFlags.Prerequisite)) errors |= Errors.RequirementsNotMet;
 
 											if (errors == Wrench.Mode.Build.Errors.None)
 											{
 												//Crafting.Consume(ent_parent, transform.position, ref recipe.requirements, inventory: inventory, amount_multiplier: amount_multiplier, sync: true);
-												context.Consume(requirements: recipe.requirements.AsSpan(), amount_multiplier: amount_multiplier, evaluation_flags: Crafting.EvaluateFlags.Prerequisite);
+												context.Consume(requirements: reqs_span, amount_multiplier: amount_multiplier, evaluation_flags: Crafting.EvaluateFlags.Prerequisite);
 
 												var tile_meta = 0u;
 
@@ -1682,32 +1804,33 @@ namespace TC2.Base.Components
 												amount_multiplier += Vector2.Distance(pos_a, pos_b);
 											}
 
-											if (recipe.construction.HasValue)
+											ref var construction_info = ref recipe.construction.GetRefOrNull();
+											if (construction_info.IsNotNull())
 											{
-												var construction = recipe.construction.Value;
+												var construction_info_reqs_span = construction_info.requirements.AsSpan();
 
 												//if (!Crafting.Evaluate(entity, ent_parent, transform.position, ref construction.requirements, inventory: inventory, amount_multiplier: amount_multiplier, h_faction: h_faction)) errors |= Errors.RequirementsNotMet;
-												if (!context.Evaluate(requirements: construction.requirements.AsSpan(), amount_multiplier: amount_multiplier, evaluation_flags: Crafting.EvaluateFlags.Prerequisite)) errors |= Errors.RequirementsNotMet;
+												if (!context.Evaluate(requirements: construction_info_reqs_span, amount_multiplier: amount_multiplier, evaluation_flags: Crafting.EvaluateFlags.Prerequisite)) errors |= Errors.RequirementsNotMet;
 
 												if (errors == Wrench.Mode.Build.Errors.None)
 												{
 													//Crafting.Consume(ent_parent, transform.position, ref construction.requirements, inventory: inventory, amount_multiplier: amount_multiplier, sync: true);
-													context.Consume(requirements: construction.requirements.AsSpan(), amount_multiplier: amount_multiplier, evaluation_flags: Crafting.EvaluateFlags.Prerequisite);
+													context.Consume(requirements: construction_info_reqs_span, amount_multiplier: amount_multiplier, evaluation_flags: Crafting.EvaluateFlags.Prerequisite);
 
 													var dismantlable_tmp = new Dismantlable.Data();
 													dismantlable_tmp.yield = 0.90f;
 													dismantlable_tmp.required_work = 5.00f;
 													var dismantlable_tmp_items = dismantlable_tmp.items.AsSpan();
 
-													var requirements_construction = construction.requirements;
-													for (var i = 0; i < requirements_construction.Length; i++)
+													//var requirements_construction = construction.requirements;
+													for (var i = 0; i < construction_info_reqs_span.Length; i++)
 													{
-														ref var requirement = ref requirements_construction[i];
-														switch (requirement.type)
+														ref var req = ref construction_info_reqs_span[i];
+														switch (req.type)
 														{
 															case Crafting.Requirement.Type.Resource:
 															{
-																dismantlable_tmp_items.Add(Shipment.Item.Resource(requirement.material, requirement.amount));
+																dismantlable_tmp_items.Add(Shipment.Item.Resource(req.material, req.amount));
 															}
 															break;
 														}
@@ -1748,7 +1871,8 @@ namespace TC2.Base.Components
 
 													var h_recipe = build.recipe;
 
-													region.SpawnPrefab(prefab: construction.prefab, position: pos_final, rotation: rot_final, scale: scale, faction_id: h_faction).ContinueWith((ent) =>
+													region.SpawnPrefab(prefab: construction_info.prefab, position: pos_final, rotation: rot_final, scale: scale, 
+													faction_id: h_faction).ContinueWith((ent) =>
 													{
 														ref var dismantlable = ref ent.GetOrAddComponent<Dismantlable.Data>(sync: true, ignore_mask: true);
 														if (dismantlable.IsNotNull())
@@ -1785,23 +1909,25 @@ namespace TC2.Base.Components
 											}
 											else
 											{
+												var reqs_span = recipe.requirements.AsSpan();
+
 												//if (!Crafting.Evaluate(entity, ent_parent, transform.position, ref recipe.requirements, inventory: inventory, amount_multiplier: amount_multiplier, h_faction: h_faction)) errors |= Errors.RequirementsNotMet;
-												if (!context.Evaluate(requirements: recipe.requirements.AsSpan(), amount_multiplier: amount_multiplier, evaluation_flags: Crafting.EvaluateFlags.Prerequisite)) errors |= Errors.RequirementsNotMet;
+												if (!context.Evaluate(requirements: reqs_span, amount_multiplier: amount_multiplier, evaluation_flags: Crafting.EvaluateFlags.Prerequisite)) errors |= Errors.RequirementsNotMet;
 
 												if (errors == Wrench.Mode.Build.Errors.None)
 												{
 													//Crafting.Consume(ent_parent, transform.position, ref recipe.requirements, inventory: inventory, amount_multiplier: amount_multiplier, sync: true);
-													context.Consume(requirements: recipe.requirements.AsSpan(), amount_multiplier: amount_multiplier, evaluation_flags: Crafting.EvaluateFlags.Prerequisite);
+													context.Consume(requirements: reqs_span, amount_multiplier: amount_multiplier, evaluation_flags: Crafting.EvaluateFlags.Prerequisite);
 
 													var dismantlable_tmp = new Dismantlable.Data();
 													dismantlable_tmp.yield = recipe.dismantle_yield;
 													dismantlable_tmp.required_work = recipe.dismantle_work;
 													var dismantlable_tmp_items = dismantlable_tmp.items.AsSpan();
 
-													var requirements = recipe.requirements;
-													for (var i = 0; i < requirements.Length; i++)
+													//var requirements = recipe.requirements;
+													for (var i = 0; i < reqs_span.Length; i++)
 													{
-														ref var requirement = ref requirements[i];
+														ref var requirement = ref reqs_span[i];
 														switch (requirement.type)
 														{
 															case Crafting.Requirement.Type.Resource:
@@ -1822,13 +1948,13 @@ namespace TC2.Base.Components
 													region.SpawnPrefab(prefab: h_prefab, position: pos_final, rotation: rot_final, scale: scale, faction_id: h_faction).ContinueWith((ent) =>
 													{
 														ref var dismantlable = ref ent.GetOrAddComponent<Dismantlable.Data>(sync: true, ignore_mask: true);
-														if (!dismantlable.IsNull())
+														if (dismantlable.IsNotNull())
 														{
 															dismantlable = dismantlable_tmp;
 														}
 
 														ref var resizable = ref ent.GetComponent<Resizable.Data>();
-														if (!resizable.IsNull())
+														if (resizable.IsNotNull())
 														{
 															resizable.a = Vector2.Zero;
 

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.2"
+	$version: "0.1.72.0"
 	name: "Saltpeter"
 	name_short: "Saltpeter"
 	name_imperial: "Petrsalcr"
@@ -21,7 +21,7 @@
 	
 	// Inventory material type.
 	type: chalk
-	flags: granular, mineral, raw, powder, solid, primary
+	flags: food, granular, mineral, raw, powder, solid, primary
 	display_flags: none
 	hints: none
 	
@@ -56,7 +56,7 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: beverages, food, cooking, consumer
 		
 		market_price: 8.800
 		market_price_per_kg_auto: 13.33333

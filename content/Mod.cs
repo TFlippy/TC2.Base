@@ -49,8 +49,9 @@ namespace TC2.Base
 		}
 
 #if SERVER
+		[Shitcode]
 		[ChatCommand.Region("origin", "", creative: true)]
-		public static void OriginCommand(ref ChatCommand.Context context, IOrigin.Handle h_origin, bool force_new = false)
+		public static void OriginCommand(ref ChatCommand.Context context, IOrigin.Handle h_origin, bool force_new = true)
 		{
 			ref var region = ref context.GetRegionCommon();
 			Assert.IsNotNull(ref region);
@@ -117,7 +118,7 @@ namespace TC2.Base
 
 					if (!region.IsGlobal())
 					{
-						Spawner.SpawnCharacter(ref region.AsRegion(), h_character, position: context.GetTargetPosition(), h_player: player_asset, h_faction: h_faction, control: true).ContinueWith((ent) =>
+						Spawner.SpawnCharacter(ref region.AsRegion(), h_character, position: context.GetTargetPosition(), h_player: player_asset, h_faction: h_faction, flags: Spawn.SpawnEvent.Flags.Control).ContinueWith((ent) =>
 						{
 							ref var character = ref h_character.GetData();
 							if (character.IsNotNull())

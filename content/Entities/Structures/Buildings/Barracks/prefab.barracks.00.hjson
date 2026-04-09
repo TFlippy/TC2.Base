@@ -39,9 +39,9 @@ animated.renderer:
 interactable:
 {
 	flags: no_tab
+	window_size: [720, 528]
+	window_size_misc: [192, 0]
 	priority: 1.500
-	window_size: [644.000, 528.000]
-	window_size_misc: [96.000, 0.000]
 }
 
 health:
@@ -87,12 +87,19 @@ entrance.linkable:
 
 }
 
+shipment:
+{
+	flags: keep_items, allow_withdraw, allow_deposit, no_gui, faction
+	type: armory
+	layout: large
+}
+
 storage:
 {
 	@inventory8:
 	{
 		type: storage
-		flags: standalone, ignore_mass, faction, vertical
+		flags: standalone, ignore_mass, faction
 		stack_size_multiplier: 2.000
 		
 		filter:
@@ -106,21 +113,16 @@ storage:
 	}
 }
 
-squad:
-{
-
-}
-
 personnel:
 {
 	flags: store_characters
+	assign_radius: 20.000
 	slots:
 	[
 		{
-			role: clerk
-			tags: administrative, civil, paperwork, sedentary
-			color: "0x8f005ec2"
-			multiplier: 2.000
+			role: resident
+			tags: civil, sedentary, maintenance
+			multiplier: 0.500
 		}
 		{
 			role: resident
@@ -206,25 +208,40 @@ spawn:
 
 dormitory:
 {
-	flags: no_kit_selection, no_kit_requirements, repopulate_needs_faction, region_only
+	flags: no_kit_selection, no_kit_requirements, repopulate_needs_faction, recruit_into_squad, region_only
 	species: human
 	
-	characters_capacity: 8
+	characters_capacity: 6
 	characters_initial_count: 0
+	characters_reserved_count: 0
 	
-	repopulate_interval: 120.000
-	repopulate_interval_extra: 300.000
-	repopulate_max: 2
+	repopulate_max: 6
 	repopulate_num: 1
 	repopulate_num_extra: 1
+	repopulate_interval: 120.000
+	repopulate_interval_extra: 300.000
 	repopulate_character_flags_add: recruitable
 	
+	kit_categories_filter:
+	{
+		require: none
+		exclude: rare, explosive, gun, advanced, powerful, expensive, military, arcane
+	}
+
 	asset_flags: recycle
 	character_flags_filter:
 	{
-		include: construction, artisan, farmer, laborer, civillian, nomad, culinary, entertainer, artist, lower_class, lower_middle_class, middle_class
+		include: construction, artisan, farmer, laborer, civillian, culinary, nomad, entertainer, artist, lower_class, lower_middle_class, middle_class
 		exclude: upper_middle_class, upper_class, elite_class
 	}
+}
+
+squad:
+{
+	max_size: 4
+	flags: no_unit_remove
+	movement_flags: hold, open_doors
+	combat_flags: attack_visible, attack_when_hit, cover, flee, defend, form_groups, assist_work
 }
 
 // laboratory:

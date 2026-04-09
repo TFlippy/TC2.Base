@@ -28,7 +28,7 @@ body:
 		elasticity: 0.020
 		
 		material: stone
-		miss_chance: 0.418
+		miss_chance: 0.718
 		
 		layer: entity, solid, background
 	}

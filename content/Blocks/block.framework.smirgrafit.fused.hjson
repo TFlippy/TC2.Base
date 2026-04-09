@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.8"
+	$version: "0.1.72.1"
 	name: "Smirgrafit"
 	desc:
 		'''
@@ -10,13 +10,14 @@
 	tile_flags: non_empty
 	flags: artificial, magnetic, metal, construction
 	
-	max_health: 350000.000
+	max_health: 420000.000
 	smoothing: 0.170
 	stability: 11.000
 	strength_tensile: 25.000
 	strength_compressive: 36.000
 	
-	mass: 1.960
+	mass: 1.580
+	density: 0.000
 	friction: 0.450
 	elasticity: 0.630
 	fall_damage_mult: 1.100
@@ -25,9 +26,9 @@
 	
 	texture: terrain.framework.smirgrafit.fused
 	pattern: pattern.framework
-	texture_scale: 1.370
+	texture_scale: 1.375
 	texture_overshoot: -0.030
-	texture_offset: -0.670
+	texture_offset: -0.875
 	
 	color_preview: "0x00000000"
 	color_fill: "0xff140e08"
@@ -36,11 +37,11 @@
 	[
 		{
 			material: scrap.smirgrafit
-			quantity: 0.947025
+			quantity: 0.731414
 		}
 		{
-			material: steel.rod
-			quantity: 0.012
+			material: scrap.steel
+			quantity: 0.089437
 		}
 	]
 	

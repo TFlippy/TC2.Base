@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.72.0"
 	name: "Smirglum"
 	description:
 		'''
@@ -10,7 +10,7 @@
 	type: element
 	atomic_number: 158
 	flags: none
-	tags: pure, metallic, refractory, metal, solid
+	tags: pure, refractory, metal, solid
 	
 	icon:
 	{

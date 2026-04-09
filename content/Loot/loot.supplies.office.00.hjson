@@ -1,0 +1,407 @@
+﻿{
+	$version: "0.1.68.0"
+	nodes:
+	[
+		{
+			rarity: 3.450
+			weight: 10.100
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: paper
+					amount: 50.000
+					amount_extra: 145.9196
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 4.010
+			weight: 9.604
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: limelight
+					amount: 4.000
+					amount_extra: 12.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.510
+			weight: 6.800
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: glue
+					amount: 30.000
+					amount_extra: 150.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.500
+			weight: 6.100
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: cloth
+					amount: 30.73507
+					amount_extra: 70.37604
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.660
+			weight: 5.700
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: sauce
+					amount: 15.000
+					amount_extra: 40.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.630
+			weight: 4.800
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: machine_parts
+					amount: 10.8789
+					amount_extra: 35.4609
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.290
+			weight: 4.700
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: steel.frames
+					amount: 6.4947
+					amount_extra: 13.5103
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 4.150
+			weight: 4.300
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: putty
+					amount: 17.41484
+					amount_extra: 45.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.590
+			weight: 4.300
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: lubricant
+					amount: 20.000
+					amount_extra: 50.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 4.210
+			weight: 4.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: pellet.failure
+					amount: 1.000
+					amount_extra: 6.000
+					snapping: 0.500
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.460
+			weight: 3.900
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: toluene
+					amount: 22.83105
+					amount_extra: 45.66211
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.230
+			weight: 3.900
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: oil
+					amount: 20.000
+					amount_extra: 50.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.840
+			weight: 3.700
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: rubber
+					amount: 15.000
+					amount_extra: 50.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.260
+			weight: 3.700
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: leather
+					amount: 10.7159
+					amount_extra: 25.5341
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 4.070
+			weight: 3.600
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: directors
+					amount: 2.000
+					amount_extra: 35.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 4.440
+			weight: 3.500
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: actuator
+					amount: 3.707
+					amount_extra: 6.229
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 5.020
+			weight: 3.300
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: smrad
+					amount: 5.000
+					amount_extra: 50.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.570
+			weight: 3.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: water.clean
+					amount: 21.66667
+					amount_extra: 65.000
+					snapping: 20.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 4.070
+			weight: 2.700
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: mayo
+					amount: 5.000
+					amount_extra: 41.59592
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 4.450
+			weight: 2.700
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: meth
+					amount: 10.000
+					amount_extra: 45.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 5.760
+			weight: 0.800
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: computer
+					amount: 0.000
+					amount_extra: 1.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+	]
+	
+	includes: []
+}

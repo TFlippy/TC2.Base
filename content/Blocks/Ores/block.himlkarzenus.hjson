@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.0"
+	$version: "0.1.73.0"
 	name: "Himlkarzenus"
 	desc:
 		'''
@@ -18,7 +18,7 @@
 	strength_tensile: 8.500
 	strength_compressive: 2.800
 	
-	mass: 1.110
+	mass: 3.330
 	density: 0.000
 	friction: 0.840
 	elasticity: 0.690
@@ -39,11 +39,11 @@
 	[
 		{
 			material: himlkarzenus
-			quantity: 0.4632
+			quantity: 2.035004
 		}
 		{
 			material: arsine
-			quantity: 2.240
+			quantity: 5.180576
 		}
 	]
 	

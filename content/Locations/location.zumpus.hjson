@@ -1,0 +1,81 @@
+﻿{
+	$prefab: "g.settlement.town.00"
+	$version: "0.1.62.0"
+	name: "Zumpus"
+	name_short: "Zumpus"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	post_code: "ZUM"
+	
+	type: village
+	flags: none
+	categories: rebel, wilderness, criminal, overgrown, decrepit, lawless, frontier, infested, fortified, forested, uncharted, dangerous
+	buildings: none
+	industry_primary: none
+	industry: none
+	goods_trading: none
+	goods_demanded: none
+	goods_produced: none
+	crime: none
+	geography: none
+	
+	// Urban development, population density.
+	urbanization: 0.030
+	// Availability and utilization of advanced technology.
+	technology: 0.090
+	// Industrial production, mechanization, engineering.
+	industrialization: 0.150
+	// Literacy, availability of education, skilled workers.
+	education: 0.090
+	// Standard of living, overall wealth of population and government.
+	wealth: 0.000
+	// Nature, wildlife, overgrowth, untamed nature.
+	wilderness: 0.000
+	// Environmental damage, pollution, wastelandness.
+	devastation: 0.023
+	// Brutality of nature and population.
+	savagery: 0.000
+	// Lawlessness, lack of organization.
+	anarchy: 0.000
+	// Economic strength, employment rate, flow of goods.
+	economy: 0.040
+	// Variance of population's social classes.
+	inequality: 0.020
+	// Crime rate, personal safety.
+	safety: 0.000
+	// Rate of expansion, economic and population growth.
+	growth: -0.056
+	// Military strength, security, access to weapons.
+	military: 0.000
+	// Height in meters above sea level.
+	elevation: 10.000
+	
+	population:
+	{
+	
+	}
+	
+	h_prefecture: veleprdelsk
+	h_faction: kobold.00
+	h_company: tering_zoj
+	h_location_parent: "null"
+	size: 0.610
+	
+	color: "0xffff1010"
+	
+	icon:
+	{
+		texture: worldmap.icons.00
+		mask: missing
+		size: [24, 24]
+		frame: [1, 0]
+	}
+	
+	icon_offset: [0.000, 0.000]
+	text_offset: [0.000, 0.250]
+	
+	point: [7, -16]
+}

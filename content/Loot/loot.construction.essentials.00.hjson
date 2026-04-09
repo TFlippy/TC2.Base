@@ -1,0 +1,121 @@
+﻿{
+	$version: "0.1.64.1"
+	nodes:
+	[
+		{
+			rarity: 4.000
+			weight: 13.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: steel.frames
+					amount: 40.000
+					amount_extra: 30.000
+					snapping: 0.100
+					group: 0
+				}
+				{
+					type: resource
+					material: steel.rod
+					amount: 20.000
+					amount_extra: 30.000
+					snapping: 0.200
+					group: 0
+				}
+				{
+					type: resource
+					material: steel.plate
+					amount: 70.000
+					amount_extra: 80.000
+					snapping: 0.100
+					group: 0
+				}
+				{
+					type: resource
+					material: machine_parts
+					amount: 30.000
+					amount_extra: 35.000
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.000
+			weight: 12.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: brick.mud
+					amount: 125.000
+					amount_extra: 100.000
+					snapping: 1.000
+					group: 0
+				}
+				{
+					type: resource
+					material: wood
+					amount: 100.000
+					amount_extra: 80.000
+					snapping: 0.500
+					group: 0
+				}
+				{
+					type: resource
+					material: clay
+					amount: 140.000
+					amount_extra: 220.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 4.000
+			weight: 10.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: cement
+					amount: 150.000
+					amount_extra: 250.000
+					snapping: 0.100
+					group: 0
+				}
+				{
+					type: resource
+					material: lime
+					amount: 80.000
+					amount_extra: 140.000
+					snapping: 1.000
+					group: 0
+				}
+				{
+					type: resource
+					material: water
+					amount: 160.000
+					amount_extra: 130.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+	]
+	
+	includes: []
+}

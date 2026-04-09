@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.2"
+	$version: "0.1.72.1"
 	name: "Magitronic Computron"
 	name_short: "Computron"
 	name_imperial: "Linuks"
@@ -54,11 +54,11 @@
 	
 	commodity:
 	{
-		flags: none
-		categories: machinery, components, arcane, technology, luxury, consumer, industrial, manufactured
+		flags: marketable
+		categories: machinery, components, arcane, technology, luxury, consumer, industrial, manufactured, smirglum
 		
 		market_price: 9870.000
-		market_price_per_kg_auto: 182.6154
+		market_price_per_kg_auto: 151.8462
 	}
 	
 	// Damage-based conversions.
@@ -103,5 +103,6 @@
 		machine_parts: none
 		scrap.machine: none
 		steel.frames: none
+		lubricant: none
 	}
 }

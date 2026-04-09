@@ -1,6 +1,6 @@
 ﻿{
-	$version: "0.1.68.0"
-	name: "Dismantle Limelight"
+	$version: "0.1.72.1"
+	name: "Dismantled Limelight"
 	desc:
 		'''
 		Smash a limelight into spare parts.
@@ -9,9 +9,10 @@
 	
 	related_materials:
 	{
-		pellet.heat: product, result
-		directors: residue, product, result
-		lime: residue, powdered, result
+		pellet.heat: product, result, output
+		directors: residue, product, result, byproduct, output
+		lime: residue, raw, powdered, result, output
+		limelight: input, auto_generated
 	}
 	
 	stages:
@@ -26,7 +27,6 @@
 			discard_damage_type: sledgehammer
 			
 			ratio: 1.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -150,7 +150,7 @@
 	}
 	icon_c_offset: [-2.000, -16.000]
 	
-	color_frame: "0xffac7534"
+	color_frame: "0xff19e2b1"
 	color_button: "0xff9dd80f"
 	rank: -131.000
 	

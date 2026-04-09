@@ -1,0 +1,281 @@
+﻿{
+	$version: "0.1.67.1"
+	name: "Engineer"
+	desc:
+		'''
+		Hailing from the mainland, you were supposed to participate in the Imperial urbanization efforts on this island.
+		Unfortunately, the project was put on hold, and now you're stuck here.
+		'''
+	
+	money: 1320.000
+	age: [22.000, 24.000, 30.000, 32.000, 35.000, 37.000, 40.000, 50.000, 70.000]
+	genders: male, female
+	gender_ratio: 0.300
+	species: human
+	cost: 0.000
+	flags: selectable
+	
+	character_flags: construction, scientist, educated, professional, civillian, technician, engineer, upper_middle_class
+	character_flags_optional: none
+	
+	industry_flags: none
+	industry_flags_optional: none
+	
+	service_flags: none
+	service_flags_optional: none
+	
+	crime_flags: none
+	crime_flags_optional: none
+	
+	kit_filter_secondary:
+	{
+		chance: 1.000
+		
+		categories:
+		{
+			require: gun, small
+			include: weapon, gun, short_range, advanced, machine, small, mining, construction, device, industrial, arcane
+			exclude: primitive
+			weight: 1.000
+		}
+	}
+	
+	kit_filter_tool:
+	{
+		chance: 0.400
+		
+		categories:
+		{
+			require: none
+			include: tools, machine, construction, device, fancy
+			exclude: junk, primitive
+			weight: 0.700
+		}
+	}
+	
+	kit_filter_utility:
+	{
+		chance: 0.902
+		
+		categories:
+		{
+			require: none
+			include: tools, weapon, food, advanced, machine, small, drug, consumable, mining, construction, device, fancy
+			exclude: junk, primitive
+			weight: 1.000
+		}
+	}
+	
+	kit_filter_resources:
+	{
+		chance: 0.400
+		
+		categories:
+		{
+			require: none
+			include: construction
+			exclude: primitive
+			weight: 1.000
+		}
+	}
+	
+	conditions:
+	{
+		weight_mult: 0.670
+		
+		industry:
+		{
+			require: none
+			include: mining, manufacturing, high_tech, chemical, automotive, power, military
+			exclude: none
+			weight: 5.000
+		}
+		
+		crime:
+		{
+			require: none
+			include: drugs, prostitution, arson, pillaging
+			exclude: none
+			weight: 2.000
+		}
+		
+		geography:
+		{
+			require: none
+			include: excavated, wasteland
+			exclude: none
+			weight: 4.000
+		}
+		
+		urbanization:
+		{
+			min: 0.200
+			mid: 0.900
+			max: 0.000
+			weight: 10.000
+		}
+		
+		industrialization:
+		{
+			min: 0.000
+			mid: 0.800
+			max: 0.000
+			weight: 50.000
+		}
+		
+		education:
+		{
+			min: 0.200
+			mid: 0.500
+			max: 0.000
+			weight: 15.000
+		}
+		
+		wealth:
+		{
+			min: 0.100
+			mid: 0.400
+			max: 0.000
+			weight: 20.000
+		}
+		
+		wilderness:
+		{
+			min: 0.350
+			mid: 0.700
+			max: 0.000
+			weight: -10.000
+		}
+		
+		devastation:
+		{
+			min: 0.000
+			mid: 0.500
+			max: 0.000
+			weight: 25.000
+		}
+		
+		savagery:
+		{
+			min: 0.150
+			mid: 0.800
+			max: 0.000
+			weight: -20.000
+		}
+		
+		anarchy:
+		{
+			min: 0.100
+			mid: 0.500
+			max: 0.800
+			weight: 5.000
+		}
+		
+		safety:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		pollution:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		destruction:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		inequality:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		unrest:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		corruption:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		prestige:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		elevation:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+	}
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: money
+			amount: 1129.000
+			group: 0
+		}
+	]
+	
+	experience:
+	{
+		handguns: 4
+		rifles: 2
+		explosives: 7
+		mining: 3
+		woodcutting: 2
+		construction: 8
+		masonry: 4
+		carpentry: 4
+		engineering: 14
+		blacksmithing: 4
+		arcanology: 9
+		strength: 4
+		dexterity: 8
+		endurance: 4
+		intellect: 13
+		geology: 5
+		metallurgy: 13
+		medicine: 3
+		commerce: 4
+		charisma: 5
+		leadership: 5
+		blades: 2
+		axes: 1
+		clubs: 3
+		alchemistry: 6
+		farming: 1
+		animals: 0
+		scavenging: 6
+		law: 5
+	}
+}

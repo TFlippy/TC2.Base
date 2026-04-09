@@ -1,9 +1,9 @@
 ﻿{
-	$version: "0.1.68.2"
+	$version: "0.1.72.1"
 	name: "Steel Bar"
-	name_short: "St. Bar"
+	name_short: "St.Bar"
 	name_imperial: "Styltyc"
-	name_dumb: "Iron Stick"
+	name_dumb: "Pipe"
 	description:
 		'''
 		Standard 60x4x4 cm nickelsteel bar.
@@ -27,7 +27,7 @@
 	{
 		add: no_discard
 	}
-	hints: materials, construction
+	hints: materials, long_range, construction, industrial, clumsy, long
 	
 	// Ratio of the material volume to the total volume it occupies when stacked. A value of 1.0 means no empty space, while a value closer to 0.0 means a lot of empty space.
 	packing_fraction: 0.000
@@ -114,22 +114,11 @@
 	
 	commodity:
 	{
-		availability: 0.000
-		rarity: 0.000
-		scalability: 0.000
-		reusability: 0.000
-		longevity: 0.000
-		complexity: 0.000
-		tech: 0.000
-		liquidity: 0.000
-		demand: 0.000
-		
 		flags: none
-		categories: none
+		categories: metals, construction_materials
 		
 		market_price: 44.000
-		
-		market_price_per_kg_auto: 7.187988
+		market_price_per_kg_auto: 7.530272
 	}
 	
 	// Damage-based conversions.
@@ -296,6 +285,33 @@
 			flags: none
 			merge_radius_mult: 1.000
 			velocity_mult: 1.520
+			damage_mult: 1.000
+		}
+		bullet_ac:
+		{
+			spawn_flags: none
+			product_flags: none
+			ratio: 0.000
+			ratio_extra: 0.000
+			
+			h_material_waste: scrap.steel
+			spawn_flags_waste: merge
+			product_flags_waste: waste
+			ratio_waste: 1.000
+			ratio_waste_extra: 0.000
+			
+			yield: 0.690
+			yield_extra: 0.180
+			
+			h_sound: missing
+			sound_volume: 0.500
+			sound_pitch: 1.000
+			
+			chance: 1.000
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.000
+			velocity_mult: 1.000
 			damage_mult: 1.000
 		}
 	}

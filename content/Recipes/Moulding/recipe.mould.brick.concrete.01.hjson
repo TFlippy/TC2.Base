@@ -1,11 +1,23 @@
 ﻿{
-	$version: "0.1.67.2"
+	$version: "0.1.72.1"
 	name: "Homemade Masonry Unit"
 	desc:
 		'''
 		TODO: Desc
 		'''
 	tips: []
+	
+	related_materials:
+	{
+		brezolyt: raw, ingredient, input, auto_generated
+		water: raw, ingredient, liquid, input, auto_generated
+		porridge: ingredient, input, auto_generated
+		sawdust: powdered, ingredient, input, auto_generated
+		brick.concrete: product, result, output, auto_generated
+		scrap.concrete: waste, result, scrap, output, auto_generated
+		starch: residue, powdered, output, auto_generated
+		nitrocellulose: residue, powdered, output, auto_generated
+	}
 	
 	stages:
 	[
@@ -17,9 +29,6 @@
 			tags: material, formula, ingredient
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: shovel
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -161,6 +170,10 @@
 						require: hammer
 						include: bucket, spatula
 					}
+					filter_infrastructure:
+					{
+						include: surface, hard_surface
+					}
 				}
 			]
 		}
@@ -172,9 +185,6 @@
 			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: fracture
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[

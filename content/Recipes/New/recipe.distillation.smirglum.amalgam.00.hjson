@@ -1,11 +1,17 @@
 ﻿{
-	$version: "0.1.67.2"
+	$version: "0.1.72.1"
 	name: "Smirglum Amalgam Distillation"
 	desc:
 		'''
 		TODO: Desc
 		'''
 	tips: []
+	
+	related_materials:
+	{
+		smirglum.powder: residue, decomposition, purified, clean, powdered, product, result, output
+		smirglum.amalgam: raw, ingredient, input, auto_generated
+	}
 	
 	stages:
 	[
@@ -17,9 +23,6 @@
 			tags: material, raw, formula, ingredient
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -52,9 +55,6 @@
 			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: heat
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -122,9 +122,6 @@
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: heat
 			
-			ratio: 0.000
-			mass_base: 0.000
-			
 			options:
 			[
 				{
@@ -143,9 +140,6 @@
 			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: heat
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[

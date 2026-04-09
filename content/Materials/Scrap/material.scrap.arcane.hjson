@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.2"
+	$version: "0.1.72.1"
 	name: "EC-Scrap"
 	name_short: "EC-Scrap"
 	name_imperial: "Arkosrot"
@@ -55,9 +55,33 @@
 	commodity:
 	{
 		flags: none
-		categories: metals, scrap, components, arcane, technology, waste
+		categories: metals, scrap, components, arcane, technology, waste, smirglum
 		
 		market_price: 65.000
-		market_price_per_kg_auto: 46.45161
+		market_price_per_kg_auto: 41.93549
+	}
+	
+	// Info regarding relations of other materials towards this material.
+	related:
+	{
+		actuator: component, similar, product, manufactured, processed, extracted, output
+		directors: component, similar, product, manufactured, processed, extracted, output
+		pellet: component, clean, similar, extracted, output
+		pellet.heat: component, clean, similar, extracted, output
+		pellet.motion: component, clean, similar, extracted, output
+		pellet.failure: component, clean, similar, extracted, output
+		pellet.anger: component, clean, similar, extracted, output
+		pellet.electricity: component, clean, similar, extracted, output
+		pellet.radiance: component, clean, similar, extracted, output
+		pellet.cognition: component, clean, similar, extracted, output
+		pellet.life: component, clean, similar, extracted, output
+		putty: decomposition, juice, similar, chemical, result, byproduct, liquid, impurity, extracted, output
+		scrap.smirgrafit.dusty: reaction, mangled, decomposition, similar, payload, filler, slag, scrap, mixed, extracted, output
+		scrap.smirgrafit: mangled, waste, similar, payload, filler, slag, scrap, mixed, extracted, output
+		smirglum.amalgam: wet, raw, melted, reaction, decomposition, similar, chemical, product, processed, mixed, output
+		smirgrafit.clay: similar, chemical, payload, filler, impurity, extracted, output
+		arcanite: raw, melted, mangled, cooked, decomposition, solidified, smelted, byproduct, processed, extracted, output
+		recondite: raw, melted, mangled, cooked, decomposition, solidified, smelted, byproduct, processed, extracted, output
+		scrap.machine: mangled, payload, impure, scrap, processed, mixed, output
 	}
 }

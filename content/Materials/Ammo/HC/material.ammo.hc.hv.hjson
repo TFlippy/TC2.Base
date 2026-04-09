@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.2"
+	$version: "0.1.72.0"
 	name: "HC-13.2mm/HV Ammo"
 	description:
 		'''
@@ -62,13 +62,14 @@
 		categories: weapons, munitions, military, manufactured
 		
 		market_price: 6.000
+		market_price_per_kg_auto: 171.4286
 	}
 	
 	ammo:
 	{
 		count: 1
 		mass: 0.018
-		heat: 25.000
+		heat: 35.000
 		velocity_min: 80.000
 		
 		speed_base: 0.000
@@ -90,7 +91,6 @@
 		sprite_casing:
 		{
 			texture: atlas.ammo.casings.00
-			mask: missing
 			size: [8, 8]
 			frame: [1, 0]
 		}

@@ -18,18 +18,18 @@ body:
 	@shape.polygon:
 	{
 		material: machine
-		miss_chance: 0.322
+		miss_chance: 0.822
 		flags: none
 		tags: heavy, large, solid
 		
-		layer: entity, solid, building, storage, conductive, magnetic
+		layer: entity, solid, storage, conductive, magnetic
 		mask: world
 		exclude: none
 		
 		mass: 420.000
 		radius: 0.500
 		friction: 0.700
-		elasticity: 0.850
+		elasticity: 0.450
 		
 		cog_offset: [0.0625, 0.3125]
 		
@@ -71,7 +71,7 @@ animated.renderer:
 		texture: "vending_machine.00"
 	}
 	offset: [0.000, 0.000]
-	z: -80.000
+	z: -100.000
 }
 
 faction:
@@ -81,7 +81,7 @@ faction:
 
 claimable:
 {
-	flags: allow_owner_unclaim
+	flags: allow_owner_unclaim, allow_enemy_unclaim
 }
 
 company:
@@ -108,8 +108,9 @@ company:
 interactable:
 {
 	flags: no_tab
-	window_size: [624, 488]
+	window_size: [624, 544]
 	window_size_misc: [144, 0]
+	priority: 3.000
 }
 
 lamp:
@@ -130,9 +131,12 @@ lamp:
 
 holdable:
 {
+	force_multiplier: 1.300
+	torque_multiplier: 1.200
+	stress_multiplier: 0.350
 	radius: 0.000
+	priority: -2.000
 	flags: disable_parent_facing, disable_rotation
-	stress_multiplier: 0.500
 }
 
 vendor:

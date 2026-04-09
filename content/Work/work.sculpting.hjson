@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.1"
+	$version: "0.1.71.1"
 	name: "Sculpting"
 	name_short: "Sculpting"
 	desc:
@@ -17,7 +17,7 @@
 	flags: manual, wip
 	tags: simple, leisure
 	
-	amount_base: 0.000
+	amount_base: 0.700
 	cooldown: 1.310
 	multiplier: 0.960
 	

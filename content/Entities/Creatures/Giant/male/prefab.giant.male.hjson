@@ -350,8 +350,8 @@ shop:
 		exclude: automated, complex, advanced, huge, delicate, smelting, fermenting, heating
 	}
 	
-	tools: pliers, magnifying_glass, bucket, file, chisel, towel, tongs, sandpaper, ladle
-	infrastructure: barrel, bucket, surface, hard_surface, large_surface, giant, personal
+	tools: hammer, pliers, magnifying_glass, bucket, file, chisel, towel, tongs, sandpaper, ladle
+	infrastructure: barrel, bucket, surface, large_surface, hard_surface, giant, personal
 	environment: mobile, dirty, smelly, ugly, scary, noisy, sturdy, crappy, cramped, open, large
 	connotations: none
 	
@@ -392,7 +392,7 @@ workshop:
 		material_type: flesh
 		
 		max_displacement: 1.000
-		displacement_stress_modifier: 0.200
+		displacement_stress_modifier: 0.300
 		displacement_force_modifier: 1.400
 
 		z: 4.000
@@ -570,7 +570,7 @@ workshop:
 			displacement_rigidity: 0.600
 
 			air_capacity: 1.800
-			air_usage: 0.180
+			air_usage: 0.140
 			breath_amount: 0.250
 		}
 
@@ -873,6 +873,7 @@ workshop:
 		damping: 1000.000
 		axis_force: 150000.000
 		spring_max_bias: 5.000
+		spring_error_bias: 0.010
 		max_distance: 1.350
 	}
 
@@ -951,8 +952,9 @@ workshop:
 		flags_editable: use_center_of_gravity, locked, disabled, keyboard_read, keyboard_write, mouse_read, mouse_write, manual_aim, loose, offset, rotation
 		tags_filter:
 		{
+			require: none
 			include: small, medium, large, harness
-			exclude: tiny, huge
+			exclude: tiny, huge, wheel, platform, long
 		}
 		
 		gui_size: [96.000, 120.000]

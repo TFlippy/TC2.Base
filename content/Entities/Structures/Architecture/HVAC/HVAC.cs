@@ -29,7 +29,7 @@ namespace TC2.Base.Components
 
 		[ISystem.Modified(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("initialized", true, Source.Modifier.Owned)]
 		public static void OnModified(ISystem.Info info, ref Region.Data region, Entity entity,
-		/*[Source.Owned] ref Body.Data body,*/ /*[Source.Owned] in Transform.Data transform,*/ [Source.Owned] ref HVAC.Data hvac)
+		[Source.Owned] ref HVAC.Data hvac)
 		{
 			hvac.h_location_cached = region.GetLocationHandle();
 
@@ -51,14 +51,13 @@ namespace TC2.Base.Components
 					amount_multiplier_tmp -= location_data.geography.GetCount(IMap.Geography.Hot | IMap.Geography.Windy, 0.07f);
 				}
 				amount_multiplier_tmp -= location_data.geography.GetCount(IMap.Geography.Mountains | IMap.Geography.Urban, 0.06f);
-				amount_multiplier_tmp.ClampMinRef(0.22f);
+				amount_multiplier_tmp.ClampMinRef(0.12f);
 
 				hvac.amount_multiplier_cached = amount_multiplier_tmp;
-				hvac.h_material_water_cached = "water";
 
-				//amount_multiplier_tmp -= location_data.geography.GetCount(IMap.Geography.Dry | IMap.Geography.Mountains | IMap.Geography.Cold, 0.15f);
-				//amount_multiplier_tmp += location_data.geography.GetCount(IMap.Geography.Damp | IMap.Geography.Hot | IMap.Geography.Swamps, 0.20f);
-
+				//var h_water = IMaterial.Handle.None;
+				//if (location_data.statistics.pollution > 0.70f) = hvac.h_material_water_cached = "water.clean";
+				hvac.h_material_water_cached = "water.clean";
 			}
 		}
 

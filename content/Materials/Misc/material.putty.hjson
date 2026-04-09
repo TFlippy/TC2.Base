@@ -1,8 +1,19 @@
 ﻿{
-	$version: "0.1.68.2"
-	name: "Putty"
-	name_short: "Putty"
+	$version: "0.1.72.1"
+	$note:
+		'''
+		- Something between Structure Gel from SOMA and the fluid used by the "strange dogs" on Laconia in The Expanse books
+		- Self-replicating, but very slow with the technology available in the game
+		- Needs Smrad dust and initial C-Putty to produce more C-Putty, along with feedstock rich in large variety of elements
+		- Used to join various objects together when sprayed with Phlogiston, essentially fusing them at the molecular level
+		- Looks similar to ferrofluid, but more slime-like
+		- Stored in same glass containers as water
+		'''
+	name: "C-Putty"
+	name_short: "C-Putty"
 	name_imperial: "Herkules"
+	name_advanced: "Construction Putty"
+	name_dumb: "Elbow Grease"
 	description:
 		'''
 		TODO: Desc
@@ -18,107 +29,65 @@
 	}
 	
 	// Inventory material type.
-	type: tar
-	flags: soft, malleable, sticky, magnetic, granular, toxic, metal, viscous, chemical, small, corrosive, manufactured, flexible, volatile, processed, smelly
-	display_flags: none
-	hints: materials, dangerous, advanced, chemical, construction, civilian, industrial, slow, unstable, clumsy
+	type: slime
+	flags: soft, malleable, sticky, granular, toxic, metal, viscous, chemical, small, bottled, corrosive, manufactured, flexible, volatile, processed, smelly
+	display_flags: sprite_stack_linear
+	spawn_flags:
+	{
+		add: allow_encumbered, no_discard
+	}
+	hints: materials, dangerous, advanced, powerful, chemical, construction, civilian, industrial, arcane, slow, unstable, clumsy
 	
 	// Ratio of the material volume to the total volume it occupies when stacked. A value of 1.0 means no empty space, while a value closer to 0.0 means a lot of empty space.
 	packing_fraction: 0.000
 	// General purity modifier.
-	purity: 0.927
+	purity: 0.973
 	// Mass of 1 unit in kg.
-	mass_per_unit: 0.957
+	mass_per_unit: 1.533
 	
 	// Maximum quantity (units) per stack.
-	quantity_max: 250.000
+	quantity_max: 200.000
 	// Minimum spawnable quantity.
-	spawn_quantity_threshold: 0.100
+	spawn_quantity_threshold: 1.000
 	// Preferred quantity snapping for recipes.
 	snapping: 0.100
 	// Preferred quantity snapping for inventories.
 	snapping_pickup: 25.000
 	
+	form_type: packaged
 	prefab: resource.putty
+	h_substance: putty
 	
 	color_icon: "0xffffffff"
 	color_item: "0xffffffff"
-	color_dust: "0xffffffff"
-	color_gib: "0xffffffff"
-	
-	centroid_default: [-0.050, 0.550]
-	colliders:
-	[
-		{
-			offset: [0.000, 0.700]
-			centroid: [0.000, 0.700]
-			radius: 0.260
-			values:
-			[
-				[-0.400, 0.000]
-				[0.400, 0.000]
-				[0.000, 0.000]
-				[0.000, 0.000]
-			]
-		}
-		{
-			offset: [0.000, 0.700]
-			centroid: [0.000, 0.700]
-			radius: 0.260
-			values:
-			[
-				[-0.400, 0.000]
-				[0.400, 0.000]
-				[0.000, 0.000]
-				[0.000, 0.000]
-			]
-		}
-		{
-			offset: [0.000, 0.550]
-			centroid: [0.000, 0.550]
-			radius: 0.400
-			values:
-			[
-				[-0.500, 0.000]
-				[0.500, 0.000]
-				[0.000, 0.000]
-				[0.000, 0.000]
-			]
-		}
-		{
-			offset: [0.000, 0.550]
-			centroid: [-0.050, 0.550]
-			radius: 0.430
-			values:
-			[
-				[-0.600, 0.000]
-				[0.500, 0.000]
-				[0.000, 0.000]
-				[0.000, 0.000]
-			]
-		}
-	]
+	color_dust: "0xff171618"
+	color_gib: "0xff171618"
 	
 	commodity:
 	{
-		flags: none
-		categories: none
+		flags: marketable
+		categories: chemicals, refined, artificial, arcane, construction_materials, industrial, manufactured
 		
-		market_price: 65.000
-		market_price_per_kg_auto: 104.4932
+		market_price: 95.000
+		market_price_per_kg_auto: 61.96999
+		
+		industries_produce: manufacturing, high_tech, chemical, arcane, research, engineering, experimental
+		industries_consume: manufacturing, high_tech, metallurgy, automotive, military, arcane, construction, real_estate, research, colonization, security, railway, engineering, weapons, experimental, aviation, naval, architecture
+		
+		buildings_produce: refinery, laboratory, university, essenceworks
+		
+		categories_produce: industrial, magitech, advanced, innovative, modern, polluted
 	}
 	
 	// Info regarding relations of other materials towards this material.
 	related:
 	{
-		graphite.powder: powdered, ingredient
-		coal.powder: similar, powdered, ingredient
-		himlkarzenus: similar, chemical, ingredient
-		water.toxic: ruined, waste
-		ferronickel.powder: powdered, ingredient
-		silver.powder: powdered, ingredient
-		arsenic: similar, chemical, ingredient
-		ammonia: reaction, decomposition, product
-		copper.powder: powdered, ingredient
+		smrad: component, element, ingredient, mixed
+		putty: component, source, filler, element, ingredient
+		mercury: filler, ingredient, liquid, mixed
+		mercury.vapor: burnt, residue, decomposition, vapor
+		phlogiston: reaction, propellant, catalyst
+		mithril: reaction, catalyst
+		lubricant: filler, liquid, mixed
 	}
 }

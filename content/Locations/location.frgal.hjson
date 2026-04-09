@@ -1,0 +1,87 @@
+﻿{
+	$prefab: "g.settlement.city.00"
+	$version: "0.1.62.0"
+	name: "Frgal"
+	name_short: "Frgal"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	post_code: "FRG"
+	
+	type: city
+	flags: restricted
+	categories: industrial, commercial, residential, urban, administrative, governmental, financial, magitech, wealthy, advanced, secure, fortified, innovative, mercantile, coastal, powerful, modern, polluted, mechanized, authoritarian, regulated
+	buildings: warehouse, factory, office, bunker, hotel, hospital, airport, trainyard, minefield, artillery, power_plant, docks, skyscraper, tower, lighthouse, walls, prison, labor_camp, theatre, constabulary, foundry, manufactory, refinery, checkpoint, customs, slum, laboratory, university, school, bar, apartments, lumber_mill, barracks, train_station, farm, exchange, arsenal, scrapyard, landfill, black_market, brewery, metalworks, phlogiston, zoo, circus, market, fuel_depot, bank, brickworks, steel_mill, transmitter, glassworks
+	industry_primary: none
+	industry: none
+	goods_trading: none
+	goods_demanded: none
+	goods_produced: none
+	crime: none
+	geography: none
+	
+	// Urban development, population density.
+	urbanization: 1.100
+	// Availability and utilization of advanced technology.
+	technology: 2.100
+	// Industrial production, mechanization, engineering.
+	industrialization: 1.760
+	// Literacy, availability of education, skilled workers.
+	education: 0.910
+	// Standard of living, overall wealth of population and government.
+	wealth: 5.986
+	// Nature, wildlife, overgrowth, untamed nature.
+	wilderness: 0.090
+	// Environmental damage, pollution, wastelandness.
+	devastation: 0.346
+	// Brutality of nature and population.
+	savagery: 0.070
+	// Lawlessness, lack of organization.
+	anarchy: 0.040
+	// Economic strength, employment rate, flow of goods.
+	economy: 1.860
+	// Variance of population's social classes.
+	inequality: 0.320
+	// Crime rate, personal safety.
+	safety: 0.829
+	// Rate of expansion, economic and population growth.
+	growth: 1.100
+	// Military strength, security, access to weapons.
+	military: 50.000
+	// Height in meters above sea level.
+	elevation: 4.000
+	
+	population:
+	{
+	
+	}
+	
+	h_prefecture: novokordelsk
+	h_faction: imperial
+	h_company: kordel
+	h_location_parent: "null"
+	size: 1.000
+	
+	color: "0xffffee00"
+	
+	thumbnail:
+	{
+		texture: ui.thumbnail.harbor.00
+		mask: missing
+	}
+	
+	icon:
+	{
+		texture: worldmap.icons.01
+		mask: missing
+		size: [24, 24]
+		frame: [1, 1]
+	}
+	
+	icon_offset: [0.125, -0.500]
+	text_offset: [0.125, 0.000]
+	
+	point: [37, -24]
+}

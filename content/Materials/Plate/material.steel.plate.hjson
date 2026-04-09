@@ -1,7 +1,7 @@
 ﻿{
-	$version: "0.1.68.2"
+	$version: "0.1.72.0"
 	name: "Steel Sheet"
-	name_short: "St. Sheet"
+	name_short: "St.Sheet"
 	name_imperial: "Stylplat"
 	name_dumb: "Flat Iron"
 	description:
@@ -111,12 +111,10 @@
 	
 	commodity:
 	{
-		
 		flags: none
-		categories: none
+		categories: metals, construction_materials
 		
 		market_price: 13.800
-		
 		market_price_per_kg_auto: 5.888376
 	}
 	
@@ -416,6 +414,24 @@
 			flags_product: residue
 			
 			yield: [0.708, 0.292]
+		}
+		metal.forming:
+		{
+			h_material: scrap.steel
+			
+			flags: none
+			flags_product: waste, residue
+			
+			yield: [0.859649, 0.1384]
+		}
+		welding.phlogiston:
+		{
+			h_material: ferronickel.powder
+			
+			flags: none
+			flags_product: waste
+			
+			yield: [0.345, 0.426]
 		}
 	}
 }

@@ -77,7 +77,7 @@
 		
 		physics_filter:
 		{
-			include: building
+			include: building, no_overlapped_placement
 		}
 		
 		snapping_filter:

@@ -1,0 +1,65 @@
+﻿{
+	$version: "0.1.67.1"
+	name: "Giant"
+	name_plural: "Giants"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	prefab_male: giant.male
+	prefab_female: giant.female
+	prefab_unit: unit.giant.00
+	flags: humanoid, mammal, domesticated, tameable, omnivore, predator, scavenger, social, sentient, sapient
+	industries: none
+	
+	lifecycle:
+	{
+		age_child: 2.000
+		age_adolescent: 25.000
+		age_mature: 40.000
+		age_elder: 150.000
+	}
+	
+	sprite_head_male:
+	{
+		texture: giant.male.head
+		mask: missing
+		size: [16, 16]
+	}
+	sprite_head_female:
+	{
+		texture: giant.female.head
+		mask: missing
+		size: [16, 16]
+	}
+	
+	hair_colors:
+	[
+		"0x00e8d7c9"
+		"0xff746b4a"
+		"0xffa64830"
+		"0xff797e8b"
+	]
+	
+	sounds_idle_male: []
+	sounds_idle_female: []
+	
+	sounds_taunt_male: []
+	sounds_taunt_female: []
+	
+	sounds_talk_male: []
+	sounds_talk_female: []
+	
+	sounds_alert_male: []
+	sounds_alert_female: []
+	
+	sounds_pain_male: []
+	sounds_pain_female: []
+	
+	sounds_scream_male: []
+	sounds_scream_female: []
+	
+	sounds_death_male: ["giant.death.00", "giant.wheeze.00", "giant.cough.01", "drunk.03"]
+	sounds_death_female: ["giant.death.00", "giant.wheeze.00", "giant.cough.01", "vo_no", "human.oof.04"]
+}

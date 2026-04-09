@@ -1,0 +1,120 @@
+$tags: []
+
+body:
+{
+	buoyancy: 0.310
+
+	@shape.line:
+	{
+		material: tar
+		miss_chance: 0.780
+		flags: none
+		tags: flammable, soft
+		
+		layer: entity, solid, resource, conductive, heatable, magnetic
+		mask: world
+		exclude: none
+		mass: 1.000
+		radius: 0.430
+		friction: 1.190
+		elasticity: 0.420
+		
+		rigidity_static: 0.950
+		rigidity_dynamic: 0.800
+		fall_damage_mult: 0.700
+		
+		a: [-0.600, 0.000]
+		b: [0.500, 0.000]
+		offset: [0.000, 0.550]
+	}
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "resource.smirgrafit.clay"
+		count: 4
+		size: [16, 16]
+	}
+	z: -11.900
+}
+
+transform:
+{
+
+}
+
+resource:
+{
+	material: "smirgrafit.clay"
+}
+
+holdable:
+{
+	force_multiplier: 1.250
+	torque_multiplier: 1.400
+	stress_multiplier: 0.100
+	offset: [0.000, 0.750]
+	radius: 0.000
+	hints: materials
+	flags: disable_parent_facing, disable_rotation, disable_control
+}
+
+health:
+{
+	max: 50000.000
+}
+
+breakable:
+{
+	flags: no_damage
+}
+
+heat:
+{
+	temperature_medium: 509.8625
+	temperature_high: 656.000
+	temperature_ignite: 541.000
+	temperature_operating: 2000.000
+	temperature_breakdown: 1960.823
+	cool_rate_mult: 0.330
+	cool_rate: 0.200
+	smoke_speed_mult: 0.750
+	heat_capacity_mult: 0.200
+	flags: no_gui, formless
+	fire_flags: always_contact_ignite, no_decay
+	offset: [0.000, 0.500]
+	smoke_offset: [0.125, 0.250]
+	size: [2.000, 1.000]
+
+	@light:
+	{
+		offset: [0.125, 0.500]
+		scale: [20.000, 18.000]
+		intensity: 1.100
+		texture: light.circle.04
+	}
+
+	@sound.emitter:
+	{
+		file: burner.loop.00
+		flags: start_muted
+		volume: 1.500
+		pitch: 0.680
+		size: 5.500
+		size_max_modifier: 0.900
+		priority: 0.100
+		offset: [0.000, 0.500]
+	}
+}
+
+norotate:
+{
+	flags: no_share, disable_attached, align_to_surface
+	speed: 3.500
+	bias: 0.000
+	
+	multiplier: 3.000
+	mass_multiplier: 1.500
+}

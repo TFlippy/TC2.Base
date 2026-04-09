@@ -20,7 +20,7 @@ body:
 		layer: entity, solid, background
 		mask: world
 
-		miss_chance: 0.650
+		miss_chance: 0.750
 	}
 }
 
@@ -104,8 +104,8 @@ harvestable:
 hvac:
 {
 	produce_interval: 5.000
-	amount: 0.167
-	amount_extra: 0.582
+	amount: 0.067
+	amount_extra: 0.0112
 
 	@inventory1:
 	{

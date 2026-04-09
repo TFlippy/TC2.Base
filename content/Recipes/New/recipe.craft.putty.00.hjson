@@ -1,272 +1,86 @@
 ﻿{
-	$version: "0.1.67.2"
-	name: "Thermopaste"
+	$version: "0.1.72.1"
+	name: "C-Putty"
 	desc:
 		'''
-		Standard metalworking putty used for brazing and cermet production.
+		TODO. Desc
 		'''
 	tips: []
+	
+	related_materials:
+	{
+		sludge: raw, input, feedstock, auto_generated
+		himlkarzenus: raw, input, feedstock, auto_generated
+		mithril: raw, result, byproduct, output, auto_generated
+		ash: raw, powdered, input, feedstock, auto_generated
+		ferronickel.powder: powdered, input, feedstock, auto_generated
+		gunpowder: residue, powdered, output, auto_generated
+		graphite.powder: residue, powdered, output, auto_generated
+		shite: raw, input, feedstock, auto_generated
+		krakatite: raw, input, feedstock, auto_generated
+		rubber: residue, byproduct, output, auto_generated
+		salmiac: residue, raw, powdered, output, auto_generated
+		tobacco: residue, raw, powdered, output, auto_generated
+		smrad: powdered, ingredient, input, auto_generated
+		putty: ingredient, product, result, input, output, auto_generated
+		mercury: raw, ingredient, liquid, input, auto_generated
+		lubricant: ingredient, liquid, input, auto_generated
+		mayo: input, auto_generated
+		mercury.vapor: raw, waste, gas, vapor, output, auto_generated
+	}
 	
 	stages:
 	[
 		{
-			name: "Base Formula"
+			name: "Feedstock"
 			
-			type: formula
-			flags: part, important
-			tags: material, formula, ingredient
+			type: feedstock
+			flags: part
+			tags: structural, material, formula, ingredient
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
 				{
-					name: "ISO/HKZ-0"
+					name: "Toxic"
 					
 					type: undefined
 					flags: none
 					
-					suffix: " (ISO/HKZ-0)"
+					prefix: "Toxic "
 					priority: 1.000
 					
 					requirements:
 					[
 						{
 							type: resource
-							material: silver.powder
-							amount: 0.765255
+							material: sludge
+							amount: 1.436364
 							snapping: 0.100
-							loss: 0.024
-							ratio: 1.000
-							group: 0
-							flags: prerequisite
-						}
-						{
-							type: resource
-							material: copper.powder
-							amount: 1.937461
-							snapping: 0.100
-							loss: 0.071
-							ratio: 1.000
-							group: 0
-							flags: prerequisite
-						}
-						{
-							type: resource
-							material: ferronickel.powder
-							amount: 2.621564
-							snapping: 0.100
-							loss: 0.067
-							ratio: 1.000
+							loss: 0.729
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: resource
 							material: himlkarzenus
-							amount: 1.997919
+							amount: 0.55429
 							snapping: 0.100
-							loss: 0.122
-							ratio: 1.000
+							loss: 0.580
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: work
-							work: crushing
-							amount: 25.000
-							amount_min: 100.000
+							work: pounding
+							amount: 250.000
+							amount_min: 180.000
 							difficulty: 8
-							snapping: 5.000
-							falloff: 0.960
-							loss: 0.122
-							ratio: 0.824
-							group: 1
-							flags: simultaneous, conditional
-						}
-						{
-							type: work
-							work: mixing
-							amount: 50.000
-							amount_min: 80.000
-							difficulty: 7
-							snapping: 5.000
-							falloff: 0.907
-							loss: 0.122
-							ratio: 0.922
-							group: 1
-							flags: stepped, simultaneous, conditional
-						}
-					]
-					
-					products:
-					[
-						{
-							type: resource
-							material: putty
-							amount: 5.160426
-							amount_extra: 0.391507
+							step_max: 50
+							snapping: 15.000
+							falloff: 0.809
 							group: 0
-							flags: primary, compact
-						}
-						{
-							type: resource
-							material: arsine
-							amount: 2.391991
-							amount_extra: 0.939846
-							group: 0
-							flags: pollutant, waste, spawn, hidden
-						}
-					]
-					
-					purity_modifier: 0.895
-					quality_modifier: 0.836
-					yield_modifier: 0.922
-					failure_chance: 0.024
-					
-					filter_tools:
-					{
-						include: hammer, wrench, spanner, bucket, axe, chisel, spatula, crowbar
-					}
-					filter_infrastructure:
-					{
-						require: surface
-						include: hard_surface, compactor, press
-					}
-				}
-			]
-		}
-		{
-			name: "Primer"
-			
-			type: additives
-			flags: part
-			tags: material, dangerous, ingredient
-			// Damage type used for discarding leftover resources.
-			discard_damage_type: sledgehammer
-			
-			ratio: 0.000
-			mass_base: 0.000
-			
-			options:
-			[
-				{
-					name: "Black Powder"
-					
-					type: undefined
-					flags: none
-					
-					requirements:
-					[
-						{
-							type: resource
-							material: gunpowder
-							amount: 3.043478
-							snapping: 0.100
-							falloff: 0.988
-							loss: 0.024
-							ratio: 1.000
-							group: 0
-							flags: filler, prerequisite
-						}
-						{
-							type: work
-							work: mixing
-							amount: 35.000
-							amount_min: 80.000
-							difficulty: 8
-							snapping: 5.000
-							falloff: 0.932
-							loss: 0.122
-							ratio: 0.824
-							group: 1
-							flags: conditional
-						}
-					]
-					
-					products:
-					[
-						{
-							type: resource
-							material: putty
-							amount: 0.842299
-							amount_extra: 0.08257
-							group: 0
-							flags: primary, compact
-						}
-					]
-					
-					purity_modifier: 0.901
-					quality_modifier: 0.943
-					yield_modifier: 0.961
-					failure_chance: 0.122
-					
-					filter_tools:
-					{
-						include: bucket, spatula
-					}
-				}
-			]
-		}
-		{
-			name: "Binder"
-			
-			type: filler
-			flags: part
-			tags: material, ingredient
-			// Damage type used for discarding leftover resources.
-			discard_damage_type: crush
-			
-			ratio: 0.000
-			mass_base: 0.000
-			
-			options:
-			[
-				{
-					name: "Tar"
-					
-					type: undefined
-					flags: none
-					
-					prefix: "Tarry "
-					
-					requirements:
-					[
-						{
-							type: resource
-							material: tar
-							amount: 2.850
-							snapping: 0.100
-							loss: 0.075
-							ratio: 1.000
-							group: 0
-							flags: filler, prerequisite
-						}
-						{
-							type: resource
-							material: alcohol
-							amount: 8.000
-							snapping: 0.100
-							falloff: 0.989
-							loss: 0.024
-							ratio: 1.000
-							group: 0
-							flags: prerequisite
-						}
-						{
-							type: work
-							work: kneading
-							amount: 50.000
-							amount_min: 80.000
-							difficulty: 9
-							snapping: 5.000
-							falloff: 0.892
-							loss: 0.122
-							ratio: 0.824
-							group: 1
 							flags: stepped, conditional
 						}
 					]
@@ -275,56 +89,514 @@
 					[
 						{
 							type: resource
-							material: putty
-							amount: 1.855215
-							amount_extra: 0.072162
+							material: mithril
+							amount: 0.064
+							amount_extra: 0.128
+							snapping: 0.100
 							group: 0
-							flags: primary, compact
+							chance: 0.592
+							ratio: 0.071
+							flags: byproduct, secondary, stepped, scale_to_mass
 						}
 					]
 					
-					purity_modifier: -0.092
-					quality_modifier: -0.111
-					yield_modifier: 0.922
-					failure_chance: 0.059
+					filter_infrastructure:
+					{
+						include: surface, hard_surface
+					}
+				}
+				{
+					name: "Dusty"
+					
+					type: undefined
+					flags: none
+					
+					prefix: "Dusty "
+					priority: 1.000
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: ash
+							amount: 1.461538
+							snapping: 0.100
+							loss: 0.992
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: ferronickel.powder
+							amount: 0.917547
+							snapping: 0.100
+							loss: 0.973
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: blending
+							amount: 60.000
+							amount_min: 140.000
+							difficulty: 11
+							step_max: 30
+							snapping: 10.000
+							falloff: 0.855
+							group: 0
+							flags: stepped, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: gunpowder
+							amount: 0.057
+							amount_extra: 0.086
+							snapping: 0.100
+							group: 0
+							chance: 0.663
+							ratio: 0.180
+							flags: residue, stepped, scale_to_mass
+						}
+						{
+							type: resource
+							material: graphite.powder
+							amount: 0.060
+							amount_extra: 0.138
+							snapping: 0.100
+							group: 0
+							chance: 0.655
+							ratio: 0.059
+							flags: residue, stepped, scale_to_mass
+						}
+					]
+					
+					filter_tools:
+					{
+						include: ruler, shovel, file, spatula, ladle, utensils
+					}
+					filter_infrastructure:
+					{
+						include: cauldron, dishes, barrel, bucket, liquid_container, blender, form
+					}
+				}
+				{
+					name: "Shitty"
+					
+					type: undefined
+					flags: none
+					
+					prefix: "Shitty "
+					priority: 1.000
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: shite
+							amount: 2.347418
+							snapping: 0.100
+							loss: 0.749
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: krakatite
+							amount: 0.770833
+							snapping: 0.100
+							loss: 0.863
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: mashing
+							amount: 110.000
+							amount_min: 140.000
+							difficulty: 6
+							step_max: 40
+							snapping: 10.000
+							falloff: 0.875
+							group: 0
+							flags: stepped, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: rubber
+							amount: 0.045
+							amount_extra: 0.092
+							snapping: 0.100
+							group: 0
+							chance: 0.486
+							ratio: 0.055
+							flags: residue, byproduct, stepped, scale_to_mass
+						}
+						{
+							type: resource
+							material: salmiac
+							amount: 0.029
+							amount_extra: 0.103
+							snapping: 0.100
+							group: 0
+							chance: 0.518
+							ratio: 0.078
+							flags: residue, stepped, scale_to_mass
+						}
+						{
+							type: resource
+							material: tobacco
+							amount: 0.027
+							amount_extra: 0.086
+							snapping: 0.100
+							group: 0
+							chance: 0.376
+							ratio: 0.055
+							flags: residue, stepped, scale_to_mass
+						}
+					]
+					
+					filter_tools:
+					{
+						include: shovel, towel
+					}
+					filter_infrastructure:
+					{
+						include: dishes, compactor, blender, press, form
+					}
+				}
+			]
+		}
+		{
+			name: "Blend"
+			
+			type: formula
+			flags: part, important
+			tags: functional, material, raw, formula, ingredient
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: mercury
+			
+			options:
+			[
+				{
+					name: "Standard"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: smrad
+							amount: 1.298527
+							snapping: 0.100
+							falloff: 0.936
+							loss: 0.973
+							ratio: 1.000
+							group: 0
+							flags: argument, primary, prerequisite
+						}
+						{
+							type: resource
+							material: putty
+							amount: 0.989551
+							snapping: 0.100
+							falloff: 1.026
+							loss: 0.961
+							ratio: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: mercury
+							amount: 0.683301
+							snapping: 0.100
+							falloff: 0.949
+							loss: 0.961
+							ratio: 1.000
+							group: 0
+							flags: filler, prerequisite
+						}
+						{
+							type: resource
+							material: lubricant
+							amount: 1.223744
+							snapping: 0.100
+							falloff: 0.918
+							loss: 0.980
+							ratio: 0.957
+							group: 0
+							flags: filler, prerequisite
+						}
+						{
+							type: work
+							work: dissolving
+							amount: 100.000
+							amount_min: 110.000
+							difficulty: 8
+							step_max: 40
+							snapping: 5.000
+							falloff: 0.861
+							loss: 0.004
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: blending
+							amount: 75.000
+							amount_min: 190.000
+							difficulty: 7
+							step_max: 25
+							snapping: 25.000
+							falloff: 0.865
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						include: ruler, shovel, file, spatula, ladle, utensils
+					}
+					filter_infrastructure:
+					{
+						require: liquid_container
+						include: cauldron, lab_glassware, dishes, barrel, bucket, liquid_container, blender, form
+					}
+				}
+			]
+		}
+		{
+			name: "Transformation"
+			
+			type: postprocessing
+			flags: important
+			tags: functional, dangerous
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: none
+			
+			options:
+			[
+				{
+					name: "Friendly"
+					
+					type: undefined
+					flags: manual_only
+					discard_damage_type_override: disintegration
+					
+					suffix: " of Friendship"
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: pellet.cognition
+							amount: 1.000
+							snapping: 1.000
+							falloff: 0.707
+							group: 0
+							flags: no_consume, no_residue, prerequisite
+						}
+						{
+							type: resource
+							material: mayo
+							amount: 1.000
+							snapping: 1.000
+							falloff: 0.509
+							loss: 0.408
+							group: 0
+							flags: stepped, prerequisite
+						}
+						{
+							type: work
+							work: friendship
+							amount: 200.000
+							amount_min: 150.000
+							difficulty: 10
+							step_max: 10
+							snapping: 15.000
+							falloff: 0.771
+							group: 0
+							flags: stepped, conditional
+						}
+						{
+							type: work
+							work: cg.fabrication
+							amount: 250.000
+							amount_min: 10.000
+							difficulty: 12
+							step_max: 40
+							snapping: 20.000
+							falloff: 0.776
+							ratio: 0.008
+							group: 1
+							flags: stepped, conditional
+						}
+					]
+					
+					purity_modifier: 0.916
+					quality_modifier: 0.894
+					yield_modifier: 0.937
+					failure_chance: 0.153
+					
+					filter_tools:
+					{
+						require: towel
+						include: pencil, paper, ruler, towel, calculator
+					}
+					filter_infrastructure:
+					{
+						require: table, chair
+						include: table, chair
+					}
+				}
+				{
+					name: "MTR-Catalyzed"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: life
+					
+					suffix: " (MTR-Catalyzed)"
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: mithril
+							amount: 0.150
+							snapping: 0.100
+							falloff: 2.538
+							group: 0
+							flags: no_consume, no_residue, prerequisite
+						}
+						{
+							type: work
+							work: mtr.synthesis
+							amount: 180.000
+							amount_min: 120.000
+							difficulty: 10
+							snapping: 5.000
+							falloff: 0.676
+							group: 0
+							flags: simultaneous, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: mithril
+							amount: 0.098
+							amount_extra: 0.060
+							snapping: 0.010
+							group: 0
+							chance: 0.322
+							ratio: 0.043
+							flags: byproduct, secondary, stepped, scale_to_mass
+						}
+					]
+					
+					purity_modifier: 0.916
+					quality_modifier: 0.894
+					yield_modifier: 0.937
+					failure_chance: 0.153
+					
+					filter_tools:
+					{
+						include: tweezers, tongs, utensils
+					}
+					filter_infrastructure:
+					{
+						require: table, chair
+						include: table, chair
+					}
 				}
 			]
 		}
 	]
 	
+	products:
+	[
+		{
+			type: resource
+			material: putty
+			amount: 0.72143
+			amount_extra: 0.048371
+			snapping: 0.100
+			group: 0
+			ratio: 0.922
+			flags: primary, stepped, compact, scale_to_mass
+		}
+		{
+			type: resource
+			material: rubber
+			amount: 0.6294
+			amount_extra: 0.1854
+			snapping: 0.100
+			group: 0
+			chance: 0.675
+			ratio: 0.447
+			flags: residue, byproduct, stepped, scale_to_mass
+		}
+		{
+			type: resource
+			material: mercury.vapor
+			amount: 2.298066
+			amount_extra: 0.8916
+			snapping: 0.100
+			group: 0
+			ratio: 0.886
+			flags: pollutant, waste, spawn, scale_to_mass
+		}
+	]
+	
 	type: workshop
-	flags: debug, disabled, production, wip
-	tags: manual, crafting, metallurgy, blending, messy, explosive, dangerous
+	flags: production, wip
+	tags: crafting, metallurgy, engineering, alchemistry, blending, processing, messy, dangerous
 	hints: none
 	connotations: none
 	infrastructure: bucket, surface
-	infrastructure_exclude: personal
+	infrastructure_exclude: none
+	
+	h_company: carohrad
 	
 	icon:
 	{
 		texture: resource.putty
 		size: [16, 16]
-		frame: [3, 0]
+		frame: [2, 0]
 	}
-	icon_offset: [-2.000, 0.000]
+	icon_offset: [-6.000, -2.000]
 	
 	icon_extra:
 	{
 		texture: resource.mercury
 		size: [16, 16]
-		frame: [1, 0]
+		frame: [3, 0]
 	}
-	icon_extra_offset: [0.000, -7.000]
+	icon_extra_offset: [-8.000, -8.000]
 	
 	icon_c:
 	{
-		texture: resource.himlkarzenus
+		texture: resource.mithril
 		size: [16, 16]
 		frame: [2, 0]
 	}
-	icon_c_offset: [4.000, -12.000]
+	icon_c_offset: [-2.000, -14.000]
 	
-	color_frame: "0xffeabb3e"
+	color_frame: "0xff19e2b1"
 	color_button: "0xff9dd80f"
 	rank: -156.000
 	

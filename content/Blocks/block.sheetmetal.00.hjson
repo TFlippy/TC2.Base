@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.0"
+	$version: "0.1.72.1"
 	name: "Sheetmetal"
 	desc:
 		'''
@@ -8,7 +8,7 @@
 	
 	material_type: metal_sheet
 	tile_flags: non_empty
-	flags: artificial, metal, construction
+	flags: artificial, magnetic, metal, construction
 	
 	max_health: 7000.000
 	smoothing: 0.170
@@ -42,5 +42,15 @@
 		null
 	]
 	
-	mappings: []
+	mappings:
+	[
+		{
+			color: "0xffc7ccad"
+			tile_flags: solid, non_empty, become_background_on_break
+		}
+		{
+			color: "0xff303128"
+			tile_flags: non_empty
+		}
+	]
 }

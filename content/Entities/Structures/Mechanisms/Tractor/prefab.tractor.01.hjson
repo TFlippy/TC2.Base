@@ -123,8 +123,8 @@ control:
 
 tractor:
 {
-	speed: 16.000
-	brake_step: 20.000
+	speed: 17.000
+	brake_step: 24.000
 	speed_step: 10.000
 }
 

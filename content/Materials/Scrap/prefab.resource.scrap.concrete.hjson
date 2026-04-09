@@ -12,7 +12,7 @@ body:
 	@shape.circle:
 	{
 		material: concrete
-		miss_chance: 0.000
+		miss_chance: 0.850
 		flags: none
 		tags: heavy, large, solid, hard
 		
@@ -20,7 +20,7 @@ body:
 		// mask: world, rubble, bulk, solid
 		// exclude: attached, stored, tree, background
 
-		layer: entity, solid, resource, ignore_melee, ignore_bullet
+		layer: entity, solid, resource, ignore_melee
 		mask: world
 		
 		radius: 0.750
@@ -84,7 +84,7 @@ despawn:
 	amount_ratio_extra: 0.050
 	
 	threshold_delete: 0.002
-	threshold_despawning: 0.100
+	threshold_despawning: 0.050
 	
 	interval: 1.000
 	interval_extra: 12.000

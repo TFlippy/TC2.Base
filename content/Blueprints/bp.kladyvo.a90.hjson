@@ -1,14 +1,14 @@
 ﻿{
-	$version: "0.1.62.5"
+	$version: "0.1.72.1"
 	name: "Kladyvo A90"
 	description:
 		'''
-		Portable shoulder-mounted autocannon.
+		Portable shoulder-mounted machine gun.
 		'''
 	
 	flags: hidden
 	
-	h_company: "null"
+	h_company: houfmistr
 	h_prefab: lmg
 	h_recipe: gunsmith.lmg
 	

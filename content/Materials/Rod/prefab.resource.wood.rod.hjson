@@ -16,7 +16,7 @@ body:
 			[-0.625, 0.625]
 		]
 		radius: 0.375		
-		miss_chance: 0.153
+		miss_chance: 0.653
 		
 		friction: 0.650
 		elasticity: 0.500

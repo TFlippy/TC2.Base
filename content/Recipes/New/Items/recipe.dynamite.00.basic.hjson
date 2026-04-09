@@ -1,7 +1,21 @@
 ﻿{
-	$version: "0.1.67.1"
+	$version: "0.1.72.1"
 	name: "Dynamite"
 	tips: []
+	
+	related_materials:
+	{
+		nitroglycerine: ingredient, liquid, input, auto_generated
+		sawdust: powdered, ingredient, input, auto_generated
+		saltpeter: raw, powdered, ingredient, input, auto_generated
+		mush: residue, scrap, output, auto_generated
+		gunpowder: powdered, ingredient, input, auto_generated
+		tnt: ingredient, input, auto_generated
+		nitrocellulose: powdered, ingredient, input, auto_generated
+		porridge: ingredient, input, auto_generated
+		paper: input, auto_generated
+		glue: liquid, input, auto_generated
+	}
 	
 	stages:
 	[
@@ -63,17 +77,131 @@
 					
 					filter_tools:
 					{
-						include: paper, ruler, cutters, tweezers, magnifying_glass, paintbrush, stapler, file, knife
+						include: ruler, shovel, file, spatula, ladle, utensils
 					}
 					filter_infrastructure:
 					{
-						include: table, chair, structure
+						include: cauldron, dishes, barrel, bucket, liquid_container, blender, form
 					}
-					filter_environment:
+				}
+				{
+					name: "Nitro-Peter"
+					
+					type: undefined
+					flags: wip, auto_generated
+					
+					suffix: " (Nitro-Peter)"
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: nitroglycerine
+							amount: 4.783715
+							snapping: 0.100
+							falloff: 0.992
+							loss: 0.016
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: saltpeter
+							amount: 0.69697
+							snapping: 0.100
+							loss: 0.216
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: crushing
+							amount: 120.000
+							amount_min: 50.000
+							difficulty: 5
+							snapping: 5.000
+							falloff: 0.853
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: blending
+							amount: 300.000
+							amount_min: 150.000
+							difficulty: 7
+							snapping: 5.000
+							falloff: 0.794
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: mush
+							amount: 0.5779
+							amount_extra: 0.155
+							snapping: 0.010
+							group: 0
+							ratio: 0.267
+							flags: residue, stepped, scale_to_mass
+						}
+					]
+					
+					filter_tools:
 					{
-						include: workshop, office, stationary, clean, cozy, organized
-						exclude: wet
+						include: ruler, hammer, wrench, spanner, axe, shovel, file, chisel, spatula, crowbar, ladle, utensils
 					}
+					filter_infrastructure:
+					{
+						require: surface
+						include: cauldron, dishes, barrel, bucket, hard_surface, liquid_container, compactor, blender, press, form
+					}
+				}
+				{
+					name: "Unhappy"
+					
+					type: undefined
+					flags: wip, auto_generated
+					
+					suffix: " (Unhappy)"
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: nitroglycerine
+							amount: 3.287277
+							snapping: 0.100
+							falloff: 0.988
+							loss: 0.031
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: gunpowder
+							amount: 3.691304
+							snapping: 0.100
+							loss: 0.086
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: kneading
+							amount: 274.000
+							amount_min: 50.000
+							difficulty: 8
+							snapping: 5.000
+							falloff: 0.776
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+					]
 				}
 				{
 					name: "Trinitroigelit"
@@ -117,20 +245,6 @@
 							flags: stepped, conditional
 						}
 					]
-					
-					filter_tools:
-					{
-						include: paper, ruler, cutters, tweezers, magnifying_glass, paintbrush, stapler, file, knife
-					}
-					filter_infrastructure:
-					{
-						include: table, chair, structure
-					}
-					filter_environment:
-					{
-						include: workshop, office, stationary, clean, cozy, organized
-						exclude: wet
-					}
 				}
 				{
 					name: "D-Porridge"
@@ -186,16 +300,11 @@
 					
 					filter_tools:
 					{
-						include: paper, ruler, cutters, tweezers, magnifying_glass, paintbrush, stapler, file, knife
+						include: shovel, towel
 					}
 					filter_infrastructure:
 					{
-						include: table, chair, structure
-					}
-					filter_environment:
-					{
-						include: workshop, office, stationary, clean, cozy, organized
-						exclude: wet
+						include: dishes, compactor, blender, press, form
 					}
 				}
 			]
@@ -292,7 +401,7 @@
 	]
 	
 	type: workshop
-	flags: blueprintable, item, production, wip, converted
+	flags: blueprintable, item, production
 	tags: manual, crafting, simple, small, weapon, munitions, delicate, blending, explosive, dangerous
 	hints: none
 	connotations: none
@@ -315,7 +424,7 @@
 	
 	color_frame: "0xffcf392b"
 	color_button: "0xff9dd80f"
-	rank: 83.000
+	rank: -1.000
 	
 	min: 1
 	max: 16

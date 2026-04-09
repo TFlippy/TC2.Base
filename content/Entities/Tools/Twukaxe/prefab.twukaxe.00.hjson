@@ -55,7 +55,7 @@ melee:
 	armor_pierce: 140.000
 	
 	secondary_damage_multiplier: 0.940
-	terrain_damage_multiplier: 5.000
+	terrain_damage_multiplier: 4.000
 	stun_multiplier: 1.190
 	
 	cooldown: 0.300

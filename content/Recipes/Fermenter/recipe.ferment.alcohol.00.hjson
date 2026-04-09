@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.0"
+	$version: "0.1.72.1"
 	name: "Alcoholic"
 	desc:
 		'''
@@ -9,8 +9,13 @@
 	
 	related_materials:
 	{
-		alcohol: product, result
-		mulch: product, result
+		alcohol: product, result, byproduct, liquid, output
+		mulch: residue, raw, waste, product, result, output
+		sugar: powdered, ingredient, input, auto_generated
+		sawdust: powdered, ingredient, input, auto_generated
+		plants: raw, ingredient, input, auto_generated
+		rot: raw, waste, output, auto_generated
+		carbon_dioxide: waste, gas, byproduct, output, auto_generated
 	}
 	
 	stages:
@@ -25,7 +30,6 @@
 			discard_damage_type: rotting
 			
 			ratio: 1.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -103,8 +107,8 @@
 						{
 							type: resource
 							material: rot
-							amount: 8.751515
-							amount_extra: 2.856715
+							amount: 3.13659
+							amount_extra: 1.023857
 							group: 0
 							flags: waste
 						}
@@ -139,7 +143,6 @@
 			discard_damage_type: rotting
 			
 			ratio: 1.000
-			mass_base: 0.000
 			
 			options:
 			[

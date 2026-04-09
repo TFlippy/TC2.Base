@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.8"
+	$version: "0.1.72.1"
 	name: "Bedrock"
 	desc:
 		'''
@@ -8,7 +8,7 @@
 	
 	material_type: stone_dense
 	tile_flags: non_empty
-	flags: raw, rock
+	flags: raw, common, rock
 	
 	max_health: 18446740000000000000.000
 	smoothing: 0.250
@@ -17,6 +17,7 @@
 	strength_compressive: 100.000
 	
 	mass: 12.000
+	density: 0.000
 	friction: 0.850
 	elasticity: 0.410
 	fall_damage_mult: 1.350

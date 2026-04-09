@@ -1,0 +1,123 @@
+﻿{
+	$prefab: "g.settlement.factory.00"
+	$version: "0.1.62.0"
+	name: "Kolomaz Komplex"
+	name_short: "Kolomaz Komplex"
+	desc:
+		'''
+		Huge industrial complex, housing most of Tanhauzr prefecture's factories and research facilities.
+
+		What isn't processed in Trphajzel's factories, it is processed here.
+		'''
+	
+	post_code: "KMZ"
+	
+	type: factory_complex
+	flags: spawn
+	categories: military, imperial, industrial, wasteland, commercial, residential, penal, urban, administrative, magitech, agricultural, wealthy, advanced, secure, fortified, innovative, powerful, modern, expansive, excavated, polluted, forested, mechanized, authoritarian, regulated, dangerous
+	buildings: warehouse, factory, office, bunker, hotel, hospital, airport, trainyard, minefield, artillery, power_plant, skyscraper, tower, walls, prison, labor_camp, theatre, constabulary, foundry, manufactory, refinery, borehole, checkpoint, customs, slum, laboratory, university, school, bar, apartments, barracks, subway, train_station, exchange, arsenal, scrapyard, landfill, brewery, metalworks, market, fuel_depot
+	industry_primary: none
+	industry: none
+	goods_trading: none
+	goods_demanded: none
+	goods_produced: none
+	crime: none
+	geography: none
+	
+	// Urban development, population density.
+	urbanization: 0.870
+	// Availability and utilization of advanced technology.
+	technology: 0.870
+	// Industrial production, mechanization, engineering.
+	industrialization: 0.930
+	// Literacy, availability of education, skilled workers.
+	education: 0.710
+	// Standard of living, overall wealth of population and government.
+	wealth: 0.562
+	// Nature, wildlife, overgrowth, untamed nature.
+	wilderness: 0.010
+	// Environmental damage, pollution, wastelandness.
+	devastation: 0.583
+	// Brutality of nature and population.
+	savagery: 0.120
+	// Lawlessness, lack of organization.
+	anarchy: 0.020
+	// Economic strength, employment rate, flow of goods.
+	economy: 0.660
+	// Variance of population's social classes.
+	inequality: 0.598
+	// Crime rate, personal safety.
+	safety: 0.535
+	// Rate of expansion, economic and population growth.
+	growth: 0.964
+	// Military strength, security, access to weapons.
+	military: 0.476
+	// Height in meters above sea level.
+	elevation: 22.000
+	
+	statistics:
+	{
+		// Brutality of nature and population.
+		savagery: 0.120
+		// Literacy, availability of education, skilled workers.
+		education: 0.710
+		// Urban development, population density.
+		urbanization: 0.870
+		// Availability and utilization of advanced technology.
+		technology: 0.870
+		// Industrial production, mechanization, engineering.
+		industrialization: 0.930
+		// Standard of living, overall wealth of population and government.
+		wealth: 0.562
+		// Nature, wildlife, overgrowth, untamed nature.
+		wilderness: 0.010
+		// Environmental devastation, excavation, deforestation, wasteland-ness.
+		devastation: 0.583
+		// Lawlessness, lack of organization.
+		anarchy: 0.020
+		// Economic strength, employment rate, flow of goods.
+		economy: 0.660
+		// Variance of population's social classes.
+		inequality: 0.598
+		// Crime rate, personal safety.
+		safety: 0.535
+		// Rate of expansion, economic and population growth.
+		growth: 0.964
+		// Military strength, security, access to weapons.
+		military: 0.476
+	}
+	
+	population:
+	{
+		human: 500
+		kobold: 3000
+		giant: 50
+	}
+	
+	h_prefecture: tanhauzr
+	h_faction: krumpelstejn
+	h_company: refaktor
+	h_location_parent: "null"
+	size: 0.840
+	
+	color: "0xffffa82a"
+	
+	thumbnail:
+	{
+		texture: ui.thumbnail.industrial.01
+		mask: missing
+	}
+	
+	icon:
+	{
+		texture: worldmap.icons.01
+		mask: missing
+		size: [24, 24]
+		frame: [0, 2]
+	}
+	
+	icon_offset: [0.000, -0.500]
+	text_offset: [0.000, 0.125]
+	
+	point: [24, -17]
+}

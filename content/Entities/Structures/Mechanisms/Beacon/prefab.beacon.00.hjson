@@ -16,7 +16,7 @@ body:
 		flags: none
 		tags: none
 		
-		layer: entity, solid, item, conductive, magnetic, ignore_melee
+		layer: entity, solid, item, conductive, magnetic, ignore_melee, no_overlapped_placement
 		mask: world
 		exclude: none
 		

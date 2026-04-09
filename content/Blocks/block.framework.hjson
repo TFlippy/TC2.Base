@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.8"
+	$version: "0.1.72.1"
 	name: "Formwork (Empty)"
 	desc:
 		'''
@@ -8,7 +8,7 @@
 	
 	material_type: metal_frame
 	tile_flags: non_empty
-	flags: artificial, metal, construction
+	flags: artificial, magnetic, metal, construction
 	
 	max_health: 35000.000
 	smoothing: 0.200
@@ -16,7 +16,8 @@
 	strength_tensile: 30.000
 	strength_compressive: 14.000
 	
-	mass: 0.080
+	mass: 0.165234
+	density: 0.000
 	friction: 0.920
 	elasticity: 0.670
 	fall_damage_mult: 0.940
@@ -25,9 +26,9 @@
 	
 	texture: terrain.framework
 	pattern: pattern.framework
-	texture_scale: 1.370
+	texture_scale: 1.375
 	texture_overshoot: -0.030
-	texture_offset: -0.670
+	texture_offset: -0.875
 	
 	color_preview: "0x00000000"
 	color_fill: "0xff140e08"
@@ -36,7 +37,7 @@
 	[
 		{
 			material: steel.rod
-			quantity: 0.012
+			quantity: 0.022266
 		}
 		null
 	]
@@ -49,7 +50,7 @@
 		}
 		{
 			color: "0xff50514e"
-			tile_flags: non_empty
+			tile_flags: non_empty, transparent
 		}
 	]
 }

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.1"
+	$version: "0.1.72.1"
 	name: "Motor (Servus)"
 	tips:
 	[
@@ -7,6 +7,13 @@
 		"Unreliable, cheap"
 		"Very loud"
 	]
+	
+	related_materials:
+	{
+		steel.frames: input, auto_generated
+		machine_parts: input, auto_generated
+		actuator: input, auto_generated
+	}
 	
 	stages:
 	[
@@ -18,9 +25,6 @@
 			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -75,9 +79,6 @@
 			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -229,9 +230,6 @@
 			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[

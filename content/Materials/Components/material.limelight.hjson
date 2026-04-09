@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.2"
+	$version: "0.1.72.0"
 	$note: "- They're cheaper than their base materials due to government subsidies "
 	name: "Limelights"
 	name_short: "Limelights"
@@ -58,12 +58,10 @@
 	
 	commodity:
 	{
-		
 		flags: none
 		categories: none
 		
 		market_price: 92.000
-		
 		market_price_per_kg_auto: 26.90058
 	}
 }

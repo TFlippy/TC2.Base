@@ -1,11 +1,14 @@
 ﻿{
-	$version: "0.1.68.0"
+	$version: "0.1.72.1"
 	name: "Copper"
 	tips: []
 	
 	related_materials:
 	{
-		copper.powder: residue, powdered, product, result
+		copper.powder: residue, powdered, product, result, output
+		copper.ingot: source, input
+		copper: raw, input, auto_generated
+		scrap.copper: waste, scrap, output, auto_generated
 	}
 	
 	stages:
@@ -18,9 +21,6 @@
 			tags: material, raw, ingredient
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: none
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -81,9 +81,6 @@
 			tags: formula
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: none
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -184,7 +181,7 @@
 						{
 							type: work
 							work: drilling
-							amount: 417.000
+							amount: 117.000
 							amount_min: 210.000
 							difficulty: 13
 							snapping: 5.000
@@ -224,11 +221,10 @@
 					filter_tools:
 					{
 						require: hand_drill
-						include: screwdriver, chisel, pick, knife
+						include: hand_drill, screwdriver, chisel, pick, knife
 					}
 					filter_infrastructure:
 					{
-						require: vise
 						include: vise, rack, workbench
 					}
 				}

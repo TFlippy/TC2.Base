@@ -20,7 +20,7 @@ body:
 		mask: world, item
 		exclude: held, attached
 
-		miss_chance: 0.550
+		miss_chance: 0.750
 	}
 }
 

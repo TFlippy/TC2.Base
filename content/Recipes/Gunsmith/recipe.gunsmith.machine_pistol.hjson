@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.67.2"
+	$version: "0.1.72.1"
 	name: "Machine Pistol"
 	desc:
 		'''
@@ -7,6 +7,14 @@
 		Burns through ammunition rather quick.
 		'''
 	tips: []
+	
+	related_materials:
+	{
+		steel.rod: input, auto_generated
+		steel.frames: input, auto_generated
+		machine_parts: input, auto_generated
+		wood: raw, input, auto_generated
+	}
 	
 	stages:
 	[
@@ -58,7 +66,11 @@
 					filter_tools:
 					{
 						require: hand_drill
-						include: screwdriver, file, knife, scissors
+						include: hand_drill, screwdriver, chisel, pick, knife
+					}
+					filter_infrastructure:
+					{
+						include: vise, rack, workbench
 					}
 				}
 			]
@@ -132,7 +144,11 @@
 					filter_tools:
 					{
 						require: screwdriver, wrench, file
-						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, stapler, towel, tongs, pick, crowbar, knife
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, stapler, chisel, towel, tongs, pick, crowbar, knife, sandpaper, utensils
+					}
+					filter_infrastructure:
+					{
+						include: surface
 					}
 					filter_environment:
 					{
@@ -188,8 +204,8 @@
 					
 					filter_tools:
 					{
-						require: file, knife
-						include: hand_drill, screwdriver, pliers, file, chisel, knife, sandpaper
+						require: knife
+						include: screwdriver, file, chisel, knife, sandpaper
 					}
 				}
 			]

@@ -1,0 +1,61 @@
+﻿{
+	$version: "0.1.67.1"
+	name: "Poh"
+	name_plural: "Poh"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	prefab_male: poh
+	prefab_female: poh
+	flags: mammal, tameable, omnivore, wild, social
+	industries: none
+	
+	lifecycle:
+	{
+		age_child: 0.500
+		age_adolescent: 2.000
+		age_mature: 4.000
+		age_elder: 18.000
+	}
+	
+	sprite_head_male:
+	{
+		texture: poh.head
+		mask: missing
+		size: [16, 16]
+	}
+	sprite_head_female:
+	{
+		texture: poh.head
+		mask: missing
+		size: [16, 16]
+	}
+	
+	hair_colors:
+	[
+		"0xffffffff"
+	]
+	
+	sounds_idle_male: []
+	sounds_idle_female: []
+	
+	sounds_taunt_male: []
+	sounds_taunt_female: []
+	
+	sounds_talk_male: []
+	sounds_talk_female: []
+	
+	sounds_alert_male: []
+	sounds_alert_female: []
+	
+	sounds_pain_male: []
+	sounds_pain_female: []
+	
+	sounds_scream_male: []
+	sounds_scream_female: []
+	
+	sounds_death_male: []
+	sounds_death_female: []
+}

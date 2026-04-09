@@ -1,0 +1,18 @@
+﻿{
+	$version: "0.1.64.1"
+	nodes: []
+	
+	includes:
+	[
+		{
+			handle: munitions.00
+			weight_multiplier: 0.850
+			amount_multiplier: 0.700
+		}
+		{
+			handle: food.processed.00
+			weight_multiplier: 0.650
+			amount_multiplier: 0.500
+		}
+	]
+}

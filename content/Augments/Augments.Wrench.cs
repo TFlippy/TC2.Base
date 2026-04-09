@@ -15,6 +15,11 @@ namespace TC2.Base
 				name: "Add: Wrench",
 				description: "Allows the item to act as a wrench.",
 
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
+
 				can_add: static (ref Augment.Context context, in Holdable.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					return data.flags.HasAll(Holdable.Flags.Storable) && !data.flags.HasAny(Holdable.Flags.Disable_Control | Holdable.Flags.Disable_Parent_Facing) && !augments.HasAugment(handle) && !context.HasComponent<Wrench.Data>();
@@ -66,6 +71,11 @@ namespace TC2.Base
 				name: "Mode: Belts",
 				description: "Adds belt-manipulation functionality.",
 
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
+
 				can_add: static (ref Augment.Context context, in Wrench.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					return !augments.HasAugment(handle) && !context.HasComponent<Wrench.Mode.Belts.Data>();
@@ -88,6 +98,11 @@ namespace TC2.Base
 				category: "Wrench",
 				name: "Mode: Build",
 				description: "Adds building functionality.",
+
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
 
 				can_add: static (ref Augment.Context context, in Wrench.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
@@ -112,6 +127,11 @@ namespace TC2.Base
 				name: "Mode: Deconstruct",
 				description: "Adds deconstruction functionality.",
 
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
+
 				can_add: static (ref Augment.Context context, in Wrench.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					return !augments.HasAugment(handle) && !context.HasComponent<Wrench.Mode.Deconstruct.Data>();
@@ -134,6 +154,11 @@ namespace TC2.Base
 				category: "Wrench",
 				name: "Mode: Conveyors",
 				description: "Adds conveyor-manipulation functionality.",
+
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
 
 				can_add: static (ref Augment.Context context, in Wrench.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{

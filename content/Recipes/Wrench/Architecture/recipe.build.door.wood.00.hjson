@@ -33,7 +33,7 @@
 	[
 		{
 			type: prefab
-			prefab: door.wood
+			prefab: door.wood.00
 			amount: 1.000
 			group: 0
 		}
@@ -52,8 +52,8 @@
 	
 	icon:
 	{
-		texture: door.wood
-		mask: door.wood.mask
+		texture: door.wood.00
+		mask: door.wood.00.mask
 		size: [16, 24]
 	}
 	icon_offset: [8.000, 3.000]

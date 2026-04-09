@@ -1,6 +1,6 @@
 ﻿{
-	$version: "0.1.68.0"
-	name: "Dismantle Computron"
+	$version: "0.1.72.1"
+	name: "Dismantled Computron"
 	desc:
 		'''
 		Break down an immensely valuable marvel of magitronic engineering into a large pile of spare parts.
@@ -9,12 +9,14 @@
 	
 	related_materials:
 	{
-		pellet.cognition: product, result
-		directors: residue, result
-		actuator: residue, result
-		machine_parts: residue, result
-		steel.frames: residue, result
-		scrap.arcane: residue, waste, result
+		pellet.cognition: product, result, byproduct, output
+		directors: residue, product, result, byproduct, output
+		actuator: residue, product, result, byproduct, output
+		machine_parts: residue, result, output
+		steel.frames: residue, flattened, result, output
+		scrap.arcane: residue, waste, result, scrap, output
+		computer: input, auto_generated
+		scrap.machine: waste, scrap, output, auto_generated
 	}
 	
 	stages:
@@ -29,7 +31,6 @@
 			discard_damage_type: sledgehammer
 			
 			ratio: 1.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -184,7 +185,7 @@
 	}
 	icon_c_offset: [-14.000, -8.000]
 	
-	color_frame: "0xffac7534"
+	color_frame: "0xff19e2b1"
 	color_button: "0xff9dd80f"
 	rank: -134.000
 	

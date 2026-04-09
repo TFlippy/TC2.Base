@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.70.1"
+	$version: "0.1.72.1"
 	$author: "KoreZack"
 	name: "Glass Sintering"
 	desc:
@@ -11,8 +11,8 @@
 	
 	related_materials:
 	{
-		glass: flattened, solidified, product, result, manufactured, processed
-		glass.powder: ruined, residue, source, waste, powdered, ingredient, result, byproduct
+		glass: flattened, solidified, product, result, manufactured, processed, output
+		glass.powder: ruined, residue, source, waste, powdered, ingredient, result, byproduct, input, output, feedstock
 	}
 	
 	stages:
@@ -25,9 +25,6 @@
 			tags: material, formula, ingredient
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -60,9 +57,6 @@
 			tags: thin, flat, dangerous, formula
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: fracture
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -137,7 +131,7 @@
 	tags: basic, simple, delicate, metallurgy, refining, heating, processing
 	hints: materials, civilian
 	connotations: none
-	infrastructure: surface, heater
+	infrastructure: oven, shaping_mould, heater
 	infrastructure_exclude: none
 	
 	icon:

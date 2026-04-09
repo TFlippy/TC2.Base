@@ -76,21 +76,21 @@ namespace TC2.Base.Components
 						Particle.Spawn(ref region, new Particle.Data()
 						{
 							texture = texture_metal_spark,
-							lifetime = random.NextFloatRange(2.00f, 5.00f) * modifier,
+							lifetime = random.NextFloatRange(2.00f, 6.00f) * modifier,
 							pos = transform.position + random.NextVector2(0.25f),
-							vel = (random.NextUnitVector2Range(5, 10) * modifier) + new Vector2(0.00f, random.NextFloatRange(-10.00f, 20.00f)),
+							vel = (random.NextUnitVector2Range(5, 20) * modifier) + new Vector2(0.00f, random.NextFloatRange(-10.00f, 20.00f)),
 							fps = 16,
 							frame_count = 4,
 							frame_offset = random.NextByteRange(0, 4),
 							frame_count_total = 4,
-							scale = random.NextFloatRange(0.70f, 0.90f),
+							scale = random.NextFloatRange(1.10f, 1.40f),
 							growth = -random.NextFloatRange(0.10f, 0.20f),
-							force = new Vector2(0.00f, random.NextFloatRange(5.00f, 30.00f)),
+							force = new Vector2(0.00f, random.NextFloatRange(1.00f, 30.00f)),
 							stretch = new Vector2(random.NextFloatRange(3.00f, 8.00f) * modifier, random.NextFloatRange(0.20f, 0.50f)),
 							drag = random.NextFloatRange(0.00f, 0.02f),
 							lit = random.NextFloatRange(0.50f, 1.00f),
 							color_a = random.NextColor32Range(0xffffffff, 0xffffc0b0),
-							color_b = random.NextColor32Range(0x00ffffff, 0x00ffffff),
+							color_b = random.NextColor32Range(0x8fffffff, 0x00804020),
 							face_dir_ratio = 1.00f
 						});
 
@@ -106,7 +106,7 @@ namespace TC2.Base.Components
 						lifetime = random.NextFloatRange(0.05f, 0.10f),
 						pos = transform.position,
 						vel = random.NextUnitVector2Range(10.00f, 30.00f),
-						scale = random.NextFloatRange(40.00f, 80.00f) * modifier,
+						scale = random.NextFloatRange(10.00f, 30.00f) * modifier,
 						rotation = random.NextFloatRange(-3.50f, 3.50f),
 						angular_velocity = random.NextFloat(0.50f),
 						growth = random.NextFloatRange(30.00f, 100.00f),

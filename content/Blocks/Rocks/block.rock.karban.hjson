@@ -1,0 +1,67 @@
+﻿{
+	$version: "0.1.73.0"
+	name: "Karban"
+	desc:
+		'''
+		Mercury-rich carbonaceous rock with a dark, pearly luster.
+		'''
+	
+	material_type: coal
+	tile_flags: non_empty
+	flags: raw, ore, uncommon, fuel, mineral, porous, rock
+	
+	max_health: 16950.000
+	smoothing: 0.150
+	stability: 2.110
+	strength_tensile: 1.100
+	strength_compressive: 0.700
+	
+	mass: 2.20675
+	density: 0.000
+	friction: 0.940
+	elasticity: 0.310
+	fall_damage_mult: 1.130
+	collision_layer: none
+	collision_mask: none
+	
+	texture: terrain.rock.karban
+	pattern: pattern.stone
+	texture_scale: 1.430
+	texture_overshoot: -0.200
+	texture_offset: 0.375
+	
+	color_preview: "0xff282827"
+	color_fill: "0xff140e08"
+	
+	resources:
+	[
+		{
+			material: karban
+			quantity: 2.960557
+		}
+		{
+			material: mercury
+			quantity: 0.091983
+		}
+	]
+	
+	mappings:
+	[
+		{
+			color: "0xff282827"
+			tile_flags: solid, non_empty, ground, no_replace
+		}
+		{
+			color: "0xff35312b"
+			tile_flags: solid, non_empty, ground, no_replace
+		}
+	]
+	
+	related:
+	{
+		karban: raw, ore, similar, element, natural, result
+		graphite: raw, ore, similar
+		graphite.powder: raw, ore, crushed, similar, powdered
+		mercury: residue, filler, impurity, extracted
+	}
+}

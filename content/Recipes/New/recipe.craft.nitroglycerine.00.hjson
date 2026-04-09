@@ -1,6 +1,6 @@
 ﻿{
-	$version: "0.1.68.1"
-	name: "RS-Nitroglycerine"
+	$version: "0.1.72.1"
+	name: "Hornet-Nitroglycerine"
 	desc:
 		'''
 		Red Sugar
@@ -9,8 +9,17 @@
 	
 	related_materials:
 	{
-		nitroglycerine: reaction, chemical, product, result, manufactured, liquid, processed
-		nitrosugar: residue, reaction, chemical, solidified, product, result, byproduct, processed
+		nitroglycerine: reaction, chemical, product, result, manufactured, liquid, processed, output
+		nitrosugar: residue, reaction, chemical, solidified, product, result, byproduct, processed, output
+		red_sugar: raw, ingredient, input, auto_generated
+		alcohol: ingredient, liquid, input, auto_generated
+		nitric_acid: liquid, input, auto_generated
+		sulfuric_acid: liquid, input, auto_generated
+		water.toxic: raw, waste, liquid, output, auto_generated
+		nitrogen_dioxide: waste, gas, output, auto_generated
+		water: raw, liquid, input, auto_generated
+		water.red: residue, waste, liquid, output, auto_generated
+		tar: residue, raw, waste, output, auto_generated
 	}
 	
 	stages:
@@ -23,9 +32,6 @@
 			tags: material, formula, ingredient
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: heat
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -42,9 +48,9 @@
 						{
 							type: resource
 							material: red_sugar
-							amount: 1.6205
+							amount: 0.821875
 							snapping: 0.100
-							falloff: 0.972
+							falloff: 0.990
 							loss: 1.000
 							ratio: 1.000
 							group: 0
@@ -53,7 +59,7 @@
 						{
 							type: resource
 							material: alcohol
-							amount: 0.499405
+							amount: 0.588691
 							snapping: 0.100
 							falloff: 0.971
 							loss: 0.231
@@ -84,7 +90,7 @@
 							amount_extra: 0.0923
 							snapping: 0.100
 							group: 0
-							ratio: 0.153
+							ratio: 0.129
 							flags: primary, compact, scale_to_mass
 						}
 						{
@@ -94,7 +100,7 @@
 							amount_extra: 0.2293
 							snapping: 0.100
 							group: 0
-							ratio: 0.243
+							ratio: 0.071
 							flags: residue, byproduct, scale_to_mass
 						}
 					]
@@ -123,9 +129,6 @@
 			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: corrosion
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -213,12 +216,22 @@
 						{
 							type: resource
 							material: nitroglycerine
-							amount: 0.856
-							amount_extra: 0.142
+							amount: 0.837
+							amount_extra: 0.124
 							snapping: 0.100
 							group: 0
-							ratio: 0.267
+							ratio: 0.357
 							flags: primary, compact, scale_to_mass
+						}
+						{
+							type: resource
+							material: nitrosugar
+							amount: 0.0931
+							amount_extra: 0.2293
+							snapping: 0.100
+							group: 0
+							ratio: 0.353
+							flags: residue, byproduct, scale_to_mass
 						}
 						{
 							type: resource
@@ -227,7 +240,7 @@
 							amount_extra: 0.130
 							snapping: 0.100
 							group: 0
-							ratio: 0.639
+							ratio: 0.518
 							flags: pollutant, waste, scale_to_mass
 						}
 						{
@@ -237,7 +250,7 @@
 							amount_extra: 0.457
 							snapping: 0.100
 							group: 0
-							ratio: 0.310
+							ratio: 0.376
 							flags: pollutant, waste, spawn, use_temperature, scale_to_mass
 						}
 					]
@@ -281,9 +294,6 @@
 			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: none
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -342,7 +352,7 @@
 							amount_extra: 0.480
 							snapping: 0.100
 							group: 0
-							ratio: 0.616
+							ratio: 0.592
 							flags: pollutant, waste, residue, scale_to_mass
 						}
 						{
@@ -352,7 +362,7 @@
 							amount_extra: 0.498
 							snapping: 0.100
 							group: 0
-							ratio: 0.710
+							ratio: 0.722
 							flags: waste, residue, scale_to_mass
 						}
 					]
@@ -390,15 +400,14 @@
 		size: [16, 16]
 		frame: [3, 0]
 	}
-	icon_offset: [8.000, 2.000]
+	icon_offset: [-9.000, 3.000]
 	
 	icon_extra:
 	{
-		texture: resource.nitrosugar
+		texture: resource.nitric_acid
 		size: [16, 16]
-		frame: [1, 0]
 	}
-	icon_extra_offset: [-20.000, -6.000]
+	icon_extra_offset: [3.000, -6.000]
 	
 	icon_c:
 	{
@@ -406,7 +415,7 @@
 		size: [16, 16]
 		frame: [1, 0]
 	}
-	icon_c_offset: [-16.000, -14.000]
+	icon_c_offset: [-3.000, -22.000]
 	
 	color_frame: "0xffcf392b"
 	color_button: "0xff9dd80f"

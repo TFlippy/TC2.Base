@@ -1,0 +1,97 @@
+﻿{
+	$version: "0.1.72.1"
+	name: "Driller"
+	tips: []
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: steel.rod
+			amount: 10.000
+			group: 0
+			flags: prerequisite
+		}
+	]
+	
+	products:
+	[
+		{
+			type: prefab
+			prefab: driller.00
+			amount: 1.000
+			group: 0
+			flags: primary
+		}
+	]
+	
+	type: industry
+	flags: no_amount_multiplier, blueprintable, debug, wip, no_cancel
+	tags: complex, large, device, machinery, assembling, industrial, metalworking, engineering, construction
+	hints: tools, heavy, advanced, machine, destructive, mining, construction, gathering, device, industrial, tech, clumsy, large
+	connotations: heavy, interesting, machine, destructive, mining, construction, loud, industrial, scary, boring
+	infrastructure: none
+	infrastructure_exclude: none
+	
+	dismantle_work: 7.000
+	dismantle_yield: 0.800
+	
+	icon:
+	{
+		texture: driller.00
+		size: [40, 64]
+	}
+	
+	color_frame: "0xffffe507"
+	color_button: "0xff9dd80f"
+	rank: -397.000
+	frame_size: [64.000, 64.000]
+	
+	placement:
+	{
+		type: simple
+		flags: require_terrain, terrain_is_support, no_solid_support, require_snapped
+		
+		size: [4.000, 6.000]
+		radius: 0.500
+		
+		rect_foundation: [-1.250, 0.000, 1.250, 4.000]
+		tileflags_foundation: solid
+		
+		rect_clearance: [-1.000, -3.500, 1.000, 0.000]
+		tileflags_clearance: solid
+		
+		cooldown: 1.000
+		min_support: 0.950
+		min_clearance: 0.965
+		min_claim: 1.000
+		
+		rotation_max: 0.8836
+		rotation_step: 0.0491
+		rotation_offset: 3.1416
+		
+		sound: building_place
+		
+		physics_filter:
+		{
+			include: no_overlapped_placement
+		}
+		
+		snapping_filter:
+		{
+			require: world
+			include: world
+			exclude: construction, dynamic
+		}
+		snapping_flags: force, snap_to_surface, align_to_surface, use_collider_radius
+		snapping_radius: 0.500
+		snapping_depth: -0.125
+		
+		mappings_replace:
+		{
+		
+		}
+	}
+	
+	version: 1
+}

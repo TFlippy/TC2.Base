@@ -1,7 +1,16 @@
 ﻿{
-	$version: "0.1.68.1"
+	$version: "0.1.72.1"
 	name: "Twuk-Axe"
 	tips: []
+	
+	related_materials:
+	{
+		twuk: raw, input, auto_generated
+		machine_parts: input, auto_generated
+		wood: raw, input, auto_generated
+		wood.rod: input, auto_generated
+		glue: liquid, input, auto_generated
+	}
 	
 	stages:
 	[
@@ -14,7 +23,6 @@
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
 			
-			ratio: 0.000
 			mass_base: 5.200
 			
 			options:
@@ -104,7 +112,6 @@
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: axe
 			
-			ratio: 0.000
 			mass_base: 0.400
 			
 			options:
@@ -216,9 +223,6 @@
 			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[

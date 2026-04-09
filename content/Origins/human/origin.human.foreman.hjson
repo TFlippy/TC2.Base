@@ -1,0 +1,280 @@
+﻿{
+	$version: "0.1.67.1"
+	name: "Foreman"
+	desc:
+		'''
+		Following the disappearance of your construction crew and the leading architect, you're now looking for a new job.
+		'''
+	
+	money: 465.000
+	age: [28.000, 30.000, 32.000, 40.000, 50.000, 70.000]
+	genders: male, female
+	gender_ratio: 0.030
+	species: human
+	cost: 0.000
+	flags: none
+	
+	character_flags: construction, artisan, laborer, civillian, armed, social, technician, engineer, nomad, middle_class
+	character_flags_optional: none
+	
+	industry_flags: none
+	industry_flags_optional: none
+	
+	service_flags: none
+	service_flags_optional: none
+	
+	crime_flags: none
+	crime_flags_optional: none
+	
+	kit_filter_secondary:
+	{
+		chance: 1.000
+		
+		categories:
+		{
+			require: gun, small
+			include: tools, weapon, gun, short_range, small, cheap
+			exclude: primitive, expensive, fancy
+			weight: 1.000
+		}
+	}
+	
+	kit_filter_tool:
+	{
+		chance: 1.000
+		
+		categories:
+		{
+			require: none
+			include: tools, construction, device
+			exclude: junk, primitive, machine, expensive, fancy, cheap
+			weight: 0.700
+		}
+	}
+	
+	kit_filter_utility:
+	{
+		chance: 0.400
+		
+		categories:
+		{
+			require: none
+			include: food, small, drug, consumable, construction, device, cheap
+			exclude: junk, primitive, machine, expensive, fancy
+			weight: 1.000
+		}
+	}
+	
+	kit_filter_resources:
+	{
+		chance: 0.102
+		
+		categories:
+		{
+			require: none
+			include: construction
+			exclude: primitive, expensive, fancy
+			weight: 1.000
+		}
+	}
+	
+	conditions:
+	{
+		weight_mult: 0.870
+		
+		industry:
+		{
+			require: none
+			include: agricultural, mining, manufacturing, low_tech, high_tech, metallurgy, scrap, automotive, military, logging
+			exclude: none
+			weight: 10.000
+		}
+		
+		crime:
+		{
+			require: none
+			include: slavery, vandalism, smuggling
+			exclude: none
+			weight: 5.000
+		}
+		
+		geography:
+		{
+			require: none
+			include: excavated, wasteland
+			exclude: none
+			weight: 10.000
+		}
+		
+		urbanization:
+		{
+			min: 0.200
+			mid: 0.900
+			max: 0.000
+			weight: 30.000
+		}
+		
+		industrialization:
+		{
+			min: 0.200
+			mid: 0.700
+			max: 0.000
+			weight: 80.000
+		}
+		
+		education:
+		{
+			min: 0.170
+			mid: 0.500
+			max: 0.000
+			weight: 5.000
+		}
+		
+		wealth:
+		{
+			min: 0.100
+			mid: 0.400
+			max: 0.000
+			weight: 5.000
+		}
+		
+		wilderness:
+		{
+			min: 0.350
+			mid: 0.700
+			max: 0.000
+			weight: -5.000
+		}
+		
+		devastation:
+		{
+			min: 0.000
+			mid: 0.500
+			max: 0.000
+			weight: 25.000
+		}
+		
+		savagery:
+		{
+			min: 0.150
+			mid: 0.800
+			max: 0.000
+			weight: 30.000
+		}
+		
+		anarchy:
+		{
+			min: 0.100
+			mid: 0.500
+			max: 0.800
+			weight: 5.000
+		}
+		
+		safety:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		pollution:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		destruction:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		inequality:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		unrest:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		corruption:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		prestige:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		elevation:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+	}
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: money
+			amount: 449.000
+			group: 0
+		}
+	]
+	
+	experience:
+	{
+		handguns: 3
+		rifles: 2
+		explosives: 3
+		mining: 5
+		woodcutting: 2
+		construction: 8
+		masonry: 10
+		carpentry: 8
+		engineering: 6
+		blacksmithing: 3
+		arcanology: 6
+		strength: 10
+		dexterity: 7
+		endurance: 8
+		intellect: 7
+		geology: 2
+		metallurgy: 6
+		medicine: 3
+		commerce: 4
+		charisma: 8
+		leadership: 12
+		blades: 3
+		axes: 5
+		clubs: 9
+		alchemistry: 2
+		farming: 0
+		animals: 2
+		scavenging: 3
+		law: 6
+	}
+}

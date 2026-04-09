@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.1"
+	$version: "0.1.72.1"
 	name: "Gunpowder"
 	desc:
 		'''
@@ -9,8 +9,15 @@
 	
 	related_materials:
 	{
-		gunpowder: product, result
+		gunpowder: powdered, product, result, output
 		coal.powder: residue, powdered, result
+		saltpeter: raw, powdered, ingredient, input, auto_generated
+		charcoal: residue, raw, ingredient, byproduct, input, output, auto_generated
+		sulfur: raw, powdered, ingredient, input, auto_generated
+		graphite.powder: powdered, result, byproduct, output, auto_generated
+		ash: residue, raw, powdered, output, auto_generated
+		scrap.charred: waste, ingredient, scrap, input, output, auto_generated
+		tar: residue, raw, output, auto_generated
 	}
 	
 	stages:
@@ -23,9 +30,6 @@
 			tags: material, formula
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -299,8 +303,6 @@
 	connotations: none
 	infrastructure: surface
 	infrastructure_exclude: none
-	
-	h_company: carohrad
 	
 	icon:
 	{

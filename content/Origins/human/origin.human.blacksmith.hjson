@@ -1,0 +1,293 @@
+﻿{
+	$version: "0.1.67.1"
+	name: "Blacksmith"
+	desc:
+		'''
+		After being replaced by a metal press, you now travel the Imperial lands, searching for a place with no metal press.
+		'''
+	
+	money: 180.000
+	age: [18.000, 24.000, 30.000, 32.000, 35.000, 37.000, 40.000, 50.000, 70.000]
+	genders: male, female
+	gender_ratio: 0.010
+	species: human
+	cost: 0.000
+	flags: none
+	
+	character_flags: artisan, laborer, civillian, armed, lower_middle_class
+	character_flags_optional: none
+	
+	industry_flags: none
+	industry_flags_optional: none
+	
+	service_flags: none
+	service_flags_optional: none
+	
+	crime_flags: none
+	crime_flags_optional: none
+	
+	kit_filter_secondary:
+	{
+		chance: 1.000
+		
+		categories:
+		{
+			require: weapon, small
+			include: armor, tools, weapon, heavy, melee, gun, small, mining, construction, device
+			exclude: primitive, expensive, fancy
+			weight: 1.000
+		}
+	}
+	
+	kit_filter_tool:
+	{
+		chance: 0.502
+		
+		categories:
+		{
+			require: none
+			include: tools, machine, construction, device, cheap
+			exclude: junk, primitive, expensive, fancy
+			weight: 0.700
+		}
+	}
+	
+	kit_filter_utility:
+	{
+		chance: 0.302
+		
+		categories:
+		{
+			require: none
+			include: food, small, drug, consumable, construction, device, cheap
+			exclude: junk, primitive, expensive, fancy
+			weight: 1.000
+		}
+	}
+	
+	kit_filter_head:
+	{
+		chance: 1.000
+		
+		categories:
+		{
+			require: armor
+			include: armor
+			exclude: junk, primitive, expensive, fancy
+			weight: 1.000
+		}
+	}
+	
+	kit_filter_resources:
+	{
+		chance: 0.702
+		
+		categories:
+		{
+			require: none
+			include: machine, construction, device
+			exclude: primitive, expensive, fancy
+			weight: 1.000
+		}
+	}
+	
+	conditions:
+	{
+		weight_mult: 0.720
+		
+		industry:
+		{
+			require: none
+			include: manufacturing, low_tech, high_tech, metallurgy, scrap, automotive, military
+			exclude: none
+			weight: 10.000
+		}
+		
+		crime:
+		{
+			require: none
+			include: none
+			exclude: none
+			weight: 5.000
+		}
+		
+		geography:
+		{
+			require: none
+			include: none
+			exclude: none
+			weight: 10.000
+		}
+		
+		urbanization:
+		{
+			min: 0.060
+			mid: 0.330
+			max: 0.680
+			weight: 10.000
+		}
+		
+		industrialization:
+		{
+			min: 0.100
+			mid: 0.200
+			max: 0.500
+			weight: 50.000
+		}
+		
+		education:
+		{
+			min: 0.100
+			mid: 0.500
+			max: 0.000
+			weight: 10.000
+		}
+		
+		wealth:
+		{
+			min: 0.100
+			mid: 0.400
+			max: 0.000
+			weight: 10.000
+		}
+		
+		wilderness:
+		{
+			min: 0.350
+			mid: 0.700
+			max: 0.000
+			weight: -5.000
+		}
+		
+		devastation:
+		{
+			min: 0.000
+			mid: 0.500
+			max: 0.000
+			weight: 25.000
+		}
+		
+		savagery:
+		{
+			min: 0.150
+			mid: 0.800
+			max: 0.000
+			weight: 5.000
+		}
+		
+		anarchy:
+		{
+			min: 0.100
+			mid: 0.500
+			max: 0.000
+			weight: 10.000
+		}
+		
+		safety:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		pollution:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		destruction:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		inequality:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		unrest:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		corruption:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		prestige:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		elevation:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+	}
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: money
+			amount: 529.000
+			group: 0
+		}
+	]
+	
+	experience:
+	{
+		handguns: 5
+		rifles: 6
+		explosives: 4
+		mining: 5
+		woodcutting: 2
+		construction: 11
+		masonry: 1
+		carpentry: 3
+		engineering: 4
+		blacksmithing: 12
+		arcanology: 5
+		strength: 13
+		dexterity: 6
+		endurance: 8
+		intellect: 7
+		geology: 1
+		metallurgy: 11
+		medicine: 2
+		commerce: 6
+		charisma: 4
+		leadership: 2
+		blades: 8
+		axes: 8
+		clubs: 8
+		alchemistry: 4
+		farming: 0
+		animals: 1
+		scavenging: 3
+		law: 0
+	}
+}

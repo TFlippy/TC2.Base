@@ -15,6 +15,11 @@ namespace TC2.Base
 				name: "Brake",
 				description: "",
 
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
+
 				can_add: static (ref Augment.Context context, in Tractor.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					return !augments.HasAugment(handle);
@@ -48,6 +53,11 @@ namespace TC2.Base
 				category: "Mount",
 				name: "Trajectory Calculator",
 				description: "",
+
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
 
 				can_add: static (ref Augment.Context context, in Mount.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{

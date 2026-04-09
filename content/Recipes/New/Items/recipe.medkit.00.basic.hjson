@@ -1,7 +1,15 @@
 ﻿{
-	$version: "0.1.68.0"
+	$version: "0.1.72.1"
 	name: "Medkit"
 	tips: []
+	
+	related_materials:
+	{
+		alcohol: liquid, input, auto_generated
+		paper: input, auto_generated
+		cloth: input, auto_generated
+		steel.frames: input, auto_generated
+	}
 	
 	stages:
 	[

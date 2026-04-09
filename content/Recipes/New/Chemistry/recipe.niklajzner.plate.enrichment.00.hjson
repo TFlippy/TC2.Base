@@ -1,11 +1,22 @@
 ﻿{
-	$version: "0.1.67.2"
+	$version: "0.1.72.1"
 	name: "Niklajzner Sheet"
 	desc:
 		'''
 		TODO: Desc
 		'''
 	tips: []
+	
+	related_materials:
+	{
+		niklajzner.plate: input, feedstock, auto_generated
+		steel.plate: flattened, product, result, output, auto_generated
+		steel.frames: flattened, product, result, output, auto_generated
+		black_coal: raw, ore, ingredient, input, auto_generated
+		karban: raw, ore, ingredient, input, auto_generated
+		mercury.vapor: residue, raw, waste, gas, vapor, output, auto_generated
+		scrap.charred: waste, scrap, output, auto_generated
+	}
 	
 	stages:
 	[
@@ -18,16 +29,13 @@
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
 			
-			ratio: 0.000
-			mass_base: 0.000
-			
 			options:
 			[
 				{
 					name: "Sheets"
 					
 					type: undefined
-					flags: requires_shipment
+					flags: none
 					discard_damage_type_override: sledgehammer
 					
 					suffix: "s"
@@ -41,7 +49,7 @@
 							snapping: 0.100
 							ratio: 1.000
 							group: 0
-							flags: argument, primary
+							flags: argument, primary, prerequisite
 						}
 					]
 					
@@ -64,7 +72,7 @@
 					name: "Frames"
 					
 					type: undefined
-					flags: requires_shipment
+					flags: none
 					discard_damage_type_override: handsaw
 					
 					suffix: " Frames"
@@ -79,7 +87,7 @@
 							loss: 0.024
 							ratio: 1.000
 							group: 0
-							flags: argument, primary
+							flags: argument, primary, prerequisite
 						}
 						{
 							type: work
@@ -131,16 +139,13 @@
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: heat
 			
-			ratio: 0.000
-			mass_base: 0.000
-			
 			options:
 			[
 				{
 					name: "Black Coal"
 					
 					type: undefined
-					flags: requires_shipment
+					flags: none
 					discard_damage_type_override: heat
 					
 					prefix: "Sooty "
@@ -156,6 +161,7 @@
 							loss: 0.671
 							ratio: 0.216
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: temperature
@@ -177,6 +183,83 @@
 							ratio: 0.204
 							group: 0
 							flags: conditional
+						}
+					]
+					
+					filter_infrastructure:
+					{
+						include: oven, forge, crucible
+					}
+					filter_environment:
+					{
+						include: machine, container, airtight, clean, reinforced, fireproof, sturdy, small
+					}
+				}
+				{
+					name: "Karban"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: heat
+					
+					prefix: "Grimdark "
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: karban
+							amount: 2.090909
+							snapping: 0.100
+							falloff: 0.772
+							loss: 0.761
+							ratio: 0.216
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: temperature
+							amount: 1016.800
+							amount_min: 851.000
+							amount_max: 1096.240
+							falloff: 2.085
+							group: 0
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: work
+							work: carburization
+							amount: 80.000
+							amount_min: 250.000
+							difficulty: 6
+							snapping: 20.000
+							falloff: 0.801
+							ratio: 0.239
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: scrap.charred
+							amount: 0.850
+							amount_extra: 0.182
+							snapping: 0.010
+							group: 0
+							ratio: 0.565
+							flags: waste, scale_to_mass
+						}
+						{
+							type: resource
+							material: mercury.vapor
+							amount: 0.850
+							amount_extra: 0.127
+							group: 0
+							ratio: 0.494
+							flags: pollutant, residue, spawn, use_temperature, scale_to_mass
 						}
 					]
 					

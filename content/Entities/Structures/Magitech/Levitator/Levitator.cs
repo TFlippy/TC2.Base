@@ -5,19 +5,32 @@ namespace TC2.Base.Components
 	{
 		public partial struct Node
 		{
+			[Flags]
+			public enum Flags: ushort
+			{
+				None = 0
+			}
+
 			public partial struct Setting
 			{
+				public byte index;
 				public Keyboard.Key? key;
+				public float? modifier;
 			}
 
 			[Editor.Picker.Direction(true, true)] public Vector2 dir;
 			[Editor.Picker.Position(true)] public Vector2 offset;
 
 			public float ratio;
+			public float modifier;
+			//public float modifier = 1.00f;
+
+			public Levitator.Node.Flags flags;
+			private ushort unused_01;
 			public Keyboard.Key key;
 		}
 
-		[IComponent.Data(Net.SendType.Reliable, region_only: true), IComponent.With<Levitator.State>]
+		[IComponent.Data(Net.SendType.Reliable, IComponent.Scope.Region), IComponent.With<Levitator.State>]
 		public partial struct Data(): IComponent
 		{
 			[Flags]
@@ -44,7 +57,7 @@ namespace TC2.Base.Components
 			[Editor.Picker.Position(true)] public Vector2 offset;
 		}
 
-		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
+		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region)]
 		public partial struct State(): IComponent
 		{
 			public FixedArray4<float> node_rates;
@@ -58,7 +71,7 @@ namespace TC2.Base.Components
 		public struct EditRPC: Net.IRPC<Levitator.Data>
 		{
 			public Levitator.Data.Flags? flags;
-			public FixedArray4<Levitator.Node.Setting> settings;
+			public Levitator.Node.Setting node_edit;
 
 #if SERVER
 			public void Invoke(Net.IRPC.Context rpc, ref Levitator.Data data)
@@ -71,25 +84,25 @@ namespace TC2.Base.Components
 				//	sync = true;
 				//}
 
-				for (var i = 0; i < this.settings.Length; i++)
-				{
-					ref var node_edit = ref this.settings[i];
-					ref var node = ref data.nodes[i];
+				//if (this.flags.HasValue)
+				//{
+				//	data.flags.TrySetFlagMasked(this.flags, data.flags_editable); // = (data.flags & ~data.flags_editable) | (this.flags.Value & data.flags_editable);
+				//	sync = true;
+				//}
 
-					if (node.ratio > Maths.epsilon)
-					{
-						if (node_edit.key.HasValue)
-						{
-							node.key = node_edit.key.Value;
-							sync = true;
-						}
-					}
-				}
+				sync |= data.flags.TrySetFlagMasked(this.flags, data.flags_editable);
 
-				if (this.flags.HasValue)
+				ref var node = ref data.nodes[this.node_edit.index];
+				if (node.ratio.IsNotNil())
 				{
-					data.flags = (data.flags & ~data.flags_editable) | (this.flags.Value & data.flags_editable);
-					sync = true;
+					sync |= node.key.TryChange(this.node_edit.key);
+					sync |= node.modifier.TrySet(this.node_edit.modifier, 0.00f, 1.00f);
+
+					//if (node_edit.key.HasValue)
+					//{
+					//	node.key = node_edit.key.Value;
+					//	sync = true;
+					//}
 				}
 
 				if (sync)
@@ -124,6 +137,7 @@ namespace TC2.Base.Components
 				{
 					var key = node.key;
 
+					// TODO: dumb
 					if (is_mirrored)
 					{
 						if (key.HasAny(Keyboard.Key.MoveLeft))
@@ -159,7 +173,7 @@ namespace TC2.Base.Components
 
 
 						offset += node.offset;
-			
+
 						if (essence_data.IsNotNull())
 						{
 							//var modifier = Maths.Clamp(force_len * 0.05f, 0.30f, 1.00f);
@@ -288,23 +302,23 @@ namespace TC2.Base.Components
 
 								var alpha = Maths.Clamp01(1.50f - result.alpha);
 
-//#if SERVER
-//								if (result.material_type == Material.Type.Foliage || result.material_type == Material.Type.Wood || result.material_type == Material.Type.Glass || result.material_type == Material.Type.Flesh)
-//								{
-//									var damage = force_len * 50.00f * alpha;
+								//#if SERVER
+								//								if (result.material_type == Material.Type.Foliage || result.material_type == Material.Type.Wood || result.material_type == Material.Type.Glass || result.material_type == Material.Type.Flesh)
+								//								{
+								//									var damage = force_len * 50.00f * alpha;
 
 
-//									Damage.Hit(ent_attacker: entity, ent_owner: entity, ent_target: result.entity,
-//										position: result.world_position, velocity: dir, normal: -dir,
-//										damage_integrity: damage, damage_durability: damage, damage_terrain: damage * 0.20f,
-//										target_material_type: result.material_type, damage_type: Damage.Type.Shockwave,
-//										yield: 0.00f, size: 4.00f, impulse: force_len * 0.25f);
-//									//entity.Hit(entity, result.entity, result.world_position, dir2, -dir2, force_len * 50.00f * alpha, result.material_type, Damage.Type.Shockwave, terrain_damage_multiplier: 0.20f, size: 4.00f, knockback: 15.00f, speed: 30.00f);
+								//									Damage.Hit(ent_attacker: entity, ent_owner: entity, ent_target: result.entity,
+								//										position: result.world_position, velocity: dir, normal: -dir,
+								//										damage_integrity: damage, damage_durability: damage, damage_terrain: damage * 0.20f,
+								//										target_material_type: result.material_type, damage_type: Damage.Type.Shockwave,
+								//										yield: 0.00f, size: 4.00f, impulse: force_len * 0.25f);
+								//									//entity.Hit(entity, result.entity, result.world_position, dir2, -dir2, force_len * 50.00f * alpha, result.material_type, Damage.Type.Shockwave, terrain_damage_multiplier: 0.20f, size: 4.00f, knockback: 15.00f, speed: 30.00f);
 
-//									App.WriteLine(damage);
-//									region.DrawDebugCircle(result.world_position, 1.00f, Color32BGRA.Red, 4.00f);
-//								}
-//#endif
+								//									App.WriteLine(damage);
+								//									region.DrawDebugCircle(result.world_position, 1.00f, Color32BGRA.Red, 4.00f);
+								//								}
+								//#endif
 
 								if (result.layer.HasAny(Physics.Layer.World | Physics.Layer.Essence))
 								{
@@ -489,7 +503,7 @@ namespace TC2.Base.Components
 					var noise_intensity = random.NextFloatRange(0.10f, 1.00f);
 
 					var color = essence_data.color_emit;
-					color = ColorBGRA.Lerp(color, 0xffffffff, random.NextFloatRange(0.00f, 0.50f));
+					color = ColorBGRA.Lerp(color, ColorBGRA.White, random.NextFloatRange(0.00f, 0.50f));
 					var color2 = essence_data.color_emit;
 
 
@@ -578,6 +592,7 @@ namespace TC2.Base.Components
 			public Entity ent_levitator;
 			public Levitator.Data levitator;
 			public Levitator.State levitator_state;
+			public Transform.Data transform;
 
 			public void Draw()
 			{
@@ -586,8 +601,7 @@ namespace TC2.Base.Components
 					this.StoreCurrentWindowTypeID();
 					if (window.show)
 					{
-						var rpc = new Levitator.EditRPC();
-						var sync = false;
+						ref var region = ref this.ent_levitator.GetRegion();
 
 						for (var i = 0; i < this.levitator.nodes.Length; i++)
 						{
@@ -595,24 +609,37 @@ namespace TC2.Base.Components
 							if (node.ratio > Maths.epsilon)
 							{
 								using (GUI.ID<Levitator.EditRPC, Keyboard.Key>.Push(i))
+								using (var group = GUI.Group.New(size: new(GUI.RmX, 48), padding: new(4)))
 								{
-									using (var group = GUI.Group.New(size: new Vector2(GUI.RmX, 48), padding: new Vector2(4, 4)))
-									{
-										GUI.DrawBackground(GUI.tex_panel, group.GetOuterRect(), new(4));
+									GUI.DrawBackground(GUI.tex_panel, group.GetOuterRect(), new(4));
 
-										if (GUI.EnumInput("key"u8, ref node.key, new Vector2(GUI.RmX, 40), show_label: false))
-										{
-											rpc.settings[i].key = node.key;
-											sync = true;
-										}
+									if (GUI.EnumInput("key"u8, ref node.key, GUI.Rm.SubX(32), show_label: false))
+									{
+										var rpc = new Levitator.EditRPC();
+										rpc.node_edit.index = (byte)i;
+										rpc.node_edit.key = node.key;
+										rpc.Send(this.ent_levitator);
+									}
+
+									GUI.SameLine();
+
+									if (GUI.SliderFloat("modifier"u8, ref node.modifier, min: 0.00f, max: 1.00f, size: GUI.Rm, vertical: true))
+									{
+										var rpc = new Levitator.EditRPC();
+										rpc.node_edit.index = (byte)i;
+										rpc.node_edit.modifier = node.modifier;
+										rpc.Send(this.ent_levitator);
 									}
 								}
-							}
-						}
+								if (GUI.IsItemHovered())
+								{
+									var pos_world = this.transform.LocalToWorld(this.levitator.offset + node.offset);
+									var cpos_world = region.WorldToCanvas(pos_world);
 
-						if (sync)
-						{
-							rpc.Send(this.ent_levitator);
+									GUI.DrawLine(a: cpos_world, b: region.WorldToCanvas(pos_world + this.transform.LocalToWorldDirection(node.dir * node.ratio * 4)), color: Color32BGRA.Yellow, thickness: 2.00f);
+									GUI.DrawCircleFilled(a: cpos_world, radius: region.GetWorldToCanvasScale() * 0.25f, color: Color32BGRA.Yellow, segments: 4);
+								}
+							}
 						}
 					}
 				}
@@ -620,16 +647,17 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.EarlyGUI(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void OnGUI([Source.Owned] in Interactable.Data interactable, Entity entity, 
-		[Source.Owned] in Levitator.Data levitator, [Source.Owned] in Levitator.State levitator_state)
+		public static void OnGUI([Source.Owned] in Interactable.Data interactable, Entity entity,
+		[Source.Owned] in Levitator.Data levitator, [Source.Owned] in Levitator.State levitator_state, [Source.Owned] in Transform.Data transform)
 		{
 			if (interactable.IsActive())
 			{
-				var gui = new LevitatorGUI()
+				var gui = new LevitatorGUI
 				{
 					ent_levitator = entity,
 					levitator = levitator,
 					levitator_state = levitator_state,
+					transform = transform
 				};
 				gui.Submit();
 			}

@@ -40,7 +40,8 @@ gun:
 
 	sound_shoot: "crankgun_shoot"
 	sound_reload: "cannon_reload"
-	velocity_multiplier: 750.000
+	velocity_multiplier: 350.000
+	velocity_max: 640.000
 	jitter_multiplier: 0.800
 	damage_multiplier: 3.800
 	recoil_multiplier: 2.000

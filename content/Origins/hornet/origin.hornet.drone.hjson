@@ -1,0 +1,221 @@
+﻿{
+	$version: "0.1.60.7"
+	name: "Drone"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	money: 0.000
+	age: [0.200, 1.000]
+	genders: male
+	gender_ratio: 0.000
+	species: hornet
+	faction: hornet
+	cost: 0.000
+	flags: none
+	
+	character_flags: slave, unskilled, civillian, poor, pet, entertainer, illiterate, feral, pest, animal, sedentary, evil, dumb, clumsy, lower_class
+	character_flags_optional: none
+	
+	industry_flags: none
+	industry_flags_optional: none
+	
+	service_flags: none
+	service_flags_optional: none
+	
+	crime_flags: prostitution, tax_evasion, jaywalking, vagrancy, religion, treason, mutiny, impersonation, dissent, insubordination, misconduct
+	crime_flags_optional: none
+	
+	conditions:
+	{
+		weight_mult: 0.500
+		
+		industry:
+		{
+			require: none
+			include: none
+			exclude: none
+			weight: 1.000
+		}
+		
+		crime:
+		{
+			require: none
+			include: none
+			exclude: none
+			weight: 1.000
+		}
+		
+		geography:
+		{
+			require: none
+			include: hills, meadows, lakes, forested, damp, swamps, warm, hot
+			exclude: none
+			weight: 10.000
+		}
+		
+		urbanization:
+		{
+			min: 0.000
+			mid: 0.500
+			max: 1.000
+			weight: 0.000
+		}
+		
+		industrialization:
+		{
+			min: 0.100
+			mid: 0.900
+			max: 0.000
+			weight: 0.000
+		}
+		
+		education:
+		{
+			min: 0.000
+			mid: 0.700
+			max: 0.000
+			weight: 10.000
+		}
+		
+		wealth:
+		{
+			min: 0.100
+			mid: 0.300
+			max: 0.000
+			weight: 10.000
+		}
+		
+		wilderness:
+		{
+			min: 0.400
+			mid: 0.700
+			max: 0.200
+			weight: 50.000
+		}
+		
+		devastation:
+		{
+			min: 0.200
+			mid: 0.500
+			max: 0.000
+			weight: 0.000
+		}
+		
+		savagery:
+		{
+			min: 0.150
+			mid: 0.700
+			max: 0.200
+			weight: 30.000
+		}
+		
+		anarchy:
+		{
+			min: 0.100
+			mid: 0.500
+			max: 0.000
+			weight: 10.000
+		}
+		
+		safety:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		pollution:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		destruction:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		inequality:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		unrest:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		corruption:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		prestige:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		elevation:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+	}
+	
+	requirements: []
+	
+	experience:
+	{
+		handguns: 0
+		rifles: 0
+		explosives: 0
+		mining: 2
+		woodcutting: 0
+		construction: 5
+		masonry: 4
+		carpentry: 3
+		engineering: 3
+		blacksmithing: 0
+		arcanology: 0
+		strength: 3
+		dexterity: 8
+		endurance: 4
+		intellect: 1
+		geology: 1
+		metallurgy: 0
+		medicine: 5
+		commerce: 2
+		charisma: 5
+		leadership: 1
+		blades: 0
+		axes: 0
+		clubs: 0
+		alchemistry: 7
+		farming: 3
+		animals: 11
+		scavenging: 2
+		law: 1
+	}
+}

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.71.1"
 	name: "Filling (Liquid)"
 	name_short: "L.Filling"
 	desc:
@@ -17,7 +17,7 @@
 	flags: manual, wip
 	tags: simple
 	
-	amount_base: 0.000
+	amount_base: 1.000
 	cooldown: 1.200
 	multiplier: 1.420
 	

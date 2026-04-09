@@ -14,6 +14,11 @@ namespace TC2.Base
 				name: "Alcohol Disinfectant",
 				description: "Adds an alcohol disinfectant, increasing healing amount at cost of extra pain.",
 
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle) && !augments.HasAugment(new Augment.Handle("medkit.anesthetics"));
+				},
+
 				can_add: static (ref Augment.Context context, in Medkit.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					return !augments.HasAugment(handle) && !augments.HasAugment(new Augment.Handle("medkit.anesthetics"));
@@ -34,6 +39,11 @@ namespace TC2.Base
 				name: "Anesthetics",
 				description: "Adds a low dose of morphine to ease the pain.",
 
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle) && !augments.HasAugment(new Augment.Handle("medkit.alcohol"));
+				},
+
 				can_add: static (ref Augment.Context context, in Medkit.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					return !augments.HasAugment(handle) && !augments.HasAugment(new Augment.Handle("medkit.alcohol"));
@@ -53,6 +63,11 @@ namespace TC2.Base
 				name: "Extra Bandages",
 				description: "Increases area of effect.",
 
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
+
 				can_add: static (ref Augment.Context context, in Medkit.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					return !augments.HasAugment(handle);
@@ -62,7 +77,7 @@ namespace TC2.Base
 				{
 					data.aoe *= 1.50f;
 					data.max_distance += 0.50f;
-					context.requirements_new.Merge(Crafting.Requirement.Resource("cloth", 8));
+					context.requirements_new.Merge(Crafting.Requirement.Resource("cloth", 2));
 				}
 			));
 
@@ -72,6 +87,11 @@ namespace TC2.Base
 				category: "Medkit",
 				name: "Sterile Surgical Tools",
 				description: "Allows treating more severe injuries.",
+
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
 
 				can_add: static (ref Augment.Context context, in Medkit.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
@@ -97,7 +117,7 @@ namespace TC2.Base
 						}
 					}
 
-					var total_amount = 0.25f + ingot_amount;
+					var total_amount = 0.05f + ingot_amount;
 					context.requirements_new.Merge(Crafting.Requirement.Resource("silver.ingot", total_amount).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 				}
 			));
@@ -180,6 +200,11 @@ namespace TC2.Base
 				name: "Red Sugar Anesthetic",
 				description: "Red sugar numbs the pain with sweetness.",
 
+				can_add_simple: static (ref handle, augments) =>
+				{
+					return !augments.HasAugment(handle);
+				},
+
 				can_add: static (ref Augment.Context context, in Medkit.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					return !augments.HasAugment(handle);
@@ -188,7 +213,7 @@ namespace TC2.Base
 				apply_1: static (ref Augment.Context context, ref Medkit.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					data.pain -= 200.00f;
-					context.requirements_new.Merge(Crafting.Requirement.Resource("red_sugar", 10).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
+					context.requirements_new.Merge(Crafting.Requirement.Resource("red_sugar", 5).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 				}
 			));
 		}

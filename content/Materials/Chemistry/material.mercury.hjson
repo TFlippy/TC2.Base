@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.2"
+	$version: "0.1.72.1"
 	name: "Mercury"
 	name_short: "Mercury"
 	name_imperial: "Merkur"
@@ -60,28 +60,44 @@
 	
 	commodity:
 	{
-		availability: 0.000
-		rarity: 0.000
-		scalability: 0.000
-		reusability: 0.000
-		longevity: 0.000
-		complexity: 0.000
-		tech: 0.000
-		liquidity: 0.000
-		demand: 0.000
-		
 		flags: none
-		categories: none
+		categories: metals
 		
-		market_price: 22.600
-		
-		market_price_per_kg_auto: 24.43526
+		market_price: 24.900
+		market_price_per_kg_auto: 18.38181
 	}
 	
 	// Damage-based conversions.
 	conversions:
 	{
 		heat:
+		{
+			spawn_flags: none
+			product_flags: none
+			ratio: 0.530
+			ratio_extra: 0.000
+			
+			h_material_waste: mercury.vapor
+			spawn_flags_waste: merge
+			product_flags_waste: pollutant, residue, byproduct, spawn
+			ratio_waste: 0.840
+			ratio_waste_extra: 0.100
+			
+			yield: 0.790
+			yield_extra: 0.130
+			
+			h_sound: missing
+			sound_volume: 0.500
+			sound_pitch: 1.000
+			
+			chance: 1.000
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.000
+			velocity_mult: 1.000
+			damage_mult: 1.000
+		}
+		phlogiston:
 		{
 			spawn_flags: none
 			product_flags: none
@@ -130,6 +146,8 @@
 		smirglum.amalgam: reaction, similar, alloy, product
 		kruskite: raw, ore, source, similar, natural
 		himlkarzenus: ore, source, similar, chemical, natural
-		putty: similar, chemical, alloy, product
+		putty: similar, chemical, alloy, product, mixed
+		karban: raw, ore, source, similar, natural
+		smirgrafit.clay: filler, result, manufactured, processed, mixed
 	}
 }

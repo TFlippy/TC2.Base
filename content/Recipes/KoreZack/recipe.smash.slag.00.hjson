@@ -1,31 +1,39 @@
 ﻿{
-	$version: "0.1.70.1"
+	$version: "0.1.72.1"
 	$author: "KoreZack"
 	name: "Slag"
 	desc:
 		'''
-		TODO: Desc
+		Process slag leftovers from smelting to recover useful materials.
 		'''
 	tips: []
 	
 	related_materials:
 	{
-		gold.powder: residue, powdered, product, result
+		cement: residue, powdered, product, result, byproduct, output
+		ferrous.gravel: residue, raw, waste, product, byproduct, output
+		slag: input, auto_generated
+		gravel: residue, raw, waste, output, auto_generated
+		clinker: residue, output, auto_generated
+		sand: residue, raw, powdered, output, auto_generated
+		smirglum.gravel: residue, raw, output, auto_generated
+		graphite.powder: residue, powdered, result, output, auto_generated
+		water: raw, liquid, input, auto_generated
+		water.dirty: raw, waste, liquid, output, auto_generated
+		scrap.metal: residue, product, result, scrap, output, auto_generated
+		smirglum.powder: residue, powdered, product, byproduct, output, auto_generated
 	}
 	
 	stages:
 	[
 		{
-			name: "Coarse Preperation"
+			name: "Coarse Preparation"
 			
 			type: undefined
 			flags: none
 			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: none
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -42,7 +50,9 @@
 						{
 							type: resource
 							material: slag
-							amount: 10.000
+							amount: 5.000
+							snapping: 0.500
+							loss: 0.953
 							group: 0
 							flags: prerequisite
 						}
@@ -52,6 +62,7 @@
 							amount: 20.000
 							amount_min: 40.000
 							difficulty: 5
+							snapping: 25.000
 							group: 0
 							flags: conditional
 						}
@@ -63,19 +74,43 @@
 							type: resource
 							material: gravel
 							amount: 1.400
-							amount_extra: 0.100
+							amount_extra: 0.163
+							snapping: 0.100
 							group: 0
-							flags: hidden
+							ratio: 0.192
+							flags: waste, residue, scale_to_mass
 						}
 						{
 							type: resource
-							material: scrap.metal
-							amount: 4.600
-							amount_extra: 0.650887
+							material: clinker
+							amount: 2.574906
+							amount_extra: 0.514981
+							snapping: 0.100
 							group: 0
-							flags: byproduct
+							ratio: 0.102
+							flags: residue, scale_to_mass
+						}
+						{
+							type: resource
+							material: sand
+							amount: 2.402726
+							amount_extra: 0.339979
+							snapping: 0.100
+							group: 0
+							ratio: 0.094
+							flags: residue, scale_to_mass
 						}
 					]
+					
+					filter_tools:
+					{
+						include: hammer, wrench, spanner, axe, chisel, crowbar
+					}
+					filter_infrastructure:
+					{
+						require: surface
+						include: hard_surface, compactor, press
+					}
 				}
 				{
 					name: "Shattered"
@@ -90,7 +125,9 @@
 						{
 							type: resource
 							material: slag
-							amount: 15.000
+							amount: 5.000
+							snapping: 0.500
+							loss: 0.933
 							group: 0
 							flags: prerequisite
 						}
@@ -100,6 +137,7 @@
 							amount: 50.000
 							amount_min: 100.000
 							difficulty: 14
+							snapping: 25.000
 							group: 0
 							flags: conditional
 						}
@@ -110,34 +148,40 @@
 						{
 							type: resource
 							material: gravel
-							amount: 5.940468
-							amount_extra: 0.83315
+							amount: 1.400
+							amount_extra: 0.163
+							snapping: 0.100
 							group: 0
-							flags: hidden
+							ratio: 0.310
+							flags: waste, scale_to_mass
 						}
 						{
 							type: resource
-							material: niklajzner
+							material: clinker
 							amount: 2.574906
 							amount_extra: 0.514981
+							snapping: 0.100
 							group: 0
-							flags: byproduct
+							ratio: 0.298
+							flags: residue, scale_to_mass
 						}
 					]
+					
+					filter_tools:
+					{
+						require: hammer
+					}
 				}
 			]
 		}
 		{
-			name: "Fine Preperation"
+			name: "Fine Preparation"
 			
 			type: undefined
 			flags: none
 			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: none
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -147,7 +191,7 @@
 					type: undefined
 					flags: none
 					
-					prefix: "Ground"
+					prefix: "Ground "
 					
 					requirements:
 					[
@@ -157,6 +201,7 @@
 							amount: 25.000
 							amount_min: 80.000
 							difficulty: 7
+							snapping: 25.000
 							group: 0
 							flags: conditional
 						}
@@ -169,16 +214,10 @@
 							material: gravel
 							amount: 1.000
 							amount_extra: 0.200
+							snapping: 0.100
 							group: 0
-							flags: waste
-						}
-						{
-							type: resource
-							material: scrap.niklajzner
-							amount: 1.508299
-							amount_extra: 0.200
-							group: 0
-							flags: byproduct
+							ratio: 0.180
+							flags: waste, scale_to_mass
 						}
 					]
 				}
@@ -186,7 +225,9 @@
 					name: "Filed"
 					
 					type: undefined
-					flags: none
+					flags: disabled
+					
+					prefix: "Filed "
 					
 					requirements:
 					[
@@ -196,6 +237,7 @@
 							amount: 110.000
 							amount_min: 140.000
 							difficulty: 8
+							snapping: 25.000
 							group: 0
 							flags: conditional
 						}
@@ -208,32 +250,45 @@
 							material: sand
 							amount: 1.490313
 							amount_extra: 0.4769
+							snapping: 0.100
 							group: 0
-							flags: residue
+							flags: residue, scale_to_mass
 						}
 						{
 							type: resource
 							material: cement
 							amount: 1.102832
 							amount_extra: 0.260805
+							snapping: 0.100
 							group: 0
-							flags: byproduct
+							flags: residue, byproduct, scale_to_mass
 						}
 					]
+					
+					filter_tools:
+					{
+						require: file
+						include: chisel, knife, sandpaper, utensils
+					}
+					filter_infrastructure:
+					{
+						include: surface
+					}
+					filter_environment:
+					{
+						include: workshop, stationary, illuminated, dry
+					}
 				}
 			]
 		}
 		{
-			name: "Seperation"
+			name: "Separation"
 			
 			type: undefined
 			flags: none
 			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: none
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -243,7 +298,7 @@
 					type: undefined
 					flags: none
 					
-					suffix: " With sieved sulfur"
+					suffix: " (Sieved)"
 					
 					requirements:
 					[
@@ -252,9 +307,11 @@
 							work: sieving
 							amount: 150.000
 							amount_min: 100.000
-							difficulty: 12
+							difficulty: 10
+							step_max: 10
+							snapping: 25.000
 							group: 0
-							flags: conditional
+							flags: stepped, conditional
 						}
 					]
 					
@@ -262,29 +319,56 @@
 					[
 						{
 							type: resource
-							material: sulfur
-							amount: 3.800
-							amount_extra: 0.500
+							material: cement
+							amount: 2.748384
+							amount_extra: 0.388888
+							snapping: 0.100
 							group: 0
-							flags: primary
+							ratio: 0.192
+							flags: residue, byproduct, stepped, scale_to_mass
 						}
 						{
 							type: resource
-							material: ferrous.gravel
-							amount: 0.500
-							amount_extra: 0.200
+							material: smirglum.gravel
+							amount: 0.4388
+							amount_extra: 0.271
+							snapping: 0.100
 							group: 0
-							flags: byproduct
+							chance: 0.459
+							ratio: 0.118
+							flags: residue, stepped, scale_to_mass
+						}
+						{
+							type: resource
+							material: graphite.powder
+							amount: 0.438
+							amount_extra: 0.567
+							snapping: 0.100
+							group: 0
+							chance: 0.518
+							ratio: 0.098
+							flags: residue, primary, stepped, compact, scale_to_mass
 						}
 						{
 							type: resource
 							material: sand
-							amount: 0.409836
-							amount_extra: 0.100
+							amount: 2.402726
+							amount_extra: 0.402
+							snapping: 0.100
 							group: 0
-							flags: residue
+							ratio: 0.239
+							flags: residue, scale_to_mass
 						}
 					]
+					
+					filter_tools:
+					{
+						include: paper, towel, utensils
+					}
+					filter_infrastructure:
+					{
+						include: dishes, rack, filter, kitchen
+					}
 				}
 				{
 					name: "Washed"
@@ -292,7 +376,7 @@
 					type: undefined
 					flags: none
 					
-					suffix: " With washed powders"
+					suffix: " (Washed)"
 					
 					requirements:
 					[
@@ -300,6 +384,8 @@
 							type: resource
 							material: water
 							amount: 10.000
+							snapping: 0.500
+							loss: 0.961
 							group: 0
 							flags: prerequisite
 						}
@@ -309,6 +395,7 @@
 							amount: 60.000
 							amount_min: 40.000
 							difficulty: 8
+							snapping: 25.000
 							group: 0
 							flags: conditional
 						}
@@ -319,58 +406,100 @@
 						{
 							type: resource
 							material: water.dirty
-							amount: 6.756757
+							amount: 8.967937
+							amount_extra: 0.1712
+							snapping: 0.100
 							group: 0
-							flags: waste
+							ratio: 0.835
+							flags: pollutant, waste, spawn, scale_to_mass
 						}
 						{
 							type: resource
-							material: copper.powder
-							amount: 3.798125
-							amount_extra: 0.781329
-							group: 0
-							flags: byproduct
-						}
-						{
-							type: resource
-							material: gold.powder
+							material: scrap.metal
 							amount: 0.118838
-							amount_extra: 0.050
+							amount_extra: 0.065
 							group: 0
-							chance: 0.102
-							flags: secondary
+							chance: 0.773
+							ratio: 0.255
+							flags: residue, primary, stepped, compact, scale_to_mass
 						}
 						{
 							type: resource
-							material: silver.powder
-							amount: 0.546611
-							amount_extra: 0.200
+							material: smirglum.powder
+							amount: 0.500
+							amount_extra: 0.342
 							group: 0
-							chance: 0.251
-							flags: secondary
+							chance: 0.369
+							ratio: 0.086
+							flags: residue, byproduct, scale_to_mass
 						}
 						{
 							type: resource
-							material: gravel
-							amount: 0.445633
+							material: clinker
+							amount: 2.574906
+							amount_extra: 0.514981
+							snapping: 0.100
 							group: 0
-							flags: waste
+							ratio: 0.220
+							flags: residue, scale_to_mass
 						}
 					]
+					
+					filter_tools:
+					{
+						include: bucket, towel
+					}
+					filter_environment:
+					{
+						include: warm, container, disinfected, sterile, clean
+						exclude: polluted
+					}
 				}
 			]
 		}
 	]
 	
+	products:
+	[
+		{
+			type: resource
+			material: clinker
+			amount: 2.574906
+			amount_extra: 0.514981
+			snapping: 0.100
+			group: 0
+			ratio: 0.145
+			flags: residue, scale_to_mass
+		}
+		{
+			type: resource
+			material: gravel
+			amount: 1.000
+			amount_extra: 0.200
+			snapping: 0.100
+			group: 0
+			ratio: 0.400
+			flags: waste, scale_to_mass
+		}
+		{
+			type: resource
+			material: ferrous.gravel
+			amount: 0.810
+			amount_extra: 0.374
+			snapping: 0.100
+			group: 0
+			ratio: 0.651
+			flags: waste, scale_to_mass
+		}
+	]
+	
 	type: workshop
-	flags: debug, dismantling, wip
-	tags: manual, dumb, crude, basic, simple, metalworking, metallurgy, salvaging, processing
+	flags: production, wip
+	tags: manual, basic, simple, raw, filtering, metallurgy, salvaging, separation, processing, messy
 	hints: none
 	connotations: none
-	infrastructure: table, surface
-	infrastructure_exclude: personal
-	
-	h_company: common
+	infrastructure: surface, hard_surface
+	infrastructure_exclude: none
 	
 	icon:
 	{
@@ -398,7 +527,7 @@
 	
 	color_frame: "0xffac7534"
 	color_button: "0xff9dd80f"
-	rank: -96.000
+	rank: -166.000
 	frame_size: [64.000, 48.000]
 	
 	min: 1

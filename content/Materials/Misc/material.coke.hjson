@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.2"
+	$version: "0.1.72.0"
 	name: "Coal Coke"
 	name_short: "Coke"
 	name_imperial: "Kokos"
@@ -46,7 +46,17 @@
 	color_dust: "0xffffffff"
 	color_gib: "0xffffffff"
 	
+	centroid_default: [0.000, 0.250]
 	colliders: []
+	
+	commodity:
+	{
+		flags: none
+		categories: none
+		
+		market_price: 2.100
+		market_price_per_kg_auto: 3.750
+	}
 	
 	fuel:
 	{

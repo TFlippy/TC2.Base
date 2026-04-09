@@ -1,0 +1,60 @@
+﻿{
+	$version: "0.1.70.1"
+	name: "Smradlus"
+	name_plural: "Smradlus"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	prefab_male: essence_node.motion
+	prefab_female: essence_node.motion
+	prefab_unit: unit.guy
+	flags: incorporeal, extradimensional, anomaly, sentient
+	industries: arcane, experimental
+	
+	lifecycle:
+	{
+		age_child: 1.000
+		age_adolescent: 750.000
+		age_mature: 50000.000
+		age_elder: 150000.000
+	}
+	
+	sprite_head_male:
+	{
+		texture: ui_help
+		size: [16, 16]
+	}
+	sprite_head_female:
+	{
+		texture: ui_help
+		size: [16, 16]
+	}
+	
+	voice_pitch_mult_male: 1.000
+	voice_pitch_mult_female: 1.000
+	
+	hair_colors: []
+	
+	sounds_idle_male: []
+	sounds_idle_female: []
+	
+	sounds_taunt_male: ["essence.imply.query.00"]
+	sounds_taunt_female: ["essence.imply.query.00"]
+	
+	sounds_talk_male: []
+	sounds_talk_female: []
+	
+	sounds_alert_male: ["essence.imply.danger.00"]
+	sounds_alert_female: ["essence.imply.danger.00"]
+	
+	sounds_pain_male: ["essence.imply.death.00"]
+	sounds_pain_female: ["essence.imply.death.00"]
+	
+	sounds_scream_male: ["essence.imply.scream.00"]
+	sounds_scream_female: ["essence.imply.scream.00"]
+	
+	sounds_death_male: ["essence.imply.scream.00"]
+	sounds_death_female: ["essence.imply.scream.00"]
+}

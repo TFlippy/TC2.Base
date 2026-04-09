@@ -1,0 +1,251 @@
+$name: "Tripod"
+$desc: 
+	'''
+	Metal tripod that can have various tools and weapons attached to.
+	'''
+$tags: []
+
+body:
+{
+	buoyancy: 0.100
+	fall_damage_multiplier: 0.250
+
+	@shape.polygon:
+	{
+		points:
+		[
+			[-0.625, -0.250]
+			[0.000, -0.625]
+			[0.375, 0.125]
+			[-0.750, 0.125]
+		]
+		
+		mass: 40.000
+		radius: 0.500
+		friction: 1.000
+		elasticity: 0.500
+
+		// rigidity_static: 0.990
+		rigidity_dynamic: 0.990
+		
+		material: metal_frame
+		miss_chance: 0.400
+		
+		layer: entity, solid, item
+		mask: world
+		exclude: none
+	}
+}
+
+// attachment:
+// {
+// 	offset: [0.000, 0.000]
+// }
+
+health:
+{
+	max: 8000.000
+}
+
+holdable:
+{
+	force_multiplier: 1.500
+	torque_multiplier: 1.500
+	stress_multiplier: 0.500
+	offset: [-0.500, 0.625]
+	priority: -2.000
+	flags: disable_control
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "mount.tripod"
+		mask: "mount.tripod.mask"
+	}
+	offset: [0.000, -0.350]
+	z: -100.000
+}
+
+faction.colorable:
+{
+
+}
+
+faction:
+{
+
+}
+
+claimable:
+{
+	flags: allow_owner_unclaim
+}
+
+transform:
+{
+
+}
+
+interactable:
+{
+	flags: centered_inventory
+	window_size: [192, 104]
+	window_size_misc: [48, 0]
+	priority: 1.500
+	window_offset: [0.000, 192.000]
+}
+
+mount:
+{
+	flags: no_torque_without_controller
+}
+
+storage:
+{
+	@inventory1:
+	{
+		type: ammo
+		flags: standalone, allow_ducts, no_auto_pickup, faction
+		stack_size_multiplier: 8.000
+		
+		filter:
+		{
+			include: ammo_lc, ammo_hc, ammo_mg, ammo_ac, ammo_sg, ammo_rocket
+			exclude: gas
+		}
+		
+		offset: [-0.500, 0.000]
+	}
+}
+
+control:
+{
+
+}
+
+// threat:
+// {
+
+// }
+
+norotate:
+{
+	bias: 0.500
+	mass_multiplier: 5.000
+}
+
+vehicle:
+{
+
+}
+
+sticky:
+{
+	max_force: 100000.000
+	min_contact_count: 2
+	min_contact_distance: 0.400
+	flags: attach_on_collide
+	mask: world, solid
+	exclude: background, tree, pipe, door, conveyor, essence, water, gas, attached, dynamic
+	sound: duct_transport
+}
+
++seat|instance:
+{
+	$tags: []
+	
+	seat:
+	{
+		offset: [-1.000, -0.500]
+		flags: open
+	}
+}
+
++mount|instance:
+{
+	joint.base:
+	{
+		offset_a: [0.000, -0.750]
+		max_force: 12000.000
+		max_torque: 12000.000
+		max_displacement: 0.450
+		displacement_stress_modifier: 0.450
+		displacement_force_modifier: 0.250
+		max_stress: 2.500
+		stress_damp: 0.950
+		material_type: metal
+		flags: no_wrap, attachment, allow_dragging, control_write, facing_reset_pos, force_facing
+
+		@sound.emitter:
+		{
+			file: crane_loop_b
+			flags: start_muted
+			volume: 1.000
+			pitch: 1.300
+			size: 0.700
+			size_max_modifier: 0.700
+		}
+
+		@sound.mixer:
+		{
+			volume_modifier: 0.750
+			pitch_modifier: 0.500
+			volume_lerp_a: 0.100
+			volume_lerp_b: 0.800
+		}
+	}
+
+	attachment.slot:
+	{
+		flags: keyboard_write, mouse_write
+		flags_editable: locked, hold, invert, cycle, loose
+		name: "Turret"
+		identifier: "turret"
+		tags_filter:
+		{
+			include: tiny, small, medium
+			exclude: cabin, wheel, mount, motor, platform, propulsion, harness
+		}
+		gui_size: [0.000, 100.000]
+	}
+
+	// joint.pivot:
+	// {
+	// 	max_bias: 8.000
+	// }
+
+	joint.piston:
+	{
+		stiffness: 45000.000
+		damping: 800.000
+		axis_force: 400000.000
+		max_distance: 0.850
+	}
+
+	joint.gear:
+	{
+		min: -1.3018
+		max: 0.5046
+		error_bias: 0.010
+		max_bias: 4.000
+		stress_mult: 0.350
+	}
+
+	joint.rotarylimit:
+	{
+		max_torque: 100000.000
+		min: -1.3018
+		max: 0.5046
+		max_bias: 10.000
+		error_bias: 0.001
+	}
+
+	joint.motor:
+	{
+		force: 100.000
+		speed: 0.000
+		error_bias: 0.000
+	}
+}

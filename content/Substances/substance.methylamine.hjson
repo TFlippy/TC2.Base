@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.1"
+	$version: "0.1.71.1"
 	name: "Methylamine"
 	description:
 		'''
@@ -9,7 +9,7 @@
 	type: molecule
 	atomic_number: 0
 	flags: none
-	tags: none
+	tags: liquid
 	
 	icon:
 	{

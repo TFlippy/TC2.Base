@@ -2,7 +2,7 @@
 {
 	public static partial class Twuk
 	{
-		[IComponent.Data(Net.SendType.Reliable, region_only: true)]
+		[IComponent.Data(Net.SendType.Reliable, IComponent.Scope.Region)]
 		public partial struct Data: IComponent
 		{
 			[Save.Ignore, Net.Ignore] public float t_next_sound;
@@ -30,16 +30,18 @@
 		[Source.Owned] in Transform.Data transform, [Source.Owned] in Head.Data head, 
 		[Source.Parent] ref Twuk.Data twuk, [Source.Parent] ref NPC.Data npc)
 		{
+			if (AI.debug_paused) return;
+
 			if (info.WorldTime >= twuk.t_next_sound)
 			{
 				if (npc.self_hints.HasAny(NPC.SelfHints.Is_Alerted))
 				{
-					Sound.Play(ref region, sounds_screech.GetRandom(ref random), transform.position, volume: random.NextFloatRange(0.60f, 0.90f), pitch: random.NextFloatRange(0.80f, 1.20f) * head.voice_pitch, size: 0.50f, dist_multiplier: random.NextFloatRange(0.90f, 1.10f));
+					Sound.Play(region: ref region, sound: sounds_screech.GetRandom(ref random), world_position: transform.position, volume: random.NextFloatRange(0.60f, 0.90f), pitch: random.NextFloatRange(0.80f, 1.20f) * head.voice_pitch, size: 0.50f, dist_multiplier: random.NextFloatRange(0.90f, 1.10f));
 					twuk.t_next_sound = info.WorldTime + random.NextFloatRange(1.04f, 1.92f);
 				}
 				else
 				{
-					Sound.Play(ref region, sounds_idle.GetRandom(ref random), transform.position, volume: random.NextFloatRange(0.40f, 0.50f), pitch: random.NextFloatRange(0.80f, 1.40f) * head.voice_pitch, size: 0.50f, dist_multiplier: random.NextFloatRange(0.50f, 0.60f));
+					Sound.Play(region: ref region, sound: sounds_idle.GetRandom(ref random), world_position: transform.position, volume: random.NextFloatRange(0.40f, 0.50f), pitch: random.NextFloatRange(0.80f, 1.40f) * head.voice_pitch, size: 0.50f, dist_multiplier: random.NextFloatRange(0.50f, 0.60f));
 					twuk.t_next_sound = info.WorldTime + random.NextFloatRange(4.00f, 12.00f);
 				}
 			}

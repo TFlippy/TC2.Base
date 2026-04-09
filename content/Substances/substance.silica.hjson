@@ -1,19 +1,19 @@
 ﻿{
-	$version: "0.1.61.4"
+	$version: "0.1.71.1"
 	name: "Silica"
 	description:
 		'''
 		TODO: Desc
 		'''
+	
 	cas_number: "7631-86-9"
-	type: allotrope
+	type: molecule
 	atomic_number: 0
 	flags: none
 	tags: oxide, inert, refractory, solid
 	
 	icon:
 	{
-		texture: resource.silica
 		count: 4
 		size: [16, 16]
 		frame: [3, 0]
@@ -55,6 +55,8 @@
 	triple_point_pressure: 0.000
 	
 	// K
+	ductile_temperature: 0.000
+	// K
 	forging_temperature_lower: 0.000
 	// K
 	forging_temperature_upper: 0.000
@@ -85,8 +87,6 @@
 	
 	form_to_material:
 	{
-		powder: silica
-		raw: silica
-		gravel: silica
+	
 	}
 }

@@ -1,8 +1,8 @@
 ﻿{
-	$version: "0.1.68.2"
+	$version: "0.1.72.0"
 	name: "Copper Scrap"
-	name_short: "Cop. Scrap"
-	name_imperial: "Koprsrot"
+	name_short: "Cop.Scrap"
+	name_imperial: "Kuprsrot"
 	description:
 		'''
 		Pile containing both shiny and unshiny pieces of rejected copper.
@@ -60,22 +60,11 @@
 	
 	commodity:
 	{
-		availability: 0.000
-		rarity: 0.000
-		scalability: 0.000
-		reusability: 0.000
-		longevity: 0.000
-		complexity: 0.000
-		tech: 0.000
-		liquidity: 0.000
-		demand: 0.000
-		
 		flags: none
-		categories: none
+		categories: metals, scrap
 		
 		market_price: 26.000
-		
-		market_price_per_kg_auto: 11.20226
+		market_price_per_kg_auto: 12.66342
 	}
 	
 	// Residues from crafting/work.

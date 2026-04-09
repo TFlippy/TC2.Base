@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.0"
+	$version: "0.1.73.0"
 	name: "Krakatite"
 	desc:
 		'''
@@ -12,13 +12,13 @@
 	tile_flags: non_empty
 	flags: raw, ore, uncommon, rock, sedimentary, phosphate
 	
-	max_health: 32000.000
+	max_health: 34000.000
 	smoothing: 0.130
 	stability: 6.140
 	strength_tensile: 4.800
 	strength_compressive: 21.000
 	
-	mass: 1.700
+	mass: 4.250
 	density: 0.000
 	friction: 0.500
 	elasticity: 0.360
@@ -39,7 +39,7 @@
 	[
 		{
 			material: krakatite
-			quantity: 1.262857
+			quantity: 3.104962
 		}
 		null
 	]

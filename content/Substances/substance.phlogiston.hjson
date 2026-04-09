@@ -1,12 +1,12 @@
 ﻿{
-	$version: "0.1.68.2"
+	$version: "0.1.72.1"
 	name: "Phlogiston"
 	description:
 		'''
 		Extremely corrosive and volatile exotic liquid fuel obtained from ancient phlogiston pipelines.
 		'''
 	
-	type: mixture
+	type: exotic
 	atomic_number: 0
 	flags: none
 	tags: unstable, oxidizer, artificial, exotic, liquid
@@ -24,7 +24,7 @@
 	color_gib: "0xffff4600"
 	color_smoke: "0xffff4600"
 	
-	color_liquid: [0.000, 0.000, 0.000, 0.000]
+	color_liquid: [1.000, 0.635, 0.260, 2.010]
 	color_molten: [1.000, 0.275, 0.000, 1.000]
 	color_flame: [0.000, 0.000, 0.000, 0.000]
 	color_spark: [0.000, 0.000, 0.000, 0.000]
@@ -91,9 +91,9 @@
 	
 	related:
 	{
-		smrad: component, filler, mixed
-		water: similar
-		hydrogen: element
-		oxygen: element
+		smrad: component, filler, ingredient, mixed
+		water: reaction, vapor, result, byproduct
+		hydrogen: raw, element
+		oxygen: raw, element
 	}
 }

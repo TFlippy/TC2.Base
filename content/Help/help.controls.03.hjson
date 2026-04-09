@@ -1,0 +1,29 @@
+﻿{
+	$region_id: 0
+	$version: "0.1.71.1"
+	name: "Toolbelt"
+	category: "01: Controls"
+	desc:
+		'''
+		You can equip items into the toolbelt by dragging them into the associated slot.
+
+		Press "F" to open the toolbelt menu.
+		'''
+	
+	order: 23
+	size: [514, 0]
+	layout: a
+	flags: none
+	
+	title: "Toolbelt"
+	
+	sprite_scale: 0.625
+	sprite:
+	{
+		texture: ui.tutorial.atlas.00
+		size: [480, 320]
+		frame: [3, 1]
+	}
+	
+	entries: []
+}

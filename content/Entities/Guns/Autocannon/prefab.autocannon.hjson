@@ -49,7 +49,7 @@ gun:
 	
 	sound_volume: 2.200
 	sound_size: 4.000
-	sound_dist_multiplier: 2.800
+	sound_dist_multiplier: 3.400
 	
 	sound_shoot: tank_gun.shoot.00
 	sound_reload: cannon_reload

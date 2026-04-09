@@ -1,0 +1,424 @@
+﻿{
+	$version: "0.1.73.0"
+	name: "Salvaged EC-Scrap"
+	desc:
+		'''
+		Take a pile of EC-Scrap
+		'''
+	tips: []
+	
+	related_materials:
+	{
+		scrap.arcane: ingredient, scrap, input, auto_generated
+		arcanite: raw, waste, output, auto_generated
+		scrap.smirgrafit.dusty: residue, scrap, output, auto_generated
+		scrap.metal: waste, scrap, output, auto_generated
+		directors: product, result, byproduct, output, auto_generated
+		pellet.failure: residue, product, byproduct, output, auto_generated
+		smirgrafit.clay: residue, output, auto_generated
+		smrad.dust: raw, waste, powdered, gas, output, auto_generated
+		glue: ingredient, liquid, input, auto_generated
+		actuator: product, result, output, auto_generated
+		scrap.machine: residue, scrap, output, auto_generated
+	}
+	
+	stages:
+	[
+		{
+			name: "Method"
+			
+			type: formula
+			flags: important
+			tags: material, raw, formula, ingredient
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: pickaxe
+			
+			options:
+			[
+				{
+					name: "Casual"
+					desc: ", search through it without much thought, and try to dismantle whatever looks remotely interesting."
+					
+					type: undefined
+					flags: none
+					
+					prefix: "Casually "
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: scrap.arcane
+							amount: 1.000
+							snapping: 0.100
+							falloff: 1.500
+							loss: 0.949
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: scavenging
+							amount: 46.000
+							amount_min: 100.000
+							difficulty: 7
+							step_max: 20
+							snapping: 25.000
+							falloff: 1.070
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: dismantling
+							amount: 80.000
+							amount_min: 50.000
+							difficulty: 6
+							step_max: 40
+							snapping: 25.000
+							falloff: 0.876
+							group: 0
+							flags: simultaneous, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: arcanite
+							amount: 0.2492
+							amount_extra: 0.4411
+							snapping: 0.010
+							group: 0
+							chance: 0.765
+							ratio: 0.102
+							flags: waste, stepped, scale_to_mass
+						}
+						{
+							type: resource
+							material: scrap.smirgrafit.dusty
+							amount: 0.307
+							amount_extra: 0.2913
+							snapping: 0.100
+							group: 0
+							chance: 0.600
+							ratio: 0.298
+							flags: residue, stepped, scale_to_mass
+						}
+						{
+							type: resource
+							material: scrap.metal
+							amount: 0.4782
+							amount_extra: 0.4786
+							snapping: 0.100
+							group: 0
+							chance: 0.839
+							ratio: 0.133
+							flags: waste, stepped, scale_to_mass
+						}
+						{
+							type: resource
+							material: directors
+							amount: 0.6377
+							amount_extra: 1.1364
+							snapping: 0.100
+							group: 0
+							chance: 0.408
+							ratio: 0.263
+							flags: byproduct, primary, stepped, compact, scale_to_mass
+						}
+						{
+							type: resource
+							material: pellet.failure
+							amount: 0.2287
+							amount_extra: 0.7587
+							snapping: 1.000
+							group: 0
+							chance: 0.541
+							ratio: 0.161
+							flags: residue, byproduct, scale_to_mass
+						}
+						{
+							type: resource
+							material: smirgrafit.clay
+							amount: 0.169
+							amount_extra: 0.0105
+							snapping: 0.100
+							group: 0
+							chance: 0.557
+							ratio: 0.165
+							flags: residue, stepped, scale_to_mass
+						}
+						{
+							type: resource
+							material: smrad.dust
+							amount: 0.685
+							amount_extra: 0.331
+							snapping: 1.337
+							group: 0
+							chance: 0.741
+							ratio: 0.067
+							flags: pollutant, waste, spawn, hidden, scale_to_mass
+						}
+					]
+					
+					filter_tools:
+					{
+						require: screwdriver, spanner
+						include: cutters, hand_drill, screwdriver, wrench, spanner, pliers, tweezers, magnifying_glass, towel, knife
+					}
+					filter_infrastructure:
+					{
+						include: table, chair, vise, workbench
+					}
+				}
+				{
+					name: "Methodical"
+					desc: ", carefully sort and catalogue the components, then disassemble and reassemble each piece."
+					
+					type: undefined
+					flags: none
+					
+					prefix: "Methodically "
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: scrap.arcane
+							amount: 1.000
+							snapping: 0.100
+							falloff: 1.500
+							loss: 0.988
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: glue
+							amount: 0.500
+							snapping: 0.100
+							falloff: 1.186
+							loss: 0.278
+							group: 0
+							flags: no_residue, prerequisite
+						}
+						{
+							type: work
+							work: search.components
+							amount: 80.000
+							amount_min: 120.000
+							difficulty: 9
+							step_max: 30
+							snapping: 25.000
+							falloff: 1.047
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: dismantling
+							amount: 140.000
+							amount_min: 90.000
+							difficulty: 10
+							step_max: 40
+							snapping: 25.000
+							falloff: 0.840
+							group: 1
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: assembling
+							amount: 80.000
+							amount_min: 50.000
+							difficulty: 8
+							step_max: 20
+							snapping: 10.000
+							falloff: 0.927
+							group: 2
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: calibration
+							amount: 20.000
+							amount_min: 40.000
+							difficulty: 5
+							step_max: 20
+							snapping: 10.000
+							falloff: 0.918
+							group: 2
+							flags: stepped, simultaneous, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: directors
+							amount: 0.891
+							amount_extra: 1.100
+							snapping: 0.100
+							group: 0
+							chance: 0.624
+							ratio: 0.290
+							flags: byproduct, primary, stepped, compact, scale_to_mass
+						}
+						{
+							type: resource
+							material: actuator
+							amount: 0.152
+							amount_extra: 0.144
+							snapping: 0.250
+							group: 0
+							chance: 0.282
+							ratio: 0.196
+							flags: primary, stepped, compact, scale_to_mass
+						}
+						{
+							type: resource
+							material: arcanite
+							amount: 0.194
+							amount_extra: 0.362
+							snapping: 0.010
+							group: 0
+							chance: 0.722
+							ratio: 0.173
+							flags: waste, stepped, scale_to_mass
+						}
+						{
+							type: resource
+							material: scrap.smirgrafit.dusty
+							amount: 0.240
+							amount_extra: 0.213
+							snapping: 0.100
+							group: 0
+							chance: 0.667
+							ratio: 0.259
+							flags: residue, stepped, scale_to_mass
+						}
+						{
+							type: resource
+							material: smirgrafit.clay
+							amount: 0.195
+							amount_extra: 0.025
+							snapping: 0.100
+							group: 0
+							chance: 0.612
+							ratio: 0.141
+							flags: residue, stepped, scale_to_mass
+						}
+						{
+							type: resource
+							material: scrap.machine
+							amount: 0.312
+							amount_extra: 0.290
+							snapping: 0.100
+							group: 0
+							chance: 0.769
+							ratio: 0.098
+							flags: residue, stepped, scale_to_mass
+						}
+						{
+							type: resource
+							material: smrad.dust
+							amount: 0.420
+							amount_extra: 0.185
+							snapping: 1.337
+							group: 0
+							chance: 0.580
+							ratio: 0.043
+							flags: pollutant, waste, spawn, hidden, scale_to_mass
+						}
+					]
+					
+					filter_tools:
+					{
+						require: ruler, screwdriver, wrench, spanner
+						include: pencil, paper, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, spanner, pliers, tweezers, magnifying_glass, bucket, syringe, stapler, file, towel, spatula, tongs, pick, crowbar, knife
+					}
+					filter_infrastructure:
+					{
+						include: table, chair, vise, surface, workbench
+					}
+					filter_environment:
+					{
+						include: workshop, office, stationary, clean, fancy, cozy, safe, illuminated, quiet, dry, organized
+						exclude: scary
+					}
+				}
+			]
+		}
+		{
+			name: "Post-Processing"
+			
+			type: postprocessing
+			flags: optional
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			options:
+			[
+				{
+					name: "None"
+					desc:
+						'''
+
+
+						Then throw it on the ground.
+						'''
+					
+					type: undefined
+					flags: merge_residue
+				}
+			]
+		}
+	]
+	
+	type: workshop
+	flags: dismantling, production, wip
+	tags: manual, basic, simple, complex, engineering, salvaging, separation
+	hints: none
+	connotations: none
+	infrastructure: table, surface
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		texture: resource.directors
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	icon_offset: [-4.000, 0.000]
+	
+	icon_extra:
+	{
+		texture: ui_icons_widget
+		size: [16, 16]
+		frame: [10, 5]
+	}
+	icon_extra_offset: [-12.000, -12.000]
+	
+	icon_c:
+	{
+		texture: resource.scrap.arcane
+		size: [16, 16]
+		frame: [2, 0]
+	}
+	icon_c_offset: [-2.000, -20.000]
+	
+	color_frame: "0xff19e2b1"
+	color_button: "0xff9dd80f"
+	rank: -50.000
+	frame_size: [48.000, 48.000]
+	
+	min: 1
+	max: 25
+	step: 1
+	
+	version: 1
+}

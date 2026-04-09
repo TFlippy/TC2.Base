@@ -1,0 +1,280 @@
+﻿{
+	$version: "0.1.70.1"
+	name: "Accountant"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	money: 1105.000
+	age: [20.000, 24.000, 30.000, 32.000, 35.000, 37.000, 40.000, 50.000, 70.000]
+	genders: male, female
+	gender_ratio: 0.700
+	species: human
+	cost: 0.000
+	flags: selectable
+	
+	character_flags: bureaucrat, educated, professional, civillian, law, social, commerce, sedentary, upper_middle_class
+	character_flags_optional: none
+	
+	industry_flags: none
+	industry_flags_optional: none
+	
+	service_flags: none
+	service_flags_optional: none
+	
+	crime_flags: none
+	crime_flags_optional: none
+	
+	kit_filter_secondary:
+	{
+		chance: 1.000
+		
+		categories:
+		{
+			require: small
+			include: weapon, gun, weak, small, civilian, fast
+			exclude: primitive
+			weight: 1.000
+		}
+	}
+	
+	kit_filter_tool:
+	{
+		chance: 0.102
+		
+		categories:
+		{
+			require: none
+			include: tools, device, expensive, fancy
+			exclude: junk, primitive
+			weight: 0.700
+		}
+	}
+	
+	kit_filter_utility:
+	{
+		chance: 0.800
+		
+		categories:
+		{
+			require: none
+			include: tools, drug, chemical, consumable, device, expensive, fancy
+			exclude: junk, primitive
+			weight: 0.700
+		}
+	}
+	
+	kit_filter_resources:
+	{
+		chance: 0.102
+		
+		categories:
+		{
+			require: none
+			include: materials, small, chemical
+			exclude: none
+			weight: 1.000
+		}
+	}
+	
+	conditions:
+	{
+		weight_mult: 0.860
+		
+		industry:
+		{
+			require: none
+			include: financial, manufacturing, high_tech, chemical, automotive, power, military, administrative
+			exclude: none
+			weight: 4.000
+		}
+		
+		crime:
+		{
+			require: none
+			include: embezzlement, bribery, corruption, fraud, forgery, extortion, espionage
+			exclude: none
+			weight: 1.000
+		}
+		
+		geography:
+		{
+			require: none
+			include: none
+			exclude: none
+			weight: 0.000
+		}
+		
+		urbanization:
+		{
+			min: 0.200
+			mid: 0.500
+			max: 0.000
+			weight: 30.000
+		}
+		
+		industrialization:
+		{
+			min: 0.000
+			mid: 0.820
+			max: 0.000
+			weight: 20.000
+		}
+		
+		education:
+		{
+			min: 0.170
+			mid: 0.500
+			max: 0.000
+			weight: 15.000
+		}
+		
+		wealth:
+		{
+			min: 0.100
+			mid: 0.400
+			max: 0.000
+			weight: 40.000
+		}
+		
+		wilderness:
+		{
+			min: 0.150
+			mid: 0.500
+			max: 0.000
+			weight: -25.000
+		}
+		
+		devastation:
+		{
+			min: 0.200
+			mid: 0.500
+			max: 0.000
+			weight: -5.000
+		}
+		
+		savagery:
+		{
+			min: 0.150
+			mid: 0.800
+			max: 0.000
+			weight: -25.000
+		}
+		
+		anarchy:
+		{
+			min: 0.100
+			mid: 0.500
+			max: 0.800
+			weight: 10.000
+		}
+		
+		safety:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		pollution:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		destruction:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		inequality:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		unrest:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		corruption:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		prestige:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+		
+		elevation:
+		{
+			min: 0.000
+			mid: 0.000
+			max: 0.000
+			weight: 0.000
+		}
+	}
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: money
+			amount: 1149.000
+			group: 0
+		}
+	]
+	
+	experience:
+	{
+		handguns: 6
+		rifles: 1
+		explosives: 2
+		mining: 1
+		woodcutting: 1
+		construction: 5
+		masonry: 1
+		carpentry: 3
+		engineering: 6
+		blacksmithing: 1
+		arcanology: 7
+		strength: 4
+		dexterity: 8
+		endurance: 5
+		intellect: 9
+		geology: 1
+		metallurgy: 3
+		medicine: 5
+		commerce: 15
+		charisma: 8
+		leadership: 7
+		blades: 4
+		axes: 1
+		clubs: 1
+		alchemistry: 5
+		farming: 1
+		animals: 1
+		scavenging: 7
+		law: 11
+	}
+}

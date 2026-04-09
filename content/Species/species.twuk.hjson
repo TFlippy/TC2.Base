@@ -1,0 +1,64 @@
+﻿{
+	$version: "0.1.72.1"
+	name: "Twuk"
+	name_plural: "Twuks"
+	desc:
+		'''
+		Huge flightless songbird adorned with beautiful vibrant tufts of feathers on its head and tail.
+		'''
+	
+	prefab_male: twuk
+	prefab_female: twuk
+	flags: bird, tameable, herbivore, predator, wild, social, sentient, sapient
+	industries: none
+	
+	lifecycle:
+	{
+		age_child: 0.300
+		age_adolescent: 1.200
+		age_mature: 2.000
+		age_elder: 15.000
+	}
+	
+	sprite_head_male:
+	{
+		texture: twuk.head.male
+		size: [16, 16]
+	}
+	sprite_head_female:
+	{
+		texture: twuk.head.female
+		size: [16, 16]
+	}
+	
+	voice_pitch_mult_male: 1.000
+	voice_pitch_mult_female: 1.000
+	
+	hair_colors:
+	[
+		"0xffffffff"
+	]
+	
+	sounds_idle_male: ["twuk.idle.00", "twuk.idle.01", "twuk.idle.02", "twuk.screech.04"]
+	sounds_idle_female: ["twuk.idle.00", "twuk.idle.01", "twuk.idle.02", "twuk.screech.04"]
+	
+	sounds_taunt_male: ["twuk.screech.00", "twuk.screech.01", "twuk.screech.02", "twuk.screech.03", "twuk.screech.04"]
+	sounds_taunt_female: ["twuk.screech.00", "twuk.screech.01", "twuk.screech.02", "twuk.screech.03", "twuk.screech.04"]
+	
+	sounds_talk_male: []
+	sounds_talk_female: []
+	
+	sounds_alert_male: ["twuk.screech.00", "twuk.screech.01", "twuk.screech.02", "twuk.screech.03", "twuk.screech.04"]
+	sounds_alert_female: ["twuk.screech.00", "twuk.screech.01", "twuk.screech.02", "twuk.screech.03", "twuk.screech.04"]
+	
+	sounds_pain_male: ["twuk.screech.00", "twuk.screech.01", "twuk.screech.02", "twuk.screech.03"]
+	sounds_pain_female: ["twuk.screech.00", "twuk.screech.01", "twuk.screech.02", "twuk.screech.03"]
+	
+	sounds_scream_male: ["twuk.screech.00", "twuk.screech.01", "twuk.screech.02", "twuk.screech.03"]
+	sounds_scream_female: ["twuk.screech.00", "twuk.screech.01", "twuk.screech.02", "twuk.screech.03"]
+	
+	sounds_death_male: ["twuk.idle.00", "twuk.idle.01", "twuk.idle.02"]
+	sounds_death_female: ["twuk.idle.00", "twuk.idle.01", "twuk.idle.02"]
+	
+	h_soundmix_idle: twuk.idle.00
+}

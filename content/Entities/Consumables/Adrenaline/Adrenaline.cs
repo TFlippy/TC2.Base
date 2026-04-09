@@ -3,7 +3,7 @@ namespace TC2.Base.Components
 {
 	public static partial class Adrenaline
 	{
-		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
+		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region)]
 		public partial struct Effect: IComponent
 		{
 			[Statistics.Info("Adrenaline", description: "TODO: Desc", format: "{0:0.##} mg", comparison: Statistics.Comparison.None, priority: Statistics.Priority.High)]
@@ -51,13 +51,13 @@ namespace TC2.Base.Components
 		{
 			var modifier_a = adrenaline.modifier_current;
 
-			organic.consciousness *= gr_consciousness.GetValue(modifier_a * 1.00f);
-			organic.endurance *= gr_endurance.GetValue(modifier_a * 1.00f);
-			organic.dexterity *= gr_dexterity.GetValue(modifier_a * 1.00f);
-			organic.strength *= gr_strength.GetValue(modifier_a * 1.00f);
-			organic.motorics *= gr_motorics.GetValue(modifier_a * 1.00f);
-			organic.coordination *= gr_coordination.GetValue(modifier_a * 1.00f);
-			organic.pain_modifier *= gr_pain_modifier.GetValue(modifier_a * 1.00f);
+			organic.consciousness *= gr_consciousness.GetValue(modifier_a);
+			organic.endurance *= gr_endurance.GetValue(modifier_a);
+			organic.dexterity *= gr_dexterity.GetValue(modifier_a);
+			organic.strength *= gr_strength.GetValue(modifier_a);
+			organic.motorics *= gr_motorics.GetValue(modifier_a);
+			organic.coordination *= gr_coordination.GetValue(modifier_a);
+			organic.pain_modifier *= gr_pain_modifier.GetValue(modifier_a);
 
 			var modifier_b = (adrenaline.modifier_withdrawal - adrenaline.modifier_current).Clamp0X();
 			if (modifier_b > Maths.epsilon)

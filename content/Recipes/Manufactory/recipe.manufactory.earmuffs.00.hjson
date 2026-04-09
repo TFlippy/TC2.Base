@@ -1,50 +1,202 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.72.1"
 	name: "Earmuffs"
-	desc:
-		'''
-		Protects your hearing from loud factories and cannons.
-		'''
 	tips: []
 	
-	requirements:
+	related_materials:
+	{
+		steel.rod: input, auto_generated
+		mushroom: raw, input, auto_generated
+		cloth: input, auto_generated
+		glue: liquid, input, auto_generated
+	}
+	
+	stages:
 	[
 		{
-			type: resource
-			material: steel.ingot
-			amount: 1.000
-			group: 0
-			flags: prerequisite
+			name: "Headband"
+			
+			type: part
+			flags: part, wip
+			tags: frame, thin, structural, small, rounded
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			options:
+			[
+				{
+					name: "Standard"
+					
+					type: undefined
+					flags: wip
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.rod
+							amount: 0.146584
+							snapping: 0.250
+							loss: 0.118
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: bending
+							amount: 80.000
+							amount_min: 40.000
+							difficulty: 4
+							snapping: 5.000
+							falloff: 0.900
+							ratio: 0.796
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: hammer
+						include: hammer, pliers, chisel, towel, crowbar
+					}
+					filter_infrastructure:
+					{
+						include: anvil, vise, hard_surface, workbench
+					}
+				}
+			]
 		}
 		{
-			type: resource
-			material: leather
-			amount: 6.000
-			group: 0
-			flags: prerequisite
+			name: "Cups"
+			
+			type: part
+			flags: wip
+			tags: functional, small, rounded
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: slash
+			
+			options:
+			[
+				{
+					name: "Standard"
+					
+					type: undefined
+					flags: wip
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: mushroom
+							amount: 2.258621
+							snapping: 1.000
+							loss: 0.251
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: cloth
+							amount: 0.438889
+							snapping: 0.100
+							loss: 0.169
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: sewing
+							amount: 120.000
+							amount_min: 60.000
+							difficulty: 4
+							snapping: 5.000
+							falloff: 0.900
+							loss: 0.024
+							ratio: 0.941
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: knife, needle
+						include: cutters, screwdriver, tweezers, stapler, knife, needle, pins, scissors
+					}
+				}
+			]
 		}
 		{
-			type: resource
-			material: mushroom
-			amount: 2.000
-			group: 0
-			flags: prerequisite
-		}
-		{
-			type: work
-			work: smithing
-			amount: 100.000
-			difficulty: 6
-			group: 0
-			flags: conditional
-		}
-		{
-			type: work
-			work: assembling
-			amount: 200.000
-			difficulty: 5
-			group: 0
-			flags: conditional
+			name: "Assembly"
+			
+			type: assembly
+			flags: wip
+			tags: assembly
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			options:
+			[
+				{
+					name: "Glued"
+					
+					type: undefined
+					flags: wip
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: glue
+							amount: 1.000
+							snapping: 1.000
+							loss: 0.298
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: gluing
+							amount: 80.000
+							amount_min: 40.000
+							difficulty: 3
+							snapping: 5.000
+							falloff: 0.883
+							ratio: 0.525
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: assembling
+							amount: 60.000
+							amount_min: 30.000
+							difficulty: 3
+							snapping: 5.000
+							falloff: 0.879
+							ratio: 0.329
+							group: 0
+							flags: simultaneous, conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: screwdriver, wrench
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, paintbrush, stapler, file, towel, tongs, pick, crowbar, knife
+					}
+					filter_infrastructure:
+					{
+						include: table
+					}
+					filter_environment:
+					{
+						include: clean, organized
+						exclude: wet
+					}
+				}
+			]
 		}
 	]
 	
@@ -55,14 +207,17 @@
 			prefab: earmuffs.00
 			amount: 1.000
 			group: 0
+			flags: primary, compact
 		}
 	]
 	
 	type: workshop
-	flags: blueprintable, disabled, wip
-	tags: workbench, manual, crafting, simple, small, assembling, tailoring
-	infrastructure: none
-	infrastructure_exclude: none
+	flags: blueprintable, item
+	tags: manual, crafting, simple, small, assembling, tailoring
+	hints: none
+	connotations: none
+	infrastructure: table
+	infrastructure_exclude: giant
 	
 	icon:
 	{
@@ -75,8 +230,8 @@
 	rank: 0.000
 	
 	min: 1
-	max: 5
+	max: 8
 	step: 1
 	
-	version: 0
+	version: 1
 }

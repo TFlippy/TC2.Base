@@ -1,0 +1,61 @@
+﻿{
+	$version: "0.1.67.1"
+	name: "Drevokocur"
+	name_plural: "Drevokocur"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	prefab_male: drevokocur
+	prefab_female: drevokocur
+	flags: mammal, nocturnal, solitary, carnivore, predator, feral, wild, sapient
+	industries: none
+	
+	lifecycle:
+	{
+		age_child: 0.200
+		age_adolescent: 0.900
+		age_mature: 2.200
+		age_elder: 20.000
+	}
+	
+	sprite_head_male:
+	{
+		texture: drevokocur.head
+		mask: missing
+		size: [16, 8]
+	}
+	sprite_head_female:
+	{
+		texture: drevokocur.head
+		mask: missing
+		size: [16, 8]
+	}
+	
+	hair_colors:
+	[
+		"0xffffffff"
+	]
+	
+	sounds_idle_male: ["drevokocur.idle.00", "drunk.01"]
+	sounds_idle_female: ["drevokocur.idle.00", "drunk.01"]
+	
+	sounds_taunt_male: []
+	sounds_taunt_female: []
+	
+	sounds_talk_male: []
+	sounds_talk_female: []
+	
+	sounds_alert_male: []
+	sounds_alert_female: []
+	
+	sounds_pain_male: []
+	sounds_pain_female: []
+	
+	sounds_scream_male: []
+	sounds_scream_female: []
+	
+	sounds_death_male: ["cat.meow.04", "human.death.00", "flesh.hit.scratch.00", "kobold.bleh.00"]
+	sounds_death_female: ["cat.meow.04", "human.death.00", "flesh.hit.scratch.00", "kobold.bleh.00"]
+}

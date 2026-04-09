@@ -1,0 +1,90 @@
+﻿{
+	$prefab: "g.settlement.town.00"
+	$version: "0.1.60.7"
+	name: "Mala Bobnica"
+	name_short: "M. Bobnica"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	post_code: "MBB"
+	
+	type: village
+	flags: none
+	categories: border, wilderness, residential, overgrown, frontier, agricultural, developing, fortified, rural, forested
+	buildings: walls, mine, school, bar, lumber_mill, farm, brewery, market, brickworks, bakery
+	industry_primary: none
+	industry: none
+	goods_trading: none
+	goods_demanded: none
+	goods_produced: none
+	crime: none
+	geography: none
+	
+	// Urban development, population density.
+	urbanization: 0.100
+	// Availability and utilization of advanced technology.
+	technology: 0.170
+	// Industrial production, mechanization, engineering.
+	industrialization: 0.190
+	// Literacy, availability of education, skilled workers.
+	education: 0.170
+	// Standard of living, overall wealth of population and government.
+	wealth: 0.141
+	// Nature, wildlife, overgrowth, untamed nature.
+	wilderness: 0.000
+	// Environmental damage, pollution, wastelandness.
+	devastation: 0.064
+	// Brutality of nature and population.
+	savagery: 0.000
+	// Lawlessness, lack of organization.
+	anarchy: 0.000
+	// Economic strength, employment rate, flow of goods.
+	economy: 0.190
+	// Variance of population's social classes.
+	inequality: 0.071
+	// Crime rate, personal safety.
+	safety: 0.484
+	// Rate of expansion, economic and population growth.
+	growth: 0.028
+	// Military strength, security, access to weapons.
+	military: 0.023
+	// Height in meters above sea level.
+	elevation: 10.000
+	
+	statistics:
+	{
+	
+	}
+	
+	population:
+	{
+	
+	}
+	
+	h_prefecture: "somrwald"
+	h_faction: "null"
+	h_company: "null"
+	h_location_parent: "null"
+	size: 0.550
+	
+	color: "0xffffee00"
+	
+	thumbnail:
+	{
+		texture: "missing"
+	}
+	
+	icon:
+	{
+		texture: "worldmap.icons.01"
+		size: [24, 24]
+		frame: [4, 0]
+	}
+	
+	icon_offset: [0.000, 0.000]
+	text_offset: [0.000, 0.250]
+	
+	point: [12, -9]
+}

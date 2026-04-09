@@ -13,7 +13,7 @@ body:
 	@shape.line:
 	{
 		material: metal_solid
-		miss_chance: 0.412
+		miss_chance: 0.612
 		flags: none
 		tags: none
 		

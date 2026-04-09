@@ -1,0 +1,371 @@
+$name: "EC-EL Arc-Chamber"
+$desc:
+	'''
+	Sealed reaction chamber utilizing high-energy electric arcs from EC-EL pellets to synthesize gases from atmospheric or piped inputs. 
+	'''
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.line:
+	{
+		material: machine
+		miss_chance: 0.835
+		flags: none
+		tags: huge, thin, hard
+		
+		layer: entity, solid, building, storage, workshop, crafter, conductive, heatable, magnetic, ignore_melee
+		mask: world, building
+		exclude: none
+		
+		mass: 140.000
+		radius: 0.875
+		friction: 0.600
+		elasticity: 0.500
+		
+		cog_offset: [0.000, 0.000]
+		
+		a: [0.000, -0.250]
+		b: [0.000, 1.625]
+		offset: [0.000, 0.000]
+	}
+
+	// @shape.polygon:
+	// {
+	// 	material: building_reinforced
+	// 	miss_chance: 0.718
+	// 	flags: none
+	// 	tags: none
+		
+	// 	layer: entity, solid, building, storage, workshop, crafter, conductive, heatable, magnetic, ignore_melee
+	// 	mask: world, building
+	// 	exclude: none
+		
+	// 	mass: 220.000
+	// 	radius: 0.500
+	// 	friction: 0.500
+	// 	elasticity: 0.500
+		
+	// 	cog_offset: [0.000, 0.000]
+		
+	// 	points:
+	// 	[
+	// 		[-1.750, 2.125]
+	// 		[1.750, 2.125]
+	// 		[1.625, 3.250]
+	// 		[-1.625, 3.250]
+	// 	]
+	// }
+}
+
+health:
+{
+	max: 81500.000
+}
+
+// armor:
+// {
+// 	toughness: 340.000
+// 	protection: 0.750
+	
+// 	knockback_modifier: 1.300
+// 	pain_modifier: 0.000
+
+// 	material_type: metal
+// 	flags: no_damage_type_conversion
+// }
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: electrochamber.00
+		size: [24, 48]
+		frame: [0, 0]
+	}
+	z: -200.000
+}
+
+// animated.renderer|"foreground":
+// {
+// 	sprite:
+// 	{
+// 		texture: electrochamber.00
+// 		size: [24, 48]
+// 		frame: [1, 0]
+// 	}
+// 	z: -150.000
+// }
+
+transform:
+{
+
+}
+
+shop:
+{
+	tags_filter:
+	{
+		require: salvaging
+		include: dumb, crude, industrial, salvaging, processing, dangerous
+		exclude: crafting, huge, construction, heating
+	}
+	
+	tools: hammer, screwdriver, spanner, pliers, bucket, shovel, towel, spatula, tongs, crowbar, knife, ladle
+	infrastructure: rack, pulley, bucket, surface, large_surface, hard_surface, crane, essence_emitter, essence_projector, structure, machine
+	environment: machine, stationary, dirty, scary, noisy, reinforced, fireproof, durable, sturdy
+	
+	flags: embed_gui
+	menu_columns: 4
+	recipe_type: workshop
+	
+	offset_spawn: [0.000, 2.250]
+	
+	name: "Electrochamber"
+}
+
+crafter:
+{
+	h_crafter: electrochamber.00
+	flags: assignable
+	distance_max: 6.000
+	temperature_max: 1200.000
+	pressure_max: 5.000
+	
+	tools: none
+	infrastructure: none
+	environment: machine, stationary, dirty, scary, noisy, reinforced, fireproof, durable, sturdy, large
+	offset: [0.000, -0.500]
+
+	@inventory8:
+	{
+		type: output
+		flags: standalone, ignore_mass, public, vertical
+		stack_size_multiplier: 4.000
+		
+		filter:
+		{
+			require: none
+			include: none
+			exclude: gas
+		}
+		
+		offset: [0.000, 2.250]
+	}
+}
+
+crafter.state:
+{
+	@inventory4:
+	{
+		type: input
+		flags: standalone, allow_ducts, ignore_mass, vertical
+		stack_size_multiplier: 2.000
+		
+		filter:
+		{
+			exclude: gas
+		}
+		offset: [0.000, -0.500]
+	}
+
+	// @animated.renderer:
+	// {
+	// 	sprite:
+	// 	{
+	// 		texture: resource.steel.ingot
+	// 		size: [16, 16]
+	// 		frame: [0, 0]
+	// 	}
+	// 	z: -180.000
+	// }
+}
+
+workshop:
+{
+	orders_capacity: 1
+	
+	tools: none
+	infrastructure: none
+	environment: none
+	
+	gui_info_size_x: 252.000
+}
+
+// axle:
+// {
+// 	offset: [0.000, -1.500]
+// 	mass: 5.000
+// 	friction: 0.200
+// 	radius_a: 1.000
+// 	radius_b: 1.000
+// 	radius_inner: 0.750
+// 	radius_outer: 1.000
+	
+// 	@animated.renderer:
+// 	{
+// 		sprite:
+// 		{
+// 			texture: "wheel_1000.steel"
+// 		}
+// 		z: -200.000
+// 	}
+// }
+
+interactable:
+{
+	flags: none
+	priority: 1.000
+	window_size: [600.000, 528.000]
+	window_size_misc: [144.000, 0.000]
+}
+
+shipment:
+{
+	type: crafting
+	layout: square
+	flags: keep_items, allow_deposit, use_misc, no_empty_deposit, crafting
+	color: "0xfff0c63e"
+}
+
+essence.container:
+{
+	stability: 0.870
+	frequency: 50.000
+	emit_type: projector
+	flags: show_gui, allow_edit_rate, allow_edit_frequency
+	rate_speed: 0.400
+	health_threshold: 0.940
+	glow_modifier: 0.800
+
+	@inventory1:
+	{
+		type: essence
+		flags: ignore_mass, no_auto_pickup, faction
+		stack_size_multiplier: 0.200
+		
+		filter:
+		{
+			require: essence, small, pellet, solid
+		}
+		offset: [0.000, -1.875]
+	}
+
+	@sound.emitter:
+	{
+		flags: start_muted
+		volume: 0.700
+		offset: [0.000, 0.625]
+		size_max_modifier: 0.450
+		doppler: 1.000
+	}
+
+	@light:
+	{
+		offset: [-0.375, 0.375]
+		scale: [1.000, 8.000]
+		texture: light.box.04
+	}
+}
+
+heat:
+{
+	temperature_medium: 800.000
+	temperature_high: 1200.000
+	temperature_ignite: 1337.000
+	temperature_operating: 1243.150
+	temperature_breakdown: 1950.000
+	cool_rate: 12.000
+	heat_capacity_extra: 200.000
+	heat_damage_mult: 0.100
+	smoke_size_mult: 0.700
+	smoke_speed_mult: 0.300
+	smoke_rise_mult: 0.500
+	flags: exclude_body_mass, no_gui
+	fire_flags: none
+	offset: [0.000, -1.375]
+	smoke_offset: [0.000, -0.875]
+	size: [2.000, 1.000]
+
+	@light:
+	{
+		offset: [-0.125, 1.125]
+		scale: [28.000, 13.000]
+		intensity: 1.000
+		texture: light.circle.00
+	}
+
+	@sound.emitter:
+	{
+		file: overheat_loop
+		flags: start_muted
+		volume: 1.000
+		pitch: 0.680
+		size_max_modifier: 0.600
+		offset: [0.000, 0.500]
+	}
+}
+
+// control:
+// {
+
+// }
+
+// controllable:
+// {
+// 	gui_size: [96.000, 0.000]
+// 	speed: 7.100
+// 	radius: 1.500
+// 	radius_max: 2.000
+// 	flags: show_misc, disable_mouse_properties, disable_mouse_rmb, disable_mouse_pos, disable_keyboard, hide_cursor, mouse_orthogonal
+// }
+
+essence.emitter:
+{
+	offset: [0.000, -0.750]
+	type: projector
+	h_essence: failure
+	h_soundmix_test: deteriorator.00.emit
+}
+
+electrochamber:
+{
+	flags: use_misc
+
+	// @essence.emitter:
+	// {
+	// 	offset: [0.000, -0.125]
+	// 	type: projector
+	// 	h_essence: failure
+	// 	h_soundmix_test: deteriorator.00.emit
+	// }
+
+	// @light:
+	// {
+	// 	color: [0.000, 1.000, 0.800, 1.500]
+	// 	offset: [0.125, -1.875]
+	// 	scale: [12.000, 14.000]
+	// 	intensity: 1.200
+	// 	texture: light.circle.00
+	// }
+}
+
+analog.relay:
+{
+
+}
+
+analog.button:
+{
+	signal_strength: 2.000
+	channels: red, green
+	flags: use_misc
+	button_size: [72, 36]
+}
+
+// vehicle:
+// {
+// 	flags: use_misc_window
+// }

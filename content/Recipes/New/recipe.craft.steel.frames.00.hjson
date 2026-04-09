@@ -1,11 +1,12 @@
 ﻿{
-	$version: "0.1.68.0"
+	$version: "0.1.72.1"
 	name: "Steel Frames"
 	tips: []
 	
 	related_materials:
 	{
-		steel.frames: refined, product, result
+		steel.frames: refined, flattened, product, result, output
+		steel.plate: input, auto_generated
 	}
 	
 	stages:
@@ -20,7 +21,6 @@
 			discard_damage_type: sledgehammer
 			
 			ratio: 1.000
-			mass_base: 0.000
 			
 			options:
 			[

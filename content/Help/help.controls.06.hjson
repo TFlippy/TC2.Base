@@ -1,0 +1,26 @@
+﻿{
+	$version: "0.1.71.1"
+	name: "Interactables"
+	category: "01: Controls"
+	desc:
+		'''
+		Press "E" to interact with a building.
+		'''
+	
+	order: 25
+	size: [489, 0]
+	layout: a
+	flags: none
+	
+	title: "Interactables"
+	
+	sprite_scale: 0.625
+	sprite:
+	{
+		texture: ui.tutorial.atlas.00
+		size: [480, 320]
+		frame: [2, 2]
+	}
+	
+	entries: []
+}

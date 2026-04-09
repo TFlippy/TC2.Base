@@ -1,7 +1,17 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.72.1"
 	name: "Long Breechloader"
 	tips: []
+	
+	related_materials:
+	{
+		steel.ingot: input, auto_generated
+		steel.frames: input, auto_generated
+		wood: raw, input, auto_generated
+		pellet.heat: input, auto_generated
+		machine_parts: input, auto_generated
+		glue: liquid, input, auto_generated
+	}
 	
 	stages:
 	[
@@ -62,7 +72,11 @@
 					filter_tools:
 					{
 						require: hand_drill
-						include: screwdriver, file, knife, scissors
+						include: hand_drill, screwdriver, chisel, pick, knife
+					}
+					filter_infrastructure:
+					{
+						include: vise, rack, workbench
 					}
 				}
 			]
@@ -115,8 +129,8 @@
 					
 					filter_tools:
 					{
-						require: file, knife
-						include: hand_drill, screwdriver, pliers, file, chisel, knife, sandpaper
+						require: knife
+						include: screwdriver, file, chisel, knife, sandpaper
 					}
 				}
 			]
@@ -277,6 +291,8 @@
 	type: workshop
 	flags: blueprintable, item
 	tags: manual, crafting, simple, medium, weapon, gun, assembling, metalworking, military
+	hints: none
+	connotations: none
 	infrastructure: workbench
 	infrastructure_exclude: none
 	

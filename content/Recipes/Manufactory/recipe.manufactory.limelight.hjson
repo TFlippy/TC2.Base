@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.1"
+	$version: "0.1.72.1"
 	name: "Limelight"
 	desc:
 		'''
@@ -9,7 +9,11 @@
 	
 	related_materials:
 	{
-		limelight: product, result
+		limelight: product, result, output
+		pellet.heat: input, auto_generated
+		directors: input, auto_generated
+		lime: raw, powdered, input, auto_generated
+		glue: liquid, input, auto_generated
 	}
 	
 	stages:
@@ -40,6 +44,7 @@
 							type: resource
 							material: pellet.heat
 							amount: 1.000
+							snapping: 0.500
 							group: 0
 							flags: no_residue, prerequisite
 						}
@@ -183,7 +188,6 @@
 					}
 					filter_infrastructure:
 					{
-						require: shaping_mould
 						include: table, chair
 					}
 					filter_environment:

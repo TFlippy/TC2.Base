@@ -1,9 +1,9 @@
 ﻿{
-	$version: "0.1.70.1"
+	$version: "0.1.72.0"
 	name: "Sheetmetal (Back)"
 	desc:
 		'''
-		TODO: Desc
+		Basic sheetmetal wall commonly used for affordable housing.
 		'''
 	tips: []
 	

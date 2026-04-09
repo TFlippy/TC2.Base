@@ -1,0 +1,548 @@
+﻿{
+	$version: "0.1.72.1"
+	name: "RG-68.1mm/HV"
+	desc:
+		'''
+		Precise high-velocity rockets with powerful, but lower blast radius.
+		'''
+	tips: []
+	
+	related_materials:
+	{
+		steel.plate: input, auto_generated
+		steel.frames: input, auto_generated
+		niklajzner.plate: input, auto_generated
+		lubricant: liquid, input, auto_generated
+		nitrocellulose: powdered, ingredient, input, auto_generated
+		machine_parts: input, auto_generated
+		nitrosugar: ingredient, input, auto_generated
+		ammo.rocket.hv: product, result, output, auto_generated
+		nitroglycerine: ingredient, liquid, input, auto_generated
+		gunpowder: powdered, ingredient, input, auto_generated
+		tnt: ingredient, input, auto_generated
+	}
+	
+	stages:
+	[
+		{
+			name: "Body"
+			
+			type: container
+			flags: part
+			tags: chassis, shell, metal, container, structural, rounded, material
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: pickaxe
+			
+			options:
+			[
+				{
+					name: "Hand-Made"
+					
+					type: undefined
+					flags: wip
+					
+					prefix: "Hand-Made "
+					priority: 1.000
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.plate
+							amount: 0.298686
+							snapping: 0.250
+							loss: 0.173
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: steel.frames
+							amount: 0.032
+							snapping: 0.100
+							loss: 0.153
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: bending
+							amount: 120.000
+							amount_min: 50.000
+							difficulty: 7
+							snapping: 20.000
+							falloff: 0.911
+							ratio: 0.137
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: bolting
+							amount: 140.000
+							amount_min: 20.000
+							difficulty: 5
+							snapping: 50.000
+							falloff: 0.937
+							ratio: 0.122
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: hammer, screwdriver
+						include: hammer, screwdriver, wrench, spanner, pliers, chisel, towel, crowbar
+					}
+					filter_infrastructure:
+					{
+						include: anvil, vise, hard_surface, workbench
+					}
+				}
+				{
+					name: "Forged"
+					
+					type: undefined
+					flags: wip
+					
+					prefix: "Forged "
+					priority: 1.000
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: steel.plate
+							amount: 0.332821
+							snapping: 0.250
+							loss: 0.173
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: temperature
+							amount: 724.700
+							amount_min: 495.000
+							amount_max: 1073.000
+							falloff: 0.767
+							group: 1
+							flags: no_scaling, always_evaluate
+						}
+						{
+							type: work
+							work: smithing
+							amount: 90.000
+							difficulty: 9
+							snapping: 20.000
+							falloff: 0.887
+							ratio: 0.255
+							group: 1
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: construction
+							amount: 240.000
+							amount_min: 40.000
+							difficulty: 10
+							snapping: 10.000
+							falloff: 0.871
+							ratio: 0.365
+							group: 1
+							flags: stepped, simultaneous, conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: ruler, hammer, saw, hand_drill, screwdriver, pliers, tongs
+						include: pencil, ruler, hammer, saw, hand_drill, screwdriver, tweezers, axe, file, chisel, towel, knife
+					}
+					filter_infrastructure:
+					{
+						require: anvil, forge, hard_surface, heater
+						include: vise
+					}
+					filter_environment:
+					{
+						require: sturdy, smithy
+						include: workshop
+						exclude: office, fragile
+					}
+				}
+				{
+					name: "Pressed"
+					
+					type: undefined
+					flags: wip
+					
+					prefix: "Pressed "
+					priority: 1.000
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: niklajzner.plate
+							amount: 0.298686
+							snapping: 0.250
+							loss: 0.173
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: lubricant
+							amount: 0.365297
+							snapping: 0.100
+							falloff: 0.384
+							loss: 0.153
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: die.cutting.metal
+							amount: 80.000
+							difficulty: 5
+							snapping: 20.000
+							falloff: 0.911
+							ratio: 0.137
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: die.drawing.metal
+							amount: 140.000
+							amount_min: 100.000
+							difficulty: 9
+							snapping: 50.000
+							falloff: 0.954
+							ratio: 0.122
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+					]
+					
+					filter_infrastructure:
+					{
+						require: hard_surface, press
+						include: dies
+					}
+				}
+			]
+		}
+		{
+			name: "Rocket Motor"
+			
+			type: filler
+			flags: important
+			tags: barrel, functional, material, dangerous, formula, ingredient
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: crush
+			
+			options:
+			[
+				{
+					name: "Standard"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: shovel
+					
+					priority: 1.000
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: nitrocellulose
+							amount: 3.054755
+							snapping: 0.100
+							loss: 0.086
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: machine_parts
+							amount: 1.427185
+							snapping: 1.000
+							loss: 0.541
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: filling.powder
+							amount: 16.000
+							amount_min: 65.000
+							difficulty: 7
+							step_max: 25
+							snapping: 5.000
+							falloff: 0.946
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: assembling
+							amount: 165.000
+							amount_min: 75.000
+							difficulty: 12
+							step_max: 50
+							snapping: 10.000
+							falloff: 0.895
+							ratio: 0.694
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+					]
+					
+					filter_tools:
+					{
+						require: screwdriver, wrench
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, bucket, stapler, towel, spatula, tongs, pick, crowbar, knife
+					}
+				}
+			]
+		}
+		{
+			name: "Warhead"
+			
+			type: formula
+			flags: important
+			tags: shell, metal, container, rounded, material, dangerous, formula
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			options:
+			[
+				{
+					name: "NS-NC"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: sledgehammer
+					
+					priority: 1.000
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: nitrosugar
+							amount: 1.631016
+							snapping: 0.100
+							loss: 0.094
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: nitrocellulose
+							amount: 2.305475
+							snapping: 0.100
+							loss: 0.086
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: filling.powder
+							amount: 75.000
+							amount_min: 50.000
+							difficulty: 7
+							snapping: 10.000
+							falloff: 0.934
+							loss: 0.067
+							ratio: 0.122
+							group: 0
+							flags: stepped, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: ammo.rocket.hv
+							amount: 1.000
+							group: 0
+							flags: primary, compact
+						}
+					]
+					
+					filter_tools:
+					{
+						include: bucket, spatula
+					}
+				}
+				{
+					name: "NTG-GP"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: sledgehammer
+					
+					priority: 1.000
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: nitroglycerine
+							amount: 0.961832
+							snapping: 0.100
+							loss: 0.059
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: gunpowder
+							amount: 3.833333
+							snapping: 0.100
+							loss: 0.122
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: blending
+							amount: 50.000
+							amount_min: 25.000
+							difficulty: 6
+							snapping: 10.000
+							falloff: 0.801
+							loss: 0.098
+							ratio: 0.145
+							group: 0
+							flags: stepped, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: ammo.rocket.hv
+							amount: 1.000
+							group: 0
+							flags: primary, compact
+						}
+					]
+					
+					filter_tools:
+					{
+						include: ruler, shovel, file, spatula, ladle, utensils
+					}
+					filter_infrastructure:
+					{
+						include: cauldron, dishes, barrel, bucket, liquid_container, blender, form
+					}
+				}
+				{
+					name: "TNT-NTG"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: sledgehammer
+					
+					priority: 1.000
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: tnt
+							amount: 1.836458
+							snapping: 0.100
+							loss: 0.075
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: nitroglycerine
+							amount: 0.656489
+							snapping: 0.100
+							loss: 0.137
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: blending
+							amount: 10.000
+							difficulty: 8
+							snapping: 5.000
+							falloff: 0.994
+							loss: 0.067
+							ratio: 0.122
+							group: 0
+							flags: stepped, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: ammo.rocket.hv
+							amount: 1.000
+							group: 0
+							flags: primary, compact
+						}
+					]
+					
+					filter_tools:
+					{
+						include: ruler, shovel, file, spatula, ladle, utensils
+					}
+					filter_infrastructure:
+					{
+						include: cauldron, dishes, barrel, bucket, liquid_container, blender, form
+					}
+				}
+			]
+		}
+	]
+	
+	type: workshop
+	flags: production, manufacturing
+	tags: crafting, complex, small, munitions, delicate, assembling, industrial, metalworking, engineering, military, explosive, dangerous
+	hints: none
+	connotations: none
+	infrastructure: table, chair, rack, surface, workbench
+	infrastructure_exclude: personal
+	
+	icon:
+	{
+		texture: resource.ammo.rocket.lv
+		count: 4
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	icon_offset: [0.000, -2.000]
+	
+	icon_extra:
+	{
+		texture: ui_icons_gunsmith.mini
+		size: [16, 16]
+		frame: [1, 0]
+	}
+	icon_extra_offset: [-17.000, 0.000]
+	
+	color_frame: "0xffcf392b"
+	color_button: "0xff9dd80f"
+	rank: -55.500
+	
+	min: 1
+	max: 20
+	step: 1
+	
+	version: 1
+}

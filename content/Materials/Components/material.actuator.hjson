@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.2"
+	$version: "0.1.73.0"
 	name: "Magitronic Actuators"
 	name_short: "Actuators"
 	name_imperial: "Aktuator"
@@ -7,9 +7,6 @@
 	description:
 		'''
 		Advanced EC-MT actuators used in robotics and mechanics.
-
-		After the discovery of controlled essence manipulation in 739 S.D., 
-		these small devices have sparked a new industrial revolution and granted the Kordel Empire a massive technological edge.
 		'''
 	
 	tips: []
@@ -58,9 +55,10 @@
 	commodity:
 	{
 		flags: none
-		categories: machinery, components, arcane, technology, industrial, manufactured
+		categories: machinery, components, arcane, technology, industrial, manufactured, smirglum
 		
 		market_price: 650.000
+		market_price_per_kg_auto: 81.250
 	}
 	
 	// Residues from crafting/work.

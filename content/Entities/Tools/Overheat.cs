@@ -304,13 +304,14 @@ namespace TC2.Base.Components
 #endif
 		}
 
+#if SERVER
 		[ISystem.Add(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("initialized", true, Source.Modifier.Owned)]
 		[ISystem.Modified(ISystem.Mode.Single, ISystem.Scope.Region, order: 1000)]
 		public static void OnModified(ISystem.Info info, Entity entity,
 		[Source.Owned] ref Heat.Data heat, [Source.Owned] ref Heat.State heat_state,
 		[Source.Owned] ref Body.Data body, [Source.Owned, Optional] in Resource.Data resource)
 		{
-#if SERVER
+
 			heat_state.flags.RemoveFlag(Heat.State.Flags.Cached);
 
 			var modifier = 1.00f;
@@ -319,7 +320,6 @@ namespace TC2.Base.Components
 				modifier = resource.GetQuantityNormalized();
 			}
 			heat_state.modifier = modifier;
-#endif
 			//#if SERVER
 			//			var modifier = 1.00f;
 			//			if (resource.material.id != 0)
@@ -345,6 +345,7 @@ namespace TC2.Base.Components
 			//			heat_state.Sync(entity, true);
 			//#endif
 		}
+#endif
 
 		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("initialized", true, Source.Modifier.Owned)]
 		public static void Update(ISystem.Info info, Entity entity, ref Region.Data region,

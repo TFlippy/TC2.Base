@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.0"
+	$version: "0.1.71.1"
 	name: "Cramming (Solid)"
 	name_short: "Cramming"
 	desc:
@@ -44,8 +44,10 @@
 	
 	skills_mult:
 	{
-		dexterity: 0.110
-		strength: 0.460
+		dexterity: 0.080
+		strength: 0.430
+		engineering: 0.190
+		intellect: 0.200
 	}
 	
 	sound_volume: 0.700

@@ -1,7 +1,7 @@
-$name: "EC-MT Impulse Press"
+$name: "EC-Impulse Press"
 $desc:
 	'''
-	Small EC-MT impulse press designed for basic automated metalforming and as a support tool for manual metalworking.
+	Small EC-Impulse Press designed for basic automated metalforming and as a support tool for manual metalworking.
 	'''
 $tags: []
 
@@ -12,7 +12,7 @@ body:
 	@shape.line:
 	{
 		material: machine
-		miss_chance: 0.659
+		miss_chance: 0.859
 		flags: none
 		tags: none
 		
@@ -35,7 +35,7 @@ body:
 	@shape.polygon:
 	{
 		material: building_reinforced
-		miss_chance: 0.000
+		miss_chance: 0.850
 		flags: none
 		tags: none
 		
@@ -108,13 +108,14 @@ shop:
 {
 	tags_filter:
 	{
-		include: automated, industrial, metalworking, metallurgy
-		exclude: advanced, large, huge, assembling, social, forestry, fermenting, overworld
+		include: automated, raw, industrial, metalworking, metallurgy, engineering, salvaging, refining, moulding, processing
+		exclude: advanced, large, huge, delicate, assembling, social, forestry, construction, fermenting, overworld
 	}
 	
 	tools: ruler, hammer, cutters, screwdriver, wrench, spanner, pliers, bucket, file, towel, tongs, crowbar
 	infrastructure: anvil, forge, table, vise, rack, casting_mould, shaping_mould, bucket, surface, hard_surface, compactor, heater, stamping_press, press, dies, essence_emitter, structure, machine
 	environment: machine, stationary, dirty, scary, noisy, reinforced, fireproof, durable, sturdy, small
+	connotations: none
 	
 	flags: embed_gui
 	menu_columns: 3
@@ -122,7 +123,7 @@ shop:
 	
 	offset_spawn: [-0.375, 1.000]
 	
-	name: "EC-MT Impulse Press"
+	name: "EC-Impulse Press"
 }
 
 press:
@@ -291,7 +292,7 @@ shipment:
 {
 	type: crafting
 	layout: square
-	flags: keep_items, allow_deposit, use_misc, no_empty_deposit, crafting
+	flags: keep_items, allow_deposit, use_misc, no_empty_deposit, crafting, no_body_mass
 	color: "0xfff0c63e"
 }
 

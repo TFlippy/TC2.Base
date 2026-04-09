@@ -1,11 +1,15 @@
 ﻿{
-	$version: "0.1.67.2"
-	name: "LMG"
-	desc:
-		'''
-		Light machine gun capable of firing high-powered rounds.
-		'''
+	$version: "0.1.72.1"
+	name: "Light Machine Gun"
 	tips: []
+	
+	related_materials:
+	{
+		steel.plate: input, auto_generated
+		steel.frames: input, auto_generated
+		machine_parts: input, auto_generated
+		wood: raw, input, auto_generated
+	}
 	
 	stages:
 	[
@@ -135,7 +139,11 @@
 					filter_tools:
 					{
 						require: screwdriver, wrench, file
-						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, stapler, towel, tongs, pick, crowbar, knife
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, stapler, chisel, towel, tongs, pick, crowbar, knife, sandpaper, utensils
+					}
+					filter_infrastructure:
+					{
+						include: surface
 					}
 					filter_environment:
 					{
@@ -191,8 +199,8 @@
 					
 					filter_tools:
 					{
-						require: file, knife
-						include: hand_drill, screwdriver, pliers, file, chisel, knife, sandpaper
+						require: knife
+						include: screwdriver, file, chisel, knife, sandpaper
 					}
 				}
 			]
@@ -207,62 +215,6 @@
 			amount: 1.000
 			group: 0
 			flags: primary, compact
-		}
-	]
-	
-	requirements_old:
-	[
-		{
-			type: resource
-			material: wood
-			amount: 3.000
-			group: 0
-		}
-		{
-			type: resource
-			material: steel.ingot
-			amount: 10.000
-			group: 0
-		}
-		{
-			type: resource
-			material: machine_parts
-			amount: 14.000
-			group: 0
-		}
-		{
-			type: work
-			work: smithing
-			amount: 400.000
-			difficulty: 18
-			group: 0
-			flags: conditional
-		}
-		{
-			type: work
-			work: woodworking
-			amount: 80.000
-			difficulty: 4
-			group: 0
-			flags: conditional
-		}
-		{
-			type: work
-			work: assembling
-			amount: 600.000
-			difficulty: 12
-			group: 0
-			flags: conditional
-		}
-	]
-	
-	products_old:
-	[
-		{
-			type: prefab
-			prefab: lmg
-			amount: 1.000
-			group: 0
 		}
 	]
 	

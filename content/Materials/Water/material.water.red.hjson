@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.2"
+	$version: "0.1.72.0"
 	$note:
 		'''
 		- Red-colored water with an extremely sour taste, but not corrosive enough to cause damage
@@ -65,9 +65,10 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: beverages, food, water, luxury, consumer, manufactured, processed
 		
 		market_price: 5.500
+		market_price_per_kg_auto: 4.414125
 	}
 	
 	// Info regarding relations of other materials towards this material.

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.63.8"
+	$version: "0.1.73.0"
 	name: "Sand"
 	desc:
 		'''
@@ -16,7 +16,8 @@
 	strength_tensile: 0.001
 	strength_compressive: 0.020
 	
-	mass: 1.100
+	mass: 3.500
+	density: 0.000
 	friction: 1.171
 	elasticity: 0.030
 	fall_damage_mult: 0.720
@@ -36,7 +37,7 @@
 	[
 		{
 			material: sand
-			quantity: 1.980
+			quantity: 2.807869
 		}
 		null
 	]

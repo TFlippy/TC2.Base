@@ -363,7 +363,7 @@ workshop:
 		material_type: flesh
 		
 		max_displacement: 1.000
-		displacement_stress_modifier: 0.200
+		displacement_stress_modifier: 0.300
 		displacement_force_modifier: 1.400
 
 		z: 4.000
@@ -543,7 +543,7 @@ workshop:
 		head:
 		{
 			air_capacity: 0.620
-			air_usage: 0.080
+			air_usage: 0.040
 			
 			offset_mouth: [0.300, 0.350]
 
@@ -609,7 +609,7 @@ workshop:
 		max_force: 16000.000
 		max_torque: 8000.000
 		max_displacement: 0.400
-		displacement_stress_modifier: 0.100
+		displacement_stress_modifier: 0.300
 		displacement_force_modifier: 0.500
 		max_stress: 3.000
 		stress_threshold: 1.500
@@ -806,7 +806,7 @@ workshop:
 		max_torque: 10000.000
 		max_stress: 2.000
 		stress_threshold: 1.250
-		stress_damp: 0.500
+		stress_damp: 0.250
 		flags: control_write, facing_reset_pos, force_facing
 		z: 45.000
 
@@ -829,8 +829,10 @@ workshop:
 		damping: 140.000
 		axis_force: 10000.000
 		spring_max_bias: 4.000
+		spring_error_bias: 0.010
 		max_distance: 0.200
 		stress_mult_axis: 1.000
+		stress_mult_spring: 2.000
 	}
 
 	joint.gear:

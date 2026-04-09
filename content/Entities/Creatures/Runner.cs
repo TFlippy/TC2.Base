@@ -306,7 +306,7 @@ namespace TC2.Base.Components
 				//App.WriteLine(arbiter.GetRigidityDynamic());
 				if (arbiter.GetRigidityDynamic() > 0.90f) // || arbiter.GetLayer().HasAny(Physics.Layer.Water))
 				{
-					normal += arbiter.GetNormal();
+					normal -= arbiter.GetNormal();
 					friction += arbiter.GetFriction();
 					layers |= arbiter_layer;
 					rv += arbiter.GetBodyVelocity();
@@ -377,13 +377,13 @@ namespace TC2.Base.Components
 				}
 			}
 
-			//#if CLIENT
-			//			region.DrawDebugText(body.GetPosition(), $"{arbiter_count}\n{runner_state.flags}\n{is_on_vehicle}", Color32BGRA.Yellow);
-			//#endif
+//#if CLIENT
+//			region.DrawDebugText(body.GetPosition(), $"{arbiter_count}\n{runner_state.flags}\n{is_on_vehicle}", Color32BGRA.Yellow);
+//#endif
 
-			//#if CLIENT
-			//			region.DrawNormal(body.GetPosition(), runner_state.last_normal, is_grounded ? Color32BGRA.Green : Color32BGRA.Yellow);
-			//#endif
+//#if CLIENT
+//			region.DrawDebugDir(body.GetPosition(), runner_state.last_normal * 4, is_grounded ? Color32BGRA.Green : Color32BGRA.Yellow);
+//#endif
 
 			if (!stick_to_surface && runner_state.flags.HasAny(Runner.State.Flags.WallClimbing))
 			{

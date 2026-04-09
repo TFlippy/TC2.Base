@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.2"
+	$version: "0.1.72.1"
 	name: "Charcoal"
 	name_short: "Charcoal"
 	name_dumb: "Coal"
@@ -47,6 +47,15 @@
 	
 	centroid_default: [0.000, 0.250]
 	colliders: []
+	
+	commodity:
+	{
+		flags: none
+		categories: none
+		
+		market_price: 1.400
+		market_price_per_kg_auto: 5.833334
+	}
 	
 	fuel:
 	{

@@ -8,16 +8,25 @@ body:
 
 	@shape.line:
 	{
-		a: [0.000,-0.400]
-		b: [0.000, 0.400]
-		offset: [0.050, 0.000]
-		mass: 20.000
-		radius: 0.500
-		friction: 0.500
-		elasticity: 0.350
 		material: metal_solid
+		miss_chance: 0.000
+		flags: none
+		tags: none
+		
 		layer: entity, solid, item, shield
 		mask: world
+		exclude: none
+		
+		mass: 30.000
+		radius: 0.5625
+		friction: 0.450
+		elasticity: 0.350
+		
+		cog_offset: [0.000, 0.000]
+		
+		a: [0.000, -0.400]
+		b: [0.000, 0.400]
+		offset: [0.000, 0.000]
 	}
 }
 
@@ -48,14 +57,14 @@ holdable:
 	force_multiplier: 0.900
 	torque_multiplier: 1.500
 	offset: [-0.625, 0.200]
-	radius: 5.000
+	radius: 3.000
 	flags: storable
 	hints: heavy
 }
 
 health:
 {
-	max: 7000.000
+	max: 8000.000
 }
 
 armor:

@@ -1,11 +1,14 @@
 ﻿{
-	$version: "0.1.68.0"
+	$version: "0.1.72.1"
 	name: "Gold"
 	tips: []
 	
 	related_materials:
 	{
-		gold.powder: residue, powdered, product, result
+		gold.powder: residue, powdered, product, result, output
+		gold: residue, raw, input, output, auto_generated
+		gold.ingot: input, auto_generated
+		gold.gravel: raw, waste, output, auto_generated
 	}
 	
 	stages:
@@ -18,9 +21,6 @@
 			tags: material, raw, ingredient
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: none
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -80,9 +80,6 @@
 			tags: formula
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: none
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -232,11 +229,10 @@
 					filter_tools:
 					{
 						require: hand_drill
-						include: screwdriver, chisel, pick, knife
+						include: hand_drill, screwdriver, chisel, pick, knife
 					}
 					filter_infrastructure:
 					{
-						require: vise
 						include: vise, rack, workbench
 					}
 				}

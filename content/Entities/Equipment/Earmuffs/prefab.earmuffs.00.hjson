@@ -1,4 +1,5 @@
 $name: "Earmuffs"
+$desc: "Protects your hearing from loud factories and cannons."
 $tags: []
 
 body:

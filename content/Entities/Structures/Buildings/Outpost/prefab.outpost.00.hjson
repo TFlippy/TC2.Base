@@ -33,7 +33,7 @@ animated.renderer:
 interactable:
 {
 	flags: no_tab
-	window_size: [648, 576]
+	window_size: [720, 576]
 	window_size_misc: [192, 0]
 	priority: 1.000
 }
@@ -83,7 +83,7 @@ entrance.linkable:
 
 claimable:
 {
-	flags: enable_wololo
+	flags: allow_enemy_unclaim, allow_owner_unclaim
 }
 
 storage:
@@ -147,7 +147,7 @@ armory:
 
 shipment:
 {
-	flags: keep_items, allow_withdraw, allow_deposit, no_gui, faction
+	flags: keep_items, allow_withdraw, allow_deposit, no_gui, faction, no_body_mass
 	type: armory
 	layout: large
 }
@@ -159,28 +159,44 @@ spawn:
 
 dormitory:
 {
+	flags: no_kit_selection, no_kit_requirements, repopulate_needs_faction, recruit_into_squad, region_only
 	species: human
-	flags: no_kit_selection, no_kit_requirements, repopulate_needs_faction, region_only
-	// kit_default: default.outpost
+	
 	characters_capacity: 3
 	characters_initial_count: 0
+	characters_reserved_count: 0
+	
+	repopulate_max: 3
+	repopulate_num: 1
+	repopulate_num_extra: 1
 	repopulate_interval: 180.000
 	repopulate_interval_extra: 300.000
-	repopulate_num_extra: 1
-	repopulate_max: 3
 	repopulate_character_flags_add: recruitable
+	
 	asset_flags: recycle
-
 	character_flags_filter:
 	{
 		include: unskilled, military, farmer, laborer, civillian, armed, hunter, soldier, nomad, brawler, outdoor, strong, lower_middle_class, middle_class
 		exclude: sedentary, upper_middle_class, upper_class, elite_class
 	}
+	kit_categories_filter:
+	{
+		exclude: explosive, advanced, expensive
+	}
+}
+
+squad:
+{
+	max_size: 4
+	flags: no_unit_remove
+	movement_flags: hold, open_doors
+	combat_flags: attack_visible, attack_when_hit, cover, flee, defend, form_groups, assist_work
 }
 
 personnel:
 {
 	flags: store_characters
+	assign_radius: 20.000
 
 	slots:
 	[

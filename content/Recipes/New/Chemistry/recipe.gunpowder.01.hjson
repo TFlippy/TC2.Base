@@ -1,6 +1,6 @@
 ﻿{
-	$version: "0.1.68.1"
-	name: "Wet Gunpowder"
+	$version: "0.1.72.1"
+	name: "Wetted Gunpowder"
 	desc:
 		'''
 		TODO: Desc
@@ -9,8 +9,16 @@
 	
 	related_materials:
 	{
-		gunpowder: product, result
+		gunpowder: powdered, product, result, output
 		coal.powder: residue, powdered, result
+		alcohol: ingredient, liquid, input, auto_generated
+		saltpeter: raw, powdered, ingredient, input, auto_generated
+		charcoal: raw, ingredient, input, auto_generated
+		sulfur: raw, powdered, ingredient, input, auto_generated
+		karban: raw, ore, ingredient, input, auto_generated
+		water.toxic: raw, ingredient, liquid, input, auto_generated
+		hydrogen_cyanide: gas, byproduct, output, auto_generated
+		sludge: raw, waste, output, auto_generated
 	}
 	
 	stages:
@@ -23,9 +31,6 @@
 			tags: material
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: wet
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -42,8 +47,8 @@
 							material: alcohol
 							amount: 1.477
 							snapping: 0.100
-							falloff: 0.958
-							loss: 0.024
+							falloff: 0.790
+							loss: 0.012
 							ratio: 1.000
 							group: 0
 							flags: prerequisite
@@ -79,9 +84,6 @@
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
 			
-			ratio: 0.000
-			mass_base: 0.000
-			
 			options:
 			[
 				{
@@ -101,7 +103,7 @@
 							material: saltpeter
 							amount: 1.136364
 							snapping: 0.500
-							loss: 0.024
+							loss: 0.988
 							ratio: 0.659
 							group: 0
 							flags: prerequisite
@@ -111,8 +113,8 @@
 							material: charcoal
 							amount: 0.625
 							snapping: 0.500
-							loss: 0.075
-							ratio: 0.173
+							loss: 0.957
+							ratio: 0.145
 							group: 0
 							flags: prerequisite
 						}
@@ -121,20 +123,20 @@
 							material: sulfur
 							amount: 0.434783
 							snapping: 0.100
-							loss: 0.024
-							ratio: 0.106
+							loss: 0.937
+							ratio: 0.271
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: work
 							work: crushing
-							amount: 190.000
-							amount_min: 135.000
+							amount: 90.000
+							amount_min: 75.000
 							difficulty: 5
 							snapping: 5.000
 							falloff: 0.802
-							ratio: 1.000
+							ratio: 0.243
 							group: 0
 							flags: simultaneous, conditional
 						}
@@ -142,11 +144,11 @@
 							type: work
 							work: blending
 							amount: 80.000
-							amount_min: 125.000
+							amount_min: 65.000
 							difficulty: 4
 							snapping: 5.000
 							falloff: 0.801
-							ratio: 1.000
+							ratio: 0.365
 							group: 0
 							flags: simultaneous, conditional
 						}
@@ -160,7 +162,8 @@
 							amount: 3.0932
 							amount_extra: 0.9669
 							group: 0
-							flags: primary, compact
+							ratio: 0.976
+							flags: primary, compact, scale_to_mass
 						}
 					]
 					
@@ -174,6 +177,131 @@
 						include: cauldron, dishes, barrel, bucket, hard_surface, liquid_container, compactor, blender, press, form
 					}
 				}
+				{
+					name: "Grimdark"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: wet
+					
+					prefix: "Grimdark "
+					priority: 1.000
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: saltpeter
+							amount: 0.833333
+							snapping: 0.500
+							loss: 0.835
+							ratio: 0.659
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: karban
+							amount: 0.366569
+							snapping: 0.500
+							loss: 0.827
+							ratio: 0.145
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: shattering
+							amount: 90.000
+							amount_min: 80.000
+							difficulty: 7
+							snapping: 5.000
+							falloff: 0.776
+							ratio: 1.000
+							group: 0
+							flags: simultaneous, conditional
+						}
+						{
+							type: resource
+							material: water.toxic
+							amount: 0.294631
+							snapping: 0.100
+							loss: 0.886
+							ratio: 0.216
+							group: 1
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: smearing
+							amount: 50.000
+							amount_min: 100.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.801
+							ratio: 1.000
+							group: 1
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: leaching
+							amount: 20.000
+							amount_min: 150.000
+							difficulty: 5
+							snapping: 5.000
+							falloff: 0.788
+							ratio: 1.000
+							group: 1
+							flags: simultaneous, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: gunpowder
+							amount: 3.0442
+							amount_extra: 1.2019
+							snapping: 0.010
+							group: 0
+							ratio: 0.690
+							flags: primary, compact, scale_to_mass
+						}
+						{
+							type: resource
+							material: hydrogen_cyanide
+							amount: 1.9282
+							amount_extra: 0.1959
+							snapping: 1.000
+							group: 0
+							ratio: 0.361
+							flags: pollutant, byproduct, spawn, use_temperature, scale_to_mass
+						}
+						{
+							type: resource
+							material: sludge
+							amount: 1.9282
+							amount_extra: 0.1959
+							snapping: 0.010
+							group: 0
+							ratio: 0.855
+							flags: pollutant, waste, use_temperature, scale_to_mass
+						}
+					]
+					
+					filter_tools:
+					{
+						require: hammer
+						include: paintbrush, spatula
+					}
+					filter_infrastructure:
+					{
+						require: liquid_container
+						include: cauldron, liquid_container
+					}
+				}
 			]
 		}
 		{
@@ -184,9 +312,6 @@
 			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: fracture
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -222,76 +347,15 @@
 		}
 	]
 	
-	requirements_old:
-	[
-		{
-			type: resource
-			material: saltpeter
-			amount: 0.600
-			group: 0
-			flags: prerequisite
-		}
-		{
-			type: resource
-			material: charcoal
-			amount: 0.550
-			group: 0
-			flags: prerequisite
-		}
-		{
-			type: work
-			work: crushing
-			amount: 42.000
-			difficulty: 5
-			snapping: 5.000
-			falloff: 0.760
-			group: 0
-			flags: conditional
-		}
-		{
-			type: resource
-			material: sulfur
-			amount: 0.220
-			group: 1
-		}
-		{
-			type: work
-			work: mixing
-			amount: 40.000
-			difficulty: 7
-			snapping: 5.000
-			falloff: 0.550
-			group: 1
-			flags: conditional
-		}
-	]
-	
-	products_old:
-	[
-		{
-			type: resource
-			material: gunpowder
-			amount: 0.898
-			amount_extra: 0.187
-			group: 0
-		}
-		{
-			type: resource
-			material: scrap.charred
-			amount: 0.011
-			amount_extra: 0.037
-			group: 1
-			flags: waste, residue
-		}
-	]
-	
 	type: workshop
 	flags: production, manufacturing
-	tags: manual, simple, medium, blending, drying, moulding, messy, explosive, dangerous
+	tags: manual, basic, simple, blending, drying, moulding, messy, explosive, dangerous
 	hints: none
 	connotations: none
-	infrastructure: liquid_container
+	infrastructure: form
 	infrastructure_exclude: personal
+	
+	h_company: carohrad
 	
 	icon:
 	{

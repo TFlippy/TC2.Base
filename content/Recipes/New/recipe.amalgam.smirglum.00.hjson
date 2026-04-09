@@ -1,11 +1,20 @@
 ﻿{
-	$version: "0.1.67.2"
+	$version: "0.1.72.1"
 	name: "Smirglum Amalgamation"
 	desc:
 		'''
 		TODO: Desc
 		'''
 	tips: []
+	
+	related_materials:
+	{
+		smirglum: raw, ingredient, input, auto_generated
+		mercury: raw, liquid, input, auto_generated
+		smirglum.amalgam: raw, product, result, output, auto_generated
+		smirglum.powder: residue, powdered, product, result, byproduct, output, auto_generated
+		smirglum.gravel: raw, waste, output, auto_generated
+	}
 	
 	stages:
 	[
@@ -17,9 +26,6 @@
 			tags: material, raw, formula, ingredient
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -53,9 +59,6 @@
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: none
 			
-			ratio: 0.000
-			mass_base: 0.000
-			
 			options:
 			[
 				{
@@ -79,11 +82,11 @@
 						{
 							type: work
 							work: amalgamation
-							amount: 400.000
-							amount_min: 350.000
+							amount: 200.000
+							amount_min: 150.000
 							difficulty: 9
 							snapping: 5.000
-							falloff: 0.695
+							falloff: 0.676
 							group: 0
 							flags: conditional
 						}

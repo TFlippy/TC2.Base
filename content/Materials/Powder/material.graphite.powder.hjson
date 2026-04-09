@@ -1,9 +1,9 @@
 ﻿{
-	$version: "0.1.68.2"
+	$version: "0.1.72.1"
 	name: "Graphite (Powder)"
 	name_short: "Graphite P."
-	name_imperial: "Grafit"
-	name_dumb: "Gunpowder"
+	name_imperial: "Grafitpulvr"
+	name_dumb: "Lead Dust"
 	description:
 		'''
 		TODO: Desc
@@ -54,21 +54,10 @@
 	
 	commodity:
 	{
-		availability: 0.000
-		rarity: 0.000
-		scalability: 0.000
-		reusability: 0.000
-		longevity: 0.000
-		complexity: 0.000
-		tech: 0.000
-		liquidity: 0.000
-		demand: 0.000
-		
 		flags: none
 		categories: none
 		
 		market_price: 2.700
-		
-		market_price_per_kg_auto: 7.777777
+		market_price_per_kg_auto: 7.500
 	}
 }

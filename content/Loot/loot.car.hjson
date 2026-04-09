@@ -1,0 +1,508 @@
+﻿{
+	$version: "0.1.64.1"
+	nodes:
+	[
+		{
+			rarity: 4.000
+			weight: 25.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: phlogiston
+					amount: 8.000
+					amount_extra: 22.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 4.000
+			weight: 11.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: actuator
+					amount: 2.000
+					amount_extra: 8.000
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.000
+			weight: 11.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: limelight
+					amount: 1.000
+					amount_extra: 5.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.000
+			weight: 10.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: chow
+					amount: 2.000
+					amount_extra: 8.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.000
+			weight: 10.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: machine_parts
+					amount: 5.000
+					amount_extra: 20.000
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.000
+			weight: 8.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: mushroom.juice
+					amount: 2.000
+					amount_extra: 8.000
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.000
+			weight: 8.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: onion.juice
+					amount: 2.000
+					amount_extra: 8.000
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.000
+			weight: 8.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: lubricant
+					amount: 5.000
+					amount_extra: 10.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.000
+			weight: 8.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: vinegar
+					amount: 8.000
+					amount_extra: 18.000
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 5.000
+			weight: 6.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: pellet.motion
+					amount: 2.000
+					amount_extra: 7.000
+					snapping: 0.500
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 1.000
+			weight: 6.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: water.clean
+					amount: 2.000
+					amount_extra: 8.000
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 5.000
+			weight: 5.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: mayo
+					amount: 2.000
+					amount_extra: 8.000
+					snapping: 0.500
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 5.000
+			weight: 1.000
+			
+			flags: has_resources, has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: welder.00
+					amount: 1.000
+					snapping: 1.000
+					group: 0
+				}
+				{
+					type: resource
+					material: phlogiston
+					amount: 3.000
+					amount_extra: 7.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.300
+			weight: 11.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: cloth
+					amount: 5.000
+					amount_extra: 35.000
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.000
+			weight: 5.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: sauce
+					amount: 2.000
+					amount_extra: 8.000
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 4.000
+			weight: 4.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: pellet.heat
+					amount: 2.000
+					amount_extra: 7.000
+					snapping: 0.500
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.000
+			weight: 4.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: rubber
+					amount: 5.000
+					amount_extra: 10.000
+					snapping: 0.500
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.000
+			weight: 4.000
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: bp.pivan.klasik
+					amount: 1.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.000
+			weight: 4.000
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: wrench.00
+					amount: 1.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.000
+			weight: 4.000
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: crowbar.00
+					amount: 1.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.000
+			weight: 3.000
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: cigarette
+					amount: 1.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 4.000
+			weight: 3.000
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: bp.pivan.brumbrum
+					amount: 1.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 7.000
+			weight: 3.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: pellet.electricity
+					amount: 2.000
+					amount_extra: 7.000
+					snapping: 0.500
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 7.000
+			weight: 2.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: silver.ingot
+					amount: 1.000
+					amount_extra: 3.000
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 5.000
+			weight: 2.000
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: bp.pivan.forte
+					amount: 1.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 8.000
+			weight: 1.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: gold.ingot
+					amount: 1.000
+					amount_extra: 2.000
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+	]
+	
+	includes:
+	[
+		{
+			handle: drugs.00
+		}
+	]
+}

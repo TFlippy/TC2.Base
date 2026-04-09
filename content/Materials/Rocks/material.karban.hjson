@@ -1,0 +1,166 @@
+﻿{
+	$version: "0.1.72.1"
+	$note:
+		'''
+			- Porous pumice-like rock/mineral, very rich in pure carbon/graphite (roughly 90.7% by mass)
+			- Contains mercury inclusions
+			- Can be burnt as a fuel, but produces toxic mercury vapor
+			- Can be refined into graphite	
+		'''
+	name: "Karban"
+	name_short: "Karban"
+	name_imperial: "Karban"
+	name_dumb: "Coal"
+	description:
+		'''
+		Porous carbonaceous rock with a dark, pearly luster.
+		'''
+	
+	tips: []
+	
+	icon:
+	{
+		texture: resource.karban
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	
+	// Inventory material type.
+	type: coal
+	flags: granular, toxic, mineral, rock, fragile, raw, gravel, fuel, flammable, solid, contaminated, primary
+	display_flags: none
+	hints: materials, mining, cheap, civilian, industrial
+	
+	// Ratio of the material volume to the total volume it occupies when stacked. A value of 1.0 means no empty space, while a value closer to 0.0 means a lot of empty space.
+	packing_fraction: 0.000
+	// General purity modifier.
+	purity: 0.977
+	// Mass of 1 unit in kg.
+	mass_per_unit: 0.682
+	
+	// Maximum quantity (units) per stack.
+	quantity_max: 1000.000
+	// Minimum spawnable quantity.
+	spawn_quantity_threshold: 1.000
+	// Preferred quantity snapping for recipes.
+	snapping: 1.000
+	// Preferred quantity snapping for inventories.
+	snapping_pickup: 1.000
+	
+	form_type: raw
+	prefab: resource.karban
+	h_substance: karban
+	
+	color_icon: "0xffffffff"
+	color_item: "0xffffffff"
+	color_dust: "0xff181819"
+	color_gib: "0xff181819"
+	
+	centroid_default: [0.000, 0.250]
+	colliders: []
+	
+	commodity:
+	{
+		flags: marketable
+		categories: ores, rocks, raw, coal, minerals, mined, industrial
+		
+		market_price: 5.800
+		market_price_per_kg_auto: 8.504399
+	}
+	
+	fuel:
+	{
+		// TODO: Desc
+		type: solid
+		
+		// Combustion energy in kJ/kg, see https://en.wikipedia.org/wiki/Heat_of_combustion
+		energy_combustion: 29500.000
+		// Ratio of produced exhaust gas and leftover ashes.
+		purity: 0.977
+		// Rate at which 1 unit of the material ignites, see https://en.wikipedia.org/wiki/Combustibility_and_flammability
+		flammability: 0.133
+		// Rate at which combustion decays, see https://en.wikipedia.org/wiki/Smouldering
+		decay_rate: 0.065
+		
+		// Adiabatic flame temperature (Kelvin) in pure oxygen, see https://en.wikipedia.org/wiki/Adiabatic_flame_temperature
+		flame_temperature_o2: 3150.000
+		// Adiabatic flame temperature (Kelvin) in air. If not known, just subtract 1000 from 'flame_temperature_o2'.
+		flame_temperature_air: 1680.000
+		// Auto-ignition temperature (Kelvin), see https://en.wikipedia.org/wiki/Autoignition_temperature.
+		autoignition_temperature: 730.000
+		// Minimum temperature (Kelvin) for ignition, see https://en.wikipedia.org/wiki/Flash_point
+		flash_point: 520.000
+		// kJ/(kg*K)
+		specific_heat: 0.820
+		
+		// kW/(m*K)
+		thermal_conductivity: 0.00265
+		// TODO: Desc
+		porosity: 0.698
+		// TODO: Desc
+		volatility: 0.0025
+		// TODO: Desc
+		viscosity: 1.000
+		// TODO: Desc
+		surface_area_mult: 1.850
+		
+		// Percentage of carbon.
+		carbon_ratio: 0.907
+		// Percentage of hydrogen.
+		hydrogen_ratio: 0.011
+		// Percentage of nitrogen.
+		nitrogen_ratio: 0.000
+		// Percentage of oxygen.
+		oxygen_ratio: 0.004
+		// Percentage of sulfur.
+		sulfur_ratio: 0.002
+		// Percentage of water.
+		water_ratio: 0.039
+		
+		// Percentage of volatiles.
+		volatiles_ratio: 0.0597
+		volatiles: ["mercury.vapor"]
+	}
+	
+	// Damage-based conversions.
+	conversions:
+	{
+		sledgehammer:
+		{
+			h_material: graphite
+			spawn_flags: merge
+			product_flags: residue
+			ratio: 0.240
+			ratio_extra: 0.440
+			
+			h_material_waste: mercury
+			spawn_flags_waste: merge, no_discard
+			product_flags_waste: pollutant, residue
+			ratio_waste: 0.080
+			ratio_waste_extra: 0.160
+			
+			yield: 0.560
+			yield_extra: 0.380
+			
+			h_sound: missing
+			sound_volume: 0.500
+			sound_pitch: 1.000
+			
+			chance: 0.832
+			type: undefined
+			flags: none
+			merge_radius_mult: 1.000
+			velocity_mult: 1.000
+			damage_mult: 1.000
+		}
+	}
+	
+	// Info regarding relations of other materials towards this material.
+	related:
+	{
+		graphite: clean, similar, element
+		graphite.powder: clean, similar, element, powdered
+		mercury: component, residue, juice, filler, liquid, impurity, mixed, extracted, output
+		mercury.vapor: component, burnt, residue, decomposition, filler, vapor, impurity, mixed, extracted, output
+	}
+}

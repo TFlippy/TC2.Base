@@ -1,0 +1,129 @@
+﻿{
+	$prefab: "g.settlement.port.00"
+	$version: "0.1.65.3"
+	name: "Snycl"
+	name_short: "Snycl"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	post_code: "SNY"
+	
+	type: harbor
+	flags: spawn
+	categories: military, imperial, industrial, commercial, residential, urban, administrative, governmental, magitech, frontier, advanced, secure, fortified, mercantile, coastal, modern, forested, mechanized, authoritarian, regulated
+	buildings: warehouse, factory, office, bunker, hotel, hospital, airport, trainyard, minefield, artillery, power_plant, docks, tower, lighthouse, walls, prison, labor_camp, theatre, constabulary, foundry, manufactory, checkpoint, customs, slum, laboratory, school, bar, apartments, lumber_mill, barracks, train_station, farm, exchange, arsenal, brewery, metalworks, circus, market, fuel_depot, bank, brickworks, steel_mill, transmitter, bakery
+	industry_primary: military, entertainment, tourism, hospitality, naval
+	industry: entertainment, construction, fishing, hospitality, wholesale, mercenary, munitions, weapons
+	goods_trading: weapons, beverages, food, alcohol, machinery, explosives, vehicles, fuel, textiles, cooking, munitions, prisoners, tobacco, dangerous, military, manufactured
+	goods_demanded: beverages, food, metals, machinery, components, chemicals, explosives, refined, kobolds, arcane, technology, blueprints, construction_materials, tools, coal, fuel, clothing, cooking, energy, meat, prisoners, consumer, industrial, military, processed, smirglum
+	goods_produced: weapons, beverages, food, alcohol, scrap, explosives, vehicles, tools, waste, dangerous, military
+	crime: theft, murder, embezzlement, prostitution, vandalism, bribery, corruption, smuggling, forgery, extortion, tax_evasion, vagrancy, counterfeiting
+	geography: mountains, hills, forested, windy, rough, rocky, coastal, warm, urban
+	
+	// Urban development, population density.
+	urbanization: 0.560
+	// Availability and utilization of advanced technology.
+	technology: 0.510
+	// Industrial production, mechanization, engineering.
+	industrialization: 0.725
+	// Literacy, availability of education, skilled workers.
+	education: 0.520
+	// Standard of living, overall wealth of population and government.
+	wealth: 0.593
+	// Nature, wildlife, overgrowth, untamed nature.
+	wilderness: 0.109
+	// Environmental damage, pollution, wastelandness.
+	devastation: 0.134
+	// Brutality of nature and population.
+	savagery: 0.000
+	// Lawlessness, lack of organization.
+	anarchy: 0.000
+	// Economic strength, employment rate, flow of goods.
+	economy: 0.390
+	// Variance of population's social classes.
+	inequality: 0.237
+	// Crime rate, personal safety.
+	safety: 0.663
+	// Rate of expansion, economic and population growth.
+	growth: 0.526
+	// Military strength, security, access to weapons.
+	military: 0.418
+	// Height in meters above sea level.
+	elevation: 10.000
+	
+	statistics:
+	{
+		// Political corruption, organized crime, bribery, embezzlement.
+		corruption: 0.182
+		// Polarization of society, internal conflict, radicalization.
+		unrest: 0.020
+		// Brutality of nature and population.
+		savagery: 0.030
+		// Literacy, availability of education, skilled workers.
+		education: 0.527
+		// Urban development, population density.
+		urbanization: 0.641
+		// Availability and utilization of advanced technology.
+		technology: 0.619
+		// Industrial production, mechanization, engineering.
+		industrialization: 0.668
+		// Standard of living, overall wealth of population and government.
+		wealth: 0.695
+		// Nature, wildlife, overgrowth, untamed nature.
+		wilderness: 0.121
+		// Environmental devastation, excavation, deforestation, wasteland-ness.
+		devastation: 0.307
+		// Damaged infrastructure, destruction, disrepair, decrepitness.
+		destruction: 0.044
+		// Groundwater and air pollution, exposure to toxic chemicals.
+		pollution: 0.235
+		// Reputation, nobility, luxuries.
+		prestige: 0.527
+		// Lawlessness, lack of organization.
+		anarchy: 0.011
+		// Economic strength, employment rate, flow of goods.
+		economy: 0.520
+		// Variance of population's social classes.
+		inequality: 0.687
+		// Crime rate, personal safety.
+		safety: 0.729
+		// Rate of expansion, economic and population growth.
+		growth: 0.854
+		// Military strength, security, access to weapons.
+		military: 0.890
+	}
+	
+	population:
+	{
+		human: 7800
+		giant: 120
+		kobold: 2200
+	}
+	
+	h_prefecture: brabant
+	h_faction: krumpelstejn
+	size: 0.835
+	
+	color: "0xffffee00"
+	
+	thumbnail:
+	{
+		texture: ui.thumbnail.harbor.02
+		mask: missing
+	}
+	
+	icon:
+	{
+		texture: worldmap.icons.01
+		mask: missing
+		size: [24, 24]
+		frame: [2, 1]
+	}
+	
+	icon_offset: [0.000, 0.000]
+	text_offset: [0.000, 0.375]
+	
+	point: [50, -7]
+}
