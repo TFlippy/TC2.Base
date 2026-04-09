@@ -358,6 +358,7 @@
 							loss: 0.055
 							ratio: 1.000
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: resource
@@ -367,6 +368,7 @@
 							falloff: 0.986
 							loss: 0.122
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: work
@@ -407,6 +409,7 @@
 							snapping: 0.100
 							loss: 0.122
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: work
@@ -444,6 +447,7 @@
 							loss: 0.820
 							ratio: 1.000
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: work
@@ -492,6 +496,7 @@
 							loss: 0.067
 							ratio: 0.106
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: resource
@@ -501,6 +506,7 @@
 							loss: 0.624
 							ratio: 1.000
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: work

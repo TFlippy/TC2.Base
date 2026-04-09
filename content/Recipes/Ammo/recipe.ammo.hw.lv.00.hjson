@@ -38,6 +38,7 @@
 							snapping: 1.000
 							ratio: 1.000
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: work

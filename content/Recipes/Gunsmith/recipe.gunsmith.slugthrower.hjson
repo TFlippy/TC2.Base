@@ -14,18 +14,21 @@
 			material: wood
 			amount: 6.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: resource
 			material: smirglum.plate
 			amount: 10.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: resource
 			material: pellet.motion
 			amount: 2.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: work

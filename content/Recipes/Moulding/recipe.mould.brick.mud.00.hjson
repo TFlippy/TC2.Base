@@ -57,6 +57,7 @@
 							snapping: 0.500
 							loss: 0.024
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: work
@@ -110,6 +111,7 @@
 							falloff: 0.949
 							loss: 0.008
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: work

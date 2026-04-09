@@ -92,6 +92,7 @@
 							amount: 5.000
 							snapping: 0.010
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: work

@@ -14,18 +14,21 @@
 			material: steel.ingot
 			amount: 20.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: resource
 			material: smirglum.plate
 			amount: 25.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: resource
 			material: actuator
 			amount: 5.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: work

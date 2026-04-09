@@ -221,7 +221,7 @@
 							loss: 0.173
 							ratio: 0.769
 							group: 0
-							flags: filler
+							flags: filler, prerequisite
 						}
 						{
 							type: work

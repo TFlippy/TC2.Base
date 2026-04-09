@@ -13,12 +13,14 @@
 			material: shite
 			amount: 25.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: resource
 			material: mithril
 			amount: 10.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: work

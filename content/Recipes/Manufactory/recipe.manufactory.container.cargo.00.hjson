@@ -14,12 +14,14 @@
 			material: steel.ingot
 			amount: 8.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: resource
 			material: steel.plate
 			amount: 100.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: work

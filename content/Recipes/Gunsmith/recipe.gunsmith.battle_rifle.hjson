@@ -217,18 +217,21 @@
 			material: wood
 			amount: 4.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: resource
 			material: steel.ingot
 			amount: 3.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: resource
 			material: machine_parts
 			amount: 8.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: work
