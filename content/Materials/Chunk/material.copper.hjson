@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.73.1"
 	name: "Copper Chunk"
 	name_short: "Cop.Chunk"
 	name_imperial: "Kupr"
@@ -178,5 +178,18 @@
 			
 			yield: [0.877, 0.096]
 		}
+	}
+	
+	// Info regarding relations of other materials towards this material.
+	related:
+	{
+		copper.powder: purified, clean, similar, powdered
+		copper.ingot: similar, solidified, brick, manufactured, processed
+		copper.plate: similar, flattened, manufactured, processed
+		copper.rod: similar, manufactured, processed
+		copper.gravel: raw, ore, dirty, similar, impure, feedstock
+		scrap.copper: ruined, mangled, dirty, similar, impure, scrap, processed, feedstock
+		scrap.metal: ruined, mangled, dirty, waste, impure, scrap, mixed
+		kuprovst: ore, dirty, natural, impure
 	}
 }

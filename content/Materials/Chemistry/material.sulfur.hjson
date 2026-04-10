@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.73.1"
 	name: "Sulfur"
 	name_short: "Sulfur"
 	name_imperial: "Sulfur"
@@ -58,7 +58,7 @@
 		categories: none
 		
 		market_price: 7.500
-		market_price_per_kg_auto: 40.43478
+		market_price_per_kg_auto: 32.6087
 	}
 	
 	// Damage-based conversions.
@@ -91,5 +91,21 @@
 			velocity_mult: 1.000
 			damage_mult: 1.000
 		}
+	}
+	
+	// Info regarding relations of other materials towards this material.
+	related:
+	{
+		sulfur: none
+		sulfur_dioxide: none
+		water.toxic: none
+		hydrogen_sulfide: none
+		copper.gravel: none
+		kuprovst: none
+		mushroom.yellow: none
+		sludge: none
+		black_coal: none
+		slag: none
+		sulfuric_acid: none
 	}
 }

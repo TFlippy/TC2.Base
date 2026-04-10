@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.73.1"
 	name: "Smirglum Powder"
 	name_short: "Sg. Powder"
 	name_imperial: "Smirglpulvr"
@@ -67,5 +67,9 @@
 	related:
 	{
 		smirglum.amalgam: raw, reaction, dirty, similar, alloy
+		arcanite.powder: none
+		recondite.powder: none
+		smirgrafit.clay: none
+		pjerdelite: none
 	}
 }

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.73.1"
 	$note:
 		'''
 		- Actually a mixture of ethanol and methanol/wood alcohol
@@ -122,5 +122,18 @@
 		// Percentage of volatiles.
 		volatiles_ratio: 0.000
 		volatiles: []
+	}
+	
+	// Info regarding relations of other materials towards this material.
+	related:
+	{
+		water: none
+		sugar: none
+		grain: none
+		plants: none
+		sawdust: none
+		nitrosugar: none
+		mulch: none
+		mush: none
 	}
 }

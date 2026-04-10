@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.73.1"
 	name: "Steel Chunk"
 	name_short: "St.Chunk"
 	name_imperial: "Styl"
@@ -217,5 +217,21 @@
 			
 			yield: [0.738, 0.084]
 		}
+	}
+	
+	// Info regarding relations of other materials towards this material.
+	related:
+	{
+		steel.powder: purified, clean, similar, powdered
+		steel.ingot: similar, solidified, brick, manufactured, processed
+		steel.plate: similar, flattened, manufactured, processed
+		steel.rod: similar, manufactured, processed
+		steel.frames: similar, manufactured, processed
+		ferrous.gravel: ruined, raw, mangled, dirty, similar, impure, mixed, feedstock
+		ferronickel.powder: dirty, waste, similar, impure, mixed, feedstock
+		scrap.steel: ruined, residue, mangled, clean, similar, scrap, processed, feedstock
+		scrap.ferrous: ruined, mangled, dirty, waste, impure, scrap, mixed
+		scrap.metal: ruined, mangled, dirty, waste, impure, scrap, mixed
+		niklajzner: raw, ore, similar, natural, feedstock
 	}
 }

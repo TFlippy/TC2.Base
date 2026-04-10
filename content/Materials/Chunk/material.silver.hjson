@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.73.1"
 	name: "Silver Chunk"
 	name_short: "Sv. Chunk"
 	name_imperial: "Spejbl"
@@ -115,5 +115,15 @@
 		
 		market_price: 529.540
 		market_price_per_kg_auto: 33.77976
+	}
+	
+	// Info regarding relations of other materials towards this material.
+	related:
+	{
+		silver.powder: purified, clean, similar, powdered
+		silver.ingot: similar, solidified, brick, manufactured, processed
+		silver.gravel: raw, ore, dirty, similar, impure, feedstock
+		recondite.powder: none
+		recondite: none
 	}
 }

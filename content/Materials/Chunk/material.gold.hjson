@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.73.1"
 	name: "Gold Chunk"
 	name_short: "Gd. Chunk"
 	name_imperial: "Zlo"
@@ -116,5 +116,16 @@
 		
 		market_price: 1718.540
 		market_price_per_kg_auto: 59.5848
+	}
+	
+	// Info regarding relations of other materials towards this material.
+	related:
+	{
+		gold.powder: purified, clean, similar, powdered
+		gold.ingot: similar, solidified, brick, manufactured, processed
+		gold.gravel: raw, ore, dirty, similar, impure, feedstock
+		money: none
+		arcanite.powder: none
+		arcanite: none
 	}
 }

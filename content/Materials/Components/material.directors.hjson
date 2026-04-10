@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.1"
+	$version: "0.1.73.1"
 	name: "EC-Directors"
 	name_short: "EC-Directors"
 	name_imperial: "Direktor"
@@ -66,7 +66,7 @@
 		categories: machinery, components, arcane, technology, industrial, manufactured, smirglum
 		
 		market_price: 135.000
-		market_price_per_kg_auto: 35.01408
+		market_price_per_kg_auto: 42.97183
 	}
 	
 	// Residues from crafting/work.
@@ -90,5 +90,14 @@
 			
 			yield: [0.617, 0.383]
 		}
+	}
+	
+	// Info regarding relations of other materials towards this material.
+	related:
+	{
+		scrap.arcane: ruined, mangled, dirty, similar, impure, scrap, mixed
+		arcanite.rod: component, container, similar
+		recondite.plate: component, container, similar
+		putty: juice, mixed
 	}
 }

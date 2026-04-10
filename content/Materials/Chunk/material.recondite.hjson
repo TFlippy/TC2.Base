@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.73.1"
 	name: "Recondite Chunk"
 	name_short: "Rec. Chunk"
 	name_imperial: "Rekondit"
@@ -115,5 +115,15 @@
 		
 		market_price: 392.590
 		market_price_per_kg_auto: 12.01086
+	}
+	
+	// Info regarding relations of other materials towards this material.
+	related:
+	{
+		recondite.powder: purified, clean, similar, powdered
+		recondite.ingot: similar, solidified, brick, manufactured, processed
+		recondite.plate: similar, flattened, manufactured, processed
+		silver.powder: clean, ingredient, input, feedstock
+		smirglum.powder: clean, ingredient, input, feedstock
 	}
 }

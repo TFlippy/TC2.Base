@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.73.0"
+	$version: "0.1.73.1"
 	name: "Magitronic Actuators"
 	name_short: "Actuators"
 	name_imperial: "Aktuator"
@@ -73,5 +73,17 @@
 			
 			yield: [0.617, 0.383]
 		}
+	}
+	
+	// Info regarding relations of other materials towards this material.
+	related:
+	{
+		scrap.arcane: ruined, mangled, dirty, similar, impure, scrap, mixed
+		directors: component
+		pellet.motion: component
+		arcanite.rod: component, container, similar
+		recondite.plate: component, container, similar
+		machine_parts: component
+		lubricant: juice, liquid, mixed
 	}
 }

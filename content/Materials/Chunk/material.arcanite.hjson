@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.73.1"
 	name: "Arcanite Chunk"
 	name_short: "Arc. Chunk"
 	name_imperial: "Arkanit"
@@ -115,5 +115,16 @@
 		
 		market_price: 684.750
 		market_price_per_kg_auto: 19.61787
+	}
+	
+	// Info regarding relations of other materials towards this material.
+	related:
+	{
+		arcanite.powder: purified, clean, similar, powdered
+		arcanite.ingot: similar, solidified, brick, manufactured, processed
+		arcanite.plate: similar, flattened, manufactured, processed
+		arcanite.rod: similar, manufactured, processed
+		gold.powder: clean, ingredient, input, feedstock
+		smirglum.powder: clean, ingredient, input, feedstock
 	}
 }

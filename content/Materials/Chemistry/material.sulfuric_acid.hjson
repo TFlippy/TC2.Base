@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.73.1"
 	name: "Sulfuric Acid"
 	name_short: "S.Acid"
 	name_dumb: "Water"
@@ -62,5 +62,17 @@
 		
 		market_price: 11.400
 		market_price_per_kg_auto: 18.53658
+	}
+	
+	// Info regarding relations of other materials towards this material.
+	related:
+	{
+		sulfur: none
+		sulfur_dioxide: none
+		water.toxic: none
+		hydrogen_sulfide: none
+		mushroom.yellow: none
+		sludge: none
+		water: none
 	}
 }
