@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.73.1"
 	name: "Copper Scrap"
 	name_short: "Cop.Scrap"
 	name_imperial: "Kuprsrot"
@@ -65,6 +65,38 @@
 		
 		market_price: 26.000
 		market_price_per_kg_auto: 12.66342
+	}
+	
+	// Damage-based conversions.
+	conversions:
+	{
+		phlogiston:
+		{
+			h_material: copper
+			spawn_flags: merge, no_discard
+			product_flags: none
+			ratio: 0.700
+			ratio_extra: 0.280
+			
+			spawn_flags_waste: merge, no_offset
+			product_flags_waste: none
+			ratio_waste: 0.000
+			ratio_waste_extra: 0.000
+			
+			yield: 0.910
+			yield_extra: 0.080
+			
+			h_sound: ui.swosh.00
+			sound_volume: 0.630
+			sound_pitch: 0.440
+			
+			chance: 0.318
+			type: undefined
+			flags: none
+			merge_radius_mult: 0.380
+			velocity_mult: 0.770
+			damage_mult: 0.350
+		}
 	}
 	
 	// Residues from crafting/work.

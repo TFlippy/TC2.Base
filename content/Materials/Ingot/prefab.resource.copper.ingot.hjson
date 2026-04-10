@@ -77,7 +77,7 @@ heat:
 	temperature_melt: 1357.770
 	temperature_breakdown: 2835.000
 	cool_rate: 2.500
-	heat_damage_mult: 0.200
+	heat_damage_mult: 0.100
 	cool_rate_mult: 1.500
 	smoke_speed_mult: 0.750
 	flags: meltable

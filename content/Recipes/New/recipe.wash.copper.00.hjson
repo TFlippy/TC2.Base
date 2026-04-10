@@ -1,7 +1,6 @@
 ﻿{
-	$region_id: 0
 	$version: "0.1.73.1"
-	name: "Washed Copper Gravel"
+	name: "Washed Copper Gravel [WIP]"
 	desc:
 		'''
 		TODO: Desc
@@ -12,8 +11,10 @@
 	{
 		copper.gravel: raw, input, feedstock, auto_generated
 		water: raw, liquid, input, auto_generated
-		copper.powder: powdered, result, output, auto_generated
+		copper.powder: refined, purified, clean, powdered, result, processed, output, auto_generated
 		water.dirty: residue, raw, waste, liquid, output, auto_generated
+		scrap.copper: residue, product, byproduct, scrap, output, auto_generated
+		slag: residue, waste, output, auto_generated
 	}
 	
 	stages:
@@ -65,7 +66,7 @@
 					name: "Simple"
 					
 					type: undefined
-					flags: none
+					flags: merge_residue
 					discard_damage_type_override: wet
 					
 					requirements:
@@ -81,14 +82,14 @@
 						{
 							type: work
 							work: washing
-							amount: 50.000
-							amount_min: 45.000
+							amount: 80.000
+							amount_min: 22.000
 							difficulty: 5
-							step_max: 15
+							step_max: 20
 							snapping: 10.000
-							falloff: 0.748
+							falloff: 0.755
 							group: 0
-							flags: conditional
+							flags: stepped, conditional
 						}
 					]
 					
@@ -98,17 +99,41 @@
 							type: resource
 							material: copper.powder
 							amount: 1.000
+							amount_extra: 0.219
+							snapping: 0.010
 							group: 0
-							ratio: 0.267
-							flags: primary, compact, scale_to_mass
+							chance: 0.780
+							ratio: 0.188
+							flags: primary, stepped, compact, scale_to_mass
+						}
+						{
+							type: resource
+							material: scrap.copper
+							amount: 0.930
+							amount_extra: 0.277
+							snapping: 0.100
+							group: 0
+							ratio: 0.365
+							flags: residue, byproduct, compact, scale_to_mass
+						}
+						{
+							type: resource
+							material: slag
+							amount: 1.000
+							amount_extra: 0.242
+							snapping: 0.100
+							group: 0
+							ratio: 0.447
+							flags: waste, residue, scale_to_mass
 						}
 						{
 							type: resource
 							material: water.dirty
-							amount: 1.000
+							amount: 0.817865
+							amount_extra: 0.126307
+							snapping: 0.100
 							group: 0
-							ratio: 0.690
-							flags: pollutant, waste, residue, scale_to_mass
+							flags: pollutant, waste
 						}
 					]
 					
@@ -127,7 +152,7 @@
 	]
 	
 	type: workshop
-	flags: debug, disabled, production, wip
+	flags: production, wip
 	tags: basic, simple, raw, filtering, metallurgy, separation, processing
 	hints: none
 	connotations: none
@@ -163,7 +188,7 @@
 	rank: -8.000
 	
 	min: 1
-	max: 100
+	max: 50
 	step: 1
 	
 	version: 1

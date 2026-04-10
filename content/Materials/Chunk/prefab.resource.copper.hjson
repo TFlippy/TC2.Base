@@ -75,7 +75,7 @@ heat:
 	cool_rate: 4.000
 	cool_rate_mult: 2.000
 	smoke_speed_mult: 0.750
-	heat_damage_mult: 0.100
+	heat_damage_mult: 0.0700
 	flags: meltable, formless
 	fire_flags: no_self_damage, always_contact_ignite
 	offset: [0.000, 0.500]
@@ -120,8 +120,8 @@ despawn:
 	sleep_count_max: 74
 	interval: 9.000
 	interval_extra: 14.000
-	threshold_delete: 0.010
-	threshold_despawning: 0.200
+	threshold_delete: 0.0010
+	threshold_despawning: 0.050
 
 	amount_ratio: 0.000
 	amount_ratio_extra: 0.000

@@ -40,7 +40,7 @@
 	// Maximum quantity (units) per stack.
 	quantity_max: 50.000
 	// Minimum spawnable quantity.
-	spawn_quantity_threshold: 0.100
+	spawn_quantity_threshold: 0.010
 	// Preferred quantity snapping for recipes.
 	snapping: 0.100
 	// Preferred quantity snapping for inventories.
@@ -120,32 +120,7 @@
 	// Damage-based conversions.
 	conversions:
 	{
-		sledgehammer:
-		{
-			spawn_flags: merge
-			product_flags: none
-			ratio: 0.390
-			ratio_extra: 0.420
-			
-			spawn_flags_waste: merge
-			product_flags_waste: none
-			ratio_waste: 0.650
-			ratio_waste_extra: 0.210
-			
-			yield: 0.855
-			yield_extra: 0.160
-			
-			h_sound: metal.snap.medium.02
-			sound_volume: 0.390
-			sound_pitch: 0.900
-			
-			chance: 0.450
-			type: undefined
-			flags: none
-			merge_radius_mult: 1.000
-			velocity_mult: 1.000
-			damage_mult: 1.000
-		}
+	
 	}
 	
 	// Residues from crafting/work.

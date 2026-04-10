@@ -64,6 +64,39 @@
 		market_price_per_kg_auto: 7.826087
 	}
 	
+	// Damage-based conversions.
+	conversions:
+	{
+		phlogiston:
+		{
+			h_material: copper
+			spawn_flags: merge, no_offset, no_discard
+			product_flags: none
+			ratio: 0.690
+			ratio_extra: 0.230
+			
+			h_material_waste: sulfur_dioxide
+			spawn_flags_waste: merge
+			product_flags_waste: pollutant, waste, spawn
+			ratio_waste: 0.230
+			ratio_waste_extra: 0.280
+			
+			yield: 0.780
+			yield_extra: 0.150
+			
+			h_sound: ui.swosh.00
+			sound_volume: 0.630
+			sound_pitch: 0.440
+			
+			chance: 0.484
+			type: undefined
+			flags: none
+			merge_radius_mult: 0.430
+			velocity_mult: 0.060
+			damage_mult: 0.400
+		}
+	}
+	
 	// Info regarding relations of other materials towards this material.
 	related:
 	{
