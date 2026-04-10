@@ -5,7 +5,7 @@ $tags: []
 body:
 {
 	type: static
-	buoyancy: 0.100
+	buoyancy: 0.050
 	
 	@shape.polygon:
 	{

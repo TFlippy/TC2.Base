@@ -9,7 +9,7 @@ $tags: []
 body:
 {
 	flags: none
-	buoyancy: 0.100
+	buoyancy: 0.050
 	damping: 0.979
 	fall_damage_multiplier: 0.720
 

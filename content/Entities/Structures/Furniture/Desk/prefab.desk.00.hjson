@@ -5,7 +5,7 @@ $tags: []
 body:
 {
 	type: dynamic
-	buoyancy: 0.100
+	buoyancy: 0.050
 	
 	@shape.box:
 	{
