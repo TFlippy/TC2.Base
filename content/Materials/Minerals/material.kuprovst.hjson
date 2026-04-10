@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.73.1"
 	$note:
 		'''
 		- Copper-arsenic sulfosalt mineral (roughly 80% copper content)
@@ -8,6 +8,7 @@
 	name: "Kuprovst"
 	name_short: "Kuprovst"
 	name_imperial: "Kuprovst"
+	name_dumb: "Garlic Bread"
 	description:
 		'''
 		Copper-arsenic sulfosalt mineral.
@@ -24,8 +25,12 @@
 	
 	// Inventory material type.
 	type: stone_metallic
-	flags: hard, granular, toxic, metal, mineral, small, raw, gravel, solid, impure, primary
+	flags: hard, granular, toxic, metal, mineral, small, raw, gravel, solid, impure, smelly, primary
 	display_flags: none
+	spawn_flags:
+	{
+		add: show_notification
+	}
 	hints: materials, mining
 	
 	// Ratio of the material volume to the total volume it occupies when stacked. A value of 1.0 means no empty space, while a value closer to 0.0 means a lot of empty space.

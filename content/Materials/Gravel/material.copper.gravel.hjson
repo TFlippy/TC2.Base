@@ -1,11 +1,11 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.73.1"
 	name: "Copper Gravel"
 	name_short: "Cop.Gravel"
 	name_imperial: "Kuprsterk"
 	description:
 		'''
-		Standard arsenic-sulfur-contaminated copper gravel.
+		Standard gravel-sized copper with some arsenic-sulfur impurities.
 		'''
 	
 	tips: []
@@ -19,21 +19,27 @@
 	
 	// Inventory material type.
 	type: gravel
-	flags: hard, granular, toxic, metal, small, raw, gravel, solid, impure, contaminated
+	flags: hard, granular, toxic, metal, small, raw, gravel, solid, impure, contaminated, smelly
 	display_flags: none
-	hints: none
+	spawn_flags:
+	{
+		add: show_notification, no_discard
+	}
+	hints: materials, small, mining, industrial, clumsy
 	
 	// Ratio of the material volume to the total volume it occupies when stacked. A value of 1.0 means no empty space, while a value closer to 0.0 means a lot of empty space.
 	packing_fraction: 0.000
+	// General purity modifier.
+	purity: 0.937
 	// Mass of 1 unit in kg.
 	mass_per_unit: 1.150
 	
 	// Maximum quantity (units) per stack.
 	quantity_max: 500.000
 	// Minimum spawnable quantity.
-	spawn_quantity_threshold: 1.000
+	spawn_quantity_threshold: 0.200
 	// Preferred quantity snapping for recipes.
-	snapping: 1.000
+	snapping: 0.100
 	// Preferred quantity snapping for inventories.
 	snapping_pickup: 1.000
 	
@@ -55,15 +61,19 @@
 		categories: metals
 		
 		market_price: 9.000
-		market_price_per_kg_auto: 6.956522
+		market_price_per_kg_auto: 7.826087
 	}
 	
 	// Info regarding relations of other materials towards this material.
 	related:
 	{
-		copper: none
-		copper.powder: none
-		arsenic: none
-		sulfur: none
+		kuprovst: ore, source, dirty, natural, impure, mixed
+		copper.powder: refined, decomposition, purified, clean, similar, processed, extracted, output
+		scrap.copper: mangled, decomposition, clean, dirty, similar, smelted, byproduct, scrap, processed, mixed, extracted, output
+		arsenic: residue, decomposition, chemical, element, natural, impurity, mixed, extracted, output
+		sulfur: residue, decomposition, chemical, element, natural, impurity, mixed, extracted, output
+		copper: raw, melted, decomposition, purified, similar, element, smelted, result, processed, extracted, output
+		copper.ingot: refined, purified, clean, similar, solidified, product, brick, result, manufactured, processed, extracted, output
+		gravel: decomposition, waste, natural, impure, impurity, output
 	}
 }

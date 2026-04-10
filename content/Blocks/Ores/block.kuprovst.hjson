@@ -1,26 +1,26 @@
 ﻿{
-	$version: "0.1.73.0"
+	$version: "0.1.73.1"
 	name: "Kuprovst"
 	desc:
 		'''
-		TODO: Desc
+		Copper-arsenic sulfosalt mineral.
 		'''
 	
 	material_type: stone_metallic
 	tile_flags: non_empty
 	flags: raw, ore, uncommon, mineral, metal
 	
-	max_health: 30000.000
-	smoothing: 0.160
+	max_health: 24000.000
+	smoothing: 0.150
 	stability: 4.140
-	strength_tensile: 4.800
-	strength_compressive: 21.000
+	strength_tensile: 0.000
+	strength_compressive: 0.000
 	
 	mass: 5.500
 	density: 0.000
-	friction: 0.960
+	friction: 0.860
 	elasticity: 0.620
-	fall_damage_mult: 1.000
+	fall_damage_mult: 1.150
 	collision_layer: none
 	collision_mask: none
 	
@@ -39,7 +39,10 @@
 			material: kuprovst
 			quantity: 4.095476
 		}
-		null
+		{
+			material: copper.gravel
+			quantity: 0.203478
+		}
 	]
 	
 	mappings:

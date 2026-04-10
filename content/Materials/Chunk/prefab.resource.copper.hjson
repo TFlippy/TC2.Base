@@ -72,8 +72,10 @@ heat:
 	temperature_operating: 788.3445
 	temperature_melt: 1357.770
 	temperature_breakdown: 2835.000
-	cool_rate: 2.000
+	cool_rate: 4.000
+	cool_rate_mult: 2.000
 	smoke_speed_mult: 0.750
+	heat_damage_mult: 0.100
 	flags: meltable, formless
 	fire_flags: no_self_damage, always_contact_ignite
 	offset: [0.000, 0.500]
