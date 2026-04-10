@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.1"
+	$version: "0.1.73.1"
 	name: "Homemade Masonry Unit"
 	desc:
 		'''
@@ -36,7 +36,7 @@
 					name: "Grandma's"
 					
 					type: undefined
-					flags: requires_shipment, wip
+					flags: wip
 					
 					color: "0xff675f5d"
 					prefix: "Grandma's "
@@ -52,6 +52,7 @@
 							loss: 0.075
 							ratio: 0.059
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: resource
@@ -60,7 +61,7 @@
 							snapping: 0.100
 							falloff: 1.024
 							group: 0
-							flags: no_residue
+							flags: no_residue, prerequisite
 						}
 						{
 							type: work
@@ -94,6 +95,7 @@
 							loss: 0.024
 							ratio: 0.024
 							group: 1
+							flags: prerequisite
 						}
 						{
 							type: resource
@@ -102,6 +104,7 @@
 							snapping: 0.100
 							loss: 0.075
 							group: 1
+							flags: prerequisite
 						}
 						{
 							type: work

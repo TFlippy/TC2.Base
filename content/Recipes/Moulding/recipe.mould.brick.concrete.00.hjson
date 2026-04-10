@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.1"
+	$version: "0.1.73.1"
 	name: "ISO Concrete Masonry Unit"
 	desc:
 		'''
@@ -36,7 +36,7 @@
 					name: "Standard"
 					
 					type: undefined
-					flags: requires_shipment, wip
+					flags: wip
 					
 					color: "0xff675f5d"
 					
@@ -49,7 +49,7 @@
 							snapping: 0.100
 							falloff: 0.973
 							group: 0
-							flags: no_residue
+							flags: no_residue, prerequisite
 						}
 						{
 							type: resource
@@ -58,7 +58,7 @@
 							snapping: 0.100
 							falloff: 1.016
 							group: 0
-							flags: no_residue
+							flags: no_residue, prerequisite
 						}
 						{
 							type: resource
@@ -67,7 +67,7 @@
 							snapping: 0.100
 							falloff: 0.979
 							group: 0
-							flags: no_residue
+							flags: no_residue, prerequisite
 						}
 						{
 							type: resource
@@ -76,7 +76,7 @@
 							snapping: 0.100
 							falloff: 0.991
 							group: 0
-							flags: no_residue
+							flags: no_residue, prerequisite
 						}
 						{
 							type: work

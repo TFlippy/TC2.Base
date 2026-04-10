@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.1"
+	$version: "0.1.73.1"
 	name: "Lye Leaching"
 	desc:
 		'''
@@ -206,7 +206,7 @@
 					name: "Caustic"
 					
 					type: undefined
-					flags: requires_shipment
+					flags: none
 					discard_damage_type_override: corrosion
 					
 					prefix: "Caustic "
@@ -221,7 +221,7 @@
 							loss: 0.173
 							ratio: 0.769
 							group: 0
-							flags: filler
+							flags: filler, prerequisite
 						}
 						{
 							type: work

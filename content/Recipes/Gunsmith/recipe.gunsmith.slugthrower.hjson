@@ -1,10 +1,6 @@
 ﻿{
 	$version: "0.1.64.1"
-	name: "Slugthrower"
-	desc:
-		'''
-		Heavy weapon utilizing a built-in EC-MT emitter to fire projectiles. 
-		'''
+	name: "EC-Slugthrower"
 	tips: []
 	
 	requirements:
