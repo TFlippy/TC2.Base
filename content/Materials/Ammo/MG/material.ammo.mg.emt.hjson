@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.73.1"
 	name: "MG-20.4mm/EMT Ammo"
 	description:
 		'''
@@ -81,7 +81,7 @@
 		recoil_mult: 3.000
 		
 		failure_base: 0.008
-		failure_mult: 1.970
+		failure_mult: 1.680
 		
 		stability_base: 2950.000
 		stability_mult: 0.740

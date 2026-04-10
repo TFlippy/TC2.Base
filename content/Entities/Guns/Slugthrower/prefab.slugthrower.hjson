@@ -1,14 +1,14 @@
-$name: "EC Slugthrower"
+$name: "EC-Slugthrower"
 $desc: 
 	'''
-	Heavy weapon utilizing a built-in EC-MT emitter to shoot projectiles.
-	Inaccurate, but with high rate of fire and enormous ammo capacity - mostly used for suppressive fire.
+	Handheld EC-Accelerator capable of rapidly launching ISO-approved granular materials as projectiles of varying lethality.
+	Mostly used for suppressive fire or weaponized waste disposal.
 	'''
 $tags: []
 
 body:
 {
-	buoyancy: 0.100
+	buoyancy: 0.050
 
 	@shape.line:
 	{
@@ -28,37 +28,40 @@ gun:
 {
 	muzzle_offset: [1.250, -0.125]
 	receiver_offset: [-0.500, -0.125]
+	
+	eject_direction: [1.000, 0.000]
+	eject_angular_velocity: 1.500
 	flash_size: 0.000
 	
 	shake_amount: 0.350
 	
 	sound_volume: 0.500
 	sound_size: 0.500
-	sound_dist_multiplier: 1.250
-	sound_pitch: 0.810
+	sound_dist_multiplier: 1.150
 	
 	sound_shoot: slugthrower.shoot
 	sound_reload: machine_gun_reload
 	sound_empty: gun_empty
 	sound_jam: gun.jam.01
 	
-	damage_multiplier: 2.150
-	velocity_multiplier: 200.000
-	velocity_max: 400.000
+	damage_multiplier: 1.330
+	velocity_multiplier: 120.000
+	velocity_max: 350.000
 	jitter_multiplier: 10.000
-	recoil_multiplier: 1.000
+	recoil_multiplier: 1.100
 	reload_interval: 2.500
-	cycle_interval: 0.080
-	stability: 9850.000
+	cycle_interval: 0.085
+	stability: 4850.000
+	failure_rate: 0.0011
 	
-	ammo_filter: ammo_musket
+	ammo_filter: granular
 	max_ammo: 150.000
 	
 	action: motor
-	type: machinegun
+	type: launcher
 	feed: funnel
 	
-	flags: automatic, full_reload, cycle_on_shoot
+	flags: automatic, full_reload, cycle_on_shoot, eject_from_muzzle
 	heuristic_range: 25.000
 
 	@inventory1:
@@ -69,16 +72,16 @@ gun:
 
 		filter:
 		{
-			require: ammo
+			require: granular
 			exclude: gas
 		}
 	}
 	
 	@light:
 	{
-		color: [0.000, 1.000, 1.000, 2.000]
+		color: [0.000, 1.000, 1.000, 1.100]
 		offset: [1.000, -0.250]
-		scale: [32.000, 24.000]
+		scale: [20.000, 14.000]
 		intensity: 0.000
 		texture: "light.circle.00"
 	}
@@ -138,7 +141,7 @@ arcaneaccelerator:
 	h_essence: motion
 	sound: gun.accelerator.arcane.01
 	sound_volume_mult: 0.300
-	sound_pitch: 1.120
+	sound_pitch: 0.820
 	offset: [0.750, -0.250]
 
 	@light:
