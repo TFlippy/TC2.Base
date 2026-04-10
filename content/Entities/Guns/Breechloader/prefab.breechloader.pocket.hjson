@@ -59,7 +59,7 @@ gun:
 	reload_interval: 0.400
 	cycle_interval: 0.200
 	stability: 2240.000
-	failure_rate: 0.071
+	failure_rate: 0.051
 	
 	ammo_filter: ammo_lc, ammo_hc
 	max_ammo: 1.000

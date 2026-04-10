@@ -788,7 +788,7 @@ namespace TC2.Base.Components
 			public float damage_multiplier;
 			[Statistics.Info("Muzzle Velocity", description: "Base speed of the fired projectile.", format: "{0:0.##} m/s", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
 			public float velocity_multiplier;
-			[Statistics.Info("Muzzle Velocity (Max)", description: "Maximum speed of the fired projectile.", format: "{0:0.##}x", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.Medium)]
+			[Statistics.Info("Muzzle Velocity (Max)", description: "Maximum speed of the fired projectile.", format: "{0:0.##} m/s", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
 			public float velocity_max = 700.00f;
 			[Statistics.Info("Spread", description: "Spread of the fired projectiles.", format: "{0:0.##}x", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.High)]
 			public float jitter_multiplier;
