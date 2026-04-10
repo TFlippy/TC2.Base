@@ -80,8 +80,8 @@ harvestable:
 			quantity: 480.000
 		}
 		{
-			material: scrap.machine
-			quantity: 95.000
+			material: brick.concrete
+			quantity: 620.000
 		}
 		{
 			material: scrap.wood
@@ -89,10 +89,10 @@ harvestable:
 		}
 	]
 	
-	thresholds: [0.852, 0.980, 0.975, 0.984]
+	thresholds: [0.982, 0.980, 0.985, 0.984]
 	
 	pct_damage_mult: [0.976, 0.899, 0.909, 0.880]
-	pct_quantity_min: [0.055, 0.028, 0.019, 0.069]
+	pct_quantity_min: [0.025, 0.028, 0.019, 0.069]
 	
 	chance_base: [0.055, 0.024, 0.137, 0.090]
 }

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.1"
+	$version: "0.1.73.1"
 	name: "Niklajzner Scrap"
 	desc:
 		'''
@@ -13,7 +13,7 @@
 		scrap.ferrous: product, result, scrap, output, auto_generated
 		ferronickel.powder: residue, powdered, product, byproduct, output, auto_generated
 		black_coal: raw, ore, ingredient, input, auto_generated
-		ash: raw, powdered, output, auto_generated
+		ash: raw, waste, powdered, output, auto_generated
 		karban: raw, ore, ingredient, input, auto_generated
 		scrap.charred: waste, scrap, output, auto_generated
 		mercury.vapor: residue, raw, gas, vapor, output, auto_generated

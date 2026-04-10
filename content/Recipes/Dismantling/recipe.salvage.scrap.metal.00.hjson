@@ -1,6 +1,5 @@
 ﻿{
-	$region_id: 0
-	$version: "0.1.72.1"
+	$version: "0.1.73.1"
 	name: "Salvaged Metal Scrap"
 	desc:
 		'''
@@ -148,7 +147,7 @@
 	]
 	
 	type: workshop
-	flags: debug, dismantling, wip
+	flags: debug, disabled, dismantling, wip
 	tags: manual, basic, simple, metallurgy, salvaging, separation
 	hints: none
 	connotations: none

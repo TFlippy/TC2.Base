@@ -83,7 +83,7 @@ entrance.linkable:
 
 claimable:
 {
-	flags: allow_enemy_unclaim, allow_owner_unclaim
+	flags: allow_owner_unclaim
 }
 
 storage:

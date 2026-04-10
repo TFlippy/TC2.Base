@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.1"
+	$version: "0.1.73.1"
 	name: "C-Putty"
 	desc:
 		'''
@@ -12,7 +12,7 @@
 		sludge: raw, input, feedstock, auto_generated
 		himlkarzenus: raw, input, feedstock, auto_generated
 		mithril: raw, result, byproduct, output, auto_generated
-		ash: raw, powdered, input, feedstock, auto_generated
+		ash: raw, filler, powdered, input, feedstock, auto_generated
 		ferronickel.powder: powdered, input, feedstock, auto_generated
 		gunpowder: residue, powdered, output, auto_generated
 		graphite.powder: residue, powdered, output, auto_generated

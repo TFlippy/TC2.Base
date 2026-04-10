@@ -73,7 +73,7 @@ shop:
 	tags_filter:
 	{
 		include: metalworking, metallurgy, cooking, drying, heating, processing, dangerous
-		exclude: crafting, complex, advanced, large, huge, assembling, construction, smelting, fermenting
+		exclude: crafting, complex, advanced, large, huge, assembling, construction, fermenting
 	}
 	
 	tools: hammer, cutters, saw, hand_drill, bucket, axe, shovel, tongs, pick
