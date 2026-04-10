@@ -437,7 +437,7 @@ namespace TC2.Base.Components
 							GUI.SeparatorThick();
 							GUI.NewLine(2);
 
-							using (var group_total = GUI.Group.New(size: GUI.Rm.SubY(32 + 10), padding: new(6)))
+							using (var group_total = GUI.Group.New(size: GUI.Rm.SubY(32 + 10 + 8), padding: new(6)))
 							{
 								group_total.DrawBackground(GUI.tex_window);
 
@@ -628,22 +628,68 @@ namespace TC2.Base.Components
 							using (var group_buttons = GUI.Group.New(size: GUI.Rm))
 							{
 								var has_enough_money = credit >= final_cost;
-								using (var group_funds = GUI.Group.New(size: new(144, GUI.RmY), padding: new(6)))
+
+								using (var group_inventory = GUI.Group.New(size: new(GUI.RmY)))
 								{
+									GUI.DrawInventory(inventory: this.inventory_money.GetHandle(), is_readonly: false);
+								}
+
+								GUI.SameLine();
+
+								using (var group_funds = GUI.Group.New(size: new(144, GUI.RmY), padding: new(3)))
+								{
+									GUI.Title("<<< Insert Currency"u8, size: 14, color: GUI.font_color_title);
+									if (GUI.IsItemHovered())
+									{
+										using (var tooltip = GUI.Tooltip.New(size: new(256 + 24, 0)))
+										{
+											using (var group_title = GUI.Group.New(size: new(GUI.RmX, 24), padding: new(0)))
+											{
+												GUI.TitleCentered("Accepted Currencies"u8, size: 24, pivot: new(0.50f, 0.00f));
+											}
+
+											GUI.SeparatorThick(spacing: 8);
+											GUI.NewLine(4);
+
+											var span_assets = IMaterial.Database.GetAssetsSpan();
+											foreach (var material_asset in span_assets)
+											{
+												ref var material_data = ref material_asset.GetData();
+												if (material_data.IsNotNull() && material_data.flags.HasAll(Material.Flags.Currency))
+												{
+													GUI.TrySameLine(128);
+
+													using (var group_row = GUI.Group.New(size: new(128, 32), padding: new(0)))
+													{
+														//var resource_tmp = new Resource.Data(material_asset, 1);
+														//GUI.DrawMaterialInfo(material_asset.GetHandle(), 0, 0); // size: new(128, 24));
+														//GUI.DrawResourceSmall(resource_tmp, size: new(GUI.RmY), show_quantity: false, draw_tooltip: false, clip: false); //, 0, 0); // size: new(128, 24));
+														GUI.DrawResourceRequirement(material_asset, amount: 0, amount_req: 0, 
+															flags: Crafting.Requirement.Flags.Precalculated | Crafting.Requirement.Flags.No_Consume | Crafting.Requirement.Flags.Prerequisite, 
+															evaluation_flags: Crafting.EvaluateFlags.Display_Only, size_x: GUI.RmX); //, size: new(GUI.RmY), show_quantity: false, draw_tooltip: false, clip: false); //, 0, 0); // size: new(128, 24));
+
+														GUI.TextShadedCenteredRect(material_data.commodity.GetValueOrDefault().market_price, 
+															pivot: new(0.00f, 1.00f), rect: GUI.GetLastItemRect(), format: "0' Đk/unit'", size: 12, offset: new(44, -5), color: GUI.font_color_desc);
+													}
+												}
+											}
+										}
+									}
+
 									GUI.LabelShaded("Funds:"u8, credit, format: "0' Đk'");
 									//GUI.NewLine(4);
 									GUI.LabelShaded("Cost:"u8, final_cost, format: "0' Đk'", color_b: has_enough_money ? GUI.font_color_green_b : GUI.font_color_red_b);
+									//GUI.LabelShaded("Cost:"u8, final_cost, format: "0' Đk'", color_b: has_enough_money ? GUI.font_color_green_b : GUI.font_color_red_b);
 								}
 
 								GUI.SameLine();
 
-								using (var group_funds = GUI.Group.New(size: GUI.Rm.SubX(160), padding: new(6)))
+								using (var group_misc = GUI.Group.New(size: GUI.Rm.SubX(160), padding: new(6)))
 								{
 
 								}
 
 								GUI.SameLine();
-
 
 								var can_submit = has_enough_money && item_count > 0 && final_cost >= 1.00f;
 								if (GUI.DrawButton("Submit Mail Order"u8, size: new(160, GUI.RmY), color: GUI.col_button_ok, error: !can_submit))

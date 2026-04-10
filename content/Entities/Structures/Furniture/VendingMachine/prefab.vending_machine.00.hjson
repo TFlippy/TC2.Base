@@ -108,8 +108,8 @@ company:
 interactable:
 {
 	flags: no_tab
-	window_size: [624, 544]
-	window_size_misc: [144, 0]
+	window_size: [624, 552]
+	window_size_misc: [96, 0]
 	priority: 3.000
 }
 
@@ -152,20 +152,7 @@ vendor:
 	@inventory1:
 	{
 		type: money
-		flags: standalone, no_auto_pickup
-		stack_size_multiplier: 4.000
-		
-		filter:
-		{
-			require: currency
-		}
-		offset: [-0.125, -0.375]
-	}
-
-	@inventory2:
-	{
-		type: shop
-		flags: standalone, no_auto_pickup, vertical, locked, faction
+		flags: no_auto_pickup
 		stack_size_multiplier: 4.000
 		
 		filter:
@@ -174,6 +161,19 @@ vendor:
 		}
 		offset: [-1.000, 0.250]
 	}
+
+	// @inventory2:
+	// {
+	// 	type: shop
+	// 	flags: standalone, no_auto_pickup, vertical, locked, faction
+	// 	stack_size_multiplier: 4.000
+		
+	// 	filter:
+	// 	{
+	// 		require: currency
+	// 	}
+	// 	offset: [-1.000, 0.250]
+	// }
 
 	@inventory8:
 	{
@@ -181,7 +181,7 @@ vendor:
 		flags: standalone, public, no_auto_pickup, vertical
 		stack_size_multiplier: 4.000
 		
-		offset: [-1.000, 0.250]
+		offset: [0.750, 0.375]
 	}
 }
 
