@@ -1,6 +1,5 @@
 ﻿{
-	$region_id: 0
-	$version: "0.1.64.0"
+	$version: "0.1.73.1"
 	name: "Dissolving"
 	name_short: "Dissolving"
 	desc:
@@ -24,7 +23,7 @@
 	
 	amount_jitter: 0.683
 	cooldown_jitter: 0.554
-	color: "0xff92e5e7"
+	color: "0xffaeb59a"
 	
 	tools_required: none
 	tools_optional: none

@@ -1,7 +1,7 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.73.1"
 	name: "Mixing (Liquid)"
-	name_short: "Mixing"
+	name_short: "L.Mixing"
 	desc:
 		'''
 		TODO: Desc
@@ -23,7 +23,7 @@
 	
 	amount_jitter: 0.165
 	cooldown_jitter: 0.145
-	color: "0xff64b8fb"
+	color: "0xff739de3"
 	
 	tools_required: none
 	tools_optional: shovel, spatula

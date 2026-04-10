@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.73.1"
 	name: "Amalgamation"
 	name_short: "Amalgam"
 	desc:
@@ -23,7 +23,7 @@
 	
 	amount_jitter: 0.805
 	cooldown_jitter: 0.417
-	color: "0xfff9d7be"
+	color: "0xffaeb59a"
 	
 	tools_required: none
 	tools_optional: none

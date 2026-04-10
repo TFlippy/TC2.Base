@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.1"
+	$version: "0.1.73.1"
 	name: "Dousing"
 	name_short: "Dousing"
 	desc:
@@ -23,7 +23,7 @@
 	
 	amount_jitter: 0.464
 	cooldown_jitter: 0.190
-	color: "0xff6aafcc"
+	color: "0xff5cc581"
 	
 	tools_required: bucket
 	tools_optional: none

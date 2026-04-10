@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.73.1"
 	name: "Decanting"
 	name_short: "Decanting"
 	desc:
@@ -23,7 +23,7 @@
 	
 	amount_jitter: 0.206
 	cooldown_jitter: 0.050
-	color: "0xff64b8fb"
+	color: "0xff5cc581"
 	
 	tools_required: none
 	tools_optional: bucket, ladle

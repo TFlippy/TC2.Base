@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.73.1"
 	name: "Evaporation"
 	name_short: "Evaporation"
 	desc:
@@ -23,7 +23,7 @@
 	
 	amount_jitter: 0.463
 	cooldown_jitter: 0.365
-	color: "0xfff9d7be"
+	color: "0xffaeb59a"
 	
 	tools_required: none
 	tools_optional: none

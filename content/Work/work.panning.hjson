@@ -1,0 +1,68 @@
+﻿{
+	$region_id: 0
+	$version: "0.1.73.1"
+	name: "Panning"
+	name_short: "Panning"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	icon:
+	{
+		texture: ui.icons.work.00
+		size: [16, 16]
+		frame: [13, 0]
+	}
+	
+	flags: wip
+	tags: tools, simple, kinetic, fast
+	
+	amount_base: 2.000
+	cooldown: 0.940
+	multiplier: 1.180
+	
+	amount_jitter: 0.519
+	cooldown_jitter: 0.153
+	color: "0xff719240"
+	
+	tools_required: none
+	tools_optional: bucket
+	
+	infrastructure_required: none
+	infrastructure_optional: none
+	
+	character_traits:
+	{
+		include: slave, laborer, poor, miner, alchemist, culinary, insane, nomad, naval, brawler, outdoor, junkie, dumb, clumsy
+		weight: 1.000
+	}
+	
+	skills_min:
+	{
+	
+	}
+	
+	skills_mult:
+	{
+		endurance: 0.270
+		geology: 0.380
+		scavenging: 0.220
+		mining: 0.280
+	}
+	
+	sound_volume: 0.380
+	sound_pitch: 0.870
+	sound_size: 0.560
+	sound_dist: 0.460
+	
+	sounds: ["walljump.02", "effect.water.small.00", "work_mix_00", "work_mix_01", "effect.cloth.slide.00", "effect.smack.metal.00", "effect.water.small.01", "work_mix_01", "work_mix_00", "effect.bucket.00", "gravel_hit_sharp_02", "water.impact.soft.00", "work_mix_01", "work_mix_00", "work_mix_01", "effect.clunk.metal.00"]
+	sounds_manual: []
+	sounds_crafter: []
+	sounds_passive: []
+	sounds_ambient: []
+	
+	sounds_start: []
+	sounds_end: []
+	sounds_fail: []
+}
