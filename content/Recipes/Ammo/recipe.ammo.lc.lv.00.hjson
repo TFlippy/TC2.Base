@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.1"
+	$version: "0.1.73.1"
 	name: "LC-9.4mm"
 	desc:
 		'''
@@ -351,7 +351,7 @@
 					name: "Nitrosugar"
 					
 					type: undefined
-					flags: requires_shipment
+					flags: none
 					discard_damage_type_override: saw
 					
 					suffix: "/LV (Nitrosugar)"
@@ -367,6 +367,7 @@
 							loss: 0.224
 							ratio: 0.106
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: resource
@@ -376,6 +377,7 @@
 							loss: 0.373
 							ratio: 1.000
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: work
@@ -427,7 +429,7 @@
 					name: "Nitrospargl"
 					
 					type: undefined
-					flags: requires_shipment
+					flags: none
 					discard_damage_type_override: pickaxe
 					
 					suffix: "/LV (Nitrospargl)"
@@ -443,6 +445,7 @@
 							loss: 0.224
 							ratio: 0.106
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: resource
@@ -452,6 +455,7 @@
 							loss: 0.369
 							ratio: 1.000
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: work

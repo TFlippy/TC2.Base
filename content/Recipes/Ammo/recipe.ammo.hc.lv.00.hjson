@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.1"
+	$version: "0.1.73.1"
 	name: "HC-13.2mm"
 	desc:
 		'''
@@ -345,7 +345,7 @@
 					name: "Nitrosugar"
 					
 					type: undefined
-					flags: requires_shipment
+					flags: none
 					discard_damage_type_override: punch
 					
 					requirements:
@@ -358,6 +358,7 @@
 							loss: 0.055
 							ratio: 1.000
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: resource
@@ -367,6 +368,7 @@
 							falloff: 0.986
 							loss: 0.122
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: work
@@ -395,7 +397,7 @@
 					name: "Nitroglycerine"
 					
 					type: undefined
-					flags: requires_shipment
+					flags: none
 					discard_damage_type_override: wet
 					
 					requirements:
@@ -407,6 +409,7 @@
 							snapping: 0.100
 							loss: 0.122
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: work
@@ -430,7 +433,7 @@
 					name: "Himlkarzenus"
 					
 					type: undefined
-					flags: requires_shipment, incomplete
+					flags: incomplete
 					discard_damage_type_override: sledgehammer
 					
 					requirements:
@@ -444,6 +447,7 @@
 							loss: 0.820
 							ratio: 1.000
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: work
@@ -476,7 +480,7 @@
 					name: "Gunpowder"
 					
 					type: undefined
-					flags: requires_shipment
+					flags: none
 					discard_damage_type_override: saw
 					
 					suffix: "/LV (Gunpowder)"
@@ -492,6 +496,7 @@
 							loss: 0.067
 							ratio: 0.106
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: resource
@@ -501,6 +506,7 @@
 							loss: 0.624
 							ratio: 1.000
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: work

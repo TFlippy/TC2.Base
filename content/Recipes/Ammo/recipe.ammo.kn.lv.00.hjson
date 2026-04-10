@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.1"
+	$version: "0.1.73.1"
 	name: "KN-51.9mm"
 	desc:
 		'''
@@ -231,7 +231,7 @@
 					name: "Stamped"
 					
 					type: undefined
-					flags: requires_shipment, crafter, automated
+					flags: crafter, automated
 					
 					priority: 1.000
 					
@@ -244,6 +244,7 @@
 							snapping: 0.500
 							loss: 0.208
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: work
@@ -285,7 +286,7 @@
 					name: "Nitrosugar"
 					
 					type: undefined
-					flags: requires_shipment
+					flags: none
 					discard_damage_type_override: wet
 					
 					requirements:
@@ -298,6 +299,7 @@
 							loss: 0.075
 							ratio: 1.000
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: resource
@@ -307,6 +309,7 @@
 							falloff: 0.978
 							loss: 0.157
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: work
@@ -335,7 +338,7 @@
 					name: "Nitroglycerine"
 					
 					type: undefined
-					flags: requires_shipment
+					flags: none
 					discard_damage_type_override: wet
 					
 					requirements:
@@ -347,6 +350,7 @@
 							snapping: 0.100
 							loss: 0.145
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: work
@@ -383,7 +387,7 @@
 					name: "GP-NTG"
 					
 					type: undefined
-					flags: requires_shipment
+					flags: none
 					discard_damage_type_override: pickaxe
 					
 					suffix: "/LV (GP-NTG)"
@@ -398,6 +402,7 @@
 							snapping: 0.100
 							loss: 0.071
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: resource
@@ -405,6 +410,7 @@
 							amount: 0.105852
 							snapping: 0.100
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: work

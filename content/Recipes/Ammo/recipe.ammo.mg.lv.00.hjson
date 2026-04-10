@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.1"
+	$version: "0.1.73.1"
 	name: "MG-20.4mm"
 	desc:
 		'''
@@ -343,7 +343,7 @@
 					name: "Nitrosugar"
 					
 					type: undefined
-					flags: requires_shipment
+					flags: none
 					discard_damage_type_override: punch
 					
 					requirements:
@@ -356,6 +356,7 @@
 							loss: 0.067
 							ratio: 1.000
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: resource
@@ -365,6 +366,7 @@
 							falloff: 0.982
 							loss: 0.141
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: work
@@ -393,7 +395,7 @@
 					name: "Nitroglycerine"
 					
 					type: undefined
-					flags: requires_shipment
+					flags: none
 					discard_damage_type_override: wet
 					
 					requirements:
@@ -405,6 +407,7 @@
 							snapping: 0.100
 							loss: 0.145
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: work
@@ -441,7 +444,7 @@
 					name: "Gunpowder"
 					
 					type: undefined
-					flags: requires_shipment
+					flags: none
 					discard_damage_type_override: saw
 					
 					suffix: "/LV (Gunpowder)"
@@ -457,6 +460,7 @@
 							loss: 0.078
 							ratio: 0.106
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: resource
@@ -466,6 +470,7 @@
 							loss: 0.580
 							ratio: 1.000
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: work

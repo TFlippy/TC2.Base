@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.67.2"
+	$version: "0.1.73.1"
 	name: "HW-106.7mm"
 	desc:
 		'''
@@ -18,9 +18,6 @@
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: crush
 			
-			ratio: 0.000
-			mass_base: 0.000
-			
 			options:
 			[
 				{
@@ -38,6 +35,7 @@
 							snapping: 1.000
 							ratio: 1.000
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: work
@@ -62,9 +60,6 @@
 			tags: functional, small, flat, rounded, material, dangerous
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: none
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -110,9 +105,6 @@
 			tags: container, assembly, functional, material, dangerous, formula
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: pickaxe
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
