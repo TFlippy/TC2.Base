@@ -1,6 +1,7 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.74.0"
 	name: "HW-106.7mm/SP Shell"
+	name_short: "HW-106.7mm/SP"
 	description:
 		'''
 		Shrapnel 106.7mm ammunition.

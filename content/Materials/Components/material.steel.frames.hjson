@@ -1,7 +1,7 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.74.0"
 	name: "Steel Frames"
-	name_short: "St. Frames"
+	name_short: "St.Frames"
 	name_imperial: "Stylfram"
 	name_dumb: "Ladders"
 	description:

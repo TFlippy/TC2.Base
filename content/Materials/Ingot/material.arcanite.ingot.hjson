@@ -6,7 +6,7 @@
 		- Primarily used in essence emitters
 		'''
 	name: "Arcanite Brick"
-	name_short: "Arc. Brick"
+	name_short: "Arc.Brick"
 	name_imperial: "Arkoblok"
 	description:
 		'''

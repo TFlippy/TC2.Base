@@ -1,7 +1,7 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.74.0"
 	name: "Smirglum Gravel"
-	name_short: "Sg. Gravel"
+	name_short: "Sg.Gravel"
 	name_imperial: "Smirglsterk"
 	description:
 		'''

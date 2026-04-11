@@ -1,6 +1,7 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.74.0"
 	name: "SG-20.4mm/BT Slug"
+	name_short: "SG-20.4mm/BT"
 	description:
 		'''
 		Semi-lethal 20.4mm shotgun baton slugs.

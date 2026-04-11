@@ -1,7 +1,7 @@
 ﻿{
-	$version: "0.1.73.1"
+	$version: "0.1.74.0"
 	name: "Recondite Chunk"
-	name_short: "Rec. Chunk"
+	name_short: "Rec.Chunk"
 	name_imperial: "Rekondit"
 	description:
 		'''

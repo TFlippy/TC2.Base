@@ -1,6 +1,7 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.74.0"
 	name: "KN-51.9mm/AA Shell"
+	name_short: "KN-51.9mm/AA"
 	description:
 		'''
 		Anti-air 51.9mm ammunition.

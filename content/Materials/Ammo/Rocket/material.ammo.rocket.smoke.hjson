@@ -1,6 +1,7 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.74.0"
 	name: "RG-68.1mm/SM Rocket"
+	name_short: "RG-68.1mm/SM"
 	description:
 		'''
 		Ammunition for rocket launchers. Produces large amount of smoke, explosion deals almost no damage, though the projectile itself can injure if it hits.

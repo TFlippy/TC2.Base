@@ -1,6 +1,7 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.74.0"
 	name: "MG-20.4mm/HV Ammo"
+	name_short: "MG-20.4mm/HV"
 	description:
 		'''
 		High-velocity 20.4mm ammunition.

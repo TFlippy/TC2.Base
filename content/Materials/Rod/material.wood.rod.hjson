@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.72.0"
 	name: "Wooden Bar"
-	name_short: "Wd. Bar"
+	name_short: "Wd.Bar"
 	name_dumb: "Stick"
 	description:
 		'''

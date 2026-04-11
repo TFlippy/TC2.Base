@@ -1,7 +1,7 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.74.0"
 	name: "Steel Scrap"
-	name_short: "St. Scrap"
+	name_short: "St.Scrap"
 	name_imperial: "Stylsrot"
 	description:
 		'''

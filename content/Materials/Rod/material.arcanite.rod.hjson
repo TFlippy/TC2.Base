@@ -1,7 +1,7 @@
 ﻿{
 	$version: "0.1.72.0"
 	name: "Arcanite Bar"
-	name_short: "Arc. Bar"
+	name_short: "Arc.Bar"
 	name_imperial: "Arkotyc"
 	name_dumb: "Carrot"
 	description:

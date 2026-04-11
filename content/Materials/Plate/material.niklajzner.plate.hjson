@@ -1,7 +1,7 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.74.0"
 	name: "Niklajzner Sheet"
-	name_short: "Nkz. Sheet"
+	name_short: "Nkz.Sheet"
 	name_imperial: "Niklajzplat"
 	name_dumb: "Tinfoil"
 	description:

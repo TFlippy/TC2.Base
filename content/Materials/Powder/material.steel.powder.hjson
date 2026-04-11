@@ -1,7 +1,7 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.74.0"
 	name: "Steel Powder"
-	name_short: "St. Powder"
+	name_short: "St.Powder"
 	name_imperial: "Stylpulvr"
 	name_dumb: "Shiny Dust"
 	description:

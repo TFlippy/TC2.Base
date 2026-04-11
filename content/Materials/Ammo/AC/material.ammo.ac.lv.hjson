@@ -1,6 +1,7 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.74.0"
 	name: "AC-33.6mm/LV Ammo"
+	name_short: "AC-33.6mm/LV"
 	description:
 		'''
 		Low-velocity 33.6mm ammunition.
@@ -61,7 +62,7 @@
 		categories: weapons, munitions, military, manufactured
 		
 		market_price: 40.000
-		market_price_per_kg_auto: 45.91837
+		market_price_per_kg_auto: 40.81633
 	}
 	
 	ammo:

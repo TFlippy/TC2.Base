@@ -1,7 +1,7 @@
 ﻿{
-	$version: "0.1.73.0"
+	$version: "0.1.74.0"
 	name: "Arcanite Powder"
-	name_short: "Arc. Powder"
+	name_short: "Arc.Powder"
 	name_imperial: "Arkopulvr"
 	description:
 		'''

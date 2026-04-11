@@ -1,6 +1,7 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.74.0"
 	name: "HW-106.7mm/AP Shell"
+	name_short: "HW-106.7mm/AP"
 	description:
 		'''
 		Armor-piercing 106.7mm ammunition.

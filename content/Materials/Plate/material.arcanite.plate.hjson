@@ -1,7 +1,7 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.74.0"
 	name: "Arcanite Sheet"
-	name_short: "Arc. Sheet"
+	name_short: "Arc.Sheet"
 	name_imperial: "Arkoplat"
 	description:
 		'''

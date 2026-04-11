@@ -1,7 +1,7 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.74.0"
 	name: "Ferronickel Powder"
-	name_short: "FeNi. Powder"
+	name_short: "Ferr.Powder"
 	description:
 		'''
 		Standard fine-grained oxidized ferronickel powderswarf.

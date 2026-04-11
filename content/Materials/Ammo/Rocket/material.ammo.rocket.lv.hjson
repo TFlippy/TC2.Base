@@ -1,6 +1,7 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.74.0"
 	name: "RG-68.1mm/LV Rocket"
+	name_short: "RG-68.1mm/LV"
 	description:
 		'''
 		Ammunition for rocket launchers. Uses gunpowder filling, reduced damage and radius, creates more smoke on impact. Not very accurate.

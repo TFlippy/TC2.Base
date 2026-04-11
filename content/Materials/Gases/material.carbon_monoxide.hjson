@@ -1,7 +1,7 @@
 ﻿{
-	$version: "0.1.72.1"
+	$version: "0.1.74.0"
 	name: "Carbon Monoxide"
-	name_short: "C. Monoxide"
+	name_short: "C.Monoxide"
 	name_advanced: "Carbon Monoxide"
 	name_dumb: "Air"
 	description:

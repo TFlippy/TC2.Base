@@ -1,7 +1,7 @@
 ﻿{
-	$version: "0.1.73.1"
+	$version: "0.1.74.0"
 	name: "Silver Chunk"
-	name_short: "Sv. Chunk"
+	name_short: "Sv.Chunk"
 	name_imperial: "Spejbl"
 	description:
 		'''

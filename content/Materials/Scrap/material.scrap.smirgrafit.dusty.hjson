@@ -1,7 +1,7 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.74.0"
 	name: "Smirgrafit Scrap (Dusty)"
-	name_short: "Sgft. Dustscrap"
+	name_short: "Sgft.Dustscrap"
 	name_imperial: "Smirgrafosmradosrot"
 	description:
 		'''

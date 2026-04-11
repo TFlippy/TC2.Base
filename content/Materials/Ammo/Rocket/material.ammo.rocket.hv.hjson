@@ -1,6 +1,7 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.74.0"
 	name: "RG-68.1mm/HV Rocket"
+	name_short: "RG-68.1mm/HV"
 	description:
 		'''
 		Ammunition for rocket launchers. Greatly increased velocity, increased damage at the cost of reduced explosion radius.

@@ -1,6 +1,7 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.74.0"
 	name: "AC-33.6mm/HE Ammo"
+	name_short: "AC-33.6mm/HE"
 	description:
 		'''
 		High-explosive 33.6mm ammunition.

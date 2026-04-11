@@ -1,7 +1,7 @@
 ﻿{
-	$version: "0.1.73.1"
+	$version: "0.1.74.0"
 	name: "Arcanite Chunk"
-	name_short: "Arc. Chunk"
+	name_short: "Arc.Chunk"
 	name_imperial: "Arkanit"
 	description:
 		'''

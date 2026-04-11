@@ -1,7 +1,7 @@
 ﻿{
-	$version: "0.1.72.1"
+	$version: "0.1.74.0"
 	name: "Nitrogen Dioxide"
-	name_short: "N. Dioxide"
+	name_short: "N.Dioxide"
 	name_advanced: "Nitrogen Dioxide"
 	name_dumb: "Red Air"
 	description:

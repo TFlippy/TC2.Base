@@ -1,6 +1,7 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.74.0"
 	name: "HC-13.2mm/LV Ammo"
+	name_short: "HC-13.2mm/LV"
 	description:
 		'''
 		Low-velocity 13.2mm ammunition.

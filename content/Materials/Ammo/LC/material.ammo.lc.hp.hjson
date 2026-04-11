@@ -1,6 +1,7 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.74.0"
 	name: "LC-9.4mm/HP Ammo"
+	name_short: "LC-9.4mm/HP"
 	description:
 		'''
 		Hollow-point 9.4mm ammunition.
