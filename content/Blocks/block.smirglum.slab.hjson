@@ -10,7 +10,7 @@
 	tile_flags: non_empty
 	flags: artificial, magnetic, metal, masonry, construction
 	
-	max_health: 550000.000
+	max_health: 350000.000
 	smoothing: 0.150
 	stability: 17.700
 	strength_tensile: 63.000

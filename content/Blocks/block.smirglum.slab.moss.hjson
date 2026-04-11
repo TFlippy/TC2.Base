@@ -10,11 +10,11 @@
 	tile_flags: non_empty
 	flags: artificial, magnetic, overgrown, metal, masonry, construction
 	
-	max_health: 500000.000
+	max_health: 350000.000
 	smoothing: 0.150
-	stability: 0.900
-	strength_tensile: 13.000
-	strength_compressive: 45.410
+	stability: 17.700
+	strength_tensile: 63.000
+	strength_compressive: 85.410
 	
 	mass: 16.800
 	density: 0.000
