@@ -1,7 +1,26 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.74.0"
 	nodes:
 	[
+		{
+			rarity: 4.350
+			weight: 28.500
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: putty
+					amount: 3.822325
+					amount_extra: 6.078197
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
 		{
 			rarity: 4.000
 			weight: 25.000
@@ -17,6 +36,44 @@
 					amount: 8.000
 					amount_extra: 22.000
 					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.620
+			weight: 15.600
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: limelight
+					amount: 1.000
+					amount_extra: 5.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.060
+			weight: 13.400
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: machine_parts
+					amount: 7.174757
+					amount_extra: 28.69903
+					snapping: 0.100
 					group: 0
 				}
 			]
@@ -41,7 +98,7 @@
 			]
 		}
 		{
-			rarity: 2.000
+			rarity: 2.150
 			weight: 11.000
 			
 			flags: has_resources
@@ -51,17 +108,43 @@
 			[
 				{
 					type: resource
-					material: limelight
+					material: cloth
+					amount: 5.000
+					amount_extra: 35.000
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 5.570
+			weight: 10.700
+			
+			flags: has_resources, has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: welder.00
 					amount: 1.000
-					amount_extra: 5.000
+					snapping: 1.000
+					group: 0
+				}
+				{
+					type: resource
+					material: phlogiston
+					amount: 3.000
+					amount_extra: 7.000
 					snapping: 1.000
 					group: 0
 				}
 			]
 		}
 		{
-			rarity: 2.000
-			weight: 10.000
+			rarity: 2.120
+			weight: 8.800
 			
 			flags: has_resources
 			chance: 1.000
@@ -74,25 +157,6 @@
 					amount: 2.000
 					amount_extra: 8.000
 					snapping: 1.000
-					group: 0
-				}
-			]
-		}
-		{
-			rarity: 2.000
-			weight: 10.000
-			
-			flags: has_resources
-			chance: 1.000
-			
-			products:
-			[
-				{
-					type: resource
-					material: machine_parts
-					amount: 5.000
-					amount_extra: 20.000
-					snapping: 0.100
 					group: 0
 				}
 			]
@@ -175,7 +239,7 @@
 		}
 		{
 			rarity: 5.000
-			weight: 6.000
+			weight: 7.000
 			
 			flags: has_resources
 			chance: 1.000
@@ -194,7 +258,7 @@
 		}
 		{
 			rarity: 1.000
-			weight: 6.000
+			weight: 5.500
 			
 			flags: has_resources
 			chance: 1.000
@@ -226,51 +290,6 @@
 					amount: 2.000
 					amount_extra: 8.000
 					snapping: 0.500
-					group: 0
-				}
-			]
-		}
-		{
-			rarity: 5.000
-			weight: 1.000
-			
-			flags: has_resources, has_prefabs
-			chance: 1.000
-			
-			products:
-			[
-				{
-					type: prefab
-					prefab: welder.00
-					amount: 1.000
-					snapping: 1.000
-					group: 0
-				}
-				{
-					type: resource
-					material: phlogiston
-					amount: 3.000
-					amount_extra: 7.000
-					snapping: 1.000
-					group: 0
-				}
-			]
-		}
-		{
-			rarity: 2.300
-			weight: 11.000
-			
-			flags: has_resources
-			chance: 1.000
-			
-			products:
-			[
-				{
-					type: resource
-					material: cloth
-					amount: 5.000
-					amount_extra: 35.000
-					snapping: 0.100
 					group: 0
 				}
 			]
@@ -387,6 +406,25 @@
 			]
 		}
 		{
+			rarity: 7.000
+			weight: 3.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: pellet.electricity
+					amount: 2.000
+					amount_extra: 7.000
+					snapping: 0.500
+					group: 0
+				}
+			]
+		}
+		{
 			rarity: 2.000
 			weight: 3.000
 			
@@ -423,20 +461,19 @@
 			]
 		}
 		{
-			rarity: 7.000
-			weight: 3.000
+			rarity: 5.000
+			weight: 2.000
 			
-			flags: has_resources
+			flags: has_prefabs
 			chance: 1.000
 			
 			products:
 			[
 				{
-					type: resource
-					material: pellet.electricity
-					amount: 2.000
-					amount_extra: 7.000
-					snapping: 0.500
+					type: prefab
+					prefab: bp.pivan.forte
+					amount: 1.000
+					snapping: 1.000
 					group: 0
 				}
 			]
@@ -456,24 +493,6 @@
 					amount: 1.000
 					amount_extra: 3.000
 					snapping: 0.100
-					group: 0
-				}
-			]
-		}
-		{
-			rarity: 5.000
-			weight: 2.000
-			
-			flags: has_prefabs
-			chance: 1.000
-			
-			products:
-			[
-				{
-					type: prefab
-					prefab: bp.pivan.forte
-					amount: 1.000
-					snapping: 1.000
 					group: 0
 				}
 			]

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.74.0"
 	nodes:
 	[
 		{
@@ -174,7 +174,7 @@
 			]
 		}
 		{
-			rarity: 2.040
+			rarity: 1.550
 			weight: 6.200
 			
 			flags: has_resources
@@ -231,25 +231,6 @@
 			]
 		}
 		{
-			rarity: 2.160
-			weight: 5.800
-			
-			flags: has_resources
-			chance: 1.000
-			
-			products:
-			[
-				{
-					type: resource
-					material: lubricant
-					amount: 0.998
-					amount_extra: 7.270
-					snapping: 0.100
-					group: 0
-				}
-			]
-		}
-		{
 			rarity: 2.100
 			weight: 5.800
 			
@@ -261,6 +242,25 @@
 				{
 					type: resource
 					material: alcohol
+					amount: 0.998
+					amount_extra: 7.270
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 2.160
+			weight: 5.800
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: lubricant
 					amount: 0.998
 					amount_extra: 7.270
 					snapping: 0.100
@@ -320,6 +320,25 @@
 					material: pellet.cognition
 					amount: 1.000
 					amount_extra: 3.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 6.480
+			weight: 5.200
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: mithril
+					amount: 1.406576
+					amount_extra: 4.016938
 					snapping: 1.000
 					group: 0
 				}
@@ -435,25 +454,6 @@
 					amount: 3.000
 					amount_extra: 16.914
 					snapping: 0.100
-					group: 0
-				}
-			]
-		}
-		{
-			rarity: 6.480
-			weight: 1.600
-			
-			flags: has_resources
-			chance: 1.000
-			
-			products:
-			[
-				{
-					type: resource
-					material: mithril
-					amount: 2.308857
-					amount_extra: 6.5937
-					snapping: 1.000
 					group: 0
 				}
 			]
