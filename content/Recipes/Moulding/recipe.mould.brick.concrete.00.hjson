@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.73.1"
+	$version: "0.1.74.0"
 	name: "ISO Concrete Masonry Unit"
 	desc:
 		'''
@@ -85,7 +85,7 @@
 							amount_min: 110.000
 							difficulty: 7
 							snapping: 5.000
-							falloff: 0.752
+							falloff: 0.636
 							group: 0
 							flags: simultaneous, conditional
 						}
@@ -96,7 +96,7 @@
 							amount_min: 75.000
 							difficulty: 5
 							snapping: 5.000
-							falloff: 0.640
+							falloff: 0.529
 							group: 0
 							flags: simultaneous, conditional
 						}
@@ -107,7 +107,7 @@
 							amount_min: 150.000
 							difficulty: 7
 							snapping: 5.000
-							falloff: 0.783
+							falloff: 0.710
 							group: 1
 							flags: conditional
 						}
