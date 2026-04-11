@@ -289,17 +289,17 @@ personnel:
 // 	volume: 2.000
 // }
 
-refinery:
-{
-	@inventory2:
-	{
-		type: gas
-		flags: standalone, ignore_mass, faction
-		stack_size_multiplier: 2.000
+// refinery:
+// {
+// 	@inventory2:
+// 	{
+// 		type: gas
+// 		flags: standalone, ignore_mass, faction
+// 		stack_size_multiplier: 2.000
 		
-		offset: [0.000, 0.000]
-	}
-}
+// 		offset: [0.000, 0.000]
+// 	}
+// }
 
 essence.container:
 {

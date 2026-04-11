@@ -241,6 +241,8 @@ namespace TC2.Base.Components
 				Constant_Glow = 1 << 4,
 				Constant_Heat = 1 << 5,
 				No_Noise = 1 << 6,
+
+				Faction = 1 << 7
 			}
 
 			[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Global | IComponent.Scope.Region)]
@@ -579,6 +581,14 @@ namespace TC2.Base.Components
 #if SERVER
 				public void Invoke(Net.IRPC.Context rpc, ref Essence.Container.Data data)
 				{
+					if (data.flags.HasAny(Essence.Container.Flags.Faction))
+					{
+						var h_faction_client = rpc.connection.GetFactionHandle();
+						var h_faction = rpc.record.GetFactionHandle();
+
+						Assert.Check(h_faction.IsAccessible(h_faction_client));
+					}
+
 					var sync = false;
 					sync |= this.rate_target.TryCopyToClamped01(ref data.rate);
 					//sync |= this.power_target_ratio.TryCopyToClamped01(ref data.power_target_ratio);
@@ -600,6 +610,8 @@ namespace TC2.Base.Components
 				public Inventory1.Data inventory;
 				public Essence.Container.Data essence_container;
 
+				public IFaction.Handle h_faction;
+
 				public void Draw()
 				{
 					using (var window = GUI.Window.InteractionMisc("Essence"u8, this.ent_interactable, size: new Vector2(0, 48), min_width: 96, min_height: 48))
@@ -611,6 +623,9 @@ namespace TC2.Base.Components
 						{
 							if (window.show)
 							{
+								var h_faction_client = Client.GetFactionHandle();
+								var is_accessible = this.h_faction.IsAccessible(h_faction_client);
+
 								//GUI.DrawRect(GUI.GetAvailableRect(), layer: GUI.Layer.Foreground);
 
 								//GUI.DrawInventoryDock(Inventory.Type.Essence, new Vector2(GUI.RmY));
@@ -623,11 +638,12 @@ namespace TC2.Base.Components
 									if (this.essence_container.flags.HasAny(Essence.Container.Flags.Allow_Edit_Rate))
 									{
 										if (GUI.SliderFloat(label: "Rate"u8,
-											value: ref this.essence_container.rate,
-											min: 0.00f,
-											max: 1.00f,
-											snap: 0.001f,
-											size: new Vector2(GUI.RmX, 24)))
+										value: ref this.essence_container.rate,
+										min: 0.00f,
+										max: 1.00f,
+										snap: 0.001f,
+										enabled: is_accessible,
+										size: new Vector2(GUI.RmX, 24)))
 										{
 											var rpc = new Essence.Container.ConfigureRPC()
 											{
@@ -694,7 +710,8 @@ namespace TC2.Base.Components
 			public static void OnGUI(/*ISystem.Info info, ref Region.Data region,*/
 			Entity ent_interactable, Entity ent_essence_container,
 			[Source.Owned, Pair.Component<Essence.Container.Data>] in Inventory1.Data inventory,
-			[Source.Owned] in Interactable.Data interactable, [Source.Owned] in Essence.Container.Data essence_container)
+			[Source.Owned] in Interactable.Data interactable, [Source.Owned] in Essence.Container.Data essence_container,
+			[Source.Owned, Optional] in Faction.Data faction)
 			{
 				if (interactable.IsActive() && essence_container.flags.HasAny(Essence.Container.Flags.Show_GUI))
 				{
@@ -706,6 +723,7 @@ namespace TC2.Base.Components
 						ent_essence_container = ent_essence_container,
 						inventory = inventory,
 						essence_container = essence_container,
+						h_faction = faction.id
 					};
 					gui.Submit();
 				}

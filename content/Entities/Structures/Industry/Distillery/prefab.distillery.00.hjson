@@ -174,10 +174,10 @@ workshop:
 	}
 }
 
-distillery:
-{
-	smoke_offset: [1.750, -0.250]
-}
+// distillery:
+// {
+// 	smoke_offset: [1.750, -0.250]
+// }
 
 shipment:
 {

@@ -3,6 +3,8 @@ namespace TC2.Base.Components
 {
 	public static partial class Door
 	{
+		// TODO: add auto-closing
+		// TODO: reduce struct size or split it if it's going to be synced often (considering it's a door)
 		[IComponent.Data(Net.SendType.Reliable, IComponent.Scope.Region)]
 		public partial struct Data(): IComponent
 		{
@@ -30,8 +32,8 @@ namespace TC2.Base.Components
 			public Vector2 offset_open;
 			public Vector2 offset_closed;
 
-			public float fps_close = 10.00f;
-			public float fps_open = 10.00f;
+			public byte fps_close = 10;
+			public byte fps_open = 10;
 			[Asset.Ignore] public float animation_progress;
 			[Asset.Ignore, Net.Ignore, Save.Ignore] public float last_use_time;
 		}
@@ -68,9 +70,10 @@ namespace TC2.Base.Components
 		}
 #endif
 
+		[Shitcode]
 		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void UpdateAnimation(ISystem.Info info, Entity entity,
-		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Animated.Renderer.Data renderer, [Source.Owned] ref Door.Data door)
+		public static void UpdateAnimation(ISystem.Info info,
+		[Source.Owned] ref Animated.Renderer.Data renderer, [Source.Owned] ref Door.Data door)
 		{
 			if (door.flags.HasAny(Door.Flags.Open))
 			{
@@ -91,6 +94,7 @@ namespace TC2.Base.Components
 		}
 
 #if SERVER
+		[Shitcode]
 		[ISystem.Event<Interactable.InteractEvent>(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnInteract(ISystem.Info info, Entity entity, ref XorRandom random, ref Region.Data region, [Source.Owned] ref Interactable.InteractEvent ev, 
 		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Animated.Renderer.Data renderer, 
@@ -103,7 +107,7 @@ namespace TC2.Base.Components
 			{
 				if (door.flags.HasNone(Door.Flags.Open) && is_same_faction)
 				{
-					door.flags ^= Door.Flags.Locked;
+					door.flags.ToggleFlag(Door.Flags.Locked); // ^= Door.Flags.Locked;
 
 					if (door.flags.HasAny(Door.Flags.Locked))
 					{
@@ -177,7 +181,7 @@ namespace TC2.Base.Components
 
 					if (!stuck)
 					{
-						door.flags ^= Door.Flags.Open;
+						door.flags.ToggleFlag(Door.Flags.Open);
 
 						if (door.flags.HasAny(Door.Flags.Open))
 						{

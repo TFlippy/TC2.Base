@@ -68,6 +68,7 @@ namespace TC2.Base.Components
 			[Asset.Ignore, Save.Ignore, Net.Ignore] public float next_linecast;
 		}
 
+		// TODO: add sync rate limiting
 		public struct EditRPC: Net.IRPC<Levitator.Data>
 		{
 			public Levitator.Data.Flags? flags;

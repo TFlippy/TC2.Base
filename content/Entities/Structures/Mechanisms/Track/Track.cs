@@ -1,8 +1,10 @@
 ﻿namespace TC2.Base.Components
 {
 	// TODO: this is absolute shitcode, needs a complete rewrite
+	[Shitcode]
 	public static partial class Track
 	{
+		[Shitcode]
 		[IComponent.Data(Net.SendType.Reliable, region_only: true), IComponent.With<Track.State>]
 		public partial struct Data(): IComponent
 		{
@@ -18,6 +20,7 @@
 			public Track.Data.Flags flags;
 		}
 
+		[Shitcode]
 		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
 		public partial struct State(): IComponent
 		{
@@ -141,6 +144,7 @@
 			//joint_slider.max = Vector2.Distance(resizable.a, resizable.b);
 		}
 
+		[Shitcode]
 		public struct ConfigureRPC: Net.IRPC<Track.Data>
 		{
 			public float? slider_ratio;

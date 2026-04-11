@@ -80,6 +80,7 @@ namespace TC2.Base.Components
 			//public Vendor.Flags? flags;
 
 #if SERVER
+			// TODO: add validation
 			public void Invoke(Net.IRPC.Context rpc, ref Vendor.Data data)
 			{
 				var sync = false;

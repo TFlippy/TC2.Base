@@ -108,7 +108,7 @@
 #if SERVER
 			public void Invoke(Net.IRPC.Context rpc, ref Controllable.Data data)
 			{
-				ref var control = ref rpc.entity.GetComponent<Control.Data>();
+				ref var control = ref rpc.GetComponent<Control.Data>();
 				if (control.IsNotNull())
 				{
 					var sync = false;
