@@ -582,6 +582,7 @@
 			amount: 8.020
 			amount_extra: 0.350
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: resource
@@ -597,6 +598,7 @@
 			amount: 9.410
 			amount_extra: 0.350
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: resource
@@ -604,6 +606,7 @@
 			amount: 0.088
 			amount_extra: 0.041
 			group: 0
+			flags: prerequisite
 		}
 	]
 	

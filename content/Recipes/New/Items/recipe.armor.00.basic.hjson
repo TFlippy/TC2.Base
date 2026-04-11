@@ -154,12 +154,14 @@
 			material: leather
 			amount: 14.000
 			group: 1
+			flags: prerequisite
 		}
 		{
 			type: resource
 			material: cloth
 			amount: 6.000
 			group: 1
+			flags: prerequisite
 		}
 		{
 			type: work

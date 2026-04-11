@@ -144,7 +144,7 @@
 							amount_extra: 0.3611
 							group: 0
 							ratio: 0.325
-							flags: scale_to_mass
+							flags: scale_to_mass, prerequisite
 						}
 					]
 					

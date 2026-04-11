@@ -14,18 +14,21 @@
 			material: steel.ingot
 			amount: 18.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: resource
 			material: machine_parts
 			amount: 5.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: resource
 			material: actuator
 			amount: 3.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: work

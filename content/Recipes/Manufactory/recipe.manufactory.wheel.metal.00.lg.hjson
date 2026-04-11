@@ -14,6 +14,7 @@
 			material: steel.ingot
 			amount: 18.000
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: work

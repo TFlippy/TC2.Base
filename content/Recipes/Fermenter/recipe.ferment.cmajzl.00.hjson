@@ -39,6 +39,7 @@
 							falloff: 0.691
 							loss: 0.063
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: resource
@@ -48,6 +49,7 @@
 							falloff: 0.881
 							loss: 0.075
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: work
@@ -117,6 +119,7 @@
 							falloff: 0.881
 							loss: 0.075
 							group: 0
+							flags: prerequisite
 						}
 					]
 				}

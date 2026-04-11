@@ -40,6 +40,7 @@
 			material: water
 			amount: 0.100
 			group: 0
+			flags: prerequisite
 		}
 		{
 			type: resource
@@ -47,6 +48,7 @@
 			amount: 0.029
 			amount_extra: 0.005
 			group: 0
+			flags: prerequisite
 		}
 	]
 	
