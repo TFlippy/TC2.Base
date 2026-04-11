@@ -1,35 +1,202 @@
 ﻿{
-	$version: "0.1.65.2"
-	name: "Pill Box"
-	desc:
-		'''
-		Pills can be used for administering drugs through mouth.
-		'''
+	$version: "0.1.74.0"
+	name: "Pills"
 	tips: []
 	
-	requirements:
+	related_materials:
+	{
+		starch: powdered, input, auto_generated
+		paper: input, auto_generated
+		glue: liquid, input, auto_generated
+		water: raw, liquid, input, auto_generated
+	}
+	
+	stages:
 	[
 		{
-			type: resource
-			material: flour
-			amount: 0.800
-			group: 0
-			flags: prerequisite
+			name: "Tablet Blend"
+			
+			type: filler
+			flags: important
+			tags: small, material, ingredient
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			options:
+			[
+				{
+					name: "Starch"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: starch
+							amount: 0.211238
+							snapping: 0.100
+							loss: 0.961
+							group: 0
+							flags: filler, prerequisite
+						}
+						{
+							type: resource
+							material: water
+							amount: 0.050
+							snapping: 0.100
+							falloff: 0.871
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: blending
+							amount: 50.000
+							amount_min: 100.000
+							difficulty: 4
+							step_max: 20
+							snapping: 25.000
+							falloff: 0.780
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+					
+					filter_tools:
+					{
+						include: ruler, shovel, file, spatula, ladle, utensils
+					}
+					filter_infrastructure:
+					{
+						include: cauldron, dishes, barrel, bucket, liquid_container, blender, form
+					}
+				}
+			]
 		}
 		{
-			type: resource
-			material: paper
-			amount: 2.000
-			group: 0
-			flags: prerequisite
+			name: "Shaping"
+			
+			type: moulding
+			flags: important
+			tags: shell, container, structural, small, rounded
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			options:
+			[
+				{
+					name: "Hand-Pressed"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: work
+							work: pounding
+							amount: 80.000
+							amount_min: 100.000
+							difficulty: 3
+							step_max: 8
+							snapping: 25.000
+							falloff: 0.764
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+					
+					filter_infrastructure:
+					{
+						include: surface, hard_surface
+					}
+				}
+			]
 		}
 		{
-			type: work
-			work: "null"
-			amount: 4.000
-			difficulty: 1
-			group: 0
-			flags: conditional
+			name: "Packaging"
+			
+			type: moulding
+			flags: none
+			tags: container
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: slash
+			
+			options:
+			[
+				{
+					name: "Paper"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: slash
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: paper
+							amount: 0.234192
+							snapping: 1.000
+							loss: 0.435
+							ratio: 0.275
+							group: 0
+							flags: stepped, prerequisite
+						}
+						{
+							type: resource
+							material: glue
+							amount: 0.500
+							snapping: 1.000
+							loss: 0.498
+							ratio: 0.102
+							group: 0
+							flags: stepped, prerequisite
+						}
+						{
+							type: work
+							work: papercraft
+							amount: 75.000
+							amount_min: 20.000
+							difficulty: 5
+							step_max: 15
+							snapping: 50.000
+							falloff: 0.940
+							loss: 0.612
+							ratio: 0.690
+							group: 0
+							flags: stepped, conditional
+						}
+					]
+					
+					start_delay: 0.000
+					advance_delay: 0.000
+					complete_delay: 0.000
+					
+					filter_tools:
+					{
+						include: paper, ruler, cutters, tweezers, magnifying_glass, stapler, knife
+					}
+					filter_infrastructure:
+					{
+						include: table, chair, structure
+					}
+					filter_environment:
+					{
+						include: workshop, office, stationary, clean, cozy, organized
+					}
+				}
+			]
 		}
 	]
 	
@@ -40,20 +207,22 @@
 			prefab: pill
 			amount: 1.000
 			group: 0
+			flags: primary, compact
 		}
 	]
 	
 	type: workshop
-	flags: blueprintable, hidden, wip
-	tags: manual, complex, small, tool, alchemistry, medical, science, biology
+	flags: blueprintable, item, wip
+	tags: crafting, complex, small, alchemistry, medical, science, processing
 	hints: none
 	connotations: none
-	infrastructure: lab_glassware, dishes, bottle
+	infrastructure: dishes, bottle, surface
 	infrastructure_exclude: none
 	
 	icon:
 	{
 		texture: pill
+		size: [11, 6]
 	}
 	
 	color_frame: "0xffaeb59a"
@@ -61,7 +230,7 @@
 	rank: 0.000
 	
 	min: 1
-	max: 4
+	max: 25
 	step: 1
 	
 	version: 1
