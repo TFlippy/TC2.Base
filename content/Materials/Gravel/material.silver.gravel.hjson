@@ -2,6 +2,7 @@
 	$version: "0.1.74.0"
 	name: "Silver Gravel"
 	name_short: "Sv.Gravel"
+	name_imperial: "Spejblsterk"
 	description:
 		'''
 		Standard silver gravel.
@@ -45,6 +46,7 @@
 	color_dust: "0xfff4fbf8"
 	color_gib: "0xfff4fbf8"
 	
+	centroid_default: [0.000, 0.250]
 	colliders: []
 	
 	commodity:
@@ -53,5 +55,6 @@
 		categories: metals
 		
 		market_price: 20.000
+		market_price_per_kg_auto: 15.03759
 	}
 }

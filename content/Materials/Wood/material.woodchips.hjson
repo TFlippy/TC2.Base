@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.74.0"
 	name: "Woodchips"
 	name_short: "Wood Ch."
+	name_imperial: "Drevosterk"
 	name_dumb: "Chips"
 	description:
 		'''

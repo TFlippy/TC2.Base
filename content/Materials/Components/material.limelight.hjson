@@ -1,8 +1,9 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.74.0"
 	$note: "- They're cheaper than their base materials due to government subsidies "
 	name: "Limelights"
 	name_short: "Limelights"
+	name_imperial: "Svetlimajz"
 	name_dumb: "Lightsticks"
 	description:
 		'''

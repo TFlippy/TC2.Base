@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.74.0"
 	name: "Wooden Bar"
 	name_short: "Wd.Bar"
+	name_imperial: "Drevotyc"
 	name_dumb: "Stick"
 	description:
 		'''

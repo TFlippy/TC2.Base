@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.74.0"
 	$note:
 		'''
 		- Red-colored water with an extremely sour taste, but not corrosive enough to cause damage
@@ -8,7 +8,7 @@
 		'''
 	name: "Redwater"
 	name_short: "R.Water"
-	name_imperial: "Cervodka"
+	name_imperial: "Cervoda"
 	name_dumb: "Wine"
 	description:
 		'''

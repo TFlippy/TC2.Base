@@ -2,7 +2,7 @@
 	$version: "0.1.74.0"
 	name: "Arcanite Powder"
 	name_short: "Arc.Powder"
-	name_imperial: "Arkopulvr"
+	name_imperial: "Arkopudr"
 	description:
 		'''
 		Standard fine-grained arcanite powderswarf.

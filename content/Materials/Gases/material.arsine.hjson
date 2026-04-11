@@ -1,8 +1,8 @@
 ﻿{
-	$version: "0.1.72.1"
+	$version: "0.1.74.0"
 	name: "Arsine"
 	name_short: "Arsine"
-	name_imperial: "Arzyn"
+	name_imperial: "Arziplyn"
 	name_dumb: "Garlic"
 	description:
 		'''

@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.74.0"
 	name: "Toxwater"
 	name_short: "T.Water"
+	name_imperial: "Smrtvoda"
 	name_dumb: "Piss"
 	description:
 		'''

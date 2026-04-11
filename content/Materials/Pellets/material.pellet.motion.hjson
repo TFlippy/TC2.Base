@@ -1,8 +1,8 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.74.0"
 	name: "EC-MT Pellets"
 	name_short: "EC-MT Pt."
-	name_imperial: "Motorik-Arkpelet"
+	name_imperial: "Moto-Arkpelet"
 	description:
 		'''
 		Essence infusion pellets.

@@ -2,6 +2,7 @@
 	$version: "0.1.74.0"
 	name: "Purified Water"
 	name_short: "P.Water"
+	name_imperial: "Vejvoda"
 	name_dumb: "Water"
 	description:
 		'''

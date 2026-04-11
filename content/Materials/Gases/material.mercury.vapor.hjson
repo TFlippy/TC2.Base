@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.72.1"
+	$version: "0.1.74.0"
 	name: "Mercury Vapor"
 	name_short: "Mercury"
+	name_imperial: "Merkur"
 	name_advanced: "Mercury Vapor"
 	name_dumb: "Shiny Cloud"
 	description:

@@ -1,8 +1,8 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.74.0"
 	name: "EC-CG Pellets"
 	name_short: "EC-CG Pt."
-	name_imperial: "Kogni-Arkpelet"
+	name_imperial: "Carogejsk-Arkpelet"
 	description:
 		'''
 		EC-pellets infused with cognition essence - among the strangest essence types recognized by modern science.

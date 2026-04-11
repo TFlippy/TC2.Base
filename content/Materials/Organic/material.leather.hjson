@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.74.0"
 	name: "Bonded Leather"
 	name_short: "Leather"
+	name_imperial: "Pletivo"
 	name_dumb: "Genuine Leather"
 	description:
 		'''

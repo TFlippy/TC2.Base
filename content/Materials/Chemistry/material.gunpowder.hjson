@@ -2,6 +2,7 @@
 	$version: "0.1.74.0"
 	name: "Black Powder"
 	name_short: "Gunpowder"
+	name_imperial: "Buchpudr"
 	name_dumb: "Gunpowder"
 	description:
 		'''

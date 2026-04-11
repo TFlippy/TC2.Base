@@ -2,6 +2,7 @@
 	$version: "0.1.74.0"
 	name: "Ferronickel Powder"
 	name_short: "Ferr.Powder"
+	name_imperial: "Feropudr"
 	description:
 		'''
 		Standard fine-grained oxidized ferronickel powderswarf.

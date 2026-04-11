@@ -1,8 +1,8 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.74.0"
 	name: "EC-FU Pellets"
 	name_short: "EC-FU Pt."
-	name_imperial: "Fug-Arkpelet"
+	name_imperial: "Fusk-Arkpelet"
 	description:
 		'''
 		Essence infusion pellets.

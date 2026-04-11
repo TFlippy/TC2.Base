@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.74.0"
 	name: "Machine Parts"
 	name_short: "M.Parts"
+	name_imperial: "Robokram"
 	name_dumb: "Things"
 	description:
 		'''

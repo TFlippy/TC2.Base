@@ -2,6 +2,7 @@
 	$version: "0.1.74.0"
 	name: "Seawater"
 	name_short: "S.Water"
+	name_imperial: "Salcvoda"
 	name_dumb: "Water"
 	description:
 		'''

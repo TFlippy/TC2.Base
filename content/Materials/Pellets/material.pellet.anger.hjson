@@ -1,8 +1,8 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.74.0"
 	name: "EC-GR Pellets"
 	name_short: "EC-GR Pt."
-	name_imperial: "Aggro-Arkpelet"
+	name_imperial: "Magor-Arkpelet"
 	description:
 		'''
 		Essence infusion pellets.

@@ -2,7 +2,7 @@
 	$prefab: "g.settlement.city.00"
 	$version: "0.1.72.1"
 	name: "Velka Bobnica"
-	name_short: "V. Bobnica"
+	name_short: "V.Bobnica"
 	
 	desc:
 		'''

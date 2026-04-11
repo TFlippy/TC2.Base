@@ -2,6 +2,7 @@
 	$version: "0.1.74.0"
 	name: "Black Coal"
 	name_short: "Bl.Coal"
+	name_imperial: "Uhlan"
 	name_dumb: "Coal"
 	description:
 		'''

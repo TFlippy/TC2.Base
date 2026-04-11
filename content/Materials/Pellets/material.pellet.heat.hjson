@@ -1,8 +1,8 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.74.0"
 	name: "EC-TH Pellets"
 	name_short: "EC-TH Pt."
-	name_imperial: "Termhal-Arkpelet"
+	name_imperial: "Tepehlo-Arkpelet"
 	description:
 		'''
 		Essence infusion pellets.

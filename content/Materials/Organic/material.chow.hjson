@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.74.0"
 	name: "Scrub's Chow"
 	name_short: "Chow"
+	name_imperial: "Papan"
 	name_dumb: "Food"
 	description:
 		'''

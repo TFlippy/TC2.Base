@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.72.1"
+	$version: "0.1.74.0"
 	name: "Coal Gas"
 	name_short: "Coal Gas"
+	name_imperial: "Uhloplyn"
 	name_dumb: "Air"
 	description:
 		'''

@@ -2,6 +2,7 @@
 	$version: "0.1.74.0"
 	name: "Ferrous Gravel"
 	name_short: "Ferr.Gravel"
+	name_imperial: "Ferosterk"
 	description:
 		'''
 		Heap of horribly oxidized iron, nickel, ferronickel, slag and who knows what else.

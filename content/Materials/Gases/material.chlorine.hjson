@@ -1,7 +1,8 @@
 ﻿{
-	$version: "0.1.72.1"
+	$version: "0.1.74.0"
 	name: "Chlorine"
 	name_short: "Chlorine"
+	name_imperial: "Chloroplyn"
 	name_dumb: "Bleach"
 	description:
 		'''

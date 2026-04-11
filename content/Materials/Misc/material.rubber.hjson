@@ -1,8 +1,8 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.74.0"
 	name: "Rubber"
 	name_short: "Rubber"
-	name_imperial: "Gumik"
+	name_imperial: "Gumajz"
 	name_dumb: "Gum"
 	description:
 		'''
@@ -54,6 +54,6 @@
 		categories: none
 		
 		market_price: 6.500
-		market_price_per_kg_auto: 22.58064
+		market_price_per_kg_auto: 20.96774
 	}
 }
