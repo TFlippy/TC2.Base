@@ -54,6 +54,16 @@ transform:
 
 }
 
+faction:
+{
+
+}
+
+claimable:
+{
+	flags: no_menu, enable_wololo
+}
+
 shop:
 {
 	tags_filter:
@@ -269,12 +279,12 @@ essence.container:
 	health_threshold: 0.100
 	glow_modifier: 1.000
 	emit_type: stressor
-	flags: show_gui, allow_edit_rate
+	flags: show_gui, allow_edit_rate, faction
 
 	@inventory1:
 	{
 		type: essence
-		flags: ignore_mass, no_auto_pickup
+		flags: ignore_mass, no_auto_pickup, faction
 		stack_size_multiplier: 0.020
 		
 		filter:

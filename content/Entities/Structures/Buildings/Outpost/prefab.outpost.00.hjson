@@ -53,6 +53,11 @@ faction:
 
 }
 
+claimable:
+{
+	flags: allow_owner_unclaim
+}
+
 transform:
 {
 
@@ -79,11 +84,6 @@ address:
 entrance.linkable:
 {
 
-}
-
-claimable:
-{
-	flags: allow_owner_unclaim
 }
 
 storage:

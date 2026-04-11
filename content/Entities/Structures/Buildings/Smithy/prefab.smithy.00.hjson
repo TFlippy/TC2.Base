@@ -57,6 +57,11 @@ faction:
 
 }
 
+claimable:
+{
+	flags: allow_owner_unclaim
+}
+
 transform:
 {
 
@@ -83,11 +88,6 @@ address:
 entrance.linkable:
 {
 
-}
-
-claimable:
-{
-	flags: allow_owner_unclaim
 }
 
 laboratory:
@@ -225,7 +225,7 @@ essence.container:
 	health_threshold: 0.100
 	glow_modifier: 1.000
 	emit_type: stressor
-	flags: show_gui, allow_edit_rate
+	flags: show_gui, allow_edit_rate, faction
 
 	@inventory1:
 	{

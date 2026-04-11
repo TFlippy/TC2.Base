@@ -70,6 +70,16 @@ damage.effects:
 	frame_count: 4
 }
 
+faction:
+{
+
+}
+
+claimable:
+{
+	flags: allow_owner_unclaim
+}
+
 transform:
 {
 
@@ -155,14 +165,4 @@ lockable:
 cover:
 {
 	threshold: 0.100
-}
-
-claimable:
-{
-	flags: allow_owner_unclaim
-}
-
-faction:
-{
-
 }

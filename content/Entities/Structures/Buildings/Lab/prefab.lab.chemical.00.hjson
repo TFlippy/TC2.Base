@@ -306,12 +306,12 @@ essence.container:
 	stability: 0.950
 	health_threshold: 0.100
 	glow_modifier: 3.500
-	flags: show_gui, allow_edit_rate
+	flags: show_gui, allow_edit_rate, faction
 
 	@inventory1:
 	{
 		type: essence
-		flags: ignore_mass, no_auto_pickup
+		flags: ignore_mass, no_auto_pickup, faction
 		stack_size_multiplier: 0.050
 		
 		filter:

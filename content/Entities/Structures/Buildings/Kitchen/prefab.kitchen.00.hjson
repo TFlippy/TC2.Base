@@ -51,6 +51,11 @@ faction:
 
 }
 
+claimable:
+{
+	flags: allow_owner_unclaim
+}
+
 transform:
 {
 
@@ -84,11 +89,6 @@ address:
 entrance.linkable:
 {
 
-}
-
-claimable:
-{
-	flags: allow_owner_unclaim
 }
 
 laboratory:
@@ -303,7 +303,7 @@ burner.state:
 	@inventory1:
 	{
 		type: input
-		flags: ignore_mass, no_auto_pickup
+		flags: ignore_mass, no_auto_pickup, faction
 		stack_size_multiplier: 0.500
 		
 		filter:

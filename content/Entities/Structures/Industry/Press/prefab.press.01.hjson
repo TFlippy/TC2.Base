@@ -104,6 +104,16 @@ transform:
 
 }
 
+faction:
+{
+
+}
+
+claimable:
+{
+	flags: no_menu, enable_wololo
+}
+
 shop:
 {
 	tags_filter:
@@ -348,7 +358,7 @@ essence.container:
 	glow_modifier: 0.850
 	emit_type: pulser
 	rate_speed: 0.400
-	flags: show_gui, allow_edit_rate
+	flags: show_gui, allow_edit_rate, faction
 
 	@inventory1:
 	{

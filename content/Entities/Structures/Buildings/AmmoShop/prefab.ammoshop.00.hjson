@@ -56,6 +56,11 @@ faction:
 
 }
 
+claimable:
+{
+	flags: allow_owner_unclaim
+}
+
 transform:
 {
 
@@ -83,11 +88,6 @@ nameable:
 // {
 
 // }
-
-claimable:
-{
-	flags: allow_owner_unclaim
-}
 
 laboratory:
 {
