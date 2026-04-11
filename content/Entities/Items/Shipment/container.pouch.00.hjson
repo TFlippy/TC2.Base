@@ -3,9 +3,10 @@
 	name: "Pouch (ISO/039-G)"
 	desc:
 		'''
-		Imperial Standard Low-Quality Pouch, Type 039-G.
+		Standard ISO/039-G Low-Quality Pouch.
 
-		Feels like it's going to fall apart once you empty it.
+		Specially designed to fall apart when emptied, 
+		preventing reuse and ensuring a healthy economy.
 		'''
 	
 	material_flags: none

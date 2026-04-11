@@ -55,7 +55,7 @@
 							work: blending
 							amount: 50.000
 							amount_min: 100.000
-							difficulty: 4
+							difficulty: 5
 							step_max: 20
 							snapping: 25.000
 							falloff: 0.780
@@ -100,11 +100,11 @@
 					[
 						{
 							type: work
-							work: pounding
+							work: wadding
 							amount: 80.000
 							amount_min: 100.000
-							difficulty: 3
-							step_max: 8
+							difficulty: 12
+							step_max: 10
 							snapping: 25.000
 							falloff: 0.764
 							group: 0
@@ -168,7 +168,7 @@
 							work: papercraft
 							amount: 75.000
 							amount_min: 20.000
-							difficulty: 5
+							difficulty: 4
 							step_max: 15
 							snapping: 50.000
 							falloff: 0.940

@@ -1,9 +1,10 @@
 $name: "Pouch (ISO/039-G)"
 $desc:
 	'''
-	Imperial Standard Low-Quality Pouch, Type 039-G.
+	Standard ISO/039-G Low-Quality Pouch.
 
-	Feels like it's going to fall apart once you empty it.
+	Specially designed to fall apart when emptied, 
+	preventing reuse and ensuring a healthy economy.
 	'''
 $tags: []
 
@@ -61,8 +62,9 @@ transform:
 interactable:
 {
 	flags: no_tab, centered_inventory
+	window_size: [196, 96]
+	window_size_misc: [48, 0]
 	priority: 0.500
-	window_size: [192.000, 96.000]
 }
 
 nameable:
@@ -71,8 +73,13 @@ nameable:
 }
 
 shipment:
-{	
-	layout: large
+{
+	flags: delete_if_empty, allow_withdraw, allow_deposit, public, no_empty_deposit
+	type: pouch
+	layout: square
+	h_container: pouch.00
+	
+	mass: 0.100
 }
 
 holdable:
