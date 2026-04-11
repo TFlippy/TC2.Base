@@ -9,7 +9,7 @@ $tags:
 body:
 {
 	buoyancy: 0.800
-	inventory_weight_multiplier: 0.100
+	inventory_weight_multiplier: 0.600
 	fall_damage_multiplier: 0.250
 	
 	@shape.line:
@@ -494,7 +494,7 @@ workshop:
 		
 		health:
 		{
-			max: 9800.000
+			max: 11000.000
 		}
 
 		regen:
@@ -880,7 +880,7 @@ workshop:
 	
 	drag:
 	{
-		max_force: 55000.000
+		max_force: 30000.000
 		max_distance: 5.000
 		layer_exclude: world, bounds, essence, water, fire, gas, powder, hot, liquid, stored, static
 	}
