@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.5"
+	$version: "0.1.74.0"
 	name: "Codeine 20mg IR"
 	description:
 		'''
@@ -10,7 +10,7 @@
 	
 	h_company: plak_tope
 	h_prefab: pill
-	h_recipe: "null"
+	h_recipe: pill.00.basic
 	
 	seed: 0
 	

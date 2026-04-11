@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.5"
+	$version: "0.1.74.0"
 	name: "Pivan Brum-Brum"
 	description:
 		'''
@@ -10,7 +10,7 @@
 	
 	h_company: pivan
 	h_prefab: beer
-	h_recipe: "null"
+	h_recipe: beer.00.basic
 	
 	seed: 0
 	

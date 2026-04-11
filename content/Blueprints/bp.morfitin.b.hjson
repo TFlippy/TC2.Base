@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.5"
+	$version: "0.1.74.0"
 	name: "Morfitin-B"
 	description:
 		'''
@@ -11,7 +11,7 @@
 	
 	h_company: samofetovar
 	h_prefab: syringe
-	h_recipe: "null"
+	h_recipe: syringe.00.basic
 	
 	seed: 0
 	

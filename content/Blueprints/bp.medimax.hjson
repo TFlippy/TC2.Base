@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.62.5"
+	$version: "0.1.74.0"
 	name: "Medimax Emergency Kit"
 	description:
 		'''
@@ -10,7 +10,7 @@
 	
 	h_company: zdravotnyk
 	h_prefab: medkit
-	h_recipe: "null"
+	h_recipe: medkit.00.basic
 	
 	seed: 42762012890
 	
