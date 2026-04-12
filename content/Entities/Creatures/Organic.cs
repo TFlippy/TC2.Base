@@ -26,19 +26,20 @@ namespace TC2.Base.Components
 	[Shitcode] // TODO: this is a mess
 	public static partial class OrganicExt
 	{
-		[ISystem.PreUpdate.Reset(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void UpdateReset([Source.Owned] ref Organic.State organic)
+		[ISystem.PreUpdate.Reset(ISystem.Mode.Single, ISystem.Scope.Region, flags: ISystem.Flags.Unchecked | ISystem.Flags.SkipLocalsInit)]
+		public static void UpdateReset([Source.Owned] ref Organic.State organic_state)
 		{
-			organic.consciousness_shared_new = 0.00f;
-			organic.motorics_shared_new = 0.00f;
-			organic.pain_shared_new = organic.pain;
+			organic_state.pain_shared_new = organic_state.pain;
+			organic_state.consciousness_shared_new = 0.00f;
+			organic_state.motorics_shared_new = 0.00f;
 		}
 
 		[Shitcode]
-		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region, flags: ISystem.Flags.Unchecked)]
-		public static void UpdateConsciousness(Entity entity, [Source.Shared] ref Character.Data character,
-		[Source.Owned, Override] in Organic.Data organic, [Source.Owned] in Organic.State organic_state,
-		[Source.Owned, Optional(true)] ref NPC.Data npc, [Source.Owned] bool dead)
+		[HasComponent<Organic.Data>(Source.Modifier.Owned, true)]
+		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region, flags: ISystem.Flags.Unchecked | ISystem.Flags.SkipLocalsInit)]
+		public static void UpdateConsciousness_Character(Entity entity, [Source.Shared] ref Character.Data character,
+		[Source.Owned] bool dead, [Source.Owned] in Organic.State organic_state,
+		[Source.Owned, Optional(true)] ref NPC.Data npc)
 		{
 			//player.consciousness = 1.00f;
 
@@ -46,15 +47,15 @@ namespace TC2.Base.Components
 			{
 				if (dead)
 				{
+					character.pain = 0.00f;
 					character.unconscious_time = 0.00f;
 					character.consciousness = 0.00f;
-					character.pain = 0.00f;
 				}
 				else
 				{
+					character.pain = organic_state.pain_shared_old;
 					character.unconscious_time = organic_state.unconscious_time;
 					character.consciousness = organic_state.consciousness_shared;
-					character.pain = organic_state.pain_shared_old;
 				}
 
 				if (npc.IsNotNull())
@@ -101,59 +102,65 @@ namespace TC2.Base.Components
 			}
 		}
 
-		[ISystem.PreUpdate.C(ISystem.Mode.Single, ISystem.Scope.Region, order: 10, flags: ISystem.Flags.Unchecked), HasComponent<Head.Data>(Source.Modifier.Owned, false)]
-		public static void UpdateConnected(Entity ent_organic_parent, Entity ent_organic_child,
-		[Source.Parent, Override] in Organic.Data organic_parent, [Source.Parent] ref Organic.State organic_state_parent,
-		[Source.Owned, Override] in Organic.Data organic_child, [Source.Owned] ref Organic.State organic_state_child,
-		[Source.Parent] in Joint.Base joint)
+		[ISystem.PreUpdate.C(ISystem.Mode.Single, ISystem.Scope.Region, order: 10, flags: ISystem.Flags.Unchecked | ISystem.Flags.SkipLocalsInit), HasComponent<Head.Data>(Source.Modifier.Owned, false)]
+		public static void UpdateConnected([Source.Parent] in Joint.Base joint, [Source.Owned] ref Organic.State organic_state_child, [Source.Parent] ref Organic.State organic_state_parent)
 		{
 			if (joint.flags.HasAny(Joint.Flags.Organic))
 			{
-				organic_state_child.consciousness_shared_new = Maths.Max(organic_state_child.consciousness_shared_new, organic_state_parent.consciousness_shared);
-				organic_state_child.motorics_shared_new = Maths.Max(organic_state_child.motorics_shared_new, organic_state_parent.motorics_shared);
-				organic_state_child.unconscious_time = organic_state_parent.unconscious_time;
+				var pain_max = Maths.Max(organic_state_child.pain_shared_new, organic_state_parent.pain_shared_new);
+				var consciousness_max = Maths.Max(organic_state_child.consciousness_shared_new, organic_state_parent.consciousness_shared);
+				var motorics_max = Maths.Max(organic_state_child.motorics_shared_new, organic_state_parent.motorics_shared);
+				var unconscious_time = organic_state_parent.unconscious_time;
 
-				organic_state_parent.pain_shared_new = organic_state_child.pain_shared_new = Maths.Max(organic_state_parent.pain_shared_new, organic_state_child.pain_shared_new);
+				organic_state_parent.pain_shared_new = pain_max;
+				organic_state_child.pain_shared_new = pain_max;
+				organic_state_child.consciousness_shared_new = consciousness_max;
+				organic_state_child.motorics_shared_new = motorics_max;
+				organic_state_child.unconscious_time = unconscious_time;
 			}
 		}
 
 		// TODO: Shitcoded workaround so head always updates after other body parts (otherwise it won't affect consciousness, in case the system runs on the head first)
-		[ISystem.PreUpdate.D(ISystem.Mode.Single, ISystem.Scope.Region, order: 15, flags: ISystem.Flags.Unchecked), HasComponent<Head.Data>(Source.Modifier.Owned, true)]
-		public static void UpdateConnectedHead(Entity ent_organic_parent, Entity ent_organic_child,
-		[Source.Parent, Override] ref Organic.Data organic_parent, [Source.Parent] ref Organic.State organic_state_parent,
-		[Source.Owned, Override] ref Organic.Data organic_child, [Source.Owned] ref Organic.State organic_state_child,
-		[Source.Parent] in Joint.Base joint)
+		[ISystem.PreUpdate.D(ISystem.Mode.Single, ISystem.Scope.Region, order: 15, flags: ISystem.Flags.Unchecked | ISystem.Flags.SkipLocalsInit), HasComponent<Head.Data>(Source.Modifier.Owned, true)]
+		public static void UpdateConnectedHead([Source.Parent] in Joint.Base joint,
+		[Source.Owned, Override] ref Organic.Data organic_child, [Source.Parent, Override] ref Organic.Data organic_parent,
+		[Source.Owned] ref Organic.State organic_state_child, [Source.Parent] ref Organic.State organic_state_parent)
 		{
 			if (joint.flags.HasAny(Joint.Flags.Organic))
 			{
 				organic_child.tags |= organic_parent.tags;
 
+				var pain_shared_max =  Maths.Max(organic_state_parent.pain_shared_new, organic_state_child.pain_shared_new);
+
+				organic_state_parent.pain_shared_new = pain_shared_max;
 				organic_state_parent.consciousness_shared_new = organic_state_child.consciousness_shared;
 				organic_state_parent.motorics_shared_new = organic_state_child.motorics_shared;
 				organic_state_parent.unconscious_time = organic_state_child.unconscious_time;
 
-				organic_state_parent.pain_shared_new = organic_state_child.pain_shared_new = Maths.Max(organic_state_parent.pain_shared_new, organic_state_child.pain_shared_new);
+				organic_state_child.pain_shared_new = pain_shared_max;
 			}
 		}
 
 
-		[ISystem.PostUpdate.B(ISystem.Mode.Single, ISystem.Scope.Region, flags: ISystem.Flags.Unchecked)]
-		public static void Update2(ISystem.Info info, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] ref Organic.State organic_state, 
-		[Source.Owned] in Health.Data health, [Source.Owned] bool dead)
+		[ISystem.PostUpdate.B(ISystem.Mode.Single, ISystem.Scope.Region, flags: ISystem.Flags.Unchecked | ISystem.Flags.SkipLocalsInit)]
+		public static void Update2(ISystem.Info info, [Source.Owned] ref Organic.State organic_state, [Source.Owned, Override] in Organic.Data organic, 
+		[Source.Owned] in Health.Data health)
 		{
-			organic_state.consciousness_shared = Maths.Lerp(organic_state.consciousness_shared, organic_state.consciousness_shared_new, 0.20f);
-			organic_state.motorics_shared = Maths.Lerp(organic_state.motorics_shared, organic_state.motorics_shared_new, 0.20f);
-			organic_state.pain_shared_old = Maths.Lerp(organic_state.pain_shared_old, organic_state.pain_shared_new * organic.pain_modifier, 0.20f);
-			//organic_state.pain = Maths.Lerp(organic_state.pain, organic_state.pain * (0.15f + (Maths.Max(0.00f, 0.60f - Maths.Pow6(health.GetHealthNormalized()) * 0.90f))).Clamp01() * organic.pain_modifier, 0.008f);
 			organic_state.pain = Maths.Lerp(organic_state.pain, organic.pain_base * (1.00f - health.GetHealthNormalizedAvg()) * organic.pain_modifier, 0.008f);
 			organic_state.stun = Maths.MoveTowards(organic_state.stun, 0.00f, info.DeltaTime * 50.00f);
-
 			organic_state.stun_norm = Maths.Normalize01(organic_state.stun, 500.00f).Pow2();
+
+			organic_state.pain_shared_old = Maths.Lerp(organic_state.pain_shared_old, organic_state.pain_shared_new * organic.pain_modifier, 0.20f);
+			organic_state.consciousness_shared = Maths.Lerp(organic_state.consciousness_shared, organic_state.consciousness_shared_new, 0.20f);
+			organic_state.motorics_shared = Maths.Lerp(organic_state.motorics_shared, organic_state.motorics_shared_new, 0.20f);
+			//organic_state.pain = Maths.Lerp(organic_state.pain, organic_state.pain * (0.15f + (Maths.Max(0.00f, 0.60f - Maths.Pow6(health.GetHealthNormalized()) * 0.90f))).Clamp01() * organic.pain_modifier, 0.008f);
+
 			organic_state.efficiency = organic_state.motorics_shared.Clamp01() * health.GetHealthNormalized();
 		}
 
-		[ISystem.Update.D(ISystem.Mode.Single, ISystem.Scope.Region, flags: ISystem.Flags.Unchecked)]
-		public static void UpdateConsciousness(ISystem.Info info, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] ref Organic.State organic_state)
+		[HasComponent<Organic.Data>(Source.Modifier.Owned, true)]
+		[ISystem.Update.D(ISystem.Mode.Single, ISystem.Scope.Region, flags: ISystem.Flags.Unchecked | ISystem.Flags.SkipLocalsInit)]
+		public static void UpdateConsciousness([Source.Owned] ref Organic.State organic_state)
 		{
 			if (organic_state.consciousness_shared > 0.20f)
 			{
@@ -166,11 +173,11 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region, flags: ISystem.Flags.Unchecked)]
-		public static void UpdateJoint([Source.Shared] in Organic.State organic_state, [Source.Owned] ref Joint.Base joint)
+		public static void UpdateJoint([Source.Owned] ref Joint.Base joint, [Source.Shared] in Organic.State organic_state)
 		{
 			if (joint.flags.HasAny(Joint.Flags.Organic))
 			{
-				var modifier = Maths.Lerp01(organic_state.efficiency * organic_state.efficiency, organic_state.consciousness_shared * 1.50f, 0.50f) * (1.00f - organic_state.stun_norm);
+				var modifier = Maths.Lerp01(organic_state.efficiency.Pow2(), organic_state.consciousness_shared * 1.50f, 0.50f) * (1.00f - organic_state.stun_norm);
 				joint.torque_modifier = modifier;
 			}
 		}
@@ -182,9 +189,11 @@ namespace TC2.Base.Components
 			no_rotate.multiplier = 0.00f;
 		}
 
+		[HasComponent<Arm.Data>(Source.Modifier.Owned, true)]
+		[HasComponent<Organic.State>(Source.Modifier.Shared, true)]
 		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region, flags: ISystem.Flags.Unchecked | ISystem.Flags.SkipLocalsInit)]
-		public static void UpdateArm<T>([Source.Shared, Override] in Organic.Data organic, [Source.Shared] ref Organic.State organic_state,
-		[Source.Owned] in Arm.Data arm, [Source.Owned, Override] ref T joint) where T : unmanaged, IComponent, IRotaryJoint
+		public static void UpdateArm<T>([Source.Shared, Override] in Organic.Data organic,
+		[Source.Owned, Override] ref T joint) where T : unmanaged, IComponent, IRotaryJoint
 		{
 			joint.MaxSpeed *= Maths.Clamp(organic.motorics, 0.30f, 1.50f);
 			joint.MaxBias += (1.00f - organic.motorics.Clamp01()) * 0.15f;
@@ -264,6 +273,7 @@ namespace TC2.Base.Components
 		public static void OnUpdate_Rotting(ISystem.Info info, Entity entity,
 		[Source.Owned, Override] in Organic.Data organic, [Source.Owned] ref Organic.State organic_state)
 		{
+			// why Maths.Max()?
 			organic_state.rotten = Maths.Max(organic_state.rotten + (info.DeltaTime * Constants.Organic.rotting_speed * 0.005f), 0.00f);
 
 #if SERVER
