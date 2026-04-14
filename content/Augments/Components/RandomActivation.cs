@@ -11,7 +11,7 @@ namespace TC2.Base.Components
 			Active = 1 << 0
 		}
 
-		[IComponent.Data(Net.SendType.Reliable, name: "Random Activation", region_only: true)]
+		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region, name: "Random Activation")]
 		public partial struct Data(): IComponent
 		{
 			[Statistics.Info("Duration", description: "Duration of a random activation.", format: "{0:0.##}s", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Low)]

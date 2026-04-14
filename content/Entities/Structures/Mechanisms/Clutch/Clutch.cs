@@ -3,8 +3,8 @@ namespace TC2.Base.Components
 {
 	public static partial class Clutch
 	{
-		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
-		public partial struct Data: IComponent
+		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region)]
+		public partial struct Data(): IComponent
 		{
 			public Vector2 offset_enabled;
 			public Vector2 offset_disabled;
@@ -19,11 +19,6 @@ namespace TC2.Base.Components
 			public float modifier_target;
 
 			[Save.Ignore, Net.Ignore] public float t_next_switch;
-
-			public Data()
-			{
-
-			}
 		}
 
 		public struct ConfigureRPC: Net.IRPC<Clutch.Data>

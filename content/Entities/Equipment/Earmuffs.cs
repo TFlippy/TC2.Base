@@ -2,7 +2,7 @@
 {
 	public static partial class Earmuffs
 	{
-		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
+		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region)]
 		public partial struct Data(): IComponent
 		{
 			[Editor.Slider.Clamped(1.00f, 22000.00f, 1.00f)]

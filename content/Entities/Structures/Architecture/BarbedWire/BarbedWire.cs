@@ -3,7 +3,7 @@ namespace TC2.Base.Components
 {
 	public static partial class BarbedWire
 	{
-		[IComponent.Data(Net.SendType.Reliable, region_only: true)]
+		[IComponent.Data(Net.SendType.Reliable, IComponent.Scope.Region)]
 		public partial struct Data(): IComponent
 		{
 			public float damage = 10.00f;

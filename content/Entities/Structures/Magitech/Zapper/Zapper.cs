@@ -3,7 +3,7 @@ namespace TC2.Base.Components
 {
 	public static partial class Zapper
 	{
-		[IComponent.Data(Net.SendType.Reliable, region_only: true), IComponent.With<Zapper.State>]
+		[IComponent.Data(Net.SendType.Reliable, IComponent.Scope.Region), IComponent.With<Zapper.State>]
 		public partial struct Data(): IComponent
 		{
 			[Flags]
@@ -25,7 +25,7 @@ namespace TC2.Base.Components
 			public Sound.Handle sound_off = Zapper.sound_off_default;
 		}
 
-		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
+		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region)]
 		public partial struct State(): IComponent
 		{
 			[Flags]

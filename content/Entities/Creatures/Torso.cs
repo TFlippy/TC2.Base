@@ -10,7 +10,7 @@
 			[Save.Ignore] Crouching = 1 << 0
 		}
 
-		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
+		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region)]
 		public struct Data(): IComponent
 		{
 			public Torso.Flags flags;

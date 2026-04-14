@@ -11,18 +11,13 @@ namespace TC2.Base.Components
 
 		}
 
-		[IComponent.Data(Net.SendType.Reliable, region_only: true)]
-		public partial struct Data: IComponent
+		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region)]
+		public partial struct Data(): IComponent
 		{
 			public Kobold.Flags flags;
 
 			[Save.Ignore, Net.Ignore] public float next_talk;
 			[Save.Ignore, Net.Ignore] public float next_scream;
-
-			public Data()
-			{
-
-			}
 		}
 
 

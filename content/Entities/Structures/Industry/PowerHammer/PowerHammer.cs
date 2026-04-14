@@ -2,7 +2,7 @@
 {
 	public static partial class PowerHammer
 	{
-		[IComponent.Data(Net.SendType.Reliable)]
+		[IComponent.Data(Net.SendType.Reliable, IComponent.Scope.Region)]
 		public partial struct Data(): IComponent
 		{
 			[Flags]

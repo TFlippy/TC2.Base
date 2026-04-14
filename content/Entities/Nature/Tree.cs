@@ -4,14 +4,12 @@ namespace TC2.Base.Components
 	public static partial class Tree
 	{
 		[Flags]
-		public enum Flags: uint
+		public enum Flags: ushort
 		{
 			None = 0,
-
-			Cut = 1 << 0
 		}
 
-		[IComponent.Data(Net.SendType.Reliable, region_only: true)]
+		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region)]
 		public partial struct Data(): IComponent
 		{
 			//public Prefab.Handle prefab_stump;
@@ -19,7 +17,6 @@ namespace TC2.Base.Components
 
 			//public Texture.Handle sprite_cut;
 			public Sound.Handle sound_cut = Tree.sound_tree_cut_default;
-
 			public Tree.Flags flags;
 		}
 

@@ -2,7 +2,7 @@
 {
 	public static partial class Inductor
 	{
-		[IComponent.Data(Net.SendType.Reliable), IComponent.With<Inductor.State>]
+		[IComponent.Data(Net.SendType.Reliable, IComponent.Scope.Region), IComponent.With<Inductor.State>]
 		public struct Data(): IComponent
 		{
 			[Flags]
@@ -27,7 +27,7 @@
 			[Save.Ignore, Net.Ignore] public float t_next_update;
 		}
 
-		[IComponent.Data(Net.SendType.Unreliable)]
+		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region)]
 		public struct State(): IComponent
 		{
 			public float frequency_current;

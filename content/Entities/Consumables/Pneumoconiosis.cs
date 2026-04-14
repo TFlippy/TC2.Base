@@ -3,7 +3,7 @@ namespace TC2.Base.Components
 {
 	public static partial class Pneumoconiosis
 	{
-		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
+		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region)]
 		public partial struct Effect: IComponent
 		{
 			public float modifier_current;

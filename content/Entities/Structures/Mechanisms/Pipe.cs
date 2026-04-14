@@ -335,7 +335,7 @@ namespace TC2.Base.Components
 
 		public static partial class Container
 		{
-			[IComponent.Data(Net.SendType.Unreliable, region_only: true), ITrait.Data(Net.SendType.Unreliable, region_only: true)]
+			[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region), ITrait.Data(Net.SendType.Unreliable, IComponent.Scope.Region)]
 			public struct Data(): IComponent, ITrait
 			{
 #if DEBUG
@@ -1749,7 +1749,7 @@ namespace TC2.Base.Components
 			}
 #endif
 
-			[IComponent.Data(Net.SendType.Reliable, region_only: true), ITrait.Data(Net.SendType.Reliable, region_only: true)]
+			[IComponent.Data(Net.SendType.Reliable, IComponent.Scope.Region), ITrait.Data(Net.SendType.Reliable, IComponent.Scope.Region)]
 			public struct Data(): IComponent, ITrait
 			{
 				[Flags]
@@ -1822,7 +1822,7 @@ namespace TC2.Base.Components
 
 	public static partial class Pipe
 	{
-		[IComponent.Data(Net.SendType.Reliable, region_only: true), IComponent.With<Pipe.State>]
+		[IComponent.Data(Net.SendType.Reliable, IComponent.Scope.Region), IComponent.With<Pipe.State>]
 		public struct Data(): IComponent, ILink
 		{
 			public readonly Entity EntityA => this.a.entity;
@@ -1878,7 +1878,7 @@ namespace TC2.Base.Components
 
 		//}
 
-		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
+		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region)]
 		public struct State(): IComponent
 		{
 			public float velocity;

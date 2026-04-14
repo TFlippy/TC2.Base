@@ -5,7 +5,7 @@
 	public static partial class Track
 	{
 		[Shitcode]
-		[IComponent.Data(Net.SendType.Reliable, region_only: true), IComponent.With<Track.State>]
+		[IComponent.Data(Net.SendType.Reliable, IComponent.Scope.Region), IComponent.With<Track.State>]
 		public partial struct Data(): IComponent
 		{
 			[Flags]
@@ -21,7 +21,7 @@
 		}
 
 		[Shitcode]
-		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
+		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region)]
 		public partial struct State(): IComponent
 		{
 			public float slider_ratio;

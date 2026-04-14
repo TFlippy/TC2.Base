@@ -2,7 +2,7 @@
 {
 	public static partial class SawMill
 	{
-		[IComponent.Data(Net.SendType.Reliable, region_only: true), IComponent.With<SawMill.State>]
+		[IComponent.Data(Net.SendType.Reliable, IComponent.Scope.Region), IComponent.With<SawMill.State>]
 		public struct Data(): IComponent
 		{
 			[Editor.Picker.Position(relative: true)] public Vector2 saw_offset;
@@ -13,7 +13,7 @@
 			public float efficiency = 0.80f;
 		}
 
-		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
+		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region)]
 		public struct State(): IComponent
 		{
 			public float gear_ratio = 1.00f;

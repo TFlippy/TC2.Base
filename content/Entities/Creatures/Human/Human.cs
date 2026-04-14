@@ -2,15 +2,10 @@
 {
 	public static partial class Human
 	{
-		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
-		public partial struct Data: IComponent
+		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region)]
+		public partial struct Data(): IComponent
 		{
-			[Save.Ignore, Net.Ignore] public float next_pain = default;
-
-			public Data()
-			{
-
-			}
+			[Save.Ignore, Net.Ignore] public float next_pain;
 		}
 
 		public static Sound.Handle[] snd_cough =

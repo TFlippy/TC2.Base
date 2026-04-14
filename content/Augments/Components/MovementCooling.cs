@@ -4,7 +4,7 @@ namespace TC2.Base.Components
 	[Obsolete("This is now part of Heat component's base functionality.")]
 	public static partial class MovementCooling
 	{
-		[IComponent.Data(Net.SendType.Reliable, name: "Movement Cooling", region_only: true)]
+		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region, name: "Movement Cooling")]
 		public partial struct Data: IComponent
 		{
 			[Statistics.Info("Multiplier", description: "TODO: Desc", format: "{0:0.00}x", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]

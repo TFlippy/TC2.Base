@@ -4,7 +4,7 @@ namespace TC2.Base.Components
 	// This component simply spawns a prefab when the entity is reduced to 0 (or less) health
 	public static partial class PrefabOnRemove
 	{
-		[IComponent.Data(Net.SendType.Reliable)]
+		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region)]
 		public partial struct Data: IComponent
 		{
 			public Prefab.Handle prefab;

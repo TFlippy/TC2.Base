@@ -3,7 +3,7 @@ namespace TC2.Base.Components
 {
 	public static partial class Loot
 	{
-		[IComponent.Data(Net.SendType.Unreliable), ITrait.Data(Net.SendType.Unreliable)]
+		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Global | IComponent.Scope.Region), ITrait.Data(Net.SendType.Unreliable, IComponent.Scope.Global | IComponent.Scope.Region)]
 		public partial struct Container(): IComponent, ITrait
 		{
 			public struct Entry

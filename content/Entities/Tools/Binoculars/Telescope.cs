@@ -2,7 +2,7 @@
 {
 	public static class Telescope
 	{
-		[IComponent.Data(Net.SendType.Reliable, region_only: true)]
+		[IComponent.Data(Net.SendType.Reliable, IComponent.Scope.Region)]
 		public struct Data(): IComponent
 		{
 			[Statistics.Info("Adjustment Speed", description: "TODO: Desc", format: "{0:0.##}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Low)]

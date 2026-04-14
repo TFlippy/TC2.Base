@@ -3,7 +3,7 @@ namespace TC2.Base.Components
 {
 	public static partial class Runner
 	{
-		[IComponent.Data(Net.SendType.Unreliable, region_only: true), IComponent.With<Runner.State>]
+		[IComponent.Data(Net.SendType.Reliable, IComponent.Scope.Region), IComponent.With<Runner.State>]
 		public partial struct Data(): IComponent, IOverridable
 		{
 			public static bool draw_debug = false;
@@ -41,7 +41,7 @@ namespace TC2.Base.Components
 			private float unused_01;
 		}
 
-		[IComponent.Data(Net.SendType.Unreliable, region_only: true)]
+		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region)]
 		public partial struct State(): IComponent
 		{
 			[Flags]

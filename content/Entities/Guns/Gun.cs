@@ -142,7 +142,7 @@ namespace TC2.Base.Components
 			[Net.Ignore] Eject_Pending = 1 << 15,
 		}
 
-		[IComponent.Data(Net.SendType.Reliable, region_only: true)]
+		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region)]
 		public partial struct Animation: IComponent
 		{
 			public byte frame_ready;
