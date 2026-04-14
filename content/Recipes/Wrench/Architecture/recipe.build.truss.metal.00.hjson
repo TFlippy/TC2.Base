@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.70.1"
+	$version: "0.1.74.0"
 	name: "Truss (Metal)"
 	desc:
 		'''
@@ -70,7 +70,7 @@
 		min_claim: 1.000
 		
 		length_min: 0.500
-		length_max: 16.000
+		length_max: 15.000
 		length_step: 0.500
 		
 		sound: building_place

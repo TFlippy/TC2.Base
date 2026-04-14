@@ -15,12 +15,12 @@ body:
 		material: metal_frame
 		miss_chance: 0.900
 		flags: none
-		tags: large, thin, hard, giant
+		tags: large, thin, hard
 		
 		layer: entity, background, building, support, climbable, ignore_melee
 		mask: world
 		exclude: none
-		mass: 200.000
+		mass: 150.000
 		radius: 0.900
 		friction: 0.500
 		elasticity: 0.500
