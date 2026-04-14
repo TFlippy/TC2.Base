@@ -8,7 +8,7 @@
 		{
 			type: resource
 			material: brick.concrete
-			amount: 260.000
+			amount: 160.000
 			snapping: 0.500
 			group: 0
 			flags: prerequisite
