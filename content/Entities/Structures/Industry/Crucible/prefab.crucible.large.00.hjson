@@ -185,3 +185,13 @@ norotate:
 	mass_multiplier: 3.500
 	flags: no_share
 }
+
+fillable:
+{
+	flags: use_misc, reusable
+	form_type: liquid
+	volume_capacity: 1.500
+	capacity: 500.000
+	offset_drop: [0.000, -1.625]
+	tilt_ratio: 1.000
+}

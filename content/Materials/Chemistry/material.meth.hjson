@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.74.0"
 	name: "Methamphetamine"
 	name_short: "Meth"
 	name_imperial: "Pervitin"
@@ -29,14 +29,14 @@
 	// General purity modifier.
 	purity: 0.962
 	// Mass of 1 unit in kg.
-	mass_per_unit: 0.100
+	mass_per_unit: 0.112
 	
 	// Maximum quantity (units) per stack.
 	quantity_max: 500.000
 	// Minimum spawnable quantity.
 	spawn_quantity_threshold: 1.000
 	// Preferred quantity snapping for recipes.
-	snapping: 0.100
+	snapping: 0.010
 	// Preferred quantity snapping for inventories.
 	snapping_pickup: 1.000
 	

@@ -173,7 +173,7 @@
 						}
 						{
 							type: work
-							work: "null"
+							work: die.cutting
 							amount: 50.000
 							difficulty: 11
 							snapping: 25.000
