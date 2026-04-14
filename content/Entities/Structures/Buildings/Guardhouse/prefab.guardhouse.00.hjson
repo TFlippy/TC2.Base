@@ -1,0 +1,204 @@
+$name: "Guardhouse"
+$desc:
+	'''
+	Small building used for storing and managing guards.
+	'''
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.box:
+	{
+		size: [2.250, 2.750]
+		offset: [0.000, -0.125]
+		
+		mass: 820.000
+		radius: 0.500
+		
+		material: building_reinforced
+		
+		layer: entity, building, support, ignore_melee, ignore_bullet, background
+		mask: world, building
+	}
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: guardhouse.00
+	}
+	z: -300.000
+}
+
+interactable:
+{
+	flags: no_tab
+	window_size: [538, 528]
+	window_size_misc: [192, 0]
+	priority: 1.000
+}
+
+health:
+{
+	max: 11000.000
+}
+
+faction.colorable:
+{
+
+}
+
+faction:
+{
+
+}
+
+claimable:
+{
+	flags: allow_owner_unclaim
+}
+
+claimer:
+{
+	radius: 24.000
+	strength: 1.500
+	falloff: 1.500
+}
+
+transform:
+{
+
+}
+
+building:
+{
+
+}
+
+nameable:
+{
+	tags: dangerous, industrial, tool, factory
+	type: gun
+	flags: randomize
+	max_length: 16
+}
+
+// address:
+// {
+	
+// }
+
+// entrance.linkable:
+// {
+
+// }
+
+shop:
+{
+	tags_filter:
+	{
+		include: munitions, explosive
+		exclude: large, huge, blacksmithing, smelting, drying
+	}
+	
+	tools: pencil, paper, ruler, hammer, cutters, hand_drill, screwdriver, spanner, pliers, tweezers, bucket, shovel, syringe, file, towel, spatula, knife, sandpaper, scissors, ladle
+	infrastructure: anvil, lab_glassware, dishes, bottle, table, chair, vise, rack, shaping_mould, bucket, surface, hard_surface, stamping_press, press, structure, machine, building, workbench
+	environment: workshop, stationary, scary, noisy, durable, sturdy, flammable, factory
+	
+	flags: embed_gui
+	menu_columns: 4
+	recipe_type: workshop
+	
+	offset_spawn: [0.000, 0.500]
+	
+	name: "Craft"
+}
+
+workshop:
+{
+	orders_capacity: 1
+	
+	tools: none
+	infrastructure: none
+	environment: none
+	
+	gui_info_size_x: 252.000
+	max_order_mass: 80.000
+	
+	@inventory4:
+	{
+		type: workshop
+		flags: standalone, ignore_mass, no_auto_pickup, faction, vertical
+		stack_size_multiplier: 1.000
+		
+		filter:
+		{
+			exclude: gas
+		}
+		offset: [-0.625, 0.875]
+	}
+}
+
+personnel:
+{
+	characters_capacity: 2
+	flags: store_characters
+	assign_radius: 20.000
+	slots:
+	[
+		{
+			role: engineer
+			flags: can_craft, can_manage, can_use_inventory
+			tags: management, civil, industrial, logistics, production, manual_labor, paperwork, sedentary, technical, maintenance, operation
+			color: "0xffff8333"
+			multiplier: 1.000
+		}
+		{
+			role: machinist
+			flags: can_craft, can_use_inventory
+			tags: civil, industrial, production, dangerous, manual_labor, technical, maintenance, operation
+			color: "0xffffa800"
+			multiplier: 1.200
+		}
+		null
+		null
+		null
+		null
+		null
+		null
+	]
+}
+
+armory:
+{
+	@inventory4:
+	{
+		type: ammo
+		flags: ignore_mass, no_auto_pickup, faction, vertical
+		stack_size_multiplier: 4.000
+		
+		filter:
+		{
+			require: ammo, solid
+			include: granular, small
+			exclude: gas, large
+		}
+
+		offset: [0.000, -1.250]
+	}
+}
+
+shipment:
+{
+	flags: keep_items, allow_withdraw, allow_deposit, no_gui, faction, no_body_mass
+	type: armory
+	layout: large
+}
+
+guardhouse:
+{
+	
+}
