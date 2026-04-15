@@ -143,7 +143,7 @@ workshop:
 personnel:
 {
 	characters_capacity: 5
-	flags: store_characters
+	flags: none
 	assign_radius: 20.000
 
 	slots:
