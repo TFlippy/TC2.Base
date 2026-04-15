@@ -1630,6 +1630,20 @@ namespace TC2.Base.Components
 						Assert.IsRealNumberOrNull(this.normal);
 
 						ref var region = ref rpc.GetRegion();
+						Assert.IsNotNull(ref region);
+
+						ref var recipe = ref build.recipe.GetData();
+						Assert.IsNotNull(ref recipe);
+						Assert.CheckValue(recipe.type.EqualsAnyValue(Recipe.Type.Architecture, Recipe.Type.Industry, Recipe.Type.Buildings, Recipe.Type.Machinery), recipe.type);
+
+						Assert.Check(recipe.flags.HasNone(Recipe.Flags.Disabled));
+						if (!App.IsModEditing) Assert.Check(recipe.flags.HasNone(Recipe.Flags.Debug));
+
+						ref var product = ref recipe.products.GetFirstOrNull();
+						Assert.IsNotNull(ref product);
+
+						ref var character_data = ref rpc.connection.GetCharacter(out var h_character);
+						Assert.IsNotNull(ref character_data);
 
 						var errors = Wrench.Mode.Build.Errors.None;
 
@@ -1640,368 +1654,378 @@ namespace TC2.Base.Components
 						var amount_multiplier = 1.00f;
 
 						//ref var player = ref connection.GetPlayerData();
-						ref var transform_entity = ref rpc.entity.GetComponent<Transform.Data>();
-						ref var recipe = ref build.recipe.GetData();
-						ref var character_data = ref rpc.connection.GetCharacter(out var h_character);
 
-						if (recipe.IsNotNull() && transform_entity.IsNotNull() && character_data.IsNotNull())
+						//Crafting.Context.NewFromPlayer(ref region, ref player, entity, out var context);
+						
+						//var ent_character = connection.enti
+
+
+						if (recipe.placement.TryGetValue(out var placement))
 						{
-							//Crafting.Context.NewFromPlayer(ref region, ref player, entity, out var context);
 							Crafting.Context.NewFromCharacter(region: ref region.AsCommon(),
 								h_character: h_character,
 								ent_producer: rpc.entity,
 								context: out var context);
-							//var ent_character = connection.enti
 
-							if (recipe.type.EqualsAnyValue(Recipe.Type.Architecture, Recipe.Type.Industry, Recipe.Type.Buildings, Recipe.Type.Machinery))
+							var scale = Vector2.One;
+							var normal_surface = this.normal.GetNormalized(out var normal_distance) ?? new Vector2(0.00f, -1.00f);
+
+							if (placement.flags.HasAny(Placement.Flags.Allow_Mirror_X)) scale.X.SetSign(this.pos_raw.X < this.pos_origin.X);
+
+							var random = XorRandom.New(true);
+
+							Wrench.Mode.Build.GetPlacementInfo(placement: ref placement,
+								flags: this.flags,
+								pos_raw: this.pos_raw,
+								pos_a_raw: this.pos_a_raw,
+								pos_b_raw: this.pos_b_raw,
+								scale: scale,
+								normal: normal_surface,
+								normal_distance: normal_distance,
+								pos: out var pos,
+								pos_a: out var pos_a,
+								pos_b: out var pos_b,
+								pos_final: out var pos_final,
+								rot_final: out var rot_final,
+								bb: out var bb);
+
+							var transform = new Transform.Data(pos_final, rot_final, scale);
+							var matrix = transform.GetMatrix3x2();
+
+							//var ent_parent = rpc.entity.GetParent(Relation.Type.Child);
+							//var inventory = player.GetInventory();
+							var h_faction = character_data.faction;
+
+							if (product.type == Crafting.Product.Type.Block)
 							{
-								ref var product = ref recipe.products[0];
-								if (recipe.placement.TryGetValue(out var placement))
+								ref var block = ref product.block.GetData();
+								if (block.IsNotNull())
 								{
-									var scale = Vector2.One;
-									var normal_surface = this.normal.GetNormalized(out var normal_distance) ?? new Vector2(0.00f, -1.00f);
+									var tile_flags = block.tile_flags | product.tile_flags;
 
-									if (placement.flags.HasAny(Placement.Flags.Allow_Mirror_X)) scale.X.SetSign(this.pos_raw.X < this.pos_origin.X);
+									ref var terrain = ref region.GetTerrain();
 
-									var random = XorRandom.New(true);
+									Wrench.Mode.Build.EvaluateBlock(region: ref region, placement: in placement, errors: ref errors, skip_support: ref skip_support,
+										placed_block_count: out var placed_block_count, bb: bb, block: product.block, tile_flags: tile_flags,
+										pos: pos, pos_a: pos_a, pos_b: pos_b);
+									amount_multiplier = placed_block_count;
+									Wrench.Mode.Build.Evaluate(region: ref region, entity: rpc.entity, placement: in placement, errors: ref errors,
+										skip_support: ref skip_support, support: out support, clearance: out clearance, bb: bb,
+										transform: in transform, placement_range: build.placement_range, pos: pos, pos_a: pos_a, pos_b: pos_b,
+										faction_id: h_faction);
 
-									Wrench.Mode.Build.GetPlacementInfo(placement: ref placement,
-										flags: this.flags,
-										pos_raw: this.pos_raw,
-										pos_a_raw: this.pos_a_raw,
-										pos_b_raw: this.pos_b_raw,
-										scale: scale,
-										normal: normal_surface,
-										normal_distance: normal_distance,
-										pos: out var pos,
-										pos_a: out var pos_a,
-										pos_b: out var pos_b,
-										pos_final: out var pos_final,
-										rot_final: out var rot_final,
-										bb: out var bb);
+									var reqs_span = recipe.requirements.AsSpan();
+									//if (!Crafting.Evaluate(entity, ent_parent, transform.position, ref recipe.requirements, inventory: inventory, amount_multiplier: amount_multiplier, h_faction: h_faction)) errors |= Errors.RequirementsNotMet;
+									if (!context.Evaluate(requirements: reqs_span, amount_multiplier: amount_multiplier, evaluation_flags: Crafting.EvaluateFlags.Prerequisite)) errors |= Errors.RequirementsNotMet;
 
-									var transform = new Transform.Data(pos_final, rot_final, scale);
-									var matrix = transform.GetMatrix3x2();
-
-									//var ent_parent = rpc.entity.GetParent(Relation.Type.Child);
-									//var inventory = player.GetInventory();
-									var h_faction = character_data.faction;
-
-									if (product.type == Crafting.Product.Type.Block)
+									if (errors == Wrench.Mode.Build.Errors.None)
 									{
-										ref var block = ref product.block.GetData();
-										if (block.IsNotNull())
+										//Crafting.Consume(ent_parent, transform.position, ref recipe.requirements, inventory: inventory, amount_multiplier: amount_multiplier, sync: true);
+										context.Consume(requirements: reqs_span, amount_multiplier: amount_multiplier, evaluation_flags: Crafting.EvaluateFlags.Prerequisite);
+
+										var tile_meta = 0u;
+
+										// TODO: WIP/experimental, looks kinda ugly atm in most cases
+										if (placement.flags.HasAny(Placement.Flags.Align_Background))
 										{
-											var tile_flags = block.tile_flags | product.tile_flags;
+											var offset_top_left = ((pos_a + (placement.size * 0.50f)) * App.pixels_per_unit).Floor();
 
-											ref var terrain = ref region.GetTerrain();
+											offset_top_left.X %= (placement.size.X * App.pixels_per_unit);
+											offset_top_left.Y %= (placement.size.Y * App.pixels_per_unit);
 
-											Wrench.Mode.Build.EvaluateBlock(region: ref region, placement: in placement, errors: ref errors, skip_support: ref skip_support, placed_block_count: out var placed_block_count, bb: bb, block: product.block, tile_flags: tile_flags, pos: pos, pos_a: pos_a, pos_b: pos_b);
-											amount_multiplier = placed_block_count;
-											Wrench.Mode.Build.Evaluate(region: ref region, entity: rpc.entity, placement: in placement, errors: ref errors, skip_support: ref skip_support, support: out support, clearance: out clearance, bb: bb, transform: in transform, placement_range: build.placement_range, pos: pos, pos_a: pos_a, pos_b: pos_b, faction_id: h_faction);
+											var tile_offset_x = ((uint)offset_top_left.X) & 0xf; // (((uint)(16 - offset_top_left.X)) & 0xf);
+											var tile_offset_y = ((uint)offset_top_left.Y) & 0xf; // (((uint)(16 - offset_top_left.Y)) & 0xf);
 
-											var reqs_span = recipe.requirements.AsSpan();
-											//if (!Crafting.Evaluate(entity, ent_parent, transform.position, ref recipe.requirements, inventory: inventory, amount_multiplier: amount_multiplier, h_faction: h_faction)) errors |= Errors.RequirementsNotMet;
-											if (!context.Evaluate(requirements: reqs_span, amount_multiplier: amount_multiplier, evaluation_flags: Crafting.EvaluateFlags.Prerequisite)) errors |= Errors.RequirementsNotMet;
+											//App.WriteLine($"{tile_offset_x}; {tile_offset_y} {offset_top_left}");
 
-											if (errors == Wrench.Mode.Build.Errors.None)
-											{
-												//Crafting.Consume(ent_parent, transform.position, ref recipe.requirements, inventory: inventory, amount_multiplier: amount_multiplier, sync: true);
-												context.Consume(requirements: reqs_span, amount_multiplier: amount_multiplier, evaluation_flags: Crafting.EvaluateFlags.Prerequisite);
-
-												var tile_meta = 0u;
-
-												// TODO: WIP/experimental, looks kinda ugly atm in most cases
-												if (placement.flags.HasAny(Placement.Flags.Align_Background))
-												{
-													var offset_top_left = ((pos_a + (placement.size * 0.50f)) * App.pixels_per_unit).Floor();
-
-													offset_top_left.X %= (placement.size.X * App.pixels_per_unit);
-													offset_top_left.Y %= (placement.size.Y * App.pixels_per_unit);
-
-													var tile_offset_x = ((uint)offset_top_left.X) & 0xf; // (((uint)(16 - offset_top_left.X)) & 0xf);
-													var tile_offset_y = ((uint)offset_top_left.Y) & 0xf; // (((uint)(16 - offset_top_left.Y)) & 0xf);
-
-													//App.WriteLine($"{tile_offset_x}; {tile_offset_y} {offset_top_left}");
-
-													tile_meta |= tile_offset_x;
-													tile_meta |= tile_offset_y << 4;
-												}
-
-												var args = new SetTileFuncArgs(block: product.block, tile_flags: tile_flags, count: 0, max_health: block.max_health, meta: (byte)tile_meta, mappings_replace: placement.mappings_replace);
-												switch (placement.type)
-												{
-													case Placement.Type.Rectangle:
-													{
-														terrain.IterateRect(world_position: pos, size: placement.size * App.pixels_per_unit, argument: ref args,
-															func: placement.flags.HasAny(Placement.Flags.Replace) ? SetTileFuncReplace : SetTileFunc,
-															dirty_flags: Chunk.DirtyFlags.Sync | Chunk.DirtyFlags.Neighbours | Chunk.DirtyFlags.Collider,
-															iteration_flags: Terrain.IterationFlags.Create_If_Empty);
-													}
-													break;
-
-													case Placement.Type.Line:
-													{
-														//App.WriteLine($"{pos}; {pos_a}; {pos_b}");
-														terrain.IterateLine(world_position_a: pos_a, world_position_b: pos_b, thickness: placement.size.X, argument: ref args,
-															func: placement.flags.HasAny(Placement.Flags.Replace) ? SetTileFuncReplace : SetTileFunc,
-															dirty_flags: Chunk.DirtyFlags.Sync | Chunk.DirtyFlags.Neighbours | Chunk.DirtyFlags.Collider,
-															iteration_flags: Terrain.IterationFlags.Create_If_Empty);
-													}
-													break;
-
-													case Placement.Type.Circle:
-													{
-														terrain.IterateCircle(world_position: pos, radius: placement.radius * App.pixels_per_unit, argument: ref args,
-															func: placement.flags.HasAny(Placement.Flags.Replace) ? SetTileFuncReplace : SetTileFunc,
-															dirty_flags: Chunk.DirtyFlags.Sync | Chunk.DirtyFlags.Neighbours | Chunk.DirtyFlags.Collider,
-															iteration_flags: Terrain.IterationFlags.Create_If_Empty);
-													}
-													break;
-												}
-
-												//var ent_character = player.GetControlledCharacter().entity;
-												//if (ent_character.IsValid())
-												//{
-												//	//App.WriteLine($"char {ent_character}");
-
-												//	var ev = new Character.BuildEvent()
-												//	{
-												//		recipe = build.recipe,
-												//		block = product.block,
-												//		amount = args.count
-												//	};
-												//	ent_character.TriggerEvent(ref ev);
-												//}
-
-												success = true;
-											}
+											tile_meta |= tile_offset_x;
+											tile_meta |= tile_offset_y << 4;
 										}
-									}
-									else if (product.type == Crafting.Product.Type.Prefab || product.type == Crafting.Product.Type.Resource)
-									{
-										var h_prefab = default(Prefab.Handle);
-										if (product.type == Crafting.Product.Type.Prefab) h_prefab = product.prefab;
-										else if (product.type == Crafting.Product.Type.Resource) h_prefab = product.material.GetPrefabHandle();
 
-										if (h_prefab.TryGetPrefab(out var prefab))
+										var args = new SetTileFuncArgs(block: product.block, tile_flags: tile_flags, count: 0, max_health: block.max_health, meta: (byte)tile_meta, mappings_replace: placement.mappings_replace);
+										switch (placement.type)
 										{
-											//var prefab_handle = product.prefab;
+											case Placement.Type.Rectangle:
+											{
+												terrain.IterateRect(world_position: pos, size: placement.size * App.pixels_per_unit, argument: ref args,
+													func: placement.flags.HasAny(Placement.Flags.Replace) ? SetTileFuncReplace : SetTileFunc,
+													dirty_flags: Chunk.DirtyFlags.Sync | Chunk.DirtyFlags.Neighbours | Chunk.DirtyFlags.Collider,
+													iteration_flags: Terrain.IterationFlags.Create_If_Empty);
+											}
+											break;
 
-											//var scale = new Vector2(1, 1);
+											case Placement.Type.Line:
+											{
+												//App.WriteLine($"{pos}; {pos_a}; {pos_b}");
+												terrain.IterateLine(world_position_a: pos_a, world_position_b: pos_b, thickness: placement.size.X, argument: ref args,
+													func: placement.flags.HasAny(Placement.Flags.Replace) ? SetTileFuncReplace : SetTileFunc,
+													dirty_flags: Chunk.DirtyFlags.Sync | Chunk.DirtyFlags.Neighbours | Chunk.DirtyFlags.Collider,
+													iteration_flags: Terrain.IterationFlags.Create_If_Empty);
+											}
+											break;
 
-											//if (placement.flags.HasAny(Placement.Flags.Allow_Mirror_X) && this.pos_raw.X < transform.position.X)
+											case Placement.Type.Circle:
+											{
+												terrain.IterateCircle(world_position: pos, radius: placement.radius * App.pixels_per_unit, argument: ref args,
+													func: placement.flags.HasAny(Placement.Flags.Replace) ? SetTileFuncReplace : SetTileFunc,
+													dirty_flags: Chunk.DirtyFlags.Sync | Chunk.DirtyFlags.Neighbours | Chunk.DirtyFlags.Collider,
+													iteration_flags: Terrain.IterationFlags.Create_If_Empty);
+											}
+											break;
+										}
+
+										//var ent_character = player.GetControlledCharacter().entity;
+										//if (ent_character.IsValid())
+										//{
+										//	//App.WriteLine($"char {ent_character}");
+
+										//	var ev = new Character.BuildEvent()
+										//	{
+										//		recipe = build.recipe,
+										//		block = product.block,
+										//		amount = args.count
+										//	};
+										//	ent_character.TriggerEvent(ref ev);
+										//}
+
+										success = true;
+									}
+								}
+							}
+							else if (product.type == Crafting.Product.Type.Prefab || product.type == Crafting.Product.Type.Resource)
+							{
+								var h_prefab = default(Prefab.Handle);
+								if (product.type == Crafting.Product.Type.Prefab) h_prefab = product.prefab;
+								else if (product.type == Crafting.Product.Type.Resource) h_prefab = product.material.GetPrefabHandle();
+
+								if (h_prefab.TryGetPrefab(out var prefab))
+								{
+									//var prefab_handle = product.prefab;
+
+									//var scale = new Vector2(1, 1);
+
+									//if (placement.flags.HasAny(Placement.Flags.Allow_Mirror_X) && this.pos_raw.X < transform.position.X)
+									//{
+									//	scale.X *= -1.00f;
+									//}
+
+									Wrench.Mode.Build.EvaluatePrefab(region: ref region, placement: in placement, errors: ref errors, skip_support: ref skip_support,
+										h_prefab: h_prefab, matrix: in matrix, pos_a: pos_a, pos_b: pos_b);
+									amount_multiplier = 1.00f;
+									Wrench.Mode.Build.Evaluate(region: ref region, entity: rpc.entity, placement: in placement, errors: ref errors,
+										skip_support: ref skip_support, support: out support, clearance: out clearance, bb: bb,
+										transform: in transform, placement_range: build.placement_range, pos: pos_final, pos_a: pos_a, pos_b: pos_b,
+										faction_id: h_faction);
+
+									if (placement.type == Placement.Type.Line)
+									{
+										amount_multiplier += Vector2.Distance(pos_a, pos_b);
+									}
+
+									ref var construction_info = ref recipe.construction.GetRefOrNull();
+									if (construction_info.IsNotNull())
+									{
+										var construction_info_reqs_span = construction_info.requirements.AsSpan();
+
+										//if (!Crafting.Evaluate(entity, ent_parent, transform.position, ref construction.requirements, inventory: inventory, amount_multiplier: amount_multiplier, h_faction: h_faction)) errors |= Errors.RequirementsNotMet;
+										if (!context.Evaluate(requirements: construction_info_reqs_span,
+											amount_multiplier: amount_multiplier,
+											evaluation_flags: Crafting.EvaluateFlags.Prerequisite)) errors |= Errors.RequirementsNotMet;
+
+										if (errors == Wrench.Mode.Build.Errors.None)
+										{
+											//Crafting.Consume(ent_parent, transform.position, ref construction.requirements, inventory: inventory, amount_multiplier: amount_multiplier, sync: true);
+											context.Consume(requirements: construction_info_reqs_span,
+												amount_multiplier: amount_multiplier,
+												evaluation_flags: Crafting.EvaluateFlags.Prerequisite);
+
+											var dismantlable_tmp = new Dismantlable.Data();
+											dismantlable_tmp.yield = 0.90f;
+											dismantlable_tmp.required_work = 5.00f;
+											var dismantlable_tmp_items = dismantlable_tmp.items.AsSpan();
+
+											//var requirements_construction = construction.requirements;
+											for (var i = 0; i < construction_info_reqs_span.Length; i++)
+											{
+												ref var req = ref construction_info_reqs_span[i];
+												switch (req.type)
+												{
+													case Crafting.Requirement.Type.Resource:
+													{
+														dismantlable_tmp_items.Add(Shipment.Item.Resource(req.material, req.amount));
+													}
+													break;
+												}
+											}
+
+											//var order_tmp = new Crafting.Order();
+											//order_tmp.amount_multiplier = 1.00f;
+											//order_tmp.flags |= Crafting.Order.Flags.InProgress;
+											//order_tmp.h_recipe = build.recipe;
+
+											//var shipment_tmp = new Shipment.Data();
+											//shipment_tmp.flags |= Shipment.Flags.Keep_Items | Shipment.Flags.No_GUI;
+
+											//var work_count = 0;
+											//var item_count = 0;
+
+											//var quantity = product.amount;
+
+											//var requirements = recipe.requirements;
+											//for (var i = 0; i < requirements.Length; i++)
 											//{
-											//	scale.X *= -1.00f;
+											//	ref var requirement = ref requirements[i];
+											//	switch (requirement.type)
+											//	{
+											//		case Crafting.Requirement.Type.Work:
+											//		{
+											//			order_tmp.work[work_count++] = new(requirement.work, Work.Amount.Flags.Pending, requirement.group, requirement.difficulty, (byte)i, requirement.amount * Constants.Construction.work_requirement_multiplier);
+											//		}
+											//		break;
+
+											//		case Crafting.Requirement.Type.Resource:
+											//		{
+											//			shipment_tmp.items[item_count++] = Shipment.Item.Resource(requirement.material, 0.00f, requirement.amount * Constants.Construction.resource_requirement_multiplier);
+											//		}
+											//		break;
+											//	}
 											//}
 
-											Wrench.Mode.Build.EvaluatePrefab(region: ref region, placement: in placement, errors: ref errors, skip_support: ref skip_support, h_prefab: h_prefab, matrix: in matrix, pos_a: pos_a, pos_b: pos_b);
-											amount_multiplier = 1.00f;
-											Wrench.Mode.Build.Evaluate(region: ref region, entity: rpc.entity, placement: in placement, errors: ref errors, skip_support: ref skip_support, support: out support, clearance: out clearance, bb: bb, transform: in transform, placement_range: build.placement_range, pos: pos_final, pos_a: pos_a, pos_b: pos_b, faction_id: h_faction);
+											var h_recipe = build.recipe;
 
-											if (placement.type == Placement.Type.Line)
+											region.SpawnPrefab(prefab: construction_info.prefab, position: pos_final, rotation: rot_final, scale: scale,
+											faction_id: h_faction).ContinueWith((ent) =>
 											{
-												amount_multiplier += Vector2.Distance(pos_a, pos_b);
-											}
-
-											ref var construction_info = ref recipe.construction.GetRefOrNull();
-											if (construction_info.IsNotNull())
-											{
-												var construction_info_reqs_span = construction_info.requirements.AsSpan();
-
-												//if (!Crafting.Evaluate(entity, ent_parent, transform.position, ref construction.requirements, inventory: inventory, amount_multiplier: amount_multiplier, h_faction: h_faction)) errors |= Errors.RequirementsNotMet;
-												if (!context.Evaluate(requirements: construction_info_reqs_span, amount_multiplier: amount_multiplier, evaluation_flags: Crafting.EvaluateFlags.Prerequisite)) errors |= Errors.RequirementsNotMet;
-
-												if (errors == Wrench.Mode.Build.Errors.None)
+												ref var dismantlable = ref ent.GetOrAddComponent<Dismantlable.Data>(sync: true, ignore_mask: true);
+												if (dismantlable.IsNotNull())
 												{
-													//Crafting.Consume(ent_parent, transform.position, ref construction.requirements, inventory: inventory, amount_multiplier: amount_multiplier, sync: true);
-													context.Consume(requirements: construction_info_reqs_span, amount_multiplier: amount_multiplier, evaluation_flags: Crafting.EvaluateFlags.Prerequisite);
-
-													var dismantlable_tmp = new Dismantlable.Data();
-													dismantlable_tmp.yield = 0.90f;
-													dismantlable_tmp.required_work = 5.00f;
-													var dismantlable_tmp_items = dismantlable_tmp.items.AsSpan();
-
-													//var requirements_construction = construction.requirements;
-													for (var i = 0; i < construction_info_reqs_span.Length; i++)
-													{
-														ref var req = ref construction_info_reqs_span[i];
-														switch (req.type)
-														{
-															case Crafting.Requirement.Type.Resource:
-															{
-																dismantlable_tmp_items.Add(Shipment.Item.Resource(req.material, req.amount));
-															}
-															break;
-														}
-													}
-
-													//var order_tmp = new Crafting.Order();
-													//order_tmp.amount_multiplier = 1.00f;
-													//order_tmp.flags |= Crafting.Order.Flags.InProgress;
-													//order_tmp.h_recipe = build.recipe;
-
-													//var shipment_tmp = new Shipment.Data();
-													//shipment_tmp.flags |= Shipment.Flags.Keep_Items | Shipment.Flags.No_GUI;
-
-													//var work_count = 0;
-													//var item_count = 0;
-
-													//var quantity = product.amount;
-
-													//var requirements = recipe.requirements;
-													//for (var i = 0; i < requirements.Length; i++)
-													//{
-													//	ref var requirement = ref requirements[i];
-													//	switch (requirement.type)
-													//	{
-													//		case Crafting.Requirement.Type.Work:
-													//		{
-													//			order_tmp.work[work_count++] = new(requirement.work, Work.Amount.Flags.Pending, requirement.group, requirement.difficulty, (byte)i, requirement.amount * Constants.Construction.work_requirement_multiplier);
-													//		}
-													//		break;
-
-													//		case Crafting.Requirement.Type.Resource:
-													//		{
-													//			shipment_tmp.items[item_count++] = Shipment.Item.Resource(requirement.material, 0.00f, requirement.amount * Constants.Construction.resource_requirement_multiplier);
-													//		}
-													//		break;
-													//	}
-													//}
-
-													var h_recipe = build.recipe;
-
-													region.SpawnPrefab(prefab: construction_info.prefab, position: pos_final, rotation: rot_final, scale: scale, 
-													faction_id: h_faction).ContinueWith((ent) =>
-													{
-														ref var dismantlable = ref ent.GetOrAddComponent<Dismantlable.Data>(sync: true, ignore_mask: true);
-														if (dismantlable.IsNotNull())
-														{
-															dismantlable = dismantlable_tmp;
-														}
-
-														ref var construction = ref ent.GetComponent<Construction.Data>();
-														if (construction.IsNotNull())
-														{
-															construction.h_recipe = h_recipe;
-
-															//construction.prefab = h_prefab;
-															//construction.order = order;
-															//construction.stage = Construction.Stage.Materials;
-															//construction.quantity = quantity;
-
-															//ref var order = ref ent.GetOrAddPair<Construction.Data, Crafting.Order>(sync: true, ignore_mask: true, sync_if_added: true);
-															//if (order.IsNotNull())
-															//{
-															//	//order = new(); // order_tmp;
-															//}
-														}
-
-														ref var shipment = ref ent.GetOrAddComponent<Shipment.Data>(sync: true, ignore_mask: true);
-														if (shipment.IsNotNull())
-														{
-															//shipment = shipment_tmp;
-														}
-													});
-
-													success = true;
+													dismantlable = dismantlable_tmp;
 												}
-											}
-											else
-											{
-												var reqs_span = recipe.requirements.AsSpan();
 
-												//if (!Crafting.Evaluate(entity, ent_parent, transform.position, ref recipe.requirements, inventory: inventory, amount_multiplier: amount_multiplier, h_faction: h_faction)) errors |= Errors.RequirementsNotMet;
-												if (!context.Evaluate(requirements: reqs_span, amount_multiplier: amount_multiplier, evaluation_flags: Crafting.EvaluateFlags.Prerequisite)) errors |= Errors.RequirementsNotMet;
-
-												if (errors == Wrench.Mode.Build.Errors.None)
+												ref var construction = ref ent.GetComponent<Construction.Data>();
+												if (construction.IsNotNull())
 												{
-													//Crafting.Consume(ent_parent, transform.position, ref recipe.requirements, inventory: inventory, amount_multiplier: amount_multiplier, sync: true);
-													context.Consume(requirements: reqs_span, amount_multiplier: amount_multiplier, evaluation_flags: Crafting.EvaluateFlags.Prerequisite);
+													construction.h_recipe = h_recipe;
 
-													var dismantlable_tmp = new Dismantlable.Data();
-													dismantlable_tmp.yield = recipe.dismantle_yield;
-													dismantlable_tmp.required_work = recipe.dismantle_work;
-													var dismantlable_tmp_items = dismantlable_tmp.items.AsSpan();
+													//construction.prefab = h_prefab;
+													//construction.order = order;
+													//construction.stage = Construction.Stage.Materials;
+													//construction.quantity = quantity;
 
-													//var requirements = recipe.requirements;
-													for (var i = 0; i < reqs_span.Length; i++)
-													{
-														ref var requirement = ref reqs_span[i];
-														switch (requirement.type)
-														{
-															case Crafting.Requirement.Type.Resource:
-															{
-																dismantlable_tmp_items.Add(Shipment.Item.Resource(requirement.material, requirement.amount));
-																//dismantlable_tmp.resources[i] = new Resource.Data(requirement.material, requirement.amount);
-															}
-															break;
-														}
-													}
-
-													if (placement.type == Placement.Type.Line && placement.flags.HasAny(Placement.Flags.Place_Line_Rotated))
-													{
-														var dir = (pos_b - pos_a).GetNormalized(out var len);
-														rot_final = dir.GetAngleRadians();
-													}
-
-													region.SpawnPrefab(prefab: h_prefab, position: pos_final, rotation: rot_final, scale: scale, faction_id: h_faction).ContinueWith((ent) =>
-													{
-														ref var dismantlable = ref ent.GetOrAddComponent<Dismantlable.Data>(sync: true, ignore_mask: true);
-														if (dismantlable.IsNotNull())
-														{
-															dismantlable = dismantlable_tmp;
-														}
-
-														ref var resizable = ref ent.GetComponent<Resizable.Data>();
-														if (resizable.IsNotNull())
-														{
-															resizable.a = Vector2.Zero;
-
-															if (placement.type == Placement.Type.Line && placement.flags.HasAny(Placement.Flags.Place_Line_Rotated))
-															{
-																resizable.b = new Vector2((pos_b - pos_a).Length(), 0.00f);
-															}
-															else
-															{
-																resizable.b = pos_b - pos_a;
-															}
-
-															resizable.Modified(ent, sync: true);
-														}
-													});
-
-													//var ent_character = player.GetControlledCharacter().entity;
-													//if (ent_character.IsValid())
+													//ref var order = ref ent.GetOrAddPair<Construction.Data, Crafting.Order>(sync: true, ignore_mask: true, sync_if_added: true);
+													//if (order.IsNotNull())
 													//{
-													//	var ev = new Character.BuildEvent()
-													//	{
-													//		recipe = build.recipe,
-													//		prefab = prefab_handle,
-													//		amount = 1
-													//	};
-													//	ent_character.TriggerEvent(ref ev);
+													//	//order = new(); // order_tmp;
 													//}
-
-													success = true;
 												}
-											}
+
+												ref var shipment = ref ent.GetOrAddComponent<Shipment.Data>(sync: true, ignore_mask: true);
+												if (shipment.IsNotNull())
+												{
+													//shipment = shipment_tmp;
+												}
+											});
+
+											success = true;
 										}
-									}
-
-									if (success)
-									{
-										if (placement.sound) Sound.Play(region: ref region, sound: placement.sound, world_position: pos, volume: 1.00f, pitch: random.NextFloatRange(0.80f, 1.00f), priority: 0.35f);
-										Shake.Emit(region: ref region, world_position: pos, trauma: 0.20f, max: 0.20f);
 									}
 									else
 									{
-										Notification.Push(connection: ref rpc.connection, message: $"Cannot place: {errors.ToFormattedString()}", color: Color32BGRA.Red, sound: "error", volume: 0.60f);
-									}
+										var reqs_span = recipe.requirements.AsSpan();
 
-									build.next_place = region.GetFixedTime() + placement.cooldown;
+										//if (!Crafting.Evaluate(entity, ent_parent, transform.position, ref recipe.requirements, inventory: inventory, amount_multiplier: amount_multiplier, h_faction: h_faction)) errors |= Errors.RequirementsNotMet;
+										if (!context.Evaluate(requirements: reqs_span,
+											amount_multiplier: amount_multiplier,
+											evaluation_flags: Crafting.EvaluateFlags.Prerequisite)) errors |= Errors.RequirementsNotMet;
+
+										if (errors == Wrench.Mode.Build.Errors.None)
+										{
+											//Crafting.Consume(ent_parent, transform.position, ref recipe.requirements, inventory: inventory, amount_multiplier: amount_multiplier, sync: true);
+											context.Consume(requirements: reqs_span,
+												amount_multiplier: amount_multiplier,
+												evaluation_flags: Crafting.EvaluateFlags.Prerequisite);
+
+											var dismantlable_tmp = new Dismantlable.Data();
+											dismantlable_tmp.yield = recipe.dismantle_yield;
+											dismantlable_tmp.required_work = recipe.dismantle_work;
+											var dismantlable_tmp_items = dismantlable_tmp.items.AsSpan();
+
+											//var requirements = recipe.requirements;
+											for (var i = 0; i < reqs_span.Length; i++)
+											{
+												ref var requirement = ref reqs_span[i];
+												switch (requirement.type)
+												{
+													case Crafting.Requirement.Type.Resource:
+													{
+														dismantlable_tmp_items.Add(Shipment.Item.Resource(requirement.material, requirement.amount));
+														//dismantlable_tmp.resources[i] = new Resource.Data(requirement.material, requirement.amount);
+													}
+													break;
+												}
+											}
+
+											if (placement.type == Placement.Type.Line && placement.flags.HasAny(Placement.Flags.Place_Line_Rotated))
+											{
+												var dir = (pos_b - pos_a).GetNormalized(out var len);
+												rot_final = dir.GetAngleRadians();
+											}
+
+											region.SpawnPrefab(prefab: h_prefab, position: pos_final, rotation: rot_final, scale: scale, faction_id: h_faction).ContinueWith((ent) =>
+											{
+												ref var dismantlable = ref ent.GetOrAddComponent<Dismantlable.Data>(sync: true, ignore_mask: true);
+												if (dismantlable.IsNotNull())
+												{
+													dismantlable = dismantlable_tmp;
+												}
+
+												ref var resizable = ref ent.GetComponent<Resizable.Data>();
+												if (resizable.IsNotNull())
+												{
+													resizable.a = Vector2.Zero;
+
+													if (placement.type == Placement.Type.Line && placement.flags.HasAny(Placement.Flags.Place_Line_Rotated))
+													{
+														resizable.b = new Vector2((pos_b - pos_a).Length(), 0.00f);
+													}
+													else
+													{
+														resizable.b = pos_b - pos_a;
+													}
+
+													resizable.Modified(ent, sync: true);
+												}
+											});
+
+											//var ent_character = player.GetControlledCharacter().entity;
+											//if (ent_character.IsValid())
+											//{
+											//	var ev = new Character.BuildEvent()
+											//	{
+											//		recipe = build.recipe,
+											//		prefab = prefab_handle,
+											//		amount = 1
+											//	};
+											//	ent_character.TriggerEvent(ref ev);
+											//}
+
+											success = true;
+										}
+									}
 								}
 							}
+
+							if (success)
+							{
+								if (placement.sound) Sound.Play(region: ref region, sound: placement.sound, world_position: pos, volume: 1.00f, pitch: random.NextFloatRange(0.80f, 1.00f), priority: 0.35f);
+								Shake.Emit(region: ref region, world_position: pos, trauma: 0.20f, max: 0.20f);
+							}
+							else
+							{
+								Notification.Push(connection: ref rpc.connection, message: $"Cannot place: {errors.ToFormattedString()}", color: Color32BGRA.Red, sound: "error", volume: 0.60f);
+							}
+
+							build.next_place = region.GetFixedTime() + placement.cooldown;
 						}
 					}
 #endif
@@ -2074,6 +2098,7 @@ namespace TC2.Base.Components
 				}
 
 				#region CalculateBlockCount
+				// TODO: record structs are shite
 				private record struct CalculateBlockCountArgs(IBlock.Handle block, TileFlags tile_flags, int count, float max_health, Dictionary<IBlock.Handle, Block.Mapping> mappings_replace = null);
 				private static void CountTileFunc(Tile tile, ref CalculateBlockCountArgs args, int x, int y, byte mask)
 				{
@@ -2137,6 +2162,7 @@ namespace TC2.Base.Components
 
 #if CLIENT
 				#region DrawTile
+				// TODO: record structs are shite
 				private record struct DrawTileArgs(Vector2 offset, Vector2 pixel_size, TileFlags tile_flags, IBlock.Handle block, float max_health, Color32BGRA color, Dictionary<IBlock.Handle, Block.Mapping> mappings_replace = null);
 				static void DrawTileFunc(Tile tile, ref DrawTileArgs args, int x, int y, byte mask)
 				{
@@ -2167,6 +2193,7 @@ namespace TC2.Base.Components
 					}
 				}
 
+				// TODO: record structs are shite
 				private record struct DrawFoundationArgs(Vector2 offset, Vector2 pixel_size, TileFlags tile_flags, float max_health, Color32BGRA color);
 				static void DrawFoundationFunc(Tile tile, ref DrawFoundationArgs args, int x, int y, byte mask)
 				{
@@ -2190,6 +2217,7 @@ namespace TC2.Base.Components
 
 #if SERVER
 				#region SetTile
+				// TODO: record structs are shite
 				private record struct SetTileFuncArgs(IBlock.Handle block, TileFlags tile_flags, int count, float max_health, byte meta, Dictionary<IBlock.Handle, Block.Mapping> mappings_replace = null);
 				static void SetTileFunc(Tile tile, ref SetTileFuncArgs args, int x, int y, byte mask)
 				{
@@ -2230,6 +2258,7 @@ namespace TC2.Base.Components
 #endif
 
 				#region CalculateSupport
+				// TODO: record structs are shite
 				private record struct CalculateSupportArgs(int support_count, int blocked_count, int total_count, Dictionary<IBlock.Handle, Block.Mapping> mappings_replace = null);
 				private static void CalculateSupportFunc(Tile tile, ref CalculateSupportArgs args, int x, int y, byte mask)
 				{
@@ -2261,6 +2290,7 @@ namespace TC2.Base.Components
 					args.total_count++;
 				}
 
+				// TODO: record structs are shite
 				private record struct CalculateFoundationSupportArgs(int support_count, int blocked_count, int total_count, TileFlags tile_flags, float max_health);
 				private static void CalculateFoundationSupportFunc(Tile tile, ref CalculateFoundationSupportArgs args, int x, int y, byte mask)
 				{
@@ -2276,6 +2306,7 @@ namespace TC2.Base.Components
 					args.total_count++;
 				}
 
+				// TODO: record structs are shite
 				private record struct CalculateFoundationClearanceArgs(int clear_count, int blocked_count, int total_count, TileFlags tile_flags);
 				private static void CalculateFoundationClearanceFunc(Tile tile, ref CalculateFoundationClearanceArgs args, int x, int y, byte mask)
 				{
