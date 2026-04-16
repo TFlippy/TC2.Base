@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.74.0"
-	name: "Glued SG-20.4mm"
+	name: "Streamlined SG-20.4mm"
 	desc:
 		'''
 		Highly streamlined formula for 20.4mm shotgun shells, 
@@ -326,6 +326,7 @@
 					
 					type: undefined
 					flags: none
+					discard_damage_type_override: handsaw
 					
 					suffix: " Rodshot"
 					priority: 1.000
@@ -438,6 +439,140 @@
 							chance: 0.612
 							ratio: 0.506
 							flags: waste, residue, stepped, scale_to_mass
+						}
+					]
+					
+					filter_tools:
+					{
+						require: saw
+						include: bucket, paintbrush, file, spatula
+					}
+					filter_infrastructure:
+					{
+						require: surface
+						include: table, vise, workbench
+					}
+					filter_environment:
+					{
+						include: clean, organized
+						exclude: wet
+					}
+				}
+				{
+					name: "Shroomshot"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: rotting
+					
+					suffix: " Shroomshot"
+					priority: 1.000
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: alcohol
+							amount: 0.071429
+							snapping: 0.100
+							falloff: 1.228
+							loss: 0.341
+							ratio: 0.259
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: resource
+							material: mushroom.red
+							amount: 0.3125
+							snapping: 0.100
+							falloff: 1.052
+							loss: 0.808
+							ratio: 0.863
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: wadding
+							amount: 30.000
+							amount_min: 4.000
+							difficulty: 4
+							snapping: 5.000
+							falloff: 0.739
+							loss: 0.294
+							ratio: 0.820
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: gluing
+							amount: 11.000
+							amount_min: 10.000
+							difficulty: 5
+							snapping: 5.000
+							falloff: 0.836
+							loss: 0.329
+							ratio: 1.000
+							group: 0
+							flags: stepped, simultaneous, conditional
+						}
+						{
+							type: work
+							work: fermenting
+							amount: -1.000
+							amount_min: 528.000
+							difficulty: 7
+							snapping: 5.000
+							group: 1
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: ammo.sg.baton
+							amount: 0.6796
+							amount_extra: 0.175
+							snapping: 1.000
+							group: 0
+							chance: 0.906
+							flags: primary, stepped, compact
+						}
+						{
+							type: resource
+							material: mush
+							amount: 0.3391
+							amount_extra: 0.7436
+							snapping: 0.100
+							group: 0
+							ratio: 0.655
+							flags: waste, residue, stepped, scale_to_mass
+						}
+						{
+							type: resource
+							material: ammo.sg.grenade
+							amount: 0.2805
+							amount_extra: 0.515604
+							snapping: 1.000
+							group: 0
+							chance: 0.137
+							ratio: 0.431
+							flags: byproduct, secondary, stepped, compact, scale_to_mass
+						}
+						{
+							type: resource
+							material: hydrazine
+							amount: 0.3241
+							amount_extra: 0.7676
+							snapping: 0.010
+							group: 0
+							chance: 0.322
+							ratio: 0.839
+							flags: residue, byproduct, scale_to_mass
 						}
 					]
 					
