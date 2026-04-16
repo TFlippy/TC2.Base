@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.1"
+	$version: "0.1.74.0"
 	name: "Papercraft"
 	name_short: "Paper cft."
 	desc:
@@ -17,7 +17,7 @@
 	flags: manual, wip
 	tags: simple, leisure, careful
 	
-	amount_base: 1.000
+	amount_base: 1.400
 	cooldown: 0.990
 	multiplier: 0.670
 	
@@ -50,9 +50,11 @@
 	
 	skills_mult:
 	{
-		intellect: 0.650
+		intellect: 0.700
 		dexterity: 1.000
 		blades: 0.100
+		engineering: 0.700
+		law: 0.600
 	}
 	
 	sound_volume: 0.500
