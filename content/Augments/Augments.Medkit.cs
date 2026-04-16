@@ -28,7 +28,7 @@ namespace TC2.Base
 				{
 					data.pain += 250.00f;
 					data.power *= 2.50f;
-					context.requirements_new.Merge(Crafting.Requirement.Resource("alcohol", 5));
+					context.requirements_new.Merge(Crafting.Requirement.Resource("alcohol", 3).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 				}
 			));
 
@@ -52,7 +52,7 @@ namespace TC2.Base
 				apply_1: static (ref Augment.Context context, ref Medkit.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					data.pain -= 200.00f;
-					context.requirements_new.Merge(Crafting.Requirement.Resource("morphine", 5));
+					context.requirements_new.Merge(Crafting.Requirement.Resource("morphine", 5).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 				}
 			));
 
@@ -77,7 +77,7 @@ namespace TC2.Base
 				{
 					data.aoe *= 1.50f;
 					data.max_distance += 0.50f;
-					context.requirements_new.Merge(Crafting.Requirement.Resource("cloth", 2));
+					context.requirements_new.Merge(Crafting.Requirement.Resource("cloth", 2).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 				}
 			));
 
@@ -103,21 +103,21 @@ namespace TC2.Base
 					data.heal_min_integrity -= Maths.Min(0.15f, data.heal_min_integrity);
 					data.heal_min_durability -= Maths.Min(0.10f, data.heal_min_durability);
 
-					var ingot_amount = 0.00f;
-					foreach (ref var requirement in context.requirements_new)
-					{
-						if (requirement.type == Crafting.Requirement.Type.Resource)
-						{
-							ref var material = ref requirement.material.GetData();
-							if (material.IsNotNull() && material.flags.HasAll(Material.Flags.Ingot))
-							{
-								ingot_amount += requirement.amount;
-								requirement = default;
-							}
-						}
-					}
+					//var ingot_amount = 0.00f;
+					//foreach (ref var requirement in context.requirements_new)
+					//{
+					//	if (requirement.type == Crafting.Requirement.Type.Resource)
+					//	{
+					//		ref var material = ref requirement.material.GetData();
+					//		if (material.IsNotNull() && material.flags.HasAll(Material.Flags.Ingot))
+					//		{
+					//			ingot_amount += requirement.amount;
+					//			requirement = default;
+					//		}
+					//	}
+					//}
 
-					var total_amount = 0.05f + ingot_amount;
+					var total_amount = 0.05f; // + ingot_amount;
 					context.requirements_new.Merge(Crafting.Requirement.Resource("silver.ingot", total_amount).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 				}
 			));
@@ -197,8 +197,8 @@ namespace TC2.Base
 			(
 				identifier: "medkit.red_sugar",
 				category: "Medkit",
-				name: "Red Sugar Anesthetic",
-				description: "Red sugar numbs the pain with sweetness.",
+				name: "Red Sugar Treatment",
+				description: "Enhances wound treatment, and serves as a sweet treat for the patient.",
 
 				can_add_simple: static (ref handle, augments) =>
 				{
@@ -213,7 +213,9 @@ namespace TC2.Base
 				apply_1: static (ref Augment.Context context, ref Medkit.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					data.pain -= 200.00f;
-					context.requirements_new.Merge(Crafting.Requirement.Resource("red_sugar", 5).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
+					data.heal_min_integrity = data.heal_min_integrity.Pow(1.75f);
+					data.heal_min_durability *= 0.77f;
+					context.requirements_new.Merge(Crafting.Requirement.Resource("red_sugar", 3.50f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 				}
 			));
 		}

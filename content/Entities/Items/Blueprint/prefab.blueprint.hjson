@@ -7,22 +7,36 @@ $tags: []
 
 body:
 {
+	type: dynamic
+	flags: none
+	tags: thin, angular, simple, soft, lightweight, flexible
+	damage_ignore: ""
+	
+	fall_damage_multiplier: 0.100
 	buoyancy: 0.750
 	damping: 0.968
-	fall_damage_multiplier: 0.100
 
-	@shape.box:
+	@shape.line:
 	{
-		size: [0.875, 0.500]
+		material: paper
+		miss_chance: 0.000
+		flags: none
+		tags: light, small, thin, soft
+		
+		layer: entity, solid, item, flammable, ignore_melee, ignore_bullet
+		mask: world
+		exclude: none
 		
 		mass: 1.500
-		radius: 0.200
+		radius: 0.4375
 		friction: 0.950
 		elasticity: 0.020
 		
-		material: paper
+		cog_offset: [0.000, 0.000]
 		
-		layer: entity, solid, flammable, ignore_melee, ignore_bullet
+		a: [-0.250, 0.000]
+		b: [0.250, 0.000]
+		offset: [0.000, 0.000]
 	}
 }
 
