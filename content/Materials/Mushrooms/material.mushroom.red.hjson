@@ -1,5 +1,11 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.74.0"
+	$note:
+		'''
+		- Highly toxic, putrid and smelly mushrooms
+		- Contains hydrazine-like chemical that can be extracted using alcohol
+		- Fermenting the processed mushrooms can be used to produce methylamine
+		'''
 	name: "Mouchus Mushrooms"
 	name_short: "Mouchus M."
 	name_imperial: "Mouchus"

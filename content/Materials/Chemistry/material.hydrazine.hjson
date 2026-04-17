@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.74.0"
 	name: "Hydrazine"
 	name_short: "Hydrazine"
 	name_imperial: "Hydrazin"
@@ -64,7 +64,61 @@
 		categories: none
 		
 		market_price: 57.100
-		market_price_per_kg_auto: 90.35222
+		market_price_per_kg_auto: 87.44257
+	}
+	
+	fuel:
+	{
+		// TODO: Desc
+		type: liquid
+		
+		// Combustion energy in kJ/kg, see https://en.wikipedia.org/wiki/Heat_of_combustion
+		energy_combustion: 23100.000
+		// Ratio of produced exhaust gas and leftover ashes.
+		purity: 0.960
+		// Rate at which 1 unit of the material ignites, see https://en.wikipedia.org/wiki/Combustibility_and_flammability
+		flammability: 2.500
+		// Rate at which combustion decays, see https://en.wikipedia.org/wiki/Smouldering
+		decay_rate: 0.280
+		
+		// Adiabatic flame temperature (Kelvin) in pure oxygen, see https://en.wikipedia.org/wiki/Adiabatic_flame_temperature
+		flame_temperature_o2: 3100.000
+		// Adiabatic flame temperature (Kelvin) in air. If not known, just subtract 1000 from 'flame_temperature_o2'.
+		flame_temperature_air: 2200.000
+		// Auto-ignition temperature (Kelvin), see https://en.wikipedia.org/wiki/Autoignition_temperature.
+		autoignition_temperature: 543.150
+		// Minimum temperature (Kelvin) for ignition, see https://en.wikipedia.org/wiki/Flash_point
+		flash_point: 311.000
+		// kJ/(kg*K)
+		specific_heat: 2.850
+		
+		// kW/(m*K)
+		thermal_conductivity: 0.000215
+		// TODO: Desc
+		porosity: 0.000
+		// TODO: Desc
+		volatility: 0.350
+		// TODO: Desc
+		viscosity: 0.650
+		// TODO: Desc
+		surface_area_mult: 0.000
+		
+		// Percentage of carbon.
+		carbon_ratio: 0.188
+		// Percentage of hydrogen.
+		hydrogen_ratio: 0.128
+		// Percentage of nitrogen.
+		nitrogen_ratio: 0.559
+		// Percentage of oxygen.
+		oxygen_ratio: 0.125
+		// Percentage of sulfur.
+		sulfur_ratio: 0.000
+		// Percentage of water.
+		water_ratio: 0.000
+		
+		// Percentage of volatiles.
+		volatiles_ratio: 0.000
+		volatiles: []
 	}
 	
 	// Info regarding relations of other materials towards this material.

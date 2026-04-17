@@ -13,7 +13,7 @@
 		ammo.sg.buck: product, result, output
 		ammo.sg.bird: product, result, byproduct, output
 		ammo.sg.crap: residue, product, result, output
-		ammo.sg.baton: product, result
+		ammo.sg.baton: product, result, output
 		ammo.sg.slug: product, result, output
 		copper.plate: input, auto_generated
 		himlkarzenus: raw, input, auto_generated
@@ -25,6 +25,11 @@
 		steel.rod: ingredient, input, auto_generated
 		machine_parts: product, byproduct, output, auto_generated
 		scrap.machine: residue, waste, scrap, output, auto_generated
+		alcohol: ingredient, liquid, input, auto_generated
+		mushroom.red: raw, ingredient, input, auto_generated
+		mush: residue, waste, scrap, output, auto_generated
+		ammo.sg.grenade: product, result, byproduct, output, auto_generated
+		hydrazine: residue, product, byproduct, liquid, output, auto_generated
 	}
 	
 	stages:
@@ -521,7 +526,7 @@
 						{
 							type: work
 							work: fermenting
-							amount: -1.000
+							amount: 0.000
 							amount_min: 528.000
 							difficulty: 7
 							snapping: 5.000
@@ -578,18 +583,17 @@
 					
 					filter_tools:
 					{
-						require: saw
-						include: bucket, paintbrush, file, spatula
+						include: bucket, paintbrush, file, towel, spatula
 					}
 					filter_infrastructure:
 					{
-						require: surface
-						include: table, vise, workbench
+						include: table, chair
 					}
 					filter_environment:
 					{
-						include: clean, organized
-						exclude: wet
+						require: container
+						include: warm, stationary, clean, contaminated, polluted, smelly, ugly, scary, organized
+						exclude: cold, disinfected, sterile, toxic, wet
 					}
 				}
 			]
