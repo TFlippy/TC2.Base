@@ -1,0 +1,182 @@
+$name: "Logistics Station"
+$desc:
+	'''
+	TODO: Desc
+	'''
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.box:
+	{
+		size: [2.250, 2.750]
+		offset: [0.000, -0.125]
+		
+		mass: 250.000
+		radius: 0.500
+		
+		material: building_wood
+		
+		layer: entity, building, support, ignore_melee, ignore_bullet
+		mask: world, building
+	}
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: logistics.station.00
+	}
+	z: -300.000
+}
+
+interactable:
+{
+	flags: no_tab
+	window_size: [808, 632]
+	window_size_misc: [96, 0]
+	priority: 5.000
+}
+
+health:
+{
+	max: 11000.000
+}
+
+faction.colorable:
+{
+	intensity_a: 0.500
+}
+
+faction:
+{
+
+}
+
+claimable:
+{
+	flags: allow_owner_unclaim
+}
+
+transform:
+{
+
+}
+
+building:
+{
+
+}
+
+nameable:
+{
+	tags: lame, industrial, tool, food, male
+	type: building
+	flags: randomize
+	max_length: 10
+}
+
+// address:
+// {
+	
+// }
+
+// entrance.linkable:
+// {
+
+// }
+
+// shop:
+// {
+// 	tags_filter:
+// 	{
+// 		require: manual
+// 		include: manual, munitions, tailoring, engineering, salvaging, medical, research, social, science
+// 		exclude: advanced, medium, large, huge, vehicle, blacksmithing, smelting, fermenting, heating, overworld
+// 	}
+// 	tags_preferred: crafting, small, device, weapon, tool, munitions, delicate, assembling, tailoring, engineering, cooking, social, construction
+	
+// 	tools: pencil, paper, ruler, hammer, hand_drill, screwdriver, magnifying_glass, bucket, towel, knife, sandpaper, needle, pins, scissors
+// 	infrastructure: dishes, bottle, table, chair, rack, bed, stationery, bucket, surface, office, building
+// 	environment: office, stationary, cozy, quiet, flammable, cramped, small
+// 	connotations: none
+	
+// 	flags: embed_gui
+// 	menu_columns: 4
+// 	recipe_type: workshop
+	
+// 	offset_spawn: [0.000, 0.500]
+	
+// 	name: "Craft"
+// }
+
+// workshop:
+// {
+// 	orders_capacity: 1
+	
+// 	tools: none
+// 	infrastructure: none
+// 	environment: none
+	
+// 	gui_info_size_x: 252.000
+// 	max_order_mass: 80.000
+// }
+
+personnel:
+{
+	characters_capacity: 2
+	flags: draw_heads
+	assign_radius: 20.000
+	
+	slots:
+	[
+		{
+			type: undefined
+			role: quartermaster
+			flags: required
+			tags: management, administrative, civil, industrial, logistics, paperwork, sedentary, commerce, financial
+			color: "0xff5eaaff"
+			multiplier: 1.000
+		}
+		{
+			role: clerk
+			flags: faction, controller, eject_on_destroy, can_craft, can_manage, can_use_inventory
+			
+			tags: administrative, civil, logistics, paperwork, sedentary, commerce, financial
+			color: "0x8f005ec2"
+			multiplier: 1.000
+		}
+		null
+		null
+		null
+		null
+		null
+		null
+	]
+}
+
+logistics:
+{
+	linked_capacity: 10
+	filter_inventory_flags:
+	{
+		exclude: hidden
+	}
+	
+	search_rect: [-3.000, -3.000, 3.000, 3.000]
+
+	@inventory8:
+	{
+		type: buffer
+		flags: ignore_mass, vertical
+		stack_size_multiplier: 4.000
+		
+		filter:
+		{
+			exclude: gas
+		}
+	}
+}
