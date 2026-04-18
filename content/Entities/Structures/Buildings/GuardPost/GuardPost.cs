@@ -99,7 +99,7 @@
 		}
 	}
 
-	public static partial class Guardhouse
+	public static partial class GuardPost
 	{
 		//public enum Polic
 
@@ -140,7 +140,7 @@
 				Search_Toolbelt = 1 << 11,
 			}
 
-			public required Guardhouse.Data.Flags flags;
+			public required GuardPost.Data.Flags flags;
 			public ushort unused_00;
 			public uint unused_01;
 			public required Tickstamp.Interval check_interval;
@@ -174,7 +174,7 @@
 			[Editor.Picker.Box()] public required AABB search_rect;
 		}
 
-		public struct EditRPC: Net.IRPC<Guardhouse.Data>
+		public struct EditRPC: Net.IRPC<GuardPost.Data>
 		{
 			public MaterialPolicy? policy_material;
 			public ItemPolicy? policy_item;
@@ -182,14 +182,14 @@
 			public NPC.ItemHints? item_hints_blacklist;
 
 #if SERVER
-			public void Invoke(Net.IRPC.Context rpc, ref Guardhouse.Data data)
+			public void Invoke(Net.IRPC.Context rpc, ref GuardPost.Data data)
 			{
 				var sync = false;
 
 				ref var policy_material_new = ref this.policy_material.GetRefOrNull();
 				if (policy_material_new.IsNotNull())
 				{
-					//sync |= data.policy_material.filter_flags.TryChange(policy_material_new.filter_flags);
+					sync |= data.policy_material.filter_tags.TryChange(policy_material_new.filter_tags);
 					sync |= data.policy_material.filter_hints.TryChange(policy_material_new.filter_hints);
 					//sync |= data.policy_material.filter_connotations.TryChange(policy_material_new.filter_connotations);
 				}
@@ -211,44 +211,44 @@
 		}
 
 		[ISystem.Update.B(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void OnUpdate(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity ent_guardhouse,
-		[Source.Owned] ref Personnel.Data personnel, [Source.Owned] ref Guardhouse.Data guardhouse,
+		public static void OnUpdate(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity ent_guardpost,
+		[Source.Owned] ref Personnel.Data personnel, [Source.Owned] ref GuardPost.Data guardpost,
 		[Source.Owned] ref Body.Data body, [Source.Owned] in Transform.Data transform)
 		{
-			if (region.GetCurrentTickstamp().CheckInterval(guardhouse.check_interval))
+			if (region.GetCurrentTickstamp().CheckInterval(guardpost.check_interval))
 			{
-				var ts = Timestamp.Now();
-				var rect_world = guardhouse.search_rect.Translate(transform.position); // transform.LocalToWorld(guardhouse.search_rect);
+				//var ts = Timestamp.Now();
+				var rect_world = guardpost.search_rect.Translate(transform.position); // transform.LocalToWorld(guardpost.search_rect);
 
 				var results_span = FixedArray.CreateSpan32NoInit<OverlapBBResult>(out var results_buffer);
 				if (region.TryOverlapBBAll(rect: rect_world, hits: ref results_span,
-				require: guardhouse.filter_search.require, exclude: guardhouse.filter_search.exclude,
+				require: guardpost.filter_search.require, exclude: guardpost.filter_search.exclude,
 				mask: Physics.Layer.Storage | Physics.Layer.Item | Physics.Layer.Shipment | Physics.Layer.Resource | Physics.Layer.Harvestable | Physics.Layer.Crate,
 				query_flags: Physics.QueryFlag.Dynamic))
 				{
 
 				}
 
-				var ts_elapsed = ts.GetMilliseconds();
-#if SERVER
-				WorldNotification.Push(region: ref region, message: $"{results_span.Length}\n{ts_elapsed:0.000} ms", 
-					color: results_span.IsEmpty ? Color32BGRA.Yellow : Color32BGRA.Green, position: transform.position);
-#endif
+//				var ts_elapsed = ts.GetMilliseconds();
+//#if SERVER
+//				WorldNotification.Push(region: ref region, message: $"{results_span.Length}\n{ts_elapsed:0.000} ms", 
+//					color: results_span.IsEmpty ? Color32BGRA.Yellow : Color32BGRA.Green, position: transform.position);
+//#endif
 			}
 		}
 
 #if CLIENT
-		public struct GuardhouseGUI: IGUICommand
+		public struct GuardPostGUI: IGUICommand
 		{
-			public Entity ent_guardhouse;
+			public Entity ent_guardpost;
 
-			public Guardhouse.Data guardhouse;
+			public GuardPost.Data guardpost;
 			public Personnel.Data personnel;
 			public Transform.Data transform;
 
 			public void Draw()
 			{
-				using (var window = GUI.Window.Interaction(identifier: "Guard Post"u8, entity: this.ent_guardhouse,
+				using (var window = GUI.Window.Interaction(identifier: "Guard Post"u8, entity: this.ent_guardpost,
 				color_tab: 0xff719240, tooltip_tab: "Manage guards and security policies."))
 				{
 					this.StoreCurrentWindowTypeID(order: -1000);
@@ -259,36 +259,36 @@
 							group_policies.DrawBackground(GUI.tex_window);
 
 							const Material.Flags mask_material_flags_default = ~(Material.Flags.RESERVED_13 | Material.Flags.RESERVED_62 | Material.Flags.Primary | Material.Flags.Ammo_Musket);
-							if (GUI.EnumInput("material.flags"u8, ref this.guardhouse.policy_material.filter_tags, size: new(GUI.RmX, 40), show_none: true,
+							if (GUI.EnumInput("material.flags"u8, ref this.guardpost.policy_material.filter_tags, size: new(GUI.RmX, 40), show_none: true,
 							mask: mask_material_flags_default, max_flags: 8, show_label: false, columns: 3, tooltip: "Blacklist (Material Types)"u8))
 							{
-								var rpc = new Guardhouse.EditRPC
+								var rpc = new GuardPost.EditRPC
 								{
-									policy_material = this.guardhouse.policy_material
+									policy_material = this.guardpost.policy_material
 								};
-								rpc.Send(this.ent_guardhouse);
+								rpc.Send(this.ent_guardpost);
 							}
 
 							const NPC.ItemHints mask_hints_default = ~(NPC.ItemHints.None);
-							if (GUI.EnumInput("material.hints"u8, ref this.guardhouse.policy_material.filter_hints, size: new(GUI.RmX, 40), show_none: true,
+							if (GUI.EnumInput("material.hints"u8, ref this.guardpost.policy_material.filter_hints, size: new(GUI.RmX, 40), show_none: true,
 							mask: mask_hints_default, max_flags: 12, show_label: false, columns: 3, tooltip: "Blacklist (Material Properties)"u8))
 							{
-								var rpc = new Guardhouse.EditRPC
+								var rpc = new GuardPost.EditRPC
 								{
-									policy_material = this.guardhouse.policy_material
+									policy_material = this.guardpost.policy_material
 								};
-								rpc.Send(this.ent_guardhouse);
+								rpc.Send(this.ent_guardpost);
 							}
 
 							//const NPC.Connotations mask_connotations_default = ~(NPC.Connotations.None);
-							//if (GUI.EnumInput("material.connotations"u8, ref this.guardhouse.policy_material.filter_connotations, size: new(GUI.RmX, 40), show_none: true,
+							//if (GUI.EnumInput("material.connotations"u8, ref this.guardpost.policy_material.filter_connotations, size: new(GUI.RmX, 40), show_none: true,
 							//mask: mask_connotations_default, max_flags: 12, show_label: false, columns: 3, tooltip: "Blacklist (Material Connotations)"u8))
 							//{
-							//	var rpc = new Guardhouse.EditRPC
+							//	var rpc = new GuardPost.EditRPC
 							//	{
-							//		policy_material = this.guardhouse.policy_material
+							//		policy_material = this.guardpost.policy_material
 							//	};
-							//	rpc.Send(this.ent_guardhouse);
+							//	rpc.Send(this.ent_guardpost);
 							//}
 						}
 					}
@@ -297,17 +297,17 @@
 		}
 
 		[ISystem.GUI(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void OnGUI([Source.Owned] in Interactable.Data interactable, Entity ent_guardhouse,
-		[Source.Owned] in Guardhouse.Data guardhouse, [Source.Owned] in Personnel.Data personnel,
+		public static void OnGUI([Source.Owned] in Interactable.Data interactable, Entity ent_guardpost,
+		[Source.Owned] in GuardPost.Data guardpost, [Source.Owned] in Personnel.Data personnel,
 		[Source.Owned] in Transform.Data transform)
 		{
 			if (interactable.IsActive())
 			{
-				var gui = new GuardhouseGUI()
+				var gui = new GuardPostGUI()
 				{
-					ent_guardhouse = ent_guardhouse,
+					ent_guardpost = ent_guardpost,
 
-					guardhouse = guardhouse,
+					guardpost = guardpost,
 					personnel = personnel,
 					transform = transform
 				};

@@ -1,7 +1,6 @@
 ﻿{
-	$region_id: 0
 	$version: "0.1.74.0"
-	name: "Guardhouse"
+	name: "Guardpost"
 	
 	stages:
 	[
@@ -262,7 +261,7 @@
 	[
 		{
 			type: prefab
-			prefab: guardhouse.00
+			prefab: guardpost.00
 			amount: 1.000
 			group: 0
 			flags: primary, hidden
@@ -282,7 +281,7 @@
 	
 	icon:
 	{
-		texture: guardhouse.00
+		texture: guardpost.00
 		size: [32, 40]
 	}
 	

@@ -1,4 +1,4 @@
-$name: "Guardhouse"
+$name: "Guardpost"
 $desc:
 	'''
 	Small building used for storing and managing guards.
@@ -28,7 +28,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: guardhouse.00
+		texture: guardpost.00
 	}
 	z: -300.000
 }
@@ -203,7 +203,7 @@ shipment:
 	layout: large
 }
 
-guardhouse:
+guardpost:
 {
 	flags: search_inventories, search_shipments, search_attached, search_toolbelt
 	check_interval: t008
