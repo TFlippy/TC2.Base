@@ -48,6 +48,8 @@ namespace TC2.Base.Components
 
 			[Statistics.Info("Release Step", description: "TODO: Desc", format: "{0:0.##} ml/s", comparison: Statistics.Comparison.None, priority: Statistics.Priority.Medium)]
 			public float release_step;
+
+			private float unused_00;
 		}
 
 		[IEvent.Data]

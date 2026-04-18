@@ -35,7 +35,9 @@ namespace TC2.Base.Components
 			public byte fps_close = 10;
 			public byte fps_open = 10;
 			[Asset.Ignore] public float animation_progress;
+
 			[Asset.Ignore, Net.Ignore, Save.Ignore] public float last_use_time;
+			[Asset.Ignore, Net.Ignore, Save.Ignore] private float unused_00;
 		}
 
 		public enum Direction: byte
