@@ -251,125 +251,125 @@ storage:
 	}
 }
 
-+slot.skyhook|instance:
-{
-	joint.base:
-	{
-		offset_a: [44.125, 20.250]
-		max_force: 500000.000
-		max_torque: 20000.000
-		flags: no_stress
-	}
+// +slot.skyhook|instance:
+// {
+// 	joint.base:
+// 	{
+// 		offset_a: [44.125, 20.250]
+// 		max_force: 500000.000
+// 		max_torque: 20000.000
+// 		flags: no_stress
+// 	}
 
-	joint.rope:
-	{
-		distance: 80.000
-	}
+// 	joint.rope:
+// 	{
+// 		distance: 80.000
+// 	}
 
-	rope.renderer:
-	{
-		texture: skyhook.00.cable
-		thickness: 0.300
-		scale: 6.000
-		z: -400.000
-	}
+// 	rope.renderer:
+// 	{
+// 		texture: skyhook.00.cable
+// 		thickness: 0.300
+// 		scale: 6.000
+// 		z: -400.000
+// 	}
 
-	+attached|child:
-	{
-		$name: "Skyhook"
-		$tags: []
+// 	+attached|child:
+// 	{
+// 		$name: "Skyhook"
+// 		$tags: []
 		
-		body:
-		{
-			type: dynamic
+// 		body:
+// 		{
+// 			type: dynamic
 			
-			@shape.polygon:
-			{
-				material: metal
-				miss_chance: 0.000
-				flags: none
-				tags: none
+// 			@shape.polygon:
+// 			{
+// 				material: metal
+// 				miss_chance: 0.000
+// 				flags: none
+// 				tags: none
 				
-				layer: entity
-				mask: world
-				exclude: none
+// 				layer: entity
+// 				mask: world
+// 				exclude: none
 				
-				mass: 500.000
-				radius: 0.500
-				friction: 0.950
-				elasticity: 0.500
+// 				mass: 500.000
+// 				radius: 0.500
+// 				friction: 0.950
+// 				elasticity: 0.500
 				
-				cog_offset: [0.000, 1.250]
+// 				cog_offset: [0.000, 1.250]
 				
-				points:
-				[
-					[-0.500, -2.625]
-					[0.500, -2.625]
-					[1.500, 1.500]
-					[-1.500, 1.500]
-				]
-			}
-		}
+// 				points:
+// 				[
+// 					[-0.500, -2.625]
+// 					[0.500, -2.625]
+// 					[1.500, 1.500]
+// 					[-1.500, 1.500]
+// 				]
+// 			}
+// 		}
 
-		transform:
-		{
+// 		transform:
+// 		{
 		
-		}
+// 		}
 		
-		health:
-		{
-			max: 880000.000
-		}
+// 		health:
+// 		{
+// 			max: 880000.000
+// 		}
 		
-		animated.renderer:
-		{
-			sprite:
-			{
-				texture: skyhook.00.atlas
-				frame: [0, 0]
-				size: [32, 48]
-			}
-			z: -100.000
-		}
+// 		animated.renderer:
+// 		{
+// 			sprite:
+// 			{
+// 				texture: skyhook.00.atlas
+// 				frame: [0, 0]
+// 				size: [32, 48]
+// 			}
+// 			z: -100.000
+// 		}
 
-		faction:
-		{
+// 		faction:
+// 		{
 			
-		}
+// 		}
 
-		company:
-		{
-			h_company: postus
-		}
+// 		company:
+// 		{
+// 			h_company: postus
+// 		}
 
-		market:
-		{
+// 		market:
+// 		{
 
-		}
+// 		}
 
-		minimap.marker:
-		{
-			sprite:
-			{
-				texture: ui_icons_minimap
-				size: [16, 16]
-				frame: [0, 0]
-			}
-		}
+// 		minimap.marker:
+// 		{
+// 			sprite:
+// 			{
+// 				texture: ui_icons_minimap
+// 				size: [16, 16]
+// 				frame: [0, 0]
+// 			}
+// 		}
 
-		interactable:
-		{
-			flags: none
-			window_size: [496, 432]
-			window_size_misc: [96, 0]
-		}
+// 		interactable:
+// 		{
+// 			flags: none
+// 			window_size: [496, 432]
+// 			window_size_misc: [96, 0]
+// 		}
 
-		skyhook:
-		{
+// 		skyhook:
+// 		{
 			
-		}
-	}
-}
+// 		}
+// 	}
+// }
 
 +slot.left|instance:
 {

@@ -14,7 +14,7 @@ namespace TC2.Base.Components
 		{
 			//App.WriteLine(ent_projectile);
 
-			if (projectile.ricochet_count > 0 && ev.flags.HasNone(Projectile.ImpactEvent.Flags.Is_Ricochet))
+			if (ev.flags.HasNone(Projectile.ImpactEvent.Flags.Is_Ricochet) && projectile.ricochet_count > 0)
 			{
 				var ricochet_chance = (ev.ricochet_base + ev.ricochet_extra) * (1.00f - (ev.hit_applied_ratio * 0.95f)) * projectile.ricochet_chance_multiplier;
 				if (ev.flags.TryAddFlag(Projectile.ImpactEvent.Flags.Is_Ricochet, ev.random.NextFloat01() < ricochet_chance))
@@ -36,7 +36,7 @@ namespace TC2.Base.Components
 			}
 
 #if SERVER
-			if (ev.damage > 0.00f && ev.flags.HasNone(Projectile.ImpactEvent.Flags.No_Damage))
+			if (ev.flags.HasNone(Projectile.ImpactEvent.Flags.No_Damage) && ev.damage > 0.00f)
 			{
 				//App.WriteLine($"hit {ev.hit_dot} {ev.damage_type} {ev.hit_material_type}; {ev.ent_hit.GetFullName()}");
 

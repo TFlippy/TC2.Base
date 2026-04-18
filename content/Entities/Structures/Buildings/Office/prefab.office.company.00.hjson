@@ -1,0 +1,128 @@
+$name: "Company Office"
+$desc:
+	'''
+	Company-oriented bureaucracy is performed here.
+	'''
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.box:
+	{
+		size: [6.000, 5.000]
+		offset: [0.000, 0.000]
+		mass: 550.000
+		friction: 0.500
+		elasticity: 0.500
+		material: stone_slab
+		layer: entity, building, support, ignore_melee, storage
+		mask: world
+	}
+}
+
+health:
+{
+	max: 14500.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "office.company.00"
+	}
+	z: -300.000
+}
+
+transform:
+{
+
+}
+
+building:
+{
+
+}
+
+interactable:
+{
+	flags: no_tab
+	window_size: [676.000, 456.000]
+	window_size_min: [192.000, 144.000]
+	window_size_misc: [144.000, 0.000]
+	window_offset: [0.000, 0.000]
+}
+
+faction:
+{
+
+}
+
+claimable:
+{
+	flags: no_menu
+}
+
+company:
+{
+	logo_type: sign_2x1
+
+	@light:
+	{
+		// color: [1.000, 0.750, 0.100, 2.000]
+		color: [1.000, 0.750, 0.100, 2.500]
+		offset: [0.875, -2.250]
+		scale: [32.000, 12.000]
+		intensity: 1.000
+		texture: "light.circle.04"
+	}
+
+	@animated.renderer:
+	{
+		offset: [0.875, -1.500]
+		z: -295.000
+	}
+}
+
+office:
+{
+	flags: enable_register_company
+}
+
+address:
+{
+	
+}
+
+entrance.linkable:
+{
+
+}
+
+personnel:
+{
+	characters_capacity: 2
+	assign_radius: 20.000
+
+	slots:
+	[
+		{
+			type: undefined
+			role: inspector
+			flags: none
+			tags: security, administrative, civil, paperwork, sedentary
+			color: "0x8f005ec2"
+			multiplier: 1.000
+		}
+		{
+			type: undefined
+			role: guard
+			flags: none
+			tags: security, combat, military
+			color: "0xff719240"
+			multiplier: 1.000
+		}
+	]
+}

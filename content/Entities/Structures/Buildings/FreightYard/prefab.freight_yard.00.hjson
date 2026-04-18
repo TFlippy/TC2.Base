@@ -1,0 +1,284 @@
+$name: "Freight Yard"
+$desc:
+	'''
+	TODO: Desc
+	'''
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.polygon:
+	{
+		points:
+		[
+			[-4.125, -2.750]
+			[-1.000, -2.750]
+			[1.500, 3.000]
+			[-4.250, 3.000]
+		]
+		
+		mass: 5000.000
+		radius: 1.000
+		
+		material: building_masonry
+		
+		layer: entity, building, support, ignore_melee
+	}
+
+	@shape.line:
+	{
+		a: [-5.250, 4.000]
+		b: [5.250, 4.000]
+		offset: [0.000, 0.000]
+		friction: 0.920
+		elasticity: 0.600
+		radius: 0.750
+		mass: 1000.000
+		material: building_reinforced
+		layer: entity, solid, platform, ignore_melee
+		mask: world, solid, crate, shipment
+		exclude: vehicle, platform, stored, wheel
+	}
+}
+
+nameable:
+{
+	tags: industrial, market
+	flags: randomize
+	type: building
+	max_length: 16
+}
+
+// health:
+// {
+// 	max: 180000.000
+// }
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "freight_yard.00"
+		mask: "freight_yard.00.mask"
+	}
+	z: -300.000
+}
+
+faction:
+{
+
+}
+
+faction.colorable:
+{
+	intensity_a: 0.600
+}
+
+transform:
+{
+
+}
+
+building:
+{
+
+}
+
+claimable:
+{
+	flags: no_menu, enable_wololo
+}
+
+spawn:
+{
+	flags: public
+}
+
+minimap.marker:
+{
+	sprite:
+	{
+		texture: "ui_icons_minimap"
+		size: [16, 16]
+		frame: [7, 0]
+	}
+
+	flags: spawner
+}
+
+interactable:
+{
+	flags: no_tab
+	priority: 0.150
+	window_size: [726.000, 450.000]
+	window_size_misc: [144.000, 0.000]
+}
+
+stockpile:
+{
+	request_types: pack, unpack, move, send, load
+	flags: hide_unowned
+	grid_column_count: 6
+	capacity_items: 12
+	capacity_shipments: 9
+}
+
+// market:
+// {
+// 	// company_register_mask: proprietorship, cooperative, charity, partnership, gang, community, union, guild, cult
+
+// 	perms_owner: buy, sell, add, remove, restock
+// 	perms_faction: buy, sell
+// 	perms_ally: buy, sell
+// 	perms_neutral: buy, sell
+// 	perms_enemy: none
+
+// 	@inventory1:
+// 	{
+// 		type: money
+// 		stack_size_multiplier: 10.000
+// 		flags: ignore_mass, no_auto_pickup, faction
+// 		filter_flags: currency
+// 	}
+// }
+
+dormitory:
+{
+	species: human
+	flags: no_kit_selection, no_kit_requirements, region_only, no_gui
+	characters_capacity: 6
+	repopulate_interval: 900.000
+	repopulate_interval_extra: 300.000
+	repopulate_num: 1
+	repopulate_num_extra: 4
+	repopulate_max: 6
+	asset_flags: recycle
+	character_flags_filter:
+	{
+		require: none
+		include: construction, scientist, criminal, educated, military, medical, artisan, laborer, civillian, law, social, commerce, technician, engineer, miner, hunter, culinary, soldier, alcoholic, nomad, entertainer, artist, thief, lower_middle_class, middle_class
+		exclude: slave, lowlife, illiterate, lower_class, upper_class, elite_class
+		weight: 1.000
+	}
+	kit_categories_filter:
+	{
+		exclude: illegal, explosive, contraband, outlaw
+	}
+}
+
+office:
+{
+	flags: enable_invite_company
+}
+
+company:
+{
+	logo_type: sign_4x2
+
+	@light:
+	{
+		// color: [1.000, 0.750, 0.100, 2.000]
+		color: [1.000, 0.750, 0.100, 2.500]
+		offset: [-2.875, -1.125]
+		scale: [15.000, 20.000]
+		intensity: 1.150
+		texture: "light.box.01"
+	}
+
+	@animated.renderer:
+	{
+		offset: [-2.750, -2.375]
+		z: -295.000
+	}
+}
+
+packer:
+{
+	size: [4.000, 5.500]
+	offset: [1.500, 0.250]
+}
+
+shipment:
+{
+	type: buffer
+	flags: keep_items, no_gui, allow_deposit, allow_withdraw
+}
+
+// location:
+// {
+
+// }
+
+checkpoint:
+{
+
+}
+
+entrance.linkable:
+{
+	
+}
+
+address:
+{
+	flags: auto_generate
+}
+
+personnel:
+{
+	assign_radius: 20.000
+	slots:
+	[
+		{
+			type: undefined
+			role: quartermaster
+			flags: required
+			tags: management, administrative, civil, industrial, logistics, paperwork, sedentary, commerce, financial
+			color: "0xff5eaaff"
+			multiplier: 1.000
+		}
+		{
+			type: undefined
+			role: guard
+			flags: none
+			tags: security, combat, military, dangerous
+			color: "0xff719240"
+			multiplier: 1.000
+		}
+		{
+			type: undefined
+			role: foreman
+			flags: none
+			tags: management, civil, industrial, logistics, paperwork
+			color: "0xffff8333"
+			multiplier: 1.000
+		}
+		{
+			type: undefined
+			role: porter
+			flags: none
+			tags: civil, industrial, logistics, manual_labor
+			color: "0xffffa800"
+			multiplier: 1.000
+		}
+		{
+			type: undefined
+			role: porter
+			flags: none
+			tags: civil, industrial, logistics, manual_labor
+			color: "0xffffa800"
+			multiplier: 1.000
+		}
+		{
+			type: undefined
+			role: porter
+			flags: none
+			tags: civil, industrial, logistics, manual_labor
+			color: "0xffffa800"
+			multiplier: 1.000
+		}
+	]
+	characters_capacity: 6
+}

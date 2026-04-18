@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.70.1"
+	$version: "0.1.74.0"
 	name: "Post (Wood)"
 	tips: []
 	
@@ -43,7 +43,7 @@
 	
 	color_frame: "0xffaeb59a"
 	color_button: "0xff9dd80f"
-	rank: 13.000
+	rank: 100.000
 	
 	placement:
 	{

@@ -1,7 +1,15 @@
 ﻿{
-	$version: "0.1.72.1"
+	$version: "0.1.74.0"
 	name: "Badger-Class Armor"
 	tips: []
+	
+	related_materials:
+	{
+		cloth: input, auto_generated
+		leather: raw, input, auto_generated
+		steel.plate: input, auto_generated
+		steel.frames: input, auto_generated
+	}
 	
 	stages:
 	[
@@ -60,8 +68,8 @@
 					
 					filter_tools:
 					{
-						require: cutters, needle, pins
-						include: pencil, ruler, cutters, pliers, tweezers, knife, pins
+						require: needle, pins
+						include: cutters, pliers, tweezers, knife, needle, pins, scissors, utensils
 					}
 				}
 			]

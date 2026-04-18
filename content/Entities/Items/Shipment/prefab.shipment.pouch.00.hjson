@@ -74,7 +74,7 @@ nameable:
 
 shipment:
 {
-	flags: delete_if_empty, allow_withdraw, allow_deposit, public, no_empty_deposit
+	flags: delete_if_empty, allow_withdraw, allow_deposit, public, no_empty_deposit, cached
 	type: pouch
 	layout: square
 	h_container: pouch.00

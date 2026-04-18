@@ -8,7 +8,7 @@ projectile:
 	stun_multiplier: 80.000
 	pain_multiplier: 3.500
 	ignore_time: 0.000
-	ricochet_count: 0
+	ricochet_count: 1
 	lifetime: 1.500
 	damage_type: punch
 	size: 0.500

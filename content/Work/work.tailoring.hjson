@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.74.0"
 	name: "Tailoring"
 	name_short: "Tailoring"
 	desc:
@@ -15,7 +15,7 @@
 	}
 	
 	flags: manual, wip
-	tags: skilled, tools, leisure, careful
+	tags: skilled, tools, leisure, delicate, careful
 	
 	amount_base: 0.300
 	cooldown: 0.850
@@ -25,8 +25,8 @@
 	cooldown_jitter: 0.196
 	color: "0xffdd4f60"
 	
-	tools_required: cutters, needle, pins
-	tools_optional: pencil, ruler, cutters, pliers, tweezers, knife, pins
+	tools_required: needle, pins
+	tools_optional: cutters, pliers, tweezers, knife, needle, pins, scissors, utensils
 	
 	infrastructure_required: none
 	infrastructure_optional: none

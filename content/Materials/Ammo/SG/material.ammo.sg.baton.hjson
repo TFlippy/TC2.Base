@@ -71,10 +71,10 @@
 		count: 1
 		mass: 0.070
 		heat: 50.000
-		velocity_min: 30.000
+		velocity_min: 10.000
 		
 		speed_base: 0.000
-		speed_mult: 0.350
+		speed_mult: 0.400
 		speed_jitter: 0.030
 		spin_base: 0.010
 		spin_mult: 1.000
