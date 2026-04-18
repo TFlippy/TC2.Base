@@ -46,7 +46,7 @@ body:
 		material: building_reinforced
 		miss_chance: 0.090
 		
-		layer: entity, solid, building, support, ignore_melee
+		layer: entity, solid, building, support, ignore_melee, crafter
 		mask: world, building
 		exclude: gas, held, attached
 	}

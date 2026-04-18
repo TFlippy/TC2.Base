@@ -19,7 +19,7 @@ body:
 		
 		material: building_reinforced
 		
-		layer: entity, building, support, ignore_melee, ignore_bullet, background
+		layer: entity, building, support, ignore_melee, ignore_bullet, background, workshop
 		mask: world, building
 	}
 }

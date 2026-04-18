@@ -27,7 +27,7 @@ body:
 		material: stone_slab
 		miss_chance: 0.702
 		
-		layer: entity, solid, building, support, ignore_melee, background
+		layer: entity, solid, building, support, ignore_melee, background, crafter
 		mask: world, building
 		exclude: none
 	}

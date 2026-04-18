@@ -19,7 +19,7 @@ body:
 		
 		material: building_masonry
 		
-		layer: entity, building, support, storage, ignore_melee, ignore_bullet, flammable
+		layer: entity, building, support, storage, ignore_melee, ignore_bullet, flammable, workshop
 		mask: world, building
 	}
 }

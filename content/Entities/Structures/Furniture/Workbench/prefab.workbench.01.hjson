@@ -35,7 +35,7 @@ body:
 
 health:
 {
-	max: 49400.000
+	max: 38000.000
 }
 
 // faction.colorable:
@@ -143,7 +143,7 @@ workshop:
 
 	@inventory8:
 	{
-		stack_size_multiplier: 1.000
+		stack_size_multiplier: 2.000
 		type: workshop
 		flags: ignore_mass, standalone, public, vertical, no_auto_pickup
 

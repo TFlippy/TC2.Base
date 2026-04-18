@@ -161,6 +161,8 @@ personnel:
 logistics:
 {
 	linked_capacity: 10
+	
+	filter_inventory_types: storage, input, output, ammo, waste, workshop
 	filter_inventory_flags:
 	{
 		exclude: hidden

@@ -16,8 +16,10 @@
 			public required Logistics.Data.Flags flags;
 			[Save.Force] public required byte linked_capacity;
 
+			[Save.NewLine]
+			[Save.Force] public required BitField<Inventory.Type> filter_inventory_types;
 			public Filter.Mask2x<Inventory.Flags> filter_inventory_flags;
-			public Filter.Mask2x<Material.Flags> filter_material_flags;
+			//public Filter.Mask2x<Material.Flags> filter_material_flags;
 
 			[Save.NewLine]
 			[Save.Force, Editor.Picker.Box] public required AABB search_rect;
@@ -29,7 +31,7 @@
 		public struct EditRPC: Net.IRPC<Logistics.Data>
 		{
 			public Filter.Mask2x<Inventory.Flags>? edit_filter_inventory_flags;
-			public Filter.Mask2x<Material.Flags>? edit_filter_material_flags;
+			//public Filter.Mask2x<Material.Flags>? edit_filter_material_flags;
 
 
 #if SERVER
@@ -64,8 +66,18 @@
 
 				if (this.ent_inventory)
 				{
-					Assert.Check(!span_linked.Contains(this.ent_inventory));
-					sync |= span_linked[this.index_link].TrySet(this.ent_inventory);
+					var index_old = span_linked.IndexOf(this.ent_inventory);
+					if (index_old >= 0)
+					{
+						(span_linked[index_old], span_linked[this.index_link]) = (span_linked[this.index_link], span_linked[index_old]);
+						sync |= true;
+					}
+					else
+					{
+						sync |= span_linked[this.index_link].TrySet(this.ent_inventory);
+					}
+					//Assert.Check(!span_linked.Contains(this.ent_inventory));
+					//sync |= span_linked[this.index_link].TrySet(this.ent_inventory);
 				}
 				else
 				{
@@ -100,6 +112,12 @@
 			public IFaction.Handle h_faction;
 			public ICompany.Handle h_company;
 
+			public static Entity ent_storage_hovered;
+			public static Entity ent_storage_hovered_cached;
+
+			public static Entity ent_storage_selected;
+			public static Entity ent_storage_selected_cached;
+
 			public void Draw()
 			{
 				using (var window = GUI.Window.Interaction(identifier: "Logistics Station"u8, entity: this.ent_logistics,
@@ -111,6 +129,12 @@
 						ref var region_common = ref this.ent_logistics.GetRegionCommon();
 						var span_linked = this.logistics.linked_ents.Slice(this.logistics.linked_capacity);
 						var h_character_client = Client.GetCharacterHandle();
+
+						//ref var body_self = ref this.ent_logistics.gettra
+
+						//var rect_body_self = this.ent_logistics.rect
+
+						(ent_storage_hovered, ent_storage_hovered_cached) = (Entity.Empty, ent_storage_hovered);
 
 						using (var group_left = GUI.Group.New(size: new(298 - 48, GUI.RmY), padding: new(6)))
 						{
@@ -125,17 +149,28 @@
 								{
 									if (group_row.IsVisible())
 									{
-										var ent_picker_tmp = span_linked[i];
-										var is_alive = ent_picker_tmp.IsAlive();
+										var ent_storage = span_linked[i];
+										var ent_storage_tmp = ent_storage;
+										var is_alive = ent_storage.IsAlive();
+
+										if (ent_storage != 0 && (ent_storage == ent_storage_hovered_cached || ent_storage == ent_storage_selected_cached))
+										{
+											//GUI.DrawRect(rect, color: GUI.font_color_orange, layer: GUI.Layer.Window);
+											GUI.DrawRectFilled(group_row.GetOuterRect(), color: GUI.col_default, layer: GUI.Layer.Window);
+										}
 
 										if (GUI.EntityPicker(identifier: "picker.logi"u8, name: "Link"u8, size: new(52, GUI.RmY),
-										region_id: region_common.GetID(), entity: ref ent_picker_tmp, color: is_alive ? GUI.col_button_yellow : GUI.col_button))
+										region_id: region_common.GetID(), entity: ref ent_storage_tmp, color: is_alive ? GUI.col_button_yellow : GUI.col_button,
+										layer_require: Physics.Layer.Static, 
+										layer_include: Physics.Layer.Storage | Physics.Layer.Workshop | Physics.Layer.Crafter, 
+										layer_exclude: Physics.Layer.Resource | Physics.Layer.World | Physics.Layer.Ignore_Hover | Physics.Layer.Zone | Physics.Layer.Conveyor | 
+										Physics.Layer.Belt | Physics.Layer.Pipe | Physics.Layer.Construction | Physics.Layer.Dynamic))
 										{
-											App.WriteValue(ent_picker_tmp);
+											App.WriteValue(ent_storage_tmp);
 
 											var rpc = new Logistics.LinkRPC
 											{
-												ent_inventory = ent_picker_tmp,
+												ent_inventory = ent_storage_tmp,
 												index_link = (byte)i
 											};
 											rpc.Send(this.ent_logistics);
@@ -144,6 +179,7 @@
 										GUI.SameLine();
 
 										using (var group_info = GUI.Group.New(size: GUI.Rm.SubX(GUI.RmY)))
+										using (GUI.Wrap.Push(GUI.RmX))
 										{
 											var color = Color32BGRA.GUI;
 											group_info.DrawBackground(GUI.tex_slot_white, color: color.WithAlpha(192).WithColorDiv(Maths.Factor.x2));
@@ -155,15 +191,19 @@
 												//var name_a = is_alive ? ent_picker_tmp.GetName() : "<none>";
 												//var name_b = is_alive ? ent_picker_tmp.GetPrefabName() : null;
 
-												var name_a = ent_picker_tmp.GetName();
-												var name_b = ent_picker_tmp.GetPrefabName();
+												var name_a = ent_storage.GetName();
+												var name_b = ent_storage.GetPrefabName();
 												if (string.Equals(name_a, name_b, StringComparison.Ordinal)) name_b = null;
 
 												GUI.TitleCentered(name_a, pivot: new(0.00f, 0.00f), offset: new(6, 2));
 												if (name_b is not null) GUI.TextShadedCentered(name_b, pivot: new(0.00f, 1.00f), offset: new(6, -2), size: 14);
 											}
 										}
-
+										
+										if (GUI.Selectable3(id, rect: GUI.GetLastItemRect(), selected: ent_storage != 0 && ent_storage == ent_storage_selected_cached))
+										{
+											ent_storage_selected_cached.Toggle(ent_storage);
+										}
 
 										GUI.SameLine();
 
@@ -177,6 +217,12 @@
 											rpc.Send(this.ent_logistics);
 										}
 									}
+								}
+
+								if (GUI.IsItemHovered(out var rect))
+								{
+									ent_storage_hovered = span_linked[i];
+									//GUI.DrawRect(rect, color: GUI.font_color_orange, layer: GUI.Layer.Window);
 								}
 							}
 						}
@@ -201,16 +247,16 @@
 									ts = Timestamp.Now();
 									for (var i = 0; i < span_linked.Length; i++)
 									{
-										var ent_linked = span_linked[i];
-										if (ent_linked.TryGetRecord(out var rec))
+										var ent_storage = span_linked[i];
+										if (ent_storage.TryGetRecord(out var rec))
 										{
 											//var draw_separator = false;
 
-											foreach (var inventory in ent_linked.GetInventories())
+											foreach (var inventory in ent_storage.GetInventories())
 											{
 												//if (inventory.IsAccessible(h_character_client))
 
-												if (inventory.Flags.Evaluate(this.logistics.filter_inventory_flags)) //.HasAnyExcept(Inventory.Flags.Public, Inventory.Flags.Hidden))
+												if (this.logistics.filter_inventory_types.Has(inventory.Type) && inventory.Flags.Evaluate(this.logistics.filter_inventory_flags)) //.HasAnyExcept(Inventory.Flags.Public, Inventory.Flags.Hidden))
 												{
 													var frame_size_pref = inventory.GetPreferedFrameSize();
 
@@ -219,14 +265,30 @@
 
 													using (var group_inventory = GUI.Group.New(size: frame_size_pref))
 													{
-														GUI.DrawInventory(inventory);
+														if (group_inventory.IsVisible())
+														{
+															if (ent_storage != 0 && (ent_storage == ent_storage_hovered_cached || ent_storage == ent_storage_selected_cached))
+															{
+																//GUI.DrawRect(rect, color: GUI.font_color_orange, layer: GUI.Layer.Window);
+																GUI.DrawRectFilled(group_inventory.GetOuterRect(), color: GUI.col_default.WithAlpha(100), layer: GUI.Layer.Window);
+															}
+
+															GUI.DrawInventory(inventory);
+														}
 													}
 
 													//var last_rect = GUI.GetLastItemRect();
 													if (GUI.IsItemHovered(out var rect))
 													{
-														GUI.DrawRect(rect, color: GUI.font_color_orange, layer: GUI.Layer.Window);
+														ent_storage_hovered = ent_storage;
+														//GUI.DrawRect(rect, color: GUI.font_color_orange, layer: GUI.Layer.Window);
 													}
+
+													//if (ent_linked == ent_storage_hovered_cached)
+													//{
+													//	//GUI.DrawRect(rect, color: GUI.font_color_orange, layer: GUI.Layer.Window);
+													//	GUI.DrawRectFilled(rect, color: GUI.font_color_yellow_b.WithAlpha(16), layer: GUI.Layer.Window);
+													//}
 
 													//draw_separator = true;
 													total_inventories++;
@@ -243,7 +305,7 @@
 
 								using (var group_side = GUI.Group.New(size: GUI.Rm))
 								{
-									if (this.ent_logistics.TryGetInventory(Inventory.Type.Buffer, out var inventory_buffer))
+									if (this.ent_logistics.TryGetInventory2(Inventory.Type.Buffer, out var inventory_buffer))
 									{
 										GUI.DrawInventory(inventory_buffer);
 									}

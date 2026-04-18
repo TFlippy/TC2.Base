@@ -29,7 +29,7 @@ body:
 		material: metal
 		miss_chance: 0.696
 		
-		layer: entity, solid, background, building, support, ignore_melee
+		layer: entity, solid, background, building, support, ignore_melee, crafter
 		mask: world, building
 		exclude: none
 	}
