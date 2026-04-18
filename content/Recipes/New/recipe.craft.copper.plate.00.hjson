@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.1"
+	$version: "0.1.74.0"
 	name: "Copper Sheets"
 	desc:
 		'''
@@ -11,6 +11,9 @@
 	{
 		copper.plate: flattened, product, result, output
 		copper: raw, ingredient, input, auto_generated
+		copper.ingot: ingredient, input, auto_generated
+		copper.powder: residue, powdered, output, auto_generated
+		scrap.copper: waste, scrap, output, auto_generated
 	}
 	
 	stages:
@@ -27,13 +30,13 @@
 			options:
 			[
 				{
-					name: "Hammered"
+					name: "Chunks"
 					
 					type: undefined
 					flags: none
 					discard_damage_type_override: sledgehammer
 					
-					suffix: " (Hammered)"
+					suffix: " (Chunks)"
 					priority: 1.000
 					
 					requirements:
@@ -119,6 +122,113 @@
 					filter_environment:
 					{
 						include: workshop, stationary, illuminated, dry
+					}
+				}
+				{
+					name: "Bricks"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: sledgehammer
+					
+					suffix: " (Bricks)"
+					priority: 1.000
+					
+					requirements:
+					[
+						{
+							type: temperature
+							amount: 702.100
+							amount_min: 394.000
+							amount_max: 1049.136
+							falloff: 0.691
+							group: 0
+							flags: no_scaling, always_evaluate, prerequisite
+						}
+						{
+							type: resource
+							material: copper.ingot
+							amount: 1.000
+							snapping: 1.000
+							loss: 1.000
+							group: 0
+							flags: argument, primary, prerequisite
+						}
+						{
+							type: work
+							work: smithing
+							amount: 550.000
+							amount_min: 280.000
+							difficulty: 9
+							step_max: 50
+							snapping: 5.000
+							falloff: 0.860
+							group: 0
+							flags: stepped, conditional
+						}
+						{
+							type: work
+							work: snipping.metal
+							amount: 200.000
+							amount_min: 120.000
+							difficulty: 5
+							step_max: 30
+							snapping: 5.000
+							falloff: 0.863
+							group: 1
+							flags: stepped, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: copper.plate
+							amount: 4.170
+							amount_extra: 0.249
+							snapping: 0.100
+							group: 0
+							ratio: 0.969
+							flags: primary, compact, use_temperature, scale_to_mass
+						}
+						{
+							type: resource
+							material: copper.powder
+							amount: 1.000
+							amount_extra: 0.324
+							snapping: 0.010
+							group: 0
+							ratio: 0.608
+							flags: residue, scale_to_mass
+						}
+						{
+							type: resource
+							material: scrap.copper
+							amount: 1.000
+							amount_extra: 0.324
+							snapping: 0.010
+							group: 0
+							ratio: 0.996
+							flags: waste, scale_to_mass
+						}
+					]
+					
+					filter_tools:
+					{
+						require: hammer, cutters, pliers, tongs
+						include: cutters, pliers, towel, knife, scissors
+					}
+					filter_infrastructure:
+					{
+						require: anvil, forge, hard_surface, heater
+						include: table, vise, surface
+					}
+					filter_environment:
+					{
+						require: sturdy, smithy
+						include: workshop
+						exclude: office, fragile
 					}
 				}
 			]
