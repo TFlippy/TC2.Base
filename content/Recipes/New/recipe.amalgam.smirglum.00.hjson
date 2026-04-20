@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.1"
+	$version: "0.1.74.0"
 	name: "Smirglum Amalgamation"
 	desc:
 		'''
@@ -10,10 +10,11 @@
 	related_materials:
 	{
 		smirglum: raw, ingredient, input, auto_generated
-		mercury: raw, liquid, input, auto_generated
+		mercury: residue, raw, ingredient, result, byproduct, liquid, input, output, auto_generated
 		smirglum.amalgam: raw, product, result, output, auto_generated
 		smirglum.powder: residue, powdered, product, result, byproduct, output, auto_generated
 		smirglum.gravel: raw, waste, output, auto_generated
+		smirglum.plate: ingredient, input, auto_generated
 	}
 	
 	stages:
@@ -25,15 +26,15 @@
 			flags: important
 			tags: material, raw, formula, ingredient
 			// Damage type used for discarding leftover resources.
-			discard_damage_type: sledgehammer
+			discard_damage_type: mercury
 			
 			options:
 			[
 				{
-					name: "Standard"
+					name: "Smirglum Chunk"
 					
 					type: undefined
-					flags: none
+					flags: merge_residue, merge_waste
 					
 					requirements:
 					[
@@ -46,29 +47,6 @@
 							group: 0
 							flags: argument, primary, prerequisite
 						}
-					]
-				}
-			]
-		}
-		{
-			name: "Amalgamation"
-			
-			type: refining
-			flags: none
-			tags: none
-			// Damage type used for discarding leftover resources.
-			discard_damage_type: none
-			
-			options:
-			[
-				{
-					name: "Simple"
-					
-					type: undefined
-					flags: merge_residue, merge_waste
-					
-					requirements:
-					[
 						{
 							type: resource
 							material: mercury
@@ -87,7 +65,7 @@
 							difficulty: 9
 							snapping: 5.000
 							falloff: 0.676
-							group: 0
+							group: 1
 							flags: conditional
 						}
 					]
@@ -122,6 +100,76 @@
 							group: 0
 							ratio: 0.012
 							flags: waste, scale_to_mass
+						}
+					]
+					
+					filter_infrastructure:
+					{
+						include: liquid_container, form
+					}
+				}
+				{
+					name: "Smirglum Sheet"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: smirglum.plate
+							amount: 1.000
+							snapping: 1.000
+							loss: 1.000
+							group: 0
+							flags: argument, primary, prerequisite
+						}
+						{
+							type: resource
+							material: mercury
+							amount: 1.500
+							snapping: 0.010
+							falloff: 0.984
+							loss: 1.000
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: amalgamation
+							amount: 85.000
+							amount_min: 50.000
+							difficulty: 6
+							snapping: 5.000
+							falloff: 0.876
+							loss: 0.067
+							group: 1
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: smirglum.amalgam
+							amount: 0.248
+							amount_extra: 0.0083
+							snapping: 0.010
+							group: 0
+							ratio: 0.988
+							flags: primary, compact, scale_to_mass
+						}
+						{
+							type: resource
+							material: mercury
+							amount: 0.178
+							amount_extra: 0.0813
+							snapping: 0.010
+							group: 0
+							ratio: 1.000
+							flags: residue, byproduct, secondary, scale_to_mass
 						}
 					]
 					

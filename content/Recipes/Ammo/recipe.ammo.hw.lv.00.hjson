@@ -37,17 +37,6 @@
 							group: 0
 							flags: prerequisite
 						}
-						{
-							type: work
-							work: "null"
-							amount: 50.000
-							amount_min: 100.000
-							difficulty: 15
-							snapping: 1.000
-							ratio: 1.000
-							group: 1
-							flags: conditional
-						}
 					]
 				}
 			]

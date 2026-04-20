@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.73.1"
+	$version: "0.1.74.0"
 	name: "LC-9.4mm"
 	desc:
 		'''
@@ -52,7 +52,7 @@
 						{
 							type: resource
 							material: copper.plate
-							amount: 0.029071
+							amount: 0.0231
 							snapping: 1.000
 							loss: 0.667
 							ratio: 1.000
@@ -62,9 +62,9 @@
 						{
 							type: resource
 							material: tallow
-							amount: 0.25087
-							snapping: 0.100
-							falloff: 0.939
+							amount: 0.11087
+							snapping: 0.080
+							falloff: 0.938
 							loss: 0.212
 							ratio: 1.000
 							group: 0
@@ -73,7 +73,7 @@
 						{
 							type: work
 							work: die.cutting.metal
-							amount: 10.000
+							amount: 5.000
 							difficulty: 8
 							snapping: 5.000
 							ratio: 0.573
@@ -84,7 +84,7 @@
 							type: work
 							work: smearing
 							amount: 31.000
-							amount_min: 150.000
+							amount_min: 50.000
 							difficulty: 6
 							snapping: 5.000
 							falloff: 0.725
@@ -123,8 +123,8 @@
 						{
 							type: resource
 							material: oil
-							amount: 0.04218
-							amount_extra: 0.056237
+							amount: 0.03218
+							amount_extra: 0.026237
 							group: 0
 							flags: byproduct
 						}
@@ -156,7 +156,7 @@
 						{
 							type: resource
 							material: copper.plate
-							amount: 0.015588
+							amount: 0.011496
 							snapping: 0.250
 							loss: 0.518
 							ratio: 1.000
@@ -166,9 +166,9 @@
 						{
 							type: resource
 							material: oil
-							amount: 0.06095
+							amount: 0.04095
 							snapping: 0.100
-							falloff: 0.954
+							falloff: 0.904
 							loss: 0.110
 							ratio: 1.000
 							group: 0
@@ -177,7 +177,7 @@
 						{
 							type: work
 							work: die.cutting.metal
-							amount: 10.000
+							amount: 5.000
 							difficulty: 8
 							snapping: 5.000
 							ratio: 0.824
@@ -226,13 +226,14 @@
 						{
 							type: resource
 							material: oil
-							amount: 0.035737
+							amount: 0.0207
 							amount_extra: 0.012811
 							group: 0
 							flags: residue
 						}
 					]
 					
+					start_delay: 2.080
 					advance_delay: 2.000
 					
 					filter_tools:

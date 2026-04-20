@@ -526,10 +526,11 @@
 						{
 							type: work
 							work: fermenting
-							amount: 0.000
-							amount_min: 528.000
+							amount: 5.500
+							amount_min: 200.000
 							difficulty: 7
 							snapping: 5.000
+							falloff: 0.916
 							group: 1
 							flags: conditional
 						}
