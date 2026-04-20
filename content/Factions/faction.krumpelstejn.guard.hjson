@@ -1,6 +1,7 @@
 ﻿{
-	$version: "0.1.61.2"
+	$version: "0.1.74.0"
 	tag: "GKS-BP"
+	tag_formatted: "-GKS/B-"
 	name: "Krumpelstejn-Borduspolicejz"
 	
 	color_a: "0xffba974a"
@@ -8,9 +9,6 @@
 	
 	kind: organization
 	flags: npc, no_player_squads
-	
-	scout_count: 0
-	
 	h_company: krumpelstejn.guard
 	
 	players:

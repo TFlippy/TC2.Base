@@ -1,6 +1,7 @@
 ﻿{
-	$version: "0.1.60.4"
-	tag: "dropbear"
+	$version: "0.1.74.0"
+	tag: "drop"
+	tag_formatted: "drop"
 	name: "Drop Bear Commonwealth"
 	
 	color_a: "0xff494440"
@@ -8,10 +9,4 @@
 	
 	kind: gang
 	flags: npc, no_player_squads
-	
-	leader_player_id: 0
-	
-	scout_count: 0
-	
-	h_company: "null"
 }

@@ -1,5 +1,7 @@
 ﻿{
+	$version: "0.1.74.0"
 	tag: "kobs"
+	tag_formatted: "kobs"
 	name: "Kobold Squatters"
 	
 	color_a: "0xff785a07"
@@ -7,8 +9,4 @@
 	
 	kind: commune
 	flags: npc, no_player_squads
-	
-	leader_player_id: 0
-	
-	scout_count: 0
 }

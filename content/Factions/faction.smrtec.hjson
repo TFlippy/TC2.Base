@@ -1,17 +1,14 @@
 ﻿{
-	$version: "0.1.61.2"
-	tag: "smrt"
-	name: "Smrtec"
+	$version: "0.1.74.0"
+	tag: "SMRT"
+	tag_formatted: "smrt"
+	name: "Smrtec Realm"
 	
 	color_a: "0xff625032"
 	color_b: "0xff313c12"
 	
 	kind: fellowship
 	flags: npc, no_player_squads
-	
-	scout_count: 0
-	
-	h_company: "null"
 	
 	players:
 	{

@@ -1,6 +1,7 @@
 ﻿{
-	$version: "0.1.60.4"
+	$version: "0.1.74.0"
 	tag: "GKS"
+	tag_formatted: "-GKS-"
 	name: "Guvernorat-Krumpelstejn"
 	
 	color_a: "0xffba974a"
@@ -8,10 +9,5 @@
 	
 	kind: government
 	flags: npc, no_player_squads
-	
-	leader_player_id: 0
-	
-	scout_count: 0
-	
-	h_company: "krumpelstejn"
+	h_company: krumpelstejn
 }

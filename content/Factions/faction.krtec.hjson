@@ -1,6 +1,7 @@
 ﻿{
-	$version: "0.1.60.4"
-	tag: "krt"
+	$version: "0.1.74.0"
+	tag: "KTC"
+	tag_formatted: "-KTC-"
 	name: "Krtec"
 	
 	color_a: "0xffa53700"
@@ -8,10 +9,5 @@
 	
 	kind: cartel
 	flags: npc, no_player_squads
-	
-	leader_player_id: 0
-	
-	scout_count: 0
-	
-	h_company: "krtec"
+	h_company: krtec
 }

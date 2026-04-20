@@ -1,6 +1,7 @@
 ﻿{
-	$version: "0.1.61.2"
+	$version: "0.1.74.0"
 	tag: "EGN"
+	tag_formatted: "-EGN-"
 	name: "Energon Imperial"
 	
 	color_a: "0xffc92100"
@@ -8,9 +9,6 @@
 	
 	kind: conglomerate
 	flags: npc, no_player_squads
-	
-	scout_count: 0
-	
 	h_company: energon
 	
 	players:

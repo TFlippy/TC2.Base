@@ -1,6 +1,7 @@
 ﻿{
-	$version: "0.1.68.2"
+	$version: "0.1.74.0"
 	tag: "PGK"
+	tag_formatted: "-PGK-"
 	name: "Poly-Guvernorat Kordel"
 	
 	color_a: "0xff639417"
@@ -8,15 +9,5 @@
 	
 	kind: empire
 	flags: npc, no_player_squads
-	
-	scout_count: 0
-	
 	h_company: kordel
-	
-	policies: none
-	
-	players:
-	{
-	
-	}
 }

@@ -1,6 +1,7 @@
 ﻿{
-	$version: "0.1.60.4"
-	tag: "SRN"
+	$version: "0.1.74.0"
+	tag: "SRN-BG"
+	tag_formatted: "brig"
 	name: "Brigand"
 	
 	color_a: "0xffa65727"
@@ -8,10 +9,4 @@
 	
 	kind: militia
 	flags: npc, no_player_squads
-	
-	leader_player_id: 0
-	
-	scout_count: 0
-	
-	h_company: "null"
 }

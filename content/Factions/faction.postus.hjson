@@ -1,7 +1,7 @@
 ﻿{
-	$region_id: 0
-	$version: "0.1.68.2"
-	tag: "pos"
+	$version: "0.1.74.0"
+	tag: "POST"
+	tag_formatted: "-POST-"
 	name: "Postus"
 	
 	color_a: "0xff183187"
@@ -9,12 +9,7 @@
 	
 	kind: agency
 	flags: npc, no_player_squads
-	
-	scout_count: 0
-	
 	h_company: postus
-	
-	policies: none
 	
 	players:
 	{

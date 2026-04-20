@@ -1,6 +1,7 @@
 ﻿{
-	$version: "0.1.61.2"
-	tag: "SRN"
+	$version: "0.1.74.0"
+	tag: "SRN-SG"
+	tag_formatted: "smugl"
 	name: "Smuggler"
 	
 	color_a: "0xffa65727"
@@ -8,10 +9,6 @@
 	
 	kind: gang
 	flags: npc, no_player_squads
-	
-	scout_count: 0
-	
-	h_company: "null"
 	
 	players:
 	{

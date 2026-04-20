@@ -1,6 +1,7 @@
 ﻿{
-	$version: "0.1.60.4"
+	$version: "0.1.74.0"
 	tag: "hornet"
+	tag_formatted: "hornet"
 	name: "Hornet Multiplex"
 	
 	color_a: "0xffffce00"
@@ -8,10 +9,4 @@
 	
 	kind: cartel
 	flags: npc, no_player_squads
-	
-	leader_player_id: 0
-	
-	scout_count: 0
-	
-	h_company: "null"
 }

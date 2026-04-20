@@ -1,6 +1,7 @@
 ﻿{
-	$version: "0.1.60.5"
-	tag: "capybara"
+	$version: "0.1.74.0"
+	tag: "cappy"
+	tag_formatted: "cappy"
 	name: "Capybara Party"
 	
 	color_a: "0xffbd6a25"
@@ -8,10 +9,4 @@
 	
 	kind: party
 	flags: npc, no_player_squads
-	
-	leader_player_id: 0
-	
-	scout_count: 0
-	
-	h_company: "null"
 }
