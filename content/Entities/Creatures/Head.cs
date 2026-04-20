@@ -112,7 +112,9 @@ namespace TC2.Base.Components
 		[Source.Owned] in Body.Data body, [Source.Owned] in Transform.Data transform,
 		[Source.Owned, Override] ref Organic.Data organic_override, [Source.Owned] ref Organic.State organic_state)
 		{
-			head_state.air_stored.MoveTowards(0.00f, head.air_usage * info.DeltaTime);
+			if (head_state.t_next_breath.IsNil()) head_state.air_stored = head.air_capacity;
+
+			//head_state.air_stored.MoveTowards(0.00f, head.air_usage * App.fixed_update_interval_s);
 
 			var time = info.WorldTime;
 			if (time >= head_state.t_next_air_check)
@@ -140,21 +142,39 @@ namespace TC2.Base.Components
 				head_state.flags.SetFlag(Head.State.Flags.Is_Underwater, is_underwater);
 			}
 
-			head_state.flags.SetFlag(Head.State.Flags.Is_Holding_Breath, head_state.flags.HasAny(Head.State.Flags.Is_Underwater) && head.flags.HasNone(Head.Data.Flags.Underwater_Breathing));
-			if (time >= head_state.t_next_breath && head_state.flags.HasNone(Head.State.Flags.Is_Holding_Breath))
+			var is_holding_breath = head_state.flags.HasAny(Head.State.Flags.Is_Underwater) & head.flags.HasNone(Head.Data.Flags.Underwater_Breathing);
+			if (!is_holding_breath && organic_override.tags.HasAll(Organic.Tags.Brain | Organic.Tags.Mouth | Organic.Tags.Lungs) && time >= head_state.t_next_breath)
 			{
-				if (head_state.t_next_breath == 0.00f) head_state.air_stored = head.air_capacity;
-
 				head_state.t_next_breath = time + head.breath_interval;
-				//App.WriteValue(organic_override.tags);
 
-				// TODO: add a proper Lungs component later
-				if (organic_override.tags.HasAll(Organic.Tags.Brain | Organic.Tags.Mouth | Organic.Tags.Lungs))
-				{
-					head_state.air_stored += head.breath_amount;
-					head_state.air_stored.ClampMaxRef(head.air_capacity * 1.50f);
-				}
+				head_state.air_stored += head.breath_amount;
+				head_state.air_stored.ClampMaxRef(head.air_capacity * 1.50f);
 			}
+			else
+			{
+				head_state.air_stored.MoveTowards(0.00f, head.air_usage * App.fixed_update_interval_s);
+			}
+			head_state.flags.SetFlag(Head.State.Flags.Is_Holding_Breath, is_holding_breath);
+
+			//if (time >= head_state.t_next_breath && head_state.flags.HasNone(Head.State.Flags.Is_Holding_Breath))
+			//{
+			//	if (head_state.t_next_breath == 0.00f) head_state.air_stored = head.air_capacity;
+
+			//	head_state.t_next_breath = time + head.breath_interval;
+			//	//App.WriteValue(organic_override.tags);
+
+			//	// TODO: add a proper Lungs component later
+			//	if (organic_override.tags.HasAll(Organic.Tags.Brain | Organic.Tags.Mouth | Organic.Tags.Lungs))
+			//	{
+			//		head_state.air_stored += head.breath_amount;
+			//		head_state.air_stored.ClampMaxRef(head.air_capacity * 1.50f);
+			//	}
+			//}
+			//else
+			//{
+			//	head_state.air_stored.MoveTowards(0.00f, head.air_usage * App.fixed_update_interval_s);
+
+			//}
 
 			head_state.air_current_norm = Maths.Avg(head_state.air_current_norm, Maths.Normalize01Fast(head_state.air_stored, head.air_capacity));
 			head_state.flags.SetFlag(Head.State.Flags.Is_Suffocating, head_state.air_current_norm < 0.80f);
@@ -434,7 +454,7 @@ namespace TC2.Base.Components
 		[Source.Owned] ref Head.Data head, [Source.Owned] ref Head.State head_state, [Source.Owned] in Organic.State organic_state)
 		{
 			//App.WriteLine(organic_state.stun_norm);
-			head_state.concussion = Maths.Max(Maths.MoveTowards(head_state.concussion, 0.00f, info.DeltaTime * 0.15f), organic_state.stun_norm);
+			head_state.concussion = Maths.Max(Maths.MoveTowards(head_state.concussion, 0.00f, App.fixed_update_interval_s * 0.15f), organic_state.stun_norm);
 		}
 
 		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned), HasComponent<Head.Data>(Source.Modifier.Owned, true)]
@@ -458,26 +478,28 @@ namespace TC2.Base.Components
 		//	}
 		//}
 
-#if SERVER
-		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasComponent<Organic.State>(Source.Modifier.Owned, true), HasComponent<Player.Data>(Source.Modifier.Parent, false), HasComponent<NPC.Data>(Source.Modifier.Parent, true)]
-		public static void OnUpdateNPC(ISystem.Info info, Entity entity,/* ref Region.Data region, ref XorRandom random,*/
-		/*[Source.Owned] in Head.Data head,*/ [Source.Owned] ref Head.State head_state, /*[Source.Owned, Override] in Organic.Data organic, */[Source.Owned] ref Transform.Data transform,
-		[Source.Parent] ref Control.Data control, [Source.Parent, Pair.Component<Control.Data>, Optional(true)] ref Net.Synchronized sync)
-		{
-			if (head_state.concussion > 0.01f && (sync.IsNull() || sync.player_id == 0))
-			{
-				var offset = new Vector2(0.50f - Maths.Perlin(info.WorldTime, 0.00f, 3.00f, seed: entity.GetShortID()), 0.50f - Maths.Perlin(0.00f, info.WorldTime, 3.00f, seed: entity.GetShortID())) * 8 * head_state.concussion.ClampX1();
+//#if SERVER
+//		// TODO: this sucks
+//		[Shitcode]
+//		[ISystem.VeryEarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region), HasComponent<Organic.State>(Source.Modifier.Owned, true), HasComponent<Player.Data>(Source.Modifier.Parent, false), HasComponent<NPC.Data>(Source.Modifier.Parent, true)]
+//		public static void OnUpdateNPC(ISystem.Info info, Entity entity,/* ref Region.Data region, ref XorRandom random,*/
+//		/*[Source.Owned] in Head.Data head,*/ [Source.Owned] ref Head.State head_state, /*[Source.Owned, Override] in Organic.Data organic, */[Source.Owned] ref Transform.Data transform,
+//		[Source.Parent] ref Control.Data control, [Source.Parent, Pair.Component<Control.Data>, Optional(true)] ref Net.Synchronized sync)
+//		{
+//			if (head_state.concussion > 0.01f && (sync.IsNull() || sync.player_id == 0))
+//			{
+//				var offset = new Vector2(0.50f - Maths.Perlin(info.WorldTime, 0.00f, 3.00f, seed: entity.GetShortID()), 0.50f - Maths.Perlin(0.00f, info.WorldTime, 3.00f, seed: entity.GetShortID())) * 8 * head_state.concussion.ClampX1();
 
-				//region.DrawDebugCircle(control.mouse.position, 0.125f, Color32BGRA.Yellow, 4);
+//				//region.DrawDebugCircle(control.mouse.position, 0.125f, Color32BGRA.Yellow, 4);
 
 
-				control.mouse.position = Vector2.Lerp(control.mouse.position, transform.position + offset, Maths.Clamp01(head_state.concussion * 1.50f));
-				//control.mouse.position += offset * head.concussion;
+//				control.mouse.position = Vector2.Lerp(control.mouse.position, transform.position + offset, Maths.Clamp01(head_state.concussion * 1.50f));
+//				//control.mouse.position += offset * head.concussion;
 
-				//region.DrawDebugCircle(control.mouse.position, 0.25f, Color32BGRA.Red, 4);
-			}
-		}
-#endif
+//				//region.DrawDebugCircle(control.mouse.position, 0.25f, Color32BGRA.Red, 4);
+//			}
+//		}
+//#endif
 
 #if CLIENT
 		[ISingleton.Data(persist: false), IComponent.With<Sound.Emitter>()]
