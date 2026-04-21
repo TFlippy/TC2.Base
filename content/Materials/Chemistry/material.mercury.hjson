@@ -144,7 +144,6 @@
 	{
 		mercury.vapor: residue, decomposition, similar, product, vapor
 		smirglum.amalgam: reaction, similar, alloy, product
-		kruskite: raw, ore, source, similar, natural
 		himlkarzenus: ore, source, similar, chemical, natural
 		putty: similar, chemical, alloy, product, mixed
 		karban: raw, ore, source, similar, natural

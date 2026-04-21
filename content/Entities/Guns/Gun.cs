@@ -1575,7 +1575,7 @@ namespace TC2.Base.Components
 							done_reloading = false; // Successfully withdrawn, therefore there's still some ammo left to load
 							inventory_magazine.flags.AddFlag(Inventory.Flags.Dirty);
 
-							Sound.Play(ref region, gun.sound_reload, transform.position);
+							Sound.Play(region: ref region, sound: gun.sound_reload, world_position: transform.position, dist_multiplier: 0.60f);
 						}
 
 						if (done_reloading)
@@ -1768,7 +1768,7 @@ namespace TC2.Base.Components
 							}
 						});
 
-						Sound.Play(ref region, sound_gun_break, pos_w_offset, volume: 1.50f, pitch: 1.10f, size: 1.50f);
+						Sound.Play(region: ref region, sound: sound_gun_break, world_position: pos_w_offset, volume: 1.50f, pitch: 1.10f, size: 1.50f, dist_multiplier: 0.60f);
 						force_jammed = true;
 
 						if (random.NextBool(stability_ratio_sub))
@@ -1938,7 +1938,7 @@ namespace TC2.Base.Components
 					gun_state.stage = Gun.Stage.Jammed;
 					gun_state.Sync(entity, true);
 
-					Sound.Play(region: ref region, sound: gun.sound_jam, world_position: pos_w_offset, volume: 1.10f, pitch: 1.00f, size: 1.50f);
+					Sound.Play(region: ref region, sound: gun.sound_jam, world_position: pos_w_offset, volume: 1.10f, pitch: 1.00f, size: 1.50f, dist_multiplier: 0.60f);
 					WorldNotification.Push(region: ref region, message: "* Jammed *"u8, color: 0xffff0000, position: transform.position, lifetime: 1.00f);
 				}
 #endif
@@ -2001,7 +2001,13 @@ namespace TC2.Base.Components
 				}
 				pitch_modifier *= random.NextFloatExtra(0.98f, 0.04f);
 
-				Sound.Play(gun.sound_shoot, pos_w_offset_particle, volume: gun.sound_volume, pitch: gun.sound_pitch * pitch_modifier, size: gun.sound_size, priority: 0.70f, dist_multiplier: gun.sound_dist_multiplier);
+				Sound.Play(sound: gun.sound_shoot,
+					world_position: pos_w_offset_particle,
+					volume: gun.sound_volume,
+					pitch: gun.sound_pitch * pitch_modifier,
+					size: gun.sound_size,
+					priority: 0.50f,
+					dist_multiplier: gun.sound_dist_multiplier);
 #endif
 			}
 

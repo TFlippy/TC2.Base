@@ -172,6 +172,7 @@
 		arsine: residue, crushed, decomposition, filler, gas
 		hydrogen: reaction, decomposition, gas
 		kruskite: raw, ore, source, natural
+		karban: raw, ore, source, natural
 		mercury: component, refined, decomposition, alloy, element
 		sulfur: component, decomposition, element
 	}

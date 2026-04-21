@@ -269,7 +269,7 @@
 	]
 	
 	type: architecture
-	flags: no_amount_multiplier, blueprintable, construction, building, ignore_tools, ignore_equipment, ignore_machinery, ignore_environment, no_cancel, auto_complete
+	flags: no_amount_multiplier, blueprintable, debug, construction, building, ignore_tools, ignore_equipment, ignore_machinery, ignore_environment, wip, no_cancel, auto_complete
 	tags: simple, large, woodworking, metalworking, architecture, construction
 	hints: none
 	connotations: none

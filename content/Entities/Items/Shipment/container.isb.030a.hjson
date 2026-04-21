@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.60.4"
+	$version: "0.1.74.0"
 	name: "Box (ISO/030-A)"
 	desc:
 		'''
@@ -11,15 +11,15 @@
 	flags: standardized, stackable
 	kind: crate
 	
-	h_prefab: "shipment.00"
+	h_prefab: shipment.00
 	
-	base_price: 35.000
+	base_price: 25.000
 	
 	base_volume: 5.000
-	base_weight: 2.000
+	base_weight: 4.000
 	
 	max_volume: 1.000
-	max_weight: 5.000
+	max_weight: 20.000
 	
 	size: [2.000, 1.000]
 }

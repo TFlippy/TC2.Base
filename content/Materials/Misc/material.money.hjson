@@ -9,7 +9,7 @@
 	name: "Kordel Denar"
 	name_short: "Đk"
 	name_imperial: "Kordeldenar"
-	name_dumb: "Treasure"
+	name_dumb: "Moneys"
 	description:
 		'''
 		Standard coin-shaped currency.

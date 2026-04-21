@@ -130,9 +130,16 @@
 						var span_linked = this.logistics.linked_ents.Slice(this.logistics.linked_capacity);
 						var h_character_client = Client.GetCharacterHandle();
 
-						//ref var body_self = ref this.ent_logistics.gettra
+						var rect_body_self = AABB.Default;
 
-						//var rect_body_self = this.ent_logistics.rect
+						ref var body_self = ref this.ent_logistics.GetBody();
+						if (body_self.IsNotNull())
+						{
+							rect_body_self = body_self.GetAABB();
+						}
+
+						var c_rect_body_self = region_common.WorldToCanvas(rect_body_self);
+						GUI.DrawRect(c_rect_body_self, layer: GUI.Layer.Background, color: GUI.font_color_yellow_b.WithAlpha(200), thickness: 2);
 
 						(ent_storage_hovered, ent_storage_hovered_cached) = (Entity.Empty, ent_storage_hovered);
 
@@ -144,15 +151,15 @@
 
 							for (var i = 0; i < span_linked.Length; i++)
 							{
+								var ent_storage = span_linked[i];
+								var ent_storage_tmp = ent_storage;
+								var is_alive = ent_storage.IsAlive();
+
 								using (var id = GUI.ID<Logistics.Data, Entity>.Push(i))
 								using (var group_row = GUI.Group.New(size: new(GUI.RmX, 32)))
 								{
 									if (group_row.IsVisible())
 									{
-										var ent_storage = span_linked[i];
-										var ent_storage_tmp = ent_storage;
-										var is_alive = ent_storage.IsAlive();
-
 										if (ent_storage != 0 && (ent_storage == ent_storage_hovered_cached || ent_storage == ent_storage_selected_cached))
 										{
 											//GUI.DrawRect(rect, color: GUI.font_color_orange, layer: GUI.Layer.Window);
@@ -161,9 +168,9 @@
 
 										if (GUI.EntityPicker(identifier: "picker.logi"u8, name: "Link"u8, size: new(52, GUI.RmY),
 										region_id: region_common.GetID(), entity: ref ent_storage_tmp, color: is_alive ? GUI.col_button_yellow : GUI.col_button,
-										layer_require: Physics.Layer.Static, 
-										layer_include: Physics.Layer.Storage | Physics.Layer.Workshop | Physics.Layer.Crafter, 
-										layer_exclude: Physics.Layer.Resource | Physics.Layer.World | Physics.Layer.Ignore_Hover | Physics.Layer.Zone | Physics.Layer.Conveyor | 
+										layer_require: Physics.Layer.Static,
+										layer_include: Physics.Layer.Storage | Physics.Layer.Workshop | Physics.Layer.Crafter,
+										layer_exclude: Physics.Layer.Resource | Physics.Layer.World | Physics.Layer.Ignore_Hover | Physics.Layer.Zone | Physics.Layer.Conveyor |
 										Physics.Layer.Belt | Physics.Layer.Pipe | Physics.Layer.Construction | Physics.Layer.Dynamic))
 										{
 											App.WriteValue(ent_storage_tmp);
@@ -199,7 +206,7 @@
 												if (name_b is not null) GUI.TextShadedCentered(name_b, pivot: new(0.00f, 1.00f), offset: new(6, -2), size: 14);
 											}
 										}
-										
+
 										if (GUI.Selectable3(id, rect: GUI.GetLastItemRect(), selected: ent_storage != 0 && ent_storage == ent_storage_selected_cached))
 										{
 											ent_storage_selected_cached.Toggle(ent_storage);
@@ -216,6 +223,30 @@
 											};
 											rpc.Send(this.ent_logistics);
 										}
+									}
+								}
+
+								// TODO: wipi shitcode
+								if (is_alive && body_self.IsNotNull())
+								{
+									var rect_body_storage = AABB.Default;
+									ref var body_storage = ref ent_storage.GetBody();
+									if (body_storage.IsNotNull())
+									{
+										rect_body_storage = body_storage.GetAABB();
+
+										var c_rect_body_storage = region_common.WorldToCanvas(rect_body_storage);
+										GUI.DrawRect(c_rect_body_storage, layer: GUI.Layer.Background, color: GUI.col_output.WithAlpha(100), thickness: 2);
+
+										var c_pos_line_a = c_rect_body_self.GetPosition();
+										var c_pos_line_b = c_rect_body_storage.GetPosition();
+										var c_pos_line_avg = Maths.Avg(c_pos_line_a, c_pos_line_b);
+										c_pos_line_a = c_rect_body_self.ClipPoint(c_pos_line_avg);
+										c_pos_line_b = c_rect_body_storage.ClipPoint(c_pos_line_avg);
+
+										GUI.DrawLine2(c_pos_line_a, c_pos_line_b, layer: GUI.Layer.Background, 
+											color_a: GUI.font_color_yellow_b.WithAlpha(200), color_b: GUI.col_output.WithAlpha(100), 
+											thickness_a: 4, thickness_b: 1);
 									}
 								}
 
