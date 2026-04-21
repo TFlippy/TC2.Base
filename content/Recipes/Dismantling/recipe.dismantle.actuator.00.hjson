@@ -1,0 +1,219 @@
+﻿{
+	$region_id: 0
+	$version: "0.1.74.0"
+	name: "Dismantled Actuators"
+	desc:
+		'''
+		Take some Magitronic Actuators
+		'''
+	tips: []
+	
+	related_materials:
+	{
+		actuator: input, auto_generated
+		pellet.motion: product, result, output, auto_generated
+		directors: residue, product, result, byproduct, output, auto_generated
+		arcanite.powder: residue, powdered, output, auto_generated
+		machine_parts: residue, output, auto_generated
+		scrap.arcane: residue, waste, scrap, output, auto_generated
+		smrad.dust: raw, waste, powdered, gas, output, auto_generated
+	}
+	
+	stages:
+	[
+		{
+			name: "Method"
+			
+			type: disassembly
+			flags: subtractive, important, wip
+			tags: small, material, dangerous, formula, ingredient
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: sledgehammer
+			
+			options:
+			[
+				{
+					name: "Crude"
+					desc: ", cut them open with a handsaw, and finally smash them into bits."
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: pickaxe
+					
+					prefix: "Crudely "
+					priority: 0.500
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: actuator
+							amount: 1.000
+							snapping: 1.000
+							loss: 0.573
+							group: 0
+							flags: argument, primary, prerequisite
+						}
+						{
+							type: work
+							work: sawing.metal
+							amount: 90.000
+							amount_min: 65.000
+							difficulty: 8
+							step_max: 15
+							snapping: 25.000
+							falloff: 0.910
+							group: 0
+							flags: conditional
+						}
+						{
+							type: work
+							work: scavenging
+							amount: 50.000
+							amount_min: 25.000
+							difficulty: 7
+							snapping: 25.000
+							falloff: 1.059
+							group: 1
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: trashing.metal
+							amount: 150.000
+							amount_min: 10.000
+							difficulty: 4
+							snapping: 25.000
+							falloff: 0.870
+							group: 1
+							flags: simultaneous, conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: pellet.motion
+							amount: 1.374
+							amount_extra: 0.548
+							snapping: 1.000
+							group: 0
+							flags: primary, compact
+						}
+						{
+							type: resource
+							material: directors
+							amount: 0.233784
+							amount_extra: 0.084526
+							snapping: 0.100
+							group: 0
+							chance: 0.651
+							ratio: 0.545
+							flags: residue, byproduct, secondary, stepped, scale_to_mass
+						}
+						{
+							type: resource
+							material: scrap.arcane
+							amount: 0.508476
+							amount_extra: 0.136685
+							snapping: 0.010
+							group: 0
+							ratio: 0.463
+							flags: waste, scale_to_mass
+						}
+						{
+							type: resource
+							material: arcanite.powder
+							amount: 0.192168
+							amount_extra: 0.125353
+							snapping: 0.010
+							group: 0
+							ratio: 0.180
+							flags: residue, scale_to_mass
+						}
+						{
+							type: resource
+							material: machine_parts
+							amount: 3.069164
+							amount_extra: 0.693943
+							snapping: 0.010
+							group: 0
+							ratio: 0.396
+							flags: residue, scale_to_mass
+						}
+						{
+							type: resource
+							material: smrad.dust
+							amount: 6.403507
+							amount_extra: 1.927489
+							snapping: 0.010
+							group: 0
+							ratio: 0.953
+							flags: pollutant, waste, spawn, hidden, scale_to_mass
+						}
+					]
+					
+					filter_tools:
+					{
+						require: saw
+						include: hammer, cutters, screwdriver, wrench, pliers, cleaver, bucket, axe, shovel, file, towel, spatula, crowbar, knife, scissors
+					}
+					filter_infrastructure:
+					{
+						require: surface
+						include: vise, workbench
+					}
+					filter_environment:
+					{
+						include: dirty, smelly, ugly, scary, noisy, reinforced, durable, sturdy
+					}
+				}
+			]
+		}
+	]
+	
+	type: workshop
+	flags: item, dismantling, wip
+	tags: manual, crafting, dumb, simple, complex, engineering, salvaging
+	hints: none
+	connotations: none
+	infrastructure: table, chair, surface
+	infrastructure_exclude: none
+	
+	h_company: common
+	
+	icon:
+	{
+		texture: atlas.resource.pellet
+		size: [16, 16]
+		frame: [1, 1]
+	}
+	icon_offset: [-7.000, 1.000]
+	
+	icon_extra:
+	{
+		texture: ui_icons_widget
+		size: [16, 16]
+		frame: [10, 5]
+	}
+	icon_extra_offset: [-12.000, -12.000]
+	
+	icon_c:
+	{
+		texture: resource.actuator
+		size: [16, 16]
+		frame: [3, 0]
+	}
+	icon_c_offset: [2.000, -12.000]
+	
+	color_frame: "0xff19e2b1"
+	color_button: "0xff9dd80f"
+	rank: -134.000
+	
+	min: 1
+	max: 10
+	step: 1
+	
+	version: 1
+}
