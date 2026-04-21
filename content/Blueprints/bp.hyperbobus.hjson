@@ -8,7 +8,7 @@
 	
 	flags: hidden
 	
-	h_company: "null"
+	h_company: houfmistr
 	h_prefab: machine_gun
 	h_recipe: gunsmith.machine_gun
 	

@@ -8,7 +8,7 @@
 	
 	flags: hidden
 	
-	h_company: houfmistr
+	h_company: zajac
 	h_prefab: landmine
 	h_recipe: landmine.00.basic
 	
