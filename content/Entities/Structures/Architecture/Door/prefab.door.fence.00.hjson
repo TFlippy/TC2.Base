@@ -22,7 +22,7 @@ body:
 		rigidity_dynamic: 0.790
 		
 		material: wire
-		miss_chance: 0.973
+		miss_chance: 0.979
 		
 		layer: entity, solid, building, door, no_overlapped_placement
 		mask: world, solid

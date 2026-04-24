@@ -1,7 +1,7 @@
-$name: "Armored Door (Metal)"
+$name: "Armored Door (Smirgrafit)"
 $desc:
 	'''
-	Standard reinforced metal door.
+	Standard mighty durable smirgrafit-clad door.
 	Can be locked.
 	'''
 $tags: []
@@ -18,15 +18,15 @@ body:
 		tags: none
 		
 		layer: entity, solid, building, door, no_overlapped_placement
-		mask: world, solid
+		mask: world, solid, essence
 		exclude: none
 		
-		mass: 200.000
+		mass: 275.000
 		radius: 0.125
 		friction: 0.300
-		elasticity: 0.650
+		elasticity: 0.600
 		
-		fall_damage_mult: 1.000
+		fall_damage_mult: 1.200
 		cog_offset: [0.000, 0.000]
 		
 		size: [0.500, 2.750]
@@ -36,16 +36,16 @@ body:
 
 health:
 {
-	max: 80000.000
+	max: 100000.000
 }
 
 armor:
 {
-	material_type: metal_solid
-	coverage: 0.987
+	material_type: cermet
+	coverage: 0.967
 	flags: no_damage_type_conversion
-	toughness: 650.000
-	protection: 0.980
+	toughness: 850.000
+	protection: 0.995
 	pain_modifier: 0.000
 }
 
@@ -53,7 +53,7 @@ animated.renderer:
 {
 	sprite:
 	{
-		texture: "door.heavy.00"
+		texture: "door.heavy.01"
 		count: 5
 		size: [16, 24]
 	}
@@ -99,4 +99,11 @@ door:
 	offset_closed: [0.000, 0.000]
 	fps_close: 3.000
 	fps_open: 3.000
+}
+
+smirgrafit:
+{
+	flags: fused
+	
+	surface_area: 2.500
 }

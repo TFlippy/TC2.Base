@@ -15,7 +15,7 @@ body:
 		size: [0.250, 2.750]
 		offset: [0.000, 0.000]
 		
-		mass: 50.000
+		mass: 40.000
 		radius: 0.125
 		friction: 0.550
 		elasticity: 0.600
@@ -36,8 +36,8 @@ health:
 
 armor:
 {
-	toughness: 400.000
-	protection: 0.950
+	toughness: 350.000
+	protection: 0.900
 	
 	knockback_modifier: 1.300
 	pain_modifier: 0.000

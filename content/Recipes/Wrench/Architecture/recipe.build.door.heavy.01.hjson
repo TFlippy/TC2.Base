@@ -1,6 +1,6 @@
 ﻿{
 	$version: "0.1.74.0"
-	name: "Armored Door (Metal)"
+	name: "Armored Door (Smirgrafit)"
 	tips: []
 	
 	requirements:
@@ -8,14 +8,14 @@
 		{
 			type: resource
 			material: steel.ingot
-			amount: 10.000
+			amount: 5.000
 			group: 0
 			flags: prerequisite
 		}
 		{
 			type: resource
 			material: steel.frames
-			amount: 25.000
+			amount: 15.000
 			group: 0
 			flags: prerequisite
 		}
@@ -28,8 +28,15 @@
 		}
 		{
 			type: resource
-			material: steel.plate
-			amount: 8.000
+			material: smirgrafit.clay
+			amount: 30.000
+			group: 0
+			flags: prerequisite
+		}
+		{
+			type: resource
+			material: phlogiston
+			amount: 3.000
 			group: 0
 			flags: prerequisite
 		}
@@ -39,7 +46,7 @@
 	[
 		{
 			type: prefab
-			prefab: door.heavy.00
+			prefab: door.heavy.01
 			amount: 1.000
 			group: 0
 			flags: primary
@@ -59,7 +66,7 @@
 	
 	icon:
 	{
-		texture: door.heavy.00
+		texture: door.heavy.01
 		size: [16, 24]
 	}
 	icon_offset: [2.000, 2.000]
