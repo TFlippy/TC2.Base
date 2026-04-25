@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.70.0"
+	$version: "0.1.74.0"
 	$author: "KoreZack"
 	name: "Large rubber wheel"
 	desc:
@@ -18,9 +18,6 @@
 			tags: mechanism, metal, assembly, functional, small
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: none
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -103,9 +100,6 @@
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: none
 			
-			ratio: 0.000
-			mass_base: 0.000
-			
 			options:
 			[
 				{
@@ -179,9 +173,6 @@
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: none
 			
-			ratio: 0.000
-			mass_base: 0.000
-			
 			options:
 			[
 				{
@@ -246,7 +237,7 @@
 	]
 	
 	type: workshop
-	flags: blueprintable, wip, debug
+	flags: blueprintable, debug, wip
 	tags: crafting, complex, large, vehicle, assembling, metalworking, engineering
 	hints: none
 	connotations: none
@@ -261,7 +252,7 @@
 	color_frame: "0xffaeb59a"
 	color_button: "0xff9dd80f"
 	rank: 2100.000
-	frame_size: [64.000, 64.000]
+	frame_size: [48.000, 48.000]
 	
 	min: 1
 	max: 8

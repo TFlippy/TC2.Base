@@ -1,10 +1,10 @@
 ﻿{
-	$version: "0.1.70.0"
+	$version: "0.1.74.0"
 	$author: "KoreZack"
-	name: "Small rubber wheel"
+	name: "Rubber wheel"
 	desc:
 		'''
-		Small high-friction wheel that can be attached to vehicles.
+		Medium high-friction wheel that can be attached to vehicles.
 		'''
 	tips: []
 	
@@ -19,9 +19,6 @@
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: none
 			
-			ratio: 0.000
-			mass_base: 0.000
-			
 			options:
 			[
 				{
@@ -35,7 +32,7 @@
 						{
 							type: resource
 							material: machine_parts
-							amount: 3.000
+							amount: 8.000
 							snapping: 0.250
 							falloff: 0.950
 							loss: 0.235
@@ -45,7 +42,7 @@
 						{
 							type: resource
 							material: steel.frames
-							amount: 1.000
+							amount: 2.600
 							snapping: 1.000
 							loss: 0.129
 							group: 0
@@ -54,8 +51,8 @@
 						{
 							type: work
 							work: assembling
-							amount: 75.000
-							amount_min: 100.000
+							amount: 150.000
+							amount_min: 200.000
 							difficulty: 9
 							snapping: 5.000
 							falloff: 0.950
@@ -66,15 +63,15 @@
 						{
 							type: resource
 							material: tallow
-							amount: 0.856522
+							amount: 2.250
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: work
 							work: smearing
-							amount: 25.000
-							amount_min: 50.000
+							amount: 60.000
+							amount_min: 100.000
 							difficulty: 4
 							group: 0
 							flags: conditional
@@ -82,8 +79,8 @@
 						{
 							type: work
 							work: sealing
-							amount: 40.000
-							amount_min: 80.000
+							amount: 100.000
+							amount_min: 120.000
 							difficulty: 8
 							snapping: 10.000
 							falloff: 0.950
@@ -103,9 +100,6 @@
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: none
 			
-			ratio: 0.000
-			mass_base: 0.000
-			
 			options:
 			[
 				{
@@ -119,7 +113,7 @@
 						{
 							type: resource
 							material: steel.frames
-							amount: 2.400
+							amount: 7.000
 							loss: 0.149
 							group: 0
 							flags: prerequisite
@@ -127,7 +121,7 @@
 						{
 							type: resource
 							material: steel.plate
-							amount: 2.000
+							amount: 5.400
 							snapping: 0.100
 							loss: 0.200
 							group: 0
@@ -136,8 +130,8 @@
 						{
 							type: work
 							work: assembling
-							amount: 50.000
-							amount_min: 80.000
+							amount: 120.000
+							amount_min: 140.000
 							difficulty: 6
 							ratio: 0.149
 							group: 0
@@ -146,8 +140,8 @@
 						{
 							type: work
 							work: bending
-							amount: 40.000
-							amount_min: 20.000
+							amount: 80.000
+							amount_min: 60.000
 							difficulty: 8
 							ratio: 0.251
 							group: 0
@@ -156,8 +150,8 @@
 						{
 							type: work
 							work: snipping.metal
-							amount: 20.000
-							amount_min: 40.000
+							amount: 70.000
+							amount_min: 90.000
 							difficulty: 8
 							ratio: 0.251
 							group: 0
@@ -176,9 +170,6 @@
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: none
 			
-			ratio: 0.000
-			mass_base: 0.000
-			
 			options:
 			[
 				{
@@ -192,7 +183,7 @@
 						{
 							type: resource
 							material: rubber
-							amount: 7.000
+							amount: 20.000
 							snapping: 0.500
 							falloff: 0.900
 							group: 0
@@ -201,7 +192,8 @@
 						{
 							type: work
 							work: tailoring
-							amount: 80.000
+							amount: 140.000
+							amount_min: 40.000
 							difficulty: 4
 							group: 0
 							flags: conditional
@@ -209,7 +201,7 @@
 						{
 							type: resource
 							material: glue
-							amount: 7.500
+							amount: 12.000
 							loss: 0.149
 							group: 0
 							flags: prerequisite
@@ -217,8 +209,8 @@
 						{
 							type: work
 							work: gluing
-							amount: 60.000
-							amount_min: 30.000
+							amount: 110.000
+							amount_min: 50.000
 							difficulty: 3
 							ratio: 0.149
 							group: 0
@@ -234,7 +226,7 @@
 	[
 		{
 			type: prefab
-			prefab: wheel.rubber.00.sm
+			prefab: wheel.rubber.00.md
 			amount: 1.000
 			group: 0
 			flags: primary
@@ -242,8 +234,8 @@
 	]
 	
 	type: workshop
-	flags: blueprintable, wip, debug
-	tags: manual, crafting, complex, small, vehicle, assembling, metalworking, engineering
+	flags: blueprintable, debug, wip
+	tags: manual, crafting, complex, medium, vehicle, assembling, metalworking, engineering
 	hints: none
 	connotations: none
 	infrastructure: none
@@ -251,13 +243,13 @@
 	
 	icon:
 	{
-		texture: wheel.rubber.00.sm
+		texture: wheel.rubber.00.md
 	}
 	
 	color_frame: "0xffaeb59a"
 	color_button: "0xff9dd80f"
-	rank: 2102.000
-	frame_size: [64.000, 64.000]
+	rank: 2101.000
+	frame_size: [48.000, 48.000]
 	
 	min: 1
 	max: 8
