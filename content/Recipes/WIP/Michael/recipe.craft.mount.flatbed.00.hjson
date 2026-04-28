@@ -1,5 +1,4 @@
 ﻿{
-	$region_id: 0
 	$version: "0.1.74.0"
 	name: "Mount (Flatbed)"
 	tips: []
@@ -125,7 +124,7 @@
 	
 	color_frame: "0xffaeb59a"
 	color_button: "0xff9dd80f"
-	rank: 1.000
+	rank: 2500.000
 	frame_size: [64.000, 64.000]
 	
 	min: 1
