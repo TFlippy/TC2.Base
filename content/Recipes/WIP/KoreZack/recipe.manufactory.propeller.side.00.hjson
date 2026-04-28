@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.70.0"
+	$version: "0.1.74.0"
 	$author: "KoreZack"
 	name: "Side Propeller"
 	desc:
@@ -17,9 +17,6 @@
 			tags: frame, shell, metal
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: none
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -79,9 +76,6 @@
 			tags: mechanism, functional, small, machinery
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: none
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -161,9 +155,6 @@
 			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: none
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -264,7 +255,7 @@
 	]
 	
 	type: workshop
-	flags: wip, debug
+	flags: debug, wip
 	tags: manual, crafting, complex, medium, device, vehicle, machinery, assembling, metalworking, engineering
 	hints: none
 	connotations: none
@@ -280,8 +271,8 @@
 	
 	color_frame: "0xffaeb59a"
 	color_button: "0xff9dd80f"
-	rank: 2000.000
-	frame_size: [96.000, 64.000]
+	rank: 2500.000
+	frame_size: [64.000, 48.000]
 	
 	min: 1
 	max: 4

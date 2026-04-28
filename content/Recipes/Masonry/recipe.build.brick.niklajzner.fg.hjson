@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.74.0"
 	name: "Niklajzner Bricks"
 	desc:
 		'''
@@ -18,7 +18,7 @@
 		}
 		{
 			type: resource
-			material: putty
+			material: phlogiston
 			amount: 0.013
 			group: 0
 			flags: prerequisite

@@ -175,10 +175,10 @@
 	
 	type: workshop
 	flags: item, dismantling, wip
-	tags: manual, crafting, dumb, simple, complex, engineering, salvaging
+	tags: manual, crafting, dumb, crude, basic, simple, small, salvaging, messy, dangerous
 	hints: none
 	connotations: none
-	infrastructure: table, chair, surface
+	infrastructure: surface
 	infrastructure_exclude: none
 	
 	h_company: common
@@ -209,10 +209,10 @@
 	
 	color_frame: "0xff19e2b1"
 	color_button: "0xff9dd80f"
-	rank: -134.000
+	rank: -47.000
 	
 	min: 1
-	max: 10
+	max: 15
 	step: 1
 	
 	version: 1
