@@ -22,7 +22,7 @@ body:
 		mask: world, crate
 		exclude: held, attached
 		
-		mass: 25.000
+		mass: 9.000
 		radius: 0.250
 		friction: 0.650
 		elasticity: 0.500
@@ -61,9 +61,24 @@ claimable:
 interactable:
 {
 	flags: none
+	window_size: [192, 96]
+	window_size_misc: [48, 0]
 	priority: 0.500
-	window_size: [544.000, 384.000]
-	window_size_misc: [48.000, 0.000]
+}
+
+nameable:
+{
+	flags: no_rename
+}
+
+shipment:
+{
+	flags: allow_withdraw, allow_deposit, public, no_empty_deposit, cached
+	type: crate
+	layout: large
+	h_container: isb.030b
+	
+	mass: 9.000
 }
 
 holdable:

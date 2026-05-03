@@ -118,7 +118,7 @@ company:
 
 office:
 {
-	flags: enable_invite_company
+	// flags: enable_invite_company
 }
 
 spawn:
