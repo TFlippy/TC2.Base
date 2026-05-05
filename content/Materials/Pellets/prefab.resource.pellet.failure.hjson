@@ -13,7 +13,7 @@ body:
 		tags: small, solid, hard
 		
 		layer: entity, solid, resource, conductive, heatable, magnetic
-		mask: world, essence, creature, held
+		mask: world, essence
 		exclude: none
 		
 		mass: 1.000
