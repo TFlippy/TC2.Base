@@ -45,12 +45,14 @@ namespace TC2.Base.Components
 		{
 			if (fuse.flags.HasAny(Fuse.Flags.Activate_On_Interact))
 			{
-				entity.SetTag("lit", true);
+				entity.AddTag("lit");
+				entity.TryRemoveComponent<Packable.Data>();
+
 				explosive.flags |= Explosive.Flags.Primed;
 				//explosive.ent_owner = body.GetParent();
 
 				//Notification.Push(in player, "Lit a fuse.", Color32BGRA.Yellow, 5.00f);
-				Sound.Play(ref region, fuse.sound, transform.position, priority: 0.65f);
+				Sound.Play(region: ref region, sound: fuse.sound, world_position: transform.position, priority: 0.65f);
 
 				if (fuse.failure_chance > Maths.epsilon && random.NextBool(fuse.failure_chance))
 				{
@@ -70,12 +72,14 @@ namespace TC2.Base.Components
 		{
 			if (control.keyboard.GetKeyDown(Keyboard.Key.Spacebar))
 			{
-				entity.SetTag("lit", true);
+				entity.AddTag("lit");
+				entity.TryRemoveComponent<Packable.Data>();
+
 				explosive.flags |= Explosive.Flags.Primed;
 				//explosive.ent_owner = body.GetParent();
 
-				Notification.Push(in player, "Lit a fuse.", Color32BGRA.Yellow, 5.00f);
-				Sound.Play(ref region, fuse.sound, transform.position, priority: 0.65f);
+				Notification.Push(player: in player, message: "Lit a fuse.", color: Color32BGRA.Yellow, lifetime: 5.00f);
+				Sound.Play(region: ref region, sound: fuse.sound, world_position: transform.position, priority: 0.65f);
 
 				if (fuse.failure_chance > Maths.epsilon && random.NextBool(fuse.failure_chance))
 				{
@@ -110,7 +114,7 @@ namespace TC2.Base.Components
 				entity.RemoveTag("lit");
 				fuse.failure_time = 0.00f;
 
-				Sound.Play(ref region, fuse.sound_extinguish, transform.position, priority: 0.65f);
+				Sound.Play(region: ref region, sound: fuse.sound_extinguish, world_position: transform.position, priority: 0.65f);
 
 				fuse.Sync(entity, true);
 			}

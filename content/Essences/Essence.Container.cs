@@ -385,8 +385,11 @@ namespace TC2.Base.Components
 
 			[ISystem.RemoveLast(ISystem.Mode.Single, ISystem.Scope.Region)]
 			public static void OnExplosiveRemove(ISystem.Info info, Entity entity, ref Region.Data region,
-			[Source.Owned] in Transform.Data transform, [Source.Owned] in Explosive.Data explosive, [Source.Owned] ref Essence.Container.Data container)
+			[Source.Owned] in Transform.Data transform, [Source.Owned] in Explosive.Data explosive, [Source.Owned] ref Essence.Container.Data container,
+			[HasTag("no_gib", true, Source.Modifier.Owned)] bool no_gib)
 			{
+				if (no_gib) return;
+
 				if (explosive.flags.HasAny(Explosive.Flags.Primed))
 				{
 					container.t_next_collapse = info.WorldTime + 10.00f;
