@@ -1,6 +1,6 @@
 ﻿{
-	$version: "0.1.72.1"
-	name: "Tower Mount (Rotary)"
+	$version: "0.1.74.0"
+	name: "Tower Mount"
 	desc:
 		'''
 		TODO: Desc
@@ -79,7 +79,7 @@
 	
 	icon:
 	{
-		texture: mount.static.03
+		texture: mount.static.03.bg
 		size: [32, 48]
 	}
 	
@@ -90,7 +90,7 @@
 	placement:
 	{
 		type: simple
-		flags: require_terrain, terrain_is_support, no_solid_support
+		flags: allow_mirror_x, require_terrain, terrain_is_support, no_solid_support
 		
 		size: [4.000, 6.000]
 		offset: [0.000, -3.000]
