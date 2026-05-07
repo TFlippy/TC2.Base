@@ -1,7 +1,17 @@
 ﻿{
-	$version: "0.1.70.0"
+	$version: "0.1.74.0"
 	$author: "KoreZack"
-	name: "Windowed cabin"
+	name: "Cabin (Windowed)"
+	
+	related_materials:
+	{
+		steel.frames: input, auto_generated
+		steel.rod: input, auto_generated
+		steel.plate: input, auto_generated
+		machine_parts: input, auto_generated
+		glass: input, auto_generated
+		glue: liquid, input, auto_generated
+	}
 	
 	stages:
 	[
@@ -13,9 +23,6 @@
 			tags: frame, shell, metal, structural, large
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: none
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -31,6 +38,7 @@
 							type: resource
 							material: steel.frames
 							amount: 20.000
+							snapping: 0.500
 							loss: 0.200
 							group: 0
 							flags: prerequisite
@@ -39,6 +47,7 @@
 							type: resource
 							material: steel.rod
 							amount: 8.000
+							snapping: 0.500
 							loss: 0.149
 							group: 0
 							flags: prerequisite
@@ -48,14 +57,16 @@
 							work: assembling
 							amount: 760.000
 							difficulty: 7
+							snapping: 25.000
 							ratio: 0.090
 							group: 0
-							flags: simultaneous
+							flags: conditional
 						}
 						{
 							type: resource
 							material: steel.plate
 							amount: 35.000
+							snapping: 1.000
 							loss: 0.235
 							group: 1
 							flags: prerequisite
@@ -64,6 +75,7 @@
 							type: resource
 							material: machine_parts
 							amount: 20.000
+							snapping: 1.000
 							loss: 0.067
 							group: 1
 							flags: prerequisite
@@ -73,6 +85,7 @@
 							work: metal.forming
 							amount: 720.000
 							difficulty: 6
+							snapping: 25.000
 							group: 1
 							flags: simultaneous, conditional
 						}
@@ -81,6 +94,7 @@
 							work: snipping.metal
 							amount: 500.000
 							difficulty: 8
+							snapping: 25.000
 							ratio: 0.161
 							group: 1
 							flags: simultaneous, conditional
@@ -90,10 +104,22 @@
 							work: bolting
 							amount: 850.000
 							difficulty: 4
-							group: 1
-							flags: simultaneous, conditional
+							snapping: 25.000
+							group: 2
+							flags: conditional
 						}
 					]
+					
+					filter_tools:
+					{
+						require: hammer, cutters, screwdriver, wrench
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, spanner, pliers, stapler, file, chisel, towel, tongs, pick, crowbar, knife, scissors
+					}
+					filter_infrastructure:
+					{
+						require: surface, hard_surface
+						include: anvil, table, chair, vise, rack, surface, dies, workbench
+					}
 				}
 			]
 		}
@@ -105,9 +131,6 @@
 			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: none
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -123,6 +146,7 @@
 							type: resource
 							material: machine_parts
 							amount: 18.000
+							snapping: 1.000
 							loss: 0.227
 							group: 0
 							flags: prerequisite
@@ -132,11 +156,18 @@
 							work: assembling
 							amount: 600.000
 							difficulty: 6
-							ratio: 0.165
+							snapping: 25.000
+							ratio: 0.176
 							group: 0
 							flags: conditional
 						}
 					]
+					
+					filter_tools:
+					{
+						require: screwdriver, wrench
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, stapler, towel, tongs, pick, crowbar, knife
+					}
 				}
 			]
 		}
@@ -148,9 +179,6 @@
 			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: none
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -166,6 +194,7 @@
 							type: resource
 							material: machine_parts
 							amount: 26.000
+							snapping: 1.000
 							loss: 0.078
 							group: 0
 							flags: prerequisite
@@ -174,6 +203,7 @@
 							type: resource
 							material: steel.frames
 							amount: 8.000
+							snapping: 0.500
 							loss: 0.137
 							group: 0
 							flags: prerequisite
@@ -183,7 +213,8 @@
 							work: metal.forming
 							amount: 280.000
 							difficulty: 9
-							ratio: 0.251
+							snapping: 25.000
+							ratio: 0.263
 							group: 0
 							flags: simultaneous, conditional
 						}
@@ -192,11 +223,23 @@
 							work: assembling
 							amount: 450.000
 							difficulty: 8
+							snapping: 25.000
 							ratio: 0.204
 							group: 0
 							flags: simultaneous, conditional
 						}
 					]
+					
+					filter_tools:
+					{
+						require: hammer, screwdriver, wrench
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, pliers, stapler, file, chisel, towel, tongs, pick, crowbar, knife
+					}
+					filter_infrastructure:
+					{
+						require: surface, hard_surface
+						include: anvil, table, chair, vise, rack, dies, workbench
+					}
 				}
 			]
 		}
@@ -208,9 +251,6 @@
 			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: none
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -226,7 +266,8 @@
 							type: resource
 							material: glass
 							amount: 30.000
-							loss: 0.635
+							snapping: 1.000
+							loss: 0.675
 							group: 0
 							flags: prerequisite
 						}
@@ -234,7 +275,8 @@
 							type: resource
 							material: glue
 							amount: 40.000
-							loss: 0.702
+							snapping: 0.500
+							loss: 0.725
 							group: 0
 							flags: prerequisite
 						}
@@ -243,7 +285,8 @@
 							work: filing
 							amount: 400.000
 							difficulty: 8
-							ratio: 0.031
+							snapping: 25.000
+							ratio: 0.141
 							group: 0
 							flags: conditional
 						}
@@ -252,11 +295,26 @@
 							work: gluing
 							amount: 540.000
 							difficulty: 6
-							ratio: 0.153
+							snapping: 25.000
 							group: 0
 							flags: conditional
 						}
 					]
+					
+					filter_tools:
+					{
+						require: file
+						include: paintbrush, file, chisel, knife, sandpaper, utensils
+					}
+					filter_infrastructure:
+					{
+						include: table, surface
+					}
+					filter_environment:
+					{
+						include: workshop, stationary, clean, illuminated, dry, organized
+						exclude: wet
+					}
 				}
 			]
 		}
@@ -269,17 +327,17 @@
 			prefab: cabin.metal.03
 			amount: 1.000
 			group: 0
-			flags: primary
+			flags: primary, compact
 		}
 	]
 	
 	type: workshop
-	flags: blueprintable, wip, debug
+	flags: no_amount_multiplier, blueprintable, wip, needs_review
 	tags: crafting, advanced, large, vehicle, machinery, assembling, metalworking, engineering
 	hints: none
 	connotations: none
-	infrastructure: none
-	infrastructure_exclude: none
+	infrastructure: pulley, surface, hard_surface
+	infrastructure_exclude: personal
 	
 	icon:
 	{
@@ -294,5 +352,5 @@
 	max: 1
 	step: 1
 	
-	version: 0
+	version: 1
 }

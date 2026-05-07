@@ -40,7 +40,9 @@
 							type: resource
 							material: machine_parts
 							amount: 30.000
+							snapping: 1.000
 							group: 0
+							flags: prerequisite
 						}
 						{
 							type: resource
@@ -71,14 +73,15 @@
 							type: resource
 							material: steel.plate
 							amount: 65.000
-							group: 0
+							snapping: 1.000
+							group: 1
 							flags: prerequisite
 						}
 						{
 							type: work
 							work: welding
-							amount: 2000.000
-							difficulty: 3
+							amount: 1750.000
+							difficulty: 5
 							snapping: 25.000
 							group: 1
 							flags: conditional
@@ -87,8 +90,8 @@
 					
 					filter_tools:
 					{
-						require: screwdriver, wrench, knife, needle
-						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, tweezers, stapler, towel, tongs, pick, crowbar, knife, needle, pins
+						require: screwdriver, wrench
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, stapler, towel, tongs, pick, crowbar, knife
 					}
 				}
 			]
@@ -107,12 +110,12 @@
 	]
 	
 	type: workshop
-	flags: no_amount_multiplier, blueprintable, debug, item, wip, needs_review
+	flags: no_amount_multiplier, blueprintable, construction, item, wip, needs_review
 	tags: manual, crafting, complex, large, vehicle, assembling, metalworking, engineering, construction
 	hints: none
 	connotations: none
-	infrastructure: surface
-	infrastructure_exclude: none
+	infrastructure: pulley, surface, hard_surface
+	infrastructure_exclude: personal
 	
 	icon:
 	{

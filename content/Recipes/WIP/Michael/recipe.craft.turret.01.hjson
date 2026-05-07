@@ -74,7 +74,7 @@
 							type: resource
 							material: steel.plate
 							amount: 50.000
-							group: 0
+							group: 1
 							flags: prerequisite
 						}
 						{
@@ -90,8 +90,8 @@
 							type: resource
 							material: cloth
 							amount: 10.000
-							group: 0
-							flags: conditional
+							group: 2
+							flags: prerequisite
 						}
 					]
 					
@@ -117,12 +117,12 @@
 	]
 	
 	type: workshop
-	flags: no_amount_multiplier, blueprintable, debug, item, wip, needs_review
+	flags: no_amount_multiplier, blueprintable, item, wip, needs_review
 	tags: manual, crafting, complex, medium, vehicle, assembling, metalworking, engineering, military, construction
 	hints: none
 	connotations: none
-	infrastructure: surface
-	infrastructure_exclude: none
+	infrastructure: pulley, surface, hard_surface
+	infrastructure_exclude: personal
 	
 	icon:
 	{
