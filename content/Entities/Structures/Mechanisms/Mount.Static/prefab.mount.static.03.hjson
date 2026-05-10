@@ -82,6 +82,22 @@ mount:
 	}
 }
 
+storage:
+{
+	@inventory4:
+	{
+		type: buffer
+		flags: standalone, allow_ducts, ignore_mass, no_auto_pickup, vertical
+		stack_size_multiplier: 2.000
+		
+		filter:
+		{
+			exclude: long, gas, large
+		}
+		offset: [-0.750, 0.625]
+	}
+}
+
 // storage:
 // {
 // 	@inventory1:
@@ -145,7 +161,7 @@ mount:
 	attachment.slot:
 	{
 		flags: keyboard_write, mouse_write, manual_aim
-		flags_editable: locked, disabled, invert, keyboard_read, keyboard_write, mouse_read, mouse_write, loose, offset, manual_aim
+		flags_editable: locked, disabled, hold, invert, keyboard_read, keyboard_write, mouse_read, mouse_write, manual_aim, loose, offset
 		name: "Mount"
 		identifier: "mount"
 		offset_bounds: [-0.500, -0.500, 0.500, 0.500]

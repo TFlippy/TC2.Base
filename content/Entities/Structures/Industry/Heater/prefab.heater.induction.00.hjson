@@ -70,7 +70,7 @@ essence.container:
 {
 	stability: 0.900
 	health_threshold: 0.500
-	glow_modifier: 1.800
+	glow_modifier: 0.800
 	flags: show_gui, allow_edit_rate
 	emit_type: oscillator
 

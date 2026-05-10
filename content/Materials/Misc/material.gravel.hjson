@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.73.1"
 	name: "Gravel"
 	name_short: "Gravel"
 	name_imperial: "Jesterk"
@@ -61,5 +61,29 @@
 		
 		market_price: 1.600
 		market_price_per_kg_auto: 1.426025
+	}
+	
+	ammo:
+	{
+		count: 1
+		mass: 0.110
+		heat: 100.000
+		velocity_min: 30.000
+		
+		speed_base: 0.000
+		speed_mult: 1.000
+		speed_jitter: 0.080
+		spin_base: 0.100
+		spin_mult: 1.200
+		spread_mult: 1.200
+		recoil_mult: 1.000
+		
+		failure_base: 0.000
+		failure_mult: 1.000
+		
+		stability_base: 50.000
+		stability_mult: 1.000
+		
+		prefab: projectile.garbage.00
 	}
 }

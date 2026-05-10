@@ -2216,6 +2216,7 @@ namespace TC2.Base
 				category: "Structure",
 				name: "Steel Casing (Large)",
 				description: "TODO: Desc",
+				flags: Augment.Definition.Flags.Hidden,
 
 				can_add_simple: static (ref handle, augments) =>
 				{

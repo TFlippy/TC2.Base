@@ -101,7 +101,7 @@ minimap.marker:
 interactable:
 {
 	flags: no_tab
-	window_size: [600, 480]
+	window_size: [600, 440]
 	window_size_misc: [192, 0]
 	priority: 1.000
 }

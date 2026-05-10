@@ -6,7 +6,7 @@ body:
 	flags: none
 	tags: hollow, solid, round, angular, complex
 	
-	fall_damage_multiplier: 1.550
+	fall_damage_multiplier: 5.500
 	buoyancy: 0.480
 
 	@shape.line:
@@ -84,7 +84,7 @@ norotate:
 
 health:
 {
-	max: 9000.000
+	max: 8000.000
 }
 
 explosive:
@@ -120,7 +120,7 @@ explosive:
 	volume: 2.100
 	pitch: 0.500
 	
-	modifier_min: 0.100
+	modifier_min: 0.080
 }
 
 cluster:
