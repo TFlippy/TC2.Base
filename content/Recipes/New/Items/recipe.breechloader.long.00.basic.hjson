@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.1"
+	$version: "0.1.74.0"
 	name: "Long Breechloader"
 	tips: []
 	
@@ -300,11 +300,13 @@
 	{
 		texture: breechloader.long
 	}
+	icon_offset: [-1.000, 0.000]
 	
 	color_frame: "0xffaeb59a"
 	color_button: "0xff9dd80f"
 	button_name: "Craft"
 	rank: -1.700
+	frame_size: [64.000, 48.000]
 	
 	min: 1
 	max: 6

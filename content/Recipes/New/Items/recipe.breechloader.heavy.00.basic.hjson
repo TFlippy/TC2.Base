@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.1"
+	$version: "0.1.74.0"
 	name: "Heavy Breechloader"
 	tips: []
 	
@@ -316,11 +316,13 @@
 	{
 		texture: breechloader.heavy
 	}
+	icon_offset: [-2.000, 0.000]
 	
 	color_frame: "0xffaeb59a"
 	color_button: "0xff9dd80f"
 	button_name: "Craft"
 	rank: -1.900
+	frame_size: [64.000, 48.000]
 	
 	min: 1
 	max: 4
