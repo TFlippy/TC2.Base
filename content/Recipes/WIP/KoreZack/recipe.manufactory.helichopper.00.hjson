@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.70.0"
+	$version: "0.1.74.0"
 	$author: "KoreZack"
 	name: "Helichopper"
 	
@@ -13,9 +13,6 @@
 			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: none
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -100,9 +97,6 @@
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: none
 			
-			ratio: 0.000
-			mass_base: 0.000
-			
 			options:
 			[
 				{
@@ -142,9 +136,6 @@
 			tags: none
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: none
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -208,7 +199,7 @@
 	]
 	
 	type: workshop
-	flags: blueprintable, wip, debug
+	flags: no_amount_multiplier, blueprintable, debug, construction, wip, needs_review
 	tags: advanced, large, vehicle, machinery, assembling, metalworking, engineering
 	hints: none
 	connotations: none

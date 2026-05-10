@@ -230,7 +230,7 @@
 	]
 	
 	type: workshop
-	flags: no_amount_multiplier, blueprintable, construction, item, production, manufacturing, wip, auto_complete, needs_review
+	flags: no_amount_multiplier, blueprintable, construction, wip, needs_review
 	tags: crafting, large, vehicle, assembling, metalworking, military, construction
 	hints: heavy, advanced, machine, defensive, expensive, military, large
 	connotations: vehicle, heavy, interesting, advanced, machine, defense, military, tech, good, scary
