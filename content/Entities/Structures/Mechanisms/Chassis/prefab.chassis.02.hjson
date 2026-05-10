@@ -21,7 +21,7 @@ body:
 		mask: world
 		exclude: tree
 		
-		mass: 710.000
+		mass: 550.000
 		radius: 0.500
 		friction: 0.900
 		elasticity: 0.850
@@ -48,7 +48,7 @@ body:
 		mask: world, solid
 		exclude: tree, wheel, attached
 		
-		mass: 80.000
+		mass: 75.000
 		radius: 0.4375
 		friction: 0.800
 		elasticity: 0.450

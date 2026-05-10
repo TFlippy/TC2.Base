@@ -1,12 +1,22 @@
 ﻿{
 	$version: "0.1.74.0"
 	$author: "KoreZack"
-	name: "Rubber wheel"
+	name: "Wheel (Rubber, Medium)"
 	desc:
 		'''
 		Medium high-friction wheel that can be attached to vehicles.
 		'''
 	tips: []
+	
+	related_materials:
+	{
+		machine_parts: input, auto_generated
+		steel.frames: input, auto_generated
+		oil: liquid, input, auto_generated
+		steel.plate: input, auto_generated
+		rubber: input, auto_generated
+		glue: liquid, input, auto_generated
+	}
 	
 	stages:
 	[
@@ -17,7 +27,7 @@
 			flags: part
 			tags: mechanism, metal, assembly, functional, small
 			// Damage type used for discarding leftover resources.
-			discard_damage_type: none
+			discard_damage_type: sledgehammer
 			
 			options:
 			[
@@ -62,32 +72,30 @@
 						}
 						{
 							type: resource
-							material: tallow
-							amount: 2.250
-							group: 0
+							material: oil
+							amount: 0.692771
+							snapping: 0.100
+							group: 1
 							flags: prerequisite
 						}
 						{
 							type: work
-							work: smearing
+							work: polishing.oil
 							amount: 60.000
 							amount_min: 100.000
 							difficulty: 4
-							group: 0
-							flags: conditional
-						}
-						{
-							type: work
-							work: sealing
-							amount: 100.000
-							amount_min: 120.000
-							difficulty: 8
-							snapping: 10.000
-							falloff: 0.950
-							group: 0
+							snapping: 25.000
+							falloff: 0.723
+							group: 1
 							flags: conditional
 						}
 					]
+					
+					filter_tools:
+					{
+						require: screwdriver, wrench, towel
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, paintbrush, stapler, towel, tongs, pick, crowbar, knife
+					}
 				}
 			]
 		}
@@ -98,7 +106,7 @@
 			flags: part
 			tags: frame, shell, thin, metal, assembly, structural, small, rounded
 			// Damage type used for discarding leftover resources.
-			discard_damage_type: none
+			discard_damage_type: sledgehammer
 			
 			options:
 			[
@@ -114,6 +122,7 @@
 							type: resource
 							material: steel.frames
 							amount: 7.000
+							snapping: 0.500
 							loss: 0.149
 							group: 0
 							flags: prerequisite
@@ -129,20 +138,11 @@
 						}
 						{
 							type: work
-							work: assembling
-							amount: 120.000
-							amount_min: 140.000
-							difficulty: 6
-							ratio: 0.149
-							group: 0
-							flags: conditional
-						}
-						{
-							type: work
 							work: bending
 							amount: 80.000
 							amount_min: 60.000
 							difficulty: 8
+							snapping: 25.000
 							ratio: 0.251
 							group: 0
 							flags: simultaneous, conditional
@@ -153,11 +153,33 @@
 							amount: 70.000
 							amount_min: 90.000
 							difficulty: 8
+							snapping: 25.000
 							ratio: 0.251
 							group: 0
 							flags: simultaneous, conditional
 						}
+						{
+							type: work
+							work: assembling
+							amount: 120.000
+							amount_min: 140.000
+							difficulty: 6
+							snapping: 25.000
+							ratio: 0.149
+							group: 1
+							flags: conditional
+						}
 					]
+					
+					filter_tools:
+					{
+						require: hammer, cutters, screwdriver, wrench
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, pliers, stapler, chisel, towel, tongs, pick, crowbar, knife, scissors
+					}
+					filter_infrastructure:
+					{
+						include: anvil, table, vise, surface, hard_surface, workbench
+					}
 				}
 			]
 		}
@@ -168,7 +190,7 @@
 			flags: part
 			tags: grip, shell, small, rounded
 			// Damage type used for discarding leftover resources.
-			discard_damage_type: none
+			discard_damage_type: sledgehammer
 			
 			options:
 			[
@@ -190,21 +212,23 @@
 							flags: prerequisite
 						}
 						{
+							type: resource
+							material: glue
+							amount: 12.000
+							snapping: 0.500
+							loss: 0.149
+							group: 0
+							flags: prerequisite
+						}
+						{
 							type: work
 							work: tailoring
 							amount: 140.000
 							amount_min: 40.000
 							difficulty: 4
+							snapping: 25.000
 							group: 0
 							flags: conditional
-						}
-						{
-							type: resource
-							material: glue
-							amount: 12.000
-							loss: 0.149
-							group: 0
-							flags: prerequisite
 						}
 						{
 							type: work
@@ -212,11 +236,27 @@
 							amount: 110.000
 							amount_min: 50.000
 							difficulty: 3
+							snapping: 25.000
 							ratio: 0.149
-							group: 0
+							group: 1
 							flags: conditional
 						}
 					]
+					
+					filter_tools:
+					{
+						require: needle, pins
+						include: cutters, pliers, tweezers, paintbrush, file, knife, needle, pins, scissors, utensils
+					}
+					filter_infrastructure:
+					{
+						include: table
+					}
+					filter_environment:
+					{
+						include: clean, organized
+						exclude: wet
+					}
 				}
 			]
 		}
@@ -229,7 +269,7 @@
 			prefab: wheel.rubber.00.md
 			amount: 1.000
 			group: 0
-			flags: primary
+			flags: primary, compact
 		}
 	]
 	
@@ -255,5 +295,5 @@
 	max: 8
 	step: 1
 	
-	version: 0
+	version: 1
 }

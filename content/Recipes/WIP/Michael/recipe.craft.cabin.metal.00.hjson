@@ -45,69 +45,50 @@
 							material: steel.rod
 							amount: 10.000
 							snapping: 0.500
-							loss: 0.067
+							loss: 0.098
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: resource
-							material: steel.plate
-							amount: 30.000
-							snapping: 1.000
-							loss: 0.118
+							material: steel.frames
+							amount: 20.000
+							snapping: 0.500
+							loss: 0.129
 							group: 0
 							flags: prerequisite
+						}
+						{
+							type: work
+							work: metal.forming
+							amount: 900.000
+							difficulty: 10
+							snapping: 5.000
+							ratio: 0.486
+							group: 0
+							flags: simultaneous, conditional
 						}
 						{
 							type: work
 							work: drilling
 							amount: 500.000
-							difficulty: 12
+							difficulty: 8
 							snapping: 5.000
-							falloff: 0.945
 							ratio: 0.337
 							group: 0
 							flags: simultaneous, conditional
-						}
-						{
-							type: work
-							work: bending
-							amount: 1100.000
-							difficulty: 14
-							snapping: 5.000
-							falloff: 0.969
-							ratio: 0.541
-							group: 0
-							flags: simultaneous, conditional
-						}
-						{
-							type: resource
-							material: steel.frames
-							amount: 55.000
-							snapping: 0.500
-							group: 1
-							flags: prerequisite
-						}
-						{
-							type: work
-							work: bolting
-							amount: 0.000
-							amount_min: 100.000
-							difficulty: 0
-							snapping: 25.000
-							group: 1
-							flags: conditional
 						}
 					]
 					
 					filter_tools:
 					{
-						require: hammer, hand_drill, screwdriver
-						include: hammer, hand_drill, screwdriver, wrench, spanner, pliers, chisel, towel, pick, crowbar, knife
+						require: hammer, hand_drill
+						include: hammer, cutters, hand_drill, screwdriver, pliers, file, chisel, pick, knife
 					}
 					filter_infrastructure:
 					{
-						include: anvil, vise, rack, hard_surface, workbench
+						require: surface, hard_surface
+						include: anvil, table, chair, vise, rack, dies, workbench
 					}
 				}
 			]
@@ -143,21 +124,42 @@
 							flags: prerequisite
 						}
 						{
+							type: resource
+							material: steel.plate
+							amount: 40.000
+							snapping: 1.000
+							loss: 0.129
+							group: 0
+							flags: prerequisite
+						}
+						{
+							type: work
+							work: bolting
+							amount: 0.000
+							amount_min: 100.000
+							difficulty: 0
+							snapping: 25.000
+							ratio: 0.129
+							group: 1
+							flags: simultaneous, conditional
+						}
+						{
 							type: work
 							work: assembling
 							amount: 0.000
 							amount_min: 200.000
 							difficulty: 0
 							snapping: 25.000
-							group: 0
-							flags: conditional
+							ratio: 0.282
+							group: 1
+							flags: simultaneous, conditional
 						}
 					]
 					
 					filter_tools:
 					{
 						require: screwdriver, wrench
-						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, stapler, towel, tongs, pick, crowbar, knife
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, spanner, pliers, stapler, towel, tongs, pick, crowbar, knife
 					}
 				}
 			]
@@ -194,8 +196,8 @@
 						}
 						{
 							type: resource
-							material: steel.plate
-							amount: 20.000
+							material: steel.frames
+							amount: 12.000
 							snapping: 1.000
 							group: 0
 							flags: prerequisite
@@ -225,13 +227,13 @@
 			prefab: cabin.metal.00
 			amount: 1.000
 			group: 0
-			flags: primary
+			flags: primary, compact
 		}
 	]
 	
 	type: workshop
-	flags: no_amount_multiplier, blueprintable, construction, wip, needs_review
-	tags: crafting, large, vehicle, assembling, metalworking, military, construction
+	flags: no_amount_multiplier, blueprintable, item, wip, needs_review
+	tags: crafting, basic, simple, large, vehicle, assembling, metalworking, engineering, construction
 	hints: heavy, advanced, machine, defensive, expensive, military, large
 	connotations: vehicle, heavy, interesting, advanced, machine, defense, military, tech, good, scary
 	infrastructure: surface, hard_surface, workbench

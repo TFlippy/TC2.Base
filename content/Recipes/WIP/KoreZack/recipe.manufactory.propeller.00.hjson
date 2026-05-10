@@ -295,7 +295,7 @@
 	]
 	
 	type: workshop
-	flags: no_amount_multiplier, blueprintable, debug, construction, wip, needs_review
+	flags: no_amount_multiplier, blueprintable, debug, disabled, wip, needs_review
 	tags: manual, crafting, complex, large, device, vehicle, machinery, assembling, metalworking, engineering
 	hints: none
 	connotations: none

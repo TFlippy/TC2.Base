@@ -81,7 +81,7 @@
 					filter_tools:
 					{
 						require: screwdriver, wrench, knife, needle
-						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, tweezers, stapler, towel, tongs, pick, crowbar, knife, needle, pins
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, tweezers, stapler, towel, tongs, pick, crowbar, knife, needle, pins, scissors
 					}
 				}
 			]
@@ -100,7 +100,7 @@
 	]
 	
 	type: workshop
-	flags: no_amount_multiplier, blueprintable, item, wip, converted
+	flags: no_amount_multiplier, blueprintable, item, wip
 	tags: crafting, complex, medium, vehicle, machinery, assembling, metalworking, engineering, construction
 	hints: none
 	connotations: none

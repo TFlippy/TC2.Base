@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.0"
+	$version: "0.1.74.0"
 	name: "Welding"
 	name_short: "Welding"
 	desc:
@@ -40,12 +40,16 @@
 	
 	skills_min:
 	{
-	
+		metallurgy: 3
+		blacksmithing: 2
 	}
 	
 	skills_mult:
 	{
-	
+		blacksmithing: 0.350
+		metallurgy: 0.600
+		engineering: 0.350
+		construction: 0.450
 	}
 	
 	sound_volume: 0.710

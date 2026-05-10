@@ -38,51 +38,67 @@
 					[
 						{
 							type: resource
-							material: machine_parts
-							amount: 30.000
-							snapping: 1.000
+							material: steel.frames
+							amount: 110.000
+							snapping: 0.500
+							loss: 0.141
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: resource
-							material: steel.frames
-							amount: 150.000
-							snapping: 0.500
+							material: machine_parts
+							amount: 35.000
+							snapping: 1.000
+							loss: 0.125
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: work
-							work: assembling
-							amount: 1200.000
+							work: metal.forming
+							amount: 750.000
 							difficulty: 8
 							snapping: 25.000
+							ratio: 0.333
 							group: 0
-							flags: conditional
+							flags: simultaneous, conditional
+						}
+						{
+							type: work
+							work: assembling
+							amount: 800.000
+							difficulty: 7
+							snapping: 25.000
+							ratio: 0.286
+							group: 0
+							flags: simultaneous, conditional
 						}
 						{
 							type: resource
 							material: steel.rod
-							amount: 45.000
+							amount: 50.000
 							snapping: 0.500
+							loss: 0.071
 							group: 1
 							flags: prerequisite
 						}
 						{
 							type: resource
 							material: steel.plate
-							amount: 65.000
+							amount: 30.000
 							snapping: 1.000
+							loss: 0.075
 							group: 1
 							flags: prerequisite
 						}
 						{
 							type: work
 							work: welding
-							amount: 1750.000
+							amount: 1000.000
 							difficulty: 5
 							snapping: 25.000
+							ratio: 0.082
 							group: 1
 							flags: conditional
 						}
@@ -90,8 +106,13 @@
 					
 					filter_tools:
 					{
-						require: screwdriver, wrench
-						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, stapler, towel, tongs, pick, crowbar, knife
+						require: hammer, screwdriver, wrench
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, pliers, stapler, file, chisel, towel, tongs, pick, crowbar, knife
+					}
+					filter_infrastructure:
+					{
+						require: surface, hard_surface
+						include: anvil, table, chair, vise, rack, dies, workbench
 					}
 				}
 			]
@@ -110,7 +131,7 @@
 	]
 	
 	type: workshop
-	flags: no_amount_multiplier, blueprintable, construction, wip, needs_review
+	flags: no_amount_multiplier, blueprintable, item, wip, needs_review
 	tags: manual, crafting, complex, large, vehicle, assembling, metalworking, engineering, construction
 	hints: none
 	connotations: none

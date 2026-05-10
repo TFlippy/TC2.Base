@@ -74,6 +74,7 @@
 							type: resource
 							material: steel.plate
 							amount: 50.000
+							snapping: 1.000
 							group: 1
 							flags: prerequisite
 						}
@@ -90,6 +91,7 @@
 							type: resource
 							material: cloth
 							amount: 10.000
+							snapping: 1.000
 							group: 2
 							flags: prerequisite
 						}
@@ -97,8 +99,8 @@
 					
 					filter_tools:
 					{
-						require: screwdriver, wrench, knife, needle
-						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, tweezers, stapler, towel, tongs, pick, crowbar, knife, needle, pins
+						require: screwdriver, wrench
+						include: pencil, ruler, hammer, cutters, saw, hand_drill, screwdriver, wrench, stapler, towel, tongs, pick, crowbar, knife
 					}
 				}
 			]
@@ -117,7 +119,7 @@
 	]
 	
 	type: workshop
-	flags: no_amount_multiplier, blueprintable, construction, wip, needs_review
+	flags: no_amount_multiplier, blueprintable, item, wip, needs_review
 	tags: manual, crafting, complex, medium, vehicle, assembling, metalworking, engineering, military, construction
 	hints: none
 	connotations: none

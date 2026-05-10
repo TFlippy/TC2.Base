@@ -22,7 +22,7 @@
 			flags: part, important
 			tags: frame, shell, metal, structural, large
 			// Damage type used for discarding leftover resources.
-			discard_damage_type: none
+			discard_damage_type: sledgehammer
 			
 			options:
 			[
@@ -39,7 +39,7 @@
 							material: steel.frames
 							amount: 20.000
 							snapping: 0.500
-							loss: 0.200
+							loss: 0.212
 							group: 0
 							flags: prerequisite
 						}
@@ -86,6 +86,7 @@
 							amount: 720.000
 							difficulty: 6
 							snapping: 25.000
+							ratio: 0.114
 							group: 1
 							flags: simultaneous, conditional
 						}
@@ -105,6 +106,7 @@
 							amount: 850.000
 							difficulty: 4
 							snapping: 25.000
+							ratio: 0.082
 							group: 2
 							flags: conditional
 						}
@@ -130,7 +132,7 @@
 			flags: none
 			tags: none
 			// Damage type used for discarding leftover resources.
-			discard_damage_type: none
+			discard_damage_type: sledgehammer
 			
 			options:
 			[
@@ -178,7 +180,7 @@
 			flags: none
 			tags: none
 			// Damage type used for discarding leftover resources.
-			discard_damage_type: none
+			discard_damage_type: sledgehammer
 			
 			options:
 			[
@@ -250,7 +252,7 @@
 			flags: none
 			tags: none
 			// Damage type used for discarding leftover resources.
-			discard_damage_type: none
+			discard_damage_type: sledgehammer
 			
 			options:
 			[
@@ -332,7 +334,7 @@
 	]
 	
 	type: workshop
-	flags: no_amount_multiplier, blueprintable, debug, construction, wip, needs_review
+	flags: no_amount_multiplier, blueprintable, item, wip, needs_review
 	tags: crafting, advanced, large, vehicle, machinery, assembling, metalworking, engineering
 	hints: none
 	connotations: none

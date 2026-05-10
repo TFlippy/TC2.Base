@@ -1,7 +1,7 @@
 ﻿{
-	$version: "0.1.68.1"
+	$version: "0.1.74.0"
 	name: "Phlogiston Welding"
-	name_short: "P. Welding"
+	name_short: "P.Welding"
 	desc:
 		'''
 		TODO: Desc
