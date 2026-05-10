@@ -434,12 +434,12 @@ faction:
 
 		armor:
 		{
-			toughness: 140.000
-			protection: 0.960
-			coverage: 0.850
-			knockback_modifier: 0.700
-			stun_modifier: 0.350
-			pain_modifier: 0.620
+			toughness: 123.000
+			protection: 0.600
+			coverage: 0.900
+			knockback_modifier: 1.150
+			stun_modifier: 0.450
+			pain_modifier: 0.780
 			material_type: fur
 			flags: no_damage_type_conversion
 		}
