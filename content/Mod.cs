@@ -15,6 +15,7 @@ namespace TC2.Base
 			Augment.OnInitialize += RegisterDrillAugments;
 			Augment.OnInitialize += RegisterMedkitAugments;
 			Augment.OnInitialize += RegisterExplosiveAugments;
+			Augment.OnInitialize += RegisterHoldableAugments;
 			Augment.OnInitialize += RegisterArmorAugments;
 			Augment.OnInitialize += RegisterWrenchAugments;
 			Augment.OnInitialize += RegisterVehicleAugments;
