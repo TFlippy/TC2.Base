@@ -39,18 +39,18 @@
 						{
 							type: resource
 							material: steel.frames
-							amount: 7.000
+							amount: 15.000
 							snapping: 0.500
-							loss: 0.710
+							loss: 0.310
 							group: 0
 							flags: prerequisite
 						}
 						{
 							type: resource
 							material: steel.rod
-							amount: 2.000
+							amount: 3.000
 							snapping: 0.500
-							loss: 0.216
+							loss: 0.176
 							group: 0
 							flags: prerequisite
 						}
@@ -67,7 +67,7 @@
 						{
 							type: resource
 							material: wood
-							amount: 25.000
+							amount: 30.000
 							snapping: 1.000
 							loss: 0.200
 							group: 1

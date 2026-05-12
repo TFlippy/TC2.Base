@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.1"
+	$version: "0.1.74.0"
 	name: "Longsword"
 	tips: []
 	
@@ -263,7 +263,7 @@
 	
 	type: workshop
 	flags: blueprintable, item, production, wip
-	tags: manual, crafting, basic, simple, medium, weapon, tool, blacksmithing, metalworking, metallurgy, construction, heating
+	tags: manual, crafting, basic, simple, medium, weapon, blacksmithing, metalworking
 	hints: none
 	connotations: none
 	infrastructure: anvil, surface, hard_surface, workbench
@@ -277,7 +277,7 @@
 	color_frame: "0xffaeb59a"
 	color_button: "0xff9dd80f"
 	rank: 22.000
-	frame_size: [32.000, 32.000]
+	frame_size: [48.000, 48.000]
 	
 	min: 1
 	max: 5

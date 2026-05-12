@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.1"
+	$version: "0.1.74.0"
 	name: "Machete"
 	tips: []
 	
@@ -250,7 +250,7 @@
 	
 	type: workshop
 	flags: blueprintable, item, wip
-	tags: manual, crafting, weapon, blacksmithing, metalworking
+	tags: manual, crafting, basic, simple, weapon, blacksmithing, metalworking
 	hints: none
 	connotations: none
 	infrastructure: surface, workbench

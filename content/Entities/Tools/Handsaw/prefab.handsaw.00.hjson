@@ -53,14 +53,14 @@ melee:
 {
 	damage_base: 43.100
 	damage_bonus: 35.700
-	armor_pierce: 76.600
+	armor_pierce: 100.000
 	
 	secondary_damage_multiplier: 0.600
 	terrain_damage_multiplier: 0.000
 	pain_multiplier: 1.800
 	stun_multiplier: 0.800
 	
-	disarm_chance: 0.000
+	disarm_chance: 0.030
 	cooldown: 0.250
 	max_distance: 1.250
 	aoe: 0.675
