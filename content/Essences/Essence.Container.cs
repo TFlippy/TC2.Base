@@ -446,7 +446,7 @@ namespace TC2.Base.Components
 
 				public void Draw()
 				{
-					using (var window = GUI.Window.InteractionMisc("Essence"u8, this.ent_interactable, size: new Vector2(0, 48), min_width: 96, min_height: 48))
+					using (var window = GUI.Window.InteractionMisc("Essence"u8, this.ent_interactable, size: new(0, 48), min_width: 96, min_height: 48))
 					{
 						//App.WriteLine(this.ent_interactable);
 
@@ -467,11 +467,12 @@ namespace TC2.Base.Components
 									GUI.DrawInventory(this.inventory.GetHandle());
 
 									var rect_inventory = GUI.GetLastItemRect();
-									GUI.Help.Draw("help.essence"u8, GUI.Anchor.Left, "Insert EC-Pellet"u8, 
-										desc: "This device is powered by essence pellets.\n"u8 +
-										"You can control the emission rate using\n"u8 +
-										"the slider next to the slot.\n\n"u8 +
-										"Heaters typically use EC-TH pellets, which can be obtained from Limelights,\nwhile motors and propulsion-related devices use EC-MT pellets."u8);
+									//GUI.Help.Draw("help.essence"u8, GUI.Anchor.Left, "Insert EC-Pellet"u8, 
+									//	desc: "This device is powered by essence pellets.\n"u8 +
+									//	"You can control the emission rate using\n"u8 +
+									//	"the slider next to the slot.\n\n"u8 +
+									//	"Heaters typically use EC-TH pellets, which can be obtained from Limelights,\nwhile motors and propulsion-related devices use EC-MT pellets."u8);
+									
 									//GUI.DrawRect(GUI.GetLastItemRect(), layer: GUI.Layer.Foreground);
 
 

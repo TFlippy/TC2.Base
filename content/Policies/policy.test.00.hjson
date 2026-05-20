@@ -1,0 +1,20 @@
+﻿{
+	$version: "0.1.74.0"
+	name: "Test"
+	
+	flags: none
+	tags: none
+	
+	hs_species:
+	[
+		cat
+		human
+	]
+	hs_faction: []
+	
+	filter_hints:
+	{
+		multiplier: 1.000
+		mask: has_armor, has_weapon, is_armored, is_scary
+	}
+}

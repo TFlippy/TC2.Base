@@ -44,9 +44,9 @@ gun:
 	
 	shake_amount: 0.300
 	
-	sound_volume: 1.300
-	sound_size: 8.875
-	sound_dist_multiplier: 3.500
+	sound_volume: 1.350
+	sound_size: 1.500
+	sound_dist_multiplier: 4.000
 	
 	sound_shoot: machine_gun_shoot
 	sound_reload: machine_gun_reload

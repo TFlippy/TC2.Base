@@ -73,24 +73,35 @@ fuse:
 
 explosive:
 {
-	radius: 12.000
-	power: 2.500
-	damage_entity: 6000.000
+	radius: 11.000
+	power: 2.200
+	damage_entity: 5000.000
 	damage_terrain: 2000.000
+	health_threshold: 0.200
+	
 	damage_type: shrapnel
-	damage_type_secondary: deflagration
+	damage_type_secondary: explosion
+	flags: none
+	
+	detonate_damage_filter: bullet_hc, bullet_mg, bullet_ac, bullet_kn, bullet_hw, rivet, axe, pickaxe, sledgehammer, explosion, motion_impulse, fire, saw, electricity, corrosion, stress, heat, phlogiston, failure, disintegration
+	
 	shake_multiplier: 0.300
 	force_multiplier: 0.050
-	stun_multiplier: 1.250
-	smoke_amount: 0.700
+	stun_multiplier: 3.500
+	
+	smoke_amount: 0.800
 	smoke_lifetime_multiplier: 1.200
 	smoke_velocity_multiplier: 3.000
 	smoke_color: "0xdc787878"
+	
 	flash_duration_multiplier: 0.350
 	flash_intensity_multiplier: 0.300
+	
 	fire_amount: 0.100
 	sparks_amount: 1.200
-	pitch: 2.500
+	
+	volume: 1.300
+	pitch: 1.400
 }
 
 packable:

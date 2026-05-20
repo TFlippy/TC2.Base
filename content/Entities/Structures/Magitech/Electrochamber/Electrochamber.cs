@@ -46,7 +46,7 @@
 
 					var intensity = 1.00f;
 					var color_a = ColorBGRA.Lerp(essence_data.color_emit, ColorBGRA.White, 0.50f);
-					var color_b = essence_data.color_emit.WithColorMult(1.20f).WithAlphaMult(0.00f);
+					var color_b = essence_data.color_emit.WithColorMult(1.20f).WithAlpha(0.00f);
 
 					//App.WriteLine("essence");
 
