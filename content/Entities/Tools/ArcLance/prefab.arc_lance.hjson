@@ -22,8 +22,8 @@ body:
 		
 		mass: 11.000
 		radius: 0.200
-		friction: 0.950
-		elasticity: 0.250
+		friction: 0.550
+		elasticity: 0.450
 		
 		cog_offset: [0.738, 0.000]
 		
@@ -84,9 +84,10 @@ arcer:
 holdable:
 {
 	offset: [-0.750, -0.125]
+	force_multiplier: 1.800
+	torque_multiplier: 7.800
+	stress_multiplier: 0.400
 	radius: 5.000
-	force_multiplier: 1.500
-	torque_multiplier: 10.000
 	flags: storable
 }
 

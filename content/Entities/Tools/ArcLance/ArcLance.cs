@@ -599,7 +599,7 @@ namespace TC2.Base.Components
 #endif
 						}
 
-						if (electrode.type == Electrode.Type.Single || (pairs_span.TryAddUnique(ent_arbiter.GetShortID(), out var contains) && contains))
+						if (electrode.type == Electrode.Type.Single || (pairs_span.TryAddUnique(ent_arbiter.GetShortID(), out var contains) | contains))
 						{
 							//App.WriteLine($"touch {state}");
 
