@@ -1,6 +1,5 @@
 ﻿{
-	$prefab: "g.settlement.city.00"
-	$version: "0.1.72.1"
+	$version: "0.1.75.0"
 	name: "Velka Bobnica"
 	name_short: "V.Bobnica"
 	
@@ -70,7 +69,7 @@
 		// Variance of population's social classes.
 		inequality: 0.320
 		// Crime rate, personal safety.
-		safety: 0.889
+		safety: 0.930
 		// Rate of expansion, economic and population growth.
 		growth: 1.362
 		// Military strength, security, access to weapons.

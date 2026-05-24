@@ -1,8 +1,8 @@
 ﻿{
-	$prefab: "g.settlement.factory.00"
-	$version: "0.1.62.0"
+	$version: "0.1.75.0"
 	name: "Vostarec"
 	name_short: "Vostarec"
+	
 	desc:
 		'''
 		TODO: Desc
@@ -12,15 +12,63 @@
 	
 	type: station
 	flags: none
+	
 	categories: industrial, wasteland, urban, magitech, excavated, polluted, mechanized, dangerous
 	buildings: warehouse, factory, office, bunker, hospital, trainyard, power_plant, tower, walls, labor_camp, foundry, manufactory, refinery, mine, borehole, slum, bar, barracks
-	industry_primary: none
-	industry: none
-	goods_trading: none
-	goods_demanded: none
-	goods_produced: none
-	crime: none
 	geography: none
+	crime: none
+	
+	h_prefecture: trphajzel
+	h_faction: krtec
+	h_company: krtec
+	point: [43, -14]
+	
+	size: 0.840
+	color: "0xffffa82a"
+	
+	icon:
+	{
+		texture: worldmap.icons.01
+		size: [24, 24]
+		frame: [4, 2]
+	}
+	
+	icon_offset: [0.000, -0.500]
+	text_offset: [0.000, 0.125]
+	
+	statistics:
+	{
+		
+		// Literacy, availability of education, skilled workers.
+		education: 0.710
+		// Urban development, population density.
+		urbanization: 0.640
+		// Availability and utilization of advanced technology.
+		technology: 0.780
+		// Industrial production, mechanization, engineering.
+		industrialization: 0.730
+		
+		// Standard of living, overall wealth of population and government.
+		wealth: 0.469
+		// Environmental devastation, excavation, deforestation, wasteland-ness.
+		devastation: 0.454
+		
+		// Economic strength, employment rate, flow of goods.
+		economy: 0.590
+		// Variance of population's social classes.
+		inequality: 0.427
+		// Crime rate, personal safety.
+		safety: 0.487
+		// Rate of expansion, economic and population growth.
+		growth: 0.546
+		// Military strength, security, access to weapons.
+		military: 0.622
+	}
+	
+	population:
+	{
+	
+	}
 	
 	// Urban development, population density.
 	urbanization: 0.640
@@ -32,14 +80,8 @@
 	education: 0.710
 	// Standard of living, overall wealth of population and government.
 	wealth: 0.469
-	// Nature, wildlife, overgrowth, untamed nature.
-	wilderness: 0.000
 	// Environmental damage, pollution, wastelandness.
 	devastation: 0.454
-	// Brutality of nature and population.
-	savagery: 0.000
-	// Lawlessness, lack of organization.
-	anarchy: 0.000
 	// Economic strength, employment rate, flow of goods.
 	economy: 0.590
 	// Variance of population's social classes.
@@ -50,58 +92,4 @@
 	growth: 0.546
 	// Military strength, security, access to weapons.
 	military: 0.403
-	// Height in meters above sea level.
-	elevation: 10.000
-	
-	statistics:
-	{
-		// Literacy, availability of education, skilled workers.
-		education: 0.710
-		// Urban development, population density.
-		urbanization: 0.640
-		// Availability and utilization of advanced technology.
-		technology: 0.780
-		// Industrial production, mechanization, engineering.
-		industrialization: 0.730
-		// Standard of living, overall wealth of population and government.
-		wealth: 0.469
-		// Environmental devastation, excavation, deforestation, wasteland-ness.
-		devastation: 0.454
-		// Economic strength, employment rate, flow of goods.
-		economy: 0.590
-		// Variance of population's social classes.
-		inequality: 0.427
-		// Crime rate, personal safety.
-		safety: 0.487
-		// Rate of expansion, economic and population growth.
-		growth: 0.546
-		// Military strength, security, access to weapons.
-		military: 0.403
-	}
-	
-	population:
-	{
-	
-	}
-	
-	h_prefecture: trphajzel
-	h_faction: krtec
-	h_company: krtec
-	h_location_parent: "null"
-	size: 0.840
-	
-	color: "0xffffa82a"
-	
-	icon:
-	{
-		texture: worldmap.icons.01
-		mask: missing
-		size: [24, 24]
-		frame: [4, 2]
-	}
-	
-	icon_offset: [0.000, -0.500]
-	text_offset: [0.000, 0.125]
-	
-	point: [43, -14]
 }

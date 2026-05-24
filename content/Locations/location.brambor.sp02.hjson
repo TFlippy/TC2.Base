@@ -1,8 +1,8 @@
 ﻿{
-	$prefab: "g.settlement.installation.00"
-	$version: "0.1.62.0"
+	$version: "0.1.75.0"
 	name: "Brambor SP-02"
 	name_short: "Brambor SP-02"
+	
 	desc:
 		'''
 		TODO: Desc
@@ -12,15 +12,37 @@
 	
 	type: installation
 	flags: restricted
+	
 	categories: military, imperial, industrial, urban, administrative, governmental, magitech, advanced, secure, fortified, coastal, powerful, modern, mechanized, authoritarian, regulated
 	buildings: warehouse, factory, office, bunker, hospital, airport, minefield, artillery, power_plant, docks, tower, lighthouse, walls, prison, labor_camp, theatre, constabulary, manufactory, checkpoint, customs, laboratory, school, bar, apartments, barracks, farm, arsenal, scrapyard, landfill, metalworks, phlogiston, market, fuel_depot, steel_mill, transmitter, bakery
-	industry_primary: none
-	industry: none
-	goods_trading: none
-	goods_demanded: none
-	goods_produced: none
-	crime: none
 	geography: none
+	crime: none
+	
+	h_prefecture: spajcl
+	h_faction: imperial
+	h_company: kordel
+	point: [51, -6]
+	
+	color: "0xffffee00"
+	
+	icon:
+	{
+		texture: worldmap.icons.00
+		size: [24, 24]
+		frame: [3, 1]
+	}
+	
+	statistics:
+	{
+		
+		// Military strength, security, access to weapons.
+		military: 1.768
+	}
+	
+	population:
+	{
+	
+	}
 	
 	// Urban development, population density.
 	urbanization: 0.940
@@ -32,14 +54,8 @@
 	education: 0.720
 	// Standard of living, overall wealth of population and government.
 	wealth: 0.777
-	// Nature, wildlife, overgrowth, untamed nature.
-	wilderness: 0.000
 	// Environmental damage, pollution, wastelandness.
 	devastation: 0.104
-	// Brutality of nature and population.
-	savagery: 0.000
-	// Lawlessness, lack of organization.
-	anarchy: 0.000
 	// Economic strength, employment rate, flow of goods.
 	economy: 0.400
 	// Variance of population's social classes.
@@ -50,32 +66,4 @@
 	growth: 0.519
 	// Military strength, security, access to weapons.
 	military: 2.459
-	// Height in meters above sea level.
-	elevation: 10.000
-	
-	population:
-	{
-	
-	}
-	
-	h_prefecture: spajcl
-	h_faction: imperial
-	h_company: kordel
-	h_location_parent: "null"
-	size: 1.000
-	
-	color: "0xffffee00"
-	
-	icon:
-	{
-		texture: worldmap.icons.00
-		mask: missing
-		size: [24, 24]
-		frame: [3, 1]
-	}
-	
-	icon_offset: [0.000, 0.000]
-	text_offset: [0.000, 0.000]
-	
-	point: [51, -6]
 }
