@@ -53,7 +53,7 @@ body:
 		material: metal
 		layer: entity, solid, vehicle, platform
 		mask: world, solid
-		exclude: wheel, attached, tree
+		exclude: wheel, attached, tree, stored, background
 		flags: none
 		dirty_flags: none
 	}

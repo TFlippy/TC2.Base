@@ -19,7 +19,7 @@ body:
 		
 		layer: entity, solid, vehicle, flammable
 		mask: world, solid, platform
-		exclude: item, creature, background, tree, wheel, held
+		exclude: item, creature, background, tree, wheel, held, stored
 		
 		mass: 180.000
 		radius: 0.375

@@ -16,7 +16,7 @@ body:
 		
 		layer: entity, solid, background, building, platform, furniture, flammable
 		mask: world, solid
-		exclude: creature, wheel, held, attached
+		exclude: creature, wheel, held, attached, stored, background, tree
 		
 		mass: 50.000
 		radius: 0.125

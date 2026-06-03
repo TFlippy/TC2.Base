@@ -28,7 +28,7 @@ body:
 		material: machine
 		
 		layer: entity, solid, building, ignore_melee
-		exclude: liquid
+		exclude: liquid, stored, background, tree
 	}
 }
 

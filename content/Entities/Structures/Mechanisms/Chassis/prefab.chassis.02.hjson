@@ -46,7 +46,7 @@ body:
 		
 		layer: entity, solid, vehicle, platform
 		mask: world, solid
-		exclude: tree, wheel, attached
+		exclude: tree, wheel, attached, stored, background
 		
 		mass: 75.000
 		radius: 0.4375
