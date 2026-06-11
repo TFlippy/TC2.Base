@@ -591,8 +591,10 @@ namespace TC2.Base
 				apply_0: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
 					data.cycle_interval *= 0.50f;
-					data.damage_multiplier *= 0.72f;
+					data.damage_multiplier *= 0.92f;
 					data.velocity_multiplier *= 0.85f;
+					data.velocity_max *= 0.87f;
+					data.recoil_multiplier *= 1.09f;
 
 					data.stability *= 0.90f - Maths.Min(data.failure_rate * 0.30f, 0.30f);
 					data.stability = Maths.Lerp(data.stability, Maths.Max(data.stability - ((75.00f + (context.mass_new * 5.00f)) / Maths.Clamp(data.cycle_interval * 1.50f, 0.10f, 1.50f)), data.stability * 0.25f), 0.50f);
@@ -600,7 +602,8 @@ namespace TC2.Base
 
 				finalize: static (ref Augment.Context context, ref Gun.Data data, ref Augment.Handle handle, Span<Augment.Handle> augments) =>
 				{
-					data.failure_rate *= 0.60f;
+					data.velocity_max *= 0.97f;
+					//data.failure_rate += (data.failure_rate * 1.16f).Pow2() * 0.21f;
 					data.jitter_multiplier += 2.50f;
 
 					//ref var body = ref context.GetComponent<Body.Data>();
