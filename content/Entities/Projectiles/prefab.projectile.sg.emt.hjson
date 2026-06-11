@@ -9,11 +9,11 @@ projectile:
 	damage_type: sledgehammer
 	knockback_multiplier: 600.000
 	stun_multiplier: 2.000
-	size: 0.025
+	size: 0.050
 	gravity: 1.500
-	ricochet_count: 5
-	ricochet_threshold_multiplier: 1.500
-	ricochet_chance_multiplier: 1.000
+	ricochet_count: 8
+	ricochet_threshold_multiplier: 2.000
+	ricochet_chance_multiplier: 1.500
 	ricochet_velocity_min: 0.000
 	ricochet_velocity_ratio: 0.211
 	damp: 0.994

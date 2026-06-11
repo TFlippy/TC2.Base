@@ -149,7 +149,7 @@ namespace TC2.Base.Components
 		public static void UpdateSmokeBody(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity, 
 		[Source.Owned] ref Rocket.Data rocket, [Source.Owned] in Body.Data body, [Source.Owned] in Transform.Data transform)
 		{
-			if (rocket.fuel_time > 0.00f && rocket.delay <= 0.00f)
+			if (rocket.smoke_amount > 0.00f && rocket.fuel_time > 0.00f && rocket.delay <= 0.00f)
 			{
 				var modifier = Maths.Clamp(rocket.fuel_time, 0.00f, 1.00f);
 
@@ -188,39 +188,47 @@ namespace TC2.Base.Components
 		public static void UpdateSmokeProjectile(ISystem.Info info, ref Region.Data region, ref XorRandom random, Entity entity, 
 		[Source.Owned] ref Rocket.Data rocket, [Source.Owned] in Projectile.Data projectile, [Source.Owned] in Transform.Data transform)
 		{
-			if (rocket.fuel_time > 0.00f && rocket.delay <= 0.00f && projectile.elapsed >= 0.15f)
+			const bool cull = false;
+
+			if (rocket.smoke_amount > 0.00f && rocket.fuel_time > 0.00f && rocket.delay <= 0.00f && projectile.elapsed >= 0.15f)
 			{
 				var modifier = Maths.Clamp(rocket.fuel_time, 0.00f, 1.00f);
 
 				rocket.smoke_accumulator += rocket.smoke_amount;
 
-				var dir = transform.GetDirection();
-				var speed = projectile.velocity.Length();
+				var dir = projectile.velocity.GetNormalized(out var speed); // transform.GetDirection();
+				var is_visible = !cull || Camera.IsVisible(Camera.CullType.Rect3x, transform.position);
+				
+				//var speed = projectile.velocity.Length();
 				// .GetNormalized(out var vel);
 				//if (projectile.rotation != 0.00f) dir = dir.RotateByRad(-projectile.rotation);
 
 				while (rocket.smoke_accumulator >= 1.00f)
 				{
-					Particle.Spawn(ref region, new Particle.Data()
+					if (is_visible)
 					{
-						texture = texture_smoke,
-						pos = transform.position - (dir * speed * App.fixed_update_interval_s * 4.00f),
-						lifetime = random.NextFloatRange(10.00f, 15.00f),
-						fps = random.NextByteRange(1, 3),
-						frame_count = 64,
-						frame_count_total = 64,
-						frame_offset = random.NextByteRange(0, 64),
-						scale = random.NextFloatRange(0.15f, 0.20f),
-						angular_velocity = random.NextFloatRange(-0.70f, 0.70f),
-						force = new Vector2(random.NextFloatRange(4.00f, 8.00f), -random.NextFloatRange(0.10f, 0.50f)),
-						rotation = random.NextFloat(10.00f),
-						growth = random.NextFloatRange(0.10f, 0.20f),
-						color_a = new Color32BGRA(140, 220, 220, 220).WithAlphaMult(modifier * random.NextFloatRange(0.70f, 1.00f)),
-						color_b = new Color32BGRA(000, 150, 150, 150),
-						drag = random.NextFloatRange(0.06f, 0.08f),
-						stretch = new Vector2(1, 2),
-						vel = (-dir * speed * 0.40f) + random.NextUnitVector2Range(0.50f, 1.50f),
-					});
+						Particle.Spawn(ref region, new Particle.Data()
+						{
+							texture = texture_smoke,
+							pos = transform.position - (dir * speed * App.fixed_update_interval_s * 1.00f),
+							lifetime = random.NextFloatRange(10.00f, 15.00f),
+							fps = random.NextByteRange(1, 3),
+							frame_count = 64,
+							frame_count_total = 64,
+							frame_offset = random.NextByteRange(0, 64),
+							scale = random.NextFloatRange(0.15f, 0.20f),
+							angular_velocity = random.NextFloatRange(-0.70f, 0.70f),
+							force = (new Vector2(random.NextFloatRange(4.00f, 8.00f), -random.NextFloatRange(0.10f, 0.50f))) - (dir * 4) + rocket.velocity,
+							//rotation = random.NextFloat(10.00f),
+							growth = random.NextFloatRange(0.10f, 0.20f),
+							color_a = new Color32BGRA(140, 220, 220, 220).WithAlphaMult(modifier * random.NextFloatRange(0.70f, 1.00f)),
+							color_b = new Color32BGRA(000, 150, 150, 150),
+							drag = random.NextFloatRange(0.06f, 0.08f),
+							stretch = new Vector2(2, 1),
+							face_dir_ratio = 0.59f,
+							vel = (-dir * speed * 0.40f) + random.NextUnitVector2Range(0.50f, 1.50f),
+						});
+					}
 
 					rocket.smoke_accumulator -= 1.00f;
 				}
