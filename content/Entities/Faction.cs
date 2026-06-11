@@ -27,7 +27,7 @@ namespace TC2.Base.Components
 						{
 							var is_leader = faction_data.IsLeader(h_player);
 
-							using (GUI.Group.New(size: GUI.GetAvailableSize()))
+							using (GUI.Group.New(size: GUI.Av))
 							{
 								//if (this.h_faction != 0)
 								{

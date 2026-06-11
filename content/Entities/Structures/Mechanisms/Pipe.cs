@@ -1145,7 +1145,7 @@ namespace TC2.Base.Components
 #if CLIENT
 		[ISystem.PostUpdate.F(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void System_VentEffects(ISystem.Info info, Entity entity, ref Region.Data region, ref XorRandom random,
-		[Source.Owned] in Transform.Data transform, [Source.Owned, Pair.All] ref Vent.Data vent)
+		[Source.Owned] in Transform.Data transform, [Source.Owned, Pair.Wildcard] ref Vent.Data vent)
 		{
 			//App.WriteLine("smorg");
 

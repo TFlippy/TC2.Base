@@ -198,7 +198,7 @@ namespace TC2.Base.Components
 					}
 				}
 
-				using (var group = GUI.Group.New(size: GUI.GetAvailableSize(), padding: new(4)))
+				using (var group = GUI.Group.New(size: GUI.Av, padding: new(4)))
 				{
 					GUI.DrawBackground(GUI.tex_panel, group.GetOuterRect(), padding: new(8));
 					this.DrawInfo(ent_wrench, ref info_target);
