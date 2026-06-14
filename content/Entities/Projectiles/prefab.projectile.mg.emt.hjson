@@ -17,6 +17,7 @@ projectile:
 	mass: 0.250
 	stabilization: 0.010
 	hit_mask: world, solid, essence
+	hit_exclude: background, tree
 
 	@sound.emitter:
 	{

@@ -6,6 +6,7 @@ projectile:
 	damage_bonus: 1500.000
 	damage_type: bullet_kn
 	flags: no_miss
+	hit_exclude: tree
 
 	lifetime: 20.000
 	ignore_time: 0.040

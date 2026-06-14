@@ -12,6 +12,7 @@ projectile:
 	tracer_length: 1.700
 	mass: 0.600
 	flags: no_miss
+	hit_exclude: tree
 }
 
 projectile.renderer:

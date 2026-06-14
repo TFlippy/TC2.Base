@@ -7,6 +7,7 @@ projectile:
 	knockback_multiplier: 3.000
 	damage_type: bullet_hw
 	flags: no_miss
+	hit_exclude: tree
 
 	lifetime: 20.000
 	ignore_time: 0.040

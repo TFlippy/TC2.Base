@@ -18,6 +18,7 @@ projectile:
 	damp: 0.967
 	stabilization: 0.950
 	flags: no_miss
+	hit_exclude: tree
 }
 
 transform:

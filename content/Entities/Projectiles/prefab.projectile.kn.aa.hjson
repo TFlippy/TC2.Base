@@ -18,6 +18,7 @@ projectile:
 	mass: 2.100
 	knockback_multiplier: 5.000
 	flags: no_miss
+	hit_exclude: tree
 }
 
 projectile.renderer:

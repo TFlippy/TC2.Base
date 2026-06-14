@@ -16,6 +16,7 @@ projectile:
 	stabilization: 0.831
 	mass: 2.000
 	flags: no_miss
+	hit_exclude: tree
 }
 
 transform:
