@@ -248,7 +248,7 @@ ai.gunner.state:
 
 npc:
 {
-	pain_modifier: 0.450
+	pain_modifier: 0.800
 	min_consciousness: 0.300
 	avoid_distance_base: [1.000, 0.000]
 	idle_distance_base: [1.500, 1.500]

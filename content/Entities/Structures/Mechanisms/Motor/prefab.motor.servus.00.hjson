@@ -1,4 +1,4 @@
-$name: "EC Motor (Servus)"
+wa$name: "EC Motor (Servus)"
 $desc:
 	'''
 	Servus-type magitronic radial engine.
@@ -78,10 +78,10 @@ actuator:
 	{
 		file: essence.device.loop.01
 		flags: start_muted
-		volume: 0.850
+		volume: 1.250
 		pitch: 0.850
 		size: 3.000
-		size_max_modifier: 0.450
+		size_max_modifier: 0.500
 		doppler: 1.000
 		priority: 0.400
 	}

@@ -62,7 +62,7 @@ gun:
 	feed: funnel
 	
 	flags: automatic, full_reload, cycle_on_shoot, eject_from_muzzle
-	heuristic_range: 25.000
+	heuristic_range: 18.000
 
 	@inventory1:
 	{
@@ -94,12 +94,12 @@ gun.state:
 
 holdable:
 {
-	offset: [-0.300, 0.000]
-	radius: 4.000
-	flags: storable, full_rotate
-
+	offset: [-0.625, 0.000]
 	force_multiplier: 1.800
 	torque_multiplier: 1.100
+	radius: 4.000
+	flags: storable, full_rotate
+	hints: weapon, heavy, gun, long_range, usable, inaccurate, arcane, fast, unstable, ranged, clumsy
 }
 
 animated.renderer:

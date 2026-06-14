@@ -43,10 +43,15 @@ namespace TC2.Base.Components
 			public Entity ent_attacker;
 			public Entity ent_target;
 			public Entity ent_owner;
-			public XorRandom random;
-			public Vector2 world_position;
-			public Vector2 direction;
-			public Material.Type target_material_type;
+			public Physics.Layer target_layer;
+
+			public required Material.Type target_material_type;
+			// hopefully this gets padded to be aligned on 8-byte boundary
+
+			public required XorRandom random;
+
+			public required Vector2 world_position;
+			public required Vector2 direction;
 		}
 
 		[IComponent.Data(Net.SendType.Reliable, IComponent.Scope.Region), IComponent.With<Melee.State>]
@@ -56,9 +61,9 @@ namespace TC2.Base.Components
 
 			[Statistics.Info("Damage", description: "Base damage", format: "{0:0}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
 			public float damage_base;
-			[Statistics.Info("Damage (Extra)", description: "Random additional damage", format: "{0:0}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
+			[Statistics.Info("Damage (Extra)", description: "Randomized extra damage", format: "{0:0}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
 			public float damage_bonus;
-			[Statistics.Info("Armor Pierce", description: "TODO: Desc", format: "{0:0}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
+			[Statistics.Info("Armor Pierce", description: "Armor toughness ignored by damage", format: "{0:0}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
 			public float armor_pierce;
 
 			[Save.NewLine]
@@ -68,9 +73,9 @@ namespace TC2.Base.Components
 			public float secondary_damage_multiplier = 1.00f;
 			[Statistics.Info("Damage (Terrain)", description: "Damage to terrain", format: "{0:0.##}x", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
 			public float terrain_damage_multiplier = 1.00f;
-			[Statistics.Info("Pain", description: "Pain multiplier.", format: "{0:0.##}x", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
+			[Statistics.Info("Pain", description: "Pain multiplier", format: "{0:0.##}x", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
 			public float pain_multiplier = 1.00f;
-			[Statistics.Info("Stun", description: "Stun multiplier.", format: "{0:0.##}x", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
+			[Statistics.Info("Stun", description: "Stun multiplier", format: "{0:0.##}x", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
 			public float stun_multiplier = 1.00f;
 
 			[Save.NewLine]
@@ -78,7 +83,7 @@ namespace TC2.Base.Components
 			public float disarm_chance = 0.02f;
 			[Statistics.Info("Cooldown", description: "Time between attacks", format: "{0:0.##}s", comparison: Statistics.Comparison.Lower, priority: Statistics.Priority.Medium)]
 			public float cooldown;
-			[Statistics.Info("Reach", description: "Melee weapon range", format: "{0:0.##}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
+			[Statistics.Info("Reach", description: "Melee range", format: "{0:0.##}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
 			public float max_distance;
 			[Statistics.Info("Area of Effect", description: "Size of the affected area", format: "{0:0.##}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.Medium)]
 			public float aoe;
@@ -150,6 +155,7 @@ namespace TC2.Base.Components
 			[Save.Ignore, Net.Ignore] public float t_last_hit;
 		}
 
+		// TODO: generate some sort of lookup table or matrix for this
 		[Shitcode]
 		public static bool CanHitMaterial(Damage.Type damage_type, Material.Type material_type)
 		{
@@ -878,6 +884,7 @@ namespace TC2.Base.Components
 									hit_pos: pos_hit,
 									dir: dir,
 									normal: result.normal, // (closest_result.normal_raw - dir).GetNormalizedFast(),
+									target_layer: result.layer,
 									material_type: result.material_type,
 									melee: in melee,
 									melee_state: ref melee_state,
@@ -924,6 +931,7 @@ namespace TC2.Base.Components
 							hit_pos: pos_hit,
 							dir: dir,
 							normal: result.normal, // (closest_result.normal_raw - dir).GetNormalizedFast(),
+							target_layer: result.layer,
 							material_type: result.material_type,
 							melee: in melee,
 							melee_state: ref melee_state,
@@ -956,6 +964,7 @@ namespace TC2.Base.Components
 							hit_pos: pos_target,
 							dir: dir,
 							normal: -dir,
+							target_layer: default,
 							material_type: material_type,
 							melee: in melee,
 							melee_state: ref melee_state,
@@ -1122,7 +1131,7 @@ namespace TC2.Base.Components
 #endif
 
 		public static void Hit(ref Region.Data region, Entity ent_attacker, Entity ent_owner, Entity ent_target, 
-		Vector2 hit_pos, Vector2 dir, Vector2 normal, Material.Type material_type, 
+		Vector2 hit_pos, Vector2 dir, Vector2 normal, Physics.Layer target_layer, Material.Type material_type,
 		in Melee.Data melee, ref Melee.State melee_state, ref XorRandom random, float damage_multiplier = 1.00f, IFaction.Handle h_faction = default)
 		{
 			var random_det = XorRandom.New(ent_target.GetLower(), dir.GetProduct().ToUInt32BitCast(), random);
@@ -1168,14 +1177,17 @@ namespace TC2.Base.Components
 			}
 #endif
 
-			var data = new Melee.HitEvent();
-			data.ent_attacker = ent_attacker;
-			data.ent_owner = ent_owner;
-			data.ent_target = ent_target;
-			data.world_position = hit_pos;
-			data.direction = dir;
-			data.random = random_det;
-			data.target_material_type = material_type;
+			var data = new Melee.HitEvent
+			{
+				ent_attacker = ent_attacker,
+				ent_owner = ent_owner,
+				ent_target = ent_target,
+				world_position = hit_pos,
+				direction = dir,
+				random = random_det,
+				target_layer = target_layer,
+				target_material_type = material_type
+			};
 
 			if (melee.flags.HasAny(Melee.Flags.Sync_Hit_Event))
 			{

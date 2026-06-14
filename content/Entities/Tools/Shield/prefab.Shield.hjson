@@ -17,7 +17,7 @@ body:
 		friction: 0.400
 		elasticity: 0.450
 		material: metal_sheet
-		layer: entity, solid, item, shield
+		layer: entity, solid, item, shield, conductive, magnetic
 		mask: world
 
 		miss_chance: 0.080

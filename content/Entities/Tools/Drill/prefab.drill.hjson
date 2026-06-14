@@ -19,7 +19,7 @@ body:
 		flags: none
 		tags: none
 		
-		layer: entity, solid, item, shield
+		layer: entity, solid, item, shield, conductive, magnetic
 		mask: world
 		exclude: none
 		

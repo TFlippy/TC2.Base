@@ -854,6 +854,13 @@ namespace TC2.Base.Components
 		//	var time = info.WorldTime;
 		//}
 
+		public static BitField<Material.Type> material_types_metallic_default =
+			new(Material.Type.Metal, Material.Type.Metal_Pole, Material.Type.Metal_Sheet, Material.Type.Metal_Frame,
+				Material.Type.Metal_Solid, Material.Type.Scrap, Material.Type.Device, Material.Type.Machine, Material.Type.Wire);
+
+		public static BitField<Material.Type> material_types_tissue_default =
+			new(Material.Type.Flesh, Material.Type.Insect, Material.Type.Slime);
+
 		[ISystem.Event<Melee.HitEvent>(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnHit(ISystem.Info info, Entity entity, ref Region.Data region, ref XorRandom random,
 		ref Melee.HitEvent data, [Source.Owned] ref Arcer.Data arcer)
@@ -966,7 +973,10 @@ namespace TC2.Base.Components
 
 
 			// Zap the holder too when hitting a metallic object
-			if (data.target_material_type == Material.Type.Metal && data.ent_target.IsAlive())
+			// TODO: check for "Conductive" physics layer flag instead
+			//if (data.ent_target.IsAlive() && data.target_material_type.EqualsAnyValue(Material.Type.Metal, Material.Type.Metal_Solid, Material.Type.Metal_Sheet, Material.Type.Scrap, Material.Type.Metal_Frame, Material.Type.Metal_Pole, Material.Type.Tool))
+			//if (zap_disarm_material_types_default.Has(data.target_material_type) && data.ent_target.IsAlive())
+			if (data.target_layer.HasAny(Physics.Layer.Conductive) && data.ent_target.IsAlive())
 			{
 				var ent_holder_arm = data.ent_target.GetParent(Relation.Type.Child);
 				if (ent_holder_arm.IsAlive())
@@ -980,7 +990,7 @@ namespace TC2.Base.Components
 						var result = body_holder.GetClosestPoint(data.world_position, allow_inside: true);
 
 						var impulse_mult = 1.00f;
-						if (result.material_type == Material.Type.Flesh || result.material_type == Material.Type.Insect)
+						if (material_types_tissue_default.Has(result.material_type)) //.EqualsAnyValue(Material.Type.Flesh, Material.Type.Insect))
 						{
 							impulse_mult *= 6.00f;
 

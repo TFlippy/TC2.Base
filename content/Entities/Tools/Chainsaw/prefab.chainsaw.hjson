@@ -16,7 +16,7 @@ body:
 		friction: 0.950
 		elasticity: 0.250
 		material: device
-		layer: entity, solid, item, shield
+		layer: entity, solid, item, conductive, magnetic
 		mask: world
 	}
 }
@@ -53,7 +53,7 @@ holdable:
 {
 	offset: [-0.200, 0.000]
 	flags: storable
-	hints: powerful, armor, tools, machine, dangerous
+	hints: powerful, tools, machine, dangerous, melee
 }
 
 attachment:

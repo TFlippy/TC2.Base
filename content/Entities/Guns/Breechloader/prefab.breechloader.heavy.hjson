@@ -65,7 +65,7 @@ gun:
 	velocity_multiplier: 150.000
 	velocity_max: 300.000
 	jitter_multiplier: 3.700
-	recoil_multiplier: 1.800
+	recoil_multiplier: 1.300
 	reload_interval: 3.000
 	cycle_interval: 0.750
 	stability: 12800.000

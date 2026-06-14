@@ -36,7 +36,7 @@ body:
 
 gun:
 {
-	muzzle_offset: [1.875, -0.125]
+	muzzle_offset: [1.875, -0.1875]
 	receiver_offset: [-0.750, -0.250]
 	
 	eject_direction: [-5.600, -9.700]

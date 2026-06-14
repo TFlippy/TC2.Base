@@ -11,22 +11,29 @@ body:
 	
 	@shape.polygon:
 	{
-		points:
-		[
-			[1.750, 3.000]
-			[-2.000, 3.000]
-			[-1.000, -1.750]
-			[-0.500, -1.750]
-		]
-		offset: [0.000, 0.000]
-		mass: 1420.000
-		friction: 500.000
-		elasticity: 0.000
 		material: wreck
+		miss_chance: 0.649
+		flags: none
+		tags: none
+		
 		layer: entity, solid, building, ignore_melee
 		mask: world
-
-		miss_chance: 0.550
+		exclude: none
+		
+		mass: 1420.000
+		radius: 0.750
+		friction: 0.500
+		elasticity: 0.500
+		
+		cog_offset: [0.000, 0.000]
+		
+		points:
+		[
+			[-0.625, -1.000]
+			[0.875, 2.125]
+			[-1.250, 2.125]
+			[-1.125, -0.125]
+		]
 	}
 
 	@shape.circle:
@@ -34,13 +41,13 @@ body:
 		radius: 1.250
 		offset: [0.000, 0.000]
 		mass: 235.000
-		friction: 500.000
-		elasticity: 0.000
-		material: wreck
+		friction: 0.800
+		elasticity: 0.500
+		material: scrap
 		layer: entity, building, ignore_melee
 		mask: world
 
-		miss_chance: 0.750
+		miss_chance: 0.800
 	}
 }
 
