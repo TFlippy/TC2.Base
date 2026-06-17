@@ -34,7 +34,7 @@
 		}
 
 		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned)]
-		public static void UpdateNoRotate([Source.Owned, Override] in Organic.Data organic, [Source.Owned] in Organic.State organic_state, 
+		public static void UpdateNoRotate([Source.Owned, Override] in Organic.Data organic, [Source.Owned] in Organic.State organic_state,
 		[Source.Owned, Override] ref NoRotate.Data no_rotate, [Source.Owned] in Torso.Data torso)
 		{
 			var mult = (organic_state.consciousness_shared * organic_state.efficiency * Maths.Lerp(0.20f, 1.00f, organic.motorics.Pow2()));
@@ -65,7 +65,7 @@
 		}
 
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void UpdateJoints([Source.Owned, Override] in Runner.Data runner, [Source.Owned] in Runner.State runner_state, 
+		public static void UpdateJoints([Source.Owned, Override] in Runner.Data runner, [Source.Owned] in Runner.State runner_state,
 		[Source.Parent] ref Torso.Data torso, [Source.Parent] in Joint.Base joint)
 		{
 			if (joint.flags.HasAny(Joint.Flags.Organic))
@@ -95,12 +95,20 @@
 #endif
 
 #if CLIENT
+		[HasComponent<Organic.Data>(Source.Modifier.Owned, true)]
 		[ISystem.Update.A(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateAnimation(ISystem.Info info, Entity entity,
-		[Source.Owned, Override] in Organic.Data organic, [Source.Owned] in Organic.State organic_state,
+		[Source.Owned] in Transform.Data transform,
+		/*[Source.Owned, Override] in Organic.Data organic, */[Source.Owned] in Organic.State organic_state,
 		[Source.Owned] ref Torso.Data torso, [Source.Owned, Optional(true)] ref HeadBob.Data headbob,
 		[Source.Owned] ref Animated.Renderer.Data renderer, [Source.Owned] in Control.Data control)
 		{
+			const bool debug_cull_offscreen = true;
+			if (debug_cull_offscreen)
+			{
+				if (!Camera.IsVisible(Camera.CullType.Rect1x_Padded, transform.position)) return;
+			}
+
 			var walking = torso.flags.HasNone(Torso.Flags.Crouching) && !control.keyboard.GetKey(Keyboard.Key.NoMove | Keyboard.Key.X) && control.keyboard.GetKey(Keyboard.Key.MoveLeft | Keyboard.Key.MoveRight);
 
 			var bob_amplitude = Vector2.Zero;
@@ -120,7 +128,7 @@
 			walking:
 			{
 				//var offset = new Vector2(-bob_amplitude.X * ((MathF.Cos(info.WorldTime * bob_speed) + 1.00f) * 0.50f), -bob_amplitude.Y * ((MathF.Sin(info.WorldTime * bob_speed) + 1.00f) * 0.50f));
-				
+
 				renderer.sprite.fps = Maths.Round(torso.fps * (0.30f + (0.70f * organic_state.efficiency)));
 				renderer.sprite.frame.x = 1;
 				renderer.sprite.count = torso.frame_count;
@@ -145,7 +153,7 @@
 				//renderer.offset = Vector2.Lerp(renderer.offset, offset, 0.50f);
 
 				var offset = new Vector2(-bob_amplitude.X * ((MathF.Cos((info.WorldTime + (float)entity.GetShortID()) * 2.50f) + 1.00f) * 0.20f), -bob_amplitude.Y * ((MathF.Sin((info.WorldTime + (float)entity.GetShortID()) * 2.50f) + 1.00f) * 0.20f));
-				
+
 				renderer.offset.AvgRef(offset);
 				if (headbob.IsNotNull())
 				{
@@ -164,7 +172,7 @@
 				renderer.sprite.frame.x = Maths.LerpUInt(torso.frames_air.x, torso.frames_air.y, Maths.Clamp01((torso.air_time) * 6.00f));
 				renderer.sprite.count = 0;
 				//renderer.offset = Vector2.Lerp(renderer.offset, offset, 0.50f);
-				
+
 				renderer.offset.AvgRef(Vector2.Zero);
 				if (headbob.IsNotNull())
 				{
@@ -181,7 +189,7 @@
 				renderer.sprite.fps = 0;
 				renderer.sprite.frame.x = 2;
 				renderer.sprite.count = 0;
-				
+
 				renderer.offset = Vector2.Zero;
 				if (headbob.IsNotNull())
 				{

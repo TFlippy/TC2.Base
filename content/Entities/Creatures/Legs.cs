@@ -76,6 +76,13 @@ namespace TC2.Base.Components
 		[Source.Owned] ref Animated.Renderer.Data renderer, [Source.Owned] in Transform.Data transform, 
 		[Source.Owned, Optional(true)] ref HeadBob.Data headbob)
 		{
+			const bool debug_cull_offscreen = true;
+			if (debug_cull_offscreen)
+			{
+				if (!Camera.IsVisible(Camera.CullType.Rect1x_Padded, transform.position)) return;
+			}
+
+
 			//App.WriteLine($"{Unsafe.AsRef(in headbob).IsNull()}");
 
 			//if (headbob.IsNull()) return;
@@ -109,14 +116,21 @@ namespace TC2.Base.Components
 					headbob.offset = Vector2.Lerp(headbob.offset, offset, 0.50f);
 				}
 
-				if (renderer.sprite.fps > 0 && runner_state.flags.HasAll(Runner.State.Flags.Grounded))
+				if (runner_state.flags.HasAny(Runner.State.Flags.Grounded) && renderer.sprite.fps > 0)
 				{
 					if (info.WorldTime >= legs.next_step)
 					{
 						var interval = ((1.00f / renderer.sprite.fps) * renderer.sprite.count) * legs.sound_interval_multiplier;
 						legs.next_step = info.WorldTime + interval;
 
-						Sound.Play(Legs.walk_sounds.GetRandom(), transform.position, volume: legs.sound_volume, pitch: random.NextFloatRange(0.98f, 1.02f) * legs.sound_pitch, priority: 0.10f);
+						if (Camera.IsVisible(Camera.CullType.Rect1x, transform.position))
+						{
+							Sound.Play(sound: Legs.walk_sounds.GetRandom(),
+								world_position: transform.position,
+								volume: legs.sound_volume,
+								pitch: random.NextFloatRange(0.98f, 1.02f) * legs.sound_pitch,
+								priority: 0.02f);
+						}
 					}
 				}
 
