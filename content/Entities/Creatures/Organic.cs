@@ -36,7 +36,7 @@ namespace TC2.Base.Components
 
 		[Shitcode]
 		[HasComponent<Organic.Data>(Source.Modifier.Owned, true)]
-		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region, flags: ISystem.Flags.Unchecked | ISystem.Flags.SkipLocalsInit)]
+		[ISystem.PostUpdate.F(ISystem.Mode.Single, ISystem.Scope.Region, flags: ISystem.Flags.Unchecked | ISystem.Flags.SkipLocalsInit)]
 		public static void UpdateConsciousness_Character(Entity entity, [Source.Shared] ref Character.Data character,
 		[Source.Owned] bool dead, [Source.Owned] in Organic.State organic_state,
 		[Source.Owned, Optional(true)] ref NPC.Data npc)
@@ -65,7 +65,13 @@ namespace TC2.Base.Components
 					npc.pain = character.pain;
 				}
 			}
+			else
+			{
+				//App.WriteValue((entity, character.ent_controlled));
+			}
 		}
+
+		public const float head_death_health_threshold = 0.40f; 
 
 		[Shitcode]
 		[ISystem.PostUpdate.A(ISystem.Mode.Single, ISystem.Scope.Region, order: 5, flags: ISystem.Flags.Unchecked)]
@@ -82,10 +88,10 @@ namespace TC2.Base.Components
 				organic_original.consciousness = Maths.Lerp2(organic_original.consciousness, Maths.Min(1.00f - (Maths.Clamp01(p) * 0.85f), 1.00f - (organic_state.stun_norm * 0.60f)), 0.10f, 0.02f); // player.flags.HasAll(Player.Flags.Alive) ? 1.00f : 0.30f;
 
 				var health_norm = health.GetHealthNormalized();
-				if (dead || health_norm < 0.40f)
+				if (dead || health_norm < head_death_health_threshold)
 				{
 					organic_original.consciousness = 0.00f;
-					organic_state.unconscious_time = 20.00f;
+					organic_state.unconscious_time = 60.00f;
 
 					organic_state.consciousness_shared = 0.00f;
 					organic_state.consciousness_shared_new = 0.00f;
@@ -120,6 +126,13 @@ namespace TC2.Base.Components
 			}
 		}
 
+		[ISystem.PreUpdate.A(ISystem.Mode.Single, ISystem.Scope.Region, flags: ISystem.Flags.Unchecked | ISystem.Flags.SkipLocalsInit)]
+		public static void UpdateHealth([Source.Owned] in Health.Data health, [Source.Owned] ref Organic.State organic_state)
+		{
+			//organic_state.health_norm = health.GetHealthNormalized();
+			organic_state.health_norm = health.GetHealthNormalizedAvg();
+		}
+
 		// TODO: Shitcoded workaround so head always updates after other body parts (otherwise it won't affect consciousness, in case the system runs on the head first)
 		[ISystem.PreUpdate.D(ISystem.Mode.Single, ISystem.Scope.Region, order: 15, flags: ISystem.Flags.Unchecked | ISystem.Flags.SkipLocalsInit), HasComponent<Head.Data>(Source.Modifier.Owned, true)]
 		public static void UpdateConnectedHead([Source.Parent] in Joint.Base joint,
@@ -130,7 +143,7 @@ namespace TC2.Base.Components
 			{
 				organic_child.tags |= organic_parent.tags;
 
-				var pain_shared_max =  Maths.Max(organic_state_parent.pain_shared_new, organic_state_child.pain_shared_new);
+				var pain_shared_max = Maths.Max(organic_state_parent.pain_shared_new, organic_state_child.pain_shared_new);
 
 				organic_state_parent.pain_shared_new = pain_shared_max;
 				organic_state_parent.consciousness_shared_new = organic_state_child.consciousness_shared;
@@ -138,11 +151,11 @@ namespace TC2.Base.Components
 				organic_state_parent.unconscious_time = organic_state_child.unconscious_time;
 
 				organic_state_child.pain_shared_new = pain_shared_max;
+				organic_state_child.consciousness_shared_new *= organic_state_parent.health_norm; // (0.20f + (organic_state_parent.efficiency * 0.80f)).Clamp01();
 			}
 		}
 
-
-		[ISystem.PostUpdate.B(ISystem.Mode.Single, ISystem.Scope.Region, flags: ISystem.Flags.Unchecked | ISystem.Flags.SkipLocalsInit)]
+		[ISystem.PostUpdate.C(ISystem.Mode.Single, ISystem.Scope.Region, flags: ISystem.Flags.Unchecked | ISystem.Flags.SkipLocalsInit)]
 		public static void Update2(ISystem.Info info, [Source.Owned] ref Organic.State organic_state, [Source.Owned, Override] in Organic.Data organic, 
 		[Source.Owned] in Health.Data health)
 		{
@@ -162,7 +175,7 @@ namespace TC2.Base.Components
 		[ISystem.Update.D(ISystem.Mode.Single, ISystem.Scope.Region, flags: ISystem.Flags.Unchecked | ISystem.Flags.SkipLocalsInit)]
 		public static void UpdateConsciousness([Source.Owned] ref Organic.State organic_state)
 		{
-			if (organic_state.consciousness_shared > 0.20f)
+			if (organic_state.consciousness_shared > 0.30f)
 			{
 				organic_state.unconscious_time = 0.00f;
 			}
@@ -298,7 +311,7 @@ namespace TC2.Base.Components
 			}
 			else
 			{
-				if (organic_state.unconscious_time > 15.00f) entity.AddTag("dead");
+				if (organic_state.unconscious_time > 15.00f * organic_state.health_norm) entity.AddTag("dead");
 			}
 		}
 

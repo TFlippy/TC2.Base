@@ -10,7 +10,7 @@
 		}
 
 		[Shitcode]
-		[ISystem.PostUpdate.C(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned), HasTag("hornet", true, Source.Modifier.Owned)]
+		[ISystem.PostUpdate.D(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned), HasTag("hornet", true, Source.Modifier.Owned)]
 		public static void UpdateAlive(ISystem.Info info, 
 		[Source.Owned] ref Hornet.Data hornet, [Source.Owned, Override] ref NoRotate.Data no_rotate,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] in Control.Data control)
@@ -24,7 +24,7 @@
 			no_rotate.rotation = -rot;
 		}
 
-		[ISystem.PostUpdate.C(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", true, Source.Modifier.Owned), HasTag("hornet", true, Source.Modifier.Owned)]
+		[ISystem.PostUpdate.D(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", true, Source.Modifier.Owned), HasTag("hornet", true, Source.Modifier.Owned)]
 		public static void UpdateDead(ISystem.Info info, 
 		[Source.Owned] ref Hornet.Data hornet, [Source.Owned, Override] ref NoRotate.Data no_rotate, 
 		[Source.Owned] ref Animated.Renderer.Data renderer)

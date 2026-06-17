@@ -38,13 +38,18 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.Update.C(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned), HasComponent<Arm.Data>(Source.Modifier.Parent, false), HasComponent<Attachment.Slot>(Source.Modifier.Parent, false)]
-		public static void UpdateNoRotateParent([Source.Owned, Override] ref NoRotate.Data no_rotate, [Source.Parent, Override] ref NoRotate.Data no_rotate_parent)
+		public static void UpdateNoRotateParent([Source.Owned, Override] ref NoRotate.Data no_rotate, 
+		[Source.Parent, Override] ref NoRotate.Data no_rotate_parent)
 		{
 			//return;
 			if (no_rotate_parent.flags.HasAny(NoRotate.Flags.No_Share)) return;
 
-			no_rotate_parent.multiplier = Maths.Min(no_rotate_parent.multiplier, no_rotate.multiplier);
-			no_rotate_parent.mass_multiplier = Maths.Min(no_rotate_parent.mass_multiplier, no_rotate.mass_multiplier);
+			no_rotate_parent.multiplier.LerpFMARef(Maths.Min(no_rotate_parent.multiplier, no_rotate.multiplier), 0.25f);
+			no_rotate_parent.mass_multiplier.LerpFMARef(Maths.Min(no_rotate_parent.mass_multiplier, no_rotate.mass_multiplier), 0.25f);
+
+			//no_rotate_parent.multiplier = Maths.Min(no_rotate_parent.multiplier, no_rotate.multiplier);
+			//no_rotate_parent.mass_multiplier = Maths.Min(no_rotate_parent.mass_multiplier, no_rotate.mass_multiplier);
+
 		}
 
 		//[ISystem.Update(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("dead", true, Source.Modifier.Owned)]

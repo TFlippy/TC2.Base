@@ -259,13 +259,12 @@ namespace TC2.Base.Components
 
 #if SERVER
 		[WIP]
-		[ISystem.PostUpdate.C(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.139f), HasTag("dead", false, Source.Modifier.Owned)]
+		[ISystem.PostUpdate.E(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.139f), HasTag("dead", false, Source.Modifier.Owned)]
 		public static void OnUpdateVoice(ISystem.Info info, /*Entity entity, ref Region.Data region, */ref XorRandom random,
 		/*[Source.Owned] in Head.Data head, */[Source.Owned] ref Head.State head_state,
 		//[Source.Owned] in Transform.Data transform, [Source.Owned] ref Body.Data body,
 		[Source.Owned, Override] in Organic.Data organic, [Source.Owned] ref Organic.State organic_state)
 		{
-
 			var time = info.WorldTime;
 
 			if (organic_state.unconscious_time > 0.50f)
