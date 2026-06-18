@@ -3,13 +3,13 @@ namespace TC2.Base.Components
 {
 	public static partial class Regen
 	{
-		[Flags]
-		public enum Flags: uint
-		{
-			None = 0u
+		// [Flags]
+		// public enum Flags: uint
+		// {
+		// 	None = 0u
 		
 			
-		}
+		// }
 
 		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Global | IComponent.Scope.Region)]
 		public partial struct Data(): IComponent, IOverridable

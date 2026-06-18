@@ -14,7 +14,7 @@ body:
 	{
 		a: [-0.700, 0.000]
 		b: [0.700, -0.125]
-		mass: 42.000
+		mass: 34.000
 		radius: 0.375
 		friction: 0.380
 		elasticity: 0.650
@@ -62,7 +62,7 @@ gun:
 	feed: funnel
 	
 	flags: automatic, full_reload, cycle_on_shoot, eject_from_muzzle
-	heuristic_range: 18.000
+	heuristic_range: 24.000
 
 	@inventory1:
 	{
@@ -96,7 +96,8 @@ holdable:
 {
 	offset: [-0.625, 0.000]
 	force_multiplier: 1.800
-	torque_multiplier: 1.100
+	torque_multiplier: 1.300
+	stress_multiplier: 0.700
 	radius: 4.000
 	flags: storable, full_rotate
 	hints: weapon, heavy, gun, long_range, usable, inaccurate, arcane, fast, unstable, ranged, clumsy
@@ -112,7 +113,7 @@ animated.renderer:
 
 health:
 {
-	max: 6100.000
+	max: 11500.000
 }
 
 transform:

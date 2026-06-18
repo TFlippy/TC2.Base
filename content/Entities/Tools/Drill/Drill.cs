@@ -7,7 +7,7 @@ namespace TC2.Base.Components
 		public static readonly Texture.Handle texture_smoke = "LargeSmoke";
 
 		[IComponent.Data(Net.SendType.Reliable, IComponent.Scope.Region)]
-		public partial struct Data: IComponent
+		public partial struct Data(): IComponent
 		{
 			[Statistics.Info("Damage", description: "TODO: Desc", format: "{0:0.##}", comparison: Statistics.Comparison.Higher, priority: Statistics.Priority.High)]
 			public float damage;
@@ -29,24 +29,18 @@ namespace TC2.Base.Components
 
 			[Save.Ignore, Net.Ignore] public float last_hit;
 			[Save.Ignore, Net.Ignore] public float next_hit;
-
-			public Data()
-			{
-
-			}
 		}
 
 		[ISystem.Add(ISystem.Mode.Single, ISystem.Scope.Region)]
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.50f)]
 		public static void UpdateHoldable([Source.Owned] in Drill.Data drill, [Source.Owned] ref Holdable.Data holdable)
 		{
-			holdable.hints.SetFlag(NPC.ItemHints.Melee | NPC.ItemHints.Dangerous | NPC.ItemHints.Weapon | NPC.ItemHints.Short_Range | NPC.ItemHints.Armor | NPC.ItemHints.Defensive | NPC.ItemHints.Tools | NPC.ItemHints.Usable | NPC.ItemHints.Destructive, true);
+			holdable.hints.SetFlag(NPC.ItemHints.Melee | NPC.ItemHints.Dangerous | NPC.ItemHints.Weapon | NPC.ItemHints.Short_Range | NPC.ItemHints.Tools | NPC.ItemHints.Usable | NPC.ItemHints.Destructive, true);
 		}
 
 #if CLIENT
 		public struct DrillGUI: IGUICommand
 		{
-			public Transform.Data transform;
 			public Vector2 world_position;
 			public Drill.Data drill;
 			public Entity entity;
@@ -64,7 +58,9 @@ namespace TC2.Base.Components
 		}
 
 		[ISystem.GUI(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("local", true, Source.Modifier.Parent)]
-		public static void OnGUI(ISystem.Info info, Entity entity, [Source.Parent] in Interactor.Data interactor, [Source.Owned] ref Drill.Data drill, [Source.Owned] in Transform.Data transform, [Source.Parent] in Player.Data player, [Source.Owned] in Control.Data control)
+		public static void OnGUI(ISystem.Info info, Entity entity, 
+		[Source.Parent] in Interactor.Data interactor, [Source.Owned] ref Drill.Data drill, [Source.Owned] in Transform.Data transform,
+		[Source.Parent] in Player.Data player, [Source.Owned] in Control.Data control)
 		{
 			var dir = transform.GetDirection();
 			var len = (control.mouse.position - transform.position).Length();
@@ -73,7 +69,6 @@ namespace TC2.Base.Components
 			var gui = new DrillGUI()
 			{
 				entity = entity,
-				transform = transform,
 				drill = drill,
 				world_position = hit_position,
 				valid = true
@@ -117,8 +112,9 @@ namespace TC2.Base.Components
 					//	heat.temperature_current += 4.00f;
 					//}
 
-					Span<LinecastResult> results = stackalloc LinecastResult[16];
-					if (region.TryLinecastAll(pos_a, pos_b, drill.radius, ref results, mask: drill.hit_mask, exclude: drill.hit_exclude))
+					Span<LinecastResult> results = FixedArray.CreateSpan16NoInit<LinecastResult>(out var buffer); // stackalloc LinecastResult[16];
+					if (region.TryLinecastAll(world_position_start: pos_a, world_position_end: pos_b, 
+					radius: drill.radius, hits: ref results, mask: drill.hit_mask, exclude: drill.hit_exclude))
 					{
 						results.SortByDistance();
 
@@ -155,6 +151,10 @@ namespace TC2.Base.Components
 							switch (material_type)
 							{
 								case Material.Type.Metal:
+								case Material.Type.Metal_Frame:
+								case Material.Type.Metal_Pole:
+								case Material.Type.Metal_Sheet:
+								case Material.Type.Metal_Solid:
 								{
 									heat_amount *= 3.00f;
 								}
@@ -167,6 +167,25 @@ namespace TC2.Base.Components
 								}
 								break;
 
+								case Material.Type.Stone_Dense:
+								{
+									heat_amount *= 1.80f;
+								}
+								break;
+
+								case Material.Type.Brick_Metallic:
+								case Material.Type.Stone_Metallic:
+								{
+									heat_amount *= 2.40f;
+								}
+								break;
+
+								case Material.Type.Cermet:
+								{
+									heat_amount *= 2.68f;
+								}
+								break;
+
 								case Material.Type.Gravel:
 								{
 									heat_amount *= 1.10f;
@@ -176,6 +195,8 @@ namespace TC2.Base.Components
 								case Material.Type.Mushroom:
 								case Material.Type.Fabric:
 								case Material.Type.Rubber:
+								case Material.Type.Building_Wood:
+								case Material.Type.Tree:
 								case Material.Type.Wood:
 								{
 									heat_amount *= 0.20f;
@@ -215,7 +236,7 @@ namespace TC2.Base.Components
 					}
 
 #if CLIENT
-					var mod = MathF.Pow(Maths.Clamp(len, 0.00f, max_distance) / max_distance, 3.00f);
+					var mod = Maths.Cbrt(Maths.Clamp(len, 0.00f, max_distance) / max_distance);
 					var mod_inv = 1.00f - mod;
 
 					Shake.Emit(ref region, pos_b, 0.30f * mod_inv, 0.20f);

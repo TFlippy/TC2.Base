@@ -62,6 +62,7 @@ namespace TC2.Base.Components
 		//}
 
 #if CLIENT
+		[Shitcode]
 		[ISystem.EarlyGUI(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("local", true, Source.Modifier.Shared)]
 		public static void OnGUI(ISystem.Info info, Entity entity, [Source.Shared] in Player.Data player, [Source.Owned] in Pneumoconiosis.Effect pneumoconiosis)
 		{

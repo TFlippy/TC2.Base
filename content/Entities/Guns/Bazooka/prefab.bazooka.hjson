@@ -74,7 +74,7 @@ gun:
 	feed: front
 	
 	flags: eject_on_shoot
-	heuristic_range: 20.000
+	heuristic_range: 48.000
 
 	@inventory1:
 	{
@@ -117,7 +117,7 @@ holdable:
 	offset: [-0.500, 0.500]
 	radius: 4.000
 	flags: storable
-	hints: weapon, dangerous, gun, short_range, powerful, usable, destructive, cheap, military, slow, ranged, clumsy
+	hints: weapon, dangerous, gun, long_range, explosive, powerful, usable, destructive, cheap, slow, ranged, clumsy, military
 }
 
 health:

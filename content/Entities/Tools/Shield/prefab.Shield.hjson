@@ -67,6 +67,7 @@ armor:
 	protection: 0.850
 	
 	knockback_modifier: 4.500
+	integrity_damage_mult: 1.500
 	
 	material_type: metal_sheet
 	flags: no_damage_type_conversion

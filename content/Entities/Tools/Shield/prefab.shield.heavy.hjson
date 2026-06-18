@@ -9,16 +9,16 @@ body:
 	@shape.line:
 	{
 		material: metal_solid
-		miss_chance: 0.000
+		miss_chance: 0.008
 		flags: none
 		tags: none
 		
-		layer: entity, solid, item, shield
+		layer: entity, solid, item, shield, conductive, magnetic
 		mask: world
 		exclude: none
 		
 		mass: 30.000
-		radius: 0.5625
+		radius: 0.500
 		friction: 0.450
 		elasticity: 0.350
 		
@@ -72,7 +72,8 @@ armor:
 	toughness: 650.000
 	protection: 0.900
 	
-	knockback_modifier: 1.900
+	knockback_modifier: 2.300
+	integrity_damage_mult: 1.500
 	
 	material_type: metal_solid
 	flags: no_damage_type_conversion

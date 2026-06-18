@@ -122,7 +122,7 @@ namespace TC2.Base.Components
 		[Source.Owned] ref Electrode.Data electrode, [Source.Owned] ref Electrode.State electrode_state)
 		{
 #if CLIENT
-			Sound.Play("essence.discharge.01", ev.pos, volume: random.NextFloatRange(1.20f, 1.80f), pitch: random.NextFloatRange(0.80f, 1.50f), size: 4.00f, dist_multiplier: 1.35f);
+			Sound.Play("essence.discharge.01", ev.pos, volume: random.NextFloatExtra(1.20f, 0.60f), pitch: random.NextFloatExtra(0.80f, 0.70f), size: 4.00f, dist_multiplier: 1.35f);
 			Shake.Emit(ref region, ev.pos, 0.50f, 0.65f, 40.00f);
 
 			var dir = (ev.pos_target - ev.pos).GetNormalized(out var dist);
@@ -132,16 +132,16 @@ namespace TC2.Base.Components
 				Particle.Spawn(ref region, new Particle.Data()
 				{
 					texture = tex_blank,
-					lifetime = random.NextFloatRange(0.10f, 0.80f),
+					lifetime = random.NextFloatExtra(0.10f, 0.70f),
 					pos = ev.pos + random.NextUnitVector2Range(0.00f, 0.50f),
-					vel = random.NextUnitVector2Range(2.00f, 10.00f) + (region.GetGravity() * random.NextFloatRange(0, 1)),
+					vel = random.NextUnitVector2Range(2.00f, 10.00f) + (region.GetGravity() * random.NextFloatExtra(0, 1)),
 					fps = 0,
-					scale = random.NextFloatRange(0.40f, 1.00f),
-					growth = -random.NextFloatRange(0.50f, 1.00f),
+					scale = random.NextFloatExtra(0.40f, 0.60f),
+					growth = -random.NextFloatExtra(0.50f, 0.50f),
 					force = random.NextUnitVector2Range(0, 10) + region.GetGravity(),
-					drag = random.NextFloatRange(0.00f, 0.20f),
-					angular_velocity = random.NextFloatRange(-0.10f, 0.10f),
-					stretch = new Vector2(random.NextFloatRange(0.50f, 1.50f), 0.05f),
+					drag = random.NextFloatExtra(0.00f, 0.20f),
+					angular_velocity = random.NextFloatExtra(-0.10f, 0.20f),
+					stretch = new Vector2(random.NextFloatExtra(0.50f, 1.00f), 0.05f),
 					color_a = random.NextColor32Range(0xffffffff, 0xffc89eff),
 					color_b = random.NextColor32Range(0xffc89eff, 0xffffffff),
 					lit = 1.00f,
@@ -154,18 +154,18 @@ namespace TC2.Base.Components
 				Particle.Spawn(ref region, new Particle.Data()
 				{
 					texture = tex_light,
-					lifetime = random.NextFloatRange(0.05f, 0.10f),
+					lifetime = random.NextFloatExtra(0.05f, 0.05f),
 					pos = ev.pos,
-					vel = dir.RotateByRad(random.NextFloatRange(-2.00f, 2.00f)) * random.NextFloatRange(10.00f, 40.00f),
-					force = dir.RotateByRad(random.NextFloatRange(-0.20f, 0.20f)) * random.NextFloatRange(0, 200),
-					scale = random.NextFloatRange(15.00f, 30.00f),
-					rotation = random.NextFloatRange(-3.50f, 3.50f),
+					vel = dir.RotateByRad(random.NextFloatExtra(-2.00f, 4.00f)) * random.NextFloatExtra(10.00f, 30.00f),
+					force = dir.RotateByRad(random.NextFloatExtra(-0.20f, 0.40f)) * random.NextFloatExtra(0, 200),
+					scale = random.NextFloatExtra(15.00f, 15.00f),
+					rotation = random.NextFloatExtra(-3.50f, 7.00f),
 					angular_velocity = random.NextFloat(0.50f),
-					growth = random.NextFloatRange(100.00f, 200.00f),
-					drag = random.NextFloatRange(0.07f, 0.25f),
+					growth = random.NextFloatExtra(100.00f, 100.00f),
+					drag = random.NextFloatExtra(0.07f, 0.18f),
 					color_a = random.NextColor32Range(0xffffffff, 0xffc89eff),
 					color_b = random.NextColor32Range(0xffc89eff, 0xffffffff),
-					glow = random.NextFloatRange(4.00f, 8.00f),
+					glow = random.NextFloatExtra(4.00f, 4.00f),
 				});
 			}
 
