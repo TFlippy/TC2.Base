@@ -59,7 +59,7 @@ explosive:
 	damage_entity: 4000.000
 	damage_terrain: 2000.000
 	health_threshold: 0.950
-	detonate_chance: 0.0220
+	detonate_chance: 0.620
 	damage_type: shrapnel
 	damage_type_secondary: shrapnel
 	force_multiplier: 0.200

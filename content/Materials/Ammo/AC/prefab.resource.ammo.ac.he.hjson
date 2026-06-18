@@ -2,6 +2,8 @@ $tags: []
 
 body:
 {
+	fall_damage_multiplier: 20.000
+
 	@shape.circle:
 	{
 		offset: [0.000, 0.250]
@@ -9,7 +11,7 @@ body:
 		radius: 0.750
 		friction: 0.650
 		elasticity: 0.500
-		layer: entity, solid, resource, ignore_melee, ignore_bullet
+		layer: entity, solid, resource
 		mask: world
 		material: metal_solid
 	}
@@ -50,15 +52,55 @@ health:
 	max: 5000.000
 }
 
+// explosive:
+// {
+// 	radius: 4.500
+// 	power: 3.000
+// 	damage_entity: 4000.000
+// 	damage_terrain: 15000.000
+
+// 	health_threshold: 0.950
+// 	detonate_chance: 0.880
+
+// 	flags: any_damage, explode_when_primed
+// }
+
 explosive:
 {
-	radius: 4.500
-	power: 3.000
-	damage_entity: 4000.000
-	damage_terrain: 15000.000
-
-	health_threshold: 0.950
-	detonate_chance: 0.280
-
+	radius: 5.000
+	power: 5.500
+	damage_entity: 6000.000
+	damage_terrain: 8000.000
+	health_threshold: 0.980
+	detonate_chance: 0.980
+	damage_type: explosion
+	damage_type_secondary: shrapnel
+	force_multiplier: 0.900
+	stun_multiplier: 0.950
+	smoke_amount: 0.900
+	smoke_lifetime_multiplier: 0.750
+	smoke_velocity_multiplier: 7.000
+	flash_duration_multiplier: 0.150
+	flash_intensity_multiplier: 1.100
+	sparks_amount: 2.500
+	volume: 1.950
+	pitch: 1.200
 	flags: any_damage, explode_when_primed
+}
+
+cluster:
+{
+	prefab: "projectile.ac.he"
+	velocity: [0.000, 0.000]
+	offset: [0.000, -1.000]
+	radius: 0.010
+	spread: 5.000
+	speed: 20.000
+	count: 4
+	damage_modifier: 0.750
+	speed_modifier_min: 0.800
+	speed_modifier_max: 1.400
+	lifetime_modifier_min: 0.200
+	lifetime_modifier_max: 0.400
+	flags: no_velocity_rotate, align_normal
 }

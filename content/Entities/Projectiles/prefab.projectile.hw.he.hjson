@@ -72,7 +72,7 @@ explosive:
 	shake_multiplier: 1.200
 	force_multiplier: 3.000
 	sparks_amount: 2.500
-	volume: 4.400
-	pitch: 2.200
+	volume: 4.800
+	pitch: 1.200
 	flags: primed
 }
