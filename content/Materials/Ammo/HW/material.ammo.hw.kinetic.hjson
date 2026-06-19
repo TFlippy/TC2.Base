@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.74.0"
+	$version: "0.1.75.0"
 	name: "HW-106.7mm/AP Shell"
 	name_short: "HW-106.7mm/AP"
 	description:
@@ -24,7 +24,7 @@
 	
 	// Inventory material type.
 	type: ammo
-	flags: ammo, ammo_hw, magnetic, manufactured, solid
+	flags: ammo, ammo_hw, hard, magnetic, explosive, metal, heavy, manufactured, solid
 	display_flags: hide_fraction
 	spawn_flags:
 	{

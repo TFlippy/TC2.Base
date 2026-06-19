@@ -68,7 +68,7 @@ gun:
 	type: cannon
 	feed: breech
 
-	heuristic_range: 45.000
+	heuristic_range: 48.000
 	stability: 16750.000
 
 	shake_amount: 1.000
@@ -115,12 +115,10 @@ aimable:
 holdable:
 {
 	offset: [-1.000, 0.000]
-	radius: 2.000
-	flags: full_rotate
-
 	force_multiplier: 4.000
-	torque_multiplier: 1.000
 	stress_multiplier: 0.500
+	flags: full_rotate
+	hints: weapon, dangerous, heavy, gun, long_range, powerful, usable, destructive, military, ranged, clumsy, large
 }
 
 attachment:

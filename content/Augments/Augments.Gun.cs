@@ -901,7 +901,7 @@ namespace TC2.Base
 				{
 					ref var value = ref handle.GetData<int>();
 
-					var count = Math.Abs(value);
+					var count = Maths.Abs(value);
 					if (value > 0)
 					{
 						for (var i = 0; i < count; i++)
