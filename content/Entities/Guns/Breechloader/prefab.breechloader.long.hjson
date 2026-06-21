@@ -123,7 +123,7 @@ holdable:
 	torque_multiplier: 1.100
 	stress_multiplier: 0.650
 	radius: 4.000
-	hints: melee, gun, powerful, inaccurate, cheap, industrial, arcane, slow, clumsy, long
+	hints: melee, gun, usable, powerful, inaccurate, cheap, industrial, arcane, slow, clumsy, long, ranged
 	flags: storable
 }
 

@@ -106,7 +106,7 @@ holdable:
 	stress_multiplier: 0.500
 	offset: [-0.250, 0.000]
 	radius: 4.000
-	hints: weapon, junk, gun, weak, usable, inaccurate, small
+	hints: weapon, junk, gun, weak, usable, inaccurate, small, ranged
 	flags: storable
 }
 

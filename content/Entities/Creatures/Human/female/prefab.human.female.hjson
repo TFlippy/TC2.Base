@@ -892,7 +892,7 @@ workshop:
 		
 		filter_hints:
 		{
-			exclude: vehicle, heavy, large
+			exclude: vehicle, large
 		}
 	}
 }

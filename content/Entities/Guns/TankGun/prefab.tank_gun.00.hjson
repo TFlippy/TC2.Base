@@ -81,7 +81,7 @@ gun:
 	feed: cylinder
 	
 	flags: automatic, manual_cycle
-	heuristic_range: 20.000
+	heuristic_range: 48.000
 	
 	@inventory1:
 	{

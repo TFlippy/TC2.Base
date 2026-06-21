@@ -116,7 +116,7 @@ holdable:
 	stress_multiplier: 0.950
 	offset: [-0.375, 0.000]
 	radius: 4.000
-	hints: weapon, junk, heavy, gun, powerful, usable, inaccurate, industrial, arcane, slow, clumsy
+	hints: weapon, gun, usable, powerful, inaccurate, industrial, arcane, slow, clumsy, ranged
 	flags: storable
 }
 
@@ -145,7 +145,7 @@ control:
 
 aimable:
 {
-	min: -0.800
+	min: -1.100
 	max: 0.650
 }
 

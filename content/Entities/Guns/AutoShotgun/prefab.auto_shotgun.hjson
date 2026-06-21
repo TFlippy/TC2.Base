@@ -123,6 +123,6 @@ control:
 
 aimable:
 {
-	min: -0.800
+	min: -1.100
 	max: 0.650
 }
