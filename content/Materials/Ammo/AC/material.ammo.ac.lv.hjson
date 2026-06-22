@@ -68,22 +68,22 @@
 	ammo:
 	{
 		count: 1
-		mass: 0.450
+		mass: 0.400
 		heat: 710.000
 		velocity_min: 80.000
 		
 		speed_base: 0.000
-		speed_mult: 0.950
+		speed_mult: 0.850
 		speed_jitter: 0.032
-		spin_base: 0.020
+		spin_base: 0.022
 		spin_mult: 1.000
-		spread_mult: 1.320
-		recoil_mult: 1.000
+		spread_mult: 1.340
+		recoil_mult: 0.980
 		
 		failure_base: 0.000
 		failure_mult: 1.000
 		
-		stability_base: 4300.000
+		stability_base: 4200.000
 		stability_mult: 1.000
 		
 		prefab: projectile.ac.lv

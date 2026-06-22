@@ -2,18 +2,18 @@ $tags: []
 
 projectile:
 {
-	damage_base: 900.000
-	damage_bonus: 1200.000
+	damage_base: 1100.000
+	damage_bonus: 1300.000
 	damage_type: bullet_ac
-	armor_pierce: 420.000
-	terrain_damage_mult: 1.100
+	armor_pierce: 750.000
+	terrain_damage_mult: 1.400
 	lifetime: 6.000
 	size: 0.075
 	ricochet_count: 2
 	ricochet_threshold_multiplier: 0.500
 	damp: 0.980
 	tracer_length: 8.000
-	mass: 0.450
+	mass: 0.400
 	knockback_multiplier: 20.000
 	flags: no_miss
 }

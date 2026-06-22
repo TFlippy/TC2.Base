@@ -1551,7 +1551,8 @@ namespace TC2.Base.Components
 								inventory_magazine.resource.header = resource.header;
 								gun_state.hints.SetFlag(Gun.Hints.Artillery, material.flags.HasAny(Material.Flags.Explosive));
 								gun_state.hints.RemoveFlag(Gun.Hints.No_Ammo);
-								gun_state.muzzle_velocity = Maths.Min(gun.velocity_max, gun.velocity_multiplier * ammo.speed_mult);
+								//gun_state.muzzle_velocity = Maths.Min(gun.velocity_max, gun.velocity_multiplier * ammo.speed_mult);
+								gun_state.muzzle_velocity = Maths.Min(gun.velocity_max, (ammo.speed_base + gun.velocity_multiplier) * ammo.speed_mult);
 								gun_state.angle_jitter = Maths.Clamp(gun.jitter_multiplier, 0.00f, 25.00f) * ammo.spread_mult * 0.50f;
 								gun_state.resource_ammo = resource;
 
