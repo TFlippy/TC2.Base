@@ -846,7 +846,7 @@ workshop:
 		spin_torque: 3800.000
 		max_spin_speed: 7.000
 		
-		aim_torque: 130000.000
+		aim_torque: 500000.000
 		throw_force: 85000.000
 		
 		flags: none

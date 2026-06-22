@@ -751,8 +751,8 @@ workshop:
 	joint.base:
 	{
 		offset_a: [-0.125, -0.175]
-		max_force: 14000.000
-		max_torque: 13500.000
+		max_force: 18000.000
+		max_torque: 17500.000
 		max_stress: 2.500
 		stress_threshold: 1.250
 		stress_damp: 0.250
@@ -772,7 +772,7 @@ workshop:
 		spin_torque: 750.000
 		max_spin_speed: 6.000
 
-		aim_torque: 4300.000
+		aim_torque: 7300.000
 		throw_force: 600.000
 		
 		flags: none
@@ -796,7 +796,7 @@ workshop:
 		error_bias: 0.0005
 		min: -2.000
 		max: 2.000
-		step: 24.000
+		step: 32.000
 		max_bias: 6.000
 		stress_mult: 0.300
 		damping_loose: 0.200
