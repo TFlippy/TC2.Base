@@ -1,7 +1,7 @@
 $name: "Chainsaw"
 $desc: 
 	'''
-	A powerful woodcutting tool powered by a high-speed EC-MT motor.
+	Woodcutting and butchering tool powered by a high-speed EC-MT motor.
 	'''
 $tags: []
 
@@ -11,11 +11,12 @@ body:
 	{
 		a: [-0.500, 0.000]
 		b: [0.500, 0.000]
-		mass: 22.000
+		mass: 19.000
 		radius: 0.350
-		friction: 0.950
-		elasticity: 0.250
+		friction: 0.850
+		elasticity: 0.350
 		material: device
+		miss_chance: 0.550
 		layer: entity, solid, item, conductive, magnetic
 		mask: world
 	}
@@ -23,15 +24,15 @@ body:
 
 health:
 {
-	max: 11000.000
+	max: 7500.000
 }
 
 chainsaw:
 {
-	damage: 150.000
-	max_distance: 2.000
+	damage: 280.000
+	max_distance: 2.200
 	speed: 9.000
-	radius: 1.000
+	radius: 1.100
 }
 
 control:

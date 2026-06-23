@@ -16,7 +16,7 @@ body:
 		friction: 0.850
 		elasticity: 0.500
 		material: metal_solid
-		layer: entity, solid, ignore_bullet, ignore_melee, item
+		layer: entity, solid, ignore_bullet, ignore_melee, item, conductive, magnetic
 		mask: world
 	}
 }

@@ -23,7 +23,7 @@ body:
 		friction: 0.950
 		elasticity: 0.050
 		material: tool
-		layer: entity, solid, ignore_bullet, ignore_melee, item, flammable
+		layer: entity, solid, ignore_bullet, ignore_melee, item, flammable, conductive, magnetic
 		mask: world
 	}
 }

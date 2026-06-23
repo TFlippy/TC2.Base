@@ -77,8 +77,9 @@ drill:
 holdable:
 {
 	offset: [-1.000, -0.125]
-	force_multiplier: 1.350
-	torque_multiplier: 1.250
+	force_multiplier: 3.750
+	torque_multiplier: 1.850
+	stress_multiplier: 0.500
 	hints: armor, tools, weapon, dangerous, heavy, melee, short_range, machine, defensive, usable, destructive, mining, gathering, industrial, slow, clumsy
 	flags: storable
 }
