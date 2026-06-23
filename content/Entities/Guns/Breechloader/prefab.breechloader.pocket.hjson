@@ -21,7 +21,7 @@ body:
 		material: tool
 		miss_chance: 0.000
 		
-		layer: entity, solid, item, ignore_melee, ignore_bullet
+		layer: entity, solid, item, conductive, magnetic, ignore_melee, ignore_bullet
 		mask: world
 		exclude: none
 	}

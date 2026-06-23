@@ -21,7 +21,7 @@ body:
 		
 		material: tool
 		
-		layer: entity, solid, item, ignore_bullet
+		layer: entity, solid, item, ignore_bullet, conductive, magnetic
 	}
 }
 
@@ -169,7 +169,7 @@ melee:
 	pain_multiplier: 1.650
 	stun_multiplier: 1.400
 	
-	disarm_chance: 0.065
+	disarm_chance: 0.105
 	cooldown: 0.700
 	max_distance: 0.250
 	aoe: 0.600

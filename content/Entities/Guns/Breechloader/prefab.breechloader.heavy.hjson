@@ -18,7 +18,7 @@ body:
 		flags: none
 		tags: none
 		
-		layer: entity, solid, item
+		layer: entity, solid, item, conductive, magnetic
 		mask: world
 		exclude: none
 		
@@ -62,8 +62,8 @@ gun:
 	sound_jam: effect.clang.metal.00
 	
 	damage_multiplier: 2.100
-	velocity_multiplier: 150.000
-	velocity_max: 300.000
+	velocity_multiplier: 120.000
+	velocity_max: 350.000
 	jitter_multiplier: 3.700
 	recoil_multiplier: 1.300
 	reload_interval: 3.000
@@ -111,9 +111,9 @@ gun.state:
 
 holdable:
 {
-	force_multiplier: 2.600
-	torque_multiplier: 1.400
-	stress_multiplier: 0.950
+	force_multiplier: 3.200
+	torque_multiplier: 1.800
+	stress_multiplier: 0.500
 	offset: [-0.375, 0.000]
 	radius: 4.000
 	hints: weapon, gun, usable, powerful, inaccurate, industrial, arcane, slow, clumsy, ranged
