@@ -3,7 +3,7 @@
 	public static partial class Skyhook
 	{
 		[IComponent.Data(Net.SendType.Reliable, IComponent.Scope.Region)]
-		public partial struct Data(): IComponent
+		public partial struct Data: IComponent
 		{
 			public float unused_00;
 			public float unused_01;

@@ -3,7 +3,7 @@
 	public static partial class Compactor
 	{
 		[IComponent.Data(Net.SendType.Reliable, IComponent.Scope.Region)]
-		public struct Data(): IComponent
+		public struct Data: IComponent
 		{
 			[Flags]
 			public enum Flags: uint

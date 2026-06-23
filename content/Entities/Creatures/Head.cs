@@ -4,7 +4,7 @@ namespace TC2.Base.Components
 	public static partial class HeadBob
 	{
 		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region)]
-		public partial struct Data(): IComponent
+		public partial struct Data: IComponent
 		{
 			[Asset.Ignore] public Vector2 offset;
 			public Vector2 multiplier;

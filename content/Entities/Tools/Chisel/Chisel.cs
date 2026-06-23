@@ -3,7 +3,7 @@
 	public static class Chisel
 	{
 		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region)]
-		public struct Data(): IComponent
+		public struct Data: IComponent
 		{
 			[Flags]
 			public enum Flags: ushort

@@ -6,7 +6,7 @@ namespace TC2.Conquest
 	public static partial class Zone
 	{
 		[IComponent.Data(Net.SendType.Reliable, IComponent.Scope.Region)]
-		public partial struct Data(): IComponent
+		public partial struct Data: IComponent
 		{
 			[Flags]
 			public enum Flags: uint

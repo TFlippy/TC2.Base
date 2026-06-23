@@ -1879,7 +1879,7 @@ namespace TC2.Base.Components
 		//}
 
 		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region)]
-		public struct State(): IComponent
+		public struct State: IComponent
 		{
 			public float velocity;
 			public Volume flow_rate;

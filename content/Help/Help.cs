@@ -6,7 +6,7 @@ namespace TC2.Conquest
 	public static partial class Help
 	{
 		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region | IComponent.Scope.Global)]
-		public partial struct Data(): IComponent
+		public partial struct Data: IComponent
 		{
 			[Flags]
 			public enum Flags: ushort

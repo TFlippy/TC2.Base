@@ -22,7 +22,7 @@
 
 		[Shitcode]
 		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region)]
-		public partial struct State(): IComponent
+		public partial struct State: IComponent
 		{
 			public float slider_ratio;
 		}

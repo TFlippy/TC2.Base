@@ -12,7 +12,7 @@ namespace TC2.Base.Components
 		}
 
 		[IComponent.Data(Net.SendType.Reliable, IComponent.Scope.Region)]
-		public partial struct Data(): IComponent
+		public partial struct Data: IComponent
 		{
 			[Save.Force] public Brain.Flags flags;
 

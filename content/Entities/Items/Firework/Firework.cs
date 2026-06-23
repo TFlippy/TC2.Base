@@ -13,7 +13,7 @@ namespace TC2.Base.Components
 		}
 
 		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region)]
-		public partial struct Data(): IComponent
+		public partial struct Data: IComponent
 		{
 			public Firework.Flags flags;
 			public uint unused_00;

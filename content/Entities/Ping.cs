@@ -12,7 +12,7 @@ namespace TC2.Base.Components
 		public const bool show_faction_only = true;
 
 		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region), IComponent.AddTo<Player.Data>()]
-		public partial struct Data(): IComponent
+		public partial struct Data: IComponent
 		{
 			[Save.Ignore] public Entity ent_target;
 			[Save.Ignore] public Vector2 pos;

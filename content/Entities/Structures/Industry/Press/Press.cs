@@ -28,7 +28,7 @@
 
 		// https://en.wikipedia.org/wiki/Machine_press
 		[IComponent.Data(Net.SendType.Reliable, IComponent.Scope.Region), IComponent.With<Press.State>]
-		public partial struct Data(): IComponent
+		public partial struct Data: IComponent
 		{
 			//[Net.Segment.A, Editor.Picker.Position(relative: true)] public Vec2f slider_offset;
 
@@ -45,7 +45,7 @@
 		}
 
 		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region)]
-		public partial struct State(): IComponent
+		public partial struct State: IComponent
 		{
 			[Flags]
 			public enum Flags: ushort

@@ -24,7 +24,7 @@ namespace TC2.Base.Components
 		public const Beacon.Flags flags_editable_mask = Beacon.Flags.Active;
 
 		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Global | IComponent.Scope.Region)]
-		public struct Data(): IComponent
+		public struct Data: IComponent
 		{
 			public Beacon.Type type;
 			public byte unused_00;

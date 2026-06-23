@@ -24,7 +24,7 @@
 		}
 
 		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region)]
-		public partial struct State(): IComponent
+		public partial struct State: IComponent
 		{
 			[Asset.Ignore] public float angle_a;
 			[Asset.Ignore] public float angle_b;

@@ -51,7 +51,7 @@ namespace TC2.Base.Components
 		}
 
 		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region)]
-		public partial struct State(): IComponent
+		public partial struct State: IComponent
 		{
 			[Flags]
 			public enum Flags: byte

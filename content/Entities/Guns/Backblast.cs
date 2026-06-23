@@ -3,7 +3,7 @@
 	public static partial class Backblast
 	{
 		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region), IComponent.With<Gun.State>]
-		public partial struct Data(): IComponent
+		public partial struct Data: IComponent
 		{
 			[Editor.Picker.Position(true, true)]
 			public Vector2 exhaust_offset;

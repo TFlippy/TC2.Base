@@ -3,7 +3,7 @@
 	public static partial class Giant
 	{
 		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region)]
-		public partial struct Data(): IComponent
+		public partial struct Data: IComponent
 		{
 			[Save.Ignore, Net.Ignore] public float next_pain;
 			[Save.Ignore, Net.Ignore] public float next_talk;

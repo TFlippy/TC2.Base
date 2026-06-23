@@ -3,7 +3,7 @@
 	public static partial class Inductor
 	{
 		[IComponent.Data(Net.SendType.Reliable, IComponent.Scope.Region), IComponent.With<Inductor.State>]
-		public struct Data(): IComponent
+		public struct Data: IComponent
 		{
 			[Flags]
 			public enum Flags: uint
@@ -28,7 +28,7 @@
 		}
 
 		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region)]
-		public struct State(): IComponent
+		public struct State: IComponent
 		{
 			public float frequency_current;
 			public float frequency_target;

@@ -15,17 +15,11 @@
 			public Electrolyzer.Data.Flags flags;
 
 			[Save.Ignore, Net.Ignore] public float t_next_update;
-
-			public Data()
-			{
-
-			}
 		}
 
 		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region)]
 		public struct State: IComponent
 		{
-
 			[Save.Ignore, Net.Ignore] public float t_next_update;
 		}
 

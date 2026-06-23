@@ -61,7 +61,7 @@ namespace TC2.Base.Components
 		}
 
 		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region), Asset.Ignore]
-		public partial struct State(): IComponent
+		public partial struct State: IComponent
 		{
 			public float speed_current;
 			public float force_current;
