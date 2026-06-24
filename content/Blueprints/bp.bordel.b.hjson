@@ -1,0 +1,110 @@
+﻿{
+	name: "Bordel-X"
+	
+	flags: none
+	
+	h_prefab: breechloader.heavy
+	h_recipe: breechloader.heavy.00.basic
+	
+	seed: 6997755800969610035
+	
+	augments:
+	[
+		{
+			identifier: "gun.automatic_reloading"
+			flags: none
+			modifier: 0.000
+			data: 13726971665282236416
+		}
+		{
+			identifier: "gun.stacked_charge"
+			flags: none
+			modifier: 1.000
+			data: 0
+		}
+		{
+			identifier: "body.casing.smirglum"
+			flags: none
+			modifier: 0.200
+			data: 13690942870402367488
+		}
+		{
+			identifier: "holdable.grip.friction"
+			flags: none
+			modifier: 0.000
+			data: 1066863165
+		}
+		{
+			identifier: "gun.faster_cycling_mechanism"
+			flags: none
+			modifier: 0.000
+			data: 1065353216
+		}
+		{
+			identifier: "gun.tempered_frame"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "gun.grip"
+			flags: none
+			modifier: 0.466667
+			data: 9223372037907546112
+		}
+		{
+			identifier: "gun.improved_rifling"
+			flags: none
+			modifier: 0.000
+			data: 1065353216
+		}
+		{
+			identifier: "gun.balanced_receiver"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "body.casing.smirglum"
+			flags: mirror_x
+			modifier: 0.400
+			data: 3200253952
+		}
+		{
+			identifier: "body.framework.steel"
+			flags: none
+			modifier: 0.666667
+			data: 4467570831391719424
+		}
+		{
+			identifier: "body.casing.steel"
+			flags: none
+			modifier: 0.333333
+			data: 13690942867206307840
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+		{
+			identifier: "undefined"
+			flags: none
+			modifier: 0.000
+			data: 0
+		}
+	]
+}

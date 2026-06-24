@@ -1,9 +1,9 @@
 ﻿{
-	$version: "0.1.62.5"
+	$version: "0.1.75.0"
 	name: "ABR 740"
 	description:
 		'''
-		Powerful burst-fire battle rifle with a bayonet.
+		Standard burst-fire battle rifle with a bayonet. Widely used by the Imperial army.
 		'''
 	
 	flags: hidden
