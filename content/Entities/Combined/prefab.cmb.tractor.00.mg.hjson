@@ -5,7 +5,7 @@ $prefab: "tractor.00"
 {
 	attachment.slot:
 	{
-		offset: [0.875, -0.625]
+		offset: [0.750, 0.250]
 	}
 
 	+attached|child:

@@ -133,7 +133,7 @@ storage:
 {
 	@inventory4:
 	{
-		stack_size_multiplier: 4.000
+		stack_size_multiplier: 6.000
 		type: ammo
 		flags: standalone, allow_ducts, faction, no_auto_pickup
 		layout: vertical
