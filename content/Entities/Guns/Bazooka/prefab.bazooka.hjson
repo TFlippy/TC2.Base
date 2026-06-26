@@ -74,7 +74,7 @@ gun:
 	feed: front
 	
 	flags: eject_on_shoot
-	heuristic_range: 48.000
+	heuristic_range: 32.000
 
 	@inventory1:
 	{

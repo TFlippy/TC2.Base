@@ -27,35 +27,38 @@ gun:
 {
 	muzzle_offset: [0.750, -0.0625]
 	receiver_offset: [-0.375, 0.000]
-
+	
 	eject_direction: [-4.800, -5.400]
 	eject_angular_velocity: 7.000
-
-	sound_shoot: "scattergun_shoot"
-	sound_cycle: "scattergun_open"
-	sound_reload: "scattergun_reload"
+	
+	smoke_amount: 2.000
+	
+	shake_amount: 0.350
+	
+	sound_volume: 1.400
+	sound_pitch: 1.100
+	
+	sound_shoot: scattergun_shoot
+	sound_cycle: scattergun_open
+	sound_reload: scattergun_reload
+	
+	damage_multiplier: 2.500
 	velocity_multiplier: 380.000
 	velocity_max: 600.000
 	jitter_multiplier: 2.620
-	damage_multiplier: 2.500
 	recoil_multiplier: 1.200
 	reload_interval: 1.100
 	cycle_interval: 0.100
-	failure_rate: 0.000
+	stability: 1450.000
+	
+	ammo_filter: ammo_mg, ammo_sg
 	max_ammo: 1.000
-	sound_volume: 1.400
-	sound_pitch: 1.100
-	smoke_amount: 2.000
-	flags: none
-	ammo_filter: ammo_sg, ammo_mg
+	
 	action: manual
 	type: shotgun
 	feed: breech
-
+	
 	heuristic_range: 15.000
-
-	shake_amount: 0.350
-	stability: 1450.000
 	
 	@inventory1:
 	{

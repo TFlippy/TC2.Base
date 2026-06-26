@@ -79,7 +79,7 @@ gun:
 	feed: breech
 	
 	flags: full_reload, cycle_on_shoot, eject_on_shoot, eject_from_muzzle
-	heuristic_range: 30.000
+	heuristic_range: 24.000
 
 	@inventory1:
 	{

@@ -52,15 +52,15 @@ gun:
 	sound_shoot: machine_gun_shoot.old
 	sound_reload: machine_gun_reload
 	
-	damage_multiplier: 3.500
-	velocity_multiplier: 550.000
-	velocity_max: 750.000
+	damage_multiplier: 3.400
+	velocity_multiplier: 490.000
+	velocity_max: 780.000
 	jitter_multiplier: 2.400
-	recoil_multiplier: 1.100
+	recoil_multiplier: 1.000
 	muzzle_blast_mult: 1.120
 	reload_interval: 2.500
 	cycle_interval: 0.120
-	stability: 1680.000
+	stability: 1780.000
 	failure_rate: 0.003
 	
 	ammo_filter: ammo_hc
