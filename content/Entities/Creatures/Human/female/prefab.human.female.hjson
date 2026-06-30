@@ -736,7 +736,7 @@ workshop:
 		
 		health:
 		{
-			max: 3300.000
+			max: 3700.000
 		}
 
 		regen:

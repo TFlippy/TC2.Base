@@ -1075,7 +1075,7 @@ namespace TC2.Base
 
 				can_add: static (ref context, in data, ref handle, augments) =>
 				{
-					return !augments.HasAugment(handle) && !context.HasComponent<Telescope.Data>() && data.flags.HasAll(Holdable.Flags.Storable); // && data.type != Gun.Type.Cannon && data.type != Gun.Type.AutoCannon && data.type != Gun.Type.Launcher;
+					return data.flags.HasAll(Holdable.Flags.Storable) && !augments.HasAugment(handle) && !context.HasComponent<Telescope.Data>(); // && data.type != Gun.Type.Cannon && data.type != Gun.Type.AutoCannon && data.type != Gun.Type.Launcher;
 				},
 
 #if CLIENT
@@ -1104,7 +1104,7 @@ namespace TC2.Base
 					ref var offset = ref handle.GetData<Vector2>();
 
 					ref var scope = ref context.GetOrAddComponent<Telescope.Data>();
-					if (!scope.IsNull())
+					if (scope.IsNotNull())
 					{
 						scope.speed = 6.00f;
 						scope.deadzone = 3.00f;
@@ -1114,6 +1114,22 @@ namespace TC2.Base
 						scope.min_distance = 12.00f;
 						scope.max_distance = 80.00f;
 					}
+				},
+
+				finalize: static (ref context, ref data, ref handle, augments) =>
+				{
+					ref var gun = ref context.GetComponent<Gun.Data>();
+					if (gun.IsNotNull())
+					{
+						ref var scope = ref context.GetComponent<Telescope.Data>();
+						if (scope.IsNotNull())
+						{
+							gun.heuristic_range = Maths.Max(gun.heuristic_range, Maths.Avg(gun.heuristic_range, scope.max_distance));
+							//data.hints.AddFlag(NPC.ItemHints.Long_Range);
+						}
+					}
+
+					return true;
 				}
 			));
 
@@ -1487,10 +1503,10 @@ namespace TC2.Base
 				{
 					ref var amount = ref handle.GetData<float>();
 
-					ref var material = ref IMaterial.Database.GetData("alcohol", out var material_id);
+					ref var material = ref IMaterial.Database.GetData("alcohol", out var h_material);
 					if (material.IsNotNull())
 					{
-						context.requirements_new.Merge(Crafting.Requirement.Resource(material_id, amount * 0.001f / material.mass_per_unit).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
+						context.requirements_new.Merge(Crafting.Requirement.Resource(h_material, amount * 0.001f / material.mass_per_unit).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 					}
 				}
 			));
