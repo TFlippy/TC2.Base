@@ -159,14 +159,14 @@ namespace TC2.Base.Components
 #if SERVER
 					if (draw_debug)
 					{
-						region.DrawDebugDir(transform.LocalToWorld(levitator.offset + node.offset), transform.LocalToWorldDirection(node.dir * node.ratio * 4), Color32BGRA.Yellow, 2.00f);
+						region.DrawDebugDir(transform.LocalToWorld(levitator.offset + node.offset), transform.LocalToWorldDirection(node.dir * node.ratio * node.modifier * 4), Color32BGRA.Yellow, 2.00f);
 						region.DrawDebugCircle(transform.LocalToWorld(levitator.offset + node.offset), 0.125f, Color32BGRA.Yellow, 2.00f);
 					}
 #endif
 
 					ref var node_rate = ref levitator_state.node_rates[i];
 					node_rate = Maths.Lerp(node_rate, ((kb.GetKey(key, false) ? 1.00f : 0.00f) + (random.NextFloat01() * container.noise_current * 0.70f)).Clamp01(), levitator.lerp_rate);
-					rate_total += node_rate * node.ratio;
+					rate_total += node_rate * node.ratio * node.modifier;
 
 					if (node_rate > 0.01f)
 					{
@@ -181,7 +181,7 @@ namespace TC2.Base.Components
 							//var modifier2 = Maths.Clamp(force_len * 0.05f, 0.10f, 1.00f);
 
 
-							var node_amount = container.available * node_rate * node.ratio;
+							var node_amount = container.available * node_rate * node.ratio * node.modifier;
 							var force_local = node.dir * (node_amount * essence_data.emit_force) * levitator.efficiency;
 
 							force_total += force_local;
