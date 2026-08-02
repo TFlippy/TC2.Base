@@ -230,7 +230,7 @@
 			]
 		}
 		{
-			rarity: 1.000
+			rarity: 7.000
 			weight: 0.100
 			
 			flags: has_resources

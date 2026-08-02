@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.75.0"
 	nodes:
 	[
 		{
@@ -137,7 +137,7 @@
 		}
 		{
 			rarity: 5.980
-			weight: 4.600
+			weight: 2.900
 			
 			flags: has_resources
 			chance: 1.000

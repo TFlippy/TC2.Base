@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.75.0"
 	nodes:
 	[
 		{
@@ -155,25 +155,6 @@
 			]
 		}
 		{
-			rarity: 6.000
-			weight: 7.100
-			
-			flags: has_resources
-			chance: 1.000
-			
-			products:
-			[
-				{
-					type: resource
-					material: phlogiston
-					amount: 24.7248
-					amount_extra: 57.69895
-					snapping: 1.000
-					group: 0
-				}
-			]
-		}
-		{
 			rarity: 3.670
 			weight: 7.100
 			
@@ -193,8 +174,8 @@
 			]
 		}
 		{
-			rarity: 4.870
-			weight: 2.900
+			rarity: 6.000
+			weight: 7.100
 			
 			flags: has_resources
 			chance: 1.000
@@ -203,10 +184,10 @@
 			[
 				{
 					type: resource
-					material: tnt
-					amount: 10.0264
-					amount_extra: 49.0993
-					snapping: 0.100
+					material: phlogiston
+					amount: 24.7248
+					amount_extra: 57.69895
+					snapping: 1.000
 					group: 0
 				}
 			]
@@ -269,44 +250,6 @@
 			]
 		}
 		{
-			rarity: 3.680
-			weight: 3.000
-			
-			flags: has_resources
-			chance: 1.000
-			
-			products:
-			[
-				{
-					type: resource
-					material: nitrosugar
-					amount: 9.006387
-					amount_extra: 34.62543
-					snapping: 1.000
-					group: 0
-				}
-			]
-		}
-		{
-			rarity: 6.530
-			weight: 3.100
-			
-			flags: has_resources
-			chance: 1.000
-			
-			products:
-			[
-				{
-					type: resource
-					material: nitroglycerine
-					amount: 3.1377
-					amount_extra: 47.461
-					snapping: 0.100
-					group: 0
-				}
-			]
-		}
-		{
 			rarity: 3.110
 			weight: 3.900
 			
@@ -339,6 +282,63 @@
 					material: meth
 					amount: 4.430
 					amount_extra: 32.600
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 6.530
+			weight: 3.100
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: nitroglycerine
+					amount: 3.1377
+					amount_extra: 47.461
+					snapping: 0.100
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.680
+			weight: 3.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: nitrosugar
+					amount: 9.006387
+					amount_extra: 34.62543
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 4.870
+			weight: 2.900
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: tnt
+					amount: 10.0264
+					amount_extra: 49.0993
 					snapping: 0.100
 					group: 0
 				}

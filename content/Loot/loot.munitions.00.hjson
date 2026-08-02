@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.75.0"
 	nodes:
 	[
 		{
@@ -193,25 +193,6 @@
 			]
 		}
 		{
-			rarity: 5.850
-			weight: 6.400
-			
-			flags: has_resources
-			chance: 1.000
-			
-			products:
-			[
-				{
-					type: resource
-					material: ammo.kn
-					amount: 7.000
-					amount_extra: 12.000
-					snapping: 1.000
-					group: 0
-				}
-			]
-		}
-		{
 			rarity: 7.750
 			weight: 6.000
 			
@@ -231,27 +212,8 @@
 			]
 		}
 		{
-			rarity: 4.010
-			weight: 4.700
-			
-			flags: has_resources
-			chance: 1.000
-			
-			products:
-			[
-				{
-					type: resource
-					material: ammo.rocket.lv
-					amount: 4.000
-					amount_extra: 16.000
-					snapping: 1.000
-					group: 0
-				}
-			]
-		}
-		{
 			rarity: 4.720
-			weight: 4.600
+			weight: 3.700
 			
 			flags: has_resources
 			chance: 1.000
@@ -269,8 +231,65 @@
 			]
 		}
 		{
+			rarity: 4.010
+			weight: 2.400
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: ammo.rocket.lv
+					amount: 4.000
+					amount_extra: 16.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 8.760
+			weight: 1.900
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: ammo.hw.kinetic
+					amount: 1.000
+					amount_extra: 7.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 5.850
+			weight: 1.200
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: ammo.kn
+					amount: 7.000
+					amount_extra: 12.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
 			rarity: 4.780
-			weight: 4.300
+			weight: 1.100
 			
 			flags: has_resources
 			chance: 1.000
@@ -288,8 +307,27 @@
 			]
 		}
 		{
+			rarity: 6.650
+			weight: 1.000
+			
+			flags: has_resources
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: resource
+					material: ammo.ac.he
+					amount: 10.000
+					amount_extra: 45.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
 			rarity: 6.140
-			weight: 3.400
+			weight: 0.800
 			
 			flags: has_resources
 			chance: 1.000
@@ -307,8 +345,8 @@
 			]
 		}
 		{
-			rarity: 6.710
-			weight: 3.100
+			rarity: 7.260
+			weight: 0.500
 			
 			flags: has_resources
 			chance: 1.000
@@ -320,44 +358,6 @@
 					material: ammo.hw.hv
 					amount: 3.000
 					amount_extra: 6.000
-					snapping: 1.000
-					group: 0
-				}
-			]
-		}
-		{
-			rarity: 6.650
-			weight: 3.000
-			
-			flags: has_resources
-			chance: 1.000
-			
-			products:
-			[
-				{
-					type: resource
-					material: ammo.ac.he
-					amount: 20.000
-					amount_extra: 65.000
-					snapping: 1.000
-					group: 0
-				}
-			]
-		}
-		{
-			rarity: 8.710
-			weight: 2.600
-			
-			flags: has_resources
-			chance: 1.000
-			
-			products:
-			[
-				{
-					type: resource
-					material: ammo.hw.kinetic
-					amount: 1.000
-					amount_extra: 7.000
 					snapping: 1.000
 					group: 0
 				}
