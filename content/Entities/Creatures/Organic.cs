@@ -300,6 +300,7 @@ namespace TC2.Base.Components
 		}
 
 #if SERVER
+		[Shitcode]
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region, interval: 0.20f, flags: ISystem.Flags.Unchecked)]
 		public static void OnUpdate_Dead(Entity entity, [Source.Owned, Override] in Organic.Data organic, [Source.Owned] ref Organic.State organic_state, [Source.Owned] bool dead)
 		{
@@ -311,7 +312,10 @@ namespace TC2.Base.Components
 			}
 			else
 			{
-				if (organic_state.unconscious_time > 15.00f * organic_state.health_norm) entity.AddTag("dead");
+				var unconscious_time_threshold = 15.00f;
+				if (organic.tags.HasAny(Organic.Tags.Brain | Organic.Tags.Lungs | Organic.Tags.Heart)) unconscious_time_threshold *= organic_state.health_norm;
+
+				if (organic_state.unconscious_time > unconscious_time_threshold) entity.AddTag("dead");
 			}
 		}
 

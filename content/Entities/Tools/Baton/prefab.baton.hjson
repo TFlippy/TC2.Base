@@ -52,7 +52,7 @@ melee:
 	knockback_speed: 5.500
 	yield: 0.940
 	penetration_falloff: 0.700
-	penetration: 3
+	penetration: 1
 	
 	hit_offset: [0.500, 0.000]
 	

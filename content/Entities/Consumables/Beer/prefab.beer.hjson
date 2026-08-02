@@ -89,3 +89,13 @@ consumable:
 // {
 // 	amount: 50.000
 // }
+
+norotate:
+{
+	flags: disable_in_air
+	speed: 5.000
+	bias: 0.000
+	
+	multiplier: 1.800
+	mass_multiplier: 2.000
+}

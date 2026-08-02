@@ -6,7 +6,7 @@ projectile:
 	damage_bonus: 1300.000
 	damage_type: bullet_ac
 	armor_pierce: 750.000
-	terrain_damage_mult: 1.400
+	terrain_damage_mult: 1.100
 	lifetime: 6.000
 	size: 0.075
 	ricochet_count: 2

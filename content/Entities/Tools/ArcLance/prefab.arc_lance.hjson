@@ -85,8 +85,8 @@ holdable:
 {
 	offset: [-0.750, -0.125]
 	force_multiplier: 1.800
-	torque_multiplier: 7.800
-	stress_multiplier: 0.400
+	torque_multiplier: 7.500
+	stress_multiplier: 0.250
 	radius: 5.000
 	flags: storable
 }
