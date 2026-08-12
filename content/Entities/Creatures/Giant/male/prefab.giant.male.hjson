@@ -199,6 +199,44 @@ holdable:
 	flags: disable_parent_facing, disable_rotation, disable_control, full_rotate
 }
 
+ai:
+{
+	stance: defensive
+	courage: 4600.000
+}
+
+ai.movement:
+{
+
+}
+
+ai.behavior:
+{
+	movement_flags: hold, open_doors
+	combat_flags: attack_visible, attack_when_hit, cover, flee, defend, chase, charge, prefer_ranged
+}
+
+ai.search:
+{
+	radius: 64.000
+}
+
+ai.gunner:
+{
+	flags: none
+	aim_time_mult: 1.000
+	aim_decay_lerp: 0.900
+	attack_distance: 40.000
+	attack_cooldown: 1.000
+	attack_burst_time: 1.700
+	reload_cooldown: 1.000
+}
+
+ai.gunner.state:
+{
+
+}
+
 npc:
 {
 	pain_modifier: 0.200
@@ -213,28 +251,6 @@ npc:
 	self_hints: is_giant, is_loud
 }
 
-ai:
-{
-	stance: passive
-	courage: 4600.000
-}
-
-ai.movement:
-{
-
-}
-
-ai.behavior:
-{
-	movement_flags: hold, open_doors
-	combat_flags: attack_visible, attack_when_hit, cover, flee, defend, chase, charge
-}
-
-ai.search:
-{
-	radius: 64.000
-}
-
 npc.emotions:
 {
 	hostility: 0.600
@@ -245,24 +261,6 @@ npc.emotions:
 }
 
 npc.emotions.state:
-{
-
-}
-
-ai.gunner:
-{
-	aim_min_dot: 0.990
-	aim_speed_mult: 1.700
-	aim_time_mult: 1.000
-
-	attack_distance: 40.000
-	cover_distance_offset: 12.000
-
-	attack_cooldown: 0.750
-	attack_burst_time: 4.000
-}
-
-ai.gunner.state:
 {
 
 }
