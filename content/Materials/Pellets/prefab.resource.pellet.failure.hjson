@@ -65,9 +65,9 @@ interactable:
 holdable:
 {
 	offset: [0.000, 0.750]
-	force_multiplier: 0.680
-	torque_multiplier: 0.550
-	stress_multiplier: 8.000
+	force_multiplier: 0.300
+	torque_multiplier: 0.250
+	stress_multiplier: 67.000
 	radius: 4.000
 	priority: -500.000
 	hints: materials, dangerous, junk, advanced, weak, inaccurate, small, dumb, arcane, crappy, rebel, slow, unstable, clumsy
@@ -146,16 +146,17 @@ heat:
 
 norotate:
 {
-	bias: 0.000
+	flags: no_share, disable_attached, disable_in_air
 	speed: 3.500
+	bias: 0.000
+	
 	multiplier: 3.500
 	mass_multiplier: 3.500
-	flags: no_share
 }
 
-vibrate:
-{
-	rotation_mult: 0.030
-	flags: shared
-	position_mult: [0.080, 0.060]
-}
+// vibrate:
+// {
+// 	rotation_mult: 0.030
+// 	flags: shared
+// 	position_mult: [0.080, 0.060]
+// }

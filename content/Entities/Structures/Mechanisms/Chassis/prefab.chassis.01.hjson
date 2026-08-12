@@ -329,7 +329,7 @@ crank:
 		offset_a: [0.000, -0.250]
 		max_force: 10000000.000
 		max_torque: 200000.000
-		flags: control_write, control_read, no_wrap, force_facing, attachment, use_proxy_body
+		flags: control_write, control_read, no_wrap, force_facing, attachment
 		z: -50.000
 	}
 
@@ -366,7 +366,7 @@ crank:
 		offset_a: [0.000, 0.500]
 		max_force: 10000000.000
 		max_torque: 200000.000
-		flags: control_write, control_read, no_wrap, force_facing, attachment, use_proxy_body
+		flags: control_write, control_read, no_wrap, force_facing, attachment
 		z: -60.000
 	}
 
@@ -411,6 +411,13 @@ crank:
 
 		gui_size: [72.000, 72.000]
 		rank: 10.000
+
+		tags_filter:
+		{
+			require: wheel
+			include: small, medium, large
+			exclude: none
+		}
 	}
 
 	joint.base:
@@ -450,6 +457,13 @@ crank:
 
 		gui_size: [72.000, 72.000]
 		rank: 20.000
+
+		tags_filter:
+		{
+			require: wheel
+			include: small, medium, large
+			exclude: none
+		}
 	}
 
 	joint.base:
@@ -489,6 +503,13 @@ crank:
 
 		gui_size: [72.000, 72.000]
 		rank: 12.000
+
+		tags_filter:
+		{
+			require: wheel
+			include: small, medium, large
+			exclude: none
+		}
 	}
 
 	joint.base:
@@ -528,6 +549,13 @@ crank:
 
 		gui_size: [72.000, 72.000]
 		rank: 22.000
+
+		tags_filter:
+		{
+			require: wheel
+			include: small, medium, large
+			exclude: none
+		}
 	}
 
 	joint.base:

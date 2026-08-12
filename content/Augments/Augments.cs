@@ -512,35 +512,36 @@ namespace TC2.Base
 					data.temperature_operating += 500.00f;
 				},
 
+				// TODO: update not to use smirglum + old recipe reqs
 				apply_1: static (ref context, ref data, ref handle, augments) =>
 				{
-					var amount = 0.00f;
+					//var amount = 0.00f;
 
-					foreach (ref readonly var requirement in context.requirements_old)
-					{
-						if (requirement.type == Crafting.Requirement.Type.Resource)
-						{
-							ref var material = ref requirement.material.GetData();
-							if (material.IsNotNull() && material.flags.HasAny(Material.Flags.Manufactured | Material.Flags.Metal))
-							{
-								amount += requirement.amount * 0.20f;
-							}
-						}
-					}
+					//foreach (ref readonly var requirement in context.requirements_old)
+					//{
+					//	if (requirement.type == Crafting.Requirement.Type.Resource)
+					//	{
+					//		ref var material = ref requirement.material.GetData();
+					//		if (material.IsNotNull() && material.flags.HasAny(Material.Flags.Manufactured | Material.Flags.Metal))
+					//		{
+					//			amount += requirement.amount * 0.20f;
+					//		}
+					//	}
+					//}
 
-					amount = MathF.Ceiling(amount);
-					context.requirements_new.Merge(Crafting.Requirement.Resource("smirglum.plate", amount).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
-					context.requirements_new.Merge(Crafting.Requirement.Resource("mushroom.green", 20.00f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
+					//amount = MathF.Ceiling(amount);
+					//context.requirements_new.Merge(Crafting.Requirement.Resource("smirglum.plate", amount).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
+					context.requirements_new.Merge(Crafting.Requirement.Resource("mushroom.green", 4.00f).WithFlags(Crafting.Requirement.Flags.Prerequisite | Crafting.Requirement.Flags.Compact));
 
-					ref var body = ref context.GetComponent<Body.Data>();
-					if (!body.IsNull())
-					{
-						ref var material = ref IMaterial.Database.GetData("smirglum.plate");
-						if (material.IsNotNull())
-						{
-							context.mass_new += amount * material.mass_per_unit;
-						}
-					}
+					//ref var body = ref context.GetComponent<Body.Data>();
+					//if (!body.IsNull())
+					//{
+					//	ref var material = ref IMaterial.Database.GetData("smirglum.plate");
+					//	if (material.IsNotNull())
+					//	{
+					//		context.mass_new += amount * material.mass_per_unit;
+					//	}
+					//}
 				}
 			));
 

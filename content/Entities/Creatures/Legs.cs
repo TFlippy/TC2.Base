@@ -16,6 +16,7 @@ namespace TC2.Base.Components
 			public Vec2u32 frame_sitting;
 			public Vec2u32 frames_jump;
 
+			public ISoundMix.Handle h_soundmix_footstep;
 			public byte frame_air = 0;
 
 			[Net.Ignore, Save.Ignore] public float next_step;
@@ -28,9 +29,8 @@ namespace TC2.Base.Components
 		[Source.Owned, Override] in Organic.Data organic, [Source.Owned] in Organic.State organic_state)
 		{
 			//return;
-			var mult = (organic_state.consciousness_shared * organic_state.efficiency * Maths.Lerp(0.20f, 1.00f, organic.motorics * organic.motorics));
+			var mult = (organic_state.consciousness_shared * organic_state.efficiency * Maths.Lerp(0.20f, 1.00f, organic.motorics.Pow2()));
 
-			//no_rotate.multiplier = MathF.Round(organic_state.consciousness_shared * Maths.Lerp(0.20f, 1.00f, organic.motorics * organic.motorics)) * organic.coordination;
 			no_rotate.multiplier *= Maths.Clamp01(Maths.Clamp01(mult + 0.40f) * organic.coordination * organic.motorics) * organic_state.consciousness_shared * organic_state.efficiency * (1.00f - organic_state.stun_norm);
 			no_rotate.mass_multiplier *= organic_state.consciousness_shared * organic_state.efficiency * (1.00f - organic_state.stun_norm);
 			no_rotate.speed *= Maths.Lerp(0.20f, 1.00f, organic.motorics);

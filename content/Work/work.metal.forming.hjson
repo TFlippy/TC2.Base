@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.0"
+	$version: "0.1.75.0"
 	name: "Metal Forming"
 	name_short: "M.Forming"
 	desc:
@@ -14,7 +14,7 @@
 		frame: [1, 0]
 	}
 	
-	flags: manual, wip
+	flags: worker_only, wip
 	tags: skilled, tools, complex, technical, construction, careful, kinetic
 	
 	amount_base: 1.000
