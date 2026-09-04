@@ -1,0 +1,143 @@
+$name: "Teleportation Beacon"
+$desc: 
+	'''
+	TODO: Desc
+	'''
+$tags: []
+
+body:
+{
+	@shape.polygon:
+	{
+		material: device
+		miss_chance: 0.541
+		flags: none
+		tags: none
+		
+		layer: entity, solid, item, conductive, magnetic, no_overlapped_placement, ignore_melee
+		mask: world
+		exclude: none
+		
+		mass: 40.000
+		radius: 0.500
+		friction: 0.950
+		elasticity: 0.520
+		
+		fall_damage_mult: 1.150
+		// cog_offset: [0.000, 0.1875]
+		
+		points:
+		[
+			[-0.250, -0.250]
+			[0.375, 0.000]
+			[0.375, 1.000]
+			[-0.500, 1.000]
+		]
+	}
+}
+
+control:
+{
+
+}
+
+health:
+{
+	max: 8500.000
+}
+
+armor:
+{
+	toughness: 320.000
+	protection: 0.900
+	coverage: 0.800
+	knockback_modifier: 1.160
+	stun_modifier: 0.910
+	material_type: metal_frame
+	flags: no_damage_type_conversion
+}
+
+holdable:
+{
+	offset: [0.000, 1.375]
+	force_multiplier: 1.500
+	torque_multiplier: 2.000
+	stress_multiplier: 0.700
+	radius: 3.000
+}
+
+packable:
+{
+
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: teleporter.00
+		size: [32, 32]
+		frame: [0, 0]
+	}
+	z: -100.000
+}
+
+transform:
+{
+
+}
+
+interactable:
+{
+	flags: no_tab
+	window_size: [488, 344]
+	window_size_misc: [48, 0]
+	priority: 1.000
+}
+
+faction:
+{
+
+}
+
+company:
+{
+
+}
+
+teleporter:
+{
+	offset: [0.000, 0.000]
+	direction: [0.000, -1.000]
+	radius: 1.000
+	power: 1.000
+	distance_max: 1024.000
+	mass_max: 100.000
+	volume_max: 2.000
+	flags: none
+	h_soundmix_teleport: teleport.00
+}
+
+norotate:
+{
+	flags: none
+	speed: 2.000
+	bias: 0.050
+	
+	mass_multiplier: 4.000
+}
+
+lamp:
+{
+	flicker: 0.100
+	blink_frequency: 2.000
+	blink_amplitude: 0.500
+
+	@light:
+	{
+		color: [0.482, 0.097, 0.959, 3.500]
+		offset: [0.000, -0.875]
+		scale: [16.000, 16.000]
+		texture: light.circle.04
+	}
+}
