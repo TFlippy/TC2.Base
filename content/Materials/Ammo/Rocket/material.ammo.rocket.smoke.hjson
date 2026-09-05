@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.74.0"
+	$version: "0.1.75.2"
 	name: "RG-68.1mm/SM Rocket"
 	name_short: "RG-68.1mm/SM"
 	description:
@@ -60,8 +60,8 @@
 		flags: none
 		categories: weapons, explosives, munitions, dangerous, toys, manufactured
 		
-		market_price: 90.000
-		market_price_per_kg_auto: 30.000
+		market_price: 180.000
+		market_price_per_kg_auto: 60.000
 	}
 	
 	ammo:

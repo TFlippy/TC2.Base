@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.74.0"
+	$version: "0.1.75.2"
 	name: "KN-51.9mm/AA Shell"
 	name_short: "KN-51.9mm/AA"
 	description:
@@ -62,8 +62,8 @@
 		flags: none
 		categories: weapons, explosives, munitions, dangerous, military, manufactured
 		
-		market_price: 220.000
-		market_price_per_kg_auto: 86.27451
+		market_price: 640.000
+		market_price_per_kg_auto: 172.549
 	}
 	
 	ammo:

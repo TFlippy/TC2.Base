@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.74.0"
+	$version: "0.1.75.2"
 	name: "SG-20.4mm/HE Slug"
 	name_short: "SG-20.4mm/HE"
 	description:
@@ -62,8 +62,8 @@
 		flags: none
 		categories: weapons, explosives, munitions, dangerous, military, manufactured
 		
-		market_price: 45.000
-		market_price_per_kg_auto: 409.0909
+		market_price: 74.000
+		market_price_per_kg_auto: 672.7273
 	}
 	
 	ammo:
