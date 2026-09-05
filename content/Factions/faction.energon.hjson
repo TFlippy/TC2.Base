@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.74.0"
+	$version: "0.1.75.2"
 	tag: "EGN"
 	tag_formatted: "-EGN-"
 	name: "Energon Industrijal"
@@ -8,7 +8,7 @@
 	color_b: "0xffffca20"
 	
 	kind: conglomerate
-	flags: npc, no_player_squads
+	flags: npc, no_player_squads, coalition
 	h_company: energon
 	
 	players:

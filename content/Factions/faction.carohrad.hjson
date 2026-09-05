@@ -1,0 +1,19 @@
+﻿{
+	$region_id: 0
+	$version: "0.1.75.2"
+	tag: "CRH"
+	tag_formatted: "-CRH-"
+	name: "Carohrad"
+	
+	color_a: "0xff6532b6"
+	color_b: "0xff6532b6"
+	
+	kind: cult
+	flags: npc, no_player_squads, coalition
+	h_company: carohrad
+	
+	players:
+	{
+	
+	}
+}

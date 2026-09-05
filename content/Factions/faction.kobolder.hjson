@@ -1,0 +1,14 @@
+﻿{
+	$region_id: 0
+	$version: "0.1.75.2"
+	tag: "KBD"
+	tag_formatted: "-KBD-"
+	name: "Kobolder"
+	
+	color_a: "0xff785a07"
+	color_b: "0xff6a3400"
+	
+	kind: conglomerate
+	flags: npc, no_player_squads, coalition
+	h_company: kobolder
+}
