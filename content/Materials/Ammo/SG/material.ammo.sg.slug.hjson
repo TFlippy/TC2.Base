@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.74.0"
+	$version: "0.1.75.2"
 	name: "SG-20.4mm/ST Slug"
 	name_short: "SG-20.4mm/Slug"
 	description:
@@ -61,8 +61,8 @@
 		flags: none
 		categories: weapons, munitions, military, manufactured
 		
-		market_price: 7.000
-		market_price_per_kg_auto: 66.66667
+		market_price: 8.500
+		market_price_per_kg_auto: 80.95238
 	}
 	
 	ammo:

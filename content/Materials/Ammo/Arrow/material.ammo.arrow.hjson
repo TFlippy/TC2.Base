@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.75.2"
 	name: "AR-6.5mm/ST Arrowbolts"
 	name_short: "Arrowbolts"
 	description:
@@ -56,8 +56,8 @@
 		flags: none
 		categories: weapons, toys
 		
-		market_price: 1.000
-		market_price_per_kg_auto: 25.000
+		market_price: 3.000
+		market_price_per_kg_auto: 75.000
 	}
 	
 	ammo:

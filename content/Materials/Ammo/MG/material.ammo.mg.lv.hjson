@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.74.0"
+	$version: "0.1.75.2"
 	name: "MG-20.4mm/LV Ammo"
 	name_short: "MG-20.4mm/LV"
 	description:
@@ -61,8 +61,8 @@
 		flags: none
 		categories: weapons, munitions, military, manufactured
 		
-		market_price: 13.000
-		market_price_per_kg_auto: 100.000
+		market_price: 11.000
+		market_price_per_kg_auto: 84.61539
 	}
 	
 	ammo:

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.74.0"
+	$version: "0.1.75.2"
 	name: "LC-9.4mm/HP Ammo"
 	name_short: "LC-9.4mm/HP"
 	description:
@@ -62,8 +62,8 @@
 		flags: none
 		categories: weapons, munitions, military, manufactured
 		
-		market_price: 1.850
-		market_price_per_kg_auto: 205.5556
+		market_price: 3.100
+		market_price_per_kg_auto: 344.4445
 	}
 	
 	ammo:

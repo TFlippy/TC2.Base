@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.74.0"
+	$version: "0.1.75.2"
 	name: "MG-20.4mm/AP Ammo"
 	name_short: "MG-20.4mm/AP"
 	description:
@@ -62,8 +62,8 @@
 		flags: none
 		categories: weapons, munitions, military, manufactured, smirglum
 		
-		market_price: 32.000
-		market_price_per_kg_auto: 168.4211
+		market_price: 27.000
+		market_price_per_kg_auto: 100.000
 	}
 	
 	ammo:

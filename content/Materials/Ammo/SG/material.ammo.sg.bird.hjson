@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.74.0"
+	$version: "0.1.75.2"
 	name: "SG-20.4mm Birdshot"
 	name_short: "SG-20.4mm/Bird"
 	description:
@@ -60,8 +60,8 @@
 		flags: none
 		categories: weapons, munitions, military, manufactured
 		
-		market_price: 4.500
-		market_price_per_kg_auto: 67.16418
+		market_price: 9.000
+		market_price_per_kg_auto: 134.3284
 	}
 	
 	ammo:
