@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.74.0"
+	$version: "0.1.75.2"
 	name: "HW-106.7mm/SP Shell"
 	name_short: "HW-106.7mm/SP"
 	description:
@@ -60,8 +60,8 @@
 		flags: none
 		categories: weapons, explosives, munitions, dangerous, military, manufactured
 		
-		market_price: 250.000
-		market_price_per_kg_auto: 17.85714
+		market_price: 580.000
+		market_price_per_kg_auto: 41.42857
 	}
 	
 	ammo:

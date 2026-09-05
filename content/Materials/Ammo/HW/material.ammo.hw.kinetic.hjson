@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.75.0"
+	$version: "0.1.75.2"
 	name: "HW-106.7mm/AP Shell"
 	name_short: "HW-106.7mm/AP"
 	description:
@@ -60,8 +60,8 @@
 		flags: none
 		categories: weapons, explosives, munitions, dangerous, military, manufactured, smirglum
 		
-		market_price: 750.000
-		market_price_per_kg_auto: 37.500
+		market_price: 976.000
+		market_price_per_kg_auto: 53.300
 	}
 	
 	ammo:

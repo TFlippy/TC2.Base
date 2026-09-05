@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.74.0"
+	$version: "0.1.75.2"
 	name: "HW-106.7mm/LV Shell"
 	name_short: "HW-106.7mm/LV"
 	description:
@@ -59,8 +59,8 @@
 		flags: none
 		categories: weapons, explosives, munitions, dangerous, military, manufactured
 		
-		market_price: 345.000
-		market_price_per_kg_auto: 34.500
+		market_price: 1119.000
+		market_price_per_kg_auto: 111.900
 	}
 	
 	ammo:
