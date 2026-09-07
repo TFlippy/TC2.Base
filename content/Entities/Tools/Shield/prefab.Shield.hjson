@@ -66,7 +66,7 @@ armor:
 	toughness: 400.000
 	protection: 0.850
 	
-	knockback_modifier: 4.500
+	knockback_modifier: 7.500
 	integrity_damage_mult: 1.500
 	
 	material_type: metal_sheet

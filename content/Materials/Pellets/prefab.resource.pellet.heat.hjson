@@ -65,7 +65,7 @@ norotate:
 essence.container:
 {
 	rate: 0.020
-	stability: 0.990
+	stability: 0.950
 	h_essence: heat
 	emit_type: ambient
 	flags: constant_glow, constant_heat
