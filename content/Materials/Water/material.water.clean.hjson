@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.74.0"
+	$version: "0.1.75.2"
 	name: "Purified Water"
 	name_short: "P.Water"
 	name_imperial: "Vejvoda"
@@ -60,7 +60,7 @@
 		flags: none
 		categories: beverages, food, water, cooking, consumer, processed
 		
-		market_price: 2.100
-		market_price_per_kg_auto: 2.100
+		market_price: 2.600
+		market_price_per_kg_auto: 2.600
 	}
 }

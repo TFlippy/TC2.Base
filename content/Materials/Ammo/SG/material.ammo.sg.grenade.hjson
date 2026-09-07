@@ -62,8 +62,8 @@
 		flags: none
 		categories: weapons, explosives, munitions, dangerous, military, manufactured
 		
-		market_price: 74.000
-		market_price_per_kg_auto: 672.7273
+		market_price: 42.000
+		market_price_per_kg_auto: 381.8182
 	}
 	
 	ammo:

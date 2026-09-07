@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.1"
+	$version: "0.1.75.2"
 	name: "Mercury"
 	name_short: "Mercury"
 	name_imperial: "Merkur"
@@ -63,8 +63,8 @@
 		flags: none
 		categories: metals
 		
-		market_price: 24.900
-		market_price_per_kg_auto: 18.38181
+		market_price: 33.700
+		market_price_per_kg_auto: 24.87819
 	}
 	
 	// Damage-based conversions.

@@ -6,13 +6,13 @@
 		- 0.0500 kg Smirglum
 		- 0.0125 kg Gold
 		'''
-	name: "Kordel Denar"
+	name: "Kordel Doubloon"
 	name_short: "Đk"
-	name_imperial: "Kordeldenar"
+	name_imperial: "Kordeldubl"
 	name_dumb: "Moneys"
 	description:
 		'''
-		Standard coin-shaped currency.
+		Standard coin-shaped currency used across the lands of Kordel.
 		'''
 	
 	tips: []

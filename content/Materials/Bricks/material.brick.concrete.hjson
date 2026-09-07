@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.73.0"
+	$version: "0.1.75.2"
 	name: "Concrete Slabs"
 	name_short: "Concrete"
 	name_dumb: "Stone Brick"
@@ -62,8 +62,8 @@
 		flags: none
 		categories: construction_materials
 		
-		market_price: 8.100
-		market_price_per_kg_auto: 4.655173
+		market_price: 7.600
+		market_price_per_kg_auto: 4.367816
 	}
 	
 	// Residues from crafting/work.

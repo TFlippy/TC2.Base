@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.75.2"
 	name: "Opium"
 	name_short: "Opium"
 	name_imperial: "Opijum"
@@ -54,7 +54,7 @@
 		flags: none
 		categories: none
 		
-		market_price: 9.500
-		market_price_per_kg_auto: 95.000
+		market_price: 7.700
+		market_price_per_kg_auto: 77.000
 	}
 }

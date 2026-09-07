@@ -49,8 +49,9 @@ breakable:
 
 holdable:
 {
-	force_multiplier: 2.000
-	stress_multiplier: 0.800
+	force_multiplier: 2.100
+	torque_multiplier: 1.500
+	stress_multiplier: 0.200
 	radius: 0.000
 	hints: materials, construction
 	flags: disable_rotation, disable_control, full_rotate, force_edge_pickup

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.75.2"
 	name: "Trinitrotoluene"
 	name_short: "TNT"
 	name_imperial: "Trojnitol"
@@ -54,4 +54,13 @@
 	
 	centroid_default: [0.000, 0.250]
 	colliders: []
+	
+	commodity:
+	{
+		flags: marketable
+		categories: explosives
+		
+		market_price: 76.400
+		market_price_per_kg_auto: 147.6899
+	}
 }
