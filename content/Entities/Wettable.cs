@@ -26,6 +26,7 @@ namespace TC2.Base.Components
 			
 			[Net.Ignore, Save.Ignore] public float t_last_water;
 			[Net.Ignore, Save.Ignore] public float t_next_damage;
+			[Net.Ignore, Save.Ignore] public float unused_00;
 		}
 
 		[ISystem.Monitor(ISystem.Mode.Single, ISystem.Scope.Region), HasTag("initialized", true, Source.Modifier.Owned)]

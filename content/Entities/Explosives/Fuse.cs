@@ -34,6 +34,7 @@ namespace TC2.Base.Components
 			[Save.NewLine]
 			[Save.Force] public Fuse.Flags flags;
 			[Net.Ignore, Asset.Ignore] public float failure_time;
+			[Net.Ignore, Asset.Ignore] public float unused_00;
 		}
 
 #if SERVER

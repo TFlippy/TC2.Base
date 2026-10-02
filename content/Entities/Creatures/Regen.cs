@@ -31,7 +31,7 @@ namespace TC2.Base.Components
 		}
 
 #if SERVER
-		[ISystem.Event<Health.DamageEvent>(ISystem.Mode.Single, ISystem.Scope.Global | ISystem.Scope.Region), HasTag("dead", false, Source.Modifier.Owned)]
+		[ISystem.Event<Health.DamageEvent>(ISystem.Mode.Single, ISystem.Scope.Global | ISystem.Scope.Region, ISystem.Flags.Instanced), HasTag("dead", false, Source.Modifier.Owned)]
 		public static void OnDamage(ISystem.Info.Common info, ref XorRandom random, [Source.Any] ref Health.DamageEvent ev,
 		[Source.Owned, Original] ref Regen.Data regen, [Source.Owned] in Health.Data health)
 		{

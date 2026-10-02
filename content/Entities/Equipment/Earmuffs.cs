@@ -15,7 +15,7 @@
 			public float volume_modifier = 1.00f;
 		}
 
-		[ISystem.Event<Health.DamageEvent>(ISystem.Mode.Single, ISystem.Scope.Region, order: -110)]
+		[ISystem.Event<Health.DamageEvent>(ISystem.Mode.Single, ISystem.Scope.Region, ISystem.Flags.Instanced, order: -110)]
 		public static void OnDamage(ISystem.Info info, Entity entity, ref Health.DamageEvent data, 
 		[Source.Owned] ref Health.Data health, [Source.Parent<Equip.Data>] ref Equipment.Data equipment, [Source.Parent<Equip.Data>] ref Earmuffs.Data earmuffs)
 		{

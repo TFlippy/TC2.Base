@@ -1623,6 +1623,12 @@ namespace TC2.Base.Components
 			{
 				gun_state.t_last_fired = time;
 
+				//#if CLIENT
+				//				var pos_w_offset = transform.LocalToWorldInterpolated(gun.muzzle_offset);
+				//#else
+				//				var pos_w_offset = transform.LocalToWorld(gun.muzzle_offset);
+				//#endif
+
 				var pos_w_offset = transform.LocalToWorld(gun.muzzle_offset);
 				//var pos_w_offset_particle = transform.LocalToWorld(gun.muzzle_offset + gun.particle_offset);
 				var dir = transform.GetDirection();
@@ -1820,6 +1826,7 @@ namespace TC2.Base.Components
 								args.ang_vel += random.NextFloatRange(-30, 30) * failure_rate;
 							}
 
+							//region.DrawDebugDir(pos_w_offset, args.vel, color: Color32BGRA.Red, 4);
 							region.SpawnPrefab(prefab: ammo.prefab, position: pos_w_offset, rotation: args.vel.GetAngleRadiansFast(), velocity: args.vel, angular_velocity: args.ang_vel, entity: ent_projectile_next, faction_id: h_faction).ContinueWith(ent =>
 							{
 								if (ent.TryGetRecord(out var rec_projectile))
@@ -2195,8 +2202,6 @@ namespace TC2.Base.Components
 						}
 
 #if SERVER
-
-
 						if (gun.burst_count <= 1 || gun_state.burst_rem > 0)
 						{
 							gun_state.stage = Gun.Stage.Fired;
