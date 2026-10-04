@@ -19,7 +19,8 @@
 
 #if CLIENT
 		[ISystem.Render(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void OnUpdateRopes(ISystem.Info info, [Source.Owned] in RopeTest.Data rope, [Source.Shared] in Transform.Data transform_parent, [Source.Owned, Override] in Joint.DualRope joint)
+		public static void OnUpdateRopes(ISystem.Info info, 
+		[Source.Owned] in RopeTest.Data rope, [Source.Shared] in Transform.Data transform_parent, [Source.Owned, Override] in Joint.DualRope joint)
 		{
 			if (joint.TryGetPositionsA(out var a_0, out var a_1) && joint.TryGetPositionsB(out var b_0, out var b_1))
 			{
@@ -95,7 +96,7 @@
 			[Net.Ignore, Save.Ignore] public Volume envelope_volume;
 			[Net.Ignore, Save.Ignore] public Area envelope_surface_area;
 			[Net.Ignore, Save.Ignore] public Mass envelope_mass;
-			
+
 			[Net.Ignore, Save.Ignore] public Mass air_mass;
 			[Net.Ignore, Save.Ignore] public Density air_density;
 
@@ -190,7 +191,7 @@
 
 		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnUpdateScale(ISystem.Info info, ref Region.Data region,
-		[Source.Owned] in Balloon.Data balloon, [Source.Owned] in Balloon.State balloon_state, 
+		[Source.Owned] in Balloon.Data balloon, [Source.Owned] in Balloon.State balloon_state,
 		[Source.Owned] ref Transform.Data transform)
 		{
 			var size = Maths.Sqrt(Maths.Max(balloon_state.lift_modifier - 0.80f, 0.10f) * 2.00f) * 0.30f;
@@ -201,7 +202,7 @@
 
 		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void UpdateNoRotate(ISystem.Info info, ref Region.Data region,
-		[Source.Owned] in Balloon.Data balloon, [Source.Owned] in Balloon.State balloon_state, 
+		[Source.Owned] in Balloon.Data balloon, [Source.Owned] in Balloon.State balloon_state,
 		[Source.Parent] ref Burner.State burner_state, [Source.Owned, Override] ref NoRotate.Data no_rotate)
 		{
 			//var temperature = Maths.KelvinToCelsius(burner_state.exhaust_temperature);
@@ -240,10 +241,11 @@
 			//circle.rigidity_dynamic = Maths.Lerp(0.20f, 1.00f, modifier);
 		}
 
+		[Shitcode]
 		[ISystem.VeryLateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void OnUpdate(ref Region.Data region, ISystem.Info info, Entity entity, Entity ent_transform_parent,
-		[Source.Parent] ref Transform.Data transform_parent, [Source.Parent] in Control.Data control,
-		[Source.Parent] ref Burner.Data burner, [Source.Parent] ref Burner.State burner_state,
+		public static void OnUpdate(ref Region.Data region, ISystem.Info info, Entity ent_balloon_state, Entity ent_burner_state,
+		/*[Source.Parent] ref Transform.Data transform_parent, */[Source.Parent] in Control.Data control,
+		/*[Source.Parent] ref Burner.Data burner, */[Source.Parent] ref Burner.State burner_state,
 		[Source.Owned] ref Body.Data body, [Source.Owned] ref Transform.Data transform,
 		[Source.Owned] ref Balloon.Data balloon, [Source.Owned] ref Balloon.State balloon_state,
 		[Source.Parent, Pair.Tag("exhaust")] ref Air.Vent.Data vent_exhaust,
@@ -320,35 +322,36 @@
 
 
 
-#if CLIENT
-			if (show_debug)
-			{
-				region.DrawDebugText(transform.position + new Vector2(0.00f, 0.00f),
-				$"altitude: {balloon_state.altitude:0.0000}\n" +
-				$"test: {test:0.0000}\n" +
-				$"htc_air: {htc_air:0.0000}\n" +
-				$"htc_envelope: {htc_envelope:0.0000}\n" +
-				$"temperature_ambient: {temperature_ambient:0.0000}\n" +
-				$"temperature_balloon: {balloon_state.current_temperature_air:0.0000}\n" +
-				$"atmospheric_pressure_kordel: {Phys.atmospheric_pressure_kordel:0.0000}\n" +
-				$"atmospheric_pressure_ambient: {atmospheric_pressure_ambient:0.0000}\n" +
-				$"air_density_kordel: {Phys.air_density_kordel:0.0000}\n" +
-				$"air_density_ambient: {air_density_ambient:0.0000}\n" +
-				$"air_density_hot: {balloon_state.air_density:0.0000}\n" +
-				$"envelope_mass: {balloon_state.envelope_mass:0.0000}\n" +
-				$"air_mass: {balloon_state.air_mass:0.0000}\n" +
-				$"mass: {mass:0.0000}\n" +
-				$"buoyant_force: {buoyant_force:0.0000}\n" +
-				$"mass_force: {mass_force:0.0000}\n" +
-				"", Color32BGRA.Yellow);
-			}
-#endif
+//#if CLIENT
+//			if (show_debug)
+//			{
+//				region.DrawDebugText(transform.position + new Vector2(0.00f, 0.00f),
+//				$"altitude: {balloon_state.altitude:0.0000}\n" +
+//				$"test: {test:0.0000}\n" +
+//				$"htc_air: {htc_air:0.0000}\n" +
+//				$"htc_envelope: {htc_envelope:0.0000}\n" +
+//				$"temperature_ambient: {temperature_ambient:0.0000}\n" +
+//				$"temperature_balloon: {balloon_state.current_temperature_air:0.0000}\n" +
+//				$"atmospheric_pressure_kordel: {Phys.atmospheric_pressure_kordel:0.0000}\n" +
+//				$"atmospheric_pressure_ambient: {atmospheric_pressure_ambient:0.0000}\n" +
+//				$"air_density_kordel: {Phys.air_density_kordel:0.0000}\n" +
+//				$"air_density_ambient: {air_density_ambient:0.0000}\n" +
+//				$"air_density_hot: {balloon_state.air_density:0.0000}\n" +
+//				$"envelope_mass: {balloon_state.envelope_mass:0.0000}\n" +
+//				$"air_mass: {balloon_state.air_mass:0.0000}\n" +
+//				$"mass: {mass:0.0000}\n" +
+//				$"buoyant_force: {buoyant_force:0.0000}\n" +
+//				$"mass_force: {mass_force:0.0000}\n" +
+//				"", Color32BGRA.Yellow);
+//			}
+//#endif
 
 #if SERVER
 			// TODO: sync it properly
 			if (region.GetCurrentTick() % 64 == 0)
 			{
-				balloon_state.Sync(entity);
+				burner_state.Sync(ent_burner_state);
+				balloon_state.Sync(ent_balloon_state);
 			}
 #endif
 
