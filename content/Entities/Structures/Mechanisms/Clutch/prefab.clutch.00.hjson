@@ -11,15 +11,27 @@ body:
 {
 	type: static
 	
-	@shape.box:
+	@shape.line:
 	{
-		size: [1.375, 2.750]
-		offset: [0.000, 0.000]
-		friction: 0.500
-		elasticity: 0.500
 		material: metal
+		miss_chance: 0.000
+		flags: none
+		tags: none
+		
 		layer: entity, building, no_overlapped_placement
 		mask: world
+		exclude: none
+		
+		mass: 1.000
+		radius: 0.8125
+		friction: 0.500
+		elasticity: 0.500
+		
+		cog_offset: [0.000, 0.000]
+		
+		a: [0.000, -0.750]
+		b: [0.000, 0.625]
+		offset: [0.000, 0.000]
 	}
 }
 

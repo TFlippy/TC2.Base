@@ -103,8 +103,8 @@ holdable:
 {
 	offset: [-0.750, 0.000]
 	force_multiplier: 3.320
-	torque_multiplier: 0.480
-	stress_multiplier: 0.880
+	torque_multiplier: 0.550
+	stress_multiplier: 0.800
 	radius: 8.000
 	flags: storable, full_rotate
 	hints: weapon, dangerous, heavy, gun, long_range, advanced, powerful, usable, destructive, military, fast, ranged, clumsy, large, long

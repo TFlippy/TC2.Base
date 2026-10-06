@@ -58,13 +58,13 @@ explosive:
 	power: 6.400
 	damage_entity: 95000.000
 	damage_terrain: 130000.000
-	health_threshold: 0.763
+	health_threshold: 0.943
 	
 	damage_type: explosion
 	damage_type_secondary: shockwave
 	flags: explode_when_primed, primed_when_destroyed
 	
-	detonate_chance: 0.888
+	detonate_chance: 0.958
 	detonate_damage_filter: bullet_lc, bullet_hc, bullet_mg, bullet_ac, bullet_sg, bullet_kn, bullet_hw, bullet_musket, rivet, impact, crush, pickaxe, sledgehammer, explosion, deflagration, motion_impulse, fire, electricity, shockwave, corrosion, heat, phlogiston
 	
 	shake_multiplier: 1.650

@@ -38,7 +38,7 @@
 		[Source.Owned] ref Crafter.Data crafter, [Source.Owned] ref Crafter.State crafter_state,
 		[Source.Owned] ref Axle.Data axle, [Source.Owned] ref Axle.State axle_state)
 		{
-			var angular_distance = Axle.CalculateAngularDistance(axle.radius_outer, axle_state.rotation_delta) * screw.ratio;
+			var angular_distance = Axle.CalculateArcLength(axle.radius_outer, axle_state.rotation_delta) * screw.ratio;
 			var current_displacement = angular_distance + screw.current_displacement;
 
 			current_displacement = Maths.Clamp(current_displacement, screw.length_outer, screw.length_inner);

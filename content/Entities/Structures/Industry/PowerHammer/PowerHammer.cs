@@ -81,7 +81,7 @@
 					hammer.current_velocity = 0.00f;
 				}
 					
-				hammer.current_displacement += Axle.CalculateAngularDistance(axle.radius_outer, axle_state.rotation_delta);
+				hammer.current_displacement -= Axle.CalculateArcLength(axle.radius_outer, axle_state.rotation_delta);
 			}
 			else
 			{

@@ -6,13 +6,18 @@ projectile:
 	damage_bonus: 300.000
 	lifetime: 7.000
 	ignore_time: 0.020
-	damage_type: punch
+	damage_type: club
 	size: 0.120
-	ricochet_count: 0
-	damp: 0.981
+	ricochet_count: 2
+	ricochet_threshold_multiplier: 1.250
+	ricochet_chance_multiplier: 5.000
+	ricochet_velocity_min: 1.000
+	ricochet_velocity_ratio: 0.130
+	damp: 0.970
 	flags: no_miss
 	hit_exclude: tree
 	mass: 0.100
+	stabilization: 0.150
 }
 
 transform:

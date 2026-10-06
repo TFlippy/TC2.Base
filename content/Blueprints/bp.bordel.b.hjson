@@ -1,7 +1,8 @@
 ﻿{
+	$version: "0.1.75.4"
 	name: "Bordel-X"
 	
-	flags: none
+	flags: hidden
 	
 	h_prefab: breechloader.heavy
 	h_recipe: breechloader.heavy.00.basic

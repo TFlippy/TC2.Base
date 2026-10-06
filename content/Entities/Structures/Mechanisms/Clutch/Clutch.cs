@@ -69,7 +69,7 @@ namespace TC2.Base.Components
 #endif
 		}
 
-		[ISystem.EarlyUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
+		[ISystem.PreUpdate.A(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void Update(ISystem.Info info, Entity entity,
 		[Source.Owned] ref Axle.Data axle, [Source.Owned] ref Axle.State axle_state,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Clutch.Data clutch)

@@ -350,7 +350,7 @@
 			// TODO: sync it properly
 			if (region.GetCurrentTick() % 64 == 0)
 			{
-				burner_state.Sync(ent_burner_state);
+				if (burner_state.flame_size > 0.001f) burner_state.Sync(ent_burner_state); // TODO: this is dumb
 				balloon_state.Sync(ent_balloon_state);
 			}
 #endif

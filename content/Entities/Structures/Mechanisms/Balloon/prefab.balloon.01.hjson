@@ -128,6 +128,8 @@ storage:
 		{
 			exclude: gas
 		}
+
+		offset: [0.000, -0.750]
 	}
 }
 
@@ -218,7 +220,7 @@ burner.state:
 		filter_type: liquid
 		type: fuel
 		flags: ignore_mass, no_auto_pickup
-		offset: [-0.250, 1.125]
+		offset: [0.000, -1.375]
 	}
 }
 

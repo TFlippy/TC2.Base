@@ -166,7 +166,7 @@ powerhammer:
 	
 	slider_offset: [-0.500, 2.125]
 	slider_length: 3.000
-	hammer_mass: 80.000
+	hammer_mass: 200.000
 	h_material_hammer: steel.ingot
 	h_sound_impact: press.smash.02
 	h_sound_release: burner.lid.clang.01
