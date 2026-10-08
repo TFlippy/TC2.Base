@@ -8,7 +8,7 @@ body:
 	
 	@shape.complex:
 	{
-		material: fabric
+		material: metal_sheet
 		miss_chance: 0.000
 		flags: none
 		tags: none
@@ -130,31 +130,47 @@ faction:
 
 company:
 {
-	h_company: postus
+	// h_company: postus
 	logo_type: sign_4x2
 
-	@animated.renderer:
-	{
-		offset: [49.875, 19.750]
-		z: 510.000
-	}
+	// @animated.renderer:
+	// {
+	// 	offset: [49.875, 19.750]
+	// 	z: 510.000
+	// }
 
+	// @light:
+	// {
+	// 	offset: [49.625, 19.875]
+	// 	scale: [80.000, 128.000]
+	// 	intensity: 1.000
+	// 	texture: light.circle.03
+	// 	rotation: -1.700
+	// }
+}
+
+lamp:
+{
+	flicker: 0.000
+	blink_frequency: 1.000
+	blink_amplitude: 0.500
+	
 	@light:
 	{
-		offset: [49.625, 19.875]
-		scale: [80.000, 128.000]
+		color: [1.000, 0.400, 0.000, 2.000]
+		offset: [1.875, -5.750]
+		scale: [56.000, 56.000]
 		intensity: 1.000
-		texture: light.circle.03
-		rotation: -1.700
+		texture: "light.circle.00"
 	}
 }
 
 stockpile:
 {
-	request_types: pack, unpack, move, send, load
+	request_types: pack, unpack, move
 	flags: public, auto_create, full_access, show_addresses, edit_addresses
 	grid_column_count: 6
-	capacity_items: 18
+	capacity_items: 32
 	capacity_shipments: 9
 }
 
@@ -194,12 +210,13 @@ zeppelin:
 	throttle: 0.000
 	flags: control_auto
 	combat_flags: point_defense, close_range
-	speed_step: [1.500, 0.500]
+	speed_step: [4.000, 2.000]
 	speed_max: [10.000, 4.000]
 	offset_bottom: [14.500, 27.125]
 	offset_bay: [0.000, 19.625]
 	offset_cabin: [61.000, 18.750]
 	offset_tail: [-84.125, -4.375]
+
 
 	// @sound.emitter:
 	// {
@@ -310,6 +327,16 @@ control:
 	}
 }
 
+minimap.marker:
+{
+	sprite:
+	{
+		texture: "ui_icons_minimap"
+		size: [16, 16]
+		frame: [6, 0]
+	}
+}
+
 storage:
 {
 	@inventory8:
@@ -323,6 +350,101 @@ storage:
 			exclude: gas
 		}
 	}
+}
+
+essence.container:
+{
+	stability: 1.000
+	health_threshold: 0.500
+	glow_modifier: 2.000
+	flags: no_noise
+	type: pellet_magazine
+	emit_type: stressor
+
+	@inventory1:
+	{
+		type: essence
+		flags: standalone, ignore_mass, no_auto_pickup
+		stack_size_multiplier: 0.500
+		
+		filter:
+		{
+			require: essence, small, pellet, solid
+			exclude: gas
+		}
+		offset: [40.000, 16.000]
+		
+		resource:
+		{
+			material: pellet.motion
+			quantity: 125.000
+		}
+	}
+
+	@sound.emitter:
+	{
+		file: essence.emit.motion.loop.00
+		offset: [11.250, 15.000]
+		volume: 2.300
+		pitch: 0.4500
+		size: 20.000
+		size_max_modifier: 8.000
+		spread: 100.000
+		doppler: 1.600
+		priority: 0.900
+	}
+
+	@light:
+	{
+		offset: [0.000, -0.500]
+		scale: [10.000, 5.000]
+		intensity: 1.000
+		texture: light.circle.04
+		rotation: 0.000
+	}
+}
+
+levitator:
+{
+	nodes:
+	[
+		{
+			dir: [0.877268, 0.480001]
+			offset: [71.125, 15.250]
+			ratio: 0.250
+			modifier: 0.300
+			key: moveleft
+		}
+		{
+			dir: [0.000, 1.000]
+			offset: [-22.500, 16.875]
+			ratio: 0.200
+			modifier: 0.200
+			key: moveup
+		}
+		{
+			dir: [-0.934151, 0.356877]
+			offset: [-50.625, 14.500]
+			ratio: 0.150
+			modifier: 0.340
+			key: moveright
+		}
+		{
+			dir: [0.000, 1.000]
+			offset: [59.625, 21.875]
+			ratio: 0.200
+			modifier: 0.190
+			key: moveup
+		}
+	]
+	lerp_rate: 0.080
+	efficiency: 0.857
+	particle_size: 2.625
+}
+
+levitator.state:
+{
+
 }
 
 +seat|instance:
@@ -461,12 +583,13 @@ storage:
 {
 	joint.base:
 	{
-		offset_a: [58.500, 21.125]
+		offset_a: [42.875, 21.500]
+		attaching_distance_max: 4.000
 		z: 75.000
 		max_force: 400000.000
 		max_torque: 80000.000
 		material_type: metal
-		flags: attachment, allow_dragging, control_write, facing_reset_rot, facing_reset_pos, force_facing, mirror_x, no_stress
+		flags: attachment, allow_dragging, control_write, facing_reset_rot, facing_reset_pos, force_facing, mirror_x, no_stress, instant_attach
 	}
 
 	joint.piston:
@@ -513,7 +636,7 @@ storage:
 {
 	joint.base:
 	{
-		offset_a: [-12.750, 20.250]
+		offset_a: [-16.250, 18.000]
 		z: 75.000
 		rotation_origin: 0.000
 		rotation_offset: 0.000
@@ -523,7 +646,7 @@ storage:
 		torque_modifier: 1.000
 		
 		attaching_time_max: 2.000
-		attaching_distance_max: 3.000
+		attaching_distance_max: 4.000
 		max_displacement: 0.750
 		displacement_stress_modifier: 0.000
 		displacement_force_modifier: 0.200
@@ -534,7 +657,7 @@ storage:
 		
 		material_type: metal
 		
-		flags: no_stress, attachment, allow_dragging, control_write, facing_reset_rot, facing_reset_pos, force_facing
+		flags: no_stress, attachment, allow_dragging, control_write, facing_reset_rot, facing_reset_pos, force_facing, instant_attach
 	}
 
 	joint.piston:
@@ -581,7 +704,7 @@ storage:
 {
 	joint.base:
 	{
-		offset_a: [43.375, 21.750]
+		offset_a: [64.250, 20.250]
 		z: 75.000
 		rotation_origin: 0.000
 		rotation_offset: 0.000
@@ -591,7 +714,7 @@ storage:
 		torque_modifier: 1.000
 		
 		attaching_time_max: 2.000
-		attaching_distance_max: 3.000
+		attaching_distance_max: 4.000
 		max_displacement: 0.750
 		displacement_stress_modifier: 0.000
 		displacement_force_modifier: 0.200
@@ -602,7 +725,7 @@ storage:
 		
 		material_type: metal
 		
-		flags: no_stress, attachment, allow_dragging, control_write, facing_reset_rot, facing_reset_pos, force_facing
+		flags: no_stress, attachment, allow_dragging, control_write, facing_reset_rot, facing_reset_pos, force_facing, instant_attach
 	}
 
 	joint.piston:
