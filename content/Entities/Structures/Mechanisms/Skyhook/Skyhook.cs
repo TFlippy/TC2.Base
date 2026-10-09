@@ -83,13 +83,22 @@
 			}
 		}
 
-		[ISystem.Update.Joints.A(ISystem.Mode.Single, ISystem.Scope.Region)]
+		[ISystem.Update.F(ISystem.Mode.Single, ISystem.Scope.Region)]
 		public static void OnUpdate_Joint(ISystem.Info info, ref Region.Data region, Entity entity,
 		[Source.Owned] ref Skyhook.Data skyhook, [Source.Owned] ref Transform.Data transform, [Source.Owned] ref Body.Data body,
-		[Source.Parent, Original] ref Joint.Rope joint_rope)
+		[Source.Parent, Original] ref Joint.Rope joint_rope, [Source.Parent] ref Joint.Base joint_base)
 		{
-			Maths.MoveTowards(ref skyhook.length_current, skyhook.length_target, skyhook.speed * App.fixed_update_interval_s);
+			//joint_rope.off
+
+			Maths.MoveTowards(ref skyhook.length_current, skyhook.length_target, skyhook.speed * App.fixed_update_interval_s, out var delta);
 			joint_rope.distance = skyhook.length_current;
+
+//			var vel_add = body.Down * skyhook.speed * App.fixed_update_interval_s * 100 * delta;
+//			body.AddForce(vel_add * body.GetMass());
+
+//#if SERVER
+//			region.DrawDebugDir(body.GetPosition(), vel_add * 10, color: Color32BGRA.Red);
+//#endif
 		}
 	}
 }

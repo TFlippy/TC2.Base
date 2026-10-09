@@ -179,43 +179,50 @@ address:
 	
 }
 
-market:
-{
-	// company_register_mask: proprietorship, cooperative, charity, partnership, gang, community, union, guild, cult
+// market:
+// {
+// 	// company_register_mask: proprietorship, cooperative, charity, partnership, gang, community, union, guild, cult
 
-	perms_owner: buy, sell, add, remove, restock
-	perms_faction: buy, sell
-	perms_ally: buy, sell
-	perms_neutral: buy, sell
-	perms_enemy: none
+// 	perms_owner: buy, sell, add, remove, restock
+// 	perms_faction: buy, sell
+// 	perms_ally: buy, sell
+// 	perms_neutral: buy, sell
+// 	perms_enemy: none
 
-	@inventory1:
-	{
-		type: money
-		stack_size_multiplier: 10.000
-		flags: ignore_mass, no_auto_pickup, faction
-		filter_flags: currency
+// 	@inventory1:
+// 	{
+// 		type: money
+// 		stack_size_multiplier: 10.000
+// 		flags: ignore_mass, no_auto_pickup, faction
+// 		filter_flags: currency
 
-		filter:
-		{
-			exclude: gas
-		}
-	}
-}
+// 		filter:
+// 		{
+// 			exclude: gas
+// 		}
+// 	}
+// }
 
 zeppelin:
 {
 	unused_00: 2.000
-	altitude_preferred: 0.000
-	throttle: 0.000
+	
 	flags: control_auto
 	combat_flags: point_defense, close_range
-	speed_step: [4.000, 1.000]
-	speed_max: [12.000, 6.000]
+	
+	speed_step: [3.000, 1.000]
+	speed_max: [9.000, 6.000]
+	
 	offset_bottom: [14.500, 27.125]
 	offset_bay: [0.000, 19.625]
 	offset_cabin: [61.000, 18.750]
 	offset_tail: [-84.125, -4.375]
+	
+	speed_skyhook_crane: 3.000
+	offset_skyhook_crane_a: [-12.000, 16.000]
+	offset_skyhook_crane_b: [12.000, 16.000]
+
+	
 
 
 	// @sound.emitter:
@@ -323,7 +330,7 @@ control:
 {
 	@net.synchronized:
 	{
-		interval: 0.080
+		interval: 0.000
 	}
 }
 
@@ -349,8 +356,34 @@ storage:
 		{
 			exclude: gas
 		}
+		
+		resources:
+		[
+			{
+				material: ammo.mg.ap
+				quantity: 400.000
+			}
+			{
+				material: ammo.hw.kinetic
+				quantity: 20.000
+			}
+			{
+				material: ammo.ac.hv
+				quantity: 400.000
+			}
+		]
 	}
 }
+
+// norotate:
+// {
+// 	flags: no_share
+// 	speed: 5.000
+// 	bias: 0.080
+	
+// 	multiplier: 4.000
+// 	mass_multiplier: 50.000
+// }
 
 essence.container:
 {
@@ -579,6 +612,40 @@ levitator.state:
 // 	}
 // }
 
++slot.skyhook|instance:
+{
+	joint.base:
+	{
+		offset_a: [0.000, 15.125]
+		offset_b: [0.000, -3.125]
+		z: 0.000
+		max_force: 500000.000
+		max_torque: 20000.000
+		
+		material_type: metal
+		
+		flags: no_stress, instant_attach, delete_on_detach
+	}
+
+	joint.rope:
+	{
+		distance: 8.000
+	}
+
+	rope.renderer:
+	{
+		texture: skyhook.00.cable
+		thickness: 0.700
+		scale: 6.000
+		z: -400.000
+	}
+
+	+attached|child:
+	{
+		$prefab: "skyhook.00"
+	}
+}
+
 +slot.front|instance:
 {
 	joint.base:
@@ -618,7 +685,7 @@ levitator.state:
 		name: "Mount (Front)"
 		identifier: "front"
 
-		flags: keyboard_write, mouse_write, hold
+		flags: keyboard_write, mouse_write
 		flags_editable: locked, disabled, hold, invert, cycle, keyboard_read, mouse_read, keyboard_write, mouse_write, offset, rotation, brake
 
 		rank: 4.000
@@ -628,7 +695,7 @@ levitator.state:
 
 	+attached|child:
 	{
-		$prefab: "bp.zrd.kanon.m3"
+		$prefab: "bp.blesk.3"
 	}
 }
 
@@ -636,7 +703,7 @@ levitator.state:
 {
 	joint.base:
 	{
-		offset_a: [-16.250, 18.000]
+		offset_a: [-11.250, 19.625]
 		z: 75.000
 		rotation_origin: 0.000
 		rotation_offset: 0.000
@@ -696,7 +763,7 @@ levitator.state:
 
 	+attached|child:
 	{
-		$prefab: "bp.zrd.bobmistr.750"
+		$prefab: "bp.blesk.3"
 	}
 }
 
@@ -764,6 +831,6 @@ levitator.state:
 
 	+attached|child:
 	{
-		$prefab: "bp.zrd.bobmistr.750"
+		$prefab: "bp.blesk.3"
 	}
 }
