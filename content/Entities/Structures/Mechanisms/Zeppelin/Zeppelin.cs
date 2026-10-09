@@ -57,8 +57,11 @@
 			[Editor.Picker.Position(true)] public Vec2f offset_cabin;
 			[Editor.Picker.Position(true)] public Vec2f offset_tail;
 
+
 			[Asset.Ignore] public Entity ent_target_dock;
 			[Asset.Ignore] public Entity ent_target_attack;
+			[Asset.Ignore] public Entity ent_target_cargo;
+			[Asset.Ignore] public EntRef<Skyhook.Data> ref_skyhook;
 			[Asset.Ignore, Editor.Picker.Position(false)] public Vec2f pos_move;
 			[Asset.Ignore, Editor.Picker.Position(false)] public Vec2f pos_defend;
 			[Asset.Ignore, Editor.Picker.Position(false)] public Vec2f pos_aim;
@@ -76,6 +79,7 @@
 #if SERVER
 			public void Invoke(Net.IRPC.Context rpc, ref Zeppelin.Data data)
 			{
+
 			}
 #endif
 		}
@@ -155,7 +159,7 @@
 		[Source.Owned] in Faction.Data faction)
 		{
 #if SERVER
-			region.DrawDebugDir(a: transform.position, dir: Vec2f.Down * zeppelin.unused_00, color: Color32BGRA.Magenta);
+			//region.DrawDebugDir(a: transform.position, dir: Vec2f.Down * zeppelin.unused_00, color: Color32BGRA.Magenta);
 
 			if (zeppelin.flags.HasAny(Flags.Control_Auto))
 			{
@@ -169,24 +173,43 @@
 				if (pos_target)
 				{
 					var pos_current = transform.position;
-					var delta = pos_target - pos_current;
+					var delta = (pos_target - pos_current);
+					var dist = delta.vect.Length();
 
-					var threshold = 0.10f;
-					var vel = zeppelin.vel_target * 10; // * 50;
-														//vel.x *= zeppelin.vel_target.x.Sign();
+					// TODO: properly calculate when it should start decelerating
+					var threshold = 3.50f;
+					var vel = body.GetVelocity().ToVec2f(); // * 50;
+					var vel_len = vel.vect.Length();
 
-					//Maths.ShouldDecelerate()
+					var vel_overshoot = vel * 2.00f;
+					//zeppelin.throttle = dist;
 
-					ref var kb = ref control.keyboard;
-					kb.SetKeyPressed(Keyboard.Key.MoveRight, (delta.x - vel.x) > threshold);
-					kb.SetKeyPressed(Keyboard.Key.MoveLeft, (delta.x - vel.x) < threshold);
-					kb.SetKeyPressed(Keyboard.Key.MoveDown, (delta.y - vel.y) > threshold);
-					kb.SetKeyPressed(Keyboard.Key.MoveUp, (delta.y - vel.y) < threshold);
+					if (Maths.ShouldDecelerate(dist, vel_len * 2.00f, zeppelin.speed_step.vect.Length()))
+					{
+						vel_overshoot *= 20f;
+					}
 
-
+					if (dist > threshold * 1.50f) // || Maths.ShouldDecelerate(dist, vel_len, zeppelin.speed_step.vect.Length()))
+					{
+						ref var kb = ref control.keyboard;
+						kb.SetKeyPressed(Keyboard.Key.MoveRight, (delta.x - vel_overshoot.x) > threshold);
+						kb.SetKeyPressed(Keyboard.Key.MoveLeft, (delta.x - vel_overshoot.x) < threshold);
+						kb.SetKeyPressed(Keyboard.Key.MoveDown, (delta.y - vel_overshoot.y) > threshold);
+						kb.SetKeyPressed(Keyboard.Key.MoveUp, (delta.y - vel_overshoot.y) < threshold);
+					}
+					else
+					{
+						var vel_brake = zeppelin.vel_target * 0.99f;
+						if (zeppelin.vel_target.TrySet(vel_brake))
+						{
+							if (info.Tickstamp.CheckInterval(Tickstamp.Interval.T008))
+							{
+								zeppelin.Sync(entity);
+							}
+						}
+					}
 				}
 			}
-			//Maths.CalculateStoppingDistance
 #endif
 		}
 
@@ -201,8 +224,8 @@
 			var vel_x = control.keyboard.GetKeyAxis(Keyboard.Key.MoveRight, Keyboard.Key.MoveLeft, zeppelin.speed_step.x);
 			var vel_y = control.keyboard.GetKeyAxis(Keyboard.Key.MoveDown, Keyboard.Key.MoveUp, zeppelin.speed_step.y);
 
-			vel_x = Maths.FMA(vel_x, App.fixed_update_interval_s_f32, zeppelin.vel_target.x);
-			vel_y = Maths.FMA(vel_y, App.fixed_update_interval_s_f32, zeppelin.vel_target.y);
+			vel_x = Maths.FMA(vel_x, info.DeltaTime, zeppelin.vel_target.x);
+			vel_y = Maths.FMA(vel_y, info.DeltaTime, zeppelin.vel_target.y);
 
 			vel_x.ClampMagnitude(zeppelin.speed_max.x);
 			vel_y.ClampMagnitude(zeppelin.speed_max.y);
@@ -225,6 +248,7 @@
 
 			//}
 
+			//zeppelin.vel_target *= 0.50f;
 			body.SetVelocity(zeppelin.vel_target);
 
 #if SERVER

@@ -1,0 +1,124 @@
+$name: "Skyhook (Base)"
+$desc: "TODO: Desc"
+$tags: []
+
+body:
+{
+	type: kinematic
+	
+	@shape.circle:
+	{
+		mass: 500.000
+		radius: 1.500
+		friction: 0.950
+		elasticity: 0.500
+		material: metal
+		layer: entity
+		mask: world
+	}
+}
+
+transform:
+{
+
+}
+
+health:
+{
+	max: 900000.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: skyhook.00.atlas
+		frame: [0, 0]
+		size: [48, 16]
+	}
+	z: -150.000
+}
+
+// winch:
+// {
+// 	length_min: 0.500
+// 	length_max: 30.000
+// 	speed: 3.000
+
+// 	@sound.emitter:
+// 	{
+// 		file: "winch.loop.00"
+// 		flags: start_muted
+// 		volume: 1.000
+// 		pitch: 1.000
+// 		size: 0.500
+// 	}
+	
+// 	@sound.mixer:
+// 	{
+// 		volume_modifier: 0.500
+// 		pitch_modifier: 0.200
+// 		volume_min: 0.000
+// 		pitch_min: 0.500
+// 		volume_lerp_a: 1.000
+// 		volume_lerp_b: 1.000
+// 		pitch_lerp_a: 0.250
+// 		pitch_lerp_b: 0.250
+// 	}
+// }
+
+// nameable:
+// {
+// 	tags: chemical, tech, dangerous
+// 	flags: no_rename, randomize
+// 	type: building
+// }
+
+// faction:
+// {
+	
+// }
+
+// skyhook:
+// {
+	
+// }
+
+// interactable:
+// {
+// 	window_size: [592.000, 408.000]
+// 	window_size_misc: [48.000, 0.000]
+// }
+
++slot|instance:
+{
+	joint.base:
+	{
+		offset_a: [0.000, 0.000]
+		z: 0.000
+		max_force: 500000.000
+		max_torque: 20000.000
+		
+		material_type: none
+		
+		flags: no_stress, instant_attach, delete_on_detach
+	}
+
+	joint.rope:
+	{
+		distance: 32.000
+	}
+
+	rope.renderer:
+	{
+		texture: skyhook.00.cable
+		thickness: 0.700
+		scale: 6.000
+		z: -400.000
+	}
+
+	+attached|child:
+	{
+		$prefab: "skyhook.00"
+	}
+}

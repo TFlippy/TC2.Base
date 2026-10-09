@@ -1,20 +1,37 @@
-$name: "Skyhook (Base)"
+$name: "Skyhook"
 $desc: "TODO: Desc"
+
 $tags: []
 
 body:
 {
-	type: kinematic
+	type: dynamic
 	
-	@shape.circle:
+	@shape.polygon:
 	{
+		material: metal
+		miss_chance: 0.000
+		flags: none
+		tags: none
+		
+		layer: entity, solid
+		mask: world
+		exclude: none
+		
 		mass: 500.000
-		radius: 1.500
+		radius: 0.750
 		friction: 0.950
 		elasticity: 0.500
-		material: metal
-		layer: entity
-		mask: world
+		
+		cog_offset: [0.000, 1.250]
+		
+		points:
+		[
+			[-0.625, -3.125]
+			[0.375, -2.875]
+			[1.000, 2.875]
+			[-1.000, 2.875]
+		]
 	}
 }
 
@@ -25,7 +42,7 @@ transform:
 
 health:
 {
-	max: 900000.000
+	max: 880000.000
 }
 
 animated.renderer:
@@ -33,264 +50,185 @@ animated.renderer:
 	sprite:
 	{
 		texture: skyhook.00.atlas
-		frame: [0, 0]
-		size: [48, 16]
+		size: [48, 64]
+		frame: [1, 0]
 	}
-	z: -150.000
+	z: -180.000
 }
 
-// nameable:
-// {
-// 	tags: chemical, tech, dangerous
-// 	flags: no_rename, randomize
-// 	type: building
-// }
-
-// faction:
-// {
+faction:
+{
 	
-// }
+}
 
-// skyhook:
-// {
+company:
+{
 	
-// }
+}
 
-// interactable:
-// {
-// 	window_size: [592.000, 408.000]
-// 	window_size_misc: [48.000, 0.000]
-// }
+storage:
+{
+	@inventory16:
+	{
+		type: storage
+		flags: standalone, ignore_mass, no_auto_pickup, faction
+		stack_size_multiplier: 2.000
+		
+		filter:
+		{
+			exclude: gas, large
+		}
+	}
+}
 
-+slot|instance:
+address:
+{
+	
+}
+
+skyhook:
+{
+	speed: 1.000
+	length_max: 32.000
+	length_current: 8.000			
+	length_target: 8.000
+
+	@sound.emitter:
+	{
+		file: conveyor.loop.01
+		flags: start_muted
+		volume: 1.000
+		size: 0.500
+	}
+}
+
+stockpile:
+{
+	request_types: pack, unpack, move, send, load
+	flags: public, auto_create, full_access, show_addresses, edit_addresses
+}
+
+market:
+{
+	
+}
+
+
+minimap.marker:
+{
+	sprite:
+	{
+		texture: ui_icons_minimap
+		size: [16, 16]
+		frame: [0, 0]
+	}
+}
+
+interactable:
+{
+	window_size: [592.000, 408.000]
+	window_size_misc: [48.000, 0.000]
+}
+
+lamp:
+{
+	flicker: 0.000
+	blink_frequency: 1.000
+	blink_amplitude: 0.500
+	
+	@light:
+	{
+		color: [1.000, 0.400, 0.000, 2.700]
+		offset: [-1.000, -3.500]
+		scale: [16.000, 16.000]
+		texture: light.circle.04
+	}
+}
+
+vehicle:
+{
+
+}
+
+control:
+{
+
+}
+
+controllable:
+{
+	
+}
+
+claw:
+{
+	sound_attach: "claw.attach.00"
+	sound_detach: "claw.detach.00"
+	frame_attached: 1
+	frame_detached: 1
+}
+
++slot.bottom|instance:
 {
 	joint.base:
 	{
-		max_force: 500000.000
-		max_torque: 20000.000
-		flags: no_stress
+		offset_a: [0.000, 1.750]
+		max_force: 850000.000
+		max_torque: 150000.000
+		max_stress: 3.000
+		stress_threshold: 1.500
+		stress_damp: 0.500
+		z: -1000.000
+		material_type: metal
+		stress: 0.000
+		flags: attachment, allow_dragging, control_read, control_write
 	}
 
-	joint.rope:
+	joint.gear:
 	{
-		distance: 80.000
+		error_bias: 0.001
+		max_bias: 5.000
+		min: 0.000
+		max: 0.000
+		stress_mult: 0.500
 	}
 
-	rope.renderer:
+	// joint.piston:
+	// {
+	// 	error_bias: 0.000
+	// 	max_bias: 4.000
+	// 	stiffness: 40000.000
+	// 	damping: 1250.000
+	// 	axis_force: 800000.000
+	// 	spring_max_bias: 4.000
+	// 	max_distance: 1.500
+	// 	rotation: 1.5707
+	// 	stress_mult_axis: 1.000
+	// }
+
+	joint.pivot:
 	{
-		texture: skyhook.00.cable
-		thickness: 0.700
-		scale: 6.000
-		z: -400.000
+		max_bias: 8.000
+		error_bias: 0.001
 	}
 
-	+attached|child:
+	attachment.slot:
 	{
-		$name: "Skyhook"
-		$tags: []
+		name: "Mount (Bottom)"
+		identifier: "bottom"
 
-		body:
-		{
-			type: dynamic
-			
-			@shape.polygon:
-			{
-				material: metal
-				miss_chance: 0.000
-				flags: none
-				tags: none
-				
-				layer: entity
-				mask: world
-				exclude: none
-				
-				mass: 500.000
-				radius: 0.750
-				friction: 0.950
-				elasticity: 0.500
-				
-				cog_offset: [0.000, 1.250]
-				
-				points:
-				[
-					[-0.625, -3.125]
-					[0.375, -2.875]
-					[1.000, 2.875]
-					[-1.000, 2.875]
-				]
-			}
-		}
+		flags: keyboard_write, mouse_write
+		flags_editable: locked, disabled, hold, invert, cycle, keyboard_read, mouse_read, keyboard_write, mouse_write, offset, rotation, brake
 
-		transform:
-		{
+		rank: 10.000
+		gui_size: [224.000, 96.000]
+		offset_bounds: [0.000, -1.000, 0.000, 0.500]
+	}
 
-		}
-
-		health:
-		{
-			max: 880000.000
-		}
-
-		animated.renderer:
-		{
-			sprite:
-			{
-				texture: skyhook.00.atlas
-				size: [48, 64]
-				frame: [1, 0]
-			}
-			z: -180.000
-		}
-
-		faction:
-		{
-			
-		}
-
-		company:
-		{
-			
-		}
-
-		storage:
-		{
-			@inventory16:
-			{
-				type: storage
-				flags: standalone, ignore_mass, no_auto_pickup, faction
-				stack_size_multiplier: 2.000
-				
-				filter:
-				{
-					exclude: gas, large
-				}
-			}
-		}
-
-		address:
-		{
-			
-		}
-
-		skyhook:
-		{
-			@sound.emitter:
-			{
-				file: winch.loop.00
-				flags: start_muted
-				volume: 1.000
-				size: 0.500
-			}
-		}
-
-		stockpile:
-		{
-			request_types: pack, unpack, move, send, load
-			flags: public, auto_create, full_access, show_addresses, edit_addresses
-		}
-
-		market:
-		{
-			
-		}
-
-
-		minimap.marker:
-		{
-			sprite:
-			{
-				texture: ui_icons_minimap
-				size: [16, 16]
-				frame: [0, 0]
-			}
-		}
-
-		interactable:
-		{
-			window_size: [592.000, 408.000]
-			window_size_misc: [48.000, 0.000]
-		}
-
-		lamp:
-		{
-			flicker: 0.000
-			blink_frequency: 1.000
-			blink_amplitude: 0.500
-			
-			@light:
-			{
-				color: [1.000, 0.400, 0.000, 2.700]
-				offset: [-1.000, -3.500]
-				scale: [16.000, 16.000]
-				texture: light.circle.04
-			}
-		}
-
-		vehicle:
-		{
-
-		}
-		
-		control:
-		{
-
-		}
-
-		controllable:
-		{
-			
-		}
-
-		+slot.bottom|instance:
-		{
-			joint.base:
-			{
-				offset_a: [0.000, 0.750]
-				max_force: 850000.000
-				max_torque: 150000.000
-				max_stress: 3.000
-				stress_threshold: 1.500
-				stress_damp: 0.500
-				z: -100.000
-				material_type: metal
-				stress: 0.000
-				flags: attachment, allow_dragging, control_read, control_write, force_facing
-			}
-
-			joint.gear:
-			{
-				error_bias: 0.001
-				max_bias: 5.000
-				min: 0.000
-				max: 0.000
-				stress_mult: 0.500
-			}
-
-			joint.piston:
-			{
-				error_bias: 0.000
-				max_bias: 4.000
-				stiffness: 40000.000
-				damping: 1250.000
-				axis_force: 800000.000
-				spring_max_bias: 4.000
-				max_distance: 1.500
-				rotation: 1.5707
-				stress_mult_axis: 1.000
-			}
-
-			attachment.slot:
-			{
-				name: "Mount (Bottom)"
-				identifier: "bottom"
-
-				flags: keyboard_write, mouse_write
-				flags_editable: locked, disabled, hold, invert, cycle, keyboard_read, mouse_read, keyboard_write, mouse_write, offset, rotation, brake
-
-				rank: 10.000
-				gui_size: [224.000, 96.000]
-				offset_bounds: [0.000, -1.000, 0.000, 0.500]
-			}
-		}
+	grabber:
+	{
+		offset: [0.000, 2.000]
+		flags: can_attach
+		radius: 1.500
 	}
 }

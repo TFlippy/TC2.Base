@@ -3,12 +3,29 @@
 	public static partial class Skyhook
 	{
 		[IComponent.Data(Net.SendType.Reliable, IComponent.Scope.Region)]
-		public partial struct Data: IComponent
+		public partial struct Data(): IComponent
 		{
-			public float unused_00;
-			public float unused_01;
-			public float unused_02;
-			public float unused_03;
+			public float speed = 0.50f;
+			public float length_max = 32.00f;
+			[Asset.Ignore] public float length_current;
+			[Asset.Ignore] public float length_target;
+		}
+
+		public struct DEV_EditRPC: Net.IRPC<Skyhook.Data>
+		{
+			public float? edit_length_target;
+#if SERVER
+			public void Invoke(Net.IRPC.Context rpc, ref Skyhook.Data data)
+			{
+				var sync = false;
+				sync |= this.edit_length_target.TryCopyToClamped(ref data.length_target, min: 1.00f, max: data.length_max);
+
+				if (sync)
+				{
+					rpc.Sync(ref data);
+				}
+			}
+#endif
 		}
 
 #if CLIENT
@@ -53,6 +70,26 @@
 		[Source.Owned] ref Skyhook.Data skyhook, [Source.Owned] ref Transform.Data transform, [Source.Owned] ref Body.Data body)
 		{
 
+		}
+
+		[ISystem.LateUpdate(ISystem.Mode.Single, ISystem.Scope.Region)]
+		public static void OnUpdate_Effects(ISystem.Info info, ref Region.Data region, Entity entity,
+		[Source.Owned] ref Skyhook.Data skyhook, [Source.Owned] ref Transform.Data transform, [Source.Owned] ref Body.Data body,
+		[Source.Owned, Pair.Component<Skyhook.Data>, Optional(true)] ref Sound.Emitter sound_emitter)
+		{
+			if (sound_emitter.IsNotNull())
+			{
+				//sound_emitter.
+			}
+		}
+
+		[ISystem.Update.Joints.A(ISystem.Mode.Single, ISystem.Scope.Region)]
+		public static void OnUpdate_Joint(ISystem.Info info, ref Region.Data region, Entity entity,
+		[Source.Owned] ref Skyhook.Data skyhook, [Source.Owned] ref Transform.Data transform, [Source.Owned] ref Body.Data body,
+		[Source.Parent, Original] ref Joint.Rope joint_rope)
+		{
+			Maths.MoveTowards(ref skyhook.length_current, skyhook.length_target, skyhook.speed * App.fixed_update_interval_s);
+			joint_rope.distance = skyhook.length_current;
 		}
 	}
 }
