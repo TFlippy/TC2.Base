@@ -22,6 +22,7 @@
 			Docked = 1u << 8,
 			Landing = 1u << 9,
 
+			Skyhook_Toggle = 1u << 15,
 			Skyhook_Deployed = 1u << 16,
 			Airstrike_Pending = 1u << 17,
 
@@ -91,8 +92,24 @@
 			[Asset.Ignore, Net.Ignore] public float t_airstrike_end;
 		}
 
-		public struct DEV_SendRequestRPC: Net.IRPC<Zeppelin.Data>
+		public struct ActionRPC: Net.IRPC<Zeppelin.Data>
 		{
+			public enum Type: uint
+			{
+				Undefined = 0,
+
+				Airstrike,
+
+				Skyhook_Deploy,
+				Skyhook_Retract,
+				Skyhook_Target,
+				Skyhook_Grab,
+				Skyhook_Pos,
+
+				Move,
+			}
+
+			public ActionRPC.Type type;
 			public Entity ent_target;
 			public Vec2f? pos_target;
 
@@ -104,12 +121,64 @@
 				ref var region_common = ref rpc.GetRegionCommon();
 
 				var sync = false;
-				sync |= data.flags.TrySetFlagMasked(this.flags, mask: Flags.Skyhook_Deployed | Flags.Airstrike_Pending);
+				//sync |= data.flags.TrySetFlagMasked(this.flags, mask: Flags.Skyhook_Deployed | Flags.Airstrike_Pending);
 				
-				if (data.pos_airstrike.TrySet(this.pos_target).RelayTo(ref sync))
+				switch (this.type)
 				{
-					data.t_airstrike_start = region_common.GetWorldTime() + 2;
-					data.t_airstrike_end = data.t_airstrike_start + 1.50f;
+					case Type.Airstrike:
+					{
+						sync |= data.flags.TryAddFlag(Flags.Airstrike_Pending);
+						if (data.pos_airstrike.TrySet(this.pos_target).RelayTo(ref sync))
+						{
+							data.t_airstrike_start = region_common.GetWorldTime() + 2.00f;
+							data.t_airstrike_end = data.t_airstrike_start + 1.50f;
+						}
+					}
+					break;
+
+					case Type.Skyhook_Target:
+					{
+						data.ent_target_cargo = this.ent_target;
+						data.pos_skyhook_target = default;
+						data.flags.AddFlag(Flags.Skyhook_Deployed);
+						sync = true;
+					}
+					break;
+
+					case Type.Skyhook_Retract:
+					{
+						data.ent_target_cargo = default;
+						data.pos_skyhook_target = default;
+						data.flags.RemoveFlag(Flags.Skyhook_Deployed);
+						sync = true;
+					}
+					break;
+
+					case Type.Skyhook_Grab:
+					{
+						sync |= data.flags.TryAddFlag(Flags.Skyhook_Toggle);
+					}
+					break;
+
+					case Type.Skyhook_Pos:
+					{
+						data.flags.AddFlag(Flags.Skyhook_Deployed);
+						sync |= data.pos_skyhook_target.TrySet(this.pos_target);
+						sync = true;
+					}
+					break;
+
+					case Type.Move:
+					{
+						if (data.pos_move.TrySet(this.pos_target))
+						{
+							data.flags.RemoveFlag(Flags.Skyhook_Deployed | Flags.Docked);
+							data.ent_target_dock = default;
+							data.ent_target_cargo = default;
+							sync = true;
+						}
+					}
+					break;
 				}
 
 				if (sync)
@@ -139,7 +208,8 @@
 				App.WriteValue(pos_dock);
 
 				var pos_air = pos_dock.WithY(0);
-				var pos_move = new Vec2f(pos_dock.X, -data.unused_00);
+				//var pos_move = new Vec2f(pos_dock.X, -data.unused_00);
+				var pos_move = pos_dock.SubY(data.offset_bottom.y + 12);
 
 				region_common.DrawDebugLine(pos_air, pos_dock, color: Color32BGRA.Green, thickness: 4);
 				region_common.DrawDebugLine(transform.position, pos_dock, color: Color32BGRA.Green, thickness: 4);
@@ -153,6 +223,159 @@
 		}
 
 #if CLIENT
+		//[Region.Local] public static Vector2 edit_picker_airstrike;
+		//[Region.Local] public static Entity edit_ent_picker;
+
+		//public static void DrawZeppelinActions(ref Region.Data.Common region_common, TC2.Conquest.ICoalition.Handle h_coalition, Entity ent_dock = default)
+		//{
+		//	using (var group = GUI.Group.New(size: GUI.Rm))
+		//	{
+		//		var ent_zeppelin = h_coalition.GetRegionEntity(region_common.GetID());
+		//		var is_zeppelin_alive = ent_zeppelin.IsAlive();
+
+		//		ref var zeppelin = ref Zeppelin.Data.Null;
+		//		if (is_zeppelin_alive) zeppelin = ref ent_zeppelin.GetComponent<Zeppelin.Data>();
+
+		//		//if (GUI.DrawButton("Summon"u8, size: new(80, 40)))
+		//		//{
+		//		//	var rpc = new Depot.DEV_SummonZeppelinRPC
+		//		//	{
+		//		//		h_coalition = h_coalition
+		//		//	};
+		//		//	rpc.Send(this.ent_depot);
+		//		//}
+
+		//		//GUI.SameLine();
+
+		//		if (GUI.DrawButton("Dock"u8, size: new(80, 40), error: !is_zeppelin_alive))
+		//		{
+		//			var rpc = new Zeppelin.DEV_DockRPC
+		//			{
+		//				ent_dock = ent_dock,
+		//				//pos_target = transform.position
+		//			};
+		//			rpc.Send(ent_zeppelin);
+		//		}
+
+		//		GUI.SameLine();
+
+		//		if (GUI.Picker("edit.move"u8, "Move To..."u8, size: new(64, 40),
+		//		ref edit_picker_airstrike, new Vector2(-4000), new Vector2(4000),
+		//		entity: ent_zeppelin, sensitivity: 1.00f, absolute: true, enabled: is_zeppelin_alive, continuous: false))
+		//		{
+		//			var rpc = new Zeppelin.ActionRPC
+		//			{
+		//				type = Zeppelin.ActionRPC.Type.Move,
+		//				pos_target = edit_picker_airstrike
+		//			};
+		//			rpc.Send(ent_zeppelin);
+
+		//			edit_picker_airstrike = default;
+		//		}
+
+		//		//GUI.NewLine();
+
+		//		//if (GUI.Checkbox("Skyhook"u8, size: new(80, 40)))
+		//		if (GUI.DrawButton("Deploy"u8, size: new(80, 40), error: !is_zeppelin_alive))
+		//		{
+		//			var rpc = new Zeppelin.ActionRPC
+		//			{
+		//				type = Zeppelin.ActionRPC.Type.Skyhook_Deploy,
+		//			};
+		//			rpc.Send(ent_zeppelin);
+		//		}
+
+		//		GUI.SameLine();
+
+		//		//if (GUI.Checkbox("Skyhook"u8, size: new(80, 40)))
+		//		if (GUI.DrawButton("Retract"u8, size: new(80, 40), error: !is_zeppelin_alive))
+		//		{
+		//			var rpc = new Zeppelin.ActionRPC
+		//			{
+		//				type = Zeppelin.ActionRPC.Type.Skyhook_Retract,
+		//			};
+		//			rpc.Send(ent_zeppelin);
+		//		}
+
+		//		GUI.SameLine();
+
+		//		//if (GUI.Checkbox("Skyhook"u8, size: new(80, 40)))
+		//		if (GUI.DrawButton("Grab"u8, size: new(80, 40), error: !is_zeppelin_alive))
+		//		{
+		//			var rpc = new Zeppelin.ActionRPC
+		//			{
+		//				type = Zeppelin.ActionRPC.Type.Skyhook_Drop,
+		//			};
+		//			rpc.Send(ent_zeppelin);
+		//		}
+
+		//		GUI.SameLine();
+
+		//		if (GUI.EntityPicker("edit.skyhook.target"u8, "Skyhook Target"u8, size: new(0, 40),
+		//		region_id: region_common.GetID(), entity: ref edit_ent_picker,
+		//		layer_require: Physics.Layer.Holdable | Physics.Layer.Dynamic,
+		//		layer_exclude: Physics.Layer.World | Physics.Layer.Static | Physics.Layer.Fire | Physics.Layer.Liquid | Physics.Layer.Water | Physics.Layer.Ignore_Hover,
+		//		enabled: is_zeppelin_alive))
+		//		{
+		//			var rpc = new Zeppelin.ActionRPC
+		//			{
+		//				type = Zeppelin.ActionRPC.Type.Skyhook_Grab,
+		//				ent_target = edit_ent_picker
+		//			};
+		//			rpc.Send(ent_zeppelin);
+
+		//			edit_ent_picker = default;
+		//		}
+
+		//		if (GUI.Picker("edit.airstrike"u8, "Air Strike"u8, size: new(40, 40),
+		//		ref edit_picker_airstrike, new Vector2(-4000), new Vector2(4000),
+		//		entity: default, sensitivity: 1.00f, absolute: true, enabled: is_zeppelin_alive, continuous: false))
+		//		{
+		//			var rpc = new Zeppelin.ActionRPC
+		//			{
+		//				type = Zeppelin.ActionRPC.Type.Airstrike,
+		//				pos_target = edit_picker_airstrike
+		//			};
+		//			rpc.Send(ent_zeppelin);
+
+		//			edit_picker_airstrike = default;
+		//		}
+
+		//		GUI.SeparatorThick();
+
+		//		using (var group_info = GUI.Group.New(size: GUI.Rm, padding: new(6)))
+		//		{
+		//			if (zeppelin.IsNotNull())
+		//			{
+		//				GUI.LabelShaded("State"u8, zeppelin.flags.GetEnumName(), width: GUI.RmX);
+		//				GUI.LabelShaded("Combat"u8, zeppelin.combat_flags.GetEnumName(), width: GUI.RmX);
+
+		//				GUI.NewLine(4);
+		//				GUI.LabelShaded("Target Distance"u8, zeppelin.dist_target, format: "0.00' m'", width: GUI.RmX);
+
+		//				GUI.NewLine(4);
+		//				GUI.LabelShaded("Target (Cargo)"u8, zeppelin.ent_target_cargo.GetName(), width: GUI.RmX);
+
+		//				if (false)
+		//				{
+		//					var time = App.GetCurrentTime();
+		//					ref var random = ref region_common.GetRandom();
+
+
+		//					var rot = (time * 3) + random.NextFloat(0.20f);
+		//					var pos_noise = random.NextUnitVector2Extra(0.00f, 0.04f); // new Vec2f(Maths.Perlin(time, time * 0.50f, 4), Maths.Perlin(time * 3, time * 0.10f, 4)); // random.NextUnitVector2Extra(0.00f, 0.15f);
+		//					var color = new Color32BGRA(0xff_f0_10_1f).WithAlpha(random.NextByteRange(48, 80));
+		//					var cpos_airstrike = region_common.WorldToCanvas(zeppelin.pos_airstrike + pos_noise);
+
+		//					GUI.DrawSprite2(new Sprite("ui_panel_white.02", 64, 64), rect: AABB.Centered(cpos_airstrike, size: new(4 * region_common.GetWorldToCanvasScale())), layer: GUI.Layer.Background, color: color, rotation: rot);
+		//				}
+
+		//				//GUI.Title(zeppelin.)
+		//			}
+		//		}
+		//	}
+		//}
+
 		public partial struct ZeppelinGUI: IGUICommand
 		{
 			public Entity ent_zeppelin;
@@ -283,7 +506,7 @@
 		}
 
 		[ISystem.Update.D(ISystem.Mode.Single, ISystem.Scope.Region)]
-		public static void OnUpdate_Skyhook(ISystem.Info info, ref Region.Data region, 
+		public static void OnUpdate_Skyhook(ISystem.Info info, ref Region.Data region,
 		Entity ent_zeppelin, Entity ent_skyhook,
 		[Source.Parent] ref Zeppelin.Data zeppelin, [Source.Owned] ref Control.Data control,
 		[Source.Owned] ref Skyhook.Data skyhook,
@@ -296,24 +519,31 @@
 			var pos_body = body.GetPosition();
 			zeppelin.pos_skyhook = pos_body;
 
+#if SERVER
+			if (zeppelin.flags.TryRemoveFlag(Flags.Skyhook_Toggle))
+			{
+				control.mouse.SetKeyPressed(Mouse.Key.Left, true);
+			}
+#endif
+
 			if (zeppelin.flags.HasAny(Flags.Skyhook_Deployed))
 			{
 				var crane_dist_target = 0.00f;
 
-				var pos_target = zeppelin.ent_target_dock.GetPosition();
+				var pos_target = zeppelin.pos_skyhook_target;
+				if (!pos_target) pos_target = zeppelin.ent_target_cargo.GetPosition();
+				
 				if (pos_target)
 				{
-					zeppelin.pos_skyhook_target = pos_target;
+					//zeppelin.pos_skyhook_target = pos_target;
 
-					var delta = pos_target - transform_zeppelin.LocalToWorld(zeppelin.offset_bay); //.AddY(-2);
-					skyhook.length_target = delta.y.Abs();
+					var delta = pos_target - transform_zeppelin.LocalToWorld(zeppelin.offset_bay); //.AddY(-4);
+					skyhook.length_target = Maths.Clamp(delta.y - 2.50f, 1.00f, skyhook.length_max);
 				}
 
+				// TODO: this sucks
 				var crane_wpos_a = transform_zeppelin.LocalToWorld(zeppelin.offset_skyhook_crane_a);
 				var crane_wpos_b = transform_zeppelin.LocalToWorld(zeppelin.offset_skyhook_crane_b);
-
-
-
 				var crane_dist_lerp = Maths.InvLerp01(crane_wpos_a.X, crane_wpos_b.X, pos_target.x);
 
 				joint_base.offset_a = Maths.MoveTowards(joint_base.offset_a, Maths.Lerp(zeppelin.offset_skyhook_crane_a, zeppelin.offset_skyhook_crane_b, crane_dist_lerp), zeppelin.speed_skyhook_crane * App.fixed_update_interval_s);

@@ -13,11 +13,11 @@ body:
 		flags: none
 		tags: none
 		
-		layer: entity, solid, vehicle
+		layer: entity, solid, vehicle, ignore_hover
 		mask: solid
 		exclude: world, bounds
 		
-		mass: 55000.000
+		mass: 155000.000
 		radius: 8.000
 		friction: 0.950
 		elasticity: 0.100
@@ -72,7 +72,7 @@ body:
 		flags: none
 		tags: none
 		
-		layer: entity, solid, vehicle
+		layer: entity, solid, vehicle, ignore_hover
 		mask: solid
 		exclude: world, bounds, attached
 		
@@ -96,7 +96,7 @@ transform:
 
 health:
 {
-	max: 900000.000
+	max: 9000000.000
 }
 
 animated.renderer:
@@ -300,6 +300,40 @@ zeppelin:
 	}
 }
 
+// explosive:
+// {
+// 	radius: 100.000
+// 	power: 14.500
+// 	damage_entity: 435000.000
+// 	damage_terrain: 80000.000
+// 	health_threshold: 0.100
+	
+// 	damage_type: explosion
+// 	damage_type_secondary: phlogiston
+// 	flags: any_damage, explode_when_primed, primed_when_destroyed
+	
+// 	detonate_chance: 1.000
+	
+// 	shake_multiplier: 8.850
+// 	force_multiplier: 4.230
+// 	stun_multiplier: 5.360
+// 	terrain_radius_multiplier: 1.250
+	
+// 	smoke_amount: 2.000
+// 	smoke_lifetime_multiplier: 2.000
+// 	smoke_velocity_multiplier: 40.800
+// 	smoke_color: "0xd2ffffff"
+	
+// 	flash_duration_multiplier: 40.000
+// 	flash_intensity_multiplier: 1.000
+	
+// 	fire_amount: 3.000
+// 	sparks_amount: 3.000
+	
+// 	volume: 8.000
+// 	pitch: 0.800
+// }
+
 // animated.renderer|"idx_00":
 // {
 // 	sprite:
@@ -381,8 +415,8 @@ storage:
 // 	speed: 5.000
 // 	bias: 0.080
 	
-// 	multiplier: 4.000
-// 	mass_multiplier: 50.000
+// 	multiplier: 8.000
+// 	mass_multiplier: 100.000
 // }
 
 essence.container:
@@ -398,7 +432,7 @@ essence.container:
 	{
 		type: essence
 		flags: standalone, ignore_mass, no_auto_pickup
-		stack_size_multiplier: 0.500
+		stack_size_multiplier: 4.000
 		
 		filter:
 		{
