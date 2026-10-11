@@ -56,6 +56,12 @@ vehicle:
 
 }
 
+controllable:
+{
+	gui_size: [0.000, 4.000]
+	flags: disable_mouse_properties, disable_mouse_pos, disable_keyboard, hide_cursor
+}
+
 +mount|instance:
 {
 	joint.base:

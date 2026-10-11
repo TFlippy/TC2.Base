@@ -8,16 +8,17 @@ $tags: []
 body:
 {
 	type: kinematic
+	tags: round, complex, irregular
 	
 	@shape.complex:
 	{
 		material: metal_sheet
 		miss_chance: 0.000
 		flags: none
-		tags: none
+		tags: heavy, huge, thin, giant
 		
-		layer: entity, solid, vehicle, ignore_hover
-		mask: solid
+		layer: entity, solid, vehicle, conductive, magnetic, ignore_hover, no_overlapped_placement
+		mask: solid, no_overlapped_placement
 		exclude: world, bounds
 		
 		mass: 155000.000
@@ -46,10 +47,10 @@ body:
 		material: metal
 		miss_chance: 0.000
 		flags: none
-		tags: none
+		tags: heavy, huge, hard
 		
-		layer: entity, solid, vehicle
-		mask: solid
+		layer: entity, solid, vehicle, conductive, magnetic, no_overlapped_placement
+		mask: solid, no_overlapped_placement
 		exclude: world, bounds, attached
 		
 		mass: 7500.000
@@ -61,10 +62,10 @@ body:
 		
 		points:
 		[
-			[42.000, 16.250]
-			[67.250, 11.500]
-			[65.125, 20.250]
-			[42.375, 20.125]
+			[41.500, 12.875]
+			[68.000, 12.875]
+			[64.375, 18.750]
+			[41.875, 20.000]
 		]
 	}
 
@@ -75,8 +76,8 @@ body:
 		flags: none
 		tags: none
 		
-		layer: entity, solid, vehicle, ignore_hover
-		mask: solid
+		layer: entity, solid, vehicle, conductive, magnetic, ignore_hover, no_overlapped_placement
+		mask: solid, no_overlapped_placement
 		exclude: world, bounds, attached
 		
 		mass: 500.000

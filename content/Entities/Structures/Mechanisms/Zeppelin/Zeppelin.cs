@@ -478,17 +478,28 @@
 					var dist = delta.vect.Length();
 					zeppelin.dist_target = dist;
 
+				
 					// TODO: properly calculate when it should start decelerating
-					var threshold = 3.50f;
+					var threshold = 2.50f;
 					var vel = body.GetVelocity().ToVec2f(); // * 50;
-					var vel_len = vel.vect.Length();
+					var vel_len = vel.GetLength();
 
-					var vel_overshoot = vel * 2.00f;
-					//zeppelin.throttle = dist;
+					var vel_overshoot = vel * 2.00f; // * 2.00f;
+													 //zeppelin.throttle = dist;
+
+					const bool draw_debug = false;
+					if (draw_debug)
+					{
+						region.DrawDebugDir(pos_current, delta.WithY(0), color: Color32BGRA.Red);
+						region.DrawDebugDir(pos_current, delta.WithX(0), color: Color32BGRA.Blue);
+
+						region.DrawDebugLine(pos_current, pos_target, color: Color32BGRA.Yellow, 2);
+						region.DrawDebugCircle(pos_target, radius: threshold, color: Color32BGRA.Green, segments: 12);
+					}
 
 					if (Maths.ShouldDecelerate(dist, vel_len * 2.00f, zeppelin.speed_step.vect.Length()))
 					{
-						vel_overshoot *= 20f;
+						vel_overshoot *= 10f;
 					}
 
 					if (dist > threshold * 1.50f) // || Maths.ShouldDecelerate(dist, vel_len, zeppelin.speed_step.vect.Length()))
@@ -501,14 +512,16 @@
 					}
 					else
 					{
-						var vel_brake = zeppelin.vel_target * 0.99f;
+						var vel_brake = zeppelin.vel_target * 0.97f;
 						if (zeppelin.vel_target.TrySet(vel_brake))
 						{
 #if SERVER
-							if (info.Tickstamp.CheckInterval(Tickstamp.Interval.T008))
-							{
-								sync = true;
-							}
+							zeppelin.flags.AddFlag(Flags.Sync_Pending);
+
+							//if (info.Tickstamp.CheckInterval(Tickstamp.Interval.T008))
+							//{
+							//	sync = true;
+							//}
 #endif
 						}
 					}
@@ -518,6 +531,7 @@
 #if SERVER
 			if (sync)
 			{
+				//zeppelin.Sync(entity);
 				zeppelin.Sync(entity);
 			}
 #endif

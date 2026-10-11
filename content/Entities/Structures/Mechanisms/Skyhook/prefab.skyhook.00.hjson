@@ -95,13 +95,13 @@ skyhook:
 	length_current: 8.000			
 	length_target: 8.000
 
-	@sound.emitter:
-	{
-		file: conveyor.loop.01
-		flags: start_muted
-		volume: 1.000
-		size: 0.500
-	}
+	// @sound.emitter:
+	// {
+	// 	file: conveyor.loop.01
+	// 	flags: start_muted
+	// 	volume: 1.000
+	// 	size: 0.500
+	// }
 }
 
 // stockpile:

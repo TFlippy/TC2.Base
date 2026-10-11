@@ -38,9 +38,11 @@ namespace TC2.Base.Components
 			{
 				None = 0,
 
-				Use_Analog = 1u << 0
+				Use_Analog = 1u << 0,
 
 				//Hold_Shift = 1 << 0
+
+				No_Center_FX = 1u << 16
 			}
 
 			public FixedArray4<Levitator.Node> nodes;
@@ -165,7 +167,7 @@ namespace TC2.Base.Components
 #endif
 
 					ref var node_rate = ref levitator_state.node_rates[i];
-					node_rate = Maths.Lerp(node_rate, ((kb.GetKey(key, false) ? 1.00f : 0.00f) + (random.NextFloat01() * container.noise_current * 0.70f)).Clamp01(), levitator.lerp_rate);
+					node_rate = Maths.LerpFMA(node_rate, ((kb.GetKey(key, false) ? 1.00f : 0.00f) + (random.NextFloat01() * container.noise_current * 0.70f)).Clamp01(), levitator.lerp_rate);
 					rate_total += node_rate * node.ratio * node.modifier;
 
 					if (node_rate > 0.01f)
@@ -190,7 +192,7 @@ namespace TC2.Base.Components
 							var dir_world = transform.LocalToWorldDirection(node.dir.GetNormalized());
 
 #if CLIENT
-							var noise_x = MathF.CopySign(random.NextFloatRange(1.50f, 2), random.NextFloat());
+							var noise_x = Maths.WithSign(random.NextFloatRange(1.50f, 2), random.NextFloat());
 							var noise_y = random.NextFloatRange(0.90f, 2) * 1.00f * 2;
 							var noise_intensity = random.NextFloatRange(0.10f, 1.00f);
 
@@ -208,7 +210,7 @@ namespace TC2.Base.Components
 								force = random.NextUnitVector2Range(0, 8),
 								//fps = random.NextByteRange(3, 5),
 								stretch = new Vector2(noise_x, noise_y),
-								rotation = ((MathF.PI * -0.50f) - (dir_world.GetAngleRadiansFast()) + random.NextFloatRange(-0.50f, 0.50f)) * -transform.scale.GetParity(),
+								rotation = ((Maths.pi * -0.50f) - (dir_world.GetAngleRadiansFast()) + random.NextFloatRange(-0.50f, 0.50f)) * -transform.scale.GetParity(),
 								frame_count = 1,
 								frame_count_total = 1,
 								frame_offset = 0,
@@ -218,7 +220,7 @@ namespace TC2.Base.Components
 								drag = random.NextFloatRange(0.15f, 0.25f),
 								color_a = ColorBGRA.Lerp(color, 0xffffffff, random.NextFloatRange(0.00f, 0.40f)) * random.NextFloatRange(0.50f, 2.50f),
 								color_b = color.WithColorMult(0.10f),
-								glow = 0.01f + (((0.50f + MathF.Abs(noise_intensity)) * 1.00f) * node_rate)
+								glow = 0.01f + (((0.50f + Maths.Abs(noise_intensity)) * 1.00f) * node_rate)
 								//face_dir_ratio = 1.00f
 							});
 #endif
@@ -238,9 +240,9 @@ namespace TC2.Base.Components
 			//var force_new_dir = force_new.GetNormalized(out var force_new_len);
 			var force_total_dir = force_total.GetNormalized(out var force_total_len);
 
-			levitator_state.current_direction = Vector2.Lerp(levitator_state.current_direction, force_total_dir, 0.10f);
-			levitator_state.current_offset = Vector2.Lerp(levitator_state.current_offset, offset, 0.20f);
-			levitator_state.current_force = Maths.Lerp(levitator_state.current_force, force_total_len, levitator.lerp_rate);
+			levitator_state.current_direction = Maths.LerpFMA(levitator_state.current_direction, force_total_dir, 0.10f);
+			levitator_state.current_offset = Maths.LerpFMA(levitator_state.current_offset, offset, 0.20f);
+			levitator_state.current_force = Maths.LerpFMA(levitator_state.current_force, force_total_len, levitator.lerp_rate);
 			//levitator.force_multiplier = 0.00f;
 			//container.rate = Maths.MoveTowards(container.rate, rate_total, levitator.lerp_rate);
 			container.rate = rate_total.Clamp01();
@@ -291,7 +293,9 @@ namespace TC2.Base.Components
 						}
 #endif
 
-						if (region.TryLinecastAll(pos_a, pos_b, radius, ref results, mask: Physics.Layer.Essence | Physics.Layer.Destructible | Physics.Layer.World, exclude: Physics.Layer.Tree | Physics.Layer.Building | Physics.Layer.Ignore_Bullet | Physics.Layer.Ignore_Melee))
+						if (region.TryLinecastAll(pos_a, pos_b, radius, ref results, 
+						mask: Physics.Layer.Essence | Physics.Layer.Destructible | Physics.Layer.World, 
+						exclude: Physics.Layer.Tree | Physics.Layer.Building | Physics.Layer.Ignore_Bullet | Physics.Layer.Ignore_Melee))
 						{
 							results.SortByDistance();
 
@@ -499,7 +503,7 @@ namespace TC2.Base.Components
 					var modifier = Maths.Clamp(force_len * 0.05f, 0.30f, 1.00f);
 					var modifier2 = Maths.Clamp(force_len * 0.05f, 0.10f, 1.00f);
 
-					var noise_x = MathF.CopySign(random.NextFloatRange(1.50f, 3), random.NextFloat());
+					var noise_x = Maths.WithSign(random.NextFloatRange(1.50f, 3), random.NextFloat());
 					var noise_y = random.NextFloatRange(0.10f, 2) * modifier * 2;
 					var noise_intensity = random.NextFloatRange(0.10f, 1.00f);
 
