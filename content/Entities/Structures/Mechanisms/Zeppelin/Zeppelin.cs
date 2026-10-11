@@ -107,6 +107,8 @@
 				Skyhook_Pos,
 
 				Move,
+
+				Control
 			}
 
 			public ActionRPC.Type type;
@@ -131,8 +133,17 @@
 						if (data.pos_airstrike.TrySet(this.pos_target).RelayTo(ref sync))
 						{
 							data.t_airstrike_start = region_common.GetWorldTime() + 2.00f;
-							data.t_airstrike_end = data.t_airstrike_start + 1.50f;
+							data.t_airstrike_end = data.t_airstrike_start + 0.40f;
 						}
+					}
+					break;
+
+					case Type.Skyhook_Deploy:
+					{
+						data.ent_target_cargo = default;
+						data.pos_skyhook_target = default;
+						data.flags.AddFlag(Flags.Skyhook_Deployed);
+						sync = true;
 					}
 					break;
 
@@ -172,11 +183,18 @@
 					{
 						if (data.pos_move.TrySet(this.pos_target))
 						{
-							data.flags.RemoveFlag(Flags.Skyhook_Deployed | Flags.Docked);
+							data.flags.RemoveFlag(Flags.Docked | Flags.Landing);
 							data.ent_target_dock = default;
 							data.ent_target_cargo = default;
 							sync = true;
 						}
+					}
+					break;
+
+					case Type.Control:
+					{
+						data.flags.ToggleFlag(Flags.Control_Auto);
+						sync = true;
 					}
 					break;
 				}
@@ -211,8 +229,8 @@
 				//var pos_move = new Vec2f(pos_dock.X, -data.unused_00);
 				var pos_move = pos_dock.SubY(data.offset_bottom.y + 12);
 
-				region_common.DrawDebugLine(pos_air, pos_dock, color: Color32BGRA.Green, thickness: 4);
-				region_common.DrawDebugLine(transform.position, pos_dock, color: Color32BGRA.Green, thickness: 4);
+				//region_common.DrawDebugLine(pos_air, pos_dock, color: Color32BGRA.Green, thickness: 4);
+				//region_common.DrawDebugLine(transform.position, pos_dock, color: Color32BGRA.Green, thickness: 4);
 
 				data.pos_aim = pos_dock;
 				data.pos_move = pos_move;
@@ -532,12 +550,13 @@
 
 				var pos_target = zeppelin.pos_skyhook_target;
 				if (!pos_target) pos_target = zeppelin.ent_target_cargo.GetPosition();
+				if (!pos_target) pos_target = zeppelin.ent_target_dock.GetPosition();
 				
 				if (pos_target)
 				{
 					//zeppelin.pos_skyhook_target = pos_target;
 
-					var delta = pos_target - transform_zeppelin.LocalToWorld(zeppelin.offset_bay); //.AddY(-4);
+					var delta = pos_target - transform_zeppelin.LocalToWorld(zeppelin.offset_bay).AddY(0.25f);
 					skyhook.length_target = Maths.Clamp(delta.y - 2.50f, 1.00f, skyhook.length_max);
 				}
 

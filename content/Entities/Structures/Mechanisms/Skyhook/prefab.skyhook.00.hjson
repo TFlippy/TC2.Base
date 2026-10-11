@@ -1,6 +1,8 @@
 $name: "Skyhook"
-$desc: "TODO: Desc"
-
+$desc:
+	'''
+	TODO: Desc
+	'''
 $tags: []
 
 body:
@@ -88,7 +90,7 @@ storage:
 
 skyhook:
 {
-	speed: 3.000
+	speed: 4.000
 	length_max: 80.000
 	length_current: 8.000			
 	length_target: 8.000

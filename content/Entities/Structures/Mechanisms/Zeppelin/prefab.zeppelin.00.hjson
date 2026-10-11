@@ -1,5 +1,8 @@
 $name: "Zeppelin"
-$desc: "TODO: Desc"
+$desc:
+	'''
+	TODO: Desc
+	'''
 $tags: []
 
 body:
@@ -203,6 +206,13 @@ address:
 // 	}
 // }
 
+threat:
+{
+	self_hints: can_attack_ranged, can_fly, has_armor, has_weapon, is_armored, is_dangerous, is_vehicle, is_loud, is_scary, has_ammo, is_immune_melee
+	flags: no_melee
+	priority: 1.000
+}
+
 zeppelin:
 {
 	unused_00: 2.000
@@ -218,9 +228,9 @@ zeppelin:
 	offset_cabin: [61.000, 18.750]
 	offset_tail: [-84.125, -4.375]
 	
-	speed_skyhook_crane: 3.000
+	speed_skyhook_crane: 4.000
 	offset_skyhook_crane_a: [-12.000, 16.000]
-	offset_skyhook_crane_b: [12.000, 16.000]
+	offset_skyhook_crane_b: [18.000, 16.000]
 
 	
 
@@ -292,10 +302,10 @@ zeppelin:
 			count: 18
 			size: [64, 16]
 		}
-		offset: [17.000, 21.125]
+		offset: [22.625, 21.125]
 		scale: [1.250, 1.500]
 		rotation: -1.570
-		z: 1000.000
+		z: 100.000
 		color: "0xff909090"
 	}
 }
@@ -737,7 +747,7 @@ levitator.state:
 {
 	joint.base:
 	{
-		offset_a: [-11.250, 19.625]
+		offset_a: [-14.000, 20.000]
 		z: 75.000
 		rotation_origin: 0.000
 		rotation_offset: 0.000
