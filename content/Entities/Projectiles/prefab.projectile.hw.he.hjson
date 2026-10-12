@@ -2,8 +2,8 @@ $tags: []
 
 projectile:
 {
-	damage_base: 750.000
-	damage_bonus: 1000.000
+	damage_base: 2750.000
+	damage_bonus: 1500.000
 	damage_type: bullet_hw
 	flags: no_miss
 	hit_exclude: tree
