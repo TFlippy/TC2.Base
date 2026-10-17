@@ -159,12 +159,12 @@ claimer:
 		{
 			group_size: 2
 			group_size_extra: 3
-			max_count: 8
+			max_count: 10
 			ai_stance: aggressive
 			ai_type: attack
-			interval: 160.000
-			interval_extra: 300.000
-			interval_count_modifier: 30.000
+			interval: 100.000
+			interval_extra: 200.000
+			interval_count_modifier: 25.000
 		}
 
 		dormitory:

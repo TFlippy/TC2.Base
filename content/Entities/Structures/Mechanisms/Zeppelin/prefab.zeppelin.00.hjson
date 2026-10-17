@@ -37,7 +37,7 @@ body:
 			[74.500, -2.125]
 			[74.500, 3.375]
 			[65.375, 7.125]
-			[-17.875, 8.625]
+			[-18.000, 6.500]
 			[-60.750, 3.875]
 		]
 	}
@@ -129,7 +129,7 @@ nameable:
 
 faction:
 {
-	id: krumpelstejn
+	flags: use_asset
 }
 
 company:
@@ -153,21 +153,31 @@ company:
 	// }
 }
 
-lamp:
-{
-	flicker: 0.000
-	blink_frequency: 1.000
-	blink_amplitude: 0.500
+// lamp:
+// {
+// 	flicker: 0.015
+// 	blink_frequeflags: use_assetncy: 0.600
+// 	blink_amplitude: 0.030
 	
-	@light:
-	{
-		color: [1.000, 0.400, 0.000, 2.000]
-		offset: [-11.625, 19.500]
-		scale: [64.000, 64.000]
-		intensity: 0.500031
-		texture: light.circle.04
-	}
-}
+// 	@light:
+// 	{
+// 		color: [0.955, 0.995, 0.936, 2.000]
+// 		offset: [18.875, 29.000]
+// 		scale: [78.000, 67.000]
+// 		intensity: 1.000
+// 		texture: light.cone.00
+// 		rotation: -2.700
+// 	}
+
+// 	// @light:
+// 	// {
+// 	// 	color: [1.000, 0.400, 0.000, 2.000]
+// 	// 	offset: [-11.625, 19.500]
+// 	// 	scale: [64.000, 64.000]
+// 	// 	intensity: 0.500031
+// 	// 	texture: light.circle.04
+// 	// }
+// }
 
 stockpile:
 {
@@ -207,12 +217,12 @@ address:
 // 	}
 // }
 
-threat:
-{
-	self_hints: can_attack_ranged, can_fly, has_armor, has_weapon, is_armored, is_dangerous, is_vehicle, is_loud, is_scary, has_ammo, is_immune_melee
-	flags: no_melee
-	priority: 1.000
-}
+// threat:
+// {
+// 	self_hints: can_attack_ranged, can_fly, has_armor, has_weapon, is_armored, is_dangerous, is_vehicle, is_loud, is_scary, has_ammo, is_immune_melee
+// 	flags: no_melee
+// 	priority: 1.000
+// }
 
 zeppelin:
 {
@@ -256,7 +266,7 @@ zeppelin:
 		file: propeller.loop.02
 		volume: 1.000
 		pitch: 0.400
-		offset: [17.625, 21.125]
+		offset: [23.500, 21.125]
 		size: 20.000
 		size_max_modifier: 2.000
 		spread: 100.000
@@ -472,14 +482,14 @@ essence.container:
 		priority: 0.900
 	}
 
-	@light:
-	{
-		offset: [0.000, -0.500]
-		scale: [10.000, 5.000]
-		intensity: 1.000
-		texture: light.circle.04
-		rotation: 0.000
-	}
+	// @light:
+	// {
+	// 	offset: [0.000, -0.500]
+	// 	scale: [10.000, 5.000]
+	// 	intensity: 1.000
+	// 	texture: light.circle.04
+	// 	rotation: 0.000
+	// }
 }
 
 levitator:
@@ -532,8 +542,11 @@ levitator.state:
 	seat:
 	{
 		offset: [39.000, 19.375]
-		flags: open
-		max_tilt: 2.500
+		flags: crouch, covered, airtight, insulated, open, enclosed, windowed, armored, waterproof, fireproof, sealed, padded, has_seatbelt
+		max_tilt: 3.000
+		damage_mult: 0.000
+		stun_mult: 0.000
+		coverage: 1.000
 	}
 }
 
@@ -728,7 +741,7 @@ levitator.state:
 	attachment.slot:
 	{
 		name: "Mount (Front)"
-		identifier: "front"
+		identifier: "front.00"
 
 		flags: keyboard_write, mouse_write
 		flags_editable: locked, disabled, hold, invert, cycle, keyboard_read, mouse_read, keyboard_write, mouse_write, offset, rotation, brake

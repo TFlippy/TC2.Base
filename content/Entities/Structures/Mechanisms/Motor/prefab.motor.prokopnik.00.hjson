@@ -33,7 +33,7 @@ body:
 
 health:
 {
-	max: 45000.000
+	max: 39000.000
 }
 
 armor:

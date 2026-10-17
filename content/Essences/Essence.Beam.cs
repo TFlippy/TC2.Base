@@ -13,7 +13,7 @@ namespace TC2.Base.Components
 
 			}
 
-			[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Global | IComponent.Scope.Region)]
+			[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region)]
 			public partial struct Data: IComponent
 			{
 				public IEssence.Handle h_essence;

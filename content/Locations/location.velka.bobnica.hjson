@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.75.0"
+	$version: "0.1.75.4"
 	name: "Velka Bobnica"
 	name_short: "V.Bobnica"
 	
@@ -14,9 +14,13 @@
 	flags: spawn
 	
 	categories: industrial, wilderness, commercial, residential, urban, administrative, governmental, financial, magitech, frontier, wealthy, advanced, secure, fortified, innovative, mercantile, coastal, powerful, modern, polluted, mechanized, authoritarian, regulated
-	buildings: warehouse, factory, office, bunker, hotel, hospital, airport, trainyard, minefield, artillery, power_plant, docks, skyscraper, tower, lighthouse, walls, prison, labor_camp, theatre, constabulary, foundry, manufactory, refinery, checkpoint, customs, slum, laboratory, university, school, bar, apartments, lumber_mill, barracks, train_station, farm, exchange, arsenal, scrapyard, landfill, black_market, brewery, metalworks, phlogiston, zoo, circus, market, fuel_depot, bank, brickworks, steel_mill, transmitter, glassworks
-	geography: none
-	crime: none
+	buildings: warehouse, factory, office, bunker, hotel, hospital, airport, trainyard, minefield, artillery, power_plant, docks, skyscraper, tower, lighthouse, walls, prison, labor_camp, theatre, constabulary, foundry, manufactory, refinery, borehole, checkpoint, customs, slum, laboratory, university, school, bar, apartments, lumber_mill, barracks, train_station, farm, exchange, arsenal, scrapyard, landfill, black_market, brewery, metalworks, phlogiston, zoo, circus, market, fuel_depot, bank, essenceworks, brickworks, steel_mill, transmitter, glassworks
+	geography: hills, lakes, excavated, damp, swamps, coastal, warm, urban, sea
+	crime: embezzlement, prostitution, bribery, corruption, arson, tax_evasion, jaywalking, dissent, insubordination, tomfoolery
+	
+	industry_primary: manufacturing, power, engineering
+	
+	goods_produced: refined, artificial, arcane, technology, fuel, energy
 	
 	h_prefecture: brod
 	h_faction: energon

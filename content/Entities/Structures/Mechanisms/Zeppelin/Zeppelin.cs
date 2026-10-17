@@ -132,8 +132,8 @@
 						sync |= data.flags.TryAddFlag(Flags.Airstrike_Pending);
 						if (data.pos_airstrike.TrySet(this.pos_target).RelayTo(ref sync))
 						{
-							data.t_airstrike_start = region_common.GetWorldTime() + 2.00f;
-							data.t_airstrike_end = data.t_airstrike_start + 0.40f;
+							data.t_airstrike_start = region_common.GetWorldTime() + 3.00f;
+							data.t_airstrike_end = data.t_airstrike_start + 0.50f;
 						}
 					}
 					break;

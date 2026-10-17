@@ -36,7 +36,7 @@ animated.renderer:
 	{
 		texture: "billboard.06"
 	}
-	z: -150.000
+	z: -200.000
 }
 
 transform:

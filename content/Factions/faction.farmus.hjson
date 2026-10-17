@@ -1,0 +1,18 @@
+﻿{
+	$version: "0.1.75.4"
+	tag: "FRM"
+	tag_formatted: "-FRM-"
+	name: "Farmus"
+	
+	color_a: "0xff7eae00"
+	color_b: "0xff343d07"
+	
+	kind: fellowship
+	flags: npc, no_player_squads, coalition
+	h_company: farmus
+	
+	players:
+	{
+	
+	}
+}
