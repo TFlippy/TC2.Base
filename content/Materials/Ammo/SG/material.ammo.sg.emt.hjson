@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.75.2"
+	$version: "0.1.75.4"
 	name: "SG-20.4mm/EMT Slug"
 	name_short: "SG-20.4mm/EMT"
 	description:
@@ -84,7 +84,7 @@
 		failure_base: 0.000
 		failure_mult: 0.690
 		
-		stability_base: 750.000
+		stability_base: 350.000
 		stability_mult: 1.000
 		
 		prefab: projectile.sg.emt

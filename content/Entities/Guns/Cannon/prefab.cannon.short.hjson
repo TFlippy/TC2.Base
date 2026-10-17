@@ -163,17 +163,19 @@ transform:
 
 heat:
 {
-	heat_medium: 350.000
-	heat_high: 500.000
-	heat_critical: 750.000
-	cool_rate: 1.000
+	temperature_medium: 750.000
+	temperature_high: 1200.000
+	temperature_operating: 1450.000
+	temperature_breakdown: 1800.000
+	cool_rate: 20.200
+	heat_capacity_extra: 50.000
 	
 	@light:
 	{
-		color: [1.000, 0.400, 0.100, 2.000]
+		color: [0.000, 0.000, 0.000, 0.000]
 		offset: [1.000, 0.125]
 		scale: [16.000, 4.000]
-		intensity: 0.000
+		intensity: 2.000
 		texture: "light.circle.00"
 	}
 	

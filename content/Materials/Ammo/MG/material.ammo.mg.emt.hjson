@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.74.0"
+	$version: "0.1.75.4"
 	name: "MG-20.4mm/EMT Ammo"
 	name_short: "MG-20.4mm/EMT"
 	description:
@@ -84,7 +84,7 @@
 		failure_base: 0.008
 		failure_mult: 1.680
 		
-		stability_base: 2950.000
+		stability_base: 1450.000
 		stability_mult: 0.740
 		
 		prefab: projectile.mg.emt
