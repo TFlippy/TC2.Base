@@ -1,6 +1,10 @@
 ﻿{
-	$version: "0.1.72.1"
-	$note: "- Obtained through the ancient phlogiston pipelines"
+	$version: "0.1.75.4"
+	$note:
+		'''
+		- Obtained through the ancient phlogiston pipelines
+		- Possibly some sort of metastable helium dication dimer slurry, e.g. captured within fullerene cages produced by a bio-engineered organism 
+		'''
 	name: "Phlogiston"
 	name_short: "Phlogiston"
 	name_imperial: "Plogiston"

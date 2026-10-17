@@ -125,16 +125,16 @@ explosive:
 	damage_terrain: 5000.000
 	smoke_amount: 0.480
 	smoke_lifetime_multiplier: 0.250
-	smoke_velocity_multiplier: 1.400
-	flash_duration_multiplier: 4.250
-	flash_intensity_multiplier: 0.100
-	shake_multiplier: 0.000
-	force_multiplier: 0.100
+	smoke_velocity_multiplier: 4.400
+	flash_duration_multiplier: 0.250
+	flash_intensity_multiplier: 1.100
+	shake_multiplier: 0.800
+	force_multiplier: 0.200
 	stun_multiplier: 0.100
 	fire_amount: 0.000
 	sparks_amount: 0.100
-	smoke_color: "0xaad8d8d8"
-	volume: 0.100
+	smoke_color: "0xaaffffff"
+	volume: 0.900
 	pitch: 0.940
 	flags: primed
 }
@@ -150,15 +150,15 @@ fire:
 	damage_type_contact: phlogiston
 	damage_type_convection: phlogiston
 	smoke_color: "0xaaffffff"
-	temperature: 3000.000
-	color_tint: [0.883, 0.558, 0.139, 0.971]
-	glow_mult: 0.0050
+	temperature: 3500.000
+	color_tint: [2.900, 1.300, 1.400, 2.000]
+	glow_mult: 0.0090
 
 	@light:
 	{
-		color: [1.000, 0.500, 0.200, 1.000]
+		color: [2.900, 1.300, 1.400, 2.000]
 		offset: [0.000, 0.000]
-		scale: [4.000, 4.000]
+		scale: [32.000, 32.000]
 		intensity: 1.000
 		texture: light.circle.03
 		size_modifier: 1.100

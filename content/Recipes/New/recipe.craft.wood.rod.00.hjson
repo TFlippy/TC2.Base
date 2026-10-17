@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.1"
+	$version: "0.1.76.0"
 	name: "Wooden Bars"
 	desc:
 		'''
@@ -216,7 +216,7 @@
 	{
 		texture: resource.wood.rod
 		size: [16, 16]
-		frame: [2, 0]
+		frame: [3, 0]
 	}
 	icon_offset: [0.000, -2.000]
 	
