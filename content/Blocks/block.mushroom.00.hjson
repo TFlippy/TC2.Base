@@ -1,0 +1,51 @@
+﻿{
+	$version: "0.1.76.0"
+	name: "Mushroom Wall"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	
+	material_type: mushroom
+	tile_flags: non_empty
+	flags: organic, construction
+	
+	max_health: 9500.000
+	smoothing: 0.150
+	stability: 0.500
+	
+	mass: 0.600
+	friction: 0.950
+	elasticity: 0.760
+	fall_damage_mult: 0.580
+	collision_layer: none
+	collision_mask: none
+	
+	texture: terrain.mushroom.00
+	pattern: pattern.mushroom.00
+	texture_scale: 1.380
+	texture_overshoot: -0.450
+	texture_offset: -0.165
+	
+	color_preview: "0x00000000"
+	color_fill: "0xff140e08"
+	
+	resources:
+	[
+		{
+			material: mushroom
+			quantity: 0.100
+		}
+		null
+		null
+		null
+	]
+	
+	mappings:
+	[
+		{
+			color: "0xffcfcca8"
+			tile_flags: solid
+		}
+	]
+}
