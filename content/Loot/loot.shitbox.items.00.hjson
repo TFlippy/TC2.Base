@@ -1,11 +1,10 @@
 ﻿{
-	$region_id: 0
 	$version: "0.1.76.0"
 	nodes:
 	[
 		{
-			rarity: 3.600
-			weight: 8.000
+			rarity: 3.420
+			weight: 6.800
 			
 			flags: has_prefabs
 			chance: 1.000
@@ -23,8 +22,8 @@
 			]
 		}
 		{
-			rarity: 3.600
-			weight: 8.000
+			rarity: 4.140
+			weight: 6.200
 			
 			flags: has_prefabs
 			chance: 1.000
@@ -42,8 +41,8 @@
 			]
 		}
 		{
-			rarity: 3.600
-			weight: 8.000
+			rarity: 5.080
+			weight: 6.100
 			
 			flags: has_prefabs
 			chance: 1.000
@@ -61,8 +60,8 @@
 			]
 		}
 		{
-			rarity: 3.600
-			weight: 8.000
+			rarity: 4.890
+			weight: 4.200
 			
 			flags: has_prefabs
 			chance: 1.000
@@ -81,8 +80,8 @@
 			]
 		}
 		{
-			rarity: 3.600
-			weight: 8.000
+			rarity: 3.690
+			weight: 8.500
 			
 			flags: has_prefabs
 			chance: 1.000
@@ -99,8 +98,8 @@
 			]
 		}
 		{
-			rarity: 3.600
-			weight: 8.000
+			rarity: 3.230
+			weight: 8.700
 			
 			flags: has_prefabs
 			chance: 1.000
@@ -117,8 +116,8 @@
 			]
 		}
 		{
-			rarity: 3.600
-			weight: 8.000
+			rarity: 4.800
+			weight: 3.300
 			
 			flags: has_prefabs
 			chance: 1.000
@@ -136,8 +135,8 @@
 			]
 		}
 		{
-			rarity: 3.600
-			weight: 8.000
+			rarity: 3.930
+			weight: 4.800
 			
 			flags: has_prefabs
 			chance: 1.000
@@ -156,7 +155,7 @@
 		}
 		{
 			rarity: 3.600
-			weight: 8.000
+			weight: 5.000
 			
 			flags: has_prefabs
 			chance: 1.000
@@ -173,8 +172,8 @@
 			]
 		}
 		{
-			rarity: 3.600
-			weight: 8.000
+			rarity: 2.950
+			weight: 7.800
 			
 			flags: has_prefabs
 			chance: 1.000

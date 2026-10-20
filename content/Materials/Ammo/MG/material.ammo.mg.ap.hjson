@@ -70,7 +70,7 @@
 	{
 		count: 1
 		mass: 0.130
-		heat: 130.000
+		heat: 230.000
 		velocity_min: 50.000
 		
 		speed_base: 0.200
@@ -79,12 +79,12 @@
 		spin_base: 0.000
 		spin_mult: 1.000
 		spread_mult: 1.450
-		recoil_mult: 1.100
+		recoil_mult: 1.000
 		
 		failure_base: 0.0011
 		failure_mult: 1.064
 		
-		stability_base: 2950.000
+		stability_base: 3250.000
 		stability_mult: 1.000
 		
 		prefab: projectile.mg.ap
