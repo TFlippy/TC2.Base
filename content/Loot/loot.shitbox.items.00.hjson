@@ -1,0 +1,474 @@
+﻿{
+	$region_id: 0
+	$version: "0.1.76.0"
+	nodes:
+	[
+		{
+			rarity: 3.600
+			weight: 8.000
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: bazooka
+					amount: 1.000
+					amount_extra: 1.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.600
+			weight: 8.000
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: wreck.car
+					amount: 1.000
+					snapping: 1.000
+					group: 0
+					flags: no_scaling
+				}
+			]
+		}
+		{
+			rarity: 3.600
+			weight: 8.000
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: zapper.01
+					amount: 1.000
+					snapping: 1.000
+					group: 0
+					flags: no_scaling
+				}
+			]
+		}
+		{
+			rarity: 3.600
+			weight: 8.000
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: heater.arc.00
+					amount: 1.000
+					amount_extra: 1.000
+					snapping: 1.000
+					group: 0
+					flags: no_scaling
+				}
+			]
+		}
+		{
+			rarity: 3.600
+			weight: 8.000
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: phone.00
+					amount: 1.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.600
+			weight: 8.000
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: shackles.00
+					amount: 1.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.600
+			weight: 8.000
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: cabin.metal.04
+					amount: 1.000
+					snapping: 1.000
+					group: 0
+					flags: no_scaling
+				}
+			]
+		}
+		{
+			rarity: 3.600
+			weight: 8.000
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: cabin.metal.01
+					amount: 1.000
+					snapping: 1.000
+					group: 0
+					flags: no_scaling
+				}
+			]
+		}
+		{
+			rarity: 3.600
+			weight: 8.000
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: crucible.small.00
+					amount: 1.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.600
+			weight: 8.000
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: shield.heavy
+					amount: 1.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.600
+			weight: 8.000
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: motor.prokopnik.00
+					amount: 1.000
+					snapping: 1.000
+					group: 0
+					flags: no_scaling
+				}
+			]
+		}
+		{
+			rarity: 3.600
+			weight: 8.000
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: computer.00
+					amount: 1.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.600
+			weight: 8.000
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: cannon.wreck
+					amount: 1.000
+					snapping: 1.000
+					group: 0
+					flags: no_scaling
+				}
+			]
+		}
+		{
+			rarity: 3.600
+			weight: 8.000
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: breechloader.long
+					amount: 1.000
+					amount_extra: 1.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.600
+			weight: 8.000
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: breechloader.heavy
+					amount: 1.000
+					amount_extra: 1.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.600
+			weight: 8.000
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: cabin.metal.02
+					amount: 1.000
+					snapping: 1.000
+					group: 0
+					flags: no_scaling
+				}
+			]
+		}
+		{
+			rarity: 3.600
+			weight: 8.000
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: motor.servus.00
+					amount: 1.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.600
+			weight: 8.000
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: mrl
+					amount: 1.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.170
+			weight: 7.700
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: detonator.00
+					amount: 1.000
+					amount_extra: 1.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 3.830
+			weight: 5.600
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: safe.small
+					amount: 1.000
+					snapping: 1.000
+					group: 0
+					flags: no_scaling
+				}
+			]
+		}
+		{
+			rarity: 4.950
+			weight: 5.500
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: vacuum_cleaner
+					amount: 1.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 5.980
+			weight: 3.200
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: rivet_gun.00
+					amount: 1.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 4.780
+			weight: 2.000
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: welder.00
+					amount: 1.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 4.200
+			weight: 1.900
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: gyrochronatom.00
+					amount: 1.000
+					snapping: 1.000
+					group: 0
+				}
+			]
+		}
+		{
+			rarity: 7.190
+			weight: 1.200
+			
+			flags: has_prefabs
+			chance: 1.000
+			
+			products:
+			[
+				{
+					type: prefab
+					prefab: levitator.00
+					amount: 1.000
+					snapping: 1.000
+					group: 0
+					flags: no_scaling
+				}
+			]
+		}
+	]
+	
+	includes: []
+}
