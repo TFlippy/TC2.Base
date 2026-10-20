@@ -15,9 +15,9 @@
 	stability: 0.500
 	
 	mass: 0.600
-	friction: 0.950
+	friction: 0.914
 	elasticity: 0.760
-	fall_damage_mult: 0.580
+	fall_damage_mult: 0.540
 	collision_layer: none
 	collision_mask: none
 	
@@ -34,7 +34,7 @@
 	[
 		{
 			material: mushroom
-			quantity: 0.100
+			quantity: 0.240
 		}
 		null
 		null
@@ -45,7 +45,7 @@
 	[
 		{
 			color: "0xffcfcca8"
-			tile_flags: solid
+			tile_flags: solid, non_empty, become_background_on_break
 		}
 	]
 }

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.1"
+	$version: "0.1.76.0"
 	name: "Cement Mortar"
 	desc:
 		'''
@@ -109,7 +109,7 @@
 					name: "Wastewater"
 					
 					type: undefined
-					flags: disabled
+					flags: none
 					
 					requirements:
 					[
@@ -118,91 +118,47 @@
 							material: water.dirty
 							amount: 0.500
 							snapping: 0.100
+							loss: 0.859
 							group: 0
 							flags: prerequisite
 						}
 					]
 				}
 				{
-					name: "Wastewater"
+					name: "Blackwater"
 					
 					type: undefined
-					flags: disabled
+					flags: none
 					
 					requirements:
 					[
 						{
-							type: prefab
-							prefab: water.dirty
-							amount: 1.000
-							group: 0
-							flags: no_consume, no_scaling, prerequisite
-						}
-						{
-							type: work
-							work: draining
-							amount: 20.000
-							amount_min: 30.000
-							difficulty: 5
-							snapping: 5.000
-							falloff: 0.865
-							group: 0
-							flags: conditional
-						}
-					]
-					
-					filter_tools:
-					{
-						include: bucket
-					}
-				}
-				{
-					name: "Freshwater"
-					
-					type: undefined
-					flags: disabled
-					
-					requirements:
-					[
-						{
-							type: prefab
-							prefab: water
-							amount: 1.000
-							group: 0
-							flags: no_consume, no_scaling, prerequisite
-						}
-						{
-							type: work
-							work: draining
-							amount: 30.000
-							amount_min: 20.000
-							difficulty: 4
-							snapping: 5.000
-							falloff: 0.825
-							group: 0
-							flags: conditional
-						}
-					]
-					
-					filter_tools:
-					{
-						include: bucket
-					}
-				}
-				{
-					name: "Freshwater2"
-					
-					type: undefined
-					flags: disabled
-					
-					requirements:
-					[
-						{
-							type: substance
-							h_substance: water
+							type: resource
+							material: water.swamp
 							amount: 0.500
+							snapping: 0.100
+							loss: 0.859
 							group: 0
-							flags: no_residue, filler, prerequisite
+							flags: prerequisite
+						}
+					]
+				}
+				{
+					name: "Toxwater"
+					
+					type: undefined
+					flags: none
+					
+					requirements:
+					[
+						{
+							type: resource
+							material: water.toxic
+							amount: 0.500
+							snapping: 0.100
+							loss: 0.859
+							group: 0
+							flags: prerequisite
 						}
 					]
 				}

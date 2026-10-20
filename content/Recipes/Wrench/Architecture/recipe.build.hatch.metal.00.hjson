@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.76.0"
 	name: "Hatch (Metal)"
 	desc:
 		'''
@@ -55,7 +55,8 @@
 	
 	icon:
 	{
-		texture: hatch.metal.icon
+		texture: hatch.metal
+		size: [20, 24]
 	}
 	
 	color_frame: "0xffaeb59a"

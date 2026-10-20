@@ -1,0 +1,79 @@
+﻿{
+	$region_id: 0
+	$version: "0.1.76.0"
+	name: "Mushroom"
+	desc:
+		'''
+		TODO: Desc
+		'''
+	tips: []
+	
+	requirements:
+	[
+		{
+			type: resource
+			material: mushroom
+			amount: 0.350
+			group: 0
+			flags: prerequisite
+		}
+	]
+	
+	products:
+	[
+		{
+			type: block
+			block: mushroom.00
+			tile_flags: solid, become_background_on_break
+			group: 0
+		}
+	]
+	
+	type: architecture
+	flags: none
+	tags: basic, simple, organic, agriculture
+	hints: none
+	connotations: none
+	infrastructure: none
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		texture: block_icons
+		size: [16, 16]
+		frame: [24, 0]
+	}
+	
+	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
+	rank: -97.000
+	
+	placement:
+	{
+		type: line
+		flags: continuous, no_snapping
+		
+		size: [0.750, 0.000]
+		snap: [0.125, 0.125]
+		
+		cooldown: 0.400
+		min_support: 0.030
+		min_claim: 1.000
+		
+		length_min: 0.125
+		length_max: 1.250
+		
+		sound: mushroom_hit_sharp_01
+		
+		snapping_flags: snap_to_surface, use_collider_radius, use_raw_collider, no_end_snap
+		snapping_radius: 0.250
+		snapping_depth: -0.250
+		
+		mappings_replace:
+		{
+		
+		}
+	}
+	
+	version: 1
+}
