@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.75.2"
+	$version: "0.1.76.0"
 	name: "SG-20.4mm Crapshot"
 	name_short: "SG-20.4mm/Crap"
 	description:
@@ -62,7 +62,7 @@
 		flags: none
 		categories: weapons, munitions, toys, manufactured
 		
-		market_price: 1.100
+		market_price: 1.000
 		market_price_per_kg_auto: 12.500
 	}
 	

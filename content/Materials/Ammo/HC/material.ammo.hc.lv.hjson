@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.75.2"
+	$version: "0.1.76.0"
 	name: "HC-13.2mm/LV Ammo"
 	name_short: "HC-13.2mm/LV"
 	description:
@@ -65,7 +65,7 @@
 		flags: none
 		categories: weapons, munitions, military, manufactured
 		
-		market_price: 4.500
+		market_price: 6.000
 		market_price_per_kg_auto: 118.4211
 	}
 	

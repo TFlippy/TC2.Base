@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.75.2"
+	$version: "0.1.76.0"
 	name: "AC-33.6mm/HV Ammo"
 	name_short: "AC-33.6mm/HV"
 	description:
@@ -62,8 +62,8 @@
 		flags: none
 		categories: weapons, munitions, military, manufactured
 		
-		market_price: 51.000
-		market_price_per_kg_auto: 53.68421
+		market_price: 90.000
+		market_price_per_kg_auto: 115.7895
 	}
 	
 	ammo:

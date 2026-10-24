@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.75.2"
+	$version: "0.1.76.0"
 	name: "HC-13.2mm/AP Ammo"
 	name_short: "HC-13.2mm/AP"
 	description:
@@ -62,8 +62,8 @@
 		flags: none
 		categories: weapons, munitions, military, manufactured, smirglum
 		
-		market_price: 9.000
-		market_price_per_kg_auto: 155.1724
+		market_price: 13.000
+		market_price_per_kg_auto: 206.8966
 	}
 	
 	ammo:

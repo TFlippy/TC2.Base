@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.75.2"
+	$version: "0.1.76.0"
 	name: "SG-20.4mm/BT Slug"
 	name_short: "SG-20.4mm/BT"
 	description:
@@ -62,7 +62,7 @@
 		flags: none
 		categories: weapons, munitions, toys, manufactured
 		
-		market_price: 7.000
+		market_price: 9.000
 		market_price_per_kg_auto: 73.68421
 	}
 	

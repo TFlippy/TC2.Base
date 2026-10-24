@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.75.4"
+	$version: "0.1.76.0"
 	name: "SG-20.4mm/EMT Slug"
 	name_short: "SG-20.4mm/EMT"
 	description:
@@ -62,7 +62,7 @@
 		flags: none
 		categories: weapons, explosives, munitions, dangerous, military, manufactured
 		
-		market_price: 65.000
+		market_price: 84.000
 		market_price_per_kg_auto: 464.2857
 	}
 	
