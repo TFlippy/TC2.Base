@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.73.1"
+	$version: "0.1.76.0"
 	name: "Copper Bar"
 	name_short: "Cop.Bar"
 	name_imperial: "Kuprtyc"
@@ -118,8 +118,8 @@
 		flags: none
 		categories: metals, construction_materials
 		
-		market_price: 240.000
-		market_price_per_kg_auto: 35.81158
+		market_price: 112.100
+		market_price_per_kg_auto: 16.72699
 	}
 	
 	// Damage-based conversions.

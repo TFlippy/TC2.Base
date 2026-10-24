@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.73.1"
+	$version: "0.1.76.0"
 	$note:
 		'''
 		- Technically, it's more of a copper alloy, rather than pure copper
@@ -169,8 +169,8 @@
 		flags: none
 		categories: metals, refined, construction_materials, industrial
 		
-		market_price: 350.000
-		market_price_per_kg_auto: 25.94757
+		market_price: 158.500
+		market_price_per_kg_auto: 11.75054
 	}
 	
 	// Damage-based conversions.

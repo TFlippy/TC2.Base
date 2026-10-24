@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.73.1"
+	$version: "0.1.76.0"
 	name: "Steel Chunk"
 	name_short: "St.Chunk"
 	name_imperial: "Styl"
@@ -114,8 +114,8 @@
 		flags: none
 		categories: metals
 		
-		market_price: 36.520
-		market_price_per_kg_auto: 3.128252
+		market_price: 55.02228
+		market_price_per_kg_auto: 4.713132
 	}
 	
 	// Damage-based conversions.

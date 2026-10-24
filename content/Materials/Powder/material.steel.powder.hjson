@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.74.0"
+	$version: "0.1.76.0"
 	name: "Steel Powder"
 	name_short: "St.Powder"
 	name_imperial: "Stylpudr"
@@ -60,8 +60,8 @@
 		flags: none
 		categories: metals
 		
-		market_price: 1.450
-		market_price_per_kg_auto: 2.441028
+		market_price: 1.6878
+		market_price_per_kg_auto: 2.841357
 	}
 	
 	// Damage-based conversions.

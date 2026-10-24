@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.73.1"
+	$version: "0.1.76.0"
 	name: "Copper Chunk"
 	name_short: "Cop.Chunk"
 	name_imperial: "Kupr"
@@ -113,8 +113,8 @@
 		flags: none
 		categories: metals
 		
-		market_price: 223.685
-		market_price_per_kg_auto: 17.88609
+		market_price: 122.000
+		market_price_per_kg_auto: 9.755247
 	}
 	
 	// Damage-based conversions.

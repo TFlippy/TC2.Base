@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.74.0"
+	$version: "0.1.76.0"
 	name: "Steel Frames"
 	name_short: "St.Frames"
 	name_imperial: "Stylfram"
@@ -56,8 +56,8 @@
 		flags: none
 		categories: metals, construction_materials
 		
-		market_price: 16.500
-		market_price_per_kg_auto: 6.600
+		market_price: 24.832
+		market_price_per_kg_auto: 9.9328
 	}
 	
 	// Damage-based conversions.

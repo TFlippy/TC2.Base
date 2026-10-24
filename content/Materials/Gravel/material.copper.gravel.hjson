@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.73.1"
+	$version: "0.1.76.0"
 	name: "Copper Gravel"
 	name_short: "Cop.Gravel"
 	name_imperial: "Kuprsterk"
@@ -60,8 +60,8 @@
 		flags: none
 		categories: metals
 		
-		market_price: 9.000
-		market_price_per_kg_auto: 7.826087
+		market_price: 5.900
+		market_price_per_kg_auto: 5.130435
 	}
 	
 	// Damage-based conversions.

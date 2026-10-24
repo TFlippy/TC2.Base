@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.76.0"
 	name: "Copper Sheet"
 	name_short: "Cop.Sheet"
 	name_imperial: "Kuprplat"
@@ -116,8 +116,8 @@
 		flags: none
 		categories: metals, construction_materials
 		
-		market_price: 100.000
-		market_price_per_kg_auto: 37.20238
+		market_price: 51.400
+		market_price_per_kg_auto: 19.12202
 	}
 	
 	// Damage-based conversions.
