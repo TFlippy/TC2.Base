@@ -164,7 +164,7 @@
 						{
 							type: resource
 							material: saltpeter
-							amount: 1.257576
+							amount: 0.457576
 							snapping: 0.100
 							loss: 0.949
 							group: 0
@@ -173,7 +173,7 @@
 						{
 							type: resource
 							material: scrap.charred
-							amount: 2.136752
+							amount: 1.536752
 							snapping: 0.100
 							loss: 0.929
 							group: 0
@@ -182,24 +182,24 @@
 						{
 							type: work
 							work: crushing
-							amount: 220.000
-							amount_min: 120.000
+							amount: 178.000
+							amount_min: 80.000
 							difficulty: 5
 							step_max: 25
 							snapping: 5.000
-							falloff: 0.870
+							falloff: 0.810
 							group: 0
 							flags: conditional
 						}
 						{
 							type: work
 							work: sieving
-							amount: 100.000
+							amount: 90.000
 							amount_min: 65.000
 							difficulty: 4
 							step_max: 10
 							snapping: 5.000
-							falloff: 0.955
+							falloff: 0.845
 							group: 0
 							flags: conditional
 						}
@@ -216,7 +216,7 @@
 							type: work
 							work: mixing
 							amount: 300.000
-							amount_min: 220.000
+							amount_min: 90.000
 							difficulty: 5
 							step_max: 40
 							snapping: 5.000
@@ -235,7 +235,7 @@
 							amount_extra: 0.790
 							snapping: 0.010
 							group: 0
-							ratio: 0.259
+							ratio: 0.482
 							flags: primary, compact, scale_to_mass
 							spawn_flags: merge, pickup, show_notification, no_discard
 						}

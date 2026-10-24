@@ -415,10 +415,10 @@
 							type: work
 							work: pouring
 							amount: 18.000
-							amount_min: 220.000
+							amount_min: 80.000
 							difficulty: 6
 							snapping: 5.000
-							falloff: 0.691
+							falloff: 0.591
 							group: 0
 							flags: conditional
 						}
@@ -452,11 +452,11 @@
 						{
 							type: work
 							work: cramming.solid
-							amount: 3.000
+							amount: 5.000
 							amount_min: 60.000
 							difficulty: 7
 							snapping: 5.000
-							falloff: 1.002
+							falloff: 0.992
 							ratio: 1.000
 							group: 0
 							flags: conditional

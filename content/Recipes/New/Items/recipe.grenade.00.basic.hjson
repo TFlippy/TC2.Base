@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.1"
+	$version: "0.1.76.0"
 	name: "Grenade"
 	tips: []
 	
@@ -40,6 +40,7 @@
 							material: steel.plate
 							amount: 0.085562
 							snapping: 0.200
+							loss: 0.314
 							group: 0
 							flags: prerequisite
 						}
@@ -47,8 +48,11 @@
 							type: work
 							work: bending
 							amount: 85.000
+							amount_min: 30.000
 							difficulty: 14
 							snapping: 25.000
+							falloff: 0.896
+							ratio: 0.294
 							group: 0
 							flags: conditional
 						}
@@ -57,7 +61,7 @@
 							material: gunpowder
 							amount: 2.627614
 							snapping: 1.000
-							loss: 0.012
+							loss: 0.098
 							group: 1
 							flags: prerequisite
 						}
@@ -65,8 +69,10 @@
 							type: work
 							work: filling.powder
 							amount: 60.000
+							amount_min: 20.000
 							difficulty: 3
 							snapping: 25.000
+							falloff: 0.889
 							group: 1
 							flags: conditional
 						}
@@ -75,6 +81,7 @@
 							material: machine_parts
 							amount: 0.42781
 							snapping: 1.000
+							loss: 0.212
 							group: 2
 							flags: prerequisite
 						}
@@ -83,6 +90,7 @@
 							material: wood.rod
 							amount: 0.342248
 							snapping: 0.500
+							loss: 0.169
 							group: 2
 							flags: prerequisite
 						}
@@ -90,8 +98,11 @@
 							type: work
 							work: assembling
 							amount: 60.000
+							amount_min: 35.000
 							difficulty: 9
 							snapping: 25.000
+							falloff: 0.948
+							ratio: 0.639
 							group: 2
 							flags: conditional
 						}
