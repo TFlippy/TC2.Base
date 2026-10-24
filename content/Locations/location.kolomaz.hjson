@@ -1,4 +1,5 @@
 ﻿{
+	$prefab: "g.settlement.factory.00"
 	$version: "0.1.75.0"
 	name: "Kolomaz Komplex"
 	name_short: "Kolomaz Komplex"

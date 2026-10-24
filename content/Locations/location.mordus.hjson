@@ -1,5 +1,6 @@
 ﻿{
-	$version: "0.1.75.0"
+	$prefab: "g.settlement.prison.00"
+	$version: "0.1.76.0"
 	name: "Mordus"
 	name_short: "Mordus"
 	
@@ -8,7 +9,7 @@
 		Former industrial prison complex.
 		'''
 	
-	post_code: "MOR"
+	post_code: "MRD"
 	
 	type: prison
 	flags: restricted

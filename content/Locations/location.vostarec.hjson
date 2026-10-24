@@ -1,5 +1,6 @@
 ﻿{
-	$version: "0.1.75.0"
+	$prefab: "g.settlement.city.00"
+	$version: "0.1.76.0"
 	name: "Vostarec"
 	name_short: "Vostarec"
 	

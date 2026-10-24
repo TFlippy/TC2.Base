@@ -1,5 +1,6 @@
 ﻿{
-	$version: "0.1.75.0"
+	$prefab: "g.settlement.installation.00"
+	$version: "0.1.76.0"
 	name: "Pomsta Krtkova"
 	name_short: "Pomsta Krtkova"
 	
@@ -20,6 +21,7 @@
 	
 	h_prefecture: srn
 	h_faction: srn
+	h_company: srn
 	point: [34, -9]
 	
 	size: 0.720

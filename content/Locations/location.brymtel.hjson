@@ -1,5 +1,6 @@
 ﻿{
-	$version: "0.1.75.0"
+	$prefab: "g.settlement.city.00"
+	$version: "0.1.76.0"
 	name: "Brymtel"
 	name_short: "Brymtel"
 	
@@ -19,6 +20,8 @@
 	crime: none
 	
 	h_prefecture: somrwald
+	h_faction: farmus
+	h_company: farmus
 	point: [28, -11]
 	
 	size: 0.750

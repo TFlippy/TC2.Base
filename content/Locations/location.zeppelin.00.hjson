@@ -1,7 +1,7 @@
 ﻿{
 	$prefab: "g.zeppelin.00"
 	$prefab_region: "zeppelin.00"
-	$version: "0.1.72.1"
+	$version: "0.1.76.0"
 	name: "V2-Schneider Zeppelin"
 	name_short: "V2-Schneider"
 	
