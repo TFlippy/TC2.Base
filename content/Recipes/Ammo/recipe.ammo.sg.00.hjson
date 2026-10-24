@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.74.0"
+	$version: "0.1.76.0"
 	name: "Streamlined SG-20.4mm"
 	desc:
 		'''
@@ -59,8 +59,8 @@
 							type: resource
 							material: copper.plate
 							amount: 0.020126
-							snapping: 0.500
-							loss: 0.855
+							snapping: 0.100
+							loss: 0.255
 							ratio: 1.000
 							group: 0
 							flags: prerequisite
@@ -87,7 +87,7 @@
 							loss: 0.655
 							ratio: 0.816
 							group: 0
-							flags: stepped, simultaneous, conditional
+							flags: simultaneous, conditional
 						}
 						{
 							type: work
@@ -100,7 +100,7 @@
 							loss: 0.361
 							ratio: 0.765
 							group: 0
-							flags: stepped, simultaneous, conditional
+							flags: simultaneous, conditional
 						}
 						{
 							type: resource
@@ -134,7 +134,7 @@
 							loss: 0.400
 							ratio: 0.525
 							group: 1
-							flags: stepped, simultaneous, conditional
+							flags: simultaneous, conditional
 						}
 						{
 							type: work
@@ -147,7 +147,7 @@
 							loss: 0.400
 							ratio: 1.000
 							group: 1
-							flags: stepped, simultaneous, conditional
+							flags: simultaneous, conditional
 						}
 					]
 					
@@ -239,7 +239,7 @@
 							loss: 0.227
 							ratio: 0.314
 							group: 0
-							flags: stepped, simultaneous, conditional
+							flags: simultaneous, conditional
 						}
 						{
 							type: work
@@ -252,7 +252,7 @@
 							loss: 0.329
 							ratio: 1.000
 							group: 0
-							flags: stepped, simultaneous, conditional
+							flags: simultaneous, conditional
 						}
 						{
 							type: work
@@ -370,7 +370,7 @@
 							loss: 0.227
 							ratio: 0.314
 							group: 0
-							flags: stepped, simultaneous, conditional
+							flags: simultaneous, conditional
 						}
 						{
 							type: work
@@ -383,7 +383,7 @@
 							loss: 0.294
 							ratio: 0.820
 							group: 0
-							flags: stepped, simultaneous, conditional
+							flags: simultaneous, conditional
 						}
 						{
 							type: work
@@ -396,7 +396,7 @@
 							loss: 0.329
 							ratio: 1.000
 							group: 0
-							flags: stepped, conditional
+							flags: conditional
 						}
 						{
 							type: work
@@ -508,7 +508,7 @@
 							loss: 0.294
 							ratio: 0.820
 							group: 0
-							flags: stepped, simultaneous, conditional
+							flags: simultaneous, conditional
 						}
 						{
 							type: work
@@ -521,7 +521,7 @@
 							loss: 0.329
 							ratio: 1.000
 							group: 0
-							flags: stepped, simultaneous, conditional
+							flags: simultaneous, conditional
 						}
 						{
 							type: work

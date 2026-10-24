@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.73.1"
+	$version: "0.1.76.0"
 	name: "MG-20.4mm"
 	desc:
 		'''
@@ -75,7 +75,7 @@
 							snapping: 5.000
 							ratio: 1.000
 							group: 0
-							flags: stepped, simultaneous, conditional
+							flags: simultaneous, conditional
 						}
 						{
 							type: work
@@ -98,7 +98,7 @@
 							falloff: 0.882
 							ratio: 1.000
 							group: 1
-							flags: stepped, conditional
+							flags: conditional
 						}
 						{
 							type: work
@@ -109,7 +109,7 @@
 							falloff: 0.998
 							ratio: 1.000
 							group: 1
-							flags: stepped, conditional
+							flags: conditional
 						}
 					]
 					
@@ -177,7 +177,7 @@
 							snapping: 5.000
 							ratio: 0.824
 							group: 0
-							flags: stepped, simultaneous, conditional
+							flags: simultaneous, conditional
 						}
 						{
 							type: work
@@ -200,7 +200,7 @@
 							falloff: 0.903
 							ratio: 0.922
 							group: 1
-							flags: stepped, conditional
+							flags: conditional
 						}
 						{
 							type: work
@@ -211,7 +211,7 @@
 							falloff: 0.975
 							ratio: 1.000
 							group: 1
-							flags: stepped, conditional
+							flags: conditional
 						}
 					]
 					
@@ -281,7 +281,7 @@
 							falloff: 0.952
 							ratio: 0.455
 							group: 0
-							flags: stepped, conditional
+							flags: conditional
 						}
 						{
 							type: work
@@ -292,7 +292,7 @@
 							falloff: 0.935
 							ratio: 0.471
 							group: 1
-							flags: stepped, simultaneous, conditional
+							flags: simultaneous, conditional
 						}
 						{
 							type: work
@@ -302,7 +302,7 @@
 							snapping: 5.000
 							ratio: 0.710
 							group: 1
-							flags: stepped, simultaneous, conditional
+							flags: simultaneous, conditional
 						}
 					]
 					
@@ -378,7 +378,7 @@
 							falloff: 0.824
 							ratio: 1.000
 							group: 0
-							flags: stepped, conditional
+							flags: conditional
 						}
 					]
 					
@@ -481,7 +481,7 @@
 							snapping: 10.000
 							falloff: 0.961
 							group: 0
-							flags: stepped, simultaneous, conditional
+							flags: simultaneous, conditional
 						}
 						{
 							type: work
@@ -493,7 +493,7 @@
 							falloff: 0.841
 							ratio: 1.000
 							group: 0
-							flags: stepped, simultaneous, conditional
+							flags: simultaneous, conditional
 						}
 						{
 							type: work
@@ -505,7 +505,7 @@
 							falloff: 0.906
 							ratio: 1.000
 							group: 1
-							flags: stepped, conditional
+							flags: conditional
 						}
 					]
 					

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.73.1"
+	$version: "0.1.76.0"
 	name: "HC-13.2mm"
 	desc:
 		'''
@@ -76,7 +76,7 @@
 							snapping: 5.000
 							ratio: 1.000
 							group: 0
-							flags: stepped, simultaneous, conditional
+							flags: simultaneous, conditional
 						}
 						{
 							type: work
@@ -99,7 +99,7 @@
 							falloff: 0.798
 							ratio: 1.000
 							group: 1
-							flags: stepped, conditional
+							flags: conditional
 						}
 						{
 							type: work
@@ -110,7 +110,7 @@
 							falloff: 0.865
 							ratio: 1.000
 							group: 1
-							flags: stepped, conditional
+							flags: conditional
 						}
 					]
 					
@@ -178,7 +178,7 @@
 							snapping: 5.000
 							ratio: 0.824
 							group: 0
-							flags: stepped, simultaneous, conditional
+							flags: simultaneous, conditional
 						}
 						{
 							type: work
@@ -201,7 +201,7 @@
 							falloff: 0.817
 							ratio: 0.922
 							group: 1
-							flags: stepped, conditional
+							flags: conditional
 						}
 						{
 							type: work
@@ -212,7 +212,7 @@
 							falloff: 0.888
 							ratio: 1.000
 							group: 1
-							flags: stepped, conditional
+							flags: conditional
 						}
 					]
 					
@@ -282,7 +282,7 @@
 							snapping: 5.000
 							ratio: 0.710
 							group: 0
-							flags: stepped, simultaneous, conditional
+							flags: simultaneous, conditional
 						}
 						{
 							type: work
@@ -293,7 +293,7 @@
 							falloff: 0.847
 							ratio: 0.471
 							group: 0
-							flags: stepped, simultaneous, conditional
+							flags: simultaneous, conditional
 						}
 						{
 							type: work
@@ -304,7 +304,7 @@
 							falloff: 0.890
 							ratio: 0.455
 							group: 1
-							flags: stepped, conditional
+							flags: conditional
 						}
 					]
 					
@@ -380,7 +380,7 @@
 							falloff: 0.788
 							ratio: 1.000
 							group: 0
-							flags: stepped, conditional
+							flags: conditional
 						}
 					]
 					
@@ -459,7 +459,7 @@
 							falloff: 1.002
 							ratio: 1.000
 							group: 0
-							flags: stepped, conditional
+							flags: conditional
 						}
 					]
 				}
@@ -542,7 +542,7 @@
 							falloff: 0.889
 							ratio: 1.000
 							group: 1
-							flags: stepped, conditional
+							flags: conditional
 						}
 					]
 					
