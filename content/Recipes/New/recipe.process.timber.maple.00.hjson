@@ -1,6 +1,7 @@
 ﻿{
-	$version: "0.1.64.1"
-	name: "Manual Timber Processing"
+	$region_id: 0
+	$version: "0.1.76.0"
+	name: "Maple Timber Processing"
 	desc:
 		'''
 		Process raw timber into nicer, more usable form.
@@ -19,45 +20,15 @@
 			discard_damage_type: axe
 			
 			ratio: 1.000
-			mass_base: 0.000
 			
 			options:
 			[
 				{
-					name: "Hewn"
-					
-					type: undefined
-					flags: none
-					discard_damage_type_override: axe
-				}
-				{
-					name: "Sawn"
+					name: "None"
 					
 					type: undefined
 					flags: none
 					discard_damage_type_override: saw
-					
-					requirements:
-					[
-						{
-							type: work
-							work: sawing
-							amount: 300.000
-							amount_min: 150.000
-							difficulty: 5
-							snapping: 25.000
-							falloff: 0.880
-							group: 0
-							flags: conditional
-						}
-					]
-				}
-				{
-					name: "Split"
-					
-					type: undefined
-					flags: none
-					discard_damage_type_override: axe
 				}
 			]
 			
@@ -65,17 +36,17 @@
 			[
 				{
 					type: resource
-					material: timber.pine
+					material: timber.maple
 					amount: 1.000
 					snapping: 1.000
-					loss: 0.024
+					loss: 0.988
 					group: 0
 					flags: prerequisite
 				}
 			]
 		}
 		{
-			name: "Cutting"
+			name: "Method"
 			
 			type: processing
 			flags: subtractive
@@ -83,27 +54,26 @@
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: axe
 			
-			ratio: 0.000
-			mass_base: 0.000
-			
 			options:
 			[
 				{
-					name: "Planks"
+					name: "Sawing"
 					
 					type: undefined
 					flags: none
+					discard_damage_type_override: handsaw
 					
 					requirements:
 					[
 						{
 							type: work
 							work: sawing
-							amount: 300.000
-							amount_min: 150.000
+							amount: 200.000
+							amount_min: 100.000
 							difficulty: 5
 							snapping: 25.000
-							falloff: 0.880
+							falloff: 0.820
+							ratio: 0.098
 							group: 0
 							flags: conditional
 						}
@@ -115,9 +85,31 @@
 							type: resource
 							material: wood
 							amount: 3.4691
-							amount_extra: 0.3162
+							amount_extra: 0.4612
+							snapping: 0.100
 							group: 0
-							flags: primary
+							ratio: 0.902
+							flags: primary, compact, scale_to_mass
+						}
+						{
+							type: resource
+							material: wood.rod
+							amount: 2.751749
+							amount_extra: 0.299919
+							snapping: 0.100
+							group: 0
+							ratio: 0.369
+							flags: byproduct, secondary, scale_to_mass
+						}
+						{
+							type: resource
+							material: woodchips
+							amount: 2.2451
+							amount_extra: 0.8342
+							snapping: 0.010
+							group: 0
+							ratio: 0.996
+							flags: residue, scale_to_mass
 						}
 					]
 				}
@@ -126,42 +118,41 @@
 	]
 	
 	type: workshop
-	flags: debug, disabled, wip
+	flags: wip
 	tags: workbench, manual, simple, large, raw, woodworking, forestry, processing, messy
 	hints: none
 	connotations: none
-	infrastructure: large_surface
+	infrastructure: surface
 	infrastructure_exclude: none
 	
 	icon:
 	{
-		texture: resource.timber.pine
+		texture: resource.timber.maple
 		count: 4
 		size: [24, 16]
-		frame: [2, 0]
+		frame: [3, 0]
 	}
-	icon_offset: [-18.000, 1.000]
+	icon_offset: [-2.000, 1.000]
 	
 	icon_extra:
 	{
-		texture: ui_icons_crafting.mini
 		size: [16, 8]
 		frame: [0, 3]
 	}
-	icon_extra_offset: [-36.000, -8.000]
+	icon_extra_offset: [-6.000, -8.000]
 	
 	icon_c:
 	{
-		texture: resource.wood
 		count: 8
 		size: [24, 16]
 		frame: [3, 0]
 	}
 	icon_c_offset: [-7.000, -8.000]
 	
-	color_frame: "0xff818b48"
+	color_frame: "0xff71870a"
 	color_button: "0xff9dd80f"
-	rank: -3.000
+	rank: -10.000
+	frame_size: [64.000, 0.000]
 	
 	min: 1
 	max: 25

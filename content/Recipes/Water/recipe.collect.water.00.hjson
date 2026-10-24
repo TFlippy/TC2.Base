@@ -71,7 +71,7 @@
 							material: water
 							amount: 1.000
 							group: 0
-							flags: primary, compact
+							flags: primary
 						}
 					]
 					

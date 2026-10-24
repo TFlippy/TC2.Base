@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.1"
+	$version: "0.1.76.0"
 	name: "Purified Water"
 	desc:
 		'''
@@ -91,8 +91,8 @@
 						{
 							type: work
 							work: mixing.liquid
-							amount: 170.000
-							amount_min: 125.000
+							amount: 120.000
+							amount_min: 25.000
 							difficulty: 5
 							snapping: 5.000
 							falloff: 0.616

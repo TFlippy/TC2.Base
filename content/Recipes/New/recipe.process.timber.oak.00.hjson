@@ -1,0 +1,162 @@
+﻿{
+	$region_id: 0
+	$version: "0.1.76.0"
+	name: "Oak Timber Processing"
+	desc:
+		'''
+		Process raw timber into nicer, more usable form.
+		'''
+	tips: []
+	
+	stages:
+	[
+		{
+			name: "Preparation"
+			
+			type: preparation
+			flags: subtractive
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: axe
+			
+			ratio: 1.000
+			
+			options:
+			[
+				{
+					name: "None"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: saw
+				}
+			]
+			
+			requirements:
+			[
+				{
+					type: resource
+					material: timber.oak
+					amount: 1.000
+					snapping: 1.000
+					loss: 0.988
+					group: 0
+					flags: prerequisite
+				}
+			]
+		}
+		{
+			name: "Method"
+			
+			type: processing
+			flags: subtractive
+			tags: none
+			// Damage type used for discarding leftover resources.
+			discard_damage_type: axe
+			
+			options:
+			[
+				{
+					name: "Sawing"
+					
+					type: undefined
+					flags: none
+					discard_damage_type_override: handsaw
+					
+					requirements:
+					[
+						{
+							type: work
+							work: sawing
+							amount: 200.000
+							amount_min: 100.000
+							difficulty: 5
+							snapping: 25.000
+							falloff: 0.840
+							ratio: 0.098
+							group: 0
+							flags: conditional
+						}
+					]
+					
+					products:
+					[
+						{
+							type: resource
+							material: wood
+							amount: 3.4691
+							amount_extra: 0.4612
+							snapping: 0.100
+							group: 0
+							ratio: 0.902
+							flags: primary, compact, scale_to_mass
+						}
+						{
+							type: resource
+							material: wood.rod
+							amount: 2.751749
+							amount_extra: 0.299919
+							snapping: 0.100
+							group: 0
+							ratio: 0.369
+							flags: byproduct, secondary, scale_to_mass
+						}
+						{
+							type: resource
+							material: woodchips
+							amount: 2.2451
+							amount_extra: 0.8342
+							snapping: 0.010
+							group: 0
+							ratio: 0.996
+							flags: residue, scale_to_mass
+						}
+					]
+				}
+			]
+		}
+	]
+	
+	type: workshop
+	flags: wip
+	tags: workbench, manual, simple, large, raw, woodworking, forestry, processing, messy
+	hints: none
+	connotations: none
+	infrastructure: surface
+	infrastructure_exclude: none
+	
+	icon:
+	{
+		texture: resource.timber.oak
+		count: 4
+		size: [24, 16]
+		frame: [3, 0]
+	}
+	icon_offset: [0.000, 1.000]
+	
+	icon_extra:
+	{
+		size: [16, 8]
+		frame: [0, 3]
+	}
+	icon_extra_offset: [-36.000, -8.000]
+	
+	icon_c:
+	{
+		count: 8
+		size: [24, 16]
+		frame: [3, 0]
+	}
+	icon_c_offset: [-7.000, -8.000]
+	
+	color_frame: "0xff71870a"
+	color_button: "0xff9dd80f"
+	rank: -11.000
+	frame_size: [64.000, 0.000]
+	
+	min: 1
+	max: 25
+	step: 1
+	
+	version: 0
+}
