@@ -24,7 +24,7 @@ body:
 		material: fabric
 		layer: entity, solid, flammable
 		mask: world, solid
-		exclude: creature
+		exclude: creature, tree, vehicle
 		// cog_offset: [0.000, 1.400]
 	}
 }

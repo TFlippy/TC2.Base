@@ -1,6 +1,5 @@
 ﻿{
-	$region_id: 0
-	$version: "0.1.68.2"
+	$version: "0.1.76.0"
 	name: "Nitric Acid Synthesis"
 	desc:
 		'''
@@ -18,9 +17,6 @@
 			tags: material, raw
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -54,9 +50,6 @@
 			tags: material
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
-			
-			ratio: 0.000
-			mass_base: 0.000
 			
 			options:
 			[
@@ -114,9 +107,6 @@
 			// Damage type used for discarding leftover resources.
 			discard_damage_type: sledgehammer
 			
-			ratio: 0.000
-			mass_base: 0.000
-			
 			options:
 			[
 				{
@@ -155,7 +145,7 @@
 	]
 	
 	type: workshop
-	flags: wip, auto_complete
+	flags: debug, wip, auto_complete
 	tags: essence, raw, salvaging, processing, messy
 	hints: none
 	connotations: none

@@ -12,7 +12,7 @@ body:
 		friction: 0.850
 		elasticity: 0.600
 		material: tar
-		layer: entity, solid, resource, ignore_melee, ignore_bullet, flammable
+		layer: entity, solid, resource, ignore_melee, ignore_bullet
 		mask: world
 	}
 }
