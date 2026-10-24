@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.76.0"
 	name: "Arsenic"
 	name_short: "Arsenic"
 	name_imperial: "Arzen"
@@ -60,6 +60,6 @@
 		categories: none
 		
 		market_price: 9.200
-		market_price_per_kg_auto: 40.90909
+		market_price_per_kg_auto: 41.81818
 	}
 }

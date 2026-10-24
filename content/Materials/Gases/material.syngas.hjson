@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.1"
+	$version: "0.1.76.0"
 	name: "Syngas"
 	name_short: "Syngas"
 	name_dumb: "Smoke"

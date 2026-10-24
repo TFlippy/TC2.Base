@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.76.0"
 	name: "Hydrogen Peroxide"
 	name_short: "H.Peroxide"
 	name_imperial: "Hydroperoxid"
@@ -64,6 +64,6 @@
 		categories: none
 		
 		market_price: 53.000
-		market_price_per_kg_auto: 81.89655
+		market_price_per_kg_auto: 76.14943
 	}
 }

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.76.0"
 	name: "Insect Meat"
 	name_short: "Insect"
 	name_imperial: "Hmyst"
@@ -55,7 +55,7 @@
 		categories: food, raw, cooking
 		
 		market_price: 2.000
-		market_price_per_kg_auto: 5.167958
+		market_price_per_kg_auto: 5.167959
 	}
 	
 	// Info regarding relations of other materials towards this material.

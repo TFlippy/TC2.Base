@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.73.1"
+	$version: "0.1.76.0"
 	name: "Magitronic Actuators"
 	name_short: "Actuators"
 	name_imperial: "Aktuator"

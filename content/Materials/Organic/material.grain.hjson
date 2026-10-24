@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.75.2"
+	$version: "0.1.76.0"
 	name: "Grain"
 	name_short: "Grain"
 	name_imperial: "Cizrni"
@@ -57,7 +57,7 @@
 		categories: food, raw, cooking
 		
 		market_price: 1.600
-		market_price_per_kg_auto: 3.525006
+		market_price_per_kg_auto: 3.525005
 	}
 	
 	// Damage-based conversions.

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.74.0"
+	$version: "0.1.76.0"
 	name: "Compost"
 	name_short: "Compost"
 	name_imperial: "Protohovno"
@@ -52,4 +52,13 @@
 	
 	centroid_default: [0.000, 0.250]
 	colliders: []
+	
+	commodity:
+	{
+		flags: none
+		categories: none
+		
+		market_price: 5.500
+		market_price_per_kg_auto: 13.41463
+	}
 }

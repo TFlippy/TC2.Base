@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.1"
+	$version: "0.1.76.0"
 	name: "Rot"
 	name_short: "Rot"
 	name_imperial: "Hnus"
@@ -58,7 +58,7 @@
 		flags: none
 		categories: none
 		
-		market_price: 0.040
-		market_price_per_kg_auto: 0.164609
+		market_price: 0.340
+		market_price_per_kg_auto: 0.507463
 	}
 }

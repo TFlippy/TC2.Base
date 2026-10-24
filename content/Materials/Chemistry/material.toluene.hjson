@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.76.0"
 	name: "Toluene"
 	name_short: "Toluene"
 	name_imperial: "Toluen"
@@ -62,7 +62,7 @@
 		categories: none
 		
 		market_price: 14.700
-		market_price_per_kg_auto: 20.82192
+		market_price_per_kg_auto: 20.13699
 	}
 	
 	fuel:

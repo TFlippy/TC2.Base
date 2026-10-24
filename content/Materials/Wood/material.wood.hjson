@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.74.0"
+	$version: "0.1.76.0"
 	name: "Planks"
 	name_short: "Planks"
 	name_imperial: "Drevo"
@@ -163,7 +163,7 @@
 		categories: construction_materials
 		
 		market_price: 9.300
-		market_price_per_kg_auto: 4.962548
+		market_price_per_kg_auto: 4.353933
 	}
 	
 	fuel:

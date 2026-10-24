@@ -63,7 +63,7 @@
 		categories: weapons, munitions, military, manufactured, smirglum
 		
 		market_price: 13.000
-		market_price_per_kg_auto: 206.8966
+		market_price_per_kg_auto: 224.1379
 	}
 	
 	ammo:

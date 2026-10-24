@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.74.0"
+	$version: "0.1.76.0"
 	name: "Smirgrafit Scrap"
 	name_short: "Sgft.Scrap"
 	name_imperial: "Smirgrafosrot"
@@ -61,8 +61,8 @@
 		flags: none
 		categories: metals, scrap, smirglum
 		
-		market_price: 2.200
-		market_price_per_kg_auto: 1.149365
+		market_price: 4.600
+		market_price_per_kg_auto: 2.403218
 	}
 	
 	// Info regarding relations of other materials towards this material.

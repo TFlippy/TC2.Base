@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.68.2"
+	$version: "0.1.76.0"
 	name: "Peat"
 	name_short: "Peat"
 	name_dumb: "Shite"
@@ -51,6 +51,15 @@
 	
 	centroid_default: [0.000, 0.250]
 	colliders: []
+	
+	commodity:
+	{
+		flags: none
+		categories: none
+		
+		market_price: 4.500
+		market_price_per_kg_auto: 10.97561
+	}
 	
 	fuel:
 	{

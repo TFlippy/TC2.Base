@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.76.0"
 	name: "Charred Remains"
 	name_short: "Char"
 	name_imperial: "Cernosrot"
@@ -58,7 +58,7 @@
 		flags: none
 		categories: none
 		
-		market_price: 0.400
-		market_price_per_kg_auto: 0.854701
+		market_price: 0.600
+		market_price_per_kg_auto: 1.282051
 	}
 }

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.0"
+	$version: "0.1.76.0"
 	name: "Betoniter"
 	name_short: "Betoniter"
 	name_imperial: "Betoniter"
@@ -57,6 +57,7 @@
 		categories: none
 		
 		market_price: 2.900
+		market_price_per_kg_auto: 2.000
 	}
 	
 	// Damage-based conversions.

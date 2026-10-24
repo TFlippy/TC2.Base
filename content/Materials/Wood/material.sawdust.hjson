@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.74.0"
+	$version: "0.1.76.0"
 	name: "Sawdust"
 	name_short: "Sawdust"
 	name_imperial: "Drevopudr"
@@ -60,6 +60,6 @@
 		categories: none
 		
 		market_price: 0.300
-		market_price_per_kg_auto: 1.578947
+		market_price_per_kg_auto: 1.578948
 	}
 }

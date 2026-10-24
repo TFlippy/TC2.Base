@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.1"
+	$version: "0.1.76.0"
 	name: "Compacted Scrap"
 	name_short: "Compact Scrap"
 	name_imperial: "Komposrot"
@@ -103,6 +103,15 @@
 			]
 		}
 	]
+	
+	commodity:
+	{
+		flags: none
+		categories: none
+		
+		market_price: 12.100
+		market_price_per_kg_auto: 8.402778
+	}
 	
 	// Info regarding relations of other materials towards this material.
 	related:

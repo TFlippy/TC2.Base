@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.74.0"
+	$version: "0.1.76.0"
 	name: "Niklajzner Scrap"
 	name_short: "Nkz.Scrap"
 	name_imperial: "Niklsrot"
@@ -63,8 +63,8 @@
 		flags: none
 		categories: metals, scrap
 		
-		market_price: 3.800
-		market_price_per_kg_auto: 2.122791
+		market_price: 4.100
+		market_price_per_kg_auto: 2.29038
 	}
 	
 	// Damage-based conversions.

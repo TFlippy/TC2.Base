@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.76.0"
 	name: "Tobacco"
 	name_short: "Tobacco"
 	name_imperial: "Tabak"
@@ -55,6 +55,6 @@
 		categories: none
 		
 		market_price: 3.400
-		market_price_per_kg_auto: 36.000
+		market_price_per_kg_auto: 34.000
 	}
 }

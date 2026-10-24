@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.74.0"
+	$version: "0.1.76.0"
 	name: "Charcoal"
 	name_short: "Charcoal"
 	name_imperial: "Hulik"
@@ -55,7 +55,7 @@
 		categories: none
 		
 		market_price: 1.400
-		market_price_per_kg_auto: 5.833334
+		market_price_per_kg_auto: 5.833333
 	}
 	
 	fuel:

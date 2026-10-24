@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.74.0"
+	$version: "0.1.76.0"
 	name: "Gold Gravel"
 	name_short: "Gd.Gravel"
 	name_imperial: "Zlosterk"
@@ -46,6 +46,7 @@
 	color_dust: "0xffffd470"
 	color_gib: "0xffffd470"
 	
+	centroid_default: [0.000, 0.250]
 	colliders: []
 	
 	commodity:
@@ -54,5 +55,6 @@
 		categories: metals
 		
 		market_price: 50.000
+		market_price_per_kg_auto: 20.000
 	}
 }

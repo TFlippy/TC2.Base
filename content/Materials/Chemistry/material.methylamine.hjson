@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.1"
+	$version: "0.1.76.0"
 	name: "Methylamine"
 	name_short: "Methylamine"
 	name_imperial: "Metylamin"
@@ -64,7 +64,7 @@
 		categories: none
 		
 		market_price: 39.500
-		market_price_per_kg_auto: 54.4586
+		market_price_per_kg_auto: 62.89809
 	}
 	
 	// Info regarding relations of other materials towards this material.

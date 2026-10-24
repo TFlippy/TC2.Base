@@ -62,7 +62,7 @@
 		categories: weapons, munitions, military, manufactured
 		
 		market_price: 4.000
-		market_price_per_kg_auto: 319.9999
+		market_price_per_kg_auto: 400.000
 	}
 	
 	ammo:

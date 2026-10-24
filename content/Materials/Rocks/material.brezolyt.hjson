@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.71.1"
+	$version: "0.1.76.0"
 	$note: "Based on dolomite, alabaster, gypsum."
 	name: "Brezolyt"
 	name_short: "Brezolyt"

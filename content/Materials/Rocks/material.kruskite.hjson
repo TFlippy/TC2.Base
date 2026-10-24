@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.74.0"
+	$version: "0.1.76.0"
 	name: "Kruskite"
 	name_short: "Kruskite"
 	name_imperial: "Kruskit"
@@ -64,6 +64,7 @@
 		categories: none
 		
 		market_price: 1.400
+		market_price_per_kg_auto: 1.909959
 	}
 	
 	// Info regarding relations of other materials towards this material.

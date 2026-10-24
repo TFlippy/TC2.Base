@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.74.0"
+	$version: "0.1.76.0"
 	name: "Woodchips"
 	name_short: "Wood Ch."
 	name_imperial: "Drevosterk"
@@ -60,6 +60,6 @@
 		categories: none
 		
 		market_price: 0.170
-		market_price_per_kg_auto: 1.37931
+		market_price_per_kg_auto: 1.172414
 	}
 }

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.74.0"
+	$version: "0.1.76.0"
 	name: "Mulch"
 	name_short: "Mulch"
 	name_imperial: "Blems"
@@ -55,4 +55,13 @@
 	
 	centroid_default: [0.000, 0.250]
 	colliders: []
+	
+	commodity:
+	{
+		flags: none
+		categories: none
+		
+		market_price: 7.300
+		market_price_per_kg_auto: 17.80488
+	}
 }
