@@ -133,20 +133,6 @@ npc:
 	wander_radius: 6.000
 }
 
-npc.emotions:
-{
-	hostility: 0.020
-	courage: 0.050
-	cruelty: 0.010
-	irritability: 0.010
-	apathy: 9000.000
-}
-
-npc.emotions.state:
-{
-
-}
-
 ai:
 {
 	stance: passive

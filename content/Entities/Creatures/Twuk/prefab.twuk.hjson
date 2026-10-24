@@ -143,20 +143,6 @@ npc:
 	min_consciousness: 0.300
 }
 
-npc.emotions:
-{
-	hostility: 2.200
-	courage: 0.100
-	cruelty: 4.500
-	irritability: 1.700
-	apathy: 0.300
-}
-
-npc.emotions.state:
-{
-
-}
-
 ai:
 {
 	stance: aggressive

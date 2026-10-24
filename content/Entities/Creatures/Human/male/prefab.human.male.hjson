@@ -276,20 +276,6 @@ npc:
 	wander_radius: 24.000
 }
 
-npc.emotions:
-{
-	hostility: 0.450
-	courage: 0.600
-	cruelty: 0.900
-	irritability: 0.700
-	apathy: 0.800
-}
-
-npc.emotions.state:
-{
-
-}
-
 pathfinding:
 {
 	flags: land, climber

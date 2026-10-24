@@ -251,20 +251,6 @@ npc:
 	self_hints: is_giant, is_loud
 }
 
-npc.emotions:
-{
-	hostility: 0.600
-	courage: 4.200
-	cruelty: 0.900
-	irritability: 0.800
-	apathy: 1.500
-}
-
-npc.emotions.state:
-{
-
-}
-
 pathfinding:
 {
 	flags: land
