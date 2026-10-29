@@ -54,4 +54,13 @@
 	
 	centroid_default: [0.000, 0.250]
 	colliders: []
+	
+	commodity:
+	{
+		flags: none
+		categories: none
+		
+		market_price: 27.600
+		market_price_per_kg_auto: 41.37931
+	}
 }

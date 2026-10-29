@@ -59,8 +59,8 @@
 		flags: none
 		categories: metals, refined, luxury
 		
-		market_price: 120.000
-		market_price_per_kg_auto: 71.30294
+		market_price: 93.600
+		market_price_per_kg_auto: 55.61629
 	}
 	
 	// Info regarding relations of other materials towards this material.

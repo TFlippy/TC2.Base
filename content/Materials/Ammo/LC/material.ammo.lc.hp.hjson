@@ -25,7 +25,7 @@
 	
 	// Inventory material type.
 	type: ammo
-	flags: ammo, ammo_lc, granular, metal, small, manufactured, solid
+	flags: ammo, ammo_lc, magnetic, granular, metal, small, manufactured, solid
 	display_flags: hide_fraction
 	spawn_flags:
 	{

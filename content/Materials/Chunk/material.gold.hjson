@@ -114,8 +114,8 @@
 		flags: none
 		categories: metals
 		
-		market_price: 1718.540
-		market_price_per_kg_auto: 59.5848
+		market_price: 1230.000
+		market_price_per_kg_auto: 42.64626
 	}
 	
 	// Info regarding relations of other materials towards this material.

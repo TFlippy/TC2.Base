@@ -113,8 +113,8 @@
 		flags: none
 		categories: metals, smirglum
 		
-		market_price: 684.750
-		market_price_per_kg_auto: 19.61787
+		market_price: 436.000
+		market_price_per_kg_auto: 12.49269
 	}
 	
 	// Info regarding relations of other materials towards this material.

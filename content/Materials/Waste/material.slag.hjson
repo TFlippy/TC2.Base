@@ -21,7 +21,7 @@
 	
 	// Inventory material type.
 	type: stone_metallic
-	flags: hard, granular, toxic, metal, heavy, gravel, waste, solid, processed, impure, contaminated, smelly
+	flags: hard, magnetic, granular, toxic, metal, heavy, gravel, waste, solid, processed, impure, contaminated, smelly
 	display_flags: none
 	spawn_flags:
 	{
