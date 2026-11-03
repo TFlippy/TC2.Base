@@ -65,7 +65,7 @@
 	
 	commodity:
 	{
-		flags: marketable
+		flags: none
 		categories: chemicals, refined, artificial, arcane, construction_materials, industrial, manufactured
 		
 		market_price: 91.000

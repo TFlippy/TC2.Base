@@ -55,7 +55,7 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: scrap, animals
 		
 		market_price: 1.900
 		market_price_per_kg_auto: 4.051173

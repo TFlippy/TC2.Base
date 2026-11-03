@@ -54,7 +54,7 @@
 	
 	commodity:
 	{
-		flags: marketable
+		flags: none
 		categories: machinery, components, arcane, technology, luxury, consumer, industrial, manufactured, smirglum
 		
 		market_price: 9870.000

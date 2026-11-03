@@ -61,8 +61,8 @@
 		flags: none
 		categories: food, explosives, cooking
 		
-		market_price: 47.400
-		market_price_per_kg_auto: 126.738
+		market_price: 41.400
+		market_price_per_kg_auto: 110.6952
 	}
 	
 	// Info regarding relations of other materials towards this material.

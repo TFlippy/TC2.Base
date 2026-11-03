@@ -110,11 +110,12 @@
 	
 	commodity:
 	{
-		flags: none
+		flags: subsidized
 		categories: construction_materials
 		
 		market_price: 38.000
 		market_price_per_kg_auto: 54.28572
+		market_supply_initial_ratio: 0.820
 	}
 	
 	// Damage-based conversions.

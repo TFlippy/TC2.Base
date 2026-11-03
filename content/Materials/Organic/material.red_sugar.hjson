@@ -65,11 +65,12 @@
 	
 	commodity:
 	{
-		flags: marketable
+		flags: none
 		categories: food, chemicals, natural, medicine, raw, harvested, cooking, luxury, consumer
 		
 		market_price: 47.400
 		market_price_per_kg_auto: 82.29167
+		market_supply_initial_ratio: 0.241
 	}
 	
 	// Info regarding relations of other materials towards this material.

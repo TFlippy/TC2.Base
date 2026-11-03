@@ -60,7 +60,7 @@
 	
 	commodity:
 	{
-		flags: marketable
+		flags: none
 		categories: explosives
 		
 		market_price: 64.600

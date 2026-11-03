@@ -64,6 +64,7 @@
 		
 		market_price: 640.000
 		market_price_per_kg_auto: 250.9804
+		market_supply_initial_ratio: 0.183
 	}
 	
 	ammo:

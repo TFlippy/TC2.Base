@@ -108,11 +108,12 @@
 	
 	commodity:
 	{
-		flags: none
+		flags: subsidized
 		categories: construction_materials
 		
 		market_price: 4.800
 		market_price_per_kg_auto: 8.556578
+		market_supply_initial_ratio: 0.775
 	}
 	
 	fuel:

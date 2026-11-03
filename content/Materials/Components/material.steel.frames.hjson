@@ -53,11 +53,12 @@
 	
 	commodity:
 	{
-		flags: none
+		flags: subsidized
 		categories: metals, construction_materials
 		
 		market_price: 24.832
 		market_price_per_kg_auto: 9.9328
+		market_supply_initial_ratio: 0.953
 	}
 	
 	// Damage-based conversions.

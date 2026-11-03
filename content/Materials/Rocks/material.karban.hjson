@@ -61,7 +61,7 @@
 	
 	commodity:
 	{
-		flags: marketable
+		flags: none
 		categories: ores, rocks, raw, coal, minerals, mined, industrial
 		
 		market_price: 5.800

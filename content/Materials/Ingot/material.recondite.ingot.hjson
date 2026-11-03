@@ -167,7 +167,8 @@
 		categories: metals, construction_materials, smirglum
 		
 		market_price: 382.100
-		market_price_per_kg_auto: 11.25726
+		market_price_per_kg_auto: 11.25608
+		market_supply_initial_ratio: 0.659
 	}
 	
 	// Residues from crafting/work.

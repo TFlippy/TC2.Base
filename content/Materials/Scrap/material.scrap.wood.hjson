@@ -57,7 +57,7 @@
 	commodity:
 	{
 		flags: none
-		categories: none
+		categories: scrap
 		
 		market_price: 0.200
 		market_price_per_kg_auto: 0.42735

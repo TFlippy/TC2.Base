@@ -65,11 +65,12 @@
 	
 	commodity:
 	{
-		flags: marketable
+		flags: none
 		categories: chemicals, refined, artificial, arcane, fuel, energy, consumer, industrial
 		
 		market_price: 35.000
 		market_price_per_kg_auto: 61.18881
+		market_supply_initial_ratio: 0.991
 		
 		industries_produce: high_tech, power, arcane, engineering, experimental
 		

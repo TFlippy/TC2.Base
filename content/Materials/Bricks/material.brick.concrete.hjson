@@ -27,7 +27,7 @@
 	{
 		add: no_discard
 	}
-	hints: none
+	hints: materials, construction, cheap, industrial, clumsy
 	
 	// Ratio of the material volume to the total volume it occupies when stacked. A value of 1.0 means no empty space, while a value closer to 0.0 means a lot of empty space.
 	packing_fraction: 0.000
@@ -59,11 +59,27 @@
 	
 	commodity:
 	{
-		flags: none
-		categories: construction_materials
+		flags: subsidized, standard
+		categories: artificial, construction_materials, industrial, manufactured, recycled
 		
 		market_price: 7.600
 		market_price_per_kg_auto: 4.367816
+		market_supply_initial_ratio: 0.976
+		market_supply_min: 0.120
+		market_refill_rate_mult: 1.290
+		
+		industries_produce: manufacturing, low_tech, construction, colonization, engineering, architecture
+		industries_consume: military, construction, labor, real_estate, colonization, engineering, architecture
+		
+		buildings_produce: factory, labor_camp, manufactory, quarry, brickworks
+		
+		categories_produce: industrial, urban, abandoned, ruined, fortified, excavated
+		categories_consume: military, industrial, residential, urban, advanced, developing, fortified, modern, expansive
+		
+		geography_positive: excavated, wasteland, urban, underground
+		geography_negative: damp, swamps, aerial, sky, mobile
+		
+		availability: 0.9741
 	}
 	
 	// Residues from crafting/work.
@@ -78,5 +94,17 @@
 			
 			yield: [0.640, 0.329]
 		}
+	}
+	
+	// Info regarding relations of other materials towards this material.
+	related:
+	{
+		cement: ingredient, input
+		scrap.concrete: ruined, mangled, similar, scrap
+		scrap.rubble: ruined, mangled, dirty, waste, similar, impure, scrap, mixed
+		sand: filler, ingredient
+		gravel: filler, ingredient
+		clinker: raw, impure
+		betoniter: raw, ore, similar, natural
 	}
 }

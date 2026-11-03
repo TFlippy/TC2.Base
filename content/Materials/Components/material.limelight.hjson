@@ -59,11 +59,14 @@
 	
 	commodity:
 	{
-		flags: none
+		flags: subsidized
 		categories: none
 		
 		market_price: 92.000
 		market_price_per_kg_auto: 26.90058
+		market_supply_initial_ratio: 0.983
+		
+		availability: 0.974
 	}
 	
 	// Damage-based conversions.

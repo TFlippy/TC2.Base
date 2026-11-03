@@ -63,11 +63,12 @@
 	
 	commodity:
 	{
-		flags: none
+		flags: subsidized
 		categories: beverages, food, cooking, consumer, manufactured, processed
 		
 		market_price: 11.000
 		market_price_per_kg_auto: 16.36905
+		market_supply_initial_ratio: 0.384
 	}
 	
 	fuel:
