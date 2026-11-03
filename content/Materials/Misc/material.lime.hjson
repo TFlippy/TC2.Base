@@ -61,6 +61,7 @@
 		
 		market_price: 10.200
 		market_price_per_kg_auto: 12.28916
+		market_supply_initial_ratio: 0.388
 	}
 	
 	// Residues from crafting/work.

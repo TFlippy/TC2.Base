@@ -63,8 +63,9 @@
 		flags: none
 		categories: metals
 		
-		market_price: 33.700
-		market_price_per_kg_auto: 24.87819
+		market_price: 29.700
+		market_price_per_kg_auto: 21.92529
+		market_supply_initial_ratio: 0.252
 	}
 	
 	// Damage-based conversions.

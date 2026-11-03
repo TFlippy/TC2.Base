@@ -61,6 +61,7 @@
 		
 		market_price: 6.900
 		market_price_per_kg_auto: 8.214286
+		market_supply_initial_ratio: 0.608
 	}
 	
 	fuel:

@@ -70,6 +70,7 @@
 		
 		market_price: 91.000
 		market_price_per_kg_auto: 59.36073
+		market_supply_initial_ratio: 0.773
 		
 		industries_produce: manufacturing, high_tech, chemical, arcane, research, engineering, experimental
 		industries_consume: manufacturing, high_tech, metallurgy, automotive, military, arcane, construction, real_estate, research, colonization, security, railway, engineering, weapons, experimental, aviation, naval, architecture

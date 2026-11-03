@@ -59,7 +59,8 @@
 		flags: none
 		categories: metals, scrap
 		
-		market_price: 15.600
-		market_price_per_kg_auto: 16.77419
+		market_price: 10.800
+		market_price_per_kg_auto: 11.6129
+		market_supply_initial_ratio: 0.257
 	}
 }

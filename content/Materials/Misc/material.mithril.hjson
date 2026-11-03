@@ -72,6 +72,7 @@
 		market_price_min: 820.000
 		market_price_max: 2304.200
 		market_price_per_kg_auto: 763.986
+		market_supply_initial_ratio: 0.090
 		
 		industries_sell: arcane, research, exploration, criminal, experimental, jewelry
 		
@@ -82,7 +83,7 @@
 		quantity_wholesale: 1.000
 		quantity_industry: 7.000
 		
-		rarity: 0.900
 		reusability: 0.800
+		rarity: 0.900
 	}
 }

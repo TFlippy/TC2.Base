@@ -56,8 +56,8 @@
 		flags: subsidized
 		categories: construction_materials
 		
-		market_price: 2.300
-		market_price_per_kg_auto: 23.000
+		market_price: 3.900
+		market_price_per_kg_auto: 39.000
 		market_supply_initial_ratio: 0.970
 		
 		availability: 0.861

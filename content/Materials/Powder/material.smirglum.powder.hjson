@@ -61,6 +61,7 @@
 		
 		market_price: 12.300
 		market_price_per_kg_auto: 4.714217
+		market_supply_initial_ratio: 0.533
 	}
 	
 	// Info regarding relations of other materials towards this material.

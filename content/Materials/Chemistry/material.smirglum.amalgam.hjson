@@ -68,6 +68,7 @@
 		
 		market_price: 28.100
 		market_price_per_kg_auto: 7.089336
+		market_supply_initial_ratio: 0.203
 	}
 	
 	// Damage-based conversions.

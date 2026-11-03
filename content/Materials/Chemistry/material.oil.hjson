@@ -62,8 +62,8 @@
 		flags: none
 		categories: food, cooking
 		
-		market_price: 8.200
-		market_price_per_kg_auto: 10.97724
+		market_price: 8.700
+		market_price_per_kg_auto: 11.64659
 		market_supply_initial_ratio: 0.831
 	}
 	

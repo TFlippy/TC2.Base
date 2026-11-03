@@ -57,7 +57,8 @@
 		categories: food, raw, cooking
 		
 		market_price: 1.600
-		market_price_per_kg_auto: 3.525005
+		market_price_per_kg_auto: 3.525006
+		market_supply_initial_ratio: 0.473
 	}
 	
 	// Damage-based conversions.

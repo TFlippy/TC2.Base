@@ -53,8 +53,8 @@
 		flags: subsidized
 		categories: metals, construction_materials
 		
-		market_price: 16.000
-		market_price_per_kg_auto: 62.13593
+		market_price: 11.200
+		market_price_per_kg_auto: 43.49515
 		market_supply_initial_ratio: 0.766
 		
 		availability: 0.845
