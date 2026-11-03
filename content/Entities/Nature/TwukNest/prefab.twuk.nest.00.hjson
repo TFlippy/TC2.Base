@@ -78,8 +78,8 @@ spawn:
 
 spawner:
 {
-	interval: 300.000
-	interval_extra: 600.000
+	interval: 200.000
+	interval_extra: 500.000
 	interval_count_modifier: 150.000
 	ai_stance: aggressive
 	ai_type: attack

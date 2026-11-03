@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.64.1"
+	$version: "0.1.76.0"
 	name: "Pyrolysis"
 	name_short: "Pyrolysis"
 	desc:
@@ -18,11 +18,10 @@
 	tags: simple, industrial, dangerous
 	
 	amount_base: 1.000
-	cooldown: 3.000
-	multiplier: 3.000
+	cooldown: 2.000
+	multiplier: 5.000
 	
 	amount_jitter: 0.553
-	cooldown_jitter: 0.178
 	color: "0xff685f7b"
 	
 	tools_required: none

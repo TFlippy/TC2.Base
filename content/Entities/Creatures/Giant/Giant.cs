@@ -1,5 +1,6 @@
 ﻿namespace TC2.Base.Components
 {
+	// TODO: use ISoundMix for sounds
 	public static partial class Giant
 	{
 		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Region)]

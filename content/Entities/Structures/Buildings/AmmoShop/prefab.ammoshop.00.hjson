@@ -1,7 +1,9 @@
 $name: "Munitions Workshop"
 $desc:
 	'''
-	TODO: Desc
+	Specialized workshop for crafting munitions and explosives.
+
+	Has a built-in high-speed machine press that has to be externally powered by a belt drive.
 	'''
 $tags: []
 

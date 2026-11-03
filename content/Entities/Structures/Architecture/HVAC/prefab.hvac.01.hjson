@@ -57,9 +57,9 @@ sound.emitter:
 {
 	file: hvac.loop.00
 	volume: 2.000
-	pitch: 1.580
-	size: 2.000
-	size_max_modifier: 0.250
+	pitch: 1.380
+	size: 2.500
+	size_max_modifier: 0.330
 	priority: 0.300
 }
 

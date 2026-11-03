@@ -11,25 +11,29 @@ body:
 	
 	@shape.polygon:
 	{
-		points:
-		[
-			[-1.000, -0.625]
-			[1.125, -0.625]
-			[1.000, 1.625]
-			[-0.875, 1.625]
-		]
+		material: stone_slab
+		miss_chance: 0.702
+		flags: none
+		tags: none
+		
+		layer: entity, solid, background, building, support, crafter, ignore_melee
+		mask: world, building
+		exclude: none
 		
 		mass: 220.000
 		radius: 0.375
 		friction: 0.650
 		elasticity: 0.200
 		
-		material: stone_slab
-		miss_chance: 0.702
+		cog_offset: [0.000, 0.000]
 		
-		layer: entity, solid, building, support, ignore_melee, background, crafter
-		mask: world, building
-		exclude: none
+		points:
+		[
+			[-0.375, -1.375]
+			[0.250, -1.375]
+			[0.625, 1.375]
+			[-0.625, 1.375]
+		]
 	}
 }
 
