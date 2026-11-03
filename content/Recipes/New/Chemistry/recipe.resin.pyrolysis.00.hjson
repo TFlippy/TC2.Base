@@ -179,7 +179,6 @@
 							work: charring
 							amount: 100.000
 							amount_min: 825.000
-							amount_max: 1362.000
 							difficulty: 6
 							snapping: 10.000
 							falloff: 0.612
@@ -251,7 +250,6 @@
 							work: pyrolysis
 							amount: 100.000
 							amount_min: 825.000
-							amount_max: 1362.000
 							difficulty: 6
 							snapping: 10.000
 							falloff: 0.612
@@ -273,7 +271,6 @@
 							work: pyrolysis
 							amount: 100.000
 							amount_min: 825.000
-							amount_max: 1362.000
 							difficulty: 6
 							snapping: 10.000
 							falloff: 0.643

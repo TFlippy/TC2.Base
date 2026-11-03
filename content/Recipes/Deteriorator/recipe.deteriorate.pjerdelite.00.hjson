@@ -66,7 +66,6 @@
 							work: deterioration
 							amount: 150.000
 							amount_min: 900.000
-							amount_max: 1362.000
 							difficulty: 5
 							snapping: 10.000
 							falloff: 0.701
@@ -122,7 +121,6 @@
 							work: shattering
 							amount: 75.000
 							amount_min: 150.000
-							amount_max: 1362.000
 							difficulty: 8
 							snapping: 5.000
 							falloff: 0.605

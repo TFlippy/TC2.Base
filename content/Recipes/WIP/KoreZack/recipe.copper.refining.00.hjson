@@ -262,7 +262,6 @@
 							work: melting
 							amount: 120.000
 							amount_min: 250.000
-							amount_max: 1362.000
 							difficulty: 8
 							snapping: 10.000
 							falloff: 0.800
@@ -313,7 +312,6 @@
 							work: casting
 							amount: 280.000
 							amount_min: 260.000
-							amount_max: 1362.000
 							difficulty: 8
 							snapping: 10.000
 							falloff: 0.612
@@ -337,7 +335,6 @@
 							work: cooling
 							amount: 300.000
 							amount_min: 350.000
-							amount_max: 1362.000
 							difficulty: 8
 							snapping: 10.000
 							falloff: 0.612
@@ -387,7 +384,6 @@
 							work: casting
 							amount: 280.000
 							amount_min: 280.000
-							amount_max: 1362.000
 							difficulty: 8
 							snapping: 10.000
 							falloff: 0.612
@@ -411,7 +407,6 @@
 							work: cooling
 							amount: 260.000
 							amount_min: 200.000
-							amount_max: 1362.000
 							difficulty: 8
 							snapping: 10.000
 							falloff: 0.612
@@ -461,7 +456,6 @@
 							work: casting
 							amount: 260.000
 							amount_min: 200.000
-							amount_max: 1362.000
 							difficulty: 8
 							snapping: 10.000
 							falloff: 0.612
@@ -485,7 +479,6 @@
 							work: cooling
 							amount: 200.000
 							amount_min: 160.000
-							amount_max: 1362.000
 							difficulty: 8
 							snapping: 10.000
 							falloff: 0.612

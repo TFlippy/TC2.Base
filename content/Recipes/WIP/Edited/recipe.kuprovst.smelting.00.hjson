@@ -92,7 +92,6 @@
 							work: roasting
 							amount: 100.000
 							amount_min: 200.000
-							amount_max: 1362.000
 							difficulty: 8
 							snapping: 10.000
 							falloff: 0.861
@@ -221,7 +220,6 @@
 							work: distillation
 							amount: 260.000
 							amount_min: 75.000
-							amount_max: 1362.000
 							difficulty: 5
 							step_max: 10
 							snapping: 10.000
@@ -307,7 +305,6 @@
 							work: shattering
 							amount: 210.000
 							amount_min: 50.000
-							amount_max: 1362.000
 							difficulty: 6
 							step_max: 20
 							snapping: 10.000

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.1"
+	$version: "0.1.76.0"
 	name: "Pine"
 	desc:
 		'''
@@ -169,9 +169,8 @@
 						{
 							type: work
 							work: pyrolysis
-							amount: 200.000
-							amount_min: 820.000
-							amount_max: 1362.000
+							amount: 180.000
+							amount_min: 350.000
 							difficulty: 5
 							snapping: 10.000
 							falloff: 0.692
@@ -257,8 +256,7 @@
 							type: work
 							work: carbonization
 							amount: 240.000
-							amount_min: 525.000
-							amount_max: 1362.000
+							amount_min: 425.000
 							difficulty: 9
 							snapping: 10.000
 							falloff: 0.599
@@ -370,7 +368,6 @@
 							work: distillation
 							amount: 35.000
 							amount_min: 140.000
-							amount_max: 1362.000
 							difficulty: 5
 							snapping: 10.000
 							falloff: 0.835

@@ -83,7 +83,6 @@
 							work: sintering
 							amount: 30.000
 							amount_min: 500.000
-							amount_max: 1100.000
 							difficulty: 6
 							step_max: 40
 							snapping: 25.000
