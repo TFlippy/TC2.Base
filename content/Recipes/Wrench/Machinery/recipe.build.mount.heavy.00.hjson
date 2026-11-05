@@ -15,7 +15,6 @@
 	related_materials:
 	{
 		brick.concrete: input, auto_generated
-		mortar: input, auto_generated
 		steel.frames: input, auto_generated
 		steel.rod: input, auto_generated
 		machine_parts: input, auto_generated
@@ -28,15 +27,7 @@
 		{
 			type: resource
 			material: brick.concrete
-			amount: 120.000
-			snapping: 0.500
-			group: 0
-			flags: prerequisite
-		}
-		{
-			type: resource
-			material: mortar
-			amount: 40.000
+			amount: 140.000
 			snapping: 0.500
 			group: 0
 			flags: prerequisite

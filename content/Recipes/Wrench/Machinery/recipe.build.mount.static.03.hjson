@@ -19,14 +19,6 @@
 		}
 		{
 			type: resource
-			material: mortar
-			amount: 65.000
-			snapping: 0.500
-			group: 0
-			flags: prerequisite
-		}
-		{
-			type: resource
 			material: steel.frames
 			amount: 130.000
 			group: 0

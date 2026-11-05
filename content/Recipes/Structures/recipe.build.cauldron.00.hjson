@@ -14,14 +14,6 @@
 		}
 		{
 			type: resource
-			material: mortar
-			amount: 4.000
-			snapping: 0.500
-			group: 0
-			flags: prerequisite
-		}
-		{
-			type: resource
 			material: steel.plate
 			amount: 15.000
 			group: 0

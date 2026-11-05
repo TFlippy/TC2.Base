@@ -15,14 +15,6 @@
 		}
 		{
 			type: resource
-			material: mortar
-			amount: 10.000
-			snapping: 0.100
-			group: 0
-			flags: prerequisite
-		}
-		{
-			type: resource
 			material: wood
 			amount: 20.000
 			snapping: 0.500
