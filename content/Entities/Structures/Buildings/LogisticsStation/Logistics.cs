@@ -1,5 +1,178 @@
 ﻿namespace TC2.Base.Components
 {
+	public static partial class Errand
+	{
+		[IComponent.Data(Net.SendType.Unreliable, IComponent.Scope.Global | IComponent.Scope.Region)]
+		public partial struct Data(): IComponent
+		{
+			public enum Type: byte
+			{
+				Undefined = 0,
+
+
+			}
+
+			[Flags]
+			public enum Flags: byte
+			{
+				None = 0,
+
+
+			}
+
+			public Errand.Data.Type type;
+			public Errand.Data.Flags flags;
+			public ushort unused_02;
+
+			public IPlayer.Handle h_player_owner;
+			public IPlayer.Handle h_player_assigned;
+
+			public DateTime date_expire;
+
+			[Save.NewLine]
+			public FixedArray4<Shipment.Item2> items;
+		}
+
+		public struct CreateRPC: Net.IRPC<Errand.Data>
+		{
+			public required int expire_time_seconds;
+			public required FixedArray4<Shipment.Item2> items;
+
+#if SERVER
+			public void Invoke(Net.IRPC.Context rpc, ref Errand.Data data)
+			{
+				var sync = false;
+				var has_any = false;
+
+				for (var i = 0; i < this.items.Length; i++)
+				{
+					ref var item = ref this.items[i];
+					switch (item.type)
+					{
+						case Shipment.Item.Type.Resource:
+						{
+
+						}
+						break;
+
+						case Shipment.Item.Type.Prefab:
+						{
+
+						}
+						break;
+
+						default:
+						{
+
+						}
+						break;
+					}
+				}
+
+				if (sync)
+				{
+					rpc.Sync(ref data, true);
+				}
+			}
+#endif
+		}
+
+		public struct ActionRPC: Net.IRPC<Errand.Data>
+		{
+			public enum Type: byte
+			{
+				Undefined = 0,
+
+				Submit,
+				Collect,
+				Cancel
+			}
+
+			public Errand.ActionRPC.Type type;
+
+#if SERVER
+			public void Invoke(Net.IRPC.Context rpc, ref Errand.Data data)
+			{
+				var sync = false;
+
+				if (sync)
+				{
+					rpc.Sync(ref data, true);
+				}
+			}
+#endif
+		}
+
+#if CLIENT
+		public struct ErrandGUI: IGUICommand
+		{
+			public Entity ent_errand;
+
+			public Errand.Data errand;
+			public Transform.Data transform;
+
+
+			public static Errand.Data edit_errand;
+
+			public void Draw()
+			{
+				using (var window = GUI.Window.Interaction(identifier: "Errands"u8, entity: this.ent_errand,
+				tooltip_tab: "TODO: Errands"))
+				{
+					this.StoreCurrentWindowTypeID(order: -10);
+					if (window.show)
+					{
+						ref var region_common = ref this.ent_errand.GetRegionCommon();
+						var h_character_client = Client.GetCharacterHandle();
+
+						using (var group_left = GUI.Group.New(size: new(298 - 48, GUI.RmY), padding: new(6)))
+						{
+							group_left.DrawBackground(GUI.tex_window);
+
+							//var count = this.errand.linked_capacity;
+
+						}
+
+						GUI.SameLine();
+
+						var ts = Timestamp.Default;
+						var ts_elapsed = 0.00;
+
+						using (var group_right = GUI.Group.New(size: GUI.Rm))
+						{
+							using (var group_top = GUI.Group.New(size: GUI.Rm.SubY(48)))
+							{
+								ref var errand_selected = ref this.errand;
+							}
+
+							GUI.SeparatorThick();
+
+							GUI.TextShaded($"{ts_elapsed:0.000} ms");
+						}
+					}
+				}
+			}
+		}
+
+		[ISystem.GUI(ISystem.Mode.Single, ISystem.Scope.Global | ISystem.Scope.Region)]
+		public static void OnGUI([Source.Owned] in Interactable.Data interactable, Entity ent_errand,
+		[Source.Owned] in Errand.Data errand, [Source.Owned] in Transform.Data transform)
+		{
+			if (interactable.IsActive())
+			{
+				var gui = new ErrandGUI()
+				{
+					ent_errand = ent_errand,
+
+					errand = errand,
+					transform = transform
+				};
+				gui.Submit();
+			}
+		}
+#endif
+	}
+
 	public static partial class Logistics
 	{
 		[IComponent.Data(Net.SendType.Reliable, IComponent.Scope.Global | IComponent.Scope.Region)]
@@ -26,6 +199,9 @@
 
 			[Save.NewLine, Asset.Ignore]
 			public FixedArray16<Entity> linked_ents;
+
+			//[Save.NewLine, Asset.Ignore]
+			//public FixedArray8<Errand> errands;
 		}
 
 		public struct EditRPC: Net.IRPC<Logistics.Data>
@@ -302,6 +478,8 @@
 															{
 																//GUI.DrawRect(rect, color: GUI.font_color_orange, layer: GUI.Layer.Window);
 																GUI.DrawRectFilled(group_inventory.GetOuterRect(), color: GUI.col_default.WithAlpha(100), layer: GUI.Layer.Window);
+																GUI.DrawEntity(ent_storage, color: Color32BGRA.Green.WithAlpha(100), layer: GUI.Layer.Background);
+															
 															}
 
 															GUI.DrawInventory(inventory);

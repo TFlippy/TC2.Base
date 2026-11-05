@@ -41,25 +41,40 @@ animated.renderer:
 	z: -350.000
 }
 
-// windmill:
-// {
-// 	max_speed: 2.000
-// 	torque: 200.000
-// 	volume_base: 0.500
-// 	pitch_base: 0.800
-// 	volume_modifier: 1.000
-// 	pitch_modifier: 0.050
+windmill:
+{
+	offset: [0.000, -3.000]
+	efficiency: 0.500
+	sail_area: 60.000
 	
-// 	@animated.renderer:
-// 	{
-// 		sprite:
-// 		{
-// 			texture: "windmill.top"
-// 		}
-// 		offset: [0.000, -3.000]
-// 		z: 1000.000
-// 	}
-// }
+	speed_max: 3.000
+	torque_max: 350.000
+
+	// max_speed: 2.000
+	// torque: 200.000
+	// volume_base: 0.500
+	// pitch_base: 0.800
+	// volume_modifier: 1.000
+	// pitch_modifier: 0.050
+	
+	@animated.renderer:
+	{
+		sprite:
+		{
+			texture: windmill.top
+		}
+		offset: [0.000, -3.000]
+		z: 1000.000
+	}
+
+	@sound.emitter:
+	{
+		file: windmill.blade.wood.loop.00
+		flags: start_muted
+		volume: 1.000
+		offset: [0.000, -3.000]
+	}
+}
 
 axle:
 {
@@ -92,9 +107,9 @@ interactable:
 	window_size: [192.000, 96.000]
 }
 
-sound.emitter:
-{
-	file: "windmill.blade.wood.loop.00"
-	volume: 1.000
-	pitch: 1.000
-}
+// sound.emitter:
+// {
+// 	file: "windmill.blade.wood.loop.00"
+// 	volume: 1.000
+// 	pitch: 1.000
+// }

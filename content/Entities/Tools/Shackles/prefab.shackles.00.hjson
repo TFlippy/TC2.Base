@@ -1,0 +1,123 @@
+$name: "Shackles"
+$desc: 
+	'''
+	A whole new era.
+	'''
+$tags: []
+
+body:
+{
+	type: dynamic
+	flags: none
+	tags: solid, round, simple, irregular, dense
+	damage_ignore: ""
+	
+	fall_damage_multiplier: 1.000
+	buoyancy: 0.000
+
+	@shape.line:
+	{
+		material: metal_solid
+		miss_chance: 0.200
+		flags: none
+		tags: small, solid, hard
+		
+		layer: entity, solid, item, conductive, magnetic
+		mask: world
+		exclude: none
+		
+		mass: 75.000
+		radius: 0.375
+		friction: 0.980
+		elasticity: 0.500
+		
+		cog_offset: [-0.250, -0.125]
+		
+		a: [-0.500, -0.125]
+		b: [0.250, 0.000]
+		offset: [0.000, 0.000]
+	}
+}
+
+health:
+{
+	max: 10000.000
+}
+
+control:
+{
+
+}
+
+aimable:
+{
+	deadzone: 0.600
+	min: -1.000
+	max: 1.000
+}
+
+holdable:
+{
+	offset: [-0.125, 0.000]
+	force_multiplier: 3.500
+	torque_multiplier: 2.000
+	stress_multiplier: 0.500
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: shackles.00
+	}
+	// scale: [0.875, 0.875]
+}
+
+transform:
+{
+
+}
+
+// packable:
+// {
+
+// }
+
+joint.base:
+{
+	max_force: 100000.000
+	max_torque: 50000.000
+}
+
+joint.rope2:
+{
+	offset_a: [0.375, 0.250]
+	offset_b: [-0.250, 0.000]
+	distance: 8.000
+	max_force: 5000000.000
+}
+
+rope.renderer:
+{
+	texture: "belt.chain"
+	thickness: 0.200
+	scale: 8.000
+	z: 1000.000
+}
+
+shackles:
+{
+	cooldown: 1.000
+	max_distance: 1.000
+	
+	move_speed_mult: 0.500
+	move_force_mult: 0.400
+	
+	jump_speed_mult: 0.400
+	jump_force_mult: 0.400
+	
+	chance_capture_base: 0.800
+	
+	h_sound_success: shackles.success.00
+	h_sound_fail: shackles.fail.00
+}

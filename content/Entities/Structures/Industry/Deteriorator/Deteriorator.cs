@@ -26,7 +26,7 @@
 		public static void OnUpdate(ISystem.Info info, ref XorRandom random, ref Region.Data region, Entity ent_deteriorator,
 		[Source.Owned] in Transform.Data transform, [Source.Owned] ref Deteriorator.Data deteriorator)
 		{
-
+			//App.WriteLine("test");
 		}
 
 		[ISystem.Event<EssenceNode.FailureEvent>(ISystem.Mode.Single, ISystem.Scope.Region)]

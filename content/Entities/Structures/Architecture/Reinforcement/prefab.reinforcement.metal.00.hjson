@@ -1,0 +1,74 @@
+$name: "Reinforcement (Metal)"
+$desc:
+	'''
+	TODO: Desc
+	'''
+$tags: []
+
+body:
+{
+	type: static
+	
+	@shape.line:
+	{
+		material: metal_frame
+		miss_chance: 0.900
+		flags: none
+		tags: large, thin, hard
+		
+		layer: entity, background, building, ignore_melee
+		mask: world
+		exclude: none
+		mass: 150.000
+		radius: 0.900
+		friction: 0.500
+		elasticity: 0.500
+		
+		a: [0.000, -2.500]
+		b: [0.000, 2.500]
+		offset: [0.000, 0.000]
+	}
+}
+
+health:
+{
+	max: 21500.000
+}
+
+animated.renderer:
+{
+	sprite:
+	{
+		texture: "reinforcement.metal.00"
+	}
+	z: -290.000
+}
+
+transform:
+{
+
+}
+
+resizable:
+{
+	cap_a:
+	{
+		texture: "ladder.metal.cap"
+	}
+	
+	cap_b:
+	{
+		texture: "ladder.metal.cap"
+	}
+	
+	flags: mirror_cap_b
+	
+	a: [0.000, 0.000]
+	b: [0.000, -5.000]
+	cap_offset: 0.375
+}
+
+reinforcement:
+{
+
+}
