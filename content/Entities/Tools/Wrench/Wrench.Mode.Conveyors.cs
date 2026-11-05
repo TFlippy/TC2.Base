@@ -78,7 +78,7 @@
 							{
 								using (GUI.Wrap.Push(GUI.RmX))
 								{
-									GUI.TextShaded(recipe.GetDescription().OrDefault(recipe.GetDescriptionFallback()), color: GUI.font_color_desc);
+									GUI.TextShaded(recipe.GetDescription().OrDefault(recipe.GetDescriptionFallback), color: GUI.font_color_desc);
 
 									GUI.NewLine();
 
@@ -98,7 +98,7 @@
 					public void DrawHUD(Entity ent_wrench, ref TargetInfo info_src, ref TargetInfo info_dst, Build.Errors errors_src, Build.Errors errors_dst, float distance)
 					{
 						ref var recipe = ref this.selected_recipe.GetData();
-						if (!recipe.IsNull() && recipe.placement.HasValue)
+						if (recipe.IsNotNull() && recipe.placement.HasValue)
 						{
 							ref var region = ref Client.GetRegionCommon();
 							var placement = recipe.placement.Value;
@@ -106,7 +106,7 @@
 
 							//using (var hud = GUI.Window.Standalone("Wrench.HUD", position: (info_src.pos - new Vector2(0.00f, info_src.radius + 0.25f)).WorldToCanvas(), size: new(168, 100), pivot: new(0.50f, 1.00f)))
 							//using (var hud = GUI.Window.Standalone("Wrench.HUD", position: (info_dst.pos - new Vector2(0.00f, info_dst.radius + 0.25f)).WorldToCanvas(), size: new(168, 100), pivot: new(0.50f, 1.00f)))
-							using (var hud = GUI.Window.Standalone("Wrench.HUD"u8, position: ((info_src.pos + info_dst.pos) * 0.50f).WorldToCanvas(), size: new(300, 0), pivot: new(0.50f, 0.50f), force_position: false))
+							using (var hud = GUI.Window.Standalone("Wrench.HUD"u8, position: region.WorldToCanvas((info_src.pos + info_dst.pos) * 0.50f), size: new(300, 0), pivot: new(0.50f, 0.50f), force_position: false))
 							{
 								if (hud.show)
 								{

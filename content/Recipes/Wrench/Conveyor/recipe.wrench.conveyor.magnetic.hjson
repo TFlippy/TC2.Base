@@ -1,13 +1,11 @@
 ﻿{
-	$version: "0.1.62.0"
+	$version: "0.1.76.0"
 	name: "Conveyor (Magnetic)"
 	desc:
 		'''
 		Chain-based conveyor for fast transport and filtering of magnetic materials.
 		'''
 	tips: []
-	
-	stages: []
 	
 	requirements:
 	[
@@ -38,8 +36,15 @@
 	]
 	
 	type: conveyor
-	flags: disabled, wip
+	flags: none
 	tags: none
+	hints: none
+	connotations: none
+	infrastructure: none
+	infrastructure_exclude: none
+	
+	dismantle_work: 15.000
+	dismantle_yield: 0.900
 	
 	icon:
 	{
@@ -47,10 +52,8 @@
 	}
 	
 	color_frame: "0xffaeb59a"
+	color_button: "0xff9dd80f"
 	rank: 0.000
-	
-	dismantle_work: 15.000
-	dismantle_yield: 0.900
 	
 	placement:
 	{
@@ -73,4 +76,6 @@
 		
 		}
 	}
+	
+	version: 0
 }
