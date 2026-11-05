@@ -57,8 +57,8 @@
 		flags: none
 		categories: metals, scrap, components, arcane, technology, waste, smirglum
 		
-		market_price: 65.000
-		market_price_per_kg_auto: 41.93549
+		market_price: 28.600
+		market_price_per_kg_auto: 18.45161
 		market_supply_initial_ratio: 0.248
 	}
 	
