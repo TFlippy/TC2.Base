@@ -40,6 +40,13 @@
 	icon_offset: [0.125, -0.500]
 	text_offset: [0.125, 0.000]
 	
+	statistics:
+	{
+		
+		// Economic strength, employment rate, flow of goods.
+		economy: 1.860
+	}
+	
 	population:
 	{
 	

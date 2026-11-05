@@ -1,6 +1,6 @@
 ﻿{
 	$prefab: "g.settlement.town.00"
-	$version: "0.1.75.0"
+	$version: "0.1.76.0"
 	name: "Popelnitz"
 	name_short: "Popelnitz"
 	
@@ -53,7 +53,7 @@
 		// Availability and utilization of advanced technology.
 		technology: 0.620
 		// Industrial production, mechanization, engineering.
-		industrialization: 0.710
+		industrialization: 0.662
 		
 		// Standard of living, overall wealth of population and government.
 		wealth: 0.126

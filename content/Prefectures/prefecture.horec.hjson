@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.61.2"
+	$version: "0.1.76.0"
 	name: "Horec-Snehovy"
 	name_short: "Horec-Snehovy"
 	desc:
@@ -116,43 +116,6 @@
 				[32.43757, -1.74573]
 				[31.80143, -1.348015]
 				[30.90299, -1.058952]
-			]
-		}
-		{
-			type: rail
-			speed_mult: 1.000
-			integrity: 1.000
-			
-			color_border: "0xffa3a183"
-			scale: 0.250
-			z: 0.000
-			h_texture: worldmap.railway.00
-			
-			points:
-			[
-				[47.52697, -3.869154]
-				[47.47835, -3.376187]
-				[47.48277, -2.742202]
-				[46.86405, -2.653814]
-			]
-		}
-		{
-			type: rail
-			speed_mult: 1.000
-			integrity: 1.000
-			
-			color_border: "0xffa3a183"
-			scale: 0.250
-			z: 0.000
-			h_texture: worldmap.railway.00
-			
-			points:
-			[
-				[45.07243, -4.144868]
-				[44.50211, -4.043306]
-				[44.58924, -3.04472]
-				[45.10487, -2.786907]
-				[45.78456, -2.79472]
 			]
 		}
 	]

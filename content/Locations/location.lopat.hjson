@@ -58,7 +58,7 @@
 		// Availability and utilization of advanced technology.
 		technology: 0.910
 		// Industrial production, mechanization, engineering.
-		industrialization: 0.780
+		industrialization: 0.783
 		
 		// Standard of living, overall wealth of population and government.
 		wealth: 1.141

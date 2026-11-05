@@ -1,6 +1,6 @@
 ﻿{
 	$prefab: "g.settlement.factory.00"
-	$version: "0.1.75.0"
+	$version: "0.1.76.0"
 	name: "Kolomaz Komplex"
 	name_short: "Kolomaz Komplex"
 	
@@ -68,7 +68,7 @@
 		// Lawlessness, lack of organization.
 		anarchy: 0.020
 		// Economic strength, employment rate, flow of goods.
-		economy: 0.660
+		economy: 0.764
 		// Variance of population's social classes.
 		inequality: 0.598
 		// Crime rate, personal safety.
