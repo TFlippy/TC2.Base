@@ -81,7 +81,7 @@ actuator:
 		volume: 1.250
 		pitch: 0.850
 		size: 3.000
-		size_max_modifier: 0.500
+		size_max_modifier: 0.550
 		doppler: 1.000
 		priority: 0.400
 	}

@@ -1,5 +1,5 @@
 ﻿{
-	$version: "0.1.72.1"
+	$version: "0.1.76.0"
 	name: "Motor (Servus)"
 	tips:
 	[
@@ -118,6 +118,7 @@
 							prefab: motor.servus.00.upgrade.1x
 							amount: 1.000
 							group: 0
+							order: 10
 							flags: primary, compact, apply
 						}
 					]
@@ -164,6 +165,7 @@
 							prefab: motor.servus.00.upgrade.2x
 							amount: 1.000
 							group: 0
+							order: 10
 							flags: primary, compact, apply
 						}
 					]
@@ -210,6 +212,7 @@
 							prefab: motor.servus.00.upgrade.3x
 							amount: 1.000
 							group: 0
+							order: 10
 							flags: primary, compact, apply
 						}
 					]
@@ -285,6 +288,7 @@
 			prefab: motor.servus.00
 			amount: 1.000
 			group: 0
+			order: 15
 			flags: primary, parameter, spawn, spawn_event
 		}
 	]

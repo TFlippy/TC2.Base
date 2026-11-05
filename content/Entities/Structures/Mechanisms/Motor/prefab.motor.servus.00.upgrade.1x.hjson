@@ -34,10 +34,14 @@ actuator:
 
 	@sound.emitter:
 	{
-		volume: 0.850
-		pitch: 0.400
-		size: 1.500
-		size_max_modifier: 0.370
+		file: essence.device.loop.01
+		flags: start_muted
+		volume: 1.250
+		pitch: 0.850
+		size: 3.000
+		size_max_modifier: 0.550
+		doppler: 1.000
+		priority: 0.400
 	}
 }
 
@@ -61,6 +65,6 @@ essence.container:
 vibrate:
 {
 	frequency: 50.000
-	rotation_mult: 0.040
+	rotation_mult: 0.060
 	position_mult: [0.020, 0.060]
 }
